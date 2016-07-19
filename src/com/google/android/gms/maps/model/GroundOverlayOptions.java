@@ -3,69 +3,67 @@ package com.google.android.gms.maps.model;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.dynamic.d;
-import com.google.android.gms.dynamic.d.a;
-import com.google.android.gms.internal.jx;
-import com.google.android.gms.maps.internal.aa;
+import com.google.android.gms.dynamic.c;
+import com.google.android.gms.dynamic.c.a;
 
 public final class GroundOverlayOptions
   implements SafeParcelable
 {
-  public static final e CREATOR = new e();
-  public static final float NO_DIMENSION = -1.0F;
-  private final int CK;
-  private float alQ;
-  private float alX;
-  private boolean alY = true;
-  private BitmapDescriptor ama;
-  private LatLng amb;
-  private float amc;
-  private float amd;
-  private LatLngBounds ame;
-  private float amf = 0.0F;
-  private float amg = 0.5F;
-  private float amh = 0.5F;
+  public static final g CREATOR = new g();
+  private final int a;
+  private a b;
+  private LatLng c;
+  private float d;
+  private float e;
+  private LatLngBounds f;
+  private float g;
+  private float h;
+  private boolean i = true;
+  private float j = 0.0F;
+  private float k = 0.5F;
+  private float l = 0.5F;
+  private boolean m = false;
   
   public GroundOverlayOptions()
   {
-    CK = 1;
+    a = 1;
   }
   
-  GroundOverlayOptions(int paramInt, IBinder paramIBinder, LatLng paramLatLng, float paramFloat1, float paramFloat2, LatLngBounds paramLatLngBounds, float paramFloat3, float paramFloat4, boolean paramBoolean, float paramFloat5, float paramFloat6, float paramFloat7)
+  GroundOverlayOptions(int paramInt, IBinder paramIBinder, LatLng paramLatLng, float paramFloat1, float paramFloat2, LatLngBounds paramLatLngBounds, float paramFloat3, float paramFloat4, boolean paramBoolean1, float paramFloat5, float paramFloat6, float paramFloat7, boolean paramBoolean2)
   {
-    CK = paramInt;
-    ama = new BitmapDescriptor(d.a.ap(paramIBinder));
-    amb = paramLatLng;
-    amc = paramFloat1;
-    amd = paramFloat2;
-    ame = paramLatLngBounds;
-    alQ = paramFloat3;
-    alX = paramFloat4;
-    alY = paramBoolean;
-    amf = paramFloat5;
-    amg = paramFloat6;
-    amh = paramFloat7;
+    a = paramInt;
+    b = new a(c.a.a(paramIBinder));
+    c = paramLatLng;
+    d = paramFloat1;
+    e = paramFloat2;
+    f = paramLatLngBounds;
+    g = paramFloat3;
+    h = paramFloat4;
+    i = paramBoolean1;
+    j = paramFloat5;
+    k = paramFloat6;
+    l = paramFloat7;
+    m = paramBoolean2;
   }
   
-  private GroundOverlayOptions a(LatLng paramLatLng, float paramFloat1, float paramFloat2)
+  IBinder a()
   {
-    amb = paramLatLng;
-    amc = paramFloat1;
-    amd = paramFloat2;
-    return this;
+    return b.a().asBinder();
   }
   
-  public GroundOverlayOptions anchor(float paramFloat1, float paramFloat2)
+  int b()
   {
-    amg = paramFloat1;
-    amh = paramFloat2;
-    return this;
+    return a;
   }
   
-  public GroundOverlayOptions bearing(float paramFloat)
+  public LatLng c()
   {
-    alQ = ((paramFloat % 360.0F + 360.0F) % 360.0F);
-    return this;
+    return c;
+  }
+  
+  public float d()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -73,188 +71,54 @@ public final class GroundOverlayOptions
     return 0;
   }
   
-  public float getAnchorU()
+  public float e()
   {
-    return amg;
+    return e;
   }
   
-  public float getAnchorV()
+  public LatLngBounds f()
   {
-    return amh;
+    return f;
   }
   
-  public float getBearing()
+  public float g()
   {
-    return alQ;
+    return g;
   }
   
-  public LatLngBounds getBounds()
+  public float h()
   {
-    return ame;
+    return h;
   }
   
-  public float getHeight()
+  public float i()
   {
-    return amd;
+    return j;
   }
   
-  public BitmapDescriptor getImage()
+  public float j()
   {
-    return ama;
+    return k;
   }
   
-  public LatLng getLocation()
+  public float k()
   {
-    return amb;
+    return l;
   }
   
-  public float getTransparency()
+  public boolean l()
   {
-    return amf;
+    return i;
   }
   
-  int getVersionCode()
+  public boolean m()
   {
-    return CK;
-  }
-  
-  public float getWidth()
-  {
-    return amc;
-  }
-  
-  public float getZIndex()
-  {
-    return alX;
-  }
-  
-  public GroundOverlayOptions image(BitmapDescriptor paramBitmapDescriptor)
-  {
-    ama = paramBitmapDescriptor;
-    return this;
-  }
-  
-  public boolean isVisible()
-  {
-    return alY;
-  }
-  
-  IBinder od()
-  {
-    return ama.nA().asBinder();
-  }
-  
-  public GroundOverlayOptions position(LatLng paramLatLng, float paramFloat)
-  {
-    boolean bool2 = true;
-    if (ame == null)
-    {
-      bool1 = true;
-      jx.a(bool1, "Position has already been set using positionFromBounds");
-      if (paramLatLng == null) {
-        break label59;
-      }
-      bool1 = true;
-      label24:
-      jx.b(bool1, "Location must be specified");
-      if (paramFloat < 0.0F) {
-        break label64;
-      }
-    }
-    label59:
-    label64:
-    for (boolean bool1 = bool2;; bool1 = false)
-    {
-      jx.b(bool1, "Width must be non-negative");
-      return a(paramLatLng, paramFloat, -1.0F);
-      bool1 = false;
-      break;
-      bool1 = false;
-      break label24;
-    }
-  }
-  
-  public GroundOverlayOptions position(LatLng paramLatLng, float paramFloat1, float paramFloat2)
-  {
-    boolean bool2 = true;
-    if (ame == null)
-    {
-      bool1 = true;
-      jx.a(bool1, "Position has already been set using positionFromBounds");
-      if (paramLatLng == null) {
-        break label81;
-      }
-      bool1 = true;
-      label27:
-      jx.b(bool1, "Location must be specified");
-      if (paramFloat1 < 0.0F) {
-        break label87;
-      }
-      bool1 = true;
-      label43:
-      jx.b(bool1, "Width must be non-negative");
-      if (paramFloat2 < 0.0F) {
-        break label93;
-      }
-    }
-    label81:
-    label87:
-    label93:
-    for (boolean bool1 = bool2;; bool1 = false)
-    {
-      jx.b(bool1, "Height must be non-negative");
-      return a(paramLatLng, paramFloat1, paramFloat2);
-      bool1 = false;
-      break;
-      bool1 = false;
-      break label27;
-      bool1 = false;
-      break label43;
-    }
-  }
-  
-  public GroundOverlayOptions positionFromBounds(LatLngBounds paramLatLngBounds)
-  {
-    if (amb == null) {}
-    for (boolean bool = true;; bool = false)
-    {
-      jx.a(bool, "Position has already been set using position: " + amb);
-      ame = paramLatLngBounds;
-      return this;
-    }
-  }
-  
-  public GroundOverlayOptions transparency(float paramFloat)
-  {
-    if ((paramFloat >= 0.0F) && (paramFloat <= 1.0F)) {}
-    for (boolean bool = true;; bool = false)
-    {
-      jx.b(bool, "Transparency must be in the range [0..1]");
-      amf = paramFloat;
-      return this;
-    }
-  }
-  
-  public GroundOverlayOptions visible(boolean paramBoolean)
-  {
-    alY = paramBoolean;
-    return this;
+    return m;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      f.a(this, paramParcel, paramInt);
-      return;
-    }
-    e.a(this, paramParcel, paramInt);
-  }
-  
-  public GroundOverlayOptions zIndex(float paramFloat)
-  {
-    alX = paramFloat;
-    return this;
+    g.a(this, paramParcel, paramInt);
   }
 }
 

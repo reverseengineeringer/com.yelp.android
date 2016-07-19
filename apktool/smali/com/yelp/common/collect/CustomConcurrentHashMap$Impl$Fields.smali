@@ -3,6 +3,17 @@
 .source "CustomConcurrentHashMap.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "Fields"
+.end annotation
+
+
 # static fields
 .field static final segmentMask:Ljava/lang/reflect/Field;
 

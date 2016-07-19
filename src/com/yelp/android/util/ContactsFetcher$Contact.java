@@ -8,52 +8,52 @@ import android.os.Parcelable;
 public abstract class ContactsFetcher$Contact
   implements Parcelable
 {
-  protected Bitmap mBitmap;
-  protected String mEmail;
-  protected String mName;
+  protected String a;
+  protected String b;
+  protected Bitmap c;
   
-  public String getEmail(Context paramContext)
+  public String a(Context paramContext)
   {
-    if (mEmail == null) {
-      mEmail = loadEmail(paramContext);
+    if (a == null) {
+      a = b(paramContext);
     }
-    return mEmail;
+    return a;
   }
   
-  public String getName(Context paramContext)
+  protected void a(Parcel paramParcel)
   {
-    if (mName == null) {
-      mName = loadName(paramContext);
+    b = paramParcel.readString();
+    a = paramParcel.readString();
+    c = ((Bitmap)paramParcel.readParcelable(getClass().getClassLoader()));
+  }
+  
+  protected abstract String b(Context paramContext);
+  
+  public String c(Context paramContext)
+  {
+    if (b == null) {
+      b = d(paramContext);
     }
-    return mName;
+    return b;
   }
   
-  public Bitmap getPhoto(Context paramContext)
+  protected abstract String d(Context paramContext);
+  
+  public Bitmap e(Context paramContext)
   {
-    if (mBitmap == null) {
-      mBitmap = loadPhoto(paramContext);
+    if (c == null) {
+      c = f(paramContext);
     }
-    return mBitmap;
+    return c;
   }
   
-  protected abstract String loadEmail(Context paramContext);
-  
-  protected abstract String loadName(Context paramContext);
-  
-  protected abstract Bitmap loadPhoto(Context paramContext);
-  
-  protected void readFromParcel(Parcel paramParcel)
-  {
-    mEmail = paramParcel.readString();
-    mName = paramParcel.readString();
-    mBitmap = ((Bitmap)paramParcel.readParcelable(getClass().getClassLoader()));
-  }
+  protected abstract Bitmap f(Context paramContext);
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mEmail);
-    paramParcel.writeString(mName);
-    paramParcel.writeParcelable(mBitmap, paramInt);
+    paramParcel.writeString(b);
+    paramParcel.writeString(a);
+    paramParcel.writeParcelable(c, paramInt);
   }
 }
 

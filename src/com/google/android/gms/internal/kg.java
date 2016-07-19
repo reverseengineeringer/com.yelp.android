@@ -1,37 +1,56 @@
 package com.google.android.gms.internal;
 
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
-import android.os.IBinder;
-import android.os.Looper;
-import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import android.os.Binder;
+import java.util.Iterator;
+import java.util.List;
 
 public class kg
-  extends jl<ki>
 {
-  public kg(Context paramContext, Looper paramLooper, GoogleApiClient.ConnectionCallbacks paramConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener paramOnConnectionFailedListener, String... paramVarArgs)
+  public static String a(int paramInt1, int paramInt2)
   {
-    super(paramContext, paramLooper, paramConnectionCallbacks, paramOnConnectionFailedListener, paramVarArgs);
+    StackTraceElement[] arrayOfStackTraceElement = Thread.currentThread().getStackTrace();
+    StringBuffer localStringBuffer = new StringBuffer();
+    int i = paramInt1;
+    while (i < paramInt2 + paramInt1)
+    {
+      localStringBuffer.append(a(arrayOfStackTraceElement, i)).append(" ");
+      i += 1;
+    }
+    return localStringBuffer.toString();
   }
   
-  protected ki T(IBinder paramIBinder)
+  public static String a(Context paramContext)
   {
-    return ki.a.V(paramIBinder);
+    return a(paramContext, Binder.getCallingPid());
   }
   
-  protected void a(jt paramjt, jl.e parame)
+  public static String a(Context paramContext, int paramInt)
   {
-    paramjt.j(parame, 6587000, getContext().getPackageName());
+    paramContext = ((ActivityManager)paramContext.getSystemService("activity")).getRunningAppProcesses();
+    if (paramContext != null)
+    {
+      paramContext = paramContext.iterator();
+      while (paramContext.hasNext())
+      {
+        ActivityManager.RunningAppProcessInfo localRunningAppProcessInfo = (ActivityManager.RunningAppProcessInfo)paramContext.next();
+        if (pid == paramInt) {
+          return processName;
+        }
+      }
+    }
+    return null;
   }
   
-  public String bK()
+  private static String a(StackTraceElement[] paramArrayOfStackTraceElement, int paramInt)
   {
-    return "com.google.android.gms.common.service.START";
-  }
-  
-  protected String bL()
-  {
-    return "com.google.android.gms.common.internal.service.ICommonService";
+    if (paramInt + 4 >= paramArrayOfStackTraceElement.length) {
+      return "<bottom of call stack>";
+    }
+    paramArrayOfStackTraceElement = paramArrayOfStackTraceElement[(paramInt + 4)];
+    return paramArrayOfStackTraceElement.getClassName() + "." + paramArrayOfStackTraceElement.getMethodName() + ":" + paramArrayOfStackTraceElement.getLineNumber();
   }
 }
 

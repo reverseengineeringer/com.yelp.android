@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/SubtitleDarkText" android:id="@id/are_you_interested" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?baseGapSize" android:text="@string/event_are_you_interested" />
+    <TextView android:textAppearance="@style/TitleText" android:id="@id/are_you_interested" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:text="@string/event_are_you_interested" />
     <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:id="@id/content_container" android:layout_width="fill_parent" android:layout_height="wrap_content" />
 </LinearLayout>

@@ -7,6 +7,18 @@
 .implements Landroid/hardware/Camera$PictureCallback;
 .implements Landroid/hardware/Camera$ShutterCallback;
 .implements Landroid/view/SurfaceHolder$Callback;
+.implements Landroid/view/View$OnTouchListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/camera/CameraWrangler$c;,
+        Lcom/yelp/android/ui/activities/camera/CameraWrangler$b;,
+        Lcom/yelp/android/ui/activities/camera/CameraWrangler$a;,
+        Lcom/yelp/android/ui/activities/camera/CameraWrangler$FlashMode;
+    }
+.end annotation
 
 
 # instance fields
@@ -31,13 +43,19 @@
 
 .field private f:Z
 
-.field private final g:Landroid/view/OrientationEventListener;
+.field private g:Z
 
-.field private h:I
+.field private h:Z
 
-.field private final i:Ljava/lang/Runnable;
+.field private final i:Landroid/view/OrientationEventListener;
 
-.field private final j:Ljava/lang/Runnable;
+.field private j:I
+
+.field private k:Z
+
+.field private final l:Ljava/lang/Runnable;
+
+.field private final m:Ljava/lang/Runnable;
 
 
 # direct methods
@@ -45,57 +63,62 @@
     .locals 3
 
     .prologue
-    .line 61
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 191
-    new-instance v0, Lcom/yelp/android/ui/activities/camera/c;
+    .line 207
+    new-instance v0, Lcom/yelp/android/ui/activities/camera/CameraWrangler$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/c;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler$1;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->i:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->l:Ljava/lang/Runnable;
 
-    .line 203
-    new-instance v0, Lcom/yelp/android/ui/activities/camera/d;
+    .line 220
+    new-instance v0, Lcom/yelp/android/ui/activities/camera/CameraWrangler$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/d;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler$2;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->j:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->m:Ljava/lang/Runnable;
 
-    .line 62
+    .line 75
     iput p1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
 
-    .line 63
+    .line 76
     iput-object p2, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->b:Landroid/view/Display;
 
-    .line 64
+    .line 77
     new-instance v0, Ljava/util/LinkedList;
 
     invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c:Ljava/util/List;
 
-    .line 65
+    .line 78
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->d:Landroid/os/Handler;
 
-    .line 66
-    new-instance v0, Lcom/yelp/android/ui/activities/camera/g;
+    .line 79
+    new-instance v0, Lcom/yelp/android/ui/activities/camera/CameraWrangler$b;
 
-    invoke-static {}, Lcom/yelp/android/appdata/BaseYelpApplication;->z()Lcom/yelp/android/appdata/BaseYelpApplication;
+    invoke-static {}, Lcom/yelp/android/appdata/BaseYelpApplication;->K()Lcom/yelp/android/appdata/BaseYelpApplication;
 
     move-result-object v1
 
     const/4 v2, 0x3
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/yelp/android/ui/activities/camera/g;-><init>(Landroid/content/Context;ILcom/yelp/android/ui/activities/camera/CameraWrangler;)V
+    invoke-direct {v0, v1, v2, p0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler$b;-><init>(Landroid/content/Context;ILcom/yelp/android/ui/activities/camera/CameraWrangler;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->g:Landroid/view/OrientationEventListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->i:Landroid/view/OrientationEventListener;
 
-    .line 68
+    .line 82
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->k:Z
+
+    .line 83
     return-void
 .end method
 
@@ -103,38 +126,38 @@
     .locals 3
 
     .prologue
-    .line 282
+    .line 309
     new-instance v0, Landroid/hardware/Camera$CameraInfo;
 
     invoke-direct {v0}, Landroid/hardware/Camera$CameraInfo;-><init>()V
 
-    .line 283
+    .line 310
     invoke-static {p1, v0}, Landroid/hardware/Camera;->getCameraInfo(ILandroid/hardware/Camera$CameraInfo;)V
 
-    .line 284
+    .line 311
     iget v1, v0, Landroid/hardware/Camera$CameraInfo;->facing:I
 
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_0
 
-    .line 285
+    .line 312
     iget v0, v0, Landroid/hardware/Camera$CameraInfo;->orientation:I
 
     add-int/2addr v0, p0
 
     rem-int/lit16 v0, v0, 0x168
 
-    .line 286
+    .line 313
     rsub-int v0, v0, 0x168
 
     rem-int/lit16 v0, v0, 0x168
 
-    .line 290
+    .line 317
     :goto_0
     return v0
 
-    .line 288
+    .line 315
     :cond_0
     iget v0, v0, Landroid/hardware/Camera$CameraInfo;->orientation:I
 
@@ -147,21 +170,48 @@
     goto :goto_0
 .end method
 
+.method private static a(III)I
+    .locals 0
+
+    .prologue
+    .line 460
+    if-le p0, p2, :cond_0
+
+    .line 466
+    :goto_0
+    return p2
+
+    .line 463
+    :cond_0
+    if-ge p0, p1, :cond_1
+
+    move p2, p1
+
+    .line 464
+    goto :goto_0
+
+    :cond_1
+    move p2, p0
+
+    .line 466
+    goto :goto_0
+.end method
+
 .method public static a(Landroid/view/Display;I)I
     .locals 2
 
     .prologue
     const/4 v0, 0x0
 
-    .line 260
+    .line 287
     invoke-virtual {p0}, Landroid/view/Display;->getRotation()I
 
     move-result v1
 
-    .line 262
+    .line 289
     packed-switch v1, :pswitch_data_0
 
-    .line 277
+    .line 304
     :goto_0
     :pswitch_0
     invoke-static {v0, p1}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(II)I
@@ -170,27 +220,27 @@
 
     return v0
 
-    .line 267
+    .line 294
     :pswitch_1
     const/16 v0, 0x5a
 
-    .line 268
+    .line 295
     goto :goto_0
 
-    .line 270
+    .line 297
     :pswitch_2
     const/16 v0, 0xb4
 
-    .line 271
+    .line 298
     goto :goto_0
 
-    .line 273
+    .line 300
     :pswitch_3
     const/16 v0, 0x10e
 
     goto :goto_0
 
-    .line 262
+    .line 289
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -200,31 +250,180 @@
     .end packed-switch
 .end method
 
+.method private a(Landroid/view/View;Landroid/view/MotionEvent;I)Landroid/graphics/Rect;
+    .locals 7
+
+    .prologue
+    const/4 v3, 0x0
+
+    const/high16 v6, 0x44fa0000    # 2000.0f
+
+    const/high16 v5, 0x40000000    # 2.0f
+
+    .line 440
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    div-int/lit8 v1, p3, 0x2
+
+    sub-int/2addr v0, v1
+
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+
+    move-result v1
+
+    sub-int/2addr v1, p3
+
+    invoke-static {v0, v3, v1}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(III)I
+
+    move-result v0
+
+    .line 441
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    div-int/lit8 v2, p3, 0x2
+
+    sub-int/2addr v1, v2
+
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
+
+    move-result v2
+
+    sub-int/2addr v2, p3
+
+    invoke-static {v1, v3, v2}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(III)I
+
+    move-result v1
+
+    .line 443
+    new-instance v2, Landroid/graphics/RectF;
+
+    int-to-float v3, v0
+
+    int-to-float v4, v1
+
+    add-int/2addr v0, p3
+
+    int-to-float v0, v0
+
+    add-int/2addr v1, p3
+
+    int-to-float v1, v1
+
+    invoke-direct {v2, v3, v4, v0, v1}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    .line 444
+    new-instance v0, Landroid/graphics/Matrix;
+
+    invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
+
+    .line 445
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->b:Landroid/view/Display;
+
+    iget v3, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
+
+    invoke-static {v1, v3}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/view/Display;I)I
+
+    move-result v1
+
+    .line 446
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->postRotate(F)Z
+
+    .line 449
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    div-float/2addr v1, v6
+
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float/2addr v3, v6
+
+    invoke-virtual {v0, v1, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
+
+    .line 450
+    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    div-float/2addr v1, v5
+
+    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float/2addr v3, v5
+
+    invoke-virtual {v0, v1, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    .line 451
+    invoke-virtual {v0, v0}, Landroid/graphics/Matrix;->invert(Landroid/graphics/Matrix;)Z
+
+    .line 452
+    invoke-virtual {v0, v2}, Landroid/graphics/Matrix;->mapRect(Landroid/graphics/RectF;)Z
+
+    .line 454
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    .line 455
+    invoke-virtual {v2, v0}, Landroid/graphics/RectF;->round(Landroid/graphics/Rect;)V
+
+    .line 456
+    return-object v0
+.end method
+
 .method static synthetic a(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)Landroid/view/OrientationEventListener;
     .locals 1
 
     .prologue
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->g:Landroid/view/OrientationEventListener;
+    .line 46
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->i:Landroid/view/OrientationEventListener;
 
     return-object v0
 .end method
 
 .method private a(Landroid/view/SurfaceHolder;)V
     .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    .line 172
+    .line 187
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
 
     move-result-object v2
 
-    .line 173
+    .line 188
     const/4 v1, 0x0
 
-    .line 174
+    .line 189
     invoke-virtual {v2}, Landroid/hardware/Camera$Parameters;->getSupportedPictureSizes()Ljava/util/List;
 
     move-result-object v0
@@ -246,7 +445,7 @@
 
     check-cast v0, Landroid/hardware/Camera$Size;
 
-    .line 175
+    .line 190
     if-eqz v1, :cond_0
 
     iget v4, v0, Landroid/hardware/Camera$Size;->height:I
@@ -267,10 +466,10 @@
     :goto_1
     move-object v1, v0
 
-    .line 178
+    .line 193
     goto :goto_0
 
-    .line 179
+    .line 194
     :cond_1
     iget v0, v1, Landroid/hardware/Camera$Size;->width:I
 
@@ -278,7 +477,7 @@
 
     invoke-virtual {v2, v0, v1}, Landroid/hardware/Camera$Parameters;->setPictureSize(II)V
 
-    .line 180
+    .line 195
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->b:Landroid/view/Display;
 
     iget v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
@@ -287,19 +486,19 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:I
+    iput v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->j:I
 
-    .line 181
-    iget v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:I
+    .line 196
+    iget v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->j:I
 
     invoke-virtual {v2, v0}, Landroid/hardware/Camera$Parameters;->setRotation(I)V
 
-    .line 182
+    .line 197
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0, v2}, Landroid/hardware/Camera;->setParameters(Landroid/hardware/Camera$Parameters;)V
 
-    .line 183
+    .line 198
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->b:Landroid/view/Display;
@@ -312,29 +511,29 @@
 
     invoke-virtual {v0, v1}, Landroid/hardware/Camera;->setDisplayOrientation(I)V
 
-    .line 184
+    .line 199
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0, p1}, Landroid/hardware/Camera;->setPreviewDisplay(Landroid/view/SurfaceHolder;)V
 
-    .line 185
+    .line 200
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->startPreview()V
 
-    .line 186
+    .line 202
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->f:Z
 
-    .line 187
+    .line 203
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->d:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->j:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->m:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 188
+    .line 204
     return-void
 
     :cond_2
@@ -347,7 +546,7 @@
     .locals 2
 
     .prologue
-    .line 244
+    .line 266
     invoke-virtual {p0}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
 
     move-result-object v0
@@ -356,7 +555,7 @@
 
     move-result-object v0
 
-    .line 245
+    .line 267
     const-string/jumbo v1, "auto"
 
     invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
@@ -389,7 +588,7 @@
     .locals 0
 
     .prologue
-    .line 39
+    .line 46
     iput-boolean p1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->f:Z
 
     return p1
@@ -399,17 +598,98 @@
     .locals 1
 
     .prologue
-    .line 39
+    .line 46
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c:Ljava/util/List;
 
     return-object v0
+.end method
+
+.method private b(Landroid/hardware/Camera;)V
+    .locals 3
+
+    .prologue
+    .line 425
+    invoke-virtual {p1}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
+
+    move-result-object v0
+
+    .line 426
+    invoke-virtual {v0}, Landroid/hardware/Camera$Parameters;->getSupportedFocusModes()Ljava/util/List;
+
+    move-result-object v1
+
+    .line 428
+    const-string/jumbo v2, "fixed"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 429
+    const-string/jumbo v1, "fixed"
+
+    invoke-virtual {v0, v1}, Landroid/hardware/Camera$Parameters;->setFocusMode(Ljava/lang/String;)V
+
+    .line 436
+    :cond_0
+    :goto_0
+    invoke-virtual {p1, v0}, Landroid/hardware/Camera;->setParameters(Landroid/hardware/Camera$Parameters;)V
+
+    .line 437
+    return-void
+
+    .line 430
+    :cond_1
+    const-string/jumbo v2, "infinity"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    .line 431
+    const-string/jumbo v1, "infinity"
+
+    invoke-virtual {v0, v1}, Landroid/hardware/Camera$Parameters;->setFocusMode(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 432
+    :cond_2
+    const-string/jumbo v2, "macro"
+
+    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 433
+    const-string/jumbo v1, "macro"
+
+    invoke-virtual {v0, v1}, Landroid/hardware/Camera$Parameters;->setFocusMode(Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/camera/CameraWrangler;Z)Z
+    .locals 0
+
+    .prologue
+    .line 46
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:Z
+
+    return p1
 .end method
 
 .method static synthetic c(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)Landroid/hardware/Camera;
     .locals 1
 
     .prologue
-    .line 39
+    .line 46
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     return-object v0
@@ -419,8 +699,18 @@
     .locals 1
 
     .prologue
-    .line 39
+    .line 46
     iget v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
+
+    return v0
+.end method
+
+.method static synthetic e(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)Z
+    .locals 1
+
+    .prologue
+    .line 46
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->k:Z
 
     return v0
 .end method
@@ -431,7 +721,7 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 93
     iget v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
 
     return v0
@@ -439,53 +729,58 @@
 
 .method public a(ILandroid/view/SurfaceHolder;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    .line 90
+    .line 105
     iget v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
 
     if-eq v0, p1, :cond_2
 
     const/4 v0, 0x1
 
-    .line 91
+    .line 106
     :goto_0
     iput p1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
 
-    .line 92
+    .line 107
     iget-boolean v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->f:Z
 
-    .line 93
+    .line 108
     if-eqz v0, :cond_0
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     if-eqz v2, :cond_0
 
-    .line 94
+    .line 109
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c()V
 
-    .line 97
+    .line 112
     :cond_0
     if-eqz v0, :cond_1
 
     if-eqz v1, :cond_1
 
-    .line 98
+    .line 113
     invoke-static {p1}, Landroid/hardware/Camera;->open(I)Landroid/hardware/Camera;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
-    .line 99
+    .line 114
     invoke-direct {p0, p2}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/view/SurfaceHolder;)V
 
-    .line 101
+    .line 116
     :cond_1
     return-void
 
-    .line 90
+    .line 105
     :cond_2
     const/4 v0, 0x0
 
@@ -496,12 +791,12 @@
     .locals 1
 
     .prologue
-    .line 104
+    .line 119
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 105
+    .line 120
     return-void
 .end method
 
@@ -509,40 +804,171 @@
     .locals 1
 
     .prologue
-    .line 114
+    .line 129
     invoke-virtual {p1}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
 
     invoke-interface {v0, p0}, Landroid/view/SurfaceHolder;->addCallback(Landroid/view/SurfaceHolder$Callback;)V
 
-    .line 115
+    .line 130
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 116
+    .line 131
     return-void
+.end method
+
+.method protected a(Landroid/view/View;Landroid/view/MotionEvent;)V
+    .locals 5
+
+    .prologue
+    const/16 v4, 0x3e8
+
+    .line 389
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    if-eqz v0, :cond_1
+
+    .line 390
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    invoke-static {v0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/hardware/Camera;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 391
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    invoke-virtual {v0}, Landroid/hardware/Camera;->cancelAutoFocus()V
+
+    .line 392
+    invoke-virtual {p1}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v1, Lcom/yelp/android/co/a$d;->camera_focus_area_size:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    .line 394
+    invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/view/View;Landroid/view/MotionEvent;I)Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    .line 396
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    invoke-direct {p0, v2}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->b(Landroid/hardware/Camera;)V
+
+    .line 397
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    invoke-virtual {v2}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
+
+    move-result-object v2
+
+    .line 398
+    const-string/jumbo v3, "auto"
+
+    invoke-virtual {v2, v3}, Landroid/hardware/Camera$Parameters;->setFocusMode(Ljava/lang/String;)V
+
+    .line 400
+    new-instance v3, Landroid/hardware/Camera$Area;
+
+    invoke-direct {v3, v1, v4}, Landroid/hardware/Camera$Area;-><init>(Landroid/graphics/Rect;I)V
+
+    invoke-static {v3}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Landroid/hardware/Camera$Parameters;->setFocusAreas(Ljava/util/List;)V
+
+    .line 402
+    invoke-virtual {v2}, Landroid/hardware/Camera$Parameters;->getMaxNumMeteringAreas()I
+
+    move-result v1
+
+    if-lez v1, :cond_0
+
+    .line 403
+    int-to-float v0, v0
+
+    const/high16 v1, 0x3fc00000    # 1.5f
+
+    mul-float/2addr v0, v1
+
+    float-to-int v0, v0
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/view/View;Landroid/view/MotionEvent;I)Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    .line 405
+    new-instance v1, Landroid/hardware/Camera$Area;
+
+    invoke-direct {v1, v0, v4}, Landroid/hardware/Camera$Area;-><init>(Landroid/graphics/Rect;I)V
+
+    invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Landroid/hardware/Camera$Parameters;->setMeteringAreas(Ljava/util/List;)V
+
+    .line 410
+    :cond_0
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    invoke-virtual {v0, v2}, Landroid/hardware/Camera;->setParameters(Landroid/hardware/Camera$Parameters;)V
+
+    .line 411
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    invoke-virtual {v0, p0}, Landroid/hardware/Camera;->autoFocus(Landroid/hardware/Camera$AutoFocusCallback;)V
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 417
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 412
+    :catch_0
+    move-exception v0
+
+    .line 413
+    const-string/jumbo v1, "Couldn\'t set camera parameter"
+
+    invoke-static {p0, v1, v0}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_0
 .end method
 
 .method public b()Landroid/hardware/Camera$Size;
     .locals 3
 
     .prologue
-    .line 152
+    .line 167
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     if-nez v0, :cond_1
 
-    .line 153
+    .line 168
     const/4 v0, 0x0
 
-    .line 161
+    .line 176
     :cond_0
     :goto_0
     return-object v0
 
-    .line 155
+    .line 170
     :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
@@ -554,29 +980,29 @@
 
     move-result-object v0
 
-    .line 156
-    iget v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:I
+    .line 171
+    iget v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->j:I
 
     const/16 v2, 0x5a
 
     if-eq v1, v2, :cond_2
 
-    iget v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:I
+    iget v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->j:I
 
     const/16 v2, 0x10e
 
     if-ne v1, v2, :cond_0
 
-    .line 157
+    .line 172
     :cond_2
     iget v1, v0, Landroid/hardware/Camera$Size;->height:I
 
-    .line 158
+    .line 173
     iget v2, v0, Landroid/hardware/Camera$Size;->width:I
 
     iput v2, v0, Landroid/hardware/Camera$Size;->height:I
 
-    .line 159
+    .line 174
     iput v1, v0, Landroid/hardware/Camera$Size;->width:I
 
     goto :goto_0
@@ -586,47 +1012,53 @@
     .locals 2
 
     .prologue
-    .line 215
+    const/4 v1, 0x0
+
+    .line 233
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     if-eqz v0, :cond_0
 
-    .line 216
+    .line 234
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->release()V
 
-    .line 217
+    .line 235
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
-    .line 219
+    .line 237
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->g:Landroid/view/OrientationEventListener;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->i:Landroid/view/OrientationEventListener;
 
     invoke-virtual {v0}, Landroid/view/OrientationEventListener;->disable()V
 
-    .line 220
-    const/4 v0, 0x0
+    .line 238
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->f:Z
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->f:Z
+    .line 239
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->g:Z
 
-    .line 221
+    .line 240
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:Z
+
+    .line 241
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->d:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->i:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->l:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 222
+    .line 242
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->d:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->j:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->m:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 223
+    .line 243
     return-void
 .end method
 
@@ -634,12 +1066,17 @@
     .locals 2
 
     .prologue
-    .line 230
+    .line 250
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     if-eqz v0, :cond_1
 
-    .line 231
+    .line 251
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:Z
+
+    .line 252
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-static {v0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/hardware/Camera;)Z
@@ -648,7 +1085,11 @@
 
     if-eqz v0, :cond_2
 
-    .line 232
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->g:Z
+
+    if-nez v0, :cond_2
+
+    .line 253
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -668,28 +1109,33 @@
 
     check-cast v0, Lcom/yelp/android/ui/activities/camera/a;
 
-    .line 233
+    .line 254
     invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/camera/a;->c(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
 
     goto :goto_0
 
-    .line 235
+    .line 256
     :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
+
+    invoke-virtual {v0}, Landroid/hardware/Camera;->cancelAutoFocus()V
+
+    .line 257
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0, p0}, Landroid/hardware/Camera;->autoFocus(Landroid/hardware/Camera$AutoFocusCallback;)V
 
-    .line 240
+    .line 262
     :cond_1
     :goto_1
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->f:Z
 
-    .line 241
+    .line 263
     return-void
 
-    .line 237
+    .line 259
     :cond_2
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
@@ -713,33 +1159,33 @@
     .end annotation
 
     .prologue
-    .line 294
+    .line 321
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
 
     move-result-object v0
 
-    .line 295
+    .line 322
     invoke-virtual {v0}, Landroid/hardware/Camera$Parameters;->getSupportedFlashModes()Ljava/util/List;
 
     move-result-object v0
 
-    .line 296
+    .line 323
     if-nez v0, :cond_0
 
-    .line 298
+    .line 325
     sget-object v0, Lcom/yelp/android/ui/activities/camera/CameraWrangler$FlashMode;->AUTO:Lcom/yelp/android/ui/activities/camera/CameraWrangler$FlashMode;
 
     invoke-static {v0}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
 
     move-result-object v0
 
-    .line 307
+    .line 334
     :goto_0
     return-object v0
 
-    .line 300
+    .line 327
     :cond_0
     const-class v1, Lcom/yelp/android/ui/activities/camera/CameraWrangler$FlashMode;
 
@@ -747,7 +1193,7 @@
 
     move-result-object v1
 
-    .line 301
+    .line 328
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -766,15 +1212,15 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 302
+    .line 329
     invoke-static {v0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler$FlashMode;->fromString(Ljava/lang/String;)Lcom/yelp/android/ui/activities/camera/CameraWrangler$FlashMode;
 
     move-result-object v0
 
-    .line 303
+    .line 330
     if-eqz v0, :cond_1
 
-    .line 304
+    .line 331
     invoke-virtual {v1, v0}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
@@ -782,7 +1228,7 @@
     :cond_2
     move-object v0, v1
 
-    .line 307
+    .line 334
     goto :goto_0
 .end method
 
@@ -790,10 +1236,10 @@
     .locals 1
 
     .prologue
-    .line 333
-    new-instance v0, Lcom/yelp/android/ui/activities/camera/e;
+    .line 361
+    new-instance v0, Lcom/yelp/android/ui/activities/camera/CameraWrangler$a;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/e;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler$a;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
 
     return-object v0
 .end method
@@ -802,12 +1248,12 @@
     .locals 1
 
     .prologue
-    .line 337
+    .line 365
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     if-eqz v0, :cond_0
 
-    .line 338
+    .line 366
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->getParameters()Landroid/hardware/Camera$Parameters;
@@ -822,7 +1268,7 @@
 
     move-result-object v0
 
-    .line 340
+    .line 368
     :goto_0
     return-object v0
 
@@ -836,45 +1282,77 @@
     .locals 1
 
     .prologue
-    .line 251
+    .line 273
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->g:Z
+
+    .line 274
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->h:Z
+
+    if-eqz v0, :cond_0
+
+    .line 275
     const/4 v0, 0x0
 
     invoke-virtual {p2, p0, v0, p0}, Landroid/hardware/Camera;->takePicture(Landroid/hardware/Camera$ShutterCallback;Landroid/hardware/Camera$PictureCallback;Landroid/hardware/Camera$PictureCallback;)V
 
-    .line 252
+    .line 277
+    :cond_0
     return-void
 .end method
 
 .method public onPictureTaken([BLandroid/hardware/Camera;)V
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 256
-    new-instance v0, Lcom/yelp/android/ui/activities/camera/h;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/camera/h;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;Lcom/yelp/android/ui/activities/camera/c;)V
+    const/4 v2, 0x0
 
     const/4 v1, 0x1
 
-    new-array v1, v1, [[B
+    .line 281
+    new-instance v0, Landroid/hardware/Camera$CameraInfo;
 
-    const/4 v2, 0x0
+    invoke-direct {v0}, Landroid/hardware/Camera$CameraInfo;-><init>()V
 
-    aput-object p1, v1, v2
+    .line 282
+    iget v3, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/camera/h;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-static {v3, v0}, Landroid/hardware/Camera;->getCameraInfo(ILandroid/hardware/Camera$CameraInfo;)V
 
-    .line 257
+    .line 283
+    new-instance v3, Lcom/yelp/android/ui/activities/camera/CameraWrangler$c;
+
+    iget v0, v0, Landroid/hardware/Camera$CameraInfo;->facing:I
+
+    if-ne v0, v1, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    invoke-direct {v3, p0, v0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler$c;-><init>(Lcom/yelp/android/ui/activities/camera/CameraWrangler;Z)V
+
+    new-array v0, v1, [[B
+
+    aput-object p1, v0, v2
+
+    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler$c;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    .line 284
     return-void
+
+    :cond_0
+    move v0, v2
+
+    .line 283
+    goto :goto_0
 .end method
 
 .method public onShutter()V
     .locals 2
 
     .prologue
-    .line 479
+    .line 617
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -894,21 +1372,47 @@
 
     check-cast v0, Lcom/yelp/android/ui/activities/camera/a;
 
-    .line 480
+    .line 618
     invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/camera/a;->d(Lcom/yelp/android/ui/activities/camera/CameraWrangler;)V
 
     goto :goto_0
 
-    .line 482
+    .line 620
     :cond_0
     return-void
+.end method
+
+.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ClickableViewAccessibility"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v1, 0x1
+
+    .line 374
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_0
+
+    .line 375
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/view/View;Landroid/view/MotionEvent;)V
+
+    .line 377
+    :cond_0
+    return v1
 .end method
 
 .method public surfaceChanged(Landroid/view/SurfaceHolder;III)V
     .locals 0
 
     .prologue
-    .line 121
+    .line 136
     return-void
 .end method
 
@@ -916,7 +1420,7 @@
     .locals 1
 
     .prologue
-    .line 126
+    .line 141
     iget v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a:I
 
     invoke-static {v0}, Landroid/hardware/Camera;->open(I)Landroid/hardware/Camera;
@@ -925,21 +1429,21 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
-    .line 128
+    .line 143
     :try_start_0
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->a(Landroid/view/SurfaceHolder;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 132
+    .line 147
     :goto_0
     return-void
 
-    .line 129
+    .line 144
     :catch_0
     move-exception v0
 
-    .line 130
+    .line 145
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->c()V
 
     goto :goto_0
@@ -949,24 +1453,24 @@
     .locals 2
 
     .prologue
-    .line 137
+    .line 152
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     if-eqz v0, :cond_0
 
-    .line 138
+    .line 153
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->e:Landroid/hardware/Camera;
 
     invoke-virtual {v0}, Landroid/hardware/Camera;->stopPreview()V
 
-    .line 139
+    .line 154
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->d:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->i:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/CameraWrangler;->l:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 141
+    .line 156
     :cond_0
     return-void
 .end method

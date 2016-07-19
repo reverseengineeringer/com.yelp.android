@@ -4,8 +4,18 @@
 
 # interfaces
 .implements Landroid/widget/AdapterView$OnItemClickListener;
-.implements Lcom/yelp/android/ui/p;
-.implements Lcom/yelp/android/ui/panels/aa;
+.implements Lcom/yelp/android/ui/k;
+.implements Lcom/yelp/android/ui/panels/PanelError$a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$3;,
+        Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$a;,
+        Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
+    }
+.end annotation
 
 
 # instance fields
@@ -28,29 +38,29 @@
 
 .field private e:Landroid/os/Bundle;
 
-.field private f:Lcom/yelp/android/appdata/webrequests/gs;
+.field private f:Lcom/yelp/android/appdata/webrequests/fi;
 
-.field private g:Lcom/yelp/android/appdata/webrequests/gi;
+.field private g:Lcom/yelp/android/appdata/webrequests/fb;
 
-.field private h:Lcom/yelp/android/ui/activities/dl;
+.field private h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
-.field private final i:Lcom/yelp/android/appdata/webrequests/m;
+.field private final i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/gt;",
+            "Lcom/yelp/android/appdata/webrequests/fi$a;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final j:Lcom/yelp/android/appdata/webrequests/m;
+.field private final j:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/gj;",
+            "Lcom/yelp/android/appdata/webrequests/fb$a;",
             ">;"
         }
     .end annotation
@@ -62,22 +72,22 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 50
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
-    .line 354
-    new-instance v0, Lcom/yelp/android/ui/activities/dh;
+    .line 371
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/dh;-><init>(Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$1;-><init>(Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->i:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 367
-    new-instance v0, Lcom/yelp/android/ui/activities/di;
+    .line 386
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/di;-><init>(Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$2;-><init>(Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->j:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->j:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-void
 .end method
@@ -86,17 +96,17 @@
     .locals 2
 
     .prologue
-    .line 79
+    .line 78
     invoke-static {p0, p2, p3}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a(Landroid/content/Context;Lcom/yelp/android/serializable/RankTitle$Rank;Lcom/yelp/android/serializable/User;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 80
+    .line 79
     const-string/jumbo v1, "location"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 81
+    .line 80
     return-object v0
 .end method
 
@@ -104,19 +114,19 @@
     .locals 3
 
     .prologue
-    .line 71
+    .line 70
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 72
+    .line 71
     const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 73
+    .line 72
     const-string/jumbo v1, "rank"
 
     invoke-virtual {p1}, Lcom/yelp/android/serializable/RankTitle$Rank;->name()Ljava/lang/String;
@@ -125,7 +135,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 74
+    .line 73
     return-object v0
 .end method
 
@@ -133,7 +143,7 @@
     .locals 0
 
     .prologue
-    .line 51
+    .line 50
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a(Ljava/util/ArrayList;Landroid/os/Bundle;)V
 
     return-void
@@ -154,63 +164,63 @@
     .end annotation
 
     .prologue
-    .line 215
+    .line 226
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 216
+    .line 227
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->e:Landroid/os/Bundle;
 
     invoke-virtual {v0, p2}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
-    .line 218
+    .line 229
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
     if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->getTopUserCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->c()I
 
     move-result v0
 
-    .line 219
+    .line 230
     :goto_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/dl;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/dl;->getCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;->getCount()I
 
     move-result v1
 
     if-lt v1, v0, :cond_0
 
-    .line 220
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 231
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 222
+    .line 233
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/dl;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/dl;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;->notifyDataSetChanged()V
 
-    .line 223
+    .line 234
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->disableLoading()V
 
-    .line 224
+    .line 235
     return-void
 
-    .line 218
+    .line 229
     :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b:Lcom/yelp/android/serializable/User;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/User;->getLocationCount(Lcom/yelp/android/serializable/RankTitle$Rank;)I
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/User;->b(Lcom/yelp/android/serializable/RankTitle$Rank;)I
 
     move-result v0
 
@@ -221,19 +231,19 @@
     .locals 3
 
     .prologue
-    .line 144
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    .line 147
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
     if-nez v0, :cond_0
-
-    .line 145
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a_()V
 
     .line 148
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->p_()V
+
+    .line 151
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
@@ -241,32 +251,32 @@
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->b()Ljava/lang/String;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    .line 149
+    .line 152
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->b()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 173
+    .line 176
     :goto_0
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 174
+    .line 177
     return-void
 
-    .line 151
+    .line 154
     :cond_1
     const/4 v0, 0x0
 
-    .line 154
-    sget-object v1, Lcom/yelp/android/ui/activities/dj;->a:[I
+    .line 157
+    sget-object v1, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$3;->a:[I
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a:Lcom/yelp/android/serializable/RankTitle$Rank;
 
@@ -278,7 +288,7 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 170
+    .line 173
     :goto_1
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->getString(I)Ljava/lang/String;
 
@@ -286,47 +296,47 @@
 
     goto :goto_0
 
-    .line 156
+    .line 159
     :pswitch_0
-    const v0, 0x7f07031f
+    const v0, 0x7f070355
 
-    .line 157
+    .line 160
     goto :goto_1
 
-    .line 159
+    .line 162
     :pswitch_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->isMale()Z
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->w()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0700ce
+    const v0, 0x7f070155
 
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f0700cf
+    const v0, 0x7f070156
 
-    goto :goto_1
-
-    .line 162
-    :pswitch_2
-    const v0, 0x7f07021e
-
-    .line 163
     goto :goto_1
 
     .line 165
-    :pswitch_3
-    const v0, 0x7f0704cd
+    :pswitch_2
+    const v0, 0x7f07026c
 
     .line 166
     goto :goto_1
 
-    .line 154
+    .line 168
+    :pswitch_3
+    const v0, 0x7f0704e6
+
+    .line 169
+    goto :goto_1
+
+    .line 157
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -351,121 +361,121 @@
 
     const/4 v12, 0x0
 
-    .line 192
+    .line 195
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 193
+    .line 196
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/gi;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/fb;->u()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 195
+    .line 198
     :cond_0
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/gi;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/fb;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a:Lcom/yelp/android/serializable/RankTitle$Rank;
 
     iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/RankLocation;->getId()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/RankLocation;->a()Ljava/lang/String;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/dl;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
-    invoke-virtual {v4}, Lcom/yelp/android/ui/activities/dl;->getCount()I
+    invoke-virtual {v4}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;->getCount()I
 
     move-result v4
 
-    iget-object v6, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->j:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v6, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->j:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/gi;-><init>(Lcom/yelp/android/serializable/RankTitle$Rank;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/fb;-><init>(Lcom/yelp/android/serializable/RankTitle$Rank;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
-    .line 197
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    .line 206
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
     new-array v1, v12, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gi;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fb;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 198
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    .line 207
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
-    .line 206
+    .line 216
     :goto_0
     return-object v0
 
-    .line 199
+    .line 208
     :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
     if-nez v0, :cond_3
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/gs;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/fi;->u()Z
 
     move-result v0
 
     if-nez v0, :cond_3
 
-    .line 201
+    .line 210
     :cond_2
-    new-instance v6, Lcom/yelp/android/appdata/webrequests/gs;
+    new-instance v6, Lcom/yelp/android/appdata/webrequests/fi;
 
     iget-object v7, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/dl;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/dl;->getCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;->getCount()I
 
     move-result v9
 
-    iget-object v11, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->i:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v11, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     move-object v8, v2
 
     move v10, v5
 
-    invoke-direct/range {v6 .. v11}, Lcom/yelp/android/appdata/webrequests/gs;-><init>(Lcom/yelp/android/serializable/RankTitle$Rank;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct/range {v6 .. v11}, Lcom/yelp/android/appdata/webrequests/fi;-><init>(Lcom/yelp/android/serializable/RankTitle$Rank;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v6, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    iput-object v6, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
-    .line 203
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    .line 213
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     new-array v1, v12, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gs;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fi;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 204
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    .line 214
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     goto :goto_0
 
-    .line 206
+    .line 216
     :cond_3
     const/4 v0, 0x0
 
@@ -478,47 +488,47 @@
     .locals 3
 
     .prologue
-    .line 236
+    .line 247
     invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/RankLocation;
 
-    .line 237
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    .line 248
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->d()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v1
 
-    .line 238
+    .line 249
     if-eqz v1, :cond_1
 
-    .line 239
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    .line 250
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-static {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->b(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 240
+    .line 251
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->startActivity(Landroid/content/Intent;)V
 
-    .line 244
+    .line 255
     :cond_0
     :goto_0
     return-void
 
-    .line 241
+    .line 252
     :cond_1
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RankLocation;->a()Ljava/lang/String;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    .line 242
+    .line 253
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a:Lcom/yelp/android/serializable/RankTitle$Rank;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b:Lcom/yelp/android/serializable/User;
@@ -532,51 +542,21 @@
     goto :goto_0
 .end method
 
-.method public a_()V
-    .locals 1
-
-    .prologue
-    .line 184
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
-
-    .line 185
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->e:Landroid/os/Bundle;
-
-    invoke-virtual {v0}, Landroid/os/Bundle;->clear()V
-
-    .line 187
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g()Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
-
-    .line 188
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/dl;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/dl;->notifyDataSetInvalidated()V
-
-    .line 189
-    return-void
-.end method
-
-.method public c()Landroid/util/Pair;
+.method public b()Landroid/util/Pair;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
             "Landroid/util/Pair",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/gs;",
-            "Lcom/yelp/android/appdata/webrequests/gi;",
+            "Lcom/yelp/android/appdata/webrequests/fi;",
+            "Lcom/yelp/android/appdata/webrequests/fb;",
             ">;"
         }
     .end annotation
 
     .prologue
-    .line 119
+    .line 122
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->getLastCustomNonConfigurationInstance()Ljava/lang/Object;
 
     move-result-object v0
@@ -586,58 +566,32 @@
     return-object v0
 .end method
 
-.method public d()V
+.method public c()V
     .locals 0
 
     .prologue
-    .line 135
+    .line 138
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g()Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 136
+    .line 139
     return-void
-.end method
-
-.method public d_()Landroid/util/Pair;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/Pair",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/gs;",
-            "Lcom/yelp/android/appdata/webrequests/gi;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 211
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
-
-    invoke-static {v0, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public getIri()Lcom/yelp/android/analytics/iris/ViewIri;
     .locals 1
 
     .prologue
-    .line 341
+    .line 358
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserRankingsBusinesses:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 51
+    .line 50
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -649,20 +603,20 @@
     .locals 1
 
     .prologue
-    .line 51
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c()Landroid/util/Pair;
+    .line 50
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b()Landroid/util/Pair;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -673,10 +627,10 @@
     .end annotation
 
     .prologue
-    .line 346
+    .line 363
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v0
 
@@ -687,38 +641,27 @@
     return-object v0
 .end method
 
-.method public getRequestIdForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/lang/String;
+.method public getRequestIdForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 351
+    .line 368
     const/4 v0, 0x0
 
     return-object v0
-.end method
-
-.method public m_()V
-    .locals 0
-
-    .prologue
-    .line 140
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a_()V
-
-    .line 141
-    return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
 
     .prologue
-    .line 86
+    .line 85
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 87
+    .line 86
     if-eqz p1, :cond_2
 
-    .line 88
+    .line 87
     const-string/jumbo v0, "locations"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
@@ -727,7 +670,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d:Ljava/util/ArrayList;
 
-    .line 89
+    .line 88
     const-string/jumbo v0, "counts"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
@@ -736,9 +679,9 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->e:Landroid/os/Bundle;
 
-    .line 94
+    .line 93
     :goto_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c()Landroid/util/Pair;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b()Landroid/util/Pair;
 
     move-result-object v1
 
@@ -748,49 +691,49 @@
     .line 96
     iget-object v0, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/gs;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/fi;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     .line 97
     iget-object v0, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/gi;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/fb;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
     .line 98
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     if-eqz v0, :cond_0
 
     .line 99
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->i:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gs;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fi;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 100
+    .line 101
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
     if-eqz v0, :cond_1
 
-    .line 101
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    .line 102
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->j:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->j:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gi;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fb;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 104
+    .line 106
     :cond_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 106
+    .line 108
     const-string/jumbo v0, "user"
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -801,7 +744,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->b:Lcom/yelp/android/serializable/User;
 
-    .line 107
+    .line 109
     const-string/jumbo v0, "rank"
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -820,7 +763,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->a:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    .line 108
+    .line 110
     const-string/jumbo v0, "location"
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -831,39 +774,39 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->c:Lcom/yelp/android/serializable/RankLocation;
 
-    .line 109
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 111
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    .line 110
-    new-instance v1, Lcom/yelp/android/ui/activities/dl;
+    .line 112
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d:Ljava/util/ArrayList;
 
     iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->e:Landroid/os/Bundle;
 
-    invoke-direct {v1, p0, v2, v3}, Lcom/yelp/android/ui/activities/dl;-><init>(Landroid/content/Context;Ljava/util/ArrayList;Landroid/os/Bundle;)V
+    invoke-direct {v1, p0, v2, v3}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;-><init>(Landroid/content/Context;Ljava/util/ArrayList;Landroid/os/Bundle;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/dl;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
-    .line 111
+    .line 113
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setDividerHeight(I)V
 
-    .line 112
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/dl;
+    .line 114
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 113
+    .line 115
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f()V
 
-    .line 114
+    .line 116
     return-void
 
-    .line 91
+    .line 90
     :cond_2
     new-instance v0, Ljava/util/ArrayList;
 
@@ -871,7 +814,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d:Ljava/util/ArrayList;
 
-    .line 92
+    .line 91
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -894,10 +837,10 @@
     .end annotation
 
     .prologue
-    .line 228
+    .line 239
     invoke-virtual {p0, p2}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->populateError(Lcom/yelp/android/appdata/webrequests/YelpException;)V
 
-    .line 229
+    .line 240
     return-void
 .end method
 
@@ -905,48 +848,48 @@
     .locals 1
 
     .prologue
-    .line 125
+    .line 128
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->onResume()V
 
-    .line 126
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    .line 129
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/gs;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/fi;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 127
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/gs;
+    .line 130
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 131
+    .line 134
     :cond_0
     :goto_0
     return-void
 
-    .line 128
+    .line 131
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/gi;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/fb;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 129
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/gi;
+    .line 132
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
@@ -957,8 +900,8 @@
     .locals 1
 
     .prologue
-    .line 51
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d_()Landroid/util/Pair;
+    .line 50
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->r_()Landroid/util/Pair;
 
     move-result-object v0
 
@@ -969,20 +912,87 @@
     .locals 2
 
     .prologue
-    .line 178
+    .line 181
     const-string/jumbo v0, "locations"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 179
+    .line 182
     const-string/jumbo v0, "counts"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->e:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 180
+    .line 183
     return-void
+.end method
+
+.method public p_()V
+    .locals 1
+
+    .prologue
+    .line 187
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->d:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    .line 188
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->e:Landroid/os/Bundle;
+
+    invoke-virtual {v0}, Landroid/os/Bundle;->clear()V
+
+    .line 190
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g()Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 191
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->h:Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses$b;->notifyDataSetInvalidated()V
+
+    .line 192
+    return-void
+.end method
+
+.method public q_()V
+    .locals 0
+
+    .prologue
+    .line 143
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->p_()V
+
+    .line 144
+    return-void
+.end method
+
+.method public r_()Landroid/util/Pair;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/Pair",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/fi;",
+            "Lcom/yelp/android/appdata/webrequests/fb;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 222
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->f:Lcom/yelp/android/appdata/webrequests/fi;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRankedBusinesses;->g:Lcom/yelp/android/appdata/webrequests/fb;
+
+    invoke-static {v0, v1}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+
+    move-result-object v0
+
+    return-object v0
 .end method

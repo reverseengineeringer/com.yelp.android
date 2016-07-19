@@ -3,6 +3,14 @@
 .source "VASTAdPlayer.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/VASTAdPlayer$TrackingEvent;
+    }
+.end annotation
+
+
 # static fields
 .field private static TAG:Ljava/lang/String;
 

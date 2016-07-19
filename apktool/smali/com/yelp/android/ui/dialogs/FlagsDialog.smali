@@ -3,12 +3,21 @@
 .source "FlagsDialog.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/dialogs/FlagsDialog$a;,
+        Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
+    }
+.end annotation
+
+
 # instance fields
-.field private a:Lcom/yelp/android/ui/dialogs/ao;
+.field private a:Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
 .field private b:Ljava/util/Locale;
 
-.field private c:Lcom/yelp/android/ui/dialogs/ar;
+.field private c:Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
 
 .field private d:Z
 
@@ -28,15 +37,25 @@
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->d:Z
 
-    .line 127
-    new-instance v0, Lcom/yelp/android/ui/dialogs/an;
+    .line 128
+    new-instance v0, Lcom/yelp/android/ui/dialogs/FlagsDialog$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/an;-><init>(Lcom/yelp/android/ui/dialogs/FlagsDialog;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog$1;-><init>(Lcom/yelp/android/ui/dialogs/FlagsDialog;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->e:Landroid/widget/AdapterView$OnItemClickListener;
 
-    .line 145
+    .line 148
     return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/dialogs/FlagsDialog;)Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
+    .locals 1
+
+    .prologue
+    .line 32
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
+
+    return-object v0
 .end method
 
 .method public static a(Ljava/util/Locale;)Lcom/yelp/android/ui/dialogs/FlagsDialog;
@@ -65,16 +84,6 @@
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/dialogs/FlagsDialog;)Lcom/yelp/android/ui/dialogs/ao;
-    .locals 1
-
-    .prologue
-    .line 32
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/ao;
-
-    return-object v0
-.end method
-
 .method static synthetic a(Lcom/yelp/android/ui/dialogs/FlagsDialog;Ljava/util/Locale;)Ljava/util/Locale;
     .locals 0
 
@@ -85,49 +94,49 @@
     return-object p1
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/dialogs/FlagsDialog;)Lcom/yelp/android/ui/dialogs/ar;
+.method static synthetic b(Lcom/yelp/android/ui/dialogs/FlagsDialog;)Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
     .locals 1
 
     .prologue
     .line 32
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->c:Lcom/yelp/android/ui/dialogs/ar;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->c:Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
 
     return-object v0
 .end method
 
 
 # virtual methods
-.method public a()Lcom/yelp/android/ui/dialogs/ao;
+.method public a()Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
     .locals 1
 
     .prologue
-    .line 120
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/ao;
+    .line 121
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
     if-nez v0, :cond_0
 
-    .line 121
-    new-instance v0, Lcom/yelp/android/ui/dialogs/ao;
+    .line 122
+    new-instance v0, Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/ao;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/ao;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
-    .line 124
+    .line 125
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/ao;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
     return-object v0
 .end method
 
-.method public a(Lcom/yelp/android/ui/dialogs/ar;)V
+.method public a(Lcom/yelp/android/ui/dialogs/FlagsDialog$b;)V
     .locals 0
 
     .prologue
-    .line 116
-    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->c:Lcom/yelp/android/ui/dialogs/ar;
-
     .line 117
+    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->c:Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
+
+    .line 118
     return-void
 .end method
 
@@ -148,7 +157,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a()Lcom/yelp/android/ui/dialogs/ao;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a()Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
     move-result-object v1
 
@@ -156,13 +165,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f070547
+    const v1, 0x7f070546
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f07041d
+    const v1, 0x7f070452
 
     invoke-virtual {v0, v1, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -172,14 +181,14 @@
 
     move-result-object v1
 
-    .line 57
+    .line 58
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
 
     invoke-virtual {v0, v2, v2}, Landroid/widget/ListView;->setItemChecked(IZ)V
 
-    .line 58
+    .line 59
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
     move-result-object v0
@@ -188,15 +197,15 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 60
+    .line 61
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->b:Ljava/util/Locale;
 
     if-nez v0, :cond_0
 
-    .line 61
+    .line 62
     if-eqz p1, :cond_1
 
-    .line 62
+    .line 63
     const-string/jumbo v0, "locale"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
@@ -207,10 +216,10 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->b:Ljava/util/Locale;
 
-    .line 67
+    .line 68
     :cond_0
     :goto_0
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/ao;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
@@ -218,17 +227,17 @@
 
     iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->b:Ljava/util/Locale;
 
-    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/ui/dialogs/ao;->a(Landroid/content/Context;Ljava/util/Locale;)V
-
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/ao;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/ao;->notifyDataSetChanged()V
+    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a;->a(Landroid/content/Context;Ljava/util/Locale;)V
 
     .line 69
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a:Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a;->notifyDataSetChanged()V
+
+    .line 70
     return-object v1
 
-    .line 64
+    .line 65
     :cond_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->getArguments()Landroid/os/Bundle;
 
@@ -251,15 +260,15 @@
     .locals 1
 
     .prologue
-    .line 111
+    .line 112
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->d:Z
 
-    .line 112
+    .line 113
     invoke-super {p0, p1}, Landroid/support/v4/app/DialogFragment;->onDismiss(Landroid/content/DialogInterface;)V
 
-    .line 113
+    .line 114
     return-void
 .end method
 
@@ -267,11 +276,11 @@
     .locals 3
 
     .prologue
-    .line 80
+    .line 81
     invoke-super {p0}, Landroid/support/v4/app/DialogFragment;->onPause()V
 
-    .line 81
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a()Lcom/yelp/android/ui/dialogs/ao;
+    .line 82
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a()Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
     move-result-object v0
 
@@ -281,16 +290,16 @@
 
     iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->b:Ljava/util/Locale;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/ao;->a(Landroid/content/Context;Ljava/util/Locale;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a;->a(Landroid/content/Context;Ljava/util/Locale;)V
 
-    .line 82
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a()Lcom/yelp/android/ui/dialogs/ao;
+    .line 83
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a()Lcom/yelp/android/ui/dialogs/FlagsDialog$a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/ao;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a;->notifyDataSetChanged()V
 
-    .line 83
+    .line 84
     return-void
 .end method
 
@@ -298,56 +307,54 @@
     .locals 2
 
     .prologue
-    .line 74
+    .line 75
     invoke-super {p0, p1}, Landroid/support/v4/app/DialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 75
+    .line 76
     const-string/jumbo v0, "locale"
 
     iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->b:Ljava/util/Locale;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    .line 76
+    .line 77
     return-void
 .end method
 
-.method public show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+.method public show(Landroid/support/v4/app/l;Ljava/lang/String;)V
     .locals 2
 
     .prologue
-    .line 98
+    .line 99
     iget-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->d:Z
 
     if-nez v0, :cond_1
 
-    .line 99
+    .line 100
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FlagsDialog;->d:Z
 
-    .line 100
-    invoke-super {p0, p1, p2}, Landroid/support/v4/app/DialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    .line 101
+    invoke-super {p0, p1, p2}, Landroid/support/v4/app/DialogFragment;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
 
-    .line 107
+    .line 108
     :cond_0
     :goto_0
     return-void
 
-    .line 102
+    .line 103
     :cond_1
-    invoke-virtual {p1, p2}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {p1, p2}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
-    .line 103
-    if-eqz v0, :cond_0
-
+    .line 104
     instance-of v1, v0, Landroid/support/v4/app/DialogFragment;
 
     if-eqz v1, :cond_0
 
-    .line 104
+    .line 105
     check-cast v0, Landroid/support/v4/app/DialogFragment;
 
     invoke-virtual {v0}, Landroid/support/v4/app/DialogFragment;->getDialog()Landroid/app/Dialog;

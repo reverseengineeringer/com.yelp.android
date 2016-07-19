@@ -3,8 +3,8 @@
 .source "ActivityFlagReview.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/reviewpage/aa;
-.implements Lcom/yelp/android/ui/activities/reviewpage/y;
+.implements Lcom/yelp/android/ui/activities/reviewpage/FlagReviewExplanationFragment$a;
+.implements Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$a;
 
 
 # instance fields
@@ -28,24 +28,24 @@
     .locals 2
 
     .prologue
-    .line 37
+    .line 38
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 38
+    .line 39
     const-string/jumbo v1, "extra.review"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 39
+    .line 40
     const-string/jumbo v1, "extra.business_country"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 40
+    .line 41
     return-object v0
 .end method
 
@@ -55,10 +55,10 @@
     .locals 0
 
     .prologue
-    .line 101
+    .line 108
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->showLoadingDialog()V
 
-    .line 102
+    .line 109
     return-void
 .end method
 
@@ -68,9 +68,9 @@
     .prologue
     const/4 v3, 0x0
 
-    const v2, 0x7f0c01d4
+    const v2, 0x7f0f020d
 
-    .line 77
+    .line 78
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->b:Ljava/lang/String;
 
     if-eqz v0, :cond_0
@@ -92,7 +92,7 @@
     :cond_0
     const/4 v0, 0x1
 
-    .line 79
+    .line 81
     :goto_0
     sget-object v1, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->FalseInformation:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
@@ -100,48 +100,48 @@
 
     if-eqz v0, :cond_2
 
-    .line 81
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 83
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    const v1, 0x7f0300b4
+    const v1, 0x7f0300ce
 
     invoke-static {v1}, Lcom/yelp/android/ui/fragments/SimpleLayoutFragment;->a(I)Landroid/support/v4/app/Fragment;
 
     move-result-object v1
 
-    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/FragmentTransaction;->replace(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/o;->b(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/support/v4/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v3}, Landroid/support/v4/app/o;->a(Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 94
+    .line 101
     :goto_1
     return-void
 
-    .line 77
+    .line 78
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 
-    .line 88
+    .line 93
     :cond_2
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
@@ -151,15 +151,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/FragmentTransaction;->replace(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/o;->b(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/support/v4/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v3}, Landroid/support/v4/app/o;->a(Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
     goto :goto_1
 .end method
@@ -170,29 +170,29 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 110
+    .line 117
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->hideLoadingDialog()V
 
-    .line 112
+    .line 119
     invoke-static {v2, p1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/ui/dialogs/AlertDialogFragment;
 
     move-result-object v0
 
-    .line 113
-    new-instance v1, Lcom/yelp/android/ui/activities/reviews/b;
+    .line 120
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/b;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview$1;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->a(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 119
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 127
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
 
-    .line 120
+    .line 128
     return-void
 .end method
 
@@ -200,13 +200,13 @@
     .locals 1
 
     .prologue
-    .line 63
+    .line 64
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FlagReview:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -222,12 +222,12 @@
     .locals 3
 
     .prologue
-    const v2, 0x7f0c01d4
+    const v2, 0x7f0f020d
 
-    .line 45
+    .line 46
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 47
+    .line 48
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -242,7 +242,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->a:Lcom/yelp/android/serializable/YelpBusinessReview;
 
-    .line 48
+    .line 49
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -255,24 +255,24 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->b:Ljava/lang/String;
 
-    .line 50
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentById(I)Landroid/support/v4/app/Fragment;
-
-    move-result-object v0
-
     .line 51
-    if-nez v0, :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/support/v4/app/l;->a(I)Landroid/support/v4/app/Fragment;
+
+    move-result-object v0
 
     .line 52
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    if-nez v0, :cond_0
+
+    .line 53
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
@@ -280,18 +280,18 @@
 
     invoke-direct {v1}, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment;-><init>()V
 
-    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/FragmentTransaction;->replace(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/o;->b(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 58
+    .line 59
     :cond_0
-    const v0, 0x7f0704f6
+    const v0, 0x7f0704f8
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityFlagReview;->setTitle(I)V
 
-    .line 59
+    .line 60
     return-void
 .end method

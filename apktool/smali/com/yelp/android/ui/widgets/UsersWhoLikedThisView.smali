@@ -14,13 +14,13 @@
     .locals 0
 
     .prologue
-    .line 42
+    .line 41
     invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
 
-    .line 43
+    .line 42
     invoke-direct {p0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->a()V
 
-    .line 44
+    .line 43
     return-void
 .end method
 
@@ -28,13 +28,13 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 36
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 38
+    .line 37
     invoke-direct {p0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->a()V
 
-    .line 39
+    .line 38
     return-void
 .end method
 
@@ -42,13 +42,13 @@
     .locals 0
 
     .prologue
-    .line 32
+    .line 31
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 33
+    .line 32
     invoke-direct {p0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->a()V
 
-    .line 34
+    .line 33
     return-void
 .end method
 
@@ -56,7 +56,7 @@
     .locals 2
 
     .prologue
-    .line 47
+    .line 46
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -65,13 +65,13 @@
 
     move-result-object v0
 
-    .line 48
-    const v1, 0x7f0300c6
+    .line 47
+    const v1, 0x7f0300e9
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 49
-    const v0, 0x7f0c0246
+    .line 48
+    const v0, 0x7f0f025a
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->findViewById(I)Landroid/view/View;
 
@@ -81,8 +81,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->a:Lcom/yelp/android/ui/widgets/WebImageView;
 
-    .line 50
-    const v0, 0x7f0c02ea
+    .line 49
+    const v0, 0x7f0f035d
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->findViewById(I)Landroid/view/View;
 
@@ -92,7 +92,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->b:Landroid/widget/TextView;
 
-    .line 51
+    .line 50
     return-void
 .end method
 
@@ -115,12 +115,12 @@
 
     const/4 v5, 0x0
 
-    .line 76
+    .line 77
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
-    .line 77
+    .line 78
     if-eqz p2, :cond_0
 
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
@@ -131,25 +131,25 @@
 
     if-nez p3, :cond_1
 
-    .line 78
+    .line 79
     :cond_0
     const/16 v0, 0x8
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->setVisibility(I)V
 
-    .line 115
+    .line 127
     :goto_0
     return-void
 
-    .line 84
+    .line 85
     :cond_1
     if-eqz p1, :cond_3
 
-    .line 86
+    .line 87
     if-ne p3, v4, :cond_2
 
-    .line 89
-    const v1, 0x7f0706c6
+    .line 90
+    const v1, 0x7f070695
 
     new-array v3, v4, [Ljava/lang/Object;
 
@@ -159,7 +159,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getUserName()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->a()Ljava/lang/String;
 
     move-result-object v0
 
@@ -169,7 +169,7 @@
 
     move-result-object v0
 
-    .line 98
+    .line 105
     :goto_1
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->a:Lcom/yelp/android/ui/widgets/WebImageView;
 
@@ -177,37 +177,37 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/webrequests/dc;->v()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/webrequests/co;->r()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;)V
 
-    .line 112
+    .line 124
     :goto_2
-    const v1, 0x7f0a0010
+    const v1, 0x7f0e002c
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/util/StringUtils;->a(Landroid/text/Spanned;ILandroid/content/Context;)Landroid/text/Spannable;
 
     move-result-object v0
 
-    .line 113
+    .line 125
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->b:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 114
+    .line 126
     invoke-virtual {p0, v5}, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 94
+    .line 98
     :cond_2
-    const v0, 0x7f0e0044
+    const v0, 0x7f08004a
 
     add-int/lit8 v1, p3, -0x1
 
@@ -219,12 +219,12 @@
 
     goto :goto_1
 
-    .line 103
+    .line 110
     :cond_3
     if-ne p3, v4, :cond_4
 
-    .line 104
-    const v1, 0x7f07069a
+    .line 111
+    const v1, 0x7f070671
 
     new-array v3, v4, [Ljava/lang/Object;
 
@@ -234,7 +234,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getUserName()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->a()Ljava/lang/String;
 
     move-result-object v0
 
@@ -246,7 +246,7 @@
 
     move-object v1, v0
 
-    .line 110
+    .line 122
     :goto_3
     iget-object v3, p0, Lcom/yelp/android/ui/widgets/UsersWhoLikedThisView;->a:Lcom/yelp/android/ui/widgets/WebImageView;
 
@@ -256,7 +256,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getUserPhotoUrl()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->c()Ljava/lang/String;
 
     move-result-object v0
 
@@ -266,9 +266,9 @@
 
     goto :goto_2
 
-    .line 107
+    .line 115
     :cond_4
-    const v1, 0x7f0e0032
+    const v1, 0x7f080037
 
     add-int/lit8 v3, p3, -0x1
 
@@ -280,7 +280,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getUserName()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->a()Ljava/lang/String;
 
     move-result-object v0
 

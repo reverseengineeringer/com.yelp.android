@@ -20,19 +20,19 @@
     .locals 3
 
     .prologue
-    .line 17
+    .line 18
     const-string/jumbo v0, "image_url"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 18
+    .line 19
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v1
 
@@ -40,8 +40,8 @@
 
     invoke-direct {v2, p1, v0}, Lcom/yelp/android/analytics/f;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    invoke-virtual {v1, v2}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/b;)V
+    invoke-virtual {v1, v2}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/b;)V
 
-    .line 19
+    .line 20
     return-void
 .end method

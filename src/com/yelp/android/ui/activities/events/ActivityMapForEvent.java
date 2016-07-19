@@ -9,17 +9,17 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CameraPosition.Builder;
+import com.google.android.gms.maps.model.CameraPosition.a;
 import com.google.android.gms.maps.model.LatLng;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.BaseYelpApplication;
 import com.yelp.android.serializable.Event;
-import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.support.YelpMapActivity;
 import com.yelp.android.ui.map.YelpMap;
 import com.yelp.android.ui.map.d;
-import com.yelp.android.ui.map.f;
-import com.yelp.android.ui.util.cp;
+import com.yelp.android.ui.map.m;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.util.k;
 import java.util.Collections;
 
 public class ActivityMapForEvent
@@ -27,7 +27,6 @@ public class ActivityMapForEvent
 {
   private YelpMap<Event> a;
   private Event b;
-  private final f<YelpBusiness> c = new a(this);
   
   public static Intent a(Context paramContext, Event paramEvent)
   {
@@ -39,27 +38,27 @@ public class ActivityMapForEvent
   private void b()
   {
     if (b != null) {
-      com.yelp.android.util.r.a(this, b);
+      k.a(this, b);
     }
   }
   
   private void c()
   {
     Object localObject = b;
-    String str = ((Event)localObject).getAddress();
+    String str = ((Event)localObject).A();
     try
     {
       Intent localIntent = new Intent("android.intent.action.VIEW");
       if ((str == null) || (str.length() == 0))
       {
         BaseYelpApplication.a("ActivityMapForEvent", "Address invalid for event, using geo location.", new Object[0]);
-        localIntent.setData(Uri.parse("geo:" + ((Event)localObject).getLatitude() + "," + ((Event)localObject).getLongitude() + "?z=" + 16));
+        localIntent.setData(Uri.parse("geo:" + ((Event)localObject).o() + "," + ((Event)localObject).n() + "?z=" + 16));
       }
       for (;;)
       {
         startActivity(localIntent);
         return;
-        localObject = "geo:" + ((Event)localObject).getLatitude() + "," + ((Event)localObject).getLongitude() + "?q=" + str + "&z=" + 16;
+        localObject = "geo:" + ((Event)localObject).o() + "," + ((Event)localObject).n() + "?q=" + str + "&z=" + 16;
         localIntent.setData(Uri.parse((String)localObject));
         BaseYelpApplication.a("ActivityMapForEvent", "Using address for event with geo location: [%s], uri follows.\n%s", new Object[] { str, localObject });
       }
@@ -68,13 +67,13 @@ public class ActivityMapForEvent
     catch (Exception localException)
     {
       Log.e("ActivityMapForEvent", "Error launching google maps intent: " + localException.toString(), localException);
-      cp.a(this, getString(2131165895), getString(2131165898));
+      ar.a(this, getString(2131165970), getString(2131165971));
     }
   }
   
   public void a()
   {
-    a.a(Collections.singletonList(b), new com.yelp.android.ui.map.r(2130838156));
+    a.a(Collections.singletonList(b), new m(2130838393));
   }
   
   public ViewIri getIri()
@@ -91,18 +90,18 @@ public class ActivityMapForEvent
       Log.w("ActivityMapForEvent", "Event could not be recovered from intent.");
       finish();
     }
-    setTitle(b.getName());
-    setContentView(2130903095);
-    CameraPosition localCameraPosition = new CameraPosition.Builder().target(new LatLng(b.getLatitude(), b.getLongitude())).zoom(16.0F).build();
-    a = ((YelpMap)findViewById(2131493221));
-    a.setOptions(YelpMap.a(this, localCameraPosition));
+    setTitle(b.G());
+    setContentView(2130903108);
+    CameraPosition localCameraPosition = new CameraPosition.a().a(new LatLng(b.o(), b.n())).a(16.0F).a();
+    a = ((YelpMap)findViewById(2131689889));
+    a.setOptions(YelpMap.b(localCameraPosition));
     a.a(paramBundle, new d(this));
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755026, paramMenu);
+    getMenuInflater().inflate(2131755030, paramMenu);
     return true;
   }
   
@@ -112,7 +111,7 @@ public class ActivityMapForEvent
     {
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
-    case 2131493617: 
+    case 2131690351: 
       c();
     }
     for (;;)

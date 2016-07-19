@@ -1,39 +1,13 @@
 package com.google.android.gms.tagmanager;
 
-import android.os.Build;
-import com.google.android.gms.internal.a;
-import com.google.android.gms.internal.d.a;
-import java.util.Map;
+import com.google.android.gms.internal.zzrs.a;
+import java.util.Set;
 
-class aa
-  extends aj
+abstract interface aa
 {
-  private static final String ID = a.F.toString();
+  public abstract z a();
   
-  public aa()
-  {
-    super(ID, new String[0]);
-  }
-  
-  public d.a B(Map<String, d.a> paramMap)
-  {
-    String str2 = Build.MANUFACTURER;
-    String str1 = Build.MODEL;
-    paramMap = str1;
-    if (!str1.startsWith(str2))
-    {
-      paramMap = str1;
-      if (!str2.equals("unknown")) {
-        paramMap = str2 + " " + str1;
-      }
-    }
-    return di.u(paramMap);
-  }
-  
-  public boolean pe()
-  {
-    return true;
-  }
+  public abstract void a(Set<zzrs.a> paramSet);
 }
 
 /* Location:

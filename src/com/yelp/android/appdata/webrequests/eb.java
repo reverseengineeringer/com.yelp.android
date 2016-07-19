@@ -1,15 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.util.n;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
-class eb
-  implements n
+public class eb
+  extends ShareRequest
 {
-  eb(PhotoUploadRequestBase paramPhotoUploadRequestBase) {}
-  
-  public void a(int paramInt)
+  public eb(String paramString, ShareRequest.ShareType paramShareType, boolean paramBoolean, c.a parama)
   {
-    a.publishProgress(new Float[] { Float.valueOf(paramInt / (float)a.mImageSize) });
+    super("/review/share/", parama, paramShareType);
+    b("review_id", paramString);
+    b("with_award", paramBoolean);
   }
 }
 

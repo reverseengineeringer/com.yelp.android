@@ -1,17 +1,36 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
-import com.yelp.android.serializable.User;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class e
-  extends h
+  extends b<Void, Void, a>
 {
-  public e(i parami, User paramUser, String paramString)
+  public e()
   {
-    super("user/add_friend", parami);
-    addPostParam("user_id", paramUser.getId());
-    addPostParam("message", paramString);
+    super(ApiRequest.RequestType.GET, "account/guest_user_info", null);
+  }
+  
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return new a(paramJSONObject);
+  }
+  
+  public static class a
+  {
+    public final String a;
+    public final String b;
+    public final String c;
+    
+    public a(JSONObject paramJSONObject)
+      throws JSONException
+    {
+      a = paramJSONObject.getString("first_name");
+      b = paramJSONObject.getString("last_name");
+      c = paramJSONObject.getString("email");
+    }
   }
 }
 

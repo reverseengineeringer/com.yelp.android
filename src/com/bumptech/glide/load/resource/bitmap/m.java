@@ -1,142 +1,51 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Drawable.ConstantState;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import com.yelp.android.z.b;
+import android.os.ParcelFileDescriptor;
+import com.bumptech.glide.load.a;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.e;
+import com.yelp.android.aa.g;
+import com.yelp.android.aa.h;
+import com.yelp.android.ak.b;
+import java.io.File;
+import java.io.InputStream;
 
 public class m
-  extends b
+  implements b<g, Bitmap>
 {
-  private final Rect a = new Rect();
-  private int b;
-  private int c;
-  private boolean d;
-  private boolean e;
-  private n f;
+  private final l a;
+  private final d<File, Bitmap> b;
+  private final e<Bitmap> c;
+  private final h d;
   
-  public m(Resources paramResources, Bitmap paramBitmap)
+  public m(b<InputStream, Bitmap> paramb, b<ParcelFileDescriptor, Bitmap> paramb1)
   {
-    this(paramResources, new n(paramBitmap));
+    c = paramb.d();
+    d = new h(paramb.c(), paramb1.c());
+    b = paramb.a();
+    a = new l(paramb.b(), paramb1.b());
   }
   
-  m(Resources paramResources, n paramn)
-  {
-    if (paramn == null) {
-      throw new NullPointerException("BitmapState must not be null");
-    }
-    f = paramn;
-    int i;
-    if (paramResources != null)
-    {
-      int j = getDisplayMetricsdensityDpi;
-      i = j;
-      if (j == 0) {
-        i = 160;
-      }
-      b = i;
-    }
-    for (;;)
-    {
-      b = a.getScaledWidth(i);
-      c = a.getScaledHeight(i);
-      return;
-      i = b;
-    }
-  }
-  
-  public void a(int paramInt) {}
-  
-  public boolean a()
-  {
-    return false;
-  }
-  
-  public Bitmap b()
-  {
-    return f.a;
-  }
-  
-  public void draw(Canvas paramCanvas)
-  {
-    if (d)
-    {
-      Gravity.apply(119, b, c, getBounds(), a);
-      d = false;
-    }
-    paramCanvas.drawBitmap(f.a, null, a, f.c);
-  }
-  
-  public Drawable.ConstantState getConstantState()
-  {
-    return f;
-  }
-  
-  public int getIntrinsicHeight()
-  {
-    return c;
-  }
-  
-  public int getIntrinsicWidth()
+  public d<File, Bitmap> a()
   {
     return b;
   }
   
-  public int getOpacity()
+  public d<g, Bitmap> b()
   {
-    Bitmap localBitmap = f.a;
-    if ((localBitmap == null) || (localBitmap.hasAlpha()) || (f.c.getAlpha() < 255)) {
-      return -3;
-    }
-    return -1;
+    return a;
   }
   
-  public boolean isRunning()
+  public a<g> c()
   {
-    return false;
+    return d;
   }
   
-  public Drawable mutate()
+  public e<Bitmap> d()
   {
-    if ((!e) && (super.mutate() == this))
-    {
-      f = new n(f);
-      e = true;
-    }
-    return this;
+    return c;
   }
-  
-  protected void onBoundsChange(Rect paramRect)
-  {
-    super.onBoundsChange(paramRect);
-    d = true;
-  }
-  
-  public void setAlpha(int paramInt)
-  {
-    if (f.c.getAlpha() != paramInt)
-    {
-      f.a(paramInt);
-      invalidateSelf();
-    }
-  }
-  
-  public void setColorFilter(ColorFilter paramColorFilter)
-  {
-    f.a(paramColorFilter);
-    invalidateSelf();
-  }
-  
-  public void start() {}
-  
-  public void stop() {}
 }
 
 /* Location:

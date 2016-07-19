@@ -1,5 +1,6 @@
 package com.brightcove.player.display;
 
+import android.util.Log;
 import com.brightcove.player.event.Default;
 import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
@@ -14,12 +15,37 @@ class VideoDisplayComponent$OnCompletedListener
   private VideoDisplayComponent$OnCompletedListener(VideoDisplayComponent paramVideoDisplayComponent) {}
   
   @Default
-  public void processEvent(Event paramEvent)
+  public void processEvent(final Event paramEvent)
   {
     if (this$0.nextSource != null)
     {
       paramEvent = UUID.randomUUID();
-      VideoDisplayComponent.access$2600(this$0).once("willChangeVideo", new VideoDisplayComponent.OnCompletedListener.1(this, paramEvent));
+      VideoDisplayComponent.access$2600(this$0).once("willChangeVideo", new EventListener()
+      {
+        @Default
+        public void processEvent(Event paramAnonymousEvent)
+        {
+          Log.v(VideoDisplayComponent.access$1200(), "OnCompletedListener: WILL_CHANGE_VIDEO");
+          if (properties.get("uuid").equals(paramEvent))
+          {
+            this$0.destroyPlayer();
+            Log.v(VideoDisplayComponent.access$1200(), "OnCompletedListener: currentSource = " + this$0.currentSource + ", nextSource = " + this$0.nextSource);
+            this$0.currentVideo = this$0.nextVideo;
+            this$0.nextVideo = null;
+            this$0.currentSource = this$0.nextSource;
+            this$0.nextSource = null;
+            VideoDisplayComponent.access$2500(this$0).once("didSetSource", new EventListener()
+            {
+              @Default
+              public void processEvent(Event paramAnonymous2Event)
+              {
+                VideoDisplayComponent.access$2400(this$0).emit("play");
+              }
+            });
+            this$0.openVideo(this$0.currentVideo, this$0.currentSource);
+          }
+        }
+      });
       HashMap localHashMap = new HashMap();
       localHashMap.put("currentVideo", this$0.currentVideo);
       localHashMap.put("nextVideo", this$0.nextVideo);

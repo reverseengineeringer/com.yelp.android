@@ -1,39 +1,30 @@
 package com.google.android.gms.auth;
 
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
-import com.google.android.gms.internal.jx;
+import com.google.android.gms.common.internal.zzw;
+import com.google.android.gms.common.internal.zzx;
 
 public class AccountChangeEvent
   implements SafeParcelable
 {
-  public static final AccountChangeEventCreator CREATOR = new AccountChangeEventCreator();
-  final String DZ;
-  final int Ef;
-  final long Eg;
-  final int Eh;
-  final int Ei;
-  final String Ej;
+  public static final Parcelable.Creator<AccountChangeEvent> CREATOR = new b();
+  final int a;
+  final long b;
+  final String c;
+  final int d;
+  final int e;
+  final String f;
   
   AccountChangeEvent(int paramInt1, long paramLong, String paramString1, int paramInt2, int paramInt3, String paramString2)
   {
-    Ef = paramInt1;
-    Eg = paramLong;
-    DZ = ((String)jx.i(paramString1));
-    Eh = paramInt2;
-    Ei = paramInt3;
-    Ej = paramString2;
-  }
-  
-  public AccountChangeEvent(long paramLong, String paramString1, int paramInt1, int paramInt2, String paramString2)
-  {
-    Ef = 1;
-    Eg = paramLong;
-    DZ = ((String)jx.i(paramString1));
-    Eh = paramInt1;
-    Ei = paramInt2;
-    Ej = paramString2;
+    a = paramInt1;
+    b = paramLong;
+    c = ((String)zzx.zzz(paramString1));
+    d = paramInt2;
+    e = paramInt3;
+    f = paramString2;
   }
   
   public int describeContents()
@@ -51,45 +42,25 @@ public class AccountChangeEvent
         break;
       }
       paramObject = (AccountChangeEvent)paramObject;
-    } while ((Ef == Ef) && (Eg == Eg) && (jv.equal(DZ, DZ)) && (Eh == Eh) && (Ei == Ei) && (jv.equal(Ej, Ej)));
+    } while ((a == a) && (b == b) && (zzw.equal(c, c)) && (d == d) && (e == e) && (zzw.equal(f, f)));
     return false;
     return false;
-  }
-  
-  public String getAccountName()
-  {
-    return DZ;
-  }
-  
-  public String getChangeData()
-  {
-    return Ej;
-  }
-  
-  public int getChangeType()
-  {
-    return Eh;
-  }
-  
-  public int getEventIndex()
-  {
-    return Ei;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { Integer.valueOf(Ef), Long.valueOf(Eg), DZ, Integer.valueOf(Eh), Integer.valueOf(Ei), Ej });
+    return zzw.hashCode(new Object[] { Integer.valueOf(a), Long.valueOf(b), c, Integer.valueOf(d), Integer.valueOf(e), f });
   }
   
   public String toString()
   {
     String str = "UNKNOWN";
-    switch (Eh)
+    switch (d)
     {
     }
     for (;;)
     {
-      return "AccountChangeEvent {accountName = " + DZ + ", changeType = " + str + ", changeData = " + Ej + ", eventIndex = " + Ei + "}";
+      return "AccountChangeEvent {accountName = " + c + ", changeType = " + str + ", changeData = " + f + ", eventIndex = " + e + "}";
       str = "ADDED";
       continue;
       str = "REMOVED";
@@ -102,7 +73,7 @@ public class AccountChangeEvent
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    AccountChangeEventCreator.a(this, paramParcel, paramInt);
+    b.a(this, paramParcel, paramInt);
   }
 }
 

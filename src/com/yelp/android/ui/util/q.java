@@ -1,41 +1,73 @@
 package com.yelp.android.ui.util;
 
-import android.os.Bundle;
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest.Builder;
-import com.google.android.gms.ads.mediation.admob.AdMobExtras;
-import com.yelp.android.appdata.Features;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.view.View;
 
 public class q
 {
-  private static String a;
+  private int a;
+  private int b;
+  private int c;
+  private int d;
+  private boolean e;
   
-  public static PublisherAdRequest a(JSONObject paramJSONObject)
+  public void a(int paramInt1, int paramInt2)
   {
-    Bundle localBundle = new Bundle();
-    Iterator localIterator = paramJSONObject.keys();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      Object localObject = paramJSONObject.get(str);
-      if ((localObject instanceof String)) {
-        localBundle.putString(str, (String)localObject);
-      } else if ((localObject instanceof JSONArray)) {
-        localBundle.putString(str, ((JSONArray)localObject).join(",").replace("\"", ""));
-      }
+    if ((paramInt1 <= 0) || (paramInt2 <= 0)) {
+      throw new IllegalArgumentException("Dimensions must positive.");
     }
-    if ((a != null) && (Features.dfp_advertising_hash.isEnabled())) {
-      localBundle.putString("adid", a);
-    }
-    return new PublisherAdRequest.Builder().addNetworkExtras(new AdMobExtras(localBundle)).build();
+    c = paramInt1;
+    d = paramInt2;
   }
   
-  public static void a()
+  public <T extends View> void a(T paramT, final at.a<T> parama)
   {
-    new r().execute(new Void[0]);
+    if (a())
+    {
+      parama.a(paramT, c, d);
+      return;
+    }
+    if ((c()) && (b()))
+    {
+      parama.a(paramT, a, b);
+      return;
+    }
+    at.a(paramT, new at.a()
+    {
+      public void a(T paramAnonymousT, int paramAnonymousInt1, int paramAnonymousInt2)
+      {
+        b(paramAnonymousInt1, paramAnonymousInt2);
+        parama.a(paramAnonymousT, paramAnonymousInt1, paramAnonymousInt2);
+      }
+    });
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    e = paramBoolean;
+  }
+  
+  public boolean a()
+  {
+    return (c > 0) && (d > 0);
+  }
+  
+  protected void b(int paramInt1, int paramInt2)
+  {
+    if ((paramInt1 == 0) || (paramInt2 == 0)) {
+      return;
+    }
+    a = paramInt1;
+    b = paramInt2;
+  }
+  
+  public boolean b()
+  {
+    return (a > 0) && (b > 0);
+  }
+  
+  public boolean c()
+  {
+    return e;
   }
 }
 

@@ -1,5 +1,6 @@
 package com.yelp.android.ui.activities.friends;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,37 +10,91 @@ import android.text.util.Linkify;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 import com.yelp.android.analytics.g;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.FriendRequestAcknowledgment;
 import com.yelp.android.appdata.webrequests.FriendRequestAcknowledgment.Acknowledgment;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.c.a;
 import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.appdata.webrequests.q;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.m.a;
 import com.yelp.android.serializable.FriendRequest;
 import com.yelp.android.serializable.User;
-import com.yelp.android.ui.activities.profile.j;
+import com.yelp.android.ui.activities.profile.ActivityUserProfile;
+import com.yelp.android.ui.activities.profile.ActivityUserProfile.a;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.util.cn;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.k;
+import com.yelp.android.ui.util.ap.b;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.util.StringUtils;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class ReviewFriendRequest
   extends YelpActivity
-  implements com.yelp.android.ui.p
+  implements k
 {
   private View a;
   private FriendRequest b;
   private String c;
-  private final m<List<FriendRequest>> d = new w(this);
-  private final i e = new x(this);
+  private final ApiRequest.b<List<FriendRequest>> d = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, List<FriendRequest> paramAnonymousList)
+    {
+      disableLoading();
+      paramAnonymousApiRequest = paramAnonymousList.iterator();
+      while (paramAnonymousApiRequest.hasNext())
+      {
+        paramAnonymousList = (FriendRequest)paramAnonymousApiRequest.next();
+        if (paramAnonymousList.j().ae().equals(ReviewFriendRequest.a(ReviewFriendRequest.this)))
+        {
+          ReviewFriendRequest.a(ReviewFriendRequest.this, paramAnonymousList);
+          ReviewFriendRequest.b(ReviewFriendRequest.this, paramAnonymousList);
+        }
+      }
+      if (ReviewFriendRequest.b(ReviewFriendRequest.this) == null) {
+        finish();
+      }
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      hideLoadingDialog();
+      if (isFinishing()) {
+        return;
+      }
+      disableLoading();
+      populateError(paramAnonymousYelpException);
+    }
+  };
+  private final c.a e = new c.a()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, Void paramAnonymousVoid)
+    {
+      paramAnonymousApiRequest = (FriendRequestAcknowledgment)paramAnonymousApiRequest;
+      ReviewFriendRequest.a(ReviewFriendRequest.this, paramAnonymousApiRequest.b(), paramAnonymousApiRequest.d());
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      hideLoadingDialog();
+      if (isFinishing()) {
+        return;
+      }
+      disableLoading();
+      as.a(paramAnonymousYelpException.getMessage(ReviewFriendRequest.this), 0);
+      findViewById(2131689868).performHapticFeedback(0, 1);
+    }
+  };
   
   private void a(FriendRequestAcknowledgment.Acknowledgment paramAcknowledgment, User paramUser)
   {
@@ -47,23 +102,23 @@ public class ReviewFriendRequest
     if (isFinishing()) {
       return;
     }
-    j localj = new j();
+    ActivityUserProfile.a locala = new ActivityUserProfile.a();
     c = b;
     if (paramAcknowledgment == FriendRequestAcknowledgment.Acknowledgment.APPROVE)
     {
-      cr.a(getString(2131165861, new Object[] { paramUser.getFirstName() }), 0);
+      as.a(getString(2131165938, new Object[] { paramUser.Z() }), 0);
       setResult(-1, getIntent());
-      AppData.b().m().s().addFriendCount(1);
+      AppData.b().q().p().e(1);
       d = 1;
     }
     for (;;)
     {
-      localj.a(this);
+      locala.a(this);
       finish();
       return;
       if (paramAcknowledgment == FriendRequestAcknowledgment.Acknowledgment.IGNORE)
       {
-        cr.a(2131165936, 0);
+        as.a(2131166003, 0);
         setResult(0, getIntent());
         d = 0;
       }
@@ -72,35 +127,28 @@ public class ReviewFriendRequest
   
   private void a(FriendRequest paramFriendRequest)
   {
-    User localUser = paramFriendRequest.getSender();
-    if (!TextUtils.isEmpty(paramFriendRequest.getMessage())) {}
+    User localUser = paramFriendRequest.j();
+    if (!TextUtils.isEmpty(paramFriendRequest.k())) {}
     for (int i = 1;; i = 0)
     {
       if (i == 0) {
-        findViewById(2131493170).setVisibility(8);
+        findViewById(2131689844).setVisibility(8);
       }
-      Object localObject = AppData.b().m();
-      ((TextView)findViewById(2131493200)).setText(StringUtils.a(this, 2131165863, new Object[] { ((dc)localObject).q() }));
-      localObject = (TextView)findViewById(2131493033);
-      ((TextView)localObject).setText(paramFriendRequest.getMessage());
+      Object localObject = AppData.b().q();
+      ((TextView)findViewById(2131689868)).setText(StringUtils.a(this, 2131165940, new Object[] { ((co)localObject).l() }));
+      localObject = (TextView)findViewById(2131689696);
+      ((TextView)localObject).setText(paramFriendRequest.k());
       Linkify.addLinks((TextView)localObject, 15);
       ((TextView)localObject).setMovementMethod(LinkMovementMethod.getInstance());
-      ((TextView)findViewById(2131493201)).setText(StringUtils.a(this, 2131165865, new Object[] { localUser.getFirstName() }));
-      new cn(a, false).a(a.getContext(), localUser.getName(), localUser.getFriendCount(), localUser.getReviewCount(), localUser.getPhotoCount(), localUser.getVideoCount(), localUser.getMediaCount(), localUser.getUserPhotoUrl(), localUser.isEliteUser());
+      ((TextView)findViewById(2131689869)).setText(StringUtils.a(this, 2131165942, new Object[] { localUser.Z() }));
+      new ap.b(a, false).a(a.getContext(), localUser.ad(), localUser.k_(), localUser.j_(), localUser.l_(), localUser.m_(), localUser.n_(), localUser.c(), localUser.h());
       return;
     }
   }
   
   private void a(FriendRequest paramFriendRequest, FriendRequestAcknowledgment.Acknowledgment paramAcknowledgment)
   {
-    showLoadingDialog(new FriendRequestAcknowledgment(e, paramAcknowledgment, paramFriendRequest.getSender()).execute(new Void[0]));
-  }
-  
-  public void a_()
-  {
-    com.yelp.android.appdata.webrequests.p localp = new com.yelp.android.appdata.webrequests.p("user/requests/friends", Collections.singletonMap("user_id", c), d, new q("friend_requests", FriendRequest.CREATOR));
-    localp.execute(new Void[0]);
-    enableLoading(localp);
+    showLoadingDialog(new FriendRequestAcknowledgment(e, paramAcknowledgment, paramFriendRequest.j()).f(new Void[0]));
   }
   
   public ViewIri getIri()
@@ -108,12 +156,12 @@ public class ReviewFriendRequest
     return ViewIri.FriendRequest;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
     return g.b(c);
   }
   
-  public String getRequestIdForIri(b paramb)
+  public String getRequestIdForIri(a parama)
   {
     return null;
   }
@@ -130,16 +178,35 @@ public class ReviewFriendRequest
       return;
     }
     if (b != null) {
-      c = b.getSender().getId();
+      c = b.j().ae();
     }
     for (;;)
     {
       super.onCreate(paramBundle);
-      setContentView(2130903092);
-      a = findViewById(2131493199);
-      a.setOnClickListener(new t(this));
-      findViewById(2131493203).setOnClickListener(new u(this));
-      findViewById(2131493204).setOnClickListener(new v(this));
+      setContentView(2130903103);
+      a = findViewById(2131689867);
+      a.setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          paramAnonymousView = paramAnonymousView.getContext();
+          paramAnonymousView.startActivity(ActivityUserProfile.a(paramAnonymousView, ReviewFriendRequest.a(ReviewFriendRequest.this)));
+        }
+      });
+      findViewById(2131689870).setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          ReviewFriendRequest.a(ReviewFriendRequest.this, ReviewFriendRequest.b(ReviewFriendRequest.this), FriendRequestAcknowledgment.Acknowledgment.IGNORE);
+        }
+      });
+      findViewById(2131689713).setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          ReviewFriendRequest.a(ReviewFriendRequest.this, ReviewFriendRequest.b(ReviewFriendRequest.this), FriendRequestAcknowledgment.Acknowledgment.APPROVE);
+        }
+      });
       if (b == null) {
         break;
       }
@@ -149,7 +216,7 @@ public class ReviewFriendRequest
         c = getIntent().getData().getLastPathSegment();
       }
     }
-    a_();
+    p_();
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
@@ -187,6 +254,13 @@ public class ReviewFriendRequest
       localMenuItem.setIcon(i);
       return super.onPrepareOptionsMenu(paramMenu);
     }
+  }
+  
+  public void p_()
+  {
+    m localm = new m("user/requests/friends", Collections.singletonMap("user_id", c), d, new m.a("friend_requests", FriendRequest.CREATOR));
+    localm.f(new Void[0]);
+    enableLoading(localm);
   }
 }
 

@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 25
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
     return-void
@@ -18,29 +18,29 @@
     .locals 2
 
     .prologue
-    .line 33
+    .line 32
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/deals/ChooseDealOption;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 34
+    .line 33
     const-string/jumbo v1, "DEAL.xtra"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 35
+    .line 34
     const-string/jumbo v1, "BUSINESS.xtra"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 36
+    .line 35
     const/high16 v1, 0x10000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 37
+    .line 36
     return-object v0
 .end method
 
@@ -50,17 +50,17 @@
     .locals 1
 
     .prologue
-    .line 82
+    .line 85
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealOptions:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 26
+    .line 25
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/deals/ChooseDealOption;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -78,15 +78,15 @@
 
     const/4 v9, 0x0
 
-    .line 42
+    .line 41
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 43
+    .line 42
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/deals/ChooseDealOption;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 44
+    .line 43
     const-string/jumbo v0, "DEAL.xtra"
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -97,7 +97,7 @@
 
     check-cast v6, Lcom/yelp/android/serializable/YelpDeal;
 
-    .line 45
+    .line 44
     const-string/jumbo v0, "BUSINESS.xtra"
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -108,39 +108,39 @@
 
     check-cast v7, Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 46
-    invoke-virtual {v6}, Lcom/yelp/android/serializable/YelpDeal;->getOptions()Ljava/util/List;
+    .line 45
+    invoke-virtual {v6}, Lcom/yelp/android/serializable/YelpDeal;->y()Ljava/util/List;
 
     move-result-object v0
 
-    .line 47
+    .line 46
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
     if-ne v1, v10, :cond_0
 
-    .line 48
+    .line 47
     invoke-static {p0, v7, v6, v9}, Lcom/yelp/android/ui/activities/deals/PurchaseDealsForm;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/YelpDeal;I)Landroid/content/Intent;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/deals/ChooseDealOption;->startActivity(Landroid/content/Intent;)V
 
-    .line 49
+    .line 48
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/deals/ChooseDealOption;->finish()V
 
-    .line 78
+    .line 81
     :goto_0
     return-void
 
-    .line 52
+    .line 51
     :cond_0
-    const v1, 0x7f030020
+    const v1, 0x7f030028
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/deals/ChooseDealOption;->setContentView(I)V
 
-    .line 53
+    .line 52
     new-array v4, v11, [Ljava/lang/String;
 
     const-string/jumbo v1, "Title"
@@ -151,12 +151,12 @@
 
     aput-object v1, v4, v10
 
-    .line 56
+    .line 53
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 57
+    .line 54
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -174,39 +174,39 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpDealOption;
 
-    .line 58
+    .line 55
     new-instance v3, Ljava/util/TreeMap;
 
     invoke-direct {v3}, Ljava/util/TreeMap;-><init>()V
 
-    .line 59
+    .line 56
     aget-object v5, v4, v9
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDealOption;->getTitle()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDealOption;->g()Ljava/lang/String;
 
     move-result-object v8
 
     invoke-virtual {v3, v5, v8}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 60
+    .line 57
     aget-object v5, v4, v10
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDealOption;->getDescription()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDealOption;->f()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v3, v5, v0}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 61
+    .line 58
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    .line 63
+    .line 60
     :cond_1
     new-instance v0, Landroid/widget/SimpleAdapter;
 
-    const v3, 0x7f030076
+    const v3, 0x7f030088
 
     new-array v5, v11, [I
 
@@ -217,7 +217,7 @@
     invoke-direct/range {v0 .. v5}, Landroid/widget/SimpleAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V
 
     .line 68
-    const v1, 0x7f0c00df
+    const v1, 0x7f0f012b
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/deals/ChooseDealOption;->findViewById(I)Landroid/view/View;
 
@@ -229,18 +229,18 @@
     invoke-virtual {v1, v0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 70
-    new-instance v0, Lcom/yelp/android/ui/activities/deals/ac;
+    new-instance v0, Lcom/yelp/android/ui/activities/deals/ChooseDealOption$1;
 
-    invoke-direct {v0, p0, v7, v6}, Lcom/yelp/android/ui/activities/deals/ac;-><init>(Lcom/yelp/android/ui/activities/deals/ChooseDealOption;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/YelpDeal;)V
+    invoke-direct {v0, p0, v7, v6}, Lcom/yelp/android/ui/activities/deals/ChooseDealOption$1;-><init>(Lcom/yelp/android/ui/activities/deals/ChooseDealOption;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/YelpDeal;)V
 
     invoke-virtual {v1, v0}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
     goto :goto_0
 
-    .line 63
+    .line 60
     :array_0
     .array-data 4
-        0x7f0c0084
-        0x7f0c0119
+        0x7f0f00a9
+        0x7f0f00ef
     .end array-data
 .end method

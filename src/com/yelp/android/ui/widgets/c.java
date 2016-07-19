@@ -1,17 +1,11 @@
 package com.yelp.android.ui.widgets;
 
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.Checkable;
 
-class c
-  implements Runnable
+public abstract interface c
 {
-  c(b paramb, ImageView paramImageView) {}
-  
-  public void run()
-  {
-    a.setVisibility(0);
-    a.startAnimation(b.a(b));
-  }
+  public abstract <CheckableView extends View,  extends Checkable> void onCheckedChanged(CheckableView paramCheckableView);
 }
 
 /* Location:

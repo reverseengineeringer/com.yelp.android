@@ -1,55 +1,27 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import java.io.File;
+import java.util.Map;
 
-@ey
-public final class gm
+public class gm
 {
-  public static void a(Context paramContext, WebSettings paramWebSettings)
+  public final int a;
+  public final byte[] b;
+  public final Map<String, String> c;
+  public final boolean d;
+  public final long e;
+  
+  public gm(int paramInt, byte[] paramArrayOfByte, Map<String, String> paramMap, boolean paramBoolean, long paramLong)
   {
-    File localFile = paramContext.getCacheDir();
-    if (localFile != null)
-    {
-      paramWebSettings.setAppCachePath(localFile.getAbsolutePath());
-      paramWebSettings.setAppCacheMaxSize(0L);
-      paramWebSettings.setAppCacheEnabled(true);
-    }
-    paramWebSettings.setDatabasePath(paramContext.getDatabasePath("com.google.android.gms.ads.db").getAbsolutePath());
-    paramWebSettings.setDatabaseEnabled(true);
-    paramWebSettings.setDomStorageEnabled(true);
-    paramWebSettings.setDisplayZoomControls(false);
-    paramWebSettings.setBuiltInZoomControls(true);
-    paramWebSettings.setSupportZoom(true);
+    a = paramInt;
+    b = paramArrayOfByte;
+    c = paramMap;
+    d = paramBoolean;
+    e = paramLong;
   }
   
-  public static void a(Window paramWindow)
+  public gm(byte[] paramArrayOfByte, Map<String, String> paramMap)
   {
-    paramWindow.setFlags(16777216, 16777216);
-  }
-  
-  public static void a(WebView paramWebView)
-  {
-    paramWebView.onPause();
-  }
-  
-  public static void b(WebView paramWebView)
-  {
-    paramWebView.onResume();
-  }
-  
-  public static void i(View paramView)
-  {
-    paramView.setLayerType(1, null);
-  }
-  
-  public static void j(View paramView)
-  {
-    paramView.setLayerType(0, null);
+    this(200, paramArrayOfByte, paramMap, false, 0L);
   }
 }
 

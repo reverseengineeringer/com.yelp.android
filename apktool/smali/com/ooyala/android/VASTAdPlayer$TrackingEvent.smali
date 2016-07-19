@@ -3,6 +3,17 @@
 .source "VASTAdPlayer.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/VASTAdPlayer;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x60a
+    name = "TrackingEvent"
+.end annotation
+
+
 # static fields
 .field public static final COMPLETE:Ljava/lang/String; = "complete"
 

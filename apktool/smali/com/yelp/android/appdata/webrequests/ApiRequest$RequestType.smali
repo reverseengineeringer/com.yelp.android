@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/ApiRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "RequestType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -39,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    .line 788
+    .line 835
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     const-string/jumbo v1, "GET"
@@ -48,6 +57,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
+    .line 836
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     const-string/jumbo v1, "POST"
@@ -56,6 +66,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
+    .line 837
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     const-string/jumbo v1, "PUT"
@@ -64,6 +75,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->PUT:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
+    .line 838
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     const-string/jumbo v1, "DELETE"
@@ -72,7 +84,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->DELETE:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    .line 787
+    .line 834
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
@@ -107,7 +119,7 @@
     .end annotation
 
     .prologue
-    .line 787
+    .line 834
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -117,7 +129,7 @@
     .locals 1
 
     .prologue
-    .line 787
+    .line 834
     const-class v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -133,7 +145,7 @@
     .locals 1
 
     .prologue
-    .line 787
+    .line 834
     sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->$VALUES:[Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->clone()Ljava/lang/Object;

@@ -8,6 +8,31 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "Impl"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Fields;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$EntrySet;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Values;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$KeySet;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$EntryIterator;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$WriteThroughEntry;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$ValueIterator;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$KeyIterator;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$HashIterator;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$InternalsImpl;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -71,10 +96,10 @@
     .end annotation
 .end field
 
-.field final strategy:Lcom/yelp/common/collect/d;
+.field final strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/common/collect/d",
+            "Lcom/yelp/common/collect/CustomConcurrentHashMap$c",
             "<TK;TV;TE;>;"
         }
     .end annotation
@@ -91,12 +116,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/common/collect/d;Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;)V
+.method constructor <init>(Lcom/yelp/common/collect/CustomConcurrentHashMap$c;Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;)V
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/d",
+            "Lcom/yelp/common/collect/CustomConcurrentHashMap$c",
             "<TK;TV;TE;>;",
             "Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;",
             ")V"
@@ -223,14 +248,14 @@
 
     .line 657
     :cond_2
-    iput-object p1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iput-object p1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 659
     new-instance v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$InternalsImpl;
 
     invoke-direct {v0, p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$InternalsImpl;-><init>(Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;)V
 
-    invoke-interface {p1, v0}, Lcom/yelp/common/collect/d;->setInternals(Lcom/yelp/common/collect/c;)V
+    invoke-interface {p1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->setInternals(Lcom/yelp/common/collect/CustomConcurrentHashMap$b;)V
 
     .line 660
     return-void
@@ -253,6 +278,12 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
 
     .prologue
     const/high16 v5, 0x40000000    # 2.0f
@@ -279,7 +310,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/common/collect/d;
+    check-cast v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1995
     if-le v2, v1, :cond_6
@@ -446,6 +477,11 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 1954
@@ -463,7 +499,7 @@
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeInt(I)V
 
     .line 1956
-    iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
@@ -893,9 +929,9 @@
 
     .prologue
     .line 663
-    iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
-    invoke-interface {v0, p1}, Lcom/yelp/common/collect/d;->hashKey(Ljava/lang/Object;)I
+    invoke-interface {v0, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->hashKey(Ljava/lang/Object;)I
 
     move-result v0
 

@@ -1,4 +1,4 @@
-.class public Lcom/yelp/android/ui/activities/photoviewer/MediaBaseFragment;
+.class public abstract Lcom/yelp/android/ui/activities/photoviewer/MediaBaseFragment;
 .super Lcom/yelp/android/ui/activities/support/YelpFragment;
 .source "MediaBaseFragment.java"
 
@@ -12,7 +12,7 @@
     .locals 0
 
     .prologue
-    .line 16
+    .line 17
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;-><init>()V
 
     return-void
@@ -20,29 +20,14 @@
 
 
 # virtual methods
-.method public i_()V
-    .locals 2
-
-    .prologue
-    .line 36
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/MediaBaseFragment;->a:Lcom/yelp/android/ui/panels/PanelLoading;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
-
-    .line 37
-    return-void
-.end method
-
-.method public j()V
+.method public H_()V
     .locals 2
 
     .prologue
     .line 41
     iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/MediaBaseFragment;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    const/16 v1, 0x8
+    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
 
@@ -50,24 +35,42 @@
     return-void
 .end method
 
+.method public abstract k()Lcom/yelp/android/serializable/Media;
+.end method
+
+.method public l()V
+    .locals 2
+
+    .prologue
+    .line 46
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/MediaBaseFragment;->a:Lcom/yelp/android/ui/panels/PanelLoading;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
+
+    .line 47
+    return-void
+.end method
+
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
 
     .prologue
-    .line 22
+    .line 26
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    .line 23
-    const v1, 0x7f0300b8
+    .line 28
+    const v1, 0x7f0300d2
 
     invoke-virtual {p1, v1, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 24
-    const v1, 0x7f0c0028
+    .line 29
+    const v1, 0x7f0f002d
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -77,7 +80,7 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/MediaBaseFragment;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 25
+    .line 30
     return-object v0
 .end method
 
@@ -85,14 +88,14 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 35
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onDestroy()V
 
-    .line 31
+    .line 36
     iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/MediaBaseFragment;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/PanelLoading;->c()V
 
-    .line 32
+    .line 37
     return-void
 .end method

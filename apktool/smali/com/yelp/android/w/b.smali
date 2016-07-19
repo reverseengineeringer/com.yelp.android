@@ -1,66 +1,62 @@
 .class public Lcom/yelp/android/w/b;
 .super Ljava/lang/Object;
-.source "FileDescriptorFileLoader.java"
+.source "ByteArrayFetcher.java"
 
 # interfaces
-.implements Lcom/yelp/android/v/n;
+.implements Lcom/yelp/android/w/c;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/yelp/android/v/n",
+        "Lcom/yelp/android/w/c",
         "<",
-        "Ljava/io/File;",
-        "Landroid/os/ParcelFileDescriptor;",
+        "Ljava/io/InputStream;",
         ">;"
     }
 .end annotation
 
 
+# instance fields
+.field private final a:[B
+
+.field private final b:Ljava/lang/String;
+
+
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>([BLjava/lang/String;)V
     .locals 0
 
     .prologue
-    .line 25
+    .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 17
+    iput-object p1, p0, Lcom/yelp/android/w/b;->a:[B
+
+    .line 18
+    iput-object p2, p0, Lcom/yelp/android/w/b;->b:Ljava/lang/String;
+
+    .line 19
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/content/Context;Lcom/yelp/android/v/c;)Lcom/yelp/android/v/m;
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
+.method public synthetic a(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/yelp/android/v/c;",
-            ")",
-            "Lcom/yelp/android/v/m",
-            "<",
-            "Ljava/io/File;",
-            "Landroid/os/ParcelFileDescriptor;",
-            ">;"
+            Ljava/lang/Exception;
         }
     .end annotation
 
     .prologue
-    .line 28
-    new-instance v0, Lcom/yelp/android/w/a;
+    .line 12
+    invoke-virtual {p0, p1}, Lcom/yelp/android/w/b;->b(Lcom/bumptech/glide/Priority;)Ljava/io/InputStream;
 
-    const-class v1, Landroid/net/Uri;
-
-    const-class v2, Landroid/os/ParcelFileDescriptor;
-
-    invoke-virtual {p2, v1, v2}, Lcom/yelp/android/v/c;->a(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/v/m;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/w/a;-><init>(Lcom/yelp/android/v/m;)V
+    move-result-object v0
 
     return-object v0
 .end method
@@ -69,6 +65,38 @@
     .locals 0
 
     .prologue
-    .line 34
+    .line 29
+    return-void
+.end method
+
+.method public b(Lcom/bumptech/glide/Priority;)Ljava/io/InputStream;
+    .locals 2
+
+    .prologue
+    .line 23
+    new-instance v0, Ljava/io/ByteArrayInputStream;
+
+    iget-object v1, p0, Lcom/yelp/android/w/b;->a:[B
+
+    invoke-direct {v0, v1}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    return-object v0
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 33
+    iget-object v0, p0, Lcom/yelp/android/w/b;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c()V
+    .locals 0
+
+    .prologue
+    .line 39
     return-void
 .end method

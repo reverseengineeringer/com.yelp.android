@@ -1,23 +1,68 @@
 package com.yelp.android.appdata;
 
-import com.yelp.android.util.YelpLog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import com.yelp.android.services.a;
+import java.util.Collection;
+import java.util.Collections;
 
-class d
-  extends Thread
+public class d
 {
-  d(AppData paramAppData) {}
+  protected final Context a;
   
-  public void run()
+  public d(Context paramContext)
   {
-    try
+    a = paramContext;
+  }
+  
+  protected int a(String paramString1, String paramString2)
+  {
+    paramString1 = a.getSharedPreferences(paramString1, 4);
+    int i = paramString1.getInt(paramString2, 0) + 1;
+    paramString1.edit().putInt(paramString2, i).commit();
+    return i;
+  }
+  
+  public Collection<String> a(Context paramContext)
+  {
+    return Collections.emptySet();
+  }
+  
+  public void a(String paramString, byte[] paramArrayOfByte)
+  {
+    SharedPreferences localSharedPreferences = a.getSharedPreferences("cred", 0);
+    if (paramArrayOfByte != null)
     {
-      com.yelp.android.services.d.a();
+      paramArrayOfByte = new String(a.a(paramArrayOfByte));
+      localSharedPreferences.edit().putString(paramString, paramArrayOfByte).commit();
       return;
     }
-    catch (Exception localException)
-    {
-      YelpLog.error(a, "AppData.onConfigurationChanged calling HttpRequestWrapped.reset()", localException);
+    localSharedPreferences.edit().remove(paramString).commit();
+  }
+  
+  protected SharedPreferences.Editor ah()
+  {
+    return ai().edit();
+  }
+  
+  protected SharedPreferences ai()
+  {
+    return a.getSharedPreferences("HowdyPartna", 4);
+  }
+  
+  public String aj()
+  {
+    return ai().getString("partnerXref", "");
+  }
+  
+  public byte[] e(String paramString)
+  {
+    paramString = a.getSharedPreferences("cred", 0).getString(paramString, null);
+    if (paramString == null) {
+      return null;
     }
+    return a.b(paramString);
   }
 }
 

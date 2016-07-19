@@ -1,49 +1,22 @@
 package android.support.v4.view;
 
-import android.view.View;
-import android.view.View.AccessibilityDelegate;
-import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
+import android.view.KeyEvent;
 
-final class i
-  extends View.AccessibilityDelegate
+class i
 {
-  i(j paramj) {}
-  
-  public boolean dispatchPopulateAccessibilityEvent(View paramView, AccessibilityEvent paramAccessibilityEvent)
+  public static int a(int paramInt)
   {
-    return a.a(paramView, paramAccessibilityEvent);
+    return KeyEvent.normalizeMetaState(paramInt);
   }
   
-  public void onInitializeAccessibilityEvent(View paramView, AccessibilityEvent paramAccessibilityEvent)
+  public static boolean a(int paramInt1, int paramInt2)
   {
-    a.b(paramView, paramAccessibilityEvent);
+    return KeyEvent.metaStateHasModifiers(paramInt1, paramInt2);
   }
   
-  public void onInitializeAccessibilityNodeInfo(View paramView, AccessibilityNodeInfo paramAccessibilityNodeInfo)
+  public static boolean b(int paramInt)
   {
-    a.a(paramView, paramAccessibilityNodeInfo);
-  }
-  
-  public void onPopulateAccessibilityEvent(View paramView, AccessibilityEvent paramAccessibilityEvent)
-  {
-    a.c(paramView, paramAccessibilityEvent);
-  }
-  
-  public boolean onRequestSendAccessibilityEvent(ViewGroup paramViewGroup, View paramView, AccessibilityEvent paramAccessibilityEvent)
-  {
-    return a.a(paramViewGroup, paramView, paramAccessibilityEvent);
-  }
-  
-  public void sendAccessibilityEvent(View paramView, int paramInt)
-  {
-    a.a(paramView, paramInt);
-  }
-  
-  public void sendAccessibilityEventUnchecked(View paramView, AccessibilityEvent paramAccessibilityEvent)
-  {
-    a.d(paramView, paramAccessibilityEvent);
+    return KeyEvent.metaStateHasNoModifiers(paramInt);
   }
 }
 

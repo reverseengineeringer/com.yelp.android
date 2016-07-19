@@ -9,6 +9,11 @@ import android.view.View.MeasureSpec;
 public class Space
   extends View
 {
+  public Space(Context paramContext)
+  {
+    this(paramContext, null);
+  }
+  
   public Space(Context paramContext, AttributeSet paramAttributeSet)
   {
     this(paramContext, paramAttributeSet, 0);

@@ -1,28 +1,11 @@
-.class Landroid/support/v4/view/x;
-.super Landroid/support/v4/view/w;
-.source "KeyEventCompat.java"
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 118
-    invoke-direct {p0}, Landroid/support/v4/view/w;-><init>()V
-
-    return-void
-.end method
+.class public interface abstract Landroid/support/v4/view/x;
+.super Ljava/lang/Object;
+.source "NestedScrollingChild.java"
 
 
 # virtual methods
-.method public a(Landroid/view/KeyEvent;)V
-    .locals 0
+.method public abstract isNestedScrollingEnabled()Z
+.end method
 
-    .prologue
-    .line 121
-    invoke-static {p1}, Landroid/support/v4/view/aa;->a(Landroid/view/KeyEvent;)V
-
-    .line 122
-    return-void
+.method public abstract stopNestedScroll()V
 .end method

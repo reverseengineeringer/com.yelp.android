@@ -65,7 +65,7 @@ public class BaseStreamPlayer
   private void dequeuePlay()
   {
     if (_playQueued) {}
-    switch (BaseStreamPlayer.1.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     default: 
       return;
@@ -206,7 +206,7 @@ public class BaseStreamPlayer
     if (_player == null) {
       return 0;
     }
-    switch (BaseStreamPlayer.1.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     }
     return _player.getCurrentPosition();
@@ -234,7 +234,7 @@ public class BaseStreamPlayer
     if (_player == null) {
       return 0;
     }
-    switch (BaseStreamPlayer.1.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     }
     return _player.getDuration();
@@ -358,7 +358,7 @@ public class BaseStreamPlayer
   public void pause()
   {
     _playQueued = false;
-    switch (BaseStreamPlayer.1.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     default: 
       return;
@@ -371,12 +371,12 @@ public class BaseStreamPlayer
   public void play()
   {
     _playQueued = false;
-    switch (BaseStreamPlayer.1.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     default: 
       return;
-    case 2: 
-    case 3: 
+    case ???: 
+    case ???: 
       queuePlay();
       return;
     }

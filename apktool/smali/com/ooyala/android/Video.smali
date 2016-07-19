@@ -6,6 +6,15 @@
 .implements Lcom/ooyala/android/PlayableItem;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/Video$1;,
+        Lcom/ooyala/android/Video$FetchPlaybackInfoTask;
+    }
+.end annotation
+
+
 # instance fields
 .field protected _ads:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;

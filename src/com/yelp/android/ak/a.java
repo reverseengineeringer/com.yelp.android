@@ -1,42 +1,92 @@
 package com.yelp.android.ak;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build.VERSION;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.e;
+import com.yelp.android.aa.l;
+import com.yelp.android.ai.c;
+import java.io.File;
 
-@SuppressLint({"NewApi"})
-public class a
+public class a<A, T, Z, R>
+  implements f<A, T, Z, R>, Cloneable
 {
-  private static boolean a = false;
-  private static boolean b = false;
+  private final f<A, T, Z, R> a;
+  private d<File, Z> b;
+  private d<T, Z> c;
+  private e<Z> d;
+  private c<Z, R> e;
+  private com.bumptech.glide.load.a<T> f;
   
-  public static boolean a(Context paramContext)
+  public a(f<A, T, Z, R> paramf)
   {
-    if (a) {
+    a = paramf;
+  }
+  
+  public d<File, Z> a()
+  {
+    if (b != null) {
       return b;
     }
-    if (Build.VERSION.SDK_INT > 4) {
-      try
-      {
-        paramContext = paramContext.getPackageManager().getInstallerPackageName(paramContext.getPackageName());
-        if (("com.android.vending".equals(paramContext)) || ("com.google.play".equals(paramContext)))
-        {
-          a = true;
-          b = true;
-          return true;
-        }
-      }
-      catch (Exception paramContext)
-      {
-        a = true;
-        b = false;
-        return false;
-      }
+    return a.a();
+  }
+  
+  public void a(com.bumptech.glide.load.a<T> parama)
+  {
+    f = parama;
+  }
+  
+  public void a(d<T, Z> paramd)
+  {
+    c = paramd;
+  }
+  
+  public d<T, Z> b()
+  {
+    if (c != null) {
+      return c;
     }
-    a = true;
-    b = false;
-    return false;
+    return a.b();
+  }
+  
+  public com.bumptech.glide.load.a<T> c()
+  {
+    if (f != null) {
+      return f;
+    }
+    return a.c();
+  }
+  
+  public e<Z> d()
+  {
+    if (d != null) {
+      return d;
+    }
+    return a.d();
+  }
+  
+  public l<A, T> e()
+  {
+    return a.e();
+  }
+  
+  public c<Z, R> f()
+  {
+    if (e != null) {
+      return e;
+    }
+    return a.f();
+  }
+  
+  public a<A, T, Z, R> g()
+  {
+    try
+    {
+      a locala = (a)super.clone();
+      return locala;
+    }
+    catch (CloneNotSupportedException localCloneNotSupportedException)
+    {
+      throw new RuntimeException(localCloneNotSupportedException);
+    }
   }
 }
 

@@ -6,6 +6,15 @@
 .implements Lcom/ooyala/android/PaginatedParentItem;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/ChannelSet$1;,
+        Lcom/ooyala/android/ChannelSet$NextChildrenRunner;
+    }
+.end annotation
+
+
 # instance fields
 .field protected _channels:Lcom/ooyala/android/OrderedMap;
     .annotation system Ldalvik/annotation/Signature;

@@ -1,55 +1,42 @@
 package com.yelp.android.ah;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import com.bumptech.glide.load.b;
-import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
+import android.graphics.Bitmap;
+import com.bumptech.glide.load.engine.i;
+import com.yelp.android.ag.b;
 
-public final class a
+public class a
 {
-  private static final ConcurrentHashMap<String, b> a = new ConcurrentHashMap();
+  private final i<b> a;
+  private final i<Bitmap> b;
   
-  public static b a(Context paramContext)
+  public a(i<Bitmap> parami, i<b> parami1)
   {
-    String str = paramContext.getPackageName();
-    b localb = (b)a.get(str);
-    Object localObject = localb;
-    if (localb == null)
-    {
-      paramContext = b(paramContext);
-      localb = (b)a.putIfAbsent(str, paramContext);
-      localObject = localb;
-      if (localb == null) {
-        localObject = paramContext;
-      }
+    if ((parami != null) && (parami1 != null)) {
+      throw new IllegalArgumentException("Can only contain either a bitmap resource or a gif resource, not both");
     }
-    return (b)localObject;
+    if ((parami == null) && (parami1 == null)) {
+      throw new IllegalArgumentException("Must contain either a bitmap resource or a gif resource");
+    }
+    b = parami;
+    a = parami1;
   }
   
-  private static b b(Context paramContext)
+  public int a()
   {
-    try
-    {
-      paramContext = paramContext.getPackageManager().getPackageInfo(paramContext.getPackageName(), 0);
-      if (paramContext != null)
-      {
-        paramContext = String.valueOf(versionCode);
-        return new c(paramContext);
-      }
+    if (b != null) {
+      return b.c();
     }
-    catch (PackageManager.NameNotFoundException paramContext)
-    {
-      for (;;)
-      {
-        paramContext.printStackTrace();
-        paramContext = null;
-        continue;
-        paramContext = UUID.randomUUID().toString();
-      }
-    }
+    return a.c();
+  }
+  
+  public i<Bitmap> b()
+  {
+    return b;
+  }
+  
+  public i<b> c()
+  {
+    return a;
   }
 }
 

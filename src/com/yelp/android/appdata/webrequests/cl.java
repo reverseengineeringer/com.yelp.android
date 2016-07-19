@@ -1,45 +1,33 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.User;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.BusinessLocalAd;
+import com.yelp.android.serializable.LocalAd;
+import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class cl
-  extends g<Void, Void, cm>
+  extends b<Void, Void, List<BusinessLocalAd>>
 {
-  public cl(m<cm> paramm, Iterable<String> paramIterable, boolean paramBoolean1, boolean paramBoolean2)
+  public cl(String paramString1, String paramString2, ApiRequest.b<List<LocalAd>> paramb)
   {
-    super(ApiRequest.RequestType.POST, "user/friend_finder_v2", paramm);
-    if (paramIterable != null) {
-      addPostParam("emails", paramIterable);
+    super(ApiRequest.RequestType.GET, "business/local_ads", paramb);
+    a("biz_id", paramString1);
+    if (paramString2 != null) {
+      a("biz_request_id", paramString2);
     }
-    addPostParam("ignored", paramBoolean1);
-    addPostParam("include_facebook", paramBoolean2);
   }
   
-  public cm a(JSONObject paramJSONObject)
+  public List<BusinessLocalAd> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    ArrayList localArrayList = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("users"), User.CREATOR);
-    int i = paramJSONObject.optInt("ignored_count", 0);
-    Object localObject = Collections.emptyMap();
-    if (!paramJSONObject.isNull("user_id_to_email"))
-    {
-      paramJSONObject = paramJSONObject.getJSONObject("user_id_to_email");
-      localObject = new HashMap(paramJSONObject.length(), 1.0F);
-      Iterator localIterator = paramJSONObject.keys();
-      while (localIterator.hasNext())
-      {
-        String str = (String)localIterator.next();
-        ((HashMap)localObject).put(str, paramJSONObject.getString(str));
-      }
-    }
-    return new cm((Map)localObject, localArrayList, i);
+    ArrayList localArrayList = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("local_ads"), BusinessLocalAd.CREATOR);
+    BusinessLocalAd.a(localArrayList, JsonUtil.parseJsonList(paramJSONObject.getJSONArray("ad_businesses"), YelpBusiness.CREATOR));
+    return localArrayList;
   }
 }
 

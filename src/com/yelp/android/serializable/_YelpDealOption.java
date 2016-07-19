@@ -2,31 +2,97 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _YelpDealOption
   implements Parcelable
 {
-  protected int mAvailableCount;
-  protected String mDescription;
-  protected String mId;
-  protected String mOriginalPrice;
-  protected String mPrice;
-  protected int mPurchasedCount;
-  protected String mTitle;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected int f;
+  protected int g;
   
-  protected _YelpDealOption() {}
-  
-  protected _YelpDealOption(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, int paramInt1, int paramInt2)
+  public JSONObject a()
+    throws JSONException
   {
-    this();
-    mTitle = paramString1;
-    mDescription = paramString2;
-    mId = paramString3;
-    mPrice = paramString4;
-    mOriginalPrice = paramString5;
-    mAvailableCount = paramInt1;
-    mPurchasedCount = paramInt2;
+    JSONObject localJSONObject = new JSONObject();
+    if (a != null) {
+      localJSONObject.put("title", a);
+    }
+    if (b != null) {
+      localJSONObject.put("description", b);
+    }
+    if (c != null) {
+      localJSONObject.put("id", c);
+    }
+    if (d != null) {
+      localJSONObject.put("price", d);
+    }
+    if (e != null) {
+      localJSONObject.put("original_price", e);
+    }
+    localJSONObject.put("available_count", f);
+    localJSONObject.put("purchased_count", g);
+    return localJSONObject;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = paramParcel.readInt();
+    g = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("title")) {
+      a = paramJSONObject.optString("title");
+    }
+    if (!paramJSONObject.isNull("description")) {
+      b = paramJSONObject.optString("description");
+    }
+    if (!paramJSONObject.isNull("id")) {
+      c = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("price")) {
+      d = paramJSONObject.optString("price");
+    }
+    if (!paramJSONObject.isNull("original_price")) {
+      e = paramJSONObject.optString("original_price");
+    }
+    if (!paramJSONObject.isNull("available_count")) {}
+    for (f = paramJSONObject.optInt("available_count"); !paramJSONObject.isNull("purchased_count"); f = -1)
+    {
+      g = paramJSONObject.optInt("purchased_count");
+      return;
+    }
+    g = -1;
+  }
+  
+  public int b()
+  {
+    return f;
+  }
+  
+  public String c()
+  {
+    return e;
+  }
+  
+  public String d()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -34,110 +100,49 @@ abstract class _YelpDealOption
     return 0;
   }
   
-  public int getAvailableCount()
+  public String e()
   {
-    return mAvailableCount;
+    return c;
   }
   
-  public String getDescription()
+  public boolean equals(Object paramObject)
   {
-    return mDescription;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public String getOriginalPrice()
-  {
-    return mOriginalPrice;
-  }
-  
-  public String getPrice()
-  {
-    return mPrice;
-  }
-  
-  public int getPurchasedCount()
-  {
-    return mPurchasedCount;
-  }
-  
-  public String getTitle()
-  {
-    return mTitle;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("title")) {
-      mTitle = paramJSONObject.optString("title");
-    }
-    if (!paramJSONObject.isNull("description")) {
-      mDescription = paramJSONObject.optString("description");
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("price")) {
-      mPrice = paramJSONObject.optString("price");
-    }
-    if (!paramJSONObject.isNull("original_price")) {
-      mOriginalPrice = paramJSONObject.optString("original_price");
-    }
-    if (!paramJSONObject.isNull("available_count")) {}
-    for (mAvailableCount = paramJSONObject.optInt("available_count"); !paramJSONObject.isNull("purchased_count"); mAvailableCount = -1)
+    if (paramObject == null) {}
+    do
     {
-      mPurchasedCount = paramJSONObject.optInt("purchased_count");
-      return;
-    }
-    mPurchasedCount = -1;
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpDealOption)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public String f()
   {
-    mTitle = paramParcel.readString();
-    mDescription = paramParcel.readString();
-    mId = paramParcel.readString();
-    mPrice = paramParcel.readString();
-    mOriginalPrice = paramParcel.readString();
-    mAvailableCount = paramParcel.readInt();
-    mPurchasedCount = paramParcel.readInt();
+    return b;
   }
   
-  public JSONObject writeJSON()
+  public String g()
   {
-    JSONObject localJSONObject = new JSONObject();
-    if (mTitle != null) {
-      localJSONObject.put("title", mTitle);
-    }
-    if (mDescription != null) {
-      localJSONObject.put("description", mDescription);
-    }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
-    }
-    if (mPrice != null) {
-      localJSONObject.put("price", mPrice);
-    }
-    if (mOriginalPrice != null) {
-      localJSONObject.put("original_price", mOriginalPrice);
-    }
-    localJSONObject.put("available_count", mAvailableCount);
-    localJSONObject.put("purchased_count", mPurchasedCount);
-    return localJSONObject;
+    return a;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mTitle);
-    paramParcel.writeString(mDescription);
-    paramParcel.writeString(mId);
-    paramParcel.writeString(mPrice);
-    paramParcel.writeString(mOriginalPrice);
-    paramParcel.writeInt(mAvailableCount);
-    paramParcel.writeInt(mPurchasedCount);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeInt(f);
+    paramParcel.writeInt(g);
   }
 }
 

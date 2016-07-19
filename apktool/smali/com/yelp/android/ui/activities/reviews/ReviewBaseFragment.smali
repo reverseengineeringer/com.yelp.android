@@ -10,7 +10,7 @@
 
 .field protected c:Landroid/view/ViewGroup;
 
-.field protected d:Lcom/yelp/android/ui/activities/reviews/ao;
+.field protected d:Lcom/yelp/android/ui/activities/reviews/c;
 
 
 # direct methods
@@ -30,7 +30,7 @@
     .locals 4
 
     .prologue
-    .line 28
+    .line 29
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -45,14 +45,14 @@
 
     move-result-object v0
 
-    .line 30
+    .line 31
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
 
     invoke-virtual {v1}, Lcom/yelp/android/ui/activities/reviews/StarsView;->getNumStars()I
 
     move-result v1
 
-    .line 36
+    .line 37
     iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
 
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -67,29 +67,29 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;->SMALL:Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;->SMALL:Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
 
     :goto_0
-    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setStarSize(Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;)V
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setStarStyle(Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;)V
 
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 42
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/reviews/ao;->a(I)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/reviews/c;->a(I)V
 
-    .line 40
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 43
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
     const/4 v2, 0x1
 
-    invoke-interface {v0, v2}, Lcom/yelp/android/ui/activities/reviews/ao;->b(Z)V
+    invoke-interface {v0, v2}, Lcom/yelp/android/ui/activities/reviews/c;->b(Z)V
 
-    .line 41
+    .line 44
     return v1
 
-    .line 36
+    .line 37
     :cond_0
-    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;->LARGE:Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;->LARGE:Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
 
     goto :goto_0
 .end method
@@ -98,13 +98,13 @@
     .locals 2
 
     .prologue
-    .line 52
+    .line 55
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 53
+    .line 56
     if-eqz p1, :cond_0
 
-    .line 54
+    .line 57
     const-string/jumbo v0, "saved_stars"
 
     const/4 v1, 0x0
@@ -113,22 +113,22 @@
 
     move-result v0
 
-    .line 55
+    .line 58
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
 
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setNumStars(I)V
 
-    .line 56
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 59
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
     if-eqz v1, :cond_0
 
-    .line 57
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
-
-    invoke-interface {v1, v0}, Lcom/yelp/android/ui/activities/reviews/ao;->a(I)V
-
     .line 60
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
+
+    invoke-interface {v1, v0}, Lcom/yelp/android/ui/activities/reviews/c;->a(I)V
+
+    .line 63
     :cond_0
     return-void
 .end method
@@ -137,10 +137,10 @@
     .locals 2
 
     .prologue
-    .line 46
+    .line 49
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 47
+    .line 50
     const-string/jumbo v0, "saved_stars"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
@@ -151,6 +151,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 48
+    .line 51
     return-void
 .end method

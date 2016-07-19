@@ -1,22 +1,30 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.serializable.Video;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.User;
+import com.yelp.android.serializable.a;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class fn
-  extends h
+  extends b<Void, Void, User>
 {
-  public fn(Video paramVideo, boolean paramBoolean)
+  public fn(ApiRequest.b<User> paramb, String paramString1, String paramString2)
   {
-    super("/business/video/save_feedback", null);
-    addPostParam("video_id", paramVideo.getId());
-    addPostParam("video_source", paramVideo.getVideoSource());
-    if (paramBoolean) {}
-    for (paramVideo = "POSITIVE";; paramVideo = "NONE")
-    {
-      addPostParam("feedback", paramVideo);
+    super(ApiRequest.RequestType.GET, "user/profile", paramb);
+    if (paramString1 != null) {
+      a("user_id", paramString1);
+    }
+    while (paramString2 == null) {
       return;
     }
+    a("check_in_id", paramString2);
+  }
+  
+  public User a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return (User)User.CREATOR.parse(paramJSONObject.getJSONObject("user"));
   }
 }
 

@@ -1,59 +1,87 @@
 package android.support.v4.view;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.LayoutInflater.Factory;
-import android.view.LayoutInflater.Factory2;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff.Mode;
+import android.view.View;
 import java.lang.reflect.Field;
 
 class aj
 {
   private static Field a;
   private static boolean b;
+  private static Field c;
+  private static boolean d;
   
-  static void a(LayoutInflater paramLayoutInflater, am paramam)
+  static void a(View paramView, ColorStateList paramColorStateList)
   {
-    if (paramam != null) {}
-    for (paramam = new ak(paramam);; paramam = null)
-    {
-      paramLayoutInflater.setFactory2(paramam);
-      LayoutInflater.Factory localFactory = paramLayoutInflater.getFactory();
-      if (!(localFactory instanceof LayoutInflater.Factory2)) {
-        break;
-      }
-      a(paramLayoutInflater, (LayoutInflater.Factory2)localFactory);
-      return;
+    if ((paramView instanceof af)) {
+      ((af)paramView).setSupportBackgroundTintList(paramColorStateList);
     }
-    a(paramLayoutInflater, paramam);
   }
   
-  static void a(LayoutInflater paramLayoutInflater, LayoutInflater.Factory2 paramFactory2)
+  static void a(View paramView, PorterDuff.Mode paramMode)
+  {
+    if ((paramView instanceof af)) {
+      ((af)paramView).setSupportBackgroundTintMode(paramMode);
+    }
+  }
+  
+  static boolean a(View paramView)
+  {
+    return (paramView.getWidth() > 0) && (paramView.getHeight() > 0);
+  }
+  
+  static int b(View paramView)
   {
     if (!b) {}
     try
     {
-      a = LayoutInflater.class.getDeclaredField("mFactory2");
+      a = View.class.getDeclaredField("mMinWidth");
       a.setAccessible(true);
       b = true;
-      if (a == null) {}
+      if (a != null) {
+        try
+        {
+          int i = ((Integer)a.get(paramView)).intValue();
+          return i;
+        }
+        catch (Exception paramView) {}
+      }
+      return 0;
     }
     catch (NoSuchFieldException localNoSuchFieldException)
     {
-      for (;;)
-      {
+      for (;;) {}
+    }
+  }
+  
+  static int c(View paramView)
+  {
+    if (!d) {}
+    try
+    {
+      c = View.class.getDeclaredField("mMinHeight");
+      c.setAccessible(true);
+      d = true;
+      if (c != null) {
         try
         {
-          a.set(paramLayoutInflater, paramFactory2);
-          return;
+          int i = ((Integer)c.get(paramView)).intValue();
+          return i;
         }
-        catch (IllegalAccessException paramFactory2)
-        {
-          Log.e("LayoutInflaterCompatHC", "forceSetFactory2 could not set the Factory2 on LayoutInflater " + paramLayoutInflater + "; inflation may have unexpected results.", paramFactory2);
-        }
-        localNoSuchFieldException = localNoSuchFieldException;
-        Log.e("LayoutInflaterCompatHC", "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", localNoSuchFieldException);
+        catch (Exception paramView) {}
       }
+      return 0;
     }
+    catch (NoSuchFieldException localNoSuchFieldException)
+    {
+      for (;;) {}
+    }
+  }
+  
+  static boolean d(View paramView)
+  {
+    return paramView.getWindowToken() != null;
   }
 }
 

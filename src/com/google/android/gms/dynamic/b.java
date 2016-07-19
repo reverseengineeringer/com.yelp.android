@@ -1,158 +1,240 @@
 package com.google.android.gms.dynamic;
 
-import android.app.Fragment;
-import android.content.Intent;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.FrameLayout.LayoutParams;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.internal.zzg;
+import java.util.Iterator;
+import java.util.LinkedList;
 
-public final class b
-  extends c.a
+public abstract class b<T extends a>
 {
-  private Fragment TG;
-  
-  private b(Fragment paramFragment)
+  private T a;
+  private Bundle b;
+  private LinkedList<a> c;
+  private final e<T> d = new e()
   {
-    TG = paramFragment;
-  }
-  
-  public static b a(Fragment paramFragment)
-  {
-    if (paramFragment != null) {
-      return new b(paramFragment);
+    public void a(T paramAnonymousT)
+    {
+      b.a(b.this, paramAnonymousT);
+      paramAnonymousT = b.a(b.this).iterator();
+      while (paramAnonymousT.hasNext()) {
+        ((b.a)paramAnonymousT.next()).a(b.b(b.this));
+      }
+      b.a(b.this).clear();
+      b.a(b.this, null);
     }
-    return null;
+  };
+  
+  private void a(int paramInt)
+  {
+    while ((!c.isEmpty()) && (((a)c.getLast()).a() >= paramInt)) {
+      c.removeLast();
+    }
   }
   
-  public void d(d paramd)
+  private void a(Bundle paramBundle, a parama)
   {
-    paramd = (View)e.f(paramd);
-    TG.registerForContextMenu(paramd);
+    if (a != null)
+    {
+      parama.a(a);
+      return;
+    }
+    if (c == null) {
+      c = new LinkedList();
+    }
+    c.add(parama);
+    if (paramBundle != null)
+    {
+      if (b != null) {
+        break label76;
+      }
+      b = ((Bundle)paramBundle.clone());
+    }
+    for (;;)
+    {
+      a(d);
+      return;
+      label76:
+      b.putAll(paramBundle);
+    }
   }
   
-  public void e(d paramd)
+  public static void b(FrameLayout paramFrameLayout)
   {
-    paramd = (View)e.f(paramd);
-    TG.unregisterForContextMenu(paramd);
+    Context localContext = paramFrameLayout.getContext();
+    final int i = GooglePlayServicesUtil.isGooglePlayServicesAvailable(localContext);
+    String str2 = zzg.zzc(localContext, i, GooglePlayServicesUtil.zzao(localContext));
+    String str1 = zzg.zzh(localContext, i);
+    LinearLayout localLinearLayout = new LinearLayout(paramFrameLayout.getContext());
+    localLinearLayout.setOrientation(1);
+    localLinearLayout.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+    paramFrameLayout.addView(localLinearLayout);
+    paramFrameLayout = new TextView(paramFrameLayout.getContext());
+    paramFrameLayout.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+    paramFrameLayout.setText(str2);
+    localLinearLayout.addView(paramFrameLayout);
+    if (str1 != null)
+    {
+      paramFrameLayout = new Button(localContext);
+      paramFrameLayout.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+      paramFrameLayout.setText(str1);
+      localLinearLayout.addView(paramFrameLayout);
+      paramFrameLayout.setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          a.startActivity(GooglePlayServicesUtil.zzbv(i));
+        }
+      });
+    }
   }
   
-  public Bundle getArguments()
+  public View a(final LayoutInflater paramLayoutInflater, final ViewGroup paramViewGroup, final Bundle paramBundle)
   {
-    return TG.getArguments();
+    final FrameLayout localFrameLayout = new FrameLayout(paramLayoutInflater.getContext());
+    a(paramBundle, new a()
+    {
+      public int a()
+      {
+        return 2;
+      }
+      
+      public void a(a paramAnonymousa)
+      {
+        localFrameLayout.removeAllViews();
+        localFrameLayout.addView(b.b(b.this).a(paramLayoutInflater, paramViewGroup, paramBundle));
+      }
+    });
+    if (a == null) {
+      a(localFrameLayout);
+    }
+    return localFrameLayout;
   }
   
-  public int getId()
+  public T a()
   {
-    return TG.getId();
+    return a;
   }
   
-  public boolean getRetainInstance()
+  public void a(final Activity paramActivity, final Bundle paramBundle1, final Bundle paramBundle2)
   {
-    return TG.getRetainInstance();
+    a(paramBundle2, new a()
+    {
+      public int a()
+      {
+        return 0;
+      }
+      
+      public void a(a paramAnonymousa)
+      {
+        b.b(b.this).a(paramActivity, paramBundle1, paramBundle2);
+      }
+    });
   }
   
-  public String getTag()
+  public void a(final Bundle paramBundle)
   {
-    return TG.getTag();
+    a(paramBundle, new a()
+    {
+      public int a()
+      {
+        return 1;
+      }
+      
+      public void a(a paramAnonymousa)
+      {
+        b.b(b.this).a(paramBundle);
+      }
+    });
   }
   
-  public int getTargetRequestCode()
+  protected void a(FrameLayout paramFrameLayout)
   {
-    return TG.getTargetRequestCode();
+    b(paramFrameLayout);
   }
   
-  public boolean getUserVisibleHint()
+  protected abstract void a(e<T> parame);
+  
+  public void b()
   {
-    return TG.getUserVisibleHint();
+    a(null, new a()
+    {
+      public int a()
+      {
+        return 5;
+      }
+      
+      public void a(a paramAnonymousa)
+      {
+        b.b(b.this).a();
+      }
+    });
   }
   
-  public d getView()
+  public void b(Bundle paramBundle)
   {
-    return e.k(TG.getView());
+    if (a != null) {
+      a.b(paramBundle);
+    }
+    while (b == null) {
+      return;
+    }
+    paramBundle.putAll(b);
   }
   
-  public boolean isAdded()
+  public void c()
   {
-    return TG.isAdded();
+    if (a != null)
+    {
+      a.b();
+      return;
+    }
+    a(5);
   }
   
-  public boolean isDetached()
+  public void d()
   {
-    return TG.isDetached();
+    if (a != null)
+    {
+      a.c();
+      return;
+    }
+    a(2);
   }
   
-  public boolean isHidden()
+  public void e()
   {
-    return TG.isHidden();
+    if (a != null)
+    {
+      a.d();
+      return;
+    }
+    a(1);
   }
   
-  public boolean isInLayout()
+  public void f()
   {
-    return TG.isInLayout();
+    if (a != null) {
+      a.e();
+    }
   }
   
-  public boolean isRemoving()
+  private static abstract interface a
   {
-    return TG.isRemoving();
-  }
-  
-  public boolean isResumed()
-  {
-    return TG.isResumed();
-  }
-  
-  public boolean isVisible()
-  {
-    return TG.isVisible();
-  }
-  
-  public d jf()
-  {
-    return e.k(TG.getActivity());
-  }
-  
-  public c jg()
-  {
-    return a(TG.getParentFragment());
-  }
-  
-  public d jh()
-  {
-    return e.k(TG.getResources());
-  }
-  
-  public c ji()
-  {
-    return a(TG.getTargetFragment());
-  }
-  
-  public void setHasOptionsMenu(boolean paramBoolean)
-  {
-    TG.setHasOptionsMenu(paramBoolean);
-  }
-  
-  public void setMenuVisibility(boolean paramBoolean)
-  {
-    TG.setMenuVisibility(paramBoolean);
-  }
-  
-  public void setRetainInstance(boolean paramBoolean)
-  {
-    TG.setRetainInstance(paramBoolean);
-  }
-  
-  public void setUserVisibleHint(boolean paramBoolean)
-  {
-    TG.setUserVisibleHint(paramBoolean);
-  }
-  
-  public void startActivity(Intent paramIntent)
-  {
-    TG.startActivity(paramIntent);
-  }
-  
-  public void startActivityForResult(Intent paramIntent, int paramInt)
-  {
-    TG.startActivityForResult(paramIntent, paramInt);
+    public abstract int a();
+    
+    public abstract void a(a parama);
   }
 }
 

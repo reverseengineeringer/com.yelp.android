@@ -1,30 +1,62 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.MapSpan;
-import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.parcelgen.JsonParser.DualCreator;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.PlatformDeliveryAddress;
+import com.yelp.android.serializable.PlatformDisambiguatedAddress;
+import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class bf
-  extends h<Void, Void, bg>
+  extends b<Void, Void, a>
 {
-  public bf(String paramString, int paramInt1, int paramInt2, j<bg> paramj)
+  public bf(ApiRequest.b paramb, PlatformDeliveryAddress paramPlatformDeliveryAddress)
   {
-    super(ApiRequest.RequestType.GET, "deal/businesses", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
-    addUrlParam("deal_id", paramString);
-    addUrlParam("offset", paramInt1);
-    addUrlParam("limit", paramInt2);
+    super(ApiRequest.RequestType.POST, "user/address/disambiguate", paramb);
+    try
+    {
+      paramb = paramPlatformDeliveryAddress.a();
+      if (paramPlatformDeliveryAddress.e() == null) {
+        paramb.put("address2", "");
+      }
+      b("address", paramb.toString());
+      return;
+    }
+    catch (JSONException paramb)
+    {
+      throw new RuntimeException("Error creating the AddressDisambiguateRequest" + paramb.getMessage());
+    }
   }
   
-  public bg a(JSONObject paramJSONObject)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    MapSpan localMapSpan = (MapSpan)MapSpan.CREATOR.parse(paramJSONObject.getJSONObject("region"));
-    ArrayList localArrayList = YelpBusiness.businessesFromJSONArray(paramJSONObject.getJSONArray("businesses"), getRequestId(), BusinessSearchRequest.FormatMode.SHORT);
-    return new bg(paramJSONObject.getInt("total"), localMapSpan, localArrayList);
+    ArrayList localArrayList = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("suggested_addresses"), PlatformDisambiguatedAddress.CREATOR);
+    return new a(paramJSONObject.optBoolean("is_disambiguated", false), localArrayList);
+  }
+  
+  public static class a
+  {
+    private final boolean a;
+    private final ArrayList<PlatformDisambiguatedAddress> b;
+    
+    public a(boolean paramBoolean, List<PlatformDisambiguatedAddress> paramList)
+    {
+      a = paramBoolean;
+      b = new ArrayList(paramList);
+    }
+    
+    public boolean a()
+    {
+      return a;
+    }
+    
+    public ArrayList<PlatformDisambiguatedAddress> b()
+    {
+      return b;
+    }
   }
 }
 

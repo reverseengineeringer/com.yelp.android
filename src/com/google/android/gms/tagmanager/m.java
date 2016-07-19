@@ -1,39 +1,32 @@
 package com.google.android.gms.tagmanager;
 
-import com.google.android.gms.internal.a;
-import com.google.android.gms.internal.b;
-import com.google.android.gms.internal.d.a;
-import java.util.Map;
-
-class m
-  extends aj
+public final class m
 {
-  private static final String ID = a.A.toString();
-  private static final String VALUE = b.ff.toString();
+  static n a = new ao();
   
-  public m()
+  public static void a(String paramString)
   {
-    super(ID, new String[] { VALUE });
+    a.a(paramString);
   }
   
-  public static String ph()
+  public static void a(String paramString, Throwable paramThrowable)
   {
-    return ID;
+    a.a(paramString, paramThrowable);
   }
   
-  public static String pi()
+  public static void b(String paramString)
   {
-    return VALUE;
+    a.b(paramString);
   }
   
-  public d.a B(Map<String, d.a> paramMap)
+  public static void c(String paramString)
   {
-    return (d.a)paramMap.get(VALUE);
+    a.c(paramString);
   }
   
-  public boolean pe()
+  public static void d(String paramString)
   {
-    return true;
+    a.d(paramString);
   }
 }
 

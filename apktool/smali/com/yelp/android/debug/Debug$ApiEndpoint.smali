@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/debug/Debug;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "ApiEndpoint"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -49,7 +58,7 @@
 
     const/4 v4, 0x0
 
-    .line 48
+    .line 56
     new-instance v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     const-string/jumbo v1, "API"
@@ -60,7 +69,7 @@
 
     sput-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->API:Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
-    .line 49
+    .line 57
     new-instance v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     const-string/jumbo v1, "AUTO_API"
@@ -71,7 +80,7 @@
 
     sput-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->AUTO_API:Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
-    .line 50
+    .line 58
     new-instance v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     const-string/jumbo v1, "DEV_GARRICK_2"
@@ -82,7 +91,7 @@
 
     sput-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->DEV_GARRICK_2:Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
-    .line 51
+    .line 59
     new-instance v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     const-string/jumbo v1, "BIZ_APP_DEV"
@@ -93,7 +102,7 @@
 
     sput-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->BIZ_APP_DEV:Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
-    .line 52
+    .line 60
     new-instance v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     const-string/jumbo v1, "BIZ_APP_STAGE"
@@ -104,7 +113,7 @@
 
     sput-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->BIZ_APP_STAGE:Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
-    .line 53
+    .line 61
     new-instance v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     const-string/jumbo v1, "BIZ_APP_STAGE_A"
@@ -117,7 +126,7 @@
 
     sput-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->BIZ_APP_STAGE_A:Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
-    .line 47
+    .line 55
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/yelp/android/debug/Debug$ApiEndpoint;
@@ -164,13 +173,13 @@
     .end annotation
 
     .prologue
-    .line 57
+    .line 65
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 58
+    .line 66
     iput-object p3, p0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->endpoint:Ljava/lang/String;
 
-    .line 59
+    .line 67
     return-void
 .end method
 
@@ -178,7 +187,7 @@
     .locals 1
 
     .prologue
-    .line 47
+    .line 55
     const-class v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -194,7 +203,7 @@
     .locals 1
 
     .prologue
-    .line 47
+    .line 55
     sget-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->$VALUES:[Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
     invoke-virtual {v0}, [Lcom/yelp/android/debug/Debug$ApiEndpoint;->clone()Ljava/lang/Object;

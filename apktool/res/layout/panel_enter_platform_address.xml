@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:baselineAligned="false">
+        <com.yelp.android.ui.widgets.FloatLabelLayout android:id="@id/address_floating_label" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <EditText android:id="@id/address_field" android:nextFocusLeft="@id/apt_field" android:nextFocusRight="@id/zip_field" android:layout_width="0.0dip" android:layout_height="wrap_content" android:hint="@string/address_required" android:layout_weight="1.0" android:inputType="text" android:imeOptions="actionNext" android:nextFocusForward="@id/apt_field" />
+                <ImageView android:layout_gravity="center" android:id="@id/reverse_geolocate_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/button_android_location" android:contentDescription="@string/current_location" />
+            </LinearLayout>
+        </com.yelp.android.ui.widgets.FloatLabelLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:baselineAligned="false">
+        <com.yelp.android.ui.widgets.FloatLabelLayout android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+            <EditText android:id="@id/apt_field" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/apt_suite_floor" android:inputType="text" android:imeOptions="actionNext" android:nextFocusForward="@id/zip_field" />
+        </com.yelp.android.ui.widgets.FloatLabelLayout>
+        <com.yelp.android.ui.widgets.FloatLabelLayout android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+            <EditText android:id="@id/zip_field" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/zip_required" android:inputType="text" />
+        </com.yelp.android.ui.widgets.FloatLabelLayout>
+    </LinearLayout>
+</merge>

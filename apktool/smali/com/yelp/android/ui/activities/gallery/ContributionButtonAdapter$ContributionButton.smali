@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/gallery/ContributionButtonAdapter;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "ContributionButton"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -42,9 +51,9 @@
 
     const-string/jumbo v1, "TAKE_PHOTO"
 
-    const v2, 0x7f0705a8
+    const v2, 0x7f0705b1
 
-    const v3, 0x7f0200df
+    const v3, 0x7f020126
 
     invoke-direct {v0, v1, v4, v2, v3}, Lcom/yelp/android/ui/activities/gallery/ContributionButtonAdapter$ContributionButton;-><init>(Ljava/lang/String;III)V
 
@@ -55,9 +64,9 @@
 
     const-string/jumbo v1, "TAKE_VIDEO"
 
-    const v2, 0x7f0705a9
+    const v2, 0x7f0705b2
 
-    const v3, 0x7f020408
+    const v3, 0x7f0205ab
 
     invoke-direct {v0, v1, v5, v2, v3}, Lcom/yelp/android/ui/activities/gallery/ContributionButtonAdapter$ContributionButton;-><init>(Ljava/lang/String;III)V
 

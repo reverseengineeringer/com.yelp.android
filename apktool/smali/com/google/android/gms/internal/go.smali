@@ -1,31 +1,30 @@
 .class public final Lcom/google/android/gms/internal/go;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Lcom/google/android/gms/internal/gn;
+
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
 # direct methods
-.method public static a(Landroid/content/Context;Landroid/webkit/WebSettings;)V
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
-    invoke-static {p0, p1}, Lcom/google/android/gms/internal/gm;->a(Landroid/content/Context;Landroid/webkit/WebSettings;)V
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/webkit/WebSettings;->setMediaPlaybackRequiresUserGesture(Z)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static getDefaultUserAgent(Landroid/content/Context;)Ljava/lang/String;
+
+# virtual methods
+.method public a(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
 
-    invoke-static {p0}, Landroid/webkit/WebSettings;->getDefaultUserAgent(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
+    const/4 v0, 0x0
 
     return-object v0
 .end method

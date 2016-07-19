@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/yelp_fragment_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/media_content" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.yelp.android.ui.activities.mediagrid.MediaTabsView android:id="@id/media_tabs" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:id="@id/tab_container" android:background="@color/white" android:paddingLeft="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </com.yelp.android.ui.activities.mediagrid.MediaTabsView>
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.yelp.android.ui.activities.mediagrid.MediaBrowserGridView android:id="@id/media_grid" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:smoothScrollbar="true" style="@style/MediaGrid" />
+            <View android:id="@id/shadow" android:background="@drawable/transparent_shadow" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/default_small_gap_size" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

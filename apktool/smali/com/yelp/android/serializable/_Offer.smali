@@ -7,23 +7,23 @@
 
 
 # instance fields
-.field protected mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+.field protected b:Ljava/util/Date;
 
-.field protected mCheckInsRemaining:I
+.field protected c:Ljava/util/Date;
 
-.field protected mDateAwarded:Ljava/util/Date;
+.field protected d:Lcom/yelp/android/serializable/OfferRedemption;
 
-.field protected mDateExpires:Ljava/util/Date;
+.field protected e:Lcom/yelp/android/serializable/Offer$OfferState;
 
-.field protected mId:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mOfferText:Ljava/lang/String;
+.field protected g:Ljava/lang/String;
 
-.field protected mPromoText:Ljava/lang/String;
+.field protected h:Ljava/lang/String;
 
-.field protected mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
+.field protected i:Lcom/yelp/android/serializable/YelpBusiness;
 
-.field protected mState:Lcom/yelp/android/serializable/Offer$OfferState;
+.field protected j:I
 
 
 # direct methods
@@ -31,158 +31,162 @@
     .locals 0
 
     .prologue
-    .line 42
+    .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 43
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Ljava/util/Date;Lcom/yelp/android/serializable/OfferRedemption;Lcom/yelp/android/serializable/Offer$OfferState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/YelpBusiness;I)V
-    .locals 0
-
-    .prologue
-    .line 29
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_Offer;-><init>()V
-
-    .line 30
-    iput-object p1, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
-
-    .line 31
-    iput-object p2, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
-
-    .line 32
-    iput-object p3, p0, Lcom/yelp/android/serializable/_Offer;->mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
-
-    .line 33
-    iput-object p4, p0, Lcom/yelp/android/serializable/_Offer;->mState:Lcom/yelp/android/serializable/Offer$OfferState;
-
-    .line 34
-    iput-object p5, p0, Lcom/yelp/android/serializable/_Offer;->mOfferText:Ljava/lang/String;
-
-    .line 35
-    iput-object p6, p0, Lcom/yelp/android/serializable/_Offer;->mPromoText:Ljava/lang/String;
-
-    .line 36
-    iput-object p7, p0, Lcom/yelp/android/serializable/_Offer;->mId:Ljava/lang/String;
-
-    .line 37
-    iput-object p8, p0, Lcom/yelp/android/serializable/_Offer;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
-
-    .line 38
-    iput p9, p0, Lcom/yelp/android/serializable/_Offer;->mCheckInsRemaining:I
-
-    .line 39
+    .line 53
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a(Landroid/os/Parcel;)V
+    .locals 6
 
     .prologue
-    .line 75
-    const/4 v0, 0x0
+    const-wide/32 v4, -0x80000000
 
-    return v0
+    .line 152
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    .line 153
+    cmp-long v2, v0, v4
+
+    if-eqz v2, :cond_0
+
+    .line 154
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
+
+    .line 156
+    :cond_0
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    .line 157
+    cmp-long v2, v0, v4
+
+    if-eqz v2, :cond_1
+
+    .line 158
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
+
+    .line 160
+    :cond_1
+    const-class v0, Lcom/yelp/android/serializable/OfferRedemption;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/OfferRedemption;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
+
+    .line 161
+    invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Offer$OfferState;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->e:Lcom/yelp/android/serializable/Offer$OfferState;
+
+    .line 162
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
+
+    .line 163
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
+
+    .line 164
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
+
+    .line 165
+    const-class v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 166
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_Offer;->j:I
+
+    .line 167
+    return-void
 .end method
 
-.method public getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-    .locals 1
-
-    .prologue
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
-
-    return-object v0
-.end method
-
-.method public getCheckInsRemaining()I
-    .locals 1
-
-    .prologue
-    .line 70
-    iget v0, p0, Lcom/yelp/android/serializable/_Offer;->mCheckInsRemaining:I
-
-    return v0
-.end method
-
-.method public getDateAwarded()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getDateExpires()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getOfferText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mOfferText:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPromoText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mPromoText:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getRedemption()Lcom/yelp/android/serializable/OfferRedemption;
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
-
-    return-object v0
-.end method
-
-.method public getState()Lcom/yelp/android/serializable/Offer$OfferState;
-    .locals 1
-
-    .prologue
-    .line 55
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mState:Lcom/yelp/android/serializable/Offer$OfferState;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 109
+    .line 170
     const-string/jumbo v0, "time_awarded"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -191,16 +195,16 @@
 
     if-nez v0, :cond_0
 
-    .line 110
+    .line 171
     const-string/jumbo v0, "time_awarded"
 
     invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
 
-    .line 112
+    .line 173
     :cond_0
     const-string/jumbo v0, "time_expires"
 
@@ -210,16 +214,16 @@
 
     if-nez v0, :cond_1
 
-    .line 113
+    .line 174
     const-string/jumbo v0, "time_expires"
 
     invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
 
-    .line 115
+    .line 176
     :cond_1
     const-string/jumbo v0, "redemption"
 
@@ -229,8 +233,8 @@
 
     if-nez v0, :cond_2
 
-    .line 116
-    sget-object v0, Lcom/yelp/android/serializable/OfferRedemption;->CREATOR:Lcom/yelp/android/serializable/ah;
+    .line 177
+    sget-object v0, Lcom/yelp/android/serializable/OfferRedemption;->CREATOR:Lcom/yelp/android/serializable/a;
 
     const-string/jumbo v1, "redemption"
 
@@ -238,15 +242,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ah;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/a;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/OfferRedemption;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
 
-    .line 118
+    .line 179
     :cond_2
     const-string/jumbo v0, "offer_text"
 
@@ -256,16 +260,16 @@
 
     if-nez v0, :cond_3
 
-    .line 119
+    .line 180
     const-string/jumbo v0, "offer_text"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mOfferText:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
 
-    .line 121
+    .line 182
     :cond_3
     const-string/jumbo v0, "promo_text"
 
@@ -275,16 +279,16 @@
 
     if-nez v0, :cond_4
 
-    .line 122
+    .line 183
     const-string/jumbo v0, "promo_text"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mPromoText:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
 
-    .line 124
+    .line 185
     :cond_4
     const-string/jumbo v0, "id"
 
@@ -294,16 +298,16 @@
 
     if-nez v0, :cond_5
 
-    .line 125
+    .line 186
     const-string/jumbo v0, "id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
 
-    .line 127
+    .line 188
     :cond_5
     const-string/jumbo v0, "business"
 
@@ -313,7 +317,7 @@
 
     if-nez v0, :cond_6
 
-    .line 128
+    .line 189
     sget-object v0, Lcom/yelp/android/serializable/YelpBusiness;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     const-string/jumbo v1, "business"
@@ -328,9 +332,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 130
+    .line 191
     :cond_6
     const-string/jumbo v0, "check_ins_remaining"
 
@@ -338,145 +342,169 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_Offer;->mCheckInsRemaining:I
+    iput v0, p0, Lcom/yelp/android/serializable/_Offer;->j:I
 
-    .line 131
+    .line 192
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 6
+.method public describeContents()I
+    .locals 1
 
     .prologue
-    const-wide/32 v4, -0x80000000
+    .line 136
+    const/4 v0, 0x0
 
-    .line 91
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+    return v0
+.end method
 
-    move-result-wide v0
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
 
-    .line 92
-    cmp-long v2, v0, v4
+    .prologue
+    const/4 v0, 0x0
 
-    if-eqz v2, :cond_0
+    .line 57
+    if-nez p1, :cond_1
 
-    .line 93
-    new-instance v2, Ljava/util/Date;
-
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
-
-    iput-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
-
-    .line 95
+    .line 71
     :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+    :goto_0
+    return v0
 
-    move-result-wide v0
-
-    .line 96
-    cmp-long v2, v0, v4
-
-    if-eqz v2, :cond_1
-
-    .line 97
-    new-instance v2, Ljava/util/Date;
-
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
-
-    iput-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
-
-    .line 99
+    .line 61
     :cond_1
-    const-class v0, Lcom/yelp/android/serializable/OfferRedemption;
+    if-ne p1, p0, :cond_2
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    .line 62
+    const/4 v0, 0x1
 
-    move-result-object v0
+    goto :goto_0
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    .line 65
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Lcom/yelp/android/serializable/OfferRedemption;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
+    move-result-object v2
 
-    .line 100
-    invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
+    if-ne v1, v2, :cond_0
 
-    move-result-object v0
+    .line 69
+    check-cast p1, Lcom/yelp/android/serializable/_Offer;
 
-    check-cast v0, Lcom/yelp/android/serializable/Offer$OfferState;
+    .line 71
+    new-instance v0, Lcom/yelp/android/dc/b;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mState:Lcom/yelp/android/serializable/Offer$OfferState;
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
 
-    .line 101
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
 
-    move-result-object v0
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mOfferText:Ljava/lang/String;
-
-    .line 102
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mPromoText:Ljava/lang/String;
-
-    .line 103
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
 
-    .line 104
-    const-class v0, Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
 
-    .line 105
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->e:Lcom/yelp/android/serializable/Offer$OfferState;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->e:Lcom/yelp/android/serializable/Offer$OfferState;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_Offer;->j:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_Offer;->j:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_Offer;->mCheckInsRemaining:I
-
-    .line 106
-    return-void
+    goto :goto_0
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
+.method public f()Lorg/json/JSONObject;
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const-wide/16 v4, 0x3e8
 
-    .line 134
+    .line 195
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    .line 135
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
+    .line 196
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
 
     if-eqz v1, :cond_0
 
-    .line 136
+    .line 197
     const-string/jumbo v1, "time_awarded"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
 
     invoke-virtual {v2}, Ljava/util/Date;->getTime()J
 
@@ -486,16 +514,16 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    .line 138
+    .line 199
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
 
     if-eqz v1, :cond_1
 
-    .line 139
+    .line 200
     const-string/jumbo v1, "time_expires"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
 
     invoke-virtual {v2}, Ljava/util/Date;->getTime()J
 
@@ -505,88 +533,228 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    .line 141
+    .line 202
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
 
     if-eqz v1, :cond_2
 
-    .line 142
+    .line 203
     const-string/jumbo v1, "redemption"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/OfferRedemption;->writeJSON()Lorg/json/JSONObject;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/OfferRedemption;->b()Lorg/json/JSONObject;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 144
+    .line 205
     :cond_2
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->mOfferText:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
 
     if-eqz v1, :cond_3
 
-    .line 145
+    .line 206
     const-string/jumbo v1, "offer_text"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mOfferText:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 147
+    .line 208
     :cond_3
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->mPromoText:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
 
     if-eqz v1, :cond_4
 
-    .line 148
+    .line 209
     const-string/jumbo v1, "promo_text"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mPromoText:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 150
+    .line 211
     :cond_4
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->mId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
 
     if-eqz v1, :cond_5
 
-    .line 151
+    .line 212
     const-string/jumbo v1, "id"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mId:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 153
+    .line 214
     :cond_5
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
 
     if-eqz v1, :cond_6
 
-    .line 154
+    .line 215
     const-string/jumbo v1, "business"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->writeJSON()Lorg/json/JSONObject;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->E()Lorg/json/JSONObject;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 156
+    .line 217
     :cond_6
     const-string/jumbo v1, "check_ins_remaining"
 
-    iget v2, p0, Lcom/yelp/android/serializable/_Offer;->mCheckInsRemaining:I
+    iget v2, p0, Lcom/yelp/android/serializable/_Offer;->j:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 157
+    .line 218
+    return-object v0
+.end method
+
+.method public g()I
+    .locals 1
+
+    .prologue
+    .line 132
+    iget v0, p0, Lcom/yelp/android/serializable/_Offer;->j:I
+
+    return v0
+.end method
+
+.method public h()Lcom/yelp/android/serializable/YelpBusiness;
+    .locals 1
+
+    .prologue
+    .line 128
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 86
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->e:Lcom/yelp/android/serializable/Offer$OfferState;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_Offer;->j:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public j()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 120
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public k()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 116
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public l()Lcom/yelp/android/serializable/Offer$OfferState;
+    .locals 1
+
+    .prologue
+    .line 112
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->e:Lcom/yelp/android/serializable/Offer$OfferState;
+
+    return-object v0
+.end method
+
+.method public m()Lcom/yelp/android/serializable/OfferRedemption;
+    .locals 1
+
+    .prologue
+    .line 108
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
+
     return-object v0
 .end method
 
@@ -598,8 +766,8 @@
 
     const/4 v4, 0x0
 
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
+    .line 140
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -608,55 +776,55 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 80
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
+    .line 141
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
 
     if-nez v0, :cond_1
 
     :goto_1
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 81
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mRedemption:Lcom/yelp/android/serializable/OfferRedemption;
+    .line 142
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->d:Lcom/yelp/android/serializable/OfferRedemption;
 
     invoke-virtual {p1, v0, v4}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 82
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mState:Lcom/yelp/android/serializable/Offer$OfferState;
+    .line 143
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->e:Lcom/yelp/android/serializable/Offer$OfferState;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mOfferText:Ljava/lang/String;
+    .line 144
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mPromoText:Ljava/lang/String;
+    .line 145
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->g:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 85
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mId:Ljava/lang/String;
+    .line 146
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->h:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 86
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 147
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->i:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {p1, v0, v4}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 87
-    iget v0, p0, Lcom/yelp/android/serializable/_Offer;->mCheckInsRemaining:I
+    .line 148
+    iget v0, p0, Lcom/yelp/android/serializable/_Offer;->j:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 88
+    .line 149
     return-void
 
-    .line 79
+    .line 140
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateAwarded:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->b:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 
@@ -664,9 +832,9 @@
 
     goto :goto_0
 
-    .line 80
+    .line 141
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->mDateExpires:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Offer;->c:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

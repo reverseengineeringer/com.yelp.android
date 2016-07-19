@@ -1,125 +1,100 @@
 package com.google.android.gms.internal;
 
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
-import java.util.ArrayList;
+import android.content.Context;
+import android.os.Handler;
+import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
+import com.google.android.gms.ads.internal.request.AdResponseParcel;
+import com.google.android.gms.ads.internal.s;
+import com.google.android.gms.common.internal.zzx;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public class fi
-  implements Parcelable.Creator<fh>
+@fv
+public abstract class fi
+  implements hf<Void>, ic.a
 {
-  static void a(fh paramfh, Parcel paramParcel, int paramInt)
+  protected final fl.a a;
+  protected final Context b;
+  protected final ib c;
+  protected final gr.a d;
+  protected AdResponseParcel e;
+  protected final Object f = new Object();
+  private Runnable g;
+  private AtomicBoolean h = new AtomicBoolean(true);
+  
+  protected fi(Context paramContext, gr.a parama, ib paramib, fl.a parama1)
   {
-    int i = b.H(paramParcel);
-    b.c(paramParcel, 1, versionCode);
-    b.a(paramParcel, 2, tK, false);
-    b.a(paramParcel, 3, tL, paramInt, false);
-    b.a(paramParcel, 4, lS, paramInt, false);
-    b.a(paramParcel, 5, lL, false);
-    b.a(paramParcel, 6, applicationInfo, paramInt, false);
-    b.a(paramParcel, 7, tM, paramInt, false);
-    b.a(paramParcel, 8, tN, false);
-    b.a(paramParcel, 9, tO, false);
-    b.a(paramParcel, 10, tP, false);
-    b.a(paramParcel, 11, lO, paramInt, false);
-    b.a(paramParcel, 12, tQ, false);
-    b.c(paramParcel, 13, tR);
-    b.b(paramParcel, 14, mc, false);
-    b.a(paramParcel, 15, tS, false);
-    b.a(paramParcel, 16, tT);
-    b.H(paramParcel, i);
+    b = paramContext;
+    d = parama;
+    e = d.b;
+    c = paramib;
+    a = parama1;
   }
   
-  public fh h(Parcel paramParcel)
+  private gr b(int paramInt)
   {
-    int k = a.G(paramParcel);
-    int j = 0;
-    Bundle localBundle3 = null;
-    av localav = null;
-    ay localay = null;
-    String str4 = null;
-    ApplicationInfo localApplicationInfo = null;
-    PackageInfo localPackageInfo = null;
-    String str3 = null;
-    String str2 = null;
-    String str1 = null;
-    gs localgs = null;
-    Bundle localBundle2 = null;
-    int i = 0;
-    ArrayList localArrayList = null;
-    Bundle localBundle1 = null;
-    boolean bool = false;
-    while (paramParcel.dataPosition() < k)
+    AdRequestInfoParcel localAdRequestInfoParcel = d.a;
+    return new gr(c, c, e.d, paramInt, e.f, e.j, e.l, e.k, i, e.h, null, null, null, null, null, e.i, d.d, e.g, d.f, e.n, e.o, d.h, null, e.D, e.E, e.F, e.G);
+  }
+  
+  public final Void a()
+  {
+    zzx.zzcD("Webview render task needs to be called on UI thread.");
+    g = new Runnable()
     {
-      int m = a.F(paramParcel);
-      switch (a.aH(m))
+      public void run()
       {
-      default: 
-        a.b(paramParcel, m);
-        break;
-      case 1: 
-        j = a.g(paramParcel, m);
-        break;
-      case 2: 
-        localBundle3 = a.q(paramParcel, m);
-        break;
-      case 3: 
-        localav = (av)a.a(paramParcel, m, av.CREATOR);
-        break;
-      case 4: 
-        localay = (ay)a.a(paramParcel, m, ay.CREATOR);
-        break;
-      case 5: 
-        str4 = a.o(paramParcel, m);
-        break;
-      case 6: 
-        localApplicationInfo = (ApplicationInfo)a.a(paramParcel, m, ApplicationInfo.CREATOR);
-        break;
-      case 7: 
-        localPackageInfo = (PackageInfo)a.a(paramParcel, m, PackageInfo.CREATOR);
-        break;
-      case 8: 
-        str3 = a.o(paramParcel, m);
-        break;
-      case 9: 
-        str2 = a.o(paramParcel, m);
-        break;
-      case 10: 
-        str1 = a.o(paramParcel, m);
-        break;
-      case 11: 
-        localgs = (gs)a.a(paramParcel, m, gs.CREATOR);
-        break;
-      case 12: 
-        localBundle2 = a.q(paramParcel, m);
-        break;
-      case 13: 
-        i = a.g(paramParcel, m);
-        break;
-      case 14: 
-        localArrayList = a.C(paramParcel, m);
-        break;
-      case 15: 
-        localBundle1 = a.q(paramParcel, m);
-        break;
-      case 16: 
-        bool = a.c(paramParcel, m);
+        if (!fi.a(fi.this).get()) {
+          return;
+        }
+        gz.b("Timed out waiting for WebView to finish loading.");
+        d();
       }
-    }
-    if (paramParcel.dataPosition() != k) {
-      throw new a.a("Overread allowed size end=" + k, paramParcel);
-    }
-    return new fh(j, localBundle3, localav, localay, str4, localApplicationInfo, localPackageInfo, str3, str2, str1, localgs, localBundle2, i, localArrayList, localBundle1, bool);
+    };
+    hd.a.postDelayed(g, ((Long)ao.ay.c()).longValue());
+    b();
+    return null;
   }
   
-  public fh[] q(int paramInt)
+  protected void a(int paramInt)
   {
-    return new fh[paramInt];
+    if (paramInt != -2) {
+      e = new AdResponseParcel(paramInt, e.k);
+    }
+    c.e();
+    a.b(b(paramInt));
+  }
+  
+  public void a(ib paramib, boolean paramBoolean)
+  {
+    gz.a("WebView finished loading.");
+    if (!h.getAndSet(false)) {
+      return;
+    }
+    if (paramBoolean) {}
+    for (int i = c();; i = -1)
+    {
+      a(i);
+      hd.a.removeCallbacks(g);
+      return;
+    }
+  }
+  
+  protected abstract void b();
+  
+  protected int c()
+  {
+    return -2;
+  }
+  
+  public void d()
+  {
+    if (!h.getAndSet(false)) {
+      return;
+    }
+    c.stopLoading();
+    s.g().a(c);
+    a(-1);
+    hd.a.removeCallbacks(g);
   }
 }
 

@@ -3,40 +3,50 @@
 .source "DrawerFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/drawer/DrawerFragment$a;
+    }
+.end annotation
+
+
 # instance fields
 .field a:Landroid/content/BroadcastReceiver;
 
-.field private b:Lcom/yelp/android/ui/activities/drawer/o;
+.field private b:Lcom/yelp/android/ui/activities/drawer/DrawerFragment$a;
 
 .field private c:Landroid/widget/TextView;
 
-.field private d:Landroid/widget/TextView;
+.field private d:Landroid/view/View;
 
-.field private e:Landroid/widget/TextView;
+.field private e:Landroid/view/View;
 
-.field private g:Landroid/view/View;
+.field private f:Landroid/widget/TextView;
 
-.field private h:Landroid/view/View;
+.field private g:Landroid/widget/TextView;
 
-.field private i:Landroid/view/View;
+.field private i:Landroid/widget/TextView;
 
-.field private j:Landroid/view/View;
+.field private j:Lcom/yelp/android/cm/d;
 
-.field private k:Lcom/yelp/android/DinoListView;
+.field private k:Lcom/yelp/android/cm/d;
 
-.field private l:Landroid/view/View;
+.field private l:Lcom/yelp/android/DinoListView;
 
-.field private m:Landroid/widget/ImageView;
+.field private m:Landroid/view/View;
 
 .field private n:Landroid/widget/ImageView;
 
-.field private o:Landroid/widget/Button;
+.field private o:Landroid/widget/ImageView;
 
-.field private p:Lcom/yelp/android/ui/h;
+.field private p:Landroid/widget/Button;
 
-.field private q:Lcom/yelp/android/ui/activities/drawer/a;
+.field private q:Lcom/yelp/android/ui/d;
 
-.field private final r:Landroid/view/View$OnClickListener;
+.field private r:Lcom/yelp/android/ui/activities/drawer/a;
+
+.field private final s:Landroid/view/View$OnClickListener;
 
 
 # direct methods
@@ -44,24 +54,24 @@
     .locals 1
 
     .prologue
-    .line 83
+    .line 95
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;-><init>()V
 
-    .line 487
-    new-instance v0, Lcom/yelp/android/ui/activities/drawer/l;
+    .line 551
+    new-instance v0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$5;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/drawer/l;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$5;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
-    .line 697
-    new-instance v0, Lcom/yelp/android/ui/activities/drawer/m;
+    .line 831
+    new-instance v0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$6;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/drawer/m;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$6;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->a:Landroid/content/BroadcastReceiver;
 
-    .line 710
+    .line 849
     return-void
 .end method
 
@@ -69,8 +79,8 @@
     .locals 1
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/widget/ImageView;
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n:Landroid/widget/ImageView;
 
     return-object v0
 .end method
@@ -79,8 +89,8 @@
     .locals 0
 
     .prologue
-    .line 83
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/activities/drawer/a;
+    .line 95
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Lcom/yelp/android/ui/activities/drawer/a;
 
     return-object p1
 .end method
@@ -89,8 +99,8 @@
     .locals 1
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/DinoListView;
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Lcom/yelp/android/DinoListView;
 
     return-object v0
 .end method
@@ -99,8 +109,8 @@
     .locals 1
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n:Landroid/widget/ImageView;
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->o:Landroid/widget/ImageView;
 
     return-object v0
 .end method
@@ -109,155 +119,75 @@
     .locals 1
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->o:Landroid/widget/Button;
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->p:Landroid/widget/Button;
 
     return-object v0
 .end method
 
-.method static synthetic e(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)Lcom/yelp/android/ui/h;
+.method static synthetic e(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)Lcom/yelp/android/ui/d;
     .locals 1
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->p:Lcom/yelp/android/ui/h;
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/d;
 
     return-object v0
-.end method
-
-.method private e()V
-    .locals 2
-
-    .prologue
-    const/16 v1, 0x8
-
-    .line 303
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    .line 304
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    .line 305
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j()V
-
-    .line 306
-    return-void
 .end method
 
 .method static synthetic f(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)Lcom/yelp/android/ui/activities/drawer/a;
     .locals 1
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/activities/drawer/a;
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Lcom/yelp/android/ui/activities/drawer/a;
 
     return-object v0
 .end method
 
-.method private f()V
-    .locals 3
+.method private f()Z
+    .locals 1
 
     .prologue
-    .line 309
-    invoke-static {}, Lcom/yelp/android/appdata/ab;->a()Lcom/yelp/android/appdata/ab;
+    .line 241
+    sget-object v0, Lcom/yelp/android/appdata/Features;->support_center_feature_release:Lcom/yelp/android/appdata/Features;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/ab;->e()I
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/Features;->isEnabled()Z
 
     move-result v0
 
-    .line 311
-    if-nez v0, :cond_0
-
-    .line 312
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/widget/TextView;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 317
-    :goto_0
-    return-void
-
-    .line 314
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/widget/TextView;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 315
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/widget/TextView;
-
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
+    return v0
 .end method
 
 .method private g()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 320
-    invoke-static {}, Lcom/yelp/android/appdata/ab;->a()Lcom/yelp/android/appdata/ab;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/ab;->f()I
-
-    move-result v0
-
-    .line 321
-    if-nez v0, :cond_0
-
-    .line 322
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/widget/TextView;
-
     const/16 v1, 0x8
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    .line 352
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/view/View;
 
-    .line 327
-    :goto_0
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 353
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 354
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l()V
+
+    .line 355
     return-void
-
-    .line 324
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/widget/TextView;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 325
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/widget/TextView;
-
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
 .end method
 
 .method static synthetic g(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
     .locals 0
 
     .prologue
-    .line 83
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i()V
+    .line 95
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k()V
 
     return-void
 .end method
@@ -266,217 +196,146 @@
     .locals 5
 
     .prologue
-    const/16 v2, 0x8
+    const/4 v4, 0x0
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    .line 330
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    .line 358
+    invoke-static {}, Lcom/yelp/android/appdata/j;->a()Lcom/yelp/android/appdata/j;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/j;->e()I
 
-    move-result v3
+    move-result v0
 
-    .line 331
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->c:Landroid/widget/TextView;
+    .line 360
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/cm/d;
 
-    if-eqz v3, :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    const v0, 0x7f07029a
+    move-result-object v2
 
+    invoke-virtual {v2}, Landroid/support/v4/app/FragmentActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/cm/d;->a(ILandroid/content/res/Resources;)V
+
+    .line 361
+    if-lez v0, :cond_0
+
+    .line 362
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    aget-object v1, v1, v4
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/cm/d;
+
+    invoke-virtual {v0, v1, v3, v2, v3}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    .line 367
     :goto_0
-    invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(I)V
-
-    .line 332
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i:Landroid/view/View;
-
-    if-eqz v3, :cond_1
-
-    move v0, v1
-
-    :goto_1
-    invoke-virtual {v4, v0}, Landroid/view/View;->setVisibility(I)V
-
-    .line 333
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Landroid/view/View;
-
-    if-eqz v3, :cond_2
-
-    :goto_2
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    .line 334
     return-void
 
-    .line 331
+    .line 365
     :cond_0
-    const v0, 0x7f070140
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    aget-object v1, v1, v4
+
+    invoke-virtual {v0, v1, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    .line 332
-    goto :goto_1
-
-    :cond_2
-    move v1, v2
-
-    .line 333
-    goto :goto_2
 .end method
 
 .method static synthetic h(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
     .locals 0
 
     .prologue
-    .line 83
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h()V
+    .line 95
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j()V
 
     return-void
 .end method
 
 .method private i()V
-    .locals 6
+    .locals 5
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    const/16 v4, 0x8
+    const/4 v3, 0x0
 
-    .line 337
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    .line 338
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
-
-    move-result-object v1
-
-    .line 339
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->s()Lcom/yelp/android/serializable/User;
-
-    move-result-object v2
-
-    .line 340
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->isFullUser()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 342
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/view/View;
-
-    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
-
-    .line 343
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h:Landroid/view/View;
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
-
-    .line 344
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j()V
-
-    .line 345
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l()V
-
-    .line 363
-    :goto_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/drawer/k;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/drawer/k;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/cs;->a(Landroid/view/View;Lcom/yelp/android/ui/util/cu;)V
-
-    .line 371
-    return-void
-
-    .line 346
-    :cond_0
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->x()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 348
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/view/View;
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    .line 349
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h:Landroid/view/View;
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
-
-    .line 350
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i_()V
-
-    goto :goto_0
-
-    .line 351
-    :cond_1
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 354
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e()V
-
-    goto :goto_0
-
-    .line 357
-    :cond_2
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/view/View;
-
-    invoke-virtual {v1, v4}, Landroid/view/View;->setVisibility(I)V
-
-    .line 358
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h:Landroid/view/View;
-
-    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
-
-    .line 359
-    const v1, 0x7f0c0305
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 370
+    invoke-static {}, Lcom/yelp/android/appdata/j;->a()Lcom/yelp/android/appdata/j;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/j;->f()I
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-result v0
+
+    .line 371
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Lcom/yelp/android/cm/d;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/support/v4/app/FragmentActivity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/cm/d;->a(ILandroid/content/res/Resources;)V
+
+    .line 372
+    if-lez v0, :cond_0
+
+    .line 373
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    aget-object v1, v1, v4
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Lcom/yelp/android/cm/d;
+
+    invoke-virtual {v0, v1, v3, v2, v3}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    .line 379
+    :goto_0
+    return-void
+
+    .line 376
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    aget-object v1, v1, v4
+
+    invoke-virtual {v0, v1, v3, v3, v3}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 .end method
@@ -485,8 +344,8 @@
     .locals 0
 
     .prologue
-    .line 83
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e()V
+    .line 95
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g()V
 
     return-void
 .end method
@@ -495,27 +354,291 @@
     .locals 1
 
     .prologue
-    .line 83
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k()I
+    .line 95
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m()I
 
     move-result v0
 
     return v0
 .end method
 
-.method private k()I
+.method private j()V
+    .locals 6
+
+    .prologue
+    const/16 v2, 0x8
+
+    const/4 v1, 0x0
+
+    .line 382
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    .line 383
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
+
+    move-result-object v3
+
+    .line 384
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v4
+
+    .line 385
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->c:Landroid/widget/TextView;
+
+    if-eqz v4, :cond_0
+
+    const v0, 0x7f0702ed
+
+    :goto_0
+    invoke-virtual {v5, v0}, Landroid/widget/TextView;->setText(I)V
+
+    .line 386
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/widget/TextView;
+
+    if-eqz v4, :cond_1
+
+    move v0, v1
+
+    :goto_1
+    invoke-virtual {v5, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 387
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f:Landroid/widget/TextView;
+
+    if-eqz v4, :cond_2
+
+    move v0, v1
+
+    :goto_2
+    invoke-virtual {v5, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 388
+    if-eqz v4, :cond_3
+
+    if-eqz v3, :cond_3
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/User;->k()I
+
+    move-result v0
+
+    if-lez v0, :cond_3
+
+    const/4 v0, 0x1
+
+    .line 390
+    :goto_3
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i:Landroid/widget/TextView;
+
+    if-eqz v0, :cond_4
+
+    :goto_4
+    invoke-virtual {v3, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 391
+    return-void
+
+    .line 385
+    :cond_0
+    const v0, 0x7f0701c3
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v2
+
+    .line 386
+    goto :goto_1
+
+    :cond_2
+    move v0, v2
+
+    .line 387
+    goto :goto_2
+
+    :cond_3
+    move v0, v1
+
+    .line 388
+    goto :goto_3
+
+    :cond_4
+    move v1, v2
+
+    .line 390
+    goto :goto_4
+.end method
+
+.method static synthetic k(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)Lcom/yelp/android/ui/activities/drawer/DrawerFragment$a;
+    .locals 1
+
+    .prologue
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->b:Lcom/yelp/android/ui/activities/drawer/DrawerFragment$a;
+
+    return-object v0
+.end method
+
+.method private k()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x0
+
+    const/16 v3, 0x8
+
+    .line 394
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    .line 395
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
+
+    move-result-object v1
+
+    .line 396
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->n()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 398
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/view/View;
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+
+    .line 399
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/view/View;
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 400
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l()V
+
+    .line 401
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n()V
+
+    .line 418
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$4;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$4;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/at;->a(Landroid/view/View;Lcom/yelp/android/ui/util/at$a;)V
+
+    .line 428
+    return-void
+
+    .line 402
+    :cond_0
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->t()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 404
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/view/View;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 405
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/view/View;
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 406
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->H_()V
+
+    goto :goto_0
+
+    .line 407
+    :cond_1
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 410
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g()V
+
+    goto :goto_0
+
+    .line 413
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/view/View;
+
+    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 414
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/view/View;
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+
+    .line 415
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    goto :goto_0
+.end method
+
+.method static synthetic l(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+    .locals 0
+
+    .prologue
+    .line 95
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h()V
+
+    return-void
+.end method
+
+.method private m()I
     .locals 3
 
     .prologue
-    .line 379
+    .line 436
     const/4 v2, 0x0
 
-    .line 380
+    .line 437
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    .line 382
+    .line 439
     instance-of v0, v1, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;
 
     if-eqz v0, :cond_0
@@ -530,112 +653,112 @@
 
     if-eqz v0, :cond_0
 
-    .line 384
-    const v0, 0x7f0c030c
+    .line 441
+    const v0, 0x7f0f0391
 
-    .line 439
+    .line 498
     :goto_0
     return v0
 
-    .line 385
+    .line 442
     :cond_0
-    instance-of v0, v1, Lcom/yelp/android/ui/activities/feed/SingleFeedFragmentActivity;
+    instance-of v0, v1, Lcom/yelp/android/ui/activities/profile/reviews/ActivityUserReviews;
 
     if-eqz v0, :cond_1
 
     move-object v0, v1
 
-    check-cast v0, Lcom/yelp/android/ui/activities/feed/SingleFeedFragmentActivity;
+    check-cast v0, Lcom/yelp/android/ui/activities/profile/reviews/ActivityUserReviews;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/feed/SingleFeedFragmentActivity;->a()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/profile/reviews/ActivityUserReviews;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 387
-    const v0, 0x7f0c030d
+    .line 444
+    const v0, 0x7f0f0392
 
     goto :goto_0
 
-    .line 388
+    .line 445
     :cond_1
-    instance-of v0, v1, Lcom/yelp/android/ui/activities/profile/UserBizMediaGrid;
+    instance-of v0, v1, Lcom/yelp/android/ui/activities/mediagrid/ActivityUserBizMediaGrid;
 
     if-eqz v0, :cond_2
 
     move-object v0, v1
 
-    check-cast v0, Lcom/yelp/android/ui/activities/profile/UserBizMediaGrid;
+    check-cast v0, Lcom/yelp/android/ui/activities/mediagrid/ActivityUserBizMediaGrid;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/profile/UserBizMediaGrid;->a()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/mediagrid/ActivityUserBizMediaGrid;->a()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 390
-    const v0, 0x7f0c030e
+    .line 447
+    const v0, 0x7f0f0393
 
     goto :goto_0
 
-    .line 391
+    .line 448
     :cond_2
     instance-of v0, v1, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;
 
     if-eqz v0, :cond_3
 
-    .line 392
-    const v0, 0x7f0c0268
+    .line 449
+    const v0, 0x7f0f02b2
 
     goto :goto_0
 
-    .line 393
+    .line 450
     :cond_3
     instance-of v0, v1, Lcom/yelp/android/ui/activities/ActivityContributionSearch;
 
     if-eqz v0, :cond_5
 
-    .line 394
+    .line 451
     check-cast v1, Lcom/yelp/android/ui/activities/ActivityContributionSearch;
 
     invoke-virtual {v1}, Lcom/yelp/android/ui/activities/ActivityContributionSearch;->b()Lcom/yelp/android/appdata/BusinessContributionType;
 
     move-result-object v0
 
-    .line 396
+    .line 453
     sget-object v1, Lcom/yelp/android/appdata/BusinessContributionType;->CHECK_IN:Lcom/yelp/android/appdata/BusinessContributionType;
 
     if-ne v0, v1, :cond_4
 
-    .line 397
-    const v0, 0x7f0c026a
+    .line 454
+    const v0, 0x7f0f02b4
 
     goto :goto_0
 
-    .line 398
+    .line 455
     :cond_4
     sget-object v1, Lcom/yelp/android/appdata/BusinessContributionType;->BUSINESS_PHOTO:Lcom/yelp/android/appdata/BusinessContributionType;
 
-    if-ne v0, v1, :cond_17
+    if-ne v0, v1, :cond_18
 
-    .line 399
-    const v0, 0x7f0c0269
+    .line 456
+    const v0, 0x7f0f02b3
 
     goto :goto_0
 
-    .line 401
+    .line 458
     :cond_5
     instance-of v0, v1, Lcom/yelp/android/ui/activities/nearby/ActivityNearby;
 
     if-eqz v0, :cond_6
 
-    .line 402
-    const v0, 0x7f0c026b
+    .line 459
+    const v0, 0x7f0f02b5
 
     goto :goto_0
 
-    .line 403
+    .line 460
     :cond_6
     instance-of v0, v1, Lcom/yelp/android/ui/activities/search/SearchBusinessesByList;
 
@@ -645,101 +768,101 @@
 
     if-eqz v0, :cond_8
 
-    .line 405
+    .line 462
     :cond_7
-    const v0, 0x7f0c026c
+    const v0, 0x7f0f02b6
 
     goto :goto_0
 
-    .line 406
+    .line 463
     :cond_8
     instance-of v0, v1, Lcom/yelp/android/ui/activities/feed/ActivityFeed;
 
     if-eqz v0, :cond_9
 
-    .line 407
-    const v0, 0x7f0c026d
+    .line 464
+    const v0, 0x7f0f02b7
 
     goto :goto_0
 
-    .line 408
+    .line 465
     :cond_9
     instance-of v0, v1, Lcom/yelp/android/ui/activities/notifications/ActivityNotifications;
 
     if-eqz v0, :cond_a
 
-    .line 409
-    const v0, 0x7f0c026e
+    .line 466
+    const v0, 0x7f0f02b8
 
     goto :goto_0
 
-    .line 410
+    .line 467
     :cond_a
-    instance-of v0, v1, Lcom/yelp/android/ui/activities/ActivityBookmarks;
+    instance-of v0, v1, Lcom/yelp/android/ui/activities/bookmarks/ActivityBookmarks;
 
     if-eqz v0, :cond_b
 
-    .line 411
-    const v0, 0x7f0c0271
+    .line 468
+    const v0, 0x7f0f02b9
 
     goto :goto_0
 
-    .line 412
+    .line 469
     :cond_b
     instance-of v0, v1, Lcom/yelp/android/ui/activities/events/ActivityEvents;
 
     if-eqz v0, :cond_c
 
-    .line 413
-    const v0, 0x7f0c0273
+    .line 470
+    const v0, 0x7f0f02bb
 
     goto :goto_0
 
-    .line 414
+    .line 471
     :cond_c
     instance-of v0, v1, Lcom/yelp/android/ui/activities/ActivityRecents;
 
     if-eqz v0, :cond_d
 
-    .line 415
-    const v0, 0x7f0c0272
+    .line 472
+    const v0, 0x7f0f02ba
 
     goto :goto_0
 
-    .line 416
+    .line 473
     :cond_d
     instance-of v0, v1, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging;
 
     if-eqz v0, :cond_e
 
-    .line 417
-    const v0, 0x7f0c0274
+    .line 474
+    const v0, 0x7f0f02bd
 
     goto/16 :goto_0
 
-    .line 418
+    .line 475
     :cond_e
     instance-of v0, v1, Lcom/yelp/android/ui/activities/friendcheckins/NearbyCheckIns;
 
     if-eqz v0, :cond_f
 
-    .line 419
-    const v0, 0x7f0c0277
+    .line 476
+    const v0, 0x7f0f02be
 
     goto/16 :goto_0
 
-    .line 420
+    .line 477
     :cond_f
     instance-of v0, v1, Lcom/yelp/android/ui/activities/talk/ActivityTalk;
 
     if-eqz v0, :cond_10
 
-    .line 421
-    const v0, 0x7f0c0278
+    .line 478
+    const v0, 0x7f0f02bf
 
     goto/16 :goto_0
 
-    .line 422
+    .line 479
     :cond_10
     instance-of v0, v1, Lcom/yelp/android/ui/activities/profile/ActivityUserProfile;
 
@@ -755,125 +878,136 @@
 
     if-eqz v0, :cond_11
 
-    .line 424
-    const v0, 0x7f0c0279
+    .line 481
+    const v0, 0x7f0f02c0
 
     goto/16 :goto_0
 
-    .line 425
+    .line 482
     :cond_11
-    instance-of v0, v1, Lcom/yelp/android/ui/activities/weekly/ActivityWeeklyIssue;
+    instance-of v0, v1, Lcom/yelp/android/ui/activities/localissue/ActivityLocalIssue;
 
     if-eqz v0, :cond_12
 
-    .line 426
-    const v0, 0x7f0c027a
+    .line 483
+    const v0, 0x7f0f02c1
 
     goto/16 :goto_0
 
-    .line 427
+    .line 484
     :cond_12
     instance-of v0, v1, Lcom/yelp/android/ui/ActivityMonocle;
 
     if-eqz v0, :cond_13
 
-    .line 428
-    const v0, 0x7f0c027b
+    .line 485
+    const v0, 0x7f0f02c2
 
     goto/16 :goto_0
 
-    .line 429
+    .line 486
     :cond_13
     instance-of v0, v1, Lcom/yelp/android/ui/activities/friends/ActivityFindFriends;
 
     if-eqz v0, :cond_14
 
-    .line 430
-    const v0, 0x7f0c027c
+    .line 487
+    const v0, 0x7f0f02c3
 
     goto/16 :goto_0
 
-    .line 431
+    .line 488
     :cond_14
     instance-of v0, v1, Lcom/yelp/android/ui/activities/mutatebiz/AddBusiness;
 
     if-eqz v0, :cond_15
 
-    .line 432
-    const v0, 0x7f0c027d
+    .line 489
+    const v0, 0x7f0f02c4
 
     goto/16 :goto_0
 
-    .line 433
+    .line 490
     :cond_15
     instance-of v0, v1, Lcom/yelp/android/ui/activities/settings/ChangeSettings;
 
     if-eqz v0, :cond_16
 
-    .line 434
-    const v0, 0x7f0c027e
+    .line 491
+    const v0, 0x7f0f02c5
 
     goto/16 :goto_0
 
-    .line 435
+    .line 492
     :cond_16
     instance-of v0, v1, Lcom/yelp/android/ui/activities/bugreport/ActivityReportABug;
 
     if-eqz v0, :cond_17
 
-    .line 436
-    const v0, 0x7f0c027f
+    .line 493
+    const v0, 0x7f0f02c6
 
     goto/16 :goto_0
 
+    .line 494
     :cond_17
+    instance-of v0, v1, Lcom/yelp/android/ui/activities/support/ActivitySupportCenter;
+
+    if-eqz v0, :cond_18
+
+    .line 495
+    const v0, 0x7f0f02c7
+
+    goto/16 :goto_0
+
+    :cond_18
     move v0, v2
 
     goto/16 :goto_0
 .end method
 
-.method static synthetic k(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)Lcom/yelp/android/ui/activities/drawer/o;
-    .locals 1
+.method static synthetic m(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+    .locals 0
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->b:Lcom/yelp/android/ui/activities/drawer/o;
+    .line 95
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i()V
 
-    return-object v0
+    return-void
 .end method
 
-.method private l()V
+.method private n()V
     .locals 13
 
     .prologue
-    const/4 v12, 0x0
+    const/4 v6, 0x0
 
-    const/4 v11, 0x1
+    const/4 v5, 0x1
 
-    .line 443
+    .line 502
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->s()Lcom/yelp/android/serializable/User;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
 
-    move-result-object v5
+    move-result-object v7
 
-    .line 444
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 503
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0306
+    const v1, 0x7f0f038c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    .line 445
-    const v0, 0x7f0c030c
+    .line 504
+    const v0, 0x7f0f0391
 
     invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -881,8 +1015,8 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 446
-    const v1, 0x7f0c030d
+    .line 505
+    const v1, 0x7f0f0392
 
     invoke-virtual {v4, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -890,8 +1024,8 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 447
-    const v2, 0x7f0c030e
+    .line 506
+    const v2, 0x7f0f0393
 
     invoke-virtual {v4, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -899,8 +1033,8 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    .line 448
-    const v3, 0x7f0c030b
+    .line 507
+    const v3, 0x7f0f0390
 
     invoke-virtual {v4, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -908,159 +1042,189 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    .line 449
-    const v6, 0x7f0c0309
+    .line 508
+    const v8, 0x7f0f038f
 
-    invoke-virtual {v4, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v4, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
     check-cast v4, Lcom/yelp/android/ui/widgets/WebImageView;
 
-    .line 450
+    .line 509
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v6
+    move-result-object v8
 
-    const v7, 0x7f0e0010
+    const v9, 0x7f080010
 
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/User;->getFriendCount()I
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/User;->k_()I
 
-    move-result v8
+    move-result v10
 
-    new-array v9, v11, [Ljava/lang/Object;
+    new-array v11, v5, [Ljava/lang/Object;
 
-    invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v10
+    move-result-object v12
 
-    aput-object v10, v9, v12
+    aput-object v12, v11, v6
 
-    invoke-static {v6, v7, v8, v9}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;II[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v8, v9, v10, v11}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;II[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v8
 
-    .line 452
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    .line 512
+    invoke-virtual {v0, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 453
+    .line 513
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    const v6, 0x7f0e0022
+    const v8, 0x7f080025
 
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/User;->getReviewCount()I
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/User;->j_()I
 
-    move-result v7
+    move-result v9
 
-    new-array v8, v11, [Ljava/lang/Object;
+    new-array v10, v5, [Ljava/lang/Object;
 
-    invoke-static {v11}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object v9
+    move-result-object v11
 
-    aput-object v9, v8, v12
+    aput-object v11, v10, v6
 
-    invoke-static {v0, v6, v7, v8}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;II[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v8, v9, v10}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;II[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 455
+    .line 516
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 456
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/User;->getVideoCount()I
+    .line 517
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/User;->j_()I
 
     move-result v0
 
-    .line 457
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/User;->getLocalPhotoCount()I
+    if-lez v0, :cond_0
+
+    move v0, v5
+
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setClickable(Z)V
+
+    .line 518
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/User;->m_()I
+
+    move-result v0
+
+    .line 519
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/User;->M()I
 
     move-result v1
 
-    .line 458
-    add-int v6, v0, v1
+    .line 520
+    add-int v8, v0, v1
 
-    .line 459
+    .line 521
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-static {v11, v1, v0, v6, v7}, Lcom/yelp/android/serializable/Passport;->getMediaQuantityString(ZIIILandroid/content/res/Resources;)Ljava/lang/String;
+    invoke-static {v5, v1, v0, v8, v9}, Lcom/yelp/android/serializable/Passport;->a(ZIIILandroid/content/res/Resources;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 461
+    .line 524
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 462
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/User;->getFullName()Ljava/lang/String;
+    .line 525
+    if-lez v8, :cond_1
+
+    :goto_1
+    invoke-virtual {v2, v5}, Landroid/widget/TextView;->setClickable(Z)V
+
+    .line 526
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/User;->ad()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 463
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/User;->getUserPhotoUrl()Ljava/lang/String;
+    .line 527
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f02009b
+    const v1, 0x7f0200c6
 
     invoke-virtual {v4, v0, v1}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;I)V
 
-    .line 464
+    .line 528
     return-void
+
+    :cond_0
+    move v0, v6
+
+    .line 517
+    goto :goto_0
+
+    :cond_1
+    move v5, v6
+
+    .line 525
+    goto :goto_1
 .end method
 
-.method static synthetic l(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+.method static synthetic n(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
     .locals 0
 
     .prologue
-    .line 83
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f()V
+    .line 95
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n()V
 
     return-void
 .end method
 
-.method private m()V
+.method private o()V
     .locals 5
 
     .prologue
     const/4 v4, 0x0
 
-    .line 471
-    new-instance v0, Lcom/yelp/android/ui/util/h;
+    .line 535
+    new-instance v0, Lcom/yelp/android/ui/util/e;
 
     new-array v1, v4, [Landroid/view/View;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    .line 472
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 536
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
-    .line 473
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/widget/ImageView;
+    .line 537
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
-    .line 474
-    new-instance v1, Lcom/yelp/android/ui/h;
+    .line 538
+    new-instance v1, Lcom/yelp/android/ui/d;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/DinoListView;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Lcom/yelp/android/DinoListView;
 
-    invoke-direct {v1, v2, v3}, Lcom/yelp/android/ui/h;-><init>(Landroid/content/Context;Lcom/yelp/android/DinoListView;)V
+    invoke-direct {v1, v2, v3}, Lcom/yelp/android/ui/d;-><init>(Landroid/content/Context;Lcom/yelp/android/DinoListView;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->p:Lcom/yelp/android/ui/h;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/d;
 
-    .line 477
+    .line 541
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -1075,59 +1239,49 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 478
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->p:Lcom/yelp/android/ui/h;
+    .line 542
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/d;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/h;->b()V
+    invoke-virtual {v1}, Lcom/yelp/android/ui/d;->c()V
 
-    .line 481
+    .line 545
     :cond_0
-    new-instance v1, Lcom/yelp/android/ui/util/bs;
+    new-instance v1, Lcom/yelp/android/ui/util/aj;
 
-    invoke-direct {v1}, Lcom/yelp/android/ui/util/bs;-><init>()V
+    invoke-direct {v1}, Lcom/yelp/android/ui/util/aj;-><init>()V
 
-    .line 482
-    invoke-static {v0}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    .line 546
+    invoke-static {v0}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v0
 
-    invoke-virtual {v1, v4, v0}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 483
+    move-result-object v0
+
+    invoke-virtual {v1, v4, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 547
     const/4 v0, 0x1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->p:Lcom/yelp/android/ui/h;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/d;
 
-    invoke-static {v2}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-static {v2}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v2
 
-    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 484
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/DinoListView;
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 548
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Lcom/yelp/android/DinoListView;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/DinoListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 485
-    return-void
-.end method
-
-.method static synthetic m(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
-    .locals 0
-
-    .prologue
-    .line 83
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g()V
-
+    .line 549
     return-void
 .end method
 
@@ -1137,26 +1291,26 @@
     .locals 1
 
     .prologue
-    .line 276
+    .line 318
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 279
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/activities/drawer/a;
+    .line 321
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Lcom/yelp/android/ui/activities/drawer/a;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/drawer/a;->a()V
 
-    .line 280
+    .line 322
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/util/cr;->b(Landroid/view/View;)V
+    invoke-static {v0}, Lcom/yelp/android/ui/util/as;->b(Landroid/view/View;)V
 
-    .line 282
+    .line 324
     :cond_0
     return-void
 .end method
@@ -1165,10 +1319,10 @@
     .locals 2
 
     .prologue
-    .line 265
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 307
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0306
+    const v1, 0x7f0f038c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1178,16 +1332,16 @@
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 266
+    .line 308
     return-void
 .end method
 
 .method public b()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 288
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/view/View;
+    .line 330
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getVisibility()I
 
@@ -1197,34 +1351,54 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 289
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->B()Lcom/yelp/android/ui/panels/PanelLoading;
+    .line 331
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->C()Lcom/yelp/android/ui/panels/PanelLoading;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/PanelLoading;->b()V
 
-    .line 294
+    .line 336
     :cond_0
-    sget-object v1, Lcom/yelp/android/analytics/iris/ViewIri;->Drawer:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Drawer:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    const-string/jumbo v2, "growth_android_dino_nav"
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    sget-object v0, Lcom/yelp/android/appdata/experiment/c;->a:Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment;->a()Ljava/lang/Enum;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment$Cohort;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment$Cohort;->name()Ljava/lang/String;
+    .line 340
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-static {v1, v2, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->o()Lcom/yelp/android/appdata/ApiPreferences;
 
-    .line 296
+    move-result-object v0
+
+    .line 341
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/ApiPreferences;->e()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/ApiPreferences;->d()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 343
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/ApiPreferences;->a()V
+
+    .line 345
+    :cond_1
     return-void
 .end method
 
@@ -1232,10 +1406,10 @@
     .locals 2
 
     .prologue
-    .line 270
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 312
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0306
+    const v1, 0x7f0f038c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1245,7 +1419,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 271
+    .line 313
     return-void
 .end method
 
@@ -1253,20 +1427,20 @@
     .locals 1
 
     .prologue
-    .line 299
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->q:Lcom/yelp/android/ui/activities/drawer/a;
+    .line 348
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Lcom/yelp/android/ui/activities/drawer/a;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/drawer/a;->b()V
 
-    .line 300
+    .line 349
     return-void
 .end method
 
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 260
+    .line 302
     const/4 v0, 0x0
 
     return-object v0
@@ -1276,51 +1450,58 @@
     .locals 2
 
     .prologue
-    .line 217
+    .line 256
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 219
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/dc;->b:Landroid/content/IntentFilter;
+    .line 258
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/co;->b:Landroid/content/IntentFilter;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/drawer/i;
+    new-instance v1, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/drawer/i;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->a(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V
-
-    .line 228
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/dc;->c:Landroid/content/IntentFilter;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/drawer/j;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/drawer/j;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$2;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->a(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V
 
-    .line 236
+    .line 268
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/co;->c:Landroid/content/IntentFilter;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$3;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$3;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->a(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V
+
+    .line 277
     const-string/jumbo v0, "com.yelp.android.messages.count.update"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->a:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
 
-    .line 238
+    .line 279
     const-string/jumbo v0, "com.yelp.android.notifications.count.update"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->a:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
 
-    .line 242
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k()I
+    .line 282
+    const-string/jumbo v0, "user"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->a:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 284
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m()I
 
     move-result v0
 
-    .line 243
+    .line 285
     if-eqz v0, :cond_0
 
-    .line 244
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 286
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1330,7 +1511,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSelected(Z)V
 
-    .line 246
+    .line 288
     :cond_0
     return-void
 .end method
@@ -1339,26 +1520,26 @@
     .locals 2
 
     .prologue
-    .line 207
+    .line 246
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 209
+    .line 248
     :try_start_0
-    check-cast p1, Lcom/yelp/android/ui/activities/drawer/o;
+    check-cast p1, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$a;
 
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->b:Lcom/yelp/android/ui/activities/drawer/o;
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->b:Lcom/yelp/android/ui/activities/drawer/DrawerFragment$a;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 213
+    .line 252
     :goto_0
     return-void
 
-    .line 210
+    .line 249
     :catch_0
     move-exception v0
 
-    .line 211
+    .line 250
     const-string/jumbo v0, "DrawerFragment"
 
     const-string/jumbo v1, "Parent activity must implement DrawerFragmentListener"
@@ -1369,26 +1550,32 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 6
+    .locals 9
 
     .prologue
-    const v3, 0x7f0300cf
+    const v8, 0x7f020360
+
+    const v7, 0x7f0f02c7
+
+    const v4, 0x7f0f02c6
+
+    const/16 v6, 0x8
 
     const/4 v5, 0x0
 
-    .line 108
-    const v0, 0x7f030099
+    .line 121
+    const v0, 0x7f0300b0
 
     invoke-virtual {p1, v0, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    .line 109
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0277
+    const v1, 0x7f0f02be
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1398,418 +1585,482 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->c:Landroid/widget/TextView;
 
-    .line 110
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 123
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0307
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/view/View;
-
-    .line 115
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c030f
+    const v1, 0x7f0f038d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/view/ViewStub;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/view/View;
 
-    .line 116
-    sget-object v2, Lcom/yelp/android/ui/activities/drawer/n;->a:[I
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    sget-object v1, Lcom/yelp/android/appdata/experiment/c;->a:Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment;
+    const v1, 0x7f0f0394
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment;->a()Ljava/lang/Enum;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/view/View;
+
+    .line 126
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02b8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f:Landroid/widget/TextView;
+
+    .line 127
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02bd
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/widget/TextView;
+
+    .line 128
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02bc
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i:Landroid/widget/TextView;
+
+    .line 130
+    invoke-static {}, Lcom/yelp/android/appdata/j;->a()Lcom/yelp/android/appdata/j;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/j;->f()I
+
+    move-result v0
+
+    .line 131
+    invoke-static {}, Lcom/yelp/android/appdata/j;->a()Lcom/yelp/android/appdata/j;
 
     move-result-object v1
 
-    check-cast v1, Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment$Cohort;
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/experiment/NavForAnonymousUsersExperiment$Cohort;->ordinal()I
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/j;->e()I
 
     move-result v1
 
-    aget v1, v2, v1
+    .line 133
+    new-instance v2, Lcom/yelp/android/cm/d;
 
-    packed-switch v1, :pswitch_data_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    .line 128
-    const v1, 0x7f0300d0
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setLayoutResource(I)V
+    invoke-direct {v2, v3, v8, v0}, Lcom/yelp/android/cm/d;-><init>(Landroid/content/Context;II)V
 
-    .line 129
-    invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
-
-    .line 132
-    :goto_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c0304
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h:Landroid/view/View;
-
-    .line 134
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c026f
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->d:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Lcom/yelp/android/cm/d;
 
     .line 135
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    new-instance v0, Lcom/yelp/android/cm/d;
 
-    const v1, 0x7f0c026e
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-direct {v0, v2, v8, v1}, Lcom/yelp/android/cm/d;-><init>(Landroid/content/Context;II)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Landroid/view/View;
-
-    .line 136
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c0274
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/cm/d;
 
     .line 137
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Lcom/yelp/android/cm/d;
 
-    const v1, 0x7f0c0275
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Lcom/yelp/android/cm/d;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1}, Lcom/yelp/android/cm/d;->getIntrinsicWidth()I
 
-    move-result-object v0
+    move-result v1
 
-    check-cast v0, Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j:Lcom/yelp/android/cm/d;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->e:Landroid/widget/TextView;
+    invoke-virtual {v2}, Lcom/yelp/android/cm/d;->getIntrinsicHeight()I
 
-    .line 139
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    move-result v2
 
-    const v1, 0x7f0c0308
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 140
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c030c
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 141
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c030d
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5, v5, v1, v2}, Lcom/yelp/android/cm/d;->setBounds(IIII)V
 
     .line 142
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/cm/d;
 
-    const v1, 0x7f0c030e
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/cm/d;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1}, Lcom/yelp/android/cm/d;->getIntrinsicWidth()I
 
-    move-result-object v0
+    move-result v1
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/cm/d;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2}, Lcom/yelp/android/cm/d;->getIntrinsicHeight()I
 
-    .line 143
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    move-result v2
 
-    const v1, 0x7f0c0268
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 144
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c0269
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v5, v5, v1, v2}, Lcom/yelp/android/cm/d;->setBounds(IIII)V
 
     .line 145
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c026a
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 146
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c026b
+    const v1, 0x7f0f038e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 147
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c026c
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 148
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c026d
+    const v1, 0x7f0f0391
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 149
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0270
+    const v1, 0x7f0f0392
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 150
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0271
+    const v1, 0x7f0f0393
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 151
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0272
+    const v1, 0x7f0f02b2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 152
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0273
+    const v1, 0x7f0f02b3
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 153
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0276
+    const v1, 0x7f0f02b4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 154
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->c:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 155
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c0278
+    const v1, 0x7f0f02b5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 155
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02b6
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 156
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c0279
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 157
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c027b
+    const v1, 0x7f0f02b7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 158
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c027c
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 159
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f:Landroid/widget/TextView;
 
-    const v1, 0x7f0c027d
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 160
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c027e
+    const v1, 0x7f0f02b9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 161
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    const v1, 0x7f0c027f
+    const v1, 0x7f0f02ba
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 162
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02bb
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 163
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g:Landroid/widget/TextView;
 
-    const v1, 0x7f0c027a
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 164
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->c:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 165
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 166
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02bf
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 167
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02c0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 168
+    invoke-static {}, Lcom/yelp/android/ui/util/ac;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 169
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02c2
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 173
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02c3
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 174
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02c4
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 175
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02c5
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 176
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 177
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 181
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 182
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
+
+    .line 183
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+
+    .line 189
+    :goto_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    const v1, 0x7f0f02c1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 164
+    .line 190
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -1822,12 +2073,12 @@
 
     check-cast v0, Landroid/telephony/TelephonyManager;
 
-    .line 166
+    .line 192
     invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 167
+    .line 193
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v2
@@ -1844,7 +2095,7 @@
 
     move-result-object v2
 
-    .line 171
+    .line 197
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -1853,7 +2104,9 @@
 
     const-string/jumbo v3, "US"
 
-    invoke-virtual {v0}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1868,7 +2121,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
     const-string/jumbo v0, "US"
 
@@ -1876,23 +2129,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
-    .line 173
+    .line 200
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->r:Landroid/view/View$OnClickListener;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->s:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 178
-    :goto_1
-    const v0, 0x7f030098
+    .line 205
+    :goto_2
+    const v0, 0x7f0300af
 
     invoke-virtual {p1, v0, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v1
 
-    .line 179
+    .line 206
     new-instance v0, Landroid/widget/ImageView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -1901,16 +2154,16 @@
 
     invoke-direct {v0, v2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n:Landroid/widget/ImageView;
 
-    .line 180
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/widget/ImageView;
+    .line 207
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n:Landroid/widget/ImageView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f020197
+    const v3, 0x7f020217
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1918,15 +2171,15 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 182
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/widget/ImageView;
+    .line 209
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n:Landroid/widget/ImageView;
 
     sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 184
-    const v0, 0x7f0c0265
+    .line 211
+    const v0, 0x7f0f02ae
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1934,15 +2187,15 @@
 
     check-cast v0, Lcom/yelp/android/DinoListView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/DinoListView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Lcom/yelp/android/DinoListView;
 
-    .line 185
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k:Lcom/yelp/android/DinoListView;
+    .line 212
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Lcom/yelp/android/DinoListView;
 
     invoke-virtual {v0, v5}, Lcom/yelp/android/DinoListView;->setClickable(Z)V
 
-    .line 187
-    const v0, 0x7f0c0266
+    .line 214
+    const v0, 0x7f0f02af
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1950,10 +2203,10 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->n:Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->o:Landroid/widget/ImageView;
 
-    .line 188
-    const v0, 0x7f0c0267
+    .line 215
+    const v0, 0x7f0f02b0
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1961,91 +2214,84 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->o:Landroid/widget/Button;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->p:Landroid/widget/Button;
 
-    .line 189
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m()V
+    .line 216
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->o()V
 
-    .line 191
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
+    .line 218
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/drawer/h;
+    new-instance v2, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$1;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/drawer/h;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment$1;-><init>(Lcom/yelp/android/ui/activities/drawer/DrawerFragment;)V
 
-    invoke-static {v0, v2}, Lcom/yelp/android/ui/util/cs;->a(Landroid/view/View;Lcom/yelp/android/ui/util/cu;)V
+    invoke-static {v0, v2}, Lcom/yelp/android/ui/util/at;->a(Landroid/view/View;Lcom/yelp/android/ui/util/at$a;)V
 
-    .line 202
+    .line 237
     return-object v1
 
-    .line 118
-    :pswitch_0
-    invoke-virtual {v0, v3}, Landroid/view/ViewStub;->setLayoutResource(I)V
+    .line 171
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    .line 119
-    invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
-
-    .line 120
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->l:Landroid/view/View;
-
-    const v1, 0x7f0c0305
+    const v1, 0x7f0f02c2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/Button;
-
-    const v1, 0x7f0701df
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
+    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_0
 
-    .line 124
-    :pswitch_1
-    invoke-virtual {v0, v3}, Landroid/view/ViewStub;->setLayoutResource(I)V
+    .line 185
+    :cond_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
 
-    .line 125
-    invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    goto/16 :goto_0
+    move-result-object v0
 
-    .line 175
-    :cond_2
-    const/16 v0, 0x8
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
+    .line 186
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->m:Landroid/view/View;
+
+    invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
 
     goto/16 :goto_1
 
-    .line 116
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    .line 202
+    :cond_4
+    invoke-virtual {v1, v6}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_2
 .end method
 
 .method public onResume()V
     .locals 0
 
     .prologue
-    .line 250
+    .line 292
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onResume()V
 
-    .line 251
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i()V
+    .line 293
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->k()V
 
-    .line 252
+    .line 294
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->j()V
+
+    .line 295
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->h()V
 
-    .line 253
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->f()V
+    .line 296
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->i()V
 
-    .line 254
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/drawer/DrawerFragment;->g()V
-
-    .line 255
+    .line 297
     return-void
 .end method

@@ -5,26 +5,47 @@
 # interfaces
 .implements Landroid/widget/AdapterView$OnItemClickListener;
 .implements Landroid/widget/AdapterView$OnItemLongClickListener;
-.implements Lcom/yelp/android/ui/activities/reviewpage/bg;
-.implements Lcom/yelp/android/ui/activities/reviewpage/v;
-.implements Lcom/yelp/android/ui/util/al;
-.implements Lcom/yelp/android/ui/widgets/o;
+.implements Lcom/yelp/android/ui/activities/reviewpage/a$a;
+.implements Lcom/yelp/android/ui/activities/reviewpage/d$a;
+.implements Lcom/yelp/android/ui/util/ImageInputHelper$c;
+.implements Lcom/yelp/android/ui/widgets/d$a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$59;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$b;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$e;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$h;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$g;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$d;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$f;,
+        Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
+    }
+.end annotation
 
 
 # instance fields
-.field private A:Lcom/yelp/android/ui/util/h;
+.field private A:Lcom/yelp/android/ui/util/aj;
 
-.field private B:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+.field private B:Lcom/yelp/android/ui/util/e;
 
-.field private C:Lcom/yelp/android/ui/util/ax;
+.field private C:Lcom/yelp/android/ui/util/e;
 
-.field private D:Lcom/yelp/android/ui/activities/reviewpage/t;
+.field private D:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-.field private E:Lcom/yelp/android/appdata/webrequests/eu;
+.field private E:Lcom/yelp/android/ui/util/z;
 
-.field private F:I
+.field private F:Lcom/yelp/android/ui/activities/reviewpage/a;
 
-.field private G:Ljava/util/List;
+.field private G:Lcom/yelp/android/appdata/webrequests/dw;
+
+.field private H:I
+
+.field private I:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -35,17 +56,17 @@
     .end annotation
 .end field
 
-.field private H:Lcom/yelp/android/ui/activities/reviewpage/aw;
+.field private J:Lcom/yelp/android/ui/activities/reviewpage/d;
 
-.field private I:Lcom/yelp/android/ui/util/h;
+.field private K:Lcom/yelp/android/ui/util/e;
 
-.field private J:Lcom/yelp/android/ui/util/h;
+.field private L:Lcom/yelp/android/ui/util/e;
 
-.field private K:Lcom/yelp/android/ui/util/h;
+.field private M:Lcom/yelp/android/ui/util/e;
 
-.field private L:Lcom/yelp/android/appdata/webrequests/cw;
+.field private N:Lcom/yelp/android/appdata/webrequests/ck;
 
-.field private M:Ljava/util/List;
+.field private O:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -56,19 +77,17 @@
     .end annotation
 .end field
 
-.field private N:Lcom/yelp/android/ui/activities/reviewpage/bi;
+.field private P:Lcom/yelp/android/ui/activities/reviewpage/e;
 
-.field private O:Lcom/yelp/android/ui/util/h;
+.field private Q:Lcom/yelp/android/ui/util/e;
 
-.field private P:Lcom/yelp/android/ui/util/h;
+.field private R:Lcom/yelp/android/ui/util/e;
 
-.field private Q:Lcom/yelp/android/ui/util/h;
+.field private S:Ljava/lang/String;
 
-.field private R:Ljava/lang/String;
+.field private T:Lcom/yelp/android/appdata/webrequests/dy;
 
-.field private S:Lcom/yelp/android/appdata/webrequests/ey;
-
-.field private T:Ljava/util/List;
+.field private U:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -79,67 +98,115 @@
     .end annotation
 .end field
 
-.field private U:I
+.field private V:I
 
-.field private V:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+.field private W:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
-.field private W:Lcom/yelp/android/ui/util/h;
+.field private X:Lcom/yelp/android/ui/util/e;
 
-.field private X:Lcom/yelp/android/ui/util/h;
+.field private Y:Lcom/yelp/android/ui/util/e;
 
-.field private Y:Lcom/yelp/android/appdata/webrequests/ab;
+.field private Z:Lcom/yelp/android/appdata/webrequests/ae;
 
-.field private Z:Ljava/util/List;
+.field private a:Lcom/yelp/android/ui/widgets/a;
+
+.field private aA:Landroid/view/View;
+
+.field private aB:Z
+
+.field private aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+.field private aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+.field private aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+.field private aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
+
+.field private aG:Lcom/yelp/android/appdata/webrequests/co;
+
+.field private aH:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
+            "Ljava/util/ArrayList",
             "<",
-            "Lcom/yelp/android/serializable/Ranking;",
+            "Landroid/content/Intent;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private a:Lcom/yelp/android/ui/widgets/b;
+.field private aI:Ljava/lang/String;
 
-.field private aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+.field private aJ:Z
 
-.field private aB:Landroid/view/View;
+.field private aK:Z
 
-.field private aC:Lcom/yelp/android/ui/util/h;
+.field private aL:Lcom/yelp/android/ui/dialogs/e;
 
-.field private aD:Z
+.field private aM:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
 
-.field private aE:Landroid/view/View;
+.field private aN:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
 
-.field private aF:Landroid/view/View;
+.field private aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
+            "<",
+            "Ljava/lang/Void;",
+            "**>;"
+        }
+    .end annotation
+.end field
 
-.field private aG:Ljava/util/LinkedHashMap;
+.field private aP:Lcom/yelp/android/ui/map/YelpMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/ui/map/YelpMap",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+.field private aR:Landroid/widget/FrameLayout;
+
+.field private aS:Lcom/yelp/android/ui/util/e;
+
+.field private aT:Z
+
+.field private aU:Landroid/view/View;
+
+.field private aV:Landroid/view/View;
+
+.field private aW:Ljava/util/LinkedHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedHashMap",
             "<",
-            "Lcom/yelp/android/ui/activities/reviewpage/bi;",
-            "Lcom/yelp/android/ui/util/bv",
+            "Lcom/yelp/android/ui/activities/reviewpage/e;",
+            "Lcom/yelp/android/ui/util/aj$b",
             "<",
-            "Lcom/yelp/android/ui/activities/reviewpage/bi;",
+            "Lcom/yelp/android/ui/activities/reviewpage/e;",
             ">;>;"
         }
     .end annotation
 .end field
 
-.field private aH:Lcom/yelp/android/ui/util/bv;
+.field private aX:Lcom/yelp/android/ui/util/aj$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ui/util/bv",
+            "Lcom/yelp/android/ui/util/aj$b",
             "<",
-            "Lcom/yelp/android/ui/activities/reviewpage/bi;",
+            "Lcom/yelp/android/ui/activities/reviewpage/e;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private aI:Ljava/util/LinkedHashSet;
+.field private aY:Ljava/util/LinkedHashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/LinkedHashSet",
@@ -150,111 +217,67 @@
     .end annotation
 .end field
 
-.field private aJ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+.field private aZ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
 
-.field private aK:Lcom/yelp/android/ui/activities/businesspage/bv;
-
-.field private aL:Lcom/yelp/android/ui/activities/businesspage/bw;
-
-.field private final aM:Landroid/view/View$OnClickListener;
-
-.field private final aN:Lcom/yelp/android/ui/activities/businesspage/cc;
-
-.field private final aO:Lcom/yelp/android/ui/activities/businesspage/cc;
-
-.field private final aP:Lcom/yelp/android/appdata/webrequests/m;
+.field private aa:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
             "Ljava/util/ArrayList",
             "<",
             "Lcom/yelp/android/serializable/Ranking;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private final aQ:Lcom/google/android/gms/ads/AdListener;
-
-.field private final aR:Lcom/yelp/android/appdata/webrequests/m;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/dm;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final aS:Lcom/yelp/android/appdata/webrequests/m;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBookmark;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private ab:Lcom/yelp/android/ui/util/e;
 
-.field private final aT:Lcom/yelp/android/appdata/webrequests/m;
+.field private ac:Ljava/lang/Boolean;
+
+.field private ad:Lcom/yelp/android/appdata/webrequests/z;
+
+.field private ae:Lcom/yelp/android/ui/panels/businesssearch/e;
+
+.field private af:Lcom/yelp/android/appdata/webrequests/dj;
+
+.field private ag:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
             "Ljava/util/List",
             "<",
-            "Lcom/yelp/android/serializable/LocalAd;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private final aU:Lcom/yelp/android/appdata/webrequests/m;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/cx;",
+            "Lcom/yelp/android/serializable/YelpBusinessTiny;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final aV:Lcom/yelp/android/appdata/webrequests/m;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/ez;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private ah:Lcom/yelp/android/appdata/webrequests/messaging/g;
 
-.field private final aW:Lcom/yelp/android/av/i;
+.field private ai:Lcom/yelp/android/ui/util/e;
 
-.field private final aX:Landroid/support/v7/widget/bt;
+.field private aj:Z
 
-.field private aa:Landroid/view/View;
+.field private ak:Landroid/view/View;
 
-.field private ab:Landroid/widget/TextView;
+.field private al:Landroid/widget/TextView;
 
-.field private ac:Z
+.field private am:Z
 
-.field private ad:Z
+.field private an:Z
 
-.field private ae:Z
+.field private ao:Z
 
-.field private af:Z
+.field private ap:Z
 
-.field private ag:Z
+.field private aq:Z
 
-.field private ah:Z
+.field private ar:Z
 
-.field private ai:Ljava/util/Map;
+.field private as:Z
+
+.field private at:Z
+
+.field private au:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map",
@@ -266,7 +289,7 @@
     .end annotation
 .end field
 
-.field private aj:Ljava/util/ArrayList;
+.field private av:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
@@ -277,96 +300,206 @@
     .end annotation
 .end field
 
-.field private ak:Ljava/lang/String;
+.field private aw:Ljava/lang/String;
 
-.field private al:Ljava/lang/String;
+.field private ax:Ljava/lang/String;
 
-.field private am:Ljava/lang/String;
+.field private ay:Ljava/lang/String;
 
-.field private an:Ljava/lang/String;
-
-.field private ao:Landroid/view/View;
-
-.field private ap:Z
-
-.field private aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-.field private ar:Lcom/yelp/android/serializable/BusinessSearchResult;
-
-.field private as:Lcom/yelp/android/serializable/YelpBusiness;
-
-.field private at:Lcom/yelp/android/av/a;
-
-.field private au:Lcom/yelp/android/appdata/webrequests/dc;
-
-.field private av:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/content/Intent;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private aw:Z
-
-.field private ax:Lcom/yelp/android/ui/dialogs/bn;
-
-.field private ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<",
-            "Ljava/lang/Void;",
-            "**>;"
-        }
-    .end annotation
-.end field
-
-.field private az:Lcom/yelp/android/ui/map/YelpMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/ui/map/YelpMap",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private az:Ljava/lang/String;
 
 .field private b:Landroid/view/MenuItem;
+
+.field private ba:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;
+
+.field private bb:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$b;
+
+.field private bc:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;
+
+.field private bd:Lcom/google/android/gms/common/api/GoogleApiClient;
+
+.field private be:Lcom/yelp/android/appdata/webrequests/aw;
+
+.field private bf:Lcom/yelp/android/appdata/webrequests/av;
+
+.field private bg:Z
+
+.field private bh:Z
+
+.field private final bi:Landroid/view/View$OnClickListener;
+
+.field private final bj:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$h;
+
+.field private final bk:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$h;
+
+.field private final bl:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/yelp/android/serializable/Ranking;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field private final bm:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/BusinessClaimedResult;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final bn:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBusinessTiny;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field private final bo:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final bp:Lcom/google/android/gms/ads/a;
+
+.field private final bq:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/MediaPayload;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final br:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBookmark;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final bs:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/LocalAd;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field private final bt:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/ck$a;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final bu:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/dy$a;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final bv:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+.field private final bw:Landroid/support/v7/widget/RecyclerView$l;
+
+.field private final bx:Lcom/yelp/android/services/push/c$a;
+
+.field private final by:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/ContinueLastOrderInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final bz:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/ContinueLastOrderAvailability;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private c:Lcom/yelp/android/ui/panels/businesspage/b;
 
 .field private d:Landroid/view/View;
 
-.field private e:Lcom/yelp/android/ui/activities/businesspage/p;
+.field private e:Lcom/yelp/android/ui/activities/reviews/StarsView;
 
-.field private g:Lcom/yelp/android/ui/activities/businesspage/cd;
+.field private f:Lcom/yelp/android/ui/activities/businesspage/c;
 
-.field private h:Lcom/yelp/android/ui/activities/businesspage/p;
+.field private g:Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter;
 
-.field private i:Lcom/yelp/android/ui/activities/businesspage/p;
+.field private i:Lcom/yelp/android/ui/activities/businesspage/e;
 
-.field private j:Lcom/yelp/android/appdata/webrequests/gn;
+.field private j:Lcom/yelp/android/ui/activities/businesspage/c;
 
-.field private k:Lcom/yelp/android/ui/util/s;
+.field private k:Lcom/yelp/android/ui/activities/businesspage/c;
 
-.field private l:Landroid/widget/TextView;
+.field private l:Lcom/yelp/android/appdata/webrequests/fd;
 
-.field private m:Landroid/widget/TextView;
+.field private m:Lcom/yelp/android/ui/util/k;
 
-.field private n:Lcom/yelp/android/ui/util/h;
+.field private n:Landroid/widget/TextView;
 
-.field private o:Lcom/yelp/android/appdata/webrequests/cy;
+.field private o:Landroid/widget/TextView;
 
-.field private p:Lcom/yelp/android/ui/activities/reviewpage/ab;
+.field private p:Lcom/yelp/android/ui/util/e;
 
-.field private q:Lcom/yelp/android/ui/activities/reviewpage/ab;
+.field private q:Lcom/yelp/android/appdata/webrequests/cl;
 
-.field private r:Ljava/util/List;
+.field private r:Lcom/yelp/android/ui/activities/reviewpage/b;
+
+.field private s:Lcom/yelp/android/ui/activities/reviewpage/b;
+
+.field private t:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -377,7 +510,7 @@
     .end annotation
 .end field
 
-.field private s:Ljava/util/List;
+.field private u:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -388,19 +521,15 @@
     .end annotation
 .end field
 
-.field private t:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
+.field private v:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
 
-.field private u:Lcom/yelp/android/ui/util/h;
+.field private w:Lcom/yelp/android/ui/util/e;
 
-.field private v:Lcom/yelp/android/ui/util/h;
+.field private x:Lcom/yelp/android/ui/util/e;
 
-.field private w:Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;
+.field private y:Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;
 
-.field private x:Landroid/support/v7/widget/RecyclerView;
-
-.field private y:Lcom/yelp/android/ui/util/bs;
-
-.field private z:Lcom/yelp/android/ui/util/h;
+.field private z:Landroid/support/v7/widget/RecyclerView;
 
 
 # direct methods
@@ -412,188 +541,296 @@
 
     const/4 v1, 0x0
 
-    .line 466
+    .line 612
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;-><init>()V
 
-    .line 334
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Z
+    .line 420
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Z
 
-    .line 335
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Z
+    .line 421
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Z
 
-    .line 336
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Z
+    .line 422
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Z
 
-    .line 337
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Z
+    .line 423
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
 
-    .line 338
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Z
+    .line 424
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Z
 
-    .line 339
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Z
+    .line 425
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Z
 
-    .line 340
-    new-instance v0, Ljava/util/HashMap;
+    .line 426
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Z
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    .line 427
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Z
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Ljava/util/Map;
+    .line 428
+    new-instance v0, Lcom/yelp/android/g/a;
 
-    .line 343
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak:Ljava/lang/String;
+    invoke-direct {v0}, Lcom/yelp/android/g/a;-><init>()V
 
-    .line 344
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Ljava/util/Map;
 
-    .line 345
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Ljava/lang/String;
+    .line 431
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw:Ljava/lang/String;
 
-    .line 346
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Ljava/lang/String;
+    .line 432
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Ljava/lang/String;
 
-    .line 372
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Z
+    .line 433
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Ljava/lang/String;
 
-    .line 1746
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/aj;
+    .line 434
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Ljava/lang/String;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/aj;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    .line 468
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aT:Z
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Landroid/view/View$OnClickListener;
+    .line 2646
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$19;
 
-    .line 1764
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/ak;
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$19;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bi:Landroid/view/View$OnClickListener;
+
+    .line 2661
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$20;
 
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddTip:Lcom/yelp/android/analytics/iris/EventIri;
 
     const-string/jumbo v2, "button"
 
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/ak;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$20;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aN:Lcom/yelp/android/ui/activities/businesspage/cc;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bj:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$h;
 
-    .line 1773
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/am;
+    .line 2671
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$21;
 
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCheckIn:Lcom/yelp/android/analytics/iris/EventIri;
 
     const-string/jumbo v2, "button"
 
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/am;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$21;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/ui/activities/businesspage/cc;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bk:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$h;
 
-    .line 3239
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bf;
+    .line 4513
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$42;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bf;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$42;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bl:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 3257
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bg;
+    .line 4533
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$43;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bg;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$43;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/AdListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bm:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 3389
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bi;
+    .line 4551
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$44;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bi;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$44;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aR:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bn:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 3450
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bj;
+    .line 4568
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$46;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bj;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$46;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aS:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bo:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 3467
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bk;
+    .line 4586
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$47;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bk;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$47;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aT:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bp:Lcom/google/android/gms/ads/a;
 
-    .line 3494
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bl;
+    .line 4731
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$48;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bl;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$48;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aU:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bq:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 3510
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bm;
+    .line 4795
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$49;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bm;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$49;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aV:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->br:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 3551
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bn;
+    .line 4813
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$50;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bn;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$50;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Lcom/yelp/android/av/i;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bs:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 3574
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/bo;
+    .line 4843
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$51;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/bo;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$51;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aX:Landroid/support/v7/widget/bt;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bt:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 467
+    .line 4863
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$52;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$52;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bu:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    .line 4906
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$53;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$53;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bv:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+    .line 4933
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$54;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$54;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bw:Landroid/support/v7/widget/RecyclerView$l;
+
+    .line 4962
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$55;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$55;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bx:Lcom/yelp/android/services/push/c$a;
+
+    .line 4980
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$57;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$57;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->by:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    .line 5000
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$58;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$58;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bz:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    .line 612
     return-void
 .end method
 
-.method static synthetic A(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/LinkedHashSet;
+.method static synthetic A(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/k;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/util/LinkedHashSet;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m:Lcom/yelp/android/ui/util/k;
 
     return-object v0
 .end method
 
-.method static synthetic B(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/Locale;
+.method static synthetic B(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/reviewpage/a;
     .locals 1
 
     .prologue
-    .line 226
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai()Ljava/util/Locale;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F:Lcom/yelp/android/ui/activities/reviewpage/a;
+
+    return-object v0
+.end method
+
+.method static synthetic C(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/dialogs/e;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/dialogs/e;
+
+    return-object v0
+.end method
+
+.method static synthetic D(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method static synthetic E(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method static synthetic F(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/LinkedHashSet;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aY:Ljava/util/LinkedHashSet;
+
+    return-object v0
+.end method
+
+.method static synthetic G(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/Locale;
+    .locals 1
+
+    .prologue
+    .line 275
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as()Ljava/util/Locale;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method private F()V
+.method static synthetic H(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    return-object v0
+.end method
+
+.method private H()V
     .locals 4
 
     .prologue
     const/16 v3, 0x8
 
-    .line 965
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1573
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getLocalizedStreetAddress()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->k()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 966
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1574
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getGeneralAddress()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->l()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 968
+    .line 1576
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -606,16 +843,16 @@
 
     if-eqz v2, :cond_0
 
-    .line 970
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->n:Lcom/yelp/android/ui/util/h;
+    .line 1577
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->p:Lcom/yelp/android/ui/util/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
 
-    .line 984
+    .line 1591
     :goto_0
     return-void
 
-    .line 972
+    .line 1579
     :cond_0
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -623,12 +860,12 @@
 
     if-nez v2, :cond_1
 
-    .line 973
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Landroid/widget/TextView;
+    .line 1580
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->n:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 978
+    .line 1585
     :goto_1
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -636,45 +873,45 @@
 
     if-nez v0, :cond_2
 
-    .line 979
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m:Landroid/widget/TextView;
+    .line 1586
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 975
+    .line 1582
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->n:Landroid/widget/TextView;
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_1
 
-    .line 981
+    .line 1588
     :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Landroid/widget/TextView;
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_0
 .end method
 
-.method private G()Z
+.method private I()Z
     .locals 1
 
     .prologue
-    .line 1064
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1678
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getFromThisBusiness()Lcom/yelp/android/serializable/FromThisBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aY()Lcom/yelp/android/serializable/FromThisBusiness;
 
     move-result-object v0
 
-    .line 1065
+    .line 1679
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FromThisBusiness;->getShowTeaser()Z
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FromThisBusiness;->c()Z
 
     move-result v0
 
@@ -691,739 +928,885 @@
     goto :goto_0
 .end method
 
-.method private H()V
-    .locals 3
+.method private J()V
+    .locals 6
 
     .prologue
-    .line 1069
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G()Z
+    .line 1683
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 1070
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Lcom/yelp/android/ui/util/h;
+    .line 1684
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/util/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
 
-    .line 1081
+    .line 1700
     :goto_0
     return-void
 
-    .line 1074
+    .line 1688
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getFromThisBusiness()Lcom/yelp/android/serializable/FromThisBusiness;
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;->a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/FromThisBusiness;)V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE()Ljava/lang/String;
 
-    .line 1076
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Lcom/yelp/android/ui/util/h;
+    move-result-object v3
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->getCount()I
+    sget-object v4, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    invoke-virtual {v4, v5}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->aY()Lcom/yelp/android/serializable/FromThisBusiness;
+
+    move-result-object v5
+
+    invoke-virtual/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;->a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;ZLcom/yelp/android/serializable/FromThisBusiness;)V
+
+    .line 1695
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->getCount()I
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 1077
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Lcom/yelp/android/ui/util/h;
+    .line 1696
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/util/e;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
-    .line 1080
+    .line 1699
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Lcom/yelp/android/ui/util/h;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/util/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->notifyDataSetChanged()V
 
     goto :goto_0
 .end method
 
-.method private I()V
-    .locals 7
+.method private K()Z
+    .locals 1
 
     .prologue
-    const/4 v4, 0x0
+    .line 1772
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 1278
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/bu;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->r()Z
 
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessOpenMoreHighlights:Lcom/yelp/android/analytics/iris/EventIri;
+    move-result v0
 
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/bu;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
+    if-eqz v0, :cond_0
 
-    .line 1288
-    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/t;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    const v1, 0x7f03013d
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->W()Z
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    move-result v0
 
-    invoke-direct {v0, v1, p0, v3}, Lcom/yelp/android/ui/activities/reviewpage/t;-><init>(ILcom/yelp/android/ui/activities/reviewpage/v;Lcom/yelp/android/serializable/YelpBusiness;)V
+    if-eqz v0, :cond_0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/ui/activities/reviewpage/t;
+    const/4 v0, 0x1
 
-    .line 1290
-    const v0, 0x7f070537
+    :goto_0
+    return v0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private L()Z
+    .locals 1
+
+    .prologue
+    .line 1776
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->r()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->W()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->ag()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/ui/activities/reviewpage/t;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    move-result v0
 
-    move-result-object v0
+    if-nez v0, :cond_0
 
-    const v1, 0x7f0c0428
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bw;->b(I)Lcom/yelp/android/ui/util/bw;
+    :goto_0
+    return v0
 
-    move-result-object v6
+    :cond_0
+    const/4 v0, 0x0
 
-    const v0, 0x7f07039d
+    goto :goto_0
+.end method
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+.method private M()V
+    .locals 4
+
+    .prologue
+    .line 1999
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$7;
+
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessOpenMoreHighlights:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$7;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 2013
+    new-instance v1, Lcom/yelp/android/ui/activities/reviewpage/a;
+
+    const v2, 0x7f03019f
+
+    invoke-direct {v1, v2, p0}, Lcom/yelp/android/ui/activities/reviewpage/a;-><init>(ILcom/yelp/android/ui/activities/reviewpage/a$a;)V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F:Lcom/yelp/android/ui/activities/reviewpage/a;
+
+    .line 2015
+    const v1, 0x7f070536
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F:Lcom/yelp/android/ui/activities/reviewpage/a;
+
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v1
+
+    const v2, 0x7f0f050f
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v1
+
+    const v2, 0x7f0101cc
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v1
+
+    const v2, 0x7f0703dc
+
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
     const/4 v3, 0x0
 
-    move-object v0, p0
-
-    move-object v5, v4
-
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;ZLjava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
+    invoke-direct {p0, v2, v0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;Z)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-virtual {v6, v0}, Lcom/yelp/android/ui/util/bw;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v0
 
-    .line 1297
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 2027
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    const v2, 0x7f0c000d
+    const v2, 0x7f0f000e
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v0
 
-    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    .line 1299
+    .line 2029
     return-void
 .end method
 
-.method private J()V
-    .locals 11
+.method private N()V
+    .locals 10
 
     .prologue
-    const v7, 0x7f07047a
+    const v4, 0x7f07048d
 
-    const v9, 0x7f0703f7
+    const v8, 0x7f07042f
 
-    const v10, 0x7f07009a
+    const v9, 0x7f0101cc
 
-    const/4 v3, 0x1
+    const/4 v1, 0x1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    .line 1302
+    .line 2032
     new-instance v0, Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {v0, v1}, Landroid/support/v7/widget/RecyclerView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v3}, Landroid/support/v7/widget/RecyclerView;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Landroid/support/v7/widget/RecyclerView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Landroid/support/v7/widget/RecyclerView;
 
-    .line 1303
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Landroid/support/v7/widget/RecyclerView;
+    .line 2033
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Landroid/support/v7/widget/RecyclerView;
 
-    new-instance v1, Landroid/view/ViewGroup$LayoutParams;
+    new-instance v3, Landroid/view/ViewGroup$LayoutParams;
 
-    const/4 v2, -0x1
+    const/4 v5, -0x1
 
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0a0112
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v6
+
+    sget v7, Lcom/yelp/android/appdata/n;->b:I
+
+    add-int/2addr v6, v7
+
+    invoke-direct {v3, v5, v6}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 2040
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bw:Landroid/support/v7/widget/RecyclerView$l;
+
+    invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/RecyclerView$l;)V
+
+    .line 2042
+    new-instance v0, Lcom/yelp/android/ui/util/z;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->aa()Lcom/yelp/android/serializable/Video;
+
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v6
+
+    invoke-direct {v0, v3, v5, v6}, Lcom/yelp/android/ui/util/z;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/Video;Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/ui/util/z;
+
+    .line 2043
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Landroid/support/v7/widget/RecyclerView;
+
+    new-instance v3, Landroid/support/v7/widget/LinearLayoutManager;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v5
 
-    const v6, 0x7f0b00a4
+    invoke-direct {v3, v5, v2, v2}, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;IZ)V
 
-    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/RecyclerView$i;)V
+
+    .line 2045
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Landroid/support/v7/widget/RecyclerView;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/ui/util/z;
+
+    invoke-virtual {v0, v3}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$a;)V
+
+    .line 2047
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    .line 2048
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 2049
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v3
+
+    const/16 v5, 0x414
+
+    const/high16 v6, 0x10000000
+
+    invoke-virtual {v3, v5, v0, v6}, Landroid/support/v4/app/FragmentActivity;->createPendingResult(ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object v0
+
+    .line 2055
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/ui/util/z;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v0, v5}, Lcom/yelp/android/ui/util/z;->a(Landroid/app/PendingIntent;Lcom/yelp/android/ui/util/aa;)V
+
+    .line 2057
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$8;
+
+    sget-object v3, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddPhoto:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v5, "button"
+
+    invoke-direct {v0, p0, v3, v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$8;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    .line 2065
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->A()I
 
     move-result v5
 
-    sget v6, Lcom/yelp/android/appdata/ao;->b:I
+    .line 2066
+    if-eqz v5, :cond_6
 
-    add-int/2addr v5, v6
+    .line 2067
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-direct {v1, v2, v5}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 1306
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Landroid/support/v7/widget/RecyclerView;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aX:Landroid/support/v7/widget/bt;
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->a(Landroid/support/v7/widget/bt;)V
-
-    .line 1308
-    new-instance v0, Lcom/yelp/android/ui/util/ax;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getBizOwnerVideo()Lcom/yelp/android/serializable/Video;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v5
-
-    invoke-direct {v0, v1, v2, v5}, Lcom/yelp/android/ui/util/ax;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/Video;Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/ax;
-
-    .line 1309
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Landroid/support/v7/widget/RecyclerView;
-
-    new-instance v1, Landroid/support/v7/widget/LinearLayoutManager;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2, v4, v4}, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;IZ)V
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setLayoutManager(Landroid/support/v7/widget/br;)V
-
-    .line 1310
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Landroid/support/v7/widget/RecyclerView;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/ax;
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/bi;)V
-
-    .line 1311
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    const/16 v1, 0x40f
-
-    new-instance v2, Landroid/content/Intent;
-
-    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
-
-    const/high16 v5, 0x10000000
-
-    invoke-virtual {v0, v1, v2, v5}, Landroid/support/v4/app/FragmentActivity;->createPendingResult(ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v0
-
-    .line 1313
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/ax;
-
-    new-instance v2, Lcom/yelp/android/ui/util/bd;
-
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/ax;
-
-    invoke-virtual {v5}, Lcom/yelp/android/ui/util/ax;->d()Ljava/util/List;
-
-    move-result-object v5
-
-    invoke-direct {v2, v5}, Lcom/yelp/android/ui/util/bd;-><init>(Ljava/util/List;)V
-
-    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ui/util/ax;->a(Landroid/app/PendingIntent;Lcom/yelp/android/ui/util/bc;)V
-
-    .line 1316
-    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/ab;
-
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddPhoto:Lcom/yelp/android/analytics/iris/EventIri;
-
-    const-string/jumbo v1, "button"
-
-    invoke-direct {v5, p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ab;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
-
-    .line 1324
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getPhotosAndVideosCount()I
-
-    move-result v8
-
-    .line 1325
-    if-eqz v8, :cond_7
-
-    .line 1326
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getVideoCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->F()I
 
     move-result v0
 
     if-lez v0, :cond_1
 
-    move v0, v3
+    move v0, v1
 
-    .line 1327
+    .line 2068
     :goto_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getPhotoCount()I
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->I()I
 
-    move-result v1
+    move-result v3
 
-    if-lez v1, :cond_2
+    if-lez v3, :cond_2
 
-    move v1, v3
+    move v3, v1
 
-    .line 1328
+    .line 2069
     :goto_1
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/ac;
+    new-instance v6, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$9;
 
-    sget-object v6, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMorePhotos:Lcom/yelp/android/analytics/iris/EventIri;
+    sget-object v7, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMorePhotos:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-direct {v2, p0, v6, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ac;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;ZZ)V
+    invoke-direct {v6, p0, v7, v0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$9;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;ZZ)V
 
-    .line 1350
-    new-instance v6, Lcom/yelp/android/ui/util/h;
+    .line 2101
+    new-instance v7, Lcom/yelp/android/ui/util/e;
 
-    new-array v9, v4, [Landroid/view/View;
+    new-array v8, v2, [Landroid/view/View;
 
-    invoke-direct {v6, v9}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-direct {v7, v8}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    iput-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Lcom/yelp/android/ui/util/h;
+    iput-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/ui/util/e;
 
-    .line 1351
-    new-instance v6, Lcom/yelp/android/ui/util/h;
+    .line 2102
+    new-instance v7, Lcom/yelp/android/ui/util/e;
 
-    new-array v9, v4, [Landroid/view/View;
+    new-array v8, v2, [Landroid/view/View;
 
-    invoke-direct {v6, v9}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-direct {v7, v8}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    iput-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/h;
+    iput-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/e;
 
-    .line 1355
+    .line 2106
     if-eqz v0, :cond_3
 
-    if-eqz v1, :cond_3
+    if-eqz v3, :cond_3
 
-    .line 1356
-    const v0, 0x7f07047b
+    .line 2107
+    const v0, 0x7f07048e
 
-    move v6, v0
+    move v3, v0
 
-    .line 1368
+    .line 2119
     :goto_2
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    .line 1369
-    const/4 v0, 0x3
+    .line 2120
+    const/4 v7, 0x3
 
-    if-le v8, v0, :cond_0
+    if-le v5, v7, :cond_0
 
-    .line 1370
-    const v0, 0x7f070540
+    .line 2121
+    const v0, 0x7f07053e
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    new-array v1, v3, [Ljava/lang/Object;
+    new-array v7, v1, [Ljava/lang/Object;
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v9
+    move-result-object v8
 
-    aput-object v9, v1, v4
+    aput-object v8, v7, v2
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    .line 1372
-    :cond_0
-    if-lez v8, :cond_5
+    if-lez v5, :cond_5
 
     :goto_3
-    sget-object v0, Lcom/yelp/android/appdata/Features;->video_capture:Lcom/yelp/android/appdata/Features;
+    invoke-direct {p0, v0, v6, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;Z)Landroid/view/View;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/Features;->isEnabled()Z
+    move-result-object v0
 
-    move-result v0
+    .line 2129
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    if-eqz v0, :cond_6
+    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
-    const v0, 0x7f07009b
+    move-result-object v2
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/ui/util/e;
 
-    move-result-object v4
+    invoke-static {v2, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v4, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2136
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f0010
+
+    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v9}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2155
     :goto_4
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;ZLjava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 1381
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Lcom/yelp/android/ui/util/h;
-
-    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/util/bw;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v7, v0}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1386
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f0c000f
-
-    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/h;
-
-    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1396
-    :goto_5
     return-void
 
     :cond_1
-    move v0, v4
+    move v0, v2
 
-    .line 1326
-    goto/16 :goto_0
+    .line 2067
+    goto :goto_0
 
     :cond_2
-    move v1, v4
+    move v3, v2
 
-    .line 1327
+    .line 2068
     goto :goto_1
 
-    .line 1357
+    .line 2108
     :cond_3
     if-eqz v0, :cond_4
 
-    .line 1358
-    const v0, 0x7f07066c
+    .line 2109
+    const v0, 0x7f070647
 
-    move v6, v0
+    move v3, v0
 
     goto :goto_2
 
-    .line 1363
+    .line 2114
     :cond_4
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Z
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Z
 
-    .line 1364
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak()V
+    .line 2115
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au()V
 
-    move v6, v7
+    move v3, v4
 
     goto :goto_2
 
     :cond_5
-    move v3, v4
+    move v1, v2
 
-    .line 1372
+    .line 2121
     goto :goto_3
 
+    .line 2142
     :cond_6
-    invoke-virtual {p0, v10}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Z
+
+    .line 2143
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {p0, v8}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
+    new-instance v5, Lcom/yelp/android/ui/util/e;
+
+    new-array v1, v1, [Landroid/view/View;
+
+    const v6, 0x7f070118
+
+    const v7, 0x7f0201cf
+
+    invoke-direct {p0, v6, v7, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v0
+
+    aput-object v0, v1, v2
+
+    invoke-direct {v5, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v9}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v8, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
     goto :goto_4
-
-    .line 1389
-    :cond_7
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Z
-
-    .line 1390
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {p0, v9}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/yelp/android/ui/util/h;
-
-    new-array v3, v3, [Landroid/view/View;
-
-    const v6, 0x7f02015e
-
-    invoke-direct {p0, v10, v6, v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v5
-
-    aput-object v5, v3, v4
-
-    invoke-direct {v2, v3}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
-
-    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v9, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    goto :goto_5
 .end method
 
-.method private K()V
-    .locals 10
+.method private O()V
+    .locals 4
 
     .prologue
-    const v9, 0x7f070402
+    const v3, 0x7f0704e7
 
-    const/4 v3, 0x1
+    .line 2158
+    new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/e;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/panels/businesssearch/e;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Lcom/yelp/android/ui/panels/businesssearch/e;
+
+    .line 2160
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Lcom/yelp/android/ui/panels/businesssearch/e;
+
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v1
+
+    const v2, 0x7f0f003a
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v1
+
+    const v2, 0x7f0101cc
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v3, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2168
+    return-void
+.end method
+
+.method private P()V
+    .locals 11
+
+    .prologue
+    const v10, 0x7f07043a
+
+    const/4 v9, 0x1
 
     const/4 v8, 0x0
 
-    const v7, 0x7f07053e
+    const v7, 0x7f07053b
 
-    .line 1399
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 2171
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getTipCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->L()I
 
-    move-result v6
+    move-result v0
 
-    .line 1401
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/ad;
+    .line 2173
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$10;
 
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreTipsClicked:Lcom/yelp/android/analytics/iris/EventIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreTipsClicked:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ad;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
+    invoke-direct {v1, p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$10;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
 
-    .line 1410
-    const v0, 0x7f0703ac
+    .line 2183
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w()Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    move-result-object v2
+
+    .line 2185
+    const v3, 0x7f0703e4
+
+    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {p0, v3, v1, v9}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;Z)Landroid/view/View;
 
     move-result-object v1
 
-    const v0, 0x7f07009d
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aN:Lcom/yelp/android/ui/activities/businesspage/cc;
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;ZLjava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 1414
-    new-instance v1, Lcom/yelp/android/ui/activities/reviewpage/aw;
+    .line 2187
+    new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/d;
 
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v4}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/webrequests/dc;->b()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/yelp/android/appdata/webrequests/co;->a()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-direct {v1, v2, p0}, Lcom/yelp/android/ui/activities/reviewpage/aw;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/reviewpage/bg;)V
+    invoke-direct {v3, v4, p0}, Lcom/yelp/android/ui/activities/reviewpage/d;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/reviewpage/d$a;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:Lcom/yelp/android/ui/activities/reviewpage/aw;
+    iput-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/activities/reviewpage/d;
 
-    .line 1416
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:Lcom/yelp/android/ui/activities/reviewpage/aw;
-
-    invoke-static {v2, v4}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    const v4, 0x7f0c044d
-
-    invoke-virtual {v2, v4}, Lcom/yelp/android/ui/util/bw;->b(I)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/util/bw;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v7, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1422
-    new-instance v1, Lcom/yelp/android/ui/util/h;
-
-    new-array v2, v8, [Landroid/view/View;
-
-    invoke-direct {v1, v2}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Lcom/yelp/android/ui/util/h;
-
-    .line 1423
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v2, 0x7f0c0011
+    .line 2188
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
     invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Lcom/yelp/android/ui/util/h;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/activities/reviewpage/d;
 
-    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v4
 
-    invoke-virtual {v4, v0}, Lcom/yelp/android/ui/util/bw;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
+    const v5, 0x7f0f0537
 
-    move-result-object v0
+    invoke-virtual {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    move-result-object v4
 
-    move-result-object v0
+    invoke-virtual {v4, v2}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
 
-    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    move-result-object v4
 
-    .line 1432
-    new-instance v0, Lcom/yelp/android/ui/util/h;
+    invoke-virtual {v4, v1}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
 
-    new-array v1, v8, [Landroid/view/View;
+    move-result-object v4
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-virtual {v4}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/util/h;
+    move-result-object v4
 
-    .line 1433
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    invoke-virtual {v3, v7, v4}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    invoke-virtual {p0, v9}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    .line 2196
+    new-instance v3, Lcom/yelp/android/ui/util/e;
 
-    move-result-object v1
+    new-array v4, v8, [Landroid/view/View;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/util/h;
+    invoke-direct {v3, v4}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    iput-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/e;
 
-    move-result-object v1
+    .line 2197
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v9, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1437
-    new-instance v0, Lcom/yelp/android/ui/util/h;
-
-    new-array v1, v8, [Landroid/view/View;
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/h;
-
-    .line 1438
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f0c001b
+    const v4, 0x7f0f0012
 
     invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v5, v6}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v2}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v4, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2205
+    new-instance v1, Lcom/yelp/android/ui/util/e;
+
+    new-array v3, v8, [Landroid/view/View;
+
+    invoke-direct {v1, v3}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
+
+    .line 2206
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {p0, v10}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v3, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v10, v3}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2212
+    new-instance v1, Lcom/yelp/android/ui/util/e;
+
+    new-array v3, v8, [Landroid/view/View;
+
+    invoke-direct {v1, v3}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Lcom/yelp/android/ui/util/e;
+
+    .line 2213
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v3, 0x7f0f001d
+
+    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
     move-result-object v2
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/h;
-
-    invoke-static {v2, v4}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v1, v3, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    move-result-object v2
+    .line 2219
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    .line 2220
+    iput-boolean v9, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Z
 
-    .line 1442
-    if-nez v6, :cond_0
-
-    .line 1443
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Z
-
-    .line 1445
+    .line 2222
     :cond_0
     return-void
 .end method
 
-.method private L()Ljava/util/ArrayList;
+.method private Q()Ljava/util/ArrayList;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1436,13 +1819,13 @@
     .end annotation
 
     .prologue
-    .line 1454
+    .line 2230
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1455
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Ljava/util/LinkedHashMap;
+    .line 2231
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v0}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
 
@@ -1464,10 +1847,10 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/bi;
+    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/e;
 
-    .line 1456
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->a()Ljava/util/List;
+    .line 2232
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->a()Ljava/util/List;
 
     move-result-object v3
 
@@ -1477,14 +1860,14 @@
 
     if-eqz v3, :cond_0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->b()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->b()Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
-    .line 1457
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->c()Ljava/util/Locale;
+    .line 2233
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->c()Ljava/util/Locale;
 
     move-result-object v0
 
@@ -1496,11 +1879,11 @@
 
     goto :goto_0
 
-    .line 1460
+    .line 2236
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->a()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->a()Ljava/util/List;
 
     move-result-object v0
 
@@ -1510,18 +1893,18 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->b()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 1462
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
+    .line 2238
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->c()Ljava/util/Locale;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->c()Ljava/util/Locale;
 
     move-result-object v0
 
@@ -1531,511 +1914,759 @@
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1464
+    .line 2240
     :cond_2
     return-object v1
 .end method
 
-.method private M()V
-    .locals 9
+.method private R()V
+    .locals 5
 
     .prologue
-    const v8, 0x7f0c035f
+    .line 2244
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    const/4 v3, 0x1
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aX()Lcom/yelp/android/serializable/HealthData;
 
-    const v7, 0x7f0704be
+    move-result-object v0
 
-    const/4 v6, 0x0
+    .line 2245
+    if-nez v0, :cond_0
 
-    .line 1468
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/ae;
+    .line 2280
+    :goto_0
+    return-void
 
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreReviewsClicked:Lcom/yelp/android/analytics/iris/EventIri;
+    .line 2250
+    :cond_0
+    const/4 v1, 0x3
 
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ae;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/HealthData;->d()Ljava/util/List;
 
-    .line 1477
-    const v0, 0x7f0703a6
+    move-result-object v2
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    .line 2252
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/HealthData;->d()Ljava/util/List;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, v3, v1}, Ljava/util/List;->subList(II)Ljava/util/List;
 
     move-result-object v1
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 2255
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewState()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+    invoke-direct {v2}, Lcom/yelp/android/ui/activities/businesspage/f;-><init>()V
+
+    .line 2256
+    invoke-virtual {v2, v1}, Lcom/yelp/android/ui/activities/businesspage/f;->a(Ljava/util/List;)V
+
+    .line 2259
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$11;
+
+    invoke-direct {v1, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$11;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/serializable/HealthData;)V
+
+    .line 2268
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/HealthData;->b()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->getTextResourceForState()I
+    const/4 v3, 0x1
 
-    move-result v0
+    invoke-direct {p0, v0, v1, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;Z)Landroid/view/View;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    move-result-object v1
+
+    .line 2269
+    const v0, 0x7f0f00a9
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    const v4, 0x7f0900ce
+
+    invoke-virtual {v0, v3, v4}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+
+    .line 2272
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v3, 0x7f0f000c
+
+    invoke-static {v2}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->a()Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    const v4, 0x7f0101cc
+
+    invoke-virtual {v2, v4}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    const v4, 0x7f070532
+
+    invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Landroid/view/View$OnClickListener;
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;ZLjava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Landroid/view/View;
-
-    .line 1482
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq()Z
-
-    move-result v0
-
-    .line 1483
-    if-eqz v0, :cond_0
-
-    .line 1484
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f070116
-
-    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v2
 
-    new-instance v4, Lcom/yelp/android/ui/util/h;
+    invoke-virtual {v2, v1}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
 
-    new-array v5, v6, [Landroid/view/View;
+    move-result-object v1
 
-    invoke-direct {v4, v5}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    invoke-static {v2, v4}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1494
-    :cond_0
-    new-instance v0, Ljava/util/LinkedHashMap;
-
-    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Ljava/util/LinkedHashMap;
-
-    .line 1496
-    new-instance v1, Landroid/util/SparseIntArray;
-
-    invoke-direct {v1}, Landroid/util/SparseIntArray;-><init>()V
-
-    .line 1497
-    const v0, 0x7f0c0016
-
-    invoke-virtual {v1, v6, v0}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 1498
-    const v0, 0x7f0c0017
-
-    invoke-virtual {v1, v3, v0}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 1499
-    const/4 v0, 0x2
-
-    const v2, 0x7f0c0018
-
-    invoke-virtual {v1, v0, v2}, Landroid/util/SparseIntArray;->put(II)V
-
-    .line 1500
-    const/4 v0, 0x3
-
-    const v2, 0x7f0c0019
-
-    invoke-virtual {v1, v0, v2}, Landroid/util/SparseIntArray;->put(II)V
-
-    move v0, v6
-
-    .line 1504
-    :goto_0
-    const/4 v2, 0x4
-
-    if-ge v0, v2, :cond_1
-
-    .line 1505
-    new-instance v2, Lcom/yelp/android/ui/activities/reviewpage/bi;
-
-    invoke-direct {v2}, Lcom/yelp/android/ui/activities/reviewpage/bi;-><init>()V
-
-    .line 1506
-    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3, v2}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v8}, Lcom/yelp/android/ui/util/bw;->b(I)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v3
-
-    .line 1510
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v4, v2, v3}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1511
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {v1, v0}, Landroid/util/SparseIntArray;->get(I)I
-
-    move-result v4
-
-    invoke-virtual {v2, v4, v3}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1504
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {v0, v3, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
     goto :goto_0
+.end method
 
-    .line 1516
-    :cond_1
-    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/bi;
+.method private S()V
+    .locals 9
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;-><init>()V
+    .prologue
+    const v8, 0x7f0f0437
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
+    const/4 v7, 0x1
 
-    .line 1517
-    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    const v6, 0x7f0704d9
 
-    move-result-object v0
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
+    .line 2283
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$13;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreReviewsClicked:Lcom/yelp/android/analytics/iris/EventIri;
 
-    move-result-object v0
+    invoke-direct {v0, p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$13;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
 
-    invoke-virtual {v0, v8}, Lcom/yelp/android/ui/util/bw;->b(I)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bw;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Lcom/yelp/android/ui/util/bv;
-
-    .line 1522
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f07050d
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Lcom/yelp/android/ui/util/bv;
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1524
-    new-instance v0, Lcom/yelp/android/ui/util/h;
-
-    new-array v1, v6, [Landroid/view/View;
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Lcom/yelp/android/ui/util/h;
-
-    .line 1525
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f0c0010
-
-    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Lcom/yelp/android/ui/util/h;
-
-    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Landroid/view/View;
-
-    invoke-virtual {v2, v3}, Lcom/yelp/android/ui/util/bw;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1530
-    new-instance v0, Lcom/yelp/android/ui/util/h;
-
-    new-array v1, v6, [Landroid/view/View;
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/util/h;
-
-    .line 1531
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f0703fc
-
-    const v2, 0x7f0703f9
+    .line 2294
+    const v2, 0x7f0703e2
 
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/util/h;
+    invoke-direct {p0, v2, v0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;Z)Landroid/view/View;
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    move-result-object v0
 
-    move-result-object v2
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aU:Landroid/view/View;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    .line 2297
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD()Z
 
-    move-result-object v2
+    move-result v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    .line 2298
+    if-eqz v0, :cond_0
 
-    .line 1536
-    new-instance v0, Lcom/yelp/android/ui/util/h;
+    .line 2299
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    new-array v1, v6, [Landroid/view/View;
+    const v2, 0x7f070195
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/h;
+    move-result-object v3
 
-    .line 1537
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    new-instance v4, Lcom/yelp/android/ui/util/e;
 
-    const v1, 0x7f0c001a
+    new-array v5, v1, [Landroid/view/View;
 
-    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    invoke-direct {v4, v5}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    move-result-object v2
+    invoke-static {v3, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/h;
+    move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    const v4, 0x7f0101cc
 
-    move-result-object v2
+    invoke-virtual {v3, v4}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    move-result-object v3
 
-    .line 1541
-    return-void
-.end method
+    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-.method private N()V
-    .locals 13
+    .line 2313
+    :cond_0
+    new-instance v0, Ljava/util/LinkedHashMap;
 
-    .prologue
-    const v12, 0x7f0703ea
+    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
 
-    const/4 v7, 0x1
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Ljava/util/LinkedHashMap;
 
-    const v11, 0x7f070134
+    .line 2316
+    new-instance v2, Landroid/util/SparseIntArray;
 
-    const/4 v6, 0x0
+    invoke-direct {v2}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 1544
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 2317
+    const v0, 0x7f0f0018
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getRegularCount()I
+    invoke-virtual {v2, v1, v0}, Landroid/util/SparseIntArray;->put(II)V
 
-    move-result v8
+    .line 2318
+    const v0, 0x7f0f0019
 
-    .line 1545
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/af;
+    invoke-virtual {v2, v7, v0}, Landroid/util/SparseIntArray;->put(II)V
 
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreRegularsClicked:Lcom/yelp/android/analytics/iris/EventIri;
+    .line 2319
+    const/4 v0, 0x2
 
-    const-string/jumbo v1, "button"
+    const v3, 0x7f0f001a
 
-    invoke-direct {v2, p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/af;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    invoke-virtual {v2, v0, v3}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 1554
+    .line 2320
     const/4 v0, 0x3
 
-    if-le v8, v0, :cond_1
+    const v3, 0x7f0f001b
 
-    add-int/lit8 v0, v8, -0x3
+    invoke-virtual {v2, v0, v3}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 1555
+    move v0, v1
+
+    .line 2324
     :goto_0
-    iget-object v9, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    const/4 v3, 0x4
 
-    invoke-virtual {p0, v11}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    if-ge v0, v3, :cond_1
 
-    move-result-object v1
+    .line 2326
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T()Landroid/view/View;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+    move-result-object v3
 
-    invoke-static {v1, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    .line 2327
+    new-instance v4, Lcom/yelp/android/ui/activities/reviewpage/e;
 
-    move-result-object v1
+    invoke-direct {v4}, Lcom/yelp/android/ui/activities/reviewpage/e;-><init>()V
 
-    const v3, 0x7f0c03ef
+    .line 2328
+    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/util/bw;->b(I)Lcom/yelp/android/ui/util/bw;
+    move-result-object v5
 
-    move-result-object v10
+    invoke-static {v5, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
-    const v1, 0x7f0e0015
+    move-result-object v5
 
-    const v3, 0x7f0703a3
+    invoke-virtual {v5, v8}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
 
-    invoke-direct {p0, v1, v3, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v1
+    invoke-virtual {v5, v3}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
 
-    if-lez v0, :cond_2
+    move-result-object v3
 
-    move v3, v7
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    :goto_1
-    const v0, 0x7f070075
+    move-result-object v3
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    .line 2333
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v5, v4, v3}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 2334
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {v2, v0}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5, v3}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2324
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 2338
+    :cond_1
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 2341
+    new-instance v2, Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-direct {v2}, Lcom/yelp/android/ui/activities/reviewpage/e;-><init>()V
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    .line 2342
+    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v8}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aU:Landroid/view/View;
+
+    invoke-virtual {v2, v3}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aX:Lcom/yelp/android/ui/util/aj$b;
+
+    .line 2349
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v3, 0x7f070510
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aX:Lcom/yelp/android/ui/util/aj$b;
+
+    invoke-virtual {v2, v3, v4}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2351
+    new-instance v2, Lcom/yelp/android/ui/util/e;
+
+    new-array v3, v1, [Landroid/view/View;
+
+    invoke-direct {v2, v3}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/e;
+
+    .line 2352
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v3, 0x7f070434
+
+    const v4, 0x7f070430
+
+    invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/ui/activities/businesspage/cc;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/e;
 
-    move-object v0, p0
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;ZLjava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2359
+    new-instance v2, Lcom/yelp/android/ui/util/e;
+
+    new-array v1, v1, [Landroid/view/View;
+
+    invoke-direct {v2, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Lcom/yelp/android/ui/util/e;
+
+    .line 2360
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v2, 0x7f0f001c
+
+    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v3, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v0
 
-    invoke-virtual {v10, v0}, Lcom/yelp/android/ui/util/bw;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2366
+    return-void
+.end method
+
+.method private T()Landroid/view/View;
+    .locals 4
+
+    .prologue
+    const v3, 0x7f0705a1
+
+    const/4 v2, 0x0
+
+    .line 2369
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 2371
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
     move-result-object v0
 
-    invoke-virtual {v9, v11, v0}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->NOT_STARTED:Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
-    .line 1570
-    new-instance v0, Lcom/yelp/android/ui/util/h;
+    if-ne v0, v1, :cond_0
 
-    new-array v1, v6, [Landroid/view/View;
+    .line 2372
+    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/util/h;
+    invoke-direct {p0, v0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;I)Landroid/view/View;
 
-    .line 1571
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    move-result-object v0
 
-    invoke-virtual {p0, v12}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    .line 2380
+    :goto_0
+    return-object v0
+
+    .line 2373
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->DRAFTED:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    if-ne v0, v1, :cond_1
+
+    .line 2374
+    const v0, 0x7f0702d5
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->H()I
+
+    move-result v1
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;I)Landroid/view/View;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 2378
+    :cond_1
+    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 2379
+    const v1, 0x7f0f024e
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/util/h;
+    const/16 v2, 0x8
 
-    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
-    move-result-object v1
+    goto :goto_0
+.end method
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+.method private U()Z
+    .locals 2
 
-    move-result-object v1
+    .prologue
+    .line 2390
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0, v12, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
-    .line 1576
-    new-instance v0, Lcom/yelp/android/ui/util/h;
+    move-result-object v0
 
-    new-array v1, v6, [Landroid/view/View;
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->NOT_STARTED:Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    if-eq v0, v1, :cond_0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/h;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 1577
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
-    const v1, 0x7f0c0015
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->DRAFTED:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    if-ne v0, v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private V()V
+    .locals 12
+
+    .prologue
+    const v11, 0x7f07041d
+
+    const/4 v2, 0x1
+
+    const v10, 0x7f0701b4
+
+    const v9, 0x7f0101cc
+
+    const/4 v1, 0x0
+
+    .line 2395
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->K()I
+
+    move-result v3
+
+    .line 2396
+    new-instance v4, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$14;
+
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreRegularsClicked:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v5, "button"
+
+    invoke-direct {v4, p0, v0, v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$14;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    .line 2406
+    const/4 v0, 0x3
+
+    if-le v3, v0, :cond_1
+
+    add-int/lit8 v0, v3, -0x3
+
+    .line 2407
+    :goto_0
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {p0, v10}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+
+    invoke-static {v6, v7}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v6
+
+    const v7, 0x7f0f04d4
+
+    invoke-virtual {v6, v7}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v9}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v6
+
+    const v7, 0x7f080017
+
+    const v8, 0x7f0703e1
+
+    invoke-direct {p0, v7, v8, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
+
+    move-result-object v7
+
+    if-lez v0, :cond_2
+
+    move v0, v2
+
+    :goto_1
+    invoke-direct {p0, v7, v4, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;Z)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v6, v0}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v5, v10, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2422
+    new-instance v0, Lcom/yelp/android/ui/util/e;
+
+    new-array v4, v1, [Landroid/view/View;
+
+    invoke-direct {v0, v4}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/e;
+
+    .line 2423
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
     invoke-virtual {p0, v11}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/h;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/e;
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v4, v9}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v4}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 1582
-    if-nez v8, :cond_0
+    move-result-object v4
 
-    .line 1583
-    iput-boolean v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Z
+    invoke-virtual {v0, v11, v4}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    .line 1585
+    .line 2430
+    new-instance v0, Lcom/yelp/android/ui/util/e;
+
+    new-array v1, v1, [Landroid/view/View;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/ui/util/e;
+
+    .line 2431
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f0017
+
+    invoke-virtual {p0, v10}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v9}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v1, v4}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 2438
+    if-nez v3, :cond_0
+
+    .line 2439
+    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Z
+
+    .line 2441
     :cond_0
     return-void
 
     :cond_1
-    move v0, v6
+    move v0, v1
 
-    .line 1554
+    .line 2406
     goto :goto_0
 
     :cond_2
-    move v3, v6
+    move v0, v1
 
-    .line 1555
+    .line 2407
     goto :goto_1
 .end method
 
-.method private O()V
-    .locals 5
+.method private W()V
+    .locals 4
 
     .prologue
-    const/4 v4, 0x0
+    .line 2444
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Lcom/yelp/android/ui/util/e;
 
-    .line 1588
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Landroid/view/View;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->getCount()I
 
-    if-nez v0, :cond_0
+    move-result v0
 
-    .line 1589
+    if-lez v0, :cond_0
+
+    .line 2464
+    :goto_0
+    return-void
+
+    .line 2448
+    :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -2044,7 +2675,70 @@
 
     move-result-object v0
 
-    const v1, 0x7f030129
+    const v1, 0x7f030151
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 2452
+    const v1, 0x7f0f0478
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 2453
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$15;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$15;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 2462
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 2463
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g:Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter;->a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/Boolean;)V
+
+    goto :goto_0
+.end method
+
+.method private X()V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 2467
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aV:Landroid/view/View;
+
+    if-nez v0, :cond_0
+
+    .line 2468
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f03018d
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -2054,13 +2748,13 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aV:Landroid/view/View;
 
-    .line 1592
+    .line 2473
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aV:Landroid/view/View;
 
-    const v1, 0x7f0c0084
+    const v1, 0x7f0f00a9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2068,14 +2762,14 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 1593
+    .line 2474
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    const v2, 0x7f0e0028
+    const v2, 0x7f08002b
 
-    iget v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:I
+    iget v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:I
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -2085,66 +2779,66 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1595
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Landroid/view/View;
+    .line 2479
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aV:Landroid/view/View;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/ag;
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$16;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/ag;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$16;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1619
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/util/h;
+    .line 2504
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Lcom/yelp/android/ui/util/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
 
-    .line 1620
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/util/h;
+    .line 2505
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Lcom/yelp/android/ui/util/e;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Landroid/view/View;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aV:Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
-    .line 1621
+    .line 2506
     return-void
 .end method
 
-.method private P()V
+.method private Y()V
     .locals 5
 
     .prologue
-    .line 1624
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 2509
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    const v1, 0x7f070116
+    const v1, 0x7f070195
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v0
 
-    .line 1626
+    .line 2511
     if-nez v0, :cond_1
 
-    .line 1657
+    .line 2556
     :cond_0
     :goto_0
     return-void
 
-    .line 1629
+    .line 2514
     :cond_1
-    iget-object v0, v0, Lcom/yelp/android/ui/util/bv;->a:Landroid/widget/BaseAdapter;
+    iget-object v0, v0, Lcom/yelp/android/ui/util/aj$b;->a:Landroid/widget/BaseAdapter;
 
-    check-cast v0, Lcom/yelp/android/ui/util/h;
+    check-cast v0, Lcom/yelp/android/ui/util/e;
 
-    .line 1630
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
+    .line 2515
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 1631
+    .line 2516
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
@@ -2153,7 +2847,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f030060
+    const v2, 0x7f03006e
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -2165,120 +2859,120 @@
 
     move-result-object v1
 
-    .line 1633
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/ah;
+    .line 2519
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$17;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/ah;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$17;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1643
-    const v2, 0x7f0c01eb
+    .line 2537
+    const v2, 0x7f0f022e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    new-instance v3, Lcom/yelp/android/ui/activities/businesspage/ai;
+    new-instance v3, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$18;
 
-    invoke-direct {v3, p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ai;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/util/h;Landroid/view/View;)V
+    invoke-direct {v3, p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$18;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/util/e;Landroid/view/View;)V
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1655
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    .line 2554
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
     goto :goto_0
 .end method
 
-.method private Q()V
+.method private Z()V
     .locals 3
 
     .prologue
-    .line 1673
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v()V
+    .line 2572
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x()V
 
-    .line 1675
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;
+    .line 2574
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 1676
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g:Lcom/yelp/android/ui/activities/businesspage/cd;
+    .line 2575
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i:Lcom/yelp/android/ui/activities/businesspage/e;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/cd;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/e;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 1677
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h:Lcom/yelp/android/ui/activities/businesspage/p;
+    .line 2576
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/p;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/c;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 1678
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i:Lcom/yelp/android/ui/activities/businesspage/p;
+    .line 2577
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/p;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/c;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 1681
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/businesspage/p;
+    .line 2579
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f:Lcom/yelp/android/ui/activities/businesspage/c;
 
     if-eqz v0, :cond_0
 
-    .line 1682
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/businesspage/p;
+    .line 2580
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/p;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/c;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 1685
+    .line 2583
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->b(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 1686
+    .line 2584
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->isBookmarked()Z
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->U()Z
 
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->setBookmarkChecked(Z)V
 
-    .line 1689
+    .line 2587
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/g;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->f()Lcom/yelp/android/database/d;
+    invoke-virtual {v0}, Lcom/yelp/android/database/g;->d()Lcom/yelp/android/database/b;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/database/d;->c(Lcom/yelp/android/serializable/YelpBusiness;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/b;->c(Lcom/yelp/android/serializable/YelpBusiness;)Landroid/os/AsyncTask;
 
-    .line 1692
+    .line 2592
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -2295,7 +2989,7 @@
 
     move-result v0
 
-    .line 1693
+    .line 2593
     if-ltz v0, :cond_1
 
     invoke-static {}, Lcom/yelp/android/appdata/BusinessContributionType;->values()[Lcom/yelp/android/appdata/BusinessContributionType;
@@ -2306,8 +3000,8 @@
 
     if-ge v0, v1, :cond_1
 
-    .line 1694
-    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/bp;->a:[I
+    .line 2594
+    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$59;->a:[I
 
     invoke-static {}, Lcom/yelp/android/appdata/BusinessContributionType;->values()[Lcom/yelp/android/appdata/BusinessContributionType;
 
@@ -2323,37 +3017,37 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1706
+    .line 2606
     :cond_1
     :goto_0
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aB:Z
 
-    .line 1707
+    .line 2607
     return-void
 
-    .line 1696
+    .line 2596
     :pswitch_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i()V
-
-    goto :goto_0
-
-    .line 1699
-    :pswitch_1
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae()V
-
-    goto :goto_0
-
-    .line 1702
-    :pswitch_2
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h()V
 
     goto :goto_0
 
-    .line 1694
-    nop
+    .line 2599
+    :pswitch_1
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao()V
 
+    goto :goto_0
+
+    .line 2602
+    :pswitch_2
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 2594
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2362,521 +3056,12 @@
     .end packed-switch
 .end method
 
-.method private R()V
-    .locals 3
-
-    .prologue
-    .line 1715
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDfpParameters()Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
-
-    .line 1716
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setVisibility(I)V
-
-    .line 1732
-    :goto_0
-    return-void
-
-    .line 1720
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->getVisibility()I
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 1721
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setVisibility(I)V
-
-    .line 1725
-    :cond_2
-    :try_start_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDfpParameters()Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    .line 1726
-    sget-object v1, Lcom/yelp/android/analytics/iris/AutoIri;->DFPWillRequest:Lcom/yelp/android/analytics/iris/AutoIri;
-
-    invoke-static {v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
-
-    .line 1727
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/AdListener;
-
-    invoke-virtual {v1, v2}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setAdListener(Lcom/google/android/gms/ads/AdListener;)V
-
-    .line 1728
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/util/q;->a(Lorg/json/JSONObject;)Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->loadAd(Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 1729
-    :catch_0
-    move-exception v0
-
-    .line 1730
-    const-string/jumbo v0, "DFP"
-
-    const-string/jumbo v1, "Problems parsing ad param set"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-.end method
-
-.method private S()V
-    .locals 2
-
-    .prologue
-    .line 1894
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    instance-of v0, v0, Lcom/yelp/android/appdata/webrequests/eg;
-
-    if-eqz v0, :cond_1
-
-    .line 1895
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/eg;
-
-    .line 1896
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Lcom/yelp/android/av/i;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/eg;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
-
-    .line 1897
-    const v0, 0x7f0704ec
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e(I)V
-
-    .line 1903
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 1898
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    instance-of v0, v0, Lcom/yelp/android/appdata/webrequests/d;
-
-    if-eqz v0, :cond_0
-
-    .line 1899
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/d;
-
-    .line 1900
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aS:Lcom/yelp/android/appdata/webrequests/m;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/d;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
-
-    .line 1901
-    const v0, 0x7f0700a1
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e(I)V
-
-    goto :goto_0
-.end method
-
-.method private T()V
-    .locals 3
-
-    .prologue
-    .line 1974
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessRedeemCheckInOffer:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
-
-    .line 1975
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCheckInOffer()Lcom/yelp/android/serializable/Offer;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;->a(Lcom/yelp/android/serializable/Offer;Lcom/yelp/android/serializable/YelpBusiness;)Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;
-
-    move-result-object v0
-
-    .line 1977
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
-
-    move-result-object v1
-
-    const-string/jumbo v2, ""
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
-
-    .line 1978
-    return-void
-.end method
-
-.method private U()V
-    .locals 3
-
-    .prologue
-    .line 1981
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessDealClicked:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
-
-    .line 1982
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDeal()Lcom/yelp/android/serializable/YelpDeal;
-
-    move-result-object v0
-
-    .line 1983
-    if-nez v0, :cond_0
-
-    .line 1989
-    :goto_0
-    return-void
-
-    .line 1986
-    :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDeal;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v2, v0}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 1988
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    goto :goto_0
-.end method
-
-.method private V()V
-    .locals 5
-
-    .prologue
-    .line 1997
-    new-instance v0, Ljava/util/TreeMap;
-
-    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
-
-    .line 1998
-    const-string/jumbo v1, "business_id"
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 1999
-    const-string/jumbo v1, "call_to_action_id"
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getCallToAction()Lcom/yelp/android/serializable/CallToAction;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/CallToAction;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2000
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Lcom/yelp/android/av/a;
-
-    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->CallToActionBusinessClick:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 2002
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCallToAction()Lcom/yelp/android/serializable/CallToAction;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/CallToAction;->getUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    .line 2003
-    const-string/jumbo v1, "http"
-
-    invoke-virtual {v0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const-string/jumbo v1, "https"
-
-    invoke-virtual {v0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 2004
-    :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionWebView:Lcom/yelp/android/analytics/iris/ViewIri;
-
-    const-class v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-static {v4}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
-
-    move-result-object v4
-
-    invoke-static {v1, v0, v2, v3, v4}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    .line 2010
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 2007
-    :cond_2
-    const-string/jumbo v1, "tel"
-
-    invoke-virtual {v0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 2008
-    invoke-static {v0}, Lcom/yelp/android/util/r;->a(Landroid/net/Uri;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    goto :goto_0
-.end method
-
-.method private W()V
-    .locals 3
-
-    .prologue
-    .line 2032
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddedToContacts:Lcom/yelp/android/analytics/iris/EventIri;
-
-    const-string/jumbo v1, "business_id"
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
-
-    .line 2033
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/m;->a(Landroid/app/Activity;Lcom/yelp/android/serializable/YelpBusiness;)V
-
-    .line 2034
-    return-void
-.end method
-
-.method private X()V
-    .locals 2
-
-    .prologue
-    .line 2037
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->DirectionsToBusiness:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/analytics/iris/EventIri;)V
-
-    .line 2038
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-static {v0, v1}, Lcom/yelp/android/util/r;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
-
-    .line 2039
-    return-void
-.end method
-
-.method private Y()V
-    .locals 2
-
-    .prologue
-    .line 2042
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMessageTheBusinessOpen:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
-
-    .line 2043
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/messaging/ActivityMessageTheBusiness;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    const/16 v1, 0x407
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
-
-    .line 2045
-    return-void
-.end method
-
-.method private Z()V
-    .locals 5
-
-    .prologue
-    .line 2048
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessOpenYelpMenu:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
-
-    .line 2049
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getMenu()Lcom/yelp/android/serializable/Menu;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Menu;->getActionUrl()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getMenu()Lcom/yelp/android/serializable/Menu;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Menu;->getViewTitle()Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessMenu:Lcom/yelp/android/analytics/iris/ViewIri;
-
-    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-static {v4}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
-
-    move-result-object v4
-
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 2053
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    .line 2054
-    return-void
-.end method
-
 .method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;I)I
     .locals 0
 
     .prologue
-    .line 226
-    iput p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:I
+    .line 275
+    iput p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:I
 
     return p1
 .end method
@@ -2887,7 +3072,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 923
+    .line 1527
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -2896,7 +3081,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030068
+    const v1, 0x7f030079
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -2908,18 +3093,18 @@
 
     move-result-object v1
 
-    .line 926
-    const v0, 0x7f0c0207
+    .line 1532
+    const v0, 0x7f0f0254
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 927
+    .line 1533
     invoke-virtual {v0, p3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 929
-    const v0, 0x7f0c0208
+    .line 1535
+    const v0, 0x7f0f0255
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2927,14 +3112,14 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 931
+    .line 1537
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 932
+    .line 1538
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
@@ -2945,15 +3130,274 @@
 
     invoke-virtual {v0, v2, v4, v4, v4}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 934
+    .line 1540
     return-object v1
+.end method
+
+.method private a(Ljava/lang/String;I)Landroid/view/View;
+    .locals 11
+
+    .prologue
+    const/4 v10, 0x0
+
+    const/16 v9, 0x8
+
+    .line 1386
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f030076
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v6
+
+    .line 1390
+    const v0, 0x7f0f025a
+
+    invoke-virtual {v6, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/WebImageView;
+
+    .line 1392
+    const v1, 0x7f0f0251
+
+    invoke-virtual {v6, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    .line 1393
+    invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1394
+    invoke-virtual {v1}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    aget-object v1, v1, v2
+
+    check-cast v1, Landroid/graphics/drawable/LevelListDrawable;
+
+    .line 1395
+    invoke-virtual {v1, p2}, Landroid/graphics/drawable/LevelListDrawable;->setLevel(I)Z
+
+    .line 1397
+    const v1, 0x7f0f024e
+
+    invoke-virtual {v6, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$3;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$3;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 1408
+    const v1, 0x7f0f025c
+
+    invoke-virtual {v6, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    .line 1409
+    const v2, 0x7f0f0250
+
+    invoke-virtual {v6, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/TextView;
+
+    .line 1410
+    const v3, 0x7f0f04fa
+
+    invoke-virtual {v6, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    .line 1411
+    const v4, 0x7f0f04fb
+
+    invoke-virtual {v6, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/TextView;
+
+    .line 1412
+    const v5, 0x7f0f043c
+
+    invoke-virtual {v6, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/TextView;
+
+    .line 1413
+    const v7, 0x7f0f024f
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    .line 1415
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
+
+    move-result-object v8
+
+    .line 1416
+    if-nez v8, :cond_0
+
+    .line 1418
+    invoke-virtual {v0, v9}, Lcom/yelp/android/ui/widgets/WebImageView;->setVisibility(I)V
+
+    .line 1419
+    invoke-virtual {v1, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1420
+    invoke-virtual {v2, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1421
+    invoke-virtual {v3, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1422
+    invoke-virtual {v4, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1423
+    invoke-virtual {v5, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1424
+    invoke-virtual {v7, v9}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1442
+    :goto_0
+    return-object v6
+
+    .line 1426
+    :cond_0
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/User;->k_()I
+
+    move-result v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v2, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1427
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/User;->j_()I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1428
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/User;->n_()I
+
+    move-result v2
+
+    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v4, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1430
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/User;->h()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 1431
+    invoke-virtual {v5, v10}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1432
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f070281
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {}, Lcom/yelp/android/serializable/User;->j()Ljava/util/Date;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Date;)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1439
+    :goto_1
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;)V
+
+    .line 1440
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/User;->ad()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 1437
+    :cond_1
+    const/4 v2, 0x4
+
+    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_1
 .end method
 
 .method private a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
     .locals 4
 
     .prologue
-    .line 938
+    .line 1544
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -2962,7 +3406,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030065
+    const v1, 0x7f030075
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -2974,8 +3418,8 @@
 
     move-result-object v1
 
-    .line 941
-    const v0, 0x7f0c0201
+    .line 1549
+    const v0, 0x7f0f024a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2983,32 +3427,30 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 943
+    .line 1551
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 945
-    const v0, 0x7f0c0202
+    .line 1553
+    const v0, 0x7f0f024b
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 946
+    .line 1554
     invoke-virtual {v0, p2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 948
+    .line 1556
     return-object v1
 .end method
 
-.method private a(Ljava/lang/String;Landroid/view/View$OnClickListener;ZLjava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-    .locals 5
+.method private a(Ljava/lang/String;Landroid/view/View$OnClickListener;Z)Landroid/view/View;
+    .locals 4
 
     .prologue
-    const/16 v4, 0x8
-
     const/4 v3, 0x0
 
-    .line 880
+    .line 1476
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -3017,7 +3459,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030066
+    const v1, 0x7f030077
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -3025,115 +3467,95 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v1
-
-    .line 883
-    const v0, 0x7f0c0205
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
     move-result-object v0
 
-    .line 884
+    .line 1481
+    const v1, 0x7f0f001f
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 1482
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 885
-    invoke-direct {p0, v1, p3, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/view/View;ZLjava/lang/String;)V
+    .line 1483
+    invoke-direct {p0, v0, p3, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;ZLjava/lang/String;)V
 
-    .line 886
-    invoke-virtual {v0, p2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .line 1484
+    invoke-virtual {v1, p2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 887
-    invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
+    .line 1485
+    invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 892
+    .line 1490
     :goto_0
-    const v0, 0x7f0c0204
+    return-object v0
 
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    .line 893
-    invoke-static {p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    .line 894
-    invoke-virtual {v0, p4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 895
-    invoke-virtual {v0, p5}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 896
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 901
-    :goto_1
-    return-object v1
-
-    .line 889
+    .line 1487
     :cond_0
-    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+    const/16 v2, 0x8
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
+.end method
 
-    .line 898
-    :cond_1
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/appdata/webrequests/av;)Lcom/yelp/android/appdata/webrequests/av;
+    .locals 0
 
-    goto :goto_1
+    .prologue
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bf:Lcom/yelp/android/appdata/webrequests/av;
+
+    return-object p1
 .end method
 
 .method public static a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/SearchRequest;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;
     .locals 3
 
     .prologue
-    .line 430
+    .line 547
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;-><init>()V
 
-    .line 431
+    .line 548
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 432
+    .line 549
     const-string/jumbo v2, "extra.business"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 433
+    .line 550
     if-eqz p1, :cond_0
 
-    .line 434
+    .line 551
     const-string/jumbo v2, "top_highlighted_review_id"
 
     invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 437
+    .line 554
     :cond_0
     if-eqz p2, :cond_1
 
-    .line 438
+    .line 555
     const-string/jumbo v2, "search_request"
 
     invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 440
+    .line 557
     :cond_1
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 441
+    .line 558
     return-object v0
 .end method
 
@@ -3141,25 +3563,25 @@
     .locals 3
 
     .prologue
-    .line 447
+    .line 566
     invoke-static {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/SearchRequest;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;
 
     move-result-object v0
 
-    .line 449
+    .line 568
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 450
+    .line 569
     if-eqz p3, :cond_0
 
-    .line 451
+    .line 570
     const-string/jumbo v2, "business_search_result"
 
     invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 453
+    .line 572
     :cond_0
     return-object v0
 .end method
@@ -3168,22 +3590,48 @@
     .locals 3
 
     .prologue
-    .line 459
+    .line 581
     invoke-static {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/SearchRequest;Lcom/yelp/android/serializable/BusinessSearchResult;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;
 
     move-result-object v0
 
-    .line 461
+    .line 584
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 462
+    .line 585
     const-string/jumbo v2, "extra.check_in"
 
     invoke-virtual {v1, v2, p4}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 463
+    .line 586
+    return-object v0
+.end method
+
+.method public static a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/SearchRequest;Lcom/yelp/android/serializable/BusinessSearchResult;Lcom/yelp/android/serializable/YelpCheckIn;Landroid/content/Intent;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;
+    .locals 3
+
+    .prologue
+    .line 596
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/SearchRequest;Lcom/yelp/android/serializable/BusinessSearchResult;Lcom/yelp/android/serializable/YelpCheckIn;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;
+
+    move-result-object v0
+
+    .line 604
+    if-eqz p5, :cond_0
+
+    .line 605
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "message_the_business_notification"
+
+    invoke-virtual {v1, v2, p5}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 609
+    :cond_0
     return-object v0
 .end method
 
@@ -3191,7 +3639,7 @@
     .locals 1
 
     .prologue
-    .line 226
+    .line 275
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Lcom/yelp/android/ui/activities/reviews/ReviewSource;
 
     move-result-object v0
@@ -3199,14 +3647,34 @@
     return-object v0
 .end method
 
+.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;)Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aN:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/Boolean;)Ljava/lang/Boolean;
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    return-object p1
+.end method
+
 .method private a(III)Ljava/lang/String;
     .locals 2
 
     .prologue
-    .line 3214
+    .line 4472
     if-lez p3, :cond_0
 
-    .line 3215
+    .line 4473
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -3219,7 +3687,7 @@
 
     move-result-object v0
 
-    .line 3217
+    .line 4475
     :goto_0
     return-object v0
 
@@ -3235,8 +3703,8 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj:Ljava/util/ArrayList;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
 
     return-object p1
 .end method
@@ -3245,8 +3713,8 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Ljava/util/List;
 
     return-object p1
 .end method
@@ -3255,64 +3723,34 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Ljava/util/Map;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Ljava/util/Map;
 
     return-object p1
-.end method
-
-.method private a(I)V
-    .locals 3
-
-    .prologue
-    .line 1886
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/ax;
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/ax;->d()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2, p1}, Lcom/yelp/android/ui/activities/photoviewer/ActivityMediaViewer;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/util/List;I)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 1888
-    const/16 v1, 0x411
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
-
-    .line 1889
-    return-void
 .end method
 
 .method private a(Landroid/content/Context;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
     .locals 2
 
     .prologue
-    .line 1836
-    invoke-direct {p0, p2, p3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+    .line 2731
+    invoke-direct {p0, p2, p3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v0
 
-    .line 1837
-    invoke-static {p1, v0}, Lcom/yelp/android/analytics/i;->a(Landroid/content/Context;Lcom/yelp/android/analytics/h;)V
+    .line 2732
+    invoke-static {p1, v0}, Lcom/yelp/android/analytics/h;->a(Landroid/content/Context;Lcom/yelp/android/analytics/g$a;)V
 
-    .line 1838
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Lcom/yelp/android/av/a;
+    .line 2733
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-    invoke-virtual {v0}, Lcom/yelp/android/analytics/h;->a()Lcom/yelp/android/analytics/g;
+    invoke-virtual {v0}, Lcom/yelp/android/analytics/g$a;->a()Lcom/yelp/android/analytics/g;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/b;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/b;)V
 
-    .line 1839
+    .line 2734
     return-void
 .end method
 
@@ -3320,11 +3758,9 @@
     .locals 8
 
     .prologue
-    const/4 v5, 0x1
-
     const/4 v7, 0x0
 
-    .line 1233
+    .line 1946
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -3333,7 +3769,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030064
+    const v1, 0x7f030074
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -3343,8 +3779,8 @@
 
     move-result-object v6
 
-    .line 1235
-    const v0, 0x7f0c01fb
+    .line 1950
+    const v0, 0x7f0f0220
 
     invoke-virtual {v6, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3352,15 +3788,15 @@
 
     check-cast v0, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
 
-    .line 1238
+    .line 1954
     invoke-virtual {v0}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->getYelpMap()Lcom/yelp/android/ui/map/YelpMap;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Lcom/yelp/android/ui/map/YelpMap;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/ui/map/YelpMap;
 
-    .line 1240
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1956
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     new-instance v2, Lcom/yelp/android/ui/map/b;
 
@@ -3370,26 +3806,30 @@
 
     invoke-direct {v2, v3}, Lcom/yelp/android/ui/map/b;-><init>(Landroid/content/Context;)V
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getAssetForMap()I
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->B()I
 
     move-result v3
 
+    invoke-static {}, Lcom/yelp/android/util/f;->a()Z
+
+    move-result v5
+
     move-object v4, p1
 
-    invoke-virtual/range {v0 .. v5}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->a(Lcom/yelp/android/serializable/by;Lcom/yelp/android/ui/map/e;ILandroid/os/Bundle;Z)Z
+    invoke-virtual/range {v0 .. v5}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->a(Lcom/yelp/android/serializable/f;Lcom/yelp/android/ui/map/e;ILandroid/os/Bundle;Z)Z
 
     move-result v1
 
-    .line 1243
+    .line 1963
     if-nez v1, :cond_0
 
-    .line 1245
-    invoke-virtual {v0}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->b()V
+    .line 1965
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->a()V
 
-    .line 1246
-    const v1, 0x7f0c0200
+    .line 1966
+    const v1, 0x7f0f0249
 
     invoke-virtual {v6, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3397,8 +3837,8 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    .line 1248
-    const v2, 0x7f0c01fd
+    .line 1968
+    const v2, 0x7f0f0246
 
     invoke-virtual {v6, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3406,48 +3846,48 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    .line 1249
+    .line 1969
     const/4 v3, 0x4
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1250
+    .line 1970
     invoke-virtual {v2, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1253
+    .line 1973
     :cond_0
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/bt;
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$6;
 
     sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMap:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-direct {v1, p0, v2}, Lcom/yelp/android/ui/activities/businesspage/bt;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
+    invoke-direct {v1, p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$6;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 1265
-    const v1, 0x7f0c01fc
+    .line 1987
+    const v1, 0x7f0f0245
 
     invoke-virtual {v6, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Landroid/view/View;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Landroid/view/View;
 
-    .line 1266
-    const v1, 0x7f0700a4
+    .line 1988
+    const v1, 0x7f070120
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getCompleteAddress()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->m()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/k;->a(Landroid/view/View;ILjava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/h;->a(Landroid/view/View;ILjava/lang/String;)V
 
-    .line 1269
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Landroid/view/View;
+    .line 1990
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Landroid/view/View;
 
-    const v1, 0x7f0c01fe
+    const v1, 0x7f0f0247
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3455,12 +3895,12 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->n:Landroid/widget/TextView;
 
-    .line 1270
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Landroid/view/View;
+    .line 1991
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Landroid/view/View;
 
-    const v1, 0x7f0c01ff
+    const v1, 0x7f0f0248
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3468,125 +3908,125 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Landroid/widget/TextView;
 
-    .line 1271
-    new-instance v0, Lcom/yelp/android/ui/util/h;
-
-    new-array v1, v5, [Landroid/view/View;
-
-    aput-object v6, v1, v7
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->n:Lcom/yelp/android/ui/util/h;
-
-    .line 1273
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f0c000e
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->n:Lcom/yelp/android/ui/util/h;
-
-    invoke-static {v2}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 1275
-    return-void
-.end method
-
-.method private a(Landroid/view/Menu;)V
-    .locals 3
-
-    .prologue
-    .line 3186
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
-
-    invoke-static {v0}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;)Landroid/view/View;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    .line 3187
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    const v1, 0x7f040017
-
-    invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v0
-
-    .line 3189
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
-
-    const v2, 0x7f030016
-
-    invoke-static {v1, v2}, Landroid/support/v4/view/as;->b(Landroid/view/MenuItem;I)Landroid/view/MenuItem;
-
-    .line 3190
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
-
-    invoke-static {v1}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
-
-    .line 3191
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
+    .line 1992
+    new-instance v0, Lcom/yelp/android/ui/util/e;
 
     const/4 v1, 0x1
 
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+    new-array v1, v1, [Landroid/view/View;
 
-    .line 3193
-    :cond_0
+    aput-object v6, v1, v7
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->p:Lcom/yelp/android/ui/util/e;
+
+    .line 1994
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f000f
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->p:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v2}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 1996
     return-void
 .end method
 
-.method private a(Landroid/view/View;ZLjava/lang/String;)V
+.method private a(Landroid/view/View;Ljava/lang/String;)V
     .locals 1
 
     .prologue
-    .line 905
-    const v0, 0x7f0c0204
+    .line 1494
+    const v0, 0x7f0f024d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v0, Landroid/widget/TextView;
 
-    .line 906
-    invoke-virtual {v0, p3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 907
-    invoke-virtual {v0, p2}, Landroid/widget/Button;->setEnabled(Z)V
-
-    .line 908
+    .line 1495
     return-void
+.end method
+
+.method private a(Landroid/view/View;ZLjava/lang/String;)V
+    .locals 3
+
+    .prologue
+    .line 1515
+    const v0, 0x7f0f00a9
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    .line 1516
+    invoke-virtual {v0, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1517
+    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    .line 1518
+    if-eqz p2, :cond_0
+
+    .line 1519
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0e002c
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    .line 1523
+    :goto_0
+    return-void
+
+    .line 1521
+    :cond_0
+    invoke-virtual {v0}, Landroid/widget/TextView;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
 .end method
 
 .method private a(Lcom/yelp/android/analytics/iris/EventIri;)V
     .locals 1
 
     .prologue
-    .line 1789
+    .line 2687
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 1790
+    .line 2688
     return-void
 .end method
 
@@ -3594,49 +4034,262 @@
     .locals 2
 
     .prologue
-    .line 1800
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Lcom/yelp/android/av/a;
+    .line 2698
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/h;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/analytics/h;->a()Lcom/yelp/android/analytics/g;
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/b;)V
+    invoke-virtual {v1}, Lcom/yelp/android/analytics/g$a;->a()Lcom/yelp/android/analytics/g;
 
-    .line 1801
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/b;)V
+
+    .line 2699
     return-void
+.end method
+
+.method private a(Lcom/yelp/android/serializable/PlatformSearchAction;Ljava/lang/String;)V
+    .locals 15
+
+    .prologue
+    .line 3028
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aH()Lcom/yelp/android/serializable/PlatformAction;
+
+    move-result-object v8
+
+    .line 3029
+    if-eqz v8, :cond_3
+
+    .line 3030
+    const/4 v7, 0x0
+
+    .line 3031
+    new-instance v14, Lcom/yelp/android/g/a;
+
+    invoke-direct {v14}, Lcom/yelp/android/g/a;-><init>()V
+
+    .line 3032
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    if-eqz v0, :cond_0
+
+    .line 3033
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->g()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 3035
+    :cond_0
+    invoke-static {v7}, Lcom/yelp/android/util/StringUtils;->d(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 3036
+    const-string/jumbo v0, "biz_dimension"
+
+    invoke-interface {v14, v0, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 3038
+    :cond_1
+    const-string/jumbo v0, "supported_vertical_types"
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/PlatformAction;->b()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v14, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 3039
+    const-string/jumbo v0, "id"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v14, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 3041
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al()Ljava/lang/String;
+
+    move-result-object v11
+
+    .line 3042
+    invoke-static {v11}, Lcom/yelp/android/util/StringUtils;->d(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 3043
+    const-string/jumbo v0, "search_request_id"
+
+    invoke-interface {v14, v0, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 3046
+    :cond_2
+    if-eqz p1, :cond_4
+
+    .line 3047
+    const-string/jumbo v0, "source"
+
+    const-string/jumbo v1, "promoted"
+
+    invoke-interface {v14, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 3048
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual/range {p1 .. p1}, Lcom/yelp/android/serializable/PlatformSearchAction;->o()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    const v2, 0x7f070379
+
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/yelp/android/analytics/iris/ViewIri;->OpenURL:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+
+    invoke-static {v4}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    const v6, 0x7f070693
+
+    invoke-virtual/range {p1 .. p1}, Lcom/yelp/android/serializable/PlatformSearchAction;->m()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "source_business_page"
+
+    iget-object v10, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
+
+    move-result-object v10
+
+    iget-object v12, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v12}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual/range {p1 .. p1}, Lcom/yelp/android/serializable/PlatformSearchAction;->k()Ljava/util/HashMap;
+
+    move-result-object v13
+
+    invoke-static/range {v0 .. v13}, Lcom/yelp/android/ui/activities/support/PlatformWebViewActivity;->a(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    .line 3082
+    :goto_0
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPlatformOpen:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v1, v14}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    .line 3083
+    const/16 v1, 0x417
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    .line 3085
+    :cond_3
+    return-void
+
+    .line 3065
+    :cond_4
+    if-eqz p2, :cond_5
+
+    .line 3066
+    :goto_1
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-static/range {p2 .. p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    const v2, 0x7f070379
+
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/yelp/android/analytics/iris/ViewIri;->OpenURL:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+
+    invoke-static {v4}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    const v6, 0x7f070693
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/PlatformAction;->b()Ljava/lang/String;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "source_business_page"
+
+    iget-object v10, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
+
+    move-result-object v10
+
+    iget-object v12, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v12}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static/range {v0 .. v12}, Lcom/yelp/android/ui/activities/support/PlatformWebViewActivity;->a(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 3065
+    :cond_5
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/PlatformAction;->f()Ljava/lang/String;
+
+    move-result-object p2
+
+    goto :goto_1
 .end method
 
 .method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
     .locals 0
 
     .prologue
-    .line 226
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae()V
-
-    return-void
-.end method
-
-.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Landroid/view/Menu;)V
-    .locals 0
-
-    .prologue
-    .line 226
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/Menu;)V
-
-    return-void
-.end method
-
-.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Landroid/view/View;ZLjava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 226
-    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;ZLjava/lang/String;)V
+    .line 275
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao()V
 
     return-void
 .end method
@@ -3645,7 +4298,7 @@
     .locals 0
 
     .prologue
-    .line 226
+    .line 275
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
 
     return-void
@@ -3655,8 +4308,18 @@
     .locals 0
 
     .prologue
-    .line 226
+    .line 275
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/serializable/PlatformSearchAction;Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 275
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/serializable/PlatformSearchAction;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -3665,8 +4328,18 @@
     .locals 0
 
     .prologue
-    .line 226
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g(Ljava/lang/String;)V
+    .line 275
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/util/EnumSet;)V
+    .locals 0
+
+    .prologue
+    .line 275
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;)V
 
     return-void
 .end method
@@ -3675,18 +4348,18 @@
     .locals 0
 
     .prologue
-    .line 226
+    .line 275
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/List;I)V
 
     return-void
 .end method
 
-.method private a(Lcom/yelp/android/ui/activities/reviewpage/ab;Ljava/util/List;Z)V
+.method private a(Lcom/yelp/android/ui/activities/reviewpage/b;Ljava/util/List;Z)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/ui/activities/reviewpage/ab;",
+            "Lcom/yelp/android/ui/activities/reviewpage/b;",
             "Ljava/util/List",
             "<",
             "Lcom/yelp/android/serializable/LocalAd;",
@@ -3699,34 +4372,34 @@
 
     const/4 v2, 0x0
 
-    .line 994
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1601
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getFromThisBusiness()Lcom/yelp/android/serializable/FromThisBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aY()Lcom/yelp/android/serializable/FromThisBusiness;
 
     move-result-object v0
 
-    .line 995
+    .line 1602
     if-eqz v0, :cond_1
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FromThisBusiness;->getShowTeaser()Z
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FromThisBusiness;->c()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 1001
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/ab;->clear()V
+    .line 1609
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/b;->clear()V
 
-    .line 1002
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/ab;->notifyDataSetChanged()V
+    .line 1610
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/b;->notifyDataSetChanged()V
 
-    .line 1061
+    .line 1675
     :cond_0
     :goto_0
     return-void
 
-    .line 1007
+    .line 1615
     :cond_1
     if-eqz p2, :cond_2
 
@@ -3736,135 +4409,149 @@
 
     if-eqz v0, :cond_4
 
-    .line 1008
+    .line 1616
     :cond_2
     if-eqz p3, :cond_3
 
-    .line 1009
-    iput-boolean v8, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Z
+    .line 1617
+    iput-boolean v8, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aT:Z
 
-    .line 1010
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R()V
+    .line 1618
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa()V
 
-    .line 1013
+    .line 1621
     :cond_3
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/ab;->clear()V
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/b;->clear()V
 
-    .line 1014
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/ab;->notifyDataSetChanged()V
+    .line 1622
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/b;->notifyDataSetChanged()V
 
     goto :goto_0
 
-    .line 1020
+    .line 1628
     :cond_4
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/ab;->isEmpty()Z
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/b;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1024
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1632
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCategoryForBusinessSearchResult()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 1026
-    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->e()Ljava/lang/String;
 
     move-result-object v4
+
+    .line 1634
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
 
     move v1, v2
 
     :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/LocalAd;
-
-    .line 1028
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Lcom/yelp/android/av/a;
-
-    sget-object v6, Lcom/yelp/android/analytics/iris/AutoIri;->AdBusinessImpression:Lcom/yelp/android/analytics/iris/AutoIri;
-
-    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0, v7, v2}, Lcom/yelp/android/serializable/LocalAd;->getIriParams(Lcom/yelp/android/serializable/YelpBusiness;Z)Ljava/util/Map;
-
-    move-result-object v7
-
-    invoke-virtual {v5, v6, v7}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 1035
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_7
-
-    .line 1036
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCategories()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :cond_5
-    :goto_2
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/Category;
+    check-cast v0, Lcom/yelp/android/serializable/LocalAd;
 
-    .line 1037
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Category;->getName()Ljava/lang/String;
+    .line 1636
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
+
+    sget-object v6, Lcom/yelp/android/analytics/iris/EventIri;->AdBusinessImpression:Lcom/yelp/android/analytics/iris/EventIri;
+
+    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v7, v2}, Lcom/yelp/android/serializable/LocalAd;->a(Lcom/yelp/android/serializable/YelpBusiness;Z)Ljava/util/Map;
+
+    move-result-object v7
+
+    invoke-virtual {v3, v6, v7}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    .line 1643
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->a()Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_6
+
+    .line 1644
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->a()Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->aV()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    move v3, v1
+
+    :goto_2
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/Category;
+
+    .line 1645
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Category;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    .line 1646
+    add-int/lit8 v1, v3, 0x1
+
+    :goto_3
+    move v3, v1
+
+    .line 1648
+    goto :goto_2
+
+    .line 1649
+    :cond_5
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->a()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest$OfflineAttributionEventType;->AD_IMPRESSION:Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest$OfflineAttributionEventType;
 
-    move-result v0
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest;->a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest$OfflineAttributionEventType;)Z
 
-    if-eqz v0, :cond_5
+    move v0, v3
 
-    .line 1038
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_2
-
-    :cond_6
-    move v0, v1
-
-    :goto_3
+    :goto_4
     move v1, v0
 
-    .line 1047
+    .line 1661
     goto :goto_1
 
-    .line 1042
-    :cond_7
-    const-string/jumbo v5, "AdsFix"
+    .line 1652
+    :cond_6
+    const-string/jumbo v3, "AdsFix"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -3876,9 +4563,9 @@
 
     move-result-object v6
 
-    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v7}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v7
 
@@ -3892,7 +4579,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->getType()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->k()Ljava/lang/String;
 
     move-result-object v7
 
@@ -3906,7 +4593,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->getBusinessId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->m()Ljava/lang/String;
 
     move-result-object v0
 
@@ -3918,82 +4605,137 @@
 
     move-result-object v0
 
-    invoke-static {v5, v0}, Lcom/yelp/android/util/YelpLog;->error(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v3, v0}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;)V
 
     move v0, v1
 
-    goto :goto_3
+    goto :goto_4
 
-    .line 1049
-    :cond_8
-    if-eqz p3, :cond_9
+    .line 1663
+    :cond_7
+    if-eqz p3, :cond_8
 
-    const v0, 0x7f0c0006
+    const v0, 0x7f0f0006
 
-    .line 1050
-    :goto_4
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 1664
+    :goto_5
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    invoke-virtual {v4, v0}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v0
 
-    .line 1052
+    .line 1666
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-ne v1, v4, :cond_a
+    if-ne v1, v3, :cond_9
 
-    .line 1053
-    const v1, 0x7f07044f
+    .line 1667
+    const v1, 0x7f070474
 
-    new-array v4, v8, [Ljava/lang/Object;
+    new-array v3, v8, [Ljava/lang/Object;
 
-    aput-object v3, v4, v2
+    aput-object v4, v3, v2
 
-    invoke-virtual {p0, v1, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v1, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj$b;->a(Ljava/lang/CharSequence;)V
 
-    .line 1058
-    :goto_5
-    invoke-virtual {p1, p2}, Lcom/yelp/android/ui/activities/reviewpage/ab;->a(Ljava/util/List;)V
+    .line 1672
+    :goto_6
+    invoke-virtual {p1, p2}, Lcom/yelp/android/ui/activities/reviewpage/b;->a(Ljava/util/List;)V
 
-    .line 1059
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/ab;->notifyDataSetChanged()V
+    .line 1673
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviewpage/b;->notifyDataSetChanged()V
 
     goto/16 :goto_0
 
-    .line 1049
+    .line 1663
+    :cond_8
+    const v0, 0x7f0f0005
+
+    goto :goto_5
+
+    .line 1669
     :cond_9
-    const v0, 0x7f0c0005
-
-    goto :goto_4
-
-    .line 1055
-    :cond_a
-    const v1, 0x7f0706c7
+    const v1, 0x7f070696
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj$b;->a(Ljava/lang/CharSequence;)V
 
-    goto :goto_5
+    goto :goto_6
+
+    :cond_a
+    move v1, v3
+
+    goto/16 :goto_3
 .end method
 
-.method private a(Lcom/yelp/android/ui/util/bw;)V
+.method private a(Lcom/yelp/android/ui/util/aj$b;Ljava/lang/String;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/ui/util/aj$b",
+            "<",
+            "Lcom/yelp/android/ui/activities/reviewpage/e;",
+            ">;",
+            "Ljava/lang/String;",
+            ")V"
+        }
+    .end annotation
+
+    .prologue
+    .line 4109
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Lcom/yelp/android/ui/util/aj$b;->e:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    .line 4110
+    iget-object v0, p1, Lcom/yelp/android/ui/util/aj$b;->e:Landroid/view/View;
+
+    const v1, 0x7f0f024d
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 4114
+    :goto_0
+    return-void
+
+    .line 4112
+    :cond_0
+    invoke-virtual {p1, p2}, Lcom/yelp/android/ui/util/aj$b;->a(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+.end method
+
+.method private a(Lcom/yelp/android/ui/util/aj$c;)V
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/ui/util/bw",
+            "Lcom/yelp/android/ui/util/aj$c",
             "<",
-            "Lcom/yelp/android/ui/util/h;",
+            "Lcom/yelp/android/ui/util/e;",
             ">;)V"
         }
     .end annotation
@@ -4001,11 +4743,11 @@
     .prologue
     const/4 v1, 0x0
 
-    const v6, 0x7f020420
+    const v6, 0x7f0205d1
 
     const/4 v5, 0x0
 
-    .line 1088
+    .line 1707
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -4014,7 +4756,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f03005e
+    const v2, 0x7f03006c
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -4024,12 +4766,12 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak:Landroid/view/View;
 
-    .line 1090
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Landroid/view/View;
+    .line 1711
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak:Landroid/view/View;
 
-    const v2, 0x7f0c01e3
+    const v2, 0x7f0f0222
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4037,31 +4779,31 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Landroid/widget/TextView;
 
-    .line 1092
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1714
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getAttributions()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aW()Ljava/util/List;
 
     move-result-object v0
 
-    .line 1096
+    .line 1718
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v2
 
     if-nez v2, :cond_3
 
-    .line 1099
+    .line 1721
     invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/Attribution;
 
-    .line 1100
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Attribution;->getType()Lcom/yelp/android/serializable/Attribution$Type;
+    .line 1722
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Attribution;->a()Lcom/yelp/android/serializable/Attribution$Type;
 
     move-result-object v2
 
@@ -4069,10 +4811,10 @@
 
     if-ne v2, v3, :cond_0
 
-    .line 1101
+    .line 1723
     new-instance v2, Landroid/text/SpannableStringBuilder;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Attribution;->getText()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Attribution;->c()Ljava/lang/String;
 
     move-result-object v0
 
@@ -4082,7 +4824,7 @@
 
     move-object v1, v2
 
-    .line 1132
+    .line 1762
     :goto_0
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -4090,20 +4832,20 @@
 
     if-eqz v2, :cond_2
 
-    .line 1133
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Landroid/widget/TextView;
+    .line 1763
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Landroid/widget/TextView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1139
+    .line 1769
     :goto_1
     return-void
 
-    .line 1102
+    .line 1724
     :cond_0
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Attribution;->getType()Lcom/yelp/android/serializable/Attribution$Type;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Attribution;->a()Lcom/yelp/android/serializable/Attribution$Type;
 
     move-result-object v0
 
@@ -4111,14 +4853,14 @@
 
     if-ne v0, v2, :cond_3
 
-    .line 1106
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G()Z
+    .line 1728
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 1107
+    .line 1729
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -4127,7 +4869,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f030067
+    const v2, 0x7f030078
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -4137,10 +4879,10 @@
 
     move-result-object v2
 
-    .line 1111
+    .line 1737
     new-instance v3, Landroid/text/SpannableStringBuilder;
 
-    const v0, 0x7f0704a5
+    const v0, 0x7f0704be
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
@@ -4148,7 +4890,7 @@
 
     invoke-direct {v3, v0}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 1113
+    .line 1739
     const-string/jumbo v0, "%1$s"
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
@@ -4161,8 +4903,8 @@
 
     invoke-static {v3, v0, v4}, Lcom/yelp/android/util/StringUtils;->a(Landroid/text/Spannable;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
 
-    .line 1116
-    const v0, 0x7f0c0206
+    .line 1744
+    const v0, 0x7f0f0253
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4170,22 +4912,22 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 1118
+    .line 1746
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1120
-    invoke-virtual {p1, v2}, Lcom/yelp/android/ui/util/bw;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/bw;
+    .line 1748
+    invoke-virtual {p1, v2}, Lcom/yelp/android/ui/util/aj$c;->b(Landroid/view/View;)Lcom/yelp/android/ui/util/aj$c;
 
     move-object v0, v1
 
-    .line 1121
+    .line 1749
     goto :goto_0
 
-    .line 1122
+    .line 1750
     :cond_1
     new-instance v1, Landroid/text/SpannableStringBuilder;
 
-    const v0, 0x7f070497
+    const v0, 0x7f0704ae
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
@@ -4193,7 +4935,7 @@
 
     invoke-direct {v1, v0}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 1124
+    .line 1752
     const-string/jumbo v0, "%1$s"
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
@@ -4206,8 +4948,8 @@
 
     invoke-static {v1, v0, v2}, Lcom/yelp/android/util/StringUtils;->a(Landroid/text/Spannable;Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
 
-    .line 1126
-    const v0, 0x7f07033e
+    .line 1756
+    const v0, 0x7f070378
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
@@ -4215,19 +4957,19 @@
 
     goto :goto_0
 
-    .line 1135
+    .line 1765
     :cond_2
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Landroid/widget/TextView;
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1136
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Landroid/widget/TextView;
+    .line 1766
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Landroid/widget/TextView;
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1137
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Landroid/widget/TextView;
+    .line 1767
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
@@ -4239,31 +4981,3977 @@
     goto/16 :goto_0
 .end method
 
-.method private a(Ljava/lang/String;)V
+.method private a(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 3712
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aY()Lcom/yelp/android/serializable/FromThisBusiness;
+
+    move-result-object v0
+
+    .line 3713
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FromThisBusiness;->c()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 3714
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bs:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-interface {v0, v1, v1}, Lcom/yelp/android/appdata/webrequests/ApiRequest$b;->onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
+
+    .line 3724
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 3718
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/appdata/webrequests/cl;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/appdata/webrequests/cl;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cl;->u()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 3722
+    :cond_2
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/cl;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bs:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, p1, p2, v1}, Lcom/yelp/android/appdata/webrequests/cl;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/appdata/webrequests/cl;
+
+    .line 3723
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/appdata/webrequests/cl;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/cl;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    goto :goto_0
+.end method
+
+.method private a(Ljava/util/EnumSet;)V
+    .locals 9
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/EnumSet",
+            "<",
+            "Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v6, 0x0
+
+    .line 1790
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    .line 1798
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-direct {v0}, Lcom/yelp/android/ui/activities/businesspage/d;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    .line 1799
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/panels/businesspage/b;->getAlertsPager()Landroid/support/v4/view/ViewPager;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/ac;)V
+
+    .line 1801
+    invoke-virtual {v1}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v5
+
+    .line 1802
+    const-string/jumbo v0, "com.yelp.android.webview_done"
+
+    invoke-virtual {v5, v0, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v7
+
+    .line 1810
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aF()Lcom/yelp/android/serializable/Reservation;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    .line 1811
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/d;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 1825
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->ba()Lcom/yelp/android/serializable/ContinueLastOrderInfo;
+
+    move-result-object v0
+
+    .line 1826
+    if-eqz v0, :cond_1
+
+    if-nez v7, :cond_1
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/ContinueLastOrderInfo;->a()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-object v0, Lcom/yelp/android/appdata/Features;->continue_last_order:Lcom/yelp/android/appdata/Features;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/Features;->isEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 1830
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->ba()Lcom/yelp/android/serializable/ContinueLastOrderInfo;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/d;->a(Landroid/content/Context;Lcom/yelp/android/serializable/ContinueLastOrderInfo;Ljava/lang/String;)Landroid/view/View;
+
+    move-result-object v0
+
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$5;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$5;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 1867
+    :cond_1
+    invoke-virtual {p1}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
+
+    .line 1868
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->getData()Landroid/content/Intent;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v1, v3, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->addNotification(Landroid/content/Context;Lcom/yelp/android/ui/activities/businesspage/d;Landroid/content/Intent;)V
+
+    goto :goto_1
+
+    .line 1812
+    :cond_2
+    const-string/jumbo v0, "extra.show_logged_out_user_reservation_notification"
+
+    invoke-virtual {v5, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 1814
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/d;->b(Landroid/content/Context;)V
+
+    goto :goto_0
+
+    .line 1815
+    :cond_3
+    if-eqz v7, :cond_0
+
+    .line 1816
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    const-string/jumbo v3, "com.yelp.android.webview_title"
+
+    invoke-virtual {v5, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "com.yelp.android.webview_subtitle"
+
+    invoke-virtual {v5, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v8, "com.yelp.android.webview_has_details"
+
+    invoke-virtual {v5, v8, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v5
+
+    invoke-virtual/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/d;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    .line 1871
+    :cond_4
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->q()Ljava/util/Date;
+
+    move-result-object v0
+
+    .line 1872
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->ag()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1873
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->af()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 1875
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    .line 1878
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/d;->b(Landroid/content/Context;Ljava/lang/String;)V
+
+    .line 1902
+    :cond_5
+    :goto_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->J()I
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    .line 1903
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/d;->b(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 1906
+    :cond_6
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aS()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_e
+
+    .line 1907
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v0
+
+    .line 1910
+    const/4 v2, 0x6
+
+    invoke-virtual {v0, v2}, Ljava/util/Calendar;->get(I)I
+
+    move-result v0
+
+    add-int/lit8 v2, v0, -0x1
+
+    .line 1912
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aM()Ljava/util/List;
+
+    move-result-object v0
+
+    .line 1913
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->d()Ljava/util/TimeZone;
+
+    move-result-object v3
+
+    .line 1914
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    new-array v4, v4, [Lcom/yelp/android/serializable/YelpHoursPair;
+
+    invoke-interface {v0, v4}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Lcom/yelp/android/serializable/YelpHoursPair;
+
+    .line 1915
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4, v0, v3}, Lcom/yelp/android/services/f;->a(Landroid/content/Context;[Lcom/yelp/android/serializable/YelpHoursPair;Ljava/util/TimeZone;)Lcom/yelp/android/services/f$a;
+
+    move-result-object v0
+
+    .line 1919
+    invoke-virtual {v0}, Lcom/yelp/android/services/f$a;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_e
+
+    .line 1920
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aS()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_7
+    :goto_3
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/SpecialHours;
+
+    .line 1921
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/SpecialHours;->b()[I
+
+    move-result-object v4
+
+    move v0, v6
+
+    .line 1925
+    :goto_4
+    array-length v5, v4
+
+    if-ge v0, v5, :cond_7
+
+    .line 1926
+    aget v5, v4, v0
+
+    if-ne v5, v2, :cond_d
+
+    .line 1927
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->ao()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v1, v4}, Lcom/yelp/android/ui/activities/businesspage/d;->d(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto :goto_3
+
+    .line 1879
+    :cond_8
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_9
+
+    .line 1881
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/d;->c(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto/16 :goto_2
+
+    .line 1882
+    :cond_9
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->r()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    .line 1883
+    if-eqz v0, :cond_a
+
+    .line 1886
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-static {v1}, Landroid/text/format/DateFormat;->getLongDateFormat(Landroid/content/Context;)Ljava/text/DateFormat;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v1, v0}, Lcom/yelp/android/ui/activities/businesspage/d;->a(Landroid/content/Context;Ljava/lang/String;)V
+
+    goto/16 :goto_2
+
+    .line 1890
+    :cond_a
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/d;->c(Landroid/content/Context;)V
+
+    goto/16 :goto_2
+
+    .line 1892
+    :cond_b
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    .line 1893
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->V()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    .line 1894
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aq()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v3, v2}, Lcom/yelp/android/ui/activities/businesspage/d;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_2
+
+    .line 1897
+    :cond_c
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aq()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v3, v2}, Lcom/yelp/android/ui/activities/businesspage/d;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_2
+
+    .line 1925
+    :cond_d
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_4
+
+    .line 1936
+    :cond_e
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/d;->c()V
+
+    .line 1938
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/activities/businesspage/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/d;->b()I
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    .line 1939
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/panels/businesspage/b;->getAlertsPager()Landroid/support/v4/view/ViewPager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v6}, Landroid/support/v4/view/ViewPager;->setVisibility(I)V
+
+    .line 1943
+    :goto_5
+    return-void
+
+    .line 1941
+    :cond_f
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/panels/businesspage/b;->getAlertsPager()Landroid/support/v4/view/ViewPager;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setVisibility(I)V
+
+    goto :goto_5
+.end method
+
+.method private a(Ljava/util/EnumSet;I)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/EnumSet",
+            "<",
+            "Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;",
+            ">;I)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 1783
+    invoke-virtual {p1}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
+
+    .line 1784
+    new-instance v2, Landroid/content/Intent;
+
+    invoke-direct {v2}, Landroid/content/Intent;-><init>()V
+
+    const-string/jumbo v3, "extra.multiple_media"
+
+    invoke-virtual {v2, v3, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->setData(Landroid/content/Intent;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
+
+    goto :goto_0
+
+    .line 1786
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;)V
+
+    .line 1787
+    return-void
+.end method
+
+.method private a(Ljava/util/List;I)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/ReviewHighlight;",
+            ">;I)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 3769
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
+
+    .line 3770
+    iput p2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:I
+
+    .line 3771
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Z
+
+    .line 3772
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA()V
+
+    .line 3773
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Z
+
+    return p1
+.end method
+
+.method private aA()V
+    .locals 3
+
+    .prologue
+    .line 4260
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Z
+
+    if-eqz v0, :cond_2
+
+    .line 4261
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aB()V
+
+    .line 4262
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Z
+
+    if-eqz v0, :cond_2
+
+    .line 4263
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->r:Lcom/yelp/android/ui/activities/reviewpage/b;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t:Ljava/util/List;
+
+    const/4 v2, 0x1
+
+    invoke-direct {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/activities/reviewpage/b;Ljava/util/List;Z)V
+
+    .line 4264
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Z
+
+    if-eqz v0, :cond_2
+
+    .line 4265
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au()V
+
+    .line 4266
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Z
+
+    if-eqz v0, :cond_2
+
+    .line 4267
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av()V
+
+    .line 4268
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
+
+    if-eqz v0, :cond_2
+
+    .line 4269
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw()V
+
+    .line 4270
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Z
+
+    if-eqz v0, :cond_0
+
+    .line 4271
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax()V
+
+    .line 4272
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Z
+
+    if-eqz v0, :cond_0
+
+    .line 4273
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay()V
+
+    .line 4274
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az()V
+
+    .line 4275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->s:Lcom/yelp/android/ui/activities/reviewpage/b;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Ljava/util/List;
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/activities/reviewpage/b;Ljava/util/List;Z)V
+
+    .line 4276
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bc:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;->e()V
+
+    .line 4279
+    :cond_0
+    iget v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:I
+
+    if-lez v0, :cond_1
+
+    .line 4280
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X()V
+
+    .line 4282
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 4283
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W()V
+
+    .line 4290
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj;->notifyDataSetChanged()V
+
+    .line 4291
+    return-void
+.end method
+
+.method private aB()V
     .locals 4
 
     .prologue
-    .line 2013
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 4294
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj:Z
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDialablePhone()Ljava/lang/String;
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->getCount()I
+
+    move-result v0
+
+    if-lez v0, :cond_1
+
+    .line 4323
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 4298
+    :cond_1
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/util/r;->a(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    .line 2015
+    const v1, 0x7f0300f3
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4302
+    const v1, 0x7f0f0378
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    .line 4303
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$41;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$41;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 4318
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 4320
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMessageTheBusinessShown:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v1, "source"
+
+    const-string/jumbo v2, "unclaimed_widget"
+
+    invoke-static {v1, v2}, Ljava/util/Collections;->singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    goto :goto_0
+.end method
+
+.method private aC()V
+    .locals 3
+
+    .prologue
+    .line 4444
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
+
+    invoke-static {v0}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;)Landroid/view/View;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    .line 4445
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    const v1, 0x7f04001d
+
+    invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v0
+
+    .line 4447
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
+
+    const v2, 0x7f03001a
+
+    invoke-static {v1, v2}, Landroid/support/v4/view/q;->b(Landroid/view/MenuItem;I)Landroid/view/MenuItem;
+
+    .line 4448
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
+
+    invoke-static {v1}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+
+    .line 4449
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
+
+    const/4 v1, 0x1
+
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
+
+    .line 4451
+    :cond_0
+    return-void
+.end method
+
+.method private aD()Z
+    .locals 12
+
+    .prologue
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 4480
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
+
+    move-result-object v3
+
+    .line 4481
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/c;->I()Z
+
+    move-result v4
+
+    .line 4483
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v6
+
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/c;->L()J
+
+    move-result-wide v8
+
+    const-wide v10, 0x1cf7c5800L
+
+    add-long/2addr v8, v10
+
+    cmp-long v0, v6, v8
+
+    if-lez v0, :cond_0
+
+    move v0, v1
+
+    .line 4487
+    :goto_0
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/c;->K()I
+
+    move-result v3
+
+    const/16 v5, 0x3c
+
+    if-le v3, v5, :cond_1
+
+    move v3, v1
+
+    .line 4488
+    :goto_1
+    if-nez v4, :cond_2
+
+    if-nez v0, :cond_2
+
+    if-nez v3, :cond_2
+
+    :goto_2
+    return v1
+
+    :cond_0
+    move v0, v2
+
+    .line 4483
+    goto :goto_0
+
+    :cond_1
+    move v3, v2
+
+    .line 4487
+    goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    .line 4488
+    goto :goto_2
+.end method
+
+.method private aE()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 4507
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    if-eqz v0, :cond_0
+
+    .line 4508
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->g()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 4510
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private aa()V
+    .locals 3
+
+    .prologue
+    .line 2615
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aT:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->v()Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    .line 2616
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setVisibility(I)V
+
+    .line 2632
+    :goto_0
+    return-void
+
+    .line 2620
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->getVisibility()I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 2621
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setVisibility(I)V
+
+    .line 2625
+    :cond_2
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->v()Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    .line 2626
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->DFPWillRequest:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
+
+    .line 2627
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bp:Lcom/google/android/gms/ads/a;
+
+    invoke-virtual {v1, v2}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setAdListener(Lcom/google/android/gms/ads/a;)V
+
+    .line 2628
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->n()Lcom/yelp/android/ui/util/a;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/util/a;->a(Lorg/json/JSONObject;)Lcom/google/android/gms/ads/doubleclick/d;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->a(Lcom/google/android/gms/ads/doubleclick/d;)V
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    .line 2629
+    :catch_0
+    move-exception v0
+
+    .line 2630
+    const-string/jumbo v0, "DFP"
+
+    const-string/jumbo v1, "Problems parsing ad param set"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method private ab()V
+    .locals 2
+
+    .prologue
+    .line 2814
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    instance-of v0, v0, Lcom/yelp/android/appdata/webrequests/dk;
+
+    if-eqz v0, :cond_1
+
+    .line 2815
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/dk;
+
+    .line 2816
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bv:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dk;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 2817
+    const v0, 0x7f0704ee
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f(I)V
+
+    .line 2823
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 2818
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    instance-of v0, v0, Lcom/yelp/android/appdata/webrequests/h;
+
+    if-eqz v0, :cond_0
+
+    .line 2819
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/h;
+
+    .line 2820
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->br:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/h;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 2821
+    const v0, 0x7f07011e
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f(I)V
+
+    goto :goto_0
+.end method
+
+.method private ac()V
+    .locals 3
+
+    .prologue
+    .line 2903
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessRedeemCheckInOffer:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 2904
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aJ()Lcom/yelp/android/serializable/Offer;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;->a(Lcom/yelp/android/serializable/Offer;Lcom/yelp/android/serializable/YelpBusiness;)Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;
+
+    move-result-object v0
+
+    .line 2906
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ""
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
+
+    .line 2907
+    return-void
+.end method
+
+.method private ad()V
+    .locals 3
+
+    .prologue
+    .line 2910
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessDealClicked:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 2911
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->X()Lcom/yelp/android/serializable/YelpDeal;
+
+    move-result-object v0
+
+    .line 2912
+    if-nez v0, :cond_0
+
+    .line 2918
+    :goto_0
+    return-void
+
+    .line 2915
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDeal;->x()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v2, v0}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    .line 2917
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_0
+.end method
+
+.method private ae()V
+    .locals 6
+
+    .prologue
+    .line 2926
+    new-instance v0, Ljava/util/TreeMap;
+
+    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
+
+    .line 2927
+    const-string/jumbo v1, "business_id"
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 2928
+    const-string/jumbo v1, "call_to_action_id"
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->bb()Lcom/yelp/android/serializable/CallToAction;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/CallToAction;->e()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 2929
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->CallToActionBusinessClick:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    .line 2931
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->bb()Lcom/yelp/android/serializable/CallToAction;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/CallToAction;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    .line 2932
+    const-string/jumbo v0, "http"
+
+    invoke-virtual {v1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "https"
+
+    invoke-virtual {v1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 2933
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionWebView:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-class v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+
+    invoke-static {v4}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->NONE:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    invoke-static/range {v0 .. v5}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 2944
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 2941
+    :cond_2
+    const-string/jumbo v0, "tel"
+
+    invoke-virtual {v1}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 2942
+    invoke-static {v1}, Lcom/yelp/android/util/k;->a(Landroid/net/Uri;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_0
+.end method
+
+.method private af()V
+    .locals 3
+
+    .prologue
+    .line 2967
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddedToContacts:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v1, "business_id"
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 2968
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/a;->a(Landroid/app/Activity;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 2969
+    return-void
+.end method
+
+.method private ag()V
+    .locals 2
+
+    .prologue
+    .line 2972
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->DirectionsToBusiness:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 2973
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/util/k;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 2974
+    return-void
+.end method
+
+.method private ah()V
+    .locals 2
+
+    .prologue
+    .line 2977
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMessageTheBusinessOpen:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
+
+    .line 2978
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/messaging/ActivityMessageTheBusiness;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/16 v1, 0x40a
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    .line 2981
+    return-void
+.end method
+
+.method private ai()V
+    .locals 4
+
+    .prologue
+    .line 2984
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessOpenYelpMenu:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 2985
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->g()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v2, v0, v3}, Lcom/yelp/android/ui/activities/businesspage/ActivityMenuWebView;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 2993
+    return-void
+
+    .line 2985
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private aj()V
+    .locals 4
+
+    .prologue
+    .line 2996
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/serializable/ReservationSearchAction;->a(Lcom/yelp/android/serializable/BusinessSearchResult;Lcom/yelp/android/serializable/YelpBusiness;)Ljava/util/Map;
+
+    move-result-object v0
+
+    .line 2999
+    const-string/jumbo v1, "source"
+
+    const-string/jumbo v2, "promoted"
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 3000
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessReservationOpen:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    .line 3002
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    const-string/jumbo v3, "source_business_page"
+
+    invoke-static {v1, v2, v0, v3}, Lcom/yelp/android/ui/activities/reservations/ActivityReservationFlow;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 3010
+    return-void
+
+    .line 3002
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->g()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method private ak()V
+    .locals 1
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 3016
+    invoke-direct {p0, v0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/serializable/PlatformSearchAction;Ljava/lang/String;)V
+
+    .line 3017
+    return-void
+.end method
+
+.method private al()Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 3089
+    const/4 v0, 0x0
+
+    .line 3090
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aZ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+
+    if-eqz v1, :cond_0
+
+    .line 3091
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aZ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+
+    invoke-interface {v0}, Lcom/yelp/android/appdata/webrequests/SearchRequest;->i_()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 3093
+    :cond_0
+    return-object v0
+.end method
+
+.method private am()V
+    .locals 4
+
+    .prologue
+    .line 3097
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->bc()Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->ad()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/movies/a$b;->a(Landroid/content/Context;Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 3103
+    return-void
+.end method
+
+.method private an()V
+    .locals 7
+
+    .prologue
+    .line 3106
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreInfoClicked:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 3107
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE()Ljava/lang/String;
+
+    move-result-object v3
+
+    sget-object v4, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    invoke-virtual {v4, v5}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    const/4 v5, 0x1
+
+    iget-boolean v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bh:Z
+
+    invoke-static/range {v0 .. v6}, Lcom/yelp/android/ui/activities/businesspage/ActivityMoreInfoPage;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;ZZZ)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 3116
+    return-void
+.end method
+
+.method private ao()V
+    .locals 3
+
+    .prologue
+    .line 3119
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    .line 3120
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 3121
+    invoke-static {v0}, Lcom/yelp/android/ui/activities/reviews/ActivityContextualLogin;->a(Landroid/content/Context;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 3135
+    :goto_0
+    return-void
+
+    .line 3122
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 3123
+    const v1, 0x7f070202
+
+    const v2, 0x7f070391
+
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/app/Activity;II)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/16 v1, 0x3f5
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    goto :goto_0
+
+    .line 3130
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCheckIn;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/16 v1, 0x3f4
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    goto :goto_0
+.end method
+
+.method private ap()V
+    .locals 2
+
+    .prologue
+    .line 3141
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 3143
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Z
+
+    if-nez v1, :cond_0
+
+    .line 3144
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j(Ljava/lang/String;)V
+
+    .line 3146
+    :cond_0
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Z
+
+    if-nez v1, :cond_1
+
+    .line 3147
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->n()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 3149
+    :cond_1
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Z
+
+    if-nez v1, :cond_2
+
+    .line 3150
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d(Ljava/lang/String;)V
+
+    .line 3152
+    :cond_2
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Z
+
+    if-nez v1, :cond_3
+
+    .line 3153
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f(Ljava/lang/String;)V
+
+    .line 3155
+    :cond_3
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
+
+    if-nez v1, :cond_4
+
+    .line 3156
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g(Ljava/lang/String;)V
+
+    .line 3158
+    :cond_4
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Z
+
+    if-nez v1, :cond_5
+
+    .line 3159
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Ljava/lang/String;)V
+
+    .line 3161
+    :cond_5
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Z
+
+    if-nez v1, :cond_6
+
+    .line 3162
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h(Ljava/lang/String;)V
+
+    .line 3164
+    :cond_6
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    if-nez v1, :cond_7
+
+    .line 3165
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e(Ljava/lang/String;)V
+
+    .line 3167
+    :cond_7
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Z
+
+    if-nez v1, :cond_8
+
+    .line 3168
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i(Ljava/lang/String;)V
+
+    .line 3170
+    :cond_8
+    return-void
+.end method
+
+.method private aq()V
+    .locals 2
+
+    .prologue
+    .line 3177
+    const-string/jumbo v0, "com.yelp.android.reservation.update"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$22;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$22;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3198
+    const-string/jumbo v0, "com.yelp.android.tips.add"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$24;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$24;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3213
+    const-string/jumbo v0, "com.yelp.android.tips.update"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$25;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$25;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3224
+    const-string/jumbo v0, "com.yelp.android.tips.delete"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$26;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$26;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3238
+    const-string/jumbo v0, "com.yelp.android.review.update"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$27;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$27;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3252
+    const-string/jumbo v0, "com.yelp.android.review.state.update"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$28;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$28;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3298
+    const-string/jumbo v0, "com.yelp.android.media.add"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$29;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$29;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3309
+    const-string/jumbo v0, "com.yelp.android.media.update"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$30;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$30;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3319
+    const-string/jumbo v0, "com.yelp.android.media.delete"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$31;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$31;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3328
+    const-string/jumbo v0, "com.yelp.android.review.translate"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$32;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$32;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3348
+    const-string/jumbo v0, "com.yelp.android.offer_redeemed"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$33;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$33;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 3379
+    return-void
+.end method
+
+.method private ar()Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 3693
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    .line 3694
+    :goto_0
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aO()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    .line 3696
+    if-lez v1, :cond_1
+
+    if-lez v0, :cond_1
+
+    .line 3697
+    const v0, 0x7f070536
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 3702
+    :goto_1
+    return-object v0
+
+    .line 3693
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    goto :goto_0
+
+    .line 3698
+    :cond_1
+    if-nez v0, :cond_2
+
+    .line 3699
+    const v0, 0x7f070537
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+
+    .line 3702
+    :cond_2
+    const v0, 0x7f070535
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_1
+.end method
+
+.method private as()Ljava/util/Locale;
+    .locals 5
+
+    .prologue
+    .line 3780
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    if-eqz v0, :cond_2
+
+    .line 3781
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aY:Ljava/util/LinkedHashSet;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashSet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Locale;
+
+    .line 3782
+    const/4 v2, 0x0
+
+    .line 3783
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    .line 3784
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->o()Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 3785
+    const/4 v1, 0x1
+
+    .line 3789
+    :goto_0
+    if-nez v1, :cond_0
+
+    .line 3795
+    :goto_1
+    return-object v0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_0
+.end method
+
+.method private at()V
+    .locals 3
+
+    .prologue
+    .line 3867
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/g;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/database/g;->d()Lcom/yelp/android/database/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/b;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 3871
+    new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    const-string/jumbo v2, "com.yelp.android.business.update"
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/util/ObjectDirtyEvent;-><init>(Landroid/os/Parcelable;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Landroid/content/Context;)V
+
+    .line 3874
+    return-void
+.end method
+
+.method private au()V
+    .locals 3
+
+    .prologue
+    .line 3877
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 3878
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 3879
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3880
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/e;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Ljava/lang/String;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$37;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$37;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 3900
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 3891
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->A()I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3892
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 3893
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3894
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/ui/util/e;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Landroid/support/v7/widget/RecyclerView;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    goto :goto_0
+.end method
+
+.method private av()V
+    .locals 6
+
+    .prologue
+    .line 3903
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f000e
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    .line 3904
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj$b;->a(Ljava/lang/CharSequence;)V
+
+    .line 3906
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    .line 3908
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aO()Ljava/util/List;
+
+    move-result-object v2
+
+    .line 3909
+    if-eqz v2, :cond_0
+
+    .line 3910
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    .line 3913
+    :cond_0
+    iget v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:I
+
+    if-lez v2, :cond_1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    .line 3914
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    .line 3915
+    iget v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:I
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    sub-int/2addr v2, v3
+
+    .line 3916
+    if-lez v2, :cond_1
+
+    .line 3917
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->b()Landroid/view/View;
+
+    move-result-object v3
+
+    .line 3918
+    if-lez v2, :cond_2
+
+    const/4 v0, 0x1
+
+    :goto_0
+    const v4, 0x7f080016
+
+    const v5, 0x7f0703dc
+
+    invoke-direct {p0, v4, v5, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v3, v0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;ZLjava/lang/String;)V
+
+    .line 3928
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F:Lcom/yelp/android/ui/activities/reviewpage/a;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/reviewpage/a;->a(Ljava/util/List;)V
+
+    .line 3929
+    return-void
+
+    .line 3918
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private aw()V
+    .locals 11
+
+    .prologue
+    .line 3932
+    const/4 v0, 0x0
+
+    .line 3933
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 3934
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->clear()V
+
+    .line 3935
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 3936
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3937
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Lcom/yelp/android/ui/util/e;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw:Ljava/lang/String;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$38;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$38;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 4106
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 3948
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->N()I
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    .line 3949
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 3950
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 3952
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v2, 0x7f070510
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$b;->a()Landroid/view/View;
+
+    move-result-object v1
+
+    .line 3953
+    const v2, 0x7f070510
+
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/view/View;Ljava/lang/String;)V
+
+    .line 3955
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    if-eqz v1, :cond_12
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_12
+
+    .line 3957
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
+
+    move-result-object v2
+
+    .line 3961
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aY:Ljava/util/LinkedHashSet;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashSet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    .line 3962
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Locale;
+
+    .line 3966
+    const v1, 0x7f0704d9
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 3967
+    invoke-virtual {v0, v2}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_11
+
+    .line 3968
+    const v1, 0x7f070538
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayLanguage()Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v2, v3
+
+    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    move-object v2, v1
+
+    .line 3974
+    :goto_1
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Ljava/util/Map;
+
+    invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Ljava/util/Map;
+
+    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    move v3, v1
+
+    .line 3976
+    :goto_2
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+
+    .line 3977
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_2
+    :goto_3
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    .line 3978
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->o()Ljava/util/Locale;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    .line 3979
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_3
+
+    .line 3974
+    :cond_3
+    const/4 v1, 0x0
+
+    move v3, v1
+
+    goto :goto_2
+
+    .line 3987
+    :cond_4
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    .line 3989
+    const/4 v0, 0x0
+
+    move-object v5, v2
+
+    move v2, v0
+
+    move v10, v3
+
+    move-object v3, v4
+
+    move v4, v10
+
+    .line 3991
+    :goto_4
+    const/4 v0, 0x5
+
+    if-ge v4, v0, :cond_8
+
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    .line 3992
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 3994
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/ui/util/aj$b;
+
+    .line 3995
+    invoke-direct {p0, v1, v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/util/aj$b;Ljava/lang/String;)V
+
+    .line 4000
+    if-eqz v2, :cond_6
+
+    .line 4001
+    iget-object v1, v1, Lcom/yelp/android/ui/util/aj$b;->e:Landroid/view/View;
+
+    const v5, 0x7f0f024e
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    const/16 v5, 0x8
+
+    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
+
+    .line 4007
+    :goto_5
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/activities/reviewpage/e;->a(Ljava/util/List;)V
+
+    .line 4010
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Locale;
+
+    .line 4011
+    const v1, 0x7f070538
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayLanguage()Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v3, v5
+
+    invoke-virtual {p0, v1, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 4016
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    .line 4018
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
+
+    :cond_5
+    :goto_6
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    .line 4019
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->o()Ljava/util/Locale;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_5
+
+    .line 4020
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_6
+
+    .line 4005
+    :cond_6
+    const/4 v1, 0x1
+
+    move v2, v1
+
+    goto :goto_5
+
+    .line 4024
+    :cond_7
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    add-int/2addr v0, v4
+
+    move v4, v0
+
+    .line 4025
+    goto :goto_4
+
+    .line 4028
+    :cond_8
+    :goto_7
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    .line 4029
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 4033
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/ui/util/aj$b;
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v1, v4}, Lcom/yelp/android/ui/util/aj$b;->a(Ljava/lang/CharSequence;)V
+
+    .line 4034
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->clear()V
+
+    goto :goto_7
+
+    .line 4038
+    :cond_9
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aX:Lcom/yelp/android/ui/util/aj$b;
+
+    invoke-direct {p0, v0, v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/util/aj$b;Ljava/lang/String;)V
+
+    .line 4039
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/activities/reviewpage/e;->a(Ljava/util/List;)V
+
+    .line 4040
+    if-eqz v2, :cond_a
+
+    .line 4041
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aX:Lcom/yelp/android/ui/util/aj$b;
+
+    iget-object v0, v0, Lcom/yelp/android/ui/util/aj$b;->e:Landroid/view/View;
+
+    const v1, 0x7f0f024e
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 4049
+    :cond_a
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    .line 4050
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f070195
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v1
+
+    .line 4053
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/util/aj$b;
+
+    .line 4055
+    iget-object v2, v0, Lcom/yelp/android/ui/util/aj$b;->b:Ljava/lang/CharSequence;
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    .line 4056
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aX:Lcom/yelp/android/ui/util/aj$b;
+
+    .line 4061
+    :cond_b
+    iget-object v2, v0, Lcom/yelp/android/ui/util/aj$b;->b:Ljava/lang/CharSequence;
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_c
+
+    .line 4062
+    iget-object v2, v0, Lcom/yelp/android/ui/util/aj$b;->b:Ljava/lang/CharSequence;
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/aj$b;->a(Ljava/lang/CharSequence;)V
+
+    .line 4063
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj$b;->a(Ljava/lang/CharSequence;)V
+
+    .line 4065
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->a()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4066
+    const v1, 0x7f0f024d
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 4070
+    :cond_c
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f070510
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->b()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4071
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y()V
+
+    move-object v1, v0
+
+    .line 4075
+    :goto_8
+    if-eqz v1, :cond_0
+
+    .line 4076
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    if-nez v0, :cond_d
+
+    const/4 v0, 0x0
+
+    .line 4077
+    :goto_9
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->N()I
+
+    move-result v2
+
+    sub-int/2addr v2, v0
+
+    .line 4078
+    if-lez v2, :cond_e
+
+    const/4 v0, 0x1
+
+    :goto_a
+    const v3, 0x7f080018
+
+    const v4, 0x7f0703e2
+
+    invoke-direct {p0, v3, v4, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v1, v0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;ZLjava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 4076
+    :cond_d
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    goto :goto_9
+
+    .line 4078
+    :cond_e
+    const/4 v0, 0x0
+
+    goto :goto_a
+
+    .line 4086
+    :cond_f
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 4087
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->clear()V
+
+    .line 4088
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4090
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    .line 4094
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/e;
+
+    new-instance v1, Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 4103
+    :goto_b
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f001c
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->a()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4104
+    const v1, 0x7f070430
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/view/View;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 4097
+    :cond_10
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/e;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->getTextResourceForState()I
+
+    move-result v1
+
+    const v2, 0x7f0201d3
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bi:Landroid/view/View$OnClickListener;
+
+    invoke-direct {p0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    goto :goto_b
+
+    :cond_11
+    move-object v2, v1
+
+    goto/16 :goto_1
+
+    :cond_12
+    move-object v1, v0
+
+    goto/16 :goto_8
+.end method
+
+.method private ax()V
+    .locals 8
+
+    .prologue
+    const v7, 0x7f0f0012
+
+    const v6, 0x7f070439
+
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    .line 4117
+    const/4 v0, 0x0
+
+    .line 4118
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Ljava/lang/String;
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    .line 4119
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/activities/reviewpage/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/d;->clear()V
+
+    .line 4120
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4121
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4122
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 4123
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Lcom/yelp/android/ui/util/e;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Ljava/lang/String;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$39;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$39;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 4207
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 4134
+    :cond_1
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->L()I
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    .line 4135
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4136
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4138
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Ljava/util/List;
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    .line 4139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/activities/reviewpage/d;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Ljava/util/List;
+
+    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/activities/reviewpage/d;->a(Ljava/util/List;)V
+
+    .line 4140
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v3, 0x7f07053b
+
+    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->b()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4141
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    move-object v3, v0
+
+    .line 4178
+    :goto_1
+    if-eqz v3, :cond_0
+
+    .line 4179
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Ljava/util/List;
+
+    if-nez v0, :cond_5
+
+    move v0, v1
+
+    .line 4180
+    :goto_2
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->L()I
+
+    move-result v4
+
+    sub-int v0, v4, v0
+
+    .line 4181
+    if-lez v0, :cond_2
+
+    move v1, v2
+
+    :cond_2
+    const v2, 0x7f08001a
+
+    const v4, 0x7f0703e4
+
+    invoke-direct {p0, v2, v4, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v3, v1, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;ZLjava/lang/String;)V
+
+    goto :goto_0
+
+    .line 4142
+    :cond_3
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    .line 4143
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayLanguage()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 4146
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    .line 4150
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/e;
+
+    new-instance v4, Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 4151
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {v0, v7}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->a()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4155
+    new-array v4, v2, [Ljava/lang/Object;
+
+    aput-object v3, v4, v1
+
+    invoke-virtual {p0, v6, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {p0, v0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;Ljava/lang/String;)V
+
+    .line 4171
+    :goto_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {v0, v7}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->b()Landroid/view/View;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    goto :goto_1
+
+    .line 4159
+    :cond_4
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v4, 0x7f03007a
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v4, v5, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4166
+    const v4, 0x7f0f0256
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    .line 4167
+    new-array v4, v2, [Ljava/lang/Object;
+
+    aput-object v3, v4, v1
+
+    invoke-virtual {p0, v6, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 4168
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    goto :goto_3
+
+    .line 4179
+    :cond_5
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    goto/16 :goto_2
+
+    .line 4187
+    :cond_6
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 4188
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4190
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    .line 4194
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
+
+    new-instance v1, Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 4195
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f001d
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$b;->a()Landroid/view/View;
+
+    move-result-object v0
+
+    .line 4197
+    const v1, 0x7f07043a
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 4200
+    :cond_7
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
+
+    const v1, 0x7f07011b
+
+    const v2, 0x7f0201db
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bj:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$h;
+
+    invoke-direct {p0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    goto/16 :goto_0
+
+    :cond_8
+    move-object v3, v0
+
+    goto/16 :goto_1
+.end method
+
+.method private ay()V
+    .locals 4
+
+    .prologue
+    .line 4210
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 4211
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->clear()V
+
+    .line 4212
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4213
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 4214
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/ui/util/e;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Ljava/lang/String;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$40;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$40;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 4240
+    :cond_0
+    :goto_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v0
+
+    .line 4241
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 4242
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
+
+    .line 4243
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addFooterView(Landroid/view/View;)V
+
+    .line 4245
+    :cond_1
+    return-void
+
+    .line 4225
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    .line 4226
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4227
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4228
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->a(Ljava/util/List;)V
+
+    goto :goto_0
+
+    .line 4229
+    :cond_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 4230
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4231
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/e;->clear()V
+
+    .line 4232
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/e;
+
+    const v1, 0x7f0700ef
+
+    const v2, 0x7f0201cd
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bk:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$h;
+
+    invoke-direct {p0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    goto :goto_0
+.end method
+
+.method private az()V
+    .locals 2
+
+    .prologue
+    .line 4248
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 4249
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Lcom/yelp/android/ui/panels/businesssearch/e;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Ljava/util/List;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesssearch/e;->a(Ljava/util/List;)V
+
+    .line 4251
+    :cond_0
+    return-void
+.end method
+
+.method private b(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Lcom/yelp/android/ui/activities/reviews/ReviewSource;
+    .locals 2
+
+    .prologue
+    .line 3410
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    move-result-object v0
+
+    .line 3411
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 3412
+    sget-object p1, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->BizPageReviewsListEdit:Lcom/yelp/android/ui/activities/reviews/ReviewSource;
+
+    .line 3416
+    :cond_0
+    :goto_0
+    return-object p1
+
+    .line 3413
+    :cond_1
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_NOT_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3414
+    sget-object p1, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->BizPageReviewsListUpdate:Lcom/yelp/android/ui/activities/reviews/ReviewSource;
+
+    goto :goto_0
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/panels/businesspage/b;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    return-object v0
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+
+    return-object p1
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/util/List;)Ljava/util/List;
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t:Ljava/util/List;
+
+    return-object p1
+.end method
+
+.method private b(Landroid/view/View;Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    const v1, 0x7f0f024e
+
+    .line 1498
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 1499
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/view/View;Ljava/lang/String;)V
+
+    .line 1500
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1501
+    const v0, 0x7f0f0251
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    .line 1502
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/yelp/android/ui/activities/reviews/ReviewState;->DRAFTED:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    if-ne v1, v2, :cond_0
+
+    const v1, 0x7f0702d5
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1506
+    invoke-virtual {v0}, Landroid/widget/TextView;->getCompoundDrawables()[Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    aget-object v0, v0, v1
+
+    check-cast v0, Landroid/graphics/drawable/LevelListDrawable;
+
+    .line 1508
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->H()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/LevelListDrawable;->setLevel(I)Z
+
+    .line 1512
+    :goto_1
+    return-void
+
+    .line 1502
+    :cond_0
+    const v1, 0x7f0705a1
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    .line 1510
+    :cond_1
+    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_1
+.end method
+
+.method private b(Lcom/yelp/android/analytics/iris/EventIri;)V
+    .locals 2
+
+    .prologue
+    .line 2708
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, p1, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/content/Context;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    .line 2709
+    return-void
+.end method
+
+.method private b(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    .locals 1
+
+    .prologue
+    .line 2719
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/content/Context;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    .line 2720
+    return-void
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 275
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 275
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private b(Ljava/lang/String;)V
+    .locals 4
+
+    .prologue
+    .line 2947
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->ao()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/util/k;->a(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    .line 2949
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->CallBusiness:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-direct {p0, v1, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+    invoke-direct {p0, v1, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Lcom/yelp/android/analytics/h;->a(Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+    invoke-virtual {v1, v2}, Lcom/yelp/android/analytics/g$a;->a(Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v1
 
@@ -4277,41 +8965,41 @@
 
     move-result-object v3
 
-    invoke-virtual {v1, v2, v3}, Lcom/yelp/android/analytics/h;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+    invoke-virtual {v1, v2, v3}, Lcom/yelp/android/analytics/g$a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v1
 
-    .line 2018
+    .line 2953
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v2
 
-    invoke-static {v2, v1}, Lcom/yelp/android/analytics/i;->a(Landroid/content/Context;Lcom/yelp/android/analytics/h;)V
+    invoke-static {v2, v1}, Lcom/yelp/android/analytics/h;->a(Landroid/content/Context;Lcom/yelp/android/analytics/g$a;)V
 
-    .line 2019
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Lcom/yelp/android/av/a;
+    .line 2954
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-    invoke-virtual {v1}, Lcom/yelp/android/analytics/h;->a()Lcom/yelp/android/analytics/g;
+    invoke-virtual {v1}, Lcom/yelp/android/analytics/g$a;->a()Lcom/yelp/android/analytics/g;
 
     move-result-object v1
 
-    invoke-virtual {v2, v1}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/b;)V
+    invoke-virtual {v2, v1}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/b;)V
 
-    .line 2022
+    .line 2957
     :try_start_0
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 2028
+    .line 2963
     :goto_0
     return-void
 
-    .line 2023
+    .line 2958
     :catch_0
     move-exception v0
 
-    .line 2024
+    .line 2959
     const-string/jumbo v1, "BusinessPageFragment"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -4338,16 +9026,16 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 2025
+    .line 2960
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
 
-    const v1, 0x7f07010f
+    const v1, 0x7f07018d
 
-    const v2, 0x7f070247
+    const v2, 0x7f07029d
 
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -4358,2992 +9046,74 @@
     goto :goto_0
 .end method
 
-.method private a(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 2651
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getFromThisBusiness()Lcom/yelp/android/serializable/FromThisBusiness;
-
-    move-result-object v0
-
-    .line 2652
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FromThisBusiness;->getShowTeaser()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 2653
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aT:Lcom/yelp/android/appdata/webrequests/m;
-
-    invoke-interface {v0, v1, v1}, Lcom/yelp/android/appdata/webrequests/m;->onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-
-    .line 2663
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 2657
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Lcom/yelp/android/appdata/webrequests/cy;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Lcom/yelp/android/appdata/webrequests/cy;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cy;->isFetching()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 2661
-    :cond_2
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/cy;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aT:Lcom/yelp/android/appdata/webrequests/m;
-
-    invoke-direct {v0, p1, p2, v1}, Lcom/yelp/android/appdata/webrequests/cy;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Lcom/yelp/android/appdata/webrequests/cy;
-
-    .line 2662
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Lcom/yelp/android/appdata/webrequests/cy;
-
-    const/4 v1, 0x0
-
-    new-array v1, v1, [Ljava/lang/Void;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/cy;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    goto :goto_0
-.end method
-
-.method private a(Ljava/util/EnumSet;)V
-    .locals 8
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/EnumSet",
-            "<",
-            "Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    const/4 v6, 0x0
-
-    .line 1142
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    .line 1150
-    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-direct {v0}, Lcom/yelp/android/ui/activities/businesspage/t;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    .line 1151
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/panels/businesspage/b;->getAlertsPager()Landroid/support/v4/view/ViewPager;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-virtual {v0, v2}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/bo;)V
-
-    .line 1153
-    invoke-virtual {v1}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v5
-
-    .line 1154
-    const-string/jumbo v0, "com.yelp.android.webview_done"
-
-    invoke-virtual {v5, v0, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    .line 1162
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getReservation()Lcom/yelp/android/serializable/Reservation;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_1
-
-    .line 1163
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/t;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
-
-    .line 1171
-    :cond_0
-    :goto_0
-    invoke-virtual {p1}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
-
-    .line 1172
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->getData()Landroid/content/Intent;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v1, v3, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->addNotification(Landroid/content/Context;Lcom/yelp/android/ui/activities/businesspage/t;Landroid/content/Intent;)V
-
-    goto :goto_1
-
-    .line 1164
-    :cond_1
-    if-eqz v0, :cond_0
-
-    .line 1165
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    const-string/jumbo v3, "com.yelp.android.webview_title"
-
-    invoke-virtual {v5, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string/jumbo v4, "com.yelp.android.webview_subtitle"
-
-    invoke-virtual {v5, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string/jumbo v7, "com.yelp.android.webview_has_details"
-
-    invoke-virtual {v5, v7, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v5
-
-    invoke-virtual/range {v0 .. v5}, Lcom/yelp/android/ui/activities/businesspage/t;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    goto :goto_0
-
-    .line 1175
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDateReopening()Ljava/util/Date;
-
-    move-result-object v0
-
-    .line 1176
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getMovedToBusinessId()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 1177
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->isMovedToNewAddress()Z
-
-    move-result v3
-
-    .line 1178
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->isClosed()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    .line 1180
-    if-eqz v3, :cond_6
-
-    .line 1183
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/t;->b(Landroid/content/Context;Ljava/lang/String;)V
-
-    .line 1198
-    :cond_3
-    :goto_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCheckedInFriendCount()I
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    .line 1199
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/t;->b(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
-
-    .line 1202
-    :cond_4
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getSpecialHours()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_a
-
-    .line 1203
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v0
-
-    .line 1206
-    const/4 v2, 0x6
-
-    invoke-virtual {v0, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v0
-
-    add-int/lit8 v2, v0, -0x1
-
-    .line 1208
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getSpecialHours()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :cond_5
-    :goto_3
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/SpecialHours;
-
-    .line 1209
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/SpecialHours;->getDays()[I
-
-    move-result-object v4
-
-    move v0, v6
-
-    .line 1213
-    :goto_4
-    array-length v5, v4
-
-    if-ge v0, v5, :cond_5
-
-    .line 1214
-    aget v5, v4, v0
-
-    if-ne v5, v2, :cond_9
-
-    .line 1215
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->getDialablePhone()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v1, v4}, Lcom/yelp/android/ui/activities/businesspage/t;->d(Landroid/content/Context;Ljava/lang/String;)V
-
-    goto :goto_3
-
-    .line 1184
-    :cond_6
-    if-eqz v0, :cond_7
-
-    .line 1187
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-static {v1}, Landroid/text/format/DateFormat;->getLongDateFormat(Landroid/content/Context;)Ljava/text/DateFormat;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v0}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v1, v0}, Lcom/yelp/android/ui/activities/businesspage/t;->a(Landroid/content/Context;Ljava/lang/String;)V
-
-    goto :goto_2
-
-    .line 1189
-    :cond_7
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_8
-
-    .line 1191
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/t;->c(Landroid/content/Context;Ljava/lang/String;)V
-
-    goto :goto_2
-
-    .line 1194
-    :cond_8
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/t;->b(Landroid/content/Context;)V
-
-    goto :goto_2
-
-    .line 1213
-    :cond_9
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_4
-
-    .line 1223
-    :cond_a
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/t;->notifyDataSetChanged()V
-
-    .line 1225
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq:Lcom/yelp/android/ui/activities/businesspage/t;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/t;->getCount()I
-
-    move-result v0
-
-    if-eqz v0, :cond_b
-
-    .line 1226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/panels/businesspage/b;->getAlertsPager()Landroid/support/v4/view/ViewPager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v6}, Landroid/support/v4/view/ViewPager;->setVisibility(I)V
-
-    .line 1230
-    :goto_5
-    return-void
-
-    .line 1228
-    :cond_b
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/panels/businesspage/b;->getAlertsPager()Landroid/support/v4/view/ViewPager;
-
-    move-result-object v0
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setVisibility(I)V
-
-    goto :goto_5
-.end method
-
-.method private a(Ljava/util/List;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/ReviewHighlight;",
-            ">;I)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 2694
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    .line 2695
-    iput p2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F:I
-
-    .line 2696
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Z
-
-    .line 2697
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap()V
-
-    .line 2698
-    return-void
-.end method
-
-.method static synthetic a(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
-    .locals 0
-
-    .prologue
-    .line 226
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Z
-
-    return p1
-.end method
-
-.method private aa()V
-    .locals 4
-
-    .prologue
-    .line 2057
-    new-instance v1, Ljava/util/TreeMap;
-
-    invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
-
-    .line 2058
-    const/4 v0, 0x0
-
-    .line 2059
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Lcom/yelp/android/serializable/BusinessSearchResult;
-
-    if-eqz v2, :cond_0
-
-    .line 2060
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Lcom/yelp/android/serializable/BusinessSearchResult;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->getBizDimension()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 2062
-    :cond_0
-    invoke-static {v0}, Lcom/yelp/android/util/StringUtils;->e(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    .line 2063
-    const-string/jumbo v2, "biz_dimension"
-
-    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2065
-    :cond_1
-    const-string/jumbo v2, "id"
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2066
-    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->BusinessReservationOpen:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-static {v2, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 2067
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    const-string/jumbo v3, "source_business_page"
-
-    invoke-static {v1, v2, v0, v3}, Lcom/yelp/android/ui/activities/reservations/FindReservation;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 2069
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    .line 2070
-    return-void
-.end method
-
-.method private ab()V
-    .locals 4
-
-    .prologue
-    .line 2102
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getMovies()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getTheaterUrl()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/ActivityMovies;->a(Landroid/content/Context;Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    .line 2104
-    return-void
-.end method
-
-.method private ac()V
-    .locals 3
-
-    .prologue
-    .line 2107
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMoreInfoClicked:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
-
-    .line 2108
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/ActivityMoreInfoPage;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Z)Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    .line 2109
-    return-void
-.end method
-
-.method private ad()V
-    .locals 2
-
-    .prologue
-    .line 2113
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
-
-    const/16 v1, 0x135
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->showDialog(I)V
-
-    .line 2115
-    return-void
-.end method
-
-.method private ae()V
-    .locals 2
-
-    .prologue
-    .line 2118
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    .line 2119
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 2120
-    const v1, 0x7f070355
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/content/Context;I)Landroid/content/Intent;
-
-    move-result-object v0
-
-    const/16 v1, 0x3ef
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
-
-    .line 2127
-    :goto_0
-    return-void
-
-    .line 2124
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/ActivityCheckIn;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    const/16 v1, 0x3ee
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
-
-    goto :goto_0
-.end method
-
-.method private af()V
-    .locals 2
-
-    .prologue
-    .line 2131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 2133
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Z
-
-    if-nez v1, :cond_0
-
-    .line 2134
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getYelpRequestId()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 2136
-    :cond_0
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Z
-
-    if-nez v1, :cond_1
-
-    .line 2137
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Ljava/lang/String;)V
-
-    .line 2139
-    :cond_1
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Z
-
-    if-nez v1, :cond_2
-
-    .line 2140
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d(Ljava/lang/String;)V
-
-    .line 2142
-    :cond_2
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Z
-
-    if-nez v1, :cond_3
-
-    .line 2143
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e(Ljava/lang/String;)V
-
-    .line 2145
-    :cond_3
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Z
-
-    if-nez v1, :cond_4
-
-    .line 2146
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;)V
-
-    .line 2148
-    :cond_4
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Z
-
-    if-nez v1, :cond_5
-
-    .line 2149
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f(Ljava/lang/String;)V
-
-    .line 2151
-    :cond_5
-    return-void
-.end method
-
-.method private ag()V
-    .locals 2
-
-    .prologue
-    .line 2159
-    const-string/jumbo v0, "com.yelp.android.reservation.update"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/an;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/an;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2180
-    const-string/jumbo v0, "com.yelp.android.tips.add"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/ao;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/ao;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2195
-    const-string/jumbo v0, "com.yelp.android.tips.update"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/ap;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/ap;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2206
-    const-string/jumbo v0, "com.yelp.android.tips.delete"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/aq;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/aq;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2220
-    const-string/jumbo v0, "com.yelp.android.review.update"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/ar;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/ar;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2234
-    const-string/jumbo v0, "com.yelp.android.review.state.update"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/as;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/as;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2281
-    const-string/jumbo v0, "com.yelp.android.media.add"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/at;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/at;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2292
-    const-string/jumbo v0, "com.yelp.android.media.update"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/au;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/au;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2302
-    const-string/jumbo v0, "com.yelp.android.media.delete"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/av;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/av;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2311
-    const-string/jumbo v0, "com.yelp.android.review.translate"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/ax;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/ax;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2331
-    const-string/jumbo v0, "com.yelp.android.offer_redeemed"
-
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/ay;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/ay;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
-
-    .line 2361
-    return-void
-.end method
-
-.method private ah()Ljava/lang/String;
-    .locals 2
-
-    .prologue
-    .line 2631
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    .line 2632
-    :goto_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewInsights()Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    .line 2634
-    if-lez v1, :cond_1
-
-    if-lez v0, :cond_1
-
-    .line 2635
-    const v0, 0x7f070537
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 2640
-    :goto_1
-    return-object v0
-
-    .line 2631
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    goto :goto_0
-
-    .line 2636
-    :cond_1
-    if-nez v0, :cond_2
-
-    .line 2637
-    const v0, 0x7f070538
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    .line 2640
-    :cond_2
-    const v0, 0x7f070536
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_1
-.end method
-
-.method private ai()Ljava/util/Locale;
-    .locals 5
-
-    .prologue
-    .line 2705
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    if-eqz v0, :cond_2
-
-    .line 2706
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/util/LinkedHashSet;
-
-    invoke-virtual {v0}, Ljava/util/LinkedHashSet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :cond_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Locale;
-
-    .line 2707
-    const/4 v2, 0x0
-
-    .line 2708
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    .line 2709
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getLocale()Ljava/util/Locale;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 2710
-    const/4 v1, 0x1
-
-    .line 2714
-    :goto_0
-    if-nez v1, :cond_0
-
-    .line 2720
-    :goto_1
-    return-object v0
-
-    :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_3
-    move v1, v2
-
-    goto :goto_0
-.end method
-
-.method private aj()V
-    .locals 3
-
-    .prologue
-    .line 2762
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->f()Lcom/yelp/android/database/d;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/database/d;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
-
-    .line 2764
-    new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    const-string/jumbo v2, "com.yelp.android.business.update"
-
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/util/ObjectDirtyEvent;-><init>(Landroid/os/Parcelable;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Landroid/content/Context;)V
-
-    .line 2766
-    return-void
-.end method
-
-.method private ak()V
-    .locals 3
-
-    .prologue
-    .line 2769
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 2770
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2771
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2772
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/h;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Ljava/lang/String;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/bb;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/bb;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    .line 2790
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 2781
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getPhotosAndVideosCount()I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2782
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2783
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2784
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->z:Lcom/yelp/android/ui/util/h;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Landroid/support/v7/widget/RecyclerView;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    goto :goto_0
-.end method
-
-.method private al()V
-    .locals 6
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 2793
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v2, 0x7f0c000d
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v2
-
-    .line 2794
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
-
-    .line 2796
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
-
-    .line 2798
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewInsights()Ljava/util/List;
-
-    move-result-object v0
-
-    .line 2799
-    if-eqz v0, :cond_0
-
-    .line 2800
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
-    .line 2803
-    :cond_0
-    iget v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F:I
-
-    if-lez v0, :cond_2
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 2804
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
-    .line 2805
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    if-nez v0, :cond_3
-
-    move v0, v1
-
-    .line 2806
-    :goto_0
-    iget v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F:I
-
-    sub-int v0, v4, v0
-
-    .line 2807
-    if-lez v0, :cond_2
-
-    .line 2808
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/bv;->a()Landroid/view/View;
-
-    move-result-object v2
-
-    .line 2809
-    if-lez v0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_1
-    const v4, 0x7f0e0014
-
-    const v5, 0x7f07039d
-
-    invoke-direct {p0, v4, v5, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v2, v1, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/view/View;ZLjava/lang/String;)V
-
-    .line 2815
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/ui/activities/reviewpage/t;
-
-    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/activities/reviewpage/t;->a(Ljava/util/List;)V
-
-    .line 2816
-    return-void
-
-    .line 2805
-    :cond_3
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    goto :goto_0
-.end method
-
-.method private am()V
-    .locals 13
-
-    .prologue
-    const v11, 0x7f070539
-
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
-
-    .line 2819
-    const/4 v0, 0x0
-
-    .line 2820
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak:Ljava/lang/String;
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    .line 2821
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->clear()V
-
-    .line 2822
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2823
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2824
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2825
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/h;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak:Ljava/lang/String;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/bc;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/bc;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    .line 2959
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 2834
-    :cond_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewCount()I
-
-    move-result v1
-
-    if-eqz v1, :cond_e
-
-    .line 2835
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2836
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2838
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    if-eqz v1, :cond_c
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_c
-
-    .line 2840
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
-
-    move-result-object v2
-
-    .line 2844
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/util/LinkedHashSet;
-
-    invoke-virtual {v0}, Ljava/util/LinkedHashSet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v7
-
-    .line 2845
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Locale;
-
-    .line 2849
-    const v1, 0x7f0704be
-
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 2850
-    invoke-virtual {v0, v2}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_10
-
-    .line 2851
-    new-array v1, v5, [Ljava/lang/Object;
-
-    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayLanguage()Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v11, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    move-object v2, v1
-
-    .line 2856
-    :goto_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Ljava/util/Map;
-
-    invoke-interface {v1, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Ljava/util/Map;
-
-    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    move v3, v1
-
-    .line 2860
-    :goto_2
-    new-instance v6, Ljava/util/ArrayList;
-
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
-
-    .line 2861
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v8
-
-    :cond_2
-    :goto_3
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    .line 2862
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getLocale()Ljava/util/Locale;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
-
-    move-result v9
-
-    if-eqz v9, :cond_2
-
-    .line 2863
-    invoke-virtual {v6, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_3
-
-    :cond_3
-    move v3, v4
-
-    .line 2856
-    goto :goto_2
-
-    .line 2870
-    :cond_4
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v8
-
-    move-object v12, v6
-
-    move-object v6, v2
-
-    move-object v2, v12
-
-    .line 2872
-    :goto_4
-    const/4 v0, 0x5
-
-    if-ge v3, v0, :cond_7
-
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    .line 2873
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    .line 2874
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/ui/util/bv;
-
-    .line 2875
-    invoke-virtual {v1, v6}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
-
-    .line 2876
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/bi;
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/activities/reviewpage/bi;->a(Ljava/util/List;)V
-
-    .line 2879
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Locale;
-
-    .line 2880
-    new-array v1, v5, [Ljava/lang/Object;
-
-    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayLanguage()Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v11, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v6
-
-    .line 2884
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    .line 2886
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v9
-
-    :cond_5
-    :goto_5
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    .line 2887
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getLocale()Ljava/util/Locale;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v0}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_5
-
-    .line 2888
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_5
-
-    .line 2892
-    :cond_6
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    add-int/2addr v3, v0
-
-    .line 2893
-    goto :goto_4
-
-    .line 2896
-    :cond_7
-    :goto_6
-    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_8
-
-    .line 2897
-    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Map$Entry;
-
-    .line 2900
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/ui/util/bv;
-
-    const-string/jumbo v3, ""
-
-    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
-
-    .line 2901
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/bi;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bi;->clear()V
-
-    goto :goto_6
-
-    .line 2905
-    :cond_8
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Lcom/yelp/android/ui/util/bv;
-
-    invoke-virtual {v0, v6}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
-
-    .line 2906
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/activities/reviewpage/bi;->a(Ljava/util/List;)V
-
-    .line 2911
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a
-
-    .line 2912
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f070116
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v1
-
-    .line 2914
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/util/bv;
-
-    .line 2915
-    iget-object v2, v0, Lcom/yelp/android/ui/util/bv;->b:Ljava/lang/CharSequence;
-
-    const-string/jumbo v3, ""
-
-    if-ne v2, v3, :cond_9
-
-    .line 2916
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Lcom/yelp/android/ui/util/bv;
-
-    .line 2921
-    :cond_9
-    iget-object v2, v0, Lcom/yelp/android/ui/util/bv;->b:Ljava/lang/CharSequence;
-
-    const-string/jumbo v3, ""
-
-    if-eq v2, v3, :cond_a
-
-    .line 2922
-    iget-object v2, v0, Lcom/yelp/android/ui/util/bv;->b:Ljava/lang/CharSequence;
-
-    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
-
-    .line 2923
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bv;->a(Ljava/lang/CharSequence;)V
-
-    .line 2927
-    :cond_a
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f07050d
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bv;->a()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 2928
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2929
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P()V
-
-    move-object v1, v0
-
-    .line 2945
-    :goto_7
-    if-eqz v1, :cond_0
-
-    .line 2946
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    if-nez v0, :cond_d
-
-    move v0, v4
-
-    .line 2947
-    :goto_8
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewCount()I
-
-    move-result v2
-
-    sub-int v0, v2, v0
-
-    .line 2948
-    if-lez v0, :cond_b
-
-    move v4, v5
-
-    :cond_b
-    const v2, 0x7f0e0016
-
-    const v3, 0x7f0703a6
-
-    invoke-direct {p0, v2, v3, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v1, v4, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/view/View;ZLjava/lang/String;)V
-
-    goto/16 :goto_0
-
-    .line 2930
-    :cond_c
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_f
-
-    .line 2931
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayLanguage()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 2933
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    const v2, 0x7f030069
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 2935
-    const v2, 0x7f0c0209
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    .line 2936
-    const v2, 0x7f0703f8
-
-    new-array v3, v5, [Ljava/lang/Object;
-
-    aput-object v1, v3, v4
-
-    invoke-virtual {p0, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 2938
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    .line 2940
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v1, 0x7f0c0010
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bv;->a()Landroid/view/View;
-
-    move-result-object v0
-
-    move-object v1, v0
-
-    goto :goto_7
-
-    .line 2946
-    :cond_d
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    goto :goto_8
-
-    .line 2952
-    :cond_e
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2953
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2955
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/util/h;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewState()Lcom/yelp/android/ui/activities/reviews/ReviewState;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->getTextResourceForState()I
-
-    move-result v1
-
-    const v2, 0x7f02015f
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Landroid/view/View$OnClickListener;
-
-    invoke-direct {p0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    goto/16 :goto_0
-
-    :cond_f
-    move-object v1, v0
-
-    goto/16 :goto_7
-
-    :cond_10
-    move-object v2, v1
-
-    goto/16 :goto_1
-.end method
-
-.method private an()V
-    .locals 6
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    .line 2962
-    const/4 v0, 0x0
-
-    .line 2963
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Ljava/lang/String;
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    .line 2964
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:Lcom/yelp/android/ui/activities/reviewpage/aw;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/aw;->clear()V
-
-    .line 2965
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2966
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2967
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2968
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/h;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Ljava/lang/String;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/bd;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/bd;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    .line 3012
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 2977
-    :cond_1
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getTipCount()I
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    .line 2978
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v3}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2979
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v3}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 2981
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Ljava/util/List;
-
-    if-eqz v3, :cond_3
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Ljava/util/List;
-
-    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
-
-    .line 2982
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:Lcom/yelp/android/ui/activities/reviewpage/aw;
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Ljava/util/List;
-
-    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/activities/reviewpage/aw;->a(Ljava/util/List;)V
-
-    .line 2983
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v3, 0x7f07053e
-
-    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bv;->a()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 2985
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v3}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    move-object v3, v0
-
-    .line 3000
-    :goto_1
-    if-eqz v3, :cond_0
-
-    .line 3001
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Ljava/util/List;
-
-    if-nez v0, :cond_4
-
-    move v0, v1
-
-    .line 3002
-    :goto_2
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->getTipCount()I
-
-    move-result v4
-
-    sub-int v0, v4, v0
-
-    .line 3003
-    if-lez v0, :cond_2
-
-    move v1, v2
-
-    :cond_2
-    const v2, 0x7f0e0018
-
-    const v4, 0x7f0703ac
-
-    invoke-direct {p0, v2, v4, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(III)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v3, v1, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/view/View;ZLjava/lang/String;)V
-
-    goto :goto_0
-
-    .line 2986
-    :cond_3
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v3}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    .line 2987
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/Locale;->getDisplayLanguage()Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 2989
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    const v4, 0x7f030069
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
-    move-result-object v5
-
-    invoke-virtual {v0, v4, v5, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 2991
-    const v4, 0x7f0c0209
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    .line 2992
-    const v4, 0x7f070401
-
-    new-array v5, v2, [Ljava/lang/Object;
-
-    aput-object v3, v5, v1
-
-    invoke-virtual {p0, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 2993
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    .line 2995
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    const v3, 0x7f0c0011
-
-    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bv;->a()Landroid/view/View;
-
-    move-result-object v0
-
-    move-object v3, v0
-
-    goto :goto_1
-
-    .line 3001
-    :cond_4
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    goto :goto_2
-
-    .line 3007
-    :cond_5
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 3008
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 3009
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/util/h;
-
-    const v1, 0x7f07009d
-
-    const v2, 0x7f020166
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aN:Lcom/yelp/android/ui/activities/businesspage/cc;
-
-    invoke-direct {p0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    goto/16 :goto_0
-
-    :cond_6
-    move-object v3, v0
-
-    goto/16 :goto_1
-.end method
-
-.method private ao()V
-    .locals 4
-
-    .prologue
-    .line 3015
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 3016
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->clear()V
-
-    .line 3017
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 3018
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 3019
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/h;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Ljava/lang/String;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/be;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/be;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Landroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    .line 3040
-    :cond_0
-    :goto_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
-    move-result-object v0
-
-    .line 3041
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    .line 3042
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
-
-    .line 3043
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Landroid/view/View;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addFooterView(Landroid/view/View;)V
-
-    .line 3045
-    :cond_1
-    return-void
-
-    .line 3028
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    .line 3029
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 3030
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 3031
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->a(Ljava/util/List;)V
-
-    goto :goto_0
-
-    .line 3032
-    :cond_3
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 3033
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 3034
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/util/h;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/h;->clear()V
-
-    .line 3035
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/util/h;
-
-    const v1, 0x7f070075
-
-    const v2, 0x7f02015d
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/ui/activities/businesspage/cc;
-
-    invoke-direct {p0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(IILandroid/view/View$OnClickListener;)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
-
-    goto :goto_0
-.end method
-
-.method private ap()V
-    .locals 3
-
-    .prologue
-    .line 3055
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Z
-
-    if-eqz v0, :cond_2
-
-    .line 3056
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->p:Lcom/yelp/android/ui/activities/reviewpage/ab;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->r:Ljava/util/List;
-
-    const/4 v2, 0x1
-
-    invoke-direct {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/activities/reviewpage/ab;Ljava/util/List;Z)V
-
-    .line 3057
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Z
-
-    if-eqz v0, :cond_1
-
-    .line 3058
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak()V
-
-    .line 3059
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Z
-
-    if-eqz v0, :cond_1
-
-    .line 3060
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al()V
-
-    .line 3061
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Z
-
-    if-eqz v0, :cond_1
-
-    .line 3062
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am()V
-
-    .line 3063
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag:Z
-
-    if-eqz v0, :cond_0
-
-    .line 3064
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an()V
-
-    .line 3065
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Z
-
-    if-eqz v0, :cond_0
-
-    .line 3066
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao()V
-
-    .line 3067
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/ui/activities/reviewpage/ab;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->s:Ljava/util/List;
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/activities/reviewpage/ab;Ljava/util/List;Z)V
-
-    .line 3070
-    :cond_0
-    iget v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:I
-
-    if-lez v0, :cond_1
-
-    .line 3071
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O()V
-
-    .line 3076
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bs;->notifyDataSetChanged()V
-
-    .line 3078
-    :cond_2
-    return-void
-.end method
-
-.method private aq()Z
-    .locals 12
-
-    .prologue
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    .line 3222
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/i;
-
-    move-result-object v3
-
-    .line 3223
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/i;->G()Z
-
-    move-result v4
-
-    .line 3225
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v6
-
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/i;->J()J
-
-    move-result-wide v8
-
-    const-wide v10, 0x1cf7c5800L
-
-    add-long/2addr v8, v10
-
-    cmp-long v0, v6, v8
-
-    if-lez v0, :cond_0
-
-    move v0, v1
-
-    .line 3228
-    :goto_0
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/i;->I()I
-
-    move-result v3
-
-    const/16 v5, 0x3c
-
-    if-le v3, v5, :cond_1
-
-    move v3, v1
-
-    .line 3229
-    :goto_1
-    if-nez v4, :cond_2
-
-    if-nez v0, :cond_2
-
-    if-nez v3, :cond_2
-
-    :goto_2
-    return v1
-
-    :cond_0
-    move v0, v2
-
-    .line 3225
-    goto :goto_0
-
-    :cond_1
-    move v3, v2
-
-    .line 3228
-    goto :goto_1
-
-    :cond_2
-    move v1, v2
-
-    .line 3229
-    goto :goto_2
-.end method
-
-.method private b(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Lcom/yelp/android/ui/activities/reviews/ReviewSource;
-    .locals 2
-
-    .prologue
-    .line 2391
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewState()Lcom/yelp/android/ui/activities/reviews/ReviewState;
-
-    move-result-object v0
-
-    .line 2392
-    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 2393
-    sget-object p1, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->BizPageReviewsListEdit:Lcom/yelp/android/ui/activities/reviews/ReviewSource;
-
-    .line 2397
-    :cond_0
-    :goto_0
-    return-object p1
-
-    .line 2394
-    :cond_1
-    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_NOT_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2395
-    sget-object p1, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->BizPageReviewsListUpdate:Lcom/yelp/android/ui/activities/reviews/ReviewSource;
-
-    goto :goto_0
-.end method
-
-.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/ArrayList;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->r:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method private b(Landroid/view/View;ZLjava/lang/String;)V
-    .locals 3
-
-    .prologue
-    .line 911
-    const v0, 0x7f0c0205
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Button;
-
-    .line 912
-    invoke-virtual {v0, p3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
-
-    .line 913
-    invoke-virtual {v0, p2}, Landroid/widget/Button;->setEnabled(Z)V
-
-    .line 914
-    if-eqz p2, :cond_0
-
-    .line 915
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0a0010
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextColor(I)V
-
-    .line 919
-    :goto_0
-    return-void
-
-    .line 917
-    :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0a0072
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setTextColor(I)V
-
-    goto :goto_0
-.end method
-
-.method private b(Lcom/yelp/android/analytics/iris/EventIri;)V
-    .locals 2
-
-    .prologue
-    .line 1811
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v0, p1, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/content/Context;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
-
-    .line 1812
-    return-void
-.end method
-
-.method private b(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
-    .locals 1
-
-    .prologue
-    .line 1823
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/content/Context;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
-
-    .line 1824
-    return-void
-.end method
-
-.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 226
-    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 226
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private b(Ljava/lang/String;)V
-    .locals 7
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 2666
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/appdata/webrequests/cw;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/appdata/webrequests/cw;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cw;->isFetching()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2673
-    :goto_0
-    return-void
-
-    .line 2670
-    :cond_0
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
-
-    move-result-object v4
-
-    .line 2671
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/cw;
-
-    const/4 v3, 0x5
-
-    iget-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aU:Lcom/yelp/android/appdata/webrequests/m;
-
-    move-object v1, p1
-
-    move v5, v2
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/cw;-><init>(Ljava/lang/String;IILjava/util/Locale;ZLcom/yelp/android/appdata/webrequests/m;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/appdata/webrequests/cw;
-
-    .line 2672
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/appdata/webrequests/cw;
-
-    new-array v1, v2, [Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/cw;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    goto :goto_0
-.end method
-
-.method private b(Z)V
-    .locals 9
-
-    .prologue
-    .line 2077
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getPlatformAction()Lcom/yelp/android/serializable/PlatformAction;
-
-    move-result-object v2
-
-    .line 2078
-    if-eqz v2, :cond_3
-
-    .line 2079
-    const/4 v7, 0x0
-
-    .line 2080
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Lcom/yelp/android/serializable/BusinessSearchResult;
-
-    if-eqz v0, :cond_0
-
-    .line 2081
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Lcom/yelp/android/serializable/BusinessSearchResult;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->getBizDimension()Ljava/lang/String;
-
-    move-result-object v7
-
-    .line 2083
-    :cond_0
-    new-instance v0, Ljava/util/TreeMap;
-
-    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
-
-    .line 2084
-    invoke-static {v7}, Lcom/yelp/android/util/StringUtils;->e(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    .line 2085
-    const-string/jumbo v1, "biz_dimension"
-
-    invoke-interface {v0, v1, v7}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2087
-    :cond_1
-    if-eqz p1, :cond_2
-
-    .line 2088
-    const-string/jumbo v1, "source"
-
-    const-string/jumbo v3, "promoted"
-
-    invoke-interface {v0, v1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2090
-    :cond_2
-    const-string/jumbo v1, "id"
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v0, v1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 2091
-    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPlatformOpen:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 2092
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PlatformAction;->getUrl()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PlatformAction;->getTitle()Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-object v3, Lcom/yelp/android/analytics/iris/ViewIri;->OpenURL:Lcom/yelp/android/analytics/iris/ViewIri;
-
-    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    sget-object v5, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-static {v4, v5}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;
-
-    move-result-object v4
-
-    const v5, 0x7f0706c4
-
-    const/4 v6, 0x1
-
-    const-string/jumbo v8, "source_business_page"
-
-    invoke-static/range {v0 .. v8}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;IZLjava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 2097
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
-
-    .line 2099
-    :cond_3
-    return-void
-.end method
-
 .method static synthetic b(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
     .locals 0
 
     .prologue
-    .line 226
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Z
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
 
     return p1
 .end method
 
-.method private c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+.method private c(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
     .locals 3
 
     .prologue
-    .line 1849
-    new-instance v0, Lcom/yelp/android/analytics/h;
+    .line 2744
+    new-instance v0, Lcom/yelp/android/analytics/g$a;
 
-    invoke-direct {v0}, Lcom/yelp/android/analytics/h;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/analytics/g$a;-><init>()V
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/analytics/h;->a(Lcom/yelp/android/analytics/iris/b;)Lcom/yelp/android/analytics/h;
+    invoke-virtual {v0, p1}, Lcom/yelp/android/analytics/g$a;->a(Lcom/yelp/android/analytics/iris/a;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getYelpRequestId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->n()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/analytics/h;->a(Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/analytics/g$a;->a(Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v0
 
     const-string/jumbo v1, "id"
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/analytics/h;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/analytics/g$a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
     move-result-object v0
 
-    .line 1854
+    .line 2750
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 1855
+    .line 2751
     const-string/jumbo v1, "source"
 
-    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/analytics/h;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/analytics/h;
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/analytics/g$a;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/analytics/g$a;
 
-    .line 1858
+    .line 2754
     :cond_0
     return-object v0
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/serializable/YelpBusiness;
+.method static synthetic c(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/ArrayList;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
     return-object v0
 .end method
@@ -7352,8 +9122,8 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->s:Ljava/util/List;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Ljava/util/List;
 
     return-object p1
 .end method
@@ -7362,53 +9132,110 @@
     .locals 0
 
     .prologue
-    .line 226
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e(Ljava/lang/String;)V
+    .line 275
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method private c(Ljava/lang/String;)V
-    .locals 4
+.method private c(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)V
+    .locals 3
 
     .prologue
-    const/4 v3, 0x0
+    .line 4492
+    new-instance v0, Lcom/yelp/android/g/a;
 
-    .line 2676
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    const/4 v1, 0x2
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/g/a;-><init>(I)V
+
+    .line 4493
+    const-string/jumbo v1, "id"
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 4494
+    const-string/jumbo v1, "source"
+
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->getIriSourceParameter()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 4495
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessReviewWrite:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    .line 4496
+    return-void
+.end method
+
+.method private c(Ljava/lang/String;)V
+    .locals 7
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 3727
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/appdata/webrequests/ck;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/appdata/webrequests/ck;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ck;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 2681
+    .line 3735
     :goto_0
     return-void
 
-    .line 2679
+    .line 3731
     :cond_0
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    const/4 v1, 0x3
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aR:Lcom/yelp/android/appdata/webrequests/m;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
 
-    invoke-direct {v0, p1, v3, v1, v2}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
 
-    .line 2680
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    move-result-object v4
 
-    new-array v1, v3, [Ljava/lang/Void;
+    .line 3732
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/ck;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    const/4 v3, 0x5
+
+    iget-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bt:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    move-object v1, p1
+
+    move v5, v2
+
+    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/ck;-><init>(Ljava/lang/String;IILjava/util/Locale;ZLcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/appdata/webrequests/ck;
+
+    .line 3734
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/appdata/webrequests/ck;
+
+    new-array v1, v2, [Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ck;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     goto :goto_0
 .end method
@@ -7417,89 +9244,83 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Z
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Z
 
     return p1
+.end method
+
+.method static synthetic d(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/appdata/webrequests/av;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bf:Lcom/yelp/android/appdata/webrequests/av;
+
+    return-object v0
 .end method
 
 .method static synthetic d(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Ljava/lang/String;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Ljava/lang/String;
 
     return-object p1
-.end method
-
-.method static synthetic d(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Ljava/util/List;
-
-    return-object v0
 .end method
 
 .method static synthetic d(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/util/List;)Ljava/util/List;
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Ljava/util/List;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Ljava/util/List;
 
     return-object p1
 .end method
 
 .method private d(Ljava/lang/String;)V
-    .locals 6
+    .locals 3
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 2684
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/appdata/webrequests/eu;
+    .line 3738
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/appdata/webrequests/eu;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/eu;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 2691
+    .line 3743
     :goto_0
     return-void
 
-    .line 2688
+    .line 3741
     :cond_0
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/eu;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    const/4 v3, 0x3
+    const/4 v1, 0x3
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aJ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bq:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/cb;
+    invoke-direct {v0, p1, v1, v2}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    invoke-direct {v5, p0}, Lcom/yelp/android/ui/activities/businesspage/cb;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    move-object v1, p1
+    .line 3742
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/eu;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/SearchRequest;Lcom/yelp/android/appdata/webrequests/m;)V
+    const/4 v1, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/appdata/webrequests/eu;
+    new-array v1, v1, [Ljava/lang/Void;
 
-    .line 2690
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/appdata/webrequests/eu;
-
-    new-array v1, v2, [Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/eu;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     goto :goto_0
 .end method
@@ -7508,18 +9329,18 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae:Z
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Z
 
     return p1
 .end method
 
-.method static synthetic e(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/appdata/webrequests/SearchRequest;
+.method static synthetic e(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/serializable/YelpBusiness;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aJ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     return-object v0
 .end method
@@ -7528,55 +9349,68 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
 
     return-object p1
 .end method
 
 .method private e(I)V
-    .locals 2
+    .locals 7
 
     .prologue
-    .line 3081
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Lcom/yelp/android/ui/dialogs/bn;
+    .line 2796
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/ui/util/z;
 
-    if-nez v0, :cond_0
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/z;->d()Ljava/util/List;
 
-    .line 3082
-    new-instance v0, Lcom/yelp/android/ui/dialogs/bn;
+    move-result-object v4
 
+    .line 2797
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/dialogs/bn;-><init>(Landroid/content/Context;)V
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Lcom/yelp/android/ui/dialogs/bn;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/ui/util/z;
 
-    .line 3083
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Lcom/yelp/android/ui/dialogs/bn;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/z;->d()Ljava/util/List;
 
-    const/4 v1, 0x0
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/bn;->setCancelable(Z)V
+    new-instance v3, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    .line 3085
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Lcom/yelp/android/ui/dialogs/bn;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/bn;->setMessage(Ljava/lang/CharSequence;)V
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    .line 3086
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Lcom/yelp/android/ui/dialogs/bn;
+    move-result v4
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/bn;->show()V
+    const/16 v6, 0x2a
 
-    .line 3087
+    invoke-direct {v3, v5, v4, v6}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;II)V
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->A()I
+
+    move-result v5
+
+    move v4, p1
+
+    invoke-static/range {v0 .. v5}, Lcom/yelp/android/ui/activities/photoviewer/ActivityBusinessMediaViewer;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/util/List;Lcom/yelp/android/appdata/webrequests/MediaRequest;II)Landroid/content/Intent;
+
+    move-result-object v0
+
+    .line 2808
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 2809
     return-void
 .end method
 
@@ -7584,62 +9418,264 @@
     .locals 0
 
     .prologue
-    .line 226
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Ljava/lang/String;)V
+    .line 275
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method private e(Ljava/lang/String;)V
-    .locals 7
+    .locals 2
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 2724
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S:Lcom/yelp/android/appdata/webrequests/ey;
+    .line 3746
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Lcom/yelp/android/appdata/webrequests/z;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S:Lcom/yelp/android/appdata/webrequests/ey;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Lcom/yelp/android/appdata/webrequests/z;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ey;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/z;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 2745
+    .line 3751
     :goto_0
     return-void
 
-    .line 2728
+    .line 3749
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/z;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bm:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, p1, v1}, Lcom/yelp/android/appdata/webrequests/z;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Lcom/yelp/android/appdata/webrequests/z;
+
+    .line 3750
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Lcom/yelp/android/appdata/webrequests/z;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/z;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    goto :goto_0
+.end method
+
+.method static synthetic e(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Z
+
+    return p1
+.end method
+
+.method static synthetic f(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bz:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    return-object v0
+.end method
+
+.method static synthetic f(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method private f(I)V
+    .locals 2
+
+    .prologue
+    .line 4326
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/dialogs/e;
+
+    if-nez v0, :cond_0
+
+    .line 4327
+    new-instance v0, Lcom/yelp/android/ui/dialogs/e;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/dialogs/e;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/dialogs/e;
+
+    .line 4328
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/dialogs/e;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/e;->setCancelable(Z)V
+
+    .line 4330
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/dialogs/e;
+
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/e;->setMessage(Ljava/lang/CharSequence;)V
+
+    .line 4331
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/dialogs/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/e;->show()V
+
+    .line 4332
+    return-void
+.end method
+
+.method private f(Ljava/lang/String;)V
+    .locals 6
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 3754
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Lcom/yelp/android/appdata/webrequests/dw;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Lcom/yelp/android/appdata/webrequests/dw;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dw;->u()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3766
+    :goto_0
+    return-void
+
+    .line 3758
+    :cond_0
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/dw;
+
+    const/4 v3, 0x3
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aZ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+
+    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$g;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bc:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;
+
+    invoke-direct {v5, p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$g;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;)V
+
+    move-object v1, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/dw;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/SearchRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Lcom/yelp/android/appdata/webrequests/dw;
+
+    .line 3765
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Lcom/yelp/android/appdata/webrequests/dw;
+
+    new-array v1, v2, [Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dw;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    goto :goto_0
+.end method
+
+.method static synthetic f(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj:Z
+
+    return p1
+.end method
+
+.method static synthetic g(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aN:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    return-object v0
+.end method
+
+.method static synthetic g(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method private g(Ljava/lang/String;)V
+    .locals 7
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 3799
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Lcom/yelp/android/appdata/webrequests/dy;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Lcom/yelp/android/appdata/webrequests/dy;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dy;->u()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3826
+    :goto_0
+    return-void
+
+    .line 3803
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
 
     if-nez v0, :cond_1
 
     move v1, v2
 
-    .line 2729
+    .line 3804
     :goto_1
     const/4 v0, 0x5
 
     if-lt v1, v0, :cond_2
 
-    .line 2730
+    .line 3805
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
 
-    .line 2731
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap()V
+    .line 3806
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA()V
 
     goto :goto_0
 
-    .line 2728
+    .line 3803
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -7649,7 +9685,7 @@
 
     goto :goto_1
 
-    .line 2736
+    .line 3811
     :cond_2
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
@@ -7663,36 +9699,36 @@
 
     move-result-object v0
 
-    .line 2737
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai()Ljava/util/Locale;
+    .line 3812
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as()Ljava/util/Locale;
 
     move-result-object v5
 
-    .line 2738
+    .line 3813
     if-eqz v5, :cond_3
 
-    .line 2742
+    .line 3817
     :goto_2
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ey;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/dy;
 
     rsub-int/lit8 v3, v1, 0x5
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Ljava/lang/String;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S:Ljava/lang/String;
 
-    iget-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aV:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bu:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     move-object v1, p1
 
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/ey;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/util/Locale;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/dy;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/util/Locale;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S:Lcom/yelp/android/appdata/webrequests/ey;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Lcom/yelp/android/appdata/webrequests/dy;
 
-    .line 2744
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S:Lcom/yelp/android/appdata/webrequests/ey;
+    .line 3825
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Lcom/yelp/android/appdata/webrequests/dy;
 
-    new-array v1, v2, [Ljava/lang/String;
+    new-array v1, v2, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ey;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dy;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     goto :goto_0
 
@@ -7702,155 +9738,22 @@
     goto :goto_2
 .end method
 
-.method static synthetic e(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
+.method static synthetic g(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
     .locals 0
 
     .prologue
-    .line 226
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Z
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao:Z
 
     return p1
 .end method
 
-.method static synthetic f(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic f(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/ArrayList;
+.method static synthetic h(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/serializable/BusinessSearchResult;
     .locals 1
 
     .prologue
-    .line 226
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L()Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private f(Ljava/lang/String;)V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 2748
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/appdata/webrequests/ab;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/appdata/webrequests/ab;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ab;->isFetching()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2755
-    :goto_0
-    return-void
-
-    .line 2752
-    :cond_0
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ab;
-
-    const/4 v1, 0x3
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/appdata/webrequests/m;
-
-    invoke-direct {v0, p1, v3, v1, v2}, Lcom/yelp/android/appdata/webrequests/ab;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/appdata/webrequests/ab;
-
-    .line 2754
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/appdata/webrequests/ab;
-
-    new-array v1, v3, [Ljava/lang/Void;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ab;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    goto :goto_0
-.end method
-
-.method static synthetic f(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
-    .locals 0
-
-    .prologue
-    .line 226
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Z
-
-    return p1
-.end method
-
-.method static synthetic g(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->al:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic g(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method private g(Ljava/lang/String;)V
-    .locals 3
-
-    .prologue
-    .line 3233
-    new-instance v0, Ljava/util/HashMap;
-
-    const/4 v1, 0x2
-
-    invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
-
-    .line 3234
-    const-string/jumbo v1, "id"
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 3235
-    const-string/jumbo v1, "source"
-
-    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 3236
-    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessReviewWrite:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 3237
-    return-void
-.end method
-
-.method static synthetic h(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/reviewpage/aw;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:Lcom/yelp/android/ui/activities/reviewpage/aw;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
 
     return-object v0
 .end method
@@ -7859,18 +9762,73 @@
     .locals 0
 
     .prologue
-    .line 226
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Ljava/lang/String;
+    .line 275
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method static synthetic i(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/h;
+.method private h(Ljava/lang/String;)V
+    .locals 4
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 3829
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Lcom/yelp/android/appdata/webrequests/ae;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Lcom/yelp/android/appdata/webrequests/ae;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ae;->u()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3836
+    :goto_0
+    return-void
+
+    .line 3833
+    :cond_0
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/ae;
+
+    const/4 v1, 0x3
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bl:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, p1, v3, v1, v2}, Lcom/yelp/android/appdata/webrequests/ae;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Lcom/yelp/android/appdata/webrequests/ae;
+
+    .line 3835
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Lcom/yelp/android/appdata/webrequests/ae;
+
+    new-array v1, v3, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ae;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    goto :goto_0
+.end method
+
+.method static synthetic h(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
+    .locals 0
+
+    .prologue
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an:Z
+
+    return p1
+.end method
+
+.method static synthetic i(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/util/h;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I:Ljava/util/List;
 
     return-object v0
 .end method
@@ -7879,133 +9837,556 @@
     .locals 0
 
     .prologue
-    .line 226
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f(Ljava/lang/String;)V
+    .line 275
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method static synthetic j(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+.method private i(Ljava/lang/String;)V
+    .locals 2
+
+    .prologue
+    .line 3839
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Lcom/yelp/android/appdata/webrequests/dj;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Lcom/yelp/android/appdata/webrequests/dj;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dj;->u()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3846
+    :goto_0
+    return-void
+
+    .line 3843
+    :cond_0
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/dj;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bn:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, p1, v1}, Lcom/yelp/android/appdata/webrequests/dj;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Lcom/yelp/android/appdata/webrequests/dj;
+
+    .line 3845
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Lcom/yelp/android/appdata/webrequests/dj;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dj;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    goto :goto_0
+.end method
+
+.method static synthetic i(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Z)Z
     .locals 0
 
     .prologue
-    .line 226
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj()V
+    .line 275
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am:Z
 
+    return p1
+.end method
+
+.method static synthetic j(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/appdata/webrequests/SearchRequest;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aZ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+
+    return-object v0
+.end method
+
+.method private j(Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 3849
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Lcom/yelp/android/appdata/webrequests/messaging/g;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Lcom/yelp/android/appdata/webrequests/messaging/g;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/messaging/g;->u()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3861
+    :goto_0
+    return-void
+
+    .line 3853
+    :cond_0
+    sget-object v0, Lcom/yelp/android/appdata/Features;->message_other_biz:Lcom/yelp/android/appdata/Features;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/Features;->isEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 3854
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Z
+
+    .line 3855
+    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj:Z
+
+    goto :goto_0
+
+    .line 3859
+    :cond_1
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/messaging/g;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bo:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, p1, v1}, Lcom/yelp/android/appdata/webrequests/messaging/g;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Lcom/yelp/android/appdata/webrequests/messaging/g;
+
+    .line 3860
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Lcom/yelp/android/appdata/webrequests/messaging/g;
+
+    new-array v1, v2, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/messaging/g;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    goto :goto_0
+.end method
+
+.method static synthetic k(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/z;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/ui/util/z;
+
+    return-object v0
+.end method
+
+.method private k(Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    .line 4499
+    new-instance v0, Lcom/yelp/android/g/a;
+
+    invoke-direct {v0}, Lcom/yelp/android/g/a;-><init>()V
+
+    .line 4500
+    const-string/jumbo v1, "id"
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 4501
+    const-string/jumbo v1, "source"
+
+    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 4502
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddTip:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    .line 4503
     return-void
 .end method
 
-.method static synthetic k(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/LinkedHashMap;
+.method static synthetic l(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/ArrayList;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Ljava/util/LinkedHashMap;
+    .line 275
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q()Ljava/util/ArrayList;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method static synthetic l(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/reviewpage/bi;
+.method static synthetic m(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method static synthetic m(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/panels/businesspage/b;
+.method static synthetic n(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/reviewpage/d;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/activities/reviewpage/d;
 
     return-object v0
 .end method
 
-.method static synthetic n(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Landroid/view/View;
+.method static synthetic o(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/e;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Landroid/view/View;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/ui/util/e;
 
     return-object v0
 .end method
 
-.method static synthetic o(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic p(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/ax;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->C:Lcom/yelp/android/ui/util/ax;
-
-    return-object v0
-.end method
-
-.method static synthetic q(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+.method static synthetic p(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
     .locals 0
 
     .prologue
-    .line 226
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap()V
+    .line 275
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at()V
 
     return-void
 .end method
 
-.method static synthetic r(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+.method static synthetic q(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/LinkedHashMap;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Ljava/util/LinkedHashMap;
 
     return-object v0
 .end method
 
-.method static synthetic s(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/h;
+.method static synthetic r(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/reviewpage/e;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/util/h;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
 
     return-object v0
 .end method
 
-.method static synthetic t(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Landroid/view/View;
+.method static synthetic s(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aB:Landroid/view/View;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method static synthetic u(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+.method static synthetic t(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    .locals 0
+
+    .prologue
+    .line 275
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC()V
+
+    return-void
+.end method
+
+.method private t()Z
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    .line 623
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->g()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method static synthetic u(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bc:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;
 
     return-object v0
 .end method
 
 .method private u()V
+    .locals 11
+
+    .prologue
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    .line 1305
+    new-instance v6, Ljava/util/ArrayList;
+
+    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+
+    .line 1306
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->c()Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    .line 1307
+    new-instance v7, Ljava/util/ArrayList;
+
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+
+    .line 1309
+    new-instance v8, Ljava/util/HashSet;
+
+    invoke-direct {v8}, Ljava/util/HashSet;-><init>()V
+
+    .line 1314
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    move v4, v3
+
+    move-object v0, v2
+
+    :goto_0
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/SearchAction;
+
+    .line 1315
+    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->a()Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+
+    move-result-object v10
+
+    .line 1316
+    invoke-interface {v8, v10}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    .line 1317
+    sget-object v5, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->Platform:Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+
+    invoke-virtual {v10, v5}, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    if-nez v0, :cond_0
+
+    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->b()Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    .line 1320
+    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->n()Lcom/yelp/android/ui/activities/businesspage/b;
+
+    move-result-object v0
+
+    .line 1321
+    invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    move-object v5, v0
+
+    .line 1323
+    sget-object v0, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->Reservation:Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+
+    invoke-virtual {v10, v0}, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    .line 1324
+    if-nez v2, :cond_1
+
+    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->b()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 1325
+    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->n()Lcom/yelp/android/ui/activities/businesspage/b;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/h;
+
+    move-object v2, v0
+
+    :cond_1
+    move-object v0, v1
+
+    .line 1328
+    check-cast v0, Lcom/yelp/android/serializable/ReservationSearchAction;
+
+    invoke-interface {v7, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 1329
+    if-nez v4, :cond_2
+
+    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->b()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    :cond_2
+    const/4 v0, 0x1
+
+    :goto_1
+    move v4, v0
+
+    move-object v0, v5
+
+    .line 1331
+    goto :goto_0
+
+    :cond_3
+    move v0, v3
+
+    .line 1329
+    goto :goto_1
+
+    .line 1333
+    :cond_4
+    if-eqz v4, :cond_6
+
+    .line 1334
+    invoke-interface {v7}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/ReservationSearchAction;
+
+    .line 1335
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/activities/businesspage/h;->a(Lcom/yelp/android/serializable/ReservationSearchAction;)V
+
+    goto :goto_2
+
+    .line 1337
+    :cond_5
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/activities/businesspage/h;->a(Lcom/yelp/android/serializable/BusinessSearchResult;)V
+
+    .line 1338
+    invoke-interface {v6, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 1343
+    :cond_6
+    sget-object v0, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->Reservation:Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+
+    invoke-interface {v8, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    .line 1344
+    sget-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MAKE_RESERVATION:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 1346
+    :cond_7
+    sget-object v0, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->Platform:Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+
+    invoke-interface {v8, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    .line 1347
+    sget-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->ORDER:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 1350
+    :cond_8
+    new-instance v0, Lcom/yelp/android/ui/activities/businesspage/c;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-direct {v0, v6, v1}, Lcom/yelp/android/ui/activities/businesspage/c;-><init>(Ljava/util/Collection;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f:Lcom/yelp/android/ui/activities/businesspage/c;
+
+    .line 1352
+    return-void
+
+    :cond_9
+    move v0, v4
+
+    goto :goto_1
+.end method
+
+.method private v()V
     .locals 6
 
     .prologue
@@ -8013,7 +10394,7 @@
 
     const/4 v3, 0x0
 
-    .line 852
+    .line 1355
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -8024,12 +10405,12 @@
 
     move-result-object v0
 
-    .line 855
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    .line 1358
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -8037,7 +10418,7 @@
 
     if-nez v1, :cond_1
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -8045,68 +10426,199 @@
 
     if-eqz v1, :cond_1
 
-    .line 857
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/br;
+    .line 1361
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$62;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/br;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$62;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
     invoke-virtual {v0, v1, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 875
+    .line 1383
     :cond_0
     :goto_0
     return-void
 
-    .line 864
+    .line 1370
     :cond_1
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw:Z
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aJ:Z
 
     if-eqz v1, :cond_0
 
-    .line 865
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw:Z
+    .line 1371
+    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aJ:Z
 
-    .line 866
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1372
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getCheckInOffer()Lcom/yelp/android/serializable/Offer;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aJ()Lcom/yelp/android/serializable/Offer;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-static {v1, v2, v3}, Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;->a(Lcom/yelp/android/serializable/Offer;Lcom/yelp/android/serializable/YelpBusiness;Z)Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;
 
     move-result-object v1
 
-    .line 868
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/bs;
+    .line 1374
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$2;
 
-    invoke-direct {v2, p0, v1}, Lcom/yelp/android/ui/activities/businesspage/bs;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;)V
+    invoke-direct {v2, p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$2;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/dialogs/CheckInOfferDialog;)V
 
     invoke-virtual {v0, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method
 
-.method static synthetic v(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/s;
+.method static synthetic v(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    .locals 0
+
+    .prologue
+    .line 275
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA()V
+
+    return-void
+.end method
+
+.method private w()Landroid/view/View;
+    .locals 7
+
+    .prologue
+    const/16 v6, 0x8
+
+    const/4 v5, 0x0
+
+    .line 1446
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f03007b
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v2
+
+    .line 1450
+    const v0, 0x7f0f025a
+
+    invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/WebImageView;
+
+    .line 1451
+    const v1, 0x7f0f025c
+
+    invoke-virtual {v2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/TextView;
+
+    .line 1453
+    const v3, 0x7f0f0258
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$4;
+
+    invoke-direct {v4, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$4;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 1462
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
+
+    move-result-object v3
+
+    .line 1463
+    if-nez v3, :cond_0
+
+    .line 1465
+    invoke-virtual {v0, v6}, Lcom/yelp/android/ui/widgets/WebImageView;->setVisibility(I)V
+
+    .line 1466
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 1467
+    const v0, 0x7f0f025b
+
+    invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+
+    .line 1472
+    :goto_0
+    return-object v2
+
+    .line 1469
+    :cond_0
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;)V
+
+    .line 1470
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/User;->ad()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+.end method
+
+.method static synthetic w(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k:Lcom/yelp/android/ui/util/s;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     return-object v0
 .end method
 
-.method private v()V
+.method static synthetic x(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/util/e;
+    .locals 1
+
+    .prologue
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aS:Lcom/yelp/android/ui/util/e;
+
+    return-object v0
+.end method
+
+.method private x()V
     .locals 3
 
     .prologue
-    .line 955
+    .line 1563
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -8114,18 +10626,18 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/panels/businesspage/b;->a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/ui/util/PullDownListView;)V
 
-    .line 957
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->F()V
+    .line 1565
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H()V
 
-    .line 958
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
+    .line 1566
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aB:Z
 
     if-nez v0, :cond_0
 
-    .line 959
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H()V
+    .line 1567
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J()V
 
-    .line 961
+    .line 1569
     :cond_0
     const-class v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
 
@@ -8135,57 +10647,63 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;)V
 
-    .line 962
+    .line 1570
     return-void
 .end method
 
-.method static synthetic w(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/activities/reviewpage/t;
+.method static synthetic y(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Landroid/widget/FrameLayout;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/ui/activities/reviewpage/t;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aR:Landroid/widget/FrameLayout;
 
     return-object v0
 .end method
 
-.method static synthetic x(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/yelp/android/ui/dialogs/bn;
+.method static synthetic z(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
     .locals 1
 
     .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ax:Lcom/yelp/android/ui/dialogs/bn;
-
-    return-object v0
-.end method
-
-.method static synthetic y(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->r:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic z(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->s:Ljava/util/List;
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
 
     return-object v0
 .end method
 
 
 # virtual methods
+.method public a(I)V
+    .locals 2
+
+    .prologue
+    .line 3584
+    sget-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->MEDIA_NOTIFICATION:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
+
+    invoke-static {v0}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;I)V
+
+    .line 3588
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b(Z)V
+
+    .line 3589
+    return-void
+.end method
+
 .method public a(II)V
     .locals 1
 
     .prologue
-    .line 1742
+    .line 2642
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -8194,10 +10712,10 @@
 
     move-result-object v0
 
-    .line 1743
+    .line 2643
     invoke-virtual {p0, v0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 1744
+    .line 2644
     return-void
 .end method
 
@@ -8205,12 +10723,12 @@
     .locals 2
 
     .prologue
-    .line 1862
+    .line 2758
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPhotos:Lcom/yelp/android/analytics/iris/EventIri;
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
 
-    .line 1863
+    .line 2759
     const-string/jumbo v0, "extra.media_index"
 
     const/4 v1, 0x0
@@ -8219,9 +10737,9 @@
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(I)V
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e(I)V
 
-    .line 1864
+    .line 2760
     return-void
 .end method
 
@@ -8229,12 +10747,12 @@
     .locals 2
 
     .prologue
-    .line 2618
+    .line 3679
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-static {v0, v1, p1}, Lcom/yelp/android/ui/activities/reviewpage/ActivityReviewsFilteredByHighlightPage;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/ReviewHighlight;)Landroid/content/Intent;
 
@@ -8242,22 +10760,22 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 2620
+    .line 3682
     return-void
 .end method
 
 .method public a(Lcom/yelp/android/serializable/Tip;)V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 2569
+    .line 3630
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v1
 
@@ -8265,21 +10783,11 @@
 
     move-result-object v0
 
-    .line 2570
-    const-string/jumbo v1, "changed entry id"
-
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 2571
-    const/16 v1, 0x421
+    const/16 v1, 0x42b
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 2572
+    .line 3633
     return-void
 .end method
 
@@ -8287,7 +10795,7 @@
     .locals 4
 
     .prologue
-    .line 2610
+    .line 3668
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -8296,14 +10804,14 @@
 
     move-result-object v0
 
-    .line 2611
+    .line 3669
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    const v2, 0x7f070637
+    const v2, 0x7f07020b
 
-    const v3, 0x7f070356
+    const v3, 0x7f070392
 
     invoke-static {v1, v2, v3, v0}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/content/Context;IILandroid/content/Intent;)Landroid/content/Intent;
 
@@ -8311,34 +10819,34 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 2614
+    .line 3675
     return-void
 .end method
 
 .method public a(Lcom/yelp/android/serializable/Tip;Lcom/yelp/android/ui/widgets/SpannedImageButton;)V
-    .locals 3
+    .locals 4
 
     .prologue
-    .line 2582
+    .line 3643
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    .line 2583
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
+    .line 3644
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    .line 2584
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/fq;
+    .line 3645
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/em;
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->getId()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->a()Ljava/lang/String;
 
     move-result-object v1
 
@@ -8346,133 +10854,163 @@
 
     move-result v2
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/fq;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/em;-><init>(Ljava/lang/String;Z)V
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fq;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/em;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 2585
+    .line 3646
     invoke-virtual {p2}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->isChecked()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 2586
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->getFeedback()Lcom/yelp/android/serializable/Feedback;
+    .line 3647
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->g()Lcom/yelp/android/serializable/Feedback;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->addPositiveFeedback()V
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->a()V
 
-    .line 2590
+    .line 3651
     :goto_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->H:Lcom/yelp/android/ui/activities/reviewpage/aw;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J:Lcom/yelp/android/ui/activities/reviewpage/d;
 
-    .line 2591
+    .line 3652
     if-eqz v0, :cond_0
 
-    .line 2592
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/aw;->notifyDataSetChanged()V
+    .line 3653
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/d;->notifyDataSetChanged()V
 
-    .line 2606
+    .line 3664
     :cond_0
     :goto_1
     return-void
 
-    .line 2588
+    .line 3649
     :cond_1
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->getFeedback()Lcom/yelp/android/serializable/Feedback;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->g()Lcom/yelp/android/serializable/Feedback;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->removePositiveFeedback()V
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->b()V
 
     goto :goto_0
 
-    .line 2595
+    .line 3656
     :cond_2
     invoke-virtual {p2}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->toggle()V
 
-    .line 2599
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const v0, 0x7f070639
-
-    .line 2603
-    :goto_2
+    .line 3657
     invoke-virtual {p2}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {p2}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v2, v0}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/content/Context;I)Landroid/content/Intent;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    const v2, 0x7f070201
+
+    const v3, 0x7f07039c
+
+    invoke-static {v1, v2, v3}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/app/Activity;II)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_1
-
-    .line 2599
-    :cond_3
-    const v0, 0x7f070361
-
-    goto :goto_2
 .end method
 
 .method public a(Lcom/yelp/android/serializable/YelpBusiness;)V
     .locals 2
 
     .prologue
-    .line 1660
+    .line 2559
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
 
-    .line 1661
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 2560
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 1662
+    .line 2561
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->updateOptionsMenu()V
 
-    .line 1663
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj()V
+    .line 2562
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at()V
 
-    .line 1664
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 2563
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 1665
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q()V
+    .line 2564
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z()V
 
-    .line 1666
+    .line 2565
     return-void
 .end method
 
 .method public a(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 2401
+    .line 3420
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)V
+
+    .line 3426
+    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->o:Lcom/yelp/android/appdata/experiment/WriteReviewExperiment;
+
+    sget-object v1, Lcom/yelp/android/appdata/experiment/WriteReviewExperiment$Cohort;->status_quo:Lcom/yelp/android/appdata/experiment/WriteReviewExperiment$Cohort;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/experiment/WriteReviewExperiment;->a(Ljava/lang/Enum;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    if-eqz v0, :cond_0
+
+    .line 3428
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/reviews/StarsView;->getNumStars()I
+
+    move-result v2
+
+    invoke-static {v0, v1, v2, p1}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewWrite;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;ILcom/yelp/android/ui/activities/reviews/ReviewSource;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 3435
+    :goto_0
+    return-void
+
+    .line 3432
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-static {v0, v1, p1}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewWrite;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Landroid/content/Intent;
 
@@ -8480,69 +11018,142 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 2402
-    return-void
+    goto :goto_0
 .end method
 
 .method public a(Ljava/io/File;)V
     .locals 3
 
     .prologue
-    .line 2561
+    .line 3622
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
 
-    .line 2562
+    .line 3623
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->hideLoadingDialog()V
 
-    .line 2563
-    const v1, 0x7f07009a
+    .line 3624
+    const v1, 0x7f070118
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    const v2, 0x7f07024c
+    const v2, 0x7f0702a2
 
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/cp;->a(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/ar;->a(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 2565
+    .line 3626
     return-void
+.end method
+
+.method public a(Ljava/lang/String;)V
+    .locals 2
+
+    .prologue
+    .line 3383
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 3386
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 3387
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, p1}, Lcom/yelp/android/ui/activities/tips/WriteTip;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/16 v1, 0x428
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    .line 3402
+    :goto_0
+    return-void
+
+    .line 3392
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    const v1, 0x7f070200
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/ActivityConfirmAccount;->a(Landroid/content/Context;I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/16 v1, 0x42a
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    goto :goto_0
+
+    .line 3399
+    :cond_1
+    const/16 v0, 0x429
+
+    const v1, 0x7f07038d
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(II)V
+
+    goto :goto_0
 .end method
 
 .method public a(Landroid/graphics/Bitmap;Ljava/io/File;Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;)Z
     .locals 3
 
     .prologue
-    .line 2542
+    .line 3601
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
 
-    .line 2543
+    .line 3602
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->hideLoadingDialog()V
 
-    .line 2546
+    .line 3605
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
 
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/ba;
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$36;
 
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ba;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/activities/support/YelpActivity;)V
+    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$36;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/ui/activities/support/YelpActivity;)V
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 2556
+    .line 3617
     const/4 v0, 0x1
 
     return v0
@@ -8552,7 +11163,10 @@
     .locals 2
 
     .prologue
-    .line 1867
+    .line 2763
+    if-eqz p1, :cond_0
+
+    .line 2764
     sget-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->MESSAGE_THE_BUSINESS_SUCCESS_NOTIFICATION:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
 
     invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->setData(Landroid/content/Intent;)Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
@@ -8565,7 +11179,8 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;)V
 
-    .line 1870
+    .line 2769
+    :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -8574,7 +11189,7 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b(Z)V
 
-    .line 1871
+    .line 2770
     return-void
 .end method
 
@@ -8582,12 +11197,12 @@
     .locals 2
 
     .prologue
-    .line 2576
+    .line 3637
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->getUserId()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->b()Ljava/lang/String;
 
     move-result-object v1
 
@@ -8595,69 +11210,101 @@
 
     move-result-object v0
 
-    .line 2577
+    .line 3638
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 2578
+    .line 3639
     return-void
 .end method
 
 .method public c()V
-    .locals 1
+    .locals 8
 
     .prologue
-    .line 1875
+    const/4 v4, 0x0
+
+    .line 2774
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPullOpenPhoto:Lcom/yelp/android/analytics/iris/EventIri;
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
 
-    .line 1878
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 2778
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/ui/util/z;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getBizOwnerVideo()Lcom/yelp/android/serializable/Video;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/z;->d()Ljava/util/List;
+
+    move-result-object v2
+
+    .line 2779
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aT()Ljava/util/List;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-interface {v0, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getPhotoCount()I
+    check-cast v0, Lcom/yelp/android/serializable/Photo;
 
-    move-result v0
+    .line 2780
+    invoke-interface {v2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    if-lez v0, :cond_0
+    .line 2781
+    invoke-interface {v2, v4, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
-    .line 1879
-    const/4 v0, 0x1
+    .line 2782
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(I)V
+    move-result-object v0
 
-    .line 1883
-    :goto_0
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    new-instance v3, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v6
+
+    const/16 v7, 0x2a
+
+    invoke-direct {v3, v5, v6, v7}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;II)V
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->A()I
+
+    move-result v5
+
+    invoke-static/range {v0 .. v5}, Lcom/yelp/android/ui/activities/photoviewer/ActivityBusinessMediaViewer;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/util/List;Lcom/yelp/android/appdata/webrequests/MediaRequest;II)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    .line 2793
     return-void
-
-    .line 1881
-    :cond_0
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(I)V
-
-    goto :goto_0
 .end method
 
 .method public c(Lcom/yelp/android/serializable/Tip;)V
     .locals 3
 
     .prologue
-    .line 2624
+    .line 3686
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
 
     move-result-object v1
 
@@ -8667,21 +11314,11 @@
 
     move-result-object v0
 
-    .line 2626
-    const-string/jumbo v1, "changed entry id"
-
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Tip;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 2627
-    const/16 v1, 0x421
+    const/16 v1, 0x42b
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 2628
+    .line 3690
     return-void
 .end method
 
@@ -8689,225 +11326,58 @@
     .locals 2
 
     .prologue
-    .line 1906
+    .line 2826
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/addphoto/PhotoTeaser;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
 
     move-result-object v0
 
-    const/16 v1, 0x40d
+    const/16 v1, 0x411
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 1908
-    return-void
-.end method
-
-.method public e()V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 1913
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 1914
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 1916
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->isBookmarked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 1918
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/eg;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aW:Lcom/yelp/android/av/i;
-
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/eg;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/av/i;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    .line 1919
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessRemoveBookmark:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
-
-    .line 1921
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Lcom/yelp/android/ui/activities/businesspage/bv;
-
-    if-eqz v0, :cond_0
-
-    .line 1922
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Lcom/yelp/android/ui/activities/businesspage/bv;
-
-    const/4 v1, 0x1
-
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/bv;->a(Z)V
-
-    .line 1935
-    :cond_0
-    :goto_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S()V
-
-    .line 1936
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    new-array v1, v3, [Ljava/lang/Void;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    .line 1955
-    :goto_1
-    return-void
-
-    .line 1927
-    :cond_1
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/d;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aS:Lcom/yelp/android/appdata/webrequests/m;
-
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/d;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/appdata/webrequests/m;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    .line 1928
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddBookmark:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
-
-    .line 1929
-    const-string/jumbo v0, "qqzv6y"
-
-    invoke-static {v0}, Lcom/adjust/sdk/e;->a(Ljava/lang/String;)V
-
-    .line 1931
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Lcom/yelp/android/ui/activities/businesspage/bv;
-
-    if-eqz v0, :cond_0
-
-    .line 1932
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Lcom/yelp/android/ui/activities/businesspage/bv;
-
-    invoke-interface {v0, v3}, Lcom/yelp/android/ui/activities/businesspage/bv;->a(Z)V
-
-    goto :goto_0
-
-    .line 1939
-    :cond_2
-    const/16 v0, 0x12d
-
-    .line 1940
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->isBookmarked()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    .line 1941
-    const/16 v0, 0x12e
-
-    move v1, v0
-
-    .line 1943
-    :goto_2
+    .line 2831
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->finish()V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->showDialog(I)V
-
-    .line 1944
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
-
-    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/panels/businesspage/b;->setBookmarkChecked(Z)V
-
-    goto :goto_1
-
-    .line 1948
-    :cond_3
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->isBookmarked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const/16 v0, 0x3ec
-
-    :goto_3
-    const v1, 0x7f070354
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(II)V
-
-    .line 1953
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
-
-    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/panels/businesspage/b;->setBookmarkChecked(Z)V
-
-    goto :goto_1
-
-    .line 1948
-    :cond_4
-    const/16 v0, 0x3eb
-
-    goto :goto_3
-
-    :cond_5
-    move v1, v0
-
-    goto :goto_2
+    .line 2832
+    return-void
 .end method
 
 .method public f()V
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 1958
+    .line 2885
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusiness;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac:Ljava/lang/Boolean;
+
+    invoke-virtual {v2, v3}, Ljava/lang/Boolean;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusiness;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Z)Landroid/content/Intent;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 1959
+    .line 2888
     return-void
 .end method
 
@@ -8917,15 +11387,15 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 1962
+    .line 2891
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessRedeemDeal:Lcom/yelp/android/analytics/iris/EventIri;
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
 
-    .line 1963
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 2892
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getUserDeals()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aN()Ljava/util/List;
 
     move-result-object v0
 
@@ -8935,60 +11405,60 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpDeal;
 
-    .line 1965
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/appdata/webrequests/gn;
+    .line 2894
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Lcom/yelp/android/appdata/webrequests/fd;
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/appdata/webrequests/gn;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Lcom/yelp/android/appdata/webrequests/fd;
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/gn;->isFetching()Z
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/fd;->u()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 1966
+    .line 2895
     :cond_0
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/gn;
+    new-instance v1, Lcom/yelp/android/appdata/webrequests/fd;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/ca;
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDeal;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ca;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDeal;->x()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v1, v2, v0}, Lcom/yelp/android/appdata/webrequests/gn;-><init>(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;)V
+    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$f;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Ljava/lang/String;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/appdata/webrequests/gn;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 1968
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/appdata/webrequests/gn;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v2, v0}, Lcom/yelp/android/appdata/webrequests/fd;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Ljava/lang/String;)V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Lcom/yelp/android/appdata/webrequests/fd;
+
+    .line 2897
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Lcom/yelp/android/appdata/webrequests/fd;
 
     new-array v1, v3, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gn;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fd;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 1969
+    .line 2898
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/appdata/webrequests/gn;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->l:Lcom/yelp/android/appdata/webrequests/fd;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->showLoadingDialog(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 1971
+    .line 2900
     :cond_1
     return-void
 .end method
@@ -8997,73 +11467,69 @@
     .locals 2
 
     .prologue
-    .line 2365
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 3439
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 2368
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 3442
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 2369
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    .line 3443
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d()V
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/tips/WriteTip;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    const/16 v1, 0x41f
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
-
-    .line 2380
+    .line 3454
     :goto_0
     return-void
 
-    .line 2372
+    .line 3445
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
+    const v1, 0x7f0701ff
 
-    const/16 v1, 0x12f
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/ActivityConfirmAccount;->a(Landroid/content/Context;I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->showDialog(I)V
+    move-result-object v0
+
+    const/16 v1, 0x413
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 2377
+    .line 3452
     :cond_1
-    const/16 v0, 0x420
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    const v1, 0x7f070351
+    move-result-object v0
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(II)V
+    invoke-static {v0}, Lcom/yelp/android/ui/activities/reviews/ActivityContextualLogin;->b(Landroid/content/Context;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
 
     goto :goto_0
 .end method
 
-.method public h_()V
-    .locals 1
+.method public i()V
+    .locals 2
 
     .prologue
-    .line 2530
+    .line 3577
     sget-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->TIP_NOTIFICATION:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
 
     invoke-static {v0}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
@@ -9072,78 +11538,7 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;)V
 
-    .line 2531
-    return-void
-.end method
-
-.method public i()V
-    .locals 2
-
-    .prologue
-    .line 2406
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 2409
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 2410
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d()V
-
-    .line 2421
-    :goto_0
-    return-void
-
-    .line 2412
-    :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
-
-    const/16 v1, 0x12c
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->showDialog(I)V
-
-    goto :goto_0
-
-    .line 2417
-    :cond_1
-    const/16 v0, 0x40e
-
-    const v1, 0x7f070352
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(II)V
-
-    goto :goto_0
-.end method
-
-.method public k()V
-    .locals 2
-
-    .prologue
-    .line 2534
-    sget-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->VIDEO_UPLOAD_NOTIFICATION:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
-
-    invoke-static {v0}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;)V
-
-    .line 2537
+    .line 3580
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -9152,94 +11547,136 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b(Z)V
 
-    .line 2538
+    .line 3581
     return-void
 .end method
 
-.method public l()V
+.method public j()V
+    .locals 3
+
+    .prologue
+    .line 3592
+    sget-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;->ACCOUNT_UNCONFIRMED:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$MessageAlertBoxNotification;
+
+    invoke-static {v0}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;)Ljava/util/EnumSet;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/util/EnumSet;)V
+
+    .line 3596
+    sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ConfirmEmailBanner:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "source"
+
+    const-string/jumbo v2, "biz_page"
+
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 3597
+    return-void
+.end method
+
+.method public k()V
     .locals 2
 
     .prologue
-    .line 3196
+    .line 4454
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
 
-    invoke-static {v0}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;)Landroid/view/View;
+    invoke-static {v0}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;)Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 3197
+    .line 4455
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
 
-    invoke-static {v0}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;)Landroid/view/View;
+    invoke-static {v0}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;)Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
 
-    .line 3198
+    .line 4456
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;Landroid/view/View;)Landroid/view/MenuItem;
+    invoke-static {v0, v1}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;Landroid/view/View;)Landroid/view/MenuItem;
 
-    .line 3199
+    .line 4457
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 3201
+    .line 4459
     :cond_0
     return-void
 .end method
 
 .method public onActivityCreated(Landroid/os/Bundle;)V
-    .locals 14
+    .locals 13
 
     .prologue
-    const v13, 0x7f0702b3
+    const/4 v12, -0x2
 
-    const v12, 0x7f01015e
+    const v11, 0x7f0101cc
 
-    const/4 v11, 0x1
+    const v10, 0x7f0f001f
 
-    const v10, 0x7f0c001d
+    const/4 v9, 0x1
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    .line 478
+    .line 628
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 479
+    .line 629
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
 
-    .line 480
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 630
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 482
+    .line 633
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bg:Z
+
+    .line 635
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->g()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bh:Z
+
+    .line 637
     const-string/jumbo v1, "4kMBvIEWPxWkWKFN__8SxQ"
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v2
 
@@ -9249,21 +11686,21 @@
 
     if-eqz v1, :cond_1
 
-    .line 483
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a:Lcom/yelp/android/ui/widgets/b;
+    .line 638
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a:Lcom/yelp/android/ui/widgets/a;
 
     if-nez v1, :cond_0
 
-    .line 484
-    new-instance v1, Lcom/yelp/android/ui/widgets/b;
+    .line 639
+    new-instance v1, Lcom/yelp/android/ui/widgets/a;
 
-    invoke-direct {v1}, Lcom/yelp/android/ui/widgets/b;-><init>()V
+    invoke-direct {v1}, Lcom/yelp/android/ui/widgets/a;-><init>()V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a:Lcom/yelp/android/ui/widgets/b;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a:Lcom/yelp/android/ui/widgets/a;
 
-    .line 486
+    .line 641
     :cond_0
-    const v1, 0x7f0c00c2
+    const v1, 0x7f0f010e
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->findViewById(I)Landroid/view/View;
 
@@ -9271,283 +11708,345 @@
 
     check-cast v1, Landroid/widget/RelativeLayout;
 
-    .line 487
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a:Lcom/yelp/android/ui/widgets/b;
+    .line 642
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a:Lcom/yelp/android/ui/widgets/a;
 
-    invoke-virtual {v2, v0, v1}, Lcom/yelp/android/ui/widgets/b;->a(Landroid/app/Activity;Landroid/widget/RelativeLayout;)V
+    invoke-virtual {v2, v0, v1}, Lcom/yelp/android/ui/widgets/a;->a(Landroid/app/Activity;Landroid/widget/RelativeLayout;)V
 
-    .line 490
+    .line 645
     :cond_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-    move-result-object v2
+    move-result-object v3
 
-    .line 491
+    .line 646
     const/4 v1, 0x0
 
-    invoke-virtual {v2, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v3, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    .line 492
-    invoke-virtual {v2, v9}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setFooterDividersEnabled(Z)V
+    .line 647
+    invoke-virtual {v3, v8}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setFooterDividersEnabled(Z)V
 
-    .line 493
-    invoke-virtual {v2, v11}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setItemsCanFocus(Z)V
+    .line 648
+    invoke-virtual {v3, v9}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setItemsCanFocus(Z)V
 
-    .line 495
-    new-instance v1, Lcom/yelp/android/ui/util/bs;
+    .line 652
+    new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
-    invoke-direct {v1}, Lcom/yelp/android/ui/util/bs;-><init>()V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    move-result-object v2
 
-    .line 497
+    const v4, 0x106000d
+
+    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {v3, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setSelector(Landroid/graphics/drawable/Drawable;)V
+
+    .line 655
+    new-instance v1, Lcom/yelp/android/ui/util/aj;
+
+    invoke-direct {v1}, Lcom/yelp/android/ui/util/aj;-><init>()V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    .line 657
     new-instance v1, Lcom/yelp/android/ui/panels/businesspage/b;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v1, v3, p0, v2}, Lcom/yelp/android/ui/panels/businesspage/b;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/widgets/o;Lcom/yelp/android/ui/util/PullDownListView;)V
+    invoke-direct {v1, v2, p0, v3}, Lcom/yelp/android/ui/panels/businesspage/b;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/widgets/d$a;Lcom/yelp/android/ui/util/PullDownListView;)V
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    .line 498
+    .line 659
     iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    const-string/jumbo v3, "HEADER"
+    const-string/jumbo v2, "HEADER"
 
-    invoke-virtual {v2, v1, v3, v9}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
+    invoke-virtual {v3, v1, v2, v9}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 502
+    .line 661
     iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    const v3, 0x7f0c01e7
+    const v2, 0x7f0f0226
 
-    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v4
 
-    .line 503
-    new-instance v3, Lcom/yelp/android/ui/activities/businesspage/aa;
+    .line 662
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$1;
 
-    sget-object v4, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCheckIn:Lcom/yelp/android/analytics/iris/EventIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCheckIn:Lcom/yelp/android/analytics/iris/EventIri;
 
     const-string/jumbo v5, "button_bar"
 
-    invoke-direct {v3, p0, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/aa;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v2, v5}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$1;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v4, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 513
+    .line 672
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
-    const-string/jumbo v3, "extra.check_in"
+    const-string/jumbo v2, "extra.check_in"
 
-    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     if-eqz v1, :cond_2
 
-    .line 514
+    .line 673
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
 
-    const-string/jumbo v3, "extra.check_in"
+    const-string/jumbo v2, "extra.check_in"
 
-    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v1
 
     check-cast v1, Lcom/yelp/android/serializable/YelpCheckIn;
 
-    .line 516
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+    .line 674
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    invoke-virtual {v3, v11, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->a(ZLcom/yelp/android/serializable/YelpCheckIn;)V
+    invoke-virtual {v2, v9, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->a(ZLcom/yelp/android/serializable/YelpCheckIn;)V
 
-    .line 519
+    .line 677
     :cond_2
     iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    const v3, 0x7f0c01ea
+    const v2, 0x7f0f022a
 
-    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    .line 520
-    new-instance v3, Lcom/yelp/android/ui/activities/businesspage/al;
-
-    invoke-direct {v3, p0}, Lcom/yelp/android/ui/activities/businesspage/al;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
-
-    invoke-virtual {v1, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 529
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
-
-    const v3, 0x7f0c01e5
-
-    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d:Landroid/view/View;
+    check-cast v1, Lcom/yelp/android/ui/widgets/LeftDrawableButton;
 
-    .line 530
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d:Landroid/view/View;
+    .line 679
+    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$12;
 
-    new-instance v3, Lcom/yelp/android/ui/activities/businesspage/aw;
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$12;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    sget-object v4, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddPhoto:Lcom/yelp/android/analytics/iris/EventIri;
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const-string/jumbo v5, "button_bar"
+    .line 690
+    sget-object v2, Lcom/yelp/android/appdata/experiment/e;->o:Lcom/yelp/android/appdata/experiment/WriteReviewExperiment;
 
-    invoke-direct {v3, p0, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/aw;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    sget-object v5, Lcom/yelp/android/appdata/experiment/WriteReviewExperiment$Cohort;->status_quo:Lcom/yelp/android/appdata/experiment/WriteReviewExperiment$Cohort;
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v5}, Lcom/yelp/android/appdata/experiment/WriteReviewExperiment;->a(Ljava/lang/Enum;)Z
 
-    .line 537
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d:Landroid/view/View;
+    move-result v2
 
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->registerForContextMenu(Landroid/view/View;)V
+    if-nez v2, :cond_3
 
-    .line 539
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+    iget-boolean v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bg:Z
 
-    const v3, 0x7f0c01e9
+    if-nez v2, :cond_3
 
-    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
+    .line 692
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
-    move-result-object v1
+    const v5, 0x7f0f022b
 
-    .line 540
-    new-instance v3, Lcom/yelp/android/ui/activities/businesspage/bh;
+    invoke-virtual {v2, v5}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
 
-    sget-object v4, Lcom/yelp/android/analytics/iris/EventIri;->BusinessToggleBookmark:Lcom/yelp/android/analytics/iris/EventIri;
+    move-result-object v2
 
-    const-string/jumbo v5, "button_bar"
+    .line 694
+    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$23;
 
-    invoke-direct {v3, p0, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/bh;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    invoke-direct {v5, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$23;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    invoke-virtual {v1, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 548
+    .line 704
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    const v5, 0x7f0f022c
+
+    invoke-virtual {v2, v5}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    .line 705
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$34;
+
+    invoke-direct {v5, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$34;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {v2, v5}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setOnStarsClicked(Ljava/lang/Runnable;)V
+
+    .line 716
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$45;
+
+    invoke-direct {v5, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$45;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+
+    invoke-virtual {v2, v5}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setOnActionDown(Ljava/lang/Runnable;)V
+
+    .line 725
+    :cond_3
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    const v5, 0x7f0f0224
+
+    invoke-virtual {v2, v5}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d:Landroid/view/View;
+
+    .line 726
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d:Landroid/view/View;
+
+    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$56;
+
+    sget-object v6, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddPhoto:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v7, "button_bar"
+
+    invoke-direct {v5, p0, v6, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$56;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    invoke-virtual {v2, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 733
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d:Landroid/view/View;
+
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->registerForContextMenu(Landroid/view/View;)V
+
+    .line 735
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    const v5, 0x7f0f0228
+
+    invoke-virtual {v2, v5}, Lcom/yelp/android/ui/panels/businesspage/b;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    .line 736
+    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$60;
+
+    sget-object v6, Lcom/yelp/android/analytics/iris/EventIri;->BusinessToggleBookmark:Lcom/yelp/android/analytics/iris/EventIri;
+
+    const-string/jumbo v7, "button_bar"
+
+    invoke-direct {v5, p0, v6, v7}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$60;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+
+    invoke-virtual {v2, v5}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 744
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v2
 
-    const v3, 0x7f0b0067
+    const v5, 0x7f0a00a6
 
-    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v3
+    move-result v2
 
-    .line 549
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Lcom/yelp/android/serializable/BusinessSearchResult;
+    .line 745
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    if-eqz v1, :cond_5
+    if-eqz v5, :cond_5
 
-    .line 551
-    new-instance v4, Ljava/util/ArrayList;
+    .line 746
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u()V
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    .line 552
-    new-instance v5, Ljava/util/HashSet;
-
-    invoke-direct {v5}, Ljava/util/HashSet;-><init>()V
-
-    .line 553
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Lcom/yelp/android/serializable/BusinessSearchResult;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessSearchResult;->getSearchActions()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    .line 554
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :cond_3
+    .line 754
     :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    move-result v1
+    const v6, 0x7f0f000d
 
-    if-eqz v1, :cond_4
+    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/serializable/SearchAction;
-
-    .line 555
-    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->getSearchActionType()Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+    invoke-static {v7}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v7
 
-    .line 556
-    invoke-interface {v5, v7}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v10, v2, v8}, Lcom/yelp/android/ui/util/aj$c;->a(III)Lcom/yelp/android/ui/util/aj$c;
 
-    move-result v8
+    move-result-object v7
 
-    if-nez v8, :cond_3
+    invoke-virtual {v7}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 557
-    invoke-interface {v1}, Lcom/yelp/android/serializable/SearchAction;->getBusinessListButton()Lcom/yelp/android/ui/activities/businesspage/o;
+    move-result-object v7
 
-    move-result-object v1
+    invoke-virtual {v5, v6, v7}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    invoke-interface {v4, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .line 760
+    iget-boolean v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bg:Z
 
-    .line 558
-    invoke-interface {v5, v7}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    if-eqz v5, :cond_4
 
-    goto :goto_0
+    .line 761
+    invoke-virtual {v1, v8}, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->setEnabled(Z)V
 
-    .line 561
+    .line 762
+    invoke-virtual {v4, v8}, Landroid/view/View;->setEnabled(Z)V
+
+    .line 763
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d:Landroid/view/View;
+
+    invoke-virtual {v1, v8}, Landroid/view/View;->setEnabled(Z)V
+
+    .line 766
     :cond_4
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/p;
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter;
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-direct {v1, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/p;-><init>(Ljava/util/Collection;Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-direct {v1, v4}, Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter;-><init>(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/businesspage/p;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g:Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter;
 
-    .line 563
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 767
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    const v4, 0x7f0c000c
+    const v4, 0x7f0f0016
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e:Lcom/yelp/android/ui/activities/businesspage/p;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g:Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter;
 
-    invoke-static {v5}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v10, v3, v9}, Lcom/yelp/android/ui/util/bw;->a(III)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v5}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v5, v10, v2, v8}, Lcom/yelp/android/ui/util/aj$c;->a(III)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v5
 
-    invoke-virtual {v1, v4, v5}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v5}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 569
-    :cond_5
+    move-result-object v5
+
+    invoke-virtual {v1, v4, v5}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 773
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Landroid/os/Bundle;)V
 
-    .line 571
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/cd;
+    .line 775
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/e;
 
     const-class v4, Lcom/yelp/android/ui/activities/businesspage/BusinessRedeemButton;
 
@@ -9555,31 +12054,31 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-direct {v1, v4, v0, v5}, Lcom/yelp/android/ui/activities/businesspage/cd;-><init>(Ljava/util/Collection;Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-direct {v1, v4, v0, v5}, Lcom/yelp/android/ui/activities/businesspage/e;-><init>(Ljava/util/Collection;Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g:Lcom/yelp/android/ui/activities/businesspage/cd;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i:Lcom/yelp/android/ui/activities/businesspage/e;
 
-    .line 574
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 778
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    const v4, 0x7f0c0009
+    const v4, 0x7f0f0009
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g:Lcom/yelp/android/ui/activities/businesspage/cd;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i:Lcom/yelp/android/ui/activities/businesspage/e;
 
-    invoke-static {v5}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-static {v5}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v5
 
-    invoke-virtual {v1, v4, v5}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v5}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 578
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/p;
+    move-result-object v5
+
+    invoke-virtual {v1, v4, v5}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 782
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/c;
 
     const-class v4, Lcom/yelp/android/ui/activities/businesspage/BusinessDealsOffers;
 
@@ -9587,377 +12086,556 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-direct {v1, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/p;-><init>(Ljava/util/Collection;Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-direct {v1, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/c;-><init>(Ljava/util/Collection;Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h:Lcom/yelp/android/ui/activities/businesspage/p;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    .line 580
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 784
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    const v4, 0x7f0c000a
+    const v4, 0x7f0f000a
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h:Lcom/yelp/android/ui/activities/businesspage/p;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    invoke-static {v5}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v10, v3, v9}, Lcom/yelp/android/ui/util/bw;->a(III)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v5}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v5, v10, v2, v8}, Lcom/yelp/android/ui/util/aj$c;->a(III)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v5
 
-    invoke-virtual {v1, v4, v5}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v5}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 585
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/p;
+    move-result-object v5
 
-    const-class v4, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+    invoke-virtual {v1, v4, v5}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    invoke-static {v4}, Ljava/util/EnumSet;->allOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+    .line 790
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/c;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->DIRECTIONS:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    const/4 v5, 0x5
+
+    new-array v5, v5, [Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    sget-object v6, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->CALL:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    aput-object v6, v5, v8
+
+    sget-object v6, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MENU:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    aput-object v6, v5, v9
+
+    const/4 v6, 0x2
+
+    sget-object v7, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MESSAGE_THE_BUSINESS:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    aput-object v7, v5, v6
+
+    const/4 v6, 0x3
+
+    sget-object v7, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MOVIES:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    aput-object v7, v5, v6
+
+    const/4 v6, 0x4
+
+    sget-object v7, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MORE_INFO:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    aput-object v7, v5, v6
+
+    invoke-static {v4, v5}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;[Ljava/lang/Enum;)Ljava/util/EnumSet;
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-direct {v1, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/p;-><init>(Ljava/util/Collection;Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-direct {v1, v4, v5}, Lcom/yelp/android/ui/activities/businesspage/c;-><init>(Ljava/util/Collection;Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i:Lcom/yelp/android/ui/activities/businesspage/p;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    .line 587
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 800
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    const v4, 0x7f0c0007
+    const v4, 0x7f0f0007
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i:Lcom/yelp/android/ui/activities/businesspage/p;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k:Lcom/yelp/android/ui/activities/businesspage/c;
 
-    invoke-static {v5}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v5}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v5
 
-    invoke-virtual {v5, v10, v3, v9}, Lcom/yelp/android/ui/util/bw;->a(III)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v5, v10, v2, v8}, Lcom/yelp/android/ui/util/aj$c;->a(III)Lcom/yelp/android/ui/util/aj$c;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v4, v3}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v1, v4, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    .line 592
-    new-instance v1, Lcom/yelp/android/ui/activities/reviewpage/ab;
+    .line 806
+    new-instance v1, Lcom/yelp/android/ui/util/e;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    new-array v2, v8, [Landroid/view/View;
 
-    invoke-direct {v1, v0, v3}, Lcom/yelp/android/ui/activities/reviewpage/ab;-><init>(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-direct {v1, v2}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->p:Lcom/yelp/android/ui/activities/reviewpage/ab;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Lcom/yelp/android/ui/util/e;
 
-    .line 593
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 807
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    const v3, 0x7f0c0006
+    const v2, 0x7f0f0377
 
-    const v4, 0x7f0706c7
+    const v4, 0x7f0704fa
 
     invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->p:Lcom/yelp/android/ui/activities/reviewpage/ab;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Lcom/yelp/android/ui/util/e;
 
-    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v12}, Lcom/yelp/android/ui/util/bw;->a(I)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v4
 
-    invoke-virtual {v4, v10}, Lcom/yelp/android/ui/util/bw;->b(I)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v4, v11}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v4}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v4
 
-    invoke-virtual {v1, v3, v4}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v1, v2, v4}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    .line 600
+    .line 814
+    new-instance v1, Lcom/yelp/android/ui/activities/reviewpage/b;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v4
+
+    invoke-direct {v1, v2, v4}, Lcom/yelp/android/ui/activities/reviewpage/b;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Landroid/content/Context;)V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->r:Lcom/yelp/android/ui/activities/reviewpage/b;
+
+    .line 815
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v2, 0x7f0f0006
+
+    const v4, 0x7f070696
+
+    invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->r:Lcom/yelp/android/ui/activities/reviewpage/b;
+
+    invoke-static {v4, v5}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v11}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v10}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v2, v4}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 823
     new-instance v1, Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {v1, v0, v3}, Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {v1, v0, v2}, Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
 
-    .line 601
-    new-instance v1, Lcom/yelp/android/ui/util/h;
+    .line 824
+    new-instance v1, Lcom/yelp/android/ui/util/e;
 
-    new-array v3, v11, [Landroid/view/View;
+    new-array v2, v9, [Landroid/view/View;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->t:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/activities/businesspage/FromThisBusinessPanel;
 
-    aput-object v4, v3, v9
+    aput-object v4, v2, v8
 
-    invoke-direct {v1, v3}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-direct {v1, v2}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Lcom/yelp/android/ui/util/h;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/util/e;
 
-    .line 603
-    invoke-virtual {p0, v13}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    .line 826
+    const v1, 0x7f070300
 
-    move-result-object v1
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u:Lcom/yelp/android/ui/util/h;
-
-    invoke-static {v1, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1, v12}, Lcom/yelp/android/ui/util/bw;->a(I)Lcom/yelp/android/ui/util/bw;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v1
 
-    .line 609
-    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/util/bw;)V
-
-    .line 610
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v1, v11}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v1
 
-    invoke-virtual {v3, v13, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    .line 832
+    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/util/aj$c;)V
 
-    .line 613
+    .line 833
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v4, 0x7f070300
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v4, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 836
     new-instance v1, Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Lcom/yelp/android/av/a;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-    invoke-direct {v1, v0, v3, v2, v4}, Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/util/bs;Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/av/a;)V
+    invoke-direct {v1, v0, v2, v3, v4}, Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/util/aj;Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/appdata/webrequests/core/MetricsManager;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->w:Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/panels/businesspage/ConsumerAlertPanel;
 
-    .line 620
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 843
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bs;->a()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj;->a()V
 
-    .line 622
+    .line 845
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v3
+    move-result-object v0
 
-    .line 623
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    .line 851
+    new-instance v1, Landroid/widget/FrameLayout;
 
-    move-result-object v1
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    const v4, 0x7f030091
+    move-result-object v2
 
-    invoke-virtual {v1, v4, v2, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-direct {v1, v2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    move-result-object v1
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aR:Landroid/widget/FrameLayout;
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aB:Landroid/view/View;
+    .line 852
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aR:Landroid/widget/FrameLayout;
 
-    .line 625
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aB:Landroid/view/View;
+    new-instance v2, Landroid/widget/AbsListView$LayoutParams;
 
-    const v4, 0x7f0c0254
+    const/4 v4, -0x1
 
-    invoke-virtual {v1, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-direct {v2, v4, v12}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    move-result-object v1
+    invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    check-cast v1, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    .line 855
+    new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    const/4 v2, -0x1
 
-    .line 627
-    new-instance v1, Lcom/google/android/gms/ads/AdSize;
+    invoke-direct {v1, v2, v12}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    const v4, 0x7f0d000c
+    .line 857
+    const v2, 0x7f0a00a6
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, v1, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
+
+    .line 858
+    new-instance v2, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v4
+
+    invoke-direct {v2, v4}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;-><init>(Landroid/content/Context;)V
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    .line 859
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    invoke-virtual {v2, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 860
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    invoke-virtual {v1, v8}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setFocusableInTouchMode(Z)V
+
+    .line 862
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aR:Landroid/widget/FrameLayout;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+
+    invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+
+    .line 864
+    new-instance v1, Lcom/google/android/gms/ads/d;
+
+    const v2, 0x7f0c0013
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v2
+
+    const v4, 0x7f0c0012
+
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v4
 
-    const v5, 0x7f0d000b
+    invoke-direct {v1, v2, v4}, Lcom/google/android/gms/ads/d;-><init>(II)V
 
-    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
+    .line 868
+    new-instance v2, Lcom/google/android/gms/ads/d;
 
-    move-result v5
+    const v4, 0x7f0c0014
 
-    invoke-direct {v1, v4, v5}, Lcom/google/android/gms/ads/AdSize;-><init>(II)V
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
-    .line 629
-    new-instance v4, Lcom/google/android/gms/ads/AdSize;
+    move-result v4
 
-    const v5, 0x7f0d000d
+    const v5, 0x7f0c0012
 
-    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result v5
+    move-result v0
 
-    const v6, 0x7f0d000b
+    invoke-direct {v2, v4, v0}, Lcom/google/android/gms/ads/d;-><init>(II)V
 
-    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getInteger(I)I
+    .line 872
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
 
-    move-result v3
+    const/4 v4, 0x2
 
-    invoke-direct {v4, v5, v3}, Lcom/google/android/gms/ads/AdSize;-><init>(II)V
+    new-array v4, v4, [Lcom/google/android/gms/ads/d;
 
-    .line 631
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    aput-object v1, v4, v8
 
-    const/4 v5, 0x2
+    aput-object v2, v4, v9
 
-    new-array v5, v5, [Lcom/google/android/gms/ads/AdSize;
+    invoke-virtual {v0, v4}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setAdSizes([Lcom/google/android/gms/ads/d;)V
 
-    aput-object v1, v5, v9
+    .line 874
+    const v0, 0x7f0706db
 
-    aput-object v4, v5, v11
+    new-array v1, v9, [Ljava/lang/Object;
 
-    invoke-virtual {v3, v5}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setAdSizes([Lcom/google/android/gms/ads/AdSize;)V
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    .line 633
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    move-result-object v2
 
-    invoke-virtual {v1, v9}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setFocusableInTouchMode(Z)V
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
 
-    .line 634
-    new-instance v1, Lcom/yelp/android/ui/util/h;
+    move-result-object v2
 
-    new-array v3, v9, [Landroid/view/View;
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/c;->ae()Ljava/lang/String;
 
-    invoke-direct {v1, v3}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    move-result-object v2
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/util/h;
+    aput-object v2, v1, v8
 
-    .line 635
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    const v3, 0x7f0c000b
+    move-result-object v0
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aC:Lcom/yelp/android/ui/util/h;
+    .line 878
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
 
-    invoke-static {v4}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setAdUnitId(Ljava/lang/String;)V
 
-    move-result-object v4
+    .line 880
+    new-instance v0, Lcom/yelp/android/ui/util/e;
 
-    invoke-virtual {v4}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    new-array v1, v8, [Landroid/view/View;
 
-    move-result-object v4
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    invoke-virtual {v1, v3, v4}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aS:Lcom/yelp/android/ui/util/e;
 
-    .line 638
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->J()V
+    .line 881
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    .line 639
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->I()V
+    const v1, 0x7f0f000b
 
-    .line 640
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M()V
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aS:Lcom/yelp/android/ui/util/e;
 
-    .line 641
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->K()V
+    invoke-static {v2}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
-    .line 642
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 884
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N()V
 
-    .line 644
-    new-instance v1, Lcom/yelp/android/ui/activities/reviewpage/ab;
+    .line 885
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->M()V
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 886
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R()V
 
-    invoke-direct {v1, v0, v3}, Lcom/yelp/android/ui/activities/reviewpage/ab;-><init>(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+    .line 887
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S()V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/ui/activities/reviewpage/ab;
+    .line 888
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P()V
 
-    .line 645
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    .line 889
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V()V
 
-    const v1, 0x7f0c0005
+    .line 890
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->O()V
 
-    const v3, 0x7f0706c7
+    .line 892
+    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/b;
 
-    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    move-result-object v3
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/ui/activities/reviewpage/ab;
+    move-result-object v2
 
-    invoke-static {v3, v4}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/activities/reviewpage/b;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Landroid/content/Context;)V
 
-    move-result-object v3
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->s:Lcom/yelp/android/ui/activities/reviewpage/b;
 
-    invoke-virtual {v3, v12}, Lcom/yelp/android/ui/util/bw;->a(I)Lcom/yelp/android/ui/util/bw;
+    .line 893
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
 
-    move-result-object v3
+    const v1, 0x7f0f0005
 
-    invoke-virtual {v3, v10}, Lcom/yelp/android/ui/util/bw;->b(I)Lcom/yelp/android/ui/util/bw;
+    const v2, 0x7f070696
 
-    move-result-object v3
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v3}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    move-result-object v2
 
-    move-result-object v3
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->s:Lcom/yelp/android/ui/activities/reviewpage/b;
 
-    invoke-virtual {v0, v1, v3}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-static {v2, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
-    .line 652
-    new-instance v0, Lcom/yelp/android/ui/util/h;
+    move-result-object v2
 
-    new-array v1, v9, [Landroid/view/View;
+    invoke-virtual {v2, v11}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    move-result-object v2
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/util/h;
+    invoke-virtual {v2, v10}, Lcom/yelp/android/ui/util/aj$c;->b(I)Lcom/yelp/android/ui/util/aj$c;
 
-    .line 653
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
+    move-result-object v2
 
-    const v1, 0x7f0c0012
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v:Lcom/yelp/android/ui/util/h;
+    move-result-object v2
 
-    invoke-virtual {v0, v1, v3}, Lcom/yelp/android/ui/util/bs;->a(ILandroid/widget/BaseAdapter;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    .line 656
+    .line 901
+    new-instance v0, Lcom/yelp/android/ui/util/e;
+
+    new-array v1, v8, [Landroid/view/View;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Lcom/yelp/android/ui/util/e;
+
+    .line 902
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f070344
+
+    const-string/jumbo v2, ""
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab:Lcom/yelp/android/ui/util/e;
+
+    invoke-static {v2, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v11}, Lcom/yelp/android/ui/util/aj$c;->a(I)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 908
+    new-instance v0, Lcom/yelp/android/ui/util/e;
+
+    new-array v1, v8, [Landroid/view/View;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Lcom/yelp/android/ui/util/e;
+
+    .line 909
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f0013
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x:Lcom/yelp/android/ui/util/e;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILandroid/widget/BaseAdapter;)V
+
+    .line 912
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA()V
+
+    .line 914
+    invoke-virtual {v3, p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+
+    .line 915
+    invoke-virtual {v3, p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
+
+    .line 916
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->A:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    .line 918
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap()V
 
-    .line 658
-    invoke-virtual {v2, p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    .line 919
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aq()V
 
-    .line 659
-    invoke-virtual {v2, p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
-
-    .line 660
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->y:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
-
-    .line 662
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af()V
-
-    .line 663
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag()V
-
-    .line 665
+    .line 921
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -9968,178 +12646,200 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/bq;
+    new-instance v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$61;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/bq;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$61;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/app/ActionBar;->a(Landroid/support/v7/app/a;)V
+    invoke-virtual {v0, v1}, Landroid/support/v7/app/ActionBar;->a(Landroid/support/v7/app/ActionBar$a;)V
 
-    .line 674
-    return-void
-.end method
-
-.method public onActivityResult(IILandroid/content/Intent;)V
-    .locals 3
-
-    .prologue
-    const/16 v2, 0x3ee
-
-    const/4 v1, -0x1
-
-    .line 787
-    invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onActivityResult(IILandroid/content/Intent;)V
-
-    .line 789
-    if-ne p2, v1, :cond_1
-
-    const/16 v0, 0x40e
-
-    if-ne p1, v0, :cond_1
-
-    .line 791
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 792
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d()V
-
-    .line 849
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 794
-    :cond_1
-    if-ne p2, v1, :cond_2
-
-    const/16 v0, 0x3eb
-
-    if-ne p1, v0, :cond_2
-
-    .line 796
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 797
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e()V
-
-    goto :goto_0
-
-    .line 799
-    :cond_2
-    if-ne p2, v1, :cond_3
-
-    const/16 v0, 0x3ec
-
-    if-ne p1, v0, :cond_3
-
-    .line 801
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 802
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e()V
-
-    goto :goto_0
-
-    .line 804
-    :cond_3
-    if-ne p2, v1, :cond_4
-
-    const/16 v0, 0x420
-
-    if-ne p1, v0, :cond_4
-
-    .line 806
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 807
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h()V
-
-    goto :goto_0
-
-    .line 809
-    :cond_4
-    if-ne p2, v1, :cond_5
-
-    const/16 v0, 0x3ef
-
-    if-ne p1, v0, :cond_5
-
-    .line 811
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 812
+    .line 933
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    const v4, 0x7f0f0029
+
+    invoke-virtual {v1, v4}, Landroid/support/v4/app/FragmentActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/ui/widgets/InAppNotificationView;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bx:Lcom/yelp/android/services/push/c$a;
+
+    invoke-virtual {v0, v2, v3, v1, v4}, Lcom/yelp/android/ui/activities/support/YelpActivity;->setupInAppNotification(Ljava/lang/Class;Landroid/content/Context;Lcom/yelp/android/ui/widgets/InAppNotificationView;Lcom/yelp/android/services/push/c$a;)V
+
+    .line 940
+    return-void
+
+    .line 748
+    :cond_5
+    new-instance v5, Lcom/yelp/android/ui/activities/businesspage/c;
+
+    sget-object v6, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MAKE_RESERVATION:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    sget-object v7, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->ORDER:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+    invoke-static {v6, v7}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;
+
+    move-result-object v6
+
+    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-direct {v5, v6, v7}, Lcom/yelp/android/ui/activities/businesspage/c;-><init>(Ljava/util/Collection;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    iput-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f:Lcom/yelp/android/ui/activities/businesspage/c;
+
+    goto/16 :goto_0
+.end method
+
+.method public onActivityResult(IILandroid/content/Intent;)V
+    .locals 7
+
+    .prologue
+    const/4 v1, 0x0
+
+    const/4 v0, -0x1
+
+    const/4 v6, 0x0
+
+    .line 1152
+    invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onActivityResult(IILandroid/content/Intent;)V
+
+    .line 1154
+    sparse-switch p1, :sswitch_data_0
+
+    .line 1296
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 1157
+    :sswitch_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1158
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->d()V
+
+    goto :goto_0
+
+    .line 1164
+    :sswitch_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1165
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x_()V
+
+    goto :goto_0
+
+    .line 1171
+    :sswitch_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1172
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x_()V
+
+    goto :goto_0
+
+    .line 1178
+    :sswitch_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1179
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 1184
+    :sswitch_4
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1185
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/ActivityCheckIn;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+    const/16 v1, 0x3f4
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto :goto_0
 
-    .line 816
-    :cond_5
-    if-ne p2, v1, :cond_6
+    .line 1192
+    :sswitch_5
+    if-ne p2, v0, :cond_0
 
-    const/16 v0, 0x3f5
-
-    if-ne p1, v0, :cond_6
-
-    .line 819
+    .line 1194
     invoke-static {p3}, Lcom/yelp/android/ui/activities/deals/ActivityDealRedemption;->a(Landroid/content/Intent;)Landroid/util/Pair;
 
     move-result-object v1
 
-    .line 820
+    .line 1196
     iget-object v0, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v0, Lcom/yelp/android/serializable/YelpDeal;
 
-    .line 821
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDeal;->countUsablePurchases()I
+    .line 1197
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDeal;->c()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 824
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1200
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getUserDeals()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aN()Ljava/util/List;
 
     move-result-object v0
 
@@ -10147,20 +12847,21 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    .line 825
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1201
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
     goto :goto_0
 
-    .line 827
-    :cond_6
-    if-ne p2, v1, :cond_7
+    .line 1207
+    :sswitch_6
+    if-ne p2, v0, :cond_2
 
-    if-ne p1, v2, :cond_7
+    .line 1208
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/lang/String;
 
-    .line 828
+    .line 1209
     sget-object v0, Lcom/yelp/android/appdata/BusinessContributionType;->CHECK_IN:Lcom/yelp/android/appdata/BusinessContributionType;
 
     invoke-virtual {v0, p3}, Lcom/yelp/android/appdata/BusinessContributionType;->getContribution(Landroid/content/Intent;)Landroid/os/Parcelable;
@@ -10169,28 +12870,79 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpCheckIn;
 
-    .line 829
+    .line 1210
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpCheckIn;->getNotificationsList(Landroid/content/Context;)Ljava/util/ArrayList;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpCheckIn;->a(Landroid/content/Context;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
-    .line 830
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->isOfferAwarded()Z
+    .line 1211
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aw:Z
+    if-eqz v1, :cond_1
 
-    .line 831
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u()V
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->o()Ljava/util/List;
 
-    .line 835
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->o()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 1214
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/yelp/android/services/ShareService$ShareObjectType;->CHECKIN:Lcom/yelp/android/services/ShareService$ShareObjectType;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->z()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->o()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-static {v2, v3, v4, v5, v6}, Lcom/yelp/android/services/ShareService;->a(Landroid/content/Context;Lcom/yelp/android/services/ShareService$ShareObjectType;Ljava/lang/String;Ljava/util/Collection;Z)Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    .line 1223
+    :cond_1
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->q()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aJ:Z
+
+    .line 1224
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v()V
+
+    .line 1228
     iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
     const/4 v2, 0x1
@@ -10199,14 +12951,19 @@
 
     goto/16 :goto_0
 
-    .line 836
-    :cond_7
-    const/16 v0, 0x3f0
+    .line 1230
+    :cond_2
+    invoke-static {p3}, Lcom/yelp/android/ui/activities/ActivityCheckIn;->a(Landroid/content/Intent;)Ljava/lang/String;
 
-    if-ne p1, v0, :cond_0
+    move-result-object v0
 
-    .line 839
-    if-eqz p3, :cond_8
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/lang/String;
+
+    goto/16 :goto_0
+
+    .line 1237
+    :sswitch_7
+    if-eqz p3, :cond_3
 
     const-string/jumbo v0, "offer"
 
@@ -10214,10 +12971,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_3
 
-    .line 840
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 1238
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
     const-string/jumbo v0, "offer"
 
@@ -10227,56 +12984,265 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Offer;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/YelpBusiness;->setCheckInOffer(Lcom/yelp/android/serializable/Offer;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/YelpBusiness;->a(Lcom/yelp/android/serializable/Offer;)V
 
-    .line 844
-    :cond_8
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    .line 1242
+    :cond_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_4
 
-    .line 845
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    .line 1243
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
-
-    .line 847
-    :cond_9
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u()V
+    .line 1245
+    :cond_4
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v()V
 
     goto/16 :goto_0
+
+    .line 1248
+    :sswitch_8
+    const/16 v0, 0x41c
+
+    if-ne p2, v0, :cond_0
+
+    .line 1249
+    invoke-static {p3}, Lcom/yelp/android/ui/activities/reviewpage/ActivityAbstractReviewPager;->a(Landroid/content/Intent;)Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    move-result-object v0
+
+    .line 1250
+    invoke-static {p3}, Lcom/yelp/android/ui/activities/reviewpage/ActivityAbstractReviewPager;->b(Landroid/content/Intent;)Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    move-result-object v1
+
+    .line 1252
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->c(Ljava/lang/Object;)V
+
+    .line 1253
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    .line 1255
+    if-eqz v1, :cond_5
+
+    .line 1256
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/reviewpage/e;->b(Lcom/yelp/android/serializable/YelpBusinessReview;)V
+
+    .line 1257
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
+
+    invoke-interface {v0, v6, v1}, Ljava/util/List;->add(ILjava/lang/Object;)V
+
+    .line 1258
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aY:Ljava/util/LinkedHashSet;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->o()Ljava/util/Locale;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
+
+    .line 1259
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_NOT_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/serializable/YelpBusiness;->a(Lcom/yelp/android/ui/activities/reviews/ReviewState;)V
+
+    .line 1260
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessReview;->C()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpBusiness;->a(I)V
+
+    .line 1266
+    :goto_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->P:Lcom/yelp/android/ui/activities/reviewpage/e;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/e;->notifyDataSetChanged()V
+
+    .line 1267
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->b(Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 1268
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at()V
+
+    .line 1269
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA()V
+
+    goto/16 :goto_0
+
+    .line 1262
+    :cond_5
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->u()V
+
+    .line 1263
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->NOT_STARTED:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpBusiness;->a(Lcom/yelp/android/ui/activities/reviews/ReviewState;)V
+
+    .line 1264
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v6}, Lcom/yelp/android/serializable/YelpBusiness;->a(I)V
+
+    goto :goto_1
+
+    .line 1273
+    :sswitch_9
+    if-eq p2, v0, :cond_0
+
+    if-eqz p3, :cond_0
+
+    const-string/jumbo v0, "extra.has_reached_menu"
+
+    invoke-virtual {p3, v0, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1279
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/aw;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->by:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/aw;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->be:Lcom/yelp/android/appdata/webrequests/aw;
+
+    .line 1282
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->be:Lcom/yelp/android/appdata/webrequests/aw;
+
+    new-array v1, v6, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/aw;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 1283
+    const v0, 0x7f07051d
+
+    invoke-static {v0}, Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;->a(I)Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    .line 1285
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "continue_last_order_info_fragment"
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 1291
+    :sswitch_a
+    if-ne p2, v0, :cond_0
+
+    .line 1292
+    invoke-virtual {p0, p3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/content/Intent;)V
+
+    goto/16 :goto_0
+
+    .line 1154
+    :sswitch_data_0
+    .sparse-switch
+        0x3ee -> :sswitch_1
+        0x3ef -> :sswitch_1
+        0x3f0 -> :sswitch_2
+        0x3f1 -> :sswitch_2
+        0x3f4 -> :sswitch_6
+        0x3f5 -> :sswitch_4
+        0x3f6 -> :sswitch_7
+        0x3f9 -> :sswitch_5
+        0x40a -> :sswitch_a
+        0x412 -> :sswitch_0
+        0x413 -> :sswitch_0
+        0x417 -> :sswitch_9
+        0x41d -> :sswitch_8
+        0x429 -> :sswitch_3
+        0x42a -> :sswitch_3
+    .end sparse-switch
 .end method
 
-.method public onAttach(Landroid/app/Activity;)V
+.method public onAttach(Landroid/content/Context;)V
     .locals 1
 
     .prologue
-    .line 471
-    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onAttach(Landroid/app/Activity;)V
+    .line 616
+    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onAttach(Landroid/content/Context;)V
 
-    move-object v0, p1
+    .line 617
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    .line 472
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/bv;
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Lcom/yelp/android/ui/activities/businesspage/bv;
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;
 
-    .line 473
-    check-cast p1, Lcom/yelp/android/ui/activities/businesspage/bw;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ba:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;
 
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/activities/businesspage/bw;
+    .line 618
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    .line 474
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$b;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bb:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$b;
+
+    .line 619
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bc:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$c;
+
+    .line 620
     return-void
 .end method
 
@@ -10286,31 +13252,31 @@
     .prologue
     const/4 v4, 0x1
 
-    .line 678
+    .line 944
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 679
+    .line 945
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/i;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/i;->H()V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->J()V
 
-    .line 680
+    .line 946
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    .line 681
+    .line 947
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v2
 
-    .line 682
+    .line 948
     const-string/jumbo v0, "extra.business"
 
     invoke-virtual {v2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -10319,77 +13285,77 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 684
+    .line 950
     const-string/jumbo v0, "top_highlighted_review_id"
 
     invoke-virtual {v2, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S:Ljava/lang/String;
 
-    .line 686
+    .line 952
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    .line 687
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    .line 953
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v3
 
-    iput-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->at:Lcom/yelp/android/av/a;
+    iput-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aF:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-    .line 688
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    .line 954
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Lcom/yelp/android/appdata/webrequests/dc;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
 
-    .line 689
-    new-instance v0, Lcom/yelp/android/ui/util/s;
+    .line 955
+    new-instance v0, Lcom/yelp/android/ui/util/k;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/util/s;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/util/k;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k:Lcom/yelp/android/ui/util/s;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m:Lcom/yelp/android/ui/util/k;
 
-    .line 691
+    .line 957
     new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     sget-object v3, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;->BIZ:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 
     invoke-direct {v0, v1, v3}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
-    .line 693
+    .line 959
     new-instance v0, Ljava/util/LinkedHashSet;
 
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/util/LinkedHashSet;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aY:Ljava/util/LinkedHashSet;
 
-    .line 694
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/util/LinkedHashSet;
+    .line 960
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aY:Ljava/util/LinkedHashSet;
 
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v3}, Ljava/util/LinkedHashSet;->add(Ljava/lang/Object;)Z
 
-    .line 696
+    .line 962
     const-string/jumbo v0, "search_request"
 
     invoke-virtual {v2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -10398,9 +13364,9 @@
 
     check-cast v0, Lcom/yelp/android/appdata/webrequests/SearchRequest;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aJ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aZ:Lcom/yelp/android/appdata/webrequests/SearchRequest;
 
-    .line 697
+    .line 963
     const-string/jumbo v0, "business_search_result"
 
     invoke-virtual {v2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -10409,21 +13375,38 @@
 
     check-cast v0, Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ar:Lcom/yelp/android/serializable/BusinessSearchResult;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aD:Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    .line 700
-    if-eqz p1, :cond_1
+    .line 965
+    new-instance v0, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;
 
-    .line 701
+    invoke-direct {v0, v1}, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;-><init>(Landroid/content/Context;)V
+
+    sget-object v1, Lcom/yelp/android/bh/b;->b:Lcom/google/android/gms/common/api/Api;
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;->addApi(Lcom/google/android/gms/common/api/Api;)Lcom/google/android/gms/common/api/GoogleApiClient$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;->build()Lcom/google/android/gms/common/api/GoogleApiClient;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bd:Lcom/google/android/gms/common/api/GoogleApiClient;
+
+    .line 968
+    if-eqz p1, :cond_2
+
+    .line 969
     const-string/jumbo v0, "mCheckInNotifications"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
-    .line 703
+    .line 971
     const-string/jumbo v0, "deal dialog"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
@@ -10432,8 +13415,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 704
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k:Lcom/yelp/android/ui/util/s;
+    .line 972
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m:Lcom/yelp/android/ui/util/k;
 
     const-string/jumbo v0, "deal dialog"
 
@@ -10443,9 +13426,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpDeal;
 
-    invoke-virtual {v1, v0, v4}, Lcom/yelp/android/ui/util/s;->a(Lcom/yelp/android/serializable/YelpDeal;Z)V
+    invoke-virtual {v1, v0, v4}, Lcom/yelp/android/ui/util/k;->a(Lcom/yelp/android/serializable/YelpDeal;Z)V
 
-    .line 709
+    .line 976
     :cond_0
     const-string/jumbo v0, "extra.multiple"
 
@@ -10455,23 +13438,53 @@
 
     if-eqz v0, :cond_1
 
-    .line 710
+    .line 977
     const-string/jumbo v0, "extra.multiple"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
 
-    .line 715
+    .line 980
     :cond_1
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->u()V
+    const-string/jumbo v0, "comment_text"
 
-    .line 717
+    const-string/jumbo v1, ""
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/lang/String;
+
+    .line 981
+    const-string/jumbo v0, "has_tracked_offline_attribution"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Z
+
+    .line 983
+    const-string/jumbo v0, "show_message_other_biz"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj:Z
+
+    .line 986
+    :cond_2
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->v()V
+
+    .line 988
     invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->setHasOptionsMenu(Z)V
 
-    .line 718
+    .line 989
     return-void
 .end method
 
@@ -10479,12 +13492,12 @@
     .locals 1
 
     .prologue
-    .line 2425
-    const v0, 0x7f100003
+    .line 3458
+    const v0, 0x7f100005
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 2426
+    .line 3459
     return-void
 .end method
 
@@ -10492,62 +13505,77 @@
     .locals 2
 
     .prologue
-    .line 757
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    .line 1119
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->destroy()V
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->a()V
 
-    .line 758
+    .line 1120
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onDestroy()V
 
-    .line 759
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Lcom/yelp/android/ui/map/YelpMap;
+    .line 1121
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/ui/map/YelpMap;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/map/YelpMap;->d()V
 
-    .line 760
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    .line 1122
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setAdListener(Lcom/google/android/gms/ads/AdListener;)V
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->setAdListener(Lcom/google/android/gms/ads/a;)V
 
-    .line 762
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->o:Lcom/yelp/android/appdata/webrequests/cy;
+    .line 1124
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->q:Lcom/yelp/android/appdata/webrequests/cl;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 763
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->B:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .line 1125
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->D:Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 764
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->E:Lcom/yelp/android/appdata/webrequests/eu;
+    .line 1126
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->G:Lcom/yelp/android/appdata/webrequests/dw;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 765
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->L:Lcom/yelp/android/appdata/webrequests/cw;
+    .line 1127
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/appdata/webrequests/ck;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 766
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->S:Lcom/yelp/android/appdata/webrequests/ey;
+    .line 1128
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Lcom/yelp/android/appdata/webrequests/dy;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 767
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y:Lcom/yelp/android/appdata/webrequests/ab;
+    .line 1129
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Lcom/yelp/android/appdata/webrequests/ae;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 768
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ay:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    .line 1130
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 769
+    .line 1131
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad:Lcom/yelp/android/appdata/webrequests/z;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 1132
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af:Lcom/yelp/android/appdata/webrequests/dj;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 1133
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah:Lcom/yelp/android/appdata/webrequests/messaging/g;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 1134
     return-void
 .end method
 
@@ -10564,23 +13592,21 @@
     .end annotation
 
     .prologue
-    const/4 v8, 0x1
-
-    .line 3105
+    .line 4350
     invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 3107
+    .line 4352
     instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/BusinessDealsOffers;
 
     if-eqz v1, :cond_1
 
-    .line 3108
+    .line 4353
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessDealsOffers;
 
-    .line 3109
-    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/bp;->b:[I
+    .line 4354
+    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$59;->b:[I
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessDealsOffers;->ordinal()I
 
@@ -10590,18 +13616,18 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 3183
+    .line 4441
     :cond_0
     :goto_0
     return-void
 
-    .line 3111
+    .line 4356
     :pswitch_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad()V
 
     goto :goto_0
 
-    .line 3114
+    .line 4359
     :pswitch_1
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCheckInOffer:Lcom/yelp/android/analytics/iris/EventIri;
 
@@ -10609,30 +13635,30 @@
 
     invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 3115
+    .line 4360
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao()V
+
+    goto :goto_0
+
+    .line 4363
+    :pswitch_2
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae()V
 
     goto :goto_0
 
-    .line 3118
-    :pswitch_2
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->V()V
-
-    goto :goto_0
-
-    .line 3121
+    .line 4366
     :cond_1
-    instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+    instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter$ClaimButton;
 
     if-eqz v1, :cond_2
 
-    .line 3122
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+    .line 4367
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter$ClaimButton;
 
-    .line 3123
-    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/bp;->c:[I
+    .line 4368
+    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$59;->c:[I
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->ordinal()I
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/ClaimButtonAdapter$ClaimButton;->ordinal()I
 
     move-result v0
 
@@ -10642,79 +13668,33 @@
 
     goto :goto_0
 
-    .line 3125
+    .line 4370
     :pswitch_3
-    const-string/jumbo v0, "button"
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;)V
+    move-result-object v0
 
-    goto :goto_0
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 3128
-    :pswitch_4
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->X()V
+    sget-object v2, Lcom/yelp/android/util/BizClaimUtil$SourceButton;->BIZPAGE_TOP_TEASER:Lcom/yelp/android/util/BizClaimUtil$SourceButton;
 
-    goto :goto_0
-
-    .line 3131
-    :pswitch_5
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Y()V
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/util/BizClaimUtil;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/util/BizClaimUtil$SourceButton;)V
 
     goto :goto_0
 
-    .line 3134
-    :pswitch_6
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z()V
-
-    goto :goto_0
-
-    .line 3137
-    :pswitch_7
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa()V
-
-    goto :goto_0
-
-    .line 3140
-    :pswitch_8
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Z)V
-
-    goto :goto_0
-
-    .line 3143
-    :pswitch_9
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab()V
-
-    goto :goto_0
-
-    .line 3146
-    :pswitch_a
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac()V
-
-    goto :goto_0
-
-    .line 3149
+    .line 4373
     :cond_2
-    instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/cf;
+    instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
     if-eqz v1, :cond_3
 
-    .line 3150
-    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/cf;
+    .line 4374
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 3151
-    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/bp;->d:[I
+    .line 4375
+    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$59;->d:[I
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/cf;->a()Lcom/yelp/android/serializable/SearchAction;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/yelp/android/serializable/SearchAction;->getSearchActionType()Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->ordinal()I
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->ordinal()I
 
     move-result v0
 
@@ -10724,29 +13704,117 @@
 
     goto :goto_0
 
-    .line 3153
+    .line 4377
+    :pswitch_4
+    const-string/jumbo v0, "button"
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 4380
+    :pswitch_5
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ag()V
+
+    goto :goto_0
+
+    .line 4383
+    :pswitch_6
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ah()V
+
+    goto :goto_0
+
+    .line 4386
+    :pswitch_7
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai()V
+
+    goto :goto_0
+
+    .line 4389
+    :pswitch_8
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj()V
+
+    goto :goto_0
+
+    .line 4392
+    :pswitch_9
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ak()V
+
+    goto :goto_0
+
+    .line 4395
+    :pswitch_a
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->am()V
+
+    goto :goto_0
+
+    .line 4398
     :pswitch_b
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->an()V
 
     goto :goto_0
 
-    .line 3156
-    :pswitch_c
-    invoke-direct {p0, v8}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Z)V
-
-    goto :goto_0
-
-    .line 3159
+    .line 4401
     :cond_3
-    instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/BusinessRedeemButton;
+    instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/g;
 
     if-eqz v1, :cond_4
 
-    .line 3160
+    .line 4402
+    check-cast v0, Lcom/yelp/android/ui/activities/businesspage/g;
+
+    .line 4403
+    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$59;->e:[I
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/g;->a()Lcom/yelp/android/serializable/SearchAction;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Lcom/yelp/android/serializable/SearchAction;->a()Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;->ordinal()I
+
+    move-result v2
+
+    aget v1, v1, v2
+
+    packed-switch v1, :pswitch_data_3
+
+    goto/16 :goto_0
+
+    .line 4405
+    :pswitch_c
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj()V
+
+    goto/16 :goto_0
+
+    .line 4408
+    :pswitch_d
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/g;->a()Lcom/yelp/android/serializable/SearchAction;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/PlatformSearchAction;
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/serializable/PlatformSearchAction;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    .line 4411
+    :cond_4
+    instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/BusinessRedeemButton;
+
+    if-eqz v1, :cond_5
+
+    .line 4412
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessRedeemButton;
 
-    .line 3161
-    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/bp;->e:[I
+    .line 4413
+    sget-object v1, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$59;->f:[I
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessRedeemButton;->ordinal()I
 
@@ -10754,67 +13822,60 @@
 
     aget v0, v1, v0
 
-    packed-switch v0, :pswitch_data_3
+    packed-switch v0, :pswitch_data_4
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 3163
-    :pswitch_d
+    .line 4415
+    :pswitch_e
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g()V
 
     goto/16 :goto_0
 
-    .line 3166
-    :pswitch_e
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T()V
+    .line 4418
+    :pswitch_f
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ac()V
 
     goto/16 :goto_0
 
-    .line 3169
-    :cond_4
+    .line 4421
+    :cond_5
     instance-of v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;
 
-    if-eqz v1, :cond_5
-
-    .line 3170
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->N:Lcom/yelp/android/ui/activities/reviewpage/bi;
-
-    instance-of v1, v1, Lcom/yelp/android/ui/activities/reviewpage/bi;
-
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_6
 
     move-object v5, v0
 
-    .line 3171
+    .line 4422
     check-cast v5, Lcom/yelp/android/serializable/YelpBusinessReview;
 
-    .line 3172
+    .line 4423
     new-instance v4, Ljava/util/ArrayList;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->T:Ljava/util/List;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->U:Ljava/util/List;
 
     invoke-direct {v4, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 3174
+    .line 4424
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getCountry()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->aw()Ljava/lang/String;
 
     move-result-object v3
 
@@ -10822,33 +13883,37 @@
 
     move-result v5
 
-    iget-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ai:Ljava/util/Map;
+    iget-object v6, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->au:Ljava/util/Map;
 
-    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj:Ljava/util/ArrayList;
+    iget-object v7, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+
+    const/4 v8, 0x1
 
     invoke-static/range {v0 .. v8}, Lcom/yelp/android/ui/activities/reviewpage/ActivityReviewPager;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ILjava/util/Map;Ljava/util/ArrayList;Z)Landroid/content/Intent;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+    const/16 v1, 0x41d
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
     goto/16 :goto_0
 
-    .line 3178
-    :cond_5
+    .line 4436
+    :cond_6
     instance-of v1, v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
     if-eqz v1, :cond_0
 
-    .line 3180
+    .line 4438
     check-cast v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
-    .line 3181
+    .line 4439
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getUserId()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->i()Ljava/lang/String;
 
     move-result-object v0
 
@@ -10860,7 +13925,7 @@
 
     goto/16 :goto_0
 
-    .line 3109
+    .line 4354
     nop
 
     :pswitch_data_0
@@ -10870,10 +13935,15 @@
         :pswitch_2
     .end packed-switch
 
-    .line 3123
+    .line 4368
     :pswitch_data_1
     .packed-switch 0x1
         :pswitch_3
+    .end packed-switch
+
+    .line 4375
+    :pswitch_data_2
+    .packed-switch 0x1
         :pswitch_4
         :pswitch_5
         :pswitch_6
@@ -10881,20 +13951,21 @@
         :pswitch_8
         :pswitch_9
         :pswitch_a
-    .end packed-switch
-
-    .line 3151
-    :pswitch_data_2
-    .packed-switch 0x1
         :pswitch_b
-        :pswitch_c
     .end packed-switch
 
-    .line 3161
+    .line 4403
     :pswitch_data_3
     .packed-switch 0x1
+        :pswitch_c
         :pswitch_d
+    .end packed-switch
+
+    .line 4413
+    :pswitch_data_4
+    .packed-switch 0x1
         :pswitch_e
+        :pswitch_f
     .end packed-switch
 .end method
 
@@ -10911,43 +13982,43 @@
     .end annotation
 
     .prologue
-    .line 3091
+    .line 4336
     invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 3092
+    .line 4337
     instance-of v1, v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
     if-eqz v1, :cond_0
 
-    .line 3093
+    .line 4338
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 3094
+    .line 4339
     sget-object v1, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->CALL:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
     if-ne v0, v1, :cond_0
 
-    .line 3095
-    const v0, 0x7f07045a
+    .line 4340
+    const v0, 0x7f07047e
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getLocalizedPhone()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->as()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {p2, v0, v1}, Lcom/yelp/android/ui/util/k;->b(Landroid/view/View;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/h;->a(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 3097
+    .line 4342
     const/4 v0, 0x1
 
-    .line 3100
+    .line 4345
     :goto_0
     return v0
 
@@ -10961,15 +14032,15 @@
     .locals 1
 
     .prologue
-    .line 729
+    .line 1005
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onLowMemory()V
 
-    .line 730
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Lcom/yelp/android/ui/map/YelpMap;
+    .line 1006
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/ui/map/YelpMap;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/map/YelpMap;->e()V
 
-    .line 731
+    .line 1007
     return-void
 .end method
 
@@ -10979,38 +14050,33 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 2488
+    .line 3536
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 2525
+    .line 3572
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 2490
+    .line 3538
     :sswitch_0
-    const-string/jumbo v1, "menu"
-
-    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->g(Ljava/lang/String;)V
-
-    .line 2491
     sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->BizPageMenu:Lcom/yelp/android/ui/activities/reviews/ReviewSource;
 
     invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Lcom/yelp/android/ui/activities/reviews/ReviewSource;
 
     move-result-object v1
 
-    .line 2492
+    .line 3539
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)V
 
     goto :goto_0
 
-    .line 2495
+    .line 3542
     :sswitch_1
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddPhoto:Lcom/yelp/android/analytics/iris/EventIri;
 
@@ -11018,12 +14084,12 @@
 
     invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 2496
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->i()V
+    .line 3543
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h()V
 
     goto :goto_0
 
-    .line 2499
+    .line 3546
     :sswitch_2
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCheckIn:Lcom/yelp/android/analytics/iris/EventIri;
 
@@ -11031,25 +14097,25 @@
 
     invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 2500
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ae()V
+    .line 3547
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ao()V
 
     goto :goto_0
 
-    .line 2503
+    .line 3550
     :sswitch_3
-    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddTip:Lcom/yelp/android/analytics/iris/EventIri;
+    const-string/jumbo v1, "menu"
 
-    const-string/jumbo v2, "menu"
+    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->k(Ljava/lang/String;)V
 
-    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
+    .line 3551
+    const-string/jumbo v1, "menu"
 
-    .line 2504
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->h()V
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 2507
+    .line 3554
     :sswitch_4
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessToggleBookmark:Lcom/yelp/android/analytics/iris/EventIri;
 
@@ -11057,20 +14123,20 @@
 
     invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 2508
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->e()V
+    .line 3555
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->x_()V
 
     goto :goto_0
 
-    .line 2511
+    .line 3558
     :sswitch_5
     const-string/jumbo v1, "menu"
 
-    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;)V
+    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Ljava/lang/String;)V
 
     goto :goto_0
 
-    .line 2514
+    .line 3561
     :sswitch_6
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessEditClicked:Lcom/yelp/android/analytics/iris/EventIri;
 
@@ -11078,18 +14144,18 @@
 
     invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 2515
+    .line 3562
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->f()V
 
     goto :goto_0
 
-    .line 2518
+    .line 3565
     :sswitch_7
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->W()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->af()V
 
     goto :goto_0
 
-    .line 2521
+    .line 3568
     :sswitch_8
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessShare:Lcom/yelp/android/analytics/iris/EventIri;
 
@@ -11097,118 +14163,184 @@
 
     invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 2522
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ad()V
+    .line 3569
+    new-instance v1, Lcom/yelp/android/services/BusinessShareFormatter;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-direct {v1, v2}, Lcom/yelp/android/services/BusinessShareFormatter;-><init>(Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/services/ShareFormatter;)V
 
     goto :goto_0
 
-    .line 2488
+    .line 3536
     nop
 
     :sswitch_data_0
     .sparse-switch
-        0x7f0c01e9 -> :sswitch_4
-        0x7f0c04e9 -> :sswitch_0
-        0x7f0c04ea -> :sswitch_1
-        0x7f0c04eb -> :sswitch_2
-        0x7f0c04ec -> :sswitch_3
-        0x7f0c04ed -> :sswitch_5
-        0x7f0c04ee -> :sswitch_6
-        0x7f0c04ef -> :sswitch_7
-        0x7f0c04f0 -> :sswitch_8
+        0x7f0f0228 -> :sswitch_4
+        0x7f0f05f3 -> :sswitch_0
+        0x7f0f05f4 -> :sswitch_1
+        0x7f0f05f5 -> :sswitch_2
+        0x7f0f05f6 -> :sswitch_3
+        0x7f0f05f7 -> :sswitch_5
+        0x7f0f05f8 -> :sswitch_6
+        0x7f0f05f9 -> :sswitch_7
+        0x7f0f05fa -> :sswitch_8
     .end sparse-switch
 .end method
 
 .method public onPause()V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 722
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    .line 993
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->pause()V
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->b()V
 
-    .line 723
+    .line 994
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onPause()V
 
-    .line 724
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Lcom/yelp/android/ui/map/YelpMap;
+    .line 995
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/ui/map/YelpMap;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/map/YelpMap;->b()V
 
-    .line 725
+    .line 997
+    const-string/jumbo v0, "continue_last_order_info_request"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->be:Lcom/yelp/android/appdata/webrequests/aw;
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 998
+    const-string/jumbo v0, "continue_last_order_check_availability_request"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bf:Lcom/yelp/android/appdata/webrequests/av;
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 1001
     return-void
 .end method
 
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)V
-    .locals 9
+    .locals 10
 
     .prologue
-    const/4 v8, 0x1
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    .line 2430
+    .line 3463
     invoke-interface {p1}, Landroid/view/Menu;->size()I
 
-    move-result v2
+    move-result v4
 
-    move v0, v1
+    move v3, v2
 
     :goto_0
-    if-ge v0, v2, :cond_1
+    if-ge v3, v4, :cond_3
 
-    .line 2431
-    invoke-interface {p1, v0}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+    .line 3464
+    invoke-interface {p1, v3}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-interface {v3}, Landroid/view/MenuItem;->getItemId()I
+    invoke-interface {v0}, Landroid/view/MenuItem;->getItemId()I
 
-    move-result v3
+    move-result v0
 
-    sparse-switch v3, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_0
 
-    .line 2444
+    .line 3483
     :goto_1
-    sget-object v3, Lcom/yelp/android/appdata/Features;->video_capture:Lcom/yelp/android/appdata/Features;
+    sget-object v0, Lcom/yelp/android/appdata/Features;->video_capture:Lcom/yelp/android/appdata/Features;
 
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/Features;->isEnabled()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/Features;->isEnabled()Z
 
-    move-result v3
+    move-result v0
 
-    if-nez v3, :cond_0
+    if-nez v0, :cond_0
 
-    .line 2445
-    const v3, 0x7f0c04ea
+    .line 3484
+    const v0, 0x7f0f05f4
 
-    invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    move-result-object v3
+    move-result-object v0
 
-    const v4, 0x7f07009a
+    const v5, 0x7f070118
 
-    invoke-interface {v3, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
+    invoke-interface {v0, v5}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
-    .line 2430
+    .line 3463
     :cond_0
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v0, v3, 0x1
+
+    move v3, v0
 
     goto :goto_0
 
-    .line 2441
+    .line 3471
     :sswitch_0
-    invoke-interface {p1, v0}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+    invoke-interface {p1, v3}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-interface {v3, v8}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bg:Z
+
+    if-nez v0, :cond_1
+
+    move v0, v1
+
+    :goto_2
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     goto :goto_1
 
-    .line 2448
     :cond_1
-    const v0, 0x7f0c04e8
+    move v0, v2
+
+    goto :goto_2
+
+    .line 3474
+    :sswitch_1
+    invoke-interface {p1, v3}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+
+    move-result-object v5
+
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bh:Z
+
+    if-nez v0, :cond_2
+
+    move v0, v1
+
+    :goto_3
+    invoke-interface {v5, v0}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    goto :goto_1
+
+    :cond_2
+    move v0, v2
+
+    goto :goto_3
+
+    .line 3480
+    :sswitch_2
+    invoke-interface {p1, v3}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    goto :goto_1
+
+    .line 3487
+    :cond_3
+    const v0, 0x7f0f05f2
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -11216,59 +14348,118 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b:Landroid/view/MenuItem;
 
-    .line 2449
+    .line 3488
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
 
-    .line 2450
+    .line 3489
+    if-eqz v0, :cond_4
+
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->a()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_4
 
-    .line 2453
+    .line 3492
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
 
-    new-instance v2, Lcom/yelp/android/ui/activities/businesspage/az;
+    new-instance v3, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$35;
 
-    invoke-direct {v2, p0, p1}, Lcom/yelp/android/ui/activities/businesspage/az;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;Landroid/view/Menu;)V
+    invoke-direct {v3, p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$35;-><init>(Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;)V
 
     const-wide/16 v4, 0xc8
 
-    invoke-virtual {v0, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 2461
-    :cond_2
-    const v0, 0x7f0c04eb
+    .line 3503
+    :cond_4
+    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->f:Lcom/yelp/android/appdata/experiment/ShareToolbarExperiment;
+
+    sget-object v3, Lcom/yelp/android/appdata/experiment/ShareToolbarExperiment$Cohort;->share_toolbar_enabled:Lcom/yelp/android/appdata/experiment/ShareToolbarExperiment$Cohort;
+
+    invoke-virtual {v0, v3}, Lcom/yelp/android/appdata/experiment/ShareToolbarExperiment;->a(Ljava/lang/Enum;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    .line 3504
+    const v0, 0x7f0f05fa
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 2462
-    const v0, 0x7f0c01e9
+    invoke-static {v0, v1}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;I)V
+
+    .line 3527
+    :cond_5
+    :goto_4
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_6
+
+    .line 3529
+    const v0, 0x7f0f05f3
+
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->w()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->getTextResourceForState()I
+
+    move-result v1
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    .line 3532
+    :cond_6
+    return-void
+
+    .line 3507
+    :cond_7
+    const v0, 0x7f0f05f5
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    .line 2463
-    if-eqz v2, :cond_3
+    .line 3508
+    const v0, 0x7f0f0228
 
-    if-eqz v3, :cond_3
+    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
-    .line 2464
+    move-result-object v4
+
+    .line 3509
+    if-eqz v3, :cond_5
+
+    if-eqz v4, :cond_5
+
+    .line 3510
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->n()Lcom/yelp/android/appdata/LocationService;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->r()Lcom/yelp/android/appdata/LocationService;
 
     move-result-object v0
 
@@ -11276,109 +14467,79 @@
 
     move-result-object v0
 
-    .line 2466
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 3511
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v4, v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDistance(Landroid/location/Location;)D
+    invoke-virtual {v5, v0}, Lcom/yelp/android/serializable/YelpBusiness;->a(Landroid/location/Location;)D
 
-    move-result-wide v4
+    move-result-wide v6
 
-    .line 2467
-    const-wide/high16 v6, 0x3fe0000000000000L    # 0.5
+    .line 3512
+    const-wide/high16 v8, 0x3fe0000000000000L    # 0.5
 
-    cmpl-double v0, v6, v4
+    cmpl-double v0, v8, v6
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_8
 
-    .line 2468
-    invoke-static {v2, v8}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;I)V
+    .line 3513
+    invoke-static {v3, v1}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;I)V
 
-    .line 2469
-    invoke-static {v3, v1}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;I)V
+    .line 3514
+    invoke-static {v4, v2}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;I)V
 
-    .line 2482
-    :cond_3
-    :goto_2
-    const v0, 0x7f0c04e9
+    goto :goto_4
 
-    invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
+    .line 3516
+    :cond_8
+    invoke-static {v4, v1}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;I)V
 
-    move-result-object v0
+    .line 3517
+    const v0, 0x7f020040
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+    .line 3518
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
 
-    move-result-object v1
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->U()Z
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
+    move-result v1
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewState()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+    if-eqz v1, :cond_9
 
-    move-result-object v2
+    .line 3519
+    const v0, 0x7f02003f
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->getTextResourceForState()I
+    .line 3521
+    :cond_9
+    invoke-interface {v4, v0}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
-    move-result v2
+    .line 3522
+    invoke-static {v3, v2}, Landroid/support/v4/view/q;->a(Landroid/view/MenuItem;I)V
 
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentActivity;->getString(I)Ljava/lang/String;
+    goto :goto_4
 
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-
-    .line 2484
-    return-void
-
-    .line 2471
-    :cond_4
-    invoke-static {v3, v8}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;I)V
-
-    .line 2472
-    const v0, 0x7f020039
-
-    .line 2473
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->as:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->isBookmarked()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_5
-
-    .line 2474
-    const v0, 0x7f020038
-
-    .line 2476
-    :cond_5
-    invoke-interface {v3, v0}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
-
-    .line 2477
-    invoke-static {v2, v1}, Landroid/support/v4/view/as;->a(Landroid/view/MenuItem;I)V
-
-    goto :goto_2
-
-    .line 2431
+    .line 3464
     :sswitch_data_0
     .sparse-switch
-        0x7f0c01e9 -> :sswitch_0
-        0x7f0c04e9 -> :sswitch_0
-        0x7f0c04ea -> :sswitch_0
-        0x7f0c04eb -> :sswitch_0
-        0x7f0c04ec -> :sswitch_0
-        0x7f0c04ed -> :sswitch_0
-        0x7f0c04ee -> :sswitch_0
-        0x7f0c04ef -> :sswitch_0
-        0x7f0c04f0 -> :sswitch_0
+        0x7f0f0228 -> :sswitch_2
+        0x7f0f05f3 -> :sswitch_0
+        0x7f0f05f4 -> :sswitch_0
+        0x7f0f05f5 -> :sswitch_0
+        0x7f0f05f6 -> :sswitch_0
+        0x7f0f05f7 -> :sswitch_2
+        0x7f0f05f8 -> :sswitch_1
+        0x7f0f05f9 -> :sswitch_2
+        0x7f0f05fa -> :sswitch_2
     .end sparse-switch
 .end method
 
 .method public onResume()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 735
+    .line 1011
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onResume()V
 
-    .line 736
+    .line 1012
     iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
@@ -11387,83 +14548,596 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->b(Lcom/yelp/android/ui/util/PullDownListView;)V
 
-    .line 737
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Lcom/yelp/android/ui/map/YelpMap;
+    .line 1013
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/ui/map/YelpMap;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/map/YelpMap;->c()V
 
-    .line 738
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aA:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
+    .line 1014
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aQ:Lcom/google/android/gms/ads/doubleclick/PublisherAdView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->resume()V
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdView;->c()V
 
-    .line 742
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->R()V
+    .line 1018
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa()V
 
-    .line 744
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ap:Z
+    .line 1020
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aB:Z
+
+    if-eqz v0, :cond_4
+
+    .line 1021
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->b(Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 1028
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesspage/b;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 1030
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bb:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$b;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$b;->b()V
+
+    .line 1032
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
 
     if-nez v0, :cond_0
 
-    .line 745
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Q()V
+    .line 1033
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    .line 748
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "continue_last_order_info_fragment"
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aM:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    .line 1039
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aL:Lcom/yelp/android/ui/activities/businesspage/bw;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aN:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/businesspage/bw;->c()V
+    if-nez v0, :cond_1
 
-    .line 749
+    .line 1040
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "continue_last_order_check_availability_fragment"
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aN:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
+
+    .line 1047
+    :cond_1
+    const-string/jumbo v0, "continue_last_order_info_request"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->be:Lcom/yelp/android/appdata/webrequests/aw;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->by:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/aw;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->be:Lcom/yelp/android/appdata/webrequests/aw;
+
+    .line 1052
+    const-string/jumbo v0, "continue_last_order_check_availability_request"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bf:Lcom/yelp/android/appdata/webrequests/av;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bz:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/av;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bf:Lcom/yelp/android/appdata/webrequests/av;
+
+    .line 1059
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->t:Lcom/yelp/android/appdata/experiment/TwoBucketExperiment;
+
+    sget-object v1, Lcom/yelp/android/appdata/experiment/TwoBucketExperiment$Cohort;->enabled:Lcom/yelp/android/appdata/experiment/TwoBucketExperiment$Cohort;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/experiment/TwoBucketExperiment;->a(Ljava/lang/Enum;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 1062
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->j()V
+
+    .line 1066
+    :cond_2
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "message_the_business_notification"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Intent;
+
+    .line 1068
+    if-eqz v0, :cond_3
+
+    .line 1069
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->b(Landroid/content/Intent;)V
+
+    .line 1071
+    :cond_3
     return-void
+
+    .line 1023
+    :cond_4
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z()V
+
+    goto/16 :goto_0
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
 
     .prologue
-    .line 773
+    .line 1138
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 774
+    .line 1139
     const-string/jumbo v0, "mCheckInNotifications"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->av:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aH:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 775
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->az:Lcom/yelp/android/ui/map/YelpMap;
+    .line 1140
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aP:Lcom/yelp/android/ui/map/YelpMap;
 
     invoke-virtual {v0, p1}, Lcom/yelp/android/ui/map/YelpMap;->a(Landroid/os/Bundle;)V
 
-    .line 777
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
+    .line 1142
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 778
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->Z:Ljava/util/List;
+    .line 1143
+    const-string/jumbo v0, "extra.multiple"
 
-    check-cast v0, Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aa:Ljava/util/ArrayList;
 
-    .line 779
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    .line 1145
+    :cond_0
+    const-string/jumbo v0, "comment_text"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aI:Ljava/lang/String;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1146
+    const-string/jumbo v0, "has_tracked_offline_attribution"
+
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Z
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 1147
+    const-string/jumbo v0, "show_message_other_biz"
+
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aj:Z
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 1148
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 7
+
+    .prologue
+    .line 1075
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onStart()V
+
+    .line 1077
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->T()Z
+
+    move-result v0
+
     if-eqz v0, :cond_0
 
-    .line 780
-    const-string/jumbo v1, "extra.multiple"
+    .line 1078
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessMessageTheBusinessShown:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    .line 783
+    .line 1081
     :cond_0
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Z
+
+    if-nez v0, :cond_1
+
+    .line 1082
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest$OfflineAttributionEventType;->PAGE_VIEW:Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest$OfflineAttributionEventType;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest;->a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/appdata/webrequests/TrackOfflineAttributionRequest$OfflineAttributionEventType;)Z
+
+    .line 1083
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aK:Z
+
+    .line 1086
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->bd()Lcom/yelp/android/serializable/AndroidAppAnnotation;
+
+    move-result-object v5
+
+    .line 1087
+    if-eqz v5, :cond_2
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/AndroidAppAnnotation;->a()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    .line 1099
+    :cond_2
+    :goto_0
     return-void
+
+    .line 1091
+    :cond_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bd:Lcom/google/android/gms/common/api/GoogleApiClient;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->connect()V
+
+    .line 1092
+    sget-object v0, Lcom/yelp/android/bh/b;->c:Lcom/yelp/android/bh/c;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bd:Lcom/google/android/gms/common/api/GoogleApiClient;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v2
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/AndroidAppAnnotation;->b()Landroid/net/Uri;
+
+    move-result-object v3
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/AndroidAppAnnotation;->g()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/AndroidAppAnnotation;->c()Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-interface/range {v0 .. v6}, Lcom/yelp/android/bh/c;->a(Lcom/google/android/gms/common/api/GoogleApiClient;Landroid/app/Activity;Landroid/net/Uri;Ljava/lang/String;Landroid/net/Uri;Ljava/util/List;)Lcom/google/android/gms/common/api/PendingResult;
+
+    goto :goto_0
+.end method
+
+.method public onStop()V
+    .locals 4
+
+    .prologue
+    .line 1102
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onStop()V
+
+    .line 1104
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->bd()Lcom/yelp/android/serializable/AndroidAppAnnotation;
+
+    move-result-object v0
+
+    .line 1105
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/AndroidAppAnnotation;->a()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 1111
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 1109
+    :cond_1
+    sget-object v1, Lcom/yelp/android/bh/b;->c:Lcom/yelp/android/bh/c;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bd:Lcom/google/android/gms/common/api/GoogleApiClient;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/AndroidAppAnnotation;->b()Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-interface {v1, v2, v3, v0}, Lcom/yelp/android/bh/c;->a(Lcom/google/android/gms/common/api/GoogleApiClient;Landroid/app/Activity;Landroid/net/Uri;)Lcom/google/android/gms/common/api/PendingResult;
+
+    .line 1110
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bd:Lcom/google/android/gms/common/api/GoogleApiClient;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->disconnect()V
+
+    goto :goto_0
+.end method
+
+.method public x_()V
+    .locals 4
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 2837
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    .line 2838
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aG:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 2840
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 2842
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/dk;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->bv:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/dk;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 2844
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessRemoveBookmark:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 2846
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ba:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;
+
+    if-eqz v0, :cond_0
+
+    .line 2847
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ba:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;
+
+    const/4 v1, 0x1
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;->a(Z)V
+
+    .line 2860
+    :cond_0
+    :goto_0
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ab()V
+
+    .line 2861
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    new-array v1, v3, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 2882
+    :goto_1
+    return-void
+
+    .line 2852
+    :cond_1
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/h;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->br:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/h;-><init>(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aO:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 2853
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessAddBookmark:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->a(Lcom/yelp/android/analytics/iris/EventIri;)V
+
+    .line 2854
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->l()Lcom/yelp/android/analytics/adjust/AdjustManager;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/analytics/adjust/AdjustManager$YelpAdjustEvent;->ADD_BOOKMARK:Lcom/yelp/android/analytics/adjust/AdjustManager$YelpAdjustEvent;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/analytics/adjust/AdjustManager;->a(Lcom/yelp/android/analytics/adjust/AdjustManager$YelpAdjustEvent;)V
+
+    .line 2856
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ba:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;
+
+    if-eqz v0, :cond_0
+
+    .line 2857
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->ba:Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;
+
+    invoke-interface {v0, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment$a;->a(Z)V
+
+    goto :goto_0
+
+    .line 2864
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->U()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 2865
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    const v1, 0x7f070203
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/ActivityConfirmAccount;->a(Landroid/content/Context;I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/16 v1, 0x3f1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    .line 2875
+    :goto_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->c:Lcom/yelp/android/ui/panels/businesspage/b;
+
+    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/panels/businesspage/b;->setBookmarkChecked(Z)V
+
+    goto :goto_1
+
+    .line 2870
+    :cond_3
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    const v1, 0x7f0701fd
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/ActivityConfirmAccount;->a(Landroid/content/Context;I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    const/16 v1, 0x3ef
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivityForResult(Landroid/content/Intent;I)V
+
+    goto :goto_2
+
+    .line 2879
+    :cond_4
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->aE:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aq()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/reviews/ActivityContextualLogin;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/BusinessPageFragment;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_1
 .end method

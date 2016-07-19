@@ -1,374 +1,1041 @@
 .class Landroid/support/v4/widget/o;
-.super Landroid/support/v4/view/a;
-.source "DrawerLayout.java"
+.super Landroid/graphics/drawable/Drawable;
+.source "MaterialProgressDrawable.java"
+
+# interfaces
+.implements Landroid/graphics/drawable/Animatable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/widget/o$a;
+    }
+.end annotation
+
+
+# static fields
+.field private static final b:Landroid/view/animation/Interpolator;
+
+.field private static final c:Landroid/view/animation/Interpolator;
 
 
 # instance fields
-.field final synthetic b:Landroid/support/v4/widget/DrawerLayout;
+.field a:Z
 
-.field private final c:Landroid/graphics/Rect;
+.field private final d:[I
+
+.field private final e:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/view/animation/Animation;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final f:Landroid/support/v4/widget/o$a;
+
+.field private g:F
+
+.field private h:Landroid/content/res/Resources;
+
+.field private i:Landroid/view/View;
+
+.field private j:Landroid/view/animation/Animation;
+
+.field private k:F
+
+.field private l:D
+
+.field private m:D
+
+.field private final n:Landroid/graphics/drawable/Drawable$Callback;
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v4/widget/DrawerLayout;)V
+.method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 1828
-    iput-object p1, p0, Landroid/support/v4/widget/o;->b:Landroid/support/v4/widget/DrawerLayout;
+    .line 53
+    new-instance v0, Landroid/view/animation/LinearInterpolator;
 
-    invoke-direct {p0}, Landroid/support/v4/view/a;-><init>()V
+    invoke-direct {v0}, Landroid/view/animation/LinearInterpolator;-><init>()V
 
-    .line 1829
-    new-instance v0, Landroid/graphics/Rect;
+    sput-object v0, Landroid/support/v4/widget/o;->b:Landroid/view/animation/Interpolator;
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    .line 54
+    new-instance v0, Lcom/yelp/android/i/a;
 
-    iput-object v0, p0, Landroid/support/v4/widget/o;->c:Landroid/graphics/Rect;
+    invoke-direct {v0}, Lcom/yelp/android/i/a;-><init>()V
+
+    sput-object v0, Landroid/support/v4/widget/o;->c:Landroid/view/animation/Interpolator;
 
     return-void
 .end method
 
-.method private a(Lcom/yelp/android/f/g;Landroid/view/ViewGroup;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 4
 
     .prologue
-    .line 1903
-    invoke-virtual {p2}, Landroid/view/ViewGroup;->getChildCount()I
+    const/4 v3, 0x1
 
-    move-result v1
+    .line 119
+    invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    .line 1904
-    const/4 v0, 0x0
+    .line 75
+    new-array v0, v3, [I
 
-    :goto_0
-    if-ge v0, v1, :cond_1
+    const/4 v1, 0x0
 
-    .line 1905
-    invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    const/high16 v2, -0x1000000
 
-    move-result-object v2
+    aput v2, v0, v1
 
-    .line 1906
-    invoke-static {v2}, Landroid/support/v4/widget/DrawerLayout;->l(Landroid/view/View;)Z
+    iput-object v0, p0, Landroid/support/v4/widget/o;->d:[I
 
-    move-result v3
+    .line 93
+    new-instance v0, Ljava/util/ArrayList;
 
-    if-eqz v3, :cond_0
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1907
-    invoke-virtual {p1, v2}, Lcom/yelp/android/f/g;->b(Landroid/view/View;)V
+    iput-object v0, p0, Landroid/support/v4/widget/o;->e:Ljava/util/ArrayList;
 
-    .line 1904
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
+    .line 450
+    new-instance v0, Landroid/support/v4/widget/o$3;
 
-    goto :goto_0
+    invoke-direct {v0, p0}, Landroid/support/v4/widget/o$3;-><init>(Landroid/support/v4/widget/o;)V
 
-    .line 1910
-    :cond_1
+    iput-object v0, p0, Landroid/support/v4/widget/o;->n:Landroid/graphics/drawable/Drawable$Callback;
+
+    .line 120
+    iput-object p2, p0, Landroid/support/v4/widget/o;->i:Landroid/view/View;
+
+    .line 121
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/support/v4/widget/o;->h:Landroid/content/res/Resources;
+
+    .line 123
+    new-instance v0, Landroid/support/v4/widget/o$a;
+
+    iget-object v1, p0, Landroid/support/v4/widget/o;->n:Landroid/graphics/drawable/Drawable$Callback;
+
+    invoke-direct {v0, v1}, Landroid/support/v4/widget/o$a;-><init>(Landroid/graphics/drawable/Drawable$Callback;)V
+
+    iput-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    .line 124
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    iget-object v1, p0, Landroid/support/v4/widget/o;->d:[I
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/o$a;->a([I)V
+
+    .line 126
+    invoke-virtual {p0, v3}, Landroid/support/v4/widget/o;->a(I)V
+
+    .line 127
+    invoke-direct {p0}, Landroid/support/v4/widget/o;->b()V
+
+    .line 128
     return-void
 .end method
 
-.method private a(Lcom/yelp/android/f/g;Lcom/yelp/android/f/g;)V
+.method private a(Landroid/support/v4/widget/o$a;)F
+    .locals 6
+
+    .prologue
+    .line 304
+    invoke-virtual {p1}, Landroid/support/v4/widget/o$a;->d()F
+
+    move-result v0
+
+    float-to-double v0, v0
+
+    const-wide v2, 0x401921fb54442d18L    # 6.283185307179586
+
+    invoke-virtual {p1}, Landroid/support/v4/widget/o$a;->j()D
+
+    move-result-wide v4
+
+    mul-double/2addr v2, v4
+
+    div-double/2addr v0, v2
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->toRadians(D)D
+
+    move-result-wide v0
+
+    double-to-float v0, v0
+
+    return v0
+.end method
+
+.method static synthetic a(Landroid/support/v4/widget/o;)F
     .locals 1
 
     .prologue
-    .line 1919
-    iget-object v0, p0, Landroid/support/v4/widget/o;->c:Landroid/graphics/Rect;
+    .line 52
+    iget v0, p0, Landroid/support/v4/widget/o;->k:F
 
-    .line 1921
-    invoke-virtual {p2, v0}, Lcom/yelp/android/f/g;->a(Landroid/graphics/Rect;)V
+    return v0
+.end method
 
-    .line 1922
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->b(Landroid/graphics/Rect;)V
+.method static synthetic a(Landroid/support/v4/widget/o;F)F
+    .locals 0
 
-    .line 1924
-    invoke-virtual {p2, v0}, Lcom/yelp/android/f/g;->c(Landroid/graphics/Rect;)V
+    .prologue
+    .line 52
+    iput p1, p0, Landroid/support/v4/widget/o;->k:F
 
-    .line 1925
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->d(Landroid/graphics/Rect;)V
+    return p1
+.end method
 
-    .line 1927
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->h()Z
+.method static synthetic a(Landroid/support/v4/widget/o;Landroid/support/v4/widget/o$a;)F
+    .locals 1
+
+    .prologue
+    .line 52
+    invoke-direct {p0, p1}, Landroid/support/v4/widget/o;->a(Landroid/support/v4/widget/o$a;)F
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->c(Z)V
+    return v0
+.end method
 
-    .line 1928
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->p()Ljava/lang/CharSequence;
+.method private a(FII)I
+    .locals 8
+
+    .prologue
+    .line 310
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->a(Ljava/lang/CharSequence;)V
-
-    .line 1929
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->q()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->b(Ljava/lang/CharSequence;)V
-
-    .line 1930
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->s()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->c(Ljava/lang/CharSequence;)V
-
-    .line 1932
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->m()Z
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->h(Z)V
+    .line 311
+    shr-int/lit8 v1, v0, 0x18
 
-    .line 1933
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->k()Z
+    and-int/lit16 v1, v1, 0xff
+
+    .line 312
+    shr-int/lit8 v2, v0, 0x10
+
+    and-int/lit16 v2, v2, 0xff
+
+    .line 313
+    shr-int/lit8 v3, v0, 0x8
+
+    and-int/lit16 v3, v3, 0xff
+
+    .line 314
+    and-int/lit16 v0, v0, 0xff
+
+    .line 316
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    .line 317
+    shr-int/lit8 v5, v4, 0x18
+
+    and-int/lit16 v5, v5, 0xff
+
+    .line 318
+    shr-int/lit8 v6, v4, 0x10
+
+    and-int/lit16 v6, v6, 0xff
+
+    .line 319
+    shr-int/lit8 v7, v4, 0x8
+
+    and-int/lit16 v7, v7, 0xff
+
+    .line 320
+    and-int/lit16 v4, v4, 0xff
+
+    .line 322
+    sub-int/2addr v5, v1
+
+    int-to-float v5, v5
+
+    mul-float/2addr v5, p1
+
+    float-to-int v5, v5
+
+    add-int/2addr v1, v5
+
+    shl-int/lit8 v1, v1, 0x18
+
+    sub-int v5, v6, v2
+
+    int-to-float v5, v5
+
+    mul-float/2addr v5, p1
+
+    float-to-int v5, v5
+
+    add-int/2addr v2, v5
+
+    shl-int/lit8 v2, v2, 0x10
+
+    or-int/2addr v1, v2
+
+    sub-int v2, v7, v3
+
+    int-to-float v2, v2
+
+    mul-float/2addr v2, p1
+
+    float-to-int v2, v2
+
+    add-int/2addr v2, v3
+
+    shl-int/lit8 v2, v2, 0x8
+
+    or-int/2addr v1, v2
+
+    sub-int v2, v4, v0
+
+    int-to-float v2, v2
+
+    mul-float/2addr v2, p1
+
+    float-to-int v2, v2
+
+    add-int/2addr v0, v2
+
+    or-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method static synthetic a()Landroid/view/animation/Interpolator;
+    .locals 1
+
+    .prologue
+    .line 52
+    sget-object v0, Landroid/support/v4/widget/o;->c:Landroid/view/animation/Interpolator;
+
+    return-object v0
+.end method
+
+.method private a(DDDDFF)V
+    .locals 5
+
+    .prologue
+    .line 132
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    .line 133
+    iget-object v1, p0, Landroid/support/v4/widget/o;->h:Landroid/content/res/Resources;
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v1
+
+    .line 134
+    iget v1, v1, Landroid/util/DisplayMetrics;->density:F
+
+    .line 136
+    float-to-double v2, v1
+
+    mul-double/2addr v2, p1
+
+    iput-wide v2, p0, Landroid/support/v4/widget/o;->l:D
+
+    .line 137
+    float-to-double v2, v1
+
+    mul-double/2addr v2, p3
+
+    iput-wide v2, p0, Landroid/support/v4/widget/o;->m:D
+
+    .line 138
+    double-to-float v2, p7
+
+    mul-float/2addr v2, v1
+
+    invoke-virtual {v0, v2}, Landroid/support/v4/widget/o$a;->a(F)V
+
+    .line 139
+    float-to-double v2, v1
+
+    mul-double/2addr v2, p5
+
+    invoke-virtual {v0, v2, v3}, Landroid/support/v4/widget/o$a;->a(D)V
+
+    .line 140
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/support/v4/widget/o$a;->c(I)V
+
+    .line 141
+    mul-float v2, p9, v1
+
+    mul-float/2addr v1, p10
+
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/widget/o$a;->a(FF)V
+
+    .line 142
+    iget-wide v2, p0, Landroid/support/v4/widget/o;->l:D
+
+    double-to-int v1, v2
+
+    iget-wide v2, p0, Landroid/support/v4/widget/o;->m:D
+
+    double-to-int v2, v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/widget/o$a;->a(II)V
+
+    .line 143
+    return-void
+.end method
+
+.method private a(FLandroid/support/v4/widget/o$a;)V
+    .locals 3
+
+    .prologue
+    const/high16 v1, 0x3f400000    # 0.75f
+
+    .line 334
+    cmpl-float v0, p1, v1
+
+    if-lez v0, :cond_0
+
+    .line 338
+    sub-float v0, p1, v1
+
+    const/high16 v1, 0x3e800000    # 0.25f
+
+    div-float/2addr v0, v1
+
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->h()I
+
+    move-result v1
+
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->a()I
+
+    move-result v2
+
+    invoke-direct {p0, v0, v1, v2}, Landroid/support/v4/widget/o;->a(FII)I
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->f(Z)V
+    invoke-virtual {p2, v0}, Landroid/support/v4/widget/o$a;->b(I)V
 
-    .line 1934
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->f()Z
+    .line 342
+    :cond_0
+    return-void
+.end method
+
+.method static synthetic a(Landroid/support/v4/widget/o;FLandroid/support/v4/widget/o$a;)V
+    .locals 0
+
+    .prologue
+    .line 52
+    invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/o;->b(FLandroid/support/v4/widget/o$a;)V
+
+    return-void
+.end method
+
+.method private b()V
+    .locals 3
+
+    .prologue
+    .line 363
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    .line 364
+    new-instance v1, Landroid/support/v4/widget/o$1;
+
+    invoke-direct {v1, p0, v0}, Landroid/support/v4/widget/o$1;-><init>(Landroid/support/v4/widget/o;Landroid/support/v4/widget/o$a;)V
+
+    .line 416
+    const/4 v2, -0x1
+
+    invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setRepeatCount(I)V
+
+    .line 417
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setRepeatMode(I)V
+
+    .line 418
+    sget-object v2, Landroid/support/v4/widget/o;->b:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setInterpolator(Landroid/view/animation/Interpolator;)V
+
+    .line 419
+    new-instance v2, Landroid/support/v4/widget/o$2;
+
+    invoke-direct {v2, p0, v0}, Landroid/support/v4/widget/o$2;-><init>(Landroid/support/v4/widget/o;Landroid/support/v4/widget/o$a;)V
+
+    invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
+
+    .line 447
+    iput-object v1, p0, Landroid/support/v4/widget/o;->j:Landroid/view/animation/Animation;
+
+    .line 448
+    return-void
+.end method
+
+.method private b(FLandroid/support/v4/widget/o$a;)V
+    .locals 4
+
+    .prologue
+    .line 348
+    invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/o;->a(FLandroid/support/v4/widget/o$a;)V
+
+    .line 349
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->k()F
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->a(Z)V
+    const v1, 0x3f4ccccd    # 0.8f
 
-    .line 1935
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->g()Z
+    div-float/2addr v0, v1
 
-    move-result v0
+    float-to-double v0, v0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->b(Z)V
+    invoke-static {v0, v1}, Ljava/lang/Math;->floor(D)D
 
-    .line 1936
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->i()Z
+    move-result-wide v0
 
-    move-result v0
+    const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->d(Z)V
+    add-double/2addr v0, v2
 
-    .line 1937
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->j()Z
+    double-to-float v0, v0
 
-    move-result v0
+    .line 351
+    invoke-direct {p0, p2}, Landroid/support/v4/widget/o;->a(Landroid/support/v4/widget/o$a;)F
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->e(Z)V
+    move-result v1
 
-    .line 1938
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->l()Z
+    .line 352
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->f()F
 
-    move-result v0
+    move-result v2
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->g(Z)V
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->g()F
 
-    .line 1940
-    invoke-virtual {p2}, Lcom/yelp/android/f/g;->b()I
+    move-result v3
 
-    move-result v0
+    sub-float v1, v3, v1
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/f/g;->a(I)V
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->f()F
 
-    .line 1941
+    move-result v3
+
+    sub-float/2addr v1, v3
+
+    mul-float/2addr v1, p1
+
+    add-float/2addr v1, v2
+
+    .line 355
+    invoke-virtual {p2, v1}, Landroid/support/v4/widget/o$a;->b(F)V
+
+    .line 356
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->g()F
+
+    move-result v1
+
+    invoke-virtual {p2, v1}, Landroid/support/v4/widget/o$a;->c(F)V
+
+    .line 357
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->k()F
+
+    move-result v1
+
+    invoke-virtual {p2}, Landroid/support/v4/widget/o$a;->k()F
+
+    move-result v2
+
+    sub-float/2addr v0, v2
+
+    mul-float/2addr v0, p1
+
+    add-float/2addr v0, v1
+
+    .line 359
+    invoke-virtual {p2, v0}, Landroid/support/v4/widget/o$a;->d(F)V
+
+    .line 360
+    return-void
+.end method
+
+.method static synthetic b(Landroid/support/v4/widget/o;FLandroid/support/v4/widget/o$a;)V
+    .locals 0
+
+    .prologue
+    .line 52
+    invoke-direct {p0, p1, p2}, Landroid/support/v4/widget/o;->a(FLandroid/support/v4/widget/o$a;)V
+
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/view/View;Lcom/yelp/android/f/g;)V
-    .locals 4
+.method public a(F)V
+    .locals 1
 
     .prologue
-    const/4 v3, 0x0
+    .line 173
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
 
-    .line 1833
-    invoke-static {}, Landroid/support/v4/widget/DrawerLayout;->e()Z
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->e(F)V
 
-    move-result v0
+    .line 174
+    return-void
+.end method
 
-    if-eqz v0, :cond_0
+.method public a(FF)V
+    .locals 1
 
-    .line 1834
-    invoke-super {p0, p1, p2}, Landroid/support/v4/view/a;->a(Landroid/view/View;Lcom/yelp/android/f/g;)V
+    .prologue
+    .line 183
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
 
-    .line 1853
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->b(F)V
+
+    .line 184
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0, p2}, Landroid/support/v4/widget/o$a;->c(F)V
+
+    .line 185
+    return-void
+.end method
+
+.method public a(I)V
+    .locals 14
+
+    .prologue
+    const-wide/high16 v2, 0x404c000000000000L    # 56.0
+
+    const-wide/high16 v12, 0x4044000000000000L    # 40.0
+
+    .line 153
+    if-nez p1, :cond_0
+
+    .line 154
+    const-wide/high16 v6, 0x4029000000000000L    # 12.5
+
+    const-wide/high16 v8, 0x4008000000000000L    # 3.0
+
+    const/high16 v10, 0x41400000    # 12.0f
+
+    const/high16 v11, 0x40c00000    # 6.0f
+
+    move-object v1, p0
+
+    move-wide v4, v2
+
+    invoke-direct/range {v1 .. v11}, Landroid/support/v4/widget/o;->a(DDDDFF)V
+
+    .line 160
     :goto_0
-    const-class v0, Landroid/support/v4/widget/DrawerLayout;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Lcom/yelp/android/f/g;->b(Ljava/lang/CharSequence;)V
-
-    .line 1858
-    invoke-virtual {p2, v3}, Lcom/yelp/android/f/g;->a(Z)V
-
-    .line 1859
-    invoke-virtual {p2, v3}, Lcom/yelp/android/f/g;->b(Z)V
-
-    .line 1860
     return-void
 
-    .line 1838
+    .line 157
     :cond_0
-    invoke-static {p2}, Lcom/yelp/android/f/g;->a(Lcom/yelp/android/f/g;)Lcom/yelp/android/f/g;
+    const-wide v6, 0x4021800000000000L    # 8.75
 
-    move-result-object v1
+    const-wide/high16 v8, 0x4004000000000000L    # 2.5
 
-    .line 1840
-    invoke-super {p0, p1, v1}, Landroid/support/v4/view/a;->a(Landroid/view/View;Lcom/yelp/android/f/g;)V
+    const/high16 v10, 0x41200000    # 10.0f
 
-    .line 1842
-    invoke-virtual {p2, p1}, Lcom/yelp/android/f/g;->a(Landroid/view/View;)V
+    const/high16 v11, 0x40a00000    # 5.0f
 
-    .line 1843
-    invoke-static {p1}, Landroid/support/v4/view/ce;->i(Landroid/view/View;)Landroid/view/ViewParent;
+    move-object v1, p0
 
-    move-result-object v0
+    move-wide v2, v12
 
-    .line 1844
-    instance-of v2, v0, Landroid/view/View;
+    move-wide v4, v12
 
-    if-eqz v2, :cond_1
-
-    .line 1845
-    check-cast v0, Landroid/view/View;
-
-    invoke-virtual {p2, v0}, Lcom/yelp/android/f/g;->c(Landroid/view/View;)V
-
-    .line 1847
-    :cond_1
-    invoke-direct {p0, p2, v1}, Landroid/support/v4/widget/o;->a(Lcom/yelp/android/f/g;Lcom/yelp/android/f/g;)V
-
-    .line 1848
-    invoke-virtual {v1}, Lcom/yelp/android/f/g;->t()V
-
-    .line 1850
-    check-cast p1, Landroid/view/ViewGroup;
-
-    invoke-direct {p0, p2, p1}, Landroid/support/v4/widget/o;->a(Lcom/yelp/android/f/g;Landroid/view/ViewGroup;)V
+    invoke-direct/range {v1 .. v11}, Landroid/support/v4/widget/o;->a(DDDDFF)V
 
     goto :goto_0
 .end method
 
-.method public a(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+.method public a(Z)V
     .locals 1
 
     .prologue
-    .line 1896
-    invoke-static {}, Landroid/support/v4/widget/DrawerLayout;->e()Z
+    .line 166
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->a(Z)V
+
+    .line 167
+    return-void
+.end method
+
+.method public varargs a([I)V
+    .locals 2
+
+    .prologue
+    .line 211
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->a([I)V
+
+    .line 212
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/o$a;->c(I)V
+
+    .line 213
+    return-void
+.end method
+
+.method public b(F)V
+    .locals 1
+
+    .prologue
+    .line 193
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->d(F)V
+
+    .line 194
+    return-void
+.end method
+
+.method public b(I)V
+    .locals 1
+
+    .prologue
+    .line 200
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->a(I)V
+
+    .line 201
+    return-void
+.end method
+
+.method c(F)V
+    .locals 0
+
+    .prologue
+    .line 250
+    iput p1, p0, Landroid/support/v4/widget/o;->g:F
+
+    .line 251
+    invoke-virtual {p0}, Landroid/support/v4/widget/o;->invalidateSelf()V
+
+    .line 252
+    return-void
+.end method
+
+.method public draw(Landroid/graphics/Canvas;)V
+    .locals 5
+
+    .prologue
+    .line 227
+    invoke-virtual {p0}, Landroid/support/v4/widget/o;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    .line 228
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+
+    move-result v1
+
+    .line 229
+    iget v2, p0, Landroid/support/v4/widget/o;->g:F
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->exactCenterX()F
+
+    move-result v3
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->exactCenterY()F
+
+    move-result v4
+
+    invoke-virtual {p1, v2, v3, v4}, Landroid/graphics/Canvas;->rotate(FFF)V
+
+    .line 230
+    iget-object v2, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v2, p1, v0}, Landroid/support/v4/widget/o$a;->a(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
+
+    .line 231
+    invoke-virtual {p1, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
+
+    .line 232
+    return-void
+.end method
+
+.method public getAlpha()I
+    .locals 1
+
+    .prologue
+    .line 240
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0}, Landroid/support/v4/widget/o$a;->c()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getIntrinsicHeight()I
+    .locals 2
+
+    .prologue
+    .line 217
+    iget-wide v0, p0, Landroid/support/v4/widget/o;->m:D
+
+    double-to-int v0, v0
+
+    return v0
+.end method
+
+.method public getIntrinsicWidth()I
+    .locals 2
+
+    .prologue
+    .line 222
+    iget-wide v0, p0, Landroid/support/v4/widget/o;->l:D
+
+    double-to-int v0, v0
+
+    return v0
+.end method
+
+.method public getOpacity()I
+    .locals 1
+
+    .prologue
+    .line 261
+    const/4 v0, -0x3
+
+    return v0
+.end method
+
+.method public isRunning()Z
+    .locals 6
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 266
+    iget-object v3, p0, Landroid/support/v4/widget/o;->e:Ljava/util/ArrayList;
+
+    .line 267
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    move v2, v1
+
+    .line 268
+    :goto_0
+    if-ge v2, v4, :cond_1
+
+    .line 269
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/animation/Animation;
+
+    .line 270
+    invoke-virtual {v0}, Landroid/view/animation/Animation;->hasStarted()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/animation/Animation;->hasEnded()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-static {p2}, Landroid/support/v4/widget/DrawerLayout;->l(Landroid/view/View;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 1897
-    :cond_0
-    invoke-super {p0, p1, p2, p3}, Landroid/support/v4/view/a;->a(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-
-    move-result v0
-
-    .line 1899
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public b(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 3
-
-    .prologue
-    .line 1876
-    invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
-
-    move-result v0
-
-    const/16 v1, 0x20
-
-    if-ne v0, v1, :cond_1
-
-    .line 1877
-    invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
-
-    move-result-object v0
-
-    .line 1878
-    iget-object v1, p0, Landroid/support/v4/widget/o;->b:Landroid/support/v4/widget/DrawerLayout;
-
-    invoke-static {v1}, Landroid/support/v4/widget/DrawerLayout;->a(Landroid/support/v4/widget/DrawerLayout;)Landroid/view/View;
-
-    move-result-object v1
-
-    .line 1879
-    if-eqz v1, :cond_0
-
-    .line 1880
-    iget-object v2, p0, Landroid/support/v4/widget/o;->b:Landroid/support/v4/widget/DrawerLayout;
-
-    invoke-virtual {v2, v1}, Landroid/support/v4/widget/DrawerLayout;->e(Landroid/view/View;)I
-
-    move-result v1
-
-    .line 1881
-    iget-object v2, p0, Landroid/support/v4/widget/o;->b:Landroid/support/v4/widget/DrawerLayout;
-
-    invoke-virtual {v2, v1}, Landroid/support/v4/widget/DrawerLayout;->a(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    .line 1882
-    if-eqz v1, :cond_0
-
-    .line 1883
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 1887
-    :cond_0
+    .line 271
     const/4 v0, 0x1
 
-    .line 1890
-    :goto_0
+    .line 274
+    :goto_1
     return v0
 
-    :cond_1
-    invoke-super {p0, p1, p2}, Landroid/support/v4/view/a;->b(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+    .line 268
+    :cond_0
+    add-int/lit8 v0, v2, 0x1
 
-    move-result v0
+    move v2, v0
 
     goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    .line 274
+    goto :goto_1
 .end method
 
-.method public d(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+.method public setAlpha(I)V
     .locals 1
 
     .prologue
-    .line 1864
-    invoke-super {p0, p1, p2}, Landroid/support/v4/view/a;->d(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+    .line 236
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
 
-    .line 1866
-    const-class v0, Landroid/support/v4/widget/DrawerLayout;
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->d(I)V
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    .line 237
+    return-void
+.end method
 
-    move-result-object v0
+.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+    .locals 1
 
-    invoke-virtual {p2, v0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
+    .prologue
+    .line 245
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
 
-    .line 1867
+    invoke-virtual {v0, p1}, Landroid/support/v4/widget/o$a;->a(Landroid/graphics/ColorFilter;)V
+
+    .line 246
+    return-void
+.end method
+
+.method public start()V
+    .locals 4
+
+    .prologue
+    .line 279
+    iget-object v0, p0, Landroid/support/v4/widget/o;->j:Landroid/view/animation/Animation;
+
+    invoke-virtual {v0}, Landroid/view/animation/Animation;->reset()V
+
+    .line 280
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0}, Landroid/support/v4/widget/o$a;->l()V
+
+    .line 282
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0}, Landroid/support/v4/widget/o$a;->i()F
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v1}, Landroid/support/v4/widget/o$a;->e()F
+
+    move-result v1
+
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_0
+
+    .line 283
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroid/support/v4/widget/o;->a:Z
+
+    .line 284
+    iget-object v0, p0, Landroid/support/v4/widget/o;->j:Landroid/view/animation/Animation;
+
+    const-wide/16 v2, 0x29a
+
+    invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    .line 285
+    iget-object v0, p0, Landroid/support/v4/widget/o;->i:Landroid/view/View;
+
+    iget-object v1, p0, Landroid/support/v4/widget/o;->j:Landroid/view/animation/Animation;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+
+    .line 292
+    :goto_0
+    return-void
+
+    .line 287
+    :cond_0
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/o$a;->c(I)V
+
+    .line 288
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0}, Landroid/support/v4/widget/o$a;->m()V
+
+    .line 289
+    iget-object v0, p0, Landroid/support/v4/widget/o;->j:Landroid/view/animation/Animation;
+
+    const-wide/16 v2, 0x534
+
+    invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
+
+    .line 290
+    iget-object v0, p0, Landroid/support/v4/widget/o;->i:Landroid/view/View;
+
+    iget-object v1, p0, Landroid/support/v4/widget/o;->j:Landroid/view/animation/Animation;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
+
+    goto :goto_0
+.end method
+
+.method public stop()V
+    .locals 2
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 296
+    iget-object v0, p0, Landroid/support/v4/widget/o;->i:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
+
+    .line 297
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/support/v4/widget/o;->c(F)V
+
+    .line 298
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/o$a;->a(Z)V
+
+    .line 299
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/widget/o$a;->c(I)V
+
+    .line 300
+    iget-object v0, p0, Landroid/support/v4/widget/o;->f:Landroid/support/v4/widget/o$a;
+
+    invoke-virtual {v0}, Landroid/support/v4/widget/o$a;->m()V
+
+    .line 301
     return-void
 .end method

@@ -1,36 +1,75 @@
 package com.yelp.android.d;
 
-import java.util.Locale;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
+import java.lang.reflect.Method;
 
-public class f
+class f
 {
-  public static final Locale a = new Locale("", "");
-  private static String b = "Arab";
-  private static String c = "Hebr";
+  private static Method a;
+  private static boolean b;
+  private static Method c;
+  private static boolean d;
   
-  public static int a(Locale paramLocale)
+  public static int a(Drawable paramDrawable)
   {
-    if ((paramLocale != null) && (!paramLocale.equals(a)))
+    if (!d) {}
+    try
     {
-      String str = a.a(a.b(paramLocale.toString()));
-      if (str == null) {
-        return b(paramLocale);
-      }
-      if ((str.equalsIgnoreCase(b)) || (str.equalsIgnoreCase(c))) {
-        return 1;
+      c = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
+      c.setAccessible(true);
+      d = true;
+      if (c == null) {}
+    }
+    catch (NoSuchMethodException localNoSuchMethodException)
+    {
+      for (;;)
+      {
+        try
+        {
+          int i = ((Integer)c.invoke(paramDrawable, new Object[0])).intValue();
+          return i;
+        }
+        catch (Exception paramDrawable)
+        {
+          Log.i("DrawableCompatJellybeanMr1", "Failed to invoke getLayoutDirection() via reflection", paramDrawable);
+          c = null;
+        }
+        localNoSuchMethodException = localNoSuchMethodException;
+        Log.i("DrawableCompatJellybeanMr1", "Failed to retrieve getLayoutDirection() method", localNoSuchMethodException);
       }
     }
-    return 0;
+    return -1;
   }
   
-  private static int b(Locale paramLocale)
+  public static void a(Drawable paramDrawable, int paramInt)
   {
-    switch (Character.getDirectionality(paramLocale.getDisplayName(paramLocale).charAt(0)))
+    if (!b) {}
+    try
     {
-    default: 
-      return 0;
+      a = Drawable.class.getDeclaredMethod("setLayoutDirection", new Class[] { Integer.TYPE });
+      a.setAccessible(true);
+      b = true;
+      if (a == null) {}
     }
-    return 1;
+    catch (NoSuchMethodException localNoSuchMethodException)
+    {
+      for (;;)
+      {
+        try
+        {
+          a.invoke(paramDrawable, new Object[] { Integer.valueOf(paramInt) });
+          return;
+        }
+        catch (Exception paramDrawable)
+        {
+          Log.i("DrawableCompatJellybeanMr1", "Failed to invoke setLayoutDirection(int) via reflection", paramDrawable);
+          a = null;
+        }
+        localNoSuchMethodException = localNoSuchMethodException;
+        Log.i("DrawableCompatJellybeanMr1", "Failed to retrieve setLayoutDirection(int) method", localNoSuchMethodException);
+      }
+    }
   }
 }
 

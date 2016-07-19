@@ -1,39 +1,28 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import android.graphics.Bitmap;
-import android.os.ParcelFileDescriptor;
-import com.bumptech.glide.load.DecodeFormat;
-import com.bumptech.glide.load.d;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.bumptech.glide.load.engine.t;
+import com.yelp.android.ae.a;
+import com.yelp.android.ao.h;
+import com.yelp.android.x.c;
 
 public class k
-  implements d<ParcelFileDescriptor, Bitmap>
+  extends a<j>
 {
-  private final w a;
-  private final e b;
-  private DecodeFormat c;
+  private final c b;
   
-  public k(e parame, DecodeFormat paramDecodeFormat)
+  public k(j paramj, c paramc)
   {
-    this(new w(), parame, paramDecodeFormat);
+    super(paramj);
+    b = paramc;
   }
   
-  public k(w paramw, e parame, DecodeFormat paramDecodeFormat)
+  public int c()
   {
-    a = paramw;
-    b = parame;
-    c = paramDecodeFormat;
+    return h.a(((j)a).b());
   }
   
-  public t<Bitmap> a(ParcelFileDescriptor paramParcelFileDescriptor, int paramInt1, int paramInt2)
+  public void d()
   {
-    return c.a(a.a(paramParcelFileDescriptor, b, paramInt1, paramInt2, c), b);
-  }
-  
-  public String a()
-  {
-    return "FileDescriptorBitmapDecoder.com.bumptech.glide.load.data.bitmap";
+    b.a(((j)a).b());
   }
 }
 

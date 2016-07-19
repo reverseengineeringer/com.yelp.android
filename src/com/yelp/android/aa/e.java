@@ -1,36 +1,21 @@
 package com.yelp.android.aa;
 
-import com.bumptech.glide.load.d;
-import com.yelp.android.v.p;
-import java.io.File;
-import java.io.InputStream;
+import java.util.Collections;
+import java.util.Map;
 
-public class e
-  implements com.yelp.android.ae.b<InputStream, File>
+public abstract interface e
 {
-  private static final g a = new g(null);
-  private final d<File, File> b = new a();
-  private final com.bumptech.glide.load.a<InputStream> c = new p();
-  
-  public d<File, File> a()
+  @Deprecated
+  public static final e a = new e()
   {
-    return b;
-  }
+    public Map<String, String> a()
+    {
+      return Collections.emptyMap();
+    }
+  };
+  public static final e b = new j.a().a();
   
-  public d<InputStream, File> b()
-  {
-    return a;
-  }
-  
-  public com.bumptech.glide.load.a<InputStream> c()
-  {
-    return c;
-  }
-  
-  public com.bumptech.glide.load.e<File> d()
-  {
-    return com.yelp.android.y.b.b();
-  }
+  public abstract Map<String, String> a();
 }
 
 /* Location:

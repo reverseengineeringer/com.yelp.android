@@ -3,6 +3,17 @@
 .source "Toolbar.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v7/widget/Toolbar;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "LayoutParams"
+.end annotation
+
+
 # instance fields
 .field b:I
 
@@ -12,20 +23,20 @@
     .locals 1
 
     .prologue
-    .line 1827
+    .line 1873
     invoke-direct {p0, p1, p2}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(II)V
 
-    .line 1820
+    .line 1866
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
-    .line 1828
+    .line 1874
     const v0, 0x800013
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->a:I
 
-    .line 1829
+    .line 1875
     return-void
 .end method
 
@@ -33,15 +44,15 @@
     .locals 1
 
     .prologue
-    .line 1823
+    .line 1869
     invoke-direct {p0, p1, p2}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 1820
+    .line 1866
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
-    .line 1824
+    .line 1870
     return-void
 .end method
 
@@ -49,15 +60,15 @@
     .locals 1
 
     .prologue
-    .line 1847
+    .line 1893
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/support/v7/app/ActionBar$LayoutParams;)V
 
-    .line 1820
+    .line 1866
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
-    .line 1848
+    .line 1894
     return-void
 .end method
 
@@ -65,20 +76,20 @@
     .locals 1
 
     .prologue
-    .line 1841
+    .line 1887
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/support/v7/app/ActionBar$LayoutParams;)V
 
-    .line 1820
+    .line 1866
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
-    .line 1843
+    .line 1889
     iget v0, p1, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
-    .line 1844
+    .line 1890
     return-void
 .end method
 
@@ -86,15 +97,15 @@
     .locals 1
 
     .prologue
-    .line 1858
+    .line 1904
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1820
+    .line 1866
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
-    .line 1859
+    .line 1905
     return-void
 .end method
 
@@ -102,18 +113,18 @@
     .locals 1
 
     .prologue
-    .line 1851
+    .line 1897
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1820
+    .line 1866
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->b:I
 
-    .line 1854
+    .line 1900
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/Toolbar$LayoutParams;->a(Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 1855
+    .line 1901
     return-void
 .end method
 
@@ -123,26 +134,26 @@
     .locals 1
 
     .prologue
-    .line 1862
+    .line 1908
     iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->leftMargin:I
 
-    .line 1863
+    .line 1909
     iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->topMargin:I
 
-    .line 1864
+    .line 1910
     iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->rightMargin:I
 
-    .line 1865
+    .line 1911
     iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     iput v0, p0, Landroid/support/v7/widget/Toolbar$LayoutParams;->bottomMargin:I
 
-    .line 1866
+    .line 1912
     return-void
 .end method

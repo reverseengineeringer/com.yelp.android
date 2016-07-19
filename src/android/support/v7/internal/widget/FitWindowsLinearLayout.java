@@ -7,9 +7,9 @@ import android.widget.LinearLayout;
 
 public class FitWindowsLinearLayout
   extends LinearLayout
-  implements aj
+  implements h
 {
-  private ak a;
+  private h.a a;
   
   public FitWindowsLinearLayout(Context paramContext)
   {
@@ -29,9 +29,9 @@ public class FitWindowsLinearLayout
     return super.fitSystemWindows(paramRect);
   }
   
-  public void setOnFitSystemWindowsListener(ak paramak)
+  public void setOnFitSystemWindowsListener(h.a parama)
   {
-    a = paramak;
+    a = parama;
   }
 }
 

@@ -3,8 +3,5 @@
 
 
 # virtual methods
-.method public abstract a(J)Landroid/location/Location;
-.end method
-
-.method public abstract init()V
+.method public abstract a(Lcom/google/android/gms/internal/ib;ILjava/lang/String;)Lcom/google/android/gms/internal/cl;
 .end method

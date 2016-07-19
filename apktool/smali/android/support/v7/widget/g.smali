@@ -1,74 +1,185 @@
 .class Landroid/support/v7/widget/g;
-.super Landroid/support/v7/internal/view/menu/v;
-.source "ActionMenuPresenter.java"
+.super Ljava/lang/Object;
+.source "LayoutState.java"
 
 
 # instance fields
-.field final synthetic c:Landroid/support/v7/widget/ActionMenuPresenter;
+.field a:I
+
+.field b:I
+
+.field c:I
+
+.field d:I
+
+.field e:I
+
+.field f:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/support/v7/widget/ActionMenuPresenter;Landroid/content/Context;Landroid/support/v7/internal/view/menu/i;Landroid/view/View;Z)V
-    .locals 6
+.method constructor <init>()V
+    .locals 1
 
     .prologue
-    .line 669
-    iput-object p1, p0, Landroid/support/v7/widget/g;->c:Landroid/support/v7/widget/ActionMenuPresenter;
+    const/4 v0, 0x0
 
-    .line 670
-    sget v5, Lcom/yelp/android/g/b;->actionOverflowMenuStyle:I
+    .line 24
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-object v0, p0
+    .line 65
+    iput v0, p0, Landroid/support/v7/widget/g;->e:I
 
-    move-object v1, p2
+    .line 70
+    iput v0, p0, Landroid/support/v7/widget/g;->f:I
 
-    move-object v2, p3
-
-    move-object v3, p4
-
-    move v4, p5
-
-    invoke-direct/range {v0 .. v5}, Landroid/support/v7/internal/view/menu/v;-><init>(Landroid/content/Context;Landroid/support/v7/internal/view/menu/i;Landroid/view/View;ZI)V
-
-    .line 671
-    const v0, 0x800005
-
-    invoke-virtual {p0, v0}, Landroid/support/v7/widget/g;->a(I)V
-
-    .line 672
-    iget-object v0, p1, Landroid/support/v7/widget/ActionMenuPresenter;->g:Landroid/support/v7/widget/h;
-
-    invoke-virtual {p0, v0}, Landroid/support/v7/widget/g;->a(Landroid/support/v7/internal/view/menu/y;)V
-
-    .line 673
     return-void
 .end method
 
 
 # virtual methods
-.method public onDismiss()V
-    .locals 2
+.method a(Landroid/support/v7/widget/RecyclerView$n;)Landroid/view/View;
+    .locals 3
 
     .prologue
-    .line 677
-    invoke-super {p0}, Landroid/support/v7/internal/view/menu/v;->onDismiss()V
+    .line 86
+    iget v0, p0, Landroid/support/v7/widget/g;->b:I
 
-    .line 678
-    iget-object v0, p0, Landroid/support/v7/widget/g;->c:Landroid/support/v7/widget/ActionMenuPresenter;
-
-    invoke-static {v0}, Landroid/support/v7/widget/ActionMenuPresenter;->c(Landroid/support/v7/widget/ActionMenuPresenter;)Landroid/support/v7/internal/view/menu/i;
+    invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView$n;->c(I)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v7/internal/view/menu/i;->close()V
+    .line 87
+    iget v1, p0, Landroid/support/v7/widget/g;->b:I
 
-    .line 679
-    iget-object v0, p0, Landroid/support/v7/widget/g;->c:Landroid/support/v7/widget/ActionMenuPresenter;
+    iget v2, p0, Landroid/support/v7/widget/g;->c:I
 
-    const/4 v1, 0x0
+    add-int/2addr v1, v2
 
-    invoke-static {v0, v1}, Landroid/support/v7/widget/ActionMenuPresenter;->a(Landroid/support/v7/widget/ActionMenuPresenter;Landroid/support/v7/widget/g;)Landroid/support/v7/widget/g;
+    iput v1, p0, Landroid/support/v7/widget/g;->b:I
 
-    .line 680
-    return-void
+    .line 88
+    return-object v0
+.end method
+
+.method a(Landroid/support/v7/widget/RecyclerView$r;)Z
+    .locals 2
+
+    .prologue
+    .line 76
+    iget v0, p0, Landroid/support/v7/widget/g;->b:I
+
+    if-ltz v0, :cond_0
+
+    iget v0, p0, Landroid/support/v7/widget/g;->b:I
+
+    invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$r;->e()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public toString()Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 93
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "LayoutState{mAvailable="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/support/v7/widget/g;->a:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", mCurrentPosition="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/support/v7/widget/g;->b:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", mItemDirection="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/support/v7/widget/g;->c:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", mLayoutDirection="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/support/v7/widget/g;->d:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", mStartLine="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/support/v7/widget/g;->e:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", mEndLine="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Landroid/support/v7/widget/g;->f:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const/16 v1, 0x7d
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

@@ -1,22 +1,40 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.PaymentMethod;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.YelpBusinessReview;
 import com.yelp.parcelgen.JsonUtil;
-import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ea
-  extends g<Void, Void, ArrayList<PaymentMethod>>
+  extends b<Void, Void, a>
 {
-  public ea(boolean paramBoolean, m<ArrayList<PaymentMethod>> paramm)
+  public ea(String paramString1, String paramString2, int paramInt1, int paramInt2, ApiRequest.b<a> paramb)
   {
-    super(ApiRequest.RequestType.GET, "account/payment_methods", paramm);
+    super(ApiRequest.RequestType.GET, "reviews/search", paramb);
+    a("business_id", paramString1);
+    a("term", paramString2);
+    a("offset", paramInt1);
+    a("limit", paramInt2);
   }
   
-  public ArrayList<PaymentMethod> a(JSONObject paramJSONObject)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return JsonUtil.parseJsonList(paramJSONObject.optJSONArray("payment_methods"), PaymentMethod.CREATOR);
+    return new a(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("reviews"), YelpBusinessReview.CREATOR), paramJSONObject.getInt("total"));
+  }
+  
+  public static class a
+  {
+    public final List<YelpBusinessReview> a;
+    public final int b;
+    
+    public a(List<YelpBusinessReview> paramList, int paramInt)
+    {
+      a = paramList;
+      b = paramInt;
+    }
   }
 }
 

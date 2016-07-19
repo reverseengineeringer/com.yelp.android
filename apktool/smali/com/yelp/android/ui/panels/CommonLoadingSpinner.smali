@@ -3,7 +3,7 @@
 .source "CommonLoadingSpinner.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/panels/y;
+.implements Lcom/yelp/android/ui/panels/c;
 
 
 # annotations
@@ -13,7 +13,7 @@
         "<",
         "Lcom/yelp/android/ui/panels/CommonLoadingSpinner;",
         ">;",
-        "Lcom/yelp/android/ui/panels/y;"
+        "Lcom/yelp/android/ui/panels/c;"
     }
 .end annotation
 
@@ -54,137 +54,137 @@
 
     new-array v2, v2, [I
 
-    sget v3, Lcom/yelp/android/bf/f;->general_spinner_000:I
+    sget v3, Lcom/yelp/android/co/a$e;->general_spinner_000:I
 
     aput v3, v2, v5
 
-    sget v3, Lcom/yelp/android/bf/f;->general_spinner_001:I
+    sget v3, Lcom/yelp/android/co/a$e;->general_spinner_001:I
 
     aput v3, v2, v6
 
-    sget v3, Lcom/yelp/android/bf/f;->general_spinner_002:I
+    sget v3, Lcom/yelp/android/co/a$e;->general_spinner_002:I
 
     aput v3, v2, v7
 
-    sget v3, Lcom/yelp/android/bf/f;->general_spinner_003:I
+    sget v3, Lcom/yelp/android/co/a$e;->general_spinner_003:I
 
     aput v3, v2, v8
 
-    sget v3, Lcom/yelp/android/bf/f;->general_spinner_004:I
+    sget v3, Lcom/yelp/android/co/a$e;->general_spinner_004:I
 
     aput v3, v2, v9
 
     const/4 v3, 0x5
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_005:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_005:I
 
     aput v4, v2, v3
 
     const/4 v3, 0x6
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_006:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_006:I
 
     aput v4, v2, v3
 
     const/4 v3, 0x7
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_007:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_007:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x8
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_008:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_008:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x9
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_009:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_009:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xa
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_010:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_010:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xb
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_011:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_011:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xc
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_012:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_012:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xd
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_013:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_013:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xe
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_014:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_014:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xf
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_015:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_015:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x10
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_016:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_016:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x11
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_017:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_017:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x12
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_018:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_018:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x13
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_019:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_019:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x14
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_020:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_020:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x15
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_021:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_021:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x16
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_022:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_022:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x17
 
-    sget v4, Lcom/yelp/android/bf/f;->general_spinner_023:I
+    sget v4, Lcom/yelp/android/co/a$e;->general_spinner_023:I
 
     aput v4, v2, v3
 
@@ -201,137 +201,137 @@
 
     new-array v2, v2, [I
 
-    sget v3, Lcom/yelp/android/bf/f;->small_spinner_000:I
+    sget v3, Lcom/yelp/android/co/a$e;->small_spinner_000:I
 
     aput v3, v2, v5
 
-    sget v3, Lcom/yelp/android/bf/f;->small_spinner_001:I
+    sget v3, Lcom/yelp/android/co/a$e;->small_spinner_001:I
 
     aput v3, v2, v6
 
-    sget v3, Lcom/yelp/android/bf/f;->small_spinner_002:I
+    sget v3, Lcom/yelp/android/co/a$e;->small_spinner_002:I
 
     aput v3, v2, v7
 
-    sget v3, Lcom/yelp/android/bf/f;->small_spinner_003:I
+    sget v3, Lcom/yelp/android/co/a$e;->small_spinner_003:I
 
     aput v3, v2, v8
 
-    sget v3, Lcom/yelp/android/bf/f;->small_spinner_004:I
+    sget v3, Lcom/yelp/android/co/a$e;->small_spinner_004:I
 
     aput v3, v2, v9
 
     const/4 v3, 0x5
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_005:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_005:I
 
     aput v4, v2, v3
 
     const/4 v3, 0x6
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_006:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_006:I
 
     aput v4, v2, v3
 
     const/4 v3, 0x7
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_007:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_007:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x8
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_008:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_008:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x9
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_009:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_009:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xa
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_010:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_010:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xb
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_011:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_011:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xc
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_012:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_012:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xd
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_013:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_013:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xe
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_014:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_014:I
 
     aput v4, v2, v3
 
     const/16 v3, 0xf
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_015:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_015:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x10
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_016:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_016:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x11
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_017:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_017:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x12
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_018:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_018:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x13
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_019:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_019:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x14
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_020:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_020:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x15
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_021:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_021:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x16
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_022:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_022:I
 
     aput v4, v2, v3
 
     const/16 v3, 0x17
 
-    sget v4, Lcom/yelp/android/bf/f;->small_spinner_023:I
+    sget v4, Lcom/yelp/android/co/a$e;->small_spinner_023:I
 
     aput v4, v2, v3
 
@@ -364,13 +364,13 @@
     .end annotation
 
     .prologue
-    .line 62
+    .line 63
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 63
+    .line 64
     iput-object p3, p0, Lcom/yelp/android/ui/panels/CommonLoadingSpinner;->mFrames:[I
 
-    .line 64
+    .line 65
     return-void
 .end method
 
@@ -412,7 +412,7 @@
     .locals 1
 
     .prologue
-    .line 67
+    .line 68
     iget-object v0, p0, Lcom/yelp/android/ui/panels/CommonLoadingSpinner;->mFrames:[I
 
     return-object v0

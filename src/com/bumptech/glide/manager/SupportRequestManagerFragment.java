@@ -1,14 +1,20 @@
 package com.bumptech.glide.manager;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.support.v4.app.Fragment;
-import com.bumptech.glide.j;
+import android.support.v4.app.FragmentActivity;
+import com.bumptech.glide.i;
+import java.util.HashSet;
 
 public class SupportRequestManagerFragment
   extends Fragment
 {
-  private j a;
+  private i a;
   private final a b;
+  private final k c = new a(null);
+  private final HashSet<SupportRequestManagerFragment> d = new HashSet();
+  private SupportRequestManagerFragment e;
   
   public SupportRequestManagerFragment()
   {
@@ -21,25 +27,67 @@ public class SupportRequestManagerFragment
     b = parama;
   }
   
+  private void a(SupportRequestManagerFragment paramSupportRequestManagerFragment)
+  {
+    d.add(paramSupportRequestManagerFragment);
+  }
+  
+  private void b(SupportRequestManagerFragment paramSupportRequestManagerFragment)
+  {
+    d.remove(paramSupportRequestManagerFragment);
+  }
+  
   a a()
   {
     return b;
   }
   
-  public void a(j paramj)
+  public void a(i parami)
   {
-    a = paramj;
+    a = parami;
   }
   
-  public j b()
+  public i b()
   {
     return a;
+  }
+  
+  public k c()
+  {
+    return c;
+  }
+  
+  public void onAttach(Activity paramActivity)
+  {
+    super.onAttach(paramActivity);
+    e = j.a().a(getActivity().getSupportFragmentManager());
+    if (e != this) {
+      e.a(this);
+    }
   }
   
   public void onDestroy()
   {
     super.onDestroy();
     b.c();
+  }
+  
+  public void onDetach()
+  {
+    super.onDetach();
+    if (e != null)
+    {
+      e.b(this);
+      e = null;
+    }
+  }
+  
+  public void onLowMemory()
+  {
+    super.onLowMemory();
+    if (a != null) {
+      a.a();
+    }
   }
   
   public void onStart()
@@ -52,6 +100,12 @@ public class SupportRequestManagerFragment
   {
     super.onStop();
     b.b();
+  }
+  
+  private class a
+    implements k
+  {
+    private a() {}
   }
 }
 

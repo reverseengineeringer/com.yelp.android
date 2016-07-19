@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class FromThisBusiness
   extends _FromThisBusiness
 {
-  public static final JsonParser.DualCreator<FromThisBusiness> CREATOR = new av();
+  public static final JsonParser.DualCreator<FromThisBusiness> CREATOR = new FromThisBusiness.1();
 }
 
 /* Location:

@@ -7,14 +7,14 @@ import com.yelp.android.ui.activities.ActivityCheckIn;
 
  enum BusinessContributionType$1
 {
-  BusinessContributionType$1(int paramInt1, String paramString1, boolean paramBoolean)
+  BusinessContributionType$1(int paramInt1, String paramString1)
   {
-    super(paramString, paramInt, paramInt1, paramString1, paramBoolean, null);
+    super(paramString, paramInt, paramInt1, paramString1, null);
   }
   
   public Intent getAddIntent(Context paramContext, YelpBusiness paramYelpBusiness)
   {
-    return ActivityCheckIn.a(paramContext, paramYelpBusiness);
+    return ActivityCheckIn.b(paramContext, paramYelpBusiness);
   }
 }
 

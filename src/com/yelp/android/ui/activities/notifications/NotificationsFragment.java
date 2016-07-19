@@ -8,32 +8,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
 import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.gg;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.appdata.webrequests.ez;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.Alert;
 import com.yelp.android.serializable.AlertAction;
 import com.yelp.android.serializable.AlertsResponse;
 import com.yelp.android.ui.activities.support.YelpSwipeRefreshListFragment;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 public class NotificationsFragment
   extends YelpSwipeRefreshListFragment
 {
   private ArrayList<Alert> a;
   private a b;
-  private gg c;
+  private ez c;
   private String d;
-  private List<m> e;
-  private com.yelp.android.appdata.webrequests.j<AlertsResponse> g = new g(this);
-  private com.yelp.android.av.i h = new i(this);
-  private com.yelp.android.av.i i = new j(this);
-  private e j = new k(this);
-  private BroadcastReceiver k = new l(this);
+  private List<NotificationsFragment.a> e;
+  private k.b<AlertsResponse> f = new NotificationsFragment.1(this);
+  private c.a g = new NotificationsFragment.2(this);
+  private c.a j = new NotificationsFragment.3(this);
+  private a.a k = new NotificationsFragment.4(this);
+  private BroadcastReceiver l = new NotificationsFragment.5(this);
   
   private String a(int paramInt)
   {
@@ -48,47 +47,50 @@ public class NotificationsFragment
       if (!localIterator1.hasNext()) {
         return;
       }
-      Iterator localIterator2 = ((Alert)localIterator1.next()).getActions().iterator();
+      Object localObject = (Alert)localIterator1.next();
+      Iterator localIterator2 = ((Alert)localObject).i().iterator();
       if (localIterator2.hasNext())
       {
-        AlertAction localAlertAction = (AlertAction)localIterator2.next();
-        if (!paramString.equals(localAlertAction.getPath())) {
+        if (!paramString.equals(((AlertAction)localIterator2.next()).d())) {
           break;
         }
-        localAlertAction.setPath(null);
+        localObject = ((Alert)localObject).i().iterator();
+        while (((Iterator)localObject).hasNext()) {
+          ((AlertAction)((Iterator)localObject).next()).a(true);
+        }
         b.notifyDataSetChanged();
       }
+    }
+  }
+  
+  private void a(boolean paramBoolean)
+  {
+    c = new ez(f);
+    c.f(new Void[0]);
+    if (paramBoolean) {
+      H_();
     }
   }
   
   private void b(String paramString)
   {
-    int m = 0;
+    int i = 0;
     for (;;)
     {
-      if (m < a.size())
+      if (i < a.size())
       {
-        Iterator localIterator = ((Alert)a.get(m)).getActions().iterator();
+        Iterator localIterator = ((Alert)a.get(i)).i().iterator();
         do
         {
           if (!localIterator.hasNext()) {
             break;
           }
-        } while (!paramString.equals(((AlertAction)localIterator.next()).getPath()));
-        a.remove(m);
+        } while (!paramString.equals(((AlertAction)localIterator.next()).d()));
+        a.remove(i);
         b.notifyDataSetChanged();
       }
       return;
-      m += 1;
-    }
-  }
-  
-  private void c(boolean paramBoolean)
-  {
-    c = new gg(g);
-    c.executeWithLocation(new Void[0]);
-    if (paramBoolean) {
-      i_();
+      i += 1;
     }
   }
   
@@ -98,39 +100,28 @@ public class NotificationsFragment
     if (!(paramListView instanceof Alert)) {
       return;
     }
-    paramListView = Uri.parse(((Alert)paramListView).getOpenUrl());
-    paramView = new HashMap(2);
-    paramView.put("url", paramListView.toString());
-    paramView.put("source", "list");
-    startActivity(new Intent("android.intent.action.VIEW", paramListView));
-  }
-  
-  public void a_()
-  {
-    c = null;
-    d = null;
-    super.a_();
+    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(((Alert)paramListView).e())));
   }
   
   protected void b()
   {
     super.b();
     if ((c == null) && (d == null)) {
-      if (i()) {
-        c(false);
+      if (j()) {
+        a(false);
       }
     }
-    while ((d == null) || ((c != null) && ((c.isFetching()) || (c.isWaitingForLocation()))))
+    while ((d == null) || ((c != null) && (c.u())))
     {
       return;
-      c(true);
+      a(true);
       return;
     }
-    c = gg.a(d, g);
-    c.executeWithLocation(new Void[0]);
+    c = ez.a(d, f);
+    c.f(new Void[0]);
   }
   
-  public b getIri()
+  public com.yelp.android.analytics.iris.a getIri()
   {
     return ViewIri.AlertsList;
   }
@@ -141,13 +132,13 @@ public class NotificationsFragment
     a(b);
     paramBundle = new IntentFilter("android.intent.action.EDIT");
     paramBundle.addCategory("user");
-    a(paramBundle, k);
+    a(paramBundle, l);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    b = new a(j);
+    b = new a(k);
     if (paramBundle == null) {
       a = new ArrayList();
     }
@@ -165,28 +156,26 @@ public class NotificationsFragment
   {
     super.onPause();
     a("alerts_request", c);
-    int m = 0;
-    while (m < e.size())
+    int i = 0;
+    while (i < e.size())
     {
-      a(a(m), (ApiRequest)e.get(m));
-      m += 1;
+      a(a(i), (ApiRequest)e.get(i));
+      i += 1;
     }
   }
   
   public void onResume()
   {
     super.onResume();
-    c = ((gg)a("alerts_request", c, g));
+    c = ((ez)a("alerts_request", c, f));
     e.clear();
-    int m = 0;
-    for (;;)
+    NotificationsFragment.a locala = (NotificationsFragment.a)a(a(0), null, j);
+    int i = 1;
+    while (locala != null)
     {
-      m localm = (m)a(a(m), null, i);
-      if (localm == null) {
-        return;
-      }
-      e.add(localm);
-      m += 1;
+      e.add(locala);
+      locala = (NotificationsFragment.a)a(a(i), null, j);
+      i += 1;
     }
   }
   
@@ -195,6 +184,13 @@ public class NotificationsFragment
     super.onSaveInstanceState(paramBundle);
     paramBundle.putParcelableArrayList("alerts", a);
     paramBundle.putString("next_page", d);
+  }
+  
+  public void p_()
+  {
+    c = null;
+    d = null;
+    super.p_();
   }
 }
 

@@ -1,28 +1,28 @@
 package com.yelp.android.x;
 
-import com.yelp.android.r.b;
-import com.yelp.android.r.c;
-import java.io.InputStream;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 
 public class d
-  implements h<byte[]>
+  implements c
 {
-  private final String a;
-  
-  public d()
+  public Bitmap a(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
   {
-    this("");
+    return null;
   }
   
-  @Deprecated
-  public d(String paramString)
+  public void a() {}
+  
+  public void a(int paramInt) {}
+  
+  public boolean a(Bitmap paramBitmap)
   {
-    a = paramString;
+    return false;
   }
   
-  public c<InputStream> a(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+  public Bitmap b(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
   {
-    return new b(paramArrayOfByte, a);
+    return null;
   }
 }
 

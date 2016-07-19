@@ -1,69 +1,51 @@
-.class public Landroid/support/v4/view/an;
+.class Landroid/support/v4/view/an;
 .super Ljava/lang/Object;
-.source "MarginLayoutParamsCompat.java"
-
-
-# static fields
-.field static final a:Landroid/support/v4/view/ao;
+.source "ViewCompatICS.java"
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public static a(Landroid/view/View;Ljava/lang/Object;)V
+    .locals 0
 
     .prologue
-    .line 127
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    .line 39
+    check-cast p1, Landroid/view/View$AccessibilityDelegate;
 
-    .line 128
-    const/16 v1, 0x11
+    invoke-virtual {p0, p1}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
-    if-lt v0, v1, :cond_0
-
-    .line 129
-    new-instance v0, Landroid/support/v4/view/aq;
-
-    invoke-direct {v0}, Landroid/support/v4/view/aq;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/an;->a:Landroid/support/v4/view/ao;
-
-    .line 133
-    :goto_0
+    .line 40
     return-void
-
-    .line 131
-    :cond_0
-    new-instance v0, Landroid/support/v4/view/ap;
-
-    invoke-direct {v0}, Landroid/support/v4/view/ap;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/an;->a:Landroid/support/v4/view/ao;
-
-    goto :goto_0
 .end method
 
-.method public static a(Landroid/view/ViewGroup$MarginLayoutParams;)I
+.method public static a(Landroid/view/View;Z)V
+    .locals 0
+
+    .prologue
+    .line 55
+    invoke-virtual {p0, p1}, Landroid/view/View;->setFitsSystemWindows(Z)V
+
+    .line 56
+    return-void
+.end method
+
+.method public static a(Landroid/view/View;I)Z
     .locals 1
 
     .prologue
-    .line 147
-    sget-object v0, Landroid/support/v4/view/an;->a:Landroid/support/v4/view/ao;
-
-    invoke-interface {v0, p0}, Landroid/support/v4/view/ao;->a(Landroid/view/ViewGroup$MarginLayoutParams;)I
+    .line 31
+    invoke-virtual {p0, p1}, Landroid/view/View;->canScrollHorizontally(I)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public static b(Landroid/view/ViewGroup$MarginLayoutParams;)I
+.method public static b(Landroid/view/View;I)Z
     .locals 1
 
     .prologue
-    .line 162
-    sget-object v0, Landroid/support/v4/view/an;->a:Landroid/support/v4/view/ao;
-
-    invoke-interface {v0, p0}, Landroid/support/v4/view/ao;->b(Landroid/view/ViewGroup$MarginLayoutParams;)I
+    .line 35
+    invoke-virtual {p0, p1}, Landroid/view/View;->canScrollVertically(I)Z
 
     move-result v0
 

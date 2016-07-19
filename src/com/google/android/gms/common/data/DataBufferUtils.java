@@ -30,13 +30,13 @@ public final class DataBufferUtils
   
   public static boolean hasNextPage(DataBuffer<?> paramDataBuffer)
   {
-    paramDataBuffer = paramDataBuffer.gV();
+    paramDataBuffer = paramDataBuffer.zzpZ();
     return (paramDataBuffer != null) && (paramDataBuffer.getString("next_page_token") != null);
   }
   
   public static boolean hasPrevPage(DataBuffer<?> paramDataBuffer)
   {
-    paramDataBuffer = paramDataBuffer.gV();
+    paramDataBuffer = paramDataBuffer.zzpZ();
     return (paramDataBuffer != null) && (paramDataBuffer.getString("prev_page_token") != null);
   }
 }

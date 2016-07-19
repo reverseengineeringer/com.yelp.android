@@ -1,42 +1,42 @@
 package com.google.android.gms.internal;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
 import android.os.IBinder;
-import java.util.HashSet;
-import java.util.Iterator;
+import android.os.Parcel;
+import android.os.RemoteException;
 
-public class jn$a$a
-  implements ServiceConnection
+class jn$a$a
+  implements jn
 {
-  public jn$a$a(jn.a parama) {}
+  private IBinder a;
   
-  public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
+  jn$a$a(IBinder paramIBinder)
   {
-    synchronized (jn.a(Nn.Nm))
-    {
-      jn.a.a(Nn, paramIBinder);
-      jn.a.a(Nn, paramComponentName);
-      Iterator localIterator = jn.a.a(Nn).iterator();
-      if (localIterator.hasNext()) {
-        ((jl.f)localIterator.next()).onServiceConnected(paramComponentName, paramIBinder);
-      }
-    }
-    jn.a.a(Nn, 1);
+    a = paramIBinder;
   }
   
-  public void onServiceDisconnected(ComponentName paramComponentName)
+  public void a(int paramInt)
+    throws RemoteException
   {
-    synchronized (jn.a(Nn.Nm))
+    Parcel localParcel1 = Parcel.obtain();
+    Parcel localParcel2 = Parcel.obtain();
+    try
     {
-      jn.a.a(Nn, null);
-      jn.a.a(Nn, paramComponentName);
-      Iterator localIterator = jn.a.a(Nn).iterator();
-      if (localIterator.hasNext()) {
-        ((jl.f)localIterator.next()).onServiceDisconnected(paramComponentName);
-      }
+      localParcel1.writeInterfaceToken("com.google.android.gms.common.internal.service.ICommonCallbacks");
+      localParcel1.writeInt(paramInt);
+      a.transact(1, localParcel1, localParcel2, 0);
+      localParcel2.readException();
+      return;
     }
-    jn.a.a(Nn, 2);
+    finally
+    {
+      localParcel2.recycle();
+      localParcel1.recycle();
+    }
+  }
+  
+  public IBinder asBinder()
+  {
+    return a;
   }
 }
 

@@ -16,6 +16,16 @@
 
 
 # virtual methods
+.method protected D_()Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+    .locals 1
+
+    .prologue
+    .line 20
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;->FRIENDS:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+
+    return-object v0
+.end method
+
 .method protected c()Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
     .locals 1
 
@@ -26,17 +36,7 @@
     return-object v0
 .end method
 
-.method protected d()Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
-    .locals 1
-
-    .prologue
-    .line 20
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;->FRIENDS:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
-
-    return-object v0
-.end method
-
-.method protected e()Lcom/yelp/android/util/ErrorType;
+.method protected f()Lcom/yelp/android/util/ErrorType;
     .locals 1
 
     .prologue

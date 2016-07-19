@@ -1,148 +1,308 @@
-.class Lcom/yelp/android/debug/d;
+.class public Lcom/yelp/android/debug/d;
 .super Ljava/lang/Object;
-.source "FreezerDebugActivity.java"
-
-# interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/appdata/webrequests/m",
-        "<TResult;>;"
-    }
-.end annotation
+.source "YelpServer.java"
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/debug/c;
+.field private final a:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/debug/c;)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 2
 
     .prologue
-    .line 169
-    iput-object p1, p0, Lcom/yelp/android/debug/d;->a:Lcom/yelp/android/debug/c;
-
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 29
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "yelp"
+
+    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 30
+    :cond_0
+    const-string/jumbo v0, "yelp.com"
+
+    iput-object v0, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    .line 47
+    :goto_0
     return-void
+
+    .line 31
+    :cond_1
+    const-string/jumbo v0, "."
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 34
+    iput-object p1, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 35
+    :cond_2
+    const-string/jumbo v0, "stagea"
+
+    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 36
+    const-string/jumbo v0, "stagea.yelp.com"
+
+    iput-object v0, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 37
+    :cond_3
+    const-string/jumbo v0, "stageb"
+
+    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    .line 38
+    const-string/jumbo v0, "stageb.yelp.com"
+
+    iput-object v0, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 39
+    :cond_4
+    const-string/jumbo v0, "stagef"
+
+    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    .line 40
+    const-string/jumbo v0, "stagef.yelp.com"
+
+    iput-object v0, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    goto :goto_0
+
+    .line 45
+    :cond_5
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ".dev.yelp.com"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ")V"
-        }
-    .end annotation
+.method public a()Ljava/lang/String;
+    .locals 1
 
     .prologue
-    .line 173
-    iget-object v0, p0, Lcom/yelp/android/debug/d;->a:Lcom/yelp/android/debug/c;
+    .line 50
+    iget-object v0, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/yelp/android/debug/c;->b(Lcom/yelp/android/debug/c;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v2, p0, Lcom/yelp/android/debug/d;->a:Lcom/yelp/android/debug/c;
-
-    invoke-static {v2}, Lcom/yelp/android/debug/c;->a(Lcom/yelp/android/debug/c;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " failed"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 174
-    iget-object v0, p0, Lcom/yelp/android/debug/d;->a:Lcom/yelp/android/debug/c;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/yelp/android/debug/c;->a(Lcom/yelp/android/debug/c;Lcom/yelp/android/appdata/webrequests/ApiRequest;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    .line 175
-    return-void
+    return-object v0
 .end method
 
-.method public onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;TResult;)V"
-        }
-    .end annotation
+.method public a(Ljava/lang/String;)Ljava/lang/String;
+    .locals 4
 
     .prologue
-    .line 179
-    iget-object v0, p0, Lcom/yelp/android/debug/d;->a:Lcom/yelp/android/debug/c;
+    .line 58
+    invoke-virtual {p0}, Lcom/yelp/android/debug/d;->c()Z
 
-    invoke-static {v0}, Lcom/yelp/android/debug/c;->b(Lcom/yelp/android/debug/c;)Landroid/widget/TextView;
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 63
+    :goto_0
+    return-object p1
+
+    .line 60
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/debug/d;->d()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/yelp/android/debug/d;->e()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 61
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "stage-"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/yelp/android/debug/d;->a:Lcom/yelp/android/debug/c;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v2}, Lcom/yelp/android/debug/c;->a(Lcom/yelp/android/debug/c;)Ljava/lang/String;
+    move-result-object p1
 
-    move-result-object v2
+    goto :goto_0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 63
+    :cond_2
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    const-string/jumbo v2, ".dev.yelp.com"
+
+    const-string/jumbo v3, ""
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v2, " completed"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "-"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 180
-    iget-object v0, p0, Lcom/yelp/android/debug/d;->a:Lcom/yelp/android/debug/c;
+    move-result-object v0
 
-    const/4 v1, 0x0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/debug/c;->a(Lcom/yelp/android/debug/c;Lcom/yelp/android/appdata/webrequests/ApiRequest;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    move-result-object p1
 
-    .line 181
-    return-void
+    goto :goto_0
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 54
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "m."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public c()Z
+    .locals 2
+
+    .prologue
+    .line 68
+    const-string/jumbo v0, "yelp.com"
+
+    iget-object v1, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public d()Z
+    .locals 2
+
+    .prologue
+    .line 72
+    const-string/jumbo v0, "stagea.yelp.com"
+
+    iget-object v1, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public e()Z
+    .locals 2
+
+    .prologue
+    .line 76
+    const-string/jumbo v0, "stageb.yelp.com"
+
+    iget-object v1, p0, Lcom/yelp/android/debug/d;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
 .end method

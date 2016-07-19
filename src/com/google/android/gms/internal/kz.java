@@ -1,56 +1,615 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import java.io.IOException;
 
-public class kz
-  implements Parcelable.Creator<ky>
+public abstract interface kz
 {
-  static void a(ky paramky, Parcel paramParcel, int paramInt)
+  public static final class a
+    extends lq
   {
-    int i = b.H(paramParcel);
-    b.c(paramParcel, 1, paramky.getVersionCode());
-    b.a(paramParcel, 2, paramky.ic(), false);
-    b.a(paramParcel, 3, paramky.id(), paramInt, false);
-    b.H(paramParcel, i);
-  }
-  
-  public ky Q(Parcel paramParcel)
-  {
-    kv localkv = null;
-    int j = a.G(paramParcel);
-    int i = 0;
-    Parcel localParcel = null;
-    while (paramParcel.dataPosition() < j)
+    private static volatile a[] c;
+    public String a;
+    public Boolean b;
+    
+    public a()
     {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
+      c();
+    }
+    
+    public static a[] a()
+    {
+      if (c == null) {}
+      synchronized (lp.a)
       {
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 2: 
-        localParcel = a.D(paramParcel, k);
-        break;
-      case 3: 
-        localkv = (kv)a.a(paramParcel, k, kv.CREATOR);
+        if (c == null) {
+          c = new a[0];
+        }
+        return c;
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+    
+    public a a(lk paramlk)
+      throws IOException
+    {
+      for (;;)
+      {
+        int i = paramlk.a();
+        switch (i)
+        {
+        default: 
+          if (lt.a(paramlk, i)) {}
+          break;
+        case 0: 
+          return this;
+        case 10: 
+          a = paramlk.h();
+          break;
+        case 16: 
+          b = Boolean.valueOf(paramlk.g());
+        }
+      }
     }
-    return new ky(i, localParcel, localkv);
+    
+    public void a(zzsn paramzzsn)
+      throws IOException
+    {
+      if (a != null) {
+        paramzzsn.a(1, a);
+      }
+      if (b != null) {
+        paramzzsn.a(2, b.booleanValue());
+      }
+      super.a(paramzzsn);
+    }
+    
+    protected int b()
+    {
+      int j = super.b();
+      int i = j;
+      if (a != null) {
+        i = j + zzsn.b(1, a);
+      }
+      j = i;
+      if (b != null) {
+        j = i + zzsn.b(2, b.booleanValue());
+      }
+      return j;
+    }
+    
+    public a c()
+    {
+      a = null;
+      b = null;
+      S = -1;
+      return this;
+    }
+    
+    public boolean equals(Object paramObject)
+    {
+      if (paramObject == this) {}
+      do
+      {
+        do
+        {
+          return true;
+          if (!(paramObject instanceof a)) {
+            return false;
+          }
+          paramObject = (a)paramObject;
+          if (a == null)
+          {
+            if (a != null) {
+              return false;
+            }
+          }
+          else if (!a.equals(a)) {
+            return false;
+          }
+          if (b != null) {
+            break;
+          }
+        } while (b == null);
+        return false;
+      } while (b.equals(b));
+      return false;
+    }
+    
+    public int hashCode()
+    {
+      int j = 0;
+      int k = getClass().getName().hashCode();
+      int i;
+      if (a == null)
+      {
+        i = 0;
+        if (b != null) {
+          break label56;
+        }
+      }
+      for (;;)
+      {
+        return (i + (k + 527) * 31) * 31 + j;
+        i = a.hashCode();
+        break;
+        label56:
+        j = b.hashCode();
+      }
+    }
   }
   
-  public ky[] aR(int paramInt)
+  public static final class b
+    extends lq
   {
-    return new ky[paramInt];
+    public Long a;
+    public String b;
+    public Integer c;
+    public kz.c[] d;
+    public kz.a[] e;
+    public ky.a[] f;
+    
+    public b()
+    {
+      a();
+    }
+    
+    public b a()
+    {
+      a = null;
+      b = null;
+      c = null;
+      d = kz.c.a();
+      e = kz.a.a();
+      f = ky.a.a();
+      S = -1;
+      return this;
+    }
+    
+    public b a(lk paramlk)
+      throws IOException
+    {
+      for (;;)
+      {
+        int i = paramlk.a();
+        int j;
+        Object localObject;
+        switch (i)
+        {
+        default: 
+          if (lt.a(paramlk, i)) {}
+          break;
+        case 0: 
+          return this;
+        case 8: 
+          a = Long.valueOf(paramlk.e());
+          break;
+        case 18: 
+          b = paramlk.h();
+          break;
+        case 24: 
+          c = Integer.valueOf(paramlk.f());
+          break;
+        case 34: 
+          j = lt.b(paramlk, 34);
+          if (d == null) {}
+          for (i = 0;; i = d.length)
+          {
+            localObject = new kz.c[j + i];
+            j = i;
+            if (i != 0)
+            {
+              System.arraycopy(d, 0, localObject, 0, i);
+              j = i;
+            }
+            while (j < localObject.length - 1)
+            {
+              localObject[j] = new kz.c();
+              paramlk.a(localObject[j]);
+              paramlk.a();
+              j += 1;
+            }
+          }
+          localObject[j] = new kz.c();
+          paramlk.a(localObject[j]);
+          d = ((kz.c[])localObject);
+          break;
+        case 42: 
+          j = lt.b(paramlk, 42);
+          if (e == null) {}
+          for (i = 0;; i = e.length)
+          {
+            localObject = new kz.a[j + i];
+            j = i;
+            if (i != 0)
+            {
+              System.arraycopy(e, 0, localObject, 0, i);
+              j = i;
+            }
+            while (j < localObject.length - 1)
+            {
+              localObject[j] = new kz.a();
+              paramlk.a(localObject[j]);
+              paramlk.a();
+              j += 1;
+            }
+          }
+          localObject[j] = new kz.a();
+          paramlk.a(localObject[j]);
+          e = ((kz.a[])localObject);
+          break;
+        case 50: 
+          j = lt.b(paramlk, 50);
+          if (f == null) {}
+          for (i = 0;; i = f.length)
+          {
+            localObject = new ky.a[j + i];
+            j = i;
+            if (i != 0)
+            {
+              System.arraycopy(f, 0, localObject, 0, i);
+              j = i;
+            }
+            while (j < localObject.length - 1)
+            {
+              localObject[j] = new ky.a();
+              paramlk.a(localObject[j]);
+              paramlk.a();
+              j += 1;
+            }
+          }
+          localObject[j] = new ky.a();
+          paramlk.a(localObject[j]);
+          f = ((ky.a[])localObject);
+        }
+      }
+    }
+    
+    public void a(zzsn paramzzsn)
+      throws IOException
+    {
+      int j = 0;
+      if (a != null) {
+        paramzzsn.b(1, a.longValue());
+      }
+      if (b != null) {
+        paramzzsn.a(2, b);
+      }
+      if (c != null) {
+        paramzzsn.a(3, c.intValue());
+      }
+      int i;
+      Object localObject;
+      if ((d != null) && (d.length > 0))
+      {
+        i = 0;
+        while (i < d.length)
+        {
+          localObject = d[i];
+          if (localObject != null) {
+            paramzzsn.a(4, (lq)localObject);
+          }
+          i += 1;
+        }
+      }
+      if ((e != null) && (e.length > 0))
+      {
+        i = 0;
+        while (i < e.length)
+        {
+          localObject = e[i];
+          if (localObject != null) {
+            paramzzsn.a(5, (lq)localObject);
+          }
+          i += 1;
+        }
+      }
+      if ((f != null) && (f.length > 0))
+      {
+        i = j;
+        while (i < f.length)
+        {
+          localObject = f[i];
+          if (localObject != null) {
+            paramzzsn.a(6, (lq)localObject);
+          }
+          i += 1;
+        }
+      }
+      super.a(paramzzsn);
+    }
+    
+    protected int b()
+    {
+      int m = 0;
+      int j = super.b();
+      int i = j;
+      if (a != null) {
+        i = j + zzsn.d(1, a.longValue());
+      }
+      j = i;
+      if (b != null) {
+        j = i + zzsn.b(2, b);
+      }
+      i = j;
+      if (c != null) {
+        i = j + zzsn.b(3, c.intValue());
+      }
+      j = i;
+      Object localObject;
+      if (d != null)
+      {
+        j = i;
+        if (d.length > 0)
+        {
+          j = 0;
+          while (j < d.length)
+          {
+            localObject = d[j];
+            k = i;
+            if (localObject != null) {
+              k = i + zzsn.c(4, (lq)localObject);
+            }
+            j += 1;
+            i = k;
+          }
+          j = i;
+        }
+      }
+      i = j;
+      if (e != null)
+      {
+        i = j;
+        if (e.length > 0)
+        {
+          i = j;
+          j = 0;
+          while (j < e.length)
+          {
+            localObject = e[j];
+            k = i;
+            if (localObject != null) {
+              k = i + zzsn.c(5, (lq)localObject);
+            }
+            j += 1;
+            i = k;
+          }
+        }
+      }
+      int k = i;
+      if (f != null)
+      {
+        k = i;
+        if (f.length > 0)
+        {
+          j = m;
+          for (;;)
+          {
+            k = i;
+            if (j >= f.length) {
+              break;
+            }
+            localObject = f[j];
+            k = i;
+            if (localObject != null) {
+              k = i + zzsn.c(6, (lq)localObject);
+            }
+            j += 1;
+            i = k;
+          }
+        }
+      }
+      return k;
+    }
+    
+    public boolean equals(Object paramObject)
+    {
+      if (paramObject == this) {}
+      do
+      {
+        return true;
+        if (!(paramObject instanceof b)) {
+          return false;
+        }
+        paramObject = (b)paramObject;
+        if (a == null)
+        {
+          if (a != null) {
+            return false;
+          }
+        }
+        else if (!a.equals(a)) {
+          return false;
+        }
+        if (b == null)
+        {
+          if (b != null) {
+            return false;
+          }
+        }
+        else if (!b.equals(b)) {
+          return false;
+        }
+        if (c == null)
+        {
+          if (c != null) {
+            return false;
+          }
+        }
+        else if (!c.equals(c)) {
+          return false;
+        }
+        if (!lp.a(d, d)) {
+          return false;
+        }
+        if (!lp.a(e, e)) {
+          return false;
+        }
+      } while (lp.a(f, f));
+      return false;
+    }
+    
+    public int hashCode()
+    {
+      int k = 0;
+      int m = getClass().getName().hashCode();
+      int i;
+      int j;
+      if (a == null)
+      {
+        i = 0;
+        if (b != null) {
+          break label105;
+        }
+        j = 0;
+        label32:
+        if (c != null) {
+          break label116;
+        }
+      }
+      for (;;)
+      {
+        return ((((j + (i + (m + 527) * 31) * 31) * 31 + k) * 31 + lp.a(d)) * 31 + lp.a(e)) * 31 + lp.a(f);
+        i = a.hashCode();
+        break;
+        label105:
+        j = b.hashCode();
+        break label32;
+        label116:
+        k = c.hashCode();
+      }
+    }
+  }
+  
+  public static final class c
+    extends lq
+  {
+    private static volatile c[] c;
+    public String a;
+    public String b;
+    
+    public c()
+    {
+      c();
+    }
+    
+    public static c[] a()
+    {
+      if (c == null) {}
+      synchronized (lp.a)
+      {
+        if (c == null) {
+          c = new c[0];
+        }
+        return c;
+      }
+    }
+    
+    public c a(lk paramlk)
+      throws IOException
+    {
+      for (;;)
+      {
+        int i = paramlk.a();
+        switch (i)
+        {
+        default: 
+          if (lt.a(paramlk, i)) {}
+          break;
+        case 0: 
+          return this;
+        case 10: 
+          a = paramlk.h();
+          break;
+        case 18: 
+          b = paramlk.h();
+        }
+      }
+    }
+    
+    public void a(zzsn paramzzsn)
+      throws IOException
+    {
+      if (a != null) {
+        paramzzsn.a(1, a);
+      }
+      if (b != null) {
+        paramzzsn.a(2, b);
+      }
+      super.a(paramzzsn);
+    }
+    
+    protected int b()
+    {
+      int j = super.b();
+      int i = j;
+      if (a != null) {
+        i = j + zzsn.b(1, a);
+      }
+      j = i;
+      if (b != null) {
+        j = i + zzsn.b(2, b);
+      }
+      return j;
+    }
+    
+    public c c()
+    {
+      a = null;
+      b = null;
+      S = -1;
+      return this;
+    }
+    
+    public boolean equals(Object paramObject)
+    {
+      if (paramObject == this) {}
+      do
+      {
+        do
+        {
+          return true;
+          if (!(paramObject instanceof c)) {
+            return false;
+          }
+          paramObject = (c)paramObject;
+          if (a == null)
+          {
+            if (a != null) {
+              return false;
+            }
+          }
+          else if (!a.equals(a)) {
+            return false;
+          }
+          if (b != null) {
+            break;
+          }
+        } while (b == null);
+        return false;
+      } while (b.equals(b));
+      return false;
+    }
+    
+    public int hashCode()
+    {
+      int j = 0;
+      int k = getClass().getName().hashCode();
+      int i;
+      if (a == null)
+      {
+        i = 0;
+        if (b != null) {
+          break label56;
+        }
+      }
+      for (;;)
+      {
+        return (i + (k + 527) * 31) * 31 + j;
+        i = a.hashCode();
+        break;
+        label56:
+        j = b.hashCode();
+      }
+    }
   }
 }
 

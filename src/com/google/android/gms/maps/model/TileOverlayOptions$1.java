@@ -1,25 +1,13 @@
 package com.google.android.gms.maps.model;
 
-import android.os.RemoteException;
-import com.google.android.gms.maps.model.internal.o;
+import com.yelp.android.bk.i;
 
 class TileOverlayOptions$1
-  implements TileProvider
+  implements d
 {
-  private final o amG = TileOverlayOptions.a(amH);
+  private final i c = TileOverlayOptions.a(a);
   
   TileOverlayOptions$1(TileOverlayOptions paramTileOverlayOptions) {}
-  
-  public Tile getTile(int paramInt1, int paramInt2, int paramInt3)
-  {
-    try
-    {
-      Tile localTile = amG.getTile(paramInt1, paramInt2, paramInt3);
-      return localTile;
-    }
-    catch (RemoteException localRemoteException) {}
-    return null;
-  }
 }
 
 /* Location:

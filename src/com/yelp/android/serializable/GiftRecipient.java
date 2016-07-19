@@ -7,21 +7,32 @@ import java.util.UUID;
 public class GiftRecipient
   extends _GiftRecipient
 {
-  public static final Parcelable.Creator<GiftRecipient> CREATOR = new ax();
-  private UUID mUUID;
+  public static final Parcelable.Creator<GiftRecipient> CREATOR = new GiftRecipient.1();
+  private UUID e;
   
   private GiftRecipient() {}
   
   public GiftRecipient(GiftRecipient paramGiftRecipient, String paramString1, String paramString2, String paramString3, String paramString4)
   {
     super(paramString1, paramString2, paramString4, paramString3);
-    mUUID = mUUID;
+    e = e;
   }
   
   public GiftRecipient(String paramString1, String paramString2, String paramString3, String paramString4)
   {
     super(paramString1, paramString2, paramString4, paramString3);
-    mUUID = UUID.randomUUID();
+    e = UUID.randomUUID();
+  }
+  
+  public UUID a()
+  {
+    return e;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    super.a(paramParcel);
+    e = UUID.fromString(paramParcel.readString());
   }
   
   public boolean equals(Object paramObject)
@@ -39,38 +50,27 @@ public class GiftRecipient
           return false;
         }
         paramObject = (GiftRecipient)paramObject;
-        if (mUUID != null) {
+        if (e != null) {
           break;
         }
-      } while (mUUID == null);
+      } while (e == null);
       return false;
-    } while (mUUID.equals(mUUID));
+    } while (e.equals(e));
     return false;
-  }
-  
-  public UUID getUUID()
-  {
-    return mUUID;
   }
   
   public int hashCode()
   {
-    if (mUUID == null) {}
-    for (int i = 0;; i = mUUID.hashCode()) {
+    if (e == null) {}
+    for (int i = 0;; i = e.hashCode()) {
       return i + 31;
     }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    super.readFromParcel(paramParcel);
-    mUUID = UUID.fromString(paramParcel.readString());
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeString(mUUID.toString());
+    paramParcel.writeString(e.toString());
   }
 }
 

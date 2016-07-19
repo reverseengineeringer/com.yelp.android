@@ -1,33 +1,10 @@
 package com.yelp.android.be;
 
-import android.os.SystemClock;
-
-public class a
+public abstract interface a
 {
-  private long a;
-  private long b;
+  public abstract String a();
   
-  public long a()
-  {
-    a = SystemClock.elapsedRealtime();
-    return a;
-  }
-  
-  public void a(long paramLong)
-  {
-    a = paramLong;
-  }
-  
-  public long b()
-  {
-    b = SystemClock.elapsedRealtime();
-    return b;
-  }
-  
-  protected long c()
-  {
-    return b - a;
-  }
+  public abstract int b();
 }
 
 /* Location:

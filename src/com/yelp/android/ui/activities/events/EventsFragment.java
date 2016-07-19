@@ -6,36 +6,40 @@ import android.view.View;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.appdata.ao;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.PermissionGroup;
+import com.yelp.android.appdata.k;
+import com.yelp.android.appdata.n;
 import com.yelp.android.appdata.webrequests.ApiRequest;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.ca;
-import com.yelp.android.appdata.webrequests.j;
+import com.yelp.android.appdata.webrequests.bs;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.Event;
 import com.yelp.android.serializable.EventSection;
 import com.yelp.android.ui.activities.support.YelpListFragment;
-import com.yelp.android.ui.activities.support.o;
+import com.yelp.android.ui.activities.support.b.e;
 import com.yelp.android.ui.dialogs.LocationSettingsDialog;
-import com.yelp.android.ui.panels.aa;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bw;
+import com.yelp.android.ui.panels.PanelError.a;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.c;
 import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class EventsFragment
   extends YelpListFragment
 {
-  private ca a;
+  private bs a;
   private boolean b;
-  private av c;
-  private bs d;
-  private List<b> e;
-  private YelpException g;
-  private final aa h = new as(this);
-  private final o i = new at(this);
-  private final j<List<EventSection>> j = new au(this);
+  private a c;
+  private aj d;
+  private List<a> e;
+  private YelpException f;
+  private final PanelError.a g = new EventsFragment.2(this);
+  private final b.e i = new EventsFragment.3(this);
+  private final k.b<List<EventSection>> j = new EventsFragment.4(this);
   
   private EventSection a(Event paramEvent)
   {
@@ -43,12 +47,12 @@ public class EventsFragment
     EventSection localEventSection = null;
     if (localIterator.hasNext())
     {
-      b localb = (b)localIterator.next();
+      a locala = (a)localIterator.next();
       int k = 0;
       label37:
-      if (k < localb.getCount()) {
-        if (paramEvent.equals(localb.a(k))) {
-          localEventSection = localb.b();
+      if (k < locala.getCount()) {
+        if (paramEvent.equals(locala.a(k))) {
+          localEventSection = locala.b();
         }
       }
       for (;;)
@@ -73,20 +77,20 @@ public class EventsFragment
       a(ErrorType.NO_EVENTS);
       return;
     }
-    d = new bs();
+    d = new aj();
     e = new ArrayList();
     int k = 0;
     if (k < paramList.size())
     {
       EventSection localEventSection = (EventSection)paramList.get(k);
-      b localb = new b(localEventSection, this);
-      e.add(localb);
+      a locala = new a(localEventSection, this);
+      e.add(locala);
       if (k == paramList.size() - 1) {}
-      for (int m = 0;; m = ao.c)
+      for (int m = 0;; m = n.c)
       {
-        d.a(localEventSection.getAlias().hashCode(), bw.a(localEventSection.getHeader(), localb).a(2130772319).a(2131493812, 0, m).a());
-        localb.a(localEventSection.getEvents());
-        localb.notifyDataSetChanged();
+        d.a(localEventSection.d().hashCode(), aj.c.a(localEventSection.c(), locala).a(2130772429).a(2131690463, 0, m).b());
+        locala.a(localEventSection.e());
+        locala.notifyDataSetChanged();
         k += 1;
         break;
       }
@@ -96,38 +100,45 @@ public class EventsFragment
   
   private void b(ErrorType paramErrorType)
   {
-    j();
-    a(paramErrorType, h);
+    l();
+    a(paramErrorType, g);
     if (paramErrorType == ErrorType.LOCATION_SERVICES_DISABLED)
     {
-      paramErrorType = LocationSettingsDialog.a(false, 2131166173);
+      paramErrorType = LocationSettingsDialog.a(false, 2131166913);
       paramErrorType.a(i);
       paramErrorType.show(getFragmentManager(), null);
     }
   }
   
-  private void e()
+  private void f()
   {
-    if (!ApiRequest.isCompleted(new ApiRequest[] { a })) {
+    if (!ApiRequest.a(new ApiRequest[] { a })) {
       return;
     }
-    i_();
-    a = new ca(j);
-    a.setLocationTimeout(2000L);
-    a.executeWithLocation(new Void[0]);
+    H_();
+    a = new bs(j);
+    a.a(2000L);
+    a.a(new Void[0]);
+  }
+  
+  private void g()
+  {
+    a = null;
+    z();
+    f();
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     super.a(paramListView, paramView, paramInt, paramLong);
     paramListView = (Event)paramListView.getAdapter().getItem(paramInt);
-    if (paramListView.getTimeStart() == 0L)
+    if (paramListView.l() == 0L)
     {
       paramView = e.iterator();
       while (paramView.hasNext())
       {
-        EventSection localEventSection = ((b)paramView.next()).b();
-        if (localEventSection.getAlias().equals(paramListView.getId())) {
+        EventSection localEventSection = ((a)paramView.next()).b();
+        if (localEventSection.d().equals(paramListView.I())) {
           c.a(localEventSection);
         }
       }
@@ -137,10 +148,10 @@ public class EventsFragment
       return;
       paramView = a(paramListView);
     } while (paramView == null);
-    startActivity(ActivityEventPage.a(getActivity(), paramListView, paramView.getAlias()));
+    startActivity(ActivityEventPage.a(getActivity(), paramListView, paramView.d()));
   }
   
-  public com.yelp.android.analytics.iris.b getIri()
+  public com.yelp.android.analytics.iris.a getIri()
   {
     return ViewIri.EventsSections;
   }
@@ -148,20 +159,20 @@ public class EventsFragment
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    a(true);
+    b(true);
     if (paramBundle == null) {
-      e();
+      f();
     }
     for (;;)
     {
-      b("com.yelp.android.events.update", new ar(this));
+      b("com.yelp.android.events.update", new EventsFragment.1(this));
       return;
       b = paramBundle.getBoolean("request_finished", false);
-      g = ((YelpException)paramBundle.getParcelable("saved_error"));
+      f = ((YelpException)paramBundle.getParcelable("saved_error"));
       if (!b) {
-        i_();
-      } else if (g != null) {
-        a(g, h);
+        H_();
+      } else if (f != null) {
+        a(f, g);
       } else {
         a(paramBundle.getParcelableArrayList("saved_event_sections"));
       }
@@ -172,7 +183,7 @@ public class EventsFragment
   {
     try
     {
-      c = ((av)paramActivity);
+      c = ((a)paramActivity);
       super.onAttach(paramActivity);
       return;
     }
@@ -188,10 +199,25 @@ public class EventsFragment
     a("my_events_request_tag", a);
   }
   
+  public void onRequestPermissionsResult(int paramInt, String[] paramArrayOfString, int[] paramArrayOfInt)
+  {
+    if (250 == paramInt)
+    {
+      paramArrayOfString = k.a(paramArrayOfString, paramArrayOfInt);
+      if ((paramArrayOfString.containsKey(PermissionGroup.LOCATION)) && (((Boolean)paramArrayOfString.get(PermissionGroup.LOCATION)).booleanValue()))
+      {
+        AppData.b().F();
+        g();
+      }
+      return;
+    }
+    super.onRequestPermissionsResult(paramInt, paramArrayOfString, paramArrayOfInt);
+  }
+  
   public void onResume()
   {
     super.onResume();
-    a = ((ca)a("my_events_request_tag", a, j));
+    a = ((bs)a("my_events_request_tag", a, j));
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
@@ -203,14 +229,19 @@ public class EventsFragment
       Iterator localIterator = e.iterator();
       while (localIterator.hasNext())
       {
-        b localb = (b)localIterator.next();
-        localb.a(paramBundle);
-        localArrayList.add(localb.b());
+        a locala = (a)localIterator.next();
+        locala.a(paramBundle);
+        localArrayList.add(locala.b());
       }
       paramBundle.putParcelableArrayList("saved_event_sections", localArrayList);
     }
     paramBundle.putBoolean("request_finished", b);
-    paramBundle.putParcelable("saved_error", g);
+    paramBundle.putParcelable("saved_error", f);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(EventSection paramEventSection);
   }
 }
 

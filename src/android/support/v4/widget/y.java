@@ -1,21 +1,63 @@
 package android.support.v4.widget;
 
-import android.view.View;
-import android.view.View.OnApplyWindowInsetsListener;
-import android.view.WindowInsets;
+import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
+import android.widget.TextView;
 
-class y
-  implements View.OnApplyWindowInsetsListener
+public class y
 {
-  public WindowInsets onApplyWindowInsets(View paramView, WindowInsets paramWindowInsets)
+  static final d a = new a();
+  
+  static
   {
-    paramView = (z)paramView;
-    if (paramWindowInsets.getSystemWindowInsetTop() > 0) {}
-    for (boolean bool = true;; bool = false)
+    int i = Build.VERSION.SDK_INT;
+    if (i >= 18)
     {
-      paramView.a(paramWindowInsets, bool);
-      return paramWindowInsets.consumeSystemWindowInsets();
+      a = new c();
+      return;
     }
+    if (i >= 17)
+    {
+      a = new b();
+      return;
+    }
+  }
+  
+  public static void a(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4)
+  {
+    a.a(paramTextView, paramDrawable1, paramDrawable2, paramDrawable3, paramDrawable4);
+  }
+  
+  static class a
+    implements y.d
+  {
+    public void a(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4)
+    {
+      paramTextView.setCompoundDrawables(paramDrawable1, paramDrawable2, paramDrawable3, paramDrawable4);
+    }
+  }
+  
+  static class b
+    extends y.a
+  {
+    public void a(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4)
+    {
+      z.a(paramTextView, paramDrawable1, paramDrawable2, paramDrawable3, paramDrawable4);
+    }
+  }
+  
+  static class c
+    extends y.b
+  {
+    public void a(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4)
+    {
+      aa.a(paramTextView, paramDrawable1, paramDrawable2, paramDrawable3, paramDrawable4);
+    }
+  }
+  
+  static abstract interface d
+  {
+    public abstract void a(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4);
   }
 }
 

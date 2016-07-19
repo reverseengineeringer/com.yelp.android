@@ -1,34 +1,10 @@
 package com.yelp.android.b;
 
-import android.support.v4.view.ax;
-import android.support.v4.view.n;
-import android.view.MenuItem;
 import android.view.View;
 
-public abstract interface b
-  extends MenuItem
+abstract interface b
 {
-  public abstract n a();
-  
-  public abstract b a(ax paramax);
-  
-  public abstract b a(n paramn);
-  
-  public abstract boolean collapseActionView();
-  
-  public abstract boolean expandActionView();
-  
-  public abstract View getActionView();
-  
-  public abstract boolean isActionViewExpanded();
-  
-  public abstract MenuItem setActionView(int paramInt);
-  
-  public abstract MenuItem setActionView(View paramView);
-  
-  public abstract void setShowAsAction(int paramInt);
-  
-  public abstract MenuItem setShowAsActionFlags(int paramInt);
+  public abstract void a(View paramView);
 }
 
 /* Location:

@@ -3,6 +3,15 @@
 .source "ActivityLeaderboard.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard$2;,
+        Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard$LeaderboardType;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Landroid/widget/TabHost$OnTabChangeListener;
 
@@ -15,10 +24,10 @@
     .line 16
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpTabActivity;-><init>()V
 
-    .line 83
-    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/a;
+    .line 89
+    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/a;-><init>(Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard$1;-><init>(Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;->a:Landroid/widget/TabHost$OnTabChangeListener;
 
@@ -51,12 +60,12 @@
     .locals 4
 
     .prologue
-    .line 79
+    .line 85
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v1, 0x7f030193
+    const v1, 0x7f030211
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;->c()Landroid/support/v4/app/FragmentTabHost;
 
@@ -81,13 +90,13 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 81
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsWeekRankings:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -119,7 +128,7 @@
     move-result-object v0
 
     .line 41
-    const v2, 0x7f070333
+    const v2, 0x7f07036a
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setText(I)V
 
@@ -136,19 +145,19 @@
 
     const-class v2, Lcom/yelp/android/ui/activities/leaderboard/WeekRankFragment;
 
-    invoke-virtual {v1, v0, v2, v3}, Landroid/support/v4/app/FragmentTabHost;->addTab(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
+    invoke-virtual {v1, v0, v2, v3}, Landroid/support/v4/app/FragmentTabHost;->a(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
 
-    .line 45
+    .line 47
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;->a()Landroid/widget/Button;
 
     move-result-object v0
 
-    .line 46
-    const v2, 0x7f070332
+    .line 48
+    const v2, 0x7f070369
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setText(I)V
 
-    .line 47
+    .line 49
     const-string/jumbo v2, "friends_rank"
 
     invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentTabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
@@ -161,19 +170,19 @@
 
     const-class v2, Lcom/yelp/android/ui/activities/leaderboard/FriendsRankFragment;
 
-    invoke-virtual {v1, v0, v2, v3}, Landroid/support/v4/app/FragmentTabHost;->addTab(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
+    invoke-virtual {v1, v0, v2, v3}, Landroid/support/v4/app/FragmentTabHost;->a(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
 
-    .line 50
+    .line 54
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;->a()Landroid/widget/Button;
 
     move-result-object v0
 
-    .line 51
-    const v2, 0x7f070334
+    .line 55
+    const v2, 0x7f07036b
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setText(I)V
 
-    .line 52
+    .line 56
     const-string/jumbo v2, "royalty_rank"
 
     invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentTabHost;->newTabSpec(Ljava/lang/String;)Landroid/widget/TabHost$TabSpec;
@@ -186,14 +195,14 @@
 
     const-class v2, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;
 
-    invoke-virtual {v1, v0, v2, v3}, Landroid/support/v4/app/FragmentTabHost;->addTab(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
+    invoke-virtual {v1, v0, v2, v3}, Landroid/support/v4/app/FragmentTabHost;->a(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
 
-    .line 55
+    .line 61
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;->a:Landroid/widget/TabHost$OnTabChangeListener;
 
     invoke-virtual {v1, v0}, Landroid/support/v4/app/FragmentTabHost;->setOnTabChangedListener(Landroid/widget/TabHost$OnTabChangeListener;)V
 
-    .line 57
+    .line 63
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -206,8 +215,8 @@
 
     check-cast v0, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard$LeaderboardType;
 
-    .line 59
-    sget-object v2, Lcom/yelp/android/ui/activities/leaderboard/b;->a:[I
+    .line 65
+    sget-object v2, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard$2;->a:[I
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/leaderboard/ActivityLeaderboard$LeaderboardType;->ordinal()I
 
@@ -217,11 +226,11 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 70
+    .line 76
     :goto_0
     return-void
 
-    .line 61
+    .line 67
     :pswitch_0
     const-string/jumbo v0, "week_rank"
 
@@ -229,7 +238,7 @@
 
     goto :goto_0
 
-    .line 64
+    .line 70
     :pswitch_1
     const-string/jumbo v0, "friends_rank"
 
@@ -237,7 +246,7 @@
 
     goto :goto_0
 
-    .line 67
+    .line 73
     :pswitch_2
     const-string/jumbo v0, "royalty_rank"
 
@@ -245,7 +254,7 @@
 
     goto :goto_0
 
-    .line 59
+    .line 65
     nop
 
     :pswitch_data_0

@@ -14,14 +14,14 @@ public class ActivityRetryBusinessPhotoShare
 {
   public static Intent a(Context paramContext, String paramString, List<Pair<ShareRequest.ShareType, ? extends YelpException>> paramList)
   {
-    paramString = ActivityRetryShare.b(paramContext, paramString, paramList);
+    paramString = ActivityRetryShare.b(paramContext, paramString, paramList, null);
     paramString.setClass(paramContext, ActivityRetryBusinessPhotoShare.class);
     return paramString;
   }
   
-  public dw a()
+  public ActivityRetryShare.a a()
   {
-    return h;
+    return j;
   }
   
   ShareService.ShareObjectType b()

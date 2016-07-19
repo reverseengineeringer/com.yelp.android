@@ -1,39 +1,47 @@
 .class public abstract Lcom/yelp/android/appdata/webrequests/am;
-.super Lcom/yelp/android/av/g;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
 .source "CheckinCommentRequest.java"
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/am$a;,
+        Lcom/yelp/android/appdata/webrequests/am$c;,
+        Lcom/yelp/android/appdata/webrequests/am$b;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/av/g",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
-        "Lcom/yelp/android/appdata/webrequests/an;",
+        "Lcom/yelp/android/appdata/webrequests/am$a;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
-.method protected constructor <init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+.method protected constructor <init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/an;",
+            "Lcom/yelp/android/appdata/webrequests/am$a;",
             ">;)V"
         }
     .end annotation
 
     .prologue
     .line 21
-    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     .line 22
     return-void
@@ -41,8 +49,14 @@
 
 
 # virtual methods
-.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/an;
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/am$a;
     .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const/4 v2, 0x0
@@ -134,11 +148,11 @@
 
     move-result-object v2
 
-    .line 41
+    .line 42
     :cond_0
-    new-instance v4, Lcom/yelp/android/appdata/webrequests/an;
+    new-instance v4, Lcom/yelp/android/appdata/webrequests/am$a;
 
-    invoke-direct {v4, v3, v1, v0, v2}, Lcom/yelp/android/appdata/webrequests/an;-><init>(Ljava/util/List;Lcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/serializable/YelpBusiness;Ljava/util/List;)V
+    invoke-direct {v4, v3, v1, v0, v2}, Lcom/yelp/android/appdata/webrequests/am$a;-><init>(Ljava/util/List;Lcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/serializable/YelpBusiness;Ljava/util/List;)V
 
     return-object v4
 
@@ -153,12 +167,18 @@
     goto :goto_0
 .end method
 
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 16
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/am;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/an;
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/am;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/am$a;
 
     move-result-object v0
 

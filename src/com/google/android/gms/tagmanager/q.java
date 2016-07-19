@@ -1,23 +1,16 @@
 package com.google.android.gms.tagmanager;
 
-import com.google.android.gms.internal.a;
 import com.google.android.gms.internal.d.a;
-import java.util.Map;
 
 class q
-  extends dd
+  implements w
 {
-  private static final String ID = a.as.toString();
-  
-  public q()
+  public y a(String paramString)
   {
-    super(ID);
+    return new r();
   }
   
-  protected boolean a(String paramString1, String paramString2, Map<String, d.a> paramMap)
-  {
-    return paramString1.contains(paramString2);
-  }
+  public void a(d.a parama) {}
 }
 
 /* Location:

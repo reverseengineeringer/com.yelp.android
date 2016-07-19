@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/shadow_dropdown" android:left="@dimen/default_small_gap_size" android:right="@dimen/default_small_gap_size" android:bottom="@dimen/default_small_gap_size" />
+    <item android:left="@dimen/default_small_gap_size" android:right="@dimen/default_small_gap_size" android:bottom="@dimen/default_small_gap_size">
+        <shape android:shape="rectangle">
+            <padding android:left="@dimen/default_small_gap_size" />
+            <padding android:right="@dimen/default_small_gap_size" />
+            <corners android:radius="@dimen/corner_radius" />
+            <solid android:color="@color/gray_light" />
+        </shape>
+    </item>
+</layer-list>

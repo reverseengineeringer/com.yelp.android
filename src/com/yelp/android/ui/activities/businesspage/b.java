@@ -1,17 +1,25 @@
 package com.yelp.android.ui.activities.businesspage;
 
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnDismissListener;
+import android.content.Context;
+import com.yelp.android.serializable.YelpBusiness;
 
-class b
-  implements DialogInterface.OnDismissListener
+public abstract interface b
 {
-  b(ActivityBusinessPage paramActivityBusinessPage) {}
+  public abstract int getIcon(Context paramContext, YelpBusiness paramYelpBusiness);
   
-  public void onDismiss(DialogInterface paramDialogInterface)
-  {
-    a.removeDialog(307);
-  }
+  public abstract String getIconUrl(YelpBusiness paramYelpBusiness);
+  
+  public abstract CharSequence getSubtitle(Context paramContext, YelpBusiness paramYelpBusiness);
+  
+  public abstract int getTintColor();
+  
+  public abstract CharSequence getTitle(Context paramContext, YelpBusiness paramYelpBusiness);
+  
+  public abstract int getTitleColor();
+  
+  public abstract boolean isSubtitleExpanded();
+  
+  public abstract boolean shouldShow(YelpBusiness paramYelpBusiness);
 }
 
 /* Location:

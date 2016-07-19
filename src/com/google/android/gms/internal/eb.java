@@ -1,81 +1,301 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.IBinder;
-import java.lang.reflect.Method;
+import android.os.RemoteException;
+import com.google.android.gms.ads.internal.util.client.b;
+import com.google.android.gms.common.internal.zzx;
+import com.yelp.android.bc.c;
+import com.yelp.android.bc.d;
+import com.yelp.android.bc.e;
+import com.yelp.android.bc.f;
+import com.yelp.android.bc.g;
+import com.yelp.android.bc.h;
+import com.yelp.android.bc.i;
 
-@ey
-public class eb
+@fv
+public final class eb
+  implements d, f, h
 {
-  private final Context mContext;
-  private Object sC;
+  private final du a;
+  private i b;
   
-  public eb(Context paramContext)
+  public eb(du paramdu)
   {
-    mContext = paramContext;
+    a = paramdu;
   }
   
-  public Bundle a(String paramString1, String paramString2, String paramString3)
+  public i a()
   {
+    return b;
+  }
+  
+  public void a(c paramc)
+  {
+    zzx.zzcD("onAdLoaded must be called on the main UI thread.");
+    b.a("Adapter called onAdLoaded.");
     try
     {
-      Class localClass = mContext.getClassLoader().loadClass("com.android.vending.billing.IInAppBillingService");
-      paramString1 = (Bundle)localClass.getDeclaredMethod("getBuyIntent", new Class[] { Integer.TYPE, String.class, String.class, String.class, String.class }).invoke(localClass.cast(sC), new Object[] { Integer.valueOf(3), paramString1, paramString2, "inapp", paramString3 });
-      return paramString1;
-    }
-    catch (Exception paramString1)
-    {
-      gr.d("IInAppBillingService is not available, please add com.android.vending.billing.IInAppBillingService to project.", paramString1);
-    }
-    return null;
-  }
-  
-  public int c(String paramString1, String paramString2)
-  {
-    try
-    {
-      Class localClass = mContext.getClassLoader().loadClass("com.android.vending.billing.IInAppBillingService");
-      int i = ((Integer)localClass.getDeclaredMethod("consumePurchase", new Class[] { Integer.TYPE, String.class, String.class }).invoke(localClass.cast(sC), new Object[] { Integer.valueOf(3), paramString1, paramString2 })).intValue();
-      return i;
-    }
-    catch (Exception paramString1)
-    {
-      gr.d("IInAppBillingService is not available, please add com.android.vending.billing.IInAppBillingService to project.", paramString1);
-    }
-    return 5;
-  }
-  
-  public Bundle d(String paramString1, String paramString2)
-  {
-    try
-    {
-      Class localClass = mContext.getClassLoader().loadClass("com.android.vending.billing.IInAppBillingService");
-      paramString1 = (Bundle)localClass.getDeclaredMethod("getPurchases", new Class[] { Integer.TYPE, String.class, String.class, String.class }).invoke(localClass.cast(sC), new Object[] { Integer.valueOf(3), paramString1, "inapp", paramString2 });
-      return paramString1;
-    }
-    catch (Exception paramString1)
-    {
-      gr.d("IInAppBillingService is not available, please add com.android.vending.billing.IInAppBillingService to project.", paramString1);
-    }
-    return null;
-  }
-  
-  public void destroy()
-  {
-    sC = null;
-  }
-  
-  public void t(IBinder paramIBinder)
-  {
-    try
-    {
-      sC = mContext.getClassLoader().loadClass("com.android.vending.billing.IInAppBillingService$Stub").getDeclaredMethod("asInterface", new Class[] { IBinder.class }).invoke(null, new Object[] { paramIBinder });
+      a.e();
       return;
     }
-    catch (Exception paramIBinder)
+    catch (RemoteException paramc)
     {
-      gr.W("IInAppBillingService is not available, please add com.android.vending.billing.IInAppBillingService to project.");
+      b.d("Could not call onAdLoaded.", paramc);
+    }
+  }
+  
+  public void a(c paramc, int paramInt)
+  {
+    zzx.zzcD("onAdFailedToLoad must be called on the main UI thread.");
+    b.a("Adapter called onAdFailedToLoad with error. " + paramInt);
+    try
+    {
+      a.a(paramInt);
+      return;
+    }
+    catch (RemoteException paramc)
+    {
+      b.d("Could not call onAdFailedToLoad.", paramc);
+    }
+  }
+  
+  public void a(e parame)
+  {
+    zzx.zzcD("onAdLoaded must be called on the main UI thread.");
+    b.a("Adapter called onAdLoaded.");
+    try
+    {
+      a.e();
+      return;
+    }
+    catch (RemoteException parame)
+    {
+      b.d("Could not call onAdLoaded.", parame);
+    }
+  }
+  
+  public void a(e parame, int paramInt)
+  {
+    zzx.zzcD("onAdFailedToLoad must be called on the main UI thread.");
+    b.a("Adapter called onAdFailedToLoad with error " + paramInt + ".");
+    try
+    {
+      a.a(paramInt);
+      return;
+    }
+    catch (RemoteException parame)
+    {
+      b.d("Could not call onAdFailedToLoad.", parame);
+    }
+  }
+  
+  public void a(g paramg)
+  {
+    zzx.zzcD("onAdOpened must be called on the main UI thread.");
+    b.a("Adapter called onAdOpened.");
+    try
+    {
+      a.d();
+      return;
+    }
+    catch (RemoteException paramg)
+    {
+      b.d("Could not call onAdOpened.", paramg);
+    }
+  }
+  
+  public void a(g paramg, int paramInt)
+  {
+    zzx.zzcD("onAdFailedToLoad must be called on the main UI thread.");
+    b.a("Adapter called onAdFailedToLoad with error " + paramInt + ".");
+    try
+    {
+      a.a(paramInt);
+      return;
+    }
+    catch (RemoteException paramg)
+    {
+      b.d("Could not call onAdFailedToLoad.", paramg);
+    }
+  }
+  
+  public void a(g paramg, i parami)
+  {
+    zzx.zzcD("onAdLoaded must be called on the main UI thread.");
+    b.a("Adapter called onAdLoaded.");
+    b = parami;
+    try
+    {
+      a.e();
+      return;
+    }
+    catch (RemoteException paramg)
+    {
+      b.d("Could not call onAdLoaded.", paramg);
+    }
+  }
+  
+  public void b(c paramc)
+  {
+    zzx.zzcD("onAdOpened must be called on the main UI thread.");
+    b.a("Adapter called onAdOpened.");
+    try
+    {
+      a.d();
+      return;
+    }
+    catch (RemoteException paramc)
+    {
+      b.d("Could not call onAdOpened.", paramc);
+    }
+  }
+  
+  public void b(e parame)
+  {
+    zzx.zzcD("onAdOpened must be called on the main UI thread.");
+    b.a("Adapter called onAdOpened.");
+    try
+    {
+      a.d();
+      return;
+    }
+    catch (RemoteException parame)
+    {
+      b.d("Could not call onAdOpened.", parame);
+    }
+  }
+  
+  public void b(g paramg)
+  {
+    zzx.zzcD("onAdClosed must be called on the main UI thread.");
+    b.a("Adapter called onAdClosed.");
+    try
+    {
+      a.b();
+      return;
+    }
+    catch (RemoteException paramg)
+    {
+      b.d("Could not call onAdClosed.", paramg);
+    }
+  }
+  
+  public void c(c paramc)
+  {
+    zzx.zzcD("onAdClosed must be called on the main UI thread.");
+    b.a("Adapter called onAdClosed.");
+    try
+    {
+      a.b();
+      return;
+    }
+    catch (RemoteException paramc)
+    {
+      b.d("Could not call onAdClosed.", paramc);
+    }
+  }
+  
+  public void c(e parame)
+  {
+    zzx.zzcD("onAdClosed must be called on the main UI thread.");
+    b.a("Adapter called onAdClosed.");
+    try
+    {
+      a.b();
+      return;
+    }
+    catch (RemoteException parame)
+    {
+      b.d("Could not call onAdClosed.", parame);
+    }
+  }
+  
+  public void c(g paramg)
+  {
+    zzx.zzcD("onAdLeftApplication must be called on the main UI thread.");
+    b.a("Adapter called onAdLeftApplication.");
+    try
+    {
+      a.c();
+      return;
+    }
+    catch (RemoteException paramg)
+    {
+      b.d("Could not call onAdLeftApplication.", paramg);
+    }
+  }
+  
+  public void d(c paramc)
+  {
+    zzx.zzcD("onAdLeftApplication must be called on the main UI thread.");
+    b.a("Adapter called onAdLeftApplication.");
+    try
+    {
+      a.c();
+      return;
+    }
+    catch (RemoteException paramc)
+    {
+      b.d("Could not call onAdLeftApplication.", paramc);
+    }
+  }
+  
+  public void d(e parame)
+  {
+    zzx.zzcD("onAdLeftApplication must be called on the main UI thread.");
+    b.a("Adapter called onAdLeftApplication.");
+    try
+    {
+      a.c();
+      return;
+    }
+    catch (RemoteException parame)
+    {
+      b.d("Could not call onAdLeftApplication.", parame);
+    }
+  }
+  
+  public void d(g paramg)
+  {
+    zzx.zzcD("onAdClicked must be called on the main UI thread.");
+    b.a("Adapter called onAdClicked.");
+    try
+    {
+      a.a();
+      return;
+    }
+    catch (RemoteException paramg)
+    {
+      b.d("Could not call onAdClicked.", paramg);
+    }
+  }
+  
+  public void e(c paramc)
+  {
+    zzx.zzcD("onAdClicked must be called on the main UI thread.");
+    b.a("Adapter called onAdClicked.");
+    try
+    {
+      a.a();
+      return;
+    }
+    catch (RemoteException paramc)
+    {
+      b.d("Could not call onAdClicked.", paramc);
+    }
+  }
+  
+  public void e(e parame)
+  {
+    zzx.zzcD("onAdClicked must be called on the main UI thread.");
+    b.a("Adapter called onAdClicked.");
+    try
+    {
+      a.a();
+      return;
+    }
+    catch (RemoteException parame)
+    {
+      b.d("Could not call onAdClicked.", parame);
     }
   }
 }

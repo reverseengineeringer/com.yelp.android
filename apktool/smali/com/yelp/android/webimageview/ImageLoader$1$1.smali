@@ -6,6 +6,17 @@
 .implements Ljava/lang/Runnable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/yelp/android/webimageview/ImageLoader$1;->newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/yelp/android/webimageview/ImageLoader$1;
 

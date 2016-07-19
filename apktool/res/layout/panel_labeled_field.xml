@@ -2,5 +2,5 @@
 <merge
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView android:id="@id/label" android:paddingLeft="0.0dip" android:paddingTop="0.0dip" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0.0dip" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
-    <com.yelp.android.ui.activities.mutatebiz.Field android:textAppearance="@style/SubtitleText" android:textColorHint="@color/black_yoni" android:id="@id/field" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawablePadding="@dimen/std_compound_drawable_offset" android:layout_below="@id/label" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+    <com.yelp.android.ui.activities.mutatebiz.Field android:textAppearance="@style/DeprecatedSubtitleText" android:textColorHint="@color/black_yoni" android:id="@id/field" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawablePadding="@dimen/std_compound_drawable_offset" android:layout_below="@id/label" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
 </merge>

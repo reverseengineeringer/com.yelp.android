@@ -3,11 +3,34 @@
 .source "MapMaker.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/common/collect/MapMaker$StrongValueReference;,
+        Lcom/yelp/common/collect/MapMaker$SoftValueReference;,
+        Lcom/yelp/common/collect/MapMaker$WeakValueReference;,
+        Lcom/yelp/common/collect/MapMaker$LinkedWeakEntry;,
+        Lcom/yelp/common/collect/MapMaker$WeakEntry;,
+        Lcom/yelp/common/collect/MapMaker$LinkedSoftEntry;,
+        Lcom/yelp/common/collect/MapMaker$SoftEntry;,
+        Lcom/yelp/common/collect/MapMaker$LinkedStrongEntry;,
+        Lcom/yelp/common/collect/MapMaker$StrongEntry;,
+        Lcom/yelp/common/collect/MapMaker$a;,
+        Lcom/yelp/common/collect/MapMaker$QueueHolder;,
+        Lcom/yelp/common/collect/MapMaker$ComputationExceptionReference;,
+        Lcom/yelp/common/collect/MapMaker$NullOutputExceptionReference;,
+        Lcom/yelp/common/collect/MapMaker$b;,
+        Lcom/yelp/common/collect/MapMaker$StrategyImpl;,
+        Lcom/yelp/common/collect/MapMaker$Strength;
+    }
+.end annotation
+
+
 # static fields
-.field private static final COMPUTING:Lcom/yelp/common/collect/g;
+.field private static final COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/common/collect/g",
+            "Lcom/yelp/common/collect/MapMaker$b",
             "<",
             "Ljava/lang/Object;",
             "Ljava/lang/Object;",
@@ -35,11 +58,11 @@
 
     .prologue
     .line 751
-    new-instance v0, Lcom/yelp/common/collect/e;
+    new-instance v0, Lcom/yelp/common/collect/MapMaker$1;
 
-    invoke-direct {v0}, Lcom/yelp/common/collect/e;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/common/collect/MapMaker$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/g;
+    sput-object v0, Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
 
     return-void
 .end method
@@ -117,29 +140,29 @@
     return-object v0
 .end method
 
-.method static synthetic access$500()Lcom/yelp/common/collect/g;
+.method static synthetic access$500()Lcom/yelp/common/collect/MapMaker$b;
     .locals 1
 
     .prologue
     .line 89
-    sget-object v0, Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/g;
+    sget-object v0, Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
 
     return-object v0
 .end method
 
-.method static synthetic access$600()Lcom/yelp/common/collect/g;
+.method static synthetic access$600()Lcom/yelp/common/collect/MapMaker$b;
     .locals 1
 
     .prologue
     .line 89
-    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->computing()Lcom/yelp/common/collect/g;
+    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->computing()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method private static computing()Lcom/yelp/common/collect/g;
+.method private static computing()Lcom/yelp/common/collect/MapMaker$b;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -148,14 +171,14 @@
             "V:",
             "Ljava/lang/Object;",
             ">()",
-            "Lcom/yelp/common/collect/g",
+            "Lcom/yelp/common/collect/MapMaker$b",
             "<TK;TV;>;"
         }
     .end annotation
 
     .prologue
     .line 771
-    sget-object v0, Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/g;
+    sget-object v0, Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
 
     return-object v0
 .end method
@@ -396,7 +419,7 @@
     return-object p0
 .end method
 
-.method public makeComputingMap(Lcom/yelp/common/base/g;)Ljava/util/concurrent/ConcurrentMap;
+.method public makeComputingMap(Lcom/yelp/common/base/d;)Ljava/util/concurrent/ConcurrentMap;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -405,7 +428,7 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/yelp/common/base/g",
+            "Lcom/yelp/common/base/d",
             "<-TK;+TV;>;)",
             "Ljava/util/concurrent/ConcurrentMap",
             "<TK;TV;>;"
@@ -416,7 +439,7 @@
     .line 326
     new-instance v0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;
 
-    invoke-direct {v0, p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;-><init>(Lcom/yelp/common/collect/MapMaker;Lcom/yelp/common/base/g;)V
+    invoke-direct {v0, p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;-><init>(Lcom/yelp/common/collect/MapMaker;Lcom/yelp/common/base/d;)V
 
     iget-object v0, v0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->map:Ljava/util/concurrent/ConcurrentMap;
 

@@ -1,22 +1,6 @@
 package com.google.android.gms.internal;
 
-import android.database.CharArrayBuffer;
-
-public final class le
-{
-  public static void b(String paramString, CharArrayBuffer paramCharArrayBuffer)
-  {
-    if ((data == null) || (data.length < paramString.length())) {
-      data = paramString.toCharArray();
-    }
-    for (;;)
-    {
-      sizeCopied = paramString.length();
-      return;
-      paramString.getChars(0, paramString.length(), data, 0);
-    }
-  }
-}
+public abstract interface le {}
 
 /* Location:
  * Qualified Name:     com.google.android.gms.internal.le

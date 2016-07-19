@@ -8,6 +8,17 @@
 
 
 # direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 0
+
+    .prologue
+    .line 17
+    invoke-direct {p0, p1}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;)V
+
+    .line 18
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
@@ -34,7 +45,7 @@
     .locals 3
 
     .prologue
-    .line 53
+    .line 56
     int-to-float v0, p1
 
     iget v1, p3, Landroid/hardware/Camera$Size;->width:I
@@ -81,7 +92,7 @@
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/view/SurfaceView;->onMeasure(II)V
 
-    .line 43
+    .line 46
     :goto_0
     return-void
 
@@ -106,7 +117,7 @@
 
     move-result v1
 
-    .line 41
+    .line 44
     iget v2, v0, Landroid/hardware/Camera$Size;->width:I
 
     int-to-float v2, v2
@@ -136,12 +147,12 @@
     .locals 0
 
     .prologue
-    .line 46
+    .line 49
     iput-object p1, p0, Lcom/yelp/android/ui/activities/camera/YelpSurfaceView;->a:Lcom/yelp/android/ui/activities/camera/CameraWrangler;
 
-    .line 49
+    .line 52
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/YelpSurfaceView;->requestLayout()V
 
-    .line 50
+    .line 53
     return-void
 .end method

@@ -8,10 +8,10 @@ public class Tip$TempTip
 {
   public Tip$TempTip()
   {
-    mId = "";
-    mTempId = UUID.randomUUID().toString();
-    mText = "";
-    mTime = new Date();
+    f = "";
+    a = UUID.randomUUID().toString();
+    i = "";
+    b = new Date();
   }
 }
 

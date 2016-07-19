@@ -1,25 +1,26 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Ranking;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Photo;
+import com.yelp.android.serializable.PhotoFeedback;
 import com.yelp.parcelgen.JsonUtil;
-import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ab
-  extends g<Void, Void, ArrayList<Ranking>>
+  extends b<Void, Void, List<PhotoFeedback>>
 {
-  public ab(String paramString, int paramInt1, int paramInt2, m<ArrayList<Ranking>> paramm)
+  public ab(ApiRequest.b<List<PhotoFeedback>> paramb, Photo paramPhoto)
   {
-    super(ApiRequest.RequestType.GET, "business/regulars", paramm);
-    addUrlParam("business_id", paramString);
-    addUrlParam("limit", paramInt2);
-    addUrlParam("offset", paramInt1);
+    super(ApiRequest.RequestType.GET, "business/photos/list_feedbacks", paramb);
+    a("photo_id", paramPhoto.a());
   }
   
-  public ArrayList<Ranking> a(JSONObject paramJSONObject)
+  public List<PhotoFeedback> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("rankings"), Ranking.CREATOR);
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("feedbacks"), PhotoFeedback.CREATOR);
   }
 }
 

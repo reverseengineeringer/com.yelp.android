@@ -1,16 +1,23 @@
-.class public final Lcom/google/android/gms/location/R;
+.class public interface abstract Lcom/google/android/gms/location/r;
 .super Ljava/lang/Object;
-.source "R.java"
+
+# interfaces
+.implements Landroid/os/IInterface;
 
 
-# direct methods
-.method public constructor <init>()V
-    .locals 0
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/location/r$a;
+    }
+.end annotation
 
-    .prologue
-    .line 9
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 137
-    return-void
+# virtual methods
+.method public abstract a(Landroid/location/Location;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method

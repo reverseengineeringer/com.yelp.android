@@ -3,7 +3,7 @@
 .source "CompassIndicator.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/m;
+.implements Lcom/yelp/android/appdata/e$a;
 
 
 # static fields
@@ -31,7 +31,7 @@
     .locals 2
 
     .prologue
-    .line 28
+    .line 29
     const-wide v0, 0x4046800000000000L    # 45.0
 
     invoke-static {v0, v1}, Ljava/lang/Math;->toRadians(D)D
@@ -47,12 +47,12 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 42
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/widgets/CompassIndicator;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 42
+    .line 43
     return-void
 .end method
 
@@ -60,12 +60,12 @@
     .locals 1
 
     .prologue
-    .line 45
+    .line 46
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/widgets/CompassIndicator;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 46
+    .line 47
     return-void
 .end method
 
@@ -73,15 +73,15 @@
     .locals 2
 
     .prologue
-    .line 49
+    .line 50
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 50
+    .line 51
     sget-object v0, Lcom/yelp/android/ui/widgets/CompassIndicator;->b:Landroid/graphics/Bitmap;
 
     if-nez v0, :cond_0
 
-    .line 51
+    .line 52
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/CompassIndicator;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -90,7 +90,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0202a3
+    const v1, 0x7f0203ae
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -104,7 +104,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/widgets/CompassIndicator;->b:Landroid/graphics/Bitmap;
 
-    .line 54
+    .line 59
     :cond_0
     new-instance v0, Landroid/location/Location;
 
@@ -114,7 +114,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->e:Landroid/location/Location;
 
-    .line 55
+    .line 60
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/CompassIndicator;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -133,33 +133,33 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->d:Landroid/view/Display;
 
-    .line 57
+    .line 63
     const-wide/high16 v0, 0x7ff8000000000000L    # NaN
 
     iput-wide v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->c:D
 
-    .line 58
+    .line 64
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->f:Landroid/graphics/Matrix;
 
-    .line 59
+    .line 65
     new-instance v0, Landroid/graphics/Paint;
 
     invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->g:Landroid/graphics/Paint;
 
-    .line 60
+    .line 66
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->g:Landroid/graphics/Paint;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 61
+    .line 67
     return-void
 .end method
 
@@ -169,14 +169,27 @@
     .locals 5
 
     .prologue
-    .line 115
+    .line 119
+    invoke-static {p1, p2}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 133
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 128
+    :cond_1
     iget-wide v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->c:D
 
     invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2
 
     iget-wide v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->c:D
 
@@ -190,35 +203,33 @@
 
     cmpl-double v0, v0, v2
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_0
 
-    .line 117
-    :cond_0
+    .line 130
+    :cond_2
     iput-wide p1, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->c:D
 
-    .line 118
+    .line 131
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/CompassIndicator;->invalidate()V
 
-    .line 120
-    :cond_1
-    return-void
+    goto :goto_0
 .end method
 
 .method public a(DDLjava/lang/String;)V
     .locals 1
 
     .prologue
-    .line 72
+    .line 78
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->e:Landroid/location/Location;
 
     invoke-virtual {v0, p1, p2}, Landroid/location/Location;->setLatitude(D)V
 
-    .line 73
+    .line 79
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->e:Landroid/location/Location;
 
     invoke-virtual {v0, p3, p4}, Landroid/location/Location;->setLongitude(D)V
 
-    .line 74
+    .line 80
     return-void
 .end method
 
@@ -230,12 +241,12 @@
 
     const/high16 v6, 0x43b40000    # 360.0f
 
-    .line 78
+    .line 84
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->n()Lcom/yelp/android/appdata/LocationService;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->r()Lcom/yelp/android/appdata/LocationService;
 
     move-result-object v1
 
@@ -243,14 +254,14 @@
 
     move-result-object v1
 
-    .line 80
+    .line 85
     if-nez v1, :cond_0
 
-    .line 109
+    .line 114
     :goto_0
     return-void
 
-    .line 84
+    .line 89
     :cond_0
     iget-wide v2, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->c:D
 
@@ -290,13 +301,13 @@
 
     if-gez v2, :cond_2
 
-    .line 88
+    .line 93
     :cond_1
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->drawColor(I)V
 
     goto :goto_0
 
-    .line 93
+    .line 98
     :cond_2
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->d:Landroid/view/Display;
 
@@ -306,7 +317,7 @@
 
     packed-switch v2, :pswitch_data_0
 
-    .line 105
+    .line 110
     :goto_1
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->e:Landroid/location/Location;
 
@@ -320,7 +331,7 @@
 
     float-to-double v2, v1
 
-    .line 106
+    .line 111
     iget-wide v4, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->c:D
 
     sub-double/2addr v2, v4
@@ -333,7 +344,7 @@
 
     rem-double/2addr v0, v2
 
-    .line 107
+    .line 112
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->f:Landroid/graphics/Matrix;
 
     double-to-float v0, v0
@@ -360,7 +371,7 @@
 
     invoke-virtual {v2, v0, v1, v3}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
-    .line 108
+    .line 113
     sget-object v0, Lcom/yelp/android/ui/widgets/CompassIndicator;->b:Landroid/graphics/Bitmap;
 
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->f:Landroid/graphics/Matrix;
@@ -371,27 +382,27 @@
 
     goto :goto_0
 
-    .line 95
+    .line 100
     :pswitch_0
     const/16 v0, 0x5a
 
-    .line 96
+    .line 101
     goto :goto_1
 
-    .line 98
+    .line 103
     :pswitch_1
     const/16 v0, 0xb4
 
-    .line 99
+    .line 104
     goto :goto_1
 
-    .line 101
+    .line 106
     :pswitch_2
     const/16 v0, 0x10e
 
     goto :goto_1
 
-    .line 93
+    .line 98
     nop
 
     :pswitch_data_0
@@ -406,32 +417,32 @@
     .locals 1
 
     .prologue
-    .line 65
+    .line 71
     invoke-super {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 66
+    .line 72
     if-nez p1, :cond_0
 
     iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->h:Z
 
     if-nez v0, :cond_0
 
-    .line 67
+    .line 73
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->t()Lcom/yelp/android/appdata/k;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->y()Lcom/yelp/android/appdata/e;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/k;->a(Lcom/yelp/android/appdata/m;)Z
+    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/e;->a(Lcom/yelp/android/appdata/e$a;)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/widgets/CompassIndicator;->h:Z
 
-    .line 69
+    .line 75
     :cond_0
     return-void
 .end method

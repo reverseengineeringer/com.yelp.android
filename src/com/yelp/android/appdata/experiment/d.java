@@ -1,12 +1,39 @@
 package com.yelp.android.appdata.experiment;
 
+import java.util.Map;
+
 public class d
+  implements i
 {
-  private static f a;
+  public static d a = new d(h.a, h.b);
+  public static final i b = new d(h.a, h.c);
+  private final i c;
+  private final i d;
   
-  public static void a(f paramf)
+  private d(i parami1, i parami2)
   {
-    a = paramf;
+    c = parami1;
+    d = parami2;
+  }
+  
+  public String a(String paramString)
+  {
+    String str2 = c.a(paramString);
+    String str1 = str2;
+    if (str2 == null) {
+      str1 = d.a(paramString);
+    }
+    return str1;
+  }
+  
+  public void a(String paramString1, String paramString2)
+  {
+    d.a(paramString1, paramString2);
+  }
+  
+  public void a(Map<String, String> paramMap)
+  {
+    d.a(paramMap);
   }
 }
 

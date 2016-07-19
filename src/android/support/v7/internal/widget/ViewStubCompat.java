@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import com.yelp.android.g.l;
+import com.yelp.android.j.a.k;
 import java.lang.ref.WeakReference;
 
 public final class ViewStubCompat
@@ -18,7 +18,7 @@ public final class ViewStubCompat
   private int b;
   private WeakReference<View> c;
   private LayoutInflater d;
-  private bl e;
+  private a e;
   
   public ViewStubCompat(Context paramContext, AttributeSet paramAttributeSet)
   {
@@ -28,10 +28,10 @@ public final class ViewStubCompat
   public ViewStubCompat(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, l.ViewStubCompat, paramInt, 0);
-    b = paramContext.getResourceId(l.ViewStubCompat_android_inflatedId, -1);
-    a = paramContext.getResourceId(l.ViewStubCompat_android_layout, 0);
-    setId(paramContext.getResourceId(l.ViewStubCompat_android_id, -1));
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.k.ViewStubCompat, paramInt, 0);
+    b = paramContext.getResourceId(a.k.ViewStubCompat_android_inflatedId, -1);
+    a = paramContext.getResourceId(a.k.ViewStubCompat_android_layout, 0);
+    setId(paramContext.getResourceId(a.k.ViewStubCompat_android_id, -1));
     paramContext.recycle();
     setVisibility(8);
     setWillNotDraw(true);
@@ -118,9 +118,9 @@ public final class ViewStubCompat
     a = paramInt;
   }
   
-  public void setOnInflateListener(bl parambl)
+  public void setOnInflateListener(a parama)
   {
-    e = parambl;
+    e = parama;
   }
   
   public void setVisibility(int paramInt)
@@ -139,6 +139,11 @@ public final class ViewStubCompat
       super.setVisibility(paramInt);
     } while ((paramInt != 0) && (paramInt != 4));
     a();
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(ViewStubCompat paramViewStubCompat, View paramView);
   }
 }
 

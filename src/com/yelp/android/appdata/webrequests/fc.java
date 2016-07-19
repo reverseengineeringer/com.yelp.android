@@ -1,25 +1,47 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.YelpBusinessReview;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Offer;
+import com.yelp.android.serializable.YelpDeal;
 import com.yelp.parcelgen.JsonUtil;
+import java.util.ArrayList;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class fc
-  extends g<String, Void, fd>
+  extends b<Void, Void, a>
 {
-  public fc(String paramString1, String paramString2, int paramInt1, int paramInt2, m<fd> paramm)
+  public fc(ApiRequest.b<a> paramb)
   {
-    super(ApiRequest.RequestType.GET, "reviews/search", paramm);
-    addUrlParam("business_id", paramString1);
-    addUrlParam("term", paramString2);
-    addUrlParam("offset", paramInt1);
-    addUrlParam("limit", paramInt2);
+    super(ApiRequest.RequestType.GET, "/user/offers", paramb);
   }
   
-  public fd a(JSONObject paramJSONObject)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return new fd(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("reviews"), YelpBusinessReview.CREATOR), paramJSONObject.getInt("total"));
+    return new a(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("deals"), YelpDeal.CREATOR), JsonUtil.parseJsonList(paramJSONObject.getJSONArray("check_in_offers"), Offer.CREATOR));
+  }
+  
+  public static class a
+  {
+    final ArrayList<YelpDeal> a;
+    final ArrayList<Offer> b;
+    
+    public a(ArrayList<YelpDeal> paramArrayList, ArrayList<Offer> paramArrayList1)
+    {
+      a = paramArrayList;
+      b = paramArrayList1;
+    }
+    
+    public ArrayList<YelpDeal> a()
+    {
+      return a;
+    }
+    
+    public ArrayList<Offer> b()
+    {
+      return b;
+    }
   }
 }
 

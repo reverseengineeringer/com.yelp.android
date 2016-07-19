@@ -1,36 +1,69 @@
 package com.yelp.android.ui.util;
 
-import android.os.Bundle;
-import android.os.Parcelable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.SparseArray;
+import com.yelp.android.appdata.BaseYelpApplication;
+import java.util.List;
 
-public class m
+public abstract class m<From, To>
 {
-  public static Bundle a(Map<String, ? extends Parcelable> paramMap)
+  private final SparseArray<To> a = new SparseArray();
+  private SparseArray<To> b;
+  private boolean c = false;
+  private AsyncTask<List<From>, Void, Void> d;
+  
+  public To a(int paramInt, Context paramContext, From paramFrom)
   {
-    Bundle localBundle = new Bundle();
-    Iterator localIterator = paramMap.keySet().iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      localBundle.putParcelable(str, (Parcelable)paramMap.get(str));
+    if (c) {
+      return (To)b.get(paramInt);
     }
-    return localBundle;
+    if (a.indexOfKey(paramInt) < 0)
+    {
+      paramContext = a(paramContext, paramFrom);
+      a.append(paramInt, paramContext);
+      return paramContext;
+    }
+    return (To)a.get(paramInt);
   }
   
-  public static <T extends Parcelable> Map<String, T> a(Bundle paramBundle, Class<T> paramClass)
+  public abstract To a(Context paramContext, From paramFrom);
+  
+  public void a()
   {
-    HashMap localHashMap = new HashMap();
-    Iterator localIterator = paramBundle.keySet().iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      localHashMap.put(str, paramClass.cast(paramBundle.getParcelable(str)));
+    a.clear();
+    if (d != null) {
+      d.cancel(true);
     }
-    return localHashMap;
+    c = false;
+  }
+  
+  public void a(List<From> paramList)
+  {
+    d = new AsyncTask()
+    {
+      protected Void a(List<From>... paramAnonymousVarArgs)
+      {
+        int i = 0;
+        paramAnonymousVarArgs = paramAnonymousVarArgs[0];
+        m.a(m.this, new SparseArray(paramAnonymousVarArgs.size()));
+        BaseYelpApplication localBaseYelpApplication = BaseYelpApplication.K();
+        while (i < paramAnonymousVarArgs.size())
+        {
+          Object localObject = a(localBaseYelpApplication, paramAnonymousVarArgs.get(i));
+          m.a(m.this).append(i, localObject);
+          i += 1;
+        }
+        return null;
+      }
+      
+      protected void a(Void paramAnonymousVoid)
+      {
+        super.onPostExecute(paramAnonymousVoid);
+        m.a(m.this, true);
+      }
+    };
+    d.execute(new List[] { paramList });
   }
 }
 

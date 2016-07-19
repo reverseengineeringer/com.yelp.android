@@ -6,85 +6,106 @@ import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.location.Address;
 import android.location.Geocoder;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentManager.BackStackEntry;
-import android.support.v4.app.FragmentManager.OnBackStackChangedListener;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.l.a;
+import android.support.v4.app.l.b;
+import android.support.v4.app.o;
+import android.support.v7.widget.Toolbar;
 import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
-import android.util.SparseArray;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.appdata.ApiPreferences;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.BaseYelpApplication;
 import com.yelp.android.appdata.LocaleSettings;
 import com.yelp.android.appdata.LocaleSettings.DISTANCE_UNIT;
 import com.yelp.android.appdata.LocationService;
-import com.yelp.android.appdata.RemoteConfigPreferences;
-import com.yelp.android.appdata.RemoteConfigPreferences.NotificationLocation;
-import com.yelp.android.appdata.RemoteConfigPreferences.NotificationSchedule;
+import com.yelp.android.appdata.PermissionGroup;
+import com.yelp.android.appdata.experiment.BackgroundLocationExperiment;
 import com.yelp.android.appdata.webrequests.ApiRequest;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.aq;
-import com.yelp.android.appdata.webrequests.ar;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.eq;
-import com.yelp.android.appdata.webrequests.er;
-import com.yelp.android.appdata.webrequests.fl;
+import com.yelp.android.appdata.webrequests.an;
+import com.yelp.android.appdata.webrequests.ao;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.appdata.webrequests.dr;
+import com.yelp.android.appdata.webrequests.dr.a;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.cj.h;
+import com.yelp.android.cj.i;
+import com.yelp.android.cj.j;
+import com.yelp.android.serializable.PreferenceSection;
 import com.yelp.android.ui.activities.ActivityCreateAccount;
 import com.yelp.android.ui.activities.ActivityLogin;
 import com.yelp.android.ui.activities.ActivityTwitterSignIn;
 import com.yelp.android.ui.activities.FacebookConnectManager;
 import com.yelp.android.ui.activities.FacebookConnectManager.FbPermissionSet;
-import com.yelp.android.ui.activities.fg;
+import com.yelp.android.ui.activities.FacebookConnectManager.a;
 import com.yelp.android.ui.activities.nearby.ActivityNearby;
 import com.yelp.android.ui.activities.support.WebViewActivity;
+import com.yelp.android.ui.activities.support.WebViewActivity.BackBehavior;
 import com.yelp.android.ui.activities.support.WebViewActivity.Feature;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.activities.support.b.e;
+import com.yelp.android.ui.dialogs.AlertDialogFragment;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.util.StringUtils;
-import java.util.Collections;
+import java.io.IOException;
+import java.util.Calendar;
 import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.Set;
 
 public class ChangeSettings
   extends YelpActivity
-  implements FragmentManager.OnBackStackChangedListener, com.yelp.android.appdata.webrequests.m<RemoteConfigPreferences>, an, com.yelp.android.ui.activities.support.o
+  implements l.b, PreferenceScreenFragment.b, b.e
 {
-  private static final RemoteConfigPreferences.NotificationLocation[] i = { RemoteConfigPreferences.NotificationLocation.ALL_CITIES, RemoteConfigPreferences.NotificationLocation.MY_CITY };
-  private static final RemoteConfigPreferences.NotificationSchedule[] j = { RemoteConfigPreferences.NotificationSchedule.ALL_ALERTS, RemoteConfigPreferences.NotificationSchedule.AFTER_CHECK_IN, RemoteConfigPreferences.NotificationSchedule.WEEKENDS_ONLY };
+  private static com.yelp.android.appdata.webrequests.f h;
+  private static c.a i;
   View a;
-  com.yelp.android.appdata.webrequests.m<er> b = new n(this);
-  DialogInterface.OnClickListener c = new e(this);
-  DialogInterface.OnClickListener d = new f(this);
-  BroadcastReceiver e = new g(this);
-  private ConnectivityManager f;
-  private eq g;
-  private AlertDialog h;
-  private FacebookConnectManager<ChangeSettings> k;
-  private q l;
-  private Map<String, t> m;
-  private SparseArray<ao> n;
-  private SharedPreferences o;
-  private boolean p;
+  BroadcastReceiver b = new BroadcastReceiver()
+  {
+    public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+    {
+      c();
+    }
+  };
+  private ConnectivityManager c;
+  private dr d;
+  private AlertDialog e;
+  private FacebookConnectManager<ChangeSettings> f;
+  private b g;
+  private SharedPreferences j;
+  private boolean k;
+  private Map<String, com.yelp.android.ck.g> l;
+  private Map<String, i> m;
   
   public static Intent a(Context paramContext, int paramInt, String paramString)
   {
@@ -94,15 +115,28 @@ public class ChangeSettings
     return paramContext;
   }
   
-  public static String a(SharedPreferences paramSharedPreferences, Context paramContext)
+  private static c.a a(Context paramContext, final l paraml)
   {
-    String str2 = paramSharedPreferences.getString(paramContext.getString(2131165978), null);
+    new c.a()
+    {
+      public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, Void paramAnonymousVoid) {}
+      
+      public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+      {
+        AlertDialogFragment.a(null, a.getString(2131165865)).show(paraml, null);
+      }
+    };
+  }
+  
+  public static String a(Context paramContext, l paraml, SharedPreferences paramSharedPreferences, String paramString)
+  {
+    String str2 = paramSharedPreferences.getString(paramString, null);
     String str1 = str2;
     if (str2 == null)
     {
-      str1 = AppData.b().m().p();
+      str1 = AppData.b().q().k();
       if (str1 != null) {
-        a(paramContext.getString(2131165978), str1, paramSharedPreferences);
+        a(paramContext, paraml, paramSharedPreferences, paramString, str1);
       }
     }
     else
@@ -112,101 +146,170 @@ public class ChangeSettings
     return "";
   }
   
-  public static void a(String paramString1, String paramString2, SharedPreferences paramSharedPreferences)
+  private void a(int paramInt, i parami, com.yelp.android.ck.g paramg)
   {
-    paramSharedPreferences.edit().putString(paramString1, paramString2).commit();
+    a(getString(paramInt), parami, paramg);
   }
   
-  private void f()
+  public static void a(Context paramContext, l paraml, SharedPreferences paramSharedPreferences, String paramString1, String paramString2)
   {
-    if (!AppData.b().n().b())
+    paramSharedPreferences.edit().putString(paramString1, paramString2).commit();
+    if ((paramString1 != null) && (paramString1.equals(paramContext.getString(2131166974)))) {}
+    for (int n = 1;; n = 0)
+    {
+      if (n != 0)
+      {
+        i = a(paramContext, paraml);
+        h = new com.yelp.android.appdata.webrequests.f(paramString2, i);
+        h.f(new Void[0]);
+      }
+      return;
+    }
+  }
+  
+  private void a(String paramString, i parami, com.yelp.android.ck.g paramg)
+  {
+    if (l == null) {
+      l = new HashMap();
+    }
+    if (m == null) {
+      m = new HashMap();
+    }
+    m.put(paramString, parami);
+    if (paramg != null) {
+      l.put(paramString, paramg);
+    }
+  }
+  
+  private k.b<dr.a> b(final String paramString)
+  {
+    new k.b()
+    {
+      public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, dr.a paramAnonymousa)
+      {
+        getHelper().f();
+        if ((!b) || (a == null)) {
+          ChangeSettings.c(ChangeSettings.this);
+        }
+        for (;;)
+        {
+          c();
+          return;
+          ChangeSettings.a(ChangeSettings.this, getSupportFragmentManager(), ChangeSettings.a(ChangeSettings.this), paramString, a.h());
+        }
+      }
+      
+      public boolean a()
+      {
+        return true;
+      }
+      
+      public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+      {
+        c();
+        getHelper().f();
+        ChangeSettings.c(ChangeSettings.this);
+      }
+    };
+  }
+  
+  private void e()
+  {
+    if (!AppData.b().r().b())
     {
       onProvidersRequired(this, false, 0);
       return;
     }
-    showDialog(2131493996);
+    showDialog(2131690866);
   }
   
-  private void g()
+  private void f()
   {
-    o localo = new o(this);
-    d locald = new d(this);
+    DialogInterface.OnCancelListener local7 = new DialogInterface.OnCancelListener()
+    {
+      public void onCancel(DialogInterface paramAnonymousDialogInterface)
+      {
+        AppData.a(EventIri.UserLogoutCancel);
+      }
+    };
+    DialogInterface.OnClickListener local8 = new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        if (paramAnonymousInt == -1)
+        {
+          getAppData().q().a(ChangeSettings.this);
+          c();
+          ChangeSettings.a(ChangeSettings.this, true);
+          ((Toolbar)findViewById(2131690378)).setNavigationIcon(new com.yelp.android.cm.c(ChangeSettings.this, 0));
+          return;
+        }
+        AppData.a(EventIri.UserLogoutCancel);
+      }
+    };
     AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
-    localBuilder.setTitle(2131166026).setMessage(2131165377).setPositiveButton(2131166906, locald).setNegativeButton(2131165457, locald).setOnCancelListener(localo);
-    h = localBuilder.create();
-    h.show();
+    localBuilder.setTitle(2131166086).setMessage(2131165504).setPositiveButton(2131166860, local8).setNegativeButton(2131165583, local8).setOnCancelListener(local7);
+    e = localBuilder.create();
+    e.show();
   }
   
-  private CharSequence h()
+  private CharSequence g()
   {
-    String str1 = getString(2131166682);
-    String str2 = getString(2131166361);
-    String str3 = getString(2131165307);
-    String str4 = getString(2131165646);
-    String str5 = getString(2131166365);
-    String str6 = getString(2131166683);
-    String str7 = getString(2131165308);
-    String str8 = getString(2131165647);
-    String str9 = getString(2131166742, new Object[] { str1, str2, str3, str4 });
+    String str1 = getString(2131166660);
+    String str2 = getString(2131166387);
+    String str3 = getString(2131165430);
+    String str4 = getString(2131165723);
+    String str5 = getString(2131166391);
+    String str6 = getString(2131166661);
+    String str7 = getString(2131165431);
+    String str8 = getString(2131165724);
+    String str9 = getString(2131166723, new Object[] { str1, str2, str3, str4 });
     SpannableStringBuilder localSpannableStringBuilder = new SpannableStringBuilder(str9);
-    int i1 = str9.indexOf(str1);
-    int i2 = str1.length();
-    int i3 = str9.indexOf(str2);
-    int i4 = str2.length();
-    int i5 = str9.indexOf(str3);
-    int i6 = str3.length();
-    int i7 = str9.indexOf(str4);
-    int i8 = str4.length();
-    localSpannableStringBuilder.setSpan(new URLSpan(str6), i1, i2 + i1, 33);
-    localSpannableStringBuilder.setSpan(new URLSpan(str5), i3, i4 + i3, 33);
-    localSpannableStringBuilder.setSpan(new URLSpan(str7), i5, i6 + i5, 33);
-    localSpannableStringBuilder.setSpan(new URLSpan(str8), i7, i8 + i7, 33);
+    int n = str9.indexOf(str1);
+    int i1 = str1.length();
+    int i2 = str9.indexOf(str2);
+    int i3 = str2.length();
+    int i4 = str9.indexOf(str3);
+    int i5 = str3.length();
+    int i6 = str9.indexOf(str4);
+    int i7 = str4.length();
+    localSpannableStringBuilder.setSpan(new URLSpan(str6), n, i1 + n, 33);
+    localSpannableStringBuilder.setSpan(new URLSpan(str5), i2, i3 + i2, 33);
+    localSpannableStringBuilder.setSpan(new URLSpan(str7), i4, i5 + i4, 33);
+    localSpannableStringBuilder.setSpan(new URLSpan(str8), i6, i7 + i6, 33);
     return localSpannableStringBuilder;
   }
   
-  void a()
+  public void a()
   {
-    int i2 = n.size();
-    int i1 = 0;
-    while (i1 < i2)
+    l locall = getSupportFragmentManager();
+    String str;
+    if (locall.e() > 0) {
+      str = locall.b(locall.e() - 1).c();
+    }
+    for (;;)
     {
-      int i3 = n.keyAt(i1);
-      localObject = (PreferenceView)a.findViewById(i3);
-      if (localObject != null) {
-        ((ao)n.get(i3)).a((PreferenceView)localObject);
-      }
-      i1 += 1;
+      setTitle(str);
+      return;
+      str = getString(2131166217);
+      a(((PreferenceScreenFragment)locall.a(2131689997)).b());
     }
-    Object localObject = (PreferenceScreenFragment)getSupportFragmentManager().findFragmentById(2131493332);
-    if (localObject != null) {
-      ((PreferenceScreenFragment)localObject).a();
-    }
-  }
-  
-  void a(int paramInt, t paramt, SharedPreferences.Editor paramEditor)
-  {
-    if (m.isEmpty()) {
-      m = new TreeMap();
-    }
-    String str = getString(paramInt);
-    paramt.a(this, paramEditor, str);
-    m.put(str, paramt);
   }
   
   @SuppressLint({"CommitTransaction"})
   public void a(int paramInt, CharSequence paramCharSequence)
   {
-    if (paramInt == 2130903398) {}
-    for (int i1 = 2130903415;; i1 = 0)
+    if (paramInt == 2130903507) {}
+    for (int n = 2130903531;; n = 0)
     {
-      Object localObject = PreferenceScreenFragment.a(paramInt, paramCharSequence, i1);
+      Object localObject = PreferenceScreenFragment.a(paramInt, paramCharSequence, n);
       ((PreferenceScreenFragment)localObject).a(this);
-      ((PreferenceScreenFragment)localObject).a(n);
-      localObject = getSupportFragmentManager().beginTransaction().replace(2131493332, (Fragment)localObject).setTransition(4097);
-      if (getSupportFragmentManager().findFragmentById(2131493332) != null) {
-        ((FragmentTransaction)localObject).addToBackStack(String.valueOf(paramCharSequence));
+      ((PreferenceScreenFragment)localObject).a(m);
+      localObject = getSupportFragmentManager().a().b(2131689997, (Fragment)localObject).a(4097);
+      if (getSupportFragmentManager().a(2131689997) != null) {
+        ((o)localObject).a(String.valueOf(paramCharSequence));
       }
-      ((FragmentTransaction)localObject).commit();
+      ((o)localObject).a();
       return;
     }
   }
@@ -216,129 +319,134 @@ public class ChangeSettings
     if (paramView == null) {
       return;
     }
-    TextView localTextView = (TextView)paramView.findViewById(2131494027);
-    localTextView.setText(h());
+    TextView localTextView = (TextView)paramView.findViewById(2131690897);
+    localTextView.setText(g());
     localTextView.setMovementMethod(LinkMovementMethod.getInstance());
-    ((TextView)paramView.findViewById(2131494028)).setText(getString(2131165659, new Object[] { Integer.valueOf(2015) }));
-    localTextView = (TextView)paramView.findViewById(2131494029);
-    SpannableStringBuilder localSpannableStringBuilder = new SpannableStringBuilder(getString(2131166743));
-    StringUtils.a(localSpannableStringBuilder, "%1$s", getResources().getDrawable(2130838515));
-    StringUtils.a(localSpannableStringBuilder, "%2$s", getResources().getDrawable(2130838514));
+    ((TextView)paramView.findViewById(2131690898)).setText(getString(2131165736, new Object[] { Integer.valueOf(Calendar.getInstance().get(1)) }));
+    localTextView = (TextView)paramView.findViewById(2131690899);
+    SpannableStringBuilder localSpannableStringBuilder = new SpannableStringBuilder(getString(2131166724));
+    StringUtils.a(localSpannableStringBuilder, "%1$s", getResources().getDrawable(2130838918));
+    StringUtils.a(localSpannableStringBuilder, "%2$s", getResources().getDrawable(2130838917));
     localTextView.setText(localSpannableStringBuilder);
-    ((TextView)paramView.findViewById(2131494031)).setText(getString(2131166812, new Object[] { BaseYelpApplication.c(this) }));
+    ((TextView)paramView.findViewById(2131690901)).setText(getString(2131167008, new Object[] { BaseYelpApplication.c(this) }));
   }
   
-  void a(RemoteConfigPreferences paramRemoteConfigPreferences)
+  public void a(c.a parama)
   {
-    paramRemoteConfigPreferences = new fl(this, paramRemoteConfigPreferences, getAppData().n().c(), null);
-    paramRemoteConfigPreferences.execute(new Void[0]);
-    showLoadingDialog(paramRemoteConfigPreferences);
+    f.g();
+    new an(parama).f(new Void[0]);
   }
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, RemoteConfigPreferences paramRemoteConfigPreferences)
+  public void a(FacebookConnectManager.a<ChangeSettings> parama)
   {
-    hideLoadingDialog();
-    paramApiRequest = getAppData().m().h();
-    if (paramRemoteConfigPreferences.b() != null) {
-      paramApiRequest.a(paramRemoteConfigPreferences.b());
-    }
-    if (paramRemoteConfigPreferences.a() != null) {
-      paramApiRequest.a(paramRemoteConfigPreferences.a());
-    }
-    a();
+    f.a(parama);
+    f.e();
   }
   
-  public void a(com.yelp.android.av.i parami)
+  public void a(b paramb)
   {
-    k.g();
-    new aq(parami).execute(new Void[0]);
-  }
-  
-  public void a(fg<ChangeSettings> paramfg)
-  {
-    k.a(paramfg);
-    k.e();
+    g = paramb;
+    startActivityForResult(ActivityTwitterSignIn.a(this), 201);
   }
   
   public void a(PreferenceView paramPreferenceView)
   {
     switch (paramPreferenceView.getId())
     {
-    case 2131493989: 
-    case 2131493990: 
-    default: 
-      return;
-    case 2131493991: 
-      showDialog(2131493991);
-      return;
-    case 2131493992: 
-      showDialog(2131493992);
-      return;
-    case 2131493993: 
-      startActivity(WebViewActivity.getWebIntent(this, Uri.parse(getString(2131166368)), getString(2131166366), ViewIri.PrivacySettings, EnumSet.of(WebViewActivity.Feature.LOGIN), false));
-      return;
-    case 2131493995: 
-      startActivity(ActivityCreateAccount.a(this, false));
-      finish();
-      return;
-    case 2131493994: 
-      if (getAppData().m().c())
-      {
-        g();
-        return;
-      }
-      startActivityForResult(ActivityLogin.a(this), 100);
-      return;
     }
-    showDialog(paramPreferenceView.getId());
+    do
+    {
+      do
+      {
+        return;
+        showDialog(2131690857);
+        return;
+        showDialog(2131690858);
+        return;
+        startActivity(WebViewActivity.getWebIntent(this, Uri.parse(getString(2131166394)), getString(2131166392), ViewIri.PrivacySettings, EnumSet.of(WebViewActivity.Feature.LOGIN), WebViewActivity.BackBehavior.NONE, false));
+        return;
+        startActivity(ActivityCreateAccount.b(this, false));
+        finish();
+        return;
+        if (getAppData().q().b())
+        {
+          f();
+          return;
+        }
+        startActivityForResult(ActivityLogin.a(this), 100);
+        return;
+      } while (!com.yelp.android.appdata.experiment.e.k.a());
+      AppData.a(ViewIri.BackgroundLocationSettings);
+      return;
+      if (!paramPreferenceView.isChecked()) {
+        break;
+      }
+    } while (com.yelp.android.appdata.k.a(this, 250, new PermissionGroup[] { PermissionGroup.LOCATION }));
+    AppData.a(EventIri.BackgroundLocationChanged, "toggle_on", Boolean.valueOf(true));
+    AppData.b().s().a();
+    return;
+    AppData.a(EventIri.BackgroundLocationChanged, "toggle_on", Boolean.valueOf(false));
+    AppData.b().s().b();
   }
   
-  public void a(q paramq)
+  public void a(String paramString)
   {
-    l = paramq;
-    startActivityForResult(ActivityTwitterSignIn.a(this), 201);
-  }
-  
-  void a(String paramString)
-  {
-    PreferenceScreenFragment localPreferenceScreenFragment = (PreferenceScreenFragment)getSupportFragmentManager().findFragmentById(2131493332);
+    PreferenceScreenFragment localPreferenceScreenFragment = (PreferenceScreenFragment)getSupportFragmentManager().a(2131689997);
     if (localPreferenceScreenFragment != null) {
       localPreferenceScreenFragment.a(paramString);
     }
+  }
+  
+  public void a(String paramString, int paramInt)
+  {
+    ((com.yelp.android.ck.g)l.get(paramString)).a(this, paramString, paramInt);
   }
   
   public void a(String paramString1, String paramString2, boolean paramBoolean, String paramString3)
   {
     if (paramBoolean)
     {
-      a(getString(2131165978), paramString2, o);
-      a();
+      a(this, getSupportFragmentManager(), j, paramString1, paramString2);
+      c();
       return;
     }
-    paramString1 = new p(this, new Geocoder(this, getResourcesgetConfigurationlocale));
+    paramString1 = new a(new Geocoder(this, getResourcesgetConfigurationlocale), paramString1);
     paramString1.execute(new String[] { paramString2 });
     getHelper().a(paramString1);
   }
   
-  public void a(String paramString, boolean paramBoolean)
+  public void a(List<PreferenceSection> paramList, String paramString)
   {
-    t localt = (t)m.get(paramString);
-    SharedPreferences.Editor localEditor = o.edit();
-    if ((localt == null) || (localt.a(this, paramString, Boolean.valueOf(paramBoolean)))) {
-      localEditor.putBoolean(paramString, paramBoolean).commit();
+    paramList = PreferenceScreenFragment.a(paramList, paramString);
+    paramList.a(this);
+    paramList.a(m);
+    paramList = getSupportFragmentManager().a().b(2131689997, paramList).a(4097);
+    if (getSupportFragmentManager().a(2131689997) != null) {
+      paramList.a(String.valueOf(paramString));
     }
+    paramList.a();
   }
   
   public void a(boolean paramBoolean) {}
   
-  public void b(com.yelp.android.av.i parami)
+  public void b() {}
+  
+  public void b(c.a parama)
   {
-    new ar(parami).execute(new Void[0]);
+    new ao(parama).f(new Void[0]);
   }
   
-  public SharedPreferences c()
+  public void c()
   {
-    return o;
+    PreferenceScreenFragment localPreferenceScreenFragment = (PreferenceScreenFragment)getSupportFragmentManager().a(2131689997);
+    if (localPreferenceScreenFragment != null) {
+      localPreferenceScreenFragment.a();
+    }
+  }
+  
+  public SharedPreferences d()
+  {
+    return j;
   }
   
   public ViewIri getIri()
@@ -346,41 +454,35 @@ public class ChangeSettings
     return ViewIri.Settings;
   }
   
-  public void k_() {}
-  
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
-    if (paramInt1 == 200)
-    {
-      k.a(paramInt1, paramInt2, paramIntent);
-      return;
-    }
     if (paramInt1 == 201)
     {
       if (-1 == paramInt2)
       {
-        l.a();
+        g.a();
         return;
       }
-      l.b();
+      g.b();
       return;
     }
     if (paramInt1 == 100)
     {
-      if ((paramInt2 == -1) && (getAppData().m().c()))
+      if ((paramInt2 == -1) && (getAppData().q().b()))
       {
         startActivity(ActivityNearby.a(this));
         return;
       }
-      a();
+      c();
       return;
     }
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
+    f.a(paramInt1, paramInt2, paramIntent);
   }
   
   public void onBackPressed()
   {
-    if ((p) && (getSupportFragmentManager().getBackStackEntryCount() == 0))
+    if ((k) && (getSupportFragmentManager().e() == 0))
     {
       startActivity(ActivityNearby.a(this));
       return;
@@ -388,161 +490,99 @@ public class ChangeSettings
     super.onBackPressed();
   }
   
-  public void onBackStackChanged()
-  {
-    FragmentManager localFragmentManager = getSupportFragmentManager();
-    String str;
-    if (localFragmentManager.getBackStackEntryCount() > 0) {
-      str = localFragmentManager.getBackStackEntryAt(localFragmentManager.getBackStackEntryCount() - 1).getName();
-    }
-    for (;;)
-    {
-      setTitle(str);
-      return;
-      str = getString(2131166167);
-      a(((PreferenceScreenFragment)localFragmentManager.findFragmentById(2131493332)).b());
-    }
-  }
-  
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     if (paramBundle != null) {
-      p = paramBundle.getBoolean("has_logged_out", false);
+      k = paramBundle.getBoolean("has_logged_out", false);
     }
-    f = ((ConnectivityManager)getSystemService("connectivity"));
-    String str = getIntent().getStringExtra("preferences.name");
-    paramBundle = str;
-    if (TextUtils.isEmpty(str)) {
-      paramBundle = getPackageName() + "_preferences";
+    c = ((ConnectivityManager)getSystemService("connectivity"));
+    j = PreferenceManager.getDefaultSharedPreferences(this);
+    f = new FacebookConnectManager(this, 2131166073, null, FacebookConnectManager.FbPermissionSet.DEFAULT_READ_PUBLISH);
+    a(2131166967, new com.yelp.android.cj.d(), new com.yelp.android.ck.d());
+    a(2131166983, new j(), new com.yelp.android.ck.f());
+    a(2131166969, new com.yelp.android.cj.e(), new com.yelp.android.ck.e());
+    a(2131166959, new com.yelp.android.cj.b(), new com.yelp.android.ck.c());
+    a(2131166970, new com.yelp.android.cj.g(), null);
+    a(2131166977, new com.yelp.android.cj.f(), null);
+    a(2131166979, new com.yelp.android.cj.k(), null);
+    a(2131166966, new com.yelp.android.cj.k(), null);
+    a(2131166974, new com.yelp.android.cj.k(AppData.b().q(), new i()
+    {
+      public void a(PreferenceView paramAnonymousPreferenceView)
+      {
+        paramAnonymousPreferenceView.setEditText(ChangeSettings.a(ChangeSettings.this, getSupportFragmentManager(), ChangeSettings.a(ChangeSettings.this), getString(2131166974)));
+        paramAnonymousPreferenceView.a();
+      }
+    }), null);
+    a(2131166981, new com.yelp.android.cj.k(AppData.b().q(), new i()
+    {
+      public void a(PreferenceView paramAnonymousPreferenceView)
+      {
+        paramAnonymousPreferenceView.setEditText(ChangeSettings.a(ChangeSettings.this, getSupportFragmentManager(), ChangeSettings.a(ChangeSettings.this), getString(2131166981)));
+        paramAnonymousPreferenceView.a();
+      }
+    }), null);
+    a(2131166975, new h(), null);
+    a(2131166965, new com.yelp.android.cj.c(), null);
+    paramBundle = AppData.b().o().f().iterator();
+    while (paramBundle.hasNext()) {
+      a((String)paramBundle.next(), new com.yelp.android.cj.a(), new com.yelp.android.ck.b());
     }
-    o = getSharedPreferences(paramBundle, 4);
-    m = Collections.emptyMap();
-    k = new FacebookConnectManager(this, 2131166015, null, FacebookConnectManager.FbPermissionSet.DEFAULT_READ_PUBLISH, 200);
-    paramBundle = o.edit();
-    a(2131165970, new y(), paramBundle);
-    a(2131165980, new ae(), paramBundle);
-    a(2131165975, new ac(), paramBundle);
-    a(2131165971, new z(), paramBundle);
-    a(2131165981, new af(), paramBundle);
-    a(2131165967, new x(), paramBundle);
-    a(2131165976, new ap(), paramBundle);
-    a(2131165966, new r(), paramBundle);
-    a(2131165968, new v(), paramBundle);
-    a(2131165969, new ah(), paramBundle);
-    a(2131165974, new ab(), paramBundle);
-    a(2131165973, new ad(), paramBundle);
-    a(2131165965, new w(), paramBundle);
-    paramBundle.commit();
-    n = new SparseArray();
-    n.put(2131493994, new c(this));
-    n.put(2131493996, new h(this));
-    n.put(2131493990, new i(this, o));
-    n.put(2131493988, new j(this));
-    n.put(2131493987, new k(this));
-    a = findViewById(2131493332);
-    getSupportFragmentManager().addOnBackStackChangedListener(this);
-    int i1 = getIntent().getIntExtra("preferences.resourceid", 2130903398);
-    str = getIntent().getStringExtra("preferences.title");
+    a = findViewById(2131689997);
+    getSupportFragmentManager().a(this);
+    int n = getIntent().getIntExtra("preferences.resourceid", 2130903507);
+    String str = getIntent().getStringExtra("preferences.title");
     paramBundle = str;
     if (str == null) {
-      paramBundle = getString(2131166167);
+      paramBundle = getString(2131166217);
     }
-    a(i1, paramBundle);
+    a(n, paramBundle);
   }
   
   protected Dialog onCreateDialog(int paramInt)
   {
-    int i2 = 0;
-    int i1 = 0;
-    Object localObject2 = getAppData().m().h();
-    Object localObject1;
     switch (paramInt)
     {
-    case 2131493989: 
-    case 2131493990: 
-    case 2131493993: 
-    case 2131493994: 
-    case 2131493995: 
     default: 
       return super.onCreateDialog(paramInt);
-    case 2131493991: 
-      return new AlertDialog.Builder(this).setTitle(2131165517).setMessage(2131165518).setPositiveButton(2131166904, new l(this)).setNegativeButton(2131166185, null).create();
-    case 2131493992: 
-      localObject1 = AppData.b().g();
-      localObject2 = ((LocaleSettings)localObject1).b(this);
-      AppData.a(ViewIri.DistanceUnit, "unit", ((LocaleSettings.DISTANCE_UNIT)localObject2).name().toLowerCase(Locale.US));
-      return new AlertDialog.Builder(this).setTitle(2131165713).setNegativeButton(getString(2131165457), null).setSingleChoiceItems(LocaleSettings.DISTANCE_UNIT.getResourceNames(this), ((LocaleSettings.DISTANCE_UNIT)localObject2).ordinal(), new m(this, (LocaleSettings)localObject1)).create();
-    case 2131493988: 
-      localObject1 = RemoteConfigPreferences.NotificationLocation.DEFAULT_LOCATION;
-      if (localObject2 != null) {
-        localObject1 = ((RemoteConfigPreferences)localObject2).b();
-      }
-      i2 = i.length;
-      paramInt = 0;
-      if (paramInt < i2) {
-        if (i[paramInt] != localObject1) {
-          break;
-        }
-      }
-      break;
-    }
-    for (;;)
-    {
-      localObject1 = new CharSequence[i.length];
-      i2 = i.length;
-      for (;;)
+    case 2131690857: 
+      new AlertDialog.Builder(this).setTitle(2131165647).setMessage(2131165648).setPositiveButton(2131166857, new DialogInterface.OnClickListener()
       {
-        if (i1 < i2)
+        public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
         {
-          localObject1[i1] = getText(ititleRes);
-          i1 += 1;
-          continue;
-          paramInt += 1;
-          break;
+          paramAnonymousDialogInterface = getAppData().i();
+          paramAnonymousDialogInterface.e().b();
+          paramAnonymousDialogInterface.c().c();
+          paramAnonymousDialogInterface.b().c();
+          paramAnonymousDialogInterface.d().c();
         }
-      }
-      return new AlertDialog.Builder(this).setTitle(2131166223).setSingleChoiceItems((CharSequence[])localObject1, paramInt, d).create();
-      localObject1 = RemoteConfigPreferences.NotificationSchedule.DEFAULT_SCHEDULE;
-      if (localObject2 != null) {
-        localObject1 = ((RemoteConfigPreferences)localObject2).a();
-      }
-      localObject2 = new CharSequence[j.length];
-      i1 = j.length;
-      paramInt = 0;
-      while (paramInt < i1)
+      }).setNegativeButton(2131166235, null).create();
+    case 2131690858: 
+      final LocaleSettings localLocaleSettings = AppData.b().g();
+      LocaleSettings.DISTANCE_UNIT localDISTANCE_UNIT = localLocaleSettings.b(this);
+      AppData.a(ViewIri.DistanceUnit, "unit", localDISTANCE_UNIT.name().toLowerCase(Locale.US));
+      new AlertDialog.Builder(this).setTitle(2131165789).setNegativeButton(getString(2131165583), null).setSingleChoiceItems(LocaleSettings.DISTANCE_UNIT.getResourceNames(this), localDISTANCE_UNIT.ordinal(), new DialogInterface.OnClickListener()
       {
-        localObject2[paramInt] = getText(jtitleRes);
-        paramInt += 1;
-      }
-      int i3 = j.length;
-      paramInt = 0;
-      for (;;)
-      {
-        i1 = i2;
-        if (paramInt < i3)
+        public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
         {
-          if (localObject1 == j[paramInt]) {
-            i1 = paramInt;
-          }
+          LocaleSettings.DISTANCE_UNIT localDISTANCE_UNIT = LocaleSettings.DISTANCE_UNIT.values()[paramAnonymousInt];
+          localLocaleSettings.a(localDISTANCE_UNIT, getAppData());
+          AppData.a(EventIri.DistanceUnitChanged, "unit", localDISTANCE_UNIT.name().toLowerCase(Locale.US));
+          paramAnonymousDialogInterface.dismiss();
         }
-        else {
-          return new AlertDialog.Builder(this).setTitle(2131166220).setSingleChoiceItems((CharSequence[])localObject2, i1, c).create();
-        }
-        paramInt += 1;
-      }
-      if ((f.getActiveNetworkInfo() == null) || (!f.getActiveNetworkInfo().isConnected())) {
-        return new AlertDialog.Builder(this).setTitle(2131166667).setMessage(2131165272).setPositiveButton(getString(2131166237), null).create();
-      }
-      return new AlertDialog.Builder(this).setTitle(2131166667).setMessage(2131166831).setPositiveButton(getString(2131166237), null).create();
-      paramInt = 0;
+      }).create();
     }
+    if ((c.getActiveNetworkInfo() == null) || (!c.getActiveNetworkInfo().isConnected())) {
+      return new AlertDialog.Builder(this).setTitle(2131166644).setMessage(2131165408).setPositiveButton(getString(2131166290), null).create();
+    }
+    return new AlertDialog.Builder(this).setTitle(2131166644).setMessage(2131166798).setPositiveButton(getString(2131166290), null).create();
   }
   
   public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
   {
     hideLoadingDialog();
-    cr.a(paramYelpException.getMessage(this), 0);
+    as.a(paramYelpException.getMessage(this), 0);
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -553,25 +593,114 @@ public class ChangeSettings
   protected void onPause()
   {
     super.onPause();
-    unregisterReceiver(e);
+    freezeRequest("change_settings", h);
+    unregisterReceiver(b);
+    AppData.b().o().c();
+  }
+  
+  public void onRequestPermissionsResult(int paramInt, String[] paramArrayOfString, int[] paramArrayOfInt)
+  {
+    if (paramInt == 250)
+    {
+      if (com.yelp.android.appdata.k.a(this, PermissionGroup.LOCATION))
+      {
+        AppData.a(EventIri.BackgroundLocationChanged, "toggle_on", Boolean.valueOf(true));
+        AppData.b().s().a();
+      }
+    }
+    else {
+      return;
+    }
+    ((PreferenceToggleView)findViewById(2131690867)).setChecked(false);
+    j.edit().putBoolean(getString(2131166959), false).commit();
+    as.a(getString(2131166081), 1);
   }
   
   protected void onResume()
   {
     super.onResume();
-    registerReceiver(e, dc.a);
+    h = (com.yelp.android.appdata.webrequests.f)thawRequest("change_settings", h, i);
+    registerReceiver(b, co.a);
   }
   
   public void onResumeFragments()
   {
     super.onResumeFragments();
-    a(((PreferenceScreenFragment)getSupportFragmentManager().findFragmentById(2131493332)).b());
+    a(((PreferenceScreenFragment)getSupportFragmentManager().a(2131689997)).b());
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putBoolean("has_logged_out", p);
+    paramBundle.putBoolean("has_logged_out", k);
+  }
+  
+  private class a
+    extends AsyncTask<String, Void, Boolean>
+  {
+    private final Geocoder b;
+    private final String c;
+    
+    public a(Geocoder paramGeocoder, String paramString)
+    {
+      b = paramGeocoder;
+      c = paramString;
+    }
+    
+    protected Boolean a(String... paramVarArgs)
+    {
+      Object localObject = null;
+      if (paramVarArgs != null) {}
+      try
+      {
+        if ((paramVarArgs.length != 0) && (paramVarArgs[0] != null)) {
+          paramVarArgs = b.getFromLocationName(paramVarArgs[0], 1);
+        }
+        while ((paramVarArgs != null) && (paramVarArgs.size() > 0))
+        {
+          paramVarArgs = (Address)paramVarArgs.get(0);
+          if (ChangeSettings.b(ChangeSettings.this) != null)
+          {
+            ChangeSettings.b(ChangeSettings.this).a(true);
+            ChangeSettings.b(ChangeSettings.this).a(null);
+          }
+          ChangeSettings.a(ChangeSettings.this, new dr(paramVarArgs.getLatitude(), paramVarArgs.getLongitude(), ChangeSettings.a(ChangeSettings.this, c)));
+          ChangeSettings.b(ChangeSettings.this).f(new Void[0]);
+          return Boolean.valueOf(true);
+          android.location.Location localLocation = AppData.b().r().c();
+          paramVarArgs = (String[])localObject;
+          if (localLocation != null) {
+            paramVarArgs = b.getFromLocation(localLocation.getLatitude(), localLocation.getLongitude(), 1);
+          }
+        }
+        Log.e("ChangeSettings", "Location is null.");
+      }
+      catch (IOException paramVarArgs)
+      {
+        for (;;)
+        {
+          Log.e("ChangeSettings", paramVarArgs.getLocalizedMessage(), paramVarArgs);
+        }
+      }
+      return Boolean.valueOf(false);
+    }
+    
+    protected void a(Boolean paramBoolean)
+    {
+      if (!paramBoolean.booleanValue())
+      {
+        c();
+        getHelper().f();
+        ChangeSettings.c(ChangeSettings.this);
+      }
+    }
+  }
+  
+  public static abstract interface b
+  {
+    public abstract void a();
+    
+    public abstract void b();
   }
 }
 

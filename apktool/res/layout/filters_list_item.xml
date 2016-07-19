@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/container" android:background="@drawable/selector_list_cell_white_gutter" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size"
+<LinearLayout android:orientation="vertical" android:id="@id/container" android:background="@drawable/selector_list_cell_white_gutter" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.yelp.android.ui.widgets.YelpToggleButton android:id="@id/filter_toggle" android:background="@drawable/switch_toggle" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/on" android:textOff="@string/off" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-    <LinearLayout android:id="@id/buttons" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/filter_toggle" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
-        <TextView android:textAppearance="@style/LargeText" android:id="@id/filter_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <Button android:textColor="@color/gray_yoni_light_text" android:id="@id/time_picker" android:background="@drawable/yelp_holo_spinner_selector" android:paddingLeft="?leftGapSize" android:paddingRight="?largeGapSize" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?leftGapSize" />
-    </LinearLayout>
-</RelativeLayout>
+    <RelativeLayout android:id="@id/filter_toggle_section" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size">
+        <com.yelp.android.ui.widgets.YelpToggleButton android:id="@id/filter_toggle" android:background="@drawable/switch_toggle" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/on" android:textOff="@string/off" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <LinearLayout android:id="@id/buttons" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/filter_toggle" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <TextView android:textAppearance="@style/BodyText" android:id="@id/filter_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <ViewStub android:id="@id/filter_picker_stub" android:layout="@layout/open_now_pickers" android:inflatedId="@id/filter_picker_section" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-14.0dip" />
+</LinearLayout>

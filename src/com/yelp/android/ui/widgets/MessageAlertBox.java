@@ -12,14 +12,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
-import com.yelp.android.bf.c;
-import com.yelp.android.bf.d;
-import com.yelp.android.bf.e;
-import com.yelp.android.bf.f;
-import com.yelp.android.bf.g;
-import com.yelp.android.bf.i;
-import com.yelp.android.bf.m;
-import com.yelp.android.ui.util.dj;
+import com.yelp.android.co.a.b;
+import com.yelp.android.co.a.c;
+import com.yelp.android.co.a.d;
+import com.yelp.android.co.a.e;
+import com.yelp.android.co.a.f;
+import com.yelp.android.co.a.h;
+import com.yelp.android.co.a.l;
+import com.yelp.android.ui.util.ay;
+import com.yelp.android.ui.util.t;
+import com.yelp.android.ui.util.u.a;
 
 public class MessageAlertBox
   extends FrameLayout
@@ -29,6 +31,7 @@ public class MessageAlertBox
   private final TextView c;
   private final TextView d;
   private final ImageView e;
+  private final Context f;
   
   public MessageAlertBox(Context paramContext)
   {
@@ -37,35 +40,36 @@ public class MessageAlertBox
   
   public MessageAlertBox(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, c.messageAlertBoxStyle);
+    this(paramContext, paramAttributeSet, a.b.messageAlertBoxStyle);
   }
   
   public MessageAlertBox(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
     SparseIntArray localSparseIntArray = new SparseIntArray();
-    localSparseIntArray.put(4, i.message_alert_box);
-    dj.a(this, paramContext, paramAttributeSet, paramInt, localSparseIntArray);
-    a = findViewById(g.padding);
-    b = ((WebImageView)findViewById(g.icon));
-    c = ((TextView)findViewById(g.title));
-    d = ((TextView)findViewById(g.subtitle));
-    e = ((ImageView)findViewById(g.arrow));
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, m.BaseMessageAlertBox, paramInt, paramInt);
+    localSparseIntArray.put(a.l.YelpView_yelpLayout, a.h.message_alert_box);
+    ay.a(this, paramContext, paramAttributeSet, paramInt, localSparseIntArray);
+    a = findViewById(a.f.padding);
+    b = ((WebImageView)findViewById(a.f.icon));
+    c = ((TextView)findViewById(a.f.title));
+    d = ((TextView)findViewById(a.f.subtitle));
+    e = ((ImageView)findViewById(a.f.arrow));
+    f = paramContext;
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.l.BaseMessageAlertBox, paramInt, paramInt);
     paramAttributeSet = getResources();
-    paramInt = paramContext.getResourceId(1, 0);
+    paramInt = paramContext.getResourceId(a.l.BaseMessageAlertBox_messageAlertBackground, 0);
     if (paramInt != 0) {
       a.setBackgroundResource(paramInt);
     }
-    e.setImageResource(paramContext.getResourceId(3, f.message_alert_box_red_arrow));
-    setIcon(paramContext.getResourceId(2, 0));
-    paramInt = paramContext.getResourceId(6, d.gray_light);
+    e.setImageResource(paramContext.getResourceId(a.l.BaseMessageAlertBox_messageAlertArrow, a.e.message_alert_box_red_arrow));
+    setIcon(paramContext.getResourceId(a.l.BaseMessageAlertBox_messageAlertIcon, 0));
+    paramInt = paramContext.getResourceId(a.l.BaseMessageAlertBox_messageAlertTextColor, a.c.gray_light);
     int i = paramAttributeSet.getColor(paramInt);
     c.setTextColor(i);
-    setTitle(paramContext.getText(4));
-    paramInt = paramAttributeSet.getColor(paramContext.getResourceId(7, paramInt));
+    setTitle(paramContext.getText(a.l.BaseMessageAlertBox_messageAlertTitle));
+    paramInt = paramAttributeSet.getColor(paramContext.getResourceId(a.l.BaseMessageAlertBox_messageAlertSubtitleTextColor, paramInt));
     d.setTextColor(paramInt);
-    setSubtitle(paramContext.getText(5));
+    setSubtitle(paramContext.getText(a.l.BaseMessageAlertBox_messageAlertSubtitle));
     a(0, 0);
     paramContext.recycle();
   }
@@ -76,6 +80,12 @@ public class MessageAlertBox
   }
   
   public void a(String paramString, int paramInt)
+  {
+    t.a(f).a(paramString).b(paramInt).a(b);
+    b.setVisibility(0);
+  }
+  
+  public void b(String paramString, int paramInt)
   {
     b.setPadding(0, 0, 0, 0);
     b.setImageUrl(paramString, paramInt);
@@ -91,7 +101,7 @@ public class MessageAlertBox
     {
       b.setImageResource(paramInt);
       b.setScaleType(ImageView.ScaleType.CENTER);
-      paramInt = getContext().getResources().getDimensionPixelOffset(e.message_alert_box_icon_padding);
+      paramInt = getContext().getResources().getDimensionPixelOffset(a.d.message_alert_box_icon_padding);
       b.setPadding(paramInt, paramInt, paramInt, paramInt);
       b.setVisibility(0);
       return;

@@ -1,16 +1,63 @@
 package android.support.v4.widget;
 
-import android.database.Cursor;
+import android.view.View;
+import android.widget.ListView;
 
-abstract interface n
+public class n
+  extends a
 {
-  public abstract Cursor a();
+  private final ListView a;
   
-  public abstract Cursor a(CharSequence paramCharSequence);
+  public n(ListView paramListView)
+  {
+    super(paramListView);
+    a = paramListView;
+  }
   
-  public abstract void a(Cursor paramCursor);
+  public void a(int paramInt1, int paramInt2)
+  {
+    ListView localListView = a;
+    paramInt1 = localListView.getFirstVisiblePosition();
+    if (paramInt1 == -1) {}
+    View localView;
+    do
+    {
+      return;
+      localView = localListView.getChildAt(0);
+    } while (localView == null);
+    localListView.setSelectionFromTop(paramInt1, localView.getTop() - paramInt2);
+  }
   
-  public abstract CharSequence c(Cursor paramCursor);
+  public boolean e(int paramInt)
+  {
+    return false;
+  }
+  
+  public boolean f(int paramInt)
+  {
+    ListView localListView = a;
+    int i = localListView.getCount();
+    if (i == 0) {}
+    int j;
+    int k;
+    do
+    {
+      return false;
+      j = localListView.getChildCount();
+      k = localListView.getFirstVisiblePosition();
+      if (paramInt <= 0) {
+        break;
+      }
+    } while ((k + j >= i) && (localListView.getChildAt(j - 1).getBottom() <= localListView.getHeight()));
+    do
+    {
+      return true;
+      if (paramInt >= 0) {
+        break;
+      }
+    } while ((k > 0) || (localListView.getChildAt(0).getTop() < 0));
+    return false;
+  }
 }
 
 /* Location:

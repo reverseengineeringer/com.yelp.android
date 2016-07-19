@@ -4,21 +4,67 @@ import android.os.Parcel;
 import android.text.TextUtils;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.Collections;
-import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Video
   extends _Video
   implements IdentifiableMedia
 {
-  public static final JsonParser.DualCreator<Video> CREATOR = new do();
-  private Feedback mFeedback = new Feedback();
+  public static final JsonParser.DualCreator<Video> CREATOR = new Video.1();
+  private Feedback n = new Feedback();
   
-  public Video() {}
-  
-  public Video(Date paramDate, Passport paramPassport, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, boolean paramBoolean, int paramInt1, int paramInt2)
+  public void a(Parcel paramParcel)
   {
-    super(paramDate, paramPassport, paramString1, paramString2, paramString3, paramString4, paramString5, paramString6, paramString7, paramBoolean, paramInt1, paramInt2);
+    super.a(paramParcel);
+    n = ((Feedback)paramParcel.readParcelable(Feedback.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    super.a(paramJSONObject);
+    n = new Feedback(Collections.emptyList(), l);
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    k = paramBoolean;
+    if (paramBoolean)
+    {
+      j().a();
+      return;
+    }
+    j().b();
+  }
+  
+  public boolean a(Media.MediaType paramMediaType)
+  {
+    return Media.MediaType.VIDEO.equals(paramMediaType);
+  }
+  
+  public boolean a(b paramb)
+  {
+    if (!(paramb instanceof Video)) {}
+    do
+    {
+      return false;
+      paramb = (Video)paramb;
+    } while ((TextUtils.isEmpty(paramb.a())) || (!paramb.a().equals(c)));
+    return true;
+  }
+  
+  public String b()
+  {
+    if (b != null) {
+      return b.p();
+    }
+    return null;
+  }
+  
+  public Video.Provider c()
+  {
+    return Video.Provider.access$000(g);
   }
   
   public boolean equals(Object paramObject)
@@ -36,81 +82,40 @@ public class Video
           return false;
         }
         paramObject = (Video)paramObject;
-        if (!getProvider().equals(((Video)paramObject).getProvider())) {
+        if (!c().equals(((Video)paramObject).c())) {
           return false;
         }
-        if (mId != null) {
+        if (c != null) {
           break;
         }
-      } while (mId == null);
+      } while (c == null);
       return false;
-    } while (mId.equals(mId));
+    } while (c.equals(c));
     return false;
-  }
-  
-  public boolean equalsId(ay paramay)
-  {
-    if ((paramay == null) || (!(paramay instanceof Video))) {}
-    do
-    {
-      return false;
-      paramay = (Video)paramay;
-    } while ((TextUtils.isEmpty(paramay.getId())) || (!paramay.getId().equals(mId)));
-    return true;
-  }
-  
-  public Feedback getFeedback()
-  {
-    return mFeedback;
-  }
-  
-  public Video.Provider getProvider()
-  {
-    return Video.Provider.access$000(mVideoSource);
-  }
-  
-  public String getUserId()
-  {
-    if (mUserPassport != null) {
-      return mUserPassport.getId();
-    }
-    return null;
   }
   
   public int hashCode()
   {
-    if (mId == null) {}
-    for (int i = 0;; i = mId.hashCode()) {
+    if (c == null) {}
+    for (int i = 0;; i = c.hashCode()) {
       return i + 31;
     }
   }
   
-  public boolean isMediaType(Media.MediaType paramMediaType)
+  public Feedback j()
   {
-    return Media.MediaType.VIDEO.equals(paramMediaType);
+    return n;
   }
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public boolean m()
   {
-    super.readFromJson(paramJSONObject);
-    mFeedback = new Feedback(Collections.emptyList(), mFeedbackPositiveCount);
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    super.readFromParcel(paramParcel);
-    mFeedback = ((Feedback)paramParcel.readParcelable(Feedback.class.getClassLoader()));
-  }
-  
-  public boolean uploadedByBusinessOwner()
-  {
-    return getProvider().equals(Video.Provider.OOYALA);
+    return c().equals(Video.Provider.OOYALA);
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeParcelable(mFeedback, paramInt);
+    paramParcel.writeParcelable(n, paramInt);
   }
 }
 

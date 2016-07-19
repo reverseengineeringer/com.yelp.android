@@ -1,18 +1,72 @@
 package android.support.v4.view;
 
-import android.view.MenuItem;
+import android.os.Build.VERSION;
+import android.view.ViewGroup;
 
-class av
-  extends au
+public class av
 {
-  public boolean b(MenuItem paramMenuItem)
+  static final c a = new f();
+  
+  static
   {
-    return az.a(paramMenuItem);
+    int i = Build.VERSION.SDK_INT;
+    if (i >= 21)
+    {
+      a = new e();
+      return;
+    }
+    if (i >= 18)
+    {
+      a = new d();
+      return;
+    }
+    if (i >= 14)
+    {
+      a = new b();
+      return;
+    }
+    if (i >= 11)
+    {
+      a = new a();
+      return;
+    }
   }
   
-  public boolean c(MenuItem paramMenuItem)
+  public static void a(ViewGroup paramViewGroup, boolean paramBoolean)
   {
-    return az.b(paramMenuItem);
+    a.a(paramViewGroup, paramBoolean);
+  }
+  
+  static class a
+    extends av.f
+  {
+    public void a(ViewGroup paramViewGroup, boolean paramBoolean)
+    {
+      aw.a(paramViewGroup, paramBoolean);
+    }
+  }
+  
+  static class b
+    extends av.a
+  {}
+  
+  static abstract interface c
+  {
+    public abstract void a(ViewGroup paramViewGroup, boolean paramBoolean);
+  }
+  
+  static class d
+    extends av.b
+  {}
+  
+  static class e
+    extends av.d
+  {}
+  
+  static class f
+    implements av.c
+  {
+    public void a(ViewGroup paramViewGroup, boolean paramBoolean) {}
   }
 }
 

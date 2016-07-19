@@ -22,9 +22,9 @@
 
     .prologue
     .line 50
-    new-instance v0, Lcom/yelp/android/serializable/bl;
+    new-instance v0, Lcom/yelp/android/serializable/NearbyRow$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/bl;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/NearbyRow$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/NearbyRow;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method public static rowsFromJSONArray(Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/String;)Ljava/util/ArrayList;
+.method public static a(Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,6 +58,12 @@
             "<",
             "Lcom/yelp/android/serializable/NearbyRow;",
             ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
         }
     .end annotation
 
@@ -93,7 +99,7 @@
     check-cast v0, Lcom/yelp/android/serializable/NearbyRow;
 
     .line 33
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyRow;->getResults()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyRow;->e()Ljava/util/List;
 
     move-result-object v1
 
@@ -115,7 +121,7 @@
     check-cast v1, Lcom/yelp/android/serializable/NearbyResult;
 
     .line 34
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/NearbyResult;->getBusinessId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/NearbyResult;->c()Ljava/lang/String;
 
     move-result-object v2
 
@@ -125,7 +131,7 @@
 
     check-cast v2, Lcom/yelp/android/serializable/YelpBusiness;
 
-    iput-object v2, v1, Lcom/yelp/android/serializable/NearbyResult;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iput-object v2, v1, Lcom/yelp/android/serializable/NearbyResult;->e:Lcom/yelp/android/serializable/YelpBusiness;
 
     goto :goto_1
 
@@ -145,7 +151,7 @@
     return-object v4
 .end method
 
-.method public static rowsFromNearbySuggestResponse(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/ArrayList;
+.method public static a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -160,8 +166,14 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
-    .line 21
+    .line 20
     const-string/jumbo v0, "businesses"
 
     invoke-virtual {p0, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -170,7 +182,7 @@
 
     sget-object v1, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;->SHORT:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;
 
-    invoke-static {v0, p1, v1}, Lcom/yelp/android/serializable/YelpBusiness;->jsonBusinessesToMap(Lorg/json/JSONArray;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;)Ljava/util/HashMap;
+    invoke-static {v0, p1, v1}, Lcom/yelp/android/serializable/YelpBusiness;->b(Lorg/json/JSONArray;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;)Ljava/util/HashMap;
 
     move-result-object v0
 
@@ -182,7 +194,7 @@
     move-result-object v1
 
     .line 24
-    invoke-static {v1, v0, p1}, Lcom/yelp/android/serializable/NearbyRow;->rowsFromJSONArray(Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-static {v1, v0, p1}, Lcom/yelp/android/serializable/NearbyRow;->a(Lorg/json/JSONArray;Ljava/util/HashMap;Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -191,19 +203,7 @@
 
 
 # virtual methods
-.method public bridge synthetic describeContents()I
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->describeContents()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getBusinessListForResults()Ljava/util/List;
+.method public a()Ljava/util/List;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -222,7 +222,7 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 44
-    iget-object v0, p0, Lcom/yelp/android/serializable/NearbyRow;->mResults:Ljava/util/List;
+    iget-object v0, p0, Lcom/yelp/android/serializable/NearbyRow;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -242,7 +242,7 @@
     check-cast v0, Lcom/yelp/android/serializable/NearbyResult;
 
     .line 45
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyResult;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyResult;->b()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
 
@@ -255,108 +255,113 @@
     return-object v1
 .end method
 
-.method public bridge synthetic getEndAction()Ljava/lang/String;
-    .locals 1
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
 
     .prologue
     .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->getEndAction()Ljava/lang/String;
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_NearbyRow;->a(Landroid/os/Parcel;)V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method
 
-.method public bridge synthetic getEndActionString()Ljava/lang/String;
-    .locals 1
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->getEndActionString()Ljava/lang/String;
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_NearbyRow;->a(Lorg/json/JSONObject;)V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method
 
-.method public bridge synthetic getHeader()Ljava/lang/String;
+.method public bridge synthetic b()I
     .locals 1
 
     .prologue
     .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->getHeader()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getResults()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->getResults()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getRowId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->getRowId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTag()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->getTag()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTopResultCount()I
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->getTopResultCount()I
+    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->b()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
 
     .prologue
     .line 16
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_NearbyRow;->readFromJson(Lorg/json/JSONObject;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->c()Ljava/lang/String;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
 
     .prologue
     .line 16
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_NearbyRow;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->d()Ljava/lang/String;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic describeContents()I
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->describeContents()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic e()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->e()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_NearbyRow;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic hashCode()I
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_NearbyRow;->hashCode()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

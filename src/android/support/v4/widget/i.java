@@ -1,248 +1,98 @@
 package android.support.v4.widget;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.DataSetObserver;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Filter;
-import android.widget.FilterQueryProvider;
-import android.widget.Filterable;
+import android.view.View.OnApplyWindowInsetsListener;
+import android.view.ViewGroup.MarginLayoutParams;
+import android.view.WindowInsets;
 
-public abstract class i
-  extends BaseAdapter
-  implements n, Filterable
+class i
 {
-  protected boolean a;
-  protected boolean b;
-  protected Cursor c;
-  protected Context d;
-  protected int e;
-  protected k f;
-  protected DataSetObserver g;
-  protected m h;
-  protected FilterQueryProvider i;
+  private static final int[] a = { 16843828 };
   
-  public i(Context paramContext, Cursor paramCursor, boolean paramBoolean)
+  public static int a(Object paramObject)
   {
-    if (paramBoolean) {}
-    for (int j = 1;; j = 2)
-    {
-      a(paramContext, paramCursor, j);
-      return;
-    }
-  }
-  
-  public Cursor a()
-  {
-    return c;
-  }
-  
-  public Cursor a(CharSequence paramCharSequence)
-  {
-    if (i != null) {
-      return i.runQuery(paramCharSequence);
-    }
-    return c;
-  }
-  
-  public abstract View a(Context paramContext, Cursor paramCursor, ViewGroup paramViewGroup);
-  
-  void a(Context paramContext, Cursor paramCursor, int paramInt)
-  {
-    boolean bool = true;
-    label23:
-    int j;
-    if ((paramInt & 0x1) == 1)
-    {
-      paramInt |= 0x2;
-      b = true;
-      if (paramCursor == null) {
-        break label140;
-      }
-      c = paramCursor;
-      a = bool;
-      d = paramContext;
-      if (!bool) {
-        break label146;
-      }
-      j = paramCursor.getColumnIndexOrThrow("_id");
-      label54:
-      e = j;
-      if ((paramInt & 0x2) != 2) {
-        break label152;
-      }
-      f = new k(this);
-    }
-    for (g = new l(this, null);; g = null)
-    {
-      if (bool)
-      {
-        if (f != null) {
-          paramCursor.registerContentObserver(f);
-        }
-        if (g != null) {
-          paramCursor.registerDataSetObserver(g);
-        }
-      }
-      return;
-      b = false;
-      break;
-      label140:
-      bool = false;
-      break label23;
-      label146:
-      j = -1;
-      break label54;
-      label152:
-      f = null;
-    }
-  }
-  
-  public void a(Cursor paramCursor)
-  {
-    paramCursor = b(paramCursor);
-    if (paramCursor != null) {
-      paramCursor.close();
-    }
-  }
-  
-  public abstract void a(View paramView, Context paramContext, Cursor paramCursor);
-  
-  public Cursor b(Cursor paramCursor)
-  {
-    if (paramCursor == c) {
-      return null;
-    }
-    Cursor localCursor = c;
-    if (localCursor != null)
-    {
-      if (f != null) {
-        localCursor.unregisterContentObserver(f);
-      }
-      if (g != null) {
-        localCursor.unregisterDataSetObserver(g);
-      }
-    }
-    c = paramCursor;
-    if (paramCursor != null)
-    {
-      if (f != null) {
-        paramCursor.registerContentObserver(f);
-      }
-      if (g != null) {
-        paramCursor.registerDataSetObserver(g);
-      }
-      e = paramCursor.getColumnIndexOrThrow("_id");
-      a = true;
-      notifyDataSetChanged();
-      return localCursor;
-    }
-    e = -1;
-    a = false;
-    notifyDataSetInvalidated();
-    return localCursor;
-  }
-  
-  public View b(Context paramContext, Cursor paramCursor, ViewGroup paramViewGroup)
-  {
-    return a(paramContext, paramCursor, paramViewGroup);
-  }
-  
-  protected void b()
-  {
-    if ((b) && (c != null) && (!c.isClosed())) {
-      a = c.requery();
-    }
-  }
-  
-  public CharSequence c(Cursor paramCursor)
-  {
-    if (paramCursor == null) {
-      return "";
-    }
-    return paramCursor.toString();
-  }
-  
-  public int getCount()
-  {
-    if ((a) && (c != null)) {
-      return c.getCount();
+    if (paramObject != null) {
+      return ((WindowInsets)paramObject).getSystemWindowInsetTop();
     }
     return 0;
   }
   
-  public View getDropDownView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  public static Drawable a(Context paramContext)
   {
-    if (a)
+    paramContext = paramContext.obtainStyledAttributes(a);
+    try
     {
-      c.moveToPosition(paramInt);
-      View localView = paramView;
-      if (paramView == null) {
-        localView = b(d, c, paramViewGroup);
+      Drawable localDrawable = paramContext.getDrawable(0);
+      return localDrawable;
+    }
+    finally
+    {
+      paramContext.recycle();
+    }
+  }
+  
+  public static void a(View paramView)
+  {
+    if ((paramView instanceof j))
+    {
+      paramView.setOnApplyWindowInsetsListener(new a());
+      paramView.setSystemUiVisibility(1280);
+    }
+  }
+  
+  public static void a(View paramView, Object paramObject, int paramInt)
+  {
+    WindowInsets localWindowInsets = (WindowInsets)paramObject;
+    if (paramInt == 3) {
+      paramObject = localWindowInsets.replaceSystemWindowInsets(localWindowInsets.getSystemWindowInsetLeft(), localWindowInsets.getSystemWindowInsetTop(), 0, localWindowInsets.getSystemWindowInsetBottom());
+    }
+    for (;;)
+    {
+      paramView.dispatchApplyWindowInsets((WindowInsets)paramObject);
+      return;
+      paramObject = localWindowInsets;
+      if (paramInt == 5) {
+        paramObject = localWindowInsets.replaceSystemWindowInsets(0, localWindowInsets.getSystemWindowInsetTop(), localWindowInsets.getSystemWindowInsetRight(), localWindowInsets.getSystemWindowInsetBottom());
       }
-      a(localView, d, c);
-      return localView;
     }
-    return null;
   }
   
-  public Filter getFilter()
+  public static void a(ViewGroup.MarginLayoutParams paramMarginLayoutParams, Object paramObject, int paramInt)
   {
-    if (h == null) {
-      h = new m(this);
+    WindowInsets localWindowInsets = (WindowInsets)paramObject;
+    if (paramInt == 3) {
+      paramObject = localWindowInsets.replaceSystemWindowInsets(localWindowInsets.getSystemWindowInsetLeft(), localWindowInsets.getSystemWindowInsetTop(), 0, localWindowInsets.getSystemWindowInsetBottom());
     }
-    return h;
-  }
-  
-  public Object getItem(int paramInt)
-  {
-    if ((a) && (c != null))
+    for (;;)
     {
-      c.moveToPosition(paramInt);
-      return c;
+      leftMargin = ((WindowInsets)paramObject).getSystemWindowInsetLeft();
+      topMargin = ((WindowInsets)paramObject).getSystemWindowInsetTop();
+      rightMargin = ((WindowInsets)paramObject).getSystemWindowInsetRight();
+      bottomMargin = ((WindowInsets)paramObject).getSystemWindowInsetBottom();
+      return;
+      paramObject = localWindowInsets;
+      if (paramInt == 5) {
+        paramObject = localWindowInsets.replaceSystemWindowInsets(0, localWindowInsets.getSystemWindowInsetTop(), localWindowInsets.getSystemWindowInsetRight(), localWindowInsets.getSystemWindowInsetBottom());
+      }
     }
-    return null;
   }
   
-  public long getItemId(int paramInt)
+  static class a
+    implements View.OnApplyWindowInsetsListener
   {
-    long l2 = 0L;
-    long l1 = l2;
-    if (a)
+    public WindowInsets onApplyWindowInsets(View paramView, WindowInsets paramWindowInsets)
     {
-      l1 = l2;
-      if (c != null)
+      paramView = (j)paramView;
+      if (paramWindowInsets.getSystemWindowInsetTop() > 0) {}
+      for (boolean bool = true;; bool = false)
       {
-        l1 = l2;
-        if (c.moveToPosition(paramInt)) {
-          l1 = c.getLong(e);
-        }
+        paramView.a(paramWindowInsets, bool);
+        return paramWindowInsets.consumeSystemWindowInsets();
       }
     }
-    return l1;
-  }
-  
-  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
-  {
-    if (!a) {
-      throw new IllegalStateException("this should only be called when the cursor is valid");
-    }
-    if (!c.moveToPosition(paramInt)) {
-      throw new IllegalStateException("couldn't move cursor to position " + paramInt);
-    }
-    View localView = paramView;
-    if (paramView == null) {
-      localView = a(d, c, paramViewGroup);
-    }
-    a(localView, d, c);
-    return localView;
-  }
-  
-  public boolean hasStableIds()
-  {
-    return true;
   }
 }
 

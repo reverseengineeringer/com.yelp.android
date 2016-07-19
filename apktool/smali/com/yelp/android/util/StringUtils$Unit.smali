@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/util/StringUtils;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Unit"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -37,7 +46,7 @@
     .locals 7
 
     .prologue
-    .line 108
+    .line 118
     new-instance v1, Lcom/yelp/android/util/StringUtils$Unit;
 
     const-string/jumbo v2, "KILOMETER"
@@ -52,7 +61,7 @@
 
     sput-object v1, Lcom/yelp/android/util/StringUtils$Unit;->KILOMETER:Lcom/yelp/android/util/StringUtils$Unit;
 
-    .line 109
+    .line 119
     new-instance v1, Lcom/yelp/android/util/StringUtils$Unit;
 
     const-string/jumbo v2, "MILE"
@@ -67,7 +76,7 @@
 
     sput-object v1, Lcom/yelp/android/util/StringUtils$Unit;->MILE:Lcom/yelp/android/util/StringUtils$Unit;
 
-    .line 110
+    .line 120
     new-instance v1, Lcom/yelp/android/util/StringUtils$Unit;
 
     const-string/jumbo v2, "METER"
@@ -82,7 +91,7 @@
 
     sput-object v1, Lcom/yelp/android/util/StringUtils$Unit;->METER:Lcom/yelp/android/util/StringUtils$Unit;
 
-    .line 111
+    .line 121
     new-instance v1, Lcom/yelp/android/util/StringUtils$Unit;
 
     const-string/jumbo v2, "FOOT"
@@ -97,7 +106,7 @@
 
     sput-object v1, Lcom/yelp/android/util/StringUtils$Unit;->FOOT:Lcom/yelp/android/util/StringUtils$Unit;
 
-    .line 106
+    .line 116
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/yelp/android/util/StringUtils$Unit;
@@ -140,16 +149,16 @@
     .end annotation
 
     .prologue
-    .line 116
+    .line 126
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 117
+    .line 127
     iput-wide p3, p0, Lcom/yelp/android/util/StringUtils$Unit;->mNumberInAKilometer:D
 
-    .line 118
+    .line 128
     iput p5, p0, Lcom/yelp/android/util/StringUtils$Unit;->mMinPrecisionThreshold:I
 
-    .line 119
+    .line 129
     return-void
 .end method
 
@@ -157,7 +166,7 @@
     .locals 1
 
     .prologue
-    .line 106
+    .line 116
     const-class v0, Lcom/yelp/android/util/StringUtils$Unit;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -173,7 +182,7 @@
     .locals 1
 
     .prologue
-    .line 106
+    .line 116
     sget-object v0, Lcom/yelp/android/util/StringUtils$Unit;->$VALUES:[Lcom/yelp/android/util/StringUtils$Unit;
 
     invoke-virtual {v0}, [Lcom/yelp/android/util/StringUtils$Unit;->clone()Ljava/lang/Object;
@@ -191,7 +200,7 @@
     .locals 3
 
     .prologue
-    .line 122
+    .line 132
     iget-wide v0, p0, Lcom/yelp/android/util/StringUtils$Unit;->mNumberInAKilometer:D
 
     mul-double/2addr v0, p1
@@ -203,15 +212,15 @@
     .locals 3
 
     .prologue
-    .line 138
+    .line 148
     const-wide/16 v0, 0x0
 
     cmpl-double v0, p1, v0
 
     if-lez v0, :cond_0
 
-    .line 141
-    invoke-static {p1, p2}, Lcom/yelp/android/util/o;->c(D)D
+    .line 151
+    invoke-static {p1, p2}, Lcom/yelp/android/util/i;->c(D)D
 
     move-result-wide v0
 
@@ -225,14 +234,14 @@
 
     double-to-int v0, v0
 
-    .line 147
+    .line 161
     iget v1, p0, Lcom/yelp/android/util/StringUtils$Unit;->mMinPrecisionThreshold:I
 
     invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
-    .line 149
+    .line 163
     :goto_0
     return v0
 

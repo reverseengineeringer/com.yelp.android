@@ -1,7 +1,7 @@
 package com.yelp.common.collect;
 
 class MapMaker$StrongValueReference<K, V>
-  implements g<K, V>
+  implements MapMaker.b<K, V>
 {
   final V referent;
   
@@ -10,7 +10,7 @@ class MapMaker$StrongValueReference<K, V>
     referent = paramV;
   }
   
-  public g<K, V> copyFor(f<K, V> paramf)
+  public MapMaker.b<K, V> copyFor(MapMaker.a<K, V> parama)
   {
     return this;
   }

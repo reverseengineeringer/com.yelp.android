@@ -18,31 +18,26 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-import com.yelp.android.analytics.iris.ReviewEventIri;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.i;
 import com.yelp.android.appdata.webrequests.ShareRequest.ShareType;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.fa;
-import com.yelp.android.appdata.webrequests.fb;
-import com.yelp.android.appdata.webrequests.j;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.dz;
+import com.yelp.android.appdata.webrequests.dz.a;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.ReviewBroadcast;
 import com.yelp.android.serializable.ReviewSuggestion;
 import com.yelp.android.serializable.SurveyQuestion;
 import com.yelp.android.serializable.User;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.services.ShareService;
-import com.yelp.android.services.ShareService.ShareObjectType;
 import com.yelp.android.ui.activities.ActivityRetryReviewShare;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.activities.support.h;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.ui.util.av;
 import com.yelp.android.ui.widgets.SpannableFrameLayout;
 import com.yelp.android.util.ObjectDirtyEvent;
-import com.yelp.android.util.f;
-import com.yelp.android.util.z;
+import com.yelp.android.util.d;
+import com.yelp.android.util.p;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -64,32 +59,38 @@ public class ReviewOverviewFragment
   private List<ShareRequest.ShareType> p;
   private ToggleButton q;
   private ToggleButton r;
-  private fa s;
-  private boolean t;
-  private final j<fb> u = new ay(this);
+  private dz s;
+  private final k.b<dz.a> t = new ReviewOverviewFragment.10(this);
+  
+  public static ReviewOverviewFragment a(ReviewSource paramReviewSource)
+  {
+    ReviewOverviewFragment localReviewOverviewFragment = new ReviewOverviewFragment();
+    Bundle localBundle = new Bundle();
+    localBundle.putSerializable("review_source", paramReviewSource);
+    localReviewOverviewFragment.setArguments(localBundle);
+    return localReviewOverviewFragment;
+  }
   
   private void d()
   {
-    if ((s == null) || (s.isFetching())) {
+    if ((s == null) || (s.u())) {
       return;
     }
     YelpActivity localYelpActivity = (YelpActivity)getActivity();
-    String str = localYelpActivity.getHelper().u();
-    AppData.a(ReviewEventIri.ReviewWritePost, Collections.singletonMap("sign_up_status", str));
-    s.executeWithLocation(new Void[0]);
+    s.a(new Void[0]);
     localYelpActivity.showLoadingDialog(s);
   }
   
   private void e()
   {
     AlphaAnimation localAlphaAnimation = new AlphaAnimation(1.0F, 0.0F);
-    localAlphaAnimation.setDuration(cw.e);
-    localAlphaAnimation.setAnimationListener(new aw(this));
+    localAlphaAnimation.setDuration(av.e);
+    localAlphaAnimation.setAnimationListener(new ReviewOverviewFragment.8(this));
     if (((j != ReviewState.FINISHED_NOT_RECENTLY) || (d.o())) && (!d.p()) && (d.g() == 0))
     {
       g.startAnimation(localAlphaAnimation);
       h.startAnimation(localAlphaAnimation);
-      ((TransitionDrawable)c.getBackground()).startTransition(cw.e);
+      ((TransitionDrawable)c.getBackground()).startTransition(av.e);
       return;
     }
     e.startAnimation(localAlphaAnimation);
@@ -98,44 +99,46 @@ public class ReviewOverviewFragment
   private void f()
   {
     Object localObject2 = new ReviewBroadcast();
-    ((ReviewBroadcast)localObject2).setBusinessId(d.f().getId());
-    ((ReviewBroadcast)localObject2).setRating(d.g());
+    ((ReviewBroadcast)localObject2).a(d.f().aD());
+    ((ReviewBroadcast)localObject2).a(d.g());
     Object localObject1;
     User localUser;
     if (m)
     {
       localObject1 = ReviewState.DRAFTED;
-      ((ReviewBroadcast)localObject2).setReviewState((ReviewState)localObject1);
-      ((ReviewBroadcast)localObject2).setConvertedToTip(m);
-      ((ReviewBroadcast)localObject2).setText(d.k());
-      ((ReviewBroadcast)localObject2).setId(i);
+      ((ReviewBroadcast)localObject2).a((ReviewState)localObject1);
+      ((ReviewBroadcast)localObject2).a(m);
+      ((ReviewBroadcast)localObject2).b(d.k());
+      ((ReviewBroadcast)localObject2).c(i);
       new ObjectDirtyEvent((Parcelable)localObject2, "com.yelp.android.review.state.update").a(getActivity());
-      localObject1 = ActivityReviewComplete.a(d.f(), i, k, l, m, d.k(), d.g(), getActivity(), n, o);
+      localObject1 = ActivityReviewComplete.a(d.f(), i, k, l, m, d.k(), d.g(), getActivity(), n, o, p);
       if (getActivity().getIntent().getBooleanExtra("yelp:external_request", false)) {
         ((Intent)localObject1).putExtra("yelp:external_request", true);
       }
-      localUser = AppData.b().m().s();
+      localUser = AppData.b().q().p();
       localObject2 = AppData.b().f();
-      if ((m) || (localUser.getReviewCount() != 0) || (!((i)localObject2).y())) {
-        break label286;
+      if ((m) || (localUser.j_() != 0) || (!((com.yelp.android.appdata.c)localObject2).A())) {
+        break label295;
       }
-      ActivityElitePrompt.a((Intent)localObject1, getActivity(), localUser.getNameWithoutPeriod());
+      ActivityElitePrompt.a((Intent)localObject1, getActivity(), localUser.ac());
     }
     for (;;)
     {
       if ((!m) && (j != ReviewState.FINISHED_RECENTLY) && (j != ReviewState.FINISHED_NOT_RECENTLY)) {
-        localUser.addReviewCount(1);
+        localUser.d(1);
       }
       startActivity((Intent)localObject1);
-      getActivity().finish();
+      localObject1 = getActivity();
+      ((Activity)localObject1).setResult(-1);
+      ((Activity)localObject1).finish();
       return;
       localObject1 = ReviewState.FINISHED_RECENTLY;
       break;
-      label286:
-      if ((localUser.getUserPhotoCount() == 0) && (((i)localObject2).z()))
+      label295:
+      if ((localUser.J() == 0) && (((com.yelp.android.appdata.c)localObject2).B()))
       {
         FragmentActivity localFragmentActivity = getActivity();
-        String str = localUser.getNameWithoutPeriod();
+        String str = localUser.ac();
         if (m) {}
         for (localObject2 = PhotoPromptType.TIP;; localObject2 = PhotoPromptType.REVIEW)
         {
@@ -150,8 +153,8 @@ public class ReviewOverviewFragment
   {
     View localView = ((YelpActivity)getActivity()).getSupportActionBar().a();
     AlphaAnimation localAlphaAnimation = new AlphaAnimation(1.0F, 0.0F);
-    localAlphaAnimation.setDuration(cw.c);
-    localAlphaAnimation.setAnimationListener(new ax(this));
+    localAlphaAnimation.setDuration(av.c);
+    localAlphaAnimation.setAnimationListener(new ReviewOverviewFragment.9(this));
     localView.startAnimation(localAlphaAnimation);
   }
   
@@ -161,17 +164,12 @@ public class ReviewOverviewFragment
     return (localView != null) && (localView.getTag().equals("stars"));
   }
   
-  public void a(boolean paramBoolean)
-  {
-    t = paramBoolean;
-  }
-  
   public boolean b()
   {
-    Intent localIntent = z.a(getActivity(), AppData.b().m().h(), p, ActivityRetryReviewShare.class);
+    Intent localIntent = p.a(getActivity(), AppData.b().q().p(), p, ActivityRetryReviewShare.class);
     if (localIntent != null)
     {
-      startActivityForResult(localIntent, 1002);
+      startActivityForResult(localIntent, 1005);
       return true;
     }
     return false;
@@ -183,16 +181,15 @@ public class ReviewOverviewFragment
     while (localIterator.hasNext())
     {
       ShareRequest.ShareType localShareType = (ShareRequest.ShareType)localIterator.next();
-      switch (aq.a[localShareType.ordinal()])
+      switch (ReviewOverviewFragment.2.a[localShareType.ordinal()])
       {
       default: 
         break;
       case 1: 
       case 2: 
-        AppData.a(ReviewEventIri.ReviewWriteShare, "social_network", localShareType.getTypeString());
+        AppData.a(EventIri.ReviewWriteShare, "social_network", localShareType.getTypeString());
       }
     }
-    getActivity().startService(ShareService.a(getActivity(), ShareService.ShareObjectType.REVIEW, i, p, false));
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -200,12 +197,12 @@ public class ReviewOverviewFragment
     switch (paramInt1)
     {
     default: 
-    case 1002: 
+    case 1005: 
       do
       {
         return;
       } while (paramInt2 != -1);
-      p = new LinkedList(f.a(paramIntent.getIntArrayExtra("yelp:retry_shares"), ShareRequest.ShareType.values()));
+      p = new LinkedList(d.a(paramIntent.getIntArrayExtra("retry_shares"), ShareRequest.ShareType.values()));
       c();
       f();
       return;
@@ -216,7 +213,7 @@ public class ReviewOverviewFragment
   public void onAttach(Activity paramActivity)
   {
     super.onAttach(paramActivity);
-    d = ((ao)paramActivity);
+    d = ((c)paramActivity);
   }
   
   public void onCreate(Bundle paramBundle)
@@ -233,22 +230,22 @@ public class ReviewOverviewFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    e = paramLayoutInflater.inflate(2130903227, paramViewGroup, false);
-    f = ((TextView)e.findViewById(2131493593));
-    c = ((ViewGroup)e.findViewById(2131493589));
-    paramLayoutInflater = (SpannableFrameLayout)e.findViewById(2131493587);
-    a = ((StarsView)e.findViewById(2131493590));
-    g = ((SpannableFrameLayout)e.findViewById(2131493591));
-    h = e.findViewById(2131493594);
-    q = ((ToggleButton)e.findViewById(2131493596));
-    r = ((ToggleButton)e.findViewById(2131493595));
-    q.setOnCheckedChangeListener(new ap(this));
-    r.setOnCheckedChangeListener(new ar(this));
-    z.a(null, getActivity().getPreferences(0), null, q, r);
+    e = paramLayoutInflater.inflate(2130903254, paramViewGroup, false);
+    f = ((TextView)e.findViewById(2131690303));
+    c = ((ViewGroup)e.findViewById(2131690299));
+    paramLayoutInflater = (SpannableFrameLayout)e.findViewById(2131690297);
+    a = ((StarsView)e.findViewById(2131690300));
+    g = ((SpannableFrameLayout)e.findViewById(2131690301));
+    h = e.findViewById(2131690304);
+    q = ((ToggleButton)e.findViewById(2131690306));
+    r = ((ToggleButton)e.findViewById(2131690305));
+    q.setOnCheckedChangeListener(new ReviewOverviewFragment.1(this));
+    r.setOnCheckedChangeListener(new ReviewOverviewFragment.3(this));
+    p.a(getActivity(), AppData.b().q().p(), false, null, q, r);
     a.setNumStars(d.g());
-    a.setOnStarsClicked(new as(this));
-    g.setOnTouchListener(new at(this));
-    f.setOnClickListener(new au(this));
+    a.setOnStarsClicked(new ReviewOverviewFragment.4(this));
+    g.setOnTouchListener(new ReviewOverviewFragment.5(this));
+    f.setOnClickListener(new ReviewOverviewFragment.6(this));
     j = d.l();
     if ((j == ReviewState.FINISHED_NOT_RECENTLY) && (!d.o()))
     {
@@ -256,16 +253,16 @@ public class ReviewOverviewFragment
       paramLayoutInflater.setLeft(true);
       f.setText(d.k());
       if ((!TextUtils.isEmpty(d.k())) && (!d.q())) {
-        break label460;
+        break label465;
       }
       h.setVisibility(8);
-      label352:
+      label357:
       setHasOptionsMenu(true);
       if (getActivity() != null) {
         ((YelpActivity)getActivity()).updateOptionsMenu();
       }
       if (!h()) {
-        break label488;
+        break label493;
       }
       g();
     }
@@ -274,7 +271,7 @@ public class ReviewOverviewFragment
       return e;
       if (d.p())
       {
-        ((TextView)e.findViewById(2131493588)).setText(2131165461);
+        ((TextView)e.findViewById(2131690298)).setText(2131165588);
         paramLayoutInflater.setVisibility(0);
         paramLayoutInflater.setLeft(true);
         break;
@@ -284,12 +281,12 @@ public class ReviewOverviewFragment
       paramLayoutInflater.setLeft(true);
       paramLayoutInflater.refreshDrawableState();
       break;
-      label460:
-      paramLayoutInflater = cw.d(getActivity(), null);
-      paramLayoutInflater.setStartOffset(cw.d);
+      label465:
+      paramLayoutInflater = av.d(getActivity(), null);
+      paramLayoutInflater.setStartOffset(av.d);
       h.startAnimation(paramLayoutInflater);
-      break label352;
-      label488:
+      break label357;
+      label493:
       a.setVisibility(0);
     }
   }
@@ -298,17 +295,20 @@ public class ReviewOverviewFragment
   {
     if (s != null)
     {
-      s.cancel(true);
-      s.setCallback(null);
+      s.a(true);
+      s.a(null);
     }
     super.onDestroy();
   }
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
-    paramMenu = paramMenu.findItem(2131494118);
-    paramMenu.setTitle(getString(2131166352));
-    paramMenu.setOnMenuItemClickListener(new av(this));
+    if (!isAdded()) {
+      return;
+    }
+    paramMenu = paramMenu.findItem(2131690992);
+    paramMenu.setTitle(getString(2131166375));
+    paramMenu.setOnMenuItemClickListener(new ReviewOverviewFragment.7(this));
   }
 }
 

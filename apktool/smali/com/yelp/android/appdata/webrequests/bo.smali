@@ -1,107 +1,138 @@
-.class final Lcom/yelp/android/appdata/webrequests/bo;
-.super Ljava/lang/Object;
-.source "EditTipRequest.java"
-
-# interfaces
-.implements Landroid/os/Parcelable$Creator;
+.class public Lcom/yelp/android/appdata/webrequests/bo;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "EventRecordRsvpRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
-        "Lcom/yelp/android/appdata/webrequests/EditTipRequest;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Lcom/yelp/android/serializable/EventRsvp;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method public constructor <init>(Lcom/yelp/android/serializable/Event;Ljava/util/ArrayList;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/serializable/Event;",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;",
+            "Ljava/lang/String;",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/EventRsvp;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 46
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 22
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
+    const-string/jumbo v1, "/event/rsvp/record"
+
+    invoke-direct {p0, v0, v1, p4}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 23
+    const-string/jumbo v0, "event_id"
+
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Event;->I()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/bo;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 24
+    const-string/jumbo v0, "event_type"
+
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Event;->K()Lcom/yelp/android/serializable/Event$EventType;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event$EventType;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/bo;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 25
+    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 26
+    const-string/jumbo v0, "freeform_response"
+
+    invoke-virtual {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/bo;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 28
+    :cond_0
+    const-string/jumbo v0, "guest_names"
+
+    invoke-static {p2}, Lcom/yelp/android/util/StringUtils;->a(Ljava/util/List;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/bo;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 29
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Lcom/yelp/android/appdata/webrequests/EditTipRequest;
-    .locals 4
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/EventRsvp;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 49
-    invoke-static {p1}, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;->readFromParcel(Landroid/os/Parcel;)Ljava/io/File;
+    .line 33
+    sget-object v0, Lcom/yelp/android/serializable/EventRsvp;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
-    move-result-object v0
+    const-string/jumbo v1, "rsvp"
 
-    .line 50
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    .line 51
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 53
-    :try_start_0
-    new-instance v3, Lcom/yelp/android/appdata/webrequests/EditTipRequest;
-
-    invoke-direct {v3, v1, v2, v0}, Lcom/yelp/android/appdata/webrequests/EditTipRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-object v3
-
-    .line 54
-    :catch_0
-    move-exception v0
-
-    .line 55
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v2, "File Deleted while parceled"
-
-    invoke-direct {v1, v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v1
-.end method
-
-.method public a(I)[Lcom/yelp/android/appdata/webrequests/EditTipRequest;
-    .locals 1
-
-    .prologue
-    .line 61
-    new-array v0, p1, [Lcom/yelp/android/appdata/webrequests/EditTipRequest;
-
-    return-object v0
-.end method
-
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 46
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/bo;->a(Landroid/os/Parcel;)Lcom/yelp/android/appdata/webrequests/EditTipRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/yelp/android/serializable/EventRsvp;
+
     return-object v0
 .end method
 
-.method public synthetic newArray(I)[Ljava/lang/Object;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 46
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/bo;->a(I)[Lcom/yelp/android/appdata/webrequests/EditTipRequest;
+    .line 15
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/bo;->a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/EventRsvp;
 
     move-result-object v0
 

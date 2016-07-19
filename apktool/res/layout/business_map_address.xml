@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/map_divider" android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <com.yelp.android.ui.map.MapSpannableLinearLayout android:id="@id/map_cell" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.yelp.android.ui.activities.mutatebiz.Field android:gravity="left" android:id="@id/business_address" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
+</merge>

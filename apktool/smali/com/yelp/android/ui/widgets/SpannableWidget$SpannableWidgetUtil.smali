@@ -6,14 +6,25 @@
 .implements Lcom/yelp/android/ui/widgets/SpannableWidget;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/widgets/SpannableWidget;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "SpannableWidgetUtil"
+.end annotation
+
+
 # instance fields
 .field private a:I
 
-.field private g:Z
+.field private b:Z
 
-.field private final h:Z
+.field private final c:Z
 
-.field private i:Lcom/yelp/android/ui/widgets/j;
+.field private i:Lcom/yelp/android/ui/widgets/c;
 
 
 # direct methods
@@ -23,27 +34,27 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 62
+    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 63
-    sget-object v0, Lcom/yelp/android/bf/m;->SpannableWidget:[I
+    .line 58
+    sget-object v0, Lcom/yelp/android/co/a$l;->SpannableWidget:[I
 
     invoke-virtual {p1, p2, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 65
-    const/4 v1, 0x7
+    .line 61
+    sget v1, Lcom/yelp/android/co/a$l;->SpannableWidget_checkable:I
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
-    iput-boolean v1, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->h:Z
+    iput-boolean v1, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:Z
 
-    .line 66
-    const/4 v1, 0x6
+    .line 62
+    sget v1, Lcom/yelp/android/co/a$l;->SpannableWidget_position:I
 
     const/4 v2, 0x1
 
@@ -53,13 +64,13 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
-    .line 67
+    .line 63
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 68
-    iput-boolean v3, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->g:Z
+    .line 64
+    iput-boolean v3, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:Z
 
-    .line 69
+    .line 65
     return-void
 .end method
 
@@ -69,18 +80,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 140
-    sget-object v0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:[I
+    .line 136
+    sget-object v0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
 
     array-length v0, v0
 
-    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:[I
+    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->e:[I
 
     array-length v2, v2
 
     add-int/2addr v0, v2
 
-    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
+    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->f:[I
 
     array-length v2, v2
 
@@ -88,7 +99,7 @@
 
     new-array v3, v0, [I
 
-    .line 143
+    .line 139
     iget v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
     and-int/lit8 v0, v0, 0x4
@@ -97,23 +108,23 @@
 
     if-ne v0, v2, :cond_3
 
-    .line 144
-    sget-object v0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:[I
+    .line 140
+    sget-object v0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
 
-    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:[I
+    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
 
     array-length v2, v2
 
     invoke-static {v0, v1, v3, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 145
-    sget-object v0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:[I
+    .line 141
+    sget-object v0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
 
     array-length v0, v0
 
     add-int/2addr v0, v1
 
-    .line 147
+    .line 143
     :goto_0
     iget v2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
@@ -123,23 +134,23 @@
 
     if-ne v2, v4, :cond_0
 
-    .line 148
-    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:[I
+    .line 144
+    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->e:[I
 
-    sget-object v4, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:[I
+    sget-object v4, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->e:[I
 
     array-length v4, v4
 
     invoke-static {v2, v1, v3, v0, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 149
-    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:[I
+    .line 145
+    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->e:[I
 
     array-length v2, v2
 
     add-int/2addr v0, v2
 
-    .line 151
+    .line 147
     :cond_0
     iget v2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
@@ -149,37 +160,37 @@
 
     if-ne v2, v4, :cond_1
 
-    .line 152
-    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
+    .line 148
+    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->f:[I
 
-    sget-object v4, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
+    sget-object v4, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->f:[I
 
     array-length v4, v4
 
     invoke-static {v2, v1, v3, v0, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 153
-    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d:[I
+    .line 149
+    sget-object v2, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->f:[I
 
     array-length v2, v2
 
     add-int/2addr v0, v2
 
-    .line 155
+    .line 151
     :cond_1
     array-length v2, v3
 
     if-eq v0, v2, :cond_2
 
-    .line 156
+    .line 152
     new-array v2, v0, [I
 
-    .line 157
+    .line 153
     invoke-static {v3, v1, v2, v1, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     move-object v0, v2
 
-    .line 160
+    .line 156
     :goto_1
     return-object v0
 
@@ -207,17 +218,17 @@
     .end annotation
 
     .prologue
-    .line 187
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->i:Lcom/yelp/android/ui/widgets/j;
+    .line 183
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->i:Lcom/yelp/android/ui/widgets/c;
 
     if-eqz v0, :cond_0
 
-    .line 188
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->i:Lcom/yelp/android/ui/widgets/j;
+    .line 184
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->i:Lcom/yelp/android/ui/widgets/c;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/ui/widgets/j;->onCheckedChanged(Landroid/view/View;)V
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/widgets/c;->onCheckedChanged(Landroid/view/View;)V
 
-    .line 190
+    .line 186
     :cond_0
     return-void
 .end method
@@ -237,43 +248,54 @@
     .end annotation
 
     .prologue
-    .line 178
-    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->g:Z
+    .line 174
+    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:Z
 
     if-eq p2, v0, :cond_1
 
     const/4 v0, 0x1
 
-    .line 179
+    .line 175
     :goto_0
-    iput-boolean p2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->g:Z
+    iput-boolean p2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:Z
 
-    .line 180
+    .line 176
     if-eqz v0, :cond_0
 
-    .line 181
+    .line 177
     invoke-virtual {p1}, Landroid/view/View;->refreshDrawableState()V
 
-    .line 182
+    .line 178
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->d(Landroid/view/View;)V
 
-    .line 184
+    .line 180
     :cond_0
     return-void
 
-    .line 178
+    .line 174
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
+.method public a(Lcom/yelp/android/ui/widgets/c;)V
+    .locals 0
+
+    .prologue
+    .line 190
+    iput-object p1, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->i:Lcom/yelp/android/ui/widgets/c;
+
+    .line 191
+    return-void
+.end method
+
 .method public a()Z
     .locals 1
 
     .prologue
-    .line 174
-    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->g:Z
+    .line 170
+    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:Z
 
     return v0
 .end method
@@ -284,27 +306,27 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 119
+    .line 115
     invoke-direct {p0}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b()[I
 
     move-result-object v1
 
-    .line 120
+    .line 116
     array-length v0, v1
 
-    .line 121
-    iget-boolean v2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->h:Z
+    .line 117
+    iget-boolean v2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:Z
 
     if-eqz v2, :cond_0
 
-    iget-boolean v2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->g:Z
+    iget-boolean v2, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:Z
 
     if-eqz v2, :cond_0
 
-    .line 122
+    .line 118
     add-int/lit8 v0, v0, 0x1
 
-    .line 124
+    .line 120
     :cond_0
     invoke-virtual {p1}, Landroid/view/View;->isClickable()Z
 
@@ -312,38 +334,38 @@
 
     if-eqz v2, :cond_1
 
-    .line 125
+    .line 121
     add-int/lit8 v0, v0, 0x1
 
-    .line 127
+    .line 123
     :cond_1
     new-array v2, v0, [I
 
-    .line 128
+    .line 124
     array-length v0, v1
 
     invoke-static {v1, v3, v2, v3, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 129
+    .line 125
     array-length v1, v1
 
-    .line 130
-    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->h:Z
+    .line 126
+    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:Z
 
     if-eqz v0, :cond_3
 
-    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->g:Z
+    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:Z
 
     if-eqz v0, :cond_3
 
-    .line 131
+    .line 127
     add-int/lit8 v0, v1, 0x1
 
     const v3, 0x10100a0
 
     aput v3, v2, v1
 
-    .line 133
+    .line 129
     :goto_0
     invoke-virtual {p1}, Landroid/view/View;->isClickable()Z
 
@@ -351,14 +373,14 @@
 
     if-eqz v1, :cond_2
 
-    .line 134
+    .line 130
     add-int/lit8 v1, v0, 0x1
 
-    sget v1, Lcom/yelp/android/bf/c;->state_clickable:I
+    sget v1, Lcom/yelp/android/co/a$b;->state_clickable:I
 
     aput v1, v2, v0
 
-    .line 136
+    .line 132
     :cond_2
     return-object v2
 
@@ -381,15 +403,15 @@
     .end annotation
 
     .prologue
-    .line 164
-    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->h:Z
+    .line 160
+    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c:Z
 
     if-eqz v0, :cond_0
 
-    .line 165
+    .line 161
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->c(Landroid/view/View;)V
 
-    .line 167
+    .line 163
     :cond_0
     return-void
 .end method
@@ -407,8 +429,8 @@
     .end annotation
 
     .prologue
-    .line 170
-    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->g:Z
+    .line 166
+    iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->b:Z
 
     if-nez v0, :cond_0
 
@@ -417,35 +439,21 @@
     :goto_0
     invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a(Landroid/view/View;Z)V
 
-    .line 171
+    .line 167
     return-void
 
-    .line 170
+    .line 166
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public setChecked(Z)V
-    .locals 2
-
-    .prologue
-    .line 199
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
-
-    const-string/jumbo v1, "Call setChecked(view, checked) instead"
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
 .method public setLeft(Z)V
     .locals 1
 
     .prologue
-    .line 86
+    .line 82
     if-eqz p1, :cond_0
 
     iget v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
@@ -455,10 +463,10 @@
     :goto_0
     iput v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
-    .line 87
+    .line 83
     return-void
 
-    .line 86
+    .line 82
     :cond_0
     iget v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
@@ -471,7 +479,7 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 91
     if-eqz p1, :cond_0
 
     iget v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
@@ -481,10 +489,10 @@
     :goto_0
     iput v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
-    .line 96
+    .line 92
     return-void
 
-    .line 95
+    .line 91
     :cond_0
     iget v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
@@ -493,22 +501,11 @@
     goto :goto_0
 .end method
 
-.method public setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/j;)V
-    .locals 0
-
-    .prologue
-    .line 194
-    iput-object p1, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->i:Lcom/yelp/android/ui/widgets/j;
-
-    .line 195
-    return-void
-.end method
-
 .method public setRight(Z)V
     .locals 1
 
     .prologue
-    .line 77
+    .line 73
     if-eqz p1, :cond_0
 
     iget v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
@@ -518,10 +515,10 @@
     :goto_0
     iput v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 
-    .line 78
+    .line 74
     return-void
 
-    .line 77
+    .line 73
     :cond_0
     iget v0, p0, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a:I
 

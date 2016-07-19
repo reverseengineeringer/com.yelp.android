@@ -8,9 +8,15 @@ class AuthHeartbeat$AuthHeartbeatTimerTask
 {
   AuthHeartbeat$AuthHeartbeatTimerTask(AuthHeartbeat paramAuthHeartbeat) {}
   
-  private void sendError(OoyalaException paramOoyalaException)
+  private void sendError(final OoyalaException paramOoyalaException)
   {
-    AuthHeartbeat.access$200(this$0).post(new AuthHeartbeat.AuthHeartbeatTimerTask.1(this, paramOoyalaException));
+    AuthHeartbeat.access$200(this$0).post(new Runnable()
+    {
+      public void run()
+      {
+        AuthHeartbeat.access$100(this$0).onAuthHeartbeatError(paramOoyalaException);
+      }
+    });
   }
   
   private void tryHeartbeat(int paramInt)

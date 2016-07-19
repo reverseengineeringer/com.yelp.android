@@ -6,17 +6,17 @@ import com.yelp.android.util.ErrorType;
 public class WeekRankFragment
   extends RankFragment
 {
+  protected CheckInRankingsRequest.SearchMode D_()
+  {
+    return CheckInRankingsRequest.SearchMode.WEEK;
+  }
+  
   protected CheckinRankAdapter.RankMode c()
   {
     return CheckinRankAdapter.RankMode.WEEK;
   }
   
-  protected CheckInRankingsRequest.SearchMode d()
-  {
-    return CheckInRankingsRequest.SearchMode.WEEK;
-  }
-  
-  protected ErrorType e()
+  protected ErrorType f()
   {
     return ErrorType.NO_NEARBY_CHECKINS;
   }

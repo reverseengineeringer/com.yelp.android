@@ -2,126 +2,43 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Movie
   implements Parcelable
 {
-  protected String mImageUrl;
-  protected String mRating;
-  protected int mRuntime;
-  protected int[] mShowtimes;
-  protected String mTicketingUrl;
-  protected String mTitle;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected int e;
+  protected int[] f;
   
-  protected _Movie() {}
-  
-  protected _Movie(String paramString1, String paramString2, String paramString3, String paramString4, int paramInt, int[] paramArrayOfInt)
-  {
-    this();
-    mTitle = paramString1;
-    mRating = paramString2;
-    mImageUrl = paramString3;
-    mTicketingUrl = paramString4;
-    mRuntime = paramInt;
-    mShowtimes = paramArrayOfInt;
-  }
-  
-  public int describeContents()
-  {
-    return 0;
-  }
-  
-  public String getImageUrl()
-  {
-    return mImageUrl;
-  }
-  
-  public String getRating()
-  {
-    return mRating;
-  }
-  
-  public int getRuntime()
-  {
-    return mRuntime;
-  }
-  
-  public int[] getShowtimes()
-  {
-    return mShowtimes;
-  }
-  
-  public String getTicketingUrl()
-  {
-    return mTicketingUrl;
-  }
-  
-  public String getTitle()
-  {
-    return mTitle;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("title")) {
-      mTitle = paramJSONObject.optString("title");
-    }
-    if (!paramJSONObject.isNull("rating")) {
-      mRating = paramJSONObject.optString("rating");
-    }
-    if (!paramJSONObject.isNull("image_url")) {
-      mImageUrl = paramJSONObject.optString("image_url");
-    }
-    if (!paramJSONObject.isNull("ticketing_url")) {
-      mTicketingUrl = paramJSONObject.optString("ticketing_url");
-    }
-    mRuntime = paramJSONObject.optInt("runtime");
-    if (!paramJSONObject.isNull("showtime"))
-    {
-      paramJSONObject = paramJSONObject.getJSONArray("showtime");
-      int j = paramJSONObject.length();
-      mShowtimes = new int[j];
-      int i = 0;
-      while (i < j)
-      {
-        mShowtimes[i] = paramJSONObject.getInt(i);
-        i += 1;
-      }
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mTitle = paramParcel.readString();
-    mRating = paramParcel.readString();
-    mImageUrl = paramParcel.readString();
-    mTicketingUrl = paramParcel.readString();
-    mRuntime = paramParcel.readInt();
-    mShowtimes = paramParcel.createIntArray();
-  }
-  
-  public JSONObject writeJSON()
+  public JSONObject a()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
-    if (mTitle != null) {
-      localJSONObject.put("title", mTitle);
+    if (a != null) {
+      localJSONObject.put("title", a);
     }
-    if (mRating != null) {
-      localJSONObject.put("rating", mRating);
+    if (b != null) {
+      localJSONObject.put("rating", b);
     }
-    if (mImageUrl != null) {
-      localJSONObject.put("image_url", mImageUrl);
+    if (c != null) {
+      localJSONObject.put("image_url", c);
     }
-    if (mTicketingUrl != null) {
-      localJSONObject.put("ticketing_url", mTicketingUrl);
+    if (d != null) {
+      localJSONObject.put("ticketing_url", d);
     }
-    localJSONObject.put("runtime", mRuntime);
-    if (mShowtimes != null)
+    localJSONObject.put("runtime", e);
+    if (f != null)
     {
       JSONArray localJSONArray = new JSONArray();
-      int[] arrayOfInt = mShowtimes;
+      int[] arrayOfInt = f;
       int j = arrayOfInt.length;
       int i = 0;
       while (i < j)
@@ -134,14 +51,108 @@ abstract class _Movie
     return localJSONObject;
   }
   
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = paramParcel.readInt();
+    f = paramParcel.createIntArray();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("title")) {
+      a = paramJSONObject.optString("title");
+    }
+    if (!paramJSONObject.isNull("rating")) {
+      b = paramJSONObject.optString("rating");
+    }
+    if (!paramJSONObject.isNull("image_url")) {
+      c = paramJSONObject.optString("image_url");
+    }
+    if (!paramJSONObject.isNull("ticketing_url")) {
+      d = paramJSONObject.optString("ticketing_url");
+    }
+    e = paramJSONObject.optInt("runtime");
+    if (!paramJSONObject.isNull("showtime"))
+    {
+      paramJSONObject = paramJSONObject.getJSONArray("showtime");
+      int j = paramJSONObject.length();
+      f = new int[j];
+      int i = 0;
+      while (i < j)
+      {
+        f[i] = paramJSONObject.getInt(i);
+        i += 1;
+      }
+    }
+  }
+  
+  public int[] b()
+  {
+    return f;
+  }
+  
+  public int c()
+  {
+    return e;
+  }
+  
+  public String d()
+  {
+    return d;
+  }
+  
+  public int describeContents()
+  {
+    return 0;
+  }
+  
+  public String e()
+  {
+    return c;
+  }
+  
+  public boolean equals(Object paramObject)
+  {
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Movie)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a();
+  }
+  
+  public String f()
+  {
+    return b;
+  }
+  
+  public String g()
+  {
+    return a;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a();
+  }
+  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mTitle);
-    paramParcel.writeString(mRating);
-    paramParcel.writeString(mImageUrl);
-    paramParcel.writeString(mTicketingUrl);
-    paramParcel.writeInt(mRuntime);
-    paramParcel.writeIntArray(mShowtimes);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeInt(e);
+    paramParcel.writeIntArray(f);
   }
 }
 

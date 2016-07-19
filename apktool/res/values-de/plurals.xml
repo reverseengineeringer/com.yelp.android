@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_guests">
+        <item quantity="other">Bis zu %1$d Gäste hinzufügen</item>
+        <item quantity="one">Füge %1$d Gäste hinzu</item>
+    </plurals>
+    <plurals name="alert_summary_count">
+        <item quantity="other">&amp;lt;b>Du hast %1$d neue Benachrichtigungen&amp;lt;/b></item>
+        <item quantity="one">&amp;lt;b>Du hast %1$d neue Meldung&amp;lt;/b></item>
+    </plurals>
+    <plurals name="business_hours_closes_in">
+        <item quantity="other">Schließt in %1$d Min</item>
+        <item quantity="one">Schließt in %1$d Min</item>
+    </plurals>
+    <plurals name="business_hours_opens_in">
+        <item quantity="other">Öffnet in %1$d Min</item>
+        <item quantity="one">Öffnet in %1$d Min</item>
+    </plurals>
+    <plurals name="business_page_checkin_count">
+        <item quantity="other">Du hast hier &amp;lt;b>%1$d&amp;lt;/b> Check-Ins</item>
+        <item quantity="one">Du hast &amp;lt;b>%1$d&amp;lt;/b> Check-In hier.</item>
+    </plurals>
+    <plurals name="checkin_count">
+        <item quantity="other">%1$d Check-Ins</item>
+        <item quantity="one">%1$d Check-In</item>
+    </plurals>
+    <plurals name="checkins_here_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> Check-Ins hier</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> Check-In hier</item>
+    </plurals>
+    <plurals name="checkins_remaining_to_unlock_offer">
+        <item quantity="other">Noch %1$d Check-Ins hier um das Angebot freizuschalten</item>
+        <item quantity="one">Noch %1$d Check-Ins hier um das Angebot freizuschalten</item>
+    </plurals>
+    <plurals name="checkins_this_week">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> Check-Ins diese Woche</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> Check-In diese Woche</item>
+    </plurals>
+    <plurals name="checkins_to_unlock_offer">
+        <item quantity="other">%1$d Check-Ins hier um das Angebot freizuschalten</item>
+        <item quantity="one">Hier einchecken um das Angebot freizuschalten</item>
+    </plurals>
+    <plurals name="discuss_this_event">
+        <item quantity="other">%1$d Yelper sprechen über dieses Event</item>
+        <item quantity="one">Ein Yelper hat über dieses Event geprochen</item>
+    </plurals>
+    <plurals name="dollar_signs">
+        <item quantity="other">%1$s %2$s Zeichen</item>
+        <item quantity="one">%1$d %2$s Zeichen</item>
+    </plurals>
+    <plurals name="dukedoms_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> Herzogtümer</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> Herzogtum</item>
+    </plurals>
+    <plurals name="embedded_formula_for_deals">
+        <item quantity="other">Deals x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> pro Stück = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> Gesamt</item>
+        <item quantity="one">Deal x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> pro Stück = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> Gesamt</item>
+    </plurals>
+    <plurals name="filter_format">
+        <item quantity="other">%1$s, und %2$s</item>
+        <item quantity="one">%2$s</item>
+    </plurals>
+    <plurals name="formula_for_deals">
+        <item quantity="other">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> Deals x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> pro Stück = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> Gesamt</item>
+        <item quantity="one">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> Deal x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> pro Stück = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> Gesamt</item>
+    </plurals>
+    <plurals name="friend_count">
+        <item quantity="other">%1$d Freunde</item>
+        <item quantity="one">%1$d Freund</item>
+    </plurals>
+    <plurals name="friend_count_no_param">
+        <item quantity="other">Freunde</item>
+        <item quantity="one">Freund</item>
+    </plurals>
+    <plurals name="friend_request_alert">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> Leute möchten mit dir befreundet sein!</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> möchte mit dir befreundet sein!</item>
+    </plurals>
+    <plurals name="guests">
+        <item quantity="other">Gäste</item>
+        <item quantity="one">Gast</item>
+    </plurals>
+    <plurals name="media_success">
+        <item quantity="other">Deine Fotos/Videos werden bald fertig sein.</item>
+        <item quantity="one">Dein Foto/Video wird bald fertig sein.</item>
+    </plurals>
+    <plurals name="media_success_title">
+        <item quantity="other">Schöne Fotos!</item>
+        <item quantity="one">Tolles Foto!</item>
+    </plurals>
+    <plurals name="more_highlights_count">
+        <item quantity="other">%1$d weitere Highlights</item>
+        <item quantity="one">%1$d weiteres Highlight</item>
+    </plurals>
+    <plurals name="more_regulars_count">
+        <item quantity="other">%1$d weitere Stammgäste</item>
+        <item quantity="one">%1$d weiterer Stammgast</item>
+    </plurals>
+    <plurals name="more_reviews_count">
+        <item quantity="other">%1$d weitere Beiträge</item>
+        <item quantity="one">%1$d weiterer Beitrag</item>
+    </plurals>
+    <plurals name="more_suggestions">
+        <item quantity="other">Zeige %1$d mehr</item>
+        <item quantity="one">Zeige %1$d mehr</item>
+    </plurals>
+    <plurals name="more_tips_count">
+        <item quantity="other">%1$d weitere Tipps</item>
+        <item quantity="one">%1$d weiterer Tipp</item>
+    </plurals>
+    <plurals name="my_photo_feed_count">
+        <item quantity="other">Meine Fotos</item>
+        <item quantity="one">Mein Foto</item>
+    </plurals>
+    <plurals name="nearby_friend">
+        <item quantity="other">Freunde in der Nähe</item>
+        <item quantity="one">Freund in der Nähe</item>
+    </plurals>
+    <plurals name="opentable_party_size">
+        <item quantity="other">%1$d Personen</item>
+        <item quantity="one">%1$d Person</item>
+    </plurals>
+    <plurals name="people">
+        <item quantity="other">%1$d Personen</item>
+        <item quantity="one">%1$d Person</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="other">%1$d Fotos</item>
+        <item quantity="one">%1$d Foto</item>
+    </plurals>
+    <plurals name="photo_count_no_param">
+        <item quantity="other">Fotos</item>
+        <item quantity="one">Foto</item>
+    </plurals>
+    <plurals name="photo_feed_count">
+        <item quantity="other">%1$d Fotos von %2$s</item>
+        <item quantity="one">Foto von %2$s</item>
+    </plurals>
+    <plurals name="previous_reviews_title">
+        <item quantity="other">%1$d vorherige Beiträge</item>
+        <item quantity="one">%1$d vorheriger Beitrag</item>
+    </plurals>
+    <plurals name="redemption_title_count">
+        <item quantity="other">Hier hast du nun %1$d Check-Ins: %2$s!</item>
+        <item quantity="one">Das wäre %1$d Check-In bei %2$s!</item>
+    </plurals>
+    <plurals name="requesting_quote_from_providers">
+        <item quantity="other">Angebote von %1$s Anbietern anfragen</item>
+        <item quantity="one">Angebote von %1$s Anbieter anfragen</item>
+    </plurals>
+    <plurals name="review_count">
+        <item quantity="other">%1$d Beiträge</item>
+        <item quantity="one">%1$d Beitrag</item>
+    </plurals>
+    <plurals name="review_count_no_param">
+        <item quantity="other">Beiträge</item>
+        <item quantity="one">Beitrag</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals">
+        <item quantity="other">Leider bist du bei diesem Deal auf nur %1$d Deals beschränkt</item>
+        <item quantity="one">Leider kannst du für diesen Deal nur %1$d Deal erwerben.</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals_for_yourself">
+        <item quantity="other">Leider kannst du bei diesem Deal nur %1$d Deals für dich selbst kaufen</item>
+        <item quantity="one">Leider kannst du für diesen Deal nur %1$d Deal für dich selbst kaufen.</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_gifts">
+        <item quantity="other">Leider kannst du bei diesem Deal nur %1$d Geschenke vergeben</item>
+        <item quantity="one">Leider kannst du für diesen Deal nur einen %1$d als Geschenk erwerben.</item>
+    </plurals>
+    <plurals name="section_label_reviews_search">
+        <item quantity="other">%1$d Beiträge erwähnen &amp;lt;b>%2$s&amp;lt;/b></item>
+        <item quantity="one">%1$d Beiträge erwähnen &amp;lt;b>%2$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="section_not_recommended_reviews_title">
+        <item quantity="other">%1$d Beiträge die momentan nicht empfohlen werden</item>
+        <item quantity="one">%1$d Beitrag der momentan nicht empfohlen wird</item>
+    </plurals>
+    <plurals name="show_more_events">
+        <item quantity="other">%1$d weitere zeigen</item>
+        <item quantity="one">%1$d weiteren zeigen</item>
+    </plurals>
+    <plurals name="star_rating">
+        <item quantity="other">Mit %1$s Sternen bewertet</item>
+        <item quantity="one">Mit %1$s Stern bewertet</item>
+    </plurals>
+    <plurals name="these_and_others">
+        <item quantity="other">%1$s und %2$s andere</item>
+        <item quantity="one">%1$s und %2$d Andere</item>
+    </plurals>
+    <plurals name="translated_reviews_title">
+        <item quantity="other">Übersetzte Beiträge</item>
+        <item quantity="one">Übersetzter Beitrag</item>
+    </plurals>
+    <plurals name="ufc_label">
+        <item quantity="other">&amp;lt;b>%1$s&amp;lt;/b> (%2$d)</item>
+        <item quantity="one">&amp;lt;b>%1$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="using_machine_translation">
+        <item quantity="other">Wir nutzen automatisierte Übersetzung zur Interpretation dieser Beiträge. Bitte entschuldige, wenn das Ergebnis nicht ganz perfekt ist.</item>
+        <item quantity="one">Wir benutzen eine automatische Übersetzungssoftware um diesen Beitrag zu interpretieren. Bitte verzeih uns, wenn das Ergebnis nicht wirklich perfekt ist.</item>
+    </plurals>
+    <plurals name="video_count">
+        <item quantity="other">%1$d Videos</item>
+        <item quantity="one">%1$d Video</item>
+    </plurals>
+    <plurals name="video_count_no_param">
+        <item quantity="other">Videos</item>
+        <item quantity="one">Video</item>
+    </plurals>
+    <plurals name="we_found_alternate_businesses_with_request_a_quote">
+        <item quantity="other">%2$s nimmt keine Angebotsanfragen über Yelp entgegen. Wir haben allerdings %1$s Anbieter gefunden, die dir antworten könnten.</item>
+        <item quantity="one">%2$s nimmt keine Angebotsanfragen über Yelp entgegen. Wir haben allerdings %1$s Anbieter gefunden, die dir antworten könnten.</item>
+    </plurals>
+    <plurals name="we_found_suggested_businesses">
+        <item quantity="other">Wir haben %1$s weitere Unternehmen gefunden, die in deiner Gegend tätig sind und auf deine Anfrage antworten könnten.</item>
+        <item quantity="one">Wir haben %1$s weiteres Unternehmen gefunden, das in deiner Gegend tätig ist und auf deine Anfrage antworten könnte.</item>
+    </plurals>
+    <plurals name="write_review_stars">
+        <item quantity="other">%1$d Sterne</item>
+        <item quantity="one">%1$d Stern</item>
+    </plurals>
+    <plurals name="x_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>%2$s&amp;lt;/b> und %1$d anderen gefällt das</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> und %1$d einer anderen Person gefällt das</item>
+    </plurals>
+    <plurals name="x_comments">
+        <item quantity="other">%1$d Kommentare</item>
+        <item quantity="one">%1$d Kommentar</item>
+    </plurals>
+    <plurals name="x_comments_caps">
+        <item quantity="other">%1$d Kommentare</item>
+        <item quantity="one">%1$d Kommentar</item>
+    </plurals>
+    <plurals name="x_compliments">
+        <item quantity="other">%1$d Komplimente</item>
+        <item quantity="one">%1$d Kompliment</item>
+    </plurals>
+    <plurals name="x_feet">
+        <item quantity="other">%1$s Fuß</item>
+        <item quantity="one">%1$s Fuß</item>
+    </plurals>
+    <plurals name="x_feet_away">
+        <item quantity="other">%1$s Fuß entfernt</item>
+        <item quantity="one">%1$s Fuß entfernt</item>
+    </plurals>
+    <plurals name="x_feet_short">
+        <item quantity="other">%1$s Fuß</item>
+        <item quantity="one">%1$s Fuß</item>
+    </plurals>
+    <plurals name="x_kilometers">
+        <item quantity="other">%1$s Kilometer</item>
+        <item quantity="one">%1$s Kilometer</item>
+    </plurals>
+    <plurals name="x_kilometers_away">
+        <item quantity="other">%1$s Kilometer entfernt</item>
+        <item quantity="one">%1$s Kilometer entfernt</item>
+    </plurals>
+    <plurals name="x_kilometers_short">
+        <item quantity="other">%1$s km</item>
+        <item quantity="one">%1$s km</item>
+    </plurals>
+    <plurals name="x_likes">
+        <item quantity="other">%1$d gefällt das</item>
+        <item quantity="one">%1$d gefällt mir</item>
+    </plurals>
+    <plurals name="x_likes_caps">
+        <item quantity="other">%1$d Likes</item>
+        <item quantity="one">%1$d Like</item>
+    </plurals>
+    <plurals name="x_meters">
+        <item quantity="other">%1$s Meter</item>
+        <item quantity="one">%1$s Meter</item>
+    </plurals>
+    <plurals name="x_meters_away">
+        <item quantity="other">%1$s Meter entfernt</item>
+        <item quantity="one">%1$s Meter entfernt</item>
+    </plurals>
+    <plurals name="x_meters_short">
+        <item quantity="other">%1$s m</item>
+        <item quantity="one">%1$s m</item>
+    </plurals>
+    <plurals name="x_miles">
+        <item quantity="other">%1$s Meilen</item>
+        <item quantity="one">%1$s Meile</item>
+    </plurals>
+    <plurals name="x_miles_away">
+        <item quantity="other">%1$s Meilen entfernt</item>
+        <item quantity="one">%1$s Meile entfernt</item>
+    </plurals>
+    <plurals name="x_miles_short">
+        <item quantity="other">%1$s mi</item>
+        <item quantity="one">%1$s mi</item>
+    </plurals>
+    <plurals name="x_people_like_this">
+        <item quantity="other">%1$d Leuten gefällt das</item>
+        <item quantity="one">%1$d Person gefällt das</item>
+    </plurals>
+    <plurals name="you_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>Dir&amp;lt;/b> und %1$d anderen gefällt das</item>
+        <item quantity="one">&amp;lt;b>Dir&amp;lt;/b> und %1$d weiteren Personen gefällt das</item>
+    </plurals>
+</resources>

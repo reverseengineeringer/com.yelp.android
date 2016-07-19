@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field protected mLabel:Ljava/lang/String;
+.field protected a:Ljava/lang/String;
 
-.field protected mValue:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
 
 # direct methods
@@ -17,67 +17,107 @@
     .locals 0
 
     .prologue
-    .line 25
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 19
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_AttributedLabelValuePair;-><init>()V
-
-    .line 20
-    iput-object p1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mLabel:Ljava/lang/String;
-
-    .line 21
-    iput-object p2, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mValue:Ljava/lang/String;
-
-    .line 22
+    .line 27
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a()Lorg/json/JSONObject;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 37
-    const/4 v0, 0x0
+    .line 88
+    new-instance v0, Lorg/json/JSONObject;
 
-    return v0
-.end method
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-.method public getLabel()Ljava/lang/String;
-    .locals 1
+    .line 89
+    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
 
-    .prologue
-    .line 29
-    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mLabel:Ljava/lang/String;
+    if-eqz v1, :cond_0
 
+    .line 90
+    const-string/jumbo v1, "label"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 92
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
+
+    if-eqz v1, :cond_1
+
+    .line 93
+    const-string/jumbo v1, "value"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 95
+    :cond_1
     return-object v0
 .end method
 
-.method public getValue()Ljava/lang/String;
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 32
-    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mValue:Ljava/lang/String;
+    .line 74
+    const-class v0, Ljava/lang/String;
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
+
+    .line 75
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
+
+    .line 76
+    return-void
 .end method
 
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 51
+    .line 79
     const-string/jumbo v0, "label"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -86,16 +126,16 @@
 
     if-nez v0, :cond_0
 
-    .line 52
+    .line 80
     const-string/jumbo v0, "label"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mLabel:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
 
-    .line 54
+    .line 82
     :cond_0
     const-string/jumbo v0, "value"
 
@@ -105,95 +145,158 @@
 
     if-nez v0, :cond_1
 
-    .line 55
+    .line 83
     const-string/jumbo v0, "value"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mValue:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
 
-    .line 57
+    .line 85
     :cond_1
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 46
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mLabel:Ljava/lang/String;
-
-    .line 47
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mValue:Ljava/lang/String;
-
-    .line 48
-    return-void
+    return-object v0
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 57
+    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 65
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
     .locals 3
 
     .prologue
-    .line 60
-    new-instance v0, Lorg/json/JSONObject;
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    .line 31
+    if-nez p1, :cond_1
 
-    .line 61
-    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mLabel:Ljava/lang/String;
-
-    if-eqz v1, :cond_0
-
-    .line 62
-    const-string/jumbo v1, "label"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mLabel:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 64
+    .line 45
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mValue:Ljava/lang/String;
+    :goto_0
+    return v0
 
-    if-eqz v1, :cond_1
-
-    .line 65
-    const-string/jumbo v1, "value"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mValue:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 67
+    .line 35
     :cond_1
-    return-object v0
+    if-ne p1, p0, :cond_2
+
+    .line 36
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 39
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 43
+    check-cast p1, Lcom/yelp/android/serializable/_AttributedLabelValuePair;
+
+    .line 45
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 53
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 41
-    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mLabel:Ljava/lang/String;
+    .line 69
+    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->a:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 42
-    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->mValue:Ljava/lang/String;
+    .line 70
+    iget-object v0, p0, Lcom/yelp/android/serializable/_AttributedLabelValuePair;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 43
+    .line 71
     return-void
 .end method

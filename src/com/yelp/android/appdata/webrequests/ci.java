@@ -1,24 +1,27 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.CheckInFeedback;
+import com.yelp.android.serializable.YelpCheckIn;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ci
-  extends g<Void, Void, String>
+  extends b<Void, Void, List<CheckInFeedback>>
 {
-  public ci(m<String> paramm, String paramString)
+  public ci(YelpCheckIn paramYelpCheckIn, ApiRequest.b<List<CheckInFeedback>> paramb, int paramInt)
   {
-    super(ApiRequest.RequestType.POST, "account/send_password_email_secure", paramm);
-    addPostParam("email", paramString);
+    super(ApiRequest.RequestType.GET, "check_in/list_feedbacks", paramb);
+    a("check_in_id", paramYelpCheckIn.z());
+    a("offset", paramInt);
   }
   
-  public String a(JSONObject paramJSONObject)
+  public List<CheckInFeedback> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    String str = null;
-    if (!paramJSONObject.isNull("email")) {
-      str = paramJSONObject.getString("email");
-    }
-    return str;
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("feedbacks"), CheckInFeedback.CREATOR);
   }
 }
 

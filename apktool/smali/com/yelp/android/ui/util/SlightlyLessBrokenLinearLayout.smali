@@ -47,14 +47,14 @@
 
     sput-object v0, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->VISIBILITY_FLAGS:[I
 
-    .line 102
+    .line 100
     new-array v0, v1, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->DRAWING_CACHE_QUALITY_FLAGS:[I
 
-    .line 130
+    .line 127
     new-array v0, v1, [I
 
     fill-array-data v0, :array_2
@@ -73,7 +73,7 @@
         0x8
     .end array-data
 
-    .line 102
+    .line 100
     :array_1
     .array-data 4
         0x0
@@ -81,7 +81,7 @@
         0x100000
     .end array-data
 
-    .line 130
+    .line 127
     :array_2
     .array-data 4
         0x20000
@@ -94,14 +94,14 @@
     .locals 2
 
     .prologue
-    .line 137
+    .line 132
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v0, v1}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 138
+    .line 133
     return-void
 .end method
 
@@ -109,12 +109,12 @@
     .locals 1
 
     .prologue
-    .line 141
+    .line 136
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 142
+    .line 137
     return-void
 .end method
 
@@ -122,11 +122,11 @@
     .locals 25
 
     .prologue
-    .line 145
+    .line 140
     invoke-direct/range {p0 .. p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 146
-    sget-object v4, Lcom/yelp/android/b;->FakeView:[I
+    .line 141
+    sget-object v4, Lcom/yelp/android/b$a;->FakeView:[I
 
     move-object/from16 v0, p1
 
@@ -140,45 +140,45 @@
 
     move-result-object v16
 
-    .line 148
+    .line 143
     const/4 v15, 0x0
 
-    .line 150
+    .line 145
     const/4 v14, -0x1
 
-    .line 151
+    .line 146
     const/4 v13, -0x1
 
-    .line 152
+    .line 147
     const/4 v12, -0x1
 
-    .line 153
+    .line 148
     const/4 v11, -0x1
 
-    .line 155
+    .line 150
     const/4 v10, -0x1
 
-    .line 157
+    .line 152
     const/4 v9, 0x0
 
-    .line 158
+    .line 153
     const/4 v8, 0x0
 
-    .line 160
+    .line 155
     const/4 v7, 0x0
 
-    .line 161
+    .line 156
     const/4 v6, 0x0
 
-    .line 163
+    .line 158
     const/4 v5, 0x0
 
-    .line 165
+    .line 160
     invoke-virtual/range {v16 .. v16}, Landroid/content/res/TypedArray;->getIndexCount()I
 
     move-result v17
 
-    .line 166
+    .line 161
     const/4 v4, 0x0
 
     move/from16 v24, v4
@@ -212,17 +212,17 @@
 
     if-ge v15, v0, :cond_2
 
-    .line 167
+    .line 162
     move-object/from16 v0, v16
 
     invoke-virtual {v0, v15}, Landroid/content/res/TypedArray;->getIndex(I)I
 
     move-result v18
 
-    .line 168
+    .line 163
     packed-switch v18, :pswitch_data_0
 
-    .line 166
+    .line 161
     :cond_0
     :goto_1
     :pswitch_0
@@ -230,7 +230,7 @@
 
     goto :goto_0
 
-    .line 170
+    .line 165
     :pswitch_1
     move-object/from16 v0, v16
 
@@ -242,7 +242,7 @@
 
     goto :goto_1
 
-    .line 173
+    .line 168
     :pswitch_2
     const/4 v9, -0x1
 
@@ -256,7 +256,7 @@
 
     goto :goto_1
 
-    .line 176
+    .line 171
     :pswitch_3
     const/4 v13, -0x1
 
@@ -270,7 +270,7 @@
 
     goto :goto_1
 
-    .line 179
+    .line 174
     :pswitch_4
     const/4 v12, -0x1
 
@@ -284,7 +284,7 @@
 
     goto :goto_1
 
-    .line 182
+    .line 177
     :pswitch_5
     const/4 v11, -0x1
 
@@ -298,7 +298,7 @@
 
     goto :goto_1
 
-    .line 185
+    .line 180
     :pswitch_6
     const/4 v10, -0x1
 
@@ -312,7 +312,7 @@
 
     goto :goto_1
 
-    .line 188
+    .line 183
     :pswitch_7
     const/4 v6, 0x0
 
@@ -326,7 +326,7 @@
 
     goto :goto_1
 
-    .line 191
+    .line 186
     :pswitch_8
     const/4 v5, 0x0
 
@@ -340,7 +340,7 @@
 
     goto :goto_1
 
-    .line 194
+    .line 189
     :pswitch_9
     const/16 v19, -0x1
 
@@ -362,7 +362,7 @@
 
     goto :goto_1
 
-    .line 197
+    .line 192
     :pswitch_a
     move-object/from16 v0, v16
 
@@ -380,7 +380,7 @@
 
     goto :goto_1
 
-    .line 200
+    .line 195
     :pswitch_b
     const/16 v19, 0x0
 
@@ -396,12 +396,12 @@
 
     if-eqz v18, :cond_0
 
-    .line 201
+    .line 196
     or-int/lit8 v8, v8, 0x2
 
     goto/16 :goto_1
 
-    .line 205
+    .line 200
     :pswitch_c
     const/16 v19, 0x0
 
@@ -417,12 +417,12 @@
 
     if-eqz v18, :cond_0
 
-    .line 206
+    .line 201
     or-int/lit8 v8, v8, 0x1
 
     goto/16 :goto_1
 
-    .line 210
+    .line 205
     :pswitch_d
     const/16 v19, 0x0
 
@@ -438,14 +438,14 @@
 
     if-eqz v18, :cond_0
 
-    .line 211
+    .line 206
     const v18, 0x40001
 
     or-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 215
+    .line 210
     :pswitch_e
     const/16 v19, 0x0
 
@@ -461,12 +461,12 @@
 
     if-eqz v18, :cond_0
 
-    .line 216
+    .line 211
     or-int/lit16 v8, v8, 0x4000
 
     goto/16 :goto_1
 
-    .line 220
+    .line 215
     :pswitch_f
     const/16 v19, 0x0
 
@@ -482,14 +482,14 @@
 
     if-eqz v18, :cond_0
 
-    .line 221
+    .line 216
     const/high16 v18, 0x200000
 
     or-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 225
+    .line 220
     :pswitch_10
     const/16 v19, 0x1
 
@@ -505,14 +505,14 @@
 
     if-nez v18, :cond_0
 
-    .line 226
+    .line 221
     const/high16 v18, 0x10000
 
     or-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 230
+    .line 225
     :pswitch_11
     const/16 v19, 0x0
 
@@ -528,14 +528,14 @@
 
     if-eqz v18, :cond_0
 
-    .line 231
+    .line 226
     const/high16 v18, 0x400000
 
     or-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 235
+    .line 230
     :pswitch_12
     const/16 v19, 0x0
 
@@ -549,10 +549,10 @@
 
     move-result v18
 
-    .line 236
+    .line 231
     if-eqz v18, :cond_0
 
-    .line 237
+    .line 232
     sget-object v19, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->VISIBILITY_FLAGS:[I
 
     aget v18, v19, v18
@@ -561,7 +561,7 @@
 
     goto/16 :goto_1
 
-    .line 241
+    .line 236
     :pswitch_13
     const/16 v19, 0x0
 
@@ -575,10 +575,10 @@
 
     move-result v18
 
-    .line 242
+    .line 237
     if-eqz v18, :cond_0
 
-    .line 243
+    .line 238
     sget-object v19, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->DRAWING_CACHE_QUALITY_FLAGS:[I
 
     aget v18, v19, v18
@@ -587,7 +587,7 @@
 
     goto/16 :goto_1
 
-    .line 247
+    .line 242
     :pswitch_14
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -621,10 +621,10 @@
 
     move-result-object v19
 
-    .line 249
+    .line 245
     if-eqz v19, :cond_0
 
-    .line 250
+    .line 246
     const/16 v20, 0x1
 
     move/from16 v0, v20
@@ -657,7 +657,7 @@
 
     goto/16 :goto_1
 
-    .line 254
+    .line 250
     :pswitch_15
     const/16 v19, 0x1
 
@@ -673,14 +673,14 @@
 
     if-nez v18, :cond_0
 
-    .line 255
+    .line 251
     const v18, -0x8000001
 
     and-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 259
+    .line 255
     :pswitch_16
     const/16 v19, 0x1
 
@@ -696,14 +696,14 @@
 
     if-nez v18, :cond_0
 
-    .line 260
+    .line 256
     const v18, -0x10000001
 
     and-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 264
+    .line 260
     :pswitch_17
     const/16 v19, 0x0
 
@@ -717,15 +717,15 @@
 
     move-result v18
 
-    .line 265
+    .line 261
     if-eqz v18, :cond_0
 
-    .line 266
+    .line 262
     or-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 270
+    .line 266
     :pswitch_18
     const/16 v19, 0x0
 
@@ -739,15 +739,15 @@
 
     move-result v18
 
-    .line 271
+    .line 267
     if-eqz v18, :cond_0
 
-    .line 272
+    .line 268
     or-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 276
+    .line 272
     :pswitch_19
     const/4 v4, 0x0
 
@@ -759,10 +759,10 @@
 
     move-result v4
 
-    .line 277
+    .line 273
     if-eqz v4, :cond_0
 
-    .line 278
+    .line 274
     const/high16 v18, 0x3000000
 
     and-int v18, v18, v4
@@ -771,11 +771,11 @@
 
     goto/16 :goto_1
 
-    .line 282
+    .line 278
     :pswitch_1a
     const/4 v7, 0x1
 
-    .line 283
+    .line 279
     const/16 v19, 0x0
 
     move-object/from16 v0, v16
@@ -790,7 +790,7 @@
 
     if-eqz v18, :cond_0
 
-    .line 284
+    .line 280
     const/16 v18, 0x1
 
     move-object/from16 v0, p0
@@ -801,7 +801,7 @@
 
     goto/16 :goto_1
 
-    .line 288
+    .line 284
     :pswitch_1b
     const/16 v19, 0x0
 
@@ -817,14 +817,14 @@
 
     if-eqz v18, :cond_0
 
-    .line 289
+    .line 285
     const/high16 v18, 0x4000000
 
     or-int v8, v8, v18
 
     goto/16 :goto_1
 
-    .line 293
+    .line 289
     :pswitch_1c
     const/16 v19, -0x1
 
@@ -846,7 +846,7 @@
 
     goto/16 :goto_1
 
-    .line 296
+    .line 292
     :pswitch_1d
     const/16 v19, -0x1
 
@@ -868,7 +868,7 @@
 
     goto/16 :goto_1
 
-    .line 299
+    .line 295
     :pswitch_1e
     const/16 v19, -0x1
 
@@ -890,7 +890,7 @@
 
     goto/16 :goto_1
 
-    .line 302
+    .line 298
     :pswitch_1f
     const/16 v19, -0x1
 
@@ -912,7 +912,7 @@
 
     goto/16 :goto_1
 
-    .line 305
+    .line 301
     :pswitch_20
     const/16 v19, 0x0
 
@@ -934,7 +934,7 @@
 
     goto/16 :goto_1
 
-    .line 308
+    .line 304
     :pswitch_21
     const/16 v19, 0x0
 
@@ -956,7 +956,7 @@
 
     goto/16 :goto_1
 
-    .line 311
+    .line 307
     :pswitch_22
     const-class v19, Landroid/content/Context;
 
@@ -982,10 +982,10 @@
 
     move-result-object v19
 
-    .line 312
+    .line 308
     if-eqz v19, :cond_1
 
-    .line 313
+    .line 309
     const/16 v20, 0x0
 
     move/from16 v0, v20
@@ -1006,7 +1006,7 @@
 
     move-result-object v19
 
-    .line 314
+    .line 310
     invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v19
@@ -1021,7 +1021,7 @@
 
     if-eqz v19, :cond_1
 
-    .line 315
+    .line 311
     new-instance v4, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v5, "The android:onClick attribute cannot be used within a restricted context"
@@ -1030,7 +1030,7 @@
 
     throw v4
 
-    .line 320
+    .line 317
     :cond_1
     move-object/from16 v0, v16
 
@@ -1040,11 +1040,11 @@
 
     move-result-object v18
 
-    .line 321
+    .line 318
     if-eqz v18, :cond_0
 
-    .line 322
-    new-instance v19, Lcom/yelp/android/ui/util/bx;
+    .line 319
+    new-instance v19, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout$1;
 
     move-object/from16 v0, v19
 
@@ -1052,7 +1052,7 @@
 
     move-object/from16 v2, v18
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/util/bx;-><init>(Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout$1;-><init>(Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
@@ -1062,7 +1062,7 @@
 
     goto/16 :goto_1
 
-    .line 358
+    .line 373
     :pswitch_23
     const/16 v19, 0x1
 
@@ -1084,7 +1084,7 @@
 
     goto/16 :goto_1
 
-    .line 361
+    .line 376
     :pswitch_24
     const/16 v19, 0x1
 
@@ -1106,7 +1106,7 @@
 
     goto/16 :goto_1
 
-    .line 364
+    .line 379
     :pswitch_25
     const/16 v19, 0x1
 
@@ -1128,7 +1128,7 @@
 
     goto/16 :goto_1
 
-    .line 367
+    .line 382
     :pswitch_26
     const/16 v19, 0x2
 
@@ -1150,7 +1150,7 @@
 
     goto/16 :goto_1
 
-    .line 370
+    .line 385
     :pswitch_27
     const/16 v19, 0x0
 
@@ -1172,7 +1172,7 @@
 
     goto/16 :goto_1
 
-    .line 373
+    .line 388
     :pswitch_28
     const/16 v19, 0x1
 
@@ -1194,7 +1194,7 @@
 
     goto/16 :goto_1
 
-    .line 376
+    .line 391
     :pswitch_29
     const/16 v19, -0x1
 
@@ -1208,10 +1208,10 @@
 
     move-result v18
 
-    .line 377
+    .line 392
     if-lez v18, :cond_0
 
-    .line 378
+    .line 393
     move-object/from16 v0, p1
 
     move/from16 v1, v18
@@ -1228,7 +1228,7 @@
 
     goto/16 :goto_1
 
-    .line 382
+    .line 397
     :pswitch_2a
     sget-object v19, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->DESCENDANT_FOCUSABILITY_FLAGS:[I
 
@@ -1254,16 +1254,16 @@
 
     goto/16 :goto_1
 
-    .line 388
+    .line 402
     :cond_2
     if-eqz v14, :cond_3
 
-    .line 389
+    .line 403
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v14}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 392
+    .line 406
     :cond_3
     if-ltz v9, :cond_10
 
@@ -1273,7 +1273,7 @@
 
     move v12, v9
 
-    .line 403
+    .line 417
     :goto_2
     if-ltz v12, :cond_c
 
@@ -1291,29 +1291,29 @@
 
     invoke-virtual {v0, v12, v11, v10, v9}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setPadding(IIII)V
 
-    .line 409
+    .line 424
     if-eqz v4, :cond_4
 
-    .line 410
+    .line 425
     move-object/from16 v0, p0
 
     move-object/from16 v1, p0
 
     invoke-super {v0, v1}, Landroid/widget/LinearLayout;->recomputeViewAttributes(Landroid/view/View;)V
 
-    .line 413
+    .line 428
     :cond_4
     if-nez v6, :cond_5
 
     if-eqz v5, :cond_6
 
-    .line 414
+    .line 429
     :cond_5
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v6, v5}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->scrollTo(II)V
 
-    .line 417
+    .line 432
     :cond_6
     if-nez v7, :cond_7
 
@@ -1321,14 +1321,14 @@
 
     if-eqz v4, :cond_7
 
-    .line 418
+    .line 433
     const/4 v4, 0x1
 
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setScrollContainer(Z)V
 
-    .line 421
+    .line 436
     :cond_7
     const/16 v4, 0x9
 
@@ -1340,15 +1340,15 @@
 
     move-result v4
 
-    .line 422
+    .line 437
     if-ltz v4, :cond_8
 
-    .line 423
+    .line 438
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setOrientation(I)V
 
-    .line 426
+    .line 441
     :cond_8
     const/16 v4, 0x8
 
@@ -1360,15 +1360,15 @@
 
     move-result v4
 
-    .line 427
+    .line 442
     if-ltz v4, :cond_9
 
-    .line 428
+    .line 443
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setGravity(I)V
 
-    .line 431
+    .line 446
     :cond_9
     const/16 v4, 0x2d
 
@@ -1380,15 +1380,15 @@
 
     move-result v4
 
-    .line 432
+    .line 447
     if-nez v4, :cond_a
 
-    .line 433
+    .line 448
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setBaselineAligned(Z)V
 
-    .line 436
+    .line 451
     :cond_a
     const/16 v4, 0x2f
 
@@ -1404,7 +1404,7 @@
 
     invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setWeightSum(F)V
 
-    .line 438
+    .line 453
     const/16 v4, 0x2e
 
     const/4 v5, -0x1
@@ -1415,22 +1415,22 @@
 
     move-result v4
 
-    .line 440
+    .line 455
     if-lez v4, :cond_b
 
-    .line 441
+    .line 456
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->setBaselineAlignedChildIndex(I)V
 
-    .line 444
+    .line 459
     :cond_b
     invoke-virtual/range {v16 .. v16}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 445
+    .line 460
     return-void
 
-    .line 403
+    .line 417
     :cond_c
     invoke-virtual/range {p0 .. p0}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;->getPaddingLeft()I
 
@@ -1470,7 +1470,7 @@
 
     goto/16 :goto_2
 
-    .line 168
+    .line 163
     :pswitch_data_0
     .packed-switch 0x7
         :pswitch_19
@@ -1541,10 +1541,10 @@
     .end annotation
 
     .prologue
-    .line 459
+    .line 474
     const/4 v0, 0x0
 
-    .line 461
+    .line 476
     :try_start_0
     invoke-virtual {p1, p2, p3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     :try_end_0
@@ -1553,17 +1553,17 @@
 
     move-result-object v0
 
-    .line 465
+    .line 480
     :goto_0
     return-object v0
 
-    .line 462
+    .line 477
     :catch_0
     move-exception v1
 
     goto :goto_0
 
-    .line 463
+    .line 478
     :catch_1
     move-exception v1
 
@@ -1574,10 +1574,10 @@
     .locals 2
 
     .prologue
-    .line 448
+    .line 463
     const/4 v0, 0x0
 
-    .line 450
+    .line 465
     :try_start_0
     invoke-virtual {p2, p1, p3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
@@ -1585,23 +1585,23 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_2
 
-    .line 455
+    .line 470
     :goto_0
     return-object v0
 
-    .line 451
+    .line 466
     :catch_0
     move-exception v1
 
     goto :goto_0
 
-    .line 452
+    .line 467
     :catch_1
     move-exception v1
 
     goto :goto_0
 
-    .line 453
+    .line 468
     :catch_2
     move-exception v1
 

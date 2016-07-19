@@ -3,26 +3,57 @@
 .source "AppData.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/ar;
+.implements Lcom/yelp/android/appdata/StateBroadcastReceiver$a;
 
 
 # static fields
 .field private static h:Lcom/yelp/android/appdata/AppData;
 
+.field private static i:Z
+
 
 # instance fields
-.field private A:Lcom/yelp/android/appdata/webrequests/n;
+.field private A:Lcom/yelp/android/appdata/e;
 
-.field private B:Lcom/yelp/android/appdata/StateBroadcastReceiver;
-
-.field private C:Lcom/yelp/android/be/c;
-
-.field private final D:Lcom/yelp/android/appdata/webrequests/m;
+.field private B:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Ljava/lang/ref/WeakReference",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/o;",
+            "Lcom/yelp/android/ui/activities/support/b;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private C:Lcom/yelp/android/services/push/e;
+
+.field private D:Lcom/yelp/android/serializable/PhotoAdsConfig;
+
+.field private E:Lcom/yelp/android/appdata/m;
+
+.field private F:Z
+
+.field private G:Lcom/yelp/android/appdata/webrequests/l;
+
+.field private H:Lcom/yelp/android/appdata/StateBroadcastReceiver;
+
+.field private I:Lcom/yelp/android/cn/d;
+
+.field private J:J
+
+.field private K:Lcom/yelp/android/bz/a;
+
+.field private L:Lcom/yelp/android/bt/b;
+
+.field private M:Lcom/yelp/android/ce/a;
+
+.field private final N:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/l$a;",
             ">;"
         }
     .end annotation
@@ -30,234 +61,237 @@
 
 .field a:Lorg/apache/http/client/HttpClient;
 
-.field private i:Lcom/yelp/android/ui/util/ci;
+.field private j:Lcom/yelp/android/ui/util/ao;
 
-.field private j:Lcom/yelp/android/appdata/LocationService;
+.field private k:Lcom/yelp/android/appdata/LocationService;
 
-.field private k:Lcom/yelp/android/appdata/i;
+.field private l:Lcom/yelp/android/appdata/c;
 
-.field private l:Lcom/yelp/android/appdata/LocaleSettings;
+.field private m:Lcom/yelp/android/appdata/LocaleSettings;
 
-.field private m:Lcom/yelp/android/appdata/n;
+.field private n:Lcom/yelp/android/appdata/f;
 
-.field private n:Lcom/yelp/android/database/q;
+.field private o:Lcom/yelp/android/database/g;
 
-.field private o:Lcom/yelp/android/database/m;
+.field private p:Lcom/yelp/android/database/e;
 
-.field private p:Lcom/yelp/android/av/a;
+.field private q:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-.field private q:Lcom/yelp/android/appdata/webrequests/dc;
+.field private r:Lcom/yelp/android/appdata/webrequests/co;
 
-.field private r:Lcom/path/android/jobqueue/c;
+.field private s:Lcom/path/android/jobqueue/b;
 
-.field private s:Lcom/yelp/android/debug/Debug;
+.field private t:Lcom/yelp/android/ui/util/a;
 
-.field private t:Lcom/yelp/android/appdata/k;
+.field private u:Lcom/yelp/android/analytics/adjust/AdjustManager;
 
-.field private u:Ljava/lang/ref/WeakReference;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/lang/ref/WeakReference",
-            "<",
-            "Lcom/yelp/android/ui/activities/support/h;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private v:Lcom/yelp/android/analytics/i;
 
-.field private v:Lcom/yelp/android/services/push/i;
+.field private w:Lcom/yelp/android/appdata/ApiPreferences;
 
-.field private w:Z
-
-.field private x:Z
+.field private x:Lcom/yelp/android/services/backgroundlocation/a;
 
 .field private y:Z
 
-.field private z:Ljava/util/HashSet;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashSet",
-            "<",
-            "Lcom/yelp/android/services/push/t;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private z:Lcom/yelp/android/debug/Debug;
 
 
 # direct methods
-.method public constructor <init>()V
+.method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 82
-    invoke-direct {p0}, Lcom/yelp/android/appdata/BaseYelpApplication;-><init>()V
+    .line 115
+    const/4 v0, 0x0
 
-    .line 661
-    new-instance v0, Lcom/yelp/android/appdata/e;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/e;-><init>(Lcom/yelp/android/appdata/AppData;)V
-
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->D:Lcom/yelp/android/appdata/webrequests/m;
+    sput-boolean v0, Lcom/yelp/android/appdata/AppData;->i:Z
 
     return-void
 .end method
 
-.method private A()V
+.method public constructor <init>()V
+    .locals 2
+
+    .prologue
+    .line 154
+    invoke-direct {p0}, Lcom/yelp/android/appdata/BaseYelpApplication;-><init>()V
+
+    .line 796
+    new-instance v0, Lcom/yelp/android/appdata/AppData$5;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/AppData$5;-><init>(Lcom/yelp/android/appdata/AppData;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->N:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    .line 157
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/yelp/android/appdata/AppData;->J:J
+
+    .line 158
+    return-void
+.end method
+
+.method public static declared-synchronized G()Z
+    .locals 2
+
+    .prologue
+    .line 1130
+    const-class v0, Lcom/yelp/android/appdata/AppData;
+
+    monitor-enter v0
+
+    :try_start_0
+    sget-boolean v1, Lcom/yelp/android/appdata/AppData;->i:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+
+    throw v1
+.end method
+
+.method private L()V
     .locals 3
 
     .prologue
     const/4 v2, 0x1
 
-    .line 171
-    new-instance v0, Lcom/yelp/android/appdata/b;
+    .line 251
+    new-instance v0, Lcom/yelp/android/appdata/AppData$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/b;-><init>(Lcom/yelp/android/appdata/AppData;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/AppData$1;-><init>(Lcom/yelp/android/appdata/AppData;)V
 
-    .line 178
+    .line 259
     invoke-static {p0, v0}, Lcom/yelp/android/webimageview/ImageLoader;->initialize(Landroid/content/Context;Ljava/lang/Thread$UncaughtExceptionHandler;)V
 
-    .line 179
+    .line 260
     invoke-static {}, Lcom/yelp/android/webimageview/ImageLoader;->trimCache()V
 
-    .line 182
-    new-instance v0, Lcom/yelp/android/util/YelpLogDelegate;
-
-    invoke-direct {v0}, Lcom/yelp/android/util/YelpLogDelegate;-><init>()V
-
-    invoke-static {v0}, Lcom/yelp/android/util/YelpLog;->registerDelegate(Lcom/yelp/android/util/al;)V
-
-    .line 184
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    .line 262
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
     if-eqz v0, :cond_0
 
-    .line 185
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    .line 263
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/n;->b()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/f;->b()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/crashlytics/android/d;->d(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/yelp/android/au/a;->b(Ljava/lang/String;)V
 
-    .line 189
+    .line 264
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/f;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/bugsnag/android/Bugsnag;->setUserId(Ljava/lang/String;)V
+
+    .line 268
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/util/cw;->a(Landroid/content/res/Resources;)V
+    invoke-static {v0}, Lcom/yelp/android/ui/util/av;->a(Landroid/content/res/Resources;)V
 
-    .line 191
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->q:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 271
+    const-string/jumbo v0, "Yelp"
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    invoke-static {v0}, Lcom/comscore/analytics/k;->c(Ljava/lang/String;)V
 
-    move-result v0
+    .line 272
+    invoke-static {p0}, Lcom/comscore/analytics/k;->a(Landroid/content/Context;)V
 
-    if-eqz v0, :cond_1
+    .line 273
+    invoke-static {v2}, Lcom/comscore/analytics/k;->b(Z)V
 
-    .line 193
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->G()V
+    .line 274
+    sget-object v0, Lcom/comscore/utils/TransmissionMode;->DEFAULT:Lcom/comscore/utils/TransmissionMode;
 
-    .line 194
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->q:Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-static {v0}, Lcom/comscore/analytics/k;->b(Lcom/comscore/utils/TransmissionMode;)V
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->f()V
+    .line 275
+    sget-object v0, Lcom/comscore/utils/TransmissionMode;->WIFIONLY:Lcom/comscore/utils/TransmissionMode;
 
-    .line 198
-    :cond_1
-    invoke-static {p0}, Lcom/comscore/analytics/h;->a(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/comscore/analytics/k;->a(Lcom/comscore/utils/TransmissionMode;)V
 
-    .line 199
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 276
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Lcom/comscore/analytics/k;->a(Z)V
 
-    const-string/jumbo v1, "https://sb.scorecardresearch.com/p2?c2="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/yelp/android/services/x;->e()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 277
+    invoke-static {}, Lcom/yelp/android/services/i;->d()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0}, Lcom/comscore/analytics/k;->b(Ljava/lang/String;)V
+
+    .line 278
+    invoke-static {}, Lcom/yelp/android/services/i;->e()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/comscore/analytics/h;->a(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/comscore/analytics/k;->a(Ljava/lang/String;)V
 
-    .line 201
-    invoke-static {v2}, Lcom/comscore/analytics/h;->a(Z)V
-
-    .line 202
-    sget-object v0, Lcom/comscore/utils/TransmissionMode;->NEVER:Lcom/comscore/utils/TransmissionMode;
-
-    invoke-static {v0}, Lcom/comscore/analytics/h;->a(Lcom/comscore/utils/TransmissionMode;)V
-
-    .line 203
-    invoke-static {}, Lcom/comscore/analytics/h;->c()V
-
-    .line 209
-    invoke-static {p0, p0}, Lcom/yelp/android/appdata/StateBroadcastReceiver;->a(Landroid/content/Context;Lcom/yelp/android/appdata/ar;)Lcom/yelp/android/appdata/StateBroadcastReceiver;
+    .line 279
+    invoke-static {}, Lcom/yelp/android/services/i;->f()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->B:Lcom/yelp/android/appdata/StateBroadcastReceiver;
+    invoke-static {v0}, Lcom/comscore/analytics/k;->d(Ljava/lang/String;)V
 
-    .line 213
-    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->a:Lcom/yelp/android/appdata/experiment/e;
+    .line 285
+    invoke-static {p0, p0}, Lcom/yelp/android/appdata/StateBroadcastReceiver;->a(Landroid/content/Context;Lcom/yelp/android/appdata/StateBroadcastReceiver$a;)Lcom/yelp/android/appdata/StateBroadcastReceiver;
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/experiment/g;->a(Lcom/yelp/android/appdata/experiment/f;)V
+    move-result-object v0
 
-    .line 214
-    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->b:Lcom/yelp/android/appdata/experiment/e;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->H:Lcom/yelp/android/appdata/StateBroadcastReceiver;
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/experiment/d;->a(Lcom/yelp/android/appdata/experiment/f;)V
-
-    .line 215
-    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->c:Lcom/yelp/android/appdata/experiment/e;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/Features;->setData(Lcom/yelp/android/appdata/experiment/f;)V
-
-    .line 218
+    .line 288
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
-    .line 219
-    invoke-virtual {v0, v2}, Lcom/yelp/android/av/a;->a(Z)V
+    .line 289
+    invoke-virtual {v0, v2}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Z)V
 
-    .line 220
-    invoke-virtual {v0}, Lcom/yelp/android/av/a;->c()V
+    .line 290
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->c()V
 
-    .line 222
+    .line 292
     invoke-static {p0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->isGooglePlayServicesAvailable(Landroid/content/Context;)I
 
     move-result v0
 
-    .line 223
-    if-eqz v0, :cond_2
+    .line 293
+    if-eqz v0, :cond_1
 
-    .line 229
+    .line 299
     const-string/jumbo v1, "GooglePlayServicesUnavailable"
 
-    invoke-static {v1, v2}, Lcom/crashlytics/android/d;->a(Ljava/lang/String;Z)V
+    invoke-static {v1, v2}, Lcom/yelp/android/au/a;->a(Ljava/lang/String;Z)V
 
-    .line 230
-    sget-object v1, Lcom/yelp/android/analytics/iris/AutoIri;->GooglePlayServicesUnavailable:Lcom/yelp/android/analytics/iris/AutoIri;
+    .line 300
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->GooglePlayServicesUnavailable:Lcom/yelp/android/analytics/iris/EventIri;
 
     const-string/jumbo v2, "reason_code"
 
@@ -265,45 +299,83 @@
 
     move-result-object v0
 
-    invoke-static {v1, v2, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 234
-    :cond_2
-    invoke-static {}, Lcom/yelp/android/ui/util/q;->a()V
+    .line 306
+    :cond_1
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->M()V
 
-    .line 237
+    .line 307
+    return-void
+.end method
+
+.method private M()V
+    .locals 2
+
+    .prologue
+    .line 314
+    invoke-static {}, Lcom/yelp/android/util/v;->a()Landroid/net/Uri;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "ydid"
+
+    invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    .line 323
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/ContentResolver;->acquireContentProviderClient(Landroid/net/Uri;)Landroid/content/ContentProviderClient;
+
+    move-result-object v0
+
+    .line 325
+    if-nez v0, :cond_0
+
+    .line 333
+    :goto_0
+    return-void
+
+    .line 329
+    :cond_0
+    invoke-virtual {v0}, Landroid/content/ContentProviderClient;->release()Z
+
+    .line 331
     invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/n;
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/f;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/n;->b()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/f;->b()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/yelp/android/util/ak;->a(Landroid/content/ContentResolver;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/yelp/android/util/v;->a(Landroid/content/ContentResolver;Ljava/lang/String;)V
 
-    .line 239
-    return-void
+    goto :goto_0
 .end method
 
-.method private B()V
+.method private N()V
     .locals 3
 
     .prologue
-    .line 246
+    .line 340
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
 
     move-result v0
 
@@ -313,234 +385,149 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 248
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/b;
+    .line 342
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/c;
 
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->b()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/co;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Lcom/yelp/android/appdata/c;
+    new-instance v2, Lcom/yelp/android/appdata/AppData$2;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/appdata/c;-><init>(Lcom/yelp/android/appdata/AppData;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/appdata/AppData$2;-><init>(Lcom/yelp/android/appdata/AppData;)V
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/b;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 263
+    .line 358
     const/4 v1, 0x0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 265
+    .line 360
     :cond_0
     return-void
 .end method
 
-.method private C()V
+.method private O()V
     .locals 1
 
     .prologue
-    .line 583
+    .line 709
     const-string/jumbo v0, "Starting Push Service"
 
     invoke-static {p0, v0}, Lcom/yelp/android/util/YelpLog;->i(Ljava/lang/Object;Ljava/lang/String;)I
 
-    .line 584
-    invoke-static {}, Lcom/yelp/android/services/push/d;->b()Lcom/yelp/android/services/push/d;
+    .line 710
+    invoke-static {}, Lcom/yelp/android/services/push/b;->b()Lcom/yelp/android/services/push/b;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/services/push/d;->c()V
+    invoke-virtual {v0}, Lcom/yelp/android/services/push/b;->c()V
 
-    .line 585
+    .line 711
     return-void
 .end method
 
-.method private D()V
+.method private P()V
     .locals 2
 
     .prologue
-    .line 588
+    .line 714
     const-string/jumbo v0, "Stopping Push Service"
 
     invoke-static {p0, v0}, Lcom/yelp/android/util/YelpLog;->i(Ljava/lang/Object;Ljava/lang/String;)I
 
-    .line 589
-    invoke-static {}, Lcom/yelp/android/services/push/d;->b()Lcom/yelp/android/services/push/d;
+    .line 715
+    invoke-static {}, Lcom/yelp/android/services/push/b;->b()Lcom/yelp/android/services/push/b;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/services/push/d;->e()V
+    invoke-virtual {v0}, Lcom/yelp/android/services/push/b;->e()V
 
-    .line 590
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/i;->a(Ljava/lang/String;)V
-
-    .line 591
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 716
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/i;->a(Z)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->a(Ljava/lang/String;)V
 
-    .line 592
+    .line 717
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->a(Z)V
+
+    .line 718
     return-void
 .end method
 
-.method private E()V
+.method private Q()V
     .locals 2
 
     .prologue
-    .line 719
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ec;
+    .line 864
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/df;
 
-    new-instance v1, Lcom/yelp/android/appdata/g;
+    new-instance v1, Lcom/yelp/android/appdata/AppData$6;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/appdata/g;-><init>(Lcom/yelp/android/appdata/AppData;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/appdata/AppData$6;-><init>(Lcom/yelp/android/appdata/AppData;)V
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/ec;-><init>(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/df;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 732
+    .line 881
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ec;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/df;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 733
+    .line 882
     return-void
 .end method
 
-.method private F()V
+.method private R()V
     .locals 2
 
     .prologue
     const/4 v1, 0x0
 
-    .line 783
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 937
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/i;->c(Z)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->c(Z)V
 
-    .line 784
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 938
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/i;->d(Z)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->d(Z)V
 
-    .line 785
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 939
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/i;->e(Z)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->g(Z)V
 
-    .line 786
-    return-void
-.end method
-
-.method private G()V
-    .locals 7
-
-    .prologue
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
-
-    const/4 v4, 0x0
-
-    .line 846
-    invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    .line 847
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->getAll()Ljava/util/Map;
-
-    move-result-object v1
-
-    .line 848
-    const v2, 0x7f07031c
-
-    invoke-virtual {p0, v2}, Lcom/yelp/android/appdata/AppData;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v2, v5}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v2
-
-    .line 849
-    const v3, 0x7f07046b
-
-    invoke-virtual {p0, v3}, Lcom/yelp/android/appdata/AppData;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 850
-    invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 851
-    if-eqz v2, :cond_0
-
-    if-nez v1, :cond_0
-
-    .line 852
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-interface {v0, v3, v6}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    .line 853
-    new-instance v0, Lcom/yelp/android/appdata/RemoteConfigPreferences;
-
-    invoke-direct {v0}, Lcom/yelp/android/appdata/RemoteConfigPreferences;-><init>()V
-
-    .line 854
-    new-instance v1, Lcom/yelp/android/appdata/am;
-
-    invoke-direct {v1, v6}, Lcom/yelp/android/appdata/am;-><init>(Z)V
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->a(Lcom/yelp/android/appdata/am;)Lcom/yelp/android/appdata/RemoteConfigPreferences;
-
-    .line 855
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/fl;
-
-    invoke-direct {v1, v4, v0, v4, v4}, Lcom/yelp/android/appdata/webrequests/fl;-><init>(Lcom/yelp/android/appdata/webrequests/m;Lcom/yelp/android/appdata/RemoteConfigPreferences;Landroid/location/Location;Ljava/lang/String;)V
-
-    new-array v0, v5, [Ljava/lang/Void;
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/fl;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    .line 857
-    :cond_0
+    .line 940
     return-void
 .end method
 
@@ -548,56 +535,56 @@
     .locals 3
 
     .prologue
-    .line 275
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/LocaleSettings;
+    .line 399
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/LocaleSettings;
 
     iget-object v1, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/LocaleSettings;->a(Ljava/util/Locale;)V
 
-    .line 276
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/LocaleSettings;
+    .line 400
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->a()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 277
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/m;
+    .line 401
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/database/e;
 
-    invoke-virtual {v1}, Lcom/yelp/android/database/m;->c()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/database/e;->c()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 278
+    .line 402
     invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 280
+    .line 404
     :try_start_0
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/m;
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/database/e;
 
     invoke-static {}, Lcom/yelp/android/appdata/LocaleSettings;->b()Ljava/util/Set;
 
     move-result-object v2
 
-    invoke-virtual {v1, p0, v0, v2}, Lcom/yelp/android/database/m;->a(Landroid/content/Context;Ljava/lang/String;Ljava/util/Collection;)V
+    invoke-virtual {v1, p0, v0, v2}, Lcom/yelp/android/database/e;->a(Landroid/content/Context;Ljava/lang/String;Ljava/util/Collection;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 286
+    .line 410
     :cond_0
     :goto_0
     return-void
 
-    .line 282
+    .line 406
     :catch_0
     move-exception v0
 
-    .line 283
+    .line 407
     const-string/jumbo v0, "Error loading new category database for locale"
 
     invoke-static {p0, v0}, Lcom/yelp/android/util/YelpLog;->e(Ljava/lang/Object;Ljava/lang/String;)I
@@ -609,18 +596,18 @@
     .locals 1
 
     .prologue
-    .line 651
+    .line 786
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/b;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/b;)V
 
-    .line 652
+    .line 787
     return-void
 .end method
 
@@ -628,37 +615,37 @@
     .locals 3
 
     .prologue
-    .line 658
+    .line 793
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/analytics/n;
+    new-instance v1, Lcom/yelp/android/analytics/l;
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, p1, p2, v2}, Lcom/yelp/android/analytics/n;-><init>(Lcom/yelp/android/analytics/iris/b;JLjava/util/Map;)V
+    invoke-direct {v1, p0, p1, p2, v2}, Lcom/yelp/android/analytics/l;-><init>(Lcom/yelp/android/analytics/iris/a;JLjava/util/Map;)V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/b;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/b;)V
 
-    .line 659
+    .line 794
     return-void
 .end method
 
-.method public static a(Lcom/yelp/android/analytics/iris/b;)V
+.method public static a(Lcom/yelp/android/analytics/iris/a;)V
     .locals 2
 
     .prologue
-    .line 620
+    .line 755
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
@@ -666,22 +653,22 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, p0, v1}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-virtual {v0, p0, v1}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
-    .line 621
+    .line 756
     return-void
 .end method
 
-.method public static a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+.method public static a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
     .locals 2
 
     .prologue
-    .line 632
+    .line 767
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
@@ -689,18 +676,18 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, p0, v1}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-virtual {v0, p0, v1}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
-    .line 633
+    .line 768
     return-void
 .end method
 
-.method public static a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+.method public static a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             "Ljava/util/Map",
             "<",
             "Ljava/lang/String;",
@@ -710,18 +697,18 @@
     .end annotation
 
     .prologue
-    .line 642
+    .line 777
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p1}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-virtual {v0, p0, p1}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
-    .line 643
+    .line 778
     return-void
 .end method
 
@@ -729,8 +716,8 @@
     .locals 0
 
     .prologue
-    .line 82
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->E()V
+    .line 106
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->Q()V
 
     return-void
 .end method
@@ -739,7 +726,7 @@
     .locals 0
 
     .prologue
-    .line 82
+    .line 106
     invoke-direct {p0, p1}, Lcom/yelp/android/appdata/AppData;->a(Ljava/util/Map;)V
 
     return-void
@@ -763,12 +750,12 @@
 
     const/4 v3, 0x1
 
-    .line 737
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 888
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/i;->v()V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->y()V
 
-    .line 738
+    .line 889
     const-string/jumbo v0, "Features"
 
     invoke-virtual {p0, v0, v4}, Lcom/yelp/android/appdata/AppData;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
@@ -787,7 +774,7 @@
 
     move-result-object v1
 
-    .line 742
+    .line 894
     sget-object v0, Lcom/yelp/android/appdata/Features;->updated_privacy_policy:Lcom/yelp/android/appdata/Features;
 
     invoke-virtual {v0}, Lcom/yelp/android/appdata/Features;->getKey()Ljava/lang/String;
@@ -800,55 +787,55 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 743
+    .line 895
     if-nez v1, :cond_0
 
     if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/i;->u()I
-
-    move-result v2
-
-    if-ne v2, v3, :cond_0
-
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
-
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/i;->g()I
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/c;->x()I
 
     move-result v2
 
     if-ne v2, v3, :cond_0
 
-    .line 746
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v2, v3}, Lcom/yelp/android/appdata/i;->c(Z)V
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/c;->i()I
 
-    .line 748
+    move-result v2
+
+    if-ne v2, v3, :cond_0
+
+    .line 899
+    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    invoke-virtual {v2, v3}, Lcom/yelp/android/appdata/c;->c(Z)V
+
+    .line 901
     :cond_0
     if-nez v1, :cond_2
 
     if-eqz v0, :cond_2
 
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/i;->k()Z
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/c;->m()Z
 
     move-result v2
 
     if-nez v2, :cond_2
 
-    .line 754
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->F()V
+    .line 908
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->R()V
 
-    .line 780
+    .line 934
     :cond_1
     :goto_0
     return-void
 
-    .line 756
+    .line 910
     :cond_2
     if-nez v1, :cond_3
 
@@ -859,45 +846,45 @@
 
     if-eqz v0, :cond_4
 
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/i;->k()Z
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/c;->m()Z
 
     move-result v2
 
     if-nez v2, :cond_1
 
-    .line 765
+    .line 920
     :cond_4
     if-eqz v1, :cond_5
 
     if-nez v0, :cond_5
 
-    .line 766
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 921
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0, v4}, Lcom/yelp/android/appdata/i;->c(Z)V
+    invoke-virtual {v0, v4}, Lcom/yelp/android/appdata/c;->c(Z)V
 
     goto :goto_0
 
-    .line 769
+    .line 923
     :cond_5
     invoke-static {v1}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v2
 
-    .line 770
+    .line 924
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
 
-    .line 776
+    .line 930
     cmp-long v0, v0, v2
 
     if-lez v0, :cond_1
 
-    .line 777
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->F()V
+    .line 931
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->R()V
 
     goto :goto_0
 .end method
@@ -906,7 +893,7 @@
     .locals 2
 
     .prologue
-    .line 319
+    .line 443
     const-class v0, Lcom/yelp/android/appdata/AppData;
 
     monitor-enter v0
@@ -928,11 +915,31 @@
     throw v1
 .end method
 
+.method static synthetic b(Lcom/yelp/android/appdata/AppData;)Lcom/yelp/android/appdata/c;
+    .locals 1
+
+    .prologue
+    .line 106
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    return-object v0
+.end method
+
+.method static synthetic c(Lcom/yelp/android/appdata/AppData;)Lcom/yelp/android/appdata/ApiPreferences;
+    .locals 1
+
+    .prologue
+    .line 106
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->w:Lcom/yelp/android/appdata/ApiPreferences;
+
+    return-object v0
+.end method
+
 .method public static declared-synchronized d()Z
     .locals 2
 
     .prologue
-    .line 327
+    .line 451
     const-class v1, Lcom/yelp/android/appdata/AppData;
 
     monitor-enter v1
@@ -972,66 +979,233 @@
     throw v0
 .end method
 
-.method public static r()Lcom/path/android/jobqueue/c;
+.method public static w()Lcom/path/android/jobqueue/b;
     .locals 1
 
     .prologue
-    .line 606
+    .line 742
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    iget-object v0, v0, Lcom/yelp/android/appdata/AppData;->r:Lcom/path/android/jobqueue/c;
+    iget-object v0, v0, Lcom/yelp/android/appdata/AppData;->s:Lcom/path/android/jobqueue/b;
 
     return-object v0
 .end method
 
 
 # virtual methods
-.method public a()V
+.method public A()Lcom/yelp/android/ui/util/ao;
+    .locals 1
+
+    .prologue
+    .line 1067
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->j:Lcom/yelp/android/ui/util/ao;
+
+    return-object v0
+.end method
+
+.method public B()Lcom/yelp/android/appdata/m;
+    .locals 1
+
+    .prologue
+    .line 1078
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->E:Lcom/yelp/android/appdata/m;
+
+    return-object v0
+.end method
+
+.method public C()Lcom/yelp/android/bt/b;
+    .locals 1
+
+    .prologue
+    .line 1087
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->L:Lcom/yelp/android/bt/b;
+
+    return-object v0
+.end method
+
+.method public D()Lcom/yelp/android/cn/d;
+    .locals 1
+
+    .prologue
+    .line 1102
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->I:Lcom/yelp/android/cn/d;
+
+    return-object v0
+.end method
+
+.method public E()Lcom/yelp/android/serializable/PhotoAdsConfig;
     .locals 3
 
     .prologue
-    .line 125
-    invoke-static {}, Lcom/yelp/android/services/push/d;->a()V
+    .line 1110
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->D:Lcom/yelp/android/serializable/PhotoAdsConfig;
 
-    .line 128
-    invoke-static {p0}, Lcom/crashlytics/android/d;->a(Landroid/content/Context;)V
+    if-nez v0, :cond_0
 
-    .line 132
-    new-instance v0, Lcom/yelp/android/ui/util/e;
+    .line 1111
+    new-instance v0, Lcom/yelp/android/serializable/PhotoAdsConfig;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/util/e;-><init>(Landroid/content/Context;)V
+    const/4 v1, 0x3
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->i:Lcom/yelp/android/ui/util/ci;
+    const/16 v2, 0xa
 
-    .line 133
-    new-instance v0, Lcom/yelp/android/services/push/i;
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/serializable/PhotoAdsConfig;-><init>(II)V
 
-    invoke-direct {v0}, Lcom/yelp/android/services/push/i;-><init>()V
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->D:Lcom/yelp/android/serializable/PhotoAdsConfig;
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->v:Lcom/yelp/android/services/push/i;
+    .line 1115
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->D:Lcom/yelp/android/serializable/PhotoAdsConfig;
 
-    .line 134
-    new-instance v0, Ljava/util/HashSet;
+    return-object v0
+.end method
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+.method public F()V
+    .locals 1
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->z:Ljava/util/HashSet;
+    .prologue
+    .line 1122
+    invoke-static {p0}, Lcom/yelp/android/appdata/LocationService;->c(Landroid/content/Context;)Lcom/yelp/android/appdata/LocationService;
 
-    .line 135
-    new-instance v0, Lcom/yelp/android/appdata/i;
+    move-result-object v0
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/i;-><init>(Landroid/content/Context;)V
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/LocationService;
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 1123
+    return-void
+.end method
 
-    .line 136
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+.method public H()Lcom/yelp/android/ce/a;
+    .locals 1
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/i;->r()V
+    .prologue
+    .line 1134
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->M:Lcom/yelp/android/ce/a;
 
-    .line 137
+    return-object v0
+.end method
+
+.method public synthetic I()Lcom/yelp/android/appdata/d;
+    .locals 1
+
+    .prologue
+    .line 106
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic J()Lcom/yelp/android/appdata/r;
+    .locals 1
+
+    .prologue
+    .line 106
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->p()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public a()V
+    .locals 9
+
+    .prologue
+    .line 171
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/facebook/g;->a(Landroid/content/Context;)V
+
+    .line 172
+    invoke-static {}, Lcom/yelp/android/services/i;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/facebook/g;->a(Ljava/lang/String;)V
+
+    .line 173
+    invoke-static {}, Lcom/yelp/android/services/push/b;->a()V
+
+    .line 177
+    new-instance v0, Lcom/yelp/android/ui/util/c;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/util/c;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->j:Lcom/yelp/android/ui/util/ao;
+
+    .line 180
+    new-instance v0, Lcom/yelp/android/util/YelpLogDelegate;
+
+    invoke-direct {v0}, Lcom/yelp/android/util/YelpLogDelegate;-><init>()V
+
+    invoke-static {v0}, Lcom/yelp/android/util/YelpLog;->registerDelegate(Lcom/yelp/android/util/YelpLog$a;)V
+
+    .line 181
+    new-instance v0, Lcom/yelp/android/analytics/adjust/AdjustManager;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/analytics/adjust/AdjustManager;-><init>(Landroid/app/Application;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->u:Lcom/yelp/android/analytics/adjust/AdjustManager;
+
+    .line 183
+    new-instance v0, Lcom/yelp/android/appdata/m;
+
+    invoke-direct {v0}, Lcom/yelp/android/appdata/m;-><init>()V
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/appdata/m;)V
+
+    .line 184
+    new-instance v0, Lcom/yelp/android/bt/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/bt/c;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->L:Lcom/yelp/android/bt/b;
+
+    .line 188
+    sget-object v0, Lcom/yelp/android/appdata/experiment/d;->a:Lcom/yelp/android/appdata/experiment/d;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/experiment/j;->a(Lcom/yelp/android/appdata/experiment/i;)V
+
+    .line 189
+    sget-object v0, Lcom/yelp/android/appdata/experiment/d;->b:Lcom/yelp/android/appdata/experiment/i;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/experiment/g;->a(Lcom/yelp/android/appdata/experiment/i;)V
+
+    .line 190
+    sget-object v0, Lcom/yelp/android/appdata/experiment/h;->d:Lcom/yelp/android/appdata/experiment/h;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/Features;->setData(Lcom/yelp/android/appdata/experiment/i;)V
+
+    .line 192
+    new-instance v0, Lcom/yelp/android/services/push/e;
+
+    invoke-direct {v0}, Lcom/yelp/android/services/push/e;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->C:Lcom/yelp/android/services/push/e;
+
+    .line 193
+    new-instance v0, Lcom/yelp/android/appdata/ApiPreferences;
+
+    invoke-direct {v0}, Lcom/yelp/android/appdata/ApiPreferences;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->w:Lcom/yelp/android/appdata/ApiPreferences;
+
+    .line 194
+    new-instance v0, Lcom/yelp/android/appdata/c;
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->w:Lcom/yelp/android/appdata/ApiPreferences;
+
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/appdata/c;-><init>(Landroid/content/Context;Lcom/yelp/android/appdata/ApiPreferences;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    .line 195
     new-instance v0, Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
@@ -1046,26 +1220,26 @@
 
     invoke-direct {v0, v1}, Lcom/yelp/android/appdata/LocaleSettings;-><init>(Ljava/util/Locale;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/LocaleSettings;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/LocaleSettings;
 
-    .line 138
-    new-instance v0, Lcom/yelp/android/appdata/bb;
+    .line 196
+    new-instance v0, Lcom/yelp/android/appdata/q;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/LocaleSettings;
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-virtual {v1}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
 
     move-result-object v1
 
-    invoke-static {}, Lcom/yelp/android/services/x;->g()Ljava/lang/String;
+    invoke-static {}, Lcom/yelp/android/services/i;->h()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/appdata/bb;-><init>(Landroid/content/Context;Ljava/util/Locale;Ljava/lang/String;)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/appdata/q;-><init>(Landroid/content/Context;Ljava/util/Locale;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
-    .line 139
+    .line 198
     invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -1076,53 +1250,74 @@
 
     iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/ao;->a(F)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(F)V
 
-    .line 140
+    .line 199
     new-instance v0, Lcom/yelp/android/debug/Debug;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/debug/Debug;-><init>(Landroid/content/Context;Lcom/yelp/android/appdata/n;)V
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/debug/Debug;-><init>(Landroid/content/Context;Lcom/yelp/android/appdata/f;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->s:Lcom/yelp/android/debug/Debug;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->z:Lcom/yelp/android/debug/Debug;
 
-    .line 141
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/dc;
+    .line 200
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/co;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->w:Lcom/yelp/android/appdata/ApiPreferences;
 
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/dc;-><init>(Lcom/yelp/android/appdata/i;Lcom/yelp/android/appdata/n;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/co;-><init>(Lcom/yelp/android/appdata/ApiPreferences;Lcom/yelp/android/appdata/c;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->q:Lcom/yelp/android/appdata/webrequests/dc;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->r:Lcom/yelp/android/appdata/webrequests/co;
 
-    .line 142
-    new-instance v0, Lcom/yelp/android/av/a;
+    .line 201
+    new-instance v0, Lcom/yelp/android/ui/util/a;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    invoke-direct {v0}, Lcom/yelp/android/ui/util/a;-><init>()V
 
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/av/a;-><init>(Landroid/content/Context;Lcom/yelp/android/appdata/n;)V
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->t:Lcom/yelp/android/ui/util/a;
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/av/a;
+    .line 202
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-    .line 144
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->t:Lcom/yelp/android/ui/util/a;
+
+    invoke-direct {v0, v1, p0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;-><init>(Lcom/yelp/android/ui/util/a;Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->q:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
+
+    .line 203
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->O()V
+
+    .line 204
+    new-instance v0, Lcom/yelp/android/analytics/i;
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
+
+    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->r:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/analytics/i;-><init>(Landroid/content/Context;Lcom/yelp/android/appdata/f;Lcom/yelp/android/appdata/webrequests/co;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->v:Lcom/yelp/android/analytics/i;
+
+    .line 207
     :try_start_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/m;
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/database/e;
 
     if-eqz v0, :cond_0
 
-    .line 145
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/m;
+    .line 208
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/database/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/m;->a()V
+    invoke-virtual {v0}, Lcom/yelp/android/database/e;->a()V
 
-    .line 147
+    .line 210
     :cond_0
-    new-instance v0, Lcom/yelp/android/database/m;
+    new-instance v0, Lcom/yelp/android/database/e;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/LocaleSettings;
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-virtual {v1}, Lcom/yelp/android/appdata/LocaleSettings;->a()Ljava/lang/String;
 
@@ -1132,78 +1327,126 @@
 
     move-result-object v2
 
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/database/m;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/util/Collection;)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/database/e;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/util/Collection;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/m;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/database/e;
 
-    .line 149
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/database/q;
+    .line 215
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/g;
 
     if-eqz v0, :cond_1
 
-    .line 150
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/database/q;
+    .line 216
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/g;
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->a()Z
+    invoke-virtual {v0}, Lcom/yelp/android/database/g;->a()Z
 
-    .line 152
+    .line 218
     :cond_1
-    new-instance v0, Lcom/yelp/android/database/q;
+    new-instance v0, Lcom/yelp/android/database/g;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/database/q;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/database/g;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/database/q;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/g;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 157
+    .line 223
     invoke-static {p0}, Lcom/yelp/android/appdata/LocationService;->c(Landroid/content/Context;)Lcom/yelp/android/appdata/LocationService;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->j:Lcom/yelp/android/appdata/LocationService;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/LocationService;
 
-    .line 158
-    new-instance v0, Lcom/yelp/android/appdata/k;
+    .line 224
+    new-instance v0, Lcom/yelp/android/appdata/e;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/k;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/e;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->t:Lcom/yelp/android/appdata/k;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->A:Lcom/yelp/android/appdata/e;
 
-    .line 159
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->A()V
+    .line 225
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->L()V
 
-    .line 160
-    new-instance v0, Lcom/path/android/jobqueue/c;
+    .line 226
+    new-instance v0, Lcom/path/android/jobqueue/b;
 
-    invoke-static {p0}, Lcom/yelp/android/services/job/a;->a(Landroid/content/Context;)Lcom/yelp/android/aq/a;
+    invoke-static {p0}, Lcom/yelp/android/services/job/a;->a(Landroid/content/Context;)Lcom/yelp/android/bm/a;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/path/android/jobqueue/c;-><init>(Landroid/content/Context;Lcom/yelp/android/aq/a;)V
+    invoke-direct {v0, p0, v1}, Lcom/path/android/jobqueue/b;-><init>(Landroid/content/Context;Lcom/yelp/android/bm/a;)V
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/path/android/jobqueue/c;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/path/android/jobqueue/b;)V
 
-    .line 161
-    invoke-static {}, Lcom/yelp/android/analytics/j;->a()V
+    .line 228
+    new-instance v0, Lcom/yelp/android/services/backgroundlocation/a;
 
-    .line 162
-    new-instance v0, Lcom/yelp/android/be/c;
+    new-instance v2, Lcom/yelp/android/services/backgroundlocation/c;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/av/a;
+    invoke-direct {v2, p0}, Lcom/yelp/android/services/backgroundlocation/c;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/be/c;-><init>(Lcom/yelp/android/av/a;)V
+    new-instance v3, Lcom/yelp/android/services/backgroundlocation/b;
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->C:Lcom/yelp/android/be/c;
+    invoke-direct {v3, p0}, Lcom/yelp/android/services/backgroundlocation/b;-><init>(Landroid/content/Context;)V
 
-    .line 163
+    iget-object v4, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    const-string/jumbo v1, "alarm"
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/appdata/AppData;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/app/AlarmManager;
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->w()Lcom/path/android/jobqueue/b;
+
+    move-result-object v6
+
+    new-instance v7, Lcom/yelp/android/util/r;
+
+    invoke-direct {v7}, Lcom/yelp/android/util/r;-><init>()V
+
+    invoke-static {}, Lcom/google/android/gms/common/GoogleApiAvailability;->getInstance()Lcom/google/android/gms/common/GoogleApiAvailability;
+
+    move-result-object v8
+
+    move-object v1, p0
+
+    invoke-direct/range {v0 .. v8}, Lcom/yelp/android/services/backgroundlocation/a;-><init>(Landroid/content/Context;Lcom/yelp/android/services/backgroundlocation/c;Lcom/yelp/android/services/backgroundlocation/b;Lcom/yelp/android/appdata/c;Landroid/app/AlarmManager;Lcom/path/android/jobqueue/b;Lcom/yelp/android/util/r;Lcom/google/android/gms/common/GoogleApiAvailability;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->x:Lcom/yelp/android/services/backgroundlocation/a;
+
+    .line 239
+    new-instance v0, Lcom/yelp/android/cn/d;
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->q:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/cn/d;-><init>(Lcom/yelp/android/appdata/webrequests/core/MetricsManager;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->I:Lcom/yelp/android/cn/d;
+
+    .line 241
+    new-instance v0, Lcom/yelp/android/bz/a;
+
+    invoke-direct {v0}, Lcom/yelp/android/bz/a;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->K:Lcom/yelp/android/bz/a;
+
+    .line 242
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->K:Lcom/yelp/android/bz/a;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/AppData;->registerActivityLifecycleCallbacks(Landroid/app/Application$ActivityLifecycleCallbacks;)V
+
+    .line 243
     return-void
 
-    .line 154
+    .line 220
     :catch_0
     move-exception v0
 
-    .line 155
+    .line 221
     new-instance v1, Ljava/lang/RuntimeException;
 
     const-string/jumbo v2, "Could not initialize properly"
@@ -1214,181 +1457,175 @@
 .end method
 
 .method public a(Landroid/content/Context;)V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 810
-    new-instance v0, Landroid/content/Intent;
+    .line 963
+    invoke-static {}, Lcom/yelp/android/services/push/b;->b()Lcom/yelp/android/services/push/b;
 
-    const-class v1, Lcom/yelp/android/services/push/AccountPushRegistrationService;
+    move-result-object v0
 
-    invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-virtual {v0}, Lcom/yelp/android/services/push/b;->c()V
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+    .line 965
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->AppForegrounded:Lcom/yelp/android/analytics/iris/EventIri;
 
-    .line 813
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->w:Z
+    const-string/jumbo v2, "android_background_location"
+
+    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->k:Lcom/yelp/android/appdata/experiment/BackgroundLocationExperiment;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/experiment/BackgroundLocationExperiment;->b()Ljava/lang/Enum;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/appdata/experiment/BackgroundLocationExperiment$Cohort;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/experiment/BackgroundLocationExperiment$Cohort;->name()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v2, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
+
+    .line 971
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->x:Lcom/yelp/android/services/backgroundlocation/a;
+
+    invoke-virtual {v0}, Lcom/yelp/android/services/backgroundlocation/a;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->y:Z
 
     if-nez v0, :cond_0
 
-    .line 814
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->s()V
+    .line 972
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->x:Lcom/yelp/android/services/backgroundlocation/a;
 
-    .line 818
+    invoke-virtual {v0}, Lcom/yelp/android/services/backgroundlocation/a;->a()V
+
+    .line 973
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->y:Z
+
+    .line 977
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->u:Ljava/lang/ref/WeakReference;
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
     if-eqz v0, :cond_1
 
-    .line 819
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->u:Ljava/lang/ref/WeakReference;
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/l;->u()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 978
+    :cond_1
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->x()V
+
+    .line 983
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->v:Lcom/yelp/android/analytics/i;
+
+    new-instance v1, Lcom/yelp/android/appdata/AppData$7;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/appdata/AppData$7;-><init>(Lcom/yelp/android/appdata/AppData;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/analytics/i;->a(Lcom/yelp/android/analytics/i$a;)V
+
+    .line 992
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->B:Ljava/lang/ref/WeakReference;
+
+    if-eqz v0, :cond_3
+
+    .line 993
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->B:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/support/h;
+    check-cast v0, Lcom/yelp/android/ui/activities/support/b;
 
-    .line 825
-    if-eqz v0, :cond_1
+    .line 999
+    if-eqz v0, :cond_3
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/h;->e()Lcom/yelp/android/ui/util/dg;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/b;->e()Lcom/yelp/android/ui/util/ax;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/dg;->a()Z
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/ax;->a()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
-    .line 826
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/h;->c()Landroid/app/Activity;
+    .line 1000
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/b;->c()Landroid/app/Activity;
 
     move-result-object v0
 
-    const v1, 0x7f0c0020
+    const v1, 0x7f0f0023
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->showDialog(I)V
 
-    .line 830
-    :cond_1
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->B()V
+    .line 1004
+    :cond_3
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->N()V
 
-    .line 831
+    .line 1005
     return-void
 .end method
 
-.method public a(Lcom/path/android/jobqueue/c;)V
+.method public a(Lcom/path/android/jobqueue/b;)V
     .locals 0
 
     .prologue
-    .line 610
-    iput-object p1, p0, Lcom/yelp/android/appdata/AppData;->r:Lcom/path/android/jobqueue/c;
+    .line 746
+    iput-object p1, p0, Lcom/yelp/android/appdata/AppData;->s:Lcom/path/android/jobqueue/b;
 
-    .line 611
+    .line 747
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/appdata/RemoteConfigPreferences;)V
-    .locals 3
+.method public a(Lcom/yelp/android/appdata/m;)V
+    .locals 0
 
     .prologue
-    .line 535
-    const/16 v0, 0x9
+    .line 1083
+    iput-object p1, p0, Lcom/yelp/android/appdata/AppData;->E:Lcom/yelp/android/appdata/m;
 
-    new-array v0, v0, [Lcom/yelp/android/services/push/t;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->b()Lcom/yelp/android/appdata/RemoteConfigPreferences$NotificationLocation;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->a()Lcom/yelp/android/appdata/RemoteConfigPreferences$NotificationSchedule;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x2
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->m()Lcom/yelp/android/appdata/ai;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x3
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->k()Lcom/yelp/android/appdata/ah;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x4
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->l()Lcom/yelp/android/appdata/ag;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x5
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->g()Lcom/yelp/android/appdata/ak;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x6
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->d()Lcom/yelp/android/appdata/al;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x7
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->f()Lcom/yelp/android/appdata/am;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    const/16 v1, 0x8
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/RemoteConfigPreferences;->c()Lcom/yelp/android/appdata/an;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/AppData;->a([Lcom/yelp/android/services/push/t;)V
-
-    .line 545
+    .line 1084
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/ui/activities/support/h;)V
+.method public a(Lcom/yelp/android/serializable/PhotoAdsConfig;)V
+    .locals 0
+
+    .prologue
+    .line 1106
+    iput-object p1, p0, Lcom/yelp/android/appdata/AppData;->D:Lcom/yelp/android/serializable/PhotoAdsConfig;
+
+    .line 1107
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/ui/activities/support/b;)V
     .locals 1
 
     .prologue
-    .line 412
+    .line 556
     new-instance v0, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->u:Ljava/lang/ref/WeakReference;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->B:Ljava/lang/ref/WeakReference;
 
-    .line 413
+    .line 557
     return-void
 .end method
 
@@ -1396,68 +1633,44 @@
     .locals 3
 
     .prologue
-    .line 870
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    const/4 v2, 0x0
+
+    .line 368
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/webrequests/dc;->a(Landroid/content/Context;)V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
 
-    .line 871
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->o()Lcom/yelp/android/debug/Debug;
+    move-result v0
 
-    move-result-object v0
+    if-eqz v0, :cond_0
 
-    new-instance v1, Lcom/yelp/android/debug/h;
-
-    invoke-direct {v1, p1}, Lcom/yelp/android/debug/h;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/debug/Debug;->a(Lcom/yelp/android/debug/h;Landroid/content/Context;)V
-
-    .line 872
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->f()Lcom/yelp/android/database/d;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->d()Z
 
-    move-result-object v0
+    move-result v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/d;->c()V
+    if-nez v0, :cond_0
 
-    .line 873
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
+    .line 369
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/b;
 
-    move-result-object v0
+    new-instance v1, Lcom/yelp/android/appdata/AppData$3;
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->g()Lcom/yelp/android/ax/a;
+    invoke-direct {v1, p0}, Lcom/yelp/android/appdata/AppData$3;-><init>(Lcom/yelp/android/appdata/AppData;)V
 
-    move-result-object v0
+    invoke-direct {v0, p1, v2, v1}, Lcom/yelp/android/appdata/webrequests/b;-><init>(Ljava/lang/String;ZLcom/yelp/android/appdata/webrequests/core/c$a;)V
 
-    invoke-virtual {v0}, Lcom/yelp/android/ax/a;->b()V
+    new-array v1, v2, [Ljava/lang/Void;
 
-    .line 874
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->onLowMemory()V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/b;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 875
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->q()V
-
-    .line 879
-    new-instance v0, Ljava/lang/Thread;
-
-    new-instance v1, Lcom/yelp/android/appdata/h;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/appdata/h;-><init>(Lcom/yelp/android/appdata/AppData;)V
-
-    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
-
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
-
-    .line 893
+    .line 393
+    :cond_0
     return-void
 .end method
 
@@ -1465,20 +1678,20 @@
     .locals 1
 
     .prologue
-    .line 335
+    .line 459
     monitor-enter p0
 
     :try_start_0
-    iput-boolean p1, p0, Lcom/yelp/android/appdata/AppData;->x:Z
+    iput-boolean p1, p0, Lcom/yelp/android/appdata/AppData;->F:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 336
+    .line 460
     monitor-exit p0
 
     return-void
 
-    .line 335
+    .line 459
     :catchall_0
     move-exception v0
 
@@ -1487,134 +1700,74 @@
     throw v0
 .end method
 
-.method public varargs a([Lcom/yelp/android/services/push/t;)V
-    .locals 4
-
-    .prologue
-    .line 557
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->z:Ljava/util/HashSet;
-
-    invoke-static {v0, p1}, Ljava/util/Collections;->addAll(Ljava/util/Collection;[Ljava/lang/Object;)Z
-
-    .line 558
-    array-length v1, p1
-
-    const/4 v0, 0x0
-
-    :goto_0
-    if-ge v0, v1, :cond_1
-
-    aget-object v2, p1, v0
-
-    .line 559
-    if-nez v2, :cond_0
-
-    .line 560
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->z:Ljava/util/HashSet;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
-
-    .line 558
-    :goto_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 562
-    :cond_0
-    iget-object v3, p0, Lcom/yelp/android/appdata/AppData;->z:Ljava/util/HashSet;
-
-    invoke-interface {v2}, Lcom/yelp/android/services/push/t;->getAntiTokens()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-virtual {v3, v2}, Ljava/util/HashSet;->removeAll(Ljava/util/Collection;)Z
-
-    goto :goto_1
-
-    .line 566
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->z:Ljava/util/HashSet;
-
-    invoke-virtual {v0}, Ljava/util/HashSet;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 567
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->D()V
-
-    .line 571
-    :goto_2
-    return-void
-
-    .line 569
-    :cond_2
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->C()V
-
-    goto :goto_2
-.end method
-
 .method public attachBaseContext(Landroid/content/Context;)V
     .locals 0
 
     .prologue
-    .line 121
+    .line 166
     invoke-super {p0, p1}, Lcom/yelp/android/appdata/BaseYelpApplication;->attachBaseContext(Landroid/content/Context;)V
 
-    .line 122
+    .line 167
+    invoke-static {p0}, Landroid/support/multidex/a;->a(Landroid/content/Context;)V
+
+    .line 168
     return-void
 .end method
 
 .method public b(Landroid/content/Context;)V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 835
-    const/4 v0, 0x0
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->w:Z
+    .line 1009
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
-    .line 836
-    const/4 v0, 0x1
+    if-eqz v0, :cond_0
 
-    iput-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->y:Z
+    .line 1010
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
-    .line 837
-    invoke-static {}, Lcom/yelp/android/av/a;->a()V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/l;->a(Z)V
 
-    .line 838
+    .line 1012
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->j(Z)V
+
+    .line 1013
+    invoke-static {}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a()V
+
+    .line 1014
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->w()V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->s()V
 
-    .line 841
-    invoke-static {}, Lcom/yelp/android/appdata/ab;->b()V
+    .line 1017
+    invoke-static {}, Lcom/yelp/android/appdata/j;->b()V
 
-    .line 842
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 1018
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/i;->Y()V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->Y()V
 
-    .line 843
+    .line 1019
     return-void
 .end method
 
-.method public c()Lcom/yelp/android/services/push/i;
+.method public c()Lcom/yelp/android/services/push/e;
     .locals 1
 
     .prologue
-    .line 323
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->v:Lcom/yelp/android/services/push/i;
+    .line 447
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->C:Lcom/yelp/android/services/push/e;
 
     return-object v0
 .end method
@@ -1623,11 +1776,11 @@
     .locals 1
 
     .prologue
-    .line 342
+    .line 466
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->x:Z
+    iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->F:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1643,12 +1796,12 @@
     throw v0
 .end method
 
-.method public f()Lcom/yelp/android/appdata/i;
+.method public f()Lcom/yelp/android/appdata/c;
     .locals 1
 
     .prologue
-    .line 347
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    .line 471
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
     return-object v0
 .end method
@@ -1657,32 +1810,32 @@
     .locals 1
 
     .prologue
-    .line 352
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/LocaleSettings;
+    .line 476
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/LocaleSettings;
 
     return-object v0
 .end method
 
-.method public h()Lcom/yelp/android/appdata/n;
+.method public h()Lcom/yelp/android/appdata/f;
     .locals 1
 
     .prologue
-    .line 357
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    .line 481
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
     return-object v0
 .end method
 
-.method public i()Lcom/yelp/android/database/q;
+.method public i()Lcom/yelp/android/database/g;
     .locals 2
 
     .prologue
-    .line 361
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/database/q;
+    .line 485
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/g;
 
     if-nez v0, :cond_0
 
-    .line 362
+    .line 486
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "The database must be open in order to access it."
@@ -1691,71 +1844,69 @@
 
     throw v0
 
-    .line 364
+    .line 488
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/database/q;
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/g;
 
     return-object v0
 .end method
 
-.method public final j()Lcom/yelp/android/database/m;
+.method public final j()Lcom/yelp/android/database/e;
     .locals 1
 
     .prologue
-    .line 369
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->o:Lcom/yelp/android/database/m;
+    .line 493
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/database/e;
 
     return-object v0
 .end method
 
-.method public k()Lcom/yelp/android/av/a;
+.method public k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
     .locals 1
 
     .prologue
-    .line 373
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->p:Lcom/yelp/android/av/a;
+    .line 497
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->q:Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     return-object v0
 .end method
 
-.method public l()Lcom/yelp/android/appdata/webrequests/dc;
+.method public l()Lcom/yelp/android/analytics/adjust/AdjustManager;
     .locals 1
 
     .prologue
-    .line 378
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
-
-    move-result-object v0
+    .line 501
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->u:Lcom/yelp/android/analytics/adjust/AdjustManager;
 
     return-object v0
 .end method
 
-.method public m()Lcom/yelp/android/appdata/webrequests/dc;
+.method public m()Lcom/yelp/android/analytics/i;
     .locals 1
 
     .prologue
-    .line 382
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->q:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 505
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->v:Lcom/yelp/android/analytics/i;
 
     return-object v0
 .end method
 
-.method public n()Lcom/yelp/android/appdata/LocationService;
+.method public n()Lcom/yelp/android/ui/util/a;
     .locals 1
 
     .prologue
-    .line 386
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->j:Lcom/yelp/android/appdata/LocationService;
+    .line 509
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->t:Lcom/yelp/android/ui/util/a;
 
     return-object v0
 .end method
 
-.method public o()Lcom/yelp/android/debug/Debug;
+.method public o()Lcom/yelp/android/appdata/ApiPreferences;
     .locals 1
 
     .prologue
-    .line 404
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->s:Lcom/yelp/android/debug/Debug;
+    .line 513
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->w:Lcom/yelp/android/appdata/ApiPreferences;
 
     return-object v0
 .end method
@@ -1764,45 +1915,52 @@
     .locals 3
 
     .prologue
-    .line 449
+    .line 614
     monitor-enter p0
 
     :try_start_0
     invoke-super {p0, p1}, Lcom/yelp/android/appdata/BaseYelpApplication;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 451
+    .line 616
     iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->b:Z
 
     if-eqz v0, :cond_0
 
-    .line 454
-    new-instance v0, Lcom/yelp/android/appdata/bb;
+    .line 619
+    new-instance v0, Lcom/yelp/android/appdata/q;
 
     iget-object v1, p1, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
-    invoke-static {}, Lcom/yelp/android/services/x;->g()Ljava/lang/String;
+    invoke-static {}, Lcom/yelp/android/services/i;->h()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/appdata/bb;-><init>(Landroid/content/Context;Ljava/util/Locale;Ljava/lang/String;)V
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/appdata/q;-><init>(Landroid/content/Context;Ljava/util/Locale;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
-    .line 455
+    .line 620
     invoke-direct {p0, p1}, Lcom/yelp/android/appdata/AppData;->a(Landroid/content/res/Configuration;)V
 
-    .line 458
+    .line 623
+    invoke-static {}, Lcom/yelp/android/services/push/b;->b()Lcom/yelp/android/services/push/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/services/push/b;->c()V
+
+    .line 626
     :cond_0
     iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->e:Z
 
     if-eqz v0, :cond_1
 
-    .line 459
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    .line 627
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/n;->k()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/f;->i()Z
 
-    .line 462
+    .line 630
     :cond_1
     iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->c:Z
 
@@ -1816,23 +1974,23 @@
 
     if-eqz v0, :cond_3
 
-    .line 471
+    .line 639
     :cond_2
-    new-instance v0, Lcom/yelp/android/appdata/d;
+    new-instance v0, Lcom/yelp/android/appdata/AppData$4;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/d;-><init>(Lcom/yelp/android/appdata/AppData;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/AppData$4;-><init>(Lcom/yelp/android/appdata/AppData;)V
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/d;->start()V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData$4;->start()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 487
+    .line 655
     :cond_3
     monitor-exit p0
 
     return-void
 
-    .line 449
+    .line 614
     :catchall_0
     move-exception v0
 
@@ -1845,54 +2003,130 @@
     .locals 4
 
     .prologue
-    .line 427
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+    const/4 v3, 0x1
 
-    move-result-wide v0
+    const/4 v2, 0x0
 
-    .line 429
-    invoke-super {p0}, Lcom/yelp/android/appdata/BaseYelpApplication;->onCreate()V
+    .line 577
+    new-instance v0, Lcom/yelp/android/au/a$a;
 
-    .line 430
-    sput-object p0, Lcom/yelp/android/appdata/AppData;->h:Lcom/yelp/android/appdata/AppData;
+    invoke-direct {v0}, Lcom/yelp/android/au/a$a;-><init>()V
 
-    .line 431
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->a()V
+    new-instance v1, Lcom/crashlytics/android/core/e$a;
 
-    .line 432
-    const/4 v2, 0x1
+    invoke-direct {v1}, Lcom/crashlytics/android/core/e$a;-><init>()V
 
-    invoke-virtual {p0, v2}, Lcom/yelp/android/appdata/AppData;->a(Z)V
+    invoke-virtual {v1, v2}, Lcom/crashlytics/android/core/e$a;->a(Z)Lcom/crashlytics/android/core/e$a;
 
-    .line 433
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/n;->k()Z
+    invoke-virtual {v1}, Lcom/crashlytics/android/core/e$a;->a()Lcom/crashlytics/android/core/e;
 
-    .line 437
-    const-string/jumbo v2, "releaseWhenSurfaceDestroyed"
+    move-result-object v1
 
-    const-string/jumbo v3, "true"
+    invoke-virtual {v0, v1}, Lcom/yelp/android/au/a$a;->a(Lcom/crashlytics/android/core/e;)Lcom/yelp/android/au/a$a;
 
-    invoke-static {v2, v3}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v0
 
-    .line 439
-    iget-object v2, p0, Lcom/yelp/android/appdata/AppData;->C:Lcom/yelp/android/be/c;
+    invoke-virtual {v0}, Lcom/yelp/android/au/a$a;->a()Lcom/yelp/android/au/a;
 
-    invoke-virtual {v2}, Lcom/yelp/android/be/c;->a()Lcom/yelp/android/be/b;
+    move-result-object v0
+
+    .line 581
+    new-array v1, v3, [Lio/fabric/sdk/android/h;
+
+    aput-object v0, v1, v2
+
+    invoke-static {p0, v1}, Lio/fabric/sdk/android/c;->a(Landroid/content/Context;[Lio/fabric/sdk/android/h;)Lio/fabric/sdk/android/c;
+
+    .line 585
+    invoke-static {p0}, Lcom/bugsnag/android/Bugsnag;->init(Landroid/content/Context;)Lcom/bugsnag/android/Client;
+
+    .line 586
+    const-string/jumbo v0, "User"
+
+    const-string/jumbo v1, "locale"
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v2
 
-    .line 440
-    invoke-virtual {v2, v0, v1}, Lcom/yelp/android/be/b;->a(J)V
+    invoke-virtual {v2}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
-    .line 441
-    invoke-virtual {v2}, Lcom/yelp/android/be/b;->b()J
+    move-result-object v2
 
-    .line 444
-    invoke-virtual {v2}, Lcom/yelp/android/be/b;->e()V
+    invoke-static {v0, v1, v2}, Lcom/bugsnag/android/Bugsnag;->addToTab(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 445
+    .line 588
+    invoke-super {p0}, Lcom/yelp/android/appdata/BaseYelpApplication;->onCreate()V
+
+    .line 589
+    const-string/jumbo v0, "locale"
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Locale;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/yelp/android/au/a;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 590
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->G()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 591
+    invoke-static {p0}, Lcom/yelp/android/br/a;->a(Landroid/app/Application;)Lcom/yelp/android/br/b;
+
+    .line 593
+    :cond_0
+    sput-object p0, Lcom/yelp/android/appdata/AppData;->h:Lcom/yelp/android/appdata/AppData;
+
+    .line 594
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->a()V
+
+    .line 595
+    invoke-virtual {p0, v3}, Lcom/yelp/android/appdata/AppData;->a(Z)V
+
+    .line 596
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/f;->i()Z
+
+    .line 600
+    const-string/jumbo v0, "releaseWhenSurfaceDestroyed"
+
+    const-string/jumbo v1, "true"
+
+    invoke-static {v0, v1}, Ljava/lang/System;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    .line 602
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->I:Lcom/yelp/android/cn/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/cn/d;->a()Lcom/yelp/android/cn/c;
+
+    move-result-object v0
+
+    .line 603
+    iget-wide v2, p0, Lcom/yelp/android/appdata/AppData;->J:J
+
+    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/cn/c;->a(J)V
+
+    .line 604
+    invoke-virtual {v0}, Lcom/yelp/android/cn/c;->b()J
+
+    .line 607
+    invoke-virtual {v0}, Lcom/yelp/android/cn/c;->g()V
+
+    .line 609
+    invoke-static {p0}, Ljp/line/android/sdk/c;->a(Landroid/content/Context;)V
+
+    .line 610
     return-void
 .end method
 
@@ -1900,20 +2134,20 @@
     .locals 1
 
     .prologue
-    .line 491
+    .line 659
     invoke-super {p0}, Lcom/yelp/android/appdata/BaseYelpApplication;->onLowMemory()V
 
-    .line 492
+    .line 660
     invoke-static {}, Lcom/yelp/android/webimageview/ImageLoader;->clearCache()V
 
-    .line 493
-    invoke-static {p0}, Lcom/bumptech/glide/h;->b(Landroid/content/Context;)Lcom/bumptech/glide/h;
+    .line 661
+    invoke-static {p0}, Lcom/yelp/android/ui/util/t;->a(Landroid/content/Context;)Lcom/yelp/android/ui/util/t;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/h;->h()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/t;->a()V
 
-    .line 494
+    .line 662
     return-void
 .end method
 
@@ -1921,13 +2155,13 @@
     .locals 2
 
     .prologue
-    .line 504
+    .line 673
     invoke-super {p0}, Lcom/yelp/android/appdata/BaseYelpApplication;->onTerminate()V
 
-    .line 505
+    .line 674
     invoke-static {}, Lcom/yelp/android/webimageview/ImageLoader;->trimCache()V
 
-    .line 506
+    .line 675
     const-string/jumbo v0, "notification"
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/AppData;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -1936,12 +2170,12 @@
 
     check-cast v0, Landroid/app/NotificationManager;
 
-    .line 507
-    const v1, 0x7f0e0012
+    .line 676
+    const v1, 0x7f080012
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
-    .line 508
+    .line 677
     return-void
 .end method
 
@@ -1949,187 +2183,218 @@
     .locals 1
 
     .prologue
-    .line 498
+    .line 666
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/BaseYelpApplication;->onTrimMemory(I)V
+
+    .line 667
     invoke-static {}, Lcom/yelp/android/webimageview/ImageLoader;->clearCache()V
 
-    .line 499
-    invoke-static {p0}, Lcom/bumptech/glide/h;->b(Landroid/content/Context;)Lcom/bumptech/glide/h;
+    .line 668
+    invoke-static {p0}, Lcom/yelp/android/ui/util/t;->a(Landroid/content/Context;)Lcom/yelp/android/ui/util/t;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/bumptech/glide/h;->a(I)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/t;->a(I)V
 
-    .line 500
+    .line 669
     return-void
 .end method
 
-.method public final p()Lorg/apache/http/client/HttpClient;
+.method public p()Lcom/yelp/android/appdata/webrequests/co;
+    .locals 1
+
+    .prologue
+    .line 518
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public q()Lcom/yelp/android/appdata/webrequests/co;
+    .locals 1
+
+    .prologue
+    .line 522
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->r:Lcom/yelp/android/appdata/webrequests/co;
+
+    return-object v0
+.end method
+
+.method public r()Lcom/yelp/android/appdata/LocationService;
+    .locals 1
+
+    .prologue
+    .line 526
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/LocationService;
+
+    return-object v0
+.end method
+
+.method public s()Lcom/yelp/android/services/backgroundlocation/a;
+    .locals 1
+
+    .prologue
+    .line 530
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->x:Lcom/yelp/android/services/backgroundlocation/a;
+
+    return-object v0
+.end method
+
+.method public startActivity(Landroid/content/Intent;)V
+    .locals 0
+
+    .prologue
+    .line 725
+    invoke-static {p1}, Lcom/yelp/android/util/h;->a(Landroid/content/Intent;)V
+
+    .line 726
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/BaseYelpApplication;->startActivity(Landroid/content/Intent;)V
+
+    .line 727
+    return-void
+.end method
+
+.method public t()Lcom/yelp/android/debug/Debug;
+    .locals 1
+
+    .prologue
+    .line 548
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->z:Lcom/yelp/android/debug/Debug;
+
+    return-object v0
+.end method
+
+.method public final u()Lorg/apache/http/client/HttpClient;
     .locals 2
 
     .prologue
-    .line 416
+    .line 564
     iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->a:Lorg/apache/http/client/HttpClient;
 
     if-eqz v0, :cond_0
 
-    .line 417
+    .line 565
     iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->a:Lorg/apache/http/client/HttpClient;
 
-    .line 420
+    .line 568
     :goto_0
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->s:Lcom/yelp/android/debug/Debug;
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->z:Lcom/yelp/android/debug/Debug;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->m:Lcom/yelp/android/appdata/n;
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->n:Lcom/yelp/android/appdata/f;
 
-    invoke-static {p0, v0, v1}, Lcom/yelp/android/services/d;->a(Landroid/content/Context;Lcom/yelp/android/debug/Debug;Lcom/yelp/android/appdata/n;)Lorg/apache/http/impl/client/DefaultHttpClient;
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/services/c;->a(Landroid/content/Context;Lcom/yelp/android/debug/Debug;Lcom/yelp/android/appdata/f;)Lorg/apache/http/impl/client/DefaultHttpClient;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method public q()V
-    .locals 1
+.method public v()V
+    .locals 0
 
     .prologue
-    .line 574
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->z:Ljava/util/HashSet;
+    .line 705
+    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->P()V
 
-    invoke-virtual {v0}, Ljava/util/HashSet;->clear()V
-
-    .line 575
-    invoke-direct {p0}, Lcom/yelp/android/appdata/AppData;->D()V
-
-    .line 576
+    .line 706
     return-void
 .end method
 
-.method public s()V
-    .locals 3
+.method public x()V
+    .locals 2
 
     .prologue
-    const/4 v2, 0x1
-
-    .line 795
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->A:Lcom/yelp/android/appdata/webrequests/n;
+    .line 949
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
     if-eqz v0, :cond_0
 
-    .line 796
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->A:Lcom/yelp/android/appdata/webrequests/n;
+    .line 950
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/appdata/webrequests/n;->cancel(Z)V
+    const/4 v1, 0x1
 
-    .line 797
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->A:Lcom/yelp/android/appdata/webrequests/n;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/l;->a(Z)V
+
+    .line 951
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/n;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/l;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 799
+    .line 953
     :cond_0
-    iput-boolean v2, p0, Lcom/yelp/android/appdata/AppData;->w:Z
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/l;
 
-    .line 800
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/n;
+    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->N:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/AppData;->D:Lcom/yelp/android/appdata/webrequests/m;
+    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/l;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/n;-><init>(Lcom/yelp/android/appdata/webrequests/m;)V
+    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/AppData;->A:Lcom/yelp/android/appdata/webrequests/n;
-
-    .line 801
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->A:Lcom/yelp/android/appdata/webrequests/n;
+    .line 954
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->G:Lcom/yelp/android/appdata/webrequests/l;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/n;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/l;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 802
+    .line 955
     return-void
 .end method
 
-.method public t()Lcom/yelp/android/appdata/k;
+.method public y()Lcom/yelp/android/appdata/e;
     .locals 1
 
     .prologue
-    .line 860
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->t:Lcom/yelp/android/appdata/k;
+    .line 1022
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->A:Lcom/yelp/android/appdata/e;
 
     return-object v0
 .end method
 
-.method public u()V
-    .locals 1
+.method public z()V
+    .locals 2
 
     .prologue
-    .line 896
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->y:Z
+    .line 1059
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->ac()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 897
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->k:Lcom/yelp/android/appdata/i;
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/i;->m()I
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->ad()Z
 
-    .line 898
-    const/4 v0, 0x0
+    move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/appdata/AppData;->y:Z
+    if-eqz v0, :cond_0
 
-    .line 900
+    .line 1061
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->s()I
+
+    .line 1062
+    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->l:Lcom/yelp/android/appdata/c;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->j(Z)V
+
+    .line 1064
     :cond_0
     return-void
-.end method
-
-.method public v()Lcom/yelp/android/ui/util/ci;
-    .locals 1
-
-    .prologue
-    .line 903
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->i:Lcom/yelp/android/ui/util/ci;
-
-    return-object v0
-.end method
-
-.method public w()Lcom/yelp/android/be/c;
-    .locals 1
-
-    .prologue
-    .line 923
-    iget-object v0, p0, Lcom/yelp/android/appdata/AppData;->C:Lcom/yelp/android/be/c;
-
-    return-object v0
-.end method
-
-.method public synthetic x()Lcom/yelp/android/appdata/j;
-    .locals 1
-
-    .prologue
-    .line 82
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/i;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public synthetic y()Lcom/yelp/android/appdata/bc;
-    .locals 1
-
-    .prologue
-    .line 82
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/AppData;->l()Lcom/yelp/android/appdata/webrequests/dc;
-
-    move-result-object v0
-
-    return-object v0
 .end method

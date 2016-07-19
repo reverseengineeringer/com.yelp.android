@@ -2,37 +2,95 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _TalkMessage
   implements Parcelable
 {
-  protected String mId;
-  protected String mRemoved;
-  protected String mText;
-  protected Date mTimeCreated;
-  protected Date mTimeModified;
-  protected String mUserId;
-  protected String mUserName;
-  protected String mUserPhotoUrl;
-  protected String mUserRemoved;
+  protected Date a;
+  protected Date b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
   
-  protected _TalkMessage() {}
-  
-  protected _TalkMessage(Date paramDate1, Date paramDate2, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7)
+  public String a()
   {
-    this();
-    mTimeCreated = paramDate1;
-    mTimeModified = paramDate2;
-    mId = paramString1;
-    mUserId = paramString2;
-    mText = paramString3;
-    mRemoved = paramString4;
-    mUserRemoved = paramString5;
-    mUserName = paramString6;
-    mUserPhotoUrl = paramString7;
+    return i;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      a = new Date(l);
+    }
+    l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      b = new Date(l);
+    }
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("time_modified")) {
+      b = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
+    }
+    if (!paramJSONObject.isNull("id")) {
+      c = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("user_id")) {
+      d = paramJSONObject.optString("user_id");
+    }
+    if (!paramJSONObject.isNull("text")) {
+      e = paramJSONObject.optString("text");
+    }
+    if (!paramJSONObject.isNull("removed")) {
+      f = paramJSONObject.optString("removed");
+    }
+    if (!paramJSONObject.isNull("user_removed")) {
+      g = paramJSONObject.optString("user_removed");
+    }
+    if (!paramJSONObject.isNull("user_name")) {
+      h = paramJSONObject.optString("user_name");
+    }
+    if (!paramJSONObject.isNull("user_photo_url")) {
+      i = paramJSONObject.optString("user_photo_url");
+    }
+  }
+  
+  public String b()
+  {
+    return h;
+  }
+  
+  public String c()
+  {
+    return f;
+  }
+  
+  public String d()
+  {
+    return e;
   }
   
   public int describeContents()
@@ -40,125 +98,64 @@ abstract class _TalkMessage
     return 0;
   }
   
-  public String getId()
+  public String e()
   {
-    return mId;
+    return d;
   }
   
-  public String getRemoved()
+  public boolean equals(Object paramObject)
   {
-    return mRemoved;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_TalkMessage)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a();
   }
   
-  public String getText()
+  public String f()
   {
-    return mText;
+    return c;
   }
   
-  public Date getTimeCreated()
+  public Date g()
   {
-    return mTimeCreated;
+    return b;
   }
   
-  public Date getTimeModified()
+  public int hashCode()
   {
-    return mTimeModified;
-  }
-  
-  public String getUserId()
-  {
-    return mUserId;
-  }
-  
-  public String getUserName()
-  {
-    return mUserName;
-  }
-  
-  public String getUserPhotoUrl()
-  {
-    return mUserPhotoUrl;
-  }
-  
-  public String getUserRemoved()
-  {
-    return mUserRemoved;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_created")) {
-      mTimeCreated = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("time_modified")) {
-      mTimeModified = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("user_id")) {
-      mUserId = paramJSONObject.optString("user_id");
-    }
-    if (!paramJSONObject.isNull("text")) {
-      mText = paramJSONObject.optString("text");
-    }
-    if (!paramJSONObject.isNull("removed")) {
-      mRemoved = paramJSONObject.optString("removed");
-    }
-    if (!paramJSONObject.isNull("user_removed")) {
-      mUserRemoved = paramJSONObject.optString("user_removed");
-    }
-    if (!paramJSONObject.isNull("user_name")) {
-      mUserName = paramJSONObject.optString("user_name");
-    }
-    if (!paramJSONObject.isNull("user_photo_url")) {
-      mUserPhotoUrl = paramJSONObject.optString("user_photo_url");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mTimeCreated = new Date(l);
-    }
-    l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mTimeModified = new Date(l);
-    }
-    mId = paramParcel.readString();
-    mUserId = paramParcel.readString();
-    mText = paramParcel.readString();
-    mRemoved = paramParcel.readString();
-    mUserRemoved = paramParcel.readString();
-    mUserName = paramParcel.readString();
-    mUserPhotoUrl = paramParcel.readString();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     long l2 = -2147483648L;
-    if (mTimeCreated == null)
+    if (a == null)
     {
       l1 = -2147483648L;
       paramParcel.writeLong(l1);
-      if (mTimeModified != null) {
+      if (b != null) {
         break label104;
       }
     }
     label104:
-    for (long l1 = l2;; l1 = mTimeModified.getTime())
+    for (long l1 = l2;; l1 = b.getTime())
     {
       paramParcel.writeLong(l1);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mUserId);
-      paramParcel.writeString(mText);
-      paramParcel.writeString(mRemoved);
-      paramParcel.writeString(mUserRemoved);
-      paramParcel.writeString(mUserName);
-      paramParcel.writeString(mUserPhotoUrl);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
       return;
-      l1 = mTimeCreated.getTime();
+      l1 = a.getTime();
       break;
     }
   }

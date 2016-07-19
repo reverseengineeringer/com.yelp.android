@@ -5,34 +5,32 @@ import android.content.res.Configuration;
 import android.content.res.Resources.Theme;
 import android.content.res.TypedArray;
 import android.os.Build.VERSION;
-import android.support.v4.view.ce;
-import android.support.v4.view.eh;
+import android.support.v4.view.ai;
+import android.support.v4.view.az;
+import android.support.v4.view.bd;
+import android.support.v4.view.t;
 import android.support.v7.widget.ActionMenuPresenter;
 import android.support.v7.widget.ActionMenuView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.Interpolator;
-import com.yelp.android.g.l;
-import com.yelp.android.l.h;
+import com.yelp.android.j.a.k;
 
 abstract class a
   extends ViewGroup
 {
-  private static final Interpolator j = new DecelerateInterpolator();
-  protected final b a = new b(this);
+  protected final a a = new a();
   protected final Context b;
   protected ActionMenuView c;
   protected ActionMenuPresenter d;
-  protected ViewGroup e;
-  protected boolean f;
-  protected boolean g;
-  protected int h;
-  protected eh i;
+  protected int e;
+  protected az f;
+  private boolean g;
+  private boolean h;
   
   a(Context paramContext)
   {
@@ -48,7 +46,7 @@ abstract class a
   {
     super(paramContext, paramAttributeSet, paramInt);
     paramAttributeSet = new TypedValue();
-    if ((paramContext.getTheme().resolveAttribute(com.yelp.android.g.b.actionBarPopupTheme, paramAttributeSet, true)) && (resourceId != 0))
+    if ((paramContext.getTheme().resolveAttribute(com.yelp.android.j.a.a.actionBarPopupTheme, paramAttributeSet, true)) && (resourceId != 0))
     {
       b = new ContextThemeWrapper(paramContext, resourceId);
       return;
@@ -72,84 +70,55 @@ abstract class a
   
   protected int a(View paramView, int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean)
   {
-    int k = paramView.getMeasuredWidth();
-    int m = paramView.getMeasuredHeight();
-    paramInt2 = (paramInt3 - m) / 2 + paramInt2;
+    int i = paramView.getMeasuredWidth();
+    int j = paramView.getMeasuredHeight();
+    paramInt2 = (paramInt3 - j) / 2 + paramInt2;
     if (paramBoolean) {
-      paramView.layout(paramInt1 - k, paramInt2, paramInt1, m + paramInt2);
+      paramView.layout(paramInt1 - i, paramInt2, paramInt1, j + paramInt2);
     }
     for (;;)
     {
-      paramInt1 = k;
+      paramInt1 = i;
       if (paramBoolean) {
-        paramInt1 = -k;
+        paramInt1 = -i;
       }
       return paramInt1;
-      paramView.layout(paramInt1, paramInt2, paramInt1 + k, m + paramInt2);
+      paramView.layout(paramInt1, paramInt2, paramInt1 + i, j + paramInt2);
     }
   }
   
-  public void a(int paramInt)
+  public az a(int paramInt, long paramLong)
   {
-    if (i != null) {
-      i.a();
+    if (f != null) {
+      f.b();
     }
-    h localh;
-    eh localeh2;
     if (paramInt == 0)
     {
-      if (getVisibility() != 0)
-      {
-        ce.c(this, 0.0F);
-        if ((e != null) && (c != null)) {
-          ce.c(c, 0.0F);
-        }
+      if (getVisibility() != 0) {
+        ai.c(this, 0.0F);
       }
-      localeh1 = ce.q(this).a(1.0F);
-      localeh1.a(200L);
-      localeh1.a(j);
-      if ((e != null) && (c != null))
-      {
-        localh = new h();
-        localeh2 = ce.q(c).a(1.0F);
-        localeh2.a(200L);
-        localh.a(a.a(localeh1, paramInt));
-        localh.a(localeh1).a(localeh2);
-        localh.a();
-        return;
-      }
-      localeh1.a(a.a(localeh1, paramInt));
-      localeh1.b();
-      return;
+      localaz = ai.s(this).a(1.0F);
+      localaz.a(paramLong);
+      localaz.a(a.a(localaz, paramInt));
+      return localaz;
     }
-    eh localeh1 = ce.q(this).a(0.0F);
-    localeh1.a(200L);
-    localeh1.a(j);
-    if ((e != null) && (c != null))
-    {
-      localh = new h();
-      localeh2 = ce.q(c).a(0.0F);
-      localeh2.a(200L);
-      localh.a(a.a(localeh1, paramInt));
-      localh.a(localeh1).a(localeh2);
-      localh.a();
-      return;
-    }
-    localeh1.a(a.a(localeh1, paramInt));
-    localeh1.b();
+    az localaz = ai.s(this).a(0.0F);
+    localaz.a(paramLong);
+    localaz.a(a.a(localaz, paramInt));
+    return localaz;
   }
   
   public boolean a()
   {
     if (d != null) {
-      return d.c();
+      return d.f();
     }
     return false;
   }
   
   public int getAnimatedVisibility()
   {
-    if (i != null) {
+    if (f != null) {
       return a.a;
     }
     return getVisibility();
@@ -157,7 +126,7 @@ abstract class a
   
   public int getContentHeight()
   {
-    return h;
+    return e;
   }
   
   protected void onConfigurationChanged(Configuration paramConfiguration)
@@ -165,33 +134,103 @@ abstract class a
     if (Build.VERSION.SDK_INT >= 8) {
       super.onConfigurationChanged(paramConfiguration);
     }
-    TypedArray localTypedArray = getContext().obtainStyledAttributes(null, l.ActionBar, com.yelp.android.g.b.actionBarStyle, 0);
-    setContentHeight(localTypedArray.getLayoutDimension(l.ActionBar_height, 0));
+    TypedArray localTypedArray = getContext().obtainStyledAttributes(null, a.k.ActionBar, com.yelp.android.j.a.a.actionBarStyle, 0);
+    setContentHeight(localTypedArray.getLayoutDimension(a.k.ActionBar_height, 0));
     localTypedArray.recycle();
     if (d != null) {
       d.a(paramConfiguration);
     }
   }
   
+  public boolean onHoverEvent(MotionEvent paramMotionEvent)
+  {
+    int i = t.a(paramMotionEvent);
+    if (i == 9) {
+      h = false;
+    }
+    if (!h)
+    {
+      boolean bool = super.onHoverEvent(paramMotionEvent);
+      if ((i == 9) && (!bool)) {
+        h = true;
+      }
+    }
+    if ((i == 10) || (i == 3)) {
+      h = false;
+    }
+    return true;
+  }
+  
+  public boolean onTouchEvent(MotionEvent paramMotionEvent)
+  {
+    int i = t.a(paramMotionEvent);
+    if (i == 0) {
+      g = false;
+    }
+    if (!g)
+    {
+      boolean bool = super.onTouchEvent(paramMotionEvent);
+      if ((i == 0) && (!bool)) {
+        g = true;
+      }
+    }
+    if ((i == 1) || (i == 3)) {
+      g = false;
+    }
+    return true;
+  }
+  
   public void setContentHeight(int paramInt)
   {
-    h = paramInt;
+    e = paramInt;
     requestLayout();
   }
   
-  public void setSplitToolbar(boolean paramBoolean)
+  public void setVisibility(int paramInt)
   {
-    f = paramBoolean;
+    if (paramInt != getVisibility())
+    {
+      if (f != null) {
+        f.b();
+      }
+      super.setVisibility(paramInt);
+    }
   }
   
-  public void setSplitView(ViewGroup paramViewGroup)
+  protected class a
+    implements bd
   {
-    e = paramViewGroup;
-  }
-  
-  public void setSplitWhenNarrow(boolean paramBoolean)
-  {
-    g = paramBoolean;
+    int a;
+    private boolean c = false;
+    
+    protected a() {}
+    
+    public a a(az paramaz, int paramInt)
+    {
+      f = paramaz;
+      a = paramInt;
+      return this;
+    }
+    
+    public void a(View paramView)
+    {
+      a.a(a.this, 0);
+      c = false;
+    }
+    
+    public void b(View paramView)
+    {
+      if (c) {
+        return;
+      }
+      f = null;
+      a.b(a.this, a);
+    }
+    
+    public void c(View paramView)
+    {
+      c = true;
+    }
   }
 }
 

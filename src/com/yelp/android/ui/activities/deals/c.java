@@ -1,63 +1,28 @@
 package com.yelp.android.ui.activities.deals;
 
-import android.text.SpannableString;
+import android.text.InputFilter;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.yelp.android.analytics.iris.EventIri;
-import com.yelp.android.ui.util.AnalyticsSpan;
-import com.yelp.android.ui.util.au;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-class c
-  extends au<CharSequence>
+public class c
+  implements InputFilter
 {
-  c(ActivityDealDetail paramActivityDealDetail) {}
+  private final Pattern a = Pattern.compile("[" + Pattern.quote("<") + Pattern.quote(">") + "]*");
   
-  public void a(List<CharSequence> paramList)
+  public CharSequence filter(CharSequence paramCharSequence, int paramInt1, int paramInt2, Spanned paramSpanned, int paramInt3, int paramInt4)
   {
-    ArrayList localArrayList = new ArrayList(paramList.size());
-    Iterator localIterator = paramList.iterator();
-    if (localIterator.hasNext())
+    paramSpanned = a.matcher(paramCharSequence).replaceAll("");
+    if (((paramCharSequence instanceof Spanned)) || ((paramCharSequence instanceof Spannable)))
     {
-      paramList = new SpannableString((CharSequence)localIterator.next());
-      if (!Linkify.addLinks(paramList, 15)) {
-        break label79;
-      }
-      paramList = AnalyticsSpan.addAnalyticsToSpannedWithUrls(paramList, EventIri.OpenUrl);
+      paramSpanned = new SpannableStringBuilder(paramSpanned);
+      TextUtils.copySpansFrom((Spanned)paramCharSequence, paramInt1, paramInt2, null, paramSpanned, 0);
+      return paramSpanned;
     }
-    label79:
-    for (;;)
-    {
-      localArrayList.add(paramList);
-      break;
-      super.a(localArrayList);
-      return;
-    }
-  }
-  
-  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
-  {
-    paramViewGroup = paramView;
-    if (paramView == null) {
-      paramViewGroup = LayoutInflater.from(a).inflate(2130903292, a.h, false);
-    }
-    paramView = (CharSequence)getItem(paramInt);
-    TextView localTextView = (TextView)paramViewGroup.findViewById(2131493145);
-    localTextView.setMovementMethod(LinkMovementMethod.getInstance());
-    localTextView.setText(paramView);
-    if (TextUtils.isEmpty(paramView)) {}
-    for (paramInt = 8;; paramInt = 0)
-    {
-      paramViewGroup.setVisibility(paramInt);
-      return paramViewGroup;
-    }
+    return paramSpanned;
   }
 }
 

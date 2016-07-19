@@ -5,51 +5,51 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class PrivacyPolicy
   extends _PrivacyPolicy
 {
-  public static final JsonParser.DualCreator<PrivacyPolicy> CREATOR = new ca();
+  public static final JsonParser.DualCreator<PrivacyPolicy> CREATOR = new PrivacyPolicy.1();
   
-  public void setShareBasicInfoSource(String paramString)
+  public void a(String paramString)
   {
-    mShareBasicInfoSource = paramString;
+    a = paramString;
   }
   
-  public void setShareBasicInfoStory(String paramString)
+  public void b(String paramString)
   {
-    mShareBasicInfoStory = paramString;
+    b = paramString;
   }
   
-  public void setShareBasicInfoTime(String paramString)
+  public void c(String paramString)
   {
-    mShareBasicInfoTime = paramString;
+    c = paramString;
   }
   
-  public void setShareDemographicsSource(String paramString)
+  public void d(String paramString)
   {
-    mShareDemographicsSource = paramString;
+    d = paramString;
   }
   
-  public void setShareDemographicsStory(String paramString)
+  public void e(String paramString)
   {
-    mShareDemographicsStory = paramString;
+    e = paramString;
   }
   
-  public void setShareDemographicsTime(String paramString)
+  public void f(String paramString)
   {
-    mShareDemographicsTime = paramString;
+    f = paramString;
   }
   
-  public void setShareProfileSource(String paramString)
+  public void g(String paramString)
   {
-    mShareProfileSource = paramString;
+    g = paramString;
   }
   
-  public void setShareProfileStory(String paramString)
+  public void h(String paramString)
   {
-    mShareProfileStory = paramString;
+    h = paramString;
   }
   
-  public void setShareProfileTime(String paramString)
+  public void i(String paramString)
   {
-    mShareProfileTime = paramString;
+    i = paramString;
   }
 }
 

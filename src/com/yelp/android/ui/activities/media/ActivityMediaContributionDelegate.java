@@ -55,13 +55,20 @@ public class ActivityMediaContributionDelegate
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    paramBundle = getIntent();
-    boolean bool = paramBundle.getBooleanExtra("extra_disable_video_for_reviews", false);
-    String str = paramBundle.getStringExtra("extra_business_id");
-    if (bool) {}
+    String str;
+    if (paramBundle == null)
+    {
+      paramBundle = getIntent();
+      boolean bool = paramBundle.getBooleanExtra("extra_disable_video_for_reviews", false);
+      str = paramBundle.getStringExtra("extra_business_id");
+      if (!bool) {
+        break label53;
+      }
+    }
+    label53:
     for (paramBundle = MediaStoreUtil.MediaType.PHOTO;; paramBundle = MediaStoreUtil.MediaType.PHOTO_AND_VIDEO)
     {
-      startActivityForResult(ActivityChooseFromGallery.a(this, paramBundle, true, true, str), 1053);
+      startActivityForResult(ActivityChooseFromGallery.a(this, paramBundle, true, true, str), 1062);
       return;
     }
   }

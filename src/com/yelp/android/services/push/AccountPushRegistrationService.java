@@ -5,47 +5,61 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.LocaleSettings;
 import com.yelp.android.appdata.LocationService;
-import com.yelp.android.appdata.n;
+import com.yelp.android.appdata.c;
 import com.yelp.android.appdata.webrequests.ApiException;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.at;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.aq;
 
 public class AccountPushRegistrationService
   extends IntentService
 {
-  private final m<Void> a = new a("AccountPushRegistrationService");
-  
   public AccountPushRegistrationService()
   {
     super("AccountConfigSaveService");
   }
   
-  void a(at paramat, AppData paramAppData, int paramInt)
+  private boolean a(String paramString)
   {
-    if (paramInt > 4) {}
-    do
+    boolean bool2 = false;
+    AppData localAppData = AppData.b();
+    int i = 0;
+    boolean bool1;
+    for (;;)
     {
-      return;
+      bool1 = bool2;
+      if (i < 4) {}
       try
       {
-        paramat.executeSynchronously(paramAppData.m(), paramAppData.o(), true);
-        return;
+        new aq(localAppData.r().c(), paramString, null).i();
+        localAppData.f().a(localAppData.g().h());
+        bool1 = true;
       }
-      catch (YelpException localYelpException) {}
-    } while ((localYelpException instanceof ApiException));
-    SystemClock.sleep((paramInt * 333 * 1.5D));
-    a(paramat, paramAppData, paramInt + 1);
+      catch (YelpException localYelpException)
+      {
+        do
+        {
+          bool1 = bool2;
+        } while ((localYelpException instanceof ApiException));
+        SystemClock.sleep((i * 333 * 1.5D));
+        i += 1;
+      }
+      return bool1;
+    }
   }
   
   protected void onHandleIntent(Intent paramIntent)
   {
-    paramIntent = AppData.b();
-    String str = d.b().g();
-    if (!TextUtils.isEmpty(str)) {
-      a(new at(paramIntent.n().c(), str, paramIntent.h().c(), a), paramIntent, 0);
-    }
+    paramIntent = AppData.b().f();
+    if (paramIntent.f()) {}
+    String str;
+    do
+    {
+      return;
+      str = b.b().g();
+    } while (TextUtils.isEmpty(str));
+    paramIntent.a(a(str));
   }
 }
 

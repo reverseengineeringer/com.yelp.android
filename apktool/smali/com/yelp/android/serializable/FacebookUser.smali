@@ -4,10 +4,10 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/FacebookUser;",
             ">;"
@@ -22,11 +22,11 @@
 
     .prologue
     .line 10
-    new-instance v0, Lcom/yelp/android/serializable/ao;
+    new-instance v0, Lcom/yelp/android/serializable/FacebookUser$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/ao;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/FacebookUser$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/FacebookUser;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/FacebookUser;->CREATOR:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
@@ -43,6 +43,79 @@
 
 
 # virtual methods
+.method public bridge synthetic a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 8
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FacebookUser;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 8
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FacebookUser;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -55,108 +128,52 @@
     return v0
 .end method
 
-.method public bridge synthetic getBirthday()Ljava/lang/String;
+.method public bridge synthetic e()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->getBirthday()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->e()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getEmail()Ljava/lang/String;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->getEmail()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getFirstName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->getFirstName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getGender()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->getGender()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getLastName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->getLastName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getVerified()Z
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->getVerified()Z
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FacebookUser;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
+.method public bridge synthetic f()Ljava/lang/String;
+    .locals 1
 
     .prologue
     .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FacebookUser;->readFromJson(Lorg/json/JSONObject;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->f()Ljava/lang/String;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
+.method public bridge synthetic hashCode()I
+    .locals 1
 
     .prologue
     .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FacebookUser;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FacebookUser;->hashCode()I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/parcelgen/JsonParser$DualCreator;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -112,6 +118,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
     .line 43
     invoke-virtual {p0}, Lcom/yelp/parcelgen/JsonParser;->getElementType()I
@@ -197,6 +209,12 @@
             "(",
             "Lorg/json/JSONObject;",
             ")TE;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
         }
     .end annotation
 

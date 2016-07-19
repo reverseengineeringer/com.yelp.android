@@ -25,14 +25,14 @@ public class a
   protected String b()
   {
     Object localObject = "";
-    if (!aj.a(b))
+    if (!w.a(b))
     {
       String str = b;
       localObject = str;
       if (b.length() > 10000) {
         localObject = str.substring(0, 10000);
       }
-      localObject = aj.b((String)localObject);
+      localObject = w.b((String)localObject);
     }
     return (String)localObject;
   }
@@ -40,12 +40,12 @@ public class a
   protected JSONArray c()
   {
     JSONArray localJSONArray = new JSONArray();
-    if (!aj.a(c))
+    if (!w.a(c))
     {
       Iterator localIterator = c.iterator();
       while (localIterator.hasNext())
       {
-        String str = aj.b((String)localIterator.next());
+        String str = w.b((String)localIterator.next());
         if (str != null) {
           localJSONArray.put(str);
         }

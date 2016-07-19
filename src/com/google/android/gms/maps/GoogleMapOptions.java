@@ -5,105 +5,154 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.util.AttributeSet;
-import com.google.android.gms.R.styleable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.aa;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.yelp.android.ba.a.f;
+import com.yelp.android.bj.m;
 
 public final class GoogleMapOptions
   implements SafeParcelable
 {
-  public static final a CREATOR = new a();
-  private final int CK;
-  private Boolean akF;
-  private Boolean akG;
-  private int akH = -1;
-  private CameraPosition akI;
-  private Boolean akJ;
-  private Boolean akK;
-  private Boolean akL;
-  private Boolean akM;
-  private Boolean akN;
-  private Boolean akO;
-  private Boolean akP;
-  private Boolean akQ;
+  public static final j CREATOR = new j();
+  private final int a;
+  private Boolean b;
+  private Boolean c;
+  private int d = -1;
+  private CameraPosition e;
+  private Boolean f;
+  private Boolean g;
+  private Boolean h;
+  private Boolean i;
+  private Boolean j;
+  private Boolean k;
+  private Boolean l;
+  private Boolean m;
+  private Boolean n;
   
   public GoogleMapOptions()
   {
-    CK = 1;
+    a = 1;
   }
   
-  GoogleMapOptions(int paramInt1, byte paramByte1, byte paramByte2, int paramInt2, CameraPosition paramCameraPosition, byte paramByte3, byte paramByte4, byte paramByte5, byte paramByte6, byte paramByte7, byte paramByte8, byte paramByte9, byte paramByte10)
+  GoogleMapOptions(int paramInt1, byte paramByte1, byte paramByte2, int paramInt2, CameraPosition paramCameraPosition, byte paramByte3, byte paramByte4, byte paramByte5, byte paramByte6, byte paramByte7, byte paramByte8, byte paramByte9, byte paramByte10, byte paramByte11)
   {
-    CK = paramInt1;
-    akF = com.google.android.gms.maps.internal.a.a(paramByte1);
-    akG = com.google.android.gms.maps.internal.a.a(paramByte2);
-    akH = paramInt2;
-    akI = paramCameraPosition;
-    akJ = com.google.android.gms.maps.internal.a.a(paramByte3);
-    akK = com.google.android.gms.maps.internal.a.a(paramByte4);
-    akL = com.google.android.gms.maps.internal.a.a(paramByte5);
-    akM = com.google.android.gms.maps.internal.a.a(paramByte6);
-    akN = com.google.android.gms.maps.internal.a.a(paramByte7);
-    akO = com.google.android.gms.maps.internal.a.a(paramByte8);
-    akP = com.google.android.gms.maps.internal.a.a(paramByte9);
-    akQ = com.google.android.gms.maps.internal.a.a(paramByte10);
+    a = paramInt1;
+    b = m.a(paramByte1);
+    c = m.a(paramByte2);
+    d = paramInt2;
+    e = paramCameraPosition;
+    f = m.a(paramByte3);
+    g = m.a(paramByte4);
+    h = m.a(paramByte5);
+    i = m.a(paramByte6);
+    j = m.a(paramByte7);
+    k = m.a(paramByte8);
+    l = m.a(paramByte9);
+    m = m.a(paramByte10);
+    n = m.a(paramByte11);
   }
   
-  public static GoogleMapOptions createFromAttributes(Context paramContext, AttributeSet paramAttributeSet)
+  public static GoogleMapOptions a(Context paramContext, AttributeSet paramAttributeSet)
   {
     if (paramAttributeSet == null) {
       return null;
     }
-    TypedArray localTypedArray = paramContext.getResources().obtainAttributes(paramAttributeSet, R.styleable.MapAttrs);
+    TypedArray localTypedArray = paramContext.getResources().obtainAttributes(paramAttributeSet, a.f.MapAttrs);
     GoogleMapOptions localGoogleMapOptions = new GoogleMapOptions();
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_mapType)) {
-      localGoogleMapOptions.mapType(localTypedArray.getInt(R.styleable.MapAttrs_mapType, -1));
+    if (localTypedArray.hasValue(a.f.MapAttrs_mapType)) {
+      localGoogleMapOptions.a(localTypedArray.getInt(a.f.MapAttrs_mapType, -1));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_zOrderOnTop)) {
-      localGoogleMapOptions.zOrderOnTop(localTypedArray.getBoolean(R.styleable.MapAttrs_zOrderOnTop, false));
+    if (localTypedArray.hasValue(a.f.MapAttrs_zOrderOnTop)) {
+      localGoogleMapOptions.a(localTypedArray.getBoolean(a.f.MapAttrs_zOrderOnTop, false));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_useViewLifecycle)) {
-      localGoogleMapOptions.useViewLifecycleInFragment(localTypedArray.getBoolean(R.styleable.MapAttrs_useViewLifecycle, false));
+    if (localTypedArray.hasValue(a.f.MapAttrs_useViewLifecycle)) {
+      localGoogleMapOptions.b(localTypedArray.getBoolean(a.f.MapAttrs_useViewLifecycle, false));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_uiCompass)) {
-      localGoogleMapOptions.compassEnabled(localTypedArray.getBoolean(R.styleable.MapAttrs_uiCompass, true));
+    if (localTypedArray.hasValue(a.f.MapAttrs_uiCompass)) {
+      localGoogleMapOptions.d(localTypedArray.getBoolean(a.f.MapAttrs_uiCompass, true));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_uiRotateGestures)) {
-      localGoogleMapOptions.rotateGesturesEnabled(localTypedArray.getBoolean(R.styleable.MapAttrs_uiRotateGestures, true));
+    if (localTypedArray.hasValue(a.f.MapAttrs_uiRotateGestures)) {
+      localGoogleMapOptions.h(localTypedArray.getBoolean(a.f.MapAttrs_uiRotateGestures, true));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_uiScrollGestures)) {
-      localGoogleMapOptions.scrollGesturesEnabled(localTypedArray.getBoolean(R.styleable.MapAttrs_uiScrollGestures, true));
+    if (localTypedArray.hasValue(a.f.MapAttrs_uiScrollGestures)) {
+      localGoogleMapOptions.e(localTypedArray.getBoolean(a.f.MapAttrs_uiScrollGestures, true));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_uiTiltGestures)) {
-      localGoogleMapOptions.tiltGesturesEnabled(localTypedArray.getBoolean(R.styleable.MapAttrs_uiTiltGestures, true));
+    if (localTypedArray.hasValue(a.f.MapAttrs_uiTiltGestures)) {
+      localGoogleMapOptions.g(localTypedArray.getBoolean(a.f.MapAttrs_uiTiltGestures, true));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_uiZoomGestures)) {
-      localGoogleMapOptions.zoomGesturesEnabled(localTypedArray.getBoolean(R.styleable.MapAttrs_uiZoomGestures, true));
+    if (localTypedArray.hasValue(a.f.MapAttrs_uiZoomGestures)) {
+      localGoogleMapOptions.f(localTypedArray.getBoolean(a.f.MapAttrs_uiZoomGestures, true));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_uiZoomControls)) {
-      localGoogleMapOptions.zoomControlsEnabled(localTypedArray.getBoolean(R.styleable.MapAttrs_uiZoomControls, true));
+    if (localTypedArray.hasValue(a.f.MapAttrs_uiZoomControls)) {
+      localGoogleMapOptions.c(localTypedArray.getBoolean(a.f.MapAttrs_uiZoomControls, true));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_liteMode)) {
-      localGoogleMapOptions.liteMode(localTypedArray.getBoolean(R.styleable.MapAttrs_liteMode, false));
+    if (localTypedArray.hasValue(a.f.MapAttrs_liteMode)) {
+      localGoogleMapOptions.i(localTypedArray.getBoolean(a.f.MapAttrs_liteMode, false));
     }
-    if (localTypedArray.hasValue(R.styleable.MapAttrs_uiMapToolbar)) {
-      localGoogleMapOptions.mapToolbarEnabled(localTypedArray.getBoolean(R.styleable.MapAttrs_uiMapToolbar, true));
+    if (localTypedArray.hasValue(a.f.MapAttrs_uiMapToolbar)) {
+      localGoogleMapOptions.j(localTypedArray.getBoolean(a.f.MapAttrs_uiMapToolbar, true));
     }
-    localGoogleMapOptions.camera(CameraPosition.createFromAttributes(paramContext, paramAttributeSet));
+    if (localTypedArray.hasValue(a.f.MapAttrs_ambientEnabled)) {
+      localGoogleMapOptions.k(localTypedArray.getBoolean(a.f.MapAttrs_ambientEnabled, false));
+    }
+    localGoogleMapOptions.a(CameraPosition.a(paramContext, paramAttributeSet));
     localTypedArray.recycle();
     return localGoogleMapOptions;
   }
   
-  public GoogleMapOptions camera(CameraPosition paramCameraPosition)
+  int a()
   {
-    akI = paramCameraPosition;
+    return a;
+  }
+  
+  public GoogleMapOptions a(int paramInt)
+  {
+    d = paramInt;
     return this;
   }
   
-  public GoogleMapOptions compassEnabled(boolean paramBoolean)
+  public GoogleMapOptions a(CameraPosition paramCameraPosition)
   {
-    akK = Boolean.valueOf(paramBoolean);
+    e = paramCameraPosition;
+    return this;
+  }
+  
+  public GoogleMapOptions a(boolean paramBoolean)
+  {
+    b = Boolean.valueOf(paramBoolean);
+    return this;
+  }
+  
+  byte b()
+  {
+    return m.a(b);
+  }
+  
+  public GoogleMapOptions b(boolean paramBoolean)
+  {
+    c = Boolean.valueOf(paramBoolean);
+    return this;
+  }
+  
+  byte c()
+  {
+    return m.a(c);
+  }
+  
+  public GoogleMapOptions c(boolean paramBoolean)
+  {
+    f = Boolean.valueOf(paramBoolean);
+    return this;
+  }
+  
+  byte d()
+  {
+    return m.a(f);
+  }
+  
+  public GoogleMapOptions d(boolean paramBoolean)
+  {
+    g = Boolean.valueOf(paramBoolean);
     return this;
   }
   
@@ -112,189 +161,101 @@ public final class GoogleMapOptions
     return 0;
   }
   
-  public CameraPosition getCamera()
+  byte e()
   {
-    return akI;
+    return m.a(g);
   }
   
-  public Boolean getCompassEnabled()
+  public GoogleMapOptions e(boolean paramBoolean)
   {
-    return akK;
-  }
-  
-  public Boolean getLiteMode()
-  {
-    return akP;
-  }
-  
-  public Boolean getMapToolbarEnabled()
-  {
-    return akQ;
-  }
-  
-  public int getMapType()
-  {
-    return akH;
-  }
-  
-  public Boolean getRotateGesturesEnabled()
-  {
-    return akO;
-  }
-  
-  public Boolean getScrollGesturesEnabled()
-  {
-    return akL;
-  }
-  
-  public Boolean getTiltGesturesEnabled()
-  {
-    return akN;
-  }
-  
-  public Boolean getUseViewLifecycleInFragment()
-  {
-    return akG;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
-  }
-  
-  public Boolean getZOrderOnTop()
-  {
-    return akF;
-  }
-  
-  public Boolean getZoomControlsEnabled()
-  {
-    return akJ;
-  }
-  
-  public Boolean getZoomGesturesEnabled()
-  {
-    return akM;
-  }
-  
-  public GoogleMapOptions liteMode(boolean paramBoolean)
-  {
-    akP = Boolean.valueOf(paramBoolean);
+    h = Boolean.valueOf(paramBoolean);
     return this;
   }
   
-  public GoogleMapOptions mapToolbarEnabled(boolean paramBoolean)
+  byte f()
   {
-    akQ = Boolean.valueOf(paramBoolean);
+    return m.a(h);
+  }
+  
+  public GoogleMapOptions f(boolean paramBoolean)
+  {
+    i = Boolean.valueOf(paramBoolean);
     return this;
   }
   
-  public GoogleMapOptions mapType(int paramInt)
+  byte g()
   {
-    akH = paramInt;
+    return m.a(i);
+  }
+  
+  public GoogleMapOptions g(boolean paramBoolean)
+  {
+    j = Boolean.valueOf(paramBoolean);
     return this;
   }
   
-  byte nD()
+  byte h()
   {
-    return com.google.android.gms.maps.internal.a.c(akF);
+    return m.a(j);
   }
   
-  byte nE()
+  public GoogleMapOptions h(boolean paramBoolean)
   {
-    return com.google.android.gms.maps.internal.a.c(akG);
-  }
-  
-  byte nF()
-  {
-    return com.google.android.gms.maps.internal.a.c(akJ);
-  }
-  
-  byte nG()
-  {
-    return com.google.android.gms.maps.internal.a.c(akK);
-  }
-  
-  byte nH()
-  {
-    return com.google.android.gms.maps.internal.a.c(akL);
-  }
-  
-  byte nI()
-  {
-    return com.google.android.gms.maps.internal.a.c(akM);
-  }
-  
-  byte nJ()
-  {
-    return com.google.android.gms.maps.internal.a.c(akN);
-  }
-  
-  byte nK()
-  {
-    return com.google.android.gms.maps.internal.a.c(akO);
-  }
-  
-  byte nL()
-  {
-    return com.google.android.gms.maps.internal.a.c(akP);
-  }
-  
-  byte nM()
-  {
-    return com.google.android.gms.maps.internal.a.c(akQ);
-  }
-  
-  public GoogleMapOptions rotateGesturesEnabled(boolean paramBoolean)
-  {
-    akO = Boolean.valueOf(paramBoolean);
+    k = Boolean.valueOf(paramBoolean);
     return this;
   }
   
-  public GoogleMapOptions scrollGesturesEnabled(boolean paramBoolean)
+  byte i()
   {
-    akL = Boolean.valueOf(paramBoolean);
+    return m.a(k);
+  }
+  
+  public GoogleMapOptions i(boolean paramBoolean)
+  {
+    l = Boolean.valueOf(paramBoolean);
     return this;
   }
   
-  public GoogleMapOptions tiltGesturesEnabled(boolean paramBoolean)
+  byte j()
   {
-    akN = Boolean.valueOf(paramBoolean);
+    return m.a(l);
+  }
+  
+  public GoogleMapOptions j(boolean paramBoolean)
+  {
+    m = Boolean.valueOf(paramBoolean);
     return this;
   }
   
-  public GoogleMapOptions useViewLifecycleInFragment(boolean paramBoolean)
+  byte k()
   {
-    akG = Boolean.valueOf(paramBoolean);
+    return m.a(m);
+  }
+  
+  public GoogleMapOptions k(boolean paramBoolean)
+  {
+    n = Boolean.valueOf(paramBoolean);
     return this;
+  }
+  
+  byte l()
+  {
+    return m.a(n);
+  }
+  
+  public int m()
+  {
+    return d;
+  }
+  
+  public CameraPosition n()
+  {
+    return e;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      b.a(this, paramParcel, paramInt);
-      return;
-    }
-    a.a(this, paramParcel, paramInt);
-  }
-  
-  public GoogleMapOptions zOrderOnTop(boolean paramBoolean)
-  {
-    akF = Boolean.valueOf(paramBoolean);
-    return this;
-  }
-  
-  public GoogleMapOptions zoomControlsEnabled(boolean paramBoolean)
-  {
-    akJ = Boolean.valueOf(paramBoolean);
-    return this;
-  }
-  
-  public GoogleMapOptions zoomGesturesEnabled(boolean paramBoolean)
-  {
-    akM = Boolean.valueOf(paramBoolean);
-    return this;
+    j.a(this, paramParcel, paramInt);
   }
 }
 

@@ -1,8 +1,13 @@
 package com.bumptech.glide.manager;
 
 public abstract interface c
-  extends i
-{}
+  extends h
+{
+  public static abstract interface a
+  {
+    public abstract void a(boolean paramBoolean);
+  }
+}
 
 /* Location:
  * Qualified Name:     com.bumptech.glide.manager.c

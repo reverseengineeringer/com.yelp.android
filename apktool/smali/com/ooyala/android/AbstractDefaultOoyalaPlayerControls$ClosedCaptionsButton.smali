@@ -3,6 +3,17 @@
 .source "AbstractDefaultOoyalaPlayerControls.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4
+    name = "ClosedCaptionsButton"
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls;
 

@@ -1,36 +1,80 @@
 package com.google.android.gms.common.api;
 
-import android.os.Looper;
+import com.google.android.gms.common.api.internal.zzb;
+import java.util.ArrayList;
 import java.util.List;
 
 public final class Batch
-  extends BaseImplementation.AbstractPendingResult<BatchResult>
+  extends zzb<BatchResult>
 {
-  private boolean JA;
-  private boolean JB;
-  private final PendingResult<?>[] JC;
-  private int Jz;
-  private final Object mH = new Object();
+  private int zzafZ;
+  private boolean zzaga;
+  private boolean zzagb;
+  private final PendingResult<?>[] zzagc;
+  private final Object zzpV = new Object();
   
-  private Batch(List<PendingResult<?>> paramList, Looper paramLooper)
+  private Batch(List<PendingResult<?>> paramList, GoogleApiClient paramGoogleApiClient)
   {
-    super(new BaseImplementation.CallbackHandler(paramLooper));
-    Jz = paramList.size();
-    JC = new PendingResult[Jz];
-    int i = 0;
-    while (i < paramList.size())
+    super(paramGoogleApiClient);
+    zzafZ = paramList.size();
+    zzagc = new PendingResult[zzafZ];
+    if (paramList.isEmpty()) {
+      zza(new BatchResult(Status.zzagC, zzagc));
+    }
+    for (;;)
     {
-      paramLooper = (PendingResult)paramList.get(i);
-      JC[i] = paramLooper;
-      paramLooper.a(new Batch.1(this));
-      i += 1;
+      return;
+      int i = 0;
+      while (i < paramList.size())
+      {
+        paramGoogleApiClient = (PendingResult)paramList.get(i);
+        zzagc[i] = paramGoogleApiClient;
+        paramGoogleApiClient.zza(new PendingResult.zza()
+        {
+          public void zzu(Status paramAnonymousStatus)
+          {
+            for (;;)
+            {
+              synchronized (Batch.zza(Batch.this))
+              {
+                if (isCanceled()) {
+                  return;
+                }
+                if (paramAnonymousStatus.isCanceled())
+                {
+                  Batch.zza(Batch.this, true);
+                  Batch.zzb(Batch.this);
+                  if (Batch.zzc(Batch.this) == 0)
+                  {
+                    if (!Batch.zzd(Batch.this)) {
+                      break;
+                    }
+                    Batch.zze(Batch.this);
+                  }
+                  return;
+                }
+              }
+              if (!paramAnonymousStatus.isSuccess()) {
+                Batch.zzb(Batch.this, true);
+              }
+            }
+            if (Batch.zzf(Batch.this)) {}
+            for (paramAnonymousStatus = new Status(13);; paramAnonymousStatus = Status.zzagC)
+            {
+              zza(new BatchResult(paramAnonymousStatus, Batch.zzg(Batch.this)));
+              break;
+            }
+          }
+        });
+        i += 1;
+      }
     }
   }
   
   public void cancel()
   {
     super.cancel();
-    PendingResult[] arrayOfPendingResult = JC;
+    PendingResult[] arrayOfPendingResult = zzagc;
     int j = arrayOfPendingResult.length;
     int i = 0;
     while (i < j)
@@ -42,7 +86,30 @@ public final class Batch
   
   public BatchResult createFailedResult(Status paramStatus)
   {
-    return new BatchResult(paramStatus, JC);
+    return new BatchResult(paramStatus, zzagc);
+  }
+  
+  public static final class Builder
+  {
+    private GoogleApiClient zzaaj;
+    private List<PendingResult<?>> zzage = new ArrayList();
+    
+    public Builder(GoogleApiClient paramGoogleApiClient)
+    {
+      zzaaj = paramGoogleApiClient;
+    }
+    
+    public <R extends Result> BatchResultToken<R> add(PendingResult<R> paramPendingResult)
+    {
+      BatchResultToken localBatchResultToken = new BatchResultToken(zzage.size());
+      zzage.add(paramPendingResult);
+      return localBatchResultToken;
+    }
+    
+    public Batch build()
+    {
+      return new Batch(zzage, zzaaj, null);
+    }
   }
 }
 

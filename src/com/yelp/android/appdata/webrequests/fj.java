@@ -1,33 +1,21 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class fj
-  extends g<String, Void, Map<String, String>>
+  extends b<Void, Void, Integer>
 {
-  public fj(Iterable<String> paramIterable, Locale paramLocale, m<Map<String, String>> paramm)
+  public fj(ApiRequest.b<Integer> paramb)
   {
-    super(ApiRequest.RequestType.GET, "review/translate", paramm);
-    addUrlParam("review_ids", paramIterable);
-    addUrlParam("translate_to_lang", paramLocale.getLanguage());
+    super(ApiRequest.RequestType.GET, "user/order_count", paramb);
   }
   
-  public Map<String, String> a(JSONObject paramJSONObject)
+  public Integer a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    paramJSONObject = paramJSONObject.getJSONObject("translated_review_texts");
-    HashMap localHashMap = new HashMap();
-    Iterator localIterator = paramJSONObject.keys();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      localHashMap.put(str, paramJSONObject.getString(str));
-    }
-    return localHashMap;
+    return Integer.valueOf(paramJSONObject.getInt("count"));
   }
 }
 

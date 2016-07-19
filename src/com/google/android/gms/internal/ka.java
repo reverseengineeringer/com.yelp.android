@@ -1,63 +1,12 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.Resources.NotFoundException;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.util.TypedValue;
-
-public class ka
+public abstract interface ka
 {
-  public static String a(String paramString1, String paramString2, Context paramContext, AttributeSet paramAttributeSet, boolean paramBoolean1, boolean paramBoolean2, String paramString3)
-  {
-    if (paramAttributeSet == null) {
-      paramString1 = null;
-    }
-    for (;;)
-    {
-      paramAttributeSet = paramString1;
-      String str1;
-      String str2;
-      if (paramString1 != null)
-      {
-        paramAttributeSet = paramString1;
-        if (paramString1.startsWith("@string/"))
-        {
-          paramAttributeSet = paramString1;
-          if (paramBoolean1)
-          {
-            str1 = paramString1.substring("@string/".length());
-            str2 = paramContext.getPackageName();
-            paramAttributeSet = new TypedValue();
-          }
-        }
-      }
-      try
-      {
-        paramContext.getResources().getValue(str2 + ":string/" + str1, paramAttributeSet, true);
-        if (string != null)
-        {
-          paramAttributeSet = string.toString();
-          if ((paramBoolean2) && (paramAttributeSet == null)) {
-            Log.w(paramString3, "Required XML attribute \"" + paramString2 + "\" missing");
-          }
-          return paramAttributeSet;
-          paramString1 = paramAttributeSet.getAttributeValue(paramString1, paramString2);
-        }
-      }
-      catch (Resources.NotFoundException paramContext)
-      {
-        for (;;)
-        {
-          Log.w(paramString3, "Could not find resource for " + paramString2 + ": " + paramString1);
-          continue;
-          Log.w(paramString3, "Resource " + paramString2 + " was not a string: " + paramAttributeSet);
-          paramAttributeSet = paramString1;
-        }
-      }
-    }
-  }
+  public abstract void a(zzk<?> paramzzk, jc<?> paramjc);
+  
+  public abstract void a(zzk<?> paramzzk, jc<?> paramjc, Runnable paramRunnable);
+  
+  public abstract void a(zzk<?> paramzzk, zzr paramzzr);
 }
 
 /* Location:

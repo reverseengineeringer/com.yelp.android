@@ -1,25 +1,58 @@
 package com.yelp.android.ui.util;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import com.yelp.android.serializable.Media;
-import com.yelp.android.serializable.Media.MediaType;
-import com.yelp.android.serializable.Photo;
-import com.yelp.android.ui.activities.addphoto.i;
-import com.yelp.android.util.ObjectDirtyEvent;
+import android.os.Bundle;
+import com.google.android.gms.ads.doubleclick.d;
+import com.google.android.gms.ads.doubleclick.d.a;
+import com.yelp.android.appdata.Features;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-class a
-  extends BroadcastReceiver
+public class a
 {
-  a(ActivityYelpHopScotchMediaList paramActivityYelpHopScotchMediaList) {}
+  private String a;
+  private String b;
   
-  public void onReceive(Context paramContext, Intent paramIntent)
+  public a()
   {
-    paramContext = (Media)ObjectDirtyEvent.a(paramIntent);
-    if (paramContext.isMediaType(Media.MediaType.PHOTO)) {
-      a.c.a((Photo)paramContext);
+    c();
+  }
+  
+  private String b()
+  {
+    return b;
+  }
+  
+  private void c()
+  {
+    new a.1(this).execute(new Void[0]);
+  }
+  
+  public d a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    Bundle localBundle = new Bundle();
+    Iterator localIterator = paramJSONObject.keys();
+    while (localIterator.hasNext())
+    {
+      String str = (String)localIterator.next();
+      Object localObject = paramJSONObject.get(str);
+      if ((localObject instanceof String)) {
+        localBundle.putString(str, (String)localObject);
+      } else if ((localObject instanceof JSONArray)) {
+        localBundle.putString(str, ((JSONArray)localObject).join(",").replace("\"", ""));
+      }
     }
+    if ((b() != null) && (Features.dfp_advertising_hash.isEnabled())) {
+      localBundle.putString("adid", b());
+    }
+    return new d.a().a(new com.yelp.android.bd.a(localBundle)).a();
+  }
+  
+  public String a()
+  {
+    return a;
   }
 }
 

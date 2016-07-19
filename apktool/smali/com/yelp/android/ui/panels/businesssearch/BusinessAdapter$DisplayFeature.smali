@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "DisplayFeature"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -45,6 +54,8 @@
 
 .field public static final enum RATING:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
+.field public static final enum REVIEW_EXCERPT:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -61,7 +72,7 @@
 
     const/4 v3, 0x0
 
-    .line 88
+    .line 95
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "ALTERNATE_NAMES"
@@ -70,7 +81,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->ALTERNATE_NAMES:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 94
+    .line 101
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "DISTANCE"
@@ -79,7 +90,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->DISTANCE:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 98
+    .line 105
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "CATEGORY"
@@ -88,7 +99,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->CATEGORY:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 99
+    .line 106
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "CLOSES_IN"
@@ -97,7 +108,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->CLOSES_IN:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 100
+    .line 107
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "PRICE"
@@ -106,7 +117,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->PRICE:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 106
+    .line 113
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "NUMBERED"
@@ -117,7 +128,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->NUMBERED:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 107
+    .line 114
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "ADDRESS"
@@ -128,7 +139,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->ADDRESS:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 108
+    .line 115
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "AD"
@@ -139,7 +150,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->AD:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 109
+    .line 116
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "RATING"
@@ -150,7 +161,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->RATING:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 110
+    .line 117
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "CHECKINS"
@@ -161,7 +172,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->CHECKINS:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 111
+    .line 118
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "BOOKMARK"
@@ -172,7 +183,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->BOOKMARK:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 112
+    .line 119
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "ANNOTATIONS"
@@ -183,7 +194,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->ANNOTATIONS:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 113
+    .line 120
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "DIVIDER"
@@ -194,7 +205,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->DIVIDER:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 114
+    .line 121
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     const-string/jumbo v1, "BOOKMARK_BUTTON"
@@ -205,8 +216,19 @@
 
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->BOOKMARK_BUTTON:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .line 87
-    const/16 v0, 0xe
+    .line 125
+    new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
+
+    const-string/jumbo v1, "REVIEW_EXCERPT"
+
+    const/16 v2, 0xe
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->REVIEW_EXCERPT:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
+
+    .line 94
+    const/16 v0, 0xf
 
     new-array v0, v0, [Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
@@ -284,6 +306,12 @@
 
     aput-object v2, v0, v1
 
+    const/16 v1, 0xe
+
+    sget-object v2, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->REVIEW_EXCERPT:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
+
+    aput-object v2, v0, v1
+
     sput-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->$VALUES:[Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     return-void
@@ -298,7 +326,7 @@
     .end annotation
 
     .prologue
-    .line 87
+    .line 94
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -308,7 +336,7 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 94
     const-class v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -324,7 +352,7 @@
     .locals 1
 
     .prologue
-    .line 87
+    .line 94
     sget-object v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->$VALUES:[Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     invoke-virtual {v0}, [Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->clone()Ljava/lang/Object;

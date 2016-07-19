@@ -1,156 +1,124 @@
-.class Lcom/yelp/android/ui/util/y;
-.super Landroid/os/AsyncTask;
-.source "EasyCache.java"
+.class public Lcom/yelp/android/ui/util/y;
+.super Lcom/yelp/android/ui/util/SuggestionFilter;
+.source "LocationSuggestionFilter.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/os/AsyncTask",
-        "<",
-        "Ljava/util/List",
-        "<TFrom;>;",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        ">;"
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Lcom/yelp/android/ui/util/SuggestionFilter",
+        "<TT;>;"
     }
 .end annotation
 
 
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/util/x;
-
-
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/util/x;)V
-    .locals 0
+.method public constructor <init>(Ljava/util/List;Ljava/util/ArrayList;Ljava/util/ArrayList;ZLcom/yelp/android/ui/util/SuggestionFilter$SuggestionType;Lcom/yelp/android/ui/util/SuggestionFilter$b;)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/CharSequence;",
+            ">;",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/CharSequence;",
+            ">;",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/CharSequence;",
+            ">;Z",
+            "Lcom/yelp/android/ui/util/SuggestionFilter$SuggestionType;",
+            "Lcom/yelp/android/ui/util/SuggestionFilter$b",
+            "<TT;>;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 48
-    iput-object p1, p0, Lcom/yelp/android/ui/util/y;->a:Lcom/yelp/android/ui/util/x;
+    .line 25
+    const/4 v5, 0x0
 
-    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
+    move-object v0, p0
 
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v4, p4
+
+    move-object v6, p5
+
+    move-object v7, p6
+
+    invoke-direct/range {v0 .. v7}, Lcom/yelp/android/ui/util/SuggestionFilter;-><init>(Ljava/util/List;Ljava/util/ArrayList;Ljava/util/ArrayList;ZZLcom/yelp/android/ui/util/SuggestionFilter$SuggestionType;Lcom/yelp/android/ui/util/SuggestionFilter$b;)V
+
+    .line 26
     return-void
 .end method
 
 
 # virtual methods
-.method protected varargs a([Ljava/util/List;)Ljava/lang/Void;
-    .locals 5
+.method protected a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Landroid/location/Location;Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/ep;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "([",
+            "(",
+            "Ljava/lang/String;",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
             "Ljava/util/List",
-            "<TFrom;>;)",
-            "Ljava/lang/Void;"
+            "<TT;>;>;",
+            "Landroid/location/Location;",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/yelp/android/appdata/webrequests/ep;"
         }
     .end annotation
 
     .prologue
-    const/4 v0, 0x0
+    .line 34
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/cn;
 
-    .line 51
-    aget-object v1, p1, v0
-
-    .line 52
-    iget-object v2, p0, Lcom/yelp/android/ui/util/y;->a:Lcom/yelp/android/ui/util/x;
-
-    new-instance v3, Landroid/util/SparseArray;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    invoke-direct {v3, v4}, Landroid/util/SparseArray;-><init>(I)V
-
-    invoke-static {v2, v3}, Lcom/yelp/android/ui/util/x;->a(Lcom/yelp/android/ui/util/x;Landroid/util/SparseArray;)Landroid/util/SparseArray;
-
-    .line 53
-    invoke-static {}, Lcom/yelp/android/appdata/BaseYelpApplication;->z()Lcom/yelp/android/appdata/BaseYelpApplication;
-
-    move-result-object v2
-
-    .line 54
-    :goto_0
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ge v0, v3, :cond_0
-
-    .line 55
-    iget-object v3, p0, Lcom/yelp/android/ui/util/y;->a:Lcom/yelp/android/ui/util/x;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v2, v4}, Lcom/yelp/android/ui/util/x;->a(Landroid/content/Context;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    .line 56
-    iget-object v4, p0, Lcom/yelp/android/ui/util/y;->a:Lcom/yelp/android/ui/util/x;
-
-    invoke-static {v4}, Lcom/yelp/android/ui/util/x;->a(Lcom/yelp/android/ui/util/x;)Landroid/util/SparseArray;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0, v3}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
-    .line 54
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 58
-    :cond_0
-    const/4 v0, 0x0
+    invoke-direct {v0, p1, p3, p2}, Lcom/yelp/android/appdata/webrequests/cn;-><init>(Ljava/lang/String;Landroid/location/Location;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     return-object v0
 .end method
 
-.method protected a(Ljava/lang/Void;)V
+.method protected a(Landroid/content/Context;Ljava/util/HashMap;)V
     .locals 2
-
-    .prologue
-    .line 63
-    invoke-super {p0, p1}, Landroid/os/AsyncTask;->onPostExecute(Ljava/lang/Object;)V
-
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/ui/util/y;->a:Lcom/yelp/android/ui/util/x;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/x;->a(Lcom/yelp/android/ui/util/x;Z)Z
-
-    .line 65
-    return-void
-.end method
-
-.method protected synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Object;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
     .line 48
-    check-cast p1, [Ljava/util/List;
-
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/util/y;->a([Ljava/util/List;)Ljava/lang/Void;
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
-.method protected synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    move-result-object v0
 
-    .prologue
-    .line 48
-    check-cast p1, Ljava/lang/Void;
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->SearchBarSuggestLocation:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/util/y;->a(Ljava/lang/Void;)V
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
+    .line 49
     return-void
 .end method

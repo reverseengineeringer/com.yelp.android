@@ -1,24 +1,14 @@
 package com.yelp.android.ax;
 
-import com.yelp.android.database.aa;
-import com.yelp.android.database.y;
-
-final class b
-  extends y
+public class b
 {
-  public aa a()
-  {
-    return a.a;
-  }
+  public final String a;
+  public final String b;
   
-  public int b()
+  public b(String paramString1, String paramString2)
   {
-    return 7;
-  }
-  
-  public boolean c(int paramInt)
-  {
-    return paramInt >= b();
+    a = paramString1;
+    b = paramString2;
   }
 }
 

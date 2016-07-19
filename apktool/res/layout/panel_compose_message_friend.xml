@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
-    <com.yelp.android.ui.widgets.WebImageView android:id="@id/friend_user_picture" android:layout_width="@dimen/clickable_size" android:layout_height="@dimen/clickable_size" android:layout_marginRight="?imageGapSize" android:layout_alignParentLeft="true" yelp:forceRoundingMode="none" />
-    <TextView android:textAppearance="@style/HeadlineDarkText" android:ellipsize="end" android:id="@id/friend_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="?imageGapSize" android:lines="1" android:layout_toRightOf="@id/friend_user_picture" android:layout_centerVertical="true" />
+    <com.yelp.android.ui.widgets.WebImageView android:id="@id/friend_user_picture" android:layout_width="@dimen/clickable_size" android:layout_height="@dimen/clickable_size" android:layout_marginRight="@dimen/default_image_gap_size" android:layout_alignParentLeft="true" yelp:forceRoundingMode="none" />
+    <TextView android:textAppearance="@style/DeprecatedHeadlineDarkText" android:ellipsize="end" android:id="@id/friend_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_image_gap_size" android:lines="1" android:layout_toRightOf="@id/friend_user_picture" android:layout_centerVertical="true" />
     <View android:background="@color/gray_mid_light" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_below="@id/friend_user_picture" />
 </RelativeLayout>

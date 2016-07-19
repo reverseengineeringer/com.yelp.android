@@ -1,24 +1,26 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.EventSection;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ca
-  extends h<Void, Void, List<EventSection>>
+  extends b<Void, Void, String>
 {
-  public ca(j paramj)
+  public ca(ApiRequest.b<String> paramb, String paramString)
   {
-    super(ApiRequest.RequestType.GET, "events/sections", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
+    super(ApiRequest.RequestType.POST, "account/send_password_email_secure", paramb);
+    b("email", paramString);
   }
   
-  public List<EventSection> a(JSONObject paramJSONObject)
+  public String a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("sections"), EventSection.CREATOR);
+    String str = null;
+    if (!paramJSONObject.isNull("email")) {
+      str = paramJSONObject.getString("email");
+    }
+    return str;
   }
 }
 

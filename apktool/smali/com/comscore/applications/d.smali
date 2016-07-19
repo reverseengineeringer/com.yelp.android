@@ -427,7 +427,7 @@
     :cond_0
     iget-object v0, p0, Lcom/comscore/applications/d;->d:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
@@ -443,7 +443,7 @@
 
     move-object v1, p0
 
-    invoke-virtual/range {v0 .. v6}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;JZJ)Z
+    invoke-virtual/range {v0 .. v6}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;JZJ)Z
 
     iput-boolean v4, p0, Lcom/comscore/applications/d;->f:Z
 
@@ -483,11 +483,11 @@
 
     iget-object v0, p0, Lcom/comscore/applications/d;->d:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 

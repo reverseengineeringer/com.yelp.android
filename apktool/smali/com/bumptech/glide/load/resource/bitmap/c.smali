@@ -3,14 +3,14 @@
 .source "BitmapResource.java"
 
 # interfaces
-.implements Lcom/bumptech/glide/load/engine/t;
+.implements Lcom/bumptech/glide/load/engine/i;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/engine/t",
+        "Lcom/bumptech/glide/load/engine/i",
         "<",
         "Landroid/graphics/Bitmap;",
         ">;"
@@ -21,11 +21,11 @@
 # instance fields
 .field private final a:Landroid/graphics/Bitmap;
 
-.field private final b:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+.field private final b:Lcom/yelp/android/x/c;
 
 
 # direct methods
-.method public constructor <init>(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)V
+.method public constructor <init>(Landroid/graphics/Bitmap;Lcom/yelp/android/x/c;)V
     .locals 2
 
     .prologue
@@ -62,13 +62,13 @@
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/c;->a:Landroid/graphics/Bitmap;
 
     .line 39
-    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/c;->b:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/c;->b:Lcom/yelp/android/x/c;
 
     .line 40
     return-void
 .end method
 
-.method public static a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)Lcom/bumptech/glide/load/resource/bitmap/c;
+.method public static a(Landroid/graphics/Bitmap;Lcom/yelp/android/x/c;)Lcom/bumptech/glide/load/resource/bitmap/c;
     .locals 1
 
     .prologue
@@ -85,7 +85,7 @@
     :cond_0
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/c;
 
-    invoke-direct {v0, p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/c;-><init>(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)V
+    invoke-direct {v0, p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/c;-><init>(Landroid/graphics/Bitmap;Lcom/yelp/android/x/c;)V
 
     goto :goto_0
 .end method
@@ -121,7 +121,7 @@
     .line 49
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/c;->a:Landroid/graphics/Bitmap;
 
-    invoke-static {v0}, Lcom/yelp/android/ai/f;->a(Landroid/graphics/Bitmap;)I
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Landroid/graphics/Bitmap;)I
 
     move-result v0
 
@@ -133,11 +133,11 @@
 
     .prologue
     .line 54
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/c;->b:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/c;->b:Lcom/yelp/android/x/c;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/c;->a:Landroid/graphics/Bitmap;
 
-    invoke-interface {v0, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/e;->a(Landroid/graphics/Bitmap;)Z
+    invoke-interface {v0, v1}, Lcom/yelp/android/x/c;->a(Landroid/graphics/Bitmap;)Z
 
     move-result v0
 

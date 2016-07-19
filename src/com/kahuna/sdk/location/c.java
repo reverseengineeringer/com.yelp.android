@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 import com.google.android.gms.location.ActivityRecognitionResult;
 import com.google.android.gms.location.DetectedActivity;
-import com.kahuna.sdk.h;
+import com.kahuna.sdk.l;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,10 +33,36 @@ public class c
     }
   }
   
-  public static void a(h paramh)
+  public static void a(Context paramContext, Intent paramIntent)
   {
-    if ((paramh == null) || (!(paramh instanceof h))) {
-      Log.e("KahunaEngine", "You cannot use Activity Recognition Manager externally from the Kahuna SDK. Aborting!");
+    paramContext = ActivityRecognitionResult.b(paramIntent).a();
+    int j = paramContext.b();
+    int k = paramContext.a();
+    if ((j >= 65) && (b != k))
+    {
+      b = k;
+      if (a.contains(Integer.valueOf(k)))
+      {
+        if (l.u()) {
+          Log.d("Kahuna", "Got supported Activity type: " + b(k));
+        }
+        KahunaIBeaconManager.b();
+      }
+    }
+    else
+    {
+      return;
+    }
+    if (l.u()) {
+      Log.d("Kahuna", "Got unsupported Activity type: " + b(k));
+    }
+    KahunaIBeaconManager.c();
+  }
+  
+  public static void a(l paraml)
+  {
+    if ((paraml == null) || (!(paraml instanceof l))) {
+      Log.e("Kahuna", "You cannot use Activity Recognition Manager externally from the Kahuna SDK. Aborting!");
     }
     do
     {
@@ -46,8 +72,8 @@ public class c
         if (ig) {
           break;
         }
-      } while (!h.p());
-      Log.w("KahunaEngine", "App doens't have required permissions for Activity Monitoring. Aborting request for updates!");
+      } while (!l.u());
+      Log.w("Kahuna", "App doens't have required permissions for Activity Monitoring. Aborting request for updates!");
       return;
     } while (ic);
     try
@@ -57,46 +83,17 @@ public class c
       ic = true;
       return;
     }
-    catch (Throwable paramh)
+    catch (Throwable paraml)
     {
       for (;;)
       {
-        if (h.p())
+        if (l.u())
         {
-          Log.w("KahunaEngine", "Caught error when attempting to request for ActivityMonitoring Updates.");
-          Log.w("KahunaEngine", paramh);
+          Log.w("Kahuna", "Caught error when attempting to request for ActivityMonitoring Updates.");
+          Log.w("Kahuna", paraml);
         }
       }
     }
-  }
-  
-  public static void a(h paramh, Context paramContext, Intent paramIntent)
-  {
-    if ((paramh == null) || (!(paramh instanceof h))) {
-      Log.e("KahunaEngine", "You cannot use the Activity Recognition Manager externally from the Kahuna SDK. Aborting!");
-    }
-    int j;
-    int k;
-    do
-    {
-      return;
-      paramContext = ActivityRecognitionResult.extractResult(paramIntent).getMostProbableActivity();
-      j = paramContext.getConfidence();
-      k = paramContext.getType();
-    } while ((j < 65) || (b == k));
-    b = k;
-    if (a.contains(Integer.valueOf(k)))
-    {
-      if (h.p()) {
-        Log.d("KahunaEngine", "Got supported Activity type: " + b(k));
-      }
-      KahunaIBeaconManager.b(paramh);
-      return;
-    }
-    if (h.p()) {
-      Log.d("KahunaEngine", "Got unsupported Activity type: " + b(k));
-    }
-    KahunaIBeaconManager.c(paramh);
   }
   
   public static boolean a()
@@ -131,10 +128,10 @@ public class c
     return "standing";
   }
   
-  public static void b(h paramh)
+  public static void b(l paraml)
   {
-    if ((paramh == null) || (!(paramh instanceof h))) {
-      Log.e("KahunaEngine", "You cannot use Activity Recognition Manager externally from the Kahuna SDK. Aborting!");
+    if ((paraml == null) || (!(paraml instanceof l))) {
+      Log.e("Kahuna", "You cannot use Activity Recognition Manager externally from the Kahuna SDK. Aborting!");
     }
     do
     {
@@ -144,13 +141,13 @@ public class c
         if (ig) {
           break;
         }
-      } while (!h.p());
-      Log.w("KahunaEngine", "App doens't have required permissions for Activity Monitoring. Aborting request for removal of updates!");
+      } while (!l.u());
+      Log.w("Kahuna", "App doens't have required permissions for Activity Monitoring. Aborting request for removal of updates!");
       return;
     } while (!ic);
     try
     {
-      KahunaIBeaconManager.c(paramh);
+      KahunaIBeaconManager.c();
       i.d();
       if (ie.a() != null)
       {
@@ -160,14 +157,14 @@ public class c
       ie = null;
       if = null;
     }
-    catch (Throwable paramh)
+    catch (Throwable paraml)
     {
       for (;;)
       {
-        if (h.p())
+        if (l.u())
         {
-          Log.w("KahunaEngine", "Caught error when attempting to remove ActivityMonitoring Updates.");
-          Log.w("KahunaEngine", paramh);
+          Log.w("Kahuna", "Caught error when attempting to remove ActivityMonitoring Updates.");
+          Log.w("Kahuna", paraml);
         }
       }
     }

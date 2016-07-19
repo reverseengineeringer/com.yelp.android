@@ -1,40 +1,54 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Reservation;
+import android.text.TextUtils;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.TalkTopic;
+import com.yelp.android.serializable.a;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class en
+  extends k<Void, Void, a>
 {
-  final Reservation a;
-  final String b;
-  final String c;
-  final String d;
+  private final boolean g;
   
-  public en(Reservation paramReservation, String paramString1, String paramString2, String paramString3)
+  public en(String paramString1, String paramString2, int paramInt, String paramString3, k.b<a> paramb)
   {
-    a = paramReservation;
-    b = paramString1;
-    c = paramString2;
-    d = paramString3;
+    super(ApiRequest.RequestType.POST, "talk/topic/save", LocationService.Accuracies.COARSE, LocationService.Recentness.DAY, paramb, LocationService.AccuracyUnit.METERS);
+    b("address", paramString3);
+    b("title", paramString1);
+    b("text", paramString2);
+    b("category", paramInt);
+    g = TextUtils.isEmpty(paramString3);
   }
   
-  public Reservation a()
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return a;
+    TalkTopic localTalkTopic = null;
+    if (!paramJSONObject.isNull("topic")) {
+      localTalkTopic = (TalkTopic)TalkTopic.CREATOR.parse(paramJSONObject.getJSONObject("topic"));
+    }
+    return new a(localTalkTopic, paramJSONObject.getString("revision"));
   }
   
-  public String b()
+  public boolean b()
   {
-    return b;
+    return g;
   }
   
-  public String c()
+  public static final class a
   {
-    return c;
-  }
-  
-  public String d()
-  {
-    return d;
+    public final TalkTopic a;
+    public final String b;
+    
+    public a(TalkTopic paramTalkTopic, String paramString)
+    {
+      a = paramTalkTopic;
+      b = paramString;
+    }
   }
 }
 

@@ -1,39 +1,15 @@
 package com.yelp.android.ui.activities.reservations;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView.LayoutParams;
-import android.widget.Button;
 import com.yelp.android.serializable.Reservation;
-import com.yelp.android.ui.util.au;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
-final class b
-  extends au<Reservation>
+public abstract interface b
 {
-  private final DateFormat a = Reservation.getDatestampForDisplay(SimpleDateFormat.getTimeInstance(3));
+  public abstract void a(int paramInt, Date paramDate);
   
-  public b(Context paramContext) {}
+  public abstract void a(Reservation paramReservation);
   
-  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
-  {
-    if (paramView == null)
-    {
-      paramView = new Button(paramViewGroup.getContext());
-      paramView.setLayoutParams(new AbsListView.LayoutParams(-2, -2));
-    }
-    for (;;)
-    {
-      paramViewGroup = (Button)paramView;
-      Reservation localReservation = (Reservation)getItem(paramInt);
-      paramViewGroup.setText(a.format(localReservation.getDatestamp()));
-      paramViewGroup.setFocusable(false);
-      paramViewGroup.setClickable(false);
-      return paramView;
-    }
-  }
+  public abstract void b(Reservation paramReservation);
 }
 
 /* Location:

@@ -1,13 +1,32 @@
 package com.yelp.android.ac;
 
-import com.bumptech.glide.load.resource.bitmap.RecyclableBufferedInputStream;
+import android.content.Context;
+import android.net.Uri;
+import com.yelp.android.aa.b;
+import com.yelp.android.aa.c;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import java.io.File;
 import java.io.InputStream;
 
-class d
+public class d
+  extends b<InputStream>
+  implements e<File>
 {
-  public InputStream a(InputStream paramInputStream, byte[] paramArrayOfByte)
+  public d(l<Uri, InputStream> paraml)
   {
-    return new RecyclableBufferedInputStream(paramInputStream, paramArrayOfByte);
+    super(paraml);
+  }
+  
+  public static class a
+    implements m<File, InputStream>
+  {
+    public l<File, InputStream> a(Context paramContext, c paramc)
+    {
+      return new d(paramc.a(Uri.class, InputStream.class));
+    }
+    
+    public void a() {}
   }
 }
 

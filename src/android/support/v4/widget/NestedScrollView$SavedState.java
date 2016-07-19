@@ -8,13 +8,24 @@ import android.view.View.BaseSavedState;
 class NestedScrollView$SavedState
   extends View.BaseSavedState
 {
-  public static final Parcelable.Creator<SavedState> CREATOR = new aq();
-  public int scrollPosition;
+  public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+  {
+    public NestedScrollView.SavedState a(Parcel paramAnonymousParcel)
+    {
+      return new NestedScrollView.SavedState(paramAnonymousParcel);
+    }
+    
+    public NestedScrollView.SavedState[] a(int paramAnonymousInt)
+    {
+      return new NestedScrollView.SavedState[paramAnonymousInt];
+    }
+  };
+  public int a;
   
   public NestedScrollView$SavedState(Parcel paramParcel)
   {
     super(paramParcel);
-    scrollPosition = paramParcel.readInt();
+    a = paramParcel.readInt();
   }
   
   NestedScrollView$SavedState(Parcelable paramParcelable)
@@ -24,13 +35,13 @@ class NestedScrollView$SavedState
   
   public String toString()
   {
-    return "HorizontalScrollView.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " scrollPosition=" + scrollPosition + "}";
+    return "HorizontalScrollView.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " scrollPosition=" + a + "}";
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeInt(scrollPosition);
+    paramParcel.writeInt(a);
   }
 }
 

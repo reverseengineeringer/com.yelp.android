@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.yelp.android.ui.widgets.SpannableFrameLayout android:id="@id/check_in_review_start_stars_wrapper" android:background="@drawable/selector_white_rounded_rect_inactive" android:layout_width="fill_parent" android:layout_height="fill_parent" yelp:position="bottom|left"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
-    <com.yelp.android.ui.activities.reviews.StarsView android:layout_gravity="center" android:id="@id/check_in_review_start_stars" android:padding="?imageGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/review_stars_0_inline" android:contentDescription="@string/review_stars_number" />
+    <com.yelp.android.ui.activities.reviews.StarsView android:layout_gravity="center" android:id="@id/check_in_review_start_stars" android:padding="@dimen/default_image_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/review_stars_0_inline" android:contentDescription="@string/review_stars_number" />
 </com.yelp.android.ui.widgets.SpannableFrameLayout>

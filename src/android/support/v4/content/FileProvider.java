@@ -11,8 +11,10 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
+import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParserException;
@@ -22,8 +24,8 @@ public class FileProvider
 {
   private static final String[] a = { "_display_name", "_size" };
   private static final File b = new File("/");
-  private static HashMap<String, j> c = new HashMap();
-  private j d;
+  private static HashMap<String, a> c = new HashMap();
+  private a d;
   
   private static int a(String paramString)
   {
@@ -45,20 +47,20 @@ public class FileProvider
     throw new IllegalArgumentException("Invalid mode: " + paramString);
   }
   
-  private static j a(Context paramContext, String paramString)
+  private static a a(Context paramContext, String paramString)
   {
-    j localj1;
+    a locala1;
     synchronized (c)
     {
-      j localj2 = (j)c.get(paramString);
-      localj1 = localj2;
-      if (localj2 != null) {}
+      a locala2 = (a)c.get(paramString);
+      locala1 = locala2;
+      if (locala2 != null) {}
     }
     try
     {
-      localj1 = b(paramContext, paramString);
-      c.put(paramString, localj1);
-      return localj1;
+      locala1 = b(paramContext, paramString);
+      c.put(paramString, locala1);
+      return locala1;
     }
     catch (IOException paramContext)
     {
@@ -107,9 +109,10 @@ public class FileProvider
     return arrayOfString;
   }
   
-  private static j b(Context paramContext, String paramString)
+  private static a b(Context paramContext, String paramString)
+    throws IOException, XmlPullParserException
   {
-    k localk = new k(paramString);
+    b localb = new b(paramString);
     XmlResourceParser localXmlResourceParser = paramContext.getPackageManager().resolveContentProvider(paramString, 128).loadXmlMetaData(paramContext.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
     if (localXmlResourceParser == null) {
       throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
@@ -137,7 +140,7 @@ public class FileProvider
         if (paramString == null) {
           break label226;
         }
-        localk.a(str1, paramString);
+        localb.a(str1, paramString);
         break;
         if ("files-path".equals(paramString))
         {
@@ -151,7 +154,7 @@ public class FileProvider
         {
           paramString = a(Environment.getExternalStorageDirectory(), new String[] { str2 });
           continue;
-          return localk;
+          return localb;
         }
         else
         {
@@ -207,6 +210,7 @@ public class FileProvider
   }
   
   public ParcelFileDescriptor openFile(Uri paramUri, String paramString)
+    throws FileNotFoundException
   {
     return ParcelFileDescriptor.open(d.a(paramUri), a(paramString));
   }
@@ -258,6 +262,65 @@ public class FileProvider
   public int update(Uri paramUri, ContentValues paramContentValues, String paramString, String[] paramArrayOfString)
   {
     throw new UnsupportedOperationException("No external updates");
+  }
+  
+  static abstract interface a
+  {
+    public abstract File a(Uri paramUri);
+  }
+  
+  static class b
+    implements FileProvider.a
+  {
+    private final String a;
+    private final HashMap<String, File> b = new HashMap();
+    
+    public b(String paramString)
+    {
+      a = paramString;
+    }
+    
+    public File a(Uri paramUri)
+    {
+      Object localObject2 = paramUri.getEncodedPath();
+      int i = ((String)localObject2).indexOf('/', 1);
+      Object localObject1 = Uri.decode(((String)localObject2).substring(1, i));
+      localObject2 = Uri.decode(((String)localObject2).substring(i + 1));
+      localObject1 = (File)b.get(localObject1);
+      if (localObject1 == null) {
+        throw new IllegalArgumentException("Unable to find configured root for " + paramUri);
+      }
+      paramUri = new File((File)localObject1, (String)localObject2);
+      try
+      {
+        localObject2 = paramUri.getCanonicalFile();
+        if (!((File)localObject2).getPath().startsWith(((File)localObject1).getPath())) {
+          throw new SecurityException("Resolved path jumped beyond configured root");
+        }
+      }
+      catch (IOException localIOException)
+      {
+        throw new IllegalArgumentException("Failed to resolve canonical path for " + paramUri);
+      }
+      return (File)localObject2;
+    }
+    
+    public void a(String paramString, File paramFile)
+    {
+      if (TextUtils.isEmpty(paramString)) {
+        throw new IllegalArgumentException("Name must not be empty");
+      }
+      try
+      {
+        File localFile = paramFile.getCanonicalFile();
+        b.put(paramString, localFile);
+        return;
+      }
+      catch (IOException paramString)
+      {
+        throw new IllegalArgumentException("Failed to resolve canonical path for " + paramFile, paramString);
+      }
+    }
   }
 }
 

@@ -3,56 +3,70 @@ package com.yelp.android.ui.activities.tips;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.ToggleButton;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.PermissionGroup;
+import com.yelp.android.appdata.f;
+import com.yelp.android.appdata.k;
 import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.EditTipRequest;
-import com.yelp.android.appdata.webrequests.PhotoUploadRequestBase;
-import com.yelp.android.appdata.webrequests.SaveTipRequest;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.ShareRequest.ShareType;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.bd;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.c.a;
 import com.yelp.android.serializable.Photo;
 import com.yelp.android.serializable.Tip;
 import com.yelp.android.serializable.Tip.TempTip;
-import com.yelp.android.serializable.TipFeedEntry;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.services.TipUploadService;
+import com.yelp.android.services.job.TipEditJob;
+import com.yelp.android.services.job.TipNewJob;
 import com.yelp.android.ui.activities.ActivityLogin;
+import com.yelp.android.ui.activities.ActivityRetryTipShare;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.util.ImageInputHelper;
 import com.yelp.android.ui.util.ImageInputHelper.ImageSource;
+import com.yelp.android.ui.util.ImageInputHelper.c;
 import com.yelp.android.ui.util.al;
-import com.yelp.android.ui.util.ce;
-import com.yelp.android.ui.util.cp;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.ui.widgets.WebImageView;
 import com.yelp.android.util.ObjectDirtyEvent;
-import com.yelp.android.util.z;
+import com.yelp.android.util.p;
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class WriteTip
   extends YelpActivity
-  implements TextView.OnEditorActionListener, al
+  implements TextView.OnEditorActionListener, ImageInputHelper.c
 {
   protected Bitmap a;
   private EditText b;
@@ -63,60 +77,131 @@ public class WriteTip
   private ImageInputHelper g;
   private boolean h = false;
   private Tip i;
-  private r j;
-  private WriteTip.TipAction k;
+  private a j;
+  private TipAction k;
   private ApiRequest<Void, ?, ?> l;
-  private final View.OnClickListener m = new n(this);
-  private final View.OnClickListener n = new o(this);
+  private String m;
+  private final View.OnClickListener n = new View.OnClickListener()
+  {
+    public void onClick(View paramAnonymousView)
+    {
+      if ((WriteTip.d(WriteTip.this) != null) && (WriteTip.d(WriteTip.this).u())) {
+        return;
+      }
+      showDialog(301);
+    }
+  };
+  private final View.OnClickListener o = new View.OnClickListener()
+  {
+    public void onClick(View paramAnonymousView)
+    {
+      paramAnonymousView = WriteTip.this;
+      AppData.a(EventIri.TipSave, "source", WriteTip.f(WriteTip.this));
+      if ((WriteTip.d(WriteTip.this) != null) && (WriteTip.d(WriteTip.this).u())) {
+        return;
+      }
+      int i = getResources().getInteger(2131492907);
+      Object localObject;
+      if (TextUtils.isEmpty(String.valueOf(WriteTip.e(WriteTip.this).getText()).trim()))
+      {
+        localObject = new Bundle();
+        if (paramAnonymousView.a()) {}
+        for (i = 2131166344;; i = 2131166264)
+        {
+          ((Bundle)localObject).putString("bundle message for dialogs", paramAnonymousView.getString(i));
+          showDialog(300, (Bundle)localObject);
+          return;
+        }
+      }
+      if (WriteTip.e(WriteTip.this).getText().length() > i)
+      {
+        localObject = new Bundle();
+        ((Bundle)localObject).putString("bundle message for dialogs", paramAnonymousView.getString(2131166703, new Object[] { Integer.valueOf(i) }));
+        showDialog(300, (Bundle)localObject);
+        return;
+      }
+      switch (WriteTip.2.a[WriteTip.g(WriteTip.this).ordinal()])
+      {
+      default: 
+        return;
+      case 1: 
+        localObject = p.a(null, WriteTip.h(paramAnonymousView), WriteTip.i(paramAnonymousView));
+        localObject = p.a(paramAnonymousView, AppData.b().q().p(), (List)localObject, ActivityRetryTipShare.class);
+        if (localObject != null)
+        {
+          startActivityForResult((Intent)localObject, 102);
+          return;
+        }
+        break;
+      case 2: 
+        paramAnonymousView.b();
+        return;
+      }
+      paramAnonymousView.b();
+    }
+  };
   
   public static Intent a(Context paramContext, Tip paramTip, String paramString)
   {
     paramContext = new Intent(paramContext, WriteTip.class);
-    paramContext.setAction(WriteTip.TipAction.EDIT.name());
+    paramContext.setAction(TipAction.EDIT.name());
     paramContext.putExtra("tip", paramTip);
-    paramContext.putExtra("business_id", paramString);
+    paramContext.putExtra("extra.business_id", paramString);
     return paramContext;
   }
   
   public static Intent a(Context paramContext, YelpBusiness paramYelpBusiness)
   {
-    return a(paramContext, paramYelpBusiness.getId());
+    return a(paramContext, paramYelpBusiness.aD());
   }
   
   public static Intent a(Context paramContext, String paramString)
   {
     paramContext = new Intent(paramContext, WriteTip.class);
-    paramContext.setAction(WriteTip.TipAction.NEW.name());
-    paramContext.putExtra("business_id", paramString);
+    paramContext.setAction(TipAction.NEW.name());
+    paramContext.putExtra("extra.business_id", paramString);
+    return paramContext;
+  }
+  
+  public static Intent a(Context paramContext, String paramString1, String paramString2)
+  {
+    paramContext = a(paramContext, paramString1);
+    paramContext.putExtra("extra.tip_source", paramString2);
     return paramContext;
   }
   
   private void c()
   {
-    findViewById(2131493245).setVisibility(0);
+    findViewById(2131689903).setVisibility(0);
   }
   
   private void d()
   {
-    d.setImageResource(2130838503);
+    d.setImageResource(2130838901);
     g.a();
   }
   
   public Dialog a(Bundle paramBundle)
   {
     paramBundle = paramBundle.getString("bundle message for dialogs");
-    return new AlertDialog.Builder(this).setIcon(0).setCancelable(false).setTitle(2131165315).setMessage(paramBundle).setPositiveButton(2131165699, new l(this)).create();
+    new AlertDialog.Builder(this).setIcon(0).setCancelable(false).setTitle(2131165438).setMessage(paramBundle).setPositiveButton(2131165776, new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        removeDialog(300);
+      }
+    }).create();
   }
   
   public void a(File paramFile)
   {
     hideLoadingDialog();
-    showInfoDialog(2131165338, 2131165772);
+    showInfoDialog(2131165464, 2131165858);
   }
   
   protected boolean a()
   {
-    if ((i != null) && (i.getPhoto() != null)) {}
+    if ((i != null) && (i.r() != null)) {}
     while (a != null) {
       return true;
     }
@@ -134,69 +219,58 @@ public class WriteTip
   
   public Dialog b(Bundle paramBundle)
   {
-    return new AlertDialog.Builder(this).setMessage(2131166711).setTitle(2131166713).setNegativeButton(17039360, null).setPositiveButton(2131166713, new m(this)).create();
+    new AlertDialog.Builder(this).setMessage(2131166690).setTitle(2131166692).setNegativeButton(17039360, null).setPositiveButton(2131166692, new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        showLoadingDialog(2131166693);
+        WriteTip.a(WriteTip.this, new bd(WriteTip.b(WriteTip.this).a(), WriteTip.c(WriteTip.this)));
+        WriteTip.d(WriteTip.this).f(new Void[0]);
+      }
+    }).create();
   }
   
   public void b()
   {
-    boolean bool4 = false;
-    Object localObject1 = g.e();
-    if (!h) {
-      localObject1 = null;
+    Object localObject = g.e();
+    if (g.d() == ImageInputHelper.ImageSource.CAMERA) {}
+    String str1;
+    Photo localPhoto;
+    String str2;
+    for (boolean bool = true;; bool = false)
+    {
+      if (!h) {
+        localObject = null;
+      }
+      str1 = i.e();
+      localPhoto = i.r();
+      str2 = b.getText().toString();
+      i.a(str2);
+      if (h) {
+        i.a(a);
+      }
+      if ((localObject == null) || (((File)localObject).exists())) {
+        break;
+      }
+      d();
+      showInfoDialog(getText(2131165375));
+      return;
     }
-    String str = i.getText();
-    Photo localPhoto = i.getPhoto();
-    i.setText(b.getText().toString());
-    if (h) {
-      i.setEditedBitmap(a);
+    if (k == TipAction.NEW)
+    {
+      TipNewJob.launchJob(c, i.i(), str2, (File)localObject, f.isChecked(), e.isChecked(), bool);
+      setResult(-1);
+      new ObjectDirtyEvent(i, "com.yelp.android.tips.add").a(this);
     }
     for (;;)
     {
-      try
-      {
-        boolean bool1;
-        boolean bool2;
-        Object localObject2;
-        if (k == WriteTip.TipAction.NEW)
-        {
-          localObject1 = new SaveTipRequest(c, b.getText().toString(), (File)localObject1);
-          bool1 = f.isChecked();
-          bool2 = e.isChecked();
-          setResult(-1);
-          localObject2 = i.getTempId();
-          new ObjectDirtyEvent(i, "com.yelp.android.tips.add").a(this);
-          if (g.d() == ImageInputHelper.ImageSource.CAMERA)
-          {
-            bool3 = true;
-            if (k == WriteTip.TipAction.EDIT) {
-              bool4 = true;
-            }
-            startService(TipUploadService.a(this, (PhotoUploadRequestBase)localObject1, bool3, bool1, bool2, bool4, (String)localObject2, str, localPhoto));
-            finish();
-          }
-        }
-        else
-        {
-          localObject1 = new EditTipRequest(i.getId(), b.getText().toString(), (File)localObject1);
-          localObject2 = new Bundle();
-          ((Bundle)localObject2).putParcelable(TipFeedEntry.CONTENT_KEY, i);
-          Intent localIntent = getIntent();
-          localIntent.putExtra("bundle to be passed", (Bundle)localObject2);
-          setResult(-1, localIntent);
-          localObject2 = i.getId();
-          new ObjectDirtyEvent(i, "com.yelp.android.tips.update").a(this);
-          bool2 = false;
-          bool1 = false;
-          continue;
-        }
-        boolean bool3 = false;
-      }
-      catch (FileNotFoundException localFileNotFoundException)
-      {
-        d();
-        showInfoDialog(getText(2131165239));
-        return;
-      }
+      finish();
+      return;
+      TipEditJob.launchJob(i.a(), str2, (File)localObject, bool, str1, localPhoto);
+      localObject = getIntent();
+      ((Intent)localObject).putExtra("tip_updated", i);
+      setResult(-1, (Intent)localObject);
+      new ObjectDirtyEvent(i, "com.yelp.android.tips.update").a(this);
     }
   }
   
@@ -205,17 +279,17 @@ public class WriteTip
     return ViewIri.WriteTip;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    paramb = new TreeMap();
-    paramb.put("business_id", c);
+    parama = new TreeMap();
+    parama.put("business_id", c);
     if (i != null) {
-      paramb.put("quicktip_id", i.getId());
+      parama.put("quicktip_id", i.a());
     }
-    return paramb;
+    return parama;
   }
   
-  public String getRequestIdForIri(b paramb)
+  public String getRequestIdForIri(a parama)
   {
     return null;
   }
@@ -237,16 +311,23 @@ public class WriteTip
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    if (!getAppData().m().c()) {
-      startActivityForResult(ActivityLogin.a(this, 2131166033), 100);
+    if (!getAppData().q().b()) {
+      startActivityForResult(ActivityLogin.a(this, 2131166093), 100);
     }
-    setContentView(2130903121);
-    findViewById(2131493245).setVisibility(4);
-    b = ((EditText)findViewById(2131493322));
+    m = getIntent().getStringExtra("extra.tip_source");
+    setContentView(2130903130);
+    findViewById(2131689903).setVisibility(4);
+    b = ((EditText)findViewById(2131689978));
     b.setOnEditorActionListener(this);
     b.requestFocus();
-    d = ((WebImageView)findViewById(2131493062));
-    d.setOnClickListener(new h(this));
+    d = ((WebImageView)findViewById(2131689747));
+    d.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        openContextMenu(WriteTip.a(WriteTip.this));
+      }
+    });
     registerForContextMenu(d);
     g = new ImageInputHelper(getAppData().h(), 101);
     d();
@@ -263,17 +344,29 @@ public class WriteTip
       if (a != null) {
         d.setImageBitmap(a);
       }
-      k = WriteTip.TipAction.valueOf(getIntent().getAction());
-      j = new r(this, null);
-      localObject = (TextView)findViewById(2131493321);
-      b.addTextChangedListener(new ce((TextView)localObject, getResources().getInteger(2131558435)));
-      c = getIntent().getStringExtra("business_id");
-      e = ((ToggleButton)findViewById(2131493318));
-      f = ((ToggleButton)findViewById(2131493319));
-      e.setOnCheckedChangeListener(new j(this));
-      f.setOnCheckedChangeListener(new k(this));
-      z.a(AppData.b().m().h(), getPreferences(0), null, f, e);
-      switch (i.a[k.ordinal()])
+      k = TipAction.valueOf(getIntent().getAction());
+      j = new a(null);
+      localObject = (TextView)findViewById(2131689977);
+      b.addTextChangedListener(new al((TextView)localObject, getResources().getInteger(2131492907)));
+      c = getIntent().getStringExtra("extra.business_id");
+      e = ((ToggleButton)findViewById(2131689974));
+      f = ((ToggleButton)findViewById(2131689975));
+      e.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+      {
+        public void onCheckedChanged(CompoundButton paramAnonymousCompoundButton, boolean paramAnonymousBoolean)
+        {
+          p.a(WriteTip.this, ShareRequest.ShareType.TWITTER, paramAnonymousBoolean);
+        }
+      });
+      f.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+      {
+        public void onCheckedChanged(CompoundButton paramAnonymousCompoundButton, boolean paramAnonymousBoolean)
+        {
+          p.a(WriteTip.this, ShareRequest.ShareType.FACEBOOK, paramAnonymousBoolean);
+        }
+      });
+      p.a(this, AppData.b().q().p(), true, null, f, e);
+      switch (2.a[k.ordinal()])
       {
       default: 
         return;
@@ -283,9 +376,9 @@ public class WriteTip
         if (paramBundle != null) {
           b.setText(paramBundle);
         }
-        findViewById(2131493317).setVisibility(0);
-        findViewById(2131493315).setVisibility(8);
-        setTitle(2131166728);
+        findViewById(2131689973).setVisibility(0);
+        findViewById(2131689971).setVisibility(8);
+        setTitle(2131166706);
         return;
       }
       i = ((Tip)getIntent().getExtras().getParcelable("tip"));
@@ -294,18 +387,18 @@ public class WriteTip
       }
       for (;;)
       {
-        if (i.getPhoto() != null)
+        if (i.r() != null)
         {
           c();
-          d.setImageUrl(i.getPhoto().getThumbnailUrl());
+          d.setImageUrl(i.r().f());
         }
-        findViewById(2131493315).setVisibility(0);
-        findViewById(2131493317).setVisibility(8);
-        findViewById(2131493035).setOnClickListener(m);
-        findViewById(2131493316).setOnClickListener(n);
-        setTitle(2131166729);
+        findViewById(2131689971).setVisibility(0);
+        findViewById(2131689973).setVisibility(8);
+        findViewById(2131689698).setOnClickListener(n);
+        findViewById(2131689972).setOnClickListener(o);
+        setTitle(2131166707);
         return;
-        b.setText(i.getText());
+        b.setText(i.e());
       }
     }
   }
@@ -313,21 +406,40 @@ public class WriteTip
   public void onCreateContextMenu(ContextMenu paramContextMenu, View paramView, ContextMenu.ContextMenuInfo paramContextMenuInfo)
   {
     super.onCreateContextMenu(paramContextMenu, paramView, paramContextMenuInfo);
-    if (paramView.getId() == 2131493062)
+    if (paramView.getId() == 2131689747)
     {
-      getMenuInflater().inflate(2131755028, paramContextMenu);
-      paramContextMenu.findItem(2131494154).setVisible(false);
+      getMenuInflater().inflate(2131755032, paramContextMenu);
+      paramContextMenu.findItem(2131691027).setVisible(false);
       if (getAppData().h().a()) {
         break label97;
       }
-      paramContextMenu.findItem(2131494153).setVisible(false);
+      paramContextMenu.findItem(2131691026).setVisible(false);
     }
     for (;;)
     {
-      paramContextMenu.findItem(2131493303).setOnMenuItemClickListener(new q(this));
+      paramContextMenu.findItem(2131689959).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+      {
+        public boolean onMenuItemClick(MenuItem paramAnonymousMenuItem)
+        {
+          WriteTip.j(WriteTip.this).a(WriteTip.this, ImageInputHelper.ImageSource.GALLERY);
+          return true;
+        }
+      });
       return;
       label97:
-      paramContextMenu.findItem(2131494153).setOnMenuItemClickListener(new p(this));
+      paramContextMenu.findItem(2131691026).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+      {
+        public boolean onMenuItemClick(MenuItem paramAnonymousMenuItem)
+        {
+          if (k.a(WriteTip.this, PermissionGroup.CAMERA))
+          {
+            WriteTip.j(WriteTip.this).a(WriteTip.this, ImageInputHelper.ImageSource.CAMERA);
+            return true;
+          }
+          k.a(WriteTip.this, 250, new PermissionGroup[] { PermissionGroup.CAMERA });
+          return true;
+        }
+      });
     }
   }
   
@@ -346,10 +458,10 @@ public class WriteTip
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755019, paramMenu);
-    paramMenu = paramMenu.findItem(2131494141);
-    if (k == WriteTip.TipAction.NEW) {}
-    for (int i1 = 2131166352;; i1 = 2131166791)
+    getMenuInflater().inflate(2131755021, paramMenu);
+    paramMenu = paramMenu.findItem(2131691015);
+    if (k == TipAction.NEW) {}
+    for (int i1 = 2131166375;; i1 = 2131166755)
     {
       paramMenu.setTitle(i1);
       return true;
@@ -358,7 +470,7 @@ public class WriteTip
   
   public boolean onEditorAction(TextView paramTextView, int paramInt, KeyEvent paramKeyEvent)
   {
-    if ((paramInt == 0) && (cp.a(paramKeyEvent)))
+    if ((paramInt == 0) && (ar.a(paramKeyEvent)))
     {
       ((InputMethodManager)getSystemService("input_method")).hideSoftInputFromWindow(paramTextView.getWindowToken(), 0);
       return true;
@@ -368,9 +480,9 @@ public class WriteTip
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494141)
+    if (paramMenuItem.getItemId() == 2131691015)
     {
-      n.onClick(d);
+      o.onClick(d);
       return true;
     }
     return super.onOptionsItemSelected(paramMenuItem);
@@ -384,10 +496,27 @@ public class WriteTip
       removeDialog(300);
       if (l != null)
       {
-        l.cancel(true);
+        l.a(true);
         l = null;
       }
     }
+  }
+  
+  public void onRequestPermissionsResult(int paramInt, String[] paramArrayOfString, int[] paramArrayOfInt)
+  {
+    if (250 == paramInt)
+    {
+      paramArrayOfString = k.a(paramArrayOfString, paramArrayOfInt);
+      if ((paramArrayOfString.containsKey(PermissionGroup.CAMERA)) && (!((Boolean)paramArrayOfString.get(PermissionGroup.CAMERA)).booleanValue())) {
+        as.a(2131166342, 1);
+      }
+      while ((!paramArrayOfString.containsKey(PermissionGroup.CAMERA)) || (!((Boolean)paramArrayOfString.get(PermissionGroup.CAMERA)).booleanValue())) {
+        return;
+      }
+      g.a(this, ImageInputHelper.ImageSource.CAMERA);
+      return;
+    }
+    super.onRequestPermissionsResult(paramInt, paramArrayOfString, paramArrayOfInt);
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
@@ -396,6 +525,44 @@ public class WriteTip
     paramBundle.putParcelable("bitmap", a);
     paramBundle.putBoolean("photo_dirty", h);
     g.a(paramBundle);
+  }
+  
+  private static enum TipAction
+  {
+    EDIT,  NEW;
+    
+    private TipAction() {}
+  }
+  
+  private class a
+    implements c.a
+  {
+    private a() {}
+    
+    private void a(int paramInt)
+    {
+      hideLoadingDialog();
+      as.a(paramInt, 0);
+      finish();
+    }
+    
+    public void a(ApiRequest<?, ?, ?> paramApiRequest, Void paramVoid)
+    {
+      paramApiRequest = getIntent();
+      paramApiRequest.putExtra("tip_deleted", true);
+      setResult(-1, paramApiRequest);
+      a(2131166691);
+      new ObjectDirtyEvent(WriteTip.b(WriteTip.this), "com.yelp.android.tips.delete").a(WriteTip.this);
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+    {
+      hideLoadingDialog();
+      WriteTip.e(WriteTip.this).setEnabled(true);
+      paramApiRequest = new Bundle();
+      paramApiRequest.putString("bundle message for dialogs", paramYelpException.getMessage(WriteTip.this));
+      showDialog(300, paramApiRequest);
+    }
   }
 }
 

@@ -1,25 +1,49 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.YelpBusinessReview;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import android.net.Uri;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.AlertsResponse;
+import com.yelp.android.util.g;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ez
+  extends k<Void, Void, AlertsResponse>
 {
-  public final List<YelpBusinessReview> a;
-  public final Map<Locale, Integer> b;
-  public final Locale c;
-  public final List<Locale> d;
-  public final int e;
+  public ez(k.b<AlertsResponse> paramb) {}
   
-  public ez(List<YelpBusinessReview> paramList, Locale paramLocale, Map<Locale, Integer> paramMap, List<Locale> paramList1, int paramInt)
+  private ez(String paramString, k.b<AlertsResponse> paramb)
   {
-    a = paramList;
-    c = paramLocale;
-    b = paramMap;
-    d = paramList1;
-    e = paramInt;
+    super(ApiRequest.RequestType.GET, paramString, LocationService.Accuracies.COARSE, LocationService.Recentness.DAY, paramb, LocationService.AccuracyUnit.MILES);
+  }
+  
+  public static ez a(String paramString, k.b<AlertsResponse> paramb)
+  {
+    paramString = Uri.parse(paramString);
+    paramb = new ez(paramString.getPath(), paramb);
+    Iterator localIterator = g.a(paramString).iterator();
+    while (localIterator.hasNext())
+    {
+      String str = (String)localIterator.next();
+      paramb.a(str, paramString.getQueryParameter(str));
+    }
+    return paramb;
+  }
+  
+  public AlertsResponse a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return (AlertsResponse)AlertsResponse.CREATOR.parse(paramJSONObject);
+  }
+  
+  public boolean b()
+  {
+    return false;
   }
 }
 

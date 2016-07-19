@@ -58,7 +58,7 @@
     move-result-object v0
 
     .line 55
-    const v1, 0x7f070531
+    const v1, 0x7f07052e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -72,12 +72,12 @@
 
     move-result-object v1
 
-    .line 57
+    .line 58
     new-instance v0, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v0, v1}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 59
+    .line 60
     const/4 v1, 0x0
 
     invoke-virtual {v0}, Landroid/text/SpannableStringBuilder;->length()I
@@ -90,7 +90,7 @@
 
     move-result v1
 
-    .line 60
+    .line 61
     invoke-virtual {v0}, Landroid/text/SpannableStringBuilder;->length()I
 
     move-result v2
@@ -101,17 +101,17 @@
 
     move-result v2
 
-    .line 62
+    .line 63
     invoke-virtual {v0, v1, v2, p1}, Landroid/text/SpannableStringBuilder;->replace(IILjava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
-    .line 63
+    .line 64
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     add-int/2addr v2, v1
 
-    .line 65
+    .line 66
     new-instance v3, Landroid/text/style/ForegroundColorSpan;
 
     const v4, -0xffff01
@@ -122,7 +122,7 @@
 
     invoke-virtual {v0, v3, v1, v2, v4}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
-    .line 69
+    .line 73
     :cond_0
     return-object v0
 .end method
@@ -141,12 +141,12 @@
     move-result-object v0
 
     .line 36
-    const v1, 0x7f030140
+    const v1, 0x7f0301a3
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     .line 37
-    const v0, 0x7f0c0084
+    const v0, 0x7f0f00a9
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/businesssearch/SpellingSuggestPanel;->findViewById(I)Landroid/view/View;
 
@@ -166,7 +166,7 @@
     .locals 1
 
     .prologue
-    .line 73
+    .line 77
     iget-object v0, p0, Lcom/yelp/android/ui/panels/businesssearch/SpellingSuggestPanel;->b:Ljava/lang/String;
 
     return-object v0
@@ -201,11 +201,11 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 82
     iget-object v0, p0, Lcom/yelp/android/ui/panels/businesssearch/SpellingSuggestPanel;->a:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 79
+    .line 83
     return-void
 .end method

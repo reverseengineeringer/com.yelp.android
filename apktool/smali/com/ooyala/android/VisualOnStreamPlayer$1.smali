@@ -6,6 +6,17 @@
 .implements Landroid/os/Handler$Callback;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/VisualOnStreamPlayer;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/ooyala/android/VisualOnStreamPlayer;
 

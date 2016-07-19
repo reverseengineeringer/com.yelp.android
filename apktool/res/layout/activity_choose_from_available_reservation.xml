@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:padding="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<LinearLayout android:orientation="vertical" android:padding="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/LargeText" android:id="@id/informational_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" />
-    <GridView android:gravity="center" android:id="@id/choices" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:horizontalSpacing="?baseGapSize" android:verticalSpacing="?largeGapSize" android:stretchMode="columnWidth" android:numColumns="auto_fit" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/informational_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_large_gap_size" />
+    <GridView android:gravity="center" android:id="@id/choices" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_large_gap_size" android:horizontalSpacing="@dimen/default_base_gap_size" android:verticalSpacing="@dimen/default_large_gap_size" android:stretchMode="columnWidth" android:numColumns="auto_fit" />
     <com.yelp.android.ui.widgets.ReservationAttribution android:layout_gravity="center_horizontal" android:id="@id/attribution" android:layout_width="wrap_content" android:layout_height="wrap_content" />
 </LinearLayout>

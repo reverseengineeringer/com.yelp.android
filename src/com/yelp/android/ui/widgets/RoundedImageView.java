@@ -2,31 +2,30 @@ package com.yelp.android.ui.widgets;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.graphics.Path;
+import android.graphics.Path.Direction;
+import android.graphics.RectF;
+import android.os.Build.VERSION;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.yelp.android.bf.e;
+import com.yelp.android.co.a.d;
 
 public class RoundedImageView
   extends ImageView
 {
   private static int a;
+  private Path b;
+  private RectF c;
   
   public RoundedImageView(Context paramContext)
   {
-    super(paramContext);
-    a();
+    this(paramContext, null);
   }
   
   public RoundedImageView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    super(paramContext, paramAttributeSet, 0);
-    a();
+    this(paramContext, paramAttributeSet, 0);
   }
   
   public RoundedImageView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
@@ -35,69 +34,30 @@ public class RoundedImageView
     a();
   }
   
-  private static Bitmap a(Drawable paramDrawable)
-  {
-    if ((paramDrawable instanceof BitmapDrawable)) {
-      return ((BitmapDrawable)paramDrawable).getBitmap();
-    }
-    int i = paramDrawable.getIntrinsicWidth();
-    int j = paramDrawable.getIntrinsicHeight();
-    if ((i == -1) || (j == -1)) {
-      return null;
-    }
-    Bitmap localBitmap = Bitmap.createBitmap(i, j, Bitmap.Config.ARGB_8888);
-    Canvas localCanvas = new Canvas(localBitmap);
-    paramDrawable.setBounds(0, 0, localCanvas.getWidth(), localCanvas.getHeight());
-    paramDrawable.draw(localCanvas);
-    return localBitmap;
-  }
-  
   private void a()
   {
-    a = (int)getResources().getDimension(e.corner_radius);
+    if ((Build.VERSION.SDK_INT < 18) && (Build.VERSION.SDK_INT >= 11)) {
+      setLayerType(1, null);
+    }
+    b = new Path();
+    c = new RectF(0.0F, 0.0F, getWidth(), getHeight());
+    a = (int)getResources().getDimension(a.d.corner_radius);
   }
   
-  public void setImageBitmap(Bitmap paramBitmap)
+  protected void onDraw(Canvas paramCanvas)
   {
-    if (paramBitmap == null)
-    {
-      super.setImageBitmap(null);
-      return;
-    }
-    super.setImageDrawable(new ai(paramBitmap, a));
+    paramCanvas.save();
+    paramCanvas.clipPath(b);
+    super.onDraw(paramCanvas);
+    paramCanvas.restore();
   }
   
-  public void setImageDrawable(Drawable paramDrawable)
+  protected void onSizeChanged(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    if (paramDrawable == null)
-    {
-      super.setImageDrawable(null);
-      return;
-    }
-    Bitmap localBitmap = a(paramDrawable);
-    if (localBitmap == null)
-    {
-      super.setImageDrawable(paramDrawable);
-      return;
-    }
-    super.setImageDrawable(new ai(localBitmap, a));
-  }
-  
-  public void setImageResource(int paramInt)
-  {
-    Bitmap localBitmap2 = BitmapFactory.decodeResource(getResources(), paramInt);
-    Bitmap localBitmap1 = localBitmap2;
-    if (localBitmap2 == null)
-    {
-      localBitmap2 = a(getResources().getDrawable(paramInt));
-      localBitmap1 = localBitmap2;
-      if (localBitmap2 == null)
-      {
-        super.setImageResource(paramInt);
-        return;
-      }
-    }
-    setImageBitmap(localBitmap1);
+    super.onSizeChanged(paramInt1, paramInt2, paramInt3, paramInt4);
+    c.set(0.0F, 0.0F, paramInt1, paramInt2);
+    b.reset();
+    b.addRoundRect(c, a, a, Path.Direction.CW);
   }
 }
 

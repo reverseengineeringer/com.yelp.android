@@ -1,43 +1,37 @@
 package com.yelp.android.appdata.webrequests;
 
 import android.os.Parcelable;
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.webrequests.core.b;
 import com.yelp.android.serializable.Media;
+import com.yelp.android.serializable.MediaPayload;
 import java.util.List;
 
 public abstract class MediaRequest
-  extends g<Void, Void, dm>
+  extends b<Void, Void, MediaPayload>
   implements Parcelable
 {
-  public static final int MAX_LIMIT = 50;
-  
-  protected MediaRequest(ApiRequest.RequestType paramRequestType, String paramString, m<dm> paramm)
+  protected MediaRequest(ApiRequest.RequestType paramRequestType, String paramString, ApiRequest.b<MediaPayload> paramb)
   {
-    super(paramRequestType, paramString, paramm);
+    super(paramRequestType, paramString, paramb);
   }
   
-  public abstract int countMedia(List<Media> paramList);
+  public abstract int a(List<Media> paramList);
+  
+  public final boolean a(List<Media> paramList, int paramInt)
+  {
+    return (paramList.isEmpty()) || (a(paramList) >= paramInt);
+  }
+  
+  public abstract MediaRequest c(int paramInt);
+  
+  public abstract MediaRequest d(int paramInt);
   
   public final int describeContents()
   {
     return 0;
   }
   
-  public final boolean isAllMediaFetched(List<Media> paramList, int paramInt)
-  {
-    return (paramList.isEmpty()) || (countMedia(paramList) >= paramInt);
-  }
-  
-  public abstract MediaRequest next(int paramInt);
-  
-  public MediaRequest reset()
-  {
-    return resetWithOffset(0);
-  }
-  
-  public abstract MediaRequest resetWithOffset(int paramInt);
-  
-  public abstract MediaRequest retry();
+  public abstract MediaRequest f();
 }
 
 /* Location:

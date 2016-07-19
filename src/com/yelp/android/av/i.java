@@ -1,10 +1,13 @@
 package com.yelp.android.av;
 
-import com.yelp.android.appdata.webrequests.m;
-
-public abstract interface i
-  extends m<Void>
-{}
+class i
+  extends a
+{
+  public i()
+  {
+    super(true);
+  }
+}
 
 /* Location:
  * Qualified Name:     com.yelp.android.av.i

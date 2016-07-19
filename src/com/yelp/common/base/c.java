@@ -1,8 +1,16 @@
 package com.yelp.common.base;
 
-abstract interface c
+import java.lang.ref.WeakReference;
+
+public abstract class c<T>
+  extends WeakReference<T>
+  implements a
 {
-  public abstract Class<?> loadFinalizer();
+  protected c(T paramT, FinalizableReferenceQueue paramFinalizableReferenceQueue)
+  {
+    super(paramT, queue);
+    paramFinalizableReferenceQueue.cleanUp();
+  }
 }
 
 /* Location:

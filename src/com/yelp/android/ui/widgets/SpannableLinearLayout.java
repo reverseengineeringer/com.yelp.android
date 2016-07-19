@@ -81,9 +81,9 @@ public class SpannableLinearLayout
     a.setMiddle(paramBoolean);
   }
   
-  public void setOnCheckedChangeListener(j paramj)
+  public void setOnCheckedChangeListener(c paramc)
   {
-    a.setOnCheckedChangeListener(paramj);
+    a.a(paramc);
     refreshDrawableState();
   }
   

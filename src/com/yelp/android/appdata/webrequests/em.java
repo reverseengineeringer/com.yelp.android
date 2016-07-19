@@ -1,36 +1,41 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Reservation;
-import com.yelp.android.serializable.YelpBusiness;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class em
-  extends g<Void, Void, en>
+  extends c
 {
-  private final Reservation a;
+  private final String a;
+  private final boolean g;
   
-  public em(Reservation paramReservation, YelpBusiness paramYelpBusiness, m<en> paramm)
+  public em(String paramString, boolean paramBoolean)
   {
-    super(ApiRequest.RequestType.POST, "reservation/lock", paramm);
-    addPostParam("size", paramReservation.getPartySize());
-    addPostParam("timestamp", TimeUnit.SECONDS.convert(paramReservation.getDatestamp().getTime(), TimeUnit.MILLISECONDS));
-    addPostParam("business_id", paramYelpBusiness.getId());
-    addPostParam("query_id", paramReservation.getQueryId());
-    addPostParam("time_id", paramReservation.getSelectedTimeId());
-    addPostParam("reservation_provider", paramYelpBusiness.getReservationProviderString());
-    a = paramReservation;
+    this(paramString, paramBoolean, null);
   }
   
-  public en a(JSONObject paramJSONObject)
+  public em(String paramString, boolean paramBoolean, c.a parama)
   {
-    a.setTransactionLockId(paramJSONObject.getString("reservation_lease_id"));
-    String str1 = paramJSONObject.optString("last_name");
-    String str2 = paramJSONObject.optString("phone");
-    paramJSONObject = paramJSONObject.optString("legal_disclaimer");
-    return new en(a, str1, str2, paramJSONObject);
+    super("quicktips/save_feedback", parama);
+    b("quicktip_id", paramString);
+    if (paramBoolean) {}
+    for (parama = "POSITIVE";; parama = "NONE")
+    {
+      b("feedback", parama);
+      a = paramString;
+      g = paramBoolean;
+      return;
+    }
+  }
+  
+  public String b()
+  {
+    return a;
+  }
+  
+  public boolean d()
+  {
+    return g;
   }
 }
 

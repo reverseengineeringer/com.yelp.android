@@ -17,12 +17,18 @@
 
 
 # virtual methods
-.method public abstract a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/t;
+.method public abstract a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/i;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;II)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TZ;>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
         }
     .end annotation
 .end method

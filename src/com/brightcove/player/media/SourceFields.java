@@ -7,6 +7,16 @@ public final class SourceFields
   public static final String DURATION = "videoDuration";
   public static final String URL = "url";
   public static final String VIDEO_CONTAINER = "videoContainer";
+  
+  public final class Containers
+  {
+    public static final String FLV = "FLV";
+    public static final String M2TS = "M2TS";
+    public static final String MP4 = "MP4";
+    public static final String WVM = "WVM";
+    
+    public Containers() {}
+  }
 }
 
 /* Location:

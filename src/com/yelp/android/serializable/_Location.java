@@ -2,27 +2,73 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Location
   implements Parcelable
 {
-  protected String mCity;
-  protected String mCountry;
-  protected String mDisplay;
-  protected double mLatitude;
-  protected double mLongitude;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected double g;
+  protected double h;
   
-  protected _Location() {}
-  
-  protected _Location(String paramString1, String paramString2, String paramString3, double paramDouble1, double paramDouble2)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mDisplay = paramString1;
-    mCountry = paramString2;
-    mCity = paramString3;
-    mLatitude = paramDouble1;
-    mLongitude = paramDouble2;
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = paramParcel.readDouble();
+    h = paramParcel.readDouble();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("display")) {
+      a = paramJSONObject.optString("display");
+    }
+    if (!paramJSONObject.isNull("country")) {
+      b = paramJSONObject.optString("country");
+    }
+    if (!paramJSONObject.isNull("city")) {
+      c = paramJSONObject.optString("city");
+    }
+    if (!paramJSONObject.isNull("address1")) {
+      d = paramJSONObject.optString("address1");
+    }
+    if (!paramJSONObject.isNull("address2")) {
+      e = paramJSONObject.optString("address2");
+    }
+    if (!paramJSONObject.isNull("zip")) {
+      f = paramJSONObject.optString("zip");
+    }
+    g = paramJSONObject.optDouble("latitude");
+    h = paramJSONObject.optDouble("longitude");
+  }
+  
+  public double b()
+  {
+    return h;
+  }
+  
+  public double c()
+  {
+    return g;
+  }
+  
+  public String d()
+  {
+    return f;
   }
   
   public int describeContents()
@@ -30,62 +76,55 @@ abstract class _Location
     return 0;
   }
   
-  public String getCity()
+  public String e()
   {
-    return mCity;
+    return e;
   }
   
-  public String getCountry()
+  public boolean equals(Object paramObject)
   {
-    return mCountry;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Location)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a();
   }
   
-  public String getDisplay()
+  public String f()
   {
-    return mDisplay;
+    return d;
   }
   
-  public double getLatitude()
+  public String g()
   {
-    return mLatitude;
+    return c;
   }
   
-  public double getLongitude()
+  public String h()
   {
-    return mLongitude;
+    return a;
   }
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public int hashCode()
   {
-    if (!paramJSONObject.isNull("display")) {
-      mDisplay = paramJSONObject.optString("display");
-    }
-    if (!paramJSONObject.isNull("country")) {
-      mCountry = paramJSONObject.optString("country");
-    }
-    if (!paramJSONObject.isNull("city")) {
-      mCity = paramJSONObject.optString("city");
-    }
-    mLatitude = paramJSONObject.optDouble("latitude");
-    mLongitude = paramJSONObject.optDouble("longitude");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mDisplay = paramParcel.readString();
-    mCountry = paramParcel.readString();
-    mCity = paramParcel.readString();
-    mLatitude = paramParcel.readDouble();
-    mLongitude = paramParcel.readDouble();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mDisplay);
-    paramParcel.writeString(mCountry);
-    paramParcel.writeString(mCity);
-    paramParcel.writeDouble(mLatitude);
-    paramParcel.writeDouble(mLongitude);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeDouble(g);
+    paramParcel.writeDouble(h);
   }
 }
 

@@ -1,118 +1,130 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.WindowManager;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-@ey
-public class dl
+@fv
+public final class dl
+  extends du.a
 {
-  private final Context mContext;
-  private final WindowManager mR;
-  private final gu mo;
-  int rA = -1;
-  int rB = -1;
-  private int rC;
-  private int rD = -1;
-  private int rE = -1;
-  private int[] rF = new int[2];
-  private final bl rx;
-  DisplayMetrics ry;
-  private float rz;
+  private final Object a = new Object();
+  private dn.a b;
+  private dk c;
   
-  public dl(gu paramgu, Context paramContext, bl parambl)
+  public void a()
   {
-    mo = paramgu;
-    mContext = paramContext;
-    rx = parambl;
-    mR = ((WindowManager)paramContext.getSystemService("window"));
-    bV();
-    bW();
-    bX();
-  }
-  
-  private void bV()
-  {
-    ry = new DisplayMetrics();
-    Display localDisplay = mR.getDefaultDisplay();
-    localDisplay.getMetrics(ry);
-    rz = ry.density;
-    rC = localDisplay.getRotation();
-  }
-  
-  private void bX()
-  {
-    mo.getLocationOnScreen(rF);
-    mo.measure(0, 0);
-    float f = 160.0F / ry.densityDpi;
-    rD = Math.round(mo.getMeasuredWidth() * f);
-    rE = Math.round(f * mo.getMeasuredHeight());
-  }
-  
-  private dk cd()
-  {
-    return new dk.a().l(rx.bo()).k(rx.bp()).m(rx.bt()).n(rx.bq()).o(rx.br()).bU();
-  }
-  
-  void bW()
-  {
-    int i = gi.s(mContext);
-    float f = 160.0F / ry.densityDpi;
-    rA = Math.round(ry.widthPixels * f);
-    rB = Math.round((ry.heightPixels - i) * f);
-  }
-  
-  public void bY()
-  {
-    cb();
-    cc();
-    ca();
-    bZ();
-  }
-  
-  public void bZ()
-  {
-    if (gr.v(2)) {
-      gr.U("Dispatching Ready Event.");
-    }
-    mo.b("onReadyEventReceived", new JSONObject());
-  }
-  
-  public void ca()
-  {
-    try
+    synchronized (a)
     {
-      JSONObject localJSONObject = new JSONObject().put("x", rF[0]).put("y", rF[1]).put("width", rD).put("height", rE);
-      mo.b("onDefaultPositionReceived", localJSONObject);
+      if (c != null) {
+        c.t();
+      }
       return;
     }
-    catch (JSONException localJSONException)
+  }
+  
+  public void a(int paramInt)
+  {
+    for (;;)
     {
-      gr.b("Error occured while dispatching default position.", localJSONException);
+      synchronized (a)
+      {
+        if (b != null)
+        {
+          if (paramInt == 3)
+          {
+            paramInt = 1;
+            b.a(paramInt);
+            b = null;
+          }
+        }
+        else {
+          return;
+        }
+      }
+      paramInt = 2;
     }
   }
   
-  public void cb()
+  public void a(dk paramdk)
   {
-    try
+    synchronized (a)
     {
-      JSONObject localJSONObject = new JSONObject().put("width", rA).put("height", rB).put("density", rz).put("rotation", rC);
-      mo.b("onScreenInfoChanged", localJSONObject);
+      c = paramdk;
       return;
     }
-    catch (JSONException localJSONException)
+  }
+  
+  public void a(dn.a parama)
+  {
+    synchronized (a)
     {
-      gr.b("Error occured while obtaining screen information.", localJSONException);
+      b = parama;
+      return;
     }
   }
   
-  public void cc()
+  public void a(dw paramdw)
   {
-    dk localdk = cd();
-    mo.b("onDeviceFeaturesReceived", localdk.toJson());
+    synchronized (a)
+    {
+      if (b != null)
+      {
+        b.a(0, paramdw);
+        b = null;
+        return;
+      }
+      if (c != null) {
+        c.x();
+      }
+      return;
+    }
+  }
+  
+  public void b()
+  {
+    synchronized (a)
+    {
+      if (c != null) {
+        c.u();
+      }
+      return;
+    }
+  }
+  
+  public void c()
+  {
+    synchronized (a)
+    {
+      if (c != null) {
+        c.v();
+      }
+      return;
+    }
+  }
+  
+  public void d()
+  {
+    synchronized (a)
+    {
+      if (c != null) {
+        c.w();
+      }
+      return;
+    }
+  }
+  
+  public void e()
+  {
+    synchronized (a)
+    {
+      if (b != null)
+      {
+        b.a(0);
+        b = null;
+        return;
+      }
+      if (c != null) {
+        c.x();
+      }
+      return;
+    }
   }
 }
 

@@ -1,19 +1,15 @@
 package com.yelp.common.base;
 
-class b
-  implements c
+import java.lang.ref.SoftReference;
+
+public abstract class b<T>
+  extends SoftReference<T>
+  implements a
 {
-  public Class<?> loadFinalizer()
+  protected b(T paramT, FinalizableReferenceQueue paramFinalizableReferenceQueue)
   {
-    try
-    {
-      Class localClass = Class.forName("com.yelp.common.base.internal.Finalizer");
-      return localClass;
-    }
-    catch (ClassNotFoundException localClassNotFoundException)
-    {
-      throw new AssertionError(localClassNotFoundException);
-    }
+    super(paramT, queue);
+    paramFinalizableReferenceQueue.cleanUp();
   }
 }
 

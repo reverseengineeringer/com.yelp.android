@@ -22,13 +22,17 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.brightcove.player.analytics.Analytics;
 import com.brightcove.player.event.AbstractComponent;
+import com.brightcove.player.event.Default;
 import com.brightcove.player.event.Emits;
+import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
+import com.brightcove.player.event.EventListener;
 import com.brightcove.player.event.ListensFor;
 import com.brightcove.player.media.DeliveryType;
 import com.brightcove.player.model.Source;
 import com.brightcove.player.model.Video;
 import com.brightcove.player.util.ErrorUtil;
+import com.brightcove.player.util.EventUtil;
 import com.brightcove.player.view.BrightcoveClosedCaptioningSurfaceView;
 import com.brightcove.player.view.BrightcoveSurfaceView;
 import java.io.IOException;
@@ -38,6 +42,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -66,23 +71,149 @@ public class VideoDisplayComponent
   private MediaPlayer mediaPlayer;
   protected Source nextSource;
   protected Video nextVideo;
-  MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener = new VideoDisplayComponent.3(this);
-  VideoDisplayComponent.OnCompletedListener onCompletedListener;
-  MediaPlayer.OnCompletionListener onCompletionListener = new VideoDisplayComponent.4(this);
-  MediaPlayer.OnErrorListener onErrorListener = new VideoDisplayComponent.8(this);
-  MediaPlayer.OnInfoListener onInfoListener = new VideoDisplayComponent.9(this);
-  VideoDisplayComponent.OnPauseListener onPauseListener;
-  VideoDisplayComponent.OnPlayListener onPlayListener;
-  VideoDisplayComponent.OnPrebufferNextVideoListener onPrebufferNextVideoListener;
-  MediaPlayer.OnPreparedListener onPreparedListener = new VideoDisplayComponent.6(this);
-  MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = new VideoDisplayComponent.5(this);
-  VideoDisplayComponent.OnSeekListener onSeekListener;
-  VideoDisplayComponent.OnSetSourceListener onSetSourceListener;
-  VideoDisplayComponent.OnSetVolumeListener onSetVolumeListener;
-  VideoDisplayComponent.OnStopListener onStopListener;
-  MediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener = new VideoDisplayComponent.7(this);
-  VideoDisplayComponent.OnWillInterruptContentListener onWillInterruptContentListener;
-  VideoDisplayComponent.OnWillResumeContentListener onWillResumeContentListener;
+  MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener = new MediaPlayer.OnBufferingUpdateListener()
+  {
+    public void onBufferingUpdate(MediaPlayer paramAnonymousMediaPlayer, int paramAnonymousInt)
+    {
+      paramAnonymousMediaPlayer = new HashMap();
+      paramAnonymousMediaPlayer.put("percentComplete", Integer.valueOf(paramAnonymousInt));
+      eventEmitter.emit("bufferedUpdate", paramAnonymousMediaPlayer);
+    }
+  };
+  OnCompletedListener onCompletedListener;
+  MediaPlayer.OnCompletionListener onCompletionListener = new MediaPlayer.OnCompletionListener()
+  {
+    public void onCompletion(MediaPlayer paramAnonymousMediaPlayer)
+    {
+      if (!hasErrored)
+      {
+        HashMap localHashMap = new HashMap();
+        if ((paramAnonymousMediaPlayer != null) && (hasPrepared) && (hasSurface))
+        {
+          localHashMap.put("playheadPosition", Integer.valueOf(paramAnonymousMediaPlayer.getDuration()));
+          localHashMap.put("duration", Integer.valueOf(paramAnonymousMediaPlayer.getDuration()));
+        }
+        localHashMap.put("video", currentVideo);
+        eventEmitter.emit("completed", localHashMap);
+      }
+      if ((currentSource != null) && (currentSource.getDeliveryType() == DeliveryType.HLS)) {
+        destroyPlayer();
+      }
+    }
+  };
+  MediaPlayer.OnErrorListener onErrorListener = new MediaPlayer.OnErrorListener()
+  {
+    public boolean onError(MediaPlayer paramAnonymousMediaPlayer, int paramAnonymousInt1, int paramAnonymousInt2)
+    {
+      switch (paramAnonymousInt1)
+      {
+      default: 
+        VideoDisplayComponent.access$3002(VideoDisplayComponent.this, true);
+        paramAnonymousMediaPlayer = new HashMap();
+        paramAnonymousMediaPlayer.put("video", currentVideo);
+        paramAnonymousMediaPlayer.put("source", currentSource);
+        paramAnonymousMediaPlayer.put("errorCode", Integer.valueOf(paramAnonymousInt1));
+        paramAnonymousMediaPlayer.put("errorExtra", Integer.valueOf(paramAnonymousInt2));
+        paramAnonymousMediaPlayer.put("errorMessage", "MediaPlayer " + ErrorUtil.getMessage("error"));
+        eventEmitter.emit("sourceNotPlayable", paramAnonymousMediaPlayer);
+      }
+      return false;
+    }
+  };
+  MediaPlayer.OnInfoListener onInfoListener = new MediaPlayer.OnInfoListener()
+  {
+    public boolean onInfo(MediaPlayer paramAnonymousMediaPlayer, int paramAnonymousInt1, int paramAnonymousInt2)
+    {
+      switch (paramAnonymousInt1)
+      {
+      default: 
+        Log.i(VideoDisplayComponent.TAG, "unknown MediaPlayer info: what = " + paramAnonymousInt1);
+      }
+      for (;;)
+      {
+        return true;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_UNKNOWN");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_VIDEO_TRACK_LAGGING");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_VIDEO_RENDERING_START");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_BUFFERING_START");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_BUFFERING_END");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_BAD_INTERLEAVING");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_NOT_SEEKABLE");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_METADATA_UPDATE");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_NETWORK_BANDWIDTH");
+        continue;
+        Log.i(VideoDisplayComponent.TAG, "MEDIA_INFO_TIMED_TEXT_ERROR");
+      }
+    }
+  };
+  OnPauseListener onPauseListener;
+  OnPlayListener onPlayListener;
+  OnPrebufferNextVideoListener onPrebufferNextVideoListener;
+  MediaPlayer.OnPreparedListener onPreparedListener = new MediaPlayer.OnPreparedListener()
+  {
+    public void onPrepared(MediaPlayer paramAnonymousMediaPlayer)
+    {
+      if (!hasErrored)
+      {
+        VideoDisplayComponent.access$802(VideoDisplayComponent.this, true);
+        EventUtil.emit(eventEmitter, "didSetSource", currentVideo, currentSource);
+        emitVideoSize(paramAnonymousMediaPlayer.getVideoWidth(), paramAnonymousMediaPlayer.getVideoHeight());
+        HashMap localHashMap = new HashMap();
+        localHashMap.put("video", currentVideo);
+        localHashMap.put("source", currentSource);
+        localHashMap.put("duration", Integer.valueOf(paramAnonymousMediaPlayer.getDuration()));
+        eventEmitter.emit("videoDurationChanged", localHashMap);
+      }
+    }
+  };
+  MediaPlayer.OnSeekCompleteListener onSeekCompleteListener = new MediaPlayer.OnSeekCompleteListener()
+  {
+    public void onSeekComplete(MediaPlayer paramAnonymousMediaPlayer)
+    {
+      Log.v(VideoDisplayComponent.TAG, "onSeekComplete: fromSeekPosition = " + fromSeekPosition + ", seekPosition = " + seekPosition + ", currentPosition = " + paramAnonymousMediaPlayer.getCurrentPosition());
+      if (paramAnonymousMediaPlayer.getCurrentPosition() < seekPosition) {
+        paramAnonymousMediaPlayer.seekTo(seekPosition);
+      }
+      for (;;)
+      {
+        seekPosition = -1;
+        return;
+        if (fromSeekPosition != -1)
+        {
+          HashMap localHashMap = new HashMap();
+          localHashMap.put("playheadPosition", Integer.valueOf(paramAnonymousMediaPlayer.getCurrentPosition()));
+          localHashMap.put("seekPosition", Integer.valueOf(seekPosition));
+          localHashMap.put("fromSeekPosition", Integer.valueOf(fromSeekPosition));
+          localHashMap.put("video", currentVideo);
+          eventEmitter.emit("didSeekTo", localHashMap);
+          VideoDisplayComponent.access$2102(VideoDisplayComponent.this, -1);
+        }
+      }
+    }
+  };
+  OnSeekListener onSeekListener;
+  OnSetSourceListener onSetSourceListener;
+  OnSetVolumeListener onSetVolumeListener;
+  OnStopListener onStopListener;
+  MediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener = new MediaPlayer.OnVideoSizeChangedListener()
+  {
+    public void onVideoSizeChanged(MediaPlayer paramAnonymousMediaPlayer, int paramAnonymousInt1, int paramAnonymousInt2)
+    {
+      if ((paramAnonymousInt1 != 0) && (paramAnonymousInt2 != 0)) {
+        emitVideoSize(paramAnonymousInt1, paramAnonymousInt2);
+      }
+    }
+  };
+  OnWillInterruptContentListener onWillInterruptContentListener;
+  OnWillResumeContentListener onWillResumeContentListener;
   protected int playheadPosition;
   protected int seekPosition;
   protected int seekPositionWhenPrepared;
@@ -286,16 +417,16 @@ public class VideoDisplayComponent
   
   protected void initializeListeners()
   {
-    onSetSourceListener = new VideoDisplayComponent.OnSetSourceListener(this);
-    onPlayListener = new VideoDisplayComponent.OnPlayListener(this, null);
-    onPauseListener = new VideoDisplayComponent.OnPauseListener(this, null);
-    onSeekListener = new VideoDisplayComponent.OnSeekListener(this);
-    onStopListener = new VideoDisplayComponent.OnStopListener(this);
-    onPrebufferNextVideoListener = new VideoDisplayComponent.OnPrebufferNextVideoListener(this, null);
-    onCompletedListener = new VideoDisplayComponent.OnCompletedListener(this, null);
-    onWillInterruptContentListener = new VideoDisplayComponent.OnWillInterruptContentListener(this, null);
-    onWillResumeContentListener = new VideoDisplayComponent.OnWillResumeContentListener(this, null);
-    onSetVolumeListener = new VideoDisplayComponent.OnSetVolumeListener(this, null);
+    onSetSourceListener = new OnSetSourceListener();
+    onPlayListener = new OnPlayListener(null);
+    onPauseListener = new OnPauseListener(null);
+    onSeekListener = new OnSeekListener();
+    onStopListener = new OnStopListener();
+    onPrebufferNextVideoListener = new OnPrebufferNextVideoListener(null);
+    onCompletedListener = new OnCompletedListener(null);
+    onWillInterruptContentListener = new OnWillInterruptContentListener(null);
+    onWillResumeContentListener = new OnWillResumeContentListener(null);
+    onSetVolumeListener = new OnSetVolumeListener(null);
     addListener("setSource", onSetSourceListener);
     addListener("play", onPlayListener);
     addListener("seekTo", onSeekListener);
@@ -308,7 +439,7 @@ public class VideoDisplayComponent
     addListener("setVolume", onSetVolumeListener);
   }
   
-  protected void openVideo(Video paramVideo, Source paramSource)
+  protected void openVideo(final Video paramVideo, final Source paramSource)
   {
     String str = paramSource.getUrl();
     if ((str != null) && (!str.trim().equals("")))
@@ -320,7 +451,13 @@ public class VideoDisplayComponent
         createPlayer(paramVideo, paramSource);
         return;
       }
-      eventEmitter.once("readyToPlay", new VideoDisplayComponent.2(this, paramVideo, paramSource));
+      eventEmitter.once("readyToPlay", new EventListener()
+      {
+        public void processEvent(Event paramAnonymousEvent)
+        {
+          VideoDisplayComponent.this.createPlayer(paramVideo, paramSource);
+        }
+      });
       return;
     }
     throw new IllegalArgumentException(ErrorUtil.getMessage("invalidURL"));
@@ -329,7 +466,45 @@ public class VideoDisplayComponent
   protected void startUpdater()
   {
     Log.v(TAG, "startUpdater");
-    updater = EXECUTOR.scheduleAtFixedRate(new VideoDisplayComponent.1(this), 0L, 500L, TimeUnit.MILLISECONDS);
+    updater = EXECUTOR.scheduleAtFixedRate(new Runnable()
+    {
+      public void run()
+      {
+        try
+        {
+          if ((mediaPlayer != null) && (hasPrepared) && (hasSurface) && (mediaPlayer.isPlaying()) && (mediaPlayer.getCurrentPosition() >= 0))
+          {
+            HashMap localHashMap = new HashMap(4);
+            localHashMap.put("video", currentVideo);
+            playheadPosition = mediaPlayer.getCurrentPosition();
+            localHashMap.put("playheadPosition", Integer.valueOf(playheadPosition));
+            duration = mediaPlayer.getDuration();
+            localHashMap.put("duration", Integer.valueOf(duration));
+            eventEmitter.emit("progress", localHashMap);
+            if ((playheadPosition > 0) && (!hasPlaybackStarted))
+            {
+              localHashMap.put("source", currentSource);
+              eventEmitter.emit("didPlay", localHashMap);
+              VideoDisplayComponent.access$1002(VideoDisplayComponent.this, true);
+            }
+          }
+          return;
+        }
+        catch (IllegalStateException localIllegalStateException)
+        {
+          destroyPlayer();
+          Log.e(VideoDisplayComponent.TAG, "Media player position sampled when it was in an invalid state: " + localIllegalStateException.getMessage(), localIllegalStateException);
+          eventEmitter.emit("error", Collections.singletonMap("error", localIllegalStateException));
+          return;
+        }
+        catch (Exception localException)
+        {
+          destroyPlayer();
+          Log.e(VideoDisplayComponent.TAG, "Error monitoring playback progress" + localException.getMessage(), localException);
+          eventEmitter.emit("error", Collections.singletonMap("error", localException));
+        }
+      }
+    }, 0L, 500L, TimeUnit.MILLISECONDS);
   }
   
   protected void stopUpdater()
@@ -391,6 +566,304 @@ public class VideoDisplayComponent
         } else {
           destroyPlayer();
         }
+      }
+    }
+  }
+  
+  private class OnCompletedListener
+    implements EventListener
+  {
+    private OnCompletedListener() {}
+    
+    @Default
+    public void processEvent(final Event paramEvent)
+    {
+      if (nextSource != null)
+      {
+        paramEvent = UUID.randomUUID();
+        eventEmitter.once("willChangeVideo", new EventListener()
+        {
+          @Default
+          public void processEvent(Event paramAnonymousEvent)
+          {
+            Log.v(VideoDisplayComponent.TAG, "OnCompletedListener: WILL_CHANGE_VIDEO");
+            if (properties.get("uuid").equals(paramEvent))
+            {
+              destroyPlayer();
+              Log.v(VideoDisplayComponent.TAG, "OnCompletedListener: currentSource = " + currentSource + ", nextSource = " + nextSource);
+              currentVideo = nextVideo;
+              nextVideo = null;
+              currentSource = nextSource;
+              nextSource = null;
+              eventEmitter.once("didSetSource", new EventListener()
+              {
+                @Default
+                public void processEvent(Event paramAnonymous2Event)
+                {
+                  eventEmitter.emit("play");
+                }
+              });
+              openVideo(currentVideo, currentSource);
+            }
+          }
+        });
+        HashMap localHashMap = new HashMap();
+        localHashMap.put("currentVideo", currentVideo);
+        localHashMap.put("nextVideo", nextVideo);
+        localHashMap.put("uuid", paramEvent);
+        eventEmitter.emit("willChangeVideo", localHashMap);
+      }
+    }
+  }
+  
+  private class OnPauseListener
+    implements EventListener
+  {
+    private OnPauseListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Log.v(VideoDisplayComponent.TAG, "OnPauseListener");
+      if ((mediaPlayer != null) && (hasPrepared) && (hasSurface) && (mediaPlayer.isPlaying()))
+      {
+        mediaPlayer.pause();
+        paramEvent = new HashMap();
+        paramEvent.put("playheadPosition", Integer.valueOf(mediaPlayer.getCurrentPosition()));
+        eventEmitter.emit("didPause", paramEvent);
+      }
+    }
+  }
+  
+  private class OnPlayListener
+    implements EventListener
+  {
+    private OnPlayListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Log.v(VideoDisplayComponent.TAG, "OnPlayListener: mediaPlayer = " + mediaPlayer + ", hasPrepared = " + hasPrepared + ", hasSurface = " + hasSurface);
+      VideoDisplayComponent.access$1002(VideoDisplayComponent.this, false);
+      if (currentSource != null)
+      {
+        final int i;
+        if (properties.containsKey("playheadPosition")) {
+          i = paramEvent.getIntegerProperty("playheadPosition");
+        }
+        while (mediaPlayer != null) {
+          if (hasPrepared)
+          {
+            if (hasSurface)
+            {
+              if (!mediaPlayer.isPlaying())
+              {
+                VideoDisplayComponent.this.play(i);
+                return;
+                Log.v(VideoDisplayComponent.TAG, "OnPlayListener: playheadPosition = " + playheadPosition);
+                i = playheadPosition;
+              }
+              else
+              {
+                Log.w(VideoDisplayComponent.TAG, "Already playing.");
+              }
+            }
+            else
+            {
+              Log.v(VideoDisplayComponent.TAG, "OnPlayListener: Surface is not available yet.");
+              eventEmitter.once("readyToPlay", new EventListener()
+              {
+                @Default
+                public void processEvent(Event paramAnonymousEvent)
+                {
+                  VideoDisplayComponent.this.play(i);
+                }
+              });
+            }
+          }
+          else
+          {
+            Log.v(VideoDisplayComponent.TAG, "OnPlayListener: MediaPlayer has not been prepared yet.");
+            eventEmitter.once("didSetSource", new EventListener()
+            {
+              @Default
+              public void processEvent(Event paramAnonymousEvent)
+              {
+                VideoDisplayComponent.this.play(i);
+              }
+            });
+            return;
+          }
+        }
+        playheadPosition = 0;
+        Log.v(VideoDisplayComponent.TAG, "OnPlayListener: MediaPlayer was null - creating a new one.");
+        eventEmitter.once("didSetSource", new EventListener()
+        {
+          @Default
+          public void processEvent(Event paramAnonymousEvent)
+          {
+            VideoDisplayComponent.this.play(i);
+          }
+        });
+        openVideo(currentVideo, currentSource);
+        return;
+      }
+      Log.e(VideoDisplayComponent.TAG, "Source has not been set yet.");
+    }
+  }
+  
+  private class OnPrebufferNextVideoListener
+    implements EventListener
+  {
+    private OnPrebufferNextVideoListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      nextVideo = ((Video)properties.get("video"));
+      nextSource = ((Source)properties.get("source"));
+    }
+  }
+  
+  protected class OnSeekListener
+    implements EventListener
+  {
+    protected OnSeekListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Log.v(VideoDisplayComponent.TAG, "OnSeekListener: mediaPlayer = " + mediaPlayer);
+      int i = -1;
+      if (properties.containsKey("seekPosition")) {
+        i = paramEvent.getIntegerProperty("seekPosition");
+      }
+      for (;;)
+      {
+        Log.v(VideoDisplayComponent.TAG, "OnSeekListener: position = " + i);
+        if ((mediaPlayer == null) || (!hasPrepared) || (!hasSurface)) {
+          break;
+        }
+        seekPosition = i;
+        VideoDisplayComponent.access$2102(VideoDisplayComponent.this, playheadPosition);
+        mediaPlayer.seekTo(i);
+        return;
+        Log.e(VideoDisplayComponent.TAG, "Seek event must pass the seekPosition property");
+      }
+      seekPositionWhenPrepared = i;
+    }
+  }
+  
+  protected class OnSetSourceListener
+    implements EventListener
+  {
+    protected OnSetSourceListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Log.v(VideoDisplayComponent.TAG, "OnSetSourceListener");
+      destroyPlayer();
+      currentVideo = ((Video)properties.get("video"));
+      currentSource = ((Source)properties.get("source"));
+      if ((currentSource != null) && (currentSource.getUrl() != null))
+      {
+        if ((currentSource.getDeliveryType() != DeliveryType.HLS) && (currentSource.getDeliveryType() != DeliveryType.WVM)) {
+          openVideo(currentVideo, currentSource);
+        }
+      }
+      else {
+        return;
+      }
+      EventUtil.emit(eventEmitter, "didSetSource", currentVideo, currentSource);
+    }
+  }
+  
+  private class OnSetVolumeListener
+    implements EventListener
+  {
+    private OnSetVolumeListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Log.v(VideoDisplayComponent.TAG, "OnSetVolumeListener: mediaPlayer = " + mediaPlayer);
+      if ((!properties.containsKey("leftVolume")) || (!properties.containsKey("rightVolume")))
+      {
+        Log.e(VideoDisplayComponent.TAG, "SET_VOLUME requires LEFT_VOLUME and RIGHT_VOLUME properties.");
+        return;
+      }
+      float f1 = ((Float)properties.get("leftVolume")).floatValue();
+      float f2 = ((Float)properties.get("rightVolume")).floatValue();
+      Log.v(VideoDisplayComponent.TAG, "OnSetVolumeListener: leftVolume = " + f1 + " rightVolume = " + f2);
+      if ((f1 < 0.0F) || (f1 > 1.0F) || (f2 < 0.0F) || (f2 > 1.0F))
+      {
+        Log.e(VideoDisplayComponent.TAG, "LEFT_VOLUME and RIGHT_VOLUME must be between 0.0f and 1.0f: " + f1 + ", " + f2);
+        return;
+      }
+      mediaPlayer.setVolume(f1, f2);
+    }
+  }
+  
+  protected class OnStopListener
+    implements EventListener
+  {
+    protected OnStopListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Log.v(VideoDisplayComponent.TAG, "OnStopListener");
+      if (mediaPlayer != null)
+      {
+        paramEvent = new HashMap();
+        paramEvent.put("playheadPosition", Integer.valueOf(mediaPlayer.getCurrentPosition()));
+        eventEmitter.emit("didStop", paramEvent);
+      }
+      destroyPlayer();
+    }
+  }
+  
+  private class OnWillInterruptContentListener
+    implements EventListener
+  {
+    private OnWillInterruptContentListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Log.v(VideoDisplayComponent.TAG, "OnWillInterruptContentListener: mediaPlayer = " + mediaPlayer + ", hasPrepared = " + hasPrepared + ", hasSurface = " + hasSurface + ", currentSource = " + currentSource);
+      if ((mediaPlayer != null) && (hasPrepared) && (hasSurface) && (mediaPlayer.isPlaying()))
+      {
+        Log.v(VideoDisplayComponent.TAG, "OnWillInterruptContentListener: isPlaying");
+        if ((currentSource == null) || (currentSource.getDeliveryType() == DeliveryType.HLS)) {
+          break label177;
+        }
+        mediaPlayer.pause();
+      }
+      for (;;)
+      {
+        brightcoveSurfaceView.setVisibility(4);
+        return;
+        label177:
+        destroyPlayer();
+      }
+    }
+  }
+  
+  private class OnWillResumeContentListener
+    implements EventListener
+  {
+    private OnWillResumeContentListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      brightcoveSurfaceView.setVisibility(0);
+      paramEvent = (Event)properties.get("original");
+      Log.v(VideoDisplayComponent.TAG, "OnWillResumeContentListener: originalEvent = " + paramEvent);
+      if (paramEvent != null) {
+        eventEmitter.emit(paramEvent.getType(), properties);
       }
     }
   }

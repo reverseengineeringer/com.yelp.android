@@ -3,6 +3,17 @@
 .source "SourceFields.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/media/SourceFields;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x11
+    name = "Containers"
+.end annotation
+
+
 # static fields
 .field public static final FLV:Ljava/lang/String; = "FLV"
 

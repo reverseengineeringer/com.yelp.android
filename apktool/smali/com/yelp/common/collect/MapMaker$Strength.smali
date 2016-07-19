@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/MapMaker;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x440a
+    name = "Strength"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -99,7 +108,7 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;ILcom/yelp/common/collect/e;)V
+.method synthetic constructor <init>(Ljava/lang/String;ILcom/yelp/common/collect/MapMaker$1;)V
     .locals 0
 
     .prologue
@@ -143,7 +152,7 @@
 
 
 # virtual methods
-.method abstract copyEntry(Ljava/lang/Object;Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+.method abstract copyEntry(Ljava/lang/Object;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -151,11 +160,11 @@
             "V:",
             "Ljava/lang/Object;",
             ">(TK;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;"
         }
     .end annotation
@@ -167,7 +176,7 @@
 .method abstract hash(Ljava/lang/Object;)I
 .end method
 
-.method abstract newEntry(Lcom/yelp/common/collect/c;Ljava/lang/Object;ILcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+.method abstract newEntry(Lcom/yelp/common/collect/CustomConcurrentHashMap$b;Ljava/lang/Object;ILcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -175,19 +184,19 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/yelp/common/collect/c",
+            "Lcom/yelp/common/collect/CustomConcurrentHashMap$b",
             "<TK;TV;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;>;TK;I",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;"
         }
     .end annotation
 .end method
 
-.method abstract referenceValue(Lcom/yelp/common/collect/f;Ljava/lang/Object;)Lcom/yelp/common/collect/g;
+.method abstract referenceValue(Lcom/yelp/common/collect/MapMaker$a;Ljava/lang/Object;)Lcom/yelp/common/collect/MapMaker$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -195,9 +204,9 @@
             "V:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;TV;)",
-            "Lcom/yelp/common/collect/g",
+            "Lcom/yelp/common/collect/MapMaker$b",
             "<TK;TV;>;"
         }
     .end annotation

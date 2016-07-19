@@ -36,13 +36,15 @@
 
 
 # virtual methods
-.method protected b_()Lcom/yelp/android/appdata/webrequests/ApiRequest;
+.method protected d()Lcom/yelp/android/appdata/webrequests/ApiRequest;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<**",
+            "<",
+            "Ljava/lang/Void;",
+            "*",
             "Ljava/util/List",
             "<",
             "Lcom/yelp/android/serializable/YelpCheckIn;",
@@ -52,21 +54,21 @@
 
     .prologue
     .line 58
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/ef;
+    new-instance v1, Lcom/yelp/android/appdata/webrequests/di;
 
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->g()Lcom/yelp/android/serializable/User;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->f()Lcom/yelp/android/serializable/User;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/appdata/webrequests/dc;->a(Lcom/yelp/android/serializable/User;)Z
+    invoke-virtual {v0, v2}, Lcom/yelp/android/appdata/webrequests/co;->a(Lcom/yelp/android/serializable/User;)Z
 
     move-result v0
 
@@ -81,36 +83,20 @@
 
     move-result v2
 
-    invoke-direct {v1, p0, v0, v2}, Lcom/yelp/android/appdata/webrequests/ef;-><init>(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;I)V
+    invoke-direct {v1, p0, v0, v2}, Lcom/yelp/android/appdata/webrequests/di;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Ljava/lang/String;I)V
 
     return-object v1
 
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->g()Lcom/yelp/android/serializable/User;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->f()Lcom/yelp/android/serializable/User;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
-.end method
-
-.method protected f()I
-    .locals 1
-
-    .prologue
-    .line 53
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->g()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getRegularCount()I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public getIri()Lcom/yelp/android/analytics/iris/ViewIri;
@@ -123,7 +109,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -133,6 +119,22 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method protected o_()I
+    .locals 1
+
+    .prologue
+    .line 53
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->f()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->x()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
@@ -147,15 +149,15 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->g()Lcom/yelp/android/serializable/User;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->f()Lcom/yelp/android/serializable/User;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dc;->a(Lcom/yelp/android/serializable/User;)Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/co;->a(Lcom/yelp/android/serializable/User;)Z
 
     move-result v0
 
@@ -168,7 +170,7 @@
     if-eqz v0, :cond_1
 
     .line 38
-    const v0, 0x7f0703cd
+    const v0, 0x7f0703ff
 
     const/4 v1, 0x1
 
@@ -176,11 +178,11 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->g()Lcom/yelp/android/serializable/User;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->f()Lcom/yelp/android/serializable/User;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/User;->getFirstName()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/User;->Z()Ljava/lang/String;
 
     move-result-object v3
 
@@ -198,11 +200,11 @@
 
     .line 33
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->g()Lcom/yelp/android/serializable/User;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->f()Lcom/yelp/android/serializable/User;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v0
 
@@ -210,7 +212,7 @@
 
     .line 40
     :cond_1
-    const v0, 0x7f0702f1
+    const v0, 0x7f070334
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRegularBusinesses;->setTitle(I)V
 

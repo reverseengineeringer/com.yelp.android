@@ -2,86 +2,81 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import com.google.android.gms.common.internal.safeparcel.zza;
+import com.google.android.gms.common.internal.safeparcel.zza.zza;
+import com.google.android.gms.common.internal.safeparcel.zzb;
 import java.util.ArrayList;
 
 public class m
-  implements Parcelable.Creator<PolygonOptions>
+  implements Parcelable.Creator<PolylineOptions>
 {
-  static void a(PolygonOptions paramPolygonOptions, Parcel paramParcel, int paramInt)
+  static void a(PolylineOptions paramPolylineOptions, Parcel paramParcel, int paramInt)
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, paramPolygonOptions.getVersionCode());
-    b.c(paramParcel, 2, paramPolygonOptions.getPoints(), false);
-    b.d(paramParcel, 3, paramPolygonOptions.of(), false);
-    b.a(paramParcel, 4, paramPolygonOptions.getStrokeWidth());
-    b.c(paramParcel, 5, paramPolygonOptions.getStrokeColor());
-    b.c(paramParcel, 6, paramPolygonOptions.getFillColor());
-    b.a(paramParcel, 7, paramPolygonOptions.getZIndex());
-    b.a(paramParcel, 8, paramPolygonOptions.isVisible());
-    b.a(paramParcel, 9, paramPolygonOptions.isGeodesic());
-    b.H(paramParcel, paramInt);
+    paramInt = zzb.zzav(paramParcel);
+    zzb.zzc(paramParcel, 1, paramPolylineOptions.a());
+    zzb.zzc(paramParcel, 2, paramPolylineOptions.b(), false);
+    zzb.zza(paramParcel, 3, paramPolylineOptions.c());
+    zzb.zzc(paramParcel, 4, paramPolylineOptions.d());
+    zzb.zza(paramParcel, 5, paramPolylineOptions.e());
+    zzb.zza(paramParcel, 6, paramPolylineOptions.f());
+    zzb.zza(paramParcel, 7, paramPolylineOptions.g());
+    zzb.zza(paramParcel, 8, paramPolylineOptions.h());
+    zzb.zzI(paramParcel, paramInt);
   }
   
-  public PolygonOptions dg(Parcel paramParcel)
+  public PolylineOptions a(Parcel paramParcel)
   {
     float f1 = 0.0F;
     boolean bool1 = false;
-    int m = a.G(paramParcel);
-    ArrayList localArrayList1 = null;
-    ArrayList localArrayList2 = new ArrayList();
+    int k = zza.zzau(paramParcel);
+    ArrayList localArrayList = null;
     boolean bool2 = false;
+    boolean bool3 = false;
     int i = 0;
-    int j = 0;
     float f2 = 0.0F;
-    int k = 0;
-    while (paramParcel.dataPosition() < m)
+    int j = 0;
+    while (paramParcel.dataPosition() < k)
     {
-      int n = a.F(paramParcel);
-      switch (a.aH(n))
+      int m = zza.zzat(paramParcel);
+      switch (zza.zzca(m))
       {
       default: 
-        a.b(paramParcel, n);
+        zza.zzb(paramParcel, m);
         break;
       case 1: 
-        k = a.g(paramParcel, n);
+        j = zza.zzg(paramParcel, m);
         break;
       case 2: 
-        localArrayList1 = a.c(paramParcel, n, LatLng.CREATOR);
+        localArrayList = zza.zzc(paramParcel, m, LatLng.CREATOR);
         break;
       case 3: 
-        a.a(paramParcel, n, localArrayList2, getClass().getClassLoader());
+        f2 = zza.zzl(paramParcel, m);
         break;
       case 4: 
-        f2 = a.l(paramParcel, n);
+        i = zza.zzg(paramParcel, m);
         break;
       case 5: 
-        j = a.g(paramParcel, n);
+        f1 = zza.zzl(paramParcel, m);
         break;
       case 6: 
-        i = a.g(paramParcel, n);
+        bool3 = zza.zzc(paramParcel, m);
         break;
       case 7: 
-        f1 = a.l(paramParcel, n);
+        bool2 = zza.zzc(paramParcel, m);
         break;
       case 8: 
-        bool2 = a.c(paramParcel, n);
-        break;
-      case 9: 
-        bool1 = a.c(paramParcel, n);
+        bool1 = zza.zzc(paramParcel, m);
       }
     }
-    if (paramParcel.dataPosition() != m) {
-      throw new a.a("Overread allowed size end=" + m, paramParcel);
+    if (paramParcel.dataPosition() != k) {
+      throw new zza.zza("Overread allowed size end=" + k, paramParcel);
     }
-    return new PolygonOptions(k, localArrayList1, localArrayList2, f2, j, i, f1, bool2, bool1);
+    return new PolylineOptions(j, localArrayList, f2, i, f1, bool3, bool2, bool1);
   }
   
-  public PolygonOptions[] fc(int paramInt)
+  public PolylineOptions[] a(int paramInt)
   {
-    return new PolygonOptions[paramInt];
+    return new PolylineOptions[paramInt];
   }
 }
 

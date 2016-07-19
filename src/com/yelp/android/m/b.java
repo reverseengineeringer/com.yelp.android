@@ -1,17 +1,21 @@
 package com.yelp.android.m;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import android.app.Notification.MediaStyle;
+import android.media.session.MediaSession.Token;
+import android.support.v4.app.w;
 
-public abstract interface b
+public class b
 {
-  public abstract void a(a parama);
-  
-  public abstract boolean a(a parama, Menu paramMenu);
-  
-  public abstract boolean a(a parama, MenuItem paramMenuItem);
-  
-  public abstract boolean b(a parama, Menu paramMenu);
+  public static void a(w paramw, int[] paramArrayOfInt, Object paramObject)
+  {
+    paramw = new Notification.MediaStyle(paramw.a());
+    if (paramArrayOfInt != null) {
+      paramw.setShowActionsInCompactView(paramArrayOfInt);
+    }
+    if (paramObject != null) {
+      paramw.setMediaSession((MediaSession.Token)paramObject);
+    }
+  }
 }
 
 /* Location:

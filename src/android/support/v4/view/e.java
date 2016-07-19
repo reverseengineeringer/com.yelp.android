@@ -1,29 +1,65 @@
 package android.support.v4.view;
 
-import android.os.Bundle;
-import android.view.View;
-import com.yelp.android.f.w;
+import android.graphics.Rect;
+import android.os.Build.VERSION;
+import android.view.Gravity;
 
-class e
-  extends b
+public class e
 {
-  public w a(Object paramObject, View paramView)
+  static final a a = new b();
+  
+  static
   {
-    paramObject = k.a(paramObject, paramView);
-    if (paramObject != null) {
-      return new w(paramObject);
+    if (Build.VERSION.SDK_INT >= 17)
+    {
+      a = new c();
+      return;
     }
-    return null;
   }
   
-  public Object a(a parama)
+  public static int a(int paramInt1, int paramInt2)
   {
-    return k.a(new f(this, parama));
+    return a.a(paramInt1, paramInt2);
   }
   
-  public boolean a(Object paramObject, View paramView, int paramInt, Bundle paramBundle)
+  public static void a(int paramInt1, int paramInt2, int paramInt3, Rect paramRect1, Rect paramRect2, int paramInt4)
   {
-    return k.a(paramObject, paramView, paramInt, paramBundle);
+    a.a(paramInt1, paramInt2, paramInt3, paramRect1, paramRect2, paramInt4);
+  }
+  
+  static abstract interface a
+  {
+    public abstract int a(int paramInt1, int paramInt2);
+    
+    public abstract void a(int paramInt1, int paramInt2, int paramInt3, Rect paramRect1, Rect paramRect2, int paramInt4);
+  }
+  
+  static class b
+    implements e.a
+  {
+    public int a(int paramInt1, int paramInt2)
+    {
+      return 0xFF7FFFFF & paramInt1;
+    }
+    
+    public void a(int paramInt1, int paramInt2, int paramInt3, Rect paramRect1, Rect paramRect2, int paramInt4)
+    {
+      Gravity.apply(paramInt1, paramInt2, paramInt3, paramRect1, paramRect2);
+    }
+  }
+  
+  static class c
+    implements e.a
+  {
+    public int a(int paramInt1, int paramInt2)
+    {
+      return f.a(paramInt1, paramInt2);
+    }
+    
+    public void a(int paramInt1, int paramInt2, int paramInt3, Rect paramRect1, Rect paramRect2, int paramInt4)
+    {
+      f.a(paramInt1, paramInt2, paramInt3, paramRect1, paramRect2, paramInt4);
+    }
   }
 }
 

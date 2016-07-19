@@ -1,196 +1,94 @@
-.class public abstract Lcom/google/android/gms/internal/iy;
-.super Ljava/lang/Object;
+.class public Lcom/google/android/gms/internal/iy;
+.super Lcom/google/android/gms/common/internal/zzj;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
+        "Lcom/google/android/gms/common/internal/zzj",
+        "<",
+        "Lcom/google/android/gms/internal/ja;",
+        ">;"
     }
 .end annotation
 
 
-# static fields
-.field private static KO:Lcom/google/android/gms/internal/iy$a;
-
-.field private static final mH:Ljava/lang/Object;
-
-
-# instance fields
-.field protected final KP:Ljava/lang/String;
-
-.field protected final KQ:Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "TT;"
-        }
-    .end annotation
-.end field
-
-.field private KR:Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "TT;"
-        }
-    .end annotation
-.end field
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/common/internal/zzf;Lcom/google/android/gms/common/api/GoogleApiClient$ConnectionCallbacks;Lcom/google/android/gms/common/api/GoogleApiClient$OnConnectionFailedListener;)V
+    .locals 7
 
-    new-instance v0, Ljava/lang/Object;
+    const/16 v3, 0x28
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    move-object v0, p0
 
-    sput-object v0, Lcom/google/android/gms/internal/iy;->mH:Ljava/lang/Object;
+    move-object v1, p1
 
-    const/4 v0, 0x0
+    move-object v2, p2
 
-    sput-object v0, Lcom/google/android/gms/internal/iy;->KO:Lcom/google/android/gms/internal/iy$a;
+    move-object v4, p3
 
-    return-void
-.end method
+    move-object v5, p4
 
-.method protected constructor <init>(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "TT;)V"
-        }
-    .end annotation
+    move-object v6, p5
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/iy;->KR:Ljava/lang/Object;
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/iy;->KP:Ljava/lang/String;
-
-    iput-object p2, p0, Lcom/google/android/gms/internal/iy;->KQ:Ljava/lang/Object;
+    invoke-direct/range {v0 .. v6}, Lcom/google/android/gms/common/internal/zzj;-><init>(Landroid/content/Context;Landroid/os/Looper;ILcom/google/android/gms/common/internal/zzf;Lcom/google/android/gms/common/api/GoogleApiClient$ConnectionCallbacks;Lcom/google/android/gms/common/api/GoogleApiClient$OnConnectionFailedListener;)V
 
     return-void
-.end method
-
-.method public static H(Landroid/content/Context;)V
-    .locals 3
-
-    sget-object v1, Lcom/google/android/gms/internal/iy;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/google/android/gms/internal/iy;->KO:Lcom/google/android/gms/internal/iy$a;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/google/android/gms/internal/iy$b;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    invoke-direct {v0, v2}, Lcom/google/android/gms/internal/iy$b;-><init>(Landroid/content/ContentResolver;)V
-
-    sput-object v0, Lcom/google/android/gms/internal/iy;->KO:Lcom/google/android/gms/internal/iy$a;
-
-    :cond_0
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public static a(Ljava/lang/String;Ljava/lang/Integer;)Lcom/google/android/gms/internal/iy;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
-            ")",
-            "Lcom/google/android/gms/internal/iy",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/google/android/gms/internal/iy$2;
-
-    invoke-direct {v0, p0, p1}, Lcom/google/android/gms/internal/iy$2;-><init>(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    return-object v0
-.end method
-
-.method public static h(Ljava/lang/String;Z)Lcom/google/android/gms/internal/iy;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Z)",
-            "Lcom/google/android/gms/internal/iy",
-            "<",
-            "Ljava/lang/Boolean;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/google/android/gms/internal/iy$1;
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/internal/iy$1;-><init>(Ljava/lang/String;Ljava/lang/Boolean;)V
-
-    return-object v0
-.end method
-
-.method public static l(Ljava/lang/String;Ljava/lang/String;)Lcom/google/android/gms/internal/iy;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ")",
-            "Lcom/google/android/gms/internal/iy",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/google/android/gms/internal/iy$3;
-
-    invoke-direct {v0, p0, p1}, Lcom/google/android/gms/internal/iy$3;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public getKey()Ljava/lang/String;
+.method protected a(Landroid/os/IBinder;)Lcom/google/android/gms/internal/ja;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/iy;->KP:Ljava/lang/String;
+    invoke-static {p1}, Lcom/google/android/gms/internal/ja$a;->a(Landroid/os/IBinder;)Lcom/google/android/gms/internal/ja;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public a(Lcom/google/android/gms/internal/iz;Lcom/google/android/gms/clearcut/LogEventParcelable;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/iy;->zzqJ()Landroid/os/IInterface;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/internal/ja;
+
+    invoke-interface {v0, p1, p2}, Lcom/google/android/gms/internal/ja;->a(Lcom/google/android/gms/internal/iz;Lcom/google/android/gms/clearcut/LogEventParcelable;)V
+
+    return-void
+.end method
+
+.method protected synthetic zzW(Landroid/os/IBinder;)Landroid/os/IInterface;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Lcom/google/android/gms/internal/iy;->a(Landroid/os/IBinder;)Lcom/google/android/gms/internal/ja;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected zzgu()Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "com.google.android.gms.clearcut.service.START"
+
+    return-object v0
+.end method
+
+.method protected zzgv()Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "com.google.android.gms.clearcut.internal.IClearcutLoggerService"
 
     return-object v0
 .end method

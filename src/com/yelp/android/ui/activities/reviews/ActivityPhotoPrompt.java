@@ -3,6 +3,8 @@ package com.yelp.android.ui.activities.reviews;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -10,17 +12,22 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.bumptech.glide.h;
-import com.bumptech.glide.j;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.controllers.UserPhotoUploadController;
+import com.yelp.android.appdata.controllers.UserPhotoUploadController.a;
+import com.yelp.android.ui.activities.media.ActivityMediaContributionDelegate;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.as;
+import com.yelp.android.ui.util.t;
+import com.yelp.android.ui.util.u.a;
 import com.yelp.android.util.YelpLog;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,7 +48,7 @@ public class ActivityPhotoPrompt
   private PhotoPromptType j;
   private File k;
   private boolean l = false;
-  private j m;
+  private t m;
   private boolean n;
   
   public static Intent a(Intent paramIntent, Context paramContext, String paramString, PhotoPromptType paramPhotoPromptType)
@@ -55,17 +62,11 @@ public class ActivityPhotoPrompt
     return paramContext;
   }
   
-  private void a()
-  {
-    e locale = new e(this);
-    i = new AlertDialog.Builder(this).setTitle(2131165373).setMessage(2131166394).setPositiveButton(2131166906, locale).setNegativeButton(2131165457, locale).setCancelable(true).show();
-  }
-  
   private void a(File paramFile)
   {
     k = paramFile;
-    int i1 = (int)getResources().getDimension(2131427540);
-    m.a(k).a(i1, i1).a(b);
+    int i1 = (int)getResources().getDimension(2131362117);
+    m.a(k.getPath()).a(i1, i1).a(b);
   }
   
   private void a(String paramString)
@@ -75,8 +76,16 @@ public class ActivityPhotoPrompt
   
   private void b()
   {
-    View localView = findViewById(2131493238);
-    localView.getViewTreeObserver().addOnGlobalLayoutListener(new f(this, localView));
+    DialogInterface.OnClickListener local3 = new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        if (paramAnonymousInt == -1) {
+          a();
+        }
+      }
+    };
+    i = new AlertDialog.Builder(this).setTitle(2131165500).setMessage(2131166421).setPositiveButton(2131166860, local3).setNegativeButton(2131165583, local3).setCancelable(true).show();
   }
   
   private void b(boolean paramBoolean)
@@ -95,6 +104,19 @@ public class ActivityPhotoPrompt
   
   private void c()
   {
+    final View localView = findViewById(2131689897);
+    localView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener()
+    {
+      public void onGlobalLayout()
+      {
+        localView.setPadding(0, 0, 0, ar.b(getApplicationContext()) / 8);
+        ar.a(localView, this);
+      }
+    });
+  }
+  
+  private void d()
+  {
     b(true);
     try
     {
@@ -103,24 +125,38 @@ public class ActivityPhotoPrompt
     }
     catch (FileNotFoundException localFileNotFoundException)
     {
-      YelpLog.error(this, "Error uploading photo", localFileNotFoundException);
-      cr.a(getAppData().getString(2131165239), 0);
+      YelpLog.remoteError(this, "Error uploading photo", localFileNotFoundException);
+      as.a(getAppData().getString(2131165375), 0);
       k = null;
     }
   }
   
-  private void d()
+  private void e()
   {
     if (l)
     {
-      c.setText(getString(2131166303, new Object[] { getIntent().getStringExtra("user_name") }));
-      d.setText(2131166302);
+      c.setText(getString(2131166337, new Object[] { getIntent().getStringExtra("user_name") }));
+      d.setText(2131166336);
       e.setVisibility(0);
       return;
     }
-    c.setText(2131166681);
-    d.setText(2131166327);
+    c.setText(2131166659);
+    d.setText(2131166346);
     e.setVisibility(8);
+  }
+  
+  public void a()
+  {
+    a.b();
+    Intent localIntent = getIntent();
+    if ((localIntent.hasExtra("next_intent")) && (!n))
+    {
+      localIntent = (Intent)localIntent.getParcelableExtra("next_intent");
+      localIntent.setExtrasClassLoader(getClassLoader());
+      startActivity(localIntent);
+      n = true;
+    }
+    finish();
   }
   
   public void a(boolean paramBoolean)
@@ -130,10 +166,10 @@ public class ActivityPhotoPrompt
     {
       b.setOnClickListener(null);
       l = true;
-      d();
+      e();
       return;
     }
-    showYesNoDialog(2131166549, 2131166464, 2131166592, 2131166549);
+    showYesNoDialog(2131166549, 2131166469, 2131166600, 2131166549);
   }
   
   public void addPhotoButton(View paramView)
@@ -147,19 +183,7 @@ public class ActivityPhotoPrompt
   
   public void doneButton(View paramView)
   {
-    finish();
-  }
-  
-  public void finish()
-  {
-    a.b();
-    Intent localIntent = getIntent();
-    if ((localIntent.hasExtra("next_intent")) && (!n))
-    {
-      startActivity((Intent)localIntent.getParcelableExtra("next_intent"));
-      n = true;
-    }
-    super.finish();
+    a();
   }
   
   public ViewIri getIri()
@@ -167,7 +191,7 @@ public class ActivityPhotoPrompt
     return ViewIri.ProfilePhotoPrompt;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
     return j.getAdditionalParametersForIri();
   }
@@ -186,7 +210,7 @@ public class ActivityPhotoPrompt
       {
         a(new File(paramIntent.getStringExtra("extra_file_path")));
         b(true);
-        c();
+        d();
         return;
       }
     } while (paramInt2 != 0);
@@ -195,24 +219,30 @@ public class ActivityPhotoPrompt
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903099);
+    setContentView(2130903111);
     j = PhotoPromptType.getType(getIntent());
     setTitle(j.getTitleText());
-    b = ((ImageView)findViewById(2131493918));
-    c = ((TextView)findViewById(2131492996));
-    d = ((TextView)findViewById(2131493033));
-    e = findViewById(2131493919);
-    f = findViewById(2131493237);
-    g = findViewById(2131493239);
-    h = findViewById(2131493240);
-    m = h.a(this);
+    b = ((ImageView)findViewById(2131690754));
+    c = ((TextView)findViewById(2131689641));
+    d = ((TextView)findViewById(2131689696));
+    e = findViewById(2131690755);
+    f = findViewById(2131689896);
+    g = findViewById(2131689898);
+    h = findViewById(2131689899);
+    m = t.a(this);
     if (paramBundle == null) {
       a.b();
     }
     for (;;)
     {
-      b.setOnClickListener(new c(this));
-      d();
+      b.setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          startActivityForResult(ActivityMediaContributionDelegate.b(ActivityPhotoPrompt.this), 1062);
+        }
+      });
+      e();
       return;
       String str = paramBundle.getString("image_location");
       if (str != null) {
@@ -238,11 +268,11 @@ public class ActivityPhotoPrompt
     {
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
-    case 2131494148: 
-      a();
+    case 2131691021: 
+      b();
       return true;
     }
-    finish();
+    a();
     return true;
   }
   
@@ -256,19 +286,25 @@ public class ActivityPhotoPrompt
   {
     paramMenu.clear();
     if (l) {
-      getMenuInflater().inflate(2131755019, paramMenu);
+      getMenuInflater().inflate(2131755021, paramMenu);
     }
     for (;;)
     {
       return true;
-      getMenuInflater().inflate(2131755040, paramMenu);
+      getMenuInflater().inflate(2131755045, paramMenu);
     }
   }
   
   protected void onResume()
   {
-    b();
-    a.a(new d(this));
+    c();
+    a.a(new UserPhotoUploadController.a()
+    {
+      public void a(boolean paramAnonymousBoolean)
+      {
+        ActivityPhotoPrompt.this.a(paramAnonymousBoolean);
+      }
+    });
     b(a.a());
     super.onResume();
   }
@@ -286,10 +322,10 @@ public class ActivityPhotoPrompt
   {
     if (paramBoolean)
     {
-      c();
+      d();
       return;
     }
-    finish();
+    a();
   }
 }
 

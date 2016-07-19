@@ -1,41 +1,8 @@
-.class Landroid/support/v4/view/ab;
+.class public interface abstract Landroid/support/v4/view/ab;
 .super Ljava/lang/Object;
-.source "KeyEventCompatHoneycomb.java"
+.source "OnApplyWindowInsetsListener.java"
 
 
-# direct methods
-.method public static a(I)I
-    .locals 1
-
-    .prologue
-    .line 26
-    invoke-static {p0}, Landroid/view/KeyEvent;->normalizeMetaState(I)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static a(II)Z
-    .locals 1
-
-    .prologue
-    .line 30
-    invoke-static {p0, p1}, Landroid/view/KeyEvent;->metaStateHasModifiers(II)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static b(I)Z
-    .locals 1
-
-    .prologue
-    .line 34
-    invoke-static {p0}, Landroid/view/KeyEvent;->metaStateHasNoModifiers(I)Z
-
-    move-result v0
-
-    return v0
+# virtual methods
+.method public abstract a(Landroid/view/View;Landroid/support/v4/view/bg;)Landroid/support/v4/view/bg;
 .end method

@@ -2,27 +2,27 @@ package com.yelp.android.ui.activities.talk;
 
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.gb;
-import com.yelp.android.appdata.webrequests.gc;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.es;
+import com.yelp.android.appdata.webrequests.es.a;
 
 public class MyTalkTab
-  extends TalkTopicList<gc>
+  extends TalkTopicList<es.a>
 {
-  m<gc> a = new o(this);
+  ApiRequest.b<es.a> a = new MyTalkTab.1(this);
   
-  protected boolean e()
+  protected boolean f()
   {
-    if (!AppData.b().m().e()) {
+    if (!AppData.b().q().d()) {
       return false;
     }
-    b = new gb(p(), a);
-    ((gb)b).execute(new Void[0]);
+    b = new es(p(), a);
+    ((es)b).f(new Void[0]);
     return true;
   }
   
-  protected m<gc> f()
+  protected ApiRequest.b<es.a> g()
   {
     return a;
   }
@@ -36,9 +36,9 @@ public class MyTalkTab
   public void onResume()
   {
     super.onResume();
-    b = a("request_my_talk_topics", b, f());
-    if (((b == null) || (!b.isFetching())) && (AppData.b().m().e())) {
-      a_();
+    b = a("request_my_talk_topics", b, g());
+    if (((b == null) || (!b.u())) && (AppData.b().q().d())) {
+      p_();
     }
   }
 }

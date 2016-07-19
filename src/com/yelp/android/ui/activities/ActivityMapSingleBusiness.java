@@ -9,19 +9,23 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CameraPosition.Builder;
+import com.google.android.gms.maps.model.CameraPosition.a;
 import com.google.android.gms.maps.model.LatLng;
 import com.yelp.android.analytics.g;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.BaseYelpApplication;
-import com.yelp.android.av.a;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.support.YelpMapActivity;
 import com.yelp.android.ui.map.YelpMap;
-import com.yelp.android.ui.map.f;
-import com.yelp.android.ui.util.cp;
+import com.yelp.android.ui.map.b;
+import com.yelp.android.ui.map.e.a;
+import com.yelp.android.ui.map.m;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.util.k;
 import java.util.Collections;
 import java.util.Map;
 
@@ -30,7 +34,15 @@ public class ActivityMapSingleBusiness
 {
   private YelpMap<YelpBusiness> a;
   private YelpBusiness b;
-  private final f<YelpBusiness> c = new cq(this);
+  private final e.a<YelpBusiness> c = new e.a()
+  {
+    public void a(YelpBusiness paramAnonymousYelpBusiness) {}
+    
+    public void b(YelpBusiness paramAnonymousYelpBusiness)
+    {
+      finish();
+    }
+  };
   
   public static Intent a(Context paramContext, YelpBusiness paramYelpBusiness)
   {
@@ -39,32 +51,48 @@ public class ActivityMapSingleBusiness
     return paramContext;
   }
   
+  private void a(MenuItem paramMenuItem)
+  {
+    int i = 1;
+    if (!paramMenuItem.isChecked()) {}
+    for (boolean bool = true;; bool = false)
+    {
+      paramMenuItem.setChecked(bool);
+      YelpMap localYelpMap = a;
+      if (paramMenuItem.isChecked()) {
+        i = 4;
+      }
+      localYelpMap.setMapMode(i);
+      return;
+    }
+  }
+  
   private void b()
   {
     if (b != null)
     {
-      getAppData().k().a(new g(EventIri.DirectionsToBusiness, b.getYelpRequestId(), b.getId()));
-      com.yelp.android.util.r.a(this, b);
+      getAppData().k().a(new g(EventIri.DirectionsToBusiness, b.n(), b.aD()));
+      k.a(this, b);
     }
   }
   
   private void c()
   {
     Object localObject = b;
-    String str = ((YelpBusiness)localObject).getAddressForDrivingDirections();
+    String str = ((YelpBusiness)localObject).j();
     try
     {
       Intent localIntent = new Intent("android.intent.action.VIEW");
       if ((str == null) || (str.length() == 0))
       {
         BaseYelpApplication.a("ActivityMapSingleBusiness", "Address invalid for business, using geo location.", new Object[0]);
-        localIntent.setData(Uri.parse("geo:" + ((YelpBusiness)localObject).getLatitude() + "," + ((YelpBusiness)localObject).getLongitude() + "?z=" + 16));
+        localIntent.setData(Uri.parse("geo:" + ((YelpBusiness)localObject).R() + "," + ((YelpBusiness)localObject).Q() + "?z=" + 16));
       }
       for (;;)
       {
         startActivity(localIntent);
         return;
-        localObject = "geo:" + ((YelpBusiness)localObject).getLatitude() + "," + ((YelpBusiness)localObject).getLongitude() + "?q=" + str + "&z=" + 16;
+        localObject = "geo:" + ((YelpBusiness)localObject).R() + "," + ((YelpBusiness)localObject).Q() + "?q=" + str + "&z=" + 16;
         localIntent.setData(Uri.parse((String)localObject));
         BaseYelpApplication.a("ActivityMapSingleBusiness", "Using address for business with geo location: [%s], uri follows.\n%s", new Object[] { str, localObject });
       }
@@ -73,14 +101,14 @@ public class ActivityMapSingleBusiness
     catch (Exception localException)
     {
       Log.e("ActivityMapSingleBusiness", "Error launching google maps intent: " + localException.toString(), localException);
-      cp.a(this, "Google Maps", "There was a problem launching Google Maps.");
+      ar.a(this, "Google Maps", "There was a problem launching Google Maps.");
     }
   }
   
   public void a()
   {
     a.setInfoWindowListener(c);
-    a.a(Collections.singletonList(b), new com.yelp.android.ui.map.r(b.getAssetForMap()));
+    a.a(Collections.singletonList(b), new m(b.B()));
   }
   
   public ViewIri getIri()
@@ -88,14 +116,14 @@ public class ActivityMapSingleBusiness
     return ViewIri.Map;
   }
   
-  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    return g.b(b.getId());
+    return g.b(b.aD());
   }
   
-  public String getRequestIdForIri(com.yelp.android.analytics.iris.b paramb)
+  public String getRequestIdForIri(a parama)
   {
-    return b.getYelpRequestId();
+    return b.n();
   }
   
   public void onCreate(Bundle paramBundle)
@@ -107,18 +135,18 @@ public class ActivityMapSingleBusiness
       Log.w("ActivityMapSingleBusiness", "Business could not be recovered from disk.");
       finish();
     }
-    setTitle(b.getDisplayName());
-    setContentView(2130903095);
-    CameraPosition localCameraPosition = new CameraPosition.Builder().target(new LatLng(b.getLatitude(), b.getLongitude())).zoom(16.0F).build();
-    a = ((YelpMap)findViewById(2131493221));
-    a.setOptions(YelpMap.a(this, localCameraPosition));
-    a.a(paramBundle, new com.yelp.android.ui.map.b(this));
+    setTitle(b.z());
+    setContentView(2130903108);
+    CameraPosition localCameraPosition = new CameraPosition.a().a(new LatLng(b.R(), b.Q())).a(16.0F).a();
+    a = ((YelpMap)findViewById(2131689889));
+    a.setOptions(YelpMap.b(localCameraPosition));
+    a.a(paramBundle, new b(this));
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755026, paramMenu);
+    getMenuInflater().inflate(2131755030, paramMenu);
     return true;
   }
   
@@ -128,13 +156,15 @@ public class ActivityMapSingleBusiness
     {
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
-    case 2131493617: 
+    case 2131690351: 
       c();
     }
     for (;;)
     {
       return true;
       b();
+      continue;
+      a(paramMenuItem);
     }
   }
 }

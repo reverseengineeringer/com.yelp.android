@@ -3,6 +3,13 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/ads/mediation/MediationServerParameters$MappingException;,
+        Lcom/google/ads/mediation/MediationServerParameters$a;
+    }
+.end annotation
+
 .annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
@@ -24,7 +31,7 @@
     return-void
 .end method
 
-.method public load(Ljava/util/Map;)V
+.method public a(Ljava/util/Map;)V
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -34,6 +41,12 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/ads/mediation/MediationServerParameters$MappingException;
         }
     .end annotation
 
@@ -60,17 +73,17 @@
 
     aget-object v5, v3, v1
 
-    const-class v0, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    const-class v0, Lcom/google/ads/mediation/MediationServerParameters$a;
 
     invoke-virtual {v5, v0}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    check-cast v0, Lcom/google/ads/mediation/MediationServerParameters$a;
 
     if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Lcom/google/ads/mediation/MediationServerParameters$Parameter;->name()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/google/ads/mediation/MediationServerParameters$a;->a()Ljava/lang/String;
 
     move-result-object v0
 
@@ -92,7 +105,7 @@
 
     const-string/jumbo v0, "No server options fields detected. To suppress this message either add a field with the @Parameter annotation, or override the load() method."
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     :cond_2
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -175,7 +188,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -212,7 +225,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -263,7 +276,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->S(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->a(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -294,15 +307,15 @@
 
     check-cast v0, Ljava/lang/reflect/Field;
 
-    const-class v1, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    const-class v1, Lcom/google/ads/mediation/MediationServerParameters$a;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    check-cast v1, Lcom/google/ads/mediation/MediationServerParameters$a;
 
-    invoke-interface {v1}, Lcom/google/ads/mediation/MediationServerParameters$Parameter;->required()Z
+    invoke-interface {v1}, Lcom/google/ads/mediation/MediationServerParameters$a;->b()Z
 
     move-result v1
 
@@ -318,15 +331,15 @@
 
     move-result-object v4
 
-    const-class v1, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    const-class v1, Lcom/google/ads/mediation/MediationServerParameters$a;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v1
 
-    check-cast v1, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    check-cast v1, Lcom/google/ads/mediation/MediationServerParameters$a;
 
-    invoke-interface {v1}, Lcom/google/ads/mediation/MediationServerParameters$Parameter;->name()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/google/ads/mediation/MediationServerParameters$a;->a()Ljava/lang/String;
 
     move-result-object v1
 
@@ -338,7 +351,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->length()I
 
@@ -351,15 +364,15 @@
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_6
-    const-class v1, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    const-class v1, Lcom/google/ads/mediation/MediationServerParameters$a;
 
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->getAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/ads/mediation/MediationServerParameters$Parameter;
+    check-cast v0, Lcom/google/ads/mediation/MediationServerParameters$a;
 
-    invoke-interface {v0}, Lcom/google/ads/mediation/MediationServerParameters$Parameter;->name()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/google/ads/mediation/MediationServerParameters$a;->a()Ljava/lang/String;
 
     move-result-object v0
 

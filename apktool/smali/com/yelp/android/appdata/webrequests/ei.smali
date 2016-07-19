@@ -1,115 +1,36 @@
 .class public Lcom/yelp/android/appdata/webrequests/ei;
-.super Lcom/yelp/android/appdata/webrequests/ek;
-.source "RequestStore.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<Request:",
-        "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-        "<**TResult;>;Result:",
-        "Ljava/lang/Object;",
-        ">",
-        "Lcom/yelp/android/appdata/webrequests/ek",
-        "<TRequest;TResult;",
-        "Lcom/yelp/android/appdata/webrequests/m",
-        "<TResult;>;>;"
-    }
-.end annotation
-
-
-# instance fields
-.field private final e:Lcom/yelp/android/appdata/webrequests/m;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<TResult;>;"
-        }
-    .end annotation
-.end field
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "SaveBizPhotoVoteRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+.method public constructor <init>(Lcom/yelp/android/serializable/Media;)V
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TRequest;)V"
-        }
-    .end annotation
 
     .prologue
-    .line 16
-    invoke-direct {p0, p1}, Lcom/yelp/android/appdata/webrequests/ek;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    .line 12
+    const-string/jumbo v0, "/business/photos/save_vote"
 
-    .line 35
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ej;
+    const/4 v1, 0x0
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/webrequests/ej;-><init>(Lcom/yelp/android/appdata/webrequests/ei;)V
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->e:Lcom/yelp/android/appdata/webrequests/m;
+    .line 13
+    const-string/jumbo v0, "photo_id"
 
-    .line 17
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-interface {p1}, Lcom/yelp/android/serializable/Media;->a()Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/ei;->e:Lcom/yelp/android/appdata/webrequests/m;
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/ei;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 18
+    .line 14
+    const-string/jumbo v0, "vote"
+
+    const-string/jumbo v1, "not_helpful"
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/ei;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 15
     return-void
-.end method
-
-
-# virtual methods
-.method public a(Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<TResult;>;)TRequest;"
-        }
-    .end annotation
-
-    .prologue
-    .line 26
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
-
-    .line 27
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->c:Z
-
-    if-eqz v0, :cond_1
-
-    .line 28
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/ei;->b:Ljava/lang/Object;
-
-    invoke-interface {p1, v0, v1}, Lcom/yelp/android/appdata/webrequests/m;->onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
-
-    .line 32
-    :cond_0
-    :goto_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    return-object v0
-
-    .line 29
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->d:Lcom/yelp/android/appdata/webrequests/YelpException;
-
-    if-eqz v0, :cond_0
-
-    .line 30
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ei;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/ei;->d:Lcom/yelp/android/appdata/webrequests/YelpException;
-
-    invoke-interface {p1, v0, v1}, Lcom/yelp/android/appdata/webrequests/m;->onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-
-    goto :goto_0
 .end method

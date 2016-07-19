@@ -1,28 +1,31 @@
 package com.yelp.android.ac;
 
-import com.bumptech.glide.load.d;
-import com.bumptech.glide.load.engine.t;
-import com.yelp.android.v.h;
+import android.content.Context;
+import android.net.Uri;
+import com.yelp.android.aa.c;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.aa.p;
 import java.io.InputStream;
 
 public class g
-  implements d<InputStream, a>
+  extends p<InputStream>
+  implements e<String>
 {
-  private final d<h, a> a;
-  
-  public g(d<h, a> paramd)
+  public g(l<Uri, InputStream> paraml)
   {
-    a = paramd;
+    super(paraml);
   }
   
-  public t<a> a(InputStream paramInputStream, int paramInt1, int paramInt2)
+  public static class a
+    implements m<String, InputStream>
   {
-    return a.a(new h(paramInputStream, null), paramInt1, paramInt2);
-  }
-  
-  public String a()
-  {
-    return a.a();
+    public l<String, InputStream> a(Context paramContext, c paramc)
+    {
+      return new g(paramc.a(Uri.class, InputStream.class));
+    }
+    
+    public void a() {}
   }
 }
 

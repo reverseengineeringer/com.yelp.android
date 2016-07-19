@@ -5,10 +5,14 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.text.TextUtils;
-import com.yelp.android.bf.j;
+import com.yelp.android.co.a.i;
+import com.yelp.android.co.a.j;
 import com.yelp.android.util.YelpLog;
+import java.util.Comparator;
 import java.util.Currency;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeMap;
@@ -17,7 +21,7 @@ import java.util.TreeSet;
 public class LocaleSettings
 {
   public static final TreeSet<String> a = new TreeSet(String.CASE_INSENSITIVE_ORDER);
-  public static final TreeSet<Locale> b;
+  public static final List<Locale> b;
   public static final Locale[] c;
   public static final Locale[] d;
   public static final Locale[] e;
@@ -26,10 +30,11 @@ public class LocaleSettings
   public static final Locale[] h;
   public static final Locale[] i;
   public static final TreeMap<String, Currency> j;
-  public static final Locale[] k = { new Locale("", "HK"), new Locale("", "TW") };
-  private SharedPreferences l;
-  private Locale m;
-  private String n;
+  public static final Locale[] k = new Locale[0];
+  public static final Locale[] l = { Locale.JAPAN, Locale.TAIWAN, new Locale("", "ES") };
+  private SharedPreferences m;
+  private Locale n;
+  private String o;
   
   static
   {
@@ -65,7 +70,7 @@ public class LocaleSettings
     a.add("TW");
     a.add("MY");
     a.add("PH");
-    b = new TreeSet(new z());
+    b = new LinkedList();
     b.add(Locale.CANADA);
     b.add(Locale.ENGLISH);
     b.add(Locale.FRENCH);
@@ -148,10 +153,10 @@ public class LocaleSettings
   
   private SharedPreferences c(Context paramContext)
   {
-    if (l == null) {
-      l = paramContext.getSharedPreferences("yelp.android.locale", 0);
+    if (m == null) {
+      m = paramContext.getSharedPreferences("yelp.android.locale", 0);
     }
-    return l;
+    return m;
   }
   
   public static final Locale c(Locale paramLocale)
@@ -184,28 +189,6 @@ public class LocaleSettings
   public static boolean d(String paramString)
   {
     boolean bool2 = false;
-    Locale[] arrayOfLocale = k;
-    int i2 = arrayOfLocale.length;
-    int i1 = 0;
-    for (;;)
-    {
-      boolean bool1 = bool2;
-      if (i1 < i2)
-      {
-        if (paramString.equals(arrayOfLocale[i1].getCountry())) {
-          bool1 = true;
-        }
-      }
-      else {
-        return bool1;
-      }
-      i1 += 1;
-    }
-  }
-  
-  public static boolean e(String paramString)
-  {
-    boolean bool2 = false;
     Locale[] arrayOfLocale = g;
     int i2 = arrayOfLocale.length;
     int i1 = 0;
@@ -225,7 +208,7 @@ public class LocaleSettings
     }
   }
   
-  public static boolean f(String paramString)
+  public static boolean e(String paramString)
   {
     boolean bool2 = false;
     Locale[] arrayOfLocale = h;
@@ -247,7 +230,44 @@ public class LocaleSettings
     }
   }
   
-  private boolean l()
+  public static boolean f(String paramString)
+  {
+    boolean bool2 = false;
+    Locale[] arrayOfLocale = l;
+    int i2 = arrayOfLocale.length;
+    int i1 = 0;
+    for (;;)
+    {
+      boolean bool1 = bool2;
+      if (i1 < i2)
+      {
+        if (arrayOfLocale[i1].getCountry().equalsIgnoreCase(paramString)) {
+          bool1 = true;
+        }
+      }
+      else {
+        return bool1;
+      }
+      i1 += 1;
+    }
+  }
+  
+  public static boolean g(String paramString)
+  {
+    Locale[] arrayOfLocale = k;
+    int i2 = arrayOfLocale.length;
+    int i1 = 0;
+    while (i1 < i2)
+    {
+      if (arrayOfLocale[i1].getLanguage().equalsIgnoreCase(paramString)) {
+        return false;
+      }
+      i1 += 1;
+    }
+    return true;
+  }
+  
+  private boolean m()
   {
     Locale[] arrayOfLocale = c;
     int i2 = arrayOfLocale.length;
@@ -255,7 +275,7 @@ public class LocaleSettings
     while (i1 < i2)
     {
       Locale localLocale = arrayOfLocale[i1];
-      if ((m.equals(localLocale)) || (localLocale.getCountry().equalsIgnoreCase(m.getCountry()))) {
+      if ((n.equals(localLocale)) || (localLocale.getCountry().equalsIgnoreCase(n.getCountry()))) {
         return false;
       }
       i1 += 1;
@@ -265,7 +285,7 @@ public class LocaleSettings
   
   public String a()
   {
-    return d(c(m));
+    return d(c(n));
   }
   
   public String a(int paramInt)
@@ -286,7 +306,7 @@ public class LocaleSettings
     if (paramInt == 0) {
       return "";
     }
-    return paramContext.getResources().getQuantityString(j.dollar_signs, paramInt, new Object[] { Integer.valueOf(paramInt), n });
+    return paramContext.getResources().getQuantityString(a.i.dollar_signs, paramInt, new Object[] { Integer.valueOf(paramInt), o });
   }
   
   public String a(Context paramContext, int paramInt, String paramString)
@@ -297,19 +317,19 @@ public class LocaleSettings
     if (paramString != null)
     {
       paramString = new Locale(Locale.getDefault().getDisplayLanguage(), paramString);
-      return paramContext.getResources().getQuantityString(j.dollar_signs, paramInt, new Object[] { Integer.valueOf(paramInt), b(paramString) });
+      return paramContext.getResources().getQuantityString(a.i.dollar_signs, paramInt, new Object[] { Integer.valueOf(paramInt), b(paramString) });
     }
     return a(paramContext, paramInt);
   }
   
-  public void a(LocaleSettings.DISTANCE_UNIT paramDISTANCE_UNIT, Context paramContext)
+  public void a(DISTANCE_UNIT paramDISTANCE_UNIT, Context paramContext)
   {
     c(paramContext).edit().putInt("distance_unit", paramDISTANCE_UNIT.ordinal()).apply();
   }
   
   public void a(Locale paramLocale)
   {
-    m = Locale.US;
+    n = Locale.US;
     Locale localLocale = paramLocale;
     if (paramLocale == null) {
       localLocale = Locale.getDefault();
@@ -317,28 +337,28 @@ public class LocaleSettings
     if (a.contains(localLocale.getCountry()))
     {
       YelpLog.i(this, "Valid locale:" + localLocale);
-      m = localLocale;
+      n = localLocale;
     }
-    n = b(localLocale);
+    o = b(localLocale);
   }
   
   public boolean a(Context paramContext)
   {
-    switch (x.a[b(paramContext).ordinal()])
+    switch (1.a[b(paramContext).ordinal()])
     {
     default: 
-      return l();
+      return m();
     case 1: 
       return true;
     }
     return false;
   }
   
-  public LocaleSettings.DISTANCE_UNIT b(Context paramContext)
+  public DISTANCE_UNIT b(Context paramContext)
   {
-    int i1 = LocaleSettings.DISTANCE_UNIT.AUTOMATIC.ordinal();
+    int i1 = DISTANCE_UNIT.AUTOMATIC.ordinal();
     i1 = c(paramContext).getInt("distance_unit", i1);
-    return LocaleSettings.DISTANCE_UNIT.values()[i1];
+    return DISTANCE_UNIT.values()[i1];
   }
   
   public String b(Locale paramLocale)
@@ -398,7 +418,7 @@ public class LocaleSettings
       boolean bool1 = bool2;
       if (i1 < i2)
       {
-        if (arrayOfLocale[i1].getLanguage().equalsIgnoreCase(m.getLanguage())) {
+        if (arrayOfLocale[i1].getLanguage().equalsIgnoreCase(n.getLanguage())) {
           bool1 = true;
         }
       }
@@ -417,7 +437,7 @@ public class LocaleSettings
     while (i1 < i2)
     {
       Locale localLocale = arrayOfLocale[i1];
-      if ((m.equals(localLocale)) || (localLocale.getLanguage().equalsIgnoreCase(m.getLanguage()))) {
+      if ((n.equals(localLocale)) || (localLocale.getLanguage().equalsIgnoreCase(n.getLanguage()))) {
         return false;
       }
       i1 += 1;
@@ -433,8 +453,8 @@ public class LocaleSettings
     while (i1 < i2)
     {
       Locale localLocale = arrayOfLocale[i1];
-      if (localLocale.equals(m)) {}
-      while ((TextUtils.isEmpty(localLocale.getLanguage())) && (localLocale.getCountry().equalsIgnoreCase(m.getCountry()))) {
+      if (localLocale.equals(n)) {}
+      while ((TextUtils.isEmpty(localLocale.getLanguage())) && (localLocale.getCountry().equalsIgnoreCase(n.getCountry()))) {
         return false;
       }
       i1 += 1;
@@ -445,7 +465,7 @@ public class LocaleSettings
   public boolean f()
   {
     boolean bool2 = false;
-    String str = m.getCountry();
+    String str = n.getCountry();
     Locale[] arrayOfLocale = i;
     int i2 = arrayOfLocale.length;
     int i1 = 0;
@@ -467,27 +487,81 @@ public class LocaleSettings
   
   public String g()
   {
-    return n;
+    return o;
   }
   
   public Locale h()
   {
-    return m;
+    return n;
   }
   
   public boolean i()
   {
-    return m.getLanguage().equalsIgnoreCase(Locale.JAPANESE.getLanguage());
+    return n.getLanguage().equalsIgnoreCase(Locale.JAPANESE.getLanguage());
   }
   
   public boolean j()
   {
-    return m.getLanguage().equalsIgnoreCase(Locale.CHINESE.getLanguage());
+    return n.getLanguage().equalsIgnoreCase(Locale.CHINESE.getLanguage());
   }
   
   public boolean k()
   {
-    return m.getLanguage().equalsIgnoreCase(Locale.ENGLISH.getLanguage());
+    return n.getLanguage().equalsIgnoreCase(Locale.ENGLISH.getLanguage());
+  }
+  
+  public boolean l()
+  {
+    return (j()) || (i());
+  }
+  
+  public static enum DISTANCE_UNIT
+  {
+    AUTOMATIC(a.j.distance_unit_automatic),  KILOMETERS(a.j.distance_unit_kilometers),  MILES(a.j.distance_unit_miles);
+    
+    private int mResourceName;
+    
+    private DISTANCE_UNIT(int paramInt)
+    {
+      mResourceName = paramInt;
+    }
+    
+    public static String[] getResourceNames(Context paramContext)
+    {
+      int j = values().length;
+      String[] arrayOfString = new String[j];
+      int i = 0;
+      while (i < j)
+      {
+        arrayOfString[i] = paramContext.getString(valuesmResourceName);
+        i += 1;
+      }
+      return arrayOfString;
+    }
+  }
+  
+  public static final class a
+    implements Comparator<Locale>
+  {
+    public int a(Locale paramLocale1, Locale paramLocale2)
+    {
+      if (paramLocale1.equals(paramLocale2)) {
+        return 0;
+      }
+      return String.valueOf(paramLocale1.getLanguage()).compareToIgnoreCase(String.valueOf(paramLocale2.getLanguage()));
+    }
+  }
+  
+  public static final class b
+    implements Comparator<Locale>
+  {
+    public int a(Locale paramLocale1, Locale paramLocale2)
+    {
+      if (paramLocale1.equals(paramLocale2)) {
+        return 0;
+      }
+      return String.valueOf(paramLocale1).compareToIgnoreCase(String.valueOf(paramLocale2));
+    }
   }
 }
 

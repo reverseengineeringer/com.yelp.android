@@ -1,279 +1,205 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Intent;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import android.os.RemoteException;
 
-@ey
-public class fa
-  extends gf
-  implements fe.a
+public abstract interface fa
+  extends IInterface
 {
-  private final Context mContext;
-  private final Object mH = new Object();
-  private cr qi;
-  private final ez.a ti;
-  private final Object tj = new Object();
-  private final fh.a tk;
-  private final k tl;
-  private gf tm;
-  private fj tn;
+  public abstract void a()
+    throws RemoteException;
   
-  public fa(Context paramContext, fh.a parama, k paramk, ez.a parama1)
-  {
-    ti = parama1;
-    mContext = paramContext;
-    tk = parama;
-    tl = paramk;
-  }
+  public abstract void a(int paramInt1, int paramInt2, Intent paramIntent)
+    throws RemoteException;
   
-  private ay a(fh paramfh)
+  public abstract void b()
+    throws RemoteException;
+  
+  public static abstract class a
+    extends Binder
+    implements fa
   {
-    if (tn.tZ == null) {
-      throw new fa.a("The ad response must specify one of the supported ad sizes.", 0);
-    }
-    Object localObject = tn.tZ.split("x");
-    if (localObject.length != 2) {
-      throw new fa.a("Could not parse the ad size from the ad response: " + tn.tZ, 0);
-    }
-    for (;;)
+    public a()
     {
-      int i;
-      ay localay;
-      try
+      attachInterface(this, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+    }
+    
+    public static fa a(IBinder paramIBinder)
+    {
+      if (paramIBinder == null) {
+        return null;
+      }
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+      if ((localIInterface != null) && ((localIInterface instanceof fa))) {
+        return (fa)localIInterface;
+      }
+      return new a(paramIBinder);
+    }
+    
+    public IBinder asBinder()
+    {
+      return this;
+    }
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
+    {
+      switch (paramInt1)
       {
-        int m = Integer.parseInt(localObject[0]);
-        int n = Integer.parseInt(localObject[1]);
-        localObject = lS.or;
-        int i1 = localObject.length;
-        i = 0;
-        if (i >= i1) {
-          break;
-        }
-        localay = localObject[i];
-        float f = mContext.getResources().getDisplayMetrics().density;
-        if (width == -1)
-        {
-          j = (int)(widthPixels / f);
-          if (height != -2) {
-            break label253;
-          }
-          k = (int)(heightPixels / f);
-          if ((m != j) || (n != k)) {
-            break label263;
-          }
-          return new ay(localay, lS.or);
-        }
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+        return true;
+      case 1: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+        a();
+        paramParcel2.writeNoException();
+        return true;
+      case 2: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+        b();
+        paramParcel2.writeNoException();
+        return true;
       }
-      catch (NumberFormatException paramfh)
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+      paramInt1 = paramParcel1.readInt();
+      paramInt2 = paramParcel1.readInt();
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = (Intent)Intent.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
       {
-        throw new fa.a("Could not parse the ad size from the ad response: " + tn.tZ, 0);
-      }
-      int j = width;
-      continue;
-      label253:
-      int k = height;
-      continue;
-      label263:
-      i += 1;
-    }
-    throw new fa.a("The ad size from the ad response was not one of the requested sizes: " + tn.tZ, 0);
-  }
-  
-  private boolean c(long paramLong)
-  {
-    paramLong = 60000L - (SystemClock.elapsedRealtime() - paramLong);
-    if (paramLong <= 0L) {
-      return false;
-    }
-    try
-    {
-      mH.wait(paramLong);
-      return true;
-    }
-    catch (InterruptedException localInterruptedException)
-    {
-      throw new fa.a("Ad request cancelled.", -1);
-    }
-  }
-  
-  private void cE()
-  {
-    if (tn.errorCode == -3) {}
-    do
-    {
-      return;
-      if (TextUtils.isEmpty(tn.tU)) {
-        throw new fa.a("No fill from ad server.", 3);
-      }
-      ga.a(mContext, tn.tT);
-    } while (!tn.tW);
-    try
-    {
-      qi = new cr(tn.tU);
-      return;
-    }
-    catch (JSONException localJSONException)
-    {
-      throw new fa.a("Could not parse mediation config: " + tn.tU, 0);
-    }
-  }
-  
-  private void e(long paramLong)
-  {
-    do
-    {
-      if (!c(paramLong)) {
-        throw new fa.a("Timed out waiting for ad response.", 2);
-      }
-    } while (tn == null);
-    synchronized (tj)
-    {
-      tm = null;
-      if ((tn.errorCode != -2) && (tn.errorCode != -3)) {
-        throw new fa.a("There was a problem getting an ad response. ErrorCode: " + tn.errorCode, tn.errorCode);
+        a(paramInt1, paramInt2, paramParcel1);
+        paramParcel2.writeNoException();
+        return true;
       }
     }
-  }
-  
-  private void t(boolean paramBoolean)
-  {
-    ga.dc().x(paramBoolean);
-    an localan = ga.dc().l(mContext);
-    if ((localan != null) && (!localan.isAlive()))
+    
+    private static class a
+      implements fa
     {
-      gr.S("start fetching content...");
-      localan.ba();
-    }
-  }
-  
-  public void a(fj paramfj)
-  {
-    synchronized (mH)
-    {
-      gr.S("Received ad response.");
-      tn = paramfj;
-      mH.notify();
-      return;
-    }
-  }
-  
-  public void cx()
-  {
-    for (;;)
-    {
-      int i;
-      long l2;
-      long l1;
-      synchronized (mH)
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
       {
-        gr.S("AdLoaderBackgroundTask started.");
-        Object localObject1 = tl.C().a(mContext);
-        fh localfh = new fh(tk, (String)localObject1);
-        i = -2;
-        l2 = -1L;
-        l1 = l2;
-        long l3;
+        a = paramIBinder;
+      }
+      
+      public void a()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
         try
         {
-          l3 = SystemClock.elapsedRealtime();
-          l1 = l2;
-          gf localgf = fe.a(mContext, localfh, this);
-          l1 = l2;
-          localObject1 = tj;
-          l1 = l2;
-          try
-          {
-            tm = localgf;
-            if (tm != null) {
-              continue;
-            }
-            throw new fa.a("Could not start the ad request service.", 0);
-          }
-          finally
-          {
-            l1 = l2;
-          }
-          i = locala1.getErrorCode();
-        }
-        catch (fa.a locala1)
-        {
-          localObject1 = null;
-        }
-        if ((i == 3) || (i == -1))
-        {
-          gr.U(locala1.getMessage());
-          if (tn != null) {
-            break label366;
-          }
-          tn = new fj(i);
-          gq.wR.post(new fa.1(this));
-          boolean bool = TextUtils.isEmpty(tn.ue);
-          if (bool) {
-            break label398;
-          }
-        }
-        try
-        {
-          localJSONObject = new JSONObject(tn.ue);
-          localObject1 = new fy.a(localfh, tn, qi, (ay)localObject1, i, l1, tn.ua, localJSONObject);
-          gq.wR.post(new fa.2(this, (fy.a)localObject1));
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+          a.transact(1, localParcel1, localParcel2, 0);
+          localParcel2.readException();
           return;
         }
-        catch (Exception localException)
+        finally
         {
-          JSONObject localJSONObject;
-          gr.b("Error parsing the JSON for Active View.", localException);
+          localParcel2.recycle();
+          localParcel1.recycle();
         }
-        l1 = l2;
-        e(l3);
-        l1 = l2;
-        l2 = SystemClock.elapsedRealtime();
-        l1 = l2;
-        cE();
-        l1 = l2;
-        if (lS.or == null) {
-          break label412;
-        }
-        l1 = l2;
-        localObject1 = a(localfh);
+      }
+      
+      /* Error */
+      public void a(int paramInt1, int paramInt2, Intent paramIntent)
+        throws RemoteException
+      {
+        // Byte code:
+        //   0: invokestatic 26	android/os/Parcel:obtain	()Landroid/os/Parcel;
+        //   3: astore 4
+        //   5: invokestatic 26	android/os/Parcel:obtain	()Landroid/os/Parcel;
+        //   8: astore 5
+        //   10: aload 4
+        //   12: ldc 28
+        //   14: invokevirtual 32	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+        //   17: aload 4
+        //   19: iload_1
+        //   20: invokevirtual 50	android/os/Parcel:writeInt	(I)V
+        //   23: aload 4
+        //   25: iload_2
+        //   26: invokevirtual 50	android/os/Parcel:writeInt	(I)V
+        //   29: aload_3
+        //   30: ifnull +48 -> 78
+        //   33: aload 4
+        //   35: iconst_1
+        //   36: invokevirtual 50	android/os/Parcel:writeInt	(I)V
+        //   39: aload_3
+        //   40: aload 4
+        //   42: iconst_0
+        //   43: invokevirtual 56	android/content/Intent:writeToParcel	(Landroid/os/Parcel;I)V
+        //   46: aload_0
+        //   47: getfield 17	com/google/android/gms/internal/fa$a$a:a	Landroid/os/IBinder;
+        //   50: iconst_3
+        //   51: aload 4
+        //   53: aload 5
+        //   55: iconst_0
+        //   56: invokeinterface 38 5 0
+        //   61: pop
+        //   62: aload 5
+        //   64: invokevirtual 41	android/os/Parcel:readException	()V
+        //   67: aload 5
+        //   69: invokevirtual 44	android/os/Parcel:recycle	()V
+        //   72: aload 4
+        //   74: invokevirtual 44	android/os/Parcel:recycle	()V
+        //   77: return
+        //   78: aload 4
+        //   80: iconst_0
+        //   81: invokevirtual 50	android/os/Parcel:writeInt	(I)V
+        //   84: goto -38 -> 46
+        //   87: astore_3
+        //   88: aload 5
+        //   90: invokevirtual 44	android/os/Parcel:recycle	()V
+        //   93: aload 4
+        //   95: invokevirtual 44	android/os/Parcel:recycle	()V
+        //   98: aload_3
+        //   99: athrow
+        // Local variable table:
+        //   start	length	slot	name	signature
+        //   0	100	0	this	a
+        //   0	100	1	paramInt1	int
+        //   0	100	2	paramInt2	int
+        //   0	100	3	paramIntent	Intent
+        //   3	91	4	localParcel1	Parcel
+        //   8	81	5	localParcel2	Parcel
+        // Exception table:
+        //   from	to	target	type
+        //   10	29	87	finally
+        //   33	46	87	finally
+        //   46	67	87	finally
+        //   78	84	87	finally
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
+      
+      public void b()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
         try
         {
-          t(tn.uh);
-          l1 = l2;
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManager");
+          a.transact(2, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          return;
         }
-        catch (fa.a locala2)
+        finally
         {
-          Object localObject5;
-          l1 = l2;
+          localParcel2.recycle();
+          localParcel1.recycle();
         }
-        gr.W(localJSONObject.getMessage());
       }
-      label366:
-      tn = new fj(i, tn.qA);
-      continue;
-      label398:
-      localObject5 = null;
-      continue;
-      continue;
-      label412:
-      Object localObject3 = null;
-    }
-  }
-  
-  public void onStop()
-  {
-    synchronized (tj)
-    {
-      if (tm != null) {
-        tm.cancel();
-      }
-      return;
     }
   }
 }

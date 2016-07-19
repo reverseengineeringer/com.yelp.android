@@ -37,7 +37,7 @@
 
     move-result-object v0
 
-    .line 23
+    .line 24
     new-instance v1, Landroid/content/ComponentName;
 
     const-class v2, Lcom/yelp/android/ui/activities/mutatebiz/PickCategory;
@@ -46,7 +46,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 24
+    .line 25
     return-object v0
 .end method
 
@@ -56,13 +56,13 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 30
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessSelectCategory:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue

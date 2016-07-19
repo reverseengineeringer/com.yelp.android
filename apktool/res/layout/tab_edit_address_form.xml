@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:padding="@dimen/base_container_margin" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <Button android:id="@id/reverse_geocode_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:text="@string/fill_with_current_location" />
-        <TextView android:id="@id/business_address_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/address_chinese" />
-        <EditText android:id="@id/top_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:singleLine="true" android:inputType="textPostalAddress" />
-        <EditText android:id="@id/middle_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:singleLine="true" android:inputType="textPostalAddress" />
-        <TextView android:id="@id/business_address_alternate_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?largeGapSize" android:text="@string/address_english" />
-        <EditText android:id="@id/top_address_alternate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:singleLine="true" android:inputType="textPostalAddress" />
-        <EditText android:id="@id/middle_address_alternate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/address_field_margin_huge" android:singleLine="true" android:inputType="textPostalAddress" />
-        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <ImageButton android:id="@id/flag_selector" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignTop="@id/bottom_address" android:layout_alignBottom="@id/bottom_address" android:layout_alignParentRight="true" android:contentDescription="@string/select_country" />
-            <EditText android:id="@id/bottom_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="?imageGapSize" android:singleLine="true" android:layout_toLeftOf="@id/flag_selector" android:inputType="textPostalAddress" />
-        </RelativeLayout>
+<ScrollView android:id="@id/edit_address" android:background="@color/white_dirty_snow" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/reverse_geocode_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/base_container_margin" android:layout_marginTop="@dimen/base_container_margin" android:layout_marginRight="@dimen/base_container_margin" android:text="@string/fill_with_current_location" />
+        <TextView android:id="@id/business_address_title" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+        <com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="@style/ButtonFullBleed">
+            <EditText android:id="@id/top_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textPostalAddress" />
+            <EditText android:id="@id/middle_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textPostalAddress" />
+            <EditText android:id="@id/bottom_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textPostalAddress" />
+        </com.yelp.android.ui.widgets.SpannableLinearLayout>
+        <TextView android:id="@id/business_address_alternate_title" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+        <com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="vertical" android:id="@id/alternate_address_span" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="@style/ButtonFullBleed">
+            <EditText android:id="@id/top_address_alternate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textPostalAddress" />
+            <EditText android:id="@id/middle_address_alternate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textPostalAddress" />
+        </com.yelp.android.ui.widgets.SpannableLinearLayout>
+        <com.yelp.android.ui.widgets.SpannableLinearLayout android:id="@id/locality_bottom" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/address_field_margin_huge" yelp:position="bottom|left" style="@style/ButtonFullBleed">
+            <EditText android:id="@id/bottom_locality_separate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:inputType="textPostalAddress" />
+        </com.yelp.android.ui.widgets.SpannableLinearLayout>
     </LinearLayout>
 </ScrollView>

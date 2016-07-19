@@ -18,6 +18,7 @@ public class FileWritingInputStream
   final OutputStream mOutput;
   
   public FileWritingInputStream(InputStream paramInputStream, FileOutputStream paramFileOutputStream)
+    throws FileNotFoundException
   {
     super(new BufferedInputStream(paramInputStream, 4096));
     try
@@ -33,6 +34,7 @@ public class FileWritingInputStream
   }
   
   public void close()
+    throws IOException
   {
     super.close();
     mOutput.flush();
@@ -48,6 +50,7 @@ public class FileWritingInputStream
   }
   
   public int read()
+    throws IOException
   {
     int i = super.read();
     if (i >= 0) {
@@ -57,11 +60,13 @@ public class FileWritingInputStream
   }
   
   public int read(byte[] paramArrayOfByte)
+    throws IOException
   {
     return read(paramArrayOfByte, 0, paramArrayOfByte.length);
   }
   
   public int read(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+    throws IOException
   {
     paramInt2 = super.read(paramArrayOfByte, paramInt1, paramInt2);
     if (paramInt2 >= 0) {
@@ -71,6 +76,7 @@ public class FileWritingInputStream
   }
   
   public void reset()
+    throws IOException
   {
     try
     {

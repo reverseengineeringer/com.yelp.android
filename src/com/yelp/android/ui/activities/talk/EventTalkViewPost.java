@@ -5,67 +5,82 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import com.bumptech.glide.j;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.av.g;
-import com.yelp.android.aw.e;
-import com.yelp.android.aw.f;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.bv.a.a;
+import com.yelp.android.bv.a.b;
+import com.yelp.android.bv.c;
+import com.yelp.android.bv.c.b;
 import com.yelp.android.serializable.Event;
 import com.yelp.android.serializable.Photo;
 import com.yelp.android.serializable.TalkTopic;
+import com.yelp.android.ui.util.t;
+import com.yelp.android.ui.util.u.a;
 import com.yelp.android.ui.widgets.RoundedImageView;
 
 public class EventTalkViewPost
   extends TalkViewPost
 {
   private Event a;
-  private m<Integer> b = new n(this);
+  private ApiRequest.b<Integer> b = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, Integer paramAnonymousInteger)
+    {
+      a(paramAnonymousInteger.intValue());
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      a(paramAnonymousYelpException);
+    }
+  };
   
   public static Intent a(Context paramContext, Event paramEvent)
   {
     paramContext = new Intent(paramContext, EventTalkViewPost.class);
-    paramContext.putExtra("extra.topic", TalkTopic.fromEvent(paramEvent));
-    paramContext.putExtra("extra.event", paramEvent);
+    paramContext.putExtra("topic", TalkTopic.a(paramEvent));
+    paramContext.putExtra("event", paramEvent);
     return paramContext;
   }
   
-  public f a(String paramString, int paramInt, m<com.yelp.android.aw.h> paramm)
+  public c a(String paramString, int paramInt, ApiRequest.b<c.b> paramb)
   {
-    return new com.yelp.android.aw.c(a.getId(), paramString, paramInt, paramm);
+    return new a.a(a.I(), paramString, paramInt, paramb);
   }
   
-  protected f a(String paramString1, String paramString2, m<com.yelp.android.aw.h> paramm)
+  protected c a(String paramString1, String paramString2, ApiRequest.b<c.b> paramb)
   {
-    return new com.yelp.android.aw.d(a.getId(), paramString1, paramString2, paramm);
+    return new a.b(a.I(), paramString1, paramString2, paramb);
   }
   
   protected void a(View paramView)
   {
-    ((TextView)paramView.findViewById(2131493820)).setText(a.getFormattedTimeRange(this));
-    paramView = (RoundedImageView)paramView.findViewById(2131493649);
-    if (a.getPhoto() != null)
+    ((TextView)paramView.findViewById(2131690656)).setText(a.a(this));
+    paramView = (RoundedImageView)paramView.findViewById(2131690390);
+    if (a.J() != null)
     {
-      com.bumptech.glide.h.a(this).a(a.getPhoto().getThumbnailUrl()).b(2130837655).a(paramView);
+      t.a(this).a(a.J().f()).b(2130837698).a(paramView);
       return;
     }
-    paramView.setImageResource(2130837655);
+    paramView.setImageResource(2130837698);
   }
   
   protected void a(String paramString)
   {
-    paramString = new e(a.getId(), paramString, b);
-    paramString.execute(new Void[0]);
+    paramString = new com.yelp.android.bv.b(a.I(), paramString, b);
+    paramString.f(new Void[0]);
     enableLoading(paramString);
   }
   
-  protected int c()
+  protected int b()
   {
-    return 2130903302;
+    return 2130903398;
   }
   
   protected void onCreate(Bundle paramBundle)
   {
-    a = ((Event)getIntent().getParcelableExtra("extra.event"));
+    a = ((Event)getIntent().getParcelableExtra("event"));
     super.onCreate(paramBundle);
   }
 }

@@ -7,21 +7,32 @@ import android.os.Parcelable.Creator;
 class LinearLayoutManager$SavedState
   implements Parcelable
 {
-  public static final Parcelable.Creator<SavedState> CREATOR = new al();
-  boolean mAnchorLayoutFromEnd;
-  int mAnchorOffset;
-  int mAnchorPosition;
+  public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+  {
+    public LinearLayoutManager.SavedState a(Parcel paramAnonymousParcel)
+    {
+      return new LinearLayoutManager.SavedState(paramAnonymousParcel);
+    }
+    
+    public LinearLayoutManager.SavedState[] a(int paramAnonymousInt)
+    {
+      return new LinearLayoutManager.SavedState[paramAnonymousInt];
+    }
+  };
+  int a;
+  int b;
+  boolean c;
   
   public LinearLayoutManager$SavedState() {}
   
   LinearLayoutManager$SavedState(Parcel paramParcel)
   {
-    mAnchorPosition = paramParcel.readInt();
-    mAnchorOffset = paramParcel.readInt();
+    a = paramParcel.readInt();
+    b = paramParcel.readInt();
     if (paramParcel.readInt() == 1) {}
     for (;;)
     {
-      mAnchorLayoutFromEnd = bool;
+      c = bool;
       return;
       bool = false;
     }
@@ -29,9 +40,19 @@ class LinearLayoutManager$SavedState
   
   public LinearLayoutManager$SavedState(SavedState paramSavedState)
   {
-    mAnchorPosition = mAnchorPosition;
-    mAnchorOffset = mAnchorOffset;
-    mAnchorLayoutFromEnd = mAnchorLayoutFromEnd;
+    a = a;
+    b = b;
+    c = c;
+  }
+  
+  boolean a()
+  {
+    return a >= 0;
+  }
+  
+  void b()
+  {
+    a = -1;
   }
   
   public int describeContents()
@@ -39,21 +60,11 @@ class LinearLayoutManager$SavedState
     return 0;
   }
   
-  boolean hasValidAnchor()
-  {
-    return mAnchorPosition >= 0;
-  }
-  
-  void invalidateAnchor()
-  {
-    mAnchorPosition = -1;
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeInt(mAnchorPosition);
-    paramParcel.writeInt(mAnchorOffset);
-    if (mAnchorLayoutFromEnd) {}
+    paramParcel.writeInt(a);
+    paramParcel.writeInt(b);
+    if (c) {}
     for (paramInt = 1;; paramInt = 0)
     {
       paramParcel.writeInt(paramInt);

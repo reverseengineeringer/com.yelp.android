@@ -2,22 +2,43 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _ReservationChangeEvent
   implements Parcelable
 {
-  protected YelpBusiness mBusiness;
-  protected Reservation mReservation;
+  protected Reservation a;
+  protected YelpBusiness b;
   
-  protected _ReservationChangeEvent() {}
-  
-  protected _ReservationChangeEvent(Reservation paramReservation, YelpBusiness paramYelpBusiness)
+  public YelpBusiness a()
   {
-    this();
-    mReservation = paramReservation;
-    mBusiness = paramYelpBusiness;
+    return b;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((Reservation)paramParcel.readParcelable(Reservation.class.getClassLoader()));
+    b = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("reservation")) {
+      a = ((Reservation)Reservation.CREATOR.parse(paramJSONObject.getJSONObject("reservation")));
+    }
+    if (!paramJSONObject.isNull("business")) {
+      b = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
+    }
+  }
+  
+  public Reservation b()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -25,36 +46,29 @@ abstract class _ReservationChangeEvent
     return 0;
   }
   
-  public YelpBusiness getBusiness()
+  public boolean equals(Object paramObject)
   {
-    return mBusiness;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_ReservationChangeEvent)paramObject;
+    return new b().a(a, a).a(b, b).a();
   }
   
-  public Reservation getReservation()
+  public int hashCode()
   {
-    return mReservation;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("reservation")) {
-      mReservation = ((Reservation)Reservation.CREATOR.parse(paramJSONObject.getJSONObject("reservation")));
-    }
-    if (!paramJSONObject.isNull("business")) {
-      mBusiness = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mReservation = ((Reservation)paramParcel.readParcelable(Reservation.class.getClassLoader()));
-    mBusiness = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+    return new c().a(a).a(b).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeParcelable(mReservation, 0);
-    paramParcel.writeParcelable(mBusiness, 0);
+    paramParcel.writeParcelable(a, 0);
+    paramParcel.writeParcelable(b, 0);
   }
 }
 

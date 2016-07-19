@@ -2,34 +2,75 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _NearbyRow
   implements Parcelable
 {
-  protected String mEndAction;
-  protected String mEndActionString;
-  protected String mHeader;
-  protected List<NearbyResult> mResults;
-  protected String mRowId;
-  protected String mTag;
-  protected int mTopResultCount;
+  protected List<NearbyResult> a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected int g;
   
-  protected _NearbyRow() {}
-  
-  protected _NearbyRow(List<NearbyResult> paramList, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, int paramInt)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mResults = paramList;
-    mHeader = paramString1;
-    mEndAction = paramString2;
-    mEndActionString = paramString3;
-    mRowId = paramString4;
-    mTag = paramString5;
-    mTopResultCount = paramInt;
+    a = paramParcel.readArrayList(NearbyResult.class.getClassLoader());
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("results")) {}
+    for (a = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("results"), NearbyResult.CREATOR);; a = Collections.emptyList())
+    {
+      if (!paramJSONObject.isNull("header")) {
+        b = paramJSONObject.optString("header");
+      }
+      if (!paramJSONObject.isNull("end_action")) {
+        c = paramJSONObject.optString("end_action");
+      }
+      if (!paramJSONObject.isNull("end_action_string")) {
+        d = paramJSONObject.optString("end_action_string");
+      }
+      if (!paramJSONObject.isNull("row_id")) {
+        e = paramJSONObject.optString("row_id");
+      }
+      if (!paramJSONObject.isNull("tag")) {
+        f = paramJSONObject.optString("tag");
+      }
+      g = paramJSONObject.optInt("top_result_count");
+      return;
+    }
+  }
+  
+  public int b()
+  {
+    return g;
+  }
+  
+  public String c()
+  {
+    return e;
+  }
+  
+  public String d()
+  {
+    return b;
   }
   
   public int describeContents()
@@ -37,86 +78,39 @@ abstract class _NearbyRow
     return 0;
   }
   
-  public String getEndAction()
+  public List<NearbyResult> e()
   {
-    return mEndAction;
+    return a;
   }
   
-  public String getEndActionString()
+  public boolean equals(Object paramObject)
   {
-    return mEndActionString;
-  }
-  
-  public String getHeader()
-  {
-    return mHeader;
-  }
-  
-  public List<NearbyResult> getResults()
-  {
-    return mResults;
-  }
-  
-  public String getRowId()
-  {
-    return mRowId;
-  }
-  
-  public String getTag()
-  {
-    return mTag;
-  }
-  
-  public int getTopResultCount()
-  {
-    return mTopResultCount;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("results")) {}
-    for (mResults = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("results"), NearbyResult.CREATOR);; mResults = Collections.emptyList())
+    if (paramObject == null) {}
+    do
     {
-      if (!paramJSONObject.isNull("header")) {
-        mHeader = paramJSONObject.optString("header");
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      if (!paramJSONObject.isNull("end_action")) {
-        mEndAction = paramJSONObject.optString("end_action");
-      }
-      if (!paramJSONObject.isNull("end_action_string")) {
-        mEndActionString = paramJSONObject.optString("end_action_string");
-      }
-      if (!paramJSONObject.isNull("row_id")) {
-        mRowId = paramJSONObject.optString("row_id");
-      }
-      if (!paramJSONObject.isNull("tag")) {
-        mTag = paramJSONObject.optString("tag");
-      }
-      mTopResultCount = paramJSONObject.optInt("top_result_count");
-      return;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_NearbyRow)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int hashCode()
   {
-    mResults = paramParcel.createTypedArrayList(NearbyResult.CREATOR);
-    mHeader = paramParcel.readString();
-    mEndAction = paramParcel.readString();
-    mEndActionString = paramParcel.readString();
-    mRowId = paramParcel.readString();
-    mTag = paramParcel.readString();
-    mTopResultCount = paramParcel.readInt();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeTypedList(mResults);
-    paramParcel.writeString(mHeader);
-    paramParcel.writeString(mEndAction);
-    paramParcel.writeString(mEndActionString);
-    paramParcel.writeString(mRowId);
-    paramParcel.writeString(mTag);
-    paramParcel.writeInt(mTopResultCount);
+    paramParcel.writeList(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeInt(g);
   }
 }
 

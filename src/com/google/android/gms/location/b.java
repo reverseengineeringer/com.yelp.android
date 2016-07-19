@@ -1,12 +1,15 @@
 package com.google.android.gms.location;
 
-import android.location.Location;
-import android.os.IInterface;
+import android.app.PendingIntent;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.Status;
 
 public abstract interface b
-  extends IInterface
 {
-  public abstract void onLocationChanged(Location paramLocation);
+  public abstract PendingResult<Status> a(GoogleApiClient paramGoogleApiClient, long paramLong, PendingIntent paramPendingIntent);
+  
+  public abstract PendingResult<Status> a(GoogleApiClient paramGoogleApiClient, PendingIntent paramPendingIntent);
 }
 
 /* Location:

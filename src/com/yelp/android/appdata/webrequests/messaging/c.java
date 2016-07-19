@@ -1,16 +1,15 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class c
-  extends h
+  extends com.yelp.android.appdata.webrequests.core.c
 {
-  public c(String paramString1, String paramString2, i parami)
+  public c(String paramString1, String paramString2, c.a parama)
   {
-    super("conversation/flag", parami);
-    addPostParam("conversation_id", paramString1);
-    addPostParam("message", paramString2);
+    super("conversation/flag", parama);
+    b("conversation_id", paramString1);
+    b("message", paramString2);
   }
   
   public String toString()

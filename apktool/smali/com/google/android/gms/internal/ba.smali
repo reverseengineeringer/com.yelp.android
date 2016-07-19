@@ -1,35 +1,55 @@
-.class public final Lcom/google/android/gms/internal/ba;
-.super Lcom/google/android/gms/internal/bf$a;
+.class public interface abstract Lcom/google/android/gms/internal/ba;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Landroid/os/IInterface;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/ba$a;
+    }
 .end annotation
 
 
-# instance fields
-.field private final os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-
-
-# direct methods
-.method public constructor <init>(Lcom/google/android/gms/ads/doubleclick/AppEventListener;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/gms/internal/bf$a;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/ba;->os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-
-    return-void
+# virtual methods
+.method public abstract a()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method
 
+.method public abstract a(Lcom/google/android/gms/dynamic/c;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-# virtual methods
-.method public onAppEvent(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+.method public abstract b()Ljava/lang/String;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/ba;->os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
+.method public abstract c()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    invoke-interface {v0, p1, p2}, Lcom/google/android/gms/ads/doubleclick/AppEventListener;->onAppEvent(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-void
+.method public abstract d()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method

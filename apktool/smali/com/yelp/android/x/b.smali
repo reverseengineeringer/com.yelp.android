@@ -1,91 +1,117 @@
-.class public Lcom/yelp/android/x/b;
+.class abstract Lcom/yelp/android/x/b;
 .super Ljava/lang/Object;
-.source "HttpUrlGlideUrlLoader.java"
-
-# interfaces
-.implements Lcom/yelp/android/v/n;
+.source "BaseKeyPool.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/v/n",
-        "<",
-        "Lcom/yelp/android/v/e;",
-        "Ljava/io/InputStream;",
-        ">;"
+        "<T::",
+        "Lcom/yelp/android/x/h;",
+        ">",
+        "Ljava/lang/Object;"
     }
 .end annotation
 
 
 # instance fields
-.field private final a:Lcom/yelp/android/v/j;
+.field private final a:Ljava/util/Queue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/v/j",
-            "<",
-            "Lcom/yelp/android/v/e;",
-            "Lcom/yelp/android/v/e;",
-            ">;"
+            "Ljava/util/Queue",
+            "<TT;>;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 2
+.method constructor <init>()V
+    .locals 1
 
     .prologue
-    .line 26
+    .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
-    new-instance v0, Lcom/yelp/android/v/j;
+    .line 9
+    const/16 v0, 0x14
 
-    const/16 v1, 0x1f4
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(I)Ljava/util/Queue;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/v/j;-><init>(I)V
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/x/b;->a:Lcom/yelp/android/v/j;
+    iput-object v0, p0, Lcom/yelp/android/x/b;->a:Ljava/util/Queue;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/content/Context;Lcom/yelp/android/v/c;)Lcom/yelp/android/v/m;
+.method public a(Lcom/yelp/android/x/h;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/yelp/android/v/c;",
-            ")",
-            "Lcom/yelp/android/v/m",
-            "<",
-            "Lcom/yelp/android/v/e;",
-            "Ljava/io/InputStream;",
-            ">;"
+            "(TT;)V"
         }
     .end annotation
 
     .prologue
-    .line 31
-    new-instance v0, Lcom/yelp/android/x/a;
+    .line 20
+    iget-object v0, p0, Lcom/yelp/android/x/b;->a:Ljava/util/Queue;
 
-    iget-object v1, p0, Lcom/yelp/android/x/b;->a:Lcom/yelp/android/v/j;
+    invoke-interface {v0}, Ljava/util/Queue;->size()I
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/x/a;-><init>(Lcom/yelp/android/v/j;)V
+    move-result v0
 
-    return-object v0
+    const/16 v1, 0x14
+
+    if-ge v0, v1, :cond_0
+
+    .line 21
+    iget-object v0, p0, Lcom/yelp/android/x/b;->a:Ljava/util/Queue;
+
+    invoke-interface {v0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
+
+    .line 23
+    :cond_0
+    return-void
 .end method
 
-.method public a()V
-    .locals 0
+.method protected abstract b()Lcom/yelp/android/x/h;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TT;"
+        }
+    .end annotation
+.end method
+
+.method protected c()Lcom/yelp/android/x/h;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TT;"
+        }
+    .end annotation
 
     .prologue
-    .line 37
-    return-void
+    .line 12
+    iget-object v0, p0, Lcom/yelp/android/x/b;->a:Ljava/util/Queue;
+
+    invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/x/h;
+
+    .line 13
+    if-nez v0, :cond_0
+
+    .line 14
+    invoke-virtual {p0}, Lcom/yelp/android/x/b;->b()Lcom/yelp/android/x/h;
+
+    move-result-object v0
+
+    .line 16
+    :cond_0
+    return-object v0
 .end method

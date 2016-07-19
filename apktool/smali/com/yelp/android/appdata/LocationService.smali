@@ -3,7 +3,19 @@
 .source "LocationService.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/ar;
+.implements Lcom/yelp/android/appdata/StateBroadcastReceiver$a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/LocationService$NoProvidersException;,
+        Lcom/yelp/android/appdata/LocationService$a;,
+        Lcom/yelp/android/appdata/LocationService$AccuracyUnit;,
+        Lcom/yelp/android/appdata/LocationService$Recentness;,
+        Lcom/yelp/android/appdata/LocationService$Accuracies;
+    }
+.end annotation
 
 
 # instance fields
@@ -15,17 +27,17 @@
     .locals 2
 
     .prologue
-    .line 78
+    .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 79
+    .line 100
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/yelp/android/appdata/LocationService;->d:J
 
-    .line 80
+    .line 101
     return-void
 .end method
 
@@ -33,27 +45,45 @@
     .locals 1
 
     .prologue
-    .line 70
+    .line 88
+    sget-object v0, Lcom/yelp/android/appdata/PermissionGroup;->LOCATION:Lcom/yelp/android/appdata/PermissionGroup;
+
+    invoke-static {p0, v0}, Lcom/yelp/android/appdata/k;->b(Landroid/content/Context;Lcom/yelp/android/appdata/PermissionGroup;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 89
+    new-instance v0, Lcom/yelp/android/appdata/i;
+
+    invoke-direct {v0}, Lcom/yelp/android/appdata/i;-><init>()V
+
+    .line 95
+    :goto_0
+    return-object v0
+
+    .line 91
+    :cond_0
     invoke-static {p0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->isGooglePlayServicesAvailable(Landroid/content/Context;)I
 
     move-result v0
 
-    .line 71
-    if-nez v0, :cond_0
+    .line 92
+    if-nez v0, :cond_1
 
-    .line 72
-    new-instance v0, Lcom/yelp/android/appdata/s;
+    .line 93
+    new-instance v0, Lcom/yelp/android/appdata/h;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/s;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/h;-><init>(Landroid/content/Context;)V
 
-    .line 74
-    :goto_0
-    return-object v0
+    goto :goto_0
 
-    :cond_0
-    new-instance v0, Lcom/yelp/android/appdata/as;
+    .line 95
+    :cond_1
+    new-instance v0, Lcom/yelp/android/appdata/p;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/as;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/p;-><init>(Landroid/content/Context;)V
 
     goto :goto_0
 .end method
@@ -74,13 +104,19 @@
             ">;"
         }
     .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/LocationService$NoProvidersException;
+        }
+    .end annotation
 .end method
 
 .method protected a(Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Landroid/location/Location;)Ljava/lang/Boolean;
     .locals 1
 
     .prologue
-    .line 163
+    .line 184
     invoke-virtual {p1, p3}, Lcom/yelp/android/appdata/LocationService$Accuracies;->satisfies(Landroid/location/Location;)Z
 
     move-result v0
@@ -93,14 +129,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 164
+    .line 185
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    .line 166
+    .line 187
     :goto_0
     return-object v0
 
@@ -114,13 +150,13 @@
     goto :goto_0
 .end method
 
-.method public abstract a(Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/aa;)V
+.method public abstract a(Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/LocationService$a;)V
 .end method
 
-.method public abstract a(Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/aa;J)V
+.method public abstract a(Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/LocationService$a;J)V
 .end method
 
-.method public abstract a(Lcom/yelp/android/appdata/aa;)V
+.method public abstract a(Lcom/yelp/android/appdata/LocationService$a;)V
 .end method
 
 .method public abstract a()Z
@@ -132,20 +168,17 @@
 .method public abstract c()Landroid/location/Location;
 .end method
 
-.method public abstract d()V
-.end method
-
-.method public e()V
+.method public d()V
     .locals 2
 
     .prologue
-    .line 159
+    .line 180
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/yelp/android/appdata/LocationService;->d:J
 
-    .line 160
+    .line 181
     return-void
 .end method

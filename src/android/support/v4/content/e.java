@@ -1,18 +1,19 @@
 package android.support.v4.content;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import java.io.File;
 
 class e
 {
-  public static File a(Context paramContext)
+  public static Drawable a(Context paramContext, int paramInt)
   {
-    return paramContext.getExternalCacheDir();
+    return paramContext.getDrawable(paramInt);
   }
   
-  public static File a(Context paramContext, String paramString)
+  public static File a(Context paramContext)
   {
-    return paramContext.getExternalFilesDir(paramString);
+    return paramContext.getNoBackupFilesDir();
   }
 }
 

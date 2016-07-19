@@ -57,15 +57,15 @@
     .locals 2
 
     .prologue
-    .line 30
+    .line 31
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 31
+    .line 32
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 32
+    .line 33
     const/4 v1, 0x0
 
     invoke-static {p0, v0, v1}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->a(Landroid/content/Context;Ljava/util/ArrayList;I)Landroid/content/Intent;
@@ -90,17 +90,17 @@
     .end annotation
 
     .prologue
-    .line 37
+    .line 38
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 38
+    .line 39
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 39
+    .line 40
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
@@ -118,8 +118,8 @@
 
     check-cast v0, Lcom/yelp/android/serializable/NearbyRow;
 
-    .line 40
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyRow;->getBusinessListForResults()Ljava/util/List;
+    .line 41
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyRow;->a()Ljava/util/List;
 
     move-result-object v1
 
@@ -127,8 +127,8 @@
 
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 41
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyRow;->getHeader()Ljava/lang/String;
+    .line 42
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/NearbyRow;->d()Ljava/lang/String;
 
     move-result-object v0
 
@@ -136,13 +136,13 @@
 
     goto :goto_0
 
-    .line 43
+    .line 44
     :cond_0
     invoke-static {p0, v2, v3, p2}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->a(Landroid/content/Context;Ljava/util/ArrayList;Ljava/util/ArrayList;I)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 44
+    .line 45
     return-object v0
 .end method
 
@@ -167,29 +167,29 @@
     .end annotation
 
     .prologue
-    .line 49
+    .line 53
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 50
+    .line 54
     const-string/jumbo v1, "titles"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putStringArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
-    .line 51
+    .line 55
     const-string/jumbo v1, "business_list"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 52
+    .line 56
     const-string/jumbo v1, "start_position"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 53
+    .line 57
     return-object v0
 .end method
 
@@ -208,7 +208,7 @@
     .end annotation
 
     .prologue
-    .line 85
+    .line 89
     new-instance v0, Lcom/yelp/android/ui/map/b;
 
     invoke-direct {v0, p0}, Lcom/yelp/android/ui/map/b;-><init>(Landroid/content/Context;)V
@@ -216,12 +216,12 @@
     return-object v0
 .end method
 
-.method protected a(I)Lcom/yelp/android/ui/util/au;
+.method protected a(I)Lcom/yelp/android/ui/util/w;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/yelp/android/ui/util/au",
+            "Lcom/yelp/android/ui/util/w",
             "<",
             "Lcom/yelp/android/serializable/YelpBusiness;",
             ">;"
@@ -229,12 +229,12 @@
     .end annotation
 
     .prologue
-    .line 102
+    .line 108
     new-instance v1, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
     invoke-direct {v1, p0}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;-><init>(Landroid/content/Context;)V
 
-    .line 103
+    .line 109
     const/16 v0, 0x8
 
     new-array v0, v0, [Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
@@ -289,7 +289,7 @@
 
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;->a([Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;)V
 
-    .line 112
+    .line 119
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -300,7 +300,7 @@
 
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;->a(Ljava/util/List;)V
 
-    .line 114
+    .line 121
     return-object v1
 .end method
 
@@ -308,18 +308,18 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 79
     invoke-static {p0, p1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->b(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 76
+    .line 80
     return-void
 .end method
 
-.method public synthetic a(Lcom/yelp/android/serializable/by;)V
+.method public synthetic a(Lcom/yelp/android/serializable/f;)V
     .locals 0
 
     .prologue
@@ -344,10 +344,10 @@
     .end annotation
 
     .prologue
-    .line 90
+    .line 94
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->c:Ljava/util/ArrayList;
 
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->d()I
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->e()I
 
     move-result v1
 
@@ -359,12 +359,12 @@
 
     invoke-virtual {p1, v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a(Ljava/lang/String;)V
 
-    .line 91
+    .line 95
     const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a(Z)V
+    invoke-virtual {p1, v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b(Z)V
 
-    .line 92
+    .line 96
     return-void
 .end method
 
@@ -383,12 +383,12 @@
     .end annotation
 
     .prologue
-    .line 68
+    .line 72
     instance-of v0, p2, Lcom/yelp/android/serializable/YelpBusiness;
 
     if-eqz v0, :cond_0
 
-    .line 69
+    .line 73
     check-cast p2, Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-static {p0, p2}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->b(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
@@ -397,7 +397,7 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 71
+    .line 75
     :cond_0
     return-void
 .end method
@@ -406,10 +406,10 @@
     .locals 4
 
     .prologue
-    .line 124
+    .line 131
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->b(I)V
 
-    .line 125
+    .line 132
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->j()Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     move-result-object v1
@@ -422,15 +422,15 @@
 
     check-cast v0, Ljava/util/List;
 
-    new-instance v2, Lcom/yelp/android/ui/map/k;
+    new-instance v2, Lcom/yelp/android/ui/map/j;
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/map/k;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/map/j;-><init>(Landroid/content/Context;I)V
 
     invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;->a(Ljava/util/List;Lcom/yelp/android/ui/map/a;)V
 
-    .line 127
+    .line 136
     return-void
 .end method
 
@@ -438,11 +438,11 @@
     .locals 0
 
     .prologue
-    .line 81
+    .line 85
     return-void
 .end method
 
-.method public synthetic b(Lcom/yelp/android/serializable/by;)V
+.method public synthetic b(Lcom/yelp/android/serializable/f;)V
     .locals 0
 
     .prologue
@@ -458,7 +458,7 @@
     .locals 4
 
     .prologue
-    .line 96
+    .line 100
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->j()Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     move-result-object v1
@@ -473,15 +473,15 @@
 
     check-cast v0, Ljava/util/List;
 
-    new-instance v2, Lcom/yelp/android/ui/map/k;
+    new-instance v2, Lcom/yelp/android/ui/map/j;
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/map/k;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/map/j;-><init>(Landroid/content/Context;I)V
 
     invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;->a(Ljava/util/List;Lcom/yelp/android/ui/map/a;)V
 
-    .line 98
+    .line 104
     return-void
 .end method
 
@@ -489,7 +489,7 @@
     .locals 1
 
     .prologue
-    .line 119
+    .line 126
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -503,7 +503,7 @@
     .locals 3
 
     .prologue
-    .line 131
+    .line 140
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->k()Landroid/support/v4/view/ViewPager;
 
     move-result-object v0
@@ -514,7 +514,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/support/v4/view/ViewPager;->a(IZ)V
 
-    .line 132
+    .line 141
     return-void
 .end method
 
@@ -522,7 +522,7 @@
     .locals 3
 
     .prologue
-    .line 58
+    .line 62
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -537,7 +537,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->a:Ljava/util/ArrayList;
 
-    .line 60
+    .line 64
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -552,7 +552,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->c:Ljava/util/ArrayList;
 
-    .line 61
+    .line 65
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -567,9 +567,9 @@
 
     iput v0, p0, Lcom/yelp/android/ui/activities/nearby/BusinessListComboActivity;->d:I
 
-    .line 63
+    .line 67
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 64
+    .line 68
     return-void
 .end method

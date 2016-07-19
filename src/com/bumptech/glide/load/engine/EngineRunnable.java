@@ -2,35 +2,35 @@ package com.bumptech.glide.load.engine;
 
 import android.util.Log;
 import com.bumptech.glide.Priority;
-import com.yelp.android.t.e;
+import com.bumptech.glide.request.f;
 
 class EngineRunnable
-  implements e, Runnable
+  implements com.bumptech.glide.load.engine.executor.a, Runnable
 {
   private final Priority a;
-  private final r b;
+  private final a b;
   private final a<?, ?, ?> c;
-  private EngineRunnable.Stage d;
+  private Stage d;
   private volatile boolean e;
   
-  public EngineRunnable(r paramr, a<?, ?, ?> parama, Priority paramPriority)
+  public EngineRunnable(a parama, a<?, ?, ?> parama1, Priority paramPriority)
   {
-    b = paramr;
-    c = parama;
-    d = EngineRunnable.Stage.CACHE;
+    b = parama;
+    c = parama1;
+    d = Stage.CACHE;
     a = paramPriority;
   }
   
-  private void a(t paramt)
+  private void a(i parami)
   {
-    b.a(paramt);
+    b.a(parami);
   }
   
   private void a(Exception paramException)
   {
     if (c())
     {
-      d = EngineRunnable.Stage.SOURCE;
+      d = Stage.SOURCE;
       b.b(this);
       return;
     }
@@ -39,10 +39,11 @@ class EngineRunnable
   
   private boolean c()
   {
-    return d == EngineRunnable.Stage.CACHE;
+    return d == Stage.CACHE;
   }
   
-  private t<?> d()
+  private i<?> d()
+    throws Exception
   {
     if (c()) {
       return e();
@@ -50,16 +51,17 @@ class EngineRunnable
     return f();
   }
   
-  private t<?> e()
+  private i<?> e()
+    throws Exception
   {
     try
     {
-      t localt1 = c.a();
-      t localt2 = localt1;
-      if (localt1 == null) {
-        localt2 = c.b();
+      i locali1 = c.a();
+      i locali2 = locali1;
+      if (locali1 == null) {
+        locali2 = c.b();
       }
-      return localt2;
+      return locali2;
     }
     catch (Exception localException)
     {
@@ -73,7 +75,8 @@ class EngineRunnable
     }
   }
   
-  private t<?> f()
+  private i<?> f()
+    throws Exception
   {
     return c.c();
   }
@@ -98,33 +101,46 @@ class EngineRunnable
       return;
       try
       {
-        localt = d();
+        locali = d();
         if (e)
         {
-          if (localt == null) {
+          if (locali == null) {
             continue;
           }
-          localt.d();
+          locali.d();
         }
       }
       catch (Exception localException)
       {
-        t localt;
+        i locali;
         for (;;)
         {
           if (Log.isLoggable("EngineRunnable", 2)) {
             Log.v("EngineRunnable", "Exception decoding", localException);
           }
-          localt = null;
+          locali = null;
         }
-        if (localt == null)
+        if (locali == null)
         {
           a(localException);
           return;
         }
-        a(localt);
+        a(locali);
       }
     }
+  }
+  
+  private static enum Stage
+  {
+    CACHE,  SOURCE;
+    
+    private Stage() {}
+  }
+  
+  static abstract interface a
+    extends f
+  {
+    public abstract void b(EngineRunnable paramEngineRunnable);
   }
 }
 

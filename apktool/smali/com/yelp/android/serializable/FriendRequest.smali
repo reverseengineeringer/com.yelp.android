@@ -7,10 +7,10 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/FriendRequest;",
             ">;"
@@ -24,12 +24,12 @@
     .locals 1
 
     .prologue
-    .line 35
-    new-instance v0, Lcom/yelp/android/serializable/au;
+    .line 40
+    new-instance v0, Lcom/yelp/android/serializable/FriendRequest$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/au;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/FriendRequest$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/FriendRequest;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/FriendRequest;->CREATOR:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
@@ -46,6 +46,63 @@
 
 
 # virtual methods
+.method public a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 65
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ad()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 8
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FriendRequest;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 8
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FriendRequest;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 70
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -69,21 +126,21 @@
     .line 20
     if-ne p0, p1, :cond_1
 
-    .line 32
+    .line 37
     :cond_0
     :goto_0
     return v0
 
-    .line 22
+    .line 23
     :cond_1
     if-nez p1, :cond_2
 
     move v0, v1
 
-    .line 23
+    .line 24
     goto :goto_0
 
-    .line 24
+    .line 26
     :cond_2
     instance-of v2, p1, Lcom/yelp/android/serializable/FriendRequest;
 
@@ -91,33 +148,33 @@
 
     move v0, v1
 
-    .line 25
+    .line 27
     goto :goto_0
 
-    .line 26
+    .line 29
     :cond_3
     check-cast p1, Lcom/yelp/android/serializable/FriendRequest;
 
-    .line 27
-    iget-object v2, p0, Lcom/yelp/android/serializable/FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    .line 30
+    iget-object v2, p0, Lcom/yelp/android/serializable/FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
     if-nez v2, :cond_4
 
-    .line 28
-    iget-object v2, p1, Lcom/yelp/android/serializable/FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    .line 31
+    iget-object v2, p1, Lcom/yelp/android/serializable/FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
     if-eqz v2, :cond_0
 
     move v0, v1
 
-    .line 29
+    .line 32
     goto :goto_0
 
-    .line 30
+    .line 34
     :cond_4
-    iget-object v2, p0, Lcom/yelp/android/serializable/FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    iget-object v2, p0, Lcom/yelp/android/serializable/FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
-    iget-object v3, p1, Lcom/yelp/android/serializable/FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    iget-object v3, p1, Lcom/yelp/android/serializable/FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
     invoke-virtual {v2, v3}, Lcom/yelp/android/serializable/User;->equals(Ljava/lang/Object;)Z
 
@@ -127,168 +184,20 @@
 
     move v0, v1
 
-    .line 31
+    .line 35
     goto :goto_0
 .end method
 
-.method public bridge synthetic getDateModified()Ljava/util/Date;
+.method public h()Z
     .locals 1
 
     .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FriendRequest;->getDateModified()Ljava/util/Date;
+    .line 100
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
 
     move-result-object v0
 
-    return-object v0
-.end method
-
-.method public getFriendCount()I
-    .locals 1
-
-    .prologue
-    .line 74
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getFriendCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getMediaCount()I
-    .locals 1
-
-    .prologue
-    .line 89
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getMediaCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getMessage()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FriendRequest;->getMessage()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getPhotoCount()I
-    .locals 1
-
-    .prologue
-    .line 79
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getLocalPhotoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getReviewCount()I
-    .locals 1
-
-    .prologue
-    .line 69
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getReviewCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getSender()Lcom/yelp/android/serializable/User;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 99
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getUserId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 59
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserPhotoUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 64
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getUserPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 84
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getVideoCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->h()Z
 
     move-result v0
 
@@ -301,7 +210,7 @@
     .prologue
     .line 12
     .line 14
-    iget-object v0, p0, Lcom/yelp/android/serializable/FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    iget-object v0, p0, Lcom/yelp/android/serializable/FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
     if-nez v0, :cond_0
 
@@ -315,7 +224,7 @@
 
     .line 14
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    iget-object v0, p0, Lcom/yelp/android/serializable/FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
     invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->hashCode()I
 
@@ -324,40 +233,124 @@
     goto :goto_0
 .end method
 
-.method public isEliteUser()Z
+.method public i()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 94
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->getSender()Lcom/yelp/android/serializable/User;
+    .line 105
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->isEliteUser()Z
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->i()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic j()Lcom/yelp/android/serializable/User;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FriendRequest;->j()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public j_()I
+    .locals 1
+
+    .prologue
+    .line 75
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->j_()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
+.method public bridge synthetic k()Ljava/lang/String;
+    .locals 1
 
     .prologue
     .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FriendRequest;->readFromJson(Lorg/json/JSONObject;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_FriendRequest;->k()Ljava/lang/String;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
+.method public k_()I
+    .locals 1
 
     .prologue
-    .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_FriendRequest;->readFromParcel(Landroid/os/Parcel;)V
+    .line 80
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
 
-    return-void
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->k_()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public l_()I
+    .locals 1
+
+    .prologue
+    .line 85
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->M()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public m_()I
+    .locals 1
+
+    .prologue
+    .line 90
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->m_()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public n_()I
+    .locals 1
+
+    .prologue
+    .line 95
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/FriendRequest;->j()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->n_()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

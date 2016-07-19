@@ -1,46 +1,31 @@
 package com.yelp.android.ab;
 
 import android.content.Context;
-import com.bumptech.glide.load.a;
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
 import com.yelp.android.aa.c;
-import com.yelp.android.v.p;
-import java.io.File;
-import java.io.InputStream;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.aa.p;
 
 public class d
-  implements com.yelp.android.ae.b<InputStream, b>
+  extends p<ParcelFileDescriptor>
+  implements b<String>
 {
-  private final o a;
-  private final r b;
-  private final p c;
-  private final c<b> d;
-  
-  public d(Context paramContext, com.bumptech.glide.load.engine.bitmap_recycle.e parame)
+  public d(l<Uri, ParcelFileDescriptor> paraml)
   {
-    a = new o(paramContext, parame);
-    d = new c(a);
-    b = new r(parame);
-    c = new p();
+    super(paraml);
   }
   
-  public com.bumptech.glide.load.d<File, b> a()
+  public static class a
+    implements m<String, ParcelFileDescriptor>
   {
-    return d;
-  }
-  
-  public com.bumptech.glide.load.d<InputStream, b> b()
-  {
-    return a;
-  }
-  
-  public a<InputStream> c()
-  {
-    return c;
-  }
-  
-  public com.bumptech.glide.load.e<b> d()
-  {
-    return b;
+    public l<String, ParcelFileDescriptor> a(Context paramContext, c paramc)
+    {
+      return new d(paramc.a(Uri.class, ParcelFileDescriptor.class));
+    }
+    
+    public void a() {}
   }
 }
 

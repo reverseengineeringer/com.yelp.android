@@ -1,221 +1,98 @@
 package com.google.android.gms.internal;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.dynamic.d;
-import com.google.android.gms.dynamic.d.a;
-import com.google.android.gms.dynamic.e;
+import android.os.RemoteException;
+import com.google.ads.mediation.AdUrlAdapter;
+import com.google.ads.mediation.MediationServerParameters;
+import com.google.ads.mediation.admob.AdMobAdapter;
+import com.google.ads.mediation.c;
+import com.google.ads.mediation.h;
+import com.google.android.gms.ads.mediation.customevent.a;
+import com.google.android.gms.ads.mediation.customevent.d;
+import com.yelp.android.bc.m;
+import java.util.Map;
 
-@ey
+@fv
 public final class dr
-  implements SafeParcelable
+  extends ds.a
 {
-  public static final dq CREATOR = new dq();
-  public final gs lO;
-  public final int orientation;
-  public final String rH;
-  public final do sb;
-  public final t sc;
-  public final ds sd;
-  public final gu se;
-  public final cb sf;
-  public final String sg;
-  public final boolean sh;
-  public final String si;
-  public final dv sj;
-  public final int sk;
-  public final ce sl;
-  public final String sm;
-  public final y sn;
-  public final int versionCode;
+  private Map<Class<? extends m>, m> a;
   
-  dr(int paramInt1, do paramdo, IBinder paramIBinder1, IBinder paramIBinder2, IBinder paramIBinder3, IBinder paramIBinder4, String paramString1, boolean paramBoolean, String paramString2, IBinder paramIBinder5, int paramInt2, int paramInt3, String paramString3, gs paramgs, IBinder paramIBinder6, String paramString4, y paramy)
-  {
-    versionCode = paramInt1;
-    sb = paramdo;
-    sc = ((t)e.f(d.a.ap(paramIBinder1)));
-    sd = ((ds)e.f(d.a.ap(paramIBinder2)));
-    se = ((gu)e.f(d.a.ap(paramIBinder3)));
-    sf = ((cb)e.f(d.a.ap(paramIBinder4)));
-    sg = paramString1;
-    sh = paramBoolean;
-    si = paramString2;
-    sj = ((dv)e.f(d.a.ap(paramIBinder5)));
-    orientation = paramInt2;
-    sk = paramInt3;
-    rH = paramString3;
-    lO = paramgs;
-    sl = ((ce)e.f(d.a.ap(paramIBinder6)));
-    sm = paramString4;
-    sn = paramy;
-  }
-  
-  public dr(do paramdo, t paramt, ds paramds, dv paramdv, gs paramgs)
-  {
-    versionCode = 4;
-    sb = paramdo;
-    sc = paramt;
-    sd = paramds;
-    se = null;
-    sf = null;
-    sg = null;
-    sh = false;
-    si = null;
-    sj = paramdv;
-    orientation = -1;
-    sk = 4;
-    rH = null;
-    lO = paramgs;
-    sl = null;
-    sm = null;
-    sn = null;
-  }
-  
-  public dr(t paramt, ds paramds, cb paramcb, dv paramdv, gu paramgu, boolean paramBoolean, int paramInt, String paramString, gs paramgs, ce paramce)
-  {
-    versionCode = 4;
-    sb = null;
-    sc = paramt;
-    sd = paramds;
-    se = paramgu;
-    sf = paramcb;
-    sg = null;
-    sh = paramBoolean;
-    si = null;
-    sj = paramdv;
-    orientation = paramInt;
-    sk = 3;
-    rH = paramString;
-    lO = paramgs;
-    sl = paramce;
-    sm = null;
-    sn = null;
-  }
-  
-  public dr(t paramt, ds paramds, cb paramcb, dv paramdv, gu paramgu, boolean paramBoolean, int paramInt, String paramString1, String paramString2, gs paramgs, ce paramce)
-  {
-    versionCode = 4;
-    sb = null;
-    sc = paramt;
-    sd = paramds;
-    se = paramgu;
-    sf = paramcb;
-    sg = paramString2;
-    sh = paramBoolean;
-    si = paramString1;
-    sj = paramdv;
-    orientation = paramInt;
-    sk = 3;
-    rH = null;
-    lO = paramgs;
-    sl = paramce;
-    sm = null;
-    sn = null;
-  }
-  
-  public dr(t paramt, ds paramds, dv paramdv, gu paramgu, int paramInt, gs paramgs, String paramString, y paramy)
-  {
-    versionCode = 4;
-    sb = null;
-    sc = paramt;
-    sd = paramds;
-    se = paramgu;
-    sf = null;
-    sg = null;
-    sh = false;
-    si = null;
-    sj = paramdv;
-    orientation = paramInt;
-    sk = 1;
-    rH = null;
-    lO = paramgs;
-    sl = null;
-    sm = paramString;
-    sn = paramy;
-  }
-  
-  public dr(t paramt, ds paramds, dv paramdv, gu paramgu, boolean paramBoolean, int paramInt, gs paramgs)
-  {
-    versionCode = 4;
-    sb = null;
-    sc = paramt;
-    sd = paramds;
-    se = paramgu;
-    sf = null;
-    sg = null;
-    sh = paramBoolean;
-    si = null;
-    sj = paramdv;
-    orientation = paramInt;
-    sk = 2;
-    rH = null;
-    lO = paramgs;
-    sl = null;
-    sm = null;
-    sn = null;
-  }
-  
-  public static void a(Intent paramIntent, dr paramdr)
-  {
-    Bundle localBundle = new Bundle(1);
-    localBundle.putParcelable("com.google.android.gms.ads.inernal.overlay.AdOverlayInfo", paramdr);
-    paramIntent.putExtra("com.google.android.gms.ads.inernal.overlay.AdOverlayInfo", localBundle);
-  }
-  
-  public static dr b(Intent paramIntent)
+  private <NETWORK_EXTRAS extends h, SERVER_PARAMETERS extends MediationServerParameters> dt c(String paramString)
+    throws RemoteException
   {
     try
     {
-      paramIntent = paramIntent.getBundleExtra("com.google.android.gms.ads.inernal.overlay.AdOverlayInfo");
-      paramIntent.setClassLoader(dr.class.getClassLoader());
-      paramIntent = (dr)paramIntent.getParcelable("com.google.android.gms.ads.inernal.overlay.AdOverlayInfo");
-      return paramIntent;
+      Object localObject = Class.forName(paramString, false, dr.class.getClassLoader());
+      if (c.class.isAssignableFrom((Class)localObject))
+      {
+        localObject = (c)((Class)localObject).newInstance();
+        return new ef((c)localObject, (h)a.get(((c)localObject).b()));
+      }
+      if (com.yelp.android.bc.b.class.isAssignableFrom((Class)localObject)) {
+        return new ea((com.yelp.android.bc.b)((Class)localObject).newInstance());
+      }
+      com.google.android.gms.ads.internal.util.client.b.d("Could not instantiate mediation adapter: " + paramString + " (not a valid adapter).");
+      throw new RemoteException();
     }
-    catch (Exception paramIntent) {}
-    return null;
+    catch (Throwable localThrowable) {}
+    return d(paramString);
   }
   
-  IBinder ck()
+  private dt d(String paramString)
+    throws RemoteException
   {
-    return e.k(sc).asBinder();
+    do
+    {
+      try
+      {
+        com.google.android.gms.ads.internal.util.client.b.a("Reflection failed, retrying using direct instantiation");
+        if ("com.google.ads.mediation.admob.AdMobAdapter".equals(paramString)) {
+          return new ea(new AdMobAdapter());
+        }
+        if ("com.google.ads.mediation.AdUrlAdapter".equals(paramString))
+        {
+          ea localea = new ea(new AdUrlAdapter());
+          return localea;
+        }
+      }
+      catch (Throwable localThrowable)
+      {
+        com.google.android.gms.ads.internal.util.client.b.d("Could not instantiate mediation adapter: " + paramString + ". ", localThrowable);
+        throw new RemoteException();
+      }
+      if ("com.google.android.gms.ads.mediation.customevent.CustomEventAdapter".equals(paramString)) {
+        return new ea(new com.google.android.gms.ads.mediation.customevent.CustomEventAdapter());
+      }
+    } while (!"com.google.ads.mediation.customevent.CustomEventAdapter".equals(paramString));
+    Object localObject = new com.google.ads.mediation.customevent.CustomEventAdapter();
+    localObject = new ef((c)localObject, (d)a.get(((com.google.ads.mediation.customevent.CustomEventAdapter)localObject).b()));
+    return (dt)localObject;
   }
   
-  IBinder cl()
+  public dt a(String paramString)
+    throws RemoteException
   {
-    return e.k(sd).asBinder();
+    return c(paramString);
   }
   
-  IBinder cm()
+  public void a(Map<Class<? extends m>, m> paramMap)
   {
-    return e.k(se).asBinder();
+    a = paramMap;
   }
   
-  IBinder cn()
+  public boolean b(String paramString)
+    throws RemoteException
   {
-    return e.k(sf).asBinder();
-  }
-  
-  IBinder co()
-  {
-    return e.k(sl).asBinder();
-  }
-  
-  IBinder cp()
-  {
-    return e.k(sj).asBinder();
-  }
-  
-  public int describeContents()
-  {
-    return 0;
-  }
-  
-  public void writeToParcel(Parcel paramParcel, int paramInt)
-  {
-    dq.a(this, paramParcel, paramInt);
+    try
+    {
+      boolean bool = a.class.isAssignableFrom(Class.forName(paramString, false, dr.class.getClassLoader()));
+      return bool;
+    }
+    catch (Throwable localThrowable)
+    {
+      com.google.android.gms.ads.internal.util.client.b.d("Could not load custom event implementation class: " + paramString + ", assuming old implementation.");
+    }
+    return false;
   }
 }
 

@@ -11,11 +11,16 @@ public abstract class a<E extends Enum<E>>
     b = paramClass;
   }
   
-  public abstract E a();
-  
   public boolean a(E paramE)
   {
-    return a() == paramE;
+    return b() == paramE;
+  }
+  
+  public abstract E b();
+  
+  public String c()
+  {
+    return a;
   }
 }
 

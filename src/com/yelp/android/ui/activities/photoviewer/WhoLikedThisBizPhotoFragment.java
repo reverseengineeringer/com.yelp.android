@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.ab;
 import com.yelp.android.appdata.webrequests.ai;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.appdata.webrequests.y;
 import com.yelp.android.serializable.DisplayableAsUserBadge;
 import com.yelp.android.serializable.Media;
 import com.yelp.android.serializable.Media.MediaType;
@@ -18,7 +18,7 @@ import com.yelp.android.serializable.PhotoFeedback;
 import com.yelp.android.serializable.Video;
 import com.yelp.android.serializable.VideoFeedback;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
-import com.yelp.android.ui.activities.reviewpage.bk;
+import com.yelp.android.ui.activities.reviewpage.f;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.panels.PanelLoading;
 import com.yelp.android.ui.util.ScrollToLoadListView;
@@ -29,12 +29,12 @@ import java.util.List;
 public class WhoLikedThisBizPhotoFragment
   extends YelpListFragment
 {
-  private bk a;
-  private ApiRequest<?, ?, ?> b;
+  private f a;
+  private ApiRequest<Void, ?, ?> b;
   private PanelLoading c;
   private View d;
-  private final m<List<PhotoFeedback>> e = new as(this);
-  private final m<List<VideoFeedback>> g = new at(this);
+  private final ApiRequest.b<List<PhotoFeedback>> e = new WhoLikedThisBizPhotoFragment.2(this);
+  private final ApiRequest.b<List<VideoFeedback>> f = new WhoLikedThisBizPhotoFragment.3(this);
   
   public static WhoLikedThisBizPhotoFragment a(Media paramMedia)
   {
@@ -51,7 +51,7 @@ public class WhoLikedThisBizPhotoFragment
     if (a.isEmpty())
     {
       m().setEmptyView(d);
-      YelpLog.error(getActivity(), "Empty results for 'People Who Liked This Photo'");
+      YelpLog.remoteError(getActivity(), "Empty results for 'People Who Liked This Photo'");
     }
     m().f();
   }
@@ -61,21 +61,21 @@ public class WhoLikedThisBizPhotoFragment
     c.setVisibility(8);
     c.c();
     m().setEmptyView(d);
-    YelpLog.error(getActivity(), paramYelpException);
+    YelpLog.remoteError(getActivity(), paramYelpException);
   }
   
   private void b(Media paramMedia)
   {
     a.clear();
-    if ((b == null) || (!b.isFetching())) {
-      if (!paramMedia.isMediaType(Media.MediaType.VIDEO)) {
+    if ((b == null) || (!b.u())) {
+      if (!paramMedia.a(Media.MediaType.VIDEO)) {
         break label83;
       }
     }
     label83:
-    for (b = new ai(g, (Video)paramMedia);; b = new y(e, (Photo)paramMedia))
+    for (b = new ai(f, (Video)paramMedia);; b = new ab(e, (Photo)paramMedia))
     {
-      b.execute(new Object[0]);
+      b.f(new Void[0]);
       c.setVisibility(0);
       c.b();
       return;
@@ -86,16 +86,16 @@ public class WhoLikedThisBizPhotoFragment
   {
     paramListView = paramListView.getItemAtPosition(paramInt);
     if ((paramListView instanceof DisplayableAsUserBadge)) {
-      startActivity(ActivityUserProfile.a(getActivity(), ((DisplayableAsUserBadge)paramListView).getUserId()));
+      startActivity(ActivityUserProfile.a(getActivity(), ((DisplayableAsUserBadge)paramListView).i()));
     }
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    a = bk.b(paramBundle);
+    a = f.b(paramBundle);
     if (a == null) {
-      a = new bk();
+      a = new f();
     }
     m().setEmptyView(c);
     m().setAdapter(a);
@@ -111,15 +111,15 @@ public class WhoLikedThisBizPhotoFragment
       b(paramBundle);
       return;
     }
-    YelpLog.error(getActivity(), "Missing photo argument");
+    YelpLog.remoteError(getActivity(), "Missing photo argument");
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903233, paramViewGroup, false);
-    paramLayoutInflater.setOnTouchListener(new ar(this));
-    c = ((PanelLoading)paramLayoutInflater.findViewById(2131493436));
-    d = paramLayoutInflater.findViewById(2131492899);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903261, paramViewGroup, false);
+    paramLayoutInflater.setOnTouchListener(new WhoLikedThisBizPhotoFragment.1(this));
+    c = ((PanelLoading)paramLayoutInflater.findViewById(2131690115));
+    d = paramLayoutInflater.findViewById(2131689510);
     return paramLayoutInflater;
   }
   
@@ -128,8 +128,8 @@ public class WhoLikedThisBizPhotoFragment
     super.onDestroyView();
     if (b != null)
     {
-      b.cancel(true);
-      b.setCallback(null);
+      b.a(true);
+      b.a(null);
     }
   }
   

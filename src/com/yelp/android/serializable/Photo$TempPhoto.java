@@ -13,11 +13,11 @@ public class Photo$TempPhoto
   
   public Photo$TempPhoto(String paramString1, String paramString2, String paramString3)
   {
-    mId = "";
-    mTempId = paramString3;
-    mPrivateFeedback = Collections.emptyList();
-    mCaption = paramString2;
-    mOverrideUrl = paramString1;
+    h = "";
+    b = paramString3;
+    e = Collections.emptyList();
+    j = paramString2;
+    c = paramString1;
   }
 }
 

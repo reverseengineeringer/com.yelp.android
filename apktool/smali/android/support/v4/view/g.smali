@@ -1,120 +1,102 @@
-.class Landroid/support/v4/view/g;
+.class public Landroid/support/v4/view/g;
 .super Ljava/lang/Object;
-.source "AccessibilityDelegateCompat.java"
+.source "KeyEventCompat.java"
 
-# interfaces
-.implements Landroid/support/v4/view/d;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/view/g$c;,
+        Landroid/support/v4/view/g$b;,
+        Landroid/support/v4/view/g$a;,
+        Landroid/support/v4/view/g$d;
+    }
+.end annotation
+
+
+# static fields
+.field static final a:Landroid/support/v4/view/g$d;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 2
 
     .prologue
-    .line 55
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 166
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
+    const/16 v1, 0xb
+
+    if-lt v0, v1, :cond_0
+
+    .line 167
+    new-instance v0, Landroid/support/v4/view/g$c;
+
+    invoke-direct {v0}, Landroid/support/v4/view/g$c;-><init>()V
+
+    sput-object v0, Landroid/support/v4/view/g;->a:Landroid/support/v4/view/g$d;
+
+    .line 171
+    :goto_0
     return-void
+
+    .line 169
+    :cond_0
+    new-instance v0, Landroid/support/v4/view/g$a;
+
+    invoke-direct {v0}, Landroid/support/v4/view/g$a;-><init>()V
+
+    sput-object v0, Landroid/support/v4/view/g;->a:Landroid/support/v4/view/g$d;
+
+    goto :goto_0
 .end method
 
-
-# virtual methods
-.method public a(Ljava/lang/Object;Landroid/view/View;)Lcom/yelp/android/f/w;
-    .locals 1
+.method public static a(Landroid/view/KeyEvent;)Z
+    .locals 2
 
     .prologue
-    .line 109
-    const/4 v0, 0x0
+    .line 192
+    sget-object v0, Landroid/support/v4/view/g;->a:Landroid/support/v4/view/g$d;
 
-    return-object v0
-.end method
+    invoke-virtual {p0}, Landroid/view/KeyEvent;->getMetaState()I
 
-.method public a()Ljava/lang/Object;
-    .locals 1
+    move-result v1
 
-    .prologue
-    .line 57
-    const/4 v0, 0x0
+    invoke-interface {v0, v1}, Landroid/support/v4/view/g$d;->b(I)Z
 
-    return-object v0
-.end method
-
-.method public a(Landroid/support/v4/view/a;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 62
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public a(Ljava/lang/Object;Landroid/view/View;I)V
-    .locals 0
-
-    .prologue
-    .line 98
-    return-void
-.end method
-
-.method public a(Ljava/lang/Object;Landroid/view/View;Lcom/yelp/android/f/g;)V
-    .locals 0
-
-    .prologue
-    .line 81
-    return-void
-.end method
-
-.method public a(Ljava/lang/Object;Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
-
-    .prologue
-    .line 115
-    const/4 v0, 0x0
+    move-result v0
 
     return v0
 .end method
 
-.method public a(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 1
+.method public static a(Landroid/view/KeyEvent;I)Z
+    .locals 2
 
     .prologue
-    .line 68
-    const/4 v0, 0x0
+    .line 188
+    sget-object v0, Landroid/support/v4/view/g;->a:Landroid/support/v4/view/g$d;
+
+    invoke-virtual {p0}, Landroid/view/KeyEvent;->getMetaState()I
+
+    move-result v1
+
+    invoke-interface {v0, v1, p1}, Landroid/support/v4/view/g$d;->a(II)Z
+
+    move-result v0
 
     return v0
 .end method
 
-.method public a(Ljava/lang/Object;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+.method public static b(Landroid/view/KeyEvent;)V
     .locals 1
 
     .prologue
-    .line 92
-    const/4 v0, 0x1
+    .line 196
+    sget-object v0, Landroid/support/v4/view/g;->a:Landroid/support/v4/view/g$d;
 
-    return v0
-.end method
+    invoke-interface {v0, p0}, Landroid/support/v4/view/g$d;->a(Landroid/view/KeyEvent;)V
 
-.method public b(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
-
-    .prologue
-    .line 75
-    return-void
-.end method
-
-.method public c(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
-
-    .prologue
-    .line 87
-    return-void
-.end method
-
-.method public d(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
-
-    .prologue
-    .line 104
+    .line 197
     return-void
 .end method

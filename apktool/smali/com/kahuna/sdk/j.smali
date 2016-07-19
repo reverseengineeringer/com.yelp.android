@@ -1,39 +1,44 @@
-.class final Lcom/kahuna/sdk/j;
-.super Ljava/lang/Object;
-.source "KahunaAnalytics.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
+.class public final Lcom/kahuna/sdk/j;
+.super Lcom/kahuna/sdk/l;
+.source "Kahuna.java"
 
 
-# instance fields
-.field final synthetic a:Ljava/util/Map;
+# static fields
+.field private static d:Lcom/kahuna/sdk/h;
 
 
 # direct methods
-.method constructor <init>(Ljava/util/Map;)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
     .prologue
-    .line 792
-    iput-object p1, p0, Lcom/kahuna/sdk/j;->a:Ljava/util/Map;
+    .line 57
+    new-instance v0, Lcom/kahuna/sdk/j;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {v0}, Lcom/kahuna/sdk/j;-><init>()V
+
+    sput-object v0, Lcom/kahuna/sdk/j;->d:Lcom/kahuna/sdk/h;
 
     return-void
 .end method
 
+.method private constructor <init>()V
+    .locals 0
 
-# virtual methods
-.method public run()V
+    .prologue
+    .line 61
+    invoke-direct {p0}, Lcom/kahuna/sdk/l;-><init>()V
+
+    .line 62
+    return-void
+.end method
+
+.method public static i()Lcom/kahuna/sdk/h;
     .locals 1
 
     .prologue
-    .line 796
-    iget-object v0, p0, Lcom/kahuna/sdk/j;->a:Ljava/util/Map;
+    .line 65
+    sget-object v0, Lcom/kahuna/sdk/j;->d:Lcom/kahuna/sdk/h;
 
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->b(Ljava/util/Map;)V
-
-    .line 797
-    return-void
+    return-object v0
 .end method

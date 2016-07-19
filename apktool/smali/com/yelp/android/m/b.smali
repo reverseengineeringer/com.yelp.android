@@ -1,17 +1,38 @@
-.class public interface abstract Lcom/yelp/android/m/b;
+.class public Lcom/yelp/android/m/b;
 .super Ljava/lang/Object;
-.source "ActionMode.java"
+.source "NotificationCompatImpl21.java"
 
 
-# virtual methods
-.method public abstract a(Lcom/yelp/android/m/a;)V
-.end method
+# direct methods
+.method public static a(Landroid/support/v4/app/w;[ILjava/lang/Object;)V
+    .locals 2
 
-.method public abstract a(Lcom/yelp/android/m/a;Landroid/view/Menu;)Z
-.end method
+    .prologue
+    .line 31
+    new-instance v0, Landroid/app/Notification$MediaStyle;
 
-.method public abstract a(Lcom/yelp/android/m/a;Landroid/view/MenuItem;)Z
-.end method
+    invoke-interface {p0}, Landroid/support/v4/app/w;->a()Landroid/app/Notification$Builder;
 
-.method public abstract b(Lcom/yelp/android/m/a;Landroid/view/Menu;)Z
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/app/Notification$MediaStyle;-><init>(Landroid/app/Notification$Builder;)V
+
+    .line 32
+    if-eqz p1, :cond_0
+
+    .line 33
+    invoke-virtual {v0, p1}, Landroid/app/Notification$MediaStyle;->setShowActionsInCompactView([I)Landroid/app/Notification$MediaStyle;
+
+    .line 35
+    :cond_0
+    if-eqz p2, :cond_1
+
+    .line 36
+    check-cast p2, Landroid/media/session/MediaSession$Token;
+
+    invoke-virtual {v0, p2}, Landroid/app/Notification$MediaStyle;->setMediaSession(Landroid/media/session/MediaSession$Token;)Landroid/app/Notification$MediaStyle;
+
+    .line 38
+    :cond_1
+    return-void
 .end method

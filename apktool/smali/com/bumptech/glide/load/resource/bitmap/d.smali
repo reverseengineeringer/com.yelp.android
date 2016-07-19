@@ -19,39 +19,58 @@
 
 
 # instance fields
-.field private a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+.field private a:Lcom/yelp/android/x/c;
 
 
 # direct methods
-.method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)V
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
+
+    .prologue
+    .line 38
+    invoke-static {p1}, Lcom/bumptech/glide/g;->a(Landroid/content/Context;)Lcom/bumptech/glide/g;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/bumptech/glide/g;->a()Lcom/yelp/android/x/c;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/d;-><init>(Lcom/yelp/android/x/c;)V
+
+    .line 39
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/yelp/android/x/c;)V
     .locals 0
 
     .prologue
-    .line 39
+    .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    .line 42
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->a:Lcom/yelp/android/x/c;
 
-    .line 41
+    .line 43
     return-void
 .end method
 
 
 # virtual methods
-.method protected abstract a(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
+.method protected abstract a(Lcom/yelp/android/x/c;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
 .end method
 
-.method public final a(Lcom/bumptech/glide/load/engine/t;II)Lcom/bumptech/glide/load/engine/t;
+.method public final a(Lcom/bumptech/glide/load/engine/i;II)Lcom/bumptech/glide/load/engine/i;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<",
             "Landroid/graphics/Bitmap;",
             ">;II)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<",
             "Landroid/graphics/Bitmap;",
             ">;"
@@ -59,13 +78,16 @@
     .end annotation
 
     .prologue
-    .line 45
-    if-lez p2, :cond_0
+    const/high16 v1, -0x80000000
 
-    if-gtz p3, :cond_1
+    .line 47
+    invoke-static {p2, p3}, Lcom/yelp/android/ao/h;->a(II)Z
 
-    .line 46
-    :cond_0
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 48
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -92,7 +114,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, " less than or equal to zero"
+    const-string/jumbo v2, " less than or equal to zero and not Target.SIZE_ORIGINAL"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -106,37 +128,53 @@
 
     throw v0
 
-    .line 49
-    :cond_1
-    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/t;->b()Ljava/lang/Object;
+    .line 51
+    :cond_0
+    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/i;->b()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    .line 50
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    .line 52
+    if-ne p2, v1, :cond_1
 
-    invoke-virtual {p0, v1, v0, p2, p3}, Lcom/bumptech/glide/load/resource/bitmap/d;->a(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result p2
+
+    .line 53
+    :cond_1
+    if-ne p3, v1, :cond_2
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result p3
+
+    .line 54
+    :cond_2
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->a:Lcom/yelp/android/x/c;
+
+    invoke-virtual {p0, v1, v0, p2, p3}, Lcom/bumptech/glide/load/resource/bitmap/d;->a(Lcom/yelp/android/x/c;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
-    .line 53
+    .line 57
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    .line 59
+    .line 63
     :goto_0
     return-object p1
 
-    .line 56
-    :cond_2
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    .line 60
+    :cond_3
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/d;->a:Lcom/yelp/android/x/c;
 
-    invoke-static {v1, v0}, Lcom/bumptech/glide/load/resource/bitmap/c;->a(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)Lcom/bumptech/glide/load/resource/bitmap/c;
+    invoke-static {v1, v0}, Lcom/bumptech/glide/load/resource/bitmap/c;->a(Landroid/graphics/Bitmap;Lcom/yelp/android/x/c;)Lcom/bumptech/glide/load/resource/bitmap/c;
 
     move-result-object p1
 

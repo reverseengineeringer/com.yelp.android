@@ -1,140 +1,67 @@
 .class Lcom/google/android/gms/tagmanager/u;
-.super Lcom/google/android/gms/tagmanager/aj;
+.super Ljava/lang/Object;
 
-
-# static fields
-.field private static final ID:Ljava/lang/String;
-
-.field private static final NAME:Ljava/lang/String;
-
-.field private static final aqZ:Ljava/lang/String;
-
-
-# instance fields
-.field private final aqn:Lcom/google/android/gms/tagmanager/DataLayer;
+# interfaces
+.implements Lcom/google/android/gms/tagmanager/ah;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method constructor <init>()V
+    .locals 0
 
-    sget-object v0, Lcom/google/android/gms/internal/a;->C:Lcom/google/android/gms/internal/a;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/a;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/google/android/gms/tagmanager/u;->ID:Ljava/lang/String;
-
-    sget-object v0, Lcom/google/android/gms/internal/b;->dB:Lcom/google/android/gms/internal/b;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/b;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/google/android/gms/tagmanager/u;->NAME:Ljava/lang/String;
-
-    sget-object v0, Lcom/google/android/gms/internal/b;->cr:Lcom/google/android/gms/internal/b;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/b;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/google/android/gms/tagmanager/u;->aqZ:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/android/gms/tagmanager/DataLayer;)V
-    .locals 4
-
-    sget-object v0, Lcom/google/android/gms/tagmanager/u;->ID:Ljava/lang/String;
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/String;
-
-    const/4 v2, 0x0
-
-    sget-object v3, Lcom/google/android/gms/tagmanager/u;->NAME:Ljava/lang/String;
-
-    aput-object v3, v1, v2
-
-    invoke-direct {p0, v0, v1}, Lcom/google/android/gms/tagmanager/aj;-><init>(Ljava/lang/String;[Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/google/android/gms/tagmanager/u;->aqn:Lcom/google/android/gms/tagmanager/DataLayer;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public B(Ljava/util/Map;)Lcom/google/android/gms/internal/d$a;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Lcom/google/android/gms/internal/d$a;",
-            ">;)",
-            "Lcom/google/android/gms/internal/d$a;"
-        }
-    .end annotation
-
-    iget-object v1, p0, Lcom/google/android/gms/tagmanager/u;->aqn:Lcom/google/android/gms/tagmanager/DataLayer;
-
-    sget-object v0, Lcom/google/android/gms/tagmanager/u;->NAME:Ljava/lang/String;
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/internal/d$a;
-
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/di;->j(Lcom/google/android/gms/internal/d$a;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/tagmanager/DataLayer;->get(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
-
-    sget-object v0, Lcom/google/android/gms/tagmanager/u;->aqZ:Ljava/lang/String;
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/internal/d$a;
-
-    if-eqz v0, :cond_0
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    invoke-static {}, Lcom/google/android/gms/tagmanager/di;->rb()Lcom/google/android/gms/internal/d$a;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_1
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/di;->u(Ljava/lang/Object;)Lcom/google/android/gms/internal/d$a;
-
-    move-result-object v0
-
-    goto :goto_0
-.end method
-
-.method public pe()Z
+.method public a(I)Lcom/google/android/gms/tagmanager/ah;
     .locals 1
 
-    const/4 v0, 0x0
+    new-instance v0, Lcom/google/android/gms/tagmanager/u;
 
-    return v0
+    invoke-direct {v0}, Lcom/google/android/gms/tagmanager/u;-><init>()V
+
+    return-object v0
+.end method
+
+.method public a()Lcom/google/android/gms/tagmanager/o;
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/tagmanager/p;
+
+    invoke-direct {v0}, Lcom/google/android/gms/tagmanager/p;-><init>()V
+
+    return-object v0
+.end method
+
+.method public b(I)Lcom/google/android/gms/tagmanager/ah;
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/tagmanager/u;
+
+    invoke-direct {v0}, Lcom/google/android/gms/tagmanager/u;-><init>()V
+
+    return-object v0
+.end method
+
+.method public c(I)Lcom/google/android/gms/tagmanager/ah;
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/tagmanager/u;
+
+    invoke-direct {v0}, Lcom/google/android/gms/tagmanager/u;-><init>()V
+
+    return-object v0
+.end method
+
+.method public d(I)Lcom/google/android/gms/tagmanager/ah;
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/tagmanager/u;
+
+    invoke-direct {v0}, Lcom/google/android/gms/tagmanager/u;-><init>()V
+
+    return-object v0
 .end method

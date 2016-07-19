@@ -1,6 +1,6 @@
 package com.yelp.common.collect;
 
-import com.yelp.common.base.g;
+import com.yelp.common.base.d;
 import java.util.concurrent.ConcurrentMap;
 
 final class CustomConcurrentHashMap$Builder
@@ -12,23 +12,23 @@ final class CustomConcurrentHashMap$Builder
   int concurrencyLevel = -1;
   int initialCapacity = -1;
   
-  public <K, V, E> ConcurrentMap<K, V> buildComputingMap(b<K, V, E> paramb, g<? super K, ? extends V> paramg)
+  public <K, V, E> ConcurrentMap<K, V> buildComputingMap(CustomConcurrentHashMap.a<K, V, E> parama, d<? super K, ? extends V> paramd)
   {
-    if (paramb == null) {
+    if (parama == null) {
       throw new NullPointerException("strategy");
     }
-    if (paramg == null) {
+    if (paramd == null) {
       throw new NullPointerException("computer");
     }
-    return new CustomConcurrentHashMap.ComputingImpl(paramb, this, paramg);
+    return new CustomConcurrentHashMap.ComputingImpl(parama, this, paramd);
   }
   
-  public <K, V, E> ConcurrentMap<K, V> buildMap(d<K, V, E> paramd)
+  public <K, V, E> ConcurrentMap<K, V> buildMap(CustomConcurrentHashMap.c<K, V, E> paramc)
   {
-    if (paramd == null) {
+    if (paramc == null) {
       throw new NullPointerException("strategy");
     }
-    return new CustomConcurrentHashMap.Impl(paramd, this);
+    return new CustomConcurrentHashMap.Impl(paramc, this);
   }
   
   public Builder concurrencyLevel(int paramInt)

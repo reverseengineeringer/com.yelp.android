@@ -2,7 +2,7 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.text.TextUtils;
-import com.yelp.android.ui.panels.businesssearch.i;
+import com.yelp.android.ui.panels.businesssearch.c;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -11,12 +11,12 @@ import java.util.Map;
 
 public class SearchResultLocalAd
   extends LocalAd
-  implements i
+  implements c
 {
-  public static final ah<SearchResultLocalAd> CREATOR = new cz();
-  private BusinessSearchResult mBusinessSearchResult;
+  public static final a<SearchResultLocalAd> CREATOR = new SearchResultLocalAd.1();
+  private BusinessSearchResult k;
   
-  public static void initializeSearchResultLocalAds(List<SearchResultLocalAd> paramList, List<BusinessSearchResult> paramList1)
+  public static void a(List<SearchResultLocalAd> paramList, List<BusinessSearchResult> paramList1)
   {
     if ((paramList == null) || (paramList1 == null)) {
       return;
@@ -32,56 +32,56 @@ public class SearchResultLocalAd
       if (localIterator2.hasNext())
       {
         BusinessSearchResult localBusinessSearchResult = (BusinessSearchResult)localIterator2.next();
-        YelpBusiness localYelpBusiness = localBusinessSearchResult.getBusiness();
-        if (!localSearchResultLocalAd.getBusinessId().equals(localYelpBusiness.getId())) {
+        YelpBusiness localYelpBusiness = localBusinessSearchResult.a();
+        if (!localSearchResultLocalAd.m().equals(localYelpBusiness.aD())) {
           break;
         }
-        mBusinessSearchResult = localBusinessSearchResult;
+        k = localBusinessSearchResult;
       }
     }
     label96:
     Collections.sort(paramList);
   }
   
-  public YelpBusiness getBusiness()
+  public YelpBusiness a()
   {
-    if (mBusinessSearchResult == null) {
+    if (k == null) {
       return null;
     }
-    return mBusinessSearchResult.getBusiness();
+    return k.a();
   }
   
-  public BusinessSearchResult getBusinessSearchResult()
+  public Map<String, Object> a(YelpBusiness paramYelpBusiness, boolean paramBoolean)
   {
-    return mBusinessSearchResult;
-  }
-  
-  public Map<String, Object> getIriParams(YelpBusiness paramYelpBusiness, boolean paramBoolean)
-  {
-    paramYelpBusiness = super.getIriParams(paramYelpBusiness, paramBoolean);
-    if ((mBusinessSearchResult != null) && (paramBoolean))
+    paramYelpBusiness = super.a(paramYelpBusiness, paramBoolean);
+    if ((k != null) && (paramBoolean))
     {
-      Object localObject = mBusinessSearchResult.getAnnotations();
+      Object localObject = k.h();
       ArrayList localArrayList = new ArrayList();
       localObject = ((List)localObject).iterator();
       while (((Iterator)localObject).hasNext()) {
-        localArrayList.add(((SearchResultAnnotation)((Iterator)localObject).next()).getType());
+        localArrayList.add(((SearchResultAnnotation)((Iterator)localObject).next()).a());
       }
       paramYelpBusiness.put("ad_type", TextUtils.join(",", localArrayList));
     }
     return paramYelpBusiness;
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public void a(Parcel paramParcel)
   {
-    super.readFromParcel(paramParcel);
-    mBusinessSearchResult = ((BusinessSearchResult)paramParcel.readParcelable(BusinessSearchResult.class.getClassLoader()));
+    super.a(paramParcel);
+    k = ((BusinessSearchResult)paramParcel.readParcelable(BusinessSearchResult.class.getClassLoader()));
+  }
+  
+  public BusinessSearchResult e()
+  {
+    return k;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeParcelable(mBusinessSearchResult, 0);
+    paramParcel.writeParcelable(k, 0);
   }
 }
 

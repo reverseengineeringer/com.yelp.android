@@ -18,10 +18,10 @@
     .locals 1
 
     .prologue
-    .line 25
+    .line 24
     invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;-><init>()V
 
-    .line 27
+    .line 26
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->b:I
@@ -33,7 +33,7 @@
     .locals 1
 
     .prologue
-    .line 25
+    .line 24
     iget v0, p0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->b:I
 
     return v0
@@ -43,7 +43,7 @@
     .locals 0
 
     .prologue
-    .line 25
+    .line 24
     iput p1, p0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->b:I
 
     return p1
@@ -66,15 +66,15 @@
     .end annotation
 
     .prologue
-    .line 33
+    .line 32
     new-instance v0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;-><init>()V
 
-    .line 34
+    .line 33
     invoke-virtual {v0, p0, p1}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->a(ILjava/util/List;)Lcom/yelp/android/ui/dialogs/ListDialogFragment;
 
-    .line 35
+    .line 34
     return-object v0
 .end method
 
@@ -82,7 +82,7 @@
     .locals 1
 
     .prologue
-    .line 25
+    .line 24
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->c:[Ljava/lang/String;
 
     return-object v0
@@ -92,7 +92,7 @@
     .locals 1
 
     .prologue
-    .line 25
+    .line 24
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->d:[Landroid/os/Parcelable;
 
     return-object v0
@@ -102,7 +102,7 @@
     .locals 1
 
     .prologue
-    .line 25
+    .line 24
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->e:Ljava/lang/String;
 
     return-object v0
@@ -200,29 +200,29 @@
 
     const/4 v1, -0x1
 
-    new-instance v2, Lcom/yelp/android/ui/dialogs/bg;
+    new-instance v2, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment$1;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/dialogs/bg;-><init>(Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment$1;-><init>(Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;)V
 
     invoke-virtual {p2, v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 56
+    .line 59
     const v0, 0x1040013
 
     const/4 v1, 0x0
 
     invoke-virtual {p2, v0, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 57
+    .line 60
     const/high16 v0, 0x1040000
 
-    new-instance v1, Lcom/yelp/android/ui/dialogs/bh;
+    new-instance v1, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/bh;-><init>(Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment$2;-><init>(Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;)V
 
     invoke-virtual {p2, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 65
+    .line 69
     return-object p2
 .end method
 
@@ -230,10 +230,10 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 73
     iput-object p1, p0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->e:Ljava/lang/String;
 
-    .line 70
+    .line 74
     return-void
 .end method
 
@@ -241,34 +241,34 @@
     .locals 2
 
     .prologue
-    .line 78
+    .line 82
     invoke-super {p0}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->onStart()V
 
-    .line 79
+    .line 83
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
 
     check-cast v0, Landroid/app/AlertDialog;
 
-    .line 80
+    .line 84
     if-eqz v0, :cond_0
 
-    .line 81
+    .line 85
     const/4 v1, -0x1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->getButton(I)Landroid/widget/Button;
 
     move-result-object v0
 
-    .line 82
-    new-instance v1, Lcom/yelp/android/ui/dialogs/bi;
+    .line 86
+    new-instance v1, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment$3;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/bi;-><init>(Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment$3;-><init>(Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 95
+    .line 101
     :cond_0
     return-void
 .end method

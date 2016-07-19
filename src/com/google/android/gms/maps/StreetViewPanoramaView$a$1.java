@@ -1,16 +1,18 @@
 package com.google.android.gms.maps;
 
-import com.google.android.gms.maps.internal.IStreetViewPanoramaDelegate;
-import com.google.android.gms.maps.internal.u.a;
+import android.os.RemoteException;
+import com.yelp.android.bj.g;
+import com.yelp.android.bj.n.a;
 
 class StreetViewPanoramaView$a$1
-  extends u.a
+  extends n.a
 {
-  StreetViewPanoramaView$a$1(StreetViewPanoramaView.a parama, OnStreetViewPanoramaReadyCallback paramOnStreetViewPanoramaReadyCallback) {}
+  StreetViewPanoramaView$a$1(StreetViewPanoramaView.a parama, f paramf) {}
   
-  public void a(IStreetViewPanoramaDelegate paramIStreetViewPanoramaDelegate)
+  public void a(g paramg)
+    throws RemoteException
   {
-    alo.onStreetViewPanoramaReady(new StreetViewPanorama(paramIStreetViewPanoramaDelegate));
+    a.a(new h(paramg));
   }
 }
 

@@ -2,39 +2,39 @@ package com.bumptech.glide;
 
 import android.graphics.Bitmap;
 import android.os.ParcelFileDescriptor;
-import com.yelp.android.ad.c;
-import com.yelp.android.v.f;
-import com.yelp.android.v.m;
+import com.yelp.android.aa.f;
+import com.yelp.android.aa.l;
+import com.yelp.android.ai.c;
 import java.io.InputStream;
 
 public class b<ModelType>
   extends a<ModelType, Bitmap>
 {
-  private final m<ModelType, InputStream> g;
-  private final m<ModelType, ParcelFileDescriptor> h;
-  private final h i;
-  private final o j;
+  private final l<ModelType, InputStream> g;
+  private final l<ModelType, ParcelFileDescriptor> h;
+  private final g i;
+  private final i.d j;
   
-  b(e<ModelType, ?, ?, ?> parame, m<ModelType, InputStream> paramm, m<ModelType, ParcelFileDescriptor> paramm1, o paramo)
+  b(e<ModelType, ?, ?, ?> parame, l<ModelType, InputStream> paraml, l<ModelType, ParcelFileDescriptor> paraml1, i.d paramd)
   {
-    super(a(c, paramm, paramm1, Bitmap.class, null), Bitmap.class, parame);
-    g = paramm;
-    h = paramm1;
+    super(a(c, paraml, paraml1, Bitmap.class, null), Bitmap.class, parame);
+    g = paraml;
+    h = paraml1;
     i = c;
-    j = paramo;
+    j = paramd;
   }
   
-  private static <A, R> com.yelp.android.ae.e<A, com.yelp.android.v.h, Bitmap, R> a(h paramh, m<A, InputStream> paramm, m<A, ParcelFileDescriptor> paramm1, Class<R> paramClass, c<Bitmap, R> paramc)
+  private static <A, R> com.yelp.android.ak.e<A, com.yelp.android.aa.g, Bitmap, R> a(g paramg, l<A, InputStream> paraml, l<A, ParcelFileDescriptor> paraml1, Class<R> paramClass, c<Bitmap, R> paramc)
   {
-    if ((paramm == null) && (paramm1 == null)) {
+    if ((paraml == null) && (paraml1 == null)) {
       return null;
     }
     Object localObject = paramc;
     if (paramc == null) {
-      localObject = paramh.a(Bitmap.class, paramClass);
+      localObject = paramg.a(Bitmap.class, paramClass);
     }
-    paramh = paramh.b(com.yelp.android.v.h.class, Bitmap.class);
-    return new com.yelp.android.ae.e(new f(paramm, paramm1), (c)localObject, paramh);
+    paramg = paramg.b(com.yelp.android.aa.g.class, Bitmap.class);
+    return new com.yelp.android.ak.e(new f(paraml, paraml1), (c)localObject, paramg);
   }
 }
 

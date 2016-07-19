@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Checkable;
 import android.widget.TextView;
-import com.yelp.android.bf.c;
+import com.yelp.android.co.a.b;
 
 public class SpannedTextView
   extends TextView
@@ -19,7 +19,7 @@ public class SpannedTextView
   
   public SpannedTextView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, c.spannedTextViewStyle);
+    this(paramContext, paramAttributeSet, a.b.spannedTextViewStyle);
   }
   
   public SpannedTextView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
@@ -82,9 +82,9 @@ public class SpannedTextView
     a.setMiddle(paramBoolean);
   }
   
-  public void setOnCheckedChangeListener(j paramj)
+  public void setOnCheckedChangeListener(c paramc)
   {
-    a.setOnCheckedChangeListener(paramj);
+    a.a(paramc);
     refreshDrawableState();
   }
   

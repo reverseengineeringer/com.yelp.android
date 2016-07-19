@@ -6,6 +6,17 @@
 .implements Landroid/view/SurfaceHolder$Callback;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/view/BrightcoveVideoView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "SurfaceListener"
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/brightcove/player/view/BrightcoveVideoView;
 

@@ -8,14 +8,14 @@
 
 .field private g:Ljava/lang/String;
 
-.field private h:Lcom/yelp/android/appdata/webrequests/fc;
+.field private h:Lcom/yelp/android/appdata/webrequests/ea;
 
-.field private final i:Lcom/yelp/android/appdata/webrequests/m;
+.field private final i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/fd;",
+            "Lcom/yelp/android/appdata/webrequests/ea$a;",
             ">;"
         }
     .end annotation
@@ -30,12 +30,12 @@
     .line 18
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviewpage/ActivityAbstractReviewPager;-><init>()V
 
-    .line 90
-    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/s;
+    .line 109
+    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviewpage/s;-><init>(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager$2;-><init>(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->i:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-void
 .end method
@@ -62,7 +62,7 @@
     .end annotation
 
     .prologue
-    .line 33
+    .line 39
     invoke-virtual {p1, p2}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result v5
@@ -85,26 +85,26 @@
 
     move-result-object v0
 
-    .line 35
+    .line 49
     const-string/jumbo v1, "total"
 
     invoke-virtual {v0, v1, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 36
+    .line 50
     const-string/jumbo v1, "search_term"
 
     invoke-virtual {v0, v1, p7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 37
+    .line 51
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;Lcom/yelp/android/appdata/webrequests/fc;)Lcom/yelp/android/appdata/webrequests/fc;
+.method static synthetic a(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;Lcom/yelp/android/appdata/webrequests/ea;)Lcom/yelp/android/appdata/webrequests/ea;
     .locals 0
 
     .prologue
     .line 18
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/fc;
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/ea;
 
     return-object p1
 .end method
@@ -119,22 +119,22 @@
     return-object v0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)Lcom/yelp/android/appdata/webrequests/m;
+.method static synthetic b(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .locals 1
 
     .prologue
     .line 18
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->i:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-object v0
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)Lcom/yelp/android/appdata/webrequests/fc;
+.method static synthetic c(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)Lcom/yelp/android/appdata/webrequests/ea;
     .locals 1
 
     .prologue
     .line 18
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/fc;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/ea;
 
     return-object v0
 .end method
@@ -145,20 +145,20 @@
     .locals 1
 
     .prologue
-    .line 63
+    .line 77
     iget v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->f:I
 
     return v0
 .end method
 
-.method protected b()Lcom/yelp/android/ui/widgets/ah;
+.method protected b()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$b;
     .locals 1
 
     .prologue
-    .line 71
-    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/r;
+    .line 85
+    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviewpage/r;-><init>(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager$1;-><init>(Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;)V
 
     return-object v0
 .end method
@@ -167,23 +167,23 @@
     .locals 1
 
     .prologue
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/fc;
+    .line 103
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/ea;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/fc;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/ea;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/fc;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ea;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 85
+    .line 104
     const/4 v0, 0x1
 
-    .line 87
+    .line 106
     :goto_0
     return v0
 
@@ -199,15 +199,15 @@
     .locals 3
 
     .prologue
-    .line 42
+    .line 56
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/reviewpage/ActivityAbstractReviewPager;->onCreate(Landroid/os/Bundle;)V
 
-    .line 43
+    .line 57
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 44
+    .line 58
     const-string/jumbo v1, "total"
 
     const/4 v2, 0x0
@@ -218,7 +218,7 @@
 
     iput v1, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->f:I
 
-    .line 45
+    .line 59
     const-string/jumbo v1, "search_term"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -227,7 +227,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->g:Ljava/lang/String;
 
-    .line 46
+    .line 60
     return-void
 .end method
 
@@ -235,17 +235,17 @@
     .locals 2
 
     .prologue
-    .line 57
+    .line 71
     invoke-super {p0}, Lcom/yelp/android/ui/activities/reviewpage/ActivityAbstractReviewPager;->onPause()V
 
-    .line 58
+    .line 72
     const-string/jumbo v0, "search_request"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/fc;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/ea;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->freezeRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 59
+    .line 73
     return-void
 .end method
 
@@ -253,24 +253,24 @@
     .locals 3
 
     .prologue
-    .line 50
+    .line 64
     invoke-super {p0}, Lcom/yelp/android/ui/activities/reviewpage/ActivityAbstractReviewPager;->onResume()V
 
-    .line 51
+    .line 65
     const-string/jumbo v0, "search_request"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/fc;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/ea;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->i:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/fc;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/ea;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/fc;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/ActivitySearchedReviewsPager;->h:Lcom/yelp/android/appdata/webrequests/ea;
 
-    .line 53
+    .line 67
     return-void
 .end method

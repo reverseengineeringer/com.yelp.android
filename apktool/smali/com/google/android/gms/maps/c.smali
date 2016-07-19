@@ -1,336 +1,511 @@
-.class public Lcom/google/android/gms/maps/c;
+.class public final Lcom/google/android/gms/maps/c;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Landroid/os/Parcelable$Creator;
 
 
 # annotations
-.annotation system Ldalvik/annotation/Signature;
+.annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator",
-        "<",
-        "Lcom/google/android/gms/maps/StreetViewPanoramaOptions;",
-        ">;"
+        Lcom/google/android/gms/maps/c$g;,
+        Lcom/google/android/gms/maps/c$f;,
+        Lcom/google/android/gms/maps/c$b;,
+        Lcom/google/android/gms/maps/c$a;,
+        Lcom/google/android/gms/maps/c$d;,
+        Lcom/google/android/gms/maps/c$c;,
+        Lcom/google/android/gms/maps/c$e;
     }
 .end annotation
 
 
+# instance fields
+.field private final a:Lcom/yelp/android/bj/b;
+
+.field private b:Lcom/google/android/gms/maps/i;
+
+
 # direct methods
-.method public constructor <init>()V
-    .locals 0
+.method protected constructor <init>(Lcom/yelp/android/bj/b;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
-.end method
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
 
-.method static a(Lcom/google/android/gms/maps/StreetViewPanoramaOptions;Landroid/os/Parcel;I)V
-    .locals 4
+    move-result-object v0
 
-    const/4 v3, 0x0
+    check-cast v0, Lcom/yelp/android/bj/b;
 
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/b;->H(Landroid/os/Parcel;)I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->getVersionCode()I
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->c(Landroid/os/Parcel;II)V
-
-    const/4 v1, 0x2
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->getStreetViewPanoramaCamera()Lcom/google/android/gms/maps/model/StreetViewPanoramaCamera;
-
-    move-result-object v2
-
-    invoke-static {p1, v1, v2, p2, v3}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
-
-    const/4 v1, 0x3
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->getPanoramaId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {p1, v1, v2, v3}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;ILjava/lang/String;Z)V
-
-    const/4 v1, 0x4
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->getPosition()Lcom/google/android/gms/maps/model/LatLng;
-
-    move-result-object v2
-
-    invoke-static {p1, v1, v2, p2, v3}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
-
-    const/4 v1, 0x5
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->getRadius()Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-static {p1, v1, v2, v3}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;ILjava/lang/Integer;Z)V
-
-    const/4 v1, 0x6
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->nS()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    const/4 v1, 0x7
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->nI()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    const/16 v1, 0x8
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->nT()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    const/16 v1, 0x9
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->nU()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    const/16 v1, 0xa
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;->nE()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/b;->H(Landroid/os/Parcel;I)V
+    iput-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public cY(Landroid/os/Parcel;)Lcom/google/android/gms/maps/StreetViewPanoramaOptions;
-    .locals 13
+.method public final a()Lcom/google/android/gms/maps/model/CameraPosition;
+    .locals 2
 
-    const/4 v5, 0x0
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
 
-    const/4 v10, 0x0
+    invoke-interface {v0}, Lcom/yelp/android/bj/b;->a()Lcom/google/android/gms/maps/model/CameraPosition;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/a;->G(Landroid/os/Parcel;)I
+    move-result-object v0
 
-    move-result v11
+    return-object v0
 
-    move v9, v10
+    :catch_0
+    move-exception v0
 
-    move v8, v10
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
 
-    move v7, v10
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
 
-    move v6, v10
+    throw v1
+.end method
 
-    move-object v4, v5
+.method public final a(Lcom/google/android/gms/maps/model/MarkerOptions;)Lcom/google/android/gms/maps/model/c;
+    .locals 2
 
-    move-object v3, v5
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
 
-    move-object v2, v5
+    invoke-interface {v0, p1}, Lcom/yelp/android/bj/b;->a(Lcom/google/android/gms/maps/model/MarkerOptions;)Lcom/yelp/android/bk/f;
 
-    move v1, v10
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v0, Lcom/google/android/gms/maps/model/c;
+
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/model/c;-><init>(Lcom/yelp/android/bk/f;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
-
-    move-result v0
-
-    if-ge v0, v11, :cond_0
-
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/a;->F(Landroid/os/Parcel;)I
-
-    move-result v0
-
-    invoke-static {v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->aH(I)I
-
-    move-result v12
-
-    packed-switch v12, :pswitch_data_0
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->b(Landroid/os/Parcel;I)V
-
-    goto :goto_0
-
-    :pswitch_0
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->g(Landroid/os/Parcel;I)I
-
-    move-result v1
-
-    goto :goto_0
-
-    :pswitch_1
-    sget-object v2, Lcom/google/android/gms/maps/model/StreetViewPanoramaCamera;->CREATOR:Lcom/google/android/gms/maps/model/q;
-
-    invoke-static {p1, v0, v2}, Lcom/google/android/gms/common/internal/safeparcel/a;->a(Landroid/os/Parcel;ILandroid/os/Parcelable$Creator;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/maps/model/StreetViewPanoramaCamera;
-
-    move-object v2, v0
-
-    goto :goto_0
-
-    :pswitch_2
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->o(Landroid/os/Parcel;I)Ljava/lang/String;
-
-    move-result-object v3
-
-    goto :goto_0
-
-    :pswitch_3
-    sget-object v4, Lcom/google/android/gms/maps/model/LatLng;->CREATOR:Lcom/google/android/gms/maps/model/i;
-
-    invoke-static {p1, v0, v4}, Lcom/google/android/gms/common/internal/safeparcel/a;->a(Landroid/os/Parcel;ILandroid/os/Parcelable$Creator;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/maps/model/LatLng;
-
-    move-object v4, v0
-
-    goto :goto_0
-
-    :pswitch_4
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->h(Landroid/os/Parcel;I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    goto :goto_0
-
-    :pswitch_5
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->e(Landroid/os/Parcel;I)B
-
-    move-result v6
-
-    goto :goto_0
-
-    :pswitch_6
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->e(Landroid/os/Parcel;I)B
-
-    move-result v7
-
-    goto :goto_0
-
-    :pswitch_7
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->e(Landroid/os/Parcel;I)B
-
-    move-result v8
-
-    goto :goto_0
-
-    :pswitch_8
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->e(Landroid/os/Parcel;I)B
-
-    move-result v9
-
-    goto :goto_0
-
-    :pswitch_9
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/a;->e(Landroid/os/Parcel;I)B
-
-    move-result v10
-
-    goto :goto_0
+    return-object v0
 
     :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->dataPosition()I
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(I)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/bj/b;->a(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(Lcom/google/android/gms/maps/a;)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-virtual {p1}, Lcom/google/android/gms/maps/a;->a()Lcom/google/android/gms/dynamic/c;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->b(Lcom/google/android/gms/dynamic/c;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(Lcom/google/android/gms/maps/a;Lcom/google/android/gms/maps/c$a;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-virtual {p1}, Lcom/google/android/gms/maps/a;->a()Lcom/google/android/gms/dynamic/c;
+
+    move-result-object v2
+
+    if-nez p2, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-interface {v1, v2, v0}, Lcom/yelp/android/bj/b;->a(Lcom/google/android/gms/dynamic/c;Lcom/yelp/android/bj/r;)V
+
+    return-void
+
+    :cond_0
+    new-instance v0, Lcom/google/android/gms/maps/c$g;
+
+    invoke-direct {v0, p2}, Lcom/google/android/gms/maps/c$g;-><init>(Lcom/google/android/gms/maps/c$a;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(Lcom/google/android/gms/maps/c$b;)V
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/t;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    new-instance v1, Lcom/google/android/gms/maps/c$4;
+
+    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/maps/c$4;-><init>(Lcom/google/android/gms/maps/c;Lcom/google/android/gms/maps/c$b;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/t;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(Lcom/google/android/gms/maps/c$c;)V
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/u;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    new-instance v1, Lcom/google/android/gms/maps/c$1;
+
+    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/maps/c$1;-><init>(Lcom/google/android/gms/maps/c;Lcom/google/android/gms/maps/c$c;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/u;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(Lcom/google/android/gms/maps/c$d;)V
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/x;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    new-instance v1, Lcom/google/android/gms/maps/c$3;
+
+    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/maps/c$3;-><init>(Lcom/google/android/gms/maps/c;Lcom/google/android/gms/maps/c$d;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/x;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(Lcom/google/android/gms/maps/c$e;)V
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/ab;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    new-instance v1, Lcom/google/android/gms/maps/c$2;
+
+    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/maps/c$2;-><init>(Lcom/google/android/gms/maps/c;Lcom/google/android/gms/maps/c$e;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/ab;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public a(Lcom/google/android/gms/maps/c$f;)V
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/ac;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    new-instance v1, Lcom/google/android/gms/maps/c$5;
+
+    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/maps/c$5;-><init>(Lcom/google/android/gms/maps/c;Lcom/google/android/gms/maps/c$f;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/b;->a(Lcom/yelp/android/bj/ac;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final a(Z)Z
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/bj/b;->b(Z)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
-    if-eq v0, v11, :cond_1
+    return v0
 
-    new-instance v0, Lcom/google/android/gms/common/internal/safeparcel/a$a;
+    :catch_0
+    move-exception v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
 
-    const-string/jumbo v2, "Overread allowed size end="
+    throw v1
+.end method
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+.method public final b()V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-interface {v0}, Lcom/yelp/android/bj/b;->e()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final b(Z)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/bj/b;->c(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final c()Lcom/google/android/gms/maps/i;
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->b:Lcom/google/android/gms/maps/i;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/google/android/gms/maps/i;
+
+    iget-object v1, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-interface {v1}, Lcom/yelp/android/bj/b;->k()Lcom/yelp/android/bj/j;
 
     move-result-object v1
 
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/i;-><init>(Lcom/yelp/android/bj/j;)V
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/c;->b:Lcom/google/android/gms/maps/i;
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/c;->b:Lcom/google/android/gms/maps/i;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public final d()Lcom/google/android/gms/maps/g;
+    .locals 2
+
+    :try_start_0
+    new-instance v0, Lcom/google/android/gms/maps/g;
+
+    iget-object v1, p0, Lcom/google/android/gms/maps/c;->a:Lcom/yelp/android/bj/b;
+
+    invoke-interface {v1}, Lcom/yelp/android/bj/b;->l()Lcom/yelp/android/bj/f;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1, p1}, Lcom/google/android/gms/common/internal/safeparcel/a$a;-><init>(Ljava/lang/String;Landroid/os/Parcel;)V
-
-    throw v0
-
-    :cond_1
-    new-instance v0, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;
-
-    invoke-direct/range {v0 .. v10}, Lcom/google/android/gms/maps/StreetViewPanoramaOptions;-><init>(ILcom/google/android/gms/maps/model/StreetViewPanoramaCamera;Ljava/lang/String;Lcom/google/android/gms/maps/model/LatLng;Ljava/lang/Integer;BBBBB)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/g;-><init>(Lcom/yelp/android/bj/f;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     return-object v0
 
-    nop
+    :catch_0
+    move-exception v0
 
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
-        :pswitch_4
-        :pswitch_5
-        :pswitch_6
-        :pswitch_7
-        :pswitch_8
-        :pswitch_9
-    .end packed-switch
-.end method
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
 
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
 
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/maps/c;->cY(Landroid/os/Parcel;)Lcom/google/android/gms/maps/StreetViewPanoramaOptions;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public eU(I)[Lcom/google/android/gms/maps/StreetViewPanoramaOptions;
-    .locals 1
-
-    new-array v0, p1, [Lcom/google/android/gms/maps/StreetViewPanoramaOptions;
-
-    return-object v0
-.end method
-
-.method public synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
-
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/maps/c;->eU(I)[Lcom/google/android/gms/maps/StreetViewPanoramaOptions;
-
-    move-result-object v0
-
-    return-object v0
+    throw v1
 .end method

@@ -1,10 +1,10 @@
 package com.bumptech.glide.load;
 
-import com.bumptech.glide.load.engine.t;
+import com.bumptech.glide.load.engine.i;
 
 public abstract interface f<T>
 {
-  public abstract t<T> a(t<T> paramt, int paramInt1, int paramInt2);
+  public abstract i<T> a(i<T> parami, int paramInt1, int paramInt2);
   
   public abstract String a();
 }

@@ -1,11 +1,27 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
+import com.google.android.gms.ads.formats.c.a;
 
-public abstract interface br
-  extends IInterface
+@fv
+public class br
+  extends bm.a
 {
-  public abstract void a(bq parambq);
+  private final c.a a;
+  
+  public br(c.a parama)
+  {
+    a = parama;
+  }
+  
+  public void a(bh parambh)
+  {
+    a.a(b(parambh));
+  }
+  
+  bi b(bh parambh)
+  {
+    return new bi(parambh);
+  }
 }
 
 /* Location:

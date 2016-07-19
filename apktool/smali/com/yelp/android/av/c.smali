@@ -1,218 +1,824 @@
-.class Lcom/yelp/android/av/c;
-.super Lcom/yelp/android/util/aa;
-.source "MetricsManager.java"
+.class public Lcom/yelp/android/av/c;
+.super Lio/fabric/sdk/android/h;
+.source "Beta.java"
+
+# interfaces
+.implements Lio/fabric/sdk/android/services/common/k;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/util/aa",
+        "Lio/fabric/sdk/android/h",
         "<",
-        "Ljava/util/List",
-        "<",
-        "Lcom/yelp/android/analytics/b;",
+        "Ljava/lang/Boolean;",
         ">;",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        ">;"
+        "Lio/fabric/sdk/android/services/common/k;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic a:[Ljava/lang/Runnable;
+.field private final a:Lcom/yelp/android/cr/b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/cr/b",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field final synthetic b:Lcom/yelp/android/av/a;
+.field private final b:Lcom/yelp/android/av/h;
+
+.field private c:Lcom/yelp/android/av/j;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/av/a;[Ljava/lang/Runnable;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
     .prologue
-    .line 414
-    iput-object p1, p0, Lcom/yelp/android/av/c;->b:Lcom/yelp/android/av/a;
+    .line 31
+    invoke-direct {p0}, Lio/fabric/sdk/android/h;-><init>()V
 
-    iput-object p2, p0, Lcom/yelp/android/av/c;->a:[Ljava/lang/Runnable;
+    .line 40
+    new-instance v0, Lcom/yelp/android/cr/b;
 
-    invoke-direct {p0}, Lcom/yelp/android/util/aa;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/cr/b;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/av/c;->a:Lcom/yelp/android/cr/b;
+
+    .line 41
+    new-instance v0, Lcom/yelp/android/av/h;
+
+    invoke-direct {v0}, Lcom/yelp/android/av/h;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/av/c;->b:Lcom/yelp/android/av/h;
 
     return-void
 .end method
 
-
-# virtual methods
-.method protected varargs a([Ljava/util/List;)Ljava/lang/Void;
-    .locals 6
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "([",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/analytics/b;",
-            ">;)",
-            "Ljava/lang/Void;"
-        }
-    .end annotation
+.method private a(Landroid/content/Context;)Lcom/yelp/android/av/d;
+    .locals 7
 
     .prologue
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
-    const/4 v0, 0x0
-
-    .line 419
-    aget-object v1, p1, v0
-
-    monitor-enter v1
-
-    .line 420
-    const/4 v0, 0x0
-
+    .line 185
+    .line 189
     :try_start_0
-    aget-object v0, p1, v0
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/av/a;->a(Ljava/util/List;ZLorg/json/JSONArray;)Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {p1}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v0
 
-    .line 422
+    const-string/jumbo v2, "crashlytics-build.properties"
+
+    invoke-virtual {v0, v2}, Landroid/content/res/AssetManager;->open(Ljava/lang/String;)Ljava/io/InputStream;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v2
+
+    .line 191
+    if-eqz v2, :cond_2
+
+    .line 192
     :try_start_1
-    new-instance v2, Ljava/io/BufferedWriter;
+    invoke-static {v2}, Lcom/yelp/android/av/d;->a(Ljava/io/InputStream;)Lcom/yelp/android/av/d;
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    new-instance v3, Ljava/io/FileWriter;
+    move-result-object v1
 
-    iget-object v4, p0, Lcom/yelp/android/av/c;->b:Lcom/yelp/android/av/a;
+    .line 194
+    :try_start_2
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
 
-    invoke-static {v4}, Lcom/yelp/android/av/a;->b(Lcom/yelp/android/av/a;)Ljava/io/File;
+    move-result-object v0
+
+    const-string/jumbo v3, "Beta"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v5, v1, Lcom/yelp/android/av/d;->d:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-direct {v3, v4}, Ljava/io/FileWriter;-><init>(Ljava/io/File;)V
+    const-string/jumbo v5, " build properties: "
 
-    invoke-direct {v2, v3}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 424
-    invoke-virtual {v2, v0}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+    move-result-object v4
 
-    .line 425
-    invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
+    iget-object v5, v1, Lcom/yelp/android/av/d;->b:Ljava/lang/String;
 
-    .line 428
-    const/4 v0, 0x0
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    aget-object v0, p1, v0
+    move-result-object v4
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    const-string/jumbo v5, " ("
 
-    .line 432
-    :try_start_2
-    monitor-exit v1
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 433
+    move-result-object v4
+
+    iget-object v5, v1, Lcom/yelp/android/av/d;->a:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ")"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " - "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, v1, Lcom/yelp/android/av/d;->c:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v0, v3, v4}, Lio/fabric/sdk/android/k;->a(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_5
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    move-object v0, v1
+
+    .line 201
     :goto_0
-    return-object v5
+    if-eqz v2, :cond_0
 
-    .line 429
+    .line 203
+    :try_start_3
+    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+
+    .line 210
+    :cond_0
+    :goto_1
+    return-object v0
+
+    .line 204
     :catch_0
+    move-exception v1
+
+    .line 205
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "Beta"
+
+    const-string/jumbo v4, "Error closing Beta build properties asset"
+
+    invoke-interface {v2, v3, v4, v1}, Lio/fabric/sdk/android/k;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_1
+
+    .line 198
+    :catch_1
     move-exception v0
 
-    .line 430
-    monitor-exit v1
+    move-object v2, v1
 
-    goto :goto_0
+    move-object v6, v1
 
-    .line 432
+    move-object v1, v0
+
+    move-object v0, v6
+
+    .line 199
+    :goto_2
+    :try_start_4
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v3
+
+    const-string/jumbo v4, "Beta"
+
+    const-string/jumbo v5, "Error reading Beta build properties"
+
+    invoke-interface {v3, v4, v5, v1}, Lio/fabric/sdk/android/k;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    .line 201
+    if-eqz v2, :cond_0
+
+    .line 203
+    :try_start_5
+    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+
+    goto :goto_1
+
+    .line 204
+    :catch_2
+    move-exception v1
+
+    .line 205
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "Beta"
+
+    const-string/jumbo v4, "Error closing Beta build properties asset"
+
+    invoke-interface {v2, v3, v4, v1}, Lio/fabric/sdk/android/k;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_1
+
+    .line 201
     :catchall_0
     move-exception v0
 
-    monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    move-object v2, v1
 
+    :goto_3
+    if-eqz v2, :cond_1
+
+    .line 203
+    :try_start_6
+    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
+
+    .line 206
+    :cond_1
+    :goto_4
     throw v0
-.end method
 
-.method protected a(Ljava/lang/Void;)V
-    .locals 4
+    .line 204
+    :catch_3
+    move-exception v1
 
-    .prologue
-    .line 438
-    iget-object v1, p0, Lcom/yelp/android/av/c;->a:[Ljava/lang/Runnable;
+    .line 205
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
 
-    array-length v2, v1
+    move-result-object v2
 
-    const/4 v0, 0x0
+    const-string/jumbo v3, "Beta"
 
-    :goto_0
-    if-ge v0, v2, :cond_0
+    const-string/jumbo v4, "Error closing Beta build properties asset"
 
-    aget-object v3, v1, v0
+    invoke-interface {v2, v3, v4, v1}, Lio/fabric/sdk/android/k;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 439
-    invoke-interface {v3}, Ljava/lang/Runnable;->run()V
+    goto :goto_4
 
-    .line 438
-    add-int/lit8 v0, v0, 0x1
+    .line 201
+    :catchall_1
+    move-exception v0
+
+    goto :goto_3
+
+    .line 198
+    :catch_4
+    move-exception v0
+
+    move-object v6, v0
+
+    move-object v0, v1
+
+    move-object v1, v6
+
+    goto :goto_2
+
+    :catch_5
+    move-exception v0
+
+    move-object v6, v0
+
+    move-object v0, v1
+
+    move-object v1, v6
+
+    goto :goto_2
+
+    :cond_2
+    move-object v0, v1
 
     goto :goto_0
+.end method
 
-    .line 442
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/av/c;->b:Lcom/yelp/android/av/a;
+.method private a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+    .locals 5
 
-    invoke-static {v0}, Lcom/yelp/android/av/a;->c(Lcom/yelp/android/av/a;)Z
+    .prologue
+    const/4 v1, 0x0
+
+    .line 157
+    .line 159
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    invoke-virtual {p0, p2, v0}, Lcom/yelp/android/av/c;->a(Ljava/lang/String;I)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 443
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+    .line 160
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/analytics/GoogleAnalytics;->getInstance(Landroid/content/Context;)Lcom/google/android/gms/analytics/GoogleAnalytics;
+    const-string/jumbo v2, "Beta"
+
+    const-string/jumbo v3, "App was possibly installed by Beta. Getting device token"
+
+    invoke-interface {v0, v2, v3}, Lio/fabric/sdk/android/k;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 162
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/av/c;->a:Lcom/yelp/android/cr/b;
+
+    iget-object v2, p0, Lcom/yelp/android/av/c;->b:Lcom/yelp/android/av/h;
+
+    invoke-virtual {v0, p1, v2}, Lcom/yelp/android/cr/b;->a(Landroid/content/Context;Lcom/yelp/android/cr/d;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/analytics/GoogleAnalytics;->dispatchLocalHits()V
+    check-cast v0, Ljava/lang/String;
 
-    .line 445
+    .line 163
+    const-string/jumbo v2, ""
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    move-object v0, v1
+
+    :cond_0
+    move-object v1, v0
+
+    .line 171
+    :goto_0
+    return-object v1
+
+    .line 164
+    :catch_0
+    move-exception v0
+
+    .line 165
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "Beta"
+
+    const-string/jumbo v4, "Failed to load the Beta device token"
+
+    invoke-interface {v2, v3, v4, v0}, Lio/fabric/sdk/android/k;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_0
+
+    .line 168
     :cond_1
-    return-void
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "Beta"
+
+    const-string/jumbo v3, "App was not installed by Beta. Skipping device token"
+
+    invoke-interface {v0, v2, v3}, Lio/fabric/sdk/android/k;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
-.method protected synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+.method private h()Lio/fabric/sdk/android/services/settings/f;
     .locals 1
 
     .prologue
-    .line 414
-    check-cast p1, [Ljava/util/List;
+    .line 175
+    invoke-static {}, Lio/fabric/sdk/android/services/settings/q;->a()Lio/fabric/sdk/android/services/settings/q;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/av/c;->a([Ljava/util/List;)Ljava/lang/Void;
+    move-result-object v0
+
+    invoke-virtual {v0}, Lio/fabric/sdk/android/services/settings/q;->b()Lio/fabric/sdk/android/services/settings/s;
+
+    move-result-object v0
+
+    .line 177
+    if-eqz v0, :cond_0
+
+    .line 178
+    iget-object v0, v0, Lio/fabric/sdk/android/services/settings/s;->f:Lio/fabric/sdk/android/services/settings/f;
+
+    .line 181
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method a(ILandroid/app/Application;)Lcom/yelp/android/av/j;
+    .locals 3
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0xe
+    .end annotation
+
+    .prologue
+    .line 98
+    const/16 v0, 0xe
+
+    if-lt p1, v0, :cond_0
+
+    .line 102
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->C()Lio/fabric/sdk/android/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lio/fabric/sdk/android/c;->e()Lio/fabric/sdk/android/a;
+
+    move-result-object v1
+
+    .line 104
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->C()Lio/fabric/sdk/android/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lio/fabric/sdk/android/c;->f()Ljava/util/concurrent/ExecutorService;
+
+    move-result-object v2
+
+    .line 105
+    new-instance v0, Lcom/yelp/android/av/b;
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/av/b;-><init>(Lio/fabric/sdk/android/a;Ljava/util/concurrent/ExecutorService;)V
+
+    .line 108
+    :goto_0
+    return-object v0
+
+    :cond_0
+    new-instance v0, Lcom/yelp/android/av/i;
+
+    invoke-direct {v0}, Lcom/yelp/android/av/i;-><init>()V
+
+    goto :goto_0
+.end method
+
+.method public a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 134
+    const-string/jumbo v0, "1.1.3.61"
+
+    return-object v0
+.end method
+
+.method a(Lio/fabric/sdk/android/services/settings/f;Lcom/yelp/android/av/d;)Z
+    .locals 1
+
+    .prologue
+    .line 151
+    if-eqz p1, :cond_0
+
+    iget-object v0, p1, Lio/fabric/sdk/android/services/settings/f;->a:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    if-eqz p2, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method a(Ljava/lang/String;I)Z
+    .locals 1
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0xb
+    .end annotation
+
+    .prologue
+    .line 139
+    const/16 v0, 0xb
+
+    if-ge p2, v0, :cond_1
+
+    .line 143
+    if-nez p1, :cond_0
+
+    const/4 v0, 0x1
+
+    .line 146
+    :goto_0
+    return v0
+
+    .line 143
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    .line 146
+    :cond_1
+    const-string/jumbo v0, "io.crash.air"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 129
+    const-string/jumbo v0, "com.crashlytics.sdk.android:beta"
+
+    return-object v0
+.end method
+
+.method protected c()Ljava/lang/Boolean;
+    .locals 9
+
+    .prologue
+    .line 61
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "Beta"
+
+    const-string/jumbo v2, "Beta kit initializing..."
+
+    invoke-interface {v0, v1, v2}, Lio/fabric/sdk/android/k;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 63
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->B()Landroid/content/Context;
+
+    move-result-object v1
+
+    .line 64
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->A()Lio/fabric/sdk/android/services/common/IdManager;
+
+    move-result-object v3
+
+    .line 65
+    invoke-virtual {v3}, Lio/fabric/sdk/android/services/common/IdManager;->h()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 66
+    invoke-direct {p0, v1, v0}, Lcom/yelp/android/av/c;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 68
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 69
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "Beta"
+
+    const-string/jumbo v2, "A Beta device token was not found for this app"
+
+    invoke-interface {v0, v1, v2}, Lio/fabric/sdk/android/k;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 70
+    const/4 v0, 0x0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    .line 90
+    :goto_0
+    return-object v0
+
+    .line 73
+    :cond_0
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "Beta"
+
+    const-string/jumbo v4, "Beta device token is present, checking for app updates."
+
+    invoke-interface {v0, v2, v4}, Lio/fabric/sdk/android/k;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 75
+    invoke-direct {p0}, Lcom/yelp/android/av/c;->h()Lio/fabric/sdk/android/services/settings/f;
+
+    move-result-object v4
+
+    .line 76
+    invoke-direct {p0, v1}, Lcom/yelp/android/av/c;->a(Landroid/content/Context;)Lcom/yelp/android/av/d;
+
+    move-result-object v5
+
+    .line 78
+    invoke-virtual {p0, v4, v5}, Lcom/yelp/android/av/c;->a(Lio/fabric/sdk/android/services/settings/f;Lcom/yelp/android/av/d;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 79
+    iget-object v0, p0, Lcom/yelp/android/av/c;->c:Lcom/yelp/android/av/j;
+
+    new-instance v6, Lcom/yelp/android/cu/c;
+
+    invoke-direct {v6, p0}, Lcom/yelp/android/cu/c;-><init>(Lio/fabric/sdk/android/h;)V
+
+    new-instance v7, Lio/fabric/sdk/android/services/common/p;
+
+    invoke-direct {v7}, Lio/fabric/sdk/android/services/common/p;-><init>()V
+
+    new-instance v8, Lio/fabric/sdk/android/services/network/b;
+
+    invoke-static {}, Lio/fabric/sdk/android/c;->h()Lio/fabric/sdk/android/k;
+
+    move-result-object v2
+
+    invoke-direct {v8, v2}, Lio/fabric/sdk/android/services/network/b;-><init>(Lio/fabric/sdk/android/k;)V
+
+    move-object v2, p0
+
+    invoke-interface/range {v0 .. v8}, Lcom/yelp/android/av/j;->a(Landroid/content/Context;Lcom/yelp/android/av/c;Lio/fabric/sdk/android/services/common/IdManager;Lio/fabric/sdk/android/services/settings/f;Lcom/yelp/android/av/d;Lcom/yelp/android/cu/b;Lio/fabric/sdk/android/services/common/j;Lio/fabric/sdk/android/services/network/c;)V
+
+    .line 90
+    :cond_1
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method protected c_()Z
+    .locals 2
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0xe
+    .end annotation
+
+    .prologue
+    .line 54
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->B()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/Application;
+
+    .line 55
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/av/c;->a(ILandroid/app/Application;)Lcom/yelp/android/av/j;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/av/c;->c:Lcom/yelp/android/av/j;
+
+    .line 56
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public e()Ljava/util/Map;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map",
+            "<",
+            "Lio/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 114
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->A()Lio/fabric/sdk/android/services/common/IdManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lio/fabric/sdk/android/services/common/IdManager;->h()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 115
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->B()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1, v0}, Lcom/yelp/android/av/c;->a(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 117
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    .line 120
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 121
+    sget-object v2, Lio/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType;->FONT_TOKEN:Lio/fabric/sdk/android/services/common/IdManager$DeviceIdentifierType;
+
+    invoke-interface {v1, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 124
+    :cond_0
+    return-object v1
+.end method
+
+.method protected synthetic f()Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 31
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->c()Ljava/lang/Boolean;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method protected synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+.method g()Ljava/lang/String;
+    .locals 2
 
     .prologue
-    .line 414
-    check-cast p1, Ljava/lang/Void;
+    .line 214
+    invoke-virtual {p0}, Lcom/yelp/android/av/c;->B()Landroid/content/Context;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/av/c;->a(Ljava/lang/Void;)V
+    move-result-object v0
 
-    return-void
+    const-string/jumbo v1, "com.crashlytics.ApiEndpoint"
+
+    invoke-static {v0, v1}, Lio/fabric/sdk/android/services/common/CommonUtils;->b(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

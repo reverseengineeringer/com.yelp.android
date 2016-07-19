@@ -1,31 +1,12 @@
 package com.yelp.android.serializable;
 
-import android.os.Parcel;
-import com.yelp.parcelgen.JsonParser.DualCreator;
-import org.json.JSONObject;
+import android.os.Parcelable.Creator;
+import com.yelp.parcelgen.JsonParser;
 
-final class a
-  extends JsonParser.DualCreator<Alert>
-{
-  public Alert a(Parcel paramParcel)
-  {
-    Alert localAlert = new Alert(null);
-    localAlert.readFromParcel(paramParcel);
-    return localAlert;
-  }
-  
-  public Alert a(JSONObject paramJSONObject)
-  {
-    Alert localAlert = new Alert(null);
-    localAlert.readFromJson(paramJSONObject);
-    return localAlert;
-  }
-  
-  public Alert[] a(int paramInt)
-  {
-    return new Alert[paramInt];
-  }
-}
+public abstract class a<E>
+  extends JsonParser<E>
+  implements Parcelable.Creator<E>
+{}
 
 /* Location:
  * Qualified Name:     com.yelp.android.serializable.a

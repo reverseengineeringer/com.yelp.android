@@ -1,68 +1,30 @@
-.class public final Lcom/yelp/android/appdata/webrequests/bc;
-.super Lcom/yelp/android/appdata/webrequests/az;
-.source "ComplimentsRequest.java"
+.class public Lcom/yelp/android/appdata/webrequests/bc;
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "DeleteCreditCardRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;II)V
+.method public constructor <init>(Lcom/yelp/android/serializable/PaymentMethod;)V
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/bb;",
-            ">;",
-            "Ljava/lang/String;",
-            "II)V"
-        }
-    .end annotation
 
     .prologue
-    .line 60
-    const-string/jumbo v0, "user/compliments"
+    .line 12
+    const-string/jumbo v0, "account/payment_method/remove"
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/yelp/android/appdata/webrequests/az;-><init>(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;Z)V
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 61
-    const-string/jumbo v0, "offset"
-
-    invoke-super {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/az;->addUrlParam(Ljava/lang/String;I)V
-
-    .line 62
-    const-string/jumbo v0, "limit"
-
-    invoke-super {p0, v0, p4}, Lcom/yelp/android/appdata/webrequests/az;->addUrlParam(Ljava/lang/String;I)V
-
-    .line 63
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 64
-    const-string/jumbo v0, "user_id"
-
-    invoke-super {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/az;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 66
-    :cond_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 57
-    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/az;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/bb;
+    .line 13
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PaymentMethod;->d()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
+    .line 14
+    const-string/jumbo v1, "payment_method_id"
+
+    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/appdata/webrequests/bc;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 15
+    return-void
 .end method

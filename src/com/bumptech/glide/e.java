@@ -2,29 +2,33 @@ package com.bumptech.glide;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.widget.ImageView;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.manager.l;
 import com.bumptech.glide.request.GenericRequest;
-import com.yelp.android.af.g;
-import com.yelp.android.ag.j;
+import com.yelp.android.am.j;
+import com.yelp.android.ao.h;
 
 public class e<ModelType, DataType, ResourceType, TranscodeType>
   implements Cloneable
 {
+  private boolean A;
+  private Drawable B;
+  private int C;
   protected final Class<ModelType> a;
   protected final Context b;
-  protected final h c;
+  protected final g c;
   protected final Class<TranscodeType> d;
   protected final l e;
-  protected final com.bumptech.glide.manager.h f;
-  private com.yelp.android.ae.a<ModelType, DataType, ResourceType, TranscodeType> g;
+  protected final com.bumptech.glide.manager.g f;
+  private com.yelp.android.ak.a<ModelType, DataType, ResourceType, TranscodeType> g;
   private ModelType h;
-  private com.bumptech.glide.load.b i = com.yelp.android.ah.b.a();
+  private com.bumptech.glide.load.b i = com.yelp.android.an.a.a();
   private boolean j;
   private int k;
   private int l;
-  private com.bumptech.glide.request.c<? super ModelType, TranscodeType> m;
+  private com.bumptech.glide.request.e<? super ModelType, TranscodeType> m;
   private Float n;
   private e<?, ?, ?, TranscodeType> o;
   private Float p = Float.valueOf(1.0F);
@@ -32,24 +36,24 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
   private Drawable r;
   private Priority s = null;
   private boolean t = true;
-  private g<TranscodeType> u = com.yelp.android.af.h.a();
+  private com.yelp.android.al.d<TranscodeType> u = com.yelp.android.al.e.a();
   private int v = -1;
   private int w = -1;
   private DiskCacheStrategy x = DiskCacheStrategy.RESULT;
-  private com.bumptech.glide.load.f<ResourceType> y = com.yelp.android.y.d.b();
+  private com.bumptech.glide.load.f<ResourceType> y = com.yelp.android.ad.d.b();
   private boolean z;
   
-  e(Context paramContext, Class<ModelType> paramClass, com.yelp.android.ae.f<ModelType, DataType, ResourceType, TranscodeType> paramf, Class<TranscodeType> paramClass1, h paramh, l paraml, com.bumptech.glide.manager.h paramh1)
+  e(Context paramContext, Class<ModelType> paramClass, com.yelp.android.ak.f<ModelType, DataType, ResourceType, TranscodeType> paramf, Class<TranscodeType> paramClass1, g paramg, l paraml, com.bumptech.glide.manager.g paramg1)
   {
     b = paramContext;
     a = paramClass;
     d = paramClass1;
-    c = paramh;
+    c = paramg;
     e = paraml;
-    f = paramh1;
+    f = paramg1;
     paramClass1 = (Class<TranscodeType>)localObject;
     if (paramf != null) {
-      paramClass1 = new com.yelp.android.ae.a(paramf);
+      paramClass1 = new com.yelp.android.ak.a(paramf);
     }
     g = paramClass1;
     if (paramContext == null) {
@@ -60,7 +64,7 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
     }
   }
   
-  e(com.yelp.android.ae.f<ModelType, DataType, ResourceType, TranscodeType> paramf, Class<TranscodeType> paramClass, e<ModelType, ?, ?, ?> parame)
+  e(com.yelp.android.ak.f<ModelType, DataType, ResourceType, TranscodeType> paramf, Class<TranscodeType> paramClass, e<ModelType, ?, ?, ?> parame)
   {
     this(b, a, paramf, paramClass, c, e, f);
     h = h;
@@ -80,35 +84,45 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
     return Priority.IMMEDIATE;
   }
   
-  private com.bumptech.glide.request.a a(j<TranscodeType> paramj, float paramFloat, Priority paramPriority, com.bumptech.glide.request.b paramb)
+  private com.bumptech.glide.request.b a(j<TranscodeType> paramj, float paramFloat, Priority paramPriority, com.bumptech.glide.request.c paramc)
   {
-    return GenericRequest.a(g, h, i, b, paramPriority, paramj, paramFloat, q, k, r, l, m, paramb, c.b(), y, d, t, u, w, v, x);
+    return GenericRequest.a(g, h, i, b, paramPriority, paramj, paramFloat, q, k, r, l, B, C, m, paramc, c.b(), y, d, t, u, w, v, x);
   }
   
-  private com.bumptech.glide.request.a a(j<TranscodeType> paramj, com.bumptech.glide.request.e parame)
+  private com.bumptech.glide.request.b a(j<TranscodeType> paramj, com.bumptech.glide.request.g paramg)
   {
     if (o != null)
     {
-      if (o.u.equals(com.yelp.android.af.h.a())) {
+      if (A) {
+        throw new IllegalStateException("You cannot use a request as both the main request and a thumbnail, consider using clone() on the request(s) passed to thumbnail()");
+      }
+      if (o.u.equals(com.yelp.android.al.e.a())) {
         o.u = u;
       }
       if (o.s == null) {
         o.s = a();
       }
-      parame = new com.bumptech.glide.request.e(parame);
-      parame.a(a(paramj, p.floatValue(), s, parame), o.a(paramj, parame));
-      return parame;
+      if ((h.a(w, v)) && (!h.a(o.w, o.v))) {
+        o.b(w, v);
+      }
+      paramg = new com.bumptech.glide.request.g(paramg);
+      com.bumptech.glide.request.b localb = a(paramj, p.floatValue(), s, paramg);
+      A = true;
+      paramj = o.a(paramj, paramg);
+      A = false;
+      paramg.a(localb, paramj);
+      return paramg;
     }
     if (n != null)
     {
-      parame = new com.bumptech.glide.request.e(parame);
-      parame.a(a(paramj, p.floatValue(), s, parame), a(paramj, n.floatValue(), a(), parame));
-      return parame;
+      paramg = new com.bumptech.glide.request.g(paramg);
+      paramg.a(a(paramj, p.floatValue(), s, paramg), a(paramj, n.floatValue(), a(), paramg));
+      return paramg;
     }
-    return a(paramj, p.floatValue(), s, parame);
+    return a(paramj, p.floatValue(), s, paramg);
   }
   
-  private com.bumptech.glide.request.a b(j<TranscodeType> paramj)
+  private com.bumptech.glide.request.b b(j<TranscodeType> paramj)
   {
     if (s == null) {
       s = Priority.NORMAL;
@@ -116,12 +130,12 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
     return a(paramj, null);
   }
   
-  e<ModelType, DataType, ResourceType, TranscodeType> a(g<TranscodeType> paramg)
+  e<ModelType, DataType, ResourceType, TranscodeType> a(com.yelp.android.al.d<TranscodeType> paramd)
   {
-    if (paramg == null) {
+    if (paramd == null) {
       throw new NullPointerException("Animation factory must not be null!");
     }
-    u = paramg;
+    u = paramd;
     return this;
   }
   
@@ -132,16 +146,16 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
       throw new IllegalArgumentException("You must pass in a non null View");
     }
     if ((!z) && (paramImageView.getScaleType() != null)) {
-      switch (f.a[paramImageView.getScaleType().ordinal()])
+      switch (2.a[paramImageView.getScaleType().ordinal()])
       {
       }
     }
     for (;;)
     {
       return a(c.a(paramImageView, d));
-      f();
-      continue;
       e();
+      continue;
+      d();
     }
   }
   
@@ -154,30 +168,33 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
     if (!j) {
       throw new IllegalArgumentException("You must first set a model (try #load())");
     }
-    com.bumptech.glide.request.a locala = paramY.f();
-    if (locala != null)
+    com.bumptech.glide.request.b localb = paramY.a();
+    if (localb != null)
     {
-      locala.d();
-      e.b(locala);
-      locala.a();
+      localb.d();
+      e.b(localb);
+      localb.a();
     }
-    locala = b(paramY);
-    paramY.a(locala);
+    localb = b(paramY);
+    paramY.a(localb);
     f.a(paramY);
-    e.a(locala);
+    e.a(localb);
     return paramY;
   }
   
   public e<ModelType, DataType, ResourceType, TranscodeType> b(int paramInt1, int paramInt2)
   {
-    if (paramInt1 <= 0) {
-      throw new IllegalArgumentException("Width must be > 0");
-    }
-    if (paramInt2 <= 0) {
-      throw new IllegalArgumentException("Height must be > 0");
+    if (!h.a(paramInt1, paramInt2)) {
+      throw new IllegalArgumentException("Width and height must be Target#SIZE_ORIGINAL or > 0");
     }
     w = paramInt1;
     v = paramInt2;
+    return this;
+  }
+  
+  public e<ModelType, DataType, ResourceType, TranscodeType> b(Priority paramPriority)
+  {
+    s = paramPriority;
     return this;
   }
   
@@ -209,12 +226,6 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
   public e<ModelType, DataType, ResourceType, TranscodeType> b(DiskCacheStrategy paramDiskCacheStrategy)
   {
     x = paramDiskCacheStrategy;
-    return this;
-  }
-  
-  public e<ModelType, DataType, ResourceType, TranscodeType> b(com.bumptech.glide.request.c<? super ModelType, TranscodeType> paramc)
-  {
-    m = paramc;
     return this;
   }
   
@@ -259,54 +270,64 @@ public class e<ModelType, DataType, ResourceType, TranscodeType>
     return this;
   }
   
+  public com.bumptech.glide.request.a<TranscodeType> d(int paramInt1, int paramInt2)
+  {
+    final com.bumptech.glide.request.d locald = new com.bumptech.glide.request.d(c.g(), paramInt1, paramInt2);
+    c.g().post(new Runnable()
+    {
+      public void run()
+      {
+        if (!locald.isCancelled()) {
+          a(locald);
+        }
+      }
+    });
+    return locald;
+  }
+  
+  void d() {}
+  
   void e() {}
   
-  void f() {}
-  
   /* Error */
-  public e<ModelType, DataType, ResourceType, TranscodeType> g()
+  public e<ModelType, DataType, ResourceType, TranscodeType> f()
   {
     // Byte code:
     //   0: aload_0
-    //   1: invokespecial 334	java/lang/Object:clone	()Ljava/lang/Object;
+    //   1: invokespecial 372	java/lang/Object:clone	()Ljava/lang/Object;
     //   4: checkcast 2	com/bumptech/glide/e
     //   7: astore_2
     //   8: aload_0
-    //   9: getfield 127	com/bumptech/glide/e:g	Lcom/yelp/android/ae/a;
+    //   9: getfield 134	com/bumptech/glide/e:g	Lcom/yelp/android/ak/a;
     //   12: ifnull +18 -> 30
     //   15: aload_0
-    //   16: getfield 127	com/bumptech/glide/e:g	Lcom/yelp/android/ae/a;
-    //   19: invokevirtual 337	com/yelp/android/ae/a:g	()Lcom/yelp/android/ae/a;
+    //   16: getfield 134	com/bumptech/glide/e:g	Lcom/yelp/android/ak/a;
+    //   19: invokevirtual 375	com/yelp/android/ak/a:g	()Lcom/yelp/android/ak/a;
     //   22: astore_1
     //   23: aload_2
     //   24: aload_1
-    //   25: putfield 127	com/bumptech/glide/e:g	Lcom/yelp/android/ae/a;
+    //   25: putfield 134	com/bumptech/glide/e:g	Lcom/yelp/android/ak/a;
     //   28: aload_2
     //   29: areturn
     //   30: aconst_null
     //   31: astore_1
     //   32: goto -9 -> 23
     //   35: astore_1
-    //   36: new 339	java/lang/RuntimeException
+    //   36: new 377	java/lang/RuntimeException
     //   39: dup
     //   40: aload_1
-    //   41: invokespecial 342	java/lang/RuntimeException:<init>	(Ljava/lang/Throwable;)V
+    //   41: invokespecial 380	java/lang/RuntimeException:<init>	(Ljava/lang/Throwable;)V
     //   44: athrow
     // Local variable table:
     //   start	length	slot	name	signature
     //   0	45	0	this	e
-    //   22	10	1	locala	com.yelp.android.ae.a
+    //   22	10	1	locala	com.yelp.android.ak.a
     //   35	6	1	localCloneNotSupportedException	CloneNotSupportedException
     //   7	22	2	locale	e
     // Exception table:
     //   from	to	target	type
     //   0	23	35	java/lang/CloneNotSupportedException
     //   23	28	35	java/lang/CloneNotSupportedException
-  }
-  
-  public e<ModelType, DataType, ResourceType, TranscodeType> h()
-  {
-    return b(new com.bumptech.glide.load.f[] { com.yelp.android.y.d.b() });
   }
 }
 

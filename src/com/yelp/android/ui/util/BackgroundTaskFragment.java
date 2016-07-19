@@ -4,23 +4,23 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.View;
-import com.yelp.android.ui.activities.mutatebiz.ae;
-import com.yelp.android.ui.activities.mutatebiz.af;
-import com.yelp.android.ui.activities.mutatebiz.ag;
+import com.yelp.android.ui.activities.mutatebiz.c;
+import com.yelp.android.ui.activities.mutatebiz.c.a;
+import com.yelp.android.ui.activities.mutatebiz.c.b;
 
+@Deprecated
 public abstract class BackgroundTaskFragment<Param, ResultType>
   extends Fragment
-  implements af<ResultType>, ag<Void, ResultType>
+  implements c.a<ResultType>, c.b<Void, ResultType>
 {
   private ResultType a;
-  private g<ResultType> b;
+  private d.a<ResultType> b;
   private AsyncTask<Void, Void, ResultType> c;
   private boolean d;
   
-  public <T extends Fragment,  extends g<ResultType>> void a(T paramT)
+  public <T extends d.a<ResultType>> void a(T paramT)
   {
-    b = ((g)paramT);
-    setTargetFragment(paramT, 0);
+    b = paramT;
   }
   
   public void a(ResultType paramResultType)
@@ -43,7 +43,7 @@ public abstract class BackgroundTaskFragment<Param, ResultType>
   
   public void b()
   {
-    c = new ae(this, this, null, new View[0]);
+    c = new c(this, this, null, new View[0]);
     c.execute(new Void[0]);
   }
   

@@ -1,149 +1,158 @@
-.class public abstract Lcom/yelp/android/ag/e;
-.super Lcom/yelp/android/ag/k;
-.source "ImageViewTarget.java"
+.class public Lcom/yelp/android/ag/e;
+.super Ljava/lang/Object;
+.source "GifDrawableTransformation.java"
 
 # interfaces
-.implements Lcom/yelp/android/af/f;
+.implements Lcom/bumptech/glide/load/f;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "<Z:",
         "Ljava/lang/Object;",
-        ">",
-        "Lcom/yelp/android/ag/k",
+        "Lcom/bumptech/glide/load/f",
         "<",
-        "Landroid/widget/ImageView;",
-        "TZ;>;",
-        "Lcom/yelp/android/af/f;"
+        "Lcom/yelp/android/ag/b;",
+        ">;"
     }
 .end annotation
 
 
+# instance fields
+.field private final a:Lcom/bumptech/glide/load/f;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/bumptech/glide/load/f",
+            "<",
+            "Landroid/graphics/Bitmap;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final b:Lcom/yelp/android/x/c;
+
+
 # direct methods
-.method public constructor <init>(Landroid/widget/ImageView;)V
+.method public constructor <init>(Lcom/bumptech/glide/load/f;Lcom/yelp/android/x/c;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/bumptech/glide/load/f",
+            "<",
+            "Landroid/graphics/Bitmap;",
+            ">;",
+            "Lcom/yelp/android/x/c;",
+            ")V"
+        }
+    .end annotation
 
     .prologue
-    .line 17
-    invoke-direct {p0, p1}, Lcom/yelp/android/ag/k;-><init>(Landroid/view/View;)V
-
     .line 18
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 19
+    iput-object p1, p0, Lcom/yelp/android/ag/e;->a:Lcom/bumptech/glide/load/f;
+
+    .line 20
+    iput-object p2, p0, Lcom/yelp/android/ag/e;->b:Lcom/yelp/android/x/c;
+
+    .line 21
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    .prologue
-    .line 70
-    iget-object v0, p0, Lcom/yelp/android/ag/e;->a:Landroid/view/View;
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 71
-    return-void
-.end method
-
-.method public a(Ljava/lang/Exception;Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    .prologue
-    .line 59
-    iget-object v0, p0, Lcom/yelp/android/ag/e;->a:Landroid/view/View;
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 60
-    return-void
-.end method
-
-.method protected abstract a(Ljava/lang/Object;)V
+.method public a(Lcom/bumptech/glide/load/engine/i;II)Lcom/bumptech/glide/load/engine/i;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TZ;)V"
-        }
-    .end annotation
-.end method
-
-.method public a(Ljava/lang/Object;Lcom/yelp/android/af/e;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TZ;",
-            "Lcom/yelp/android/af/e",
-            "<-TZ;>;)V"
+            "(",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<",
+            "Lcom/yelp/android/ag/b;",
+            ">;II)",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<",
+            "Lcom/yelp/android/ag/b;",
+            ">;"
         }
     .end annotation
 
     .prologue
-    .line 75
-    if-eqz p2, :cond_0
+    .line 25
+    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/i;->b()Ljava/lang/Object;
 
-    invoke-interface {p2, p1, p0}, Lcom/yelp/android/af/e;->a(Ljava/lang/Object;Lcom/yelp/android/af/f;)Z
+    move-result-object v0
 
-    move-result v0
+    check-cast v0, Lcom/yelp/android/ag/b;
 
-    if-nez v0, :cond_1
+    .line 31
+    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/i;->b()Ljava/lang/Object;
 
-    .line 76
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/ag/b;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ag/b;->b()Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    .line 32
+    new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/c;
+
+    iget-object v3, p0, Lcom/yelp/android/ag/e;->b:Lcom/yelp/android/x/c;
+
+    invoke-direct {v1, v2, v3}, Lcom/bumptech/glide/load/resource/bitmap/c;-><init>(Landroid/graphics/Bitmap;Lcom/yelp/android/x/c;)V
+
+    .line 33
+    iget-object v3, p0, Lcom/yelp/android/ag/e;->a:Lcom/bumptech/glide/load/f;
+
+    invoke-interface {v3, v1, p2, p3}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/engine/i;II)Lcom/bumptech/glide/load/engine/i;
+
+    move-result-object v1
+
+    .line 34
+    invoke-interface {v1}, Lcom/bumptech/glide/load/engine/i;->b()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/graphics/Bitmap;
+
+    .line 35
+    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 36
+    new-instance p1, Lcom/yelp/android/ag/d;
+
+    new-instance v2, Lcom/yelp/android/ag/b;
+
+    iget-object v3, p0, Lcom/yelp/android/ag/e;->a:Lcom/bumptech/glide/load/f;
+
+    invoke-direct {v2, v0, v1, v3}, Lcom/yelp/android/ag/b;-><init>(Lcom/yelp/android/ag/b;Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/f;)V
+
+    invoke-direct {p1, v2}, Lcom/yelp/android/ag/d;-><init>(Lcom/yelp/android/ag/b;)V
+
+    .line 38
     :cond_0
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ag/e;->a(Ljava/lang/Object;)V
-
-    .line 78
-    :cond_1
-    return-void
+    return-object p1
 .end method
 
-.method public b()Landroid/graphics/drawable/Drawable;
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 26
-    iget-object v0, p0, Lcom/yelp/android/ag/e;->a:Landroid/view/View;
+    .line 44
+    iget-object v0, p0, Lcom/yelp/android/ag/e;->a:Lcom/bumptech/glide/load/f;
 
-    check-cast v0, Landroid/widget/ImageView;
-
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+    invoke-interface {v0}, Lcom/bumptech/glide/load/f;->a()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public b(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    .prologue
-    .line 37
-    iget-object v0, p0, Lcom/yelp/android/ag/e;->a:Landroid/view/View;
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 38
-    return-void
-.end method
-
-.method public c(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/ag/e;->a:Landroid/view/View;
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 49
-    return-void
 .end method

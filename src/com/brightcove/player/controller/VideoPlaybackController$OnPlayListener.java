@@ -20,7 +20,7 @@ public class VideoPlaybackController$OnPlayListener
   protected VideoPlaybackController$OnPlayListener(VideoPlaybackController paramVideoPlaybackController) {}
   
   @Default
-  public void processEvent(Event paramEvent)
+  public void processEvent(final Event paramEvent)
   {
     Log.v(VideoPlaybackController.TAG, "OnPlayListener: playEvent = " + paramEvent + ", currentTime = " + VideoPlaybackController.access$000(this$0));
     if ((VideoPlaybackController.access$000(this$0) != 0) || (properties.containsKey("skipCuePoints"))) {}
@@ -43,8 +43,17 @@ public class VideoPlaybackController$OnPlayListener
     paramEvent.preventDefault();
     paramEvent.stopPropagation();
     properties.put("skipCuePoints", Boolean.valueOf(true));
-    Object localObject1 = UUID.randomUUID();
-    VideoPlaybackController.access$300(this$0).once("cuePoint", new VideoPlaybackController.OnPlayListener.1(this, (UUID)localObject1, paramEvent));
+    final Object localObject1 = UUID.randomUUID();
+    VideoPlaybackController.access$300(this$0).once("cuePoint", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        if (localObject1.equals(properties.get("uuid"))) {
+          VideoPlaybackController.access$200(this$0).emit(paramEvent.getType(), paramEventproperties);
+        }
+      }
+    });
     Object localObject2 = new HashMap();
     ((Map)localObject2).put("cue_points", localArrayList);
     ((Map)localObject2).put("endTime", Integer.valueOf(0));

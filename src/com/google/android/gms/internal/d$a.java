@@ -1,253 +1,543 @@
 package com.google.android.gms.internal;
 
+import java.io.IOException;
+
 public final class d$a
-  extends qq<a>
+  extends ll<a>
 {
-  private static volatile a[] gu;
-  public String gA;
-  public long gB;
-  public boolean gC;
-  public a[] gD;
-  public int[] gE;
-  public boolean gF;
-  public String gv;
-  public a[] gw;
-  public a[] gx;
-  public a[] gy;
-  public String gz;
-  public int type;
+  private static volatile a[] n;
+  public int a;
+  public String b;
+  public a[] c;
+  public a[] d;
+  public a[] e;
+  public String f;
+  public String g;
+  public long h;
+  public boolean i;
+  public a[] j;
+  public int[] k;
+  public boolean l;
   
   public d$a()
   {
-    s();
+    c();
   }
   
-  public static a[] r()
+  public static a[] a()
   {
-    if (gu == null) {}
-    synchronized (qu.azg)
+    if (n == null) {}
+    synchronized (lp.a)
     {
-      if (gu == null) {
-        gu = new a[0];
+      if (n == null) {
+        n = new a[0];
       }
-      return gu;
+      return n;
     }
   }
   
-  public void a(qp paramqp)
+  public a a(lk paramlk)
+    throws IOException
   {
-    int j = 0;
-    paramqp.t(1, type);
-    if (!gv.equals("")) {
-      paramqp.b(2, gv);
-    }
-    int i;
-    a locala;
-    if ((gw != null) && (gw.length > 0))
+    for (;;)
     {
-      i = 0;
-      while (i < gw.length)
+      int m = paramlk.a();
+      int i1;
+      Object localObject;
+      int i2;
+      switch (m)
       {
-        locala = gw[i];
-        if (locala != null) {
-          paramqp.a(3, locala);
-        }
-        i += 1;
-      }
-    }
-    if ((gx != null) && (gx.length > 0))
-    {
-      i = 0;
-      while (i < gx.length)
-      {
-        locala = gx[i];
-        if (locala != null) {
-          paramqp.a(4, locala);
-        }
-        i += 1;
-      }
-    }
-    if ((gy != null) && (gy.length > 0))
-    {
-      i = 0;
-      while (i < gy.length)
-      {
-        locala = gy[i];
-        if (locala != null) {
-          paramqp.a(5, locala);
-        }
-        i += 1;
-      }
-    }
-    if (!gz.equals("")) {
-      paramqp.b(6, gz);
-    }
-    if (!gA.equals("")) {
-      paramqp.b(7, gA);
-    }
-    if (gB != 0L) {
-      paramqp.b(8, gB);
-    }
-    if (gF) {
-      paramqp.b(9, gF);
-    }
-    if ((gE != null) && (gE.length > 0))
-    {
-      i = 0;
-      while (i < gE.length)
-      {
-        paramqp.t(10, gE[i]);
-        i += 1;
-      }
-    }
-    if ((gD != null) && (gD.length > 0))
-    {
-      i = j;
-      while (i < gD.length)
-      {
-        locala = gD[i];
-        if (locala != null) {
-          paramqp.a(11, locala);
-        }
-        i += 1;
-      }
-    }
-    if (gC) {
-      paramqp.b(12, gC);
-    }
-    super.a(paramqp);
-  }
-  
-  protected int c()
-  {
-    int m = 0;
-    int j = super.c() + qp.v(1, type);
-    int i = j;
-    if (!gv.equals("")) {
-      i = j + qp.j(2, gv);
-    }
-    j = i;
-    a locala;
-    int k;
-    if (gw != null)
-    {
-      j = i;
-      if (gw.length > 0)
-      {
-        j = 0;
-        while (j < gw.length)
+      default: 
+        if (a(paramlk, m)) {}
+        break;
+      case 0: 
+        return this;
+      case 8: 
+        m = paramlk.f();
+        switch (m)
         {
-          locala = gw[j];
-          k = i;
-          if (locala != null) {
-            k = i + qp.c(3, locala);
+        default: 
+          break;
+        case 1: 
+        case 2: 
+        case 3: 
+        case 4: 
+        case 5: 
+        case 6: 
+        case 7: 
+        case 8: 
+          a = m;
+        }
+        break;
+      case 18: 
+        b = paramlk.h();
+        break;
+      case 26: 
+        i1 = lt.b(paramlk, 26);
+        if (c == null) {}
+        for (m = 0;; m = c.length)
+        {
+          localObject = new a[i1 + m];
+          i1 = m;
+          if (m != 0)
+          {
+            System.arraycopy(c, 0, localObject, 0, m);
+            i1 = m;
           }
-          j += 1;
-          i = k;
-        }
-        j = i;
-      }
-    }
-    i = j;
-    if (gx != null)
-    {
-      i = j;
-      if (gx.length > 0)
-      {
-        i = j;
-        j = 0;
-        while (j < gx.length)
-        {
-          locala = gx[j];
-          k = i;
-          if (locala != null) {
-            k = i + qp.c(4, locala);
+          while (i1 < localObject.length - 1)
+          {
+            localObject[i1] = new a();
+            paramlk.a(localObject[i1]);
+            paramlk.a();
+            i1 += 1;
           }
-          j += 1;
-          i = k;
         }
-      }
-    }
-    j = i;
-    if (gy != null)
-    {
-      j = i;
-      if (gy.length > 0)
-      {
-        j = 0;
-        while (j < gy.length)
+        localObject[i1] = new a();
+        paramlk.a(localObject[i1]);
+        c = ((a[])localObject);
+        break;
+      case 34: 
+        i1 = lt.b(paramlk, 34);
+        if (d == null) {}
+        for (m = 0;; m = d.length)
         {
-          locala = gy[j];
-          k = i;
-          if (locala != null) {
-            k = i + qp.c(5, locala);
+          localObject = new a[i1 + m];
+          i1 = m;
+          if (m != 0)
+          {
+            System.arraycopy(d, 0, localObject, 0, m);
+            i1 = m;
           }
-          j += 1;
-          i = k;
+          while (i1 < localObject.length - 1)
+          {
+            localObject[i1] = new a();
+            paramlk.a(localObject[i1]);
+            paramlk.a();
+            i1 += 1;
+          }
         }
-        j = i;
-      }
-    }
-    i = j;
-    if (!gz.equals("")) {
-      i = j + qp.j(6, gz);
-    }
-    j = i;
-    if (!gA.equals("")) {
-      j = i + qp.j(7, gA);
-    }
-    i = j;
-    if (gB != 0L) {
-      i = j + qp.d(8, gB);
-    }
-    j = i;
-    if (gF) {
-      j = i + qp.c(9, gF);
-    }
-    i = j;
-    if (gE != null)
-    {
-      i = j;
-      if (gE.length > 0)
-      {
-        i = 0;
-        k = 0;
-        while (i < gE.length)
+        localObject[i1] = new a();
+        paramlk.a(localObject[i1]);
+        d = ((a[])localObject);
+        break;
+      case 42: 
+        i1 = lt.b(paramlk, 42);
+        if (e == null) {}
+        for (m = 0;; m = e.length)
         {
-          k += qp.gZ(gE[i]);
-          i += 1;
+          localObject = new a[i1 + m];
+          i1 = m;
+          if (m != 0)
+          {
+            System.arraycopy(e, 0, localObject, 0, m);
+            i1 = m;
+          }
+          while (i1 < localObject.length - 1)
+          {
+            localObject[i1] = new a();
+            paramlk.a(localObject[i1]);
+            paramlk.a();
+            i1 += 1;
+          }
         }
-        i = j + k + gE.length * 1;
-      }
-    }
-    j = i;
-    if (gD != null)
-    {
-      j = i;
-      if (gD.length > 0)
-      {
-        k = m;
-        for (;;)
+        localObject[i1] = new a();
+        paramlk.a(localObject[i1]);
+        e = ((a[])localObject);
+        break;
+      case 50: 
+        f = paramlk.h();
+        break;
+      case 58: 
+        g = paramlk.h();
+        break;
+      case 64: 
+        h = paramlk.e();
+        break;
+      case 72: 
+        l = paramlk.g();
+        break;
+      case 80: 
+        int i3 = lt.b(paramlk, 80);
+        localObject = new int[i3];
+        i1 = 0;
+        m = 0;
+        if (i1 < i3)
         {
-          j = i;
-          if (k >= gD.length) {
+          if (i1 != 0) {
+            paramlk.a();
+          }
+          int i4 = paramlk.f();
+          switch (i4)
+          {
+          }
+          for (;;)
+          {
+            i1 += 1;
+            break;
+            i2 = m + 1;
+            localObject[m] = i4;
+            m = i2;
+          }
+        }
+        if (m != 0)
+        {
+          if (k == null) {}
+          for (i1 = 0;; i1 = k.length)
+          {
+            if ((i1 != 0) || (m != localObject.length)) {
+              break label810;
+            }
+            k = ((int[])localObject);
             break;
           }
-          locala = gD[k];
-          j = i;
-          if (locala != null) {
-            j = i + qp.c(11, locala);
+          int[] arrayOfInt = new int[i1 + m];
+          if (i1 != 0) {
+            System.arraycopy(k, 0, arrayOfInt, 0, i1);
           }
-          k += 1;
-          i = j;
+          System.arraycopy(localObject, 0, arrayOfInt, i1, m);
+          k = arrayOfInt;
+        }
+        break;
+      case 82: 
+        i2 = paramlk.c(paramlk.k());
+        m = paramlk.q();
+        i1 = 0;
+        while (paramlk.o() > 0) {
+          switch (paramlk.f())
+          {
+          default: 
+            break;
+          case 1: 
+          case 2: 
+          case 3: 
+          case 4: 
+          case 5: 
+          case 6: 
+          case 7: 
+          case 8: 
+          case 9: 
+          case 10: 
+          case 11: 
+          case 12: 
+          case 13: 
+          case 14: 
+          case 15: 
+          case 16: 
+          case 17: 
+            i1 += 1;
+          }
+        }
+        if (i1 != 0)
+        {
+          paramlk.e(m);
+          if (k == null) {}
+          for (m = 0;; m = k.length)
+          {
+            localObject = new int[i1 + m];
+            i1 = m;
+            if (m != 0)
+            {
+              System.arraycopy(k, 0, localObject, 0, m);
+              i1 = m;
+            }
+            while (paramlk.o() > 0)
+            {
+              m = paramlk.f();
+              switch (m)
+              {
+              default: 
+                break;
+              case 1: 
+              case 2: 
+              case 3: 
+              case 4: 
+              case 5: 
+              case 6: 
+              case 7: 
+              case 8: 
+              case 9: 
+              case 10: 
+              case 11: 
+              case 12: 
+              case 13: 
+              case 14: 
+              case 15: 
+              case 16: 
+              case 17: 
+                localObject[i1] = m;
+                i1 += 1;
+              }
+            }
+          }
+          k = ((int[])localObject);
+        }
+        paramlk.d(i2);
+        break;
+      case 90: 
+        i1 = lt.b(paramlk, 90);
+        if (j == null) {}
+        for (m = 0;; m = j.length)
+        {
+          localObject = new a[i1 + m];
+          i1 = m;
+          if (m != 0)
+          {
+            System.arraycopy(j, 0, localObject, 0, m);
+            i1 = m;
+          }
+          while (i1 < localObject.length - 1)
+          {
+            localObject[i1] = new a();
+            paramlk.a(localObject[i1]);
+            paramlk.a();
+            i1 += 1;
+          }
+        }
+        localObject[i1] = new a();
+        paramlk.a(localObject[i1]);
+        j = ((a[])localObject);
+        break;
+      case 96: 
+        label810:
+        i = paramlk.g();
+      }
+    }
+  }
+  
+  public void a(zzsn paramzzsn)
+    throws IOException
+  {
+    int i1 = 0;
+    paramzzsn.a(1, a);
+    if (!b.equals("")) {
+      paramzzsn.a(2, b);
+    }
+    int m;
+    a locala;
+    if ((c != null) && (c.length > 0))
+    {
+      m = 0;
+      while (m < c.length)
+      {
+        locala = c[m];
+        if (locala != null) {
+          paramzzsn.a(3, locala);
+        }
+        m += 1;
+      }
+    }
+    if ((d != null) && (d.length > 0))
+    {
+      m = 0;
+      while (m < d.length)
+      {
+        locala = d[m];
+        if (locala != null) {
+          paramzzsn.a(4, locala);
+        }
+        m += 1;
+      }
+    }
+    if ((e != null) && (e.length > 0))
+    {
+      m = 0;
+      while (m < e.length)
+      {
+        locala = e[m];
+        if (locala != null) {
+          paramzzsn.a(5, locala);
+        }
+        m += 1;
+      }
+    }
+    if (!f.equals("")) {
+      paramzzsn.a(6, f);
+    }
+    if (!g.equals("")) {
+      paramzzsn.a(7, g);
+    }
+    if (h != 0L) {
+      paramzzsn.b(8, h);
+    }
+    if (l) {
+      paramzzsn.a(9, l);
+    }
+    if ((k != null) && (k.length > 0))
+    {
+      m = 0;
+      while (m < k.length)
+      {
+        paramzzsn.a(10, k[m]);
+        m += 1;
+      }
+    }
+    if ((j != null) && (j.length > 0))
+    {
+      m = i1;
+      while (m < j.length)
+      {
+        locala = j[m];
+        if (locala != null) {
+          paramzzsn.a(11, locala);
+        }
+        m += 1;
+      }
+    }
+    if (i) {
+      paramzzsn.a(12, i);
+    }
+    super.a(paramzzsn);
+  }
+  
+  protected int b()
+  {
+    int i3 = 0;
+    int i1 = super.b() + zzsn.b(1, a);
+    int m = i1;
+    if (!b.equals("")) {
+      m = i1 + zzsn.b(2, b);
+    }
+    i1 = m;
+    a locala;
+    int i2;
+    if (c != null)
+    {
+      i1 = m;
+      if (c.length > 0)
+      {
+        i1 = 0;
+        while (i1 < c.length)
+        {
+          locala = c[i1];
+          i2 = m;
+          if (locala != null) {
+            i2 = m + zzsn.c(3, locala);
+          }
+          i1 += 1;
+          m = i2;
+        }
+        i1 = m;
+      }
+    }
+    m = i1;
+    if (d != null)
+    {
+      m = i1;
+      if (d.length > 0)
+      {
+        m = i1;
+        i1 = 0;
+        while (i1 < d.length)
+        {
+          locala = d[i1];
+          i2 = m;
+          if (locala != null) {
+            i2 = m + zzsn.c(4, locala);
+          }
+          i1 += 1;
+          m = i2;
         }
       }
     }
-    i = j;
-    if (gC) {
-      i = j + qp.c(12, gC);
+    i1 = m;
+    if (e != null)
+    {
+      i1 = m;
+      if (e.length > 0)
+      {
+        i1 = 0;
+        while (i1 < e.length)
+        {
+          locala = e[i1];
+          i2 = m;
+          if (locala != null) {
+            i2 = m + zzsn.c(5, locala);
+          }
+          i1 += 1;
+          m = i2;
+        }
+        i1 = m;
+      }
     }
-    return i;
+    m = i1;
+    if (!f.equals("")) {
+      m = i1 + zzsn.b(6, f);
+    }
+    i1 = m;
+    if (!g.equals("")) {
+      i1 = m + zzsn.b(7, g);
+    }
+    m = i1;
+    if (h != 0L) {
+      m = i1 + zzsn.d(8, h);
+    }
+    i1 = m;
+    if (l) {
+      i1 = m + zzsn.b(9, l);
+    }
+    m = i1;
+    if (k != null)
+    {
+      m = i1;
+      if (k.length > 0)
+      {
+        m = 0;
+        i2 = 0;
+        while (m < k.length)
+        {
+          i2 += zzsn.b(k[m]);
+          m += 1;
+        }
+        m = i1 + i2 + k.length * 1;
+      }
+    }
+    i1 = m;
+    if (j != null)
+    {
+      i1 = m;
+      if (j.length > 0)
+      {
+        i2 = i3;
+        for (;;)
+        {
+          i1 = m;
+          if (i2 >= j.length) {
+            break;
+          }
+          locala = j[i2];
+          i1 = m;
+          if (locala != null) {
+            i1 = m + zzsn.c(11, locala);
+          }
+          i2 += 1;
+          m = i1;
+        }
+      }
+    }
+    m = i1;
+    if (i) {
+      m = i1 + zzsn.b(12, i);
+    }
+    return m;
+  }
+  
+  public a c()
+  {
+    a = 1;
+    b = "";
+    c = a();
+    d = a();
+    e = a();
+    f = "";
+    g = "";
+    h = 0L;
+    i = false;
+    j = a();
+    k = lt.a;
+    l = false;
+    m = null;
+    S = -1;
+    return this;
   }
   
   public boolean equals(Object paramObject)
@@ -280,409 +570,147 @@ public final class d$a
                   } while (!(paramObject instanceof a));
                   paramObject = (a)paramObject;
                   bool1 = bool2;
-                } while (type != type);
-                if (gv != null) {
+                } while (a != a);
+                if (b != null) {
                   break;
                 }
                 bool1 = bool2;
-              } while (gv != null);
+              } while (b != null);
               bool1 = bool2;
-            } while (!qu.equals(gw, gw));
+            } while (!lp.a(c, c));
             bool1 = bool2;
-          } while (!qu.equals(gx, gx));
+          } while (!lp.a(d, d));
           bool1 = bool2;
-        } while (!qu.equals(gy, gy));
-        if (gz != null) {
-          break label228;
+        } while (!lp.a(e, e));
+        if (f != null) {
+          break label260;
         }
         bool1 = bool2;
-      } while (gz != null);
-      if (gA != null) {
-        break label244;
+      } while (f != null);
+      if (g != null) {
+        break label276;
       }
       bool1 = bool2;
-    } while (gA != null);
-    label228:
-    label244:
-    while (gA.equals(gA))
+    } while (g != null);
+    label260:
+    label276:
+    while (g.equals(g))
     {
       bool1 = bool2;
-      if (gB != gB) {
+      if (h != h) {
         break;
       }
       bool1 = bool2;
-      if (gC != gC) {
+      if (i != i) {
         break;
       }
       bool1 = bool2;
-      if (!qu.equals(gD, gD)) {
+      if (!lp.a(j, j)) {
         break;
       }
       bool1 = bool2;
-      if (!qu.equals(gE, gE)) {
+      if (!lp.a(k, k)) {
         break;
       }
       bool1 = bool2;
-      if (gF != gF) {
+      if (l != l) {
         break;
       }
-      return a((qq)paramObject);
-      if (gv.equals(gv)) {
+      if ((m != null) && (!m.b())) {
+        break label292;
+      }
+      if (m != null)
+      {
+        bool1 = bool2;
+        if (!m.b()) {
+          break;
+        }
+      }
+      return true;
+      if (b.equals(b)) {
         break label54;
       }
       return false;
-      if (gz.equals(gz)) {
+      if (f.equals(f)) {
         break label118;
       }
       return false;
     }
     return false;
+    label292:
+    return m.equals(m);
   }
   
   public int hashCode()
   {
-    int n = 1231;
-    int k = 0;
-    int i1 = type;
-    int i;
-    int i2;
-    int i3;
-    int i4;
-    int j;
-    label58:
-    label65:
-    int i5;
+    int i4 = 1231;
+    int i6 = 0;
+    int i7 = getClass().getName().hashCode();
+    int i8 = a;
     int m;
-    label92:
-    int i6;
-    int i7;
-    if (gv == null)
+    int i9;
+    int i10;
+    int i11;
+    int i1;
+    label71:
+    int i2;
+    label80:
+    int i12;
+    int i3;
+    label107:
+    int i13;
+    int i14;
+    if (b == null)
     {
-      i = 0;
-      i2 = qu.hashCode(gw);
-      i3 = qu.hashCode(gx);
-      i4 = qu.hashCode(gy);
-      if (gz != null) {
-        break label206;
+      m = 0;
+      i9 = lp.a(c);
+      i10 = lp.a(d);
+      i11 = lp.a(e);
+      if (f != null) {
+        break label250;
       }
-      j = 0;
-      if (gA != null) {
-        break label217;
+      i1 = 0;
+      if (g != null) {
+        break label261;
       }
-      i5 = (int)(gB ^ gB >>> 32);
-      if (!gC) {
-        break label228;
+      i2 = 0;
+      i12 = (int)(h ^ h >>> 32);
+      if (!i) {
+        break label272;
       }
-      m = 1231;
-      i6 = qu.hashCode(gD);
-      i7 = qu.hashCode(gE);
-      if (!gF) {
-        break label236;
+      i3 = 1231;
+      i13 = lp.a(j);
+      i14 = lp.a(k);
+      if (!l) {
+        break label280;
+      }
+      label132:
+      i5 = i6;
+      if (this.m != null) {
+        if (!this.m.b()) {
+          break label288;
+        }
       }
     }
-    for (;;)
+    label250:
+    label261:
+    label272:
+    label280:
+    label288:
+    for (int i5 = i6;; i5 = this.m.hashCode())
     {
-      return ((((m + (((j + ((((i + (i1 + 527) * 31) * 31 + i2) * 31 + i3) * 31 + i4) * 31) * 31 + k) * 31 + i5) * 31) * 31 + i6) * 31 + i7) * 31 + n) * 31 + rQ();
-      i = gv.hashCode();
+      return ((((i3 + ((i2 + (i1 + ((((m + ((i7 + 527) * 31 + i8) * 31) * 31 + i9) * 31 + i10) * 31 + i11) * 31) * 31) * 31 + i12) * 31) * 31 + i13) * 31 + i14) * 31 + i4) * 31 + i5;
+      m = b.hashCode();
       break;
-      label206:
-      j = gz.hashCode();
-      break label58;
-      label217:
-      k = gA.hashCode();
-      break label65;
-      label228:
-      m = 1237;
-      break label92;
-      label236:
-      n = 1237;
+      i1 = f.hashCode();
+      break label71;
+      i2 = g.hashCode();
+      break label80;
+      i3 = 1237;
+      break label107;
+      i4 = 1237;
+      break label132;
     }
-  }
-  
-  public a l(qo paramqo)
-  {
-    for (;;)
-    {
-      int i = paramqo.rz();
-      int j;
-      Object localObject;
-      int k;
-      switch (i)
-      {
-      default: 
-        if (a(paramqo, i)) {}
-        break;
-      case 0: 
-        return this;
-      case 8: 
-        i = paramqo.rC();
-        switch (i)
-        {
-        default: 
-          break;
-        case 1: 
-        case 2: 
-        case 3: 
-        case 4: 
-        case 5: 
-        case 6: 
-        case 7: 
-        case 8: 
-          type = i;
-        }
-        break;
-      case 18: 
-        gv = paramqo.readString();
-        break;
-      case 26: 
-        j = qz.b(paramqo, 26);
-        if (gw == null) {}
-        for (i = 0;; i = gw.length)
-        {
-          localObject = new a[j + i];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(gw, 0, localObject, 0, i);
-            j = i;
-          }
-          while (j < localObject.length - 1)
-          {
-            localObject[j] = new a();
-            paramqo.a(localObject[j]);
-            paramqo.rz();
-            j += 1;
-          }
-        }
-        localObject[j] = new a();
-        paramqo.a(localObject[j]);
-        gw = ((a[])localObject);
-        break;
-      case 34: 
-        j = qz.b(paramqo, 34);
-        if (gx == null) {}
-        for (i = 0;; i = gx.length)
-        {
-          localObject = new a[j + i];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(gx, 0, localObject, 0, i);
-            j = i;
-          }
-          while (j < localObject.length - 1)
-          {
-            localObject[j] = new a();
-            paramqo.a(localObject[j]);
-            paramqo.rz();
-            j += 1;
-          }
-        }
-        localObject[j] = new a();
-        paramqo.a(localObject[j]);
-        gx = ((a[])localObject);
-        break;
-      case 42: 
-        j = qz.b(paramqo, 42);
-        if (gy == null) {}
-        for (i = 0;; i = gy.length)
-        {
-          localObject = new a[j + i];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(gy, 0, localObject, 0, i);
-            j = i;
-          }
-          while (j < localObject.length - 1)
-          {
-            localObject[j] = new a();
-            paramqo.a(localObject[j]);
-            paramqo.rz();
-            j += 1;
-          }
-        }
-        localObject[j] = new a();
-        paramqo.a(localObject[j]);
-        gy = ((a[])localObject);
-        break;
-      case 50: 
-        gz = paramqo.readString();
-        break;
-      case 58: 
-        gA = paramqo.readString();
-        break;
-      case 64: 
-        gB = paramqo.rB();
-        break;
-      case 72: 
-        gF = paramqo.rD();
-        break;
-      case 80: 
-        int m = qz.b(paramqo, 80);
-        localObject = new int[m];
-        j = 0;
-        i = 0;
-        if (j < m)
-        {
-          if (j != 0) {
-            paramqo.rz();
-          }
-          int n = paramqo.rC();
-          switch (n)
-          {
-          }
-          for (;;)
-          {
-            j += 1;
-            break;
-            k = i + 1;
-            localObject[i] = n;
-            i = k;
-          }
-        }
-        if (i != 0)
-        {
-          if (gE == null) {}
-          for (j = 0;; j = gE.length)
-          {
-            if ((j != 0) || (i != localObject.length)) {
-              break label810;
-            }
-            gE = ((int[])localObject);
-            break;
-          }
-          int[] arrayOfInt = new int[j + i];
-          if (j != 0) {
-            System.arraycopy(gE, 0, arrayOfInt, 0, j);
-          }
-          System.arraycopy(localObject, 0, arrayOfInt, j, i);
-          gE = arrayOfInt;
-        }
-        break;
-      case 82: 
-        k = paramqo.gS(paramqo.rG());
-        i = paramqo.getPosition();
-        j = 0;
-        while (paramqo.rL() > 0) {
-          switch (paramqo.rC())
-          {
-          default: 
-            break;
-          case 1: 
-          case 2: 
-          case 3: 
-          case 4: 
-          case 5: 
-          case 6: 
-          case 7: 
-          case 8: 
-          case 9: 
-          case 10: 
-          case 11: 
-          case 12: 
-          case 13: 
-          case 14: 
-          case 15: 
-          case 16: 
-          case 17: 
-            j += 1;
-          }
-        }
-        if (j != 0)
-        {
-          paramqo.gU(i);
-          if (gE == null) {}
-          for (i = 0;; i = gE.length)
-          {
-            localObject = new int[j + i];
-            j = i;
-            if (i != 0)
-            {
-              System.arraycopy(gE, 0, localObject, 0, i);
-              j = i;
-            }
-            while (paramqo.rL() > 0)
-            {
-              i = paramqo.rC();
-              switch (i)
-              {
-              default: 
-                break;
-              case 1: 
-              case 2: 
-              case 3: 
-              case 4: 
-              case 5: 
-              case 6: 
-              case 7: 
-              case 8: 
-              case 9: 
-              case 10: 
-              case 11: 
-              case 12: 
-              case 13: 
-              case 14: 
-              case 15: 
-              case 16: 
-              case 17: 
-                localObject[j] = i;
-                j += 1;
-              }
-            }
-          }
-          gE = ((int[])localObject);
-        }
-        paramqo.gT(k);
-        break;
-      case 90: 
-        j = qz.b(paramqo, 90);
-        if (gD == null) {}
-        for (i = 0;; i = gD.length)
-        {
-          localObject = new a[j + i];
-          j = i;
-          if (i != 0)
-          {
-            System.arraycopy(gD, 0, localObject, 0, i);
-            j = i;
-          }
-          while (j < localObject.length - 1)
-          {
-            localObject[j] = new a();
-            paramqo.a(localObject[j]);
-            paramqo.rz();
-            j += 1;
-          }
-        }
-        localObject[j] = new a();
-        paramqo.a(localObject[j]);
-        gD = ((a[])localObject);
-        break;
-      case 96: 
-        label810:
-        gC = paramqo.rD();
-      }
-    }
-  }
-  
-  public a s()
-  {
-    type = 1;
-    gv = "";
-    gw = r();
-    gx = r();
-    gy = r();
-    gz = "";
-    gA = "";
-    gB = 0L;
-    gC = false;
-    gD = r();
-    gE = qz.azj;
-    gF = false;
-    ayW = null;
-    azh = -1;
-    return this;
   }
 }
 

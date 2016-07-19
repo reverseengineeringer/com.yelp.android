@@ -1,31 +1,24 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.serializable.YelpCheckIn;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.ReviewDeleteResponse;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class dt
-  extends h<Void, Void, ArrayList<YelpCheckIn>>
+  extends b<Void, Void, ReviewDeleteResponse>
 {
-  ArrayList<YelpCheckIn> a;
-  
-  public dt(j<ArrayList<YelpCheckIn>> paramj)
+  public dt(String paramString, ApiRequest.b<ReviewDeleteResponse> paramb)
   {
-    super(ApiRequest.RequestType.GET, "check_ins/friends/nearby", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
-    addUrlParam("mode", 1);
-    addUrlParam("offset", 0);
+    super(ApiRequest.RequestType.POST, "review/delete", paramb);
+    b("review_id", paramString);
   }
   
-  public ArrayList<YelpCheckIn> a(JSONObject paramJSONObject)
+  public ReviewDeleteResponse a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    HashMap localHashMap = YelpBusiness.jsonBusinessesToMap(paramJSONObject.getJSONArray("businesses"), getRequestId(), BusinessSearchRequest.FormatMode.FULL);
-    a = YelpCheckIn.checkInsFromJSONArray(paramJSONObject.getJSONArray("check_ins"), localHashMap);
-    return a;
+    return (ReviewDeleteResponse)ReviewDeleteResponse.CREATOR.parse(paramJSONObject);
   }
 }
 

@@ -1,10 +1,21 @@
 .class public Lcom/yelp/android/f/a;
 .super Ljava/lang/Object;
-.source "AccessibilityEventCompat.java"
+.source "ICUCompat.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/f/a$d;,
+        Lcom/yelp/android/f/a$c;,
+        Lcom/yelp/android/f/a$b;,
+        Lcom/yelp/android/f/a$a;
+    }
+.end annotation
 
 
 # static fields
-.field private static final a:Lcom/yelp/android/f/e;
+.field private static final a:Lcom/yelp/android/f/a$a;
 
 
 # direct methods
@@ -12,87 +23,61 @@
     .locals 2
 
     .prologue
-    .line 98
+    .line 53
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    const/16 v1, 0x13
+    .line 54
+    const/16 v1, 0x15
 
     if-lt v0, v1, :cond_0
 
-    .line 99
-    new-instance v0, Lcom/yelp/android/f/c;
+    .line 55
+    new-instance v0, Lcom/yelp/android/f/a$d;
 
-    invoke-direct {v0}, Lcom/yelp/android/f/c;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/f/a$d;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/e;
+    sput-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/a$a;
 
-    .line 105
+    .line 61
     :goto_0
     return-void
 
-    .line 100
+    .line 56
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
     const/16 v1, 0xe
 
     if-lt v0, v1, :cond_1
 
-    .line 101
-    new-instance v0, Lcom/yelp/android/f/b;
+    .line 57
+    new-instance v0, Lcom/yelp/android/f/a$c;
 
-    invoke-direct {v0}, Lcom/yelp/android/f/b;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/f/a$c;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/e;
+    sput-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/a$a;
 
     goto :goto_0
 
-    .line 103
+    .line 59
     :cond_1
-    new-instance v0, Lcom/yelp/android/f/d;
+    new-instance v0, Lcom/yelp/android/f/a$b;
 
-    invoke-direct {v0}, Lcom/yelp/android/f/d;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/f/a$b;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/e;
+    sput-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/a$a;
 
     goto :goto_0
 .end method
 
-.method public static a(Landroid/view/accessibility/AccessibilityEvent;)Lcom/yelp/android/f/aj;
+.method public static a(Ljava/util/Locale;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 284
-    new-instance v0, Lcom/yelp/android/f/aj;
+    .line 87
+    sget-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/a$a;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/f/aj;-><init>(Ljava/lang/Object;)V
+    invoke-interface {v0, p0}, Lcom/yelp/android/f/a$a;->a(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
-.end method
-
-.method public static a(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 1
-
-    .prologue
-    .line 296
-    sget-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/e;
-
-    invoke-interface {v0, p0, p1}, Lcom/yelp/android/f/e;->a(Landroid/view/accessibility/AccessibilityEvent;I)V
-
-    .line 297
-    return-void
-.end method
-
-.method public static b(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 1
-
-    .prologue
-    .line 313
-    sget-object v0, Lcom/yelp/android/f/a;->a:Lcom/yelp/android/f/e;
-
-    invoke-interface {v0, p0}, Lcom/yelp/android/f/e;->a(Landroid/view/accessibility/AccessibilityEvent;)I
-
-    move-result v0
-
-    return v0
 .end method

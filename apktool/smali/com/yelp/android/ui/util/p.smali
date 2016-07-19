@@ -1,164 +1,191 @@
 .class public Lcom/yelp/android/ui/util/p;
 .super Ljava/lang/Object;
-.source "CreateGoogleAccountAuthorizer.java"
+.source "GlideYelpUriLoader.java"
+
+# interfaces
+.implements Lcom/yelp/android/ac/e;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/yelp/android/ac/e",
+        "<",
+        "Landroid/net/Uri;",
+        ">;"
+    }
+.end annotation
 
 
 # instance fields
-.field public final a:Ljava/lang/String;
-
-.field public final b:Ljava/lang/String;
-
-.field public final c:Ljava/lang/String;
-
-.field public d:Ljava/util/Calendar;
-
-.field public e:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
-
-.field public final f:Ljava/lang/String;
+.field private a:Landroid/content/Context;
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 0
 
     .prologue
-    .line 188
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 189
-    iput-object p1, p0, Lcom/yelp/android/ui/util/p;->a:Ljava/lang/String;
+    .line 34
+    iput-object p1, p0, Lcom/yelp/android/ui/util/p;->a:Landroid/content/Context;
 
-    .line 190
-    iput-object p2, p0, Lcom/yelp/android/ui/util/p;->b:Ljava/lang/String;
+    .line 35
+    return-void
+.end method
 
-    .line 191
-    iput-object p3, p0, Lcom/yelp/android/ui/util/p;->c:Ljava/lang/String;
 
-    .line 192
-    iput-object p6, p0, Lcom/yelp/android/ui/util/p;->f:Ljava/lang/String;
+# virtual methods
+.method public a(Landroid/net/Uri;II)Lcom/yelp/android/w/c;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/net/Uri;",
+            "II)",
+            "Lcom/yelp/android/w/c",
+            "<",
+            "Ljava/io/InputStream;",
+            ">;"
+        }
+    .end annotation
 
-    .line 194
-    new-instance v0, Ljava/text/SimpleDateFormat;
+    .prologue
+    const/4 v0, 0x0
 
-    const-string/jumbo v1, "yyyy-MM-dd"
-
-    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
-
-    .line 196
-    if-eqz p4, :cond_0
-
-    .line 197
-    :try_start_0
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+    .line 44
+    invoke-virtual {p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/util/p;->d:Ljava/util/Calendar;
+    .line 46
+    invoke-static {v1}, Lcom/yelp/android/util/StringUtils;->d(Ljava/lang/String;)Z
 
-    .line 198
-    iget-object v1, p0, Lcom/yelp/android/ui/util/p;->d:Ljava/util/Calendar;
+    move-result v2
 
-    invoke-virtual {v0, p4}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
+    if-eqz v2, :cond_1
 
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 207
+    .line 67
     :cond_0
     :goto_0
-    sget-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->NOT_SPECIFIED:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
+    return-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/p;->e:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
-
-    .line 208
-    if-nez p5, :cond_2
-
-    .line 209
-    sget-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->NOT_SPECIFIED:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/util/p;->e:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
-
-    .line 215
+    .line 50
     :cond_1
-    :goto_1
-    return-void
+    const-string/jumbo v2, "http://"
 
-    .line 200
-    :catch_0
-    move-exception v0
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    .line 202
-    const/4 v1, 0x0
+    move-result v2
 
-    iput-object v1, p0, Lcom/yelp/android/ui/util/p;->d:Ljava/util/Calendar;
+    if-nez v2, :cond_2
 
-    .line 203
-    const/4 v1, 0x6
+    const-string/jumbo v2, "https://"
 
-    const-string/jumbo v2, "GoogleAuth"
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    move-result v2
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v2, :cond_3
 
-    const-string/jumbo v4, "Birthdate format changed. "
+    .line 51
+    :cond_2
+    new-instance v0, Lcom/yelp/android/w/g;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v2, Lcom/yelp/android/aa/d;
 
-    move-result-object v3
+    invoke-direct {v2, v1}, Lcom/yelp/android/aa/d;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v2, v0}, Lcom/crashlytics/android/d;->a(ILjava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v0, v2}, Lcom/yelp/android/w/g;-><init>(Lcom/yelp/android/aa/d;)V
 
     goto :goto_0
 
-    .line 210
-    :cond_2
-    const-string/jumbo v0, "male"
-
-    invoke-virtual {p5, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 211
-    sget-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->MALE:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/util/p;->e:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
-
-    goto :goto_1
-
-    .line 212
+    .line 52
     :cond_3
-    const-string/jumbo v0, "female"
+    const-string/jumbo v2, "bundle://"
 
-    invoke-virtual {p5, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 56
+    const-string/jumbo v0, "bundle://"
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    .line 213
-    sget-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->FEMALE:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/p;->e:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
+    .line 57
+    iget-object v1, p0, Lcom/yelp/android/ui/util/p;->a:Landroid/content/Context;
 
-    goto :goto_1
+    invoke-static {v1, v0}, Lcom/yelp/android/ui/util/ar;->a(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v1
+
+    .line 58
+    if-nez v1, :cond_4
+
+    .line 60
+    new-instance v2, Landroid/content/Intent;
+
+    const-string/jumbo v3, "com.yelp.android.webimageview.intent.invalid_bundle_url"
+
+    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    .line 61
+    const-string/jumbo v3, "image_url"
+
+    invoke-virtual {v2, v3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 62
+    iget-object v0, p0, Lcom/yelp/android/ui/util/p;->a:Landroid/content/Context;
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    .line 64
+    :cond_4
+    new-instance v0, Lcom/yelp/android/aa/n;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/util/p;->a:Landroid/content/Context;
+
+    new-instance v3, Lcom/yelp/android/ac/h;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/util/p;->a:Landroid/content/Context;
+
+    invoke-direct {v3, v4}, Lcom/yelp/android/ac/h;-><init>(Landroid/content/Context;)V
+
+    invoke-direct {v0, v2, v3}, Lcom/yelp/android/aa/n;-><init>(Landroid/content/Context;Lcom/yelp/android/aa/l;)V
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, p2, p3}, Lcom/yelp/android/aa/n;->a(Ljava/lang/Integer;II)Lcom/yelp/android/w/c;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method public bridge synthetic a(Ljava/lang/Object;II)Lcom/yelp/android/w/c;
+    .locals 1
+
+    .prologue
+    .line 25
+    check-cast p1, Landroid/net/Uri;
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/p;->a(Landroid/net/Uri;II)Lcom/yelp/android/w/c;
+
+    move-result-object v0
+
+    return-object v0
 .end method

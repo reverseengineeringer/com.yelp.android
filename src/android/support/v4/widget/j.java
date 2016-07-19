@@ -1,6 +1,9 @@
 package android.support.v4.widget;
 
-class j {}
+abstract interface j
+{
+  public abstract void a(Object paramObject, boolean paramBoolean);
+}
 
 /* Location:
  * Qualified Name:     android.support.v4.widget.j

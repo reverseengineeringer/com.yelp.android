@@ -1,36 +1,17 @@
 package android.support.v4.widget;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.view.ViewGroup.MarginLayoutParams;
+import android.widget.PopupWindow;
 
 class r
-  implements q
 {
-  public int a(Object paramObject)
+  static void a(PopupWindow paramPopupWindow, int paramInt)
   {
-    return x.a(paramObject);
+    paramPopupWindow.setWindowLayoutType(paramInt);
   }
   
-  public Drawable a(Context paramContext)
+  static void a(PopupWindow paramPopupWindow, boolean paramBoolean)
   {
-    return x.a(paramContext);
-  }
-  
-  public void a(View paramView)
-  {
-    x.a(paramView);
-  }
-  
-  public void a(View paramView, Object paramObject, int paramInt)
-  {
-    x.a(paramView, paramObject, paramInt);
-  }
-  
-  public void a(ViewGroup.MarginLayoutParams paramMarginLayoutParams, Object paramObject, int paramInt)
-  {
-    x.a(paramMarginLayoutParams, paramObject, paramInt);
+    paramPopupWindow.setOverlapAnchor(paramBoolean);
   }
 }
 

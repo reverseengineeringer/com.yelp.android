@@ -1,187 +1,81 @@
-.class final Landroid/support/v4/content/b;
-.super Landroid/support/v4/content/ModernAsyncTask;
-.source "AsyncTaskLoader.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
+.class public Landroid/support/v4/content/b;
+.super Ljava/lang/Object;
+.source "ContentResolverCompat.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/Signature;
+.annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        "Landroid/support/v4/content/ModernAsyncTask",
-        "<",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        "TD;>;",
-        "Ljava/lang/Runnable;"
+        Landroid/support/v4/content/b$c;,
+        Landroid/support/v4/content/b$b;,
+        Landroid/support/v4/content/b$a;
     }
 .end annotation
 
 
-# instance fields
-.field a:Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "TD;"
-        }
-    .end annotation
-.end field
-
-.field b:Z
-
-.field final synthetic c:Landroid/support/v4/content/a;
-
-.field private e:Ljava/util/concurrent/CountDownLatch;
+# static fields
+.field private static final a:Landroid/support/v4/content/b$a;
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v4/content/a;)V
+.method static constructor <clinit>()V
     .locals 2
 
     .prologue
-    .line 40
-    iput-object p1, p0, Landroid/support/v4/content/b;->c:Landroid/support/v4/content/a;
+    .line 76
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-direct {p0}, Landroid/support/v4/content/ModernAsyncTask;-><init>()V
+    .line 77
+    const/16 v1, 0x10
 
-    .line 45
-    new-instance v0, Ljava/util/concurrent/CountDownLatch;
+    if-lt v0, v1, :cond_0
 
-    const/4 v1, 0x1
+    .line 78
+    new-instance v0, Landroid/support/v4/content/b$c;
 
-    invoke-direct {v0, v1}, Ljava/util/concurrent/CountDownLatch;-><init>(I)V
+    invoke-direct {v0}, Landroid/support/v4/content/b$c;-><init>()V
 
-    iput-object v0, p0, Landroid/support/v4/content/b;->e:Ljava/util/concurrent/CountDownLatch;
+    sput-object v0, Landroid/support/v4/content/b;->a:Landroid/support/v4/content/b$a;
 
+    .line 82
+    :goto_0
     return-void
-.end method
-
-
-# virtual methods
-.method protected bridge synthetic a([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 40
-    check-cast p1, [Ljava/lang/Void;
-
-    invoke-virtual {p0, p1}, Landroid/support/v4/content/b;->a([Ljava/lang/Void;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method protected varargs a([Ljava/lang/Void;)Ljava/lang/Object;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "([",
-            "Ljava/lang/Void;",
-            ")TD;"
-        }
-    .end annotation
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Landroid/support/v4/content/b;->c:Landroid/support/v4/content/a;
-
-    invoke-virtual {v0}, Landroid/support/v4/content/a;->d()Ljava/lang/Object;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroid/support/v4/content/b;->a:Ljava/lang/Object;
-
-    .line 53
-    iget-object v0, p0, Landroid/support/v4/content/b;->a:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method protected a()V
-    .locals 2
-
-    .prologue
-    .line 71
-    :try_start_0
-    iget-object v0, p0, Landroid/support/v4/content/b;->c:Landroid/support/v4/content/a;
-
-    iget-object v1, p0, Landroid/support/v4/content/b;->a:Ljava/lang/Object;
-
-    invoke-virtual {v0, p0, v1}, Landroid/support/v4/content/a;->a(Landroid/support/v4/content/b;Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 73
-    iget-object v0, p0, Landroid/support/v4/content/b;->e:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    .line 75
-    return-void
-
-    .line 73
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Landroid/support/v4/content/b;->e:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    throw v0
-.end method
-
-.method protected a(Ljava/lang/Object;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TD;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 61
-    :try_start_0
-    iget-object v0, p0, Landroid/support/v4/content/b;->c:Landroid/support/v4/content/a;
-
-    invoke-virtual {v0, p0, p1}, Landroid/support/v4/content/a;->b(Landroid/support/v4/content/b;Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 63
-    iget-object v0, p0, Landroid/support/v4/content/b;->e:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    .line 65
-    return-void
-
-    .line 63
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Landroid/support/v4/content/b;->e:Ljava/util/concurrent/CountDownLatch;
-
-    invoke-virtual {v1}, Ljava/util/concurrent/CountDownLatch;->countDown()V
-
-    throw v0
-.end method
-
-.method public run()V
-    .locals 1
-
-    .prologue
-    .line 79
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/support/v4/content/b;->b:Z
 
     .line 80
-    iget-object v0, p0, Landroid/support/v4/content/b;->c:Landroid/support/v4/content/a;
+    :cond_0
+    new-instance v0, Landroid/support/v4/content/b$b;
 
-    invoke-virtual {v0}, Landroid/support/v4/content/a;->b()V
+    invoke-direct {v0}, Landroid/support/v4/content/b$b;-><init>()V
 
-    .line 81
-    return-void
+    sput-object v0, Landroid/support/v4/content/b;->a:Landroid/support/v4/content/b$a;
+
+    goto :goto_0
+.end method
+
+.method public static a(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/os/c;)Landroid/database/Cursor;
+    .locals 8
+
+    .prologue
+    .line 125
+    sget-object v0, Landroid/support/v4/content/b;->a:Landroid/support/v4/content/b$a;
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    move-object v7, p6
+
+    invoke-interface/range {v0 .. v7}, Landroid/support/v4/content/b$a;->a(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/os/c;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    return-object v0
 .end method

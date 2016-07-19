@@ -3,8 +3,8 @@
 .source "YelpMapActivity.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/support/n;
-.implements Lcom/yelp/android/ui/map/i;
+.implements Lcom/yelp/android/ui/activities/support/b$d;
+.implements Lcom/yelp/android/ui/map/f$a;
 
 
 # annotations
@@ -16,7 +16,7 @@
 
 
 # instance fields
-.field private a:Lcom/yelp/android/ui/map/g;
+.field private a:Lcom/yelp/android/ui/map/f;
 
 
 # direct methods
@@ -36,30 +36,44 @@
     .locals 1
 
     .prologue
-    .line 43
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
+    .line 41
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/map/g;->a(Lcom/google/android/gms/maps/MapView;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/map/f;->a(Lcom/google/android/gms/maps/MapView;)V
 
-    .line 44
+    .line 42
     return-void
+.end method
+
+.method protected final m()Z
+    .locals 1
+
+    .prologue
+    .line 92
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/f;->e()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 1
 
     .prologue
-    .line 37
+    .line 35
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 38
-    new-instance v0, Lcom/yelp/android/ui/map/g;
+    .line 36
+    new-instance v0, Lcom/yelp/android/ui/map/f;
 
-    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/map/g;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/map/i;)V
+    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/map/f;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/map/f$a;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
 
-    .line 39
+    .line 37
     return-void
 .end method
 
@@ -69,24 +83,24 @@
     .end annotation
 
     .prologue
-    .line 86
-    const/16 v0, 0x3fe
+    .line 84
+    const/16 v0, 0x402
 
     if-ne p1, v0, :cond_0
 
-    .line 87
+    .line 85
     const-string/jumbo v0, "extra.services_not_available"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 88
-    invoke-static {p0, v0}, Lcom/yelp/android/ui/util/cr;->a(Landroid/app/Activity;I)Landroid/app/Dialog;
+    .line 86
+    invoke-static {p0, v0}, Lcom/yelp/android/ui/util/as;->a(Landroid/app/Activity;I)Landroid/app/Dialog;
 
     move-result-object v0
 
-    .line 90
+    .line 88
     :goto_0
     return-object v0
 
@@ -102,15 +116,15 @@
     .locals 1
 
     .prologue
-    .line 60
+    .line 58
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onDestroy()V
 
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
+    .line 59
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/map/g;->c()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/f;->c()V
 
-    .line 62
+    .line 60
     return-void
 .end method
 
@@ -118,15 +132,15 @@
     .locals 1
 
     .prologue
-    .line 72
+    .line 70
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onLowMemory()V
 
-    .line 73
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
+    .line 71
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/map/g;->d()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/f;->d()V
 
-    .line 74
+    .line 72
     return-void
 .end method
 
@@ -134,15 +148,15 @@
     .locals 1
 
     .prologue
-    .line 54
+    .line 52
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
 
-    .line 55
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
+    .line 53
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/map/g;->b()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/f;->b()V
 
-    .line 56
+    .line 54
     return-void
 .end method
 
@@ -150,15 +164,15 @@
     .locals 1
 
     .prologue
-    .line 48
+    .line 46
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
 
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
+    .line 47
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/map/g;->a()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/f;->a()V
 
-    .line 50
+    .line 48
     return-void
 .end method
 
@@ -166,28 +180,14 @@
     .locals 1
 
     .prologue
-    .line 66
+    .line 64
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
+    .line 65
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/f;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/map/g;->a(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/map/f;->a(Landroid/os/Bundle;)V
 
-    .line 68
+    .line 66
     return-void
-.end method
-
-.method protected final p()Z
-    .locals 1
-
-    .prologue
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->a:Lcom/yelp/android/ui/map/g;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/map/g;->e()Z
-
-    move-result v0
-
-    return v0
 .end method

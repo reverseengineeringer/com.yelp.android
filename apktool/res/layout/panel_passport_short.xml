@@ -2,5 +2,5 @@
 <merge
   xmlns:android="http://schemas.android.com/apk/res/android">
     <include layout="@layout/panel_passport_base" />
-    <TextView android:textAppearance="@style/SmallDarkText" android:textColor="@color/gray_light" android:id="@id/user_elite" android:background="@drawable/passport_elite_icon" android:paddingLeft="?smallGapSize" android:paddingRight="?smallGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:singleLine="true" android:layout_toRightOf="@id/user_media_count" android:layout_below="@id/user_name" android:layout_alignBaseline="@id/user_friend_count" />
+    <TextView android:textAppearance="@style/EliteTagText" android:id="@id/user_elite" android:background="@drawable/passport_elite_icon" android:paddingLeft="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:singleLine="true" android:layout_toRightOf="@id/user_media_count" android:layout_below="@id/user_name" android:layout_alignBaseline="@id/user_friend_count" />
 </merge>

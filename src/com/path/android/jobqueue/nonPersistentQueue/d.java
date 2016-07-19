@@ -1,17 +1,18 @@
 package com.path.android.jobqueue.nonPersistentQueue;
 
+import com.path.android.jobqueue.a;
 import java.util.Collection;
 import java.util.Comparator;
 
 public class d
   extends MergedQueue
 {
-  public d(int paramInt, Comparator<com.path.android.jobqueue.b> paramComparator)
+  public d(int paramInt, Comparator<a> paramComparator)
   {
-    super(paramInt, paramComparator, new h(paramComparator));
+    super(paramInt, paramComparator, new g(paramComparator));
   }
   
-  public com.path.android.jobqueue.b a(boolean paramBoolean, Collection<String> paramCollection)
+  public a a(boolean paramBoolean, Collection<String> paramCollection)
   {
     if (paramBoolean) {
       return super.a(paramCollection);
@@ -24,9 +25,9 @@ public class d
     throw new UnsupportedOperationException("cannot call network aware priority queue count w/o providing network status");
   }
   
-  protected c a(MergedQueue.SetId paramSetId, int paramInt, Comparator<com.path.android.jobqueue.b> paramComparator)
+  protected c a(MergedQueue.SetId paramSetId, int paramInt, Comparator<a> paramComparator)
   {
-    return new i(paramInt, paramComparator);
+    return new h(paramInt, paramComparator);
   }
   
   public b b(Collection<String> paramCollection)
@@ -43,9 +44,9 @@ public class d
     return super.a(MergedQueue.SetId.S1, l, paramCollection);
   }
   
-  protected MergedQueue.SetId c(com.path.android.jobqueue.b paramb)
+  protected MergedQueue.SetId c(a parama)
   {
-    if (paramb.b()) {
+    if (parama.b()) {
       return MergedQueue.SetId.S0;
     }
     return MergedQueue.SetId.S1;

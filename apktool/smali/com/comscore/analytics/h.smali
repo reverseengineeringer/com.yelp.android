@@ -1,124 +1,37 @@
-.class public Lcom/comscore/analytics/h;
+.class Lcom/comscore/analytics/h;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Ljava/lang/Runnable;
 
-# static fields
-.field private static a:Lcom/comscore/analytics/a;
+
+# instance fields
+.field final synthetic a:Lcom/comscore/analytics/a;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method constructor <init>(Lcom/comscore/analytics/a;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public run()V
     .locals 1
 
-    new-instance v0, Lcom/comscore/analytics/a;
+    iget-object v0, p0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
 
-    invoke-direct {v0}, Lcom/comscore/analytics/a;-><init>()V
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->b()V
 
-    sput-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
+    iget-object v0, p0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
 
-    return-void
-.end method
-
-.method public static a()V
-    .locals 1
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->v()V
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->o()V
 
     return-void
-.end method
-
-.method public static a(Landroid/content/Context;)V
-    .locals 1
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    invoke-virtual {v0, p0}, Lcom/comscore/analytics/a;->a(Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method public static a(Lcom/comscore/utils/TransmissionMode;)V
-    .locals 2
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, p0, v1}, Lcom/comscore/analytics/a;->b(Lcom/comscore/utils/TransmissionMode;Z)V
-
-    return-void
-.end method
-
-.method public static a(Ljava/lang/String;)V
-    .locals 2
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, p0, v1}, Lcom/comscore/analytics/a;->a(Ljava/lang/String;Z)V
-
-    return-void
-.end method
-
-.method public static a(Z)V
-    .locals 2
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, p0, v1}, Lcom/comscore/analytics/a;->a(ZZ)V
-
-    return-void
-.end method
-
-.method public static b()V
-    .locals 1
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->w()V
-
-    return-void
-.end method
-
-.method public static c()V
-    .locals 4
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    sget-object v1, Lcom/comscore/applications/EventType;->START:Lcom/comscore/applications/EventType;
-
-    new-instance v2, Ljava/util/HashMap;
-
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/comscore/analytics/a;->a(Lcom/comscore/applications/EventType;Ljava/util/HashMap;Z)V
-
-    return-void
-.end method
-
-.method public static d()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->V()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static e()Lcom/comscore/analytics/a;
-    .locals 1
-
-    sget-object v0, Lcom/comscore/analytics/h;->a:Lcom/comscore/analytics/a;
-
-    return-object v0
 .end method

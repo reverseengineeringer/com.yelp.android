@@ -2,30 +2,29 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
-import com.google.android.gms.internal.jv.a;
-import com.google.android.gms.internal.jx;
-import com.google.android.gms.maps.internal.aa;
+import com.google.android.gms.common.internal.zzw;
+import com.google.android.gms.common.internal.zzw.zza;
+import com.google.android.gms.common.internal.zzx;
 
 public final class LatLngBounds
   implements SafeParcelable
 {
-  public static final g CREATOR = new g();
-  private final int CK;
-  public final LatLng northeast;
-  public final LatLng southwest;
+  public static final h CREATOR = new h();
+  public final LatLng a;
+  public final LatLng b;
+  private final int c;
   
   LatLngBounds(int paramInt, LatLng paramLatLng1, LatLng paramLatLng2)
   {
-    jx.b(paramLatLng1, "null southwest");
-    jx.b(paramLatLng2, "null northeast");
-    if (latitude >= latitude) {}
+    zzx.zzb(paramLatLng1, "null southwest");
+    zzx.zzb(paramLatLng2, "null northeast");
+    if (a >= a) {}
     for (boolean bool = true;; bool = false)
     {
-      jx.b(bool, "southern latitude exceeds northern latitude (%s > %s)", new Object[] { Double.valueOf(latitude), Double.valueOf(latitude) });
-      CK = paramInt;
-      southwest = paramLatLng1;
-      northeast = paramLatLng2;
+      zzx.zzb(bool, "southern latitude exceeds northern latitude (%s > %s)", new Object[] { Double.valueOf(a), Double.valueOf(a) });
+      c = paramInt;
+      a = paramLatLng1;
+      b = paramLatLng2;
       return;
     }
   }
@@ -35,41 +34,24 @@ public final class LatLngBounds
     this(1, paramLatLng1, paramLatLng2);
   }
   
-  private static double b(double paramDouble1, double paramDouble2)
+  public static a b()
   {
-    return (paramDouble1 - paramDouble2 + 360.0D) % 360.0D;
-  }
-  
-  public static LatLngBounds.Builder builder()
-  {
-    return new LatLngBounds.Builder();
+    return new a();
   }
   
   private static double c(double paramDouble1, double paramDouble2)
   {
+    return (paramDouble1 - paramDouble2 + 360.0D) % 360.0D;
+  }
+  
+  private static double d(double paramDouble1, double paramDouble2)
+  {
     return (paramDouble2 - paramDouble1 + 360.0D) % 360.0D;
   }
   
-  private boolean c(double paramDouble)
+  int a()
   {
-    return (southwest.latitude <= paramDouble) && (paramDouble <= northeast.latitude);
-  }
-  
-  private boolean d(double paramDouble)
-  {
-    boolean bool = false;
-    if (southwest.longitude <= northeast.longitude) {
-      return (southwest.longitude <= paramDouble) && (paramDouble <= northeast.longitude);
-    }
-    if ((southwest.longitude <= paramDouble) || (paramDouble <= northeast.longitude)) {
-      bool = true;
-    }
-    return bool;
-  }
-  
-  public boolean contains(LatLng paramLatLng)
-  {
-    return (c(latitude)) && (d(longitude));
+    return c;
   }
   
   public int describeContents()
@@ -87,64 +69,75 @@ public final class LatLngBounds
         return false;
       }
       paramObject = (LatLngBounds)paramObject;
-    } while ((southwest.equals(southwest)) && (northeast.equals(northeast)));
+    } while ((a.equals(a)) && (b.equals(b)));
     return false;
-  }
-  
-  public LatLng getCenter()
-  {
-    double d2 = (southwest.latitude + northeast.latitude) / 2.0D;
-    double d1 = northeast.longitude;
-    double d3 = southwest.longitude;
-    if (d3 <= d1) {}
-    for (d1 = (d1 + d3) / 2.0D;; d1 = (d1 + 360.0D + d3) / 2.0D) {
-      return new LatLng(d2, d1);
-    }
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { southwest, northeast });
-  }
-  
-  public LatLngBounds including(LatLng paramLatLng)
-  {
-    double d4 = Math.min(southwest.latitude, latitude);
-    double d5 = Math.max(northeast.latitude, latitude);
-    double d2 = northeast.longitude;
-    double d3 = southwest.longitude;
-    double d1 = longitude;
-    if (!d(d1)) {
-      if (b(d3, d1) >= c(d2, d1)) {}
-    }
-    for (;;)
-    {
-      return new LatLngBounds(new LatLng(d4, d1), new LatLng(d5, d2));
-      d2 = d1;
-      d1 = d3;
-      continue;
-      d1 = d3;
-    }
+    return zzw.hashCode(new Object[] { a, b });
   }
   
   public String toString()
   {
-    return jv.h(this).a("southwest", southwest).a("northeast", northeast).toString();
+    return zzw.zzy(this).zzg("southwest", a).zzg("northeast", b).toString();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
+    h.a(this, paramParcel, paramInt);
+  }
+  
+  public static final class a
+  {
+    private double a = Double.POSITIVE_INFINITY;
+    private double b = Double.NEGATIVE_INFINITY;
+    private double c = NaN.0D;
+    private double d = NaN.0D;
+    
+    private boolean a(double paramDouble)
     {
-      h.a(this, paramParcel, paramInt);
-      return;
+      boolean bool = false;
+      if (c <= d) {
+        return (c <= paramDouble) && (paramDouble <= d);
+      }
+      if ((c <= paramDouble) || (paramDouble <= d)) {
+        bool = true;
+      }
+      return bool;
     }
-    g.a(this, paramParcel, paramInt);
+    
+    public a a(LatLng paramLatLng)
+    {
+      a = Math.min(a, a);
+      b = Math.max(b, a);
+      double d1 = b;
+      if (Double.isNaN(c))
+      {
+        c = d1;
+        d = d1;
+      }
+      while (a(d1)) {
+        return this;
+      }
+      if (LatLngBounds.a(c, d1) < LatLngBounds.b(d, d1))
+      {
+        c = d1;
+        return this;
+      }
+      d = d1;
+      return this;
+    }
+    
+    public LatLngBounds a()
+    {
+      if (!Double.isNaN(c)) {}
+      for (boolean bool = true;; bool = false)
+      {
+        zzx.zza(bool, "no included points");
+        return new LatLngBounds(new LatLng(a, c), new LatLng(b, d));
+      }
+    }
   }
 }
 

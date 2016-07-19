@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:id="@android:id/progress" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="@dimen/default_base_gap_size" android:indeterminateDrawable="@drawable/spinner_small" android:layout_marginStart="@dimen/default_base_gap_size" />
+    <TextView android:textSize="@dimen/abc_text_size_menu_material" android:id="@android:id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:text="@string/loading" android:layout_marginStart="@dimen/default_large_gap_size" />
+</LinearLayout>

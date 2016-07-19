@@ -2,55 +2,70 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import com.google.android.gms.common.internal.safeparcel.zza;
+import com.google.android.gms.common.internal.safeparcel.zza.zza;
+import com.google.android.gms.common.internal.safeparcel.zzb;
 
 public class t
-  implements Parcelable.Creator<StreetViewPanoramaOrientation>
+  implements Parcelable.Creator<VisibleRegion>
 {
-  static void a(StreetViewPanoramaOrientation paramStreetViewPanoramaOrientation, Parcel paramParcel, int paramInt)
+  static void a(VisibleRegion paramVisibleRegion, Parcel paramParcel, int paramInt)
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, paramStreetViewPanoramaOrientation.getVersionCode());
-    b.a(paramParcel, 2, tilt);
-    b.a(paramParcel, 3, bearing);
-    b.H(paramParcel, paramInt);
+    int i = zzb.zzav(paramParcel);
+    zzb.zzc(paramParcel, 1, paramVisibleRegion.a());
+    zzb.zza(paramParcel, 2, a, paramInt, false);
+    zzb.zza(paramParcel, 3, b, paramInt, false);
+    zzb.zza(paramParcel, 4, c, paramInt, false);
+    zzb.zza(paramParcel, 5, d, paramInt, false);
+    zzb.zza(paramParcel, 6, e, paramInt, false);
+    zzb.zzI(paramParcel, i);
   }
   
-  public StreetViewPanoramaOrientation dl(Parcel paramParcel)
+  public VisibleRegion a(Parcel paramParcel)
   {
-    float f2 = 0.0F;
-    int j = a.G(paramParcel);
+    LatLngBounds localLatLngBounds = null;
+    int j = zza.zzau(paramParcel);
     int i = 0;
-    float f1 = 0.0F;
+    LatLng localLatLng1 = null;
+    LatLng localLatLng2 = null;
+    LatLng localLatLng3 = null;
+    LatLng localLatLng4 = null;
     while (paramParcel.dataPosition() < j)
     {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
+      int k = zza.zzat(paramParcel);
+      switch (zza.zzca(k))
       {
       default: 
-        a.b(paramParcel, k);
+        zza.zzb(paramParcel, k);
         break;
       case 1: 
-        i = a.g(paramParcel, k);
+        i = zza.zzg(paramParcel, k);
         break;
       case 2: 
-        f1 = a.l(paramParcel, k);
+        localLatLng4 = (LatLng)zza.zza(paramParcel, k, LatLng.CREATOR);
         break;
       case 3: 
-        f2 = a.l(paramParcel, k);
+        localLatLng3 = (LatLng)zza.zza(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 4: 
+        localLatLng2 = (LatLng)zza.zza(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 5: 
+        localLatLng1 = (LatLng)zza.zza(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 6: 
+        localLatLngBounds = (LatLngBounds)zza.zza(paramParcel, k, LatLngBounds.CREATOR);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+      throw new zza.zza("Overread allowed size end=" + j, paramParcel);
     }
-    return new StreetViewPanoramaOrientation(i, f1, f2);
+    return new VisibleRegion(i, localLatLng4, localLatLng3, localLatLng2, localLatLng1, localLatLngBounds);
   }
   
-  public StreetViewPanoramaOrientation[] fh(int paramInt)
+  public VisibleRegion[] a(int paramInt)
   {
-    return new StreetViewPanoramaOrientation[paramInt];
+    return new VisibleRegion[paramInt];
   }
 }
 

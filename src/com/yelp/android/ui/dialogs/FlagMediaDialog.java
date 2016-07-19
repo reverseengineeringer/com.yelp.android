@@ -3,7 +3,6 @@ package com.yelp.android.ui.dialogs;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
-import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,12 +27,9 @@ public class FlagMediaDialog
   {
     paramBundle = getArguments().getString("key_hint");
     String str = getArguments().getString("key_title");
-    b = ((EditText)View.inflate(getActivity(), 2130903210, null));
+    b = ((EditText)View.inflate(getActivity(), 2130903234, null));
     b.setHint(paramBundle);
-    if (Build.VERSION.SDK_INT < 11) {
-      b.setTextColor(-1);
-    }
-    return new AlertDialog.Builder(getActivity()).setTitle(str).setNegativeButton(2131165457, null).setPositiveButton(2131166542, null).setView(b).create();
+    return new AlertDialog.Builder(getActivity()).setTitle(str).setNegativeButton(2131165583, null).setPositiveButton(2131166542, null).setView(b).create();
   }
   
   public void onStart()
@@ -41,7 +37,7 @@ public class FlagMediaDialog
     super.onStart();
     Button localButton = ((AlertDialog)getDialog()).getButton(-1);
     if (localButton != null) {
-      localButton.setOnClickListener(new am(this));
+      localButton.setOnClickListener(new FlagMediaDialog.1(this));
     }
   }
 }

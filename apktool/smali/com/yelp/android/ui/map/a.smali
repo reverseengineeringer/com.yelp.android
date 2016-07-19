@@ -7,7 +7,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
-        "Lcom/yelp/android/serializable/by;",
+        "Lcom/yelp/android/serializable/f;",
         ">",
         "Ljava/lang/Object;"
     }
@@ -15,11 +15,11 @@
 
 
 # virtual methods
-.method public abstract a(Lcom/yelp/android/serializable/by;)Lcom/google/android/gms/maps/model/BitmapDescriptor;
+.method public abstract a(Lcom/yelp/android/serializable/f;)Lcom/google/android/gms/maps/model/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
-            "Lcom/google/android/gms/maps/model/BitmapDescriptor;"
+            "Lcom/google/android/gms/maps/model/a;"
         }
     .end annotation
 .end method

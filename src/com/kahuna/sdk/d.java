@@ -1,30 +1,109 @@
 package com.kahuna.sdk;
 
-class d
+import android.util.Log;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class d
 {
   private String a;
-  private String b;
-  private Integer c;
-  private Integer d;
+  private int b = -1;
+  private int c = -1;
+  private Object d = new Object();
+  private Map<String, Set<String>> e;
   
-  protected boolean a()
+  public d(String paramString)
   {
-    boolean bool2 = false;
-    if (!aj.a(b)) {}
-    for (boolean bool1 = true; bool1; bool1 = false)
+    if ((w.a(paramString)) && (l.a))
     {
-      if (c == null)
-      {
-        bool1 = bool2;
-        if (d == null) {}
-      }
-      else
-      {
-        bool1 = true;
-      }
-      return bool1;
+      Log.w("Kahuna", "You must specify a valid name for the event builder. Ignoring event");
+      Thread.dumpStack();
     }
-    return bool1;
+    a = paramString;
+  }
+  
+  public Event a()
+  {
+    if (w.a(a)) {
+      return null;
+    }
+    Event localEvent1 = new Event(a);
+    if ((b != -1) && (c != -1))
+    {
+      localEvent1.a(b);
+      localEvent1.b(c);
+    }
+    JSONObject localJSONObject;
+    synchronized (d)
+    {
+      if (e == null) {
+        break label206;
+      }
+      localJSONObject = new JSONObject();
+      Iterator localIterator = e.keySet().iterator();
+      while (localIterator.hasNext())
+      {
+        String str = (String)localIterator.next();
+        try
+        {
+          JSONArray localJSONArray = new JSONArray((Set)e.get(str));
+          if (localJSONArray.length() <= 0) {
+            continue;
+          }
+          localJSONObject.put(str, localJSONArray);
+        }
+        catch (Exception localException) {}
+        if (l.a) {
+          Log.w("Kahuna", "Exception when building event from event builder: " + localException);
+        }
+      }
+    }
+    localEvent2.a(localJSONObject);
+    label206:
+    return localEvent2;
+  }
+  
+  public d a(int paramInt1, int paramInt2)
+  {
+    b = paramInt1;
+    c = paramInt2;
+    return this;
+  }
+  
+  public d a(String paramString1, String paramString2)
+  {
+    if ((w.a(paramString1)) || (w.a(paramString2))) {
+      if (l.a) {
+        Log.w("Kahuna", "You must specify a valid Event property key and value.  They cannot be null or empty.");
+      }
+    }
+    do
+    {
+      return this;
+      if (!paramString1.trim().toLowerCase().startsWith("k_")) {
+        break;
+      }
+    } while (!l.a);
+    Log.w("Kahuna", "Property keys cannot begin with 'k_' those are reserved by Kahuna.");
+    return this;
+    synchronized (d)
+    {
+      if (e == null) {
+        e = new HashMap();
+      }
+      if (!e.containsKey(paramString1)) {
+        e.put(paramString1, new HashSet());
+      }
+      Set localSet = (Set)e.get(paramString1);
+      localSet.add(paramString2);
+      e.put(paramString1, localSet);
+      return this;
+    }
   }
 }
 

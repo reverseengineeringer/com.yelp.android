@@ -2,39 +2,86 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _DealPurchase
   implements Parcelable
 {
-  protected String mCustomerEmail;
-  protected String mCustomerName;
-  protected String mId;
-  protected boolean mIsRedeemed;
-  protected String mOptionId;
-  protected String mPurchasedByName;
-  protected String mRedemptionCode;
-  protected String mRedemptionTitle;
-  protected String mTerms;
-  protected long mTimeExpire;
-  protected long mTimeRedeemed;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected boolean k;
+  protected long l;
+  protected long m;
   
-  protected _DealPurchase() {}
-  
-  protected _DealPurchase(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, boolean paramBoolean, long paramLong1, long paramLong2)
+  public String a()
   {
-    this();
-    mId = paramString1;
-    mOptionId = paramString2;
-    mRedemptionCode = paramString3;
-    mCustomerName = paramString4;
-    mCustomerEmail = paramString5;
-    mPurchasedByName = paramString6;
-    mRedemptionTitle = paramString7;
-    mTerms = paramString8;
-    mIsRedeemed = paramBoolean;
-    mTimeExpire = paramLong1;
-    mTimeRedeemed = paramLong2;
+    return f;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = paramParcel.createBooleanArray()[0];
+    l = paramParcel.readLong();
+    m = paramParcel.readLong();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("id")) {
+      c = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("option_id")) {
+      d = paramJSONObject.optString("option_id");
+    }
+    if (!paramJSONObject.isNull("redemption_code")) {
+      e = paramJSONObject.optString("redemption_code");
+    }
+    if (!paramJSONObject.isNull("customer_name")) {
+      f = paramJSONObject.optString("customer_name");
+    }
+    if (!paramJSONObject.isNull("customer_email")) {
+      g = paramJSONObject.optString("customer_email");
+    }
+    if (!paramJSONObject.isNull("purchased_by_name")) {
+      h = paramJSONObject.optString("purchased_by_name");
+    }
+    if (!paramJSONObject.isNull("redemption_title")) {
+      i = paramJSONObject.optString("redemption_title");
+    }
+    if (!paramJSONObject.isNull("terms")) {
+      j = paramJSONObject.optString("terms");
+    }
+    k = paramJSONObject.optBoolean("is_redeemed");
+    if (!paramJSONObject.isNull("time_expire")) {}
+    for (l = paramJSONObject.optLong("time_expire"); !paramJSONObject.isNull("time_redeemed"); l = -1L)
+    {
+      m = paramJSONObject.optLong("time_redeemed");
+      return;
+    }
+    m = -1L;
+  }
+  
+  public String b()
+  {
+    return h;
   }
   
   public int describeContents()
@@ -42,158 +89,97 @@ abstract class _DealPurchase
     return 0;
   }
   
-  public String getCustomerEmail()
+  public boolean equals(Object paramObject)
   {
-    return mCustomerEmail;
-  }
-  
-  public String getCustomerName()
-  {
-    return mCustomerName;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public String getOptionId()
-  {
-    return mOptionId;
-  }
-  
-  public String getPurchasedByName()
-  {
-    return mPurchasedByName;
-  }
-  
-  public String getRedemptionCode()
-  {
-    return mRedemptionCode;
-  }
-  
-  public String getRedemptionTitle()
-  {
-    return mRedemptionTitle;
-  }
-  
-  public String getTerms()
-  {
-    return mTerms;
-  }
-  
-  public long getTimeExpire()
-  {
-    return mTimeExpire;
-  }
-  
-  public long getTimeRedeemed()
-  {
-    return mTimeRedeemed;
-  }
-  
-  public boolean isRedeemed()
-  {
-    return mIsRedeemed;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("option_id")) {
-      mOptionId = paramJSONObject.optString("option_id");
-    }
-    if (!paramJSONObject.isNull("redemption_code")) {
-      mRedemptionCode = paramJSONObject.optString("redemption_code");
-    }
-    if (!paramJSONObject.isNull("customer_name")) {
-      mCustomerName = paramJSONObject.optString("customer_name");
-    }
-    if (!paramJSONObject.isNull("customer_email")) {
-      mCustomerEmail = paramJSONObject.optString("customer_email");
-    }
-    if (!paramJSONObject.isNull("purchased_by_name")) {
-      mPurchasedByName = paramJSONObject.optString("purchased_by_name");
-    }
-    if (!paramJSONObject.isNull("redemption_title")) {
-      mRedemptionTitle = paramJSONObject.optString("redemption_title");
-    }
-    if (!paramJSONObject.isNull("terms")) {
-      mTerms = paramJSONObject.optString("terms");
-    }
-    mIsRedeemed = paramJSONObject.optBoolean("is_redeemed");
-    if (!paramJSONObject.isNull("time_expire")) {}
-    for (mTimeExpire = paramJSONObject.optLong("time_expire"); !paramJSONObject.isNull("time_redeemed"); mTimeExpire = -1L)
+    if (paramObject == null) {}
+    do
     {
-      mTimeRedeemed = paramJSONObject.optLong("time_redeemed");
-      return;
-    }
-    mTimeRedeemed = -1L;
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_DealPurchase)paramObject;
+    return new b().a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mId = paramParcel.readString();
-    mOptionId = paramParcel.readString();
-    mRedemptionCode = paramParcel.readString();
-    mCustomerName = paramParcel.readString();
-    mCustomerEmail = paramParcel.readString();
-    mPurchasedByName = paramParcel.readString();
-    mRedemptionTitle = paramParcel.readString();
-    mTerms = paramParcel.readString();
-    mIsRedeemed = paramParcel.createBooleanArray()[0];
-    mTimeExpire = paramParcel.readLong();
-    mTimeRedeemed = paramParcel.readLong();
-  }
-  
-  public JSONObject writeJSON()
+  public JSONObject g()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
-    if (mId != null) {
-      localJSONObject.put("id", mId);
+    if (c != null) {
+      localJSONObject.put("id", c);
     }
-    if (mOptionId != null) {
-      localJSONObject.put("option_id", mOptionId);
+    if (d != null) {
+      localJSONObject.put("option_id", d);
     }
-    if (mRedemptionCode != null) {
-      localJSONObject.put("redemption_code", mRedemptionCode);
+    if (e != null) {
+      localJSONObject.put("redemption_code", e);
     }
-    if (mCustomerName != null) {
-      localJSONObject.put("customer_name", mCustomerName);
+    if (f != null) {
+      localJSONObject.put("customer_name", f);
     }
-    if (mCustomerEmail != null) {
-      localJSONObject.put("customer_email", mCustomerEmail);
+    if (g != null) {
+      localJSONObject.put("customer_email", g);
     }
-    if (mPurchasedByName != null) {
-      localJSONObject.put("purchased_by_name", mPurchasedByName);
+    if (h != null) {
+      localJSONObject.put("purchased_by_name", h);
     }
-    if (mRedemptionTitle != null) {
-      localJSONObject.put("redemption_title", mRedemptionTitle);
+    if (i != null) {
+      localJSONObject.put("redemption_title", i);
     }
-    if (mTerms != null) {
-      localJSONObject.put("terms", mTerms);
+    if (j != null) {
+      localJSONObject.put("terms", j);
     }
-    localJSONObject.put("is_redeemed", mIsRedeemed);
-    localJSONObject.put("time_expire", mTimeExpire);
-    localJSONObject.put("time_redeemed", mTimeRedeemed);
+    localJSONObject.put("is_redeemed", k);
+    localJSONObject.put("time_expire", l);
+    localJSONObject.put("time_redeemed", m);
     return localJSONObject;
+  }
+  
+  public boolean h()
+  {
+    return k;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a();
+  }
+  
+  public String i()
+  {
+    return j;
+  }
+  
+  public String j()
+  {
+    return i;
+  }
+  
+  public String k()
+  {
+    return e;
+  }
+  
+  public String l()
+  {
+    return c;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mId);
-    paramParcel.writeString(mOptionId);
-    paramParcel.writeString(mRedemptionCode);
-    paramParcel.writeString(mCustomerName);
-    paramParcel.writeString(mCustomerEmail);
-    paramParcel.writeString(mPurchasedByName);
-    paramParcel.writeString(mRedemptionTitle);
-    paramParcel.writeString(mTerms);
-    paramParcel.writeBooleanArray(new boolean[] { mIsRedeemed });
-    paramParcel.writeLong(mTimeExpire);
-    paramParcel.writeLong(mTimeRedeemed);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeValue(g);
+    paramParcel.writeValue(h);
+    paramParcel.writeValue(i);
+    paramParcel.writeValue(j);
+    paramParcel.writeBooleanArray(new boolean[] { k });
+    paramParcel.writeLong(l);
+    paramParcel.writeLong(m);
   }
 }
 

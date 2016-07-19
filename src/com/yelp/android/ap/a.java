@@ -1,99 +1,70 @@
 package com.yelp.android.ap;
 
-import com.path.android.jobqueue.b;
-import com.path.android.jobqueue.g;
-import java.util.Collection;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import java.util.List;
 
 public class a
-  implements g
+  extends BaseAdapter
 {
-  g a;
-  private c b;
+  private List<View> a = null;
   
-  public a(g paramg)
+  public a(List<View> paramList)
   {
-    a = paramg;
-    b = new c(null);
+    a = paramList;
   }
   
-  public int a()
+  protected View a(int paramInt, ViewGroup paramViewGroup)
   {
-    if (b.a == null) {
-      b.a = Integer.valueOf(a.a());
-    }
-    return b.a.intValue();
+    throw new RuntimeException("You must override newView()!");
   }
   
-  public int a(boolean paramBoolean, Collection<String> paramCollection)
+  public boolean areAllItemsEnabled()
   {
-    int i;
-    if ((b.a != null) && (b.a.intValue() < 1)) {
-      i = 0;
-    }
-    int j;
-    do
+    return false;
+  }
+  
+  public int getCount()
+  {
+    return a.size();
+  }
+  
+  public Object getItem(int paramInt)
+  {
+    return a.get(paramInt);
+  }
+  
+  public long getItemId(int paramInt)
+  {
+    return paramInt;
+  }
+  
+  public int getItemViewType(int paramInt)
+  {
+    return paramInt;
+  }
+  
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    View localView = (View)a.get(paramInt);
+    paramView = localView;
+    if (localView == null)
     {
-      return i;
-      j = a.a(paramBoolean, paramCollection);
-      i = j;
-    } while (j != 0);
-    a();
-    return j;
-  }
-  
-  public long a(b paramb)
-  {
-    b.a();
-    return a.a(paramb);
-  }
-  
-  public Long a(boolean paramBoolean)
-  {
-    if (b.b == null) {
-      b.b = new d(paramBoolean, a.a(paramBoolean), null);
+      paramView = a(paramInt, paramViewGroup);
+      a.set(paramInt, paramView);
     }
-    for (;;)
-    {
-      return b.b.a;
-      if (!d.a(b.b, paramBoolean)) {
-        b.b.a(paramBoolean, a.a(paramBoolean));
-      }
-    }
+    return paramView;
   }
   
-  public long b(b paramb)
+  public int getViewTypeCount()
   {
-    b.a();
-    return a.b(paramb);
+    return getCount();
   }
   
-  public b b(boolean paramBoolean, Collection<String> paramCollection)
+  public boolean isEnabled(int paramInt)
   {
-    if ((b.a != null) && (b.a.intValue() < 1)) {
-      paramCollection = null;
-    }
-    b localb;
-    do
-    {
-      return paramCollection;
-      localb = a.b(paramBoolean, paramCollection);
-      if (localb == null)
-      {
-        a();
-        return localb;
-      }
-      paramCollection = localb;
-    } while (b.a == null);
-    paramCollection = b;
-    Integer localInteger = a;
-    a = Integer.valueOf(a.intValue() - 1);
-    return localb;
-  }
-  
-  public void c(b paramb)
-  {
-    b.a();
-    a.c(paramb);
+    return false;
   }
 }
 

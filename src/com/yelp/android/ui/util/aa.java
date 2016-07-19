@@ -1,15 +1,19 @@
 package com.yelp.android.ui.util;
 
-class aa
-  implements cu<T>
+import android.content.Context;
+import com.yelp.android.serializable.Media;
+import java.util.List;
+
+public abstract class aa
 {
-  aa(z paramz, cu paramcu) {}
+  protected List<? extends Media> a;
   
-  public void a(T paramT, int paramInt1, int paramInt2)
+  public aa(List<? extends Media> paramList)
   {
-    b.b(paramInt1, paramInt2);
-    a.a(paramT, paramInt1, paramInt2);
+    a = paramList;
   }
+  
+  public abstract void a(Context paramContext, int paramInt);
 }
 
 /* Location:

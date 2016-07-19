@@ -3,6 +3,17 @@
 .source "Manifest.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/Manifest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "permission"
+.end annotation
+
+
 # static fields
 .field public static final INTERNET:Ljava/lang/String; = "android.permission.INTERNET"
 

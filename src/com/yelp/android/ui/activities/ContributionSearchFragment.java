@@ -1,7 +1,9 @@
 package com.yelp.android.ui.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,22 +11,20 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.BusinessContributionType;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest.FormatMode;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest.SearchMode;
 import com.yelp.android.appdata.webrequests.SearchRequest.SearchResponse;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.ax.a;
-import com.yelp.android.database.q;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.database.g;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.addphoto.PhotoTeaser;
 import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
 import com.yelp.android.ui.activities.support.ActivitySingleSearchBar;
 import com.yelp.android.ui.activities.support.YelpListFragment;
-import com.yelp.android.ui.activities.support.o;
+import com.yelp.android.ui.activities.support.b.e;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter.DisplayFeature;
 import com.yelp.android.ui.util.ScrollToLoadListView;
@@ -37,16 +37,18 @@ public class ContributionSearchFragment
   private BusinessSearchRequest c;
   private YelpBusiness d;
   private String e;
+  private String f;
   private String g;
-  private String h;
-  private final j<SearchRequest.SearchResponse> i = new ex(this);
-  private o j = new ey(this);
+  private String i;
+  private final k.b<SearchRequest.SearchResponse> j = new ContributionSearchFragment.1(this);
+  private b.e k = new ContributionSearchFragment.2(this);
   
-  public static ContributionSearchFragment a(BusinessContributionType paramBusinessContributionType)
+  public static ContributionSearchFragment a(BusinessContributionType paramBusinessContributionType, Uri paramUri)
   {
     ContributionSearchFragment localContributionSearchFragment = new ContributionSearchFragment();
     Bundle localBundle = new Bundle();
-    localBundle.putSerializable("extra.contribution_type", paramBusinessContributionType);
+    localBundle.putSerializable("contribution_type", paramBusinessContributionType);
+    localBundle.putParcelable("contribution", paramUri);
     localContributionSearchFragment.setArguments(localBundle);
     return localContributionSearchFragment;
   }
@@ -54,96 +56,84 @@ public class ContributionSearchFragment
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     paramListView = (YelpBusiness)paramListView.getItemAtPosition(paramInt);
+    d = paramListView;
     if (a != null)
     {
-      if (a != BusinessContributionType.CHECK_IN) {
-        break label75;
+      if (a == BusinessContributionType.CHECK_IN)
+      {
+        AppData.a(EventIri.SearchCheckInSelect, "id", paramListView.aD());
+        startActivityForResult(ActivityCheckIn.a(getActivity(), paramListView, i), 1012);
       }
-      AppData.a(EventIri.SearchCheckInSelect, "id", paramListView.getId());
     }
-    label75:
-    while (a != BusinessContributionType.BUSINESS_PHOTO)
-    {
-      paramView = a.getAddIntent(getActivity(), paramListView);
-      if (!a.addIntentReturnsData) {
-        break;
-      }
-      d = paramListView;
-      startActivityForResult(paramView, 1006);
+    else {
       return;
     }
-    AppData.a(EventIri.SearchAddPhotoSelect, "id", paramListView.getId());
-    startActivity(PhotoTeaser.a(getActivity(), paramListView));
-    return;
-    paramView.addFlags(268435456);
-    startActivity(paramView);
+    if (a.isMedia())
+    {
+      AppData.a(EventIri.SearchAddPhotoSelect, "id", paramListView.aD());
+      startActivityForResult(PhotoTeaser.a(getActivity(), paramListView, a, (Uri)getArguments().getParcelable("contribution")), 1041);
+      return;
+    }
+    paramListView = a.getAddIntent(getActivity(), paramListView);
+    paramListView.addFlags(268435456);
+    startActivity(paramListView);
   }
   
   public void a(String paramString1, String paramString2, String paramString3)
   {
-    if ((paramString1.equals(e)) && (paramString2.equals(g)) && (f == null)) {
+    if ((paramString1.equals(e)) && (paramString2.equals(f)) && (h == null)) {
       return;
     }
     if (c != null)
     {
-      c.setCallback(null);
-      c.cancel(true);
+      c.a(null);
+      c.a(true);
     }
     e = paramString1;
-    g = paramString2;
-    h = paramString3;
-    a_();
-  }
-  
-  public void a_()
-  {
-    c = null;
-    x();
-    b(0);
-    b.clear();
-    a(false);
-    b();
+    f = paramString2;
+    g = paramString3;
+    p_();
   }
   
   protected void b()
   {
     super.b();
-    if ((c != null) && ((c.isFetching()) || (c.isWaitingForLocation()))) {
+    if ((c != null) && ((c.u()) || (c.d()))) {
       return;
     }
-    a locala = AppData.b().i().g();
+    com.yelp.android.ca.a locala = AppData.b().i().e();
     if (c != null)
     {
-      c.setCallback(null);
-      c.cancel(true);
-      c = c.copy().setCallback(i);
-      if ((a != BusinessContributionType.CHECK_IN) && (!TextUtils.equals(g, getString(2131165670)))) {
+      c.a(null);
+      c.a(true);
+      c = c.B().a(j);
+      if ((a != BusinessContributionType.CHECK_IN) && (!TextUtils.equals(f, getString(2131165745)))) {
         break label206;
       }
-      c.setLocation(null);
-      c.setSearchMode(BusinessSearchRequest.SearchMode.DEFAULT);
+      c.b(null);
+      c.a(BusinessSearchRequest.SearchMode.DEFAULT);
     }
     for (;;)
     {
-      c.setSearchTerms(e);
-      c.setOffset(p());
+      c.g(e);
+      c.a(p());
       if (p() == 0) {
         a(c);
       }
-      c.search();
+      c.y();
       return;
-      c = new BusinessSearchRequest(locala, i);
-      c.setFormatMode(BusinessSearchRequest.FormatMode.SHORT);
+      c = new BusinessSearchRequest(locala, j);
+      c.a(BusinessSearchRequest.FormatMode.SHORT);
       break;
       label206:
-      c.setSearchMode(null);
-      c.setTermNear(g);
+      c.a(null);
+      c.e(f);
     }
   }
   
-  public b getIri()
+  public com.yelp.android.analytics.iris.a getIri()
   {
-    if (a == BusinessContributionType.BUSINESS_PHOTO) {
+    if (a.isMedia()) {
       return ViewIri.SearchAddPhoto;
     }
     return ViewIri.SearchNearbyCheckIn;
@@ -156,9 +146,9 @@ public class ContributionSearchFragment
     b.a(new BusinessAdapter.DisplayFeature[] { BusinessAdapter.DisplayFeature.ADDRESS });
     m().setAdapter(b);
     m().setItemsCanFocus(true);
-    c = ((BusinessSearchRequest)a("search", c, i));
-    if ((c != null) && ((c.isFetching()) || (c.isWaitingForLocation())) && (p() == 0)) {
-      i_();
+    c = ((BusinessSearchRequest)a("search", c, j));
+    if ((c != null) && ((c.u()) || (c.d())) && (p() == 0)) {
+      H_();
     }
   }
   
@@ -166,32 +156,42 @@ public class ContributionSearchFragment
   {
     switch (paramInt1)
     {
-    default: 
-      super.onActivityResult(paramInt1, paramInt2, paramIntent);
     }
-    do
+    for (;;)
     {
+      super.onActivityResult(paramInt1, paramInt2, paramIntent);
       return;
-    } while (paramInt2 != -1);
-    BusinessContributionType localBusinessContributionType = BusinessContributionType.getType(paramIntent);
-    paramIntent = localBusinessContributionType.getContribution(paramIntent);
-    Intent localIntent = ActivityBusinessPage.b(getActivity(), d);
-    localBusinessContributionType.writeToIntent(localIntent, paramIntent);
-    startActivity(localIntent);
+      if (paramInt2 == -1)
+      {
+        BusinessContributionType localBusinessContributionType = BusinessContributionType.getType(paramIntent);
+        paramIntent = localBusinessContributionType.getContribution(paramIntent);
+        Intent localIntent = ActivityBusinessPage.b(getActivity(), d);
+        localBusinessContributionType.writeToIntent(localIntent, paramIntent);
+        startActivity(localIntent);
+        i = "";
+        return;
+      }
+      i = ActivityCheckIn.a(paramIntent);
+      return;
+      if (paramInt2 == -1) {
+        getActivity().finish();
+      }
+    }
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = ((BusinessContributionType)getArguments().getSerializable("extra.contribution_type"));
+    a = ((BusinessContributionType)getArguments().getSerializable("contribution_type"));
     if (paramBundle != null)
     {
       d = ((YelpBusiness)paramBundle.getParcelable("selected_business"));
       e = paramBundle.getString("search_term");
-      g = paramBundle.getString("search_location");
+      f = paramBundle.getString("search_location");
+      i = paramBundle.getString("contribution_text");
     }
-    if (g == null) {
-      g = getString(2131165670);
+    if (f == null) {
+      f = getString(2131165745);
     }
   }
   
@@ -209,7 +209,8 @@ public class ContributionSearchFragment
     super.onSaveInstanceState(paramBundle);
     paramBundle.putParcelable("selected_business", d);
     paramBundle.putString("search_term", e);
-    paramBundle.putString("search_location", g);
+    paramBundle.putString("search_location", f);
+    paramBundle.putString("contribution_text", i);
     b.a(paramBundle);
   }
   
@@ -217,6 +218,16 @@ public class ContributionSearchFragment
   {
     super.onStop();
     a("search", c);
+  }
+  
+  public void p_()
+  {
+    c = null;
+    z();
+    b(0);
+    b.clear();
+    b(false);
+    b();
   }
 }
 

@@ -2,26 +2,31 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
-import com.google.android.gms.internal.jv.a;
+import com.google.android.gms.common.internal.zzw;
+import com.google.android.gms.common.internal.zzw.zza;
 
 public class StreetViewPanoramaLink
   implements SafeParcelable
 {
-  public static final r CREATOR = new r();
-  private final int CK;
-  public final float bearing;
-  public final String panoId;
+  public static final o CREATOR = new o();
+  public final String a;
+  public final float b;
+  private final int c;
   
   StreetViewPanoramaLink(int paramInt, String paramString, float paramFloat)
   {
-    CK = paramInt;
-    panoId = paramString;
+    c = paramInt;
+    a = paramString;
     float f = paramFloat;
     if (paramFloat <= 0.0D) {
       f = paramFloat % 360.0F + 360.0F;
     }
-    bearing = (f % 360.0F);
+    b = (f % 360.0F);
+  }
+  
+  int a()
+  {
+    return c;
   }
   
   public int describeContents()
@@ -39,28 +44,23 @@ public class StreetViewPanoramaLink
         return false;
       }
       paramObject = (StreetViewPanoramaLink)paramObject;
-    } while ((panoId.equals(panoId)) && (Float.floatToIntBits(bearing) == Float.floatToIntBits(bearing)));
+    } while ((a.equals(a)) && (Float.floatToIntBits(b) == Float.floatToIntBits(b)));
     return false;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { panoId, Float.valueOf(bearing) });
+    return zzw.hashCode(new Object[] { a, Float.valueOf(b) });
   }
   
   public String toString()
   {
-    return jv.h(this).a("panoId", panoId).a("bearing", Float.valueOf(bearing)).toString();
+    return zzw.zzy(this).zzg("panoId", a).zzg("bearing", Float.valueOf(b)).toString();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    r.a(this, paramParcel, paramInt);
+    o.a(this, paramParcel, paramInt);
   }
 }
 

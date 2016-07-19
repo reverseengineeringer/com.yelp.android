@@ -1,5 +1,7 @@
 package com.yelp.android.ui.activities.talk;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -8,51 +10,52 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.yelp.android.appdata.webrequests.dw;
-import com.yelp.android.appdata.webrequests.dx;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.da;
+import com.yelp.android.appdata.webrequests.da.a;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.ui.activities.settings.ChangeSettings;
 import com.yelp.android.util.ErrorType;
 
 public class AllTalkTab
-  extends TalkTopicList<dx>
+  extends TalkTopicList<da.a>
 {
-  j<dx> a = new h(this);
+  k.b<da.a> a = new AllTalkTab.2(this);
   private View e;
-  private TextView g;
+  private TextView f;
   
-  protected boolean e()
+  protected boolean f()
   {
-    String str = ChangeSettings.a(PreferenceManager.getDefaultSharedPreferences(getActivity()), getActivity());
-    x();
-    if (TextUtils.isEmpty(str))
+    Object localObject = getActivity();
+    localObject = ChangeSettings.a((Context)localObject, getFragmentManager(), PreferenceManager.getDefaultSharedPreferences((Context)localObject), ((Activity)localObject).getString(2131166981));
+    z();
+    if (TextUtils.isEmpty((CharSequence)localObject))
     {
-      g();
+      h();
       return false;
     }
-    g.setText(str);
-    b = new dw(p(), str, a);
-    ((dw)b).executeWithLocation(new Void[0]);
+    f.setText((CharSequence)localObject);
+    b = new da(p(), (String)localObject, a);
+    ((da)b).a(new Void[0]);
     return true;
   }
   
-  protected m<dx> f()
+  protected ApiRequest.b<da.a> g()
   {
     return a;
   }
   
-  public void g()
+  public void h()
   {
-    a(ErrorType.NO_TALK_LOCATION, new g(this));
+    a(ErrorType.NO_TALK_LOCATION, new AllTalkTab.1(this));
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    e = getLayoutInflater(paramBundle).inflate(2130903326, m(), false);
-    g = ((TextView)e.findViewById(2131493704));
-    a_();
+    e = getLayoutInflater(paramBundle).inflate(2130903425, m(), false);
+    f = ((TextView)e.findViewById(2131690528));
+    p_();
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -62,10 +65,10 @@ public class AllTalkTab
       super.onActivityResult(paramInt1, paramInt2, paramIntent);
       return;
     }
-    if (paramInt1 == 1052)
+    if (paramInt1 == 1061)
     {
-      g();
-      a_();
+      h();
+      p_();
       return;
     }
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
@@ -74,7 +77,7 @@ public class AllTalkTab
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     paramLayoutInflater = super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
-    if (r() != null) {
+    if (q() != null) {
       d(e);
     }
     return paramLayoutInflater;
@@ -89,7 +92,7 @@ public class AllTalkTab
   public void onResume()
   {
     super.onResume();
-    b = a("request_all_talk_topics", b, f());
+    b = a("request_all_talk_topics", b, g());
   }
   
   public void onSaveInstanceState(Bundle paramBundle)

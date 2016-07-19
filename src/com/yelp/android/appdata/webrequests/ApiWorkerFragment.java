@@ -8,27 +8,27 @@ import java.util.Map;
 public class ApiWorkerFragment
   extends Fragment
 {
-  protected Map<String, ek<?, ?, ?>> a = new HashMap();
+  protected Map<String, dn<?, ?, ?>> a = new HashMap();
   
-  public <Request extends ApiRequest<?, ?, Result>, Result> Request a(String paramString, m<Result> paramm)
+  public <Request extends ApiRequest<?, ?, Result>, Result> Request a(String paramString, ApiRequest.b<Result> paramb)
   {
-    paramString = (ei)a.remove(paramString);
+    paramString = (dm)a.remove(paramString);
     if (paramString == null) {
       return null;
     }
-    return paramString.a(paramm);
+    return paramString.a(paramb);
   }
   
   public <Request extends ApiRequest<?, ?, Result>, Result> void a(String paramString, Request paramRequest)
   {
     if (b(paramString, paramRequest)) {
-      a.put(paramString, new ei(paramRequest));
+      a.put(paramString, new dm(paramRequest));
     }
   }
   
   protected boolean b(String paramString, ApiRequest<?, ?, ?> paramApiRequest)
   {
-    return (paramString != null) && (paramApiRequest != null) && (!paramApiRequest.isCompleted());
+    return (paramString != null) && (paramApiRequest != null) && (!paramApiRequest.v());
   }
   
   public void onCreate(Bundle paramBundle)

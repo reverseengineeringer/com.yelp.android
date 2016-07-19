@@ -22,9 +22,9 @@
 
     .prologue
     .line 22
-    new-instance v0, Lcom/yelp/android/serializable/z;
+    new-instance v0, Lcom/yelp/android/serializable/Comment$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/z;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/Comment$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/Comment;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -42,19 +42,86 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/util/Date;Ljava/lang/String;Lcom/yelp/android/serializable/User;Ljava/lang/String;)V
+
+# virtual methods
+.method public bridge synthetic a()Lorg/json/JSONObject;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 12
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->a()Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
     .locals 0
 
     .prologue
-    .line 19
-    invoke-direct {p0, p1, p2, p4, p3}, Lcom/yelp/android/serializable/_Comment;-><init>(Ljava/util/Date;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/User;)V
+    .line 12
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Comment;->a(Landroid/os/Parcel;)V
 
-    .line 20
     return-void
 .end method
 
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
-# virtual methods
+    .prologue
+    .line 12
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Comment;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Lcom/yelp/android/serializable/User;
+    .locals 1
+
+    .prologue
+    .line 12
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->b()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 12
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 12
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -67,84 +134,40 @@
     return v0
 .end method
 
-.method public bridge synthetic getDateUpdated()Ljava/util/Date;
+.method public bridge synthetic e()Ljava/util/Date;
     .locals 1
 
     .prologue
     .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->getDateUpdated()Ljava/util/Date;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->e()Ljava/util/Date;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getId()Ljava/lang/String;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->getId()Ljava/lang/String;
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Comment;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
+    return v0
 .end method
 
-.method public bridge synthetic getText()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
     .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->getText()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
-.end method
-
-.method public bridge synthetic getUser()Lcom/yelp/android/serializable/User;
-    .locals 1
-
-    .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->getUser()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 12
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Comment;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 12
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Comment;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic writeJSON()Lorg/json/JSONObject;
-    .locals 1
-
-    .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Comment;->writeJSON()Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    return-object v0
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

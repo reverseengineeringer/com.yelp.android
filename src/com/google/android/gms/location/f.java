@@ -1,61 +1,90 @@
 package com.google.android.gms.location;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import android.os.SystemClock;
+import com.google.android.gms.location.internal.ParcelableGeofence;
 
-public class f
-  implements Parcelable.Creator<e>
+public abstract interface f
 {
-  static void a(e parame, Parcel paramParcel, int paramInt)
-  {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, agw);
-    b.c(paramParcel, 1000, parame.getVersionCode());
-    b.c(paramParcel, 2, agx);
-    b.a(paramParcel, 3, agy);
-    b.H(paramParcel, paramInt);
-  }
+  public abstract String a();
   
-  public e cK(Parcel paramParcel)
+  public static final class a
   {
-    int i = 1;
-    int m = a.G(paramParcel);
-    int k = 0;
-    long l = 0L;
-    int j = 1;
-    while (paramParcel.dataPosition() < m)
+    private String a = null;
+    private int b = 0;
+    private long c = Long.MIN_VALUE;
+    private short d = -1;
+    private double e;
+    private double f;
+    private float g;
+    private int h = 0;
+    private int i = -1;
+    
+    public a a(double paramDouble1, double paramDouble2, float paramFloat)
     {
-      int n = a.F(paramParcel);
-      switch (a.aH(n))
+      d = 1;
+      e = paramDouble1;
+      f = paramDouble2;
+      g = paramFloat;
+      return this;
+    }
+    
+    public a a(int paramInt)
+    {
+      b = paramInt;
+      return this;
+    }
+    
+    public a a(long paramLong)
+    {
+      if (paramLong < 0L)
       {
-      default: 
-        a.b(paramParcel, n);
-        break;
-      case 1: 
-        j = a.g(paramParcel, n);
-        break;
-      case 1000: 
-        k = a.g(paramParcel, n);
-        break;
-      case 2: 
-        i = a.g(paramParcel, n);
-        break;
-      case 3: 
-        l = a.i(paramParcel, n);
+        c = -1L;
+        return this;
       }
+      c = (SystemClock.elapsedRealtime() + paramLong);
+      return this;
     }
-    if (paramParcel.dataPosition() != m) {
-      throw new a.a("Overread allowed size end=" + m, paramParcel);
+    
+    public a a(String paramString)
+    {
+      a = paramString;
+      return this;
     }
-    return new e(k, j, i, l);
-  }
-  
-  public e[] eE(int paramInt)
-  {
-    return new e[paramInt];
+    
+    public f a()
+    {
+      if (a == null) {
+        throw new IllegalArgumentException("Request ID not set.");
+      }
+      if (b == 0) {
+        throw new IllegalArgumentException("Transitions types not set.");
+      }
+      if (((b & 0x4) != 0) && (i < 0)) {
+        throw new IllegalArgumentException("Non-negative loitering delay needs to be set when transition types include GEOFENCE_TRANSITION_DWELLING.");
+      }
+      if (c == Long.MIN_VALUE) {
+        throw new IllegalArgumentException("Expiration not set.");
+      }
+      if (d == -1) {
+        throw new IllegalArgumentException("Geofence region not set.");
+      }
+      if (h < 0) {
+        throw new IllegalArgumentException("Notification responsiveness should be nonnegative.");
+      }
+      return new ParcelableGeofence(a, b, (short)1, e, f, g, c, h, i);
+    }
+    
+    public a b(int paramInt)
+    {
+      h = paramInt;
+      return this;
+    }
+    
+    public a c(int paramInt)
+    {
+      i = paramInt;
+      return this;
+    }
   }
 }
 

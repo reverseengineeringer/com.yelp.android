@@ -1,22 +1,32 @@
 package com.yelp.android.ui.activities.search;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
-import com.yelp.android.ui.widgets.WebImageView;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.ui.util.w;
 
-class b
+public class b
+  extends w<CharSequence>
 {
-  private final TextView a;
-  private final TextView b;
-  private final TextView c;
-  private final WebImageView d;
-  
-  public b(View paramView)
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
   {
-    a = ((TextView)paramView.findViewById(2131493901));
-    b = ((TextView)paramView.findViewById(2131493947));
-    c = ((TextView)paramView.findViewById(2131493946));
-    d = ((WebImageView)paramView.findViewById(2131493062));
+    if (paramView == null)
+    {
+      paramView = LayoutInflater.from(paramViewGroup.getContext()).inflate(2130903466, paramViewGroup, false);
+      paramViewGroup = new b.a(paramView);
+      paramView.setTag(paramViewGroup);
+    }
+    for (;;)
+    {
+      CharSequence localCharSequence = (CharSequence)getItem(paramInt);
+      b.a.a(paramViewGroup).setTypeface(null, 1);
+      b.a.a(paramViewGroup).setText(localCharSequence);
+      b.a.b(paramViewGroup).setText(AppData.b().getString(2131166422));
+      return paramView;
+      paramViewGroup = (b.a)paramView.getTag();
+    }
   }
 }
 

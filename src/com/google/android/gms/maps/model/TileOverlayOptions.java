@@ -3,39 +3,61 @@ package com.google.android.gms.maps.model;
 import android.os.IBinder;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.aa;
-import com.google.android.gms.maps.model.internal.o;
-import com.google.android.gms.maps.model.internal.o.a;
+import com.yelp.android.bk.i;
+import com.yelp.android.bk.i.a;
 
 public final class TileOverlayOptions
   implements SafeParcelable
 {
-  public static final w CREATOR = new w();
-  private final int CK;
-  private float alX;
-  private boolean alY = true;
-  private o amD;
-  private TileProvider amE;
-  private boolean amF = true;
+  public static final s CREATOR = new s();
+  private final int a;
+  private i b;
+  private d c;
+  private boolean d = true;
+  private float e;
+  private boolean f = true;
   
   public TileOverlayOptions()
   {
-    CK = 1;
+    a = 1;
   }
   
   TileOverlayOptions(int paramInt, IBinder paramIBinder, boolean paramBoolean1, float paramFloat, boolean paramBoolean2)
   {
-    CK = paramInt;
-    amD = o.a.bE(paramIBinder);
-    if (amD == null) {}
-    for (paramIBinder = null;; paramIBinder = new TileOverlayOptions.1(this))
+    a = paramInt;
+    b = i.a.a(paramIBinder);
+    if (b == null) {}
+    for (paramIBinder = null;; paramIBinder = new d()
+        {
+          private final i c = TileOverlayOptions.a(TileOverlayOptions.this);
+        })
     {
-      amE = paramIBinder;
-      alY = paramBoolean1;
-      alX = paramFloat;
-      amF = paramBoolean2;
+      c = paramIBinder;
+      d = paramBoolean1;
+      e = paramFloat;
+      f = paramBoolean2;
       return;
     }
+  }
+  
+  int a()
+  {
+    return a;
+  }
+  
+  IBinder b()
+  {
+    return b.asBinder();
+  }
+  
+  public float c()
+  {
+    return e;
+  }
+  
+  public boolean d()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -43,73 +65,14 @@ public final class TileOverlayOptions
     return 0;
   }
   
-  public TileOverlayOptions fadeIn(boolean paramBoolean)
+  public boolean e()
   {
-    amF = paramBoolean;
-    return this;
-  }
-  
-  public boolean getFadeIn()
-  {
-    return amF;
-  }
-  
-  public TileProvider getTileProvider()
-  {
-    return amE;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
-  }
-  
-  public float getZIndex()
-  {
-    return alX;
-  }
-  
-  public boolean isVisible()
-  {
-    return alY;
-  }
-  
-  IBinder og()
-  {
-    return amD.asBinder();
-  }
-  
-  public TileOverlayOptions tileProvider(TileProvider paramTileProvider)
-  {
-    amE = paramTileProvider;
-    if (amE == null) {}
-    for (paramTileProvider = null;; paramTileProvider = new TileOverlayOptions.2(this, paramTileProvider))
-    {
-      amD = paramTileProvider;
-      return this;
-    }
-  }
-  
-  public TileOverlayOptions visible(boolean paramBoolean)
-  {
-    alY = paramBoolean;
-    return this;
+    return f;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      x.a(this, paramParcel, paramInt);
-      return;
-    }
-    w.a(this, paramParcel, paramInt);
-  }
-  
-  public TileOverlayOptions zIndex(float paramFloat)
-  {
-    alX = paramFloat;
-    return this;
+    s.a(this, paramParcel, paramInt);
   }
 }
 

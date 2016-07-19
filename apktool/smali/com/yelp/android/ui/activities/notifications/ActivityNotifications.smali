@@ -34,13 +34,13 @@
     .locals 1
 
     .prologue
-    .line 35
+    .line 36
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -56,17 +56,17 @@
     .locals 3
 
     .prologue
-    const v2, 0x7f0c01d4
+    const v2, 0x7f0f020d
 
     .line 23
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 24
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/notifications/ActivityNotifications;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/notifications/ActivityNotifications;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentById(I)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v2}, Landroid/support/v4/app/l;->a(I)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -74,11 +74,11 @@
     if-nez v0, :cond_0
 
     .line 26
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/notifications/ActivityNotifications;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/notifications/ActivityNotifications;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
@@ -86,13 +86,13 @@
 
     invoke-direct {v1}, Lcom/yelp/android/ui/activities/notifications/NotificationsFragment;-><init>()V
 
-    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/o;->a(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 30
+    .line 31
     :cond_0
     return-void
 .end method

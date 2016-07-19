@@ -1,14 +1,10 @@
 package android.support.v4.view;
 
-import android.view.KeyEvent;
-
-class x
-  extends w
+public abstract interface x
 {
-  public void a(KeyEvent paramKeyEvent)
-  {
-    aa.a(paramKeyEvent);
-  }
+  public abstract boolean isNestedScrollingEnabled();
+  
+  public abstract void stopNestedScroll();
 }
 
 /* Location:

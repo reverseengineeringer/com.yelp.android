@@ -1,14 +1,26 @@
 .class public Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest;
-.super Lcom/yelp/android/av/h;
+.super Lcom/yelp/android/appdata/webrequests/core/c;
 .source "BusinessObjectDeleteRequest.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
+    }
+.end annotation
+
+
+# instance fields
+.field private a:Lcom/yelp/android/serializable/Media;
+
+
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;Ljava/lang/String;Lcom/yelp/android/av/i;)V
+.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;Lcom/yelp/android/appdata/webrequests/core/c$a;Lcom/yelp/android/serializable/Media;)V
     .locals 2
 
     .prologue
-    .line 20
+    .line 26
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -38,9 +50,12 @@
 
     move-result-object v0
 
-    invoke-direct {p0, v0, p3}, Lcom/yelp/android/av/h;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 21
+    .line 27
+    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest;->a:Lcom/yelp/android/serializable/Media;
+
+    .line 28
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -64,8 +79,24 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {p3}, Lcom/yelp/android/serializable/Media;->a()Ljava/lang/String;
 
-    .line 22
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 29
     return-void
+.end method
+
+
+# virtual methods
+.method public b()Lcom/yelp/android/serializable/Media;
+    .locals 1
+
+    .prologue
+    .line 32
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest;->a:Lcom/yelp/android/serializable/Media;
+
+    return-object v0
 .end method

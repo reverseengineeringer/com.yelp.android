@@ -1,1067 +1,322 @@
-.class public final Lcom/google/android/gms/internal/ft;
+.class public Lcom/google/android/gms/internal/ft;
 .super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/fq$a;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/google/android/gms/internal/fq$a",
+        "<",
+        "Lcom/google/android/gms/ads/internal/formats/f;",
+        ">;"
+    }
 .end annotation
 
 
 # instance fields
-.field private mOrientation:I
-
-.field private pD:Ljava/lang/String;
-
-.field private uJ:Ljava/lang/String;
-
-.field private uK:Ljava/lang/String;
-
-.field private uL:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private uM:Ljava/lang/String;
-
-.field private uN:Ljava/lang/String;
-
-.field private uO:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private uP:J
-
-.field private uQ:Z
-
-.field private final uR:J
-
-.field private uS:J
-
-.field private uT:Z
-
-.field private uU:Z
-
-.field private uV:Z
-
-.field private uW:Z
-
-.field private uo:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private final a:Z
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 4
-
-    const-wide/16 v2, -0x1
-
-    const/4 v1, 0x0
+.method public constructor <init>(Z)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-wide v2, p0, Lcom/google/android/gms/internal/ft;->uP:J
-
-    iput-boolean v1, p0, Lcom/google/android/gms/internal/ft;->uQ:Z
-
-    iput-wide v2, p0, Lcom/google/android/gms/internal/ft;->uR:J
-
-    iput-wide v2, p0, Lcom/google/android/gms/internal/ft;->uS:J
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/google/android/gms/internal/ft;->mOrientation:I
-
-    iput-boolean v1, p0, Lcom/google/android/gms/internal/ft;->uT:Z
-
-    iput-boolean v1, p0, Lcom/google/android/gms/internal/ft;->uU:Z
-
-    iput-boolean v1, p0, Lcom/google/android/gms/internal/ft;->uV:Z
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uW:Z
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/ft;->a:Z
 
     return-void
 .end method
 
-.method static a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+.method private a(Lcom/yelp/android/g/i;)Lcom/yelp/android/g/i;
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;",
-            "Ljava/lang/String;",
-            ")",
-            "Ljava/lang/String;"
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/yelp/android/g/i",
+            "<TK;",
+            "Ljava/util/concurrent/Future",
+            "<TV;>;>;)",
+            "Lcom/yelp/android/g/i",
+            "<TK;TV;>;"
         }
     .end annotation
 
-    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;,
+            Ljava/util/concurrent/ExecutionException;
+        }
+    .end annotation
 
-    move-result-object v0
+    new-instance v2, Lcom/yelp/android/g/i;
 
-    check-cast v0, Ljava/util/List;
+    invoke-direct {v2}, Lcom/yelp/android/g/i;-><init>()V
 
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    :goto_0
-    return-object v0
-
-    :cond_0
     const/4 v0, 0x0
 
+    move v1, v0
+
+    :goto_0
+    invoke-virtual {p1}, Lcom/yelp/android/g/i;->size()I
+
+    move-result v0
+
+    if-ge v1, v0, :cond_0
+
+    invoke-virtual {p1, v1}, Lcom/yelp/android/g/i;->b(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v1}, Lcom/yelp/android/g/i;->c(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/concurrent/Future;
+
+    invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v3, v0}, Lcom/yelp/android/g/i;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
     goto :goto_0
+
+    :cond_0
+    return-object v2
 .end method
 
-.method static b(Ljava/util/Map;Ljava/lang/String;)J
+.method private a(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;Lcom/yelp/android/g/i;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Map",
+            "Lcom/google/android/gms/internal/fq;",
+            "Lorg/json/JSONObject;",
+            "Lcom/yelp/android/g/i",
             "<",
             "Ljava/lang/String;",
-            "Ljava/util/List",
+            "Ljava/util/concurrent/Future",
             "<",
-            "Ljava/lang/String;",
-            ">;>;",
-            "Ljava/lang/String;",
-            ")J"
+            "Lcom/google/android/gms/ads/internal/formats/c;",
+            ">;>;)V"
         }
     .end annotation
 
-    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    const-string/jumbo v0, "name"
+
+    invoke-virtual {p2, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Ljava/util/List;
+    const-string/jumbo v1, "image_value"
 
-    if-eqz v0, :cond_0
+    iget-boolean v2, p0, Lcom/google/android/gms/internal/ft;->a:Z
 
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    :try_start_0
-    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    const/high16 v1, 0x447a0000    # 1000.0f
-
-    mul-float/2addr v0, v1
-
-    float-to-long v0, v0
-
-    :goto_0
-    return-wide v0
-
-    :catch_0
-    move-exception v1
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Could not parse float from "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2, v1, v2}, Lcom/google/android/gms/internal/fq;->a(Lorg/json/JSONObject;Ljava/lang/String;Z)Ljava/util/concurrent/Future;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, v0, v1}, Lcom/yelp/android/g/i;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method private a(Lorg/json/JSONObject;Lcom/yelp/android/g/i;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/json/JSONObject;",
+            "Lcom/yelp/android/g/i",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    const-string/jumbo v0, "name"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "string_value"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v2, " header: "
+    invoke-virtual {p2, v0, v1}, Lcom/yelp/android/g/i;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    :cond_0
-    const-wide/16 v0, -0x1
-
-    goto :goto_0
-.end method
-
-.method static c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;",
-            "Ljava/lang/String;",
-            ")",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "\\s+"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v0
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method private d(Ljava/util/Map;Ljava/lang/String;)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;",
-            "Ljava/lang/String;",
-            ")Z"
-        }
-    .end annotation
-
-    const/4 v1, 0x0
-
-    invoke-interface {p1, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    move v0, v1
-
-    goto :goto_0
-.end method
-
-.method private f(Ljava/util/Map;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Ad-Size"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ft;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ft;->uJ:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method private g(Ljava/util/Map;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Click-Tracking-Urls"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ft;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ft;->uL:Ljava/util/List;
-
-    :cond_0
-    return-void
-.end method
-
-.method private h(Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Debug-Dialog"
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ft;->uM:Ljava/lang/String;
-
-    :cond_0
-    return-void
-.end method
-
-.method private i(Ljava/util/Map;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Tracking-Urls"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ft;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ft;->uO:Ljava/util/List;
-
-    :cond_0
-    return-void
-.end method
-
-.method private j(Ljava/util/Map;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Interstitial-Timeout"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ft;->b(Ljava/util/Map;Ljava/lang/String;)J
-
-    move-result-wide v0
-
-    const-wide/16 v2, -0x1
-
-    cmp-long v2, v0, v2
-
-    if-eqz v2, :cond_0
-
-    iput-wide v0, p0, Lcom/google/android/gms/internal/ft;->uP:J
-
-    :cond_0
-    return-void
-.end method
-
-.method private k(Ljava/util/Map;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-ActiveView"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ft;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ft;->uN:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method private l(Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uU:Z
-
-    const-string/jumbo v1, "X-Afma-Native"
-
-    invoke-direct {p0, p1, v1}, Lcom/google/android/gms/internal/ft;->d(Ljava/util/Map;Ljava/lang/String;)Z
-
-    move-result v1
-
-    or-int/2addr v0, v1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uU:Z
-
-    return-void
-.end method
-
-.method private m(Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uT:Z
-
-    const-string/jumbo v1, "X-Afma-Custom-Rendering-Allowed"
-
-    invoke-direct {p0, p1, v1}, Lcom/google/android/gms/internal/ft;->d(Ljava/util/Map;Ljava/lang/String;)Z
-
-    move-result v1
-
-    or-int/2addr v0, v1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uT:Z
-
-    return-void
-.end method
-
-.method private n(Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uQ:Z
-
-    const-string/jumbo v1, "X-Afma-Mediation"
-
-    invoke-direct {p0, p1, v1}, Lcom/google/android/gms/internal/ft;->d(Ljava/util/Map;Ljava/lang/String;)Z
-
-    move-result v1
-
-    or-int/2addr v0, v1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uQ:Z
-
-    return-void
-.end method
-
-.method private o(Ljava/util/Map;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Manual-Tracking-Urls"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ft;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ft;->uo:Ljava/util/List;
-
-    :cond_0
-    return-void
-.end method
-
-.method private p(Ljava/util/Map;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Refresh-Rate"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ft;->b(Ljava/util/Map;Ljava/lang/String;)J
-
-    move-result-wide v0
-
-    const-wide/16 v2, -0x1
-
-    cmp-long v2, v0, v2
-
-    if-eqz v2, :cond_0
-
-    iput-wide v0, p0, Lcom/google/android/gms/internal/ft;->uS:J
-
-    :cond_0
-    return-void
-.end method
-
-.method private q(Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Orientation"
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    const-string/jumbo v1, "portrait"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-static {}, Lcom/google/android/gms/internal/gi;->dv()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/google/android/gms/internal/ft;->mOrientation:I
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    const-string/jumbo v1, "landscape"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/google/android/gms/internal/gi;->du()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/google/android/gms/internal/ft;->mOrientation:I
-
-    goto :goto_0
-.end method
-
-.method private r(Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Use-HTTPS"
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uV:Z
-
-    :cond_0
-    return-void
-.end method
-
-.method private s(Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "X-Afma-Content-Url-Opted-Out"
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ft;->uW:Z
-
-    :cond_0
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
+.method public synthetic a(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;)Lcom/google/android/gms/ads/internal/formats/h$a;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;",
-            "Ljava/lang/String;",
-            ")V"
+            Lorg/json/JSONException;,
+            Ljava/lang/InterruptedException;,
+            Ljava/util/concurrent/ExecutionException;
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/ft;->uK:Ljava/lang/String;
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/gms/internal/ft;->b(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;)Lcom/google/android/gms/ads/internal/formats/f;
 
-    iput-object p3, p0, Lcom/google/android/gms/internal/ft;->pD:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-virtual {p0, p2}, Lcom/google/android/gms/internal/ft;->e(Ljava/util/Map;)V
-
-    return-void
+    return-object v0
 .end method
 
-.method public e(Ljava/util/Map;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
+.method public b(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;)Lcom/google/android/gms/ads/internal/formats/f;
+    .locals 8
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
+            Lorg/json/JSONException;,
+            Ljava/lang/InterruptedException;,
+            Ljava/util/concurrent/ExecutionException;
         }
     .end annotation
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->f(Ljava/util/Map;)V
+    new-instance v1, Lcom/yelp/android/g/i;
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->g(Ljava/util/Map;)V
+    invoke-direct {v1}, Lcom/yelp/android/g/i;-><init>()V
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->h(Ljava/util/Map;)V
+    new-instance v2, Lcom/yelp/android/g/i;
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->i(Ljava/util/Map;)V
+    invoke-direct {v2}, Lcom/yelp/android/g/i;-><init>()V
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->j(Ljava/util/Map;)V
+    invoke-virtual {p1, p2}, Lcom/google/android/gms/internal/fq;->b(Lorg/json/JSONObject;)Lcom/google/android/gms/internal/hs;
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->n(Ljava/util/Map;)V
+    move-result-object v3
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->o(Ljava/util/Map;)V
+    const-string/jumbo v0, "custom_assets"
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->p(Ljava/util/Map;)V
+    invoke-virtual {p2, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->q(Ljava/util/Map;)V
+    move-result-object v4
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->k(Ljava/util/Map;)V
+    const/4 v0, 0x0
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->r(Ljava/util/Map;)V
+    :goto_0
+    invoke-virtual {v4}, Lorg/json/JSONArray;->length()I
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->m(Ljava/util/Map;)V
+    move-result v5
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->l(Ljava/util/Map;)V
+    if-ge v0, v5, :cond_2
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ft;->s(Ljava/util/Map;)V
+    invoke-virtual {v4, v0}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
 
-    return-void
-.end method
+    move-result-object v5
 
-.method public i(J)Lcom/google/android/gms/internal/fj;
-    .locals 27
+    const-string/jumbo v6, "type"
 
-    new-instance v3, Lcom/google/android/gms/internal/fj;
+    invoke-virtual {v5, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v0, p0
+    move-result-object v6
 
-    iget-object v4, v0, Lcom/google/android/gms/internal/ft;->uK:Ljava/lang/String;
+    const-string/jumbo v7, "string"
 
-    move-object/from16 v0, p0
+    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v5, v0, Lcom/google/android/gms/internal/ft;->pD:Ljava/lang/String;
+    move-result v7
 
-    move-object/from16 v0, p0
+    if-eqz v7, :cond_0
 
-    iget-object v6, v0, Lcom/google/android/gms/internal/ft;->uL:Ljava/util/List;
+    invoke-direct {p0, v5, v2}, Lcom/google/android/gms/internal/ft;->a(Lorg/json/JSONObject;Lcom/yelp/android/g/i;)V
 
-    move-object/from16 v0, p0
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
 
-    iget-object v7, v0, Lcom/google/android/gms/internal/ft;->uO:Ljava/util/List;
+    goto :goto_0
 
-    move-object/from16 v0, p0
+    :cond_0
+    const-string/jumbo v7, "image"
 
-    iget-wide v8, v0, Lcom/google/android/gms/internal/ft;->uP:J
+    invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, p0
+    move-result v7
 
-    iget-boolean v10, v0, Lcom/google/android/gms/internal/ft;->uQ:Z
+    if-eqz v7, :cond_1
 
-    const-wide/16 v11, -0x1
+    invoke-direct {p0, p1, v5, v1}, Lcom/google/android/gms/internal/ft;->a(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;Lcom/yelp/android/g/i;)V
 
-    move-object/from16 v0, p0
+    goto :goto_1
 
-    iget-object v13, v0, Lcom/google/android/gms/internal/ft;->uo:Ljava/util/List;
+    :cond_1
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-wide v14, v0, Lcom/google/android/gms/internal/ft;->uS:J
+    const-string/jumbo v7, "Unknown custom asset type: "
 
-    move-object/from16 v0, p0
+    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v0, v0, Lcom/google/android/gms/internal/ft;->mOrientation:I
+    move-result-object v5
 
-    move/from16 v16, v0
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, p0
+    move-result-object v5
 
-    iget-object v0, v0, Lcom/google/android/gms/internal/ft;->uJ:Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-object/from16 v17, v0
+    move-result-object v5
 
-    move-object/from16 v0, p0
+    invoke-static {v5}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
-    iget-object v0, v0, Lcom/google/android/gms/internal/ft;->uM:Ljava/lang/String;
+    goto :goto_1
 
-    move-object/from16 v20, v0
+    :cond_2
+    new-instance v4, Lcom/google/android/gms/ads/internal/formats/f;
 
-    move-object/from16 v0, p0
+    const-string/jumbo v0, "custom_template_id"
 
-    iget-object v0, v0, Lcom/google/android/gms/internal/ft;->uN:Ljava/lang/String;
+    invoke-virtual {p2, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v21, v0
+    move-result-object v5
 
-    move-object/from16 v0, p0
+    invoke-direct {p0, v1}, Lcom/google/android/gms/internal/ft;->a(Lcom/yelp/android/g/i;)Lcom/yelp/android/g/i;
 
-    iget-boolean v0, v0, Lcom/google/android/gms/internal/ft;->uT:Z
+    move-result-object v1
 
-    move/from16 v22, v0
+    invoke-interface {v3}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
 
-    move-object/from16 v0, p0
+    move-result-object v0
 
-    iget-boolean v0, v0, Lcom/google/android/gms/internal/ft;->uU:Z
+    check-cast v0, Lcom/google/android/gms/ads/internal/formats/a;
 
-    move/from16 v23, v0
+    invoke-direct {v4, v5, v1, v2, v0}, Lcom/google/android/gms/ads/internal/formats/f;-><init>(Ljava/lang/String;Lcom/yelp/android/g/i;Lcom/yelp/android/g/i;Lcom/google/android/gms/ads/internal/formats/a;)V
 
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/google/android/gms/internal/ft;->uV:Z
-
-    move/from16 v24, v0
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/google/android/gms/internal/ft;->uW:Z
-
-    move/from16 v25, v0
-
-    move-wide/from16 v18, p1
-
-    invoke-direct/range {v3 .. v25}, Lcom/google/android/gms/internal/fj;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;JZJLjava/util/List;JILjava/lang/String;JLjava/lang/String;Ljava/lang/String;ZZZZ)V
-
-    return-object v3
+    return-object v4
 .end method

@@ -3,6 +3,17 @@
 .source "Analytics.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/analytics/Analytics;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "Fields"
+.end annotation
+
+
 # static fields
 .field public static final BASE_PARAMS:Ljava/lang/String; = "baseParams"
 

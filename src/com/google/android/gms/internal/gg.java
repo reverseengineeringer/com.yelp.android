@@ -1,28 +1,10 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
-
-@ey
-public final class gg
+public abstract interface gg
 {
-  public static void a(Context paramContext, boolean paramBoolean)
-  {
-    paramContext = n(paramContext).edit();
-    paramContext.putBoolean("use_https", paramBoolean);
-    paramContext.commit();
-  }
+  public abstract void a();
   
-  private static SharedPreferences n(Context paramContext)
-  {
-    return paramContext.getSharedPreferences("admob", 0);
-  }
-  
-  public static boolean o(Context paramContext)
-  {
-    return n(paramContext).getBoolean("use_https", true);
-  }
+  public abstract void b();
 }
 
 /* Location:

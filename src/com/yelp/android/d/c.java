@@ -1,16 +1,17 @@
 package com.yelp.android.d;
 
+import android.graphics.drawable.Drawable;
+
 class c
-  implements b
 {
-  public String a(String paramString)
+  public static int a(Drawable paramDrawable)
   {
-    return null;
+    return paramDrawable.getLayoutDirection();
   }
   
-  public String b(String paramString)
+  public static void a(Drawable paramDrawable, int paramInt)
   {
-    return paramString;
+    paramDrawable.setLayoutDirection(paramInt);
   }
 }
 

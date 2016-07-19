@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/StandardLightText" android:gravity="center" android:id="@id/businesspage_attribution" android:background="@android:color/white" android:paddingLeft="?leftGapSize" android:paddingTop="?topGapSize" android:paddingRight="?rightGapSize" android:paddingBottom="?bottomGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-    <View android:layout_width="fill_parent" android:layout_height="?baseGapSize" />
+    <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:gravity="center" android:id="@id/businesspage_attribution" android:background="@android:color/white" android:paddingLeft="?leftGapSize" android:paddingTop="?topGapSize" android:paddingRight="?rightGapSize" android:paddingBottom="?bottomGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <View android:layout_width="fill_parent" android:layout_height="@dimen/default_base_gap_size" />
 </LinearLayout>

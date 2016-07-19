@@ -1,43 +1,50 @@
 package com.google.android.gms.internal;
 
-import android.content.Intent;
+import com.google.android.gms.ads.internal.s;
+import java.util.Map;
 
-@ey
+@fv
 public class ek
 {
-  private final String oK;
+  private final ib a;
+  private final boolean b;
+  private final String c;
   
-  public ek(String paramString)
+  public ek(ib paramib, Map<String, String> paramMap)
   {
-    oK = paramString;
+    a = paramib;
+    c = ((String)paramMap.get("forceOrientation"));
+    if (paramMap.containsKey("allowOrientationChange"))
+    {
+      b = Boolean.parseBoolean((String)paramMap.get("allowOrientationChange"));
+      return;
+    }
+    b = true;
   }
   
-  public boolean a(String paramString, int paramInt, Intent paramIntent)
+  public void a()
   {
-    if ((paramString == null) || (paramIntent == null)) {}
-    String str;
-    do
+    if (a == null)
     {
-      return false;
-      str = ei.e(paramIntent);
-      paramIntent = ei.f(paramIntent);
-    } while ((str == null) || (paramIntent == null));
-    if (!paramString.equals(ei.D(str)))
-    {
-      gr.W("Developer payload not match.");
-      return false;
+      gz.d("AdWebView is null");
+      return;
     }
-    if ((oK != null) && (!el.b(oK, str, paramIntent)))
-    {
-      gr.W("Fail to verify signature.");
-      return false;
+    int i;
+    if ("portrait".equalsIgnoreCase(c)) {
+      i = s.g().b();
     }
-    return true;
-  }
-  
-  public String cC()
-  {
-    return gi.dx();
+    for (;;)
+    {
+      a.b(i);
+      return;
+      if ("landscape".equalsIgnoreCase(c)) {
+        i = s.g().a();
+      } else if (b) {
+        i = -1;
+      } else {
+        i = s.g().c();
+      }
+    }
   }
 }
 

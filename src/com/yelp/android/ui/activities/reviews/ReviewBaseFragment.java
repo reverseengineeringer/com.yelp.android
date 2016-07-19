@@ -13,7 +13,7 @@ public abstract class ReviewBaseFragment
   protected StarsView a;
   protected View b;
   protected ViewGroup c;
-  protected ao d;
+  protected c d;
   
   protected int a()
   {
@@ -21,9 +21,9 @@ public abstract class ReviewBaseFragment
     int i = a.getNumStars();
     StarsView localStarsView = a;
     if (((View)localObject).getTag().equals("stars")) {}
-    for (localObject = StarsView.StarSize.SMALL;; localObject = StarsView.StarSize.LARGE)
+    for (localObject = StarsView.StarStyle.SMALL;; localObject = StarsView.StarStyle.LARGE)
     {
-      localStarsView.setStarSize((StarsView.StarSize)localObject);
+      localStarsView.setStarStyle((StarsView.StarStyle)localObject);
       d.a(i);
       d.b(true);
       return i;

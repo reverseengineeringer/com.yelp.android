@@ -8,7 +8,7 @@
     .locals 2
 
     .prologue
-    .line 104
+    .line 110
     :try_start_0
     const-string/jumbo v0, "monocle"
 
@@ -16,15 +16,15 @@
     :try_end_0
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 108
+    .line 114
     :goto_0
     return-void
 
-    .line 105
+    .line 111
     :catch_0
     move-exception v0
 
-    .line 106
+    .line 112
     const-string/jumbo v0, "ActivityMonocle"
 
     const-string/jumbo v1, "JNI/C Library Not Loaded"

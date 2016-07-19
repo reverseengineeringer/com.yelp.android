@@ -3,39 +3,43 @@ package android.support.v7.widget;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 import android.support.v7.internal.view.menu.ActionMenuItemView;
-import android.support.v7.internal.view.menu.i;
-import android.support.v7.internal.view.menu.j;
-import android.support.v7.internal.view.menu.y;
-import android.support.v7.internal.view.menu.z;
-import android.support.v7.internal.widget.bm;
+import android.support.v7.internal.view.menu.f;
+import android.support.v7.internal.view.menu.f.a;
+import android.support.v7.internal.view.menu.f.b;
+import android.support.v7.internal.view.menu.h;
+import android.support.v7.internal.view.menu.l.a;
+import android.support.v7.internal.view.menu.m;
+import android.support.v7.internal.widget.r;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.MeasureSpec;
+import android.view.ViewDebug.ExportedProperty;
 import android.view.ViewGroup.LayoutParams;
 import android.view.accessibility.AccessibilityEvent;
 
 public class ActionMenuView
   extends LinearLayoutCompat
-  implements android.support.v7.internal.view.menu.k, z
+  implements f.b, m
 {
-  private i a;
+  private f a;
   private Context b;
-  private Context c;
-  private int d;
-  private boolean e;
-  private ActionMenuPresenter f;
-  private y g;
-  private j h;
-  private boolean i;
+  private int c;
+  private boolean d;
+  private ActionMenuPresenter e;
+  private l.a f;
+  private f.a g;
+  private boolean h;
+  private int i;
   private int j;
   private int k;
-  private int l;
-  private n m;
+  private d l;
   
   public ActionMenuView(Context paramContext)
   {
@@ -45,20 +49,19 @@ public class ActionMenuView
   public ActionMenuView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    b = paramContext;
     setBaselineAligned(false);
     float f1 = getResourcesgetDisplayMetricsdensity;
-    k = ((int)(56.0F * f1));
-    l = ((int)(f1 * 4.0F));
-    c = paramContext;
-    d = 0;
+    j = ((int)(56.0F * f1));
+    k = ((int)(f1 * 4.0F));
+    b = paramContext;
+    c = 0;
   }
   
   static int a(View paramView, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
     boolean bool2 = false;
-    ActionMenuView.LayoutParams localLayoutParams = (ActionMenuView.LayoutParams)paramView.getLayoutParams();
-    int n = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(paramInt3) - paramInt4, View.MeasureSpec.getMode(paramInt3));
+    LayoutParams localLayoutParams = (LayoutParams)paramView.getLayoutParams();
+    int m = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(paramInt3) - paramInt4, View.MeasureSpec.getMode(paramInt3));
     ActionMenuItemView localActionMenuItemView;
     if ((paramView instanceof ActionMenuItemView))
     {
@@ -71,11 +74,11 @@ public class ActionMenuView
       if ((paramInt2 <= 0) || ((paramInt4 != 0) && (paramInt2 < 2))) {
         break label190;
       }
-      paramView.measure(View.MeasureSpec.makeMeasureSpec(paramInt1 * paramInt2, Integer.MIN_VALUE), n);
-      int i1 = paramView.getMeasuredWidth();
-      paramInt3 = i1 / paramInt1;
+      paramView.measure(View.MeasureSpec.makeMeasureSpec(paramInt1 * paramInt2, Integer.MIN_VALUE), m);
+      int n = paramView.getMeasuredWidth();
+      paramInt3 = n / paramInt1;
       paramInt2 = paramInt3;
-      if (i1 % paramInt1 != 0) {
+      if (n % paramInt1 != 0) {
         paramInt2 = paramInt3 + 1;
       }
       paramInt3 = paramInt2;
@@ -99,7 +102,7 @@ public class ActionMenuView
       }
       d = bool1;
       b = paramInt3;
-      paramView.measure(View.MeasureSpec.makeMeasureSpec(paramInt3 * paramInt1, 1073741824), n);
+      paramView.measure(View.MeasureSpec.makeMeasureSpec(paramInt3 * paramInt1, 1073741824), m);
       return paramInt3;
       localActionMenuItemView = null;
       break;
@@ -110,59 +113,59 @@ public class ActionMenuView
   
   private void c(int paramInt1, int paramInt2)
   {
-    int i11 = View.MeasureSpec.getMode(paramInt2);
+    int i10 = View.MeasureSpec.getMode(paramInt2);
     paramInt1 = View.MeasureSpec.getSize(paramInt1);
-    int i10 = View.MeasureSpec.getSize(paramInt2);
-    int n = getPaddingLeft();
-    int i1 = getPaddingRight();
-    int i8 = getPaddingTop() + getPaddingBottom();
-    int i12 = getChildMeasureSpec(paramInt2, i8, -2);
-    int i13 = paramInt1 - (n + i1);
-    paramInt1 = i13 / k;
-    paramInt2 = k;
+    int i9 = View.MeasureSpec.getSize(paramInt2);
+    int m = getPaddingLeft();
+    int n = getPaddingRight();
+    int i7 = getPaddingTop() + getPaddingBottom();
+    int i11 = getChildMeasureSpec(paramInt2, i7, -2);
+    int i12 = paramInt1 - (m + n);
+    paramInt1 = i12 / j;
+    paramInt2 = j;
     if (paramInt1 == 0)
     {
-      setMeasuredDimension(i13, 0);
+      setMeasuredDimension(i12, 0);
       return;
     }
-    int i14 = k + i13 % paramInt2 / paramInt1;
-    n = 0;
-    int i4 = 0;
+    int i13 = j + i12 % paramInt2 / paramInt1;
+    m = 0;
     int i3 = 0;
-    int i5 = 0;
     int i2 = 0;
+    int i4 = 0;
+    int i1 = 0;
     long l1 = 0L;
-    int i15 = getChildCount();
-    int i6 = 0;
+    int i14 = getChildCount();
+    int i5 = 0;
     Object localObject;
     boolean bool;
-    ActionMenuView.LayoutParams localLayoutParams;
+    LayoutParams localLayoutParams;
     label274:
     label291:
-    int i9;
+    int i8;
     for (;;)
     {
-      if (i6 < i15)
+      if (i5 < i14)
       {
-        localObject = getChildAt(i6);
+        localObject = getChildAt(i5);
         if (((View)localObject).getVisibility() == 8)
         {
-          paramInt2 = i4;
-          i1 = paramInt1;
-          paramInt1 = i5;
-          i6 += 1;
-          i5 = paramInt1;
-          paramInt1 = i1;
-          i4 = paramInt2;
+          paramInt2 = i3;
+          n = paramInt1;
+          paramInt1 = i4;
+          i5 += 1;
+          i4 = paramInt1;
+          paramInt1 = n;
+          i3 = paramInt2;
         }
         else
         {
           bool = localObject instanceof ActionMenuItemView;
-          i5 += 1;
+          i4 += 1;
           if (bool) {
-            ((View)localObject).setPadding(l, 0, l, 0);
+            ((View)localObject).setPadding(k, 0, k, 0);
           }
-          localLayoutParams = (ActionMenuView.LayoutParams)((View)localObject).getLayoutParams();
+          localLayoutParams = (LayoutParams)((View)localObject).getLayoutParams();
           f = false;
           c = 0;
           b = 0;
@@ -177,8 +180,8 @@ public class ActionMenuView
               break label402;
             }
             paramInt2 = 1;
-            i9 = a((View)localObject, i14, paramInt2, i12, i8);
-            i4 = Math.max(i4, i9);
+            i8 = a((View)localObject, i13, paramInt2, i11, i7);
+            i3 = Math.max(i3, i8);
             if (!d) {
               break label1233;
             }
@@ -204,64 +207,64 @@ public class ActionMenuView
     label1184:
     label1195:
     label1233:
-    for (paramInt2 = i3 + 1;; paramInt2 = i3)
+    for (paramInt2 = i2 + 1;; paramInt2 = i2)
     {
       if (a) {}
-      for (i1 = 1;; i1 = i2)
+      for (n = 1;; n = i1)
       {
-        int i7 = paramInt1 - i9;
-        n = Math.max(n, ((View)localObject).getMeasuredHeight());
-        if (i9 == 1)
+        int i6 = paramInt1 - i8;
+        m = Math.max(m, ((View)localObject).getMeasuredHeight());
+        if (i8 == 1)
         {
-          long l2 = 1 << i6;
-          i3 = paramInt2;
+          long l2 = 1 << i5;
+          i2 = paramInt2;
           l1 = l2 | l1;
-          paramInt2 = i4;
-          paramInt1 = i5;
-          i2 = i1;
-          i1 = i7;
+          paramInt2 = i3;
+          paramInt1 = i4;
+          i1 = n;
+          n = i6;
           break;
           bool = false;
           break label274;
           paramInt2 = paramInt1;
           break label291;
-          if ((i2 != 0) && (i5 == 2))
+          if ((i1 != 0) && (i4 == 2))
           {
-            i7 = 1;
-            i1 = 0;
-            i6 = paramInt1;
-            if ((i3 <= 0) || (i6 <= 0)) {
+            i6 = 1;
+            n = 0;
+            i5 = paramInt1;
+            if ((i2 <= 0) || (i5 <= 0)) {
               break label1195;
             }
             paramInt1 = Integer.MAX_VALUE;
             l2 = 0L;
             paramInt2 = 0;
-            i8 = 0;
-            if (i8 >= i15) {
+            i7 = 0;
+            if (i7 >= i14) {
               break label571;
             }
-            localObject = (ActionMenuView.LayoutParams)getChildAt(i8).getLayoutParams();
+            localObject = (LayoutParams)getChildAt(i7).getLayoutParams();
             if (d) {
               break label512;
             }
-            i9 = paramInt2;
-            paramInt2 = paramInt1;
-            paramInt1 = i9;
-          }
-          for (;;)
-          {
-            i9 = i8 + 1;
             i8 = paramInt2;
             paramInt2 = paramInt1;
             paramInt1 = i8;
-            i8 = i9;
+          }
+          for (;;)
+          {
+            i8 = i7 + 1;
+            i7 = paramInt2;
+            paramInt2 = paramInt1;
+            paramInt1 = i7;
+            i7 = i8;
             break label448;
-            i7 = 0;
+            i6 = 0;
             break;
             if (b < paramInt1)
             {
               paramInt2 = b;
-              l2 = 1 << i8;
+              l2 = 1 << i7;
               paramInt1 = 1;
             }
             else
@@ -269,22 +272,22 @@ public class ActionMenuView
               if (b != paramInt1) {
                 break label1184;
               }
-              l2 |= 1 << i8;
-              i9 = paramInt2 + 1;
+              l2 |= 1 << i7;
+              i8 = paramInt2 + 1;
               paramInt2 = paramInt1;
-              paramInt1 = i9;
+              paramInt1 = i8;
             }
           }
           l1 |= l2;
-          if (paramInt2 > i6) {}
+          if (paramInt2 > i5) {}
           for (;;)
           {
             float f2;
             float f1;
-            if ((i2 == 0) && (i5 == 1))
+            if ((i1 == 0) && (i4 == 1))
             {
               paramInt1 = 1;
-              if ((i6 <= 0) || (l1 == 0L) || ((i6 >= i5 - 1) && (paramInt1 == 0) && (i4 <= 1))) {
+              if ((i5 <= 0) || (l1 == 0L) || ((i5 >= i4 - 1) && (paramInt1 == 0) && (i3 <= 1))) {
                 break label1072;
               }
               float f3 = Long.bitCount(l1);
@@ -301,7 +304,7 @@ public class ActionMenuView
                 }
               }
               f2 = f1;
-              if ((1 << i15 - 1 & l1) == 0L) {
+              if ((1 << i14 - 1 & l1) == 0L) {
                 break label1175;
               }
               f2 = f1;
@@ -312,61 +315,61 @@ public class ActionMenuView
               if (f1 <= 0.0F) {
                 break label935;
               }
-              paramInt2 = (int)(i6 * i14 / f1);
-              i2 = 0;
-              paramInt1 = i1;
-              i1 = i2;
+              paramInt2 = (int)(i5 * i13 / f1);
+              i1 = 0;
+              paramInt1 = n;
+              n = i1;
               for (;;)
               {
-                i2 = paramInt1;
-                if (i1 >= i15) {
+                i1 = paramInt1;
+                if (n >= i14) {
                   break label1076;
                 }
-                if ((1 << i1 & l1) != 0L) {
+                if ((1 << n & l1) != 0L) {
                   break;
                 }
-                i1 += 1;
+                n += 1;
               }
-              i1 = 0;
-              paramInt2 = i6;
-              if (i1 < i15)
+              n = 0;
+              paramInt2 = i5;
+              if (n < i14)
               {
-                localObject = getChildAt(i1);
-                localLayoutParams = (ActionMenuView.LayoutParams)((View)localObject).getLayoutParams();
-                if ((1 << i1 & l2) == 0L)
+                localObject = getChildAt(n);
+                localLayoutParams = (LayoutParams)((View)localObject).getLayoutParams();
+                if ((1 << n & l2) == 0L)
                 {
                   if (b != paramInt1 + 1) {
                     break label1181;
                   }
-                  l1 |= 1 << i1;
+                  l1 |= 1 << n;
                 }
               }
             }
             for (;;)
             {
-              i1 += 1;
+              n += 1;
               break label792;
-              if ((i7 != 0) && (e) && (paramInt2 == 1)) {
-                ((View)localObject).setPadding(l + i14, 0, l, 0);
+              if ((i6 != 0) && (e) && (paramInt2 == 1)) {
+                ((View)localObject).setPadding(k + i13, 0, k, 0);
               }
               b += 1;
               f = true;
               paramInt2 -= 1;
               continue;
-              i1 = 1;
-              i6 = paramInt2;
+              n = 1;
+              i5 = paramInt2;
               break;
               paramInt1 = 0;
               break label597;
               paramInt2 = 0;
               break label744;
-              localObject = getChildAt(i1);
-              localLayoutParams = (ActionMenuView.LayoutParams)((View)localObject).getLayoutParams();
+              localObject = getChildAt(n);
+              localLayoutParams = (LayoutParams)((View)localObject).getLayoutParams();
               if ((localObject instanceof ActionMenuItemView))
               {
                 c = paramInt2;
                 f = true;
-                if ((i1 == 0) && (!e)) {
+                if ((n == 0) && (!e)) {
                   leftMargin = (-paramInt2 / 2);
                 }
                 paramInt1 = 1;
@@ -380,70 +383,70 @@ public class ActionMenuView
                 paramInt1 = 1;
                 break label777;
               }
-              if (i1 != 0) {
+              if (n != 0) {
                 leftMargin = (paramInt2 / 2);
               }
-              if (i1 != i15 - 1) {
+              if (n != i14 - 1) {
                 rightMargin = (paramInt2 / 2);
               }
               break label777;
-              i2 = i1;
-              if (i2 != 0)
+              i1 = n;
+              if (i1 != 0)
               {
                 paramInt1 = 0;
-                if (paramInt1 < i15)
+                if (paramInt1 < i14)
                 {
                   localObject = getChildAt(paramInt1);
-                  localLayoutParams = (ActionMenuView.LayoutParams)((View)localObject).getLayoutParams();
+                  localLayoutParams = (LayoutParams)((View)localObject).getLayoutParams();
                   if (!f) {}
                   for (;;)
                   {
                     paramInt1 += 1;
                     break;
                     paramInt2 = b;
-                    ((View)localObject).measure(View.MeasureSpec.makeMeasureSpec(c + paramInt2 * i14, 1073741824), i12);
+                    ((View)localObject).measure(View.MeasureSpec.makeMeasureSpec(c + paramInt2 * i13, 1073741824), i11);
                   }
                 }
               }
-              if (i11 != 1073741824) {}
+              if (i10 != 1073741824) {}
               for (;;)
               {
-                setMeasuredDimension(i13, n);
+                setMeasuredDimension(i12, m);
                 return;
-                n = i10;
+                m = i9;
               }
               f1 = f2;
               break label728;
             }
-            i9 = paramInt1;
+            i8 = paramInt1;
             paramInt1 = paramInt2;
-            paramInt2 = i9;
+            paramInt2 = i8;
             break label485;
           }
         }
-        paramInt1 = i5;
-        i2 = i4;
-        i4 = i7;
-        i3 = paramInt2;
-        paramInt2 = i2;
-        i2 = i1;
-        i1 = i4;
+        paramInt1 = i4;
+        i1 = i3;
+        i3 = i6;
+        i2 = paramInt2;
+        paramInt2 = i1;
+        i1 = n;
+        n = i3;
         break;
       }
     }
   }
   
-  public ActionMenuView.LayoutParams a(AttributeSet paramAttributeSet)
+  public LayoutParams a(AttributeSet paramAttributeSet)
   {
-    return new ActionMenuView.LayoutParams(getContext(), paramAttributeSet);
+    return new LayoutParams(getContext(), paramAttributeSet);
   }
   
-  protected ActionMenuView.LayoutParams a(ViewGroup.LayoutParams paramLayoutParams)
+  protected LayoutParams a(ViewGroup.LayoutParams paramLayoutParams)
   {
     if (paramLayoutParams != null)
     {
-      if ((paramLayoutParams instanceof ActionMenuView.LayoutParams)) {}
-      for (paramLayoutParams = new ActionMenuView.LayoutParams((ActionMenuView.LayoutParams)paramLayoutParams);; paramLayoutParams = new ActionMenuView.LayoutParams(paramLayoutParams))
+      if ((paramLayoutParams instanceof LayoutParams)) {}
+      for (paramLayoutParams = new LayoutParams((LayoutParams)paramLayoutParams);; paramLayoutParams = new LayoutParams(paramLayoutParams))
       {
         if (h <= 0) {
           h = 16;
@@ -454,20 +457,20 @@ public class ActionMenuView
     return b();
   }
   
-  public void a(i parami)
+  public void a(f paramf)
   {
-    a = parami;
+    a = paramf;
   }
   
-  public void a(y paramy, j paramj)
+  public void a(l.a parama, f.a parama1)
   {
-    g = paramy;
-    h = paramj;
+    f = parama;
+    g = parama1;
   }
   
   public boolean a()
   {
-    return e;
+    return d;
   }
   
   protected boolean a(int paramInt)
@@ -482,41 +485,41 @@ public class ActionMenuView
     if (paramInt < getChildCount())
     {
       bool1 = bool2;
-      if ((localView1 instanceof k)) {
-        bool1 = false | ((k)localView1).d();
+      if ((localView1 instanceof a)) {
+        bool1 = false | ((a)localView1).d();
       }
     }
-    if ((paramInt > 0) && ((localView2 instanceof k))) {
-      return ((k)localView2).c() | bool1;
+    if ((paramInt > 0) && ((localView2 instanceof a))) {
+      return ((a)localView2).c() | bool1;
     }
     return bool1;
   }
   
-  public boolean a(android.support.v7.internal.view.menu.m paramm)
+  public boolean a(h paramh)
   {
-    return a.a(paramm, 0);
+    return a.a(paramh, 0);
   }
   
-  protected ActionMenuView.LayoutParams b()
+  protected LayoutParams b()
   {
-    ActionMenuView.LayoutParams localLayoutParams = new ActionMenuView.LayoutParams(-2, -2);
+    LayoutParams localLayoutParams = new LayoutParams(-2, -2);
     h = 16;
     return localLayoutParams;
   }
   
-  public ActionMenuView.LayoutParams c()
+  public LayoutParams c()
   {
-    ActionMenuView.LayoutParams localLayoutParams = b();
+    LayoutParams localLayoutParams = b();
     a = true;
     return localLayoutParams;
   }
   
   protected boolean checkLayoutParams(ViewGroup.LayoutParams paramLayoutParams)
   {
-    return (paramLayoutParams != null) && ((paramLayoutParams instanceof ActionMenuView.LayoutParams));
+    return (paramLayoutParams != null) && ((paramLayoutParams instanceof LayoutParams));
   }
   
-  public i d()
+  public f d()
   {
     return a;
   }
@@ -528,17 +531,17 @@ public class ActionMenuView
   
   public boolean e()
   {
-    return (f != null) && (f.c());
+    return (e != null) && (e.f());
   }
   
   public boolean f()
   {
-    return (f != null) && (f.d());
+    return (e != null) && (e.g());
   }
   
   public boolean g()
   {
-    return (f != null) && (f.g());
+    return (e != null) && (e.j());
   }
   
   public Menu getMenu()
@@ -547,28 +550,34 @@ public class ActionMenuView
     if (a == null)
     {
       localObject = getContext();
-      a = new i((Context)localObject);
-      a.a(new m(this, null));
-      f = new ActionMenuPresenter((Context)localObject);
-      f.c(true);
-      localActionMenuPresenter = f;
-      if (g == null) {
+      a = new f((Context)localObject);
+      a.a(new c(null));
+      e = new ActionMenuPresenter((Context)localObject);
+      e.c(true);
+      localActionMenuPresenter = e;
+      if (f == null) {
         break label110;
       }
     }
     label110:
-    for (Object localObject = g;; localObject = new l(this, null))
+    for (Object localObject = f;; localObject = new b(null))
     {
-      localActionMenuPresenter.a((y)localObject);
-      a.a(f, c);
-      f.a(this);
+      localActionMenuPresenter.a((l.a)localObject);
+      a.a(e, b);
+      e.a(this);
       return a;
     }
   }
   
+  public Drawable getOverflowIcon()
+  {
+    getMenu();
+    return e.e();
+  }
+  
   public int getPopupTheme()
   {
-    return d;
+    return c;
   }
   
   public int getWindowAnimations()
@@ -578,13 +587,13 @@ public class ActionMenuView
   
   public boolean h()
   {
-    return (f != null) && (f.h());
+    return (e != null) && (e.k());
   }
   
   public void i()
   {
-    if (f != null) {
-      f.e();
+    if (e != null) {
+      e.h();
     }
   }
   
@@ -593,11 +602,14 @@ public class ActionMenuView
     if (Build.VERSION.SDK_INT >= 8) {
       super.onConfigurationChanged(paramConfiguration);
     }
-    f.b(false);
-    if ((f != null) && (f.g()))
+    if (e != null)
     {
-      f.d();
-      f.c();
+      e.a(false);
+      if (e.j())
+      {
+        e.g();
+        e.f();
+      }
     }
   }
   
@@ -609,102 +621,102 @@ public class ActionMenuView
   
   protected void onLayout(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    if (!i)
+    if (!h)
     {
       super.onLayout(paramBoolean, paramInt1, paramInt2, paramInt3, paramInt4);
       return;
     }
-    int i6 = getChildCount();
-    int i5 = (paramInt4 - paramInt2) / 2;
-    int i7 = getDividerWidth();
+    int i5 = getChildCount();
+    int i4 = (paramInt4 - paramInt2) / 2;
+    int i6 = getDividerWidth();
     paramInt4 = 0;
     paramInt2 = 0;
-    int i1 = paramInt3 - paramInt1 - getPaddingRight() - getPaddingLeft();
-    int n = 0;
-    paramBoolean = bm.a(this);
-    int i2 = 0;
+    int n = paramInt3 - paramInt1 - getPaddingRight() - getPaddingLeft();
+    int m = 0;
+    paramBoolean = r.a(this);
+    int i1 = 0;
     View localView;
-    ActionMenuView.LayoutParams localLayoutParams;
-    if (i2 < i6)
+    LayoutParams localLayoutParams;
+    if (i1 < i5)
     {
-      localView = getChildAt(i2);
+      localView = getChildAt(i1);
+      int i2;
       int i3;
-      int i4;
       if (localView.getVisibility() == 8)
       {
+        i2 = m;
         i3 = n;
-        i4 = i1;
-        i1 = paramInt4;
-        n = paramInt2;
-        paramInt4 = i4;
-        paramInt2 = i3;
+        n = paramInt4;
+        m = paramInt2;
+        paramInt4 = i3;
+        paramInt2 = i2;
       }
       for (;;)
       {
-        i4 = i2 + 1;
-        i2 = i1;
-        i3 = n;
-        n = paramInt2;
-        i1 = paramInt4;
-        paramInt2 = i3;
-        paramInt4 = i2;
-        i2 = i4;
+        i3 = i1 + 1;
+        i1 = n;
+        i2 = m;
+        m = paramInt2;
+        n = paramInt4;
+        paramInt2 = i2;
+        paramInt4 = i1;
+        i1 = i3;
         break;
-        localLayoutParams = (ActionMenuView.LayoutParams)localView.getLayoutParams();
+        localLayoutParams = (LayoutParams)localView.getLayoutParams();
         if (a)
         {
-          i3 = localView.getMeasuredWidth();
-          n = i3;
-          if (a(i2)) {
-            n = i3 + i7;
+          i2 = localView.getMeasuredWidth();
+          m = i2;
+          if (a(i1)) {
+            m = i2 + i6;
           }
-          int i8 = localView.getMeasuredHeight();
+          int i7 = localView.getMeasuredHeight();
           if (paramBoolean)
           {
-            i3 = getPaddingLeft();
-            i3 = leftMargin + i3;
-            i4 = i3 + n;
+            i2 = getPaddingLeft();
+            i2 = leftMargin + i2;
+            i3 = i2 + m;
           }
           for (;;)
           {
-            int i9 = i5 - i8 / 2;
-            localView.layout(i3, i9, i4, i8 + i9);
-            i3 = i1 - n;
-            i4 = 1;
-            n = paramInt2;
-            i1 = paramInt4;
-            paramInt2 = i4;
-            paramInt4 = i3;
+            int i8 = i4 - i7 / 2;
+            localView.layout(i2, i8, i3, i7 + i8);
+            i2 = n - m;
+            i3 = 1;
+            m = paramInt2;
+            n = paramInt4;
+            paramInt2 = i3;
+            paramInt4 = i2;
             break;
-            i4 = getWidth() - getPaddingRight() - rightMargin;
-            i3 = i4 - n;
+            i3 = getWidth() - getPaddingRight() - rightMargin;
+            i2 = i3 - m;
           }
         }
-        i4 = localView.getMeasuredWidth() + leftMargin + rightMargin;
-        i3 = paramInt4 + i4;
-        paramInt4 = i3;
-        if (a(i2)) {
-          paramInt4 = i3 + i7;
+        i3 = localView.getMeasuredWidth() + leftMargin + rightMargin;
+        i2 = paramInt4 + i3;
+        paramInt4 = i2;
+        if (a(i1)) {
+          paramInt4 = i2 + i6;
         }
-        i3 = i1 - i4;
-        i4 = paramInt2 + 1;
-        i1 = paramInt4;
-        paramInt2 = n;
-        paramInt4 = i3;
-        n = i4;
+        i2 = n - i3;
+        i3 = paramInt2 + 1;
+        n = paramInt4;
+        paramInt2 = m;
+        paramInt4 = i2;
+        m = i3;
       }
     }
-    if ((i6 == 1) && (n == 0))
+    if ((i5 == 1) && (m == 0))
     {
       localView = getChildAt(0);
       paramInt2 = localView.getMeasuredWidth();
       paramInt4 = localView.getMeasuredHeight();
       paramInt1 = (paramInt3 - paramInt1) / 2 - paramInt2 / 2;
-      paramInt3 = i5 - paramInt4 / 2;
+      paramInt3 = i4 - paramInt4 / 2;
       localView.layout(paramInt1, paramInt3, paramInt2 + paramInt1, paramInt4 + paramInt3);
       return;
     }
-    if (n != 0)
+    if (m != 0)
     {
       paramInt1 = 0;
       label462:
@@ -712,7 +724,7 @@ public class ActionMenuView
       if (paramInt1 <= 0) {
         break label551;
       }
-      paramInt1 = i1 / paramInt1;
+      paramInt1 = n / paramInt1;
       label475:
       paramInt3 = Math.max(0, paramInt1);
       if (!paramBoolean) {
@@ -721,10 +733,10 @@ public class ActionMenuView
       paramInt1 = getWidth() - getPaddingRight();
       paramInt2 = 0;
       label498:
-      if (paramInt2 < i6)
+      if (paramInt2 < i5)
       {
         localView = getChildAt(paramInt2);
-        localLayoutParams = (ActionMenuView.LayoutParams)localView.getLayoutParams();
+        localLayoutParams = (LayoutParams)localView.getLayoutParams();
         if (localView.getVisibility() == 8) {
           break label744;
         }
@@ -751,17 +763,17 @@ public class ActionMenuView
       break label475;
       paramInt1 -= rightMargin;
       paramInt4 = localView.getMeasuredWidth();
-      n = localView.getMeasuredHeight();
-      i1 = i5 - n / 2;
-      localView.layout(paramInt1 - paramInt4, i1, paramInt1, n + i1);
+      m = localView.getMeasuredHeight();
+      n = i4 - m / 2;
+      localView.layout(paramInt1 - paramInt4, n, paramInt1, m + n);
       paramInt1 -= leftMargin + paramInt4 + paramInt3;
       continue;
       paramInt1 = getPaddingLeft();
       paramInt2 = 0;
-      if (paramInt2 < i6)
+      if (paramInt2 < i5)
       {
         localView = getChildAt(paramInt2);
-        localLayoutParams = (ActionMenuView.LayoutParams)localView.getLayoutParams();
+        localLayoutParams = (LayoutParams)localView.getLayoutParams();
         if (localView.getVisibility() == 8) {
           break label741;
         }
@@ -776,9 +788,9 @@ public class ActionMenuView
         break;
         paramInt1 += leftMargin;
         paramInt4 = localView.getMeasuredWidth();
-        n = localView.getMeasuredHeight();
-        i1 = i5 - n / 2;
-        localView.layout(paramInt1, i1, paramInt1 + paramInt4, n + i1);
+        m = localView.getMeasuredHeight();
+        n = i4 - m / 2;
+        localView.layout(paramInt1, n, paramInt1 + paramInt4, m + n);
         paramInt1 = rightMargin + paramInt4 + paramInt3 + paramInt1;
       }
     }
@@ -786,74 +798,161 @@ public class ActionMenuView
   
   protected void onMeasure(int paramInt1, int paramInt2)
   {
-    boolean bool2 = i;
+    boolean bool2 = h;
     if (View.MeasureSpec.getMode(paramInt1) == 1073741824) {}
-    int i1;
+    int n;
     for (boolean bool1 = true;; bool1 = false)
     {
-      i = bool1;
-      if (bool2 != i) {
-        j = 0;
+      h = bool1;
+      if (bool2 != h) {
+        i = 0;
       }
-      n = View.MeasureSpec.getSize(paramInt1);
-      if ((i) && (a != null) && (n != j))
+      m = View.MeasureSpec.getSize(paramInt1);
+      if ((h) && (a != null) && (m != i))
       {
-        j = n;
+        i = m;
         a.b(true);
       }
-      i1 = getChildCount();
-      if ((!i) || (i1 <= 0)) {
+      n = getChildCount();
+      if ((!h) || (n <= 0)) {
         break;
       }
       c(paramInt1, paramInt2);
       return;
     }
-    int n = 0;
-    while (n < i1)
+    int m = 0;
+    while (m < n)
     {
-      ActionMenuView.LayoutParams localLayoutParams = (ActionMenuView.LayoutParams)getChildAt(n).getLayoutParams();
+      LayoutParams localLayoutParams = (LayoutParams)getChildAt(m).getLayoutParams();
       rightMargin = 0;
       leftMargin = 0;
-      n += 1;
+      m += 1;
     }
     super.onMeasure(paramInt1, paramInt2);
   }
   
   public void setExpandedActionViewsExclusive(boolean paramBoolean)
   {
-    f.d(paramBoolean);
+    e.d(paramBoolean);
   }
   
-  public void setOnMenuItemClickListener(n paramn)
+  public void setOnMenuItemClickListener(d paramd)
   {
-    m = paramn;
+    l = paramd;
+  }
+  
+  public void setOverflowIcon(Drawable paramDrawable)
+  {
+    getMenu();
+    e.a(paramDrawable);
   }
   
   public void setOverflowReserved(boolean paramBoolean)
   {
-    e = paramBoolean;
+    d = paramBoolean;
   }
   
   public void setPopupTheme(int paramInt)
   {
-    if (d != paramInt)
+    if (c != paramInt)
     {
-      d = paramInt;
+      c = paramInt;
       if (paramInt == 0) {
-        c = b;
+        b = getContext();
       }
     }
     else
     {
       return;
     }
-    c = new ContextThemeWrapper(b, paramInt);
+    b = new ContextThemeWrapper(getContext(), paramInt);
   }
   
   public void setPresenter(ActionMenuPresenter paramActionMenuPresenter)
   {
-    f = paramActionMenuPresenter;
-    f.a(this);
+    e = paramActionMenuPresenter;
+    e.a(this);
+  }
+  
+  public static class LayoutParams
+    extends LinearLayoutCompat.LayoutParams
+  {
+    @ViewDebug.ExportedProperty
+    public boolean a;
+    @ViewDebug.ExportedProperty
+    public int b;
+    @ViewDebug.ExportedProperty
+    public int c;
+    @ViewDebug.ExportedProperty
+    public boolean d;
+    @ViewDebug.ExportedProperty
+    public boolean e;
+    boolean f;
+    
+    public LayoutParams(int paramInt1, int paramInt2)
+    {
+      super(paramInt2);
+      a = false;
+    }
+    
+    public LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
+    {
+      super(paramAttributeSet);
+    }
+    
+    public LayoutParams(LayoutParams paramLayoutParams)
+    {
+      super();
+      a = a;
+    }
+    
+    public LayoutParams(ViewGroup.LayoutParams paramLayoutParams)
+    {
+      super();
+    }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract boolean c();
+    
+    public abstract boolean d();
+  }
+  
+  private class b
+    implements l.a
+  {
+    private b() {}
+    
+    public void a(f paramf, boolean paramBoolean) {}
+    
+    public boolean a(f paramf)
+    {
+      return false;
+    }
+  }
+  
+  private class c
+    implements f.a
+  {
+    private c() {}
+    
+    public void a(f paramf)
+    {
+      if (ActionMenuView.b(ActionMenuView.this) != null) {
+        ActionMenuView.b(ActionMenuView.this).a(paramf);
+      }
+    }
+    
+    public boolean a(f paramf, MenuItem paramMenuItem)
+    {
+      return (ActionMenuView.a(ActionMenuView.this) != null) && (ActionMenuView.a(ActionMenuView.this).a(paramMenuItem));
+    }
+  }
+  
+  public static abstract interface d
+  {
+    public abstract boolean a(MenuItem paramMenuItem);
   }
 }
 

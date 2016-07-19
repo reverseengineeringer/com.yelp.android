@@ -7,7 +7,7 @@
 
 
 # static fields
-.field public static CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator; = null
+.field public static CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/yelp/parcelgen/JsonParser$DualCreator",
@@ -18,10 +18,6 @@
     .end annotation
 .end field
 
-.field public static final NONE_FEEDBACK:Ljava/lang/String; = "NONE"
-
-.field public static final POSITIVE_FEEDBACK:Ljava/lang/String; = "POSITIVE"
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -29,9 +25,9 @@
 
     .prologue
     .line 48
-    new-instance v0, Lcom/yelp/android/serializable/ar;
+    new-instance v0, Lcom/yelp/android/serializable/Feedback$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/ar;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/Feedback$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/Feedback;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -77,58 +73,88 @@
 
 
 # virtual methods
-.method public addPositiveFeedback()V
+.method public a()V
     .locals 1
 
     .prologue
     .line 36
-    iget v0, p0, Lcom/yelp/android/serializable/Feedback;->mPositiveFeedbackCount:I
+    iget v0, p0, Lcom/yelp/android/serializable/Feedback;->b:I
 
     add-int/lit8 v0, v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/serializable/Feedback;->setFeedbackPositiveCount(I)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/serializable/Feedback;->a(I)V
 
     .line 37
     return-void
 .end method
 
-.method public bridge synthetic describeContents()I
-    .locals 1
+.method public a(I)V
+    .locals 2
+
+    .prologue
+    .line 26
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/Feedback;->a:Ljava/util/List;
+
+    .line 27
+    iget v0, p0, Lcom/yelp/android/serializable/Feedback;->b:I
+
+    if-ge v0, p1, :cond_0
+
+    .line 28
+    iget-object v0, p0, Lcom/yelp/android/serializable/Feedback;->a:Ljava/util/List;
+
+    const-string/jumbo v1, "POSITIVE"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 32
+    :goto_0
+    iput p1, p0, Lcom/yelp/android/serializable/Feedback;->b:I
+
+    .line 33
+    return-void
+
+    .line 30
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/serializable/Feedback;->a:Ljava/util/List;
+
+    const-string/jumbo v1, "NONE"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Feedback;->describeContents()I
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Feedback;->a(Landroid/os/Parcel;)V
 
-    move-result v0
-
-    return v0
+    return-void
 .end method
 
-.method public bridge synthetic getFeedbackByUser()Ljava/util/List;
+.method public b()V
     .locals 1
 
     .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Feedback;->getFeedbackByUser()Ljava/util/List;
+    .line 40
+    iget v0, p0, Lcom/yelp/android/serializable/Feedback;->b:I
 
-    move-result-object v0
+    add-int/lit8 v0, v0, -0x1
 
-    return-object v0
+    invoke-virtual {p0, v0}, Lcom/yelp/android/serializable/Feedback;->a(I)V
+
+    .line 41
+    return-void
 .end method
 
-.method public bridge synthetic getPositiveFeedbackCount()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Feedback;->getPositiveFeedbackCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isLikedByUser()Z
+.method public c()Z
     .locals 2
 
     .prologue
@@ -137,17 +163,17 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/serializable/Feedback;->mFeedbackByUser:Ljava/util/List;
+    iget-object v0, p0, Lcom/yelp/android/serializable/Feedback;->a:Ljava/util/List;
 
     const-string/jumbo v1, "POSITIVE"
 
@@ -168,70 +194,52 @@
     goto :goto_0
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 13
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Feedback;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public removePositiveFeedback()V
+.method public bridge synthetic d()I
     .locals 1
 
     .prologue
-    .line 40
-    iget v0, p0, Lcom/yelp/android/serializable/Feedback;->mPositiveFeedbackCount:I
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Feedback;->d()I
 
-    add-int/lit8 v0, v0, -0x1
+    move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/serializable/Feedback;->setFeedbackPositiveCount(I)V
-
-    .line 41
-    return-void
+    return v0
 .end method
 
-.method public setFeedbackPositiveCount(I)V
-    .locals 2
+.method public bridge synthetic describeContents()I
+    .locals 1
 
     .prologue
-    .line 26
-    new-instance v0, Ljava/util/ArrayList;
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Feedback;->describeContents()I
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    move-result v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Feedback;->mFeedbackByUser:Ljava/util/List;
+    return v0
+.end method
 
-    .line 27
-    iget v0, p0, Lcom/yelp/android/serializable/Feedback;->mPositiveFeedbackCount:I
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
 
-    if-ge v0, p1, :cond_0
+    .prologue
+    .line 13
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Feedback;->equals(Ljava/lang/Object;)Z
 
-    .line 28
-    iget-object v0, p0, Lcom/yelp/android/serializable/Feedback;->mFeedbackByUser:Ljava/util/List;
+    move-result v0
 
-    const-string/jumbo v1, "POSITIVE"
+    return v0
+.end method
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+.method public bridge synthetic hashCode()I
+    .locals 1
 
-    .line 32
-    :goto_0
-    iput p1, p0, Lcom/yelp/android/serializable/Feedback;->mPositiveFeedbackCount:I
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Feedback;->hashCode()I
 
-    .line 33
-    return-void
+    move-result v0
 
-    .line 30
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/Feedback;->mFeedbackByUser:Ljava/util/List;
-
-    const-string/jumbo v1, "NONE"
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

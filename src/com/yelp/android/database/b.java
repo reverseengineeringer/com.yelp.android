@@ -1,127 +1,270 @@
 package com.yelp.android.database;
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.content.ContentValues;
 import android.database.Cursor;
-import android.text.TextUtils;
-import com.yelp.android.serializable.AttributeFilter;
-import com.yelp.android.serializable.AttributeFilters;
-import com.yelp.android.serializable.Filter;
-import com.yelp.android.serializable.Filter.BusinessState;
-import com.yelp.android.serializable.Filter.Sort;
-import com.yelp.android.serializable.at;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import android.os.AsyncTask;
+import android.util.Log;
+import com.yelp.android.appdata.BaseYelpApplication;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.Iterator;
-import java.util.List;
+import org.json.JSONObject;
 
 public class b
+  implements g.c
 {
-  public Filter a;
-  public String b;
-  public int c;
+  public static final m a = new n("recently_viewed_businesses").a(new f("_id", ColumnType.INTEGER, ColumnModifier.PRIMARY_KEY_AUTOINCREMENT)).a(new f("business_id", ColumnType.TEXT, ColumnModifier.NOT_NULL)).a(new f("business_json", ColumnType.TEXT, ColumnModifier.NOT_NULL)).a(new f("yelp_request_id", ColumnType.TEXT, ColumnModifier.NOT_NULL)).a(new f("path_business_image", ColumnType.TEXT, ColumnModifier.NOT_NULL)).a("business_id_idx", new String[] { "business_id" }).a();
+  private final AsyncTask<?, ?, SQLiteDatabase> b;
+  private ArrayList<YelpBusiness> c;
+  private SQLiteStatement d;
   
-  public b(int paramInt, String paramString, Filter paramFilter)
+  public b(AsyncTask<?, ?, SQLiteDatabase> paramAsyncTask)
   {
-    c = paramInt;
-    a = paramFilter;
-    b = paramString;
+    b = paramAsyncTask;
   }
   
-  public static b a(Context paramContext, Cursor paramCursor)
+  private YelpBusiness a(Cursor paramCursor)
   {
-    int j = paramCursor.getInt(paramCursor.getColumnIndex("_id"));
-    String str = paramCursor.getString(paramCursor.getColumnIndex("term"));
-    if (paramCursor.getInt(paramCursor.getColumnIndex("filter_exists")) == 0) {
-      return new b(j, str, null);
-    }
-    EnumSet localEnumSet = EnumSet.noneOf(Filter.BusinessState.class);
-    int k = paramCursor.getInt(paramCursor.getColumnIndex("prices"));
-    Object localObject1 = EnumSet.of(Filter.BusinessState.$, Filter.BusinessState.$$, Filter.BusinessState.$$$, Filter.BusinessState.$$$$).iterator();
-    int i = 1;
-    while (i < 9)
+    try
     {
-      localObject2 = (Filter.BusinessState)((Iterator)localObject1).next();
-      if ((i & k) > 0) {
-        localEnumSet.add(localObject2);
-      }
-      i <<= 1;
+      YelpBusiness localYelpBusiness = (YelpBusiness)YelpBusiness.CREATOR.parse(new JSONObject(paramCursor.getString(0)));
     }
-    if (paramCursor.getInt(paramCursor.getColumnIndex("open")) > 0) {
-      localEnumSet.add(Filter.BusinessState.OPEN);
-    }
-    double d = Double.parseDouble(paramCursor.getString(paramCursor.getColumnIndex("radius")));
-    localObject1 = paramCursor.getString(paramCursor.getColumnIndex("radius_label"));
-    Object localObject2 = Filter.Sort.values()[paramCursor.getInt(paramCursor.getColumnIndex("sort_ordinal"))];
-    ArrayList localArrayList = new ArrayList();
-    paramCursor = paramCursor.getString(paramCursor.getColumnIndex("attributes")).split(",");
-    k = paramCursor.length;
-    i = 0;
-    while (i < k)
+    catch (Exception localException1)
     {
-      Object localObject3 = paramCursor[i];
-      if (!TextUtils.isEmpty((CharSequence)localObject3))
+      try
       {
-        localObject3 = AdapterNearbyFilters.OldAttributeFilter.valueOf((String)localObject3);
-        localArrayList.add(new AttributeFilter(mTokenName, paramContext.getResources().getString(mDisplayRes)));
+        localYelpBusiness.a(paramCursor.getString(1));
+        return localYelpBusiness;
       }
-      i += 1;
+      catch (Exception localException2)
+      {
+        for (;;)
+        {
+          paramCursor = localException1;
+          Object localObject = localException2;
+        }
+      }
+      localException1 = localException1;
+      paramCursor = null;
     }
-    return new b(j, str, new Filter(localEnumSet, null, new at((String)localObject1, d), (Filter.Sort)localObject2, new AttributeFilters(localArrayList)));
+    tmp48_45[0] = localException1;
+    BaseYelpApplication.a("AdapterRecentlyViewedBusinesses", "Error deserializing last viewed business from recents table.", tmp48_45);
+    return paramCursor;
   }
   
-  public boolean equals(Object paramObject)
+  static String a(SQLiteDatabase paramSQLiteDatabase, String paramString)
   {
-    if (this == paramObject) {}
+    localObject = null;
+    localCursor = paramSQLiteDatabase.query("recently_viewed_businesses", new String[] { "_id" }, "business_id = ?", new String[] { paramString }, null, null, null, "1");
+    if (localCursor != null) {}
+    label79:
     do
     {
-      do
+      try
       {
-        return true;
-        if (paramObject == null) {
-          return false;
+        if ((localCursor.getCount() <= 0) || (!localCursor.moveToFirst())) {
+          break label79;
         }
-        if (getClass() != paramObject.getClass()) {
-          return false;
-        }
-        paramObject = (b)paramObject;
-        if (a == null)
+        paramSQLiteDatabase = localCursor.getString(0);
+        paramString = paramSQLiteDatabase;
+        if (localCursor != null)
         {
-          if (a != null) {
-            return false;
-          }
+          localCursor.close();
+          paramString = paramSQLiteDatabase;
         }
-        else if (!a.equals(a)) {
-          return false;
-        }
-        if (b != null) {
+      }
+      catch (Exception paramSQLiteDatabase)
+      {
+        BaseYelpApplication.a("AdapterRecentlyViewedBusinesses", "Error deleting existing business entry from recents.", new Object[] { paramSQLiteDatabase });
+        paramString = (String)localObject;
+        return null;
+      }
+      finally
+      {
+        if (localCursor == null) {
           break;
         }
-      } while (b == null);
-      return false;
-    } while (b.equals(b));
-    return false;
+        localCursor.close();
+      }
+      return paramString;
+      paramString = (String)localObject;
+    } while (localCursor == null);
+    localCursor.close();
+    return null;
   }
   
-  public int hashCode()
+  private static long b(SQLiteStatement paramSQLiteStatement)
   {
-    int j = 0;
-    int i;
-    if (a == null)
+    try
     {
-      i = 0;
-      if (b != null) {
-        break label39;
+      long l = paramSQLiteStatement.simpleQueryForLong();
+      return l;
+    }
+    catch (Exception paramSQLiteStatement)
+    {
+      BaseYelpApplication.a("AdapterRecentlyViewedBusinesses", "Error executing query for recents table.", new Object[] { paramSQLiteStatement });
+    }
+    return 0L;
+  }
+  
+  static ContentValues b(YelpBusiness paramYelpBusiness)
+  {
+    ContentValues localContentValues = new ContentValues();
+    localContentValues.put("business_id", paramYelpBusiness.aD());
+    localContentValues.put("business_json", paramYelpBusiness.c());
+    String str = paramYelpBusiness.n();
+    paramYelpBusiness = str;
+    if (str == null) {
+      paramYelpBusiness = "";
+    }
+    localContentValues.put("yelp_request_id", paramYelpBusiness);
+    localContentValues.put("path_business_image", "path.to.image");
+    return localContentValues;
+  }
+  
+  private void b(SQLiteDatabase paramSQLiteDatabase)
+  {
+    for (;;)
+    {
+      ArrayList localArrayList;
+      try
+      {
+        boolean bool = b();
+        if (bool) {
+          return;
+        }
+        d = paramSQLiteDatabase.compileStatement("SELECT COUNT(*) FROM recently_viewed_businesses");
+        localArrayList = new ArrayList();
+        paramSQLiteDatabase = paramSQLiteDatabase.query("recently_viewed_businesses", new String[] { "business_json", "yelp_request_id" }, null, null, null, null, "_id DESC");
+        if (paramSQLiteDatabase != null)
+        {
+          if (paramSQLiteDatabase.moveToFirst())
+          {
+            YelpBusiness localYelpBusiness = a(paramSQLiteDatabase);
+            if (localYelpBusiness != null) {
+              localArrayList.add(localYelpBusiness);
+            }
+            if (paramSQLiteDatabase.moveToNext())
+            {
+              localYelpBusiness = a(paramSQLiteDatabase);
+              if (localYelpBusiness == null) {
+                continue;
+              }
+              localArrayList.add(localYelpBusiness);
+              continue;
+            }
+          }
+          paramSQLiteDatabase.close();
+        }
       }
+      finally {}
+      c = localArrayList;
+    }
+  }
+  
+  public static i d()
+  {
+    return new b.1();
+  }
+  
+  public AsyncTask<String, Void, Void> a(String paramString)
+  {
+    if (c != null)
+    {
+      Iterator localIterator = c.iterator();
+      while (localIterator.hasNext())
+      {
+        YelpBusiness localYelpBusiness = (YelpBusiness)localIterator.next();
+        if (paramString.equals(localYelpBusiness.aD())) {
+          localYelpBusiness.a(null);
+        }
+      }
+    }
+    return new b.c(b).execute(new String[] { paramString });
+  }
+  
+  public ArrayList<YelpBusiness> a()
+  {
+    if (c == null) {}
+    try
+    {
+      b((SQLiteDatabase)b.get());
+      return c;
+    }
+    catch (Exception localException)
+    {
+      Log.w("AdapterRecentlyViewedBusinesses", "There were issues getting the database open", localException);
+    }
+    return new ArrayList();
+  }
+  
+  public void a(SQLiteDatabase paramSQLiteDatabase)
+  {
+    b(paramSQLiteDatabase);
+  }
+  
+  public void a(YelpBusiness paramYelpBusiness)
+  {
+    String str = paramYelpBusiness.aD();
+    if (c != null)
+    {
+      int j = c.size();
+      int i = 0;
+      while (i < j)
+      {
+        if (((YelpBusiness)c.get(i)).aD().equals(str)) {
+          c.set(i, paramYelpBusiness);
+        }
+        i += 1;
+      }
+    }
+    new b.d(b).execute(new YelpBusiness[] { paramYelpBusiness });
+  }
+  
+  public boolean b()
+  {
+    return c != null;
+  }
+  
+  public AsyncTask<YelpBusiness, Void, Void> c(YelpBusiness paramYelpBusiness)
+  {
+    String str = paramYelpBusiness.aD();
+    int j;
+    int i;
+    if (c != null)
+    {
+      j = c.size();
+      i = 0;
     }
     for (;;)
     {
-      return (i + 31) * 31 + j;
-      i = a.hashCode();
-      break;
-      label39:
-      j = b.hashCode();
+      if (i < j)
+      {
+        if (((YelpBusiness)c.get(i)).aD().equals(str)) {
+          c.remove(i);
+        }
+      }
+      else
+      {
+        if (c.size() >= 25) {
+          c.remove(c.size() - 1);
+        }
+        c.add(0, paramYelpBusiness);
+        return new b.a(b, d).execute(new YelpBusiness[] { paramYelpBusiness });
+      }
+      i += 1;
     }
+  }
+  
+  public void c()
+  {
+    if (c != null) {
+      c.clear();
+    }
+    new b.b(b).b(new Void[0]);
   }
 }
 

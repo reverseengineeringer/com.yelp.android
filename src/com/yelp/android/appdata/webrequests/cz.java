@@ -1,32 +1,32 @@
 package com.yelp.android.appdata.webrequests;
 
-public class cz<Request extends h<?, ?, Result>, Result>
-  extends ek<Request, Result, j<Result>>
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.NearbyRow;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class cz
+  extends k<Void, Void, List<NearbyRow>>
 {
-  private boolean e;
-  
-  public cz(Request paramRequest, boolean paramBoolean)
+  public cz(k.b<List<NearbyRow>> paramb)
   {
-    super(paramRequest);
-    a = paramRequest;
-    ((h)a).setCallback(new da(this, paramBoolean));
+    super(ApiRequest.RequestType.GET, "nearby/suggest", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.MILES);
   }
   
-  public Request a(j<Result> paramj)
+  public List<NearbyRow> a(JSONObject paramJSONObject)
+    throws YelpException
   {
-    ((h)a).setCallback(paramj);
-    if (e) {
-      paramj.a();
-    }
-    if (c) {
-      paramj.onSuccess(a, b);
-    }
-    for (;;)
+    try
     {
-      return (h)a;
-      if (d != null) {
-        paramj.onError(a, d);
-      }
+      paramJSONObject = NearbyRow.a(paramJSONObject, i_());
+      return paramJSONObject;
+    }
+    catch (JSONException paramJSONObject)
+    {
+      throw new YelpException(YelpException.YPErrorInvalidData);
     }
   }
 }

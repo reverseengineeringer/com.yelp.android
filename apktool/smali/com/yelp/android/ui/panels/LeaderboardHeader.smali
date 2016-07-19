@@ -30,7 +30,7 @@
 
     .prologue
     .line 30
-    const v0, 0x7f01016e
+    const v0, 0x7f0101dc
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/panels/LeaderboardHeader;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -48,7 +48,7 @@
     .line 26
     iget-object v0, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->a:Landroid/widget/TextView;
 
-    const v1, 0x7f070330
+    const v1, 0x7f070367
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -115,7 +115,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f070331
+    const v3, 0x7f070368
 
     const/4 v4, 0x2
 
@@ -129,28 +129,28 @@
 
     move-result-object v0
 
-    .line 53
+    .line 55
     :goto_0
     iget-object v1, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->b:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->b:Landroid/widget/TextView;
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 56
+    .line 58
     :cond_0
     return-void
 
-    .line 50
+    .line 51
     :cond_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/panels/LeaderboardHeader;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    const v2, 0x7f0704b0
+    const v2, 0x7f0704ca
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -167,7 +167,7 @@
     .locals 1
 
     .prologue
-    .line 59
+    .line 61
     iget v0, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->e:I
 
     return v0
@@ -177,10 +177,10 @@
     .locals 3
 
     .prologue
-    .line 74
+    .line 76
     check-cast p1, Landroid/os/Bundle;
 
-    .line 75
+    .line 77
     const-string/jumbo v0, "super"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -189,7 +189,7 @@
 
     invoke-super {p0, v0}, Lcom/yelp/android/ui/panels/TitleWithSubTitleView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 76
+    .line 78
     const-string/jumbo v0, "weekly"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -198,7 +198,7 @@
 
     iput v0, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->c:I
 
-    .line 77
+    .line 79
     const-string/jumbo v0, "friend_rank"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -207,7 +207,7 @@
 
     iput v0, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->d:I
 
-    .line 78
+    .line 80
     const-string/jumbo v0, "friend_active"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -216,7 +216,7 @@
 
     iput v0, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->e:I
 
-    .line 79
+    .line 81
     iget v0, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->c:I
 
     iget v1, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->d:I
@@ -225,7 +225,7 @@
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/panels/LeaderboardHeader;->a(III)V
 
-    .line 80
+    .line 82
     return-void
 .end method
 
@@ -233,12 +233,12 @@
     .locals 3
 
     .prologue
-    .line 64
+    .line 66
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 65
+    .line 67
     const-string/jumbo v1, "super"
 
     invoke-super {p0}, Lcom/yelp/android/ui/panels/TitleWithSubTitleView;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -247,27 +247,27 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 66
+    .line 68
     const-string/jumbo v1, "weekly"
 
     iget v2, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->c:I
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 67
+    .line 69
     const-string/jumbo v1, "friend_rank"
 
     iget v2, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->d:I
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 68
+    .line 70
     const-string/jumbo v1, "friend_active"
 
     iget v2, p0, Lcom/yelp/android/ui/panels/LeaderboardHeader;->e:I
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 69
+    .line 71
     return-object v0
 .end method

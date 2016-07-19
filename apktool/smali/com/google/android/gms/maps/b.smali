@@ -1,106 +1,98 @@
-.class public Lcom/google/android/gms/maps/b;
+.class public final Lcom/google/android/gms/maps/b;
 .super Ljava/lang/Object;
 
 
+# static fields
+.field private static a:Lcom/yelp/android/bj/a;
+
+
 # direct methods
-.method static a(Lcom/google/android/gms/maps/GoogleMapOptions;Landroid/os/Parcel;I)V
-    .locals 4
+.method public static a(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/a;
+    .locals 2
 
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/b;->H(Landroid/os/Parcel;)I
+    :try_start_0
+    new-instance v0, Lcom/google/android/gms/maps/a;
 
-    move-result v0
+    invoke-static {}, Lcom/google/android/gms/maps/b;->a()Lcom/yelp/android/bj/a;
 
-    const/4 v1, 0x1
+    move-result-object v1
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->getVersionCode()I
+    invoke-interface {v1, p0}, Lcom/yelp/android/bj/a;->a(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/dynamic/c;
 
-    move-result v2
+    move-result-object v1
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->c(Landroid/os/Parcel;II)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/a;-><init>(Lcom/google/android/gms/dynamic/c;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v1, 0x2
+    return-object v0
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nD()B
+    :catch_0
+    move-exception v0
 
-    move-result v2
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
 
-    const/4 v1, 0x3
+    throw v1
+.end method
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nE()B
+.method public static a(Lcom/google/android/gms/maps/model/LatLngBounds;I)Lcom/google/android/gms/maps/a;
+    .locals 2
 
-    move-result v2
+    :try_start_0
+    new-instance v0, Lcom/google/android/gms/maps/a;
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
+    invoke-static {}, Lcom/google/android/gms/maps/b;->a()Lcom/yelp/android/bj/a;
 
-    const/4 v1, 0x4
+    move-result-object v1
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->getMapType()I
+    invoke-interface {v1, p0, p1}, Lcom/yelp/android/bj/a;->a(Lcom/google/android/gms/maps/model/LatLngBounds;I)Lcom/google/android/gms/dynamic/c;
 
-    move-result v2
+    move-result-object v1
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->c(Landroid/os/Parcel;II)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/a;-><init>(Lcom/google/android/gms/dynamic/c;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v1, 0x5
+    return-object v0
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->getCamera()Lcom/google/android/gms/maps/model/CameraPosition;
+    :catch_0
+    move-exception v0
 
-    move-result-object v2
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
 
-    const/4 v3, 0x0
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
 
-    invoke-static {p1, v1, v2, p2, v3}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
+    throw v1
+.end method
 
-    const/4 v1, 0x6
+.method private static a()Lcom/yelp/android/bj/a;
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nF()B
+    sget-object v0, Lcom/google/android/gms/maps/b;->a:Lcom/yelp/android/bj/a;
 
-    move-result v2
+    const-string/jumbo v1, "CameraUpdateFactory is not initialized"
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/zzx;->zzb(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v1, 0x7
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nG()B
+    check-cast v0, Lcom/yelp/android/bj/a;
 
-    move-result v2
+    return-object v0
+.end method
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
+.method public static a(Lcom/yelp/android/bj/a;)V
+    .locals 1
 
-    const/16 v1, 0x8
+    invoke-static {p0}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nH()B
+    move-result-object v0
 
-    move-result v2
+    check-cast v0, Lcom/yelp/android/bj/a;
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    const/16 v1, 0x9
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nI()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    const/16 v1, 0xa
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nJ()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    const/16 v1, 0xb
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->nK()B
-
-    move-result v2
-
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IB)V
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/b;->H(Landroid/os/Parcel;I)V
+    sput-object v0, Lcom/google/android/gms/maps/b;->a:Lcom/yelp/android/bj/a;
 
     return-void
 .end method

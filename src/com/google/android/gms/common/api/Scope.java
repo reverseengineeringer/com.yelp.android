@@ -3,20 +3,20 @@ package com.google.android.gms.common.api;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jx;
+import com.google.android.gms.common.internal.zzx;
 
 public final class Scope
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<Scope> CREATOR = new e();
-  final int CK;
-  private final String Kv;
+  public static final Parcelable.Creator<Scope> CREATOR = new zzb();
+  final int mVersionCode;
+  private final String zzagB;
   
   Scope(int paramInt, String paramString)
   {
-    jx.b(paramString, "scopeUri must not be null or empty");
-    CK = paramInt;
-    Kv = paramString;
+    zzx.zzh(paramString, "scopeUri must not be null or empty");
+    mVersionCode = paramInt;
+    zzagB = paramString;
   }
   
   public Scope(String paramString)
@@ -37,27 +37,27 @@ public final class Scope
     if (!(paramObject instanceof Scope)) {
       return false;
     }
-    return Kv.equals(Kv);
-  }
-  
-  public String gO()
-  {
-    return Kv;
+    return zzagB.equals(zzagB);
   }
   
   public int hashCode()
   {
-    return Kv.hashCode();
+    return zzagB.hashCode();
   }
   
   public String toString()
   {
-    return Kv;
+    return zzagB;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    e.a(this, paramParcel, paramInt);
+    zzb.zza(this, paramParcel, paramInt);
+  }
+  
+  public String zzpb()
+  {
+    return zzagB;
   }
 }
 

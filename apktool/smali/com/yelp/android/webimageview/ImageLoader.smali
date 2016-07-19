@@ -6,6 +6,15 @@
 .implements Ljava/lang/Runnable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/webimageview/ImageLoader$BoundPriorityBlockingQueue;,
+        Lcom/yelp/android/webimageview/ImageLoader$PausableThreadPoolExecutor;
+    }
+.end annotation
+
+
 # static fields
 .field public static final BITMAP_EXTRA:Ljava/lang/String; = "droidfu:extra_bitmap"
 

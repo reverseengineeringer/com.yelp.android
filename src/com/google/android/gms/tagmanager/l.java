@@ -1,25 +1,45 @@
 package com.google.android.gms.tagmanager;
 
-import android.os.Build.VERSION;
+import android.content.Context;
+import android.net.Uri;
+import java.util.HashMap;
+import java.util.Map;
 
-class l<K, V>
+public class l
 {
-  final l.a<K, V> aqk = new l.1(this);
+  static Map<String, String> a = new HashMap();
+  private static String b;
   
-  public k<K, V> a(int paramInt, l.a<K, V> parama)
+  public static String a(String paramString1, String paramString2)
   {
-    if (paramInt <= 0) {
-      throw new IllegalArgumentException("maxSize <= 0");
+    if (paramString2 == null)
+    {
+      if (paramString1.length() > 0) {
+        return paramString1;
+      }
+      return null;
     }
-    if (pg() < 12) {
-      return new da(paramInt, parama);
-    }
-    return new bb(paramInt, parama);
+    return Uri.parse("http://hostname/?" + paramString1).getQueryParameter(paramString2);
   }
   
-  int pg()
+  public static void a(Context paramContext, String paramString)
   {
-    return Build.VERSION.SDK_INT;
+    String str = a(paramString, "conv");
+    if ((str != null) && (str.length() > 0))
+    {
+      a.put(str, paramString);
+      ae.a(paramContext, "gtm_click_referrers", str, paramString);
+    }
+  }
+  
+  public static void a(String paramString)
+  {
+    try
+    {
+      b = paramString;
+      return;
+    }
+    finally {}
   }
 }
 

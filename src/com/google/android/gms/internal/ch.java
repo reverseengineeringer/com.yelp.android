@@ -1,39 +1,69 @@
 package com.google.android.gms.internal;
 
-import java.util.HashMap;
+import android.text.TextUtils;
+import com.google.android.gms.ads.internal.reward.mediation.client.RewardItemParcel;
 import java.util.Map;
 
-@ey
 public class ch
-  implements cd
+  implements bz
 {
-  static final Map<String, Integer> qb = new HashMap();
+  private final a a;
   
-  static
+  public ch(a parama)
   {
-    qb.put("resize", Integer.valueOf(1));
-    qb.put("playVideo", Integer.valueOf(2));
-    qb.put("storePicture", Integer.valueOf(3));
-    qb.put("createCalendarEvent", Integer.valueOf(4));
+    a = parama;
   }
   
-  public void a(gu paramgu, Map<String, String> paramMap)
+  public static void a(ib paramib, a parama)
   {
-    String str = (String)paramMap.get("a");
-    switch (((Integer)qb.get(str)).intValue())
+    paramib.l().a("/reward", new ch(parama));
+  }
+  
+  private void a(Map<String, String> paramMap)
+  {
+    try
     {
-    case 2: 
-    default: 
-      gr.U("Unknown MRAID command called.");
-      return;
-    case 1: 
-      new di(paramgu, paramMap).execute();
-      return;
-    case 4: 
-      new dh(paramgu, paramMap).execute();
+      int i = Integer.parseInt((String)paramMap.get("amount"));
+      paramMap = (String)paramMap.get("type");
+      if (!TextUtils.isEmpty(paramMap))
+      {
+        paramMap = new RewardItemParcel(paramMap, i);
+        a.b(paramMap);
+        return;
+      }
+    }
+    catch (NumberFormatException paramMap)
+    {
+      for (;;)
+      {
+        gz.d("Unable to parse reward amount.", paramMap);
+        paramMap = null;
+      }
+    }
+  }
+  
+  private void b(Map<String, String> paramMap)
+  {
+    a.E();
+  }
+  
+  public void a(ib paramib, Map<String, String> paramMap)
+  {
+    paramib = (String)paramMap.get("action");
+    if ("grant".equals(paramib)) {
+      a(paramMap);
+    }
+    while (!"video_start".equals(paramib)) {
       return;
     }
-    new dj(paramgu, paramMap).execute();
+    b(paramMap);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void E();
+    
+    public abstract void b(RewardItemParcel paramRewardItemParcel);
   }
 }
 

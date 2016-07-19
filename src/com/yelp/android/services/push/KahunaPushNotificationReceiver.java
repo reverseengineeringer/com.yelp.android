@@ -1,44 +1,29 @@
 package com.yelp.android.services.push;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.WakefulBroadcastReceiver;
 import android.text.TextUtils;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.ui.activities.RootActivity;
 
 public class KahunaPushNotificationReceiver
-  extends BroadcastReceiver
+  extends WakefulBroadcastReceiver
 {
   public void onReceive(Context paramContext, Intent paramIntent)
   {
-    String str;
-    Object localObject;
-    DefaultPushNotificationHandler localDefaultPushNotificationHandler;
     if ("com.kahuna.sdk.push.received".equals(paramIntent.getAction()))
     {
-      str = paramIntent.getStringExtra("alert");
-      if (!TextUtils.isEmpty(str))
+      paramContext = paramIntent.getStringExtra("alert");
+      if (!TextUtils.isEmpty(paramContext))
       {
-        localObject = paramIntent.getBundleExtra("landing_extras_id").getString("url");
-        localDefaultPushNotificationHandler = new DefaultPushNotificationHandler(AppData.b(), Notifier.NotificationType.Unknown, null, null);
-        if (TextUtils.isEmpty((CharSequence)localObject)) {
-          break label116;
-        }
+        paramIntent = paramIntent.getBundleExtra("landing_extras_id");
+        Intent localIntent = new Intent(AppData.b(), SendKahunaNotificationService.class);
+        localIntent.putExtra("message", paramContext);
+        localIntent.putExtra("payload_url", paramIntent.getString("url"));
+        localIntent.putExtra("image_url", paramIntent.getString("image"));
+        a(AppData.b(), localIntent);
       }
-    }
-    for (paramIntent = localDefaultPushNotificationHandler.a(Uri.parse((String)localObject), Notifier.NotificationType.Unknown);; paramIntent = (Intent)localObject)
-    {
-      paramIntent = localDefaultPushNotificationHandler.a(str, str, 0, null, null, 24, PendingIntent.getActivity(paramContext, 0, paramIntent, 0));
-      ((NotificationManager)paramContext.getSystemService("notification")).notify("kahuna", 1, paramIntent);
-      return;
-      label116:
-      localObject = new Intent(paramContext, RootActivity.class);
-      paramIntent.setFlags(268435456);
     }
   }
 }

@@ -1,74 +1,38 @@
 package com.yelp.android.util;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.view.animation.Animation;
-import com.yelp.android.appdata.ao;
-import com.yelp.android.ui.util.bh;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.util.cw;
-import com.yelp.android.ui.widgets.EditTextAndClearButton;
+import android.app.Activity;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.Builder;
+import com.yelp.android.bh.b;
+import com.yelp.android.bh.c;
+import com.yelp.android.serializable.AndroidAppAnnotation;
 
 public class u
-  extends bh
 {
-  private Animation a;
-  private Animation b;
-  private EditTextAndClearButton c;
-  private boolean d;
+  private GoogleApiClient a;
   
-  public u(EditTextAndClearButton paramEditTextAndClearButton, View paramView)
+  public u(Activity paramActivity)
   {
-    super(paramEditTextAndClearButton, paramView);
-    c = paramEditTextAndClearButton;
+    a = new GoogleApiClient.Builder(paramActivity).addApi(b.b).build();
   }
   
-  private void a()
+  public void a()
   {
-    if (a == null)
+    a.connect();
+  }
+  
+  public void a(Activity paramActivity, AndroidAppAnnotation paramAndroidAppAnnotation)
+  {
+    if ((paramAndroidAppAnnotation != null) && (paramAndroidAppAnnotation.a()))
     {
-      a = cw.a(o, p);
-      a.setAnimationListener(new v(this));
-    }
-    if (b == null)
-    {
-      b = cw.b(o, p);
-      b.setAnimationListener(new w(this));
+      b.c.a(a, paramActivity, paramAndroidAppAnnotation.b(), paramAndroidAppAnnotation.g(), paramAndroidAppAnnotation.c(), null);
+      b.c.a(a, paramActivity, paramAndroidAppAnnotation.b());
     }
   }
   
   public void b()
   {
-    if ((!j) && (d))
-    {
-      j = true;
-      c.startAnimation(b);
-    }
-  }
-  
-  public void b(float paramFloat)
-  {
-    if (paramFloat > ao.a(5)) {
-      c();
-    }
-  }
-  
-  public void c()
-  {
-    a();
-    if ((!j) && (TextUtils.isEmpty(c.getText())) && (!d))
-    {
-      j = true;
-      cp.b(c);
-      c.startAnimation(a);
-    }
-  }
-  
-  public void c(float paramFloat)
-  {
-    if (paramFloat > ao.a(5)) {
-      b();
-    }
+    a.disconnect();
   }
 }
 

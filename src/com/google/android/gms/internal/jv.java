@@ -1,22 +1,38 @@
 package com.google.android.gms.internal;
 
-import java.util.Arrays;
+import android.os.SystemClock;
 
 public final class jv
+  implements jt
 {
-  public static boolean equal(Object paramObject1, Object paramObject2)
+  private static jv a;
+  
+  public static jt d()
   {
-    return (paramObject1 == paramObject2) || ((paramObject1 != null) && (paramObject1.equals(paramObject2)));
+    try
+    {
+      if (a == null) {
+        a = new jv();
+      }
+      jv localjv = a;
+      return localjv;
+    }
+    finally {}
   }
   
-  public static jv.a h(Object paramObject)
+  public long a()
   {
-    return new jv.a(paramObject, null);
+    return System.currentTimeMillis();
   }
   
-  public static int hashCode(Object... paramVarArgs)
+  public long b()
   {
-    return Arrays.hashCode(paramVarArgs);
+    return SystemClock.elapsedRealtime();
+  }
+  
+  public long c()
+  {
+    return System.nanoTime();
   }
 }
 

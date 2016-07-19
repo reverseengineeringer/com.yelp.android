@@ -6,35 +6,40 @@ import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseIntArray;
+import android.view.View.OnClickListener;
 import android.view.ViewStub;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Checkable;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import com.yelp.android.b;
-import com.yelp.android.ui.util.dj;
-import com.yelp.android.ui.widgets.j;
+import com.yelp.android.b.a;
+import com.yelp.android.ui.util.ay;
+import com.yelp.android.ui.widgets.SpannableRelativeLayout;
+import com.yelp.android.ui.widgets.c;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PreferenceView
-  extends RelativeLayout
+  extends SpannableRelativeLayout
   implements Checkable
 {
   private static final int[] a = { 16842912, 16842911 };
-  private static final int[] d = { 16842911 };
+  private static final int[] i = { 16842911 };
   protected final AutoCompleteTextView b;
   protected final ViewStub c;
-  private final TextView e;
-  private final TextView f;
-  private boolean g;
-  private j h;
-  private final String i;
-  private final int j;
-  private final boolean k;
-  private final boolean l;
-  private final int m;
+  private final TextView j;
+  private final TextView k;
+  private final ViewStub l;
+  private boolean m;
+  private c n;
+  private String o;
+  private final int p;
+  private final boolean q;
+  private final boolean r;
+  private a s;
+  private List<View.OnClickListener> t = new ArrayList();
+  private View.OnClickListener u = new PreferenceView.1(this);
   
   public PreferenceView(Context paramContext)
   {
@@ -43,30 +48,57 @@ public class PreferenceView
   
   public PreferenceView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 2130772120);
+    this(paramContext, paramAttributeSet, 2130772174);
   }
   
   public PreferenceView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
     SparseIntArray localSparseIntArray = new SparseIntArray();
-    localSparseIntArray.put(4, 2130903349);
-    dj.a(this, paramContext, paramAttributeSet, paramInt, localSparseIntArray);
-    e = ((TextView)findViewById(2131493921));
-    f = ((TextView)findViewById(2131493922));
-    c = ((ViewStub)findViewById(2131493920));
-    b = ((AutoCompleteTextView)findViewById(2131493322));
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.PreferenceView, paramInt, paramInt);
-    setTitle(paramContext.getText(4));
-    setSubtitle(paramContext.getText(5));
-    setEditText(paramContext.getText(14));
-    setIcon(paramContext.getResourceId(6, 0));
-    j = paramContext.getResourceId(8, 0);
-    i = paramContext.getString(7);
-    k = paramContext.getBoolean(9, false);
-    l = paramContext.getBoolean(10, false);
-    m = paramContext.getResourceId(11, 0);
+    localSparseIntArray.put(4, 2130903448);
+    ay.a(this, paramContext, paramAttributeSet, paramInt, localSparseIntArray);
+    j = ((TextView)findViewById(2131690758));
+    k = ((TextView)findViewById(2131690761));
+    c = ((ViewStub)findViewById(2131690757));
+    l = ((ViewStub)findViewById(2131690759));
+    b = ((AutoCompleteTextView)findViewById(2131689978));
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.PreferenceView, paramInt, paramInt);
+    setTitle(paramContext.getText(3));
+    setEditText(paramContext.getText(12));
+    setIcon(paramContext.getResourceId(5, 0));
+    setSubtitle(paramContext.getText(4));
+    p = paramContext.getResourceId(7, 0);
+    o = paramContext.getString(6);
+    q = paramContext.getBoolean(8, false);
+    r = paramContext.getBoolean(9, false);
     paramContext.recycle();
+  }
+  
+  private void setIcon(int paramInt)
+  {
+    if (paramInt != 0)
+    {
+      localObject = getResources();
+      if (!((Resources)localObject).getResourceTypeName(paramInt).equals("layout")) {
+        break label64;
+      }
+      l.setLayoutResource(paramInt);
+      l.inflate();
+      l.setVisibility(8);
+      c.setLayoutResource(paramInt);
+      c.inflate();
+    }
+    label64:
+    while (!((Resources)localObject).getResourceTypeName(paramInt).equals("drawable")) {
+      return;
+    }
+    c.setLayoutResource(2130903505);
+    l.setLayoutResource(2130903505);
+    Object localObject = (ImageView)c.inflate();
+    ImageView localImageView = (ImageView)l.inflate();
+    ((ImageView)localObject).setImageResource(paramInt);
+    localImageView.setImageResource(paramInt);
+    localImageView.setVisibility(8);
   }
   
   public void a()
@@ -82,54 +114,54 @@ public class PreferenceView
   
   public boolean b()
   {
-    return k;
+    return q;
   }
   
   public boolean c()
   {
-    return l;
-  }
-  
-  public int getDependency()
-  {
-    return m;
+    return r;
   }
   
   public String getKey()
   {
-    return i;
+    return o;
   }
   
   public int getReference()
   {
-    return j;
+    return p;
   }
   
   public CharSequence getTitle()
   {
-    return e.getText();
+    return j.getText();
+  }
+  
+  public a getViewBuilder()
+  {
+    return s;
   }
   
   public boolean isChecked()
   {
-    return g;
+    return m;
   }
   
   protected int[] onCreateDrawableState(int paramInt)
   {
     boolean bool = isChecked();
+    int i2;
     int i1;
-    int n;
     label27:
     int[] arrayOfInt;
-    if (h != null)
+    if (n != null)
     {
-      i1 = 1;
+      i2 = 1;
       if (!bool) {
         break label56;
       }
-      n = paramInt + a.length;
-      arrayOfInt = super.onCreateDrawableState(n);
+      i1 = paramInt + a.length;
+      arrayOfInt = super.onCreateDrawableState(i1);
       if (!bool) {
         break label72;
       }
@@ -137,19 +169,19 @@ public class PreferenceView
     }
     label56:
     label72:
-    while (i1 == 0)
+    while (i2 == 0)
     {
       return arrayOfInt;
-      i1 = 0;
+      i2 = 0;
       break;
-      n = paramInt;
-      if (i1 == 0) {
+      i1 = paramInt;
+      if (i2 == 0) {
         break label27;
       }
-      n = paramInt + d.length;
+      i1 = paramInt + i.length;
       break label27;
     }
-    mergeDrawableStates(arrayOfInt, d);
+    mergeDrawableStates(arrayOfInt, i);
     return arrayOfInt;
   }
   
@@ -161,15 +193,15 @@ public class PreferenceView
   
   public void setChecked(boolean paramBoolean)
   {
-    if (g != paramBoolean) {}
-    for (int n = 1;; n = 0)
+    if (m != paramBoolean) {}
+    for (int i1 = 1;; i1 = 0)
     {
-      g = paramBoolean;
-      if (n != 0)
+      m = paramBoolean;
+      if (i1 != 0)
       {
         refreshDrawableState();
-        if (h != null) {
-          h.onCheckedChanged(this);
+        if (n != null) {
+          n.onCheckedChanged(this);
         }
       }
       return;
@@ -182,53 +214,51 @@ public class PreferenceView
     {
       b.setText(paramCharSequence);
       b.setVisibility(0);
+      ((android.widget.RelativeLayout.LayoutParams)findViewById(2131690756).getLayoutParams()).getRules()[15] = 0;
       return;
     }
     b.setVisibility(8);
   }
   
-  public void setIcon(int paramInt)
+  public void setKey(String paramString)
   {
-    Resources localResources;
-    if (paramInt != 0)
-    {
-      localResources = getResources();
-      if (!localResources.getResourceTypeName(paramInt).equals("layout")) {
-        break label39;
-      }
-      c.setLayoutResource(paramInt);
-      c.inflate();
-    }
-    label39:
-    while (!localResources.getResourceTypeName(paramInt).equals("drawable")) {
-      return;
-    }
-    c.setLayoutResource(2130903396);
-    ((ImageView)c.inflate()).setImageResource(paramInt);
+    o = paramString;
   }
   
-  public void setOnCheckChangedListener(j paramj)
+  public void setOnCheckChangedListener(c paramc)
   {
-    h = paramj;
+    n = paramc;
+  }
+  
+  public void setOnClickListener(View.OnClickListener paramOnClickListener)
+  {
+    super.setOnClickListener(u);
+    t.add(paramOnClickListener);
   }
   
   public void setSubtitle(CharSequence paramCharSequence)
   {
-    f.setText(paramCharSequence);
-    paramCharSequence = (RelativeLayout.LayoutParams)e.getLayoutParams();
-    if (!TextUtils.isEmpty(f.getText()))
+    if (!TextUtils.isEmpty(paramCharSequence))
     {
-      f.setVisibility(0);
-      paramCharSequence.getRules()[15] = 0;
+      k.setText(paramCharSequence);
+      k.setVisibility(0);
+      if (l.getLayoutResource() != 0) {
+        l.setVisibility(4);
+      }
+      ((android.widget.RelativeLayout.LayoutParams)findViewById(2131690756).getLayoutParams()).getRules()[15] = 0;
       return;
     }
-    f.setVisibility(8);
-    paramCharSequence.addRule(15);
+    k.setVisibility(8);
   }
   
   public void setTitle(CharSequence paramCharSequence)
   {
-    e.setText(paramCharSequence);
+    j.setText(paramCharSequence);
+  }
+  
+  public void setViewBuilder(a parama)
+  {
+    s = parama;
   }
   
   public void toggle()

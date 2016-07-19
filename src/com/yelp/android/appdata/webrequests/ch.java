@@ -1,15 +1,14 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class ch
-  extends h
+  extends c
 {
-  public ch(String paramString, i parami)
+  public ch(c.a parama)
   {
-    super("client/force_dirty_session", parami);
-    addPostParam("context", paramString);
+    super("account/line/unlink", parama);
   }
 }
 

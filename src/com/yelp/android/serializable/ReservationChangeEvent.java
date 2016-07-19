@@ -5,14 +5,14 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class ReservationChangeEvent
   extends _ReservationChangeEvent
 {
-  public static final JsonParser.DualCreator<ReservationChangeEvent> CREATOR = new ck();
+  public static final JsonParser.DualCreator<ReservationChangeEvent> CREATOR = new ReservationChangeEvent.1();
   
   public ReservationChangeEvent() {}
   
   public ReservationChangeEvent(Reservation paramReservation, YelpBusiness paramYelpBusiness)
   {
-    mReservation = paramReservation;
-    mBusiness = paramYelpBusiness;
+    a = paramReservation;
+    b = paramYelpBusiness;
   }
 }
 

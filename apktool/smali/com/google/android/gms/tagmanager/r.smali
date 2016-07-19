@@ -1,30 +1,27 @@
 .class Lcom/google/android/gms/tagmanager/r;
 .super Ljava/lang/Object;
 
-
-# instance fields
-.field private aqN:Ljava/lang/String;
+# interfaces
+.implements Lcom/google/android/gms/tagmanager/y;
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 1
+.method constructor <init>()V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const-string/jumbo v0, "https://www.googletagmanager.com"
-
-    iput-object v0, p0, Lcom/google/android/gms/tagmanager/r;->aqN:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public pu()Ljava/lang/String;
+.method public a(Lcom/google/android/gms/internal/d$a;)Lcom/google/android/gms/tagmanager/ah;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/tagmanager/r;->aqN:Ljava/lang/String;
+    new-instance v0, Lcom/google/android/gms/tagmanager/u;
+
+    invoke-direct {v0}, Lcom/google/android/gms/tagmanager/u;-><init>()V
 
     return-object v0
 .end method

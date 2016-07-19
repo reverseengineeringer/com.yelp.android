@@ -3,6 +3,14 @@
 .source "PullDownListView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/util/PullDownListView$a;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:F
 
@@ -18,13 +26,13 @@
 
 .field private g:Z
 
-.field private h:Landroid/support/v4/widget/ax;
+.field private h:Landroid/support/v4/widget/v;
 
 .field private i:I
 
 .field private j:F
 
-.field private k:Lcom/yelp/android/ui/util/bi;
+.field private k:Lcom/yelp/android/ui/util/PullDownListView$a;
 
 
 # direct methods
@@ -32,13 +40,13 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 66
     invoke-direct {p0, p1}, Landroid/widget/ListView;-><init>(Landroid/content/Context;)V
 
-    .line 70
+    .line 67
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/util/PullDownListView;->a(Landroid/content/Context;)V
 
-    .line 71
+    .line 68
     return-void
 .end method
 
@@ -46,13 +54,13 @@
     .locals 0
 
     .prologue
-    .line 74
+    .line 71
     invoke-direct {p0, p1, p2}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 75
+    .line 72
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/util/PullDownListView;->a(Landroid/content/Context;)V
 
-    .line 76
+    .line 73
     return-void
 .end method
 
@@ -60,13 +68,13 @@
     .locals 0
 
     .prologue
-    .line 79
+    .line 76
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 80
+    .line 77
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/util/PullDownListView;->a(Landroid/content/Context;)V
 
-    .line 81
+    .line 78
     return-void
 .end method
 
@@ -74,21 +82,21 @@
     .locals 2
 
     .prologue
-    .line 258
-    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/bi;
+    .line 261
+    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/PullDownListView$a;
 
     if-eqz v0, :cond_0
 
-    .line 259
-    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/bi;
+    .line 262
+    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/PullDownListView$a;
 
     iget v1, p0, Lcom/yelp/android/ui/util/PullDownListView;->j:F
 
     div-float v1, p1, v1
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/util/bi;->a(F)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/util/PullDownListView$a;->a(F)V
 
-    .line 261
+    .line 264
     :cond_0
     return-void
 .end method
@@ -97,12 +105,12 @@
     .locals 4
 
     .prologue
-    .line 234
+    .line 235
     iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 235
+    .line 236
     iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
 
     iget-object v1, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
@@ -125,7 +133,7 @@
 
     invoke-virtual {v0, v1, p1, v2, v3}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 239
+    .line 242
     iget v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->d:I
 
     sub-int v0, p1, v0
@@ -134,7 +142,7 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/util/PullDownListView;->a(F)V
 
-    .line 241
+    .line 244
     :cond_0
     return-void
 .end method
@@ -145,34 +153,34 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 84
+    .line 81
     iput-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->e:Z
 
-    .line 85
+    .line 82
     iput-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->g:Z
 
-    .line 86
+    .line 83
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
 
-    .line 87
+    .line 84
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
-    .line 89
+    .line 86
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
 
-    invoke-static {p1, v0}, Landroid/support/v4/widget/ax;->a(Landroid/content/Context;Landroid/view/animation/Interpolator;)Landroid/support/v4/widget/ax;
+    invoke-static {p1, v0}, Landroid/support/v4/widget/v;->a(Landroid/content/Context;Landroid/view/animation/Interpolator;)Landroid/support/v4/widget/v;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/ax;
+    iput-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/v;
 
-    .line 91
+    .line 88
     invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
     move-result-object v0
@@ -183,7 +191,7 @@
 
     iput v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->i:I
 
-    .line 92
+    .line 89
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -196,7 +204,7 @@
 
     iput v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->j:F
 
-    .line 93
+    .line 90
     return-void
 .end method
 
@@ -204,23 +212,23 @@
     .locals 2
 
     .prologue
-    .line 264
-    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/bi;
+    .line 267
+    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/PullDownListView$a;
 
     if-eqz v0, :cond_0
 
-    .line 265
-    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/bi;
+    .line 268
+    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/PullDownListView$a;
 
     iget v1, p0, Lcom/yelp/android/ui/util/PullDownListView;->j:F
 
     div-float v1, p1, v1
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/util/bi;->b(F)Z
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/util/PullDownListView$a;->b(F)Z
 
     move-result v0
 
-    .line 267
+    .line 270
     :goto_0
     return v0
 
@@ -236,17 +244,17 @@
     .prologue
     const/4 v1, 0x2
 
-    .line 111
+    .line 108
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/PullDownListView;->getOverScrollMode()I
 
     move-result v0
 
     if-eq v0, v1, :cond_0
 
-    .line 112
+    .line 109
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/util/PullDownListView;->setOverScrollMode(I)V
 
-    .line 114
+    .line 111
     :cond_0
     return-void
 .end method
@@ -255,19 +263,19 @@
     .locals 1
 
     .prologue
-    .line 117
+    .line 114
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/PullDownListView;->getOverScrollMode()I
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 118
+    .line 115
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/PullDownListView;->setOverScrollMode(I)V
 
-    .line 120
+    .line 117
     :cond_0
     return-void
 .end method
@@ -278,7 +286,7 @@
     .locals 1
 
     .prologue
-    .line 107
+    .line 104
     iget-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->e:Z
 
     return v0
@@ -288,12 +296,12 @@
     .locals 5
 
     .prologue
-    .line 220
+    .line 219
     iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
 
     if-eqz v0, :cond_0
 
-    .line 221
+    .line 220
     iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
 
     iget-object v1, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
@@ -318,12 +326,12 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 224
+    .line 225
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->g:Z
 
-    .line 226
+    .line 227
     :cond_0
     return-void
 .end method
@@ -332,36 +340,36 @@
     .locals 1
 
     .prologue
-    .line 245
+    .line 248
     iget-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->g:Z
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/ax;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/v;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ax;->g()Z
+    invoke-virtual {v0}, Landroid/support/v4/widget/v;->g()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 246
-    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/ax;
+    .line 249
+    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/v;
 
-    invoke-virtual {v0}, Landroid/support/v4/widget/ax;->c()I
+    invoke-virtual {v0}, Landroid/support/v4/widget/v;->c()I
 
     move-result v0
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/util/PullDownListView;->a(I)V
 
-    .line 247
-    invoke-static {p0}, Landroid/support/v4/view/ce;->d(Landroid/view/View;)V
+    .line 250
+    invoke-static {p0}, Landroid/support/v4/view/ai;->d(Landroid/view/View;)V
 
-    .line 251
+    .line 254
     :goto_0
     return-void
 
-    .line 249
+    .line 252
     :cond_0
     const/4 v0, 0x0
 
@@ -374,7 +382,7 @@
     .locals 1
 
     .prologue
-    .line 124
+    .line 121
     iget-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->e:Z
 
     if-eqz v0, :cond_0
@@ -383,43 +391,43 @@
 
     if-nez v0, :cond_1
 
-    .line 125
+    .line 122
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/ListView;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    .line 137
+    .line 134
     :goto_0
     return v0
 
-    .line 128
+    .line 125
     :cond_1
-    invoke-static {p1}, Landroid/support/v4/view/ba;->a(Landroid/view/MotionEvent;)I
+    invoke-static {p1}, Landroid/support/v4/view/t;->a(Landroid/view/MotionEvent;)I
 
     move-result v0
 
-    .line 129
+    .line 126
     if-nez v0, :cond_2
 
-    .line 133
+    .line 130
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v0
 
     iput v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->a:F
 
-    .line 134
+    .line 131
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
-    .line 135
+    .line 132
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->f:Z
 
-    .line 137
+    .line 134
     :cond_2
     invoke-super {p0, p1}, Landroid/widget/ListView;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
 
@@ -438,7 +446,7 @@
 
     const/4 v3, -0x1
 
-    .line 145
+    .line 142
     iget-boolean v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->e:Z
 
     if-eqz v0, :cond_0
@@ -447,38 +455,38 @@
 
     if-nez v0, :cond_1
 
-    .line 146
+    .line 143
     :cond_0
     invoke-super {p0, p1}, Landroid/widget/ListView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    .line 213
+    .line 212
     :goto_0
     return v0
 
-    .line 149
+    .line 146
     :cond_1
-    invoke-static {p1}, Landroid/support/v4/view/ba;->a(Landroid/view/MotionEvent;)I
+    invoke-static {p1}, Landroid/support/v4/view/t;->a(Landroid/view/MotionEvent;)I
 
     move-result v0
 
-    .line 150
+    .line 147
     packed-switch v0, :pswitch_data_0
 
-    .line 211
+    .line 210
     :cond_2
     :goto_1
     invoke-direct {p0}, Lcom/yelp/android/ui/util/PullDownListView;->d()V
 
-    .line 213
+    .line 212
     invoke-super {p0, p1}, Landroid/widget/ListView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
     goto :goto_0
 
-    .line 152
+    .line 150
     :pswitch_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
@@ -490,7 +498,7 @@
 
     float-to-int v0, v0
 
-    .line 153
+    .line 151
     iget-boolean v2, p0, Lcom/yelp/android/ui/util/PullDownListView;->f:Z
 
     if-nez v2, :cond_3
@@ -499,10 +507,10 @@
 
     if-le v0, v2, :cond_3
 
-    .line 155
+    .line 153
     iput-boolean v6, p0, Lcom/yelp/android/ui/util/PullDownListView;->f:Z
 
-    .line 156
+    .line 154
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v0
@@ -511,7 +519,7 @@
 
     move v0, v1
 
-    .line 162
+    .line 160
     :cond_3
     iget-boolean v2, p0, Lcom/yelp/android/ui/util/PullDownListView;->f:Z
 
@@ -525,37 +533,37 @@
 
     if-nez v2, :cond_2
 
-    .line 165
+    .line 163
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/util/PullDownListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    .line 166
+    .line 164
     invoke-virtual {v1}, Landroid/view/View;->getTop()I
 
     move-result v1
 
     if-gez v1, :cond_4
 
-    .line 167
+    .line 165
     iput v3, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
     goto :goto_1
 
-    .line 171
+    .line 169
     :cond_4
     iget v1, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
     if-ne v1, v3, :cond_6
 
-    .line 173
+    .line 171
     iput v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
-    .line 182
+    .line 180
     :cond_5
     invoke-direct {p0}, Lcom/yelp/android/ui/util/PullDownListView;->c()V
 
-    .line 184
+    .line 182
     iget v1, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
     sub-int/2addr v0, v1
@@ -568,37 +576,37 @@
 
     move v0, v6
 
-    .line 185
+    .line 183
     goto :goto_0
 
-    .line 174
+    .line 172
     :cond_6
     iget v1, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
     if-le v1, v0, :cond_5
 
-    .line 176
+    .line 174
     iput v3, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
     goto :goto_1
 
-    .line 191
+    .line 190
     :pswitch_1
     iput v3, p0, Lcom/yelp/android/ui/util/PullDownListView;->b:I
 
-    .line 194
+    .line 193
     iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getPaddingTop()I
 
     move-result v2
 
-    .line 195
+    .line 194
     iget v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->d:I
 
     sub-int v3, v2, v0
 
-    .line 197
+    .line 196
     if-lez v3, :cond_2
 
     int-to-float v0, v3
@@ -609,7 +617,7 @@
 
     if-nez v0, :cond_2
 
-    .line 198
+    .line 197
     int-to-float v0, v3
 
     const v4, 0x3f99999a    # 1.2f
@@ -620,24 +628,24 @@
 
     move-result v5
 
-    .line 200
-    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/ax;
+    .line 199
+    iget-object v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->h:Landroid/support/v4/widget/v;
 
     neg-int v4, v3
 
     move v3, v1
 
-    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/widget/ax;->a(IIIII)V
+    invoke-virtual/range {v0 .. v5}, Landroid/support/v4/widget/v;->a(IIIII)V
 
-    .line 201
+    .line 200
     iput-boolean v6, p0, Lcom/yelp/android/ui/util/PullDownListView;->g:Z
 
-    .line 203
-    invoke-static {p0}, Landroid/support/v4/view/ce;->d(Landroid/view/View;)V
+    .line 202
+    invoke-static {p0}, Landroid/support/v4/view/ai;->d(Landroid/view/View;)V
 
     goto :goto_1
 
-    .line 150
+    .line 147
     nop
 
     :pswitch_data_0
@@ -648,14 +656,14 @@
     .end packed-switch
 .end method
 
-.method public setOnPullDownListener(Lcom/yelp/android/ui/util/bi;)V
+.method public setOnPullDownListener(Lcom/yelp/android/ui/util/PullDownListView$a;)V
     .locals 0
 
     .prologue
-    .line 254
-    iput-object p1, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/bi;
+    .line 257
+    iput-object p1, p0, Lcom/yelp/android/ui/util/PullDownListView;->k:Lcom/yelp/android/ui/util/PullDownListView$a;
 
-    .line 255
+    .line 258
     return-void
 .end method
 
@@ -663,10 +671,10 @@
     .locals 0
 
     .prologue
-    .line 103
+    .line 100
     iput-boolean p1, p0, Lcom/yelp/android/ui/util/PullDownListView;->e:Z
 
-    .line 104
+    .line 101
     return-void
 .end method
 
@@ -674,20 +682,20 @@
     .locals 1
 
     .prologue
-    .line 96
+    .line 93
     iput-object p1, p0, Lcom/yelp/android/ui/util/PullDownListView;->c:Landroid/view/View;
 
-    .line 97
+    .line 94
     if-eqz p1, :cond_0
 
-    .line 98
+    .line 95
     invoke-virtual {p1}, Landroid/view/View;->getPaddingTop()I
 
     move-result v0
 
     iput v0, p0, Lcom/yelp/android/ui/util/PullDownListView;->d:I
 
-    .line 100
+    .line 97
     :cond_0
     return-void
 .end method

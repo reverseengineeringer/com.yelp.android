@@ -1,32 +1,32 @@
 package com.google.android.gms.common.api;
 
-import com.google.android.gms.internal.jx;
+import com.google.android.gms.common.internal.zzx;
 import java.util.concurrent.TimeUnit;
 
 public final class BatchResult
   implements Result
 {
-  private final Status Eb;
-  private final PendingResult<?>[] JC;
+  private final Status zzUX;
+  private final PendingResult<?>[] zzagc;
   
   BatchResult(Status paramStatus, PendingResult<?>[] paramArrayOfPendingResult)
   {
-    Eb = paramStatus;
-    JC = paramArrayOfPendingResult;
+    zzUX = paramStatus;
+    zzagc = paramArrayOfPendingResult;
   }
   
   public Status getStatus()
   {
-    return Eb;
+    return zzUX;
   }
   
   public <R extends Result> R take(BatchResultToken<R> paramBatchResultToken)
   {
-    if (mId < JC.length) {}
+    if (mId < zzagc.length) {}
     for (boolean bool = true;; bool = false)
     {
-      jx.b(bool, "The result token does not belong to this batch");
-      return JC[mId].await(0L, TimeUnit.MILLISECONDS);
+      zzx.zzb(bool, "The result token does not belong to this batch");
+      return zzagc[mId].await(0L, TimeUnit.MILLISECONDS);
     }
   }
 }

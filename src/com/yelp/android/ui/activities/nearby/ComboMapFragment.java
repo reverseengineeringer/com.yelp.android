@@ -1,54 +1,27 @@
 package com.yelp.android.ui.activities.nearby;
 
 import android.graphics.RectF;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.gms.maps.model.CameraPosition.Builder;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.LocationService;
-import com.yelp.android.serializable.by;
+import com.yelp.android.serializable.f;
 import com.yelp.android.ui.map.YelpMap;
 import com.yelp.android.ui.map.a;
+import com.yelp.android.ui.map.e;
+import com.yelp.android.ui.map.e.a;
 import com.yelp.android.ui.util.YelpMapFragment;
 import java.util.List;
 
-public class ComboMapFragment<T extends by>
+public class ComboMapFragment<T extends f>
   extends YelpMapFragment<T>
 {
-  private Runnable b;
-  private Runnable c;
-  private boolean d = false;
-  private int e = 0;
-  private l<T> g;
-  private List<T> h;
-  
-  private boolean a(List<T> paramList)
-  {
-    boolean bool2 = true;
-    int i = 1;
-    for (;;)
-    {
-      boolean bool1 = bool2;
-      if (i < paramList.size())
-      {
-        LatLng localLatLng1 = ((by)paramList.get(i - 1)).getLatLng();
-        LatLng localLatLng2 = ((by)paramList.get(i)).getLatLng();
-        if ((latitude != latitude) || (longitude != longitude)) {
-          bool1 = false;
-        }
-      }
-      else
-      {
-        return bool1;
-      }
-      i += 1;
-    }
-  }
+  private boolean b = false;
+  private int c = 0;
+  private a<T> d;
+  private List<T> e;
   
   private void b(int paramInt)
   {
@@ -59,56 +32,40 @@ public class ComboMapFragment<T extends by>
     }
   }
   
-  private Runnable g()
+  private void h()
   {
-    if ((h == null) || (h.size() == 0)) {
-      return null;
+    if ((e == null) || (e.size() == 0) || (!a.h())) {
+      return;
     }
-    if (a(h))
+    LatLngBounds localLatLngBounds = a.a(e);
+    double d2 = 2.0D;
+    double d1 = d2;
+    if (c > 0)
     {
-      LatLng localLatLng = ((by)h.get(0)).getLatLng();
-      if ((!Double.isNaN(latitude)) && (!Double.isNaN(longitude)) && (!Double.isInfinite(latitude)))
-      {
-        localObject = localLatLng;
-        if (!Double.isInfinite(longitude)) {}
-      }
-      else
-      {
-        localObject = AppData.b().n().c();
-        localObject = new LatLng(((Location)localObject).getLatitude(), ((Location)localObject).getLongitude());
+      d1 = d2;
+      if (getView() != null) {
+        d1 = (getView().getHeight() - c) / c;
       }
     }
-    for (Object localObject = new LatLngBounds(new LatLng(latitude - 0.003000000026077032D, longitude - 0.003000000026077032D), new LatLng(latitude + 0.003000000026077032D, longitude + 0.003000000026077032D));; localObject = a.a(h))
-    {
-      double d2 = 2.0D;
-      double d1 = d2;
-      if (e > 0)
-      {
-        d1 = d2;
-        if (getView() != null) {
-          d1 = (getView().getHeight() - e) / e;
-        }
-      }
-      d2 = northeast.latitude;
-      double d3 = southwest.latitude;
-      return new k(this, new LatLngBounds(new LatLng(southwest.latitude - d1 * (d2 - d3), southwest.longitude), northeast));
-    }
+    d2 = b.a;
+    double d3 = a.a;
+    localLatLngBounds = new LatLngBounds(new LatLng(a.a - d1 * (d2 - d3), a.b), b);
+    a.a(localLatLngBounds);
   }
   
   public void a() {}
   
   public void a(int paramInt)
   {
-    e = paramInt;
-    c = g();
-    if (!d) {
-      a.a(c);
+    c = paramInt;
+    if ((!b) && (a.h())) {
+      h();
     }
   }
   
-  public void a(l<T> paraml)
+  public void a(a<T> parama)
   {
-    g = paraml;
+    d = parama;
   }
   
   public void a(List<T> paramList, a<T> parama)
@@ -116,27 +73,18 @@ public class ComboMapFragment<T extends by>
     if (a == null) {
       throw new IllegalStateException("Hold up cuz, map not created");
     }
-    h = paramList;
-    a.f();
-    if ((h == null) || (h.size() == 0)) {
+    e = paramList;
+    a.g();
+    if ((e == null) || (e.size() == 0) || (!a.h())) {
       return;
     }
-    if (a(h))
+    a.a(e, parama);
+    if (b)
     {
-      paramList = ((by)h.get(0)).getLatLng();
-      paramList = new CameraPosition.Builder().target(paramList).zoom(16.0F).build();
-      a.a(h, parama);
-    }
-    for (b = new j(this, paramList);; b = a.a(h, parama))
-    {
-      c = g();
-      if (!d) {
-        break;
-      }
-      a.a(b);
+      a.f();
       return;
     }
-    a.a(c);
+    h();
   }
   
   public YelpMap<T> b()
@@ -146,41 +94,54 @@ public class ComboMapFragment<T extends by>
   
   public void c()
   {
-    if (d)
+    if ((b) && (e.size() > 0))
     {
-      d = false;
-      b(e);
-      a.a(c);
+      b = false;
+      b(c);
+      if (a.h()) {
+        h();
+      }
     }
   }
   
-  public void d()
+  public void e()
   {
-    if (!d)
+    if ((!b) && (e.size() > 0))
     {
-      d = true;
+      b = true;
       b(getView().getHeight());
-      a.a(b);
+      if (a.h()) {
+        a.f();
+      }
     }
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    if (g == null) {
+    if (d == null) {
       throw new IllegalStateException("MapFragmentCallback not set");
     }
-    a.a(paramBundle, g.a());
-    a.setInfoWindowListener(g.i());
-    a.f();
-    g.c();
+    a.a(paramBundle, d.a());
+    a.setInfoWindowListener(d.i());
+    a.g();
+    d.c();
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903327, paramViewGroup, false);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903426, paramViewGroup, false);
     c(paramLayoutInflater);
     return paramLayoutInflater;
+  }
+  
+  public static abstract interface a<T>
+  {
+    public abstract e<T> a();
+    
+    public abstract void c();
+    
+    public abstract e.a<T> i();
   }
 }
 

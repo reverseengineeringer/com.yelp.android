@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "DeletableObject"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -35,7 +44,7 @@
 
     const/4 v3, 0x0
 
-    .line 8
+    .line 9
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
 
     const-string/jumbo v1, "PHOTO"
@@ -46,7 +55,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;->PHOTO:Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
 
-    .line 9
+    .line 10
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
 
     const-string/jumbo v1, "VIDEO"
@@ -57,7 +66,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;->VIDEO:Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
 
-    .line 7
+    .line 8
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
@@ -86,13 +95,13 @@
     .end annotation
 
     .prologue
-    .line 13
+    .line 14
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 14
+    .line 15
     iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;->mediaType:Ljava/lang/String;
 
-    .line 15
+    .line 16
     return-void
 .end method
 
@@ -100,7 +109,7 @@
     .locals 1
 
     .prologue
-    .line 7
+    .line 8
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;->mediaType:Ljava/lang/String;
 
     return-object v0
@@ -110,7 +119,7 @@
     .locals 1
 
     .prologue
-    .line 7
+    .line 8
     const-class v0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -126,7 +135,7 @@
     .locals 1
 
     .prologue
-    .line 7
+    .line 8
     sget-object v0, Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;->$VALUES:[Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/webrequests/BusinessObjectDeleteRequest$DeletableObject;->clone()Ljava/lang/Object;

@@ -25,7 +25,14 @@ class VideoDisplayComponent$OnCompletedListener$1
       this$1.this$0.nextVideo = null;
       this$1.this$0.currentSource = this$1.this$0.nextSource;
       this$1.this$0.nextSource = null;
-      VideoDisplayComponent.access$2500(this$1.this$0).once("didSetSource", new VideoDisplayComponent.OnCompletedListener.1.1(this));
+      VideoDisplayComponent.access$2500(this$1.this$0).once("didSetSource", new EventListener()
+      {
+        @Default
+        public void processEvent(Event paramAnonymousEvent)
+        {
+          VideoDisplayComponent.access$2400(this$1.this$0).emit("play");
+        }
+      });
       this$1.this$0.openVideo(this$1.this$0.currentVideo, this$1.this$0.currentSource);
     }
   }

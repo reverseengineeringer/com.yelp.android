@@ -7,29 +7,31 @@
 
 
 # instance fields
-.field protected mBusinessId:Ljava/lang/String;
+.field protected a:Ljava/util/Date;
 
-.field protected mCaption:Ljava/lang/String;
+.field protected b:Lcom/yelp/android/serializable/Passport;
 
-.field protected mCurrentUserLiked:Z
+.field protected c:Ljava/lang/String;
 
-.field protected mEmbedCode:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
-.field protected mFeedbackPositiveCount:I
+.field protected e:Ljava/lang/String;
 
-.field protected mId:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mIndex:I
+.field protected g:Ljava/lang/String;
 
-.field protected mPlayerCode:Ljava/lang/String;
+.field protected h:Ljava/lang/String;
 
-.field protected mThumbnailUrl:Ljava/lang/String;
+.field protected i:Ljava/lang/String;
 
-.field protected mTimeCreated:Ljava/util/Date;
+.field protected j:Ljava/lang/String;
 
-.field protected mUserPassport:Lcom/yelp/android/serializable/Passport;
+.field protected k:Z
 
-.field protected mVideoSource:Ljava/lang/String;
+.field protected l:I
+
+.field protected m:I
 
 
 # direct methods
@@ -37,197 +39,224 @@
     .locals 0
 
     .prologue
-    .line 47
+    .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Lcom/yelp/android/serializable/Passport;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZII)V
-    .locals 0
-
-    .prologue
-    .line 31
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_Video;-><init>()V
-
-    .line 32
-    iput-object p1, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
-
-    .line 33
-    iput-object p2, p0, Lcom/yelp/android/serializable/_Video;->mUserPassport:Lcom/yelp/android/serializable/Passport;
-
-    .line 34
-    iput-object p3, p0, Lcom/yelp/android/serializable/_Video;->mId:Ljava/lang/String;
-
-    .line 35
-    iput-object p4, p0, Lcom/yelp/android/serializable/_Video;->mPlayerCode:Ljava/lang/String;
-
-    .line 36
-    iput-object p5, p0, Lcom/yelp/android/serializable/_Video;->mEmbedCode:Ljava/lang/String;
-
-    .line 37
-    iput-object p6, p0, Lcom/yelp/android/serializable/_Video;->mThumbnailUrl:Ljava/lang/String;
-
-    .line 38
-    iput-object p7, p0, Lcom/yelp/android/serializable/_Video;->mVideoSource:Ljava/lang/String;
-
-    .line 39
-    iput-object p8, p0, Lcom/yelp/android/serializable/_Video;->mBusinessId:Ljava/lang/String;
-
-    .line 40
-    iput-object p9, p0, Lcom/yelp/android/serializable/_Video;->mCaption:Ljava/lang/String;
-
-    .line 41
-    iput-boolean p10, p0, Lcom/yelp/android/serializable/_Video;->mCurrentUserLiked:Z
-
-    .line 42
-    iput p11, p0, Lcom/yelp/android/serializable/_Video;->mFeedbackPositiveCount:I
-
-    .line 43
-    iput p12, p0, Lcom/yelp/android/serializable/_Video;->mIndex:I
-
-    .line 44
+    .line 64
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public a()Ljava/lang/String;
     .locals 1
-
-    .prologue
-    .line 89
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getBusinessId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mBusinessId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getCaption()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 75
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mCaption:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getCurrentUserLiked()Z
-    .locals 1
-
-    .prologue
-    .line 78
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/_Video;->mCurrentUserLiked:Z
-
-    return v0
-.end method
-
-.method public getEmbedCode()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 63
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mEmbedCode:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getFeedbackPositiveCount()I
-    .locals 1
-
-    .prologue
-    .line 81
-    iget v0, p0, Lcom/yelp/android/serializable/_Video;->mFeedbackPositiveCount:I
-
-    return v0
-.end method
-
-.method public getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getIndex()I
-    .locals 1
-
-    .prologue
-    .line 84
-    iget v0, p0, Lcom/yelp/android/serializable/_Video;->mIndex:I
-
-    return v0
-.end method
-
-.method public getPlayerCode()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 60
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mPlayerCode:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getThumbnailUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mThumbnailUrl:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTimeCreated()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getUserPassport()Lcom/yelp/android/serializable/Passport;
-    .locals 1
-
-    .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mUserPassport:Lcom/yelp/android/serializable/Passport;
-
-    return-object v0
-.end method
-
-.method public getVideoSource()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mVideoSource:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 2
 
     .prologue
     .line 127
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public a(Landroid/os/Parcel;)V
+    .locals 4
+
+    .prologue
+    .line 191
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    .line 192
+    const-wide/32 v2, -0x80000000
+
+    cmp-long v2, v0, v2
+
+    if-eqz v2, :cond_0
+
+    .line 193
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
+
+    .line 195
+    :cond_0
+    const-class v0, Lcom/yelp/android/serializable/Passport;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Passport;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
+
+    .line 196
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
+
+    .line 197
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
+
+    .line 198
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
+
+    .line 199
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
+
+    .line 200
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
+
+    .line 201
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
+
+    .line 202
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
+
+    .line 203
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    .line 204
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+
+    move-result-object v0
+
+    .line 205
+    const/4 v1, 0x0
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Video;->k:Z
+
+    .line 206
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_Video;->l:I
+
+    .line 207
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_Video;->m:I
+
+    .line 208
+    return-void
+.end method
+
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 211
     const-string/jumbo v0, "time_created"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -236,16 +265,16 @@
 
     if-nez v0, :cond_0
 
-    .line 128
+    .line 212
     const-string/jumbo v0, "time_created"
 
     invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
 
-    .line 130
+    .line 214
     :cond_0
     const-string/jumbo v0, "user_passport"
 
@@ -255,7 +284,7 @@
 
     if-nez v0, :cond_1
 
-    .line 131
+    .line 215
     sget-object v0, Lcom/yelp/android/serializable/Passport;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     const-string/jumbo v1, "user_passport"
@@ -270,9 +299,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Passport;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mUserPassport:Lcom/yelp/android/serializable/Passport;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
 
-    .line 133
+    .line 217
     :cond_1
     const-string/jumbo v0, "id"
 
@@ -282,16 +311,16 @@
 
     if-nez v0, :cond_2
 
-    .line 134
+    .line 218
     const-string/jumbo v0, "id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
 
-    .line 136
+    .line 220
     :cond_2
     const-string/jumbo v0, "player_code"
 
@@ -301,16 +330,16 @@
 
     if-nez v0, :cond_3
 
-    .line 137
+    .line 221
     const-string/jumbo v0, "player_code"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mPlayerCode:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
 
-    .line 139
+    .line 223
     :cond_3
     const-string/jumbo v0, "embed_code"
 
@@ -320,16 +349,16 @@
 
     if-nez v0, :cond_4
 
-    .line 140
+    .line 224
     const-string/jumbo v0, "embed_code"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mEmbedCode:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
 
-    .line 142
+    .line 226
     :cond_4
     const-string/jumbo v0, "thumbnail_url"
 
@@ -339,16 +368,16 @@
 
     if-nez v0, :cond_5
 
-    .line 143
+    .line 227
     const-string/jumbo v0, "thumbnail_url"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mThumbnailUrl:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
 
-    .line 145
+    .line 229
     :cond_5
     const-string/jumbo v0, "video_source"
 
@@ -358,16 +387,16 @@
 
     if-nez v0, :cond_6
 
-    .line 146
+    .line 230
     const-string/jumbo v0, "video_source"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mVideoSource:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
 
-    .line 148
+    .line 232
     :cond_6
     const-string/jumbo v0, "business_id"
 
@@ -377,16 +406,16 @@
 
     if-nez v0, :cond_7
 
-    .line 149
+    .line 233
     const-string/jumbo v0, "business_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mBusinessId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
 
-    .line 151
+    .line 235
     :cond_7
     const-string/jumbo v0, "caption"
 
@@ -396,183 +425,427 @@
 
     if-nez v0, :cond_8
 
-    .line 152
+    .line 236
     const-string/jumbo v0, "caption"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mCaption:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
 
-    .line 154
+    .line 238
     :cond_8
+    const-string/jumbo v0, "share_url"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    .line 239
+    const-string/jumbo v0, "share_url"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    .line 241
+    :cond_9
     const-string/jumbo v0, "current_user_liked"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Video;->mCurrentUserLiked:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Video;->k:Z
 
-    .line 155
+    .line 242
     const-string/jumbo v0, "feedback_positive_count"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_Video;->mFeedbackPositiveCount:I
+    iput v0, p0, Lcom/yelp/android/serializable/_Video;->l:I
 
-    .line 156
+    .line 243
     const-string/jumbo v0, "index"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_Video;->mIndex:I
+    iput v0, p0, Lcom/yelp/android/serializable/_Video;->m:I
 
-    .line 157
+    .line 244
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 4
+.method public d()I
+    .locals 1
 
     .prologue
-    .line 108
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+    .line 163
+    iget v0, p0, Lcom/yelp/android/serializable/_Video;->l:I
 
-    move-result-wide v0
+    return v0
+.end method
 
-    .line 109
-    const-wide/32 v2, -0x80000000
+.method public describeContents()I
+    .locals 1
 
-    cmp-long v2, v0, v2
+    .prologue
+    .line 171
+    const/4 v0, 0x0
 
-    if-eqz v2, :cond_0
+    return v0
+.end method
 
-    .line 110
-    new-instance v2, Ljava/util/Date;
+.method public e()I
+    .locals 1
 
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+    .prologue
+    .line 167
+    iget v0, p0, Lcom/yelp/android/serializable/_Video;->m:I
 
-    iput-object v2, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
+    return v0
+.end method
 
-    .line 112
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 68
+    if-nez p1, :cond_1
+
+    .line 82
     :cond_0
-    const-class v0, Lcom/yelp/android/serializable/Passport;
+    :goto_0
+    return v0
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    .line 72
+    :cond_1
+    if-ne p1, p0, :cond_2
 
-    move-result-object v0
+    .line 73
+    const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    goto :goto_0
 
-    move-result-object v0
+    .line 76
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    check-cast v0, Lcom/yelp/android/serializable/Passport;
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mUserPassport:Lcom/yelp/android/serializable/Passport;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    .line 113
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v0
+    if-ne v1, v2, :cond_0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mId:Ljava/lang/String;
+    .line 80
+    check-cast p1, Lcom/yelp/android/serializable/_Video;
 
-    .line 114
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 82
+    new-instance v0, Lcom/yelp/android/dc/b;
 
-    move-result-object v0
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mPlayerCode:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
 
-    .line 115
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mEmbedCode:Ljava/lang/String;
-
-    .line 116
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mThumbnailUrl:Ljava/lang/String;
-
-    .line 117
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mVideoSource:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
 
-    .line 118
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mBusinessId:Ljava/lang/String;
-
-    .line 119
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Video;->mCaption:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
 
-    .line 120
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    .line 121
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
 
-    aget-boolean v0, v0, v1
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Video;->mCurrentUserLiked:Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    .line 122
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Video;->k:Z
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/_Video;->k:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(ZZ)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_Video;->l:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_Video;->l:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_Video;->m:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_Video;->m:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_Video;->mFeedbackPositiveCount:I
-
-    .line 123
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_Video;->mIndex:I
-
-    .line 124
-    return-void
+    goto/16 :goto_0
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
-    .locals 6
+.method public f()Ljava/lang/String;
+    .locals 1
 
     .prologue
-    .line 160
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public g()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 151
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public h()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 119
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 101
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Video;->k:Z
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Z)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_Video;->l:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_Video;->m:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()Lcom/yelp/android/serializable/Passport;
+    .locals 1
+
+    .prologue
+    .line 123
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
+
+    return-object v0
+.end method
+
+.method public k()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 147
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public l()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 155
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public n()Lorg/json/JSONObject;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 247
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    .line 161
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
+    .line 248
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
 
     if-eqz v1, :cond_0
 
-    .line 162
+    .line 249
     const-string/jumbo v1, "time_created"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
 
     invoke-virtual {v2}, Ljava/util/Date;->getTime()J
 
@@ -584,137 +857,190 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    .line 164
+    .line 251
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mUserPassport:Lcom/yelp/android/serializable/Passport;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
 
     if-eqz v1, :cond_1
 
-    .line 165
+    .line 252
     const-string/jumbo v1, "user_passport"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mUserPassport:Lcom/yelp/android/serializable/Passport;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Passport;->writeJSON()Lorg/json/JSONObject;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Passport;->k()Lorg/json/JSONObject;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 167
+    .line 254
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
 
     if-eqz v1, :cond_2
 
-    .line 168
+    .line 255
     const-string/jumbo v1, "id"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mId:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 170
+    .line 257
     :cond_2
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mPlayerCode:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
 
     if-eqz v1, :cond_3
 
-    .line 171
+    .line 258
     const-string/jumbo v1, "player_code"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mPlayerCode:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 173
+    .line 260
     :cond_3
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mEmbedCode:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
 
     if-eqz v1, :cond_4
 
-    .line 174
+    .line 261
     const-string/jumbo v1, "embed_code"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mEmbedCode:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 176
+    .line 263
     :cond_4
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mThumbnailUrl:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
 
     if-eqz v1, :cond_5
 
-    .line 177
+    .line 264
     const-string/jumbo v1, "thumbnail_url"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mThumbnailUrl:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 179
+    .line 266
     :cond_5
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mVideoSource:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
 
     if-eqz v1, :cond_6
 
-    .line 180
+    .line 267
     const-string/jumbo v1, "video_source"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mVideoSource:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 182
+    .line 269
     :cond_6
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mBusinessId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
 
     if-eqz v1, :cond_7
 
-    .line 183
+    .line 270
     const-string/jumbo v1, "business_id"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mBusinessId:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 185
+    .line 272
     :cond_7
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->mCaption:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
 
     if-eqz v1, :cond_8
 
-    .line 186
+    .line 273
     const-string/jumbo v1, "caption"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->mCaption:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 188
+    .line 275
     :cond_8
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    if-eqz v1, :cond_9
+
+    .line 276
+    const-string/jumbo v1, "share_url"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 278
+    :cond_9
     const-string/jumbo v1, "current_user_liked"
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Video;->mCurrentUserLiked:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Video;->k:Z
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 189
+    .line 279
     const-string/jumbo v1, "feedback_positive_count"
 
-    iget v2, p0, Lcom/yelp/android/serializable/_Video;->mFeedbackPositiveCount:I
+    iget v2, p0, Lcom/yelp/android/serializable/_Video;->l:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 190
+    .line 280
     const-string/jumbo v1, "index"
 
-    iget v2, p0, Lcom/yelp/android/serializable/_Video;->mIndex:I
+    iget v2, p0, Lcom/yelp/android/serializable/_Video;->m:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 191
+    .line 281
+    return-object v0
+.end method
+
+.method public o()Z
+    .locals 1
+
+    .prologue
+    .line 159
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/_Video;->k:Z
+
+    return v0
+.end method
+
+.method public p()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 143
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public q()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 135
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public r()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 131
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
+
     return-object v0
 .end method
 
@@ -724,8 +1050,8 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
+    .line 175
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -734,73 +1060,78 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mUserPassport:Lcom/yelp/android/serializable/Passport;
+    .line 176
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->b:Lcom/yelp/android/serializable/Passport;
 
     invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mId:Ljava/lang/String;
+    .line 177
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 96
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mPlayerCode:Ljava/lang/String;
+    .line 178
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 97
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mEmbedCode:Ljava/lang/String;
+    .line 179
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mThumbnailUrl:Ljava/lang/String;
+    .line 180
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 99
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mVideoSource:Ljava/lang/String;
+    .line 181
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->g:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 100
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mBusinessId:Ljava/lang/String;
+    .line 182
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->h:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 101
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mCaption:Ljava/lang/String;
+    .line 183
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->i:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 102
+    .line 184
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->j:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
+
+    .line 185
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
-    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Video;->mCurrentUserLiked:Z
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Video;->k:Z
 
     aput-boolean v1, v0, v2
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 103
-    iget v0, p0, Lcom/yelp/android/serializable/_Video;->mFeedbackPositiveCount:I
+    .line 186
+    iget v0, p0, Lcom/yelp/android/serializable/_Video;->l:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 104
-    iget v0, p0, Lcom/yelp/android/serializable/_Video;->mIndex:I
+    .line 187
+    iget v0, p0, Lcom/yelp/android/serializable/_Video;->m:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 105
+    .line 188
     return-void
 
-    .line 93
+    .line 175
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->mTimeCreated:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Video;->a:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

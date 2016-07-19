@@ -1,55 +1,35 @@
 package com.yelp.android.ui.util;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Handler;
-import android.widget.ImageView;
-import com.yelp.android.util.YelpLog;
-import java.lang.ref.SoftReference;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnPreDrawListener;
 
-class at
-  implements Runnable
+public class at
 {
-  at(as paramas) {}
-  
-  public void run()
+  public static <T extends View> void a(T paramT, final a<T> parama)
   {
-    ImageView localImageView = (ImageView)as.a(a).get();
-    if ((!as.b(a)) || (localImageView == null))
+    paramT.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener()
     {
-      as.a(a, false);
-      return;
-    }
-    if (localImageView.isShown())
-    {
-      int i = as.c(a);
-      if (as.d(a) != null) {}
-      for (;;)
+      public boolean onPreDraw()
       {
         try
         {
-          Bitmap localBitmap = BitmapFactory.decodeResource(localImageView.getResources(), i, as.e(a));
-          if (localBitmap != null)
-          {
-            localImageView.setImageBitmap(localBitmap);
-            as.h(a).postDelayed(this, as.g(a));
-            return;
-          }
+          int i = a.getWidth();
+          int j = a.getHeight();
+          parama.a(a, i, j);
+          return true;
         }
-        catch (Exception localException)
+        finally
         {
-          YelpLog.e(as.f(a), "Exception creating bitmap for animation", localException);
-          Object localObject = null;
-          continue;
-          localImageView.setImageResource(i);
-          as.d(a).recycle();
-          as.a(a, null);
-          continue;
+          a.getViewTreeObserver().removeOnPreDrawListener(this);
         }
-        localImageView.setImageResource(i);
       }
-    }
-    as.a(a, false);
+    });
+  }
+  
+  public static abstract interface a<T extends View>
+  {
+    public abstract void a(T paramT, int paramInt1, int paramInt2);
   }
 }
 

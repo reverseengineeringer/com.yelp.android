@@ -1,115 +1,113 @@
 package com.yelp.android.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import org.apache.http.NameValuePair;
-import org.apache.http.entity.AbstractHttpEntity;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.widget.Checkable;
+import com.yelp.android.appdata.webrequests.ShareRequest.ShareType;
+import com.yelp.android.serializable.User;
+import com.yelp.android.ui.activities.ActivityRetryCheckInShare;
+import com.yelp.android.ui.activities.ActivityRetryShare;
+import java.util.ArrayList;
+import java.util.List;
 
 public class p
-  extends AbstractHttpEntity
 {
-  private final Collection<? extends NameValuePair> a;
-  private final Collection<q> b;
-  private final n c;
-  
-  public p(Collection<? extends NameValuePair> paramCollection, Collection<q> paramCollection1, n paramn)
+  public static Intent a(Context paramContext, User paramUser, List<ShareRequest.ShareType> paramList, Class<? extends ActivityRetryShare> paramClass)
   {
-    Object localObject = paramCollection;
-    if (paramCollection == null) {
-      localObject = Collections.emptySet();
+    ArrayList localArrayList1 = new ArrayList(paramList);
+    ArrayList localArrayList2 = new ArrayList(3);
+    if ((!paramUser.o()) && (paramList.contains(ShareRequest.ShareType.FACEBOOK)))
+    {
+      localArrayList2.add(ShareRequest.ShareType.FACEBOOK);
+      localArrayList1.remove(ShareRequest.ShareType.FACEBOOK);
     }
-    a = ((Collection)localObject);
-    paramCollection = paramCollection1;
-    if (paramCollection1 == null) {
-      paramCollection = Collections.emptySet();
+    while (!localArrayList2.isEmpty())
+    {
+      paramUser = ActivityRetryShare.a(paramContext, localArrayList2, localArrayList1);
+      paramUser.setClass(paramContext, paramClass);
+      return paramUser;
+      if ((!paramUser.p()) && (paramList.contains(ShareRequest.ShareType.TWITTER)))
+      {
+        localArrayList2.add(ShareRequest.ShareType.TWITTER);
+        localArrayList1.remove(ShareRequest.ShareType.TWITTER);
+      }
     }
-    b = paramCollection;
-    c = paramn;
-    super.setContentType("multipart/form-data; boundary=" + new String(m.b));
-    super.setChunked(false);
+    return null;
   }
   
-  public InputStream getContent()
+  public static List<ShareRequest.ShareType> a(Checkable paramCheckable1, Checkable paramCheckable2, Checkable paramCheckable3)
   {
-    ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream();
-    writeTo(localByteArrayOutputStream);
-    return new ByteArrayInputStream(localByteArrayOutputStream.toByteArray());
+    ArrayList localArrayList = new ArrayList(3);
+    if ((paramCheckable1 != null) && (paramCheckable1.isChecked())) {
+      localArrayList.add(ShareRequest.ShareType.YELP);
+    }
+    if ((paramCheckable2 != null) && (paramCheckable2.isChecked())) {
+      localArrayList.add(ShareRequest.ShareType.FACEBOOK);
+    }
+    if ((paramCheckable3 != null) && (paramCheckable3.isChecked())) {
+      localArrayList.add(ShareRequest.ShareType.TWITTER);
+    }
+    return localArrayList;
   }
   
-  public long getContentLength()
+  public static void a(Activity paramActivity, ShareRequest.ShareType paramShareType, boolean paramBoolean)
   {
-    Iterator localIterator = a.iterator();
-    long l = 0L;
+    paramActivity.getPreferences(0).edit().putBoolean(paramShareType.name(), paramBoolean).commit();
+  }
+  
+  public static void a(Activity paramActivity, User paramUser, boolean paramBoolean, Checkable paramCheckable1, Checkable paramCheckable2, Checkable paramCheckable3)
+  {
+    boolean bool3 = true;
+    paramActivity = paramActivity.getPreferences(0);
+    boolean bool2;
+    boolean bool1;
+    if (paramUser != null)
+    {
+      bool2 = paramUser.o();
+      bool1 = paramUser.p();
+    }
     for (;;)
     {
-      if (localIterator.hasNext())
+      if (paramCheckable1 != null) {
+        paramCheckable1.setChecked(paramActivity.getBoolean(ShareRequest.ShareType.YELP.name(), true));
+      }
+      if (paramCheckable2 != null)
       {
-        NameValuePair localNameValuePair = (NameValuePair)localIterator.next();
-        l += m.a(localNameValuePair.getName().length(), null, m.h);
-        try
+        if ((bool2) && (paramActivity.getBoolean(ShareRequest.ShareType.FACEBOOK.name(), paramBoolean)))
         {
-          int i = localNameValuePair.getValue().getBytes("UTF-8").length;
-          l = i + l;
-        }
-        catch (UnsupportedEncodingException localUnsupportedEncodingException)
-        {
-          for (;;) {}
+          bool2 = true;
+          paramCheckable2.setChecked(bool2);
         }
       }
-    }
-    localIterator = b.iterator();
-    while (localIterator.hasNext())
-    {
-      q localq = (q)localIterator.next();
-      l = l + m.a(a.length, b, c) + e;
-    }
-    return m.a() + l;
-  }
-  
-  public boolean isChunked()
-  {
-    return false;
-  }
-  
-  public boolean isRepeatable()
-  {
-    return false;
-  }
-  
-  public boolean isStreaming()
-  {
-    return false;
-  }
-  
-  public void writeTo(OutputStream paramOutputStream)
-  {
-    Iterator localIterator;
-    Object localObject;
-    if (a != null)
-    {
-      localIterator = a.iterator();
-      while (localIterator.hasNext())
-      {
-        localObject = (NameValuePair)localIterator.next();
-        m.a(paramOutputStream, new ByteArrayInputStream(((NameValuePair)localObject).getValue().getBytes("UTF-8")), ((NameValuePair)localObject).getName().getBytes("UTF-8"), null, m.h, null);
+      else if (paramCheckable3 != null) {
+        if ((!bool1) || (!paramActivity.getBoolean(ShareRequest.ShareType.TWITTER.name(), paramBoolean))) {
+          break label130;
+        }
       }
-    }
-    if (b != null)
-    {
-      localIterator = b.iterator();
-      while (localIterator.hasNext())
+      label130:
+      for (paramBoolean = bool3;; paramBoolean = false)
       {
-        localObject = (q)localIterator.next();
-        m.a(paramOutputStream, d, a, b, c, c);
+        paramCheckable3.setChecked(paramBoolean);
+        return;
+        bool2 = false;
+        break;
       }
+      bool1 = false;
+      bool2 = false;
     }
-    m.a(paramOutputStream);
+  }
+  
+  public static boolean a(Activity paramActivity, User paramUser, List<ShareRequest.ShareType> paramList)
+  {
+    paramUser = a(paramActivity, paramUser, paramList, ActivityRetryCheckInShare.class);
+    if (paramUser == null) {
+      return false;
+    }
+    paramActivity.startActivityForResult(paramUser, 1005);
+    return true;
   }
 }
 

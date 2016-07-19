@@ -3,6 +3,17 @@
 .source "Playlist.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/model/Playlist;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "Fields"
+.end annotation
+
+
 # static fields
 .field public static final NAME:Ljava/lang/String; = "name"
 

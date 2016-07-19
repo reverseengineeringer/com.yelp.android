@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/support/WebViewActivity;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Feature"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -19,8 +28,6 @@
 
 .field public static final enum EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-.field public static final enum FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
 .field public static final enum FULL_SCREEN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
 .field public static final enum LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
@@ -28,18 +35,16 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 5
 
     .prologue
-    const/4 v5, 0x3
-
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
-    .line 108
+    .line 92
     new-instance v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
     const-string/jumbo v1, "LOGIN"
@@ -48,7 +53,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-    .line 113
+    .line 97
     new-instance v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
     const-string/jumbo v1, "EVENTS"
@@ -57,26 +62,17 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-    .line 119
-    new-instance v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    const-string/jumbo v1, "FINISH_ON_BACK"
-
-    invoke-direct {v0, v1, v4}, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;-><init>(Ljava/lang/String;I)V
-
-    sput-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    .line 123
+    .line 101
     new-instance v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
     const-string/jumbo v1, "FULL_SCREEN"
 
-    invoke-direct {v0, v1, v5}, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v4}, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FULL_SCREEN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-    .line 102
-    const/4 v0, 0x4
+    .line 86
+    const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
@@ -88,13 +84,9 @@
 
     aput-object v1, v0, v3
 
-    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    aput-object v1, v0, v4
-
     sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FULL_SCREEN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v4
 
     sput-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->$VALUES:[Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
@@ -110,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 102
+    .line 86
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -120,7 +112,7 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 86
     const-class v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -136,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 86
     sget-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->$VALUES:[Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
     invoke-virtual {v0}, [Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->clone()Ljava/lang/Object;

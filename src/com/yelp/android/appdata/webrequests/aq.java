@@ -1,14 +1,35 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import android.location.Location;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.LocationService;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class aq
-  extends h
+  extends b<String, Void, Void>
 {
-  public aq(i parami)
+  public aq(Location paramLocation, String paramString, ApiRequest.b<Void> paramb)
   {
-    super("account/facebook/clear", parami);
+    super(ApiRequest.RequestType.POST, "client/register", paramb);
+    paramb = paramLocation;
+    if (paramLocation == null) {
+      paramb = AppData.b().r().c();
+    }
+    if (paramb != null)
+    {
+      b("longitude", paramb.getLongitude());
+      b("latitude", paramb.getLatitude());
+      b("accuracy", paramb.getAccuracy());
+    }
+    b("gcm_registration_id", paramString);
+  }
+  
+  public Void a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return null;
   }
 }
 

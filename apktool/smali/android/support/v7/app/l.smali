@@ -1,152 +1,296 @@
-.class Landroid/support/v7/app/l;
-.super Landroid/widget/FrameLayout;
-.source "ActionBarActivityDelegateBase.java"
+.class public Landroid/support/v7/app/l;
+.super Landroid/app/Dialog;
+.source "AppCompatDialog.java"
+
+# interfaces
+.implements Landroid/support/v7/app/e;
 
 
 # instance fields
-.field final synthetic a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+.field private a:Landroid/support/v7/app/f;
 
 
 # direct methods
-.method public constructor <init>(Landroid/support/v7/app/ActionBarActivityDelegateBase;Landroid/content/Context;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;I)V
+    .locals 2
 
     .prologue
-    .line 1755
-    iput-object p1, p0, Landroid/support/v7/app/l;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+    .line 42
+    invoke-static {p1, p2}, Landroid/support/v7/app/l;->a(Landroid/content/Context;I)I
 
-    .line 1756
-    invoke-direct {p0, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    move-result v0
 
-    .line 1757
+    invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
+
+    .line 48
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/support/v7/app/f;->a(Landroid/os/Bundle;)V
+
+    .line 49
     return-void
 .end method
 
-.method private a(II)Z
-    .locals 1
+.method private static a(Landroid/content/Context;I)I
+    .locals 4
 
     .prologue
-    const/4 v0, -0x5
+    .line 148
+    if-nez p1, :cond_0
 
-    .line 1784
-    if-lt p1, v0, :cond_0
+    .line 150
+    new-instance v0, Landroid/util/TypedValue;
 
-    if-lt p2, v0, :cond_0
+    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    invoke-virtual {p0}, Landroid/support/v7/app/l;->getWidth()I
+    .line 151
+    invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result v0
+    move-result-object v1
 
-    add-int/lit8 v0, v0, 0x5
+    sget v2, Lcom/yelp/android/j/a$a;->dialogTheme:I
 
-    if-gt p1, v0, :cond_0
+    const/4 v3, 0x1
 
-    invoke-virtual {p0}, Landroid/support/v7/app/l;->getHeight()I
+    invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    move-result v0
+    .line 152
+    iget p1, v0, Landroid/util/TypedValue;->resourceId:I
 
-    add-int/lit8 v0, v0, 0x5
-
-    if-le p2, v0, :cond_1
-
+    .line 154
     :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return p1
 .end method
 
 
 # virtual methods
-.method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+.method public a()Landroid/support/v7/app/f;
     .locals 1
 
     .prologue
-    .line 1761
-    iget-object v0, p0, Landroid/support/v7/app/l;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+    .line 141
+    iget-object v0, p0, Landroid/support/v7/app/l;->a:Landroid/support/v7/app/f;
 
-    invoke-virtual {v0, p1}, Landroid/support/v7/app/ActionBarActivityDelegateBase;->a(Landroid/view/KeyEvent;)Z
+    if-nez v0, :cond_0
+
+    .line 142
+    invoke-static {p0, p0}, Landroid/support/v7/app/f;->a(Landroid/app/Dialog;Landroid/support/v7/app/e;)Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroid/support/v7/app/l;->a:Landroid/support/v7/app/f;
+
+    .line 144
+    :cond_0
+    iget-object v0, p0, Landroid/support/v7/app/l;->a:Landroid/support/v7/app/f;
+
+    return-object v0
+.end method
+
+.method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    .locals 1
+
+    .prologue
+    .line 103
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Landroid/support/v7/app/f;->b(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 104
+    return-void
+.end method
+
+.method public b(I)Z
+    .locals 1
+
+    .prologue
+    .line 127
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/support/v7/app/f;->b(I)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public invalidateOptionsMenu()V
+    .locals 1
+
+    .prologue
+    .line 134
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v7/app/f;->e()V
+
+    .line 135
+    return-void
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 1
+
+    .prologue
+    .line 58
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v7/app/f;->h()V
+
+    .line 59
+    invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
+
+    .line 60
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/support/v7/app/f;->a(Landroid/os/Bundle;)V
+
+    .line 61
+    return-void
+.end method
+
+.method protected onStop()V
+    .locals 1
+
+    .prologue
+    .line 108
+    invoke-super {p0}, Landroid/app/Dialog;->onStop()V
+
+    .line 109
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v7/app/f;->c()V
+
+    .line 110
+    return-void
+.end method
+
+.method public onSupportActionModeFinished(Lcom/yelp/android/r/a;)V
+    .locals 0
+
+    .prologue
+    .line 163
+    return-void
+.end method
+
+.method public onSupportActionModeStarted(Lcom/yelp/android/r/a;)V
+    .locals 0
+
+    .prologue
+    .line 159
+    return-void
+.end method
+
+.method public onWindowStartingSupportActionMode(Lcom/yelp/android/r/a$a;)Lcom/yelp/android/r/a;
+    .locals 1
+
+    .prologue
+    .line 168
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public setContentView(I)V
+    .locals 1
+
+    .prologue
+    .line 76
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/support/v7/app/f;->a(I)V
+
+    .line 77
+    return-void
+.end method
+
+.method public setContentView(Landroid/view/View;)V
+    .locals 1
+
+    .prologue
+    .line 81
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/support/v7/app/f;->a(Landroid/view/View;)V
+
+    .line 82
+    return-void
+.end method
+
+.method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    .locals 1
+
+    .prologue
+    .line 86
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Landroid/support/v7/app/f;->a(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 87
+    return-void
+.end method
+
+.method public setTitle(I)V
     .locals 2
 
     .prologue
-    .line 1766
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+    .line 97
+    invoke-super {p0, p1}, Landroid/app/Dialog;->setTitle(I)V
 
-    move-result v0
+    .line 98
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
 
-    .line 1767
-    if-nez v0, :cond_0
+    move-result-object v0
 
-    .line 1768
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->getContext()Landroid/content/Context;
 
-    move-result v0
+    move-result-object v1
 
-    float-to-int v0, v0
+    invoke-virtual {v1, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    .line 1769
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+    move-result-object v1
 
-    move-result v1
+    invoke-virtual {v0, v1}, Landroid/support/v7/app/f;->a(Ljava/lang/CharSequence;)V
 
-    float-to-int v1, v1
-
-    .line 1770
-    invoke-direct {p0, v0, v1}, Landroid/support/v7/app/l;->a(II)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 1771
-    iget-object v0, p0, Landroid/support/v7/app/l;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/support/v7/app/ActionBarActivityDelegateBase;->d(Landroid/support/v7/app/ActionBarActivityDelegateBase;I)V
-
-    .line 1772
-    const/4 v0, 0x1
-
-    .line 1775
-    :goto_0
-    return v0
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    goto :goto_0
+    .line 99
+    return-void
 .end method
 
-.method public setBackgroundResource(I)V
+.method public setTitle(Ljava/lang/CharSequence;)V
     .locals 1
 
     .prologue
-    .line 1780
-    invoke-virtual {p0}, Landroid/support/v7/app/l;->getContext()Landroid/content/Context;
+    .line 91
+    invoke-super {p0, p1}, Landroid/app/Dialog;->setTitle(Ljava/lang/CharSequence;)V
+
+    .line 92
+    invoke-virtual {p0}, Landroid/support/v7/app/l;->a()Landroid/support/v7/app/f;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Landroid/support/v7/internal/widget/bd;->a(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, p1}, Landroid/support/v7/app/f;->a(Ljava/lang/CharSequence;)V
 
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroid/support/v7/app/l;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 1781
+    .line 93
     return-void
 .end method

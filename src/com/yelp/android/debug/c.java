@@ -1,52 +1,29 @@
 package com.yelp.android.debug;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.m;
+import java.io.InputStream;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.BasicHttpEntity;
+import org.apache.http.message.BasicHttpResponse;
+import org.apache.http.message.BasicStatusLine;
 
-class c<Request extends ApiRequest<?, ?, Result>, Result>
+public abstract class c
 {
-  private Request b;
-  private String c;
-  private TextView d;
-  private final m<Result> e = new d(this);
+  private AtomicInteger a;
+  private int b;
   
-  public c(Context paramContext, Request paramRequest)
-  {
-    this(paramContext, paramRequest, localApiRequest.getClass().getSimpleName() + "_" + FreezerDebugActivity.b(paramContext));
-    FreezerDebugActivity.a(paramContext, 1);
-    localApiRequest.setCallback(e);
-    b = localApiRequest;
-  }
+  protected abstract InputStream a();
   
-  public c(FreezerDebugActivity paramFreezerDebugActivity, Context paramContext, String paramString)
+  public HttpResponse a(HttpUriRequest paramHttpUriRequest)
   {
-    c = paramString;
-    d = new TextView(paramContext);
-    d.setText(c + " is running");
-    FreezerDebugActivity.c(paramFreezerDebugActivity).addView(d);
-  }
-  
-  public String a()
-  {
-    return c;
-  }
-  
-  public void a(FreezerDebugActivity paramFreezerDebugActivity)
-  {
-    paramFreezerDebugActivity.freezeRequest(c, b);
-  }
-  
-  public void b(FreezerDebugActivity paramFreezerDebugActivity)
-  {
-    b = paramFreezerDebugActivity.thawRequest(c, b, e);
-  }
-  
-  public boolean b()
-  {
-    return (b == null) || (b.isCompleted());
+    a.incrementAndGet();
+    paramHttpUriRequest = new BasicHttpResponse(new BasicStatusLine(HttpVersion.HTTP_1_1, b, null));
+    BasicHttpEntity localBasicHttpEntity = new BasicHttpEntity();
+    localBasicHttpEntity.setContent(a());
+    paramHttpUriRequest.setEntity(localBasicHttpEntity);
+    return paramHttpUriRequest;
   }
 }
 

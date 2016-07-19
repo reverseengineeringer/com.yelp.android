@@ -12,31 +12,31 @@ import android.widget.ListView;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.TalkTopic;
 import com.yelp.android.ui.activities.ActivityLogin;
 import com.yelp.android.ui.activities.settings.ChangeSettings;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.dialogs.AlertDialogFragment;
-import com.yelp.android.ui.p;
+import com.yelp.android.ui.k;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class TalkTopicList<ResponseType>
   extends YelpListFragment
-  implements p
+  implements k
 {
   private ArrayList<TalkTopic> a = new ArrayList();
   protected ApiRequest<Void, Void, ResponseType> b;
-  protected w c;
+  protected d c;
   protected AlertDialogFragment d;
   private boolean e;
   
-  private void g()
+  private void h()
   {
-    String[] arrayOfString = getResources().getStringArray(2131230739);
-    startActivityForResult(ActivityTalkPost.a(getActivity(), arrayOfString), 1051);
+    String[] arrayOfString = getResources().getStringArray(2131558419);
+    startActivityForResult(ActivityTalkPost.a(getActivity(), arrayOfString), 1060);
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
@@ -56,9 +56,9 @@ public abstract class TalkTopicList<ResponseType>
   
   protected void a(List<TalkTopic> paramList)
   {
-    j();
+    l();
     if ((c.getCount() == 0) && (paramList.size() == 0)) {
-      a(true);
+      b(true);
     }
     for (;;)
     {
@@ -67,43 +67,36 @@ public abstract class TalkTopicList<ResponseType>
       b(c.getCount());
       c.notifyDataSetChanged();
       return;
-      if (r() == null) {
+      if (q() == null) {
         a(c);
       }
     }
   }
   
-  public void a_()
-  {
-    c.clear();
-    a(null);
-    super.a_();
-  }
-  
   protected void b()
   {
-    if ((b == null) || (b.is(AsyncTask.Status.FINISHED)))
+    if ((b == null) || (b.a(AsyncTask.Status.FINISHED)))
     {
-      boolean bool = e();
+      boolean bool = f();
       if ((c != null) && (c.getCount() == 0) && (bool)) {
         a(b);
       }
     }
   }
   
-  protected abstract boolean e();
+  protected abstract boolean f();
   
-  protected abstract m<ResponseType> f();
+  protected abstract ApiRequest.b<ResponseType> g();
   
-  public ViewIri h()
+  public ViewIri i()
   {
     return ViewIri.TalkListTopics;
   }
   
-  protected void i()
+  protected void j()
   {
     if (d == null) {
-      d = AlertDialogFragment.a(null, getString(2131166931));
+      d = AlertDialogFragment.a(null, getString(2131166883));
     }
     d.show(getChildFragmentManager(), null);
   }
@@ -117,19 +110,19 @@ public abstract class TalkTopicList<ResponseType>
     do
     {
       return;
-      if (paramInt1 == 1051)
+      if (paramInt1 == 1060)
       {
         a((TalkTopic)paramIntent.getParcelableExtra("talk_topic"));
         if (isResumed())
         {
-          i();
+          j();
           return;
         }
         e = true;
         return;
       }
-    } while ((paramInt1 != 1043) || (!AppData.b().m().c()) || (!AppData.b().m().e()));
-    g();
+    } while ((paramInt1 != 1048) || (!AppData.b().q().b()) || (!AppData.b().q().d()));
+    h();
   }
   
   public void onCreate(Bundle paramBundle)
@@ -138,7 +131,7 @@ public abstract class TalkTopicList<ResponseType>
     if (paramBundle != null) {
       a = paramBundle.getParcelableArrayList("talk_topics");
     }
-    c = new w();
+    c = new d();
     c.a(a);
     setHasOptionsMenu(true);
   }
@@ -146,7 +139,7 @@ public abstract class TalkTopicList<ResponseType>
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-    paramMenuInflater.inflate(2131755041, paramMenu);
+    paramMenuInflater.inflate(2131755046, paramMenu);
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -155,19 +148,19 @@ public abstract class TalkTopicList<ResponseType>
     {
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
-    case 2131494165: 
-      startActivityForResult(ChangeSettings.a(getActivity(), 2130903400, getString(2131493990)), 1052);
+    case 2131691040: 
+      startActivityForResult(ChangeSettings.a(getActivity(), 2130903509, getString(2131166551)), 1061);
       return true;
-    case 2131494150: 
-      a_();
+    case 2131691023: 
+      p_();
       return true;
     }
-    if (!AppData.b().m().e())
+    if (!AppData.b().q().d())
     {
-      startActivityForResult(ActivityLogin.a(getActivity(), 2131166673), 1043);
+      startActivityForResult(ActivityLogin.a(getActivity(), 2131165704, 2131166649), 1048);
       return true;
     }
-    g();
+    h();
     return true;
   }
   
@@ -175,7 +168,7 @@ public abstract class TalkTopicList<ResponseType>
   {
     super.onResume();
     if (e) {
-      i();
+      j();
     }
     e = false;
   }
@@ -184,6 +177,13 @@ public abstract class TalkTopicList<ResponseType>
   {
     super.onSaveInstanceState(paramBundle);
     paramBundle.putParcelableArrayList("talk_topics", a);
+  }
+  
+  public void p_()
+  {
+    c.clear();
+    a(null);
+    super.p_();
   }
 }
 

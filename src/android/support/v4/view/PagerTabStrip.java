@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewConfiguration;
 import android.widget.TextView;
 
@@ -48,9 +50,21 @@ public class PagerTabStrip
     setTextSpacing(getTextSpacing());
     setWillNotDraw(false);
     b.setFocusable(true);
-    b.setOnClickListener(new bp(this));
+    b.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        a.setCurrentItem(a.getCurrentItem() - 1);
+      }
+    });
     d.setFocusable(true);
-    d.setOnClickListener(new bq(this));
+    d.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        a.setCurrentItem(a.getCurrentItem() + 1);
+      }
+    });
     if (getBackground() == null) {
       o = true;
     }

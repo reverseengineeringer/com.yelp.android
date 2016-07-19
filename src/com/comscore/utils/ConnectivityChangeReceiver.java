@@ -148,7 +148,7 @@ public class ConnectivityChangeReceiver
     try
     {
       c.a(this, "flushing");
-      f.r(paramBoolean);
+      f.s(paramBoolean);
       c = -1L;
       return;
     }

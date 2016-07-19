@@ -1,39 +1,36 @@
 .class public final Lcom/google/android/gms/internal/es;
-.super Lcom/google/android/gms/internal/en$a;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/et;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
-# instance fields
-.field private final oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
-
-
 # direct methods
-.method public constructor <init>(Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/android/gms/internal/en$a;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/es;->oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/internal/em;)V
-    .locals 2
+.method public a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/es;->oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
+    const/4 v0, 0x0
 
-    new-instance v1, Lcom/google/android/gms/internal/ev;
+    return-object v0
+.end method
 
-    invoke-direct {v1, p1}, Lcom/google/android/gms/internal/ev;-><init>(Lcom/google/android/gms/internal/em;)V
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;->onInAppPurchaseRequested(Lcom/google/android/gms/ads/purchase/InAppPurchase;)V
+.method public a(Landroid/content/Context;Ljava/lang/String;)V
+    .locals 0
 
     return-void
 .end method

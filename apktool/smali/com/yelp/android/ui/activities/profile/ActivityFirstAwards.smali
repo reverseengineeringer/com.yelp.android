@@ -10,50 +10,54 @@
 
 .field private c:Lcom/yelp/android/serializable/User;
 
-.field private d:Lcom/yelp/android/appdata/webrequests/gy;
+.field private d:Lcom/yelp/android/appdata/webrequests/fo;
 
-.field private e:Lcom/yelp/android/appdata/webrequests/gz;
+.field private e:Lcom/yelp/android/appdata/webrequests/fp;
 
-.field private f:Lcom/yelp/android/ui/activities/feed/aq;
+.field private f:Lcom/yelp/android/ui/activities/profile/d;
 
-.field private final g:Lcom/yelp/android/appdata/webrequests/m;
+.field private g:Lcom/yelp/android/appdata/webrequests/em;
+
+.field private final h:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Ljava/util/List",
             "<",
-            "Lcom/yelp/android/serializable/BusinessInfoProviderFeedEntry;",
+            "Lcom/yelp/android/serializable/Tip;",
             ">;>;"
         }
     .end annotation
 .end field
 
-.field private final h:Lcom/yelp/android/appdata/webrequests/m;
+.field private final i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Ljava/util/List",
             "<",
-            "Lcom/yelp/android/serializable/BusinessInfoProviderFeedEntry;",
+            "Lcom/yelp/android/serializable/YelpBusinessReview;",
             ">;>;"
         }
     .end annotation
 .end field
-
-.field private final i:Lcom/yelp/android/ui/activities/feed/br;
 
 .field private final j:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Comparator",
             "<",
-            "Lcom/yelp/android/serializable/FeedEntry;",
+            "Lcom/yelp/android/serializable/SingleFeedEntry;",
             ">;"
         }
     .end annotation
 .end field
+
+.field private final k:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+.field private final l:Lcom/yelp/android/ui/activities/profile/d$c;
 
 
 # direct methods
@@ -61,48 +65,59 @@
     .locals 1
 
     .prologue
-    .line 47
+    .line 45
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
-    .line 193
-    new-instance v0, Lcom/yelp/android/ui/activities/profile/b;
+    .line 227
+    new-instance v0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$3;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/b;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$3;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->g:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->h:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 222
-    new-instance v0, Lcom/yelp/android/ui/activities/profile/c;
+    .line 241
+    new-instance v0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$4;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/c;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$4;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->h:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 248
-    new-instance v0, Lcom/yelp/android/ui/activities/profile/d;
+    .line 266
+    new-instance v0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$5;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/d;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->i:Lcom/yelp/android/ui/activities/feed/br;
-
-    .line 288
-    new-instance v0, Lcom/yelp/android/ui/activities/profile/e;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/e;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$5;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->j:Ljava/util/Comparator;
+
+    .line 274
+    new-instance v0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$6;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$6;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->k:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+    .line 299
+    new-instance v0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$7;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$7;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->l:Lcom/yelp/android/ui/activities/profile/d$c;
 
     return-void
 .end method
 
 .method static synthetic a(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;I)I
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 47
-    iput p1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
+    .line 45
+    iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
 
-    return p1
+    add-int/2addr v0, p1
+
+    iput v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
+
+    return v0
 .end method
 
 .method public static a(Landroid/content/Context;Lcom/yelp/android/serializable/User;)Landroid/content/Intent;
@@ -125,12 +140,22 @@
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)Lcom/yelp/android/serializable/User;
+.method static synthetic a(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;Lcom/yelp/android/appdata/webrequests/em;)Lcom/yelp/android/appdata/webrequests/em;
+    .locals 0
+
+    .prologue
+    .line 45
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->g:Lcom/yelp/android/appdata/webrequests/em;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)Lcom/yelp/android/ui/activities/profile/d;
     .locals 1
 
     .prologue
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
+    .line 45
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
 
     return-object v0
 .end method
@@ -139,62 +164,9 @@
     .locals 0
 
     .prologue
-    .line 47
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a(Ljava/util/List;)V
+    .line 45
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c(Ljava/util/List;)V
 
-    return-void
-.end method
-
-.method private a(Ljava/util/List;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/BusinessInfoProviderFeedEntry;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 186
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->j:Ljava/util/Comparator;
-
-    invoke-virtual {v0, p1, v1}, Lcom/yelp/android/ui/activities/feed/aq;->a(Ljava/util/Collection;Ljava/util/Comparator;)V
-
-    .line 187
-    iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->getFirstToReviewCount()I
-
-    move-result v1
-
-    if-lt v0, v1, :cond_0
-
-    iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->getFirstToTipCount()I
-
-    move-result v1
-
-    if-lt v0, v1, :cond_0
-
-    .line 189
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
-
-    .line 191
-    :cond_0
     return-void
 .end method
 
@@ -202,10 +174,10 @@
     .locals 1
 
     .prologue
-    .line 176
+    .line 206
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->isCompleted()Z
+    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->v()Z
 
     move-result v0
 
@@ -227,41 +199,7 @@
     .locals 1
 
     .prologue
-    .line 47
-    iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
-
-    add-int/2addr v0, p1
-
-    iput v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
-
-    return v0
-.end method
-
-.method static synthetic b(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)Lcom/yelp/android/ui/activities/feed/aq;
-    .locals 1
-
-    .prologue
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
-
-    return-object v0
-.end method
-
-.method static synthetic c(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;I)I
-    .locals 0
-
-    .prologue
-    .line 47
-    iput p1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
-
-    return p1
-.end method
-
-.method static synthetic d(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;I)I
-    .locals 1
-
-    .prologue
-    .line 47
+    .line 45
     iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
 
     add-int/2addr v0, p1
@@ -271,54 +209,190 @@
     return v0
 .end method
 
+.method static synthetic b(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)Lcom/yelp/android/serializable/User;
+    .locals 1
+
+    .prologue
+    .line 45
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
+
+    return-object v0
+.end method
+
+.method static synthetic c(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)Lcom/yelp/android/appdata/webrequests/core/c$a;
+    .locals 1
+
+    .prologue
+    .line 45
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->k:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+    return-object v0
+.end method
+
+.method private c(Ljava/util/List;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<+",
+            "Lcom/yelp/android/serializable/SingleFeedEntry;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 216
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a(Ljava/util/List;)V
+
+    .line 217
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/profile/d;->b()Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    .line 218
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->j:Ljava/util/Comparator;
+
+    invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    .line 219
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b(Ljava/util/List;)V
+
+    .line 220
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/profile/d;->notifyDataSetChanged()V
+
+    .line 221
+    iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->H()I
+
+    move-result v1
+
+    if-lt v0, v1, :cond_0
+
+    iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->G()I
+
+    move-result v1
+
+    if-lt v0, v1, :cond_0
+
+    .line 223
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
+
+    .line 225
+    :cond_0
+    return-void
+.end method
+
+.method static synthetic d(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)Lcom/yelp/android/appdata/webrequests/em;
+    .locals 1
+
+    .prologue
+    .line 45
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->g:Lcom/yelp/android/appdata/webrequests/em;
+
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public a(Landroid/widget/ListView;Landroid/view/View;IJ)V
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 164
+    .line 177
     invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 165
-    instance-of v1, v0, Lcom/yelp/android/serializable/ReviewFeedEntry;
+    .line 178
+    instance-of v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    if-eqz v1, :cond_2
+
+    .line 179
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    .line 180
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->t()Z
+
+    move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 166
-    check-cast v0, Lcom/yelp/android/serializable/ReviewFeedEntry;
-
-    invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
+    .line 181
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->M()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ReviewFeedEntry;->getIntentForClick(Landroid/content/Context;)Landroid/content/Intent;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->Q()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-static {p0, v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/reviewpage/ActivityReviewPager;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusinessReview;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->startActivity(Landroid/content/Intent;)V
 
-    .line 170
+    .line 200
     :cond_0
     :goto_0
     return-void
 
-    .line 167
+    .line 189
     :cond_1
-    instance-of v1, v0, Lcom/yelp/android/serializable/TipFeedEntry;
-
-    if-eqz v1, :cond_0
-
-    .line 168
-    check-cast v0, Lcom/yelp/android/serializable/TipFeedEntry;
-
-    invoke-virtual {p2}, Landroid/view/View;->getContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/TipFeedEntry;->getIntentForClick(Landroid/content/Context;)Landroid/content/Intent;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->Q()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->M()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, v1, v2, v0}, Lcom/yelp/android/ui/activities/reviewpage/ActivityReviewPager;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->startActivity(Landroid/content/Intent;)V
+
+    goto :goto_0
+
+    .line 196
+    :cond_2
+    instance-of v1, v0, Lcom/yelp/android/serializable/Tip;
+
+    if-eqz v1, :cond_0
+
+    .line 197
+    check-cast v0, Lcom/yelp/android/serializable/Tip;
+
+    .line 198
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Tip;->o()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/ui/activities/tips/TipComplimentsLikes;->a(Landroid/content/Context;Lcom/yelp/android/serializable/Tip;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -327,7 +401,63 @@
     goto :goto_0
 .end method
 
-.method protected d()V
+.method public a(Ljava/util/List;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<+",
+            "Lcom/yelp/android/serializable/SingleFeedEntry;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 257
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/profile/d;->a(Ljava/util/Collection;)V
+
+    .line 258
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/profile/d;->getCount()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c(I)V
+
+    .line 259
+    return-void
+.end method
+
+.method public b(Ljava/util/List;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<+",
+            "Lcom/yelp/android/serializable/SingleFeedEntry;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 262
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/profile/d;->clear()V
+
+    .line 263
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a(Ljava/util/List;)V
+
+    .line 264
+    return-void
+.end method
+
+.method protected c()V
     .locals 7
 
     .prologue
@@ -335,21 +465,18 @@
 
     const/4 v6, 0x0
 
-    .line 145
-    invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->d()V
-
-    .line 146
+    .line 160
     iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->getFirstToReviewCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->H()I
 
     move-result v1
 
     if-ge v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/gy;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/fo;
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)Z
 
@@ -357,43 +484,43 @@
 
     if-eqz v0, :cond_0
 
-    .line 148
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/gy;
+    .line 162
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/fo;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->h:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
     iget v3, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e_()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->s_()I
 
     move-result v4
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/gy;-><init>(Lcom/yelp/android/appdata/webrequests/m;Lcom/yelp/android/serializable/User;IIZ)V
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/fo;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Lcom/yelp/android/serializable/User;IIZ)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/gy;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/fo;
 
-    .line 150
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/gy;
+    .line 165
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/fo;
 
     new-array v1, v6, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gy;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fo;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 152
+    .line 167
     :cond_0
     iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->getFirstToTipCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->G()I
 
     move-result v1
 
     if-ge v0, v1, :cond_1
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/gz;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/fp;
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)Z
 
@@ -401,31 +528,31 @@
 
     if-eqz v0, :cond_1
 
-    .line 153
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/gz;
+    .line 168
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/fp;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->g:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->h:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
     iget v3, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e_()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->s_()I
 
     move-result v4
 
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/gz;-><init>(Lcom/yelp/android/appdata/webrequests/m;Lcom/yelp/android/serializable/User;IIZZ)V
+    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/fp;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Lcom/yelp/android/serializable/User;IIZZ)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/gz;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/fp;
 
-    .line 155
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/gz;
+    .line 171
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/fp;
 
     new-array v1, v6, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gz;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fp;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 157
+    .line 173
     :cond_1
     return-void
 .end method
@@ -434,17 +561,17 @@
     .locals 1
 
     .prologue
-    .line 135
+    .line 150
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserProfileFirsts:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 47
+    .line 45
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -452,12 +579,12 @@
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -468,12 +595,12 @@
     .end annotation
 
     .prologue
-    .line 140
+    .line 155
     const-string/jumbo v0, "user_id"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->getUserId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->i()Ljava/lang/String;
 
     move-result-object v1
 
@@ -488,13 +615,11 @@
     .locals 4
 
     .prologue
-    const/4 v1, 0x0
-
     .line 77
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 78
-    const v0, 0x7f070290
+    const v0, 0x7f0702e2
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->getString(I)Ljava/lang/String;
 
@@ -507,9 +632,9 @@
 
     move-result-object v0
 
-    const-string/jumbo v2, "extra.user"
+    const-string/jumbo v1, "extra.user"
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
 
@@ -517,8 +642,23 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
+    .line 80
+    new-instance v0, Lcom/yelp/android/ui/activities/profile/d;
+
+    invoke-static {p0}, Lcom/yelp/android/ui/util/t;->a(Landroid/content/Context;)Lcom/yelp/android/ui/util/t;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->l:Lcom/yelp/android/ui/activities/profile/d$c;
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/profile/d;-><init>(Lcom/yelp/android/ui/util/t;Lcom/yelp/android/serializable/User;Lcom/yelp/android/ui/activities/profile/d$c;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
+
     .line 82
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     .line 83
     const-string/jumbo v0, "tip_and_review_list"
@@ -527,114 +667,88 @@
 
     move-result-object v0
 
-    .line 84
-    const-string/jumbo v2, "review_count"
-
-    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result v2
-
-    iput v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
-
     .line 85
-    const-string/jumbo v2, "tip_count"
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a(Ljava/util/List;)V
 
-    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    .line 86
+    const-string/jumbo v0, "review_count"
 
-    move-result v2
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    iput v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
+    move-result v0
 
-    .line 88
-    :goto_0
-    if-nez v0, :cond_0
+    iput v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
+
+    .line 87
+    const-string/jumbo v0, "tip_count"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
 
     .line 89
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    .line 92
     :cond_0
-    new-instance v2, Lcom/yelp/android/ui/activities/feed/aq;
-
-    new-instance v3, Lcom/yelp/android/ui/activities/feed/v;
-
-    invoke-direct {v3}, Lcom/yelp/android/ui/activities/feed/v;-><init>()V
-
-    invoke-direct {v2, v1, v3}, Lcom/yelp/android/ui/activities/feed/aq;-><init>(Lcom/yelp/android/ui/activities/feed/FeedType;Lcom/yelp/android/ui/activities/feed/at;)V
-
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
-
-    .line 93
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/feed/aq;->a(Ljava/util/Collection;)V
-
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
-
-    const-class v1, Lcom/yelp/android/serializable/ReviewFeedEntry;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/feed/be;
-
-    invoke-direct {v2}, Lcom/yelp/android/ui/activities/feed/be;-><init>()V
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/feed/aq;->a(Ljava/lang/Class;Lcom/yelp/android/ui/activities/feed/at;)V
-
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
-
-    const-class v1, Lcom/yelp/android/ui/activities/feed/UserIdOverridenTipFeedEntry;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/feed/bl;
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->i:Lcom/yelp/android/ui/activities/feed/br;
-
-    invoke-direct {v2, v3}, Lcom/yelp/android/ui/activities/feed/bl;-><init>(Lcom/yelp/android/ui/activities/feed/br;)V
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/feed/aq;->a(Ljava/lang/Class;Lcom/yelp/android/ui/activities/feed/at;)V
-
-    .line 97
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 98
+    .line 90
+    const-string/jumbo v0, "com.yelp.android.tips.update"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$1;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$1;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->registerDirtyEventReceiver(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 100
+    const-string/jumbo v0, "com.yelp.android.tips.delete"
+
+    new-instance v1, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$2;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards$2;-><init>(Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->registerDirtyEventReceiver(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
+
+    .line 110
     return-void
-
-    :cond_1
-    move-object v0, v1
-
-    goto :goto_0
 .end method
 
 .method protected onPause()V
     .locals 2
 
     .prologue
-    .line 119
+    .line 133
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->onPause()V
 
-    .line 120
+    .line 134
     const-string/jumbo v0, "first_to_review"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/gy;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/fo;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->freezeRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 121
+    .line 135
     const-string/jumbo v0, "first_to_tip"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/gz;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/fp;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->freezeRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 122
+    .line 136
+    const-string/jumbo v0, "tip_feedback"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->g:Lcom/yelp/android/appdata/webrequests/em;
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->freezeRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 137
     return-void
 .end method
 
@@ -642,15 +756,15 @@
     .locals 3
 
     .prologue
-    .line 102
+    .line 114
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->onResume()V
 
-    .line 106
+    .line 118
     iget v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->getFirstToReviewCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->H()I
 
     move-result v1
 
@@ -660,93 +774,98 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->c:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->getFirstToTipCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/User;->G()I
 
     move-result v1
 
     if-lt v0, v1, :cond_0
 
-    .line 108
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 120
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 115
+    .line 128
     :goto_0
+    const-string/jumbo v0, "tip_feedback"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->g:Lcom/yelp/android/appdata/webrequests/em;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->k:Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 129
     return-void
 
-    .line 110
+    .line 122
     :cond_0
     const-string/jumbo v0, "first_to_review"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/gy;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/fo;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->h:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->i:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/gy;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/fo;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/gy;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->d:Lcom/yelp/android/appdata/webrequests/fo;
 
-    .line 112
+    .line 125
     const-string/jumbo v0, "first_to_tip"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/gz;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/fp;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->g:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->h:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/gz;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/fp;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/gz;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->e:Lcom/yelp/android/appdata/webrequests/fp;
 
     goto :goto_0
 .end method
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 126
+    .line 141
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 127
+    .line 142
     const-string/jumbo v0, "review_count"
 
     iget v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->b:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 128
+    .line 143
     const-string/jumbo v0, "tip_count"
 
     iget v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->a:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 129
+    .line 144
     const-string/jumbo v0, "tip_and_review_list"
 
-    new-instance v1, Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/profile/d;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/profile/ActivityFirstAwards;->f:Lcom/yelp/android/ui/activities/feed/aq;
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/profile/d;->b()Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/feed/aq;->b()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    move-result-object v1
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 131
+    .line 146
     return-void
 .end method

@@ -1,27 +1,24 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Location;
-import com.yelp.parcelgen.JsonParser.DualCreator;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.TalkTopic;
+import com.yelp.android.serializable.a;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class eq
-  extends g<Void, Void, er>
+  extends b<String, Void, TalkTopic>
 {
-  public eq(double paramDouble1, double paramDouble2, m<er> paramm)
+  public eq(String paramString, ApiRequest.b paramb)
   {
-    super(ApiRequest.RequestType.GET, "geocode/reverse", paramm);
-    addUrlParam("latitude", paramDouble1);
-    addUrlParam("longitude", paramDouble2);
+    super(ApiRequest.RequestType.GET, "talk/topic", paramb);
+    a("topic_alias", paramString);
   }
   
-  public er a(JSONObject paramJSONObject)
+  public TalkTopic a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    Location localLocation = null;
-    if (!paramJSONObject.isNull("location")) {
-      localLocation = (Location)Location.CREATOR.parse(paramJSONObject.getJSONObject("location"));
-    }
-    return new er(localLocation, paramJSONObject.getBoolean("yelp_available"));
+    return (TalkTopic)TalkTopic.CREATOR.parse(paramJSONObject.getJSONObject("topic"));
   }
 }
 

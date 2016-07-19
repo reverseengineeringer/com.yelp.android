@@ -1,369 +1,198 @@
-.class public Landroid/support/v7/internal/view/menu/o;
-.super Landroid/support/v7/internal/view/menu/e;
-.source "MenuItemWrapperICS.java"
+.class Landroid/support/v7/internal/view/menu/o;
+.super Landroid/support/v7/internal/view/menu/c;
+.source "MenuWrapperICS.java"
 
 # interfaces
-.implements Landroid/view/MenuItem;
+.implements Landroid/view/Menu;
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0xe
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Landroid/support/v7/internal/view/menu/e",
+        "Landroid/support/v7/internal/view/menu/c",
         "<",
-        "Lcom/yelp/android/b/b;",
+        "Lcom/yelp/android/e/a;",
         ">;",
-        "Landroid/view/MenuItem;"
+        "Landroid/view/Menu;"
     }
 .end annotation
 
 
-# instance fields
-.field private c:Ljava/lang/reflect/Method;
-
-
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/yelp/android/b/b;)V
+.method constructor <init>(Landroid/content/Context;Lcom/yelp/android/e/a;)V
     .locals 0
 
     .prologue
-    .line 49
-    invoke-direct {p0, p1, p2}, Landroid/support/v7/internal/view/menu/e;-><init>(Landroid/content/Context;Ljava/lang/Object;)V
+    .line 36
+    invoke-direct {p0, p1, p2}, Landroid/support/v7/internal/view/menu/c;-><init>(Landroid/content/Context;Ljava/lang/Object;)V
 
-    .line 50
+    .line 37
     return-void
 .end method
 
 
 # virtual methods
-.method a(Landroid/view/ActionProvider;)Landroid/support/v7/internal/view/menu/p;
-    .locals 2
+.method public add(I)Landroid/view/MenuItem;
+    .locals 1
 
     .prologue
-    .line 309
-    new-instance v0, Landroid/support/v7/internal/view/menu/p;
+    .line 46
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    iget-object v1, p0, Landroid/support/v7/internal/view/menu/o;->a:Landroid/content/Context;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-direct {v0, p0, v1, p1}, Landroid/support/v7/internal/view/menu/p;-><init>(Landroid/support/v7/internal/view/menu/o;Landroid/content/Context;Landroid/view/ActionProvider;)V
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->add(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/MenuItem;)Landroid/view/MenuItem;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public a(Z)V
-    .locals 5
+.method public add(IIII)Landroid/view/MenuItem;
+    .locals 1
 
     .prologue
-    .line 298
-    :try_start_0
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->c:Ljava/lang/reflect/Method;
-
-    if-nez v0, :cond_0
-
-    .line 299
+    .line 56
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "setExclusiveCheckable"
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Class;
-
-    const/4 v3, 0x0
-
-    sget-object v4, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
-
-    aput-object v4, v2, v3
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-interface {v0, p1, p2, p3, p4}, Lcom/yelp/android/e/a;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/support/v7/internal/view/menu/o;->c:Ljava/lang/reflect/Method;
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/MenuItem;)Landroid/view/MenuItem;
 
-    .line 302
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+    .locals 1
+
+    .prologue
+    .line 51
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0, p1, p2, p3, p4}, Lcom/yelp/android/e/a;->add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/MenuItem;)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+    .locals 1
+
+    .prologue
+    .line 41
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/MenuItem;)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
+    .locals 10
+
+    .prologue
+    .line 83
+    const/4 v9, 0x0
+
+    .line 84
+    if-eqz p8, :cond_0
+
+    .line 85
+    move-object/from16 v0, p8
+
+    array-length v1, v0
+
+    new-array v9, v1, [Landroid/view/MenuItem;
+
+    .line 88
     :cond_0
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->c:Ljava/lang/reflect/Method;
-
     iget-object v1, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    check-cast v1, Lcom/yelp/android/e/a;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    move v2, p1
 
-    const/4 v3, 0x0
+    move v3, p2
 
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    move-object/from16 v7, p6
+
+    move/from16 v8, p7
+
+    invoke-interface/range {v1 .. v9}, Lcom/yelp/android/e/a;->addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
+
+    move-result v2
+
+    .line 91
+    if-eqz v9, :cond_1
+
+    .line 92
+    const/4 v1, 0x0
+
+    array-length v3, v9
+
+    :goto_0
+    if-ge v1, v3, :cond_1
+
+    .line 93
+    aget-object v4, v9, v1
+
+    invoke-virtual {p0, v4}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/MenuItem;)Landroid/view/MenuItem;
 
     move-result-object v4
 
-    aput-object v4, v2, v3
+    aput-object v4, p8, v1
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 306
-    :goto_0
-    return-void
-
-    .line 303
-    :catch_0
-    move-exception v0
-
-    .line 304
-    const-string/jumbo v1, "MenuItemWrapper"
-
-    const-string/jumbo v2, "Error while calling setExclusiveCheckable"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    .line 92
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
+
+    .line 97
+    :cond_1
+    return v2
 .end method
 
-.method public collapseActionView()Z
+.method public addSubMenu(I)Landroid/view/SubMenu;
     .locals 1
 
     .prologue
-    .line 281
+    .line 66
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->collapseActionView()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public expandActionView()Z
-    .locals 1
-
-    .prologue
-    .line 276
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->expandActionView()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getActionProvider()Landroid/view/ActionProvider;
-    .locals 2
-
-    .prologue
-    .line 267
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->a()Landroid/support/v4/view/n;
-
-    move-result-object v0
-
-    .line 268
-    instance-of v1, v0, Landroid/support/v7/internal/view/menu/p;
-
-    if-eqz v1, :cond_0
-
-    .line 269
-    check-cast v0, Landroid/support/v7/internal/view/menu/p;
-
-    iget-object v0, v0, Landroid/support/v7/internal/view/menu/p;->a:Landroid/view/ActionProvider;
-
-    .line 271
-    :goto_0
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getActionView()Landroid/view/View;
-    .locals 2
-
-    .prologue
-    .line 251
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getActionView()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 252
-    instance-of v1, v0, Landroid/support/v7/internal/view/menu/q;
-
-    if-eqz v1, :cond_0
-
-    .line 253
-    check-cast v0, Landroid/support/v7/internal/view/menu/q;
-
-    invoke-virtual {v0}, Landroid/support/v7/internal/view/menu/q;->c()Landroid/view/View;
-
-    move-result-object v0
-
-    .line 255
-    :cond_0
-    return-object v0
-.end method
-
-.method public getAlphabeticShortcut()C
-    .locals 1
-
-    .prologue
-    .line 148
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getAlphabeticShortcut()C
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getGroupId()I
-    .locals 1
-
-    .prologue
-    .line 59
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getGroupId()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
-
-    .prologue
-    .line 109
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getIntent()Landroid/content/Intent;
-    .locals 1
-
-    .prologue
-    .line 120
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getItemId()I
-    .locals 1
-
-    .prologue
-    .line 54
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getItemId()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
-    .locals 1
-
-    .prologue
-    .line 213
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getNumericShortcut()C
-    .locals 1
-
-    .prologue
-    .line 137
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getNumericShortcut()C
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getOrder()I
-    .locals 1
-
-    .prologue
-    .line 64
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getOrder()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getSubMenu()Landroid/view/SubMenu;
-    .locals 1
-
-    .prologue
-    .line 201
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getSubMenu()Landroid/view/SubMenu;
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->addSubMenu(I)Landroid/view/SubMenu;
 
     move-result-object v0
 
@@ -374,509 +203,311 @@
     return-object v0
 .end method
 
-.method public getTitle()Ljava/lang/CharSequence;
+.method public addSubMenu(IIII)Landroid/view/SubMenu;
     .locals 1
 
     .prologue
-    .line 81
+    .line 76
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getTitle()Ljava/lang/CharSequence;
+    invoke-interface {v0, p1, p2, p3, p4}, Lcom/yelp/android/e/a;->addSubMenu(IIII)Landroid/view/SubMenu;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/SubMenu;)Landroid/view/SubMenu;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getTitleCondensed()Ljava/lang/CharSequence;
+.method public addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
     .locals 1
 
     .prologue
-    .line 92
+    .line 71
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getTitleCondensed()Ljava/lang/CharSequence;
+    invoke-interface {v0, p1, p2, p3, p4}, Lcom/yelp/android/e/a;->addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/SubMenu;)Landroid/view/SubMenu;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public hasSubMenu()Z
+.method public addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
     .locals 1
 
     .prologue
-    .line 196
+    .line 61
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->hasSubMenu()Z
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/SubMenu;)Landroid/view/SubMenu;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public clear()V
+    .locals 1
+
+    .prologue
+    .line 114
+    invoke-virtual {p0}, Landroid/support/v7/internal/view/menu/o;->a()V
+
+    .line 115
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0}, Lcom/yelp/android/e/a;->clear()V
+
+    .line 116
+    return-void
+.end method
+
+.method public close()V
+    .locals 1
+
+    .prologue
+    .line 155
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0}, Lcom/yelp/android/e/a;->close()V
+
+    .line 156
+    return-void
+.end method
+
+.method public findItem(I)Landroid/view/MenuItem;
+    .locals 1
+
+    .prologue
+    .line 140
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->findItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/MenuItem;)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getItem(I)Landroid/view/MenuItem;
+    .locals 1
+
+    .prologue
+    .line 150
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->getItem(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/MenuItem;)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public hasVisibleItems()Z
+    .locals 1
+
+    .prologue
+    .line 135
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0}, Lcom/yelp/android/e/a;->hasVisibleItems()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public isActionViewExpanded()Z
+.method public isShortcutKey(ILandroid/view/KeyEvent;)Z
     .locals 1
 
     .prologue
-    .line 286
+    .line 165
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->isActionViewExpanded()Z
+    invoke-interface {v0, p1, p2}, Lcom/yelp/android/e/a;->isShortcutKey(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public isCheckable()Z
-    .locals 1
-
-    .prologue
-    .line 159
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->isCheckable()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isChecked()Z
+.method public performIdentifierAction(II)Z
     .locals 1
 
     .prologue
     .line 170
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->isChecked()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isEnabled()Z
-    .locals 1
-
-    .prologue
-    .line 191
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->isEnabled()Z
+    invoke-interface {v0, p1, p2}, Lcom/yelp/android/e/a;->performIdentifierAction(II)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public isVisible()Z
+.method public performShortcut(ILandroid/view/KeyEvent;I)Z
     .locals 1
 
     .prologue
-    .line 180
+    .line 160
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->isVisible()Z
+    invoke-interface {v0, p1, p2, p3}, Lcom/yelp/android/e/a;->performShortcut(ILandroid/view/KeyEvent;I)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public setActionProvider(Landroid/view/ActionProvider;)Landroid/view/MenuItem;
-    .locals 2
-
-    .prologue
-    .line 260
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/support/v7/internal/view/menu/o;->a(Landroid/view/ActionProvider;)Landroid/support/v7/internal/view/menu/p;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v0, v1}, Lcom/yelp/android/b/b;->a(Landroid/support/v4/view/n;)Lcom/yelp/android/b/b;
-
-    .line 262
-    return-object p0
-
-    .line 260
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setActionView(I)Landroid/view/MenuItem;
-    .locals 3
-
-    .prologue
-    .line 239
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setActionView(I)Landroid/view/MenuItem;
-
-    .line 241
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0}, Lcom/yelp/android/b/b;->getActionView()Landroid/view/View;
-
-    move-result-object v1
-
-    .line 242
-    instance-of v0, v1, Landroid/view/CollapsibleActionView;
-
-    if-eqz v0, :cond_0
-
-    .line 244
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    new-instance v2, Landroid/support/v7/internal/view/menu/q;
-
-    invoke-direct {v2, v1}, Landroid/support/v7/internal/view/menu/q;-><init>(Landroid/view/View;)V
-
-    invoke-interface {v0, v2}, Lcom/yelp/android/b/b;->setActionView(Landroid/view/View;)Landroid/view/MenuItem;
-
-    .line 246
-    :cond_0
-    return-object p0
-.end method
-
-.method public setActionView(Landroid/view/View;)Landroid/view/MenuItem;
+.method public removeGroup(I)V
     .locals 1
 
     .prologue
-    .line 229
-    instance-of v0, p1, Landroid/view/CollapsibleActionView;
+    .line 108
+    invoke-virtual {p0, p1}, Landroid/support/v7/internal/view/menu/o;->a(I)V
 
-    if-eqz v0, :cond_0
-
-    .line 230
-    new-instance v0, Landroid/support/v7/internal/view/menu/q;
-
-    invoke-direct {v0, p1}, Landroid/support/v7/internal/view/menu/q;-><init>(Landroid/view/View;)V
-
-    move-object p1, v0
-
-    .line 232
-    :cond_0
+    .line 109
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setActionView(Landroid/view/View;)Landroid/view/MenuItem;
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->removeGroup(I)V
 
-    .line 233
-    return-object p0
+    .line 110
+    return-void
 .end method
 
-.method public setAlphabeticShortcut(C)Landroid/view/MenuItem;
+.method public removeItem(I)V
     .locals 1
 
     .prologue
-    .line 142
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+    .line 102
+    invoke-virtual {p0, p1}, Landroid/support/v7/internal/view/menu/o;->b(I)V
 
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setAlphabeticShortcut(C)Landroid/view/MenuItem;
-
-    .line 143
-    return-object p0
-.end method
-
-.method public setCheckable(Z)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
-    .line 153
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setCheckable(Z)Landroid/view/MenuItem;
-
-    .line 154
-    return-object p0
-.end method
-
-.method public setChecked(Z)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
-    .line 164
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setChecked(Z)Landroid/view/MenuItem;
-
-    .line 165
-    return-object p0
-.end method
-
-.method public setEnabled(Z)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
-    .line 185
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setEnabled(Z)Landroid/view/MenuItem;
-
-    .line 186
-    return-object p0
-.end method
-
-.method public setIcon(I)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
     .line 103
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setIcon(I)Landroid/view/MenuItem;
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->removeItem(I)V
 
     .line 104
-    return-object p0
+    return-void
 .end method
 
-.method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
+.method public setGroupCheckable(IZZ)V
     .locals 1
 
     .prologue
-    .line 97
+    .line 120
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/MenuItem;
+    invoke-interface {v0, p1, p2, p3}, Lcom/yelp/android/e/a;->setGroupCheckable(IZZ)V
 
-    .line 98
-    return-object p0
+    .line 121
+    return-void
 .end method
 
-.method public setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+.method public setGroupEnabled(IZ)V
     .locals 1
 
     .prologue
-    .line 114
+    .line 130
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+    invoke-interface {v0, p1, p2}, Lcom/yelp/android/e/a;->setGroupEnabled(IZ)V
 
-    .line 115
-    return-object p0
-.end method
-
-.method public setNumericShortcut(C)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
     .line 131
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setNumericShortcut(C)Landroid/view/MenuItem;
-
-    .line 132
-    return-object p0
+    return-void
 .end method
 
-.method public setOnActionExpandListener(Landroid/view/MenuItem$OnActionExpandListener;)Landroid/view/MenuItem;
-    .locals 2
-
-    .prologue
-    .line 291
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    if-eqz p1, :cond_0
-
-    new-instance v1, Landroid/support/v7/internal/view/menu/r;
-
-    invoke-direct {v1, p0, p1}, Landroid/support/v7/internal/view/menu/r;-><init>(Landroid/support/v7/internal/view/menu/o;Landroid/view/MenuItem$OnActionExpandListener;)V
-
-    :goto_0
-    invoke-interface {v0, v1}, Lcom/yelp/android/b/b;->a(Landroid/support/v4/view/ax;)Lcom/yelp/android/b/b;
-
-    .line 293
-    return-object p0
-
-    .line 291
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
-    .locals 2
-
-    .prologue
-    .line 206
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    if-eqz p1, :cond_0
-
-    new-instance v1, Landroid/support/v7/internal/view/menu/s;
-
-    invoke-direct {v1, p0, p1}, Landroid/support/v7/internal/view/menu/s;-><init>(Landroid/support/v7/internal/view/menu/o;Landroid/view/MenuItem$OnMenuItemClickListener;)V
-
-    :goto_0
-    invoke-interface {v0, v1}, Lcom/yelp/android/b/b;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
-
-    .line 208
-    return-object p0
-
-    .line 206
-    :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
-.end method
-
-.method public setShortcut(CC)Landroid/view/MenuItem;
+.method public setGroupVisible(IZ)V
     .locals 1
 
     .prologue
     .line 125
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0, p1, p2}, Lcom/yelp/android/b/b;->setShortcut(CC)Landroid/view/MenuItem;
+    invoke-interface {v0, p1, p2}, Lcom/yelp/android/e/a;->setGroupVisible(IZ)V
 
     .line 126
-    return-object p0
-.end method
-
-.method public setShowAsAction(I)V
-    .locals 1
-
-    .prologue
-    .line 218
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setShowAsAction(I)V
-
-    .line 219
     return-void
 .end method
 
-.method public setShowAsActionFlags(I)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
-    .line 223
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setShowAsActionFlags(I)Landroid/view/MenuItem;
-
-    .line 224
-    return-object p0
-.end method
-
-.method public setTitle(I)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
-    .line 75
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setTitle(I)Landroid/view/MenuItem;
-
-    .line 76
-    return-object p0
-.end method
-
-.method public setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
-    .line 69
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-
-    .line 70
-    return-object p0
-.end method
-
-.method public setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 1
-
-    .prologue
-    .line 86
-    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
-
-    check-cast v0, Lcom/yelp/android/b/b;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
-
-    .line 87
-    return-object p0
-.end method
-
-.method public setVisible(Z)Landroid/view/MenuItem;
+.method public setQwertyMode(Z)V
     .locals 1
 
     .prologue
     .line 175
     iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
 
-    check-cast v0, Lcom/yelp/android/b/b;
+    check-cast v0, Lcom/yelp/android/e/a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/b/b;->setVisible(Z)Landroid/view/MenuItem;
+    invoke-interface {v0, p1}, Lcom/yelp/android/e/a;->setQwertyMode(Z)V
 
-    move-result-object v0
+    .line 176
+    return-void
+.end method
 
-    return-object v0
+.method public size()I
+    .locals 1
+
+    .prologue
+    .line 145
+    iget-object v0, p0, Landroid/support/v7/internal/view/menu/o;->b:Ljava/lang/Object;
+
+    check-cast v0, Lcom/yelp/android/e/a;
+
+    invoke-interface {v0}, Lcom/yelp/android/e/a;->size()I
+
+    move-result v0
+
+    return v0
 .end method

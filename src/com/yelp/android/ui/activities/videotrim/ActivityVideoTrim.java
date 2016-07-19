@@ -1,8 +1,10 @@
 package com.yelp.android.ui.activities.videotrim;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.SurfaceTexture;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnPreparedListener;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,14 +18,15 @@ import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.panels.CommonLoadingSpinner;
 import com.yelp.android.ui.panels.PanelLoading;
 import com.yelp.android.ui.util.ImageInputHelper.ImageSource;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.ui.util.av;
 import com.yelp.android.ui.widgets.SquareTextureView;
+import com.yelp.android.util.YelpLog;
 import java.io.File;
+import java.io.IOException;
 
-@TargetApi(14)
 public class ActivityVideoTrim
   extends YelpActivity
-  implements j
+  implements BetterMediaPlayer.b
 {
   private BetterMediaPlayer a;
   private LocalVideo b;
@@ -31,7 +34,33 @@ public class ActivityVideoTrim
   private SquareTextureView d;
   private ImageView e;
   private PanelLoading f;
-  private final TextureView.SurfaceTextureListener g = new c(this);
+  private final TextureView.SurfaceTextureListener g = new c()
+  {
+    public void onSurfaceTextureAvailable(SurfaceTexture paramAnonymousSurfaceTexture, int paramAnonymousInt1, int paramAnonymousInt2)
+    {
+      try
+      {
+        ActivityVideoTrim.a(ActivityVideoTrim.this, new BetterMediaPlayer());
+        ActivityVideoTrim.c(ActivityVideoTrim.this).setDataSource(ActivityVideoTrim.b(ActivityVideoTrim.this).e());
+        ActivityVideoTrim.c(ActivityVideoTrim.this).a(ActivityVideoTrim.d(ActivityVideoTrim.this), ActivityVideoTrim.e(ActivityVideoTrim.this));
+        ActivityVideoTrim.c(ActivityVideoTrim.this).a(ActivityVideoTrim.this);
+        ActivityVideoTrim.c(ActivityVideoTrim.this).prepareAsync();
+        ActivityVideoTrim.c(ActivityVideoTrim.this).setOnPreparedListener(new MediaPlayer.OnPreparedListener()
+        {
+          public void onPrepared(MediaPlayer paramAnonymous2MediaPlayer)
+          {
+            ActivityVideoTrim.c(ActivityVideoTrim.this).start();
+            ActivityVideoTrim.f(ActivityVideoTrim.this).a(ActivityVideoTrim.c(ActivityVideoTrim.this));
+          }
+        });
+        return;
+      }
+      catch (IOException paramAnonymousSurfaceTexture)
+      {
+        YelpLog.e("ActivityVideoTrim", "Media player cannot open " + ActivityVideoTrim.b(ActivityVideoTrim.this).e(), paramAnonymousSurfaceTexture);
+      }
+    }
+  };
   
   public static Intent a(Context paramContext, String paramString1, String paramString2)
   {
@@ -46,7 +75,7 @@ public class ActivityVideoTrim
     if (paramBundle == null) {}
     for (paramBundle = getIntent().getStringExtra("extra.video_file_path");; paramBundle = paramBundle.getString("extra.video_file_path"))
     {
-      paramBundle = LocalVideo.fromFile(paramBundle, getIntent().getStringExtra("extra.business_id"));
+      paramBundle = LocalVideo.a(paramBundle, getIntent().getStringExtra("extra.business_id"));
       if (paramBundle == null) {
         finish();
       }
@@ -60,8 +89,15 @@ public class ActivityVideoTrim
     {
       i = a.getCurrentPosition();
       j = a.a();
-      if ((f.getVisibility() != 0) && (i - j >= cw.a)) {
-        f.post(new a(this));
+      if ((f.getVisibility() != 0) && (i - j >= av.a)) {
+        f.post(new Runnable()
+        {
+          public void run()
+          {
+            ActivityVideoTrim.a(ActivityVideoTrim.this).b();
+            ActivityVideoTrim.a(ActivityVideoTrim.this).setVisibility(0);
+          }
+        });
       }
     }
     while ((!BetterMediaPlayer.PlayerState.NORMAL.equals(paramPlayerState2)) || (f.getVisibility() == 4))
@@ -70,7 +106,14 @@ public class ActivityVideoTrim
       int j;
       return;
     }
-    f.post(new b(this));
+    f.post(new Runnable()
+    {
+      public void run()
+      {
+        ActivityVideoTrim.a(ActivityVideoTrim.this).setVisibility(4);
+        ActivityVideoTrim.a(ActivityVideoTrim.this).c();
+      }
+    });
   }
   
   public ViewIri getIri()
@@ -85,21 +128,21 @@ public class ActivityVideoTrim
     if (b == null) {
       return;
     }
-    setContentView(2130903117);
-    c = ((VideoTrimTimelineView)findViewById(2131493306));
+    setContentView(2130903126);
+    c = ((VideoTrimTimelineView)findViewById(2131689962));
     c.setLocalVideo(b);
-    d = ((SquareTextureView)findViewById(2131493307));
-    d.a(b.getWidth(), b.getHeight());
+    d = ((SquareTextureView)findViewById(2131689963));
+    d.a(b.b(), b.a());
     d.setSurfaceTextureListener(g);
-    e = ((ImageView)findViewById(2131493308));
-    f = ((PanelLoading)findViewById(2131493309));
+    e = ((ImageView)findViewById(2131689964));
+    f = ((PanelLoading)findViewById(2131689965));
     f.setSpinner(CommonLoadingSpinner.DEFAULT);
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755032, paramMenu);
+    getMenuInflater().inflate(2131755042, paramMenu);
     return true;
   }
   
@@ -120,7 +163,7 @@ public class ActivityVideoTrim
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
     }
-    setResult(-1, TakePhoto.a(new File(b.getFilePath()), ImageInputHelper.ImageSource.GALLERY, true, c.getTrimBegin(), c.getTrimEnd()));
+    setResult(-1, TakePhoto.a(new File(b.e()), ImageInputHelper.ImageSource.GALLERY, true, c.getTrimBegin(), c.getTrimEnd()));
     finish();
     return true;
   }
@@ -148,8 +191,8 @@ public class ActivityVideoTrim
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putString("extra.video_file_path", b.getFilePath());
-    paramBundle.putString("extra.business_id", b.getBusinessId());
+    paramBundle.putString("extra.video_file_path", b.e());
+    paramBundle.putString("extra.business_id", b.d());
   }
 }
 

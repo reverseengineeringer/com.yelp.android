@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list android:opacity="opaque"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/restaurants_icon" />
-    <item android:drawable="@drawable/bars_icon" />
-    <item android:drawable="@drawable/bars_icon" />
-    <item android:drawable="@drawable/coffee_icon" />
-    <item android:drawable="@drawable/gas_icon" />
-    <item android:drawable="@drawable/drugstores_icon" />
-    <item android:drawable="@drawable/shopping_icon" />
+    <item android:drawable="@drawable/food_24x24" />
+    <item android:drawable="@drawable/nightlife_24x24" />
+    <item android:drawable="@drawable/nightlife_24x24" />
+    <item android:drawable="@drawable/coffee_24x24" />
+    <item android:drawable="@drawable/gas_station_24x24" />
+    <item android:drawable="@drawable/drugstores_24x24" />
+    <item android:drawable="@drawable/shopping_24x24" />
 </layer-list>

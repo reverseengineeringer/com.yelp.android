@@ -21,10 +21,10 @@
     .locals 1
 
     .prologue
-    .line 50
-    new-instance v0, Lcom/yelp/android/serializable/bb;
+    .line 48
+    new-instance v0, Lcom/yelp/android/serializable/LocalVideo$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/bb;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/LocalVideo$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/LocalVideo;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -35,10 +35,9 @@
     .locals 0
 
     .prologue
-    .line 21
+    .line 20
     invoke-direct {p0}, Lcom/yelp/android/serializable/_LocalVideo;-><init>()V
 
-    .line 22
     return-void
 .end method
 
@@ -46,72 +45,72 @@
     .locals 0
 
     .prologue
-    .line 25
+    .line 23
     invoke-direct/range {p0 .. p5}, Lcom/yelp/android/serializable/_LocalVideo;-><init>(Ljava/lang/String;Ljava/lang/String;III)V
 
-    .line 26
+    .line 24
     return-void
 .end method
 
-.method public static fromFile(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/serializable/LocalVideo;
+.method public static a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/serializable/LocalVideo;
     .locals 6
 
     .prologue
-    .line 29
-    new-instance v0, Lcom/yelp/android/util/aj;
+    .line 27
+    new-instance v0, Lcom/yelp/android/util/t;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/util/aj;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/util/t;-><init>(Ljava/lang/String;)V
 
-    .line 30
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->a()I
+    .line 28
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->a()I
 
     move-result v3
 
-    .line 31
+    .line 29
     const/16 v1, 0xbb8
 
     if-ge v3, v1, :cond_0
 
-    .line 32
-    const v1, 0x7f070667
+    .line 30
+    const v1, 0x7f070642
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/cr;->a(II)V
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/as;->a(II)V
 
-    .line 33
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->release()V
+    .line 31
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->release()V
 
-    .line 34
+    .line 32
     const/4 v0, 0x0
 
-    .line 46
+    .line 44
     :goto_0
     return-object v0
 
-    .line 38
+    .line 36
     :cond_0
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->e()Z
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->e()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 39
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->d()I
+    .line 37
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->d()I
 
     move-result v4
 
-    .line 40
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->c()I
+    .line 38
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->c()I
 
     move-result v5
 
-    .line 45
+    .line 43
     :goto_1
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->release()V
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->release()V
 
-    .line 46
+    .line 44
     new-instance v0, Lcom/yelp/android/serializable/LocalVideo;
 
     move-object v1, p0
@@ -122,14 +121,14 @@
 
     goto :goto_0
 
-    .line 42
+    .line 40
     :cond_1
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->c()I
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->c()I
 
     move-result v4
 
-    .line 43
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->d()I
+    .line 41
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->d()I
 
     move-result v5
 
@@ -138,11 +137,84 @@
 
 
 # virtual methods
+.method public bridge synthetic a()I
+    .locals 1
+
+    .prologue
+    .line 18
+    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 18
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_LocalVideo;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 18
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_LocalVideo;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()I
+    .locals 1
+
+    .prologue
+    .line 18
+    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->b()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic c()I
+    .locals 1
+
+    .prologue
+    .line 18
+    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->c()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 18
+    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
     .prologue
-    .line 19
+    .line 18
     invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->describeContents()I
 
     move-result v0
@@ -150,91 +222,47 @@
     return v0
 .end method
 
-.method public bridge synthetic getBusinessId()Ljava/lang/String;
+.method public bridge synthetic e()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 19
-    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->getBusinessId()Ljava/lang/String;
+    .line 18
+    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->e()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getDuration()I
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
-    .line 19
-    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->getDuration()I
+    .line 18
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_LocalVideo;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic getFilePath()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
-    .line 19
-    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->getFilePath()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getHeight()I
-    .locals 1
-
-    .prologue
-    .line 19
-    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->getHeight()I
+    .line 18
+    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->hashCode()I
 
     move-result v0
 
     return v0
-.end method
-
-.method public bridge synthetic getWidth()I
-    .locals 1
-
-    .prologue
-    .line 19
-    invoke-super {p0}, Lcom/yelp/android/serializable/_LocalVideo;->getWidth()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 19
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_LocalVideo;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 19
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_LocalVideo;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
 
     .prologue
-    .line 19
+    .line 18
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/_LocalVideo;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void

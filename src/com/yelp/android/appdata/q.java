@@ -1,39 +1,27 @@
 package com.yelp.android.appdata;
 
 import android.content.Context;
-import android.os.AsyncTask;
-import java.lang.ref.WeakReference;
+import com.yelp.android.analytics.adjust.AdjustManager;
+import java.util.Locale;
 
-class q
-  extends AsyncTask<Void, Void, Boolean>
+public class q
+  extends f
 {
-  private final WeakReference<Context> a;
-  private final WeakReference<r> b;
-  private final Features c;
-  
-  public q(Features paramFeatures, Context paramContext, r paramr)
+  public q(Context paramContext, Locale paramLocale, String paramString)
   {
-    c = paramFeatures;
-    a = new WeakReference(paramContext);
-    b = new WeakReference(paramr);
+    super(paramContext, paramLocale, paramString);
   }
   
-  protected Boolean a(Void... paramVarArgs)
+  protected float j()
   {
-    paramVarArgs = (Context)a.get();
-    if (paramVarArgs == null) {
-      return null;
-    }
-    return Boolean.valueOf(c.isEnabled(paramVarArgs));
+    return 1.3F;
   }
   
-  protected void a(Boolean paramBoolean)
+  protected String k()
   {
-    r localr = (r)b.get();
-    if ((localr == null) || (paramBoolean == null)) {
-      return;
-    }
-    localr.a(paramBoolean.booleanValue());
+    String str = super.k();
+    AppData.b().l().a(str);
+    return str;
   }
 }
 

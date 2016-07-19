@@ -1,144 +1,176 @@
-.class public final Lcom/google/android/gms/internal/fs;
+.class public Lcom/google/android/gms/internal/fs;
 .super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/fq$a;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/google/android/gms/internal/fq$a",
+        "<",
+        "Lcom/google/android/gms/ads/internal/formats/e;",
+        ">;"
+    }
 .end annotation
 
 
 # instance fields
-.field private final mH:Ljava/lang/Object;
+.field private final a:Z
 
-.field mo:Lcom/google/android/gms/internal/gu;
-
-.field private uE:Ljava/lang/String;
-
-.field private uF:Lcom/google/android/gms/internal/gj;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/internal/gj",
-            "<",
-            "Lcom/google/android/gms/internal/fu;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public final uG:Lcom/google/android/gms/internal/cd;
-
-.field public final uH:Lcom/google/android/gms/internal/cd;
+.field private final b:Z
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+.method public constructor <init>(ZZ)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/Object;
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/fs;->a:Z
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/fs;->mH:Ljava/lang/Object;
-
-    new-instance v0, Lcom/google/android/gms/internal/gj;
-
-    invoke-direct {v0}, Lcom/google/android/gms/internal/gj;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/fs;->uF:Lcom/google/android/gms/internal/gj;
-
-    new-instance v0, Lcom/google/android/gms/internal/fs$1;
-
-    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/fs$1;-><init>(Lcom/google/android/gms/internal/fs;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/fs;->uG:Lcom/google/android/gms/internal/cd;
-
-    new-instance v0, Lcom/google/android/gms/internal/fs$2;
-
-    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/fs$2;-><init>(Lcom/google/android/gms/internal/fs;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/fs;->uH:Lcom/google/android/gms/internal/cd;
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/fs;->uE:Ljava/lang/String;
+    iput-boolean p2, p0, Lcom/google/android/gms/internal/fs;->b:Z
 
     return-void
-.end method
-
-.method static synthetic a(Lcom/google/android/gms/internal/fs;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/fs;->mH:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic b(Lcom/google/android/gms/internal/fs;)Lcom/google/android/gms/internal/gj;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/fs;->uF:Lcom/google/android/gms/internal/gj;
-
-    return-object v0
-.end method
-
-.method static synthetic c(Lcom/google/android/gms/internal/fs;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/fs;->uE:Ljava/lang/String;
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public b(Lcom/google/android/gms/internal/gu;)V
+.method public synthetic a(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;)Lcom/google/android/gms/ads/internal/formats/h$a;
     .locals 1
-
-    const-string/jumbo v0, "setAdWebView must be called on the main thread."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/jx;->aU(Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/fs;->mo:Lcom/google/android/gms/internal/gu;
-
-    return-void
-.end method
-
-.method public cR()Ljava/util/concurrent/Future;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/concurrent/Future",
-            "<",
-            "Lcom/google/android/gms/internal/fu;",
-            ">;"
+            Lorg/json/JSONException;,
+            Ljava/lang/InterruptedException;,
+            Ljava/util/concurrent/ExecutionException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/fs;->uF:Lcom/google/android/gms/internal/gj;
+    invoke-virtual {p0, p1, p2}, Lcom/google/android/gms/internal/fs;->b(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;)Lcom/google/android/gms/ads/internal/formats/e;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public cS()V
-    .locals 1
+.method public b(Lcom/google/android/gms/internal/fq;Lorg/json/JSONObject;)Lcom/google/android/gms/ads/internal/formats/e;
+    .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;,
+            Ljava/lang/InterruptedException;,
+            Ljava/util/concurrent/ExecutionException;
+        }
+    .end annotation
 
-    const-string/jumbo v0, "destroyAdWebView must be called on the main thread."
+    const-string/jumbo v2, "images"
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/jx;->aU(Ljava/lang/String;)V
+    const/4 v3, 0x1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/fs;->mo:Lcom/google/android/gms/internal/gu;
+    iget-boolean v4, p0, Lcom/google/android/gms/internal/fs;->a:Z
+
+    iget-boolean v5, p0, Lcom/google/android/gms/internal/fs;->b:Z
+
+    move-object v0, p1
+
+    move-object v1, p2
+
+    invoke-virtual/range {v0 .. v5}, Lcom/google/android/gms/internal/fq;->a(Lorg/json/JSONObject;Ljava/lang/String;ZZZ)Ljava/util/List;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "secondary_image"
+
+    const/4 v2, 0x0
+
+    iget-boolean v3, p0, Lcom/google/android/gms/internal/fs;->a:Z
+
+    invoke-virtual {p1, p2, v1, v2, v3}, Lcom/google/android/gms/internal/fq;->a(Lorg/json/JSONObject;Ljava/lang/String;ZZ)Lcom/google/android/gms/internal/hs;
+
+    move-result-object v4
+
+    invoke-virtual {p1, p2}, Lcom/google/android/gms/internal/fq;->b(Lorg/json/JSONObject;)Lcom/google/android/gms/internal/hs;
+
+    move-result-object v7
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/fs;->mo:Lcom/google/android/gms/internal/gu;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/gu;->destroy()V
+    move-result-object v0
 
-    const/4 v0, 0x0
+    check-cast v0, Lcom/google/android/gms/internal/hs;
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/fs;->mo:Lcom/google/android/gms/internal/gu;
+    invoke-interface {v0}, Lcom/google/android/gms/internal/hs;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
 
     :cond_0
-    return-void
+    new-instance v0, Lcom/google/android/gms/ads/internal/formats/e;
+
+    const-string/jumbo v1, "headline"
+
+    invoke-virtual {p2, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "body"
+
+    invoke-virtual {p2, v3}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {v4}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/google/android/gms/internal/bd;
+
+    const-string/jumbo v5, "call_to_action"
+
+    invoke-virtual {p2, v5}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "advertiser"
+
+    invoke-virtual {p2, v6}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-interface {v7}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/google/android/gms/ads/internal/formats/a;
+
+    new-instance v8, Landroid/os/Bundle;
+
+    invoke-direct {v8}, Landroid/os/Bundle;-><init>()V
+
+    invoke-direct/range {v0 .. v8}, Lcom/google/android/gms/ads/internal/formats/e;-><init>(Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Lcom/google/android/gms/internal/bd;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/ads/internal/formats/a;Landroid/os/Bundle;)V
+
+    return-object v0
 .end method

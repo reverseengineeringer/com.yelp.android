@@ -2,84 +2,106 @@ package com.yelp.android.serializable;
 
 import android.content.res.Resources;
 import android.os.Parcel;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.services.f;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Passport
   extends _Passport
+  implements DisplayableAsUserBadge
 {
-  public static final JsonParser.DualCreator<Passport> CREATOR = new br();
-  private FeatureSet mDisabledFeatureSet = new FeatureSet();
-  private String mProfilePhotoPlaceholder;
+  public static final JsonParser.DualCreator<Passport> CREATOR = new Passport.1();
+  private FeatureSet l = new FeatureSet();
+  private String m;
   
   @Deprecated
-  protected static Passport fromLoginManager(dc paramdc)
+  protected static Passport a(co paramco)
   {
     Passport localPassport = new Passport();
-    mId = paramdc.b();
-    mProfilePhotoPlaceholder = paramdc.v();
+    c = paramco.a();
+    m = paramco.r();
     return localPassport;
   }
   
-  public static String getMediaQuantityString(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, Resources paramResources)
+  public static String a(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, Resources paramResources)
   {
     if (!paramBoolean) {
       return Integer.toString(paramInt3);
     }
     if (paramInt2 == 0) {
-      return paramResources.getQuantityString(2131623965, paramInt1, new Object[] { Integer.valueOf(paramInt1) });
+      return paramResources.getQuantityString(2131230751, paramInt1, new Object[] { Integer.valueOf(paramInt1) });
     }
     if ((paramInt1 == 0) && (paramInt2 > 0)) {
-      return paramResources.getQuantityString(2131623983, paramInt2, new Object[] { Integer.valueOf(paramInt2) });
+      return paramResources.getQuantityString(2131230770, paramInt2, new Object[] { Integer.valueOf(paramInt2) });
     }
-    return paramResources.getString(2131166304, new Object[] { Integer.valueOf(paramInt3) });
+    return paramResources.getString(2131166338, new Object[] { Integer.valueOf(paramInt3) });
   }
   
-  public static String getMediaQuantityString(boolean paramBoolean, DisplayableAsUserBadge paramDisplayableAsUserBadge, Resources paramResources)
+  public static String a(boolean paramBoolean, YelpBusinessReview paramYelpBusinessReview, Resources paramResources)
   {
-    return getMediaQuantityString(paramBoolean, paramDisplayableAsUserBadge.getPhotoCount(), paramDisplayableAsUserBadge.getVideoCount(), paramDisplayableAsUserBadge.getMediaCount(), paramResources);
+    return a(paramBoolean, paramYelpBusinessReview.y(), paramYelpBusinessReview.x(), paramYelpBusinessReview.g(), paramResources);
   }
   
-  public static String getMediaQuantityString(boolean paramBoolean, YelpBusinessReview paramYelpBusinessReview, Resources paramResources)
+  public String a()
   {
-    return getMediaQuantityString(paramBoolean, paramYelpBusinessReview.getUserPhotoCount(), paramYelpBusinessReview.getUserVideoCount(), paramYelpBusinessReview.getUserMediaCount(), paramResources);
+    return d;
   }
   
-  public int getMediaCount()
+  public void a(Parcel paramParcel)
   {
-    return getVideoCount() + getPhotoCount();
+    super.a(paramParcel);
+    l = ((FeatureSet)paramParcel.readParcelable(FeatureSet.class.getClassLoader()));
   }
   
-  public String getProfileThumbnail()
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    if (getProfilePhoto() != null) {
-      return getProfilePhoto().getThumbnailUrl();
+    super.a(paramJSONObject);
+    l.a(a);
+  }
+  
+  public boolean a(FeatureSet.Feature paramFeature)
+  {
+    return l.a(paramFeature);
+  }
+  
+  public String c()
+  {
+    if (b != null) {
+      return b.f();
     }
-    return mProfilePhotoPlaceholder;
+    return null;
   }
   
-  public boolean isFeatureDisabled(FeatureSet.Feature paramFeature)
+  public boolean h()
   {
-    return mDisabledFeatureSet.contains(paramFeature);
+    return f.a(l());
   }
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public String i()
   {
-    super.readFromJson(paramJSONObject);
-    mDisabledFeatureSet.setFeatures(mDisabledFeatures);
+    return c;
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public String j()
   {
-    super.readFromParcel(paramParcel);
-    mDisabledFeatureSet = ((FeatureSet)paramParcel.readParcelable(FeatureSet.class.getClassLoader()));
+    if (q() != null) {
+      return q().f();
+    }
+    return m;
+  }
+  
+  public int n_()
+  {
+    return m_() + l_();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeParcelable(mDisabledFeatureSet, paramInt);
+    paramParcel.writeParcelable(l, paramInt);
   }
 }
 

@@ -1,77 +1,67 @@
 package com.google.android.gms.maps.model;
 
+import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import com.google.android.gms.common.internal.safeparcel.zza;
+import com.google.android.gms.common.internal.safeparcel.zza.zza;
+import com.google.android.gms.common.internal.safeparcel.zzb;
 
 public class s
-  implements Parcelable.Creator<StreetViewPanoramaLocation>
+  implements Parcelable.Creator<TileOverlayOptions>
 {
-  static void a(StreetViewPanoramaLocation paramStreetViewPanoramaLocation, Parcel paramParcel, int paramInt)
+  static void a(TileOverlayOptions paramTileOverlayOptions, Parcel paramParcel, int paramInt)
   {
-    int i = b.H(paramParcel);
-    b.c(paramParcel, 1, paramStreetViewPanoramaLocation.getVersionCode());
-    b.a(paramParcel, 2, links, paramInt, false);
-    b.a(paramParcel, 3, position, paramInt, false);
-    b.a(paramParcel, 4, panoId, false);
-    b.H(paramParcel, i);
+    paramInt = zzb.zzav(paramParcel);
+    zzb.zzc(paramParcel, 1, paramTileOverlayOptions.a());
+    zzb.zza(paramParcel, 2, paramTileOverlayOptions.b(), false);
+    zzb.zza(paramParcel, 3, paramTileOverlayOptions.d());
+    zzb.zza(paramParcel, 4, paramTileOverlayOptions.c());
+    zzb.zza(paramParcel, 5, paramTileOverlayOptions.e());
+    zzb.zzI(paramParcel, paramInt);
   }
   
-  public StreetViewPanoramaLocation dk(Parcel paramParcel)
+  public TileOverlayOptions a(Parcel paramParcel)
   {
-    String str = null;
-    int j = a.G(paramParcel);
+    boolean bool2 = false;
+    int j = zza.zzau(paramParcel);
+    IBinder localIBinder = null;
+    float f = 0.0F;
+    boolean bool1 = true;
     int i = 0;
-    Object localObject2 = null;
-    Object localObject1 = null;
-    if (paramParcel.dataPosition() < j)
+    while (paramParcel.dataPosition() < j)
     {
-      int k = a.F(paramParcel);
-      Object localObject3;
-      switch (a.aH(k))
+      int k = zza.zzat(paramParcel);
+      switch (zza.zzca(k))
       {
       default: 
-        a.b(paramParcel, k);
-        localObject3 = localObject2;
-        localObject2 = localObject1;
-        localObject1 = localObject3;
-      }
-      for (;;)
-      {
-        localObject3 = localObject2;
-        localObject2 = localObject1;
-        localObject1 = localObject3;
+        zza.zzb(paramParcel, k);
         break;
-        i = a.g(paramParcel, k);
-        localObject3 = localObject1;
-        localObject1 = localObject2;
-        localObject2 = localObject3;
-        continue;
-        localObject3 = (StreetViewPanoramaLink[])a.b(paramParcel, k, StreetViewPanoramaLink.CREATOR);
-        localObject1 = localObject2;
-        localObject2 = localObject3;
-        continue;
-        localObject3 = (LatLng)a.a(paramParcel, k, LatLng.CREATOR);
-        localObject2 = localObject1;
-        localObject1 = localObject3;
-        continue;
-        str = a.o(paramParcel, k);
-        localObject3 = localObject1;
-        localObject1 = localObject2;
-        localObject2 = localObject3;
+      case 1: 
+        i = zza.zzg(paramParcel, k);
+        break;
+      case 2: 
+        localIBinder = zza.zzq(paramParcel, k);
+        break;
+      case 3: 
+        bool2 = zza.zzc(paramParcel, k);
+        break;
+      case 4: 
+        f = zza.zzl(paramParcel, k);
+        break;
+      case 5: 
+        bool1 = zza.zzc(paramParcel, k);
       }
     }
     if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+      throw new zza.zza("Overread allowed size end=" + j, paramParcel);
     }
-    return new StreetViewPanoramaLocation(i, (StreetViewPanoramaLink[])localObject1, (LatLng)localObject2, str);
+    return new TileOverlayOptions(i, localIBinder, bool2, f, bool1);
   }
   
-  public StreetViewPanoramaLocation[] fg(int paramInt)
+  public TileOverlayOptions[] a(int paramInt)
   {
-    return new StreetViewPanoramaLocation[paramInt];
+    return new TileOverlayOptions[paramInt];
   }
 }
 

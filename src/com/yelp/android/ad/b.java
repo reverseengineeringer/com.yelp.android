@@ -1,32 +1,27 @@
 package com.yelp.android.ad;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.bumptech.glide.load.engine.t;
-import com.bumptech.glide.load.resource.bitmap.m;
-import com.bumptech.glide.load.resource.bitmap.o;
+import com.bumptech.glide.load.e;
+import com.bumptech.glide.load.engine.i;
+import java.io.OutputStream;
 
-public class b
-  implements c<Bitmap, m>
+public class b<T>
+  implements e<T>
 {
-  private final Resources a;
-  private final e b;
+  private static final b<?> a = new b();
   
-  public b(Resources paramResources, e parame)
+  public static <T> b<T> b()
   {
-    a = paramResources;
-    b = parame;
-  }
-  
-  public t<m> a(t<Bitmap> paramt)
-  {
-    return new o(new m(a, (Bitmap)paramt.b()), b);
+    return a;
   }
   
   public String a()
   {
-    return "GlideBitmapDrawableTranscoder.com.bumptech.glide.load.resource.transcode";
+    return "";
+  }
+  
+  public boolean a(i<T> parami, OutputStream paramOutputStream)
+  {
+    return false;
   }
 }
 

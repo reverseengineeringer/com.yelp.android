@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include layout="@layout/panel_activity_feed_user_profile_header" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/feed_description" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <include layout="@layout/panel_activity_feed_event_list" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

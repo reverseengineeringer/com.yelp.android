@@ -44,7 +44,7 @@
     .locals 2
 
     .prologue
-    .line 103
+    .line 121
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Not implemented!"
@@ -58,7 +58,7 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 106
     const/4 v0, 0x0
 
     return-object v0
@@ -68,48 +68,70 @@
     .locals 4
 
     .prologue
+    const/4 v0, 0x0
+
     .line 37
-    const-string/jumbo v0, "ydid"
+    invoke-virtual {p0}, Lcom/yelp/android/services/YelpDataContentProvider;->getContext()Landroid/content/Context;
 
-    invoke-static {p1, v0}, Lcom/yelp/android/util/ak;->a(Landroid/net/Uri;Ljava/lang/String;)Z
+    move-result-object v1
 
-    move-result v0
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    if-eqz v0, :cond_0
+    move-result-object v1
 
-    const-string/jumbo v0, "ydid"
+    invoke-static {v1}, Lcom/yelp/android/services/b;->a(Landroid/content/pm/PackageManager;)Z
 
-    invoke-virtual {p2, v0}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
+    move-result v1
 
-    move-result v0
+    if-nez v1, :cond_0
 
-    if-eqz v0, :cond_0
+    move-object p1, v0
 
-    invoke-virtual {p2}, Landroid/content/ContentValues;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_1
-
-    .line 41
-    :cond_0
-    const/4 p1, 0x0
-
-    .line 51
+    .line 58
     :goto_0
     return-object p1
 
-    .line 44
+    .line 41
+    :cond_0
+    const-string/jumbo v1, "ydid"
+
+    invoke-static {p1, v1}, Lcom/yelp/android/util/v;->a(Landroid/net/Uri;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const-string/jumbo v1, "ydid"
+
+    invoke-virtual {p2, v1}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p2}, Landroid/content/ContentValues;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-eq v1, v2, :cond_2
+
     :cond_1
+    move-object p1, v0
+
+    .line 45
+    goto :goto_0
+
+    .line 48
+    :cond_2
     const-string/jumbo v0, "ydid"
 
     invoke-virtual {p2, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 46
+    .line 50
     invoke-virtual {p0}, Lcom/yelp/android/services/YelpDataContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -126,7 +148,7 @@
 
     move-result-object v1
 
-    .line 49
+    .line 56
     const-string/jumbo v2, "ydid"
 
     invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
@@ -142,7 +164,7 @@
     .locals 1
 
     .prologue
-    .line 93
+    .line 111
     const/4 v0, 0x1
 
     return v0
@@ -154,22 +176,37 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 67
-    const-string/jumbo v1, "ydid"
+    .line 79
+    invoke-virtual {p0}, Lcom/yelp/android/services/YelpDataContentProvider;->getContext()Landroid/content/Context;
 
-    invoke-static {p1, v1}, Lcom/yelp/android/util/ak;->a(Landroid/net/Uri;Ljava/lang/String;)Z
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/yelp/android/services/b;->a(Landroid/content/pm/PackageManager;)Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 82
+    .line 100
     :cond_0
     :goto_0
     return-object v0
 
-    .line 72
+    .line 83
     :cond_1
+    const-string/jumbo v1, "ydid"
+
+    invoke-static {p1, v1}, Lcom/yelp/android/util/v;->a(Landroid/net/Uri;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 88
     invoke-virtual {p0}, Lcom/yelp/android/services/YelpDataContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -182,7 +219,7 @@
 
     move-result-object v1
 
-    .line 76
+    .line 94
     const-string/jumbo v2, "ydid"
 
     invoke-interface {v1, v2}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
@@ -191,21 +228,21 @@
 
     if-eqz v2, :cond_0
 
-    .line 77
+    .line 95
     const-string/jumbo v2, "ydid"
 
     invoke-interface {v1, v2, v0}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 78
+    .line 96
     new-instance v0, Landroid/database/MatrixCursor;
 
     sget-object v2, Lcom/yelp/android/services/YelpDataContentProvider;->a:[Ljava/lang/String;
 
     invoke-direct {v0, v2}, Landroid/database/MatrixCursor;-><init>([Ljava/lang/String;)V
 
-    .line 79
+    .line 97
     invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object v1
@@ -219,7 +256,7 @@
     .locals 2
 
     .prologue
-    .line 98
+    .line 116
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Not implemented!"

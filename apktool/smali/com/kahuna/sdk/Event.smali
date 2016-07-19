@@ -7,6 +7,12 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/kahuna/sdk/Event$EventHashMismatchException;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -41,6 +47,8 @@
 
 .field private k:I
 
+.field private l:J
+
 
 # direct methods
 .method protected constructor <init>(Lcom/kahuna/sdk/Event;)V
@@ -49,482 +57,681 @@
     .prologue
     const/4 v0, -0x1
 
-    .line 88
+    .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
+    .line 75
     iput v0, p0, Lcom/kahuna/sdk/Event;->h:I
 
-    .line 63
+    .line 76
     iput v0, p0, Lcom/kahuna/sdk/Event;->i:I
 
-    .line 64
+    .line 77
     iput v0, p0, Lcom/kahuna/sdk/Event;->j:I
 
-    .line 65
+    .line 78
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/kahuna/sdk/Event;->k:I
 
-    .line 89
+    .line 79
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p0, Lcom/kahuna/sdk/Event;->l:J
+
+    .line 92
     iget-object v0, p1, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
-    .line 90
+    .line 93
     iget-wide v0, p1, Lcom/kahuna/sdk/Event;->b:J
 
     iput-wide v0, p0, Lcom/kahuna/sdk/Event;->b:J
 
-    .line 91
+    .line 94
     iget-object v0, p1, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
 
-    .line 92
+    .line 95
     iget-object v0, p1, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
 
-    .line 93
+    .line 96
     iget-object v0, p1, Lcom/kahuna/sdk/Event;->g:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/kahuna/sdk/Event;->g:Ljava/lang/String;
 
-    .line 94
+    .line 97
     iget-object v0, p1, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
 
-    .line 95
+    .line 98
     iget v0, p1, Lcom/kahuna/sdk/Event;->k:I
 
     iput v0, p0, Lcom/kahuna/sdk/Event;->k:I
 
-    .line 96
+    .line 99
     iget v0, p1, Lcom/kahuna/sdk/Event;->h:I
 
     iput v0, p0, Lcom/kahuna/sdk/Event;->h:I
 
-    .line 97
+    .line 100
     iget v0, p1, Lcom/kahuna/sdk/Event;->i:I
 
     iput v0, p0, Lcom/kahuna/sdk/Event;->i:I
 
-    .line 98
+    .line 101
     return-void
 .end method
 
-.method protected constructor <init>(Ljava/lang/String;JLjava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "J",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Object;",
-            ">;",
-            "Ljava/lang/String;",
-            ")V"
-        }
-    .end annotation
+.method protected constructor <init>(Ljava/lang/String;)V
+    .locals 4
 
     .prologue
     const/4 v0, -0x1
 
-    .line 70
+    .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 62
+    .line 75
     iput v0, p0, Lcom/kahuna/sdk/Event;->h:I
 
-    .line 63
+    .line 76
     iput v0, p0, Lcom/kahuna/sdk/Event;->i:I
 
-    .line 64
+    .line 77
     iput v0, p0, Lcom/kahuna/sdk/Event;->j:I
 
-    .line 65
+    .line 78
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/kahuna/sdk/Event;->k:I
 
-    .line 71
-    iput-object p1, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
+    .line 79
+    const-wide/16 v0, -0x1
 
-    .line 72
-    iput-wide p2, p0, Lcom/kahuna/sdk/Event;->b:J
-
-    .line 73
-    if-eqz p4, :cond_0
-
-    .line 74
-    new-instance v0, Lorg/json/JSONObject;
-
-    invoke-direct {v0, p4}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V
-
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
-
-    .line 77
-    :cond_0
-    if-eqz p5, :cond_1
-
-    .line 78
-    new-instance v0, Lorg/json/JSONObject;
-
-    invoke-direct {v0, p5}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V
-
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
-
-    .line 81
-    :cond_1
-    if-eqz p6, :cond_2
+    iput-wide v0, p0, Lcom/kahuna/sdk/Event;->l:J
 
     .line 82
-    new-instance v0, Lorg/json/JSONObject;
+    iput-object p1, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
-    invoke-direct {v0, p6}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V
+    .line 83
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+    move-result-wide v0
 
-    move-result-object v0
+    const-wide/16 v2, 0x3e8
 
-    iput-object v0, p0, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
+    div-long/2addr v0, v2
 
-    .line 85
-    :cond_2
-    iput-object p7, p0, Lcom/kahuna/sdk/Event;->g:Ljava/lang/String;
+    iput-wide v0, p0, Lcom/kahuna/sdk/Event;->b:J
+
+    .line 84
+    return-void
+.end method
+
+.method protected constructor <init>(Ljava/lang/String;J)V
+    .locals 2
+
+    .prologue
+    const/4 v0, -0x1
 
     .line 86
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 75
+    iput v0, p0, Lcom/kahuna/sdk/Event;->h:I
+
+    .line 76
+    iput v0, p0, Lcom/kahuna/sdk/Event;->i:I
+
+    .line 77
+    iput v0, p0, Lcom/kahuna/sdk/Event;->j:I
+
+    .line 78
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/kahuna/sdk/Event;->k:I
+
+    .line 79
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p0, Lcom/kahuna/sdk/Event;->l:J
+
+    .line 87
+    iput-object p1, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
+
+    .line 88
+    iput-wide p2, p0, Lcom/kahuna/sdk/Event;->b:J
+
+    .line 89
     return-void
 .end method
 
 .method protected static a(Lorg/json/JSONObject;Z)Lcom/kahuna/sdk/Event;
-    .locals 18
+    .locals 20
 
     .prologue
-    .line 199
+    .line 256
     if-nez p0, :cond_1
 
-    .line 200
-    const/4 v2, 0x0
+    .line 257
+    const/4 v4, 0x0
 
-    .line 273
+    .line 335
     :cond_0
     :goto_0
-    return-object v2
+    return-object v4
 
-    .line 204
+    .line 261
     :cond_1
     :try_start_0
-    const-string/jumbo v2, "event"
+    const-string/jumbo v4, "event"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v10
 
-    .line 205
-    const-string/jumbo v2, "time"
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
-
-    move-result-wide v4
-
-    .line 207
-    const-string/jumbo v2, "credentials"
+    .line 262
+    const-string/jumbo v4, "time"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
 
-    move-result-object v2
+    move-result-wide v12
 
-    .line 208
-    const-string/jumbo v6, ""
+    .line 264
+    const-string/jumbo v4, "credentials"
 
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v0, p0
 
-    move-result v6
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    if-eqz v6, :cond_a
+    move-result-object v4
 
-    .line 209
-    const/4 v2, 0x0
+    .line 265
+    const-string/jumbo v5, ""
 
-    move-object v13, v2
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 212
+    move-result v5
+
+    if-eqz v5, :cond_b
+
+    .line 266
+    const/4 v4, 0x0
+
+    move-object v9, v4
+
+    .line 269
     :goto_1
-    const-string/jumbo v2, "user_info"
+    const-string/jumbo v4, "user_info"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    .line 213
-    const-string/jumbo v6, ""
+    .line 270
+    const-string/jumbo v5, ""
 
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_9
+    if-eqz v5, :cond_a
 
-    .line 214
-    const/4 v2, 0x0
+    .line 271
+    const/4 v4, 0x0
 
-    move-object v12, v2
+    move-object v8, v4
 
-    .line 217
+    .line 274
     :goto_2
-    const-string/jumbo v2, "location"
+    const-string/jumbo v4, "location"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    .line 218
-    const-string/jumbo v6, ""
+    .line 275
+    const-string/jumbo v5, ""
 
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_8
+    if-eqz v5, :cond_9
 
-    .line 219
-    const/4 v2, 0x0
+    .line 276
+    const/4 v4, 0x0
 
-    move-object v11, v2
+    move-object v7, v4
 
-    .line 222
+    .line 279
     :goto_3
-    const-string/jumbo v2, "attr"
+    const-string/jumbo v4, "properties"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    .line 223
-    const-string/jumbo v6, ""
+    .line 280
+    const-string/jumbo v5, ""
 
-    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_7
+    if-eqz v5, :cond_8
 
-    .line 224
-    const/4 v2, 0x0
+    .line 281
+    const/4 v4, 0x0
 
-    move-object v10, v2
+    move-object v6, v4
 
-    .line 227
+    .line 284
     :goto_4
-    const-string/jumbo v2, "tracking_id"
+    const-string/jumbo v4, "tracking_id"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v4
 
-    .line 228
-    const-string/jumbo v2, ""
+    .line 285
+    const-string/jumbo v5, ""
 
-    invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v5
 
-    if-eqz v2, :cond_2
+    if-eqz v5, :cond_7
 
-    .line 229
-    const/4 v9, 0x0
+    .line 286
+    const/4 v4, 0x0
 
-    .line 232
-    :cond_2
-    const-string/jumbo v2, "count"
+    move-object v5, v4
 
-    const/4 v6, -0x1
+    .line 289
+    :goto_5
+    const-string/jumbo v4, "count"
+
+    const/4 v11, -0x1
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v4, v11}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+
+    move-result v11
+
+    .line 290
+    const-string/jumbo v4, "value"
+
+    const/4 v14, -0x1
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4, v14}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
 
     move-result v14
 
-    .line 233
-    const-string/jumbo v2, "value"
+    .line 291
+    const-string/jumbo v4, "push_launch_override"
 
-    const/4 v6, -0x1
+    const/4 v15, -0x1
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+    invoke-virtual {v0, v4, v15}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
 
     move-result v15
 
-    .line 234
-    const-string/jumbo v2, "push_launch_override"
+    .line 292
+    const-string/jumbo v4, "event_count"
 
-    const/4 v6, -0x1
+    const/16 v16, 0x0
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+    move/from16 v1, v16
+
+    invoke-virtual {v0, v4, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
 
     move-result v16
 
-    .line 235
-    const-string/jumbo v2, "event_count"
+    .line 293
+    const-string/jumbo v4, "event_number"
 
-    const/4 v6, 0x0
+    const-wide/16 v18, -0x1
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v2, v6}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;I)I
+    move-wide/from16 v1, v18
 
-    move-result v17
+    invoke-virtual {v0, v4, v1, v2}, Lorg/json/JSONObject;->optLong(Ljava/lang/String;J)J
 
-    .line 237
-    new-instance v2, Lcom/kahuna/sdk/Event;
+    move-result-wide v18
 
-    const/4 v6, 0x0
+    .line 295
+    new-instance v4, Lcom/kahuna/sdk/Event;
 
-    const/4 v7, 0x0
+    invoke-direct {v4, v10, v12, v13}, Lcom/kahuna/sdk/Event;-><init>(Ljava/lang/String;J)V
 
-    const/4 v8, 0x0
+    .line 296
+    iput-object v5, v4, Lcom/kahuna/sdk/Event;->g:Ljava/lang/String;
 
-    invoke-direct/range {v2 .. v9}, Lcom/kahuna/sdk/Event;-><init>(Ljava/lang/String;JLjava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;)V
+    .line 297
+    iput-object v9, v4, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
 
-    .line 238
-    iput-object v13, v2, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
+    .line 298
+    iput-object v8, v4, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
 
-    .line 239
-    iput-object v12, v2, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
+    .line 299
+    iput-object v7, v4, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
 
-    .line 240
-    iput-object v11, v2, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
+    .line 300
+    iput-object v6, v4, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
 
-    .line 241
-    iput-object v10, v2, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
+    .line 302
+    const/4 v5, -0x1
 
-    .line 243
-    const/4 v3, -0x1
+    if-eq v11, v5, :cond_2
 
-    if-eq v14, v3, :cond_3
+    .line 303
+    iput v11, v4, Lcom/kahuna/sdk/Event;->h:I
 
-    .line 244
-    iput v14, v2, Lcom/kahuna/sdk/Event;->h:I
+    .line 304
+    :cond_2
+    const/4 v5, -0x1
 
-    .line 245
+    if-eq v14, v5, :cond_3
+
+    .line 305
+    iput v14, v4, Lcom/kahuna/sdk/Event;->i:I
+
+    .line 306
     :cond_3
-    const/4 v3, -0x1
+    const/4 v5, -0x1
 
-    if-eq v15, v3, :cond_4
+    if-eq v15, v5, :cond_4
 
-    .line 246
-    iput v15, v2, Lcom/kahuna/sdk/Event;->i:I
+    .line 307
+    iput v15, v4, Lcom/kahuna/sdk/Event;->j:I
 
-    .line 247
+    .line 309
     :cond_4
-    const/4 v3, -0x1
+    const-wide/16 v6, 0x0
 
-    move/from16 v0, v16
+    cmp-long v5, v18, v6
 
-    if-eq v0, v3, :cond_5
+    if-lez v5, :cond_5
 
-    .line 248
-    move/from16 v0, v16
+    .line 310
+    move-wide/from16 v0, v18
 
-    iput v0, v2, Lcom/kahuna/sdk/Event;->j:I
+    iput-wide v0, v4, Lcom/kahuna/sdk/Event;->l:J
 
-    .line 251
+    .line 313
     :cond_5
-    move/from16 v0, v17
+    move/from16 v0, v16
 
-    iput v0, v2, Lcom/kahuna/sdk/Event;->k:I
+    iput v0, v4, Lcom/kahuna/sdk/Event;->k:I
 
-    .line 256
+    .line 318
     if-nez p1, :cond_0
 
-    .line 257
-    const-string/jumbo v3, "event_hash"
+    .line 319
+    const-string/jumbo v5, "event_hash"
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v5}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    .line 258
-    invoke-static {v3}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;)Z
+    .line 320
+    invoke-static {v5}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v6
 
-    if-nez v4, :cond_0
+    if-nez v6, :cond_0
 
-    .line 259
-    invoke-static/range {p0 .. p0}, Lcom/kahuna/sdk/Event;->a(Lorg/json/JSONObject;)Ljava/lang/String;
+    .line 321
+    invoke-static/range {p0 .. p0}, Lcom/kahuna/sdk/Event;->b(Lorg/json/JSONObject;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    .line 260
-    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    .line 322
+    invoke-virtual {v6, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v5
 
-    if-nez v3, :cond_0
+    if-nez v5, :cond_0
 
-    .line 261
-    new-instance v2, Lcom/kahuna/sdk/Event$EventHashMismatchException;
+    .line 323
+    new-instance v4, Lcom/kahuna/sdk/Event$EventHashMismatchException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Detected corrupted archived event: "
+    const-string/jumbo v6, "Detected corrupted archived event: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v5
 
     invoke-virtual/range {p0 .. p0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Lcom/kahuna/sdk/Event$EventHashMismatchException;-><init>(Ljava/lang/String;)V
+
+    throw v4
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 328
+    :catch_0
+    move-exception v4
+
+    .line 329
+    sget-boolean v5, Lcom/kahuna/sdk/l;->a:Z
+
+    if-eqz v5, :cond_6
+
+    .line 330
+    const-string/jumbo v5, "Kahuna"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "Exception building KAEvent from JSONObject: "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, " andException:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v5, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 332
+    :cond_6
+    const/4 v4, 0x0
+
+    goto/16 :goto_0
+
+    :cond_7
+    move-object v5, v4
+
+    goto/16 :goto_5
+
+    :cond_8
+    move-object v6, v4
+
+    goto/16 :goto_4
+
+    :cond_9
+    move-object v7, v4
+
+    goto/16 :goto_3
+
+    :cond_a
+    move-object v8, v4
+
+    goto/16 :goto_2
+
+    :cond_b
+    move-object v9, v4
+
+    goto/16 :goto_1
+.end method
+
+.method private static a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Map;
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/json/JSONObject;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 476
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    .line 477
+    if-eqz p0, :cond_1
+
+    .line 478
+    invoke-virtual {p0}, Lorg/json/JSONObject;->names()Lorg/json/JSONArray;
+
+    move-result-object v2
+
+    .line 479
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+
+    move-result v3
+
+    if-ge v0, v3, :cond_1
+
+    .line 480
+    invoke-virtual {v2, v0}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 481
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v4
+
+    if-lez v4, :cond_0
+
+    .line 482
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "_"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 483
+    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 484
+    invoke-static {v3}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    .line 485
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string/jumbo v6, ":"
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -532,96 +739,32 @@
 
     move-result-object v3
 
-    invoke-direct {v2, v3}, Lcom/kahuna/sdk/Event$EventHashMismatchException;-><init>(Ljava/lang/String;)V
+    invoke-interface {v1, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    throw v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .line 479
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
 
-    .line 266
-    :catch_0
-    move-exception v2
+    goto :goto_0
 
-    .line 267
-    sget-boolean v3, Lcom/kahuna/sdk/h;->a:Z
-
-    if-eqz v3, :cond_6
-
-    .line 268
-    const-string/jumbo v3, "KahunaAnalytics"
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Exception building KAEvent from JSONObject: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, " andException:"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 270
-    :cond_6
-    const/4 v2, 0x0
-
-    goto/16 :goto_0
-
-    :cond_7
-    move-object v10, v2
-
-    goto/16 :goto_4
-
-    :cond_8
-    move-object v11, v2
-
-    goto/16 :goto_3
-
-    :cond_9
-    move-object v12, v2
-
-    goto/16 :goto_2
-
-    :cond_a
-    move-object v13, v2
-
-    goto/16 :goto_1
+    .line 491
+    :cond_1
+    return-object v1
 .end method
 
-.method protected static a(Lorg/json/JSONObject;)Ljava/lang/String;
+.method protected static b(Lorg/json/JSONObject;)Ljava/lang/String;
     .locals 4
 
     .prologue
-    .line 351
+    .line 417
     new-instance v0, Ljava/util/TreeMap;
 
     invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
 
-    .line 352
-    if-eqz p0, :cond_8
+    .line 418
+    if-eqz p0, :cond_a
 
-    .line 353
+    .line 419
     const-string/jumbo v1, "count"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
@@ -630,7 +773,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 354
+    .line 420
     const-string/jumbo v1, "count"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -659,7 +802,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 356
+    .line 422
     :cond_0
     const-string/jumbo v1, "credentials"
 
@@ -669,7 +812,7 @@
 
     if-eqz v1, :cond_1
 
-    .line 357
+    .line 423
     const-string/jumbo v1, "credentials"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
@@ -684,7 +827,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
 
-    .line 359
+    .line 425
     :cond_1
     const-string/jumbo v1, "event"
 
@@ -694,7 +837,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 360
+    .line 426
     const-string/jumbo v1, "event"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -723,7 +866,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 362
+    .line 428
     :cond_2
     const-string/jumbo v1, "event_count"
 
@@ -733,7 +876,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 363
+    .line 429
     const-string/jumbo v1, "event_count"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -762,17 +905,56 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 365
+    .line 431
     :cond_3
+    const-string/jumbo v1, "event_number"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    .line 432
+    const-string/jumbo v1, "event_number"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "event_number:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "event_number"
+
+    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 434
+    :cond_4
     const-string/jumbo v1, "location"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
-    .line 366
+    .line 435
     const-string/jumbo v1, "location"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
@@ -787,17 +969,42 @@
 
     invoke-virtual {v0, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
 
-    .line 368
-    :cond_4
+    .line 437
+    :cond_5
+    const-string/jumbo v1, "properties"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_6
+
+    .line 438
+    const-string/jumbo v1, "properties"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "properties"
+
+    invoke-static {v1, v2}, Lcom/kahuna/sdk/Event;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Map;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
+
+    .line 440
+    :cond_6
     const-string/jumbo v1, "time"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_7
 
-    .line 369
+    .line 441
     const-string/jumbo v1, "time"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -826,17 +1033,17 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 371
-    :cond_5
+    .line 443
+    :cond_7
     const-string/jumbo v1, "tracking_id"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8
 
-    .line 372
+    .line 444
     const-string/jumbo v1, "tracking_id"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -865,17 +1072,17 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 374
-    :cond_6
+    .line 446
+    :cond_8
     const-string/jumbo v1, "user_info"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_9
 
-    .line 375
+    .line 447
     const-string/jumbo v1, "user_info"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
@@ -890,17 +1097,17 @@
 
     invoke-virtual {v0, v1}, Ljava/util/TreeMap;->putAll(Ljava/util/Map;)V
 
-    .line 377
-    :cond_7
+    .line 449
+    :cond_9
     const-string/jumbo v1, "value"
 
     invoke-virtual {p0, v1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_a
 
-    .line 378
+    .line 450
     const-string/jumbo v1, "value"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -929,13 +1136,13 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 384
-    :cond_8
+    .line 456
+    :cond_a
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 385
+    .line 457
     invoke-virtual {v0}, Ljava/util/TreeMap;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -949,7 +1156,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -957,7 +1164,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 386
+    .line 458
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -966,8 +1173,8 @@
 
     goto :goto_0
 
-    .line 389
-    :cond_9
+    .line 461
+    :cond_b
     const-string/jumbo v0, "|"
 
     invoke-static {v0, v1}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
@@ -978,134 +1185,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v1, v2}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
+    invoke-static {v0, v1, v2}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method private static a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Map;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lorg/json/JSONObject;",
-            "Ljava/lang/String;",
-            ")",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 404
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    .line 405
-    if-eqz p0, :cond_1
-
-    .line 406
-    invoke-virtual {p0}, Lorg/json/JSONObject;->names()Lorg/json/JSONArray;
-
-    move-result-object v2
-
-    .line 407
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
-
-    move-result v3
-
-    if-ge v0, v3, :cond_1
-
-    .line 408
-    invoke-virtual {v2, v0}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 409
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-
-    move-result v4
-
-    if-lez v4, :cond_0
-
-    .line 410
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, "_"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 411
-    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 412
-    invoke-static {v3}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_0
-
-    .line 413
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ":"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-interface {v1, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 407
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 419
-    :cond_1
-    return-object v1
 .end method
 
 
@@ -1114,7 +1198,7 @@
     .locals 4
 
     .prologue
-    .line 424
+    .line 496
     iget-wide v0, p0, Lcom/kahuna/sdk/Event;->b:J
 
     iget-wide v2, p1, Lcom/kahuna/sdk/Event;->b:J
@@ -1123,14 +1207,14 @@
 
     if-gez v0, :cond_0
 
-    .line 425
+    .line 497
     const/4 v0, -0x1
 
-    .line 431
+    .line 503
     :goto_0
     return v0
 
-    .line 427
+    .line 499
     :cond_0
     iget-wide v0, p0, Lcom/kahuna/sdk/Event;->b:J
 
@@ -1140,12 +1224,12 @@
 
     if-lez v0, :cond_1
 
-    .line 428
+    .line 500
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 431
+    .line 503
     :cond_1
     const/4 v0, 0x0
 
@@ -1156,7 +1240,7 @@
     .locals 1
 
     .prologue
-    .line 105
+    .line 108
     iget-object v0, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
     return-object v0
@@ -1166,10 +1250,21 @@
     .locals 0
 
     .prologue
-    .line 139
+    .line 167
     iput p1, p0, Lcom/kahuna/sdk/Event;->h:I
 
-    .line 140
+    .line 168
+    return-void
+.end method
+
+.method protected a(J)V
+    .locals 1
+
+    .prologue
+    .line 221
+    iput-wide p1, p0, Lcom/kahuna/sdk/Event;->l:J
+
+    .line 222
     return-void
 .end method
 
@@ -1177,34 +1272,174 @@
     .locals 0
 
     .prologue
-    .line 101
+    .line 104
     iput-object p1, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
-    .line 102
+    .line 105
     return-void
 .end method
 
-.method protected a(Lorg/json/JSONArray;)V
+.method protected a(Ljava/util/Map;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 124
+    invoke-static {p1}, Lcom/kahuna/sdk/w;->a(Ljava/util/Map;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 128
+    new-instance v2, Lorg/json/JSONObject;
+
+    invoke-direct {v2}, Lorg/json/JSONObject;-><init>()V
+
+    .line 129
+    invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_0
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 131
+    :try_start_0
+    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Set;
+
+    .line 132
+    new-instance v4, Lorg/json/JSONArray;
+
+    invoke-direct {v4, v1}, Lorg/json/JSONArray;-><init>(Ljava/util/Collection;)V
+
+    .line 133
+    invoke-virtual {v2, v0, v4}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    .line 134
+    :catch_0
+    move-exception v0
+
+    .line 135
+    sget-boolean v1, Lcom/kahuna/sdk/l;->a:Z
+
+    if-eqz v1, :cond_0
+
+    .line 136
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "Exception building user credentials string from Map: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " andException:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    .line 139
+    :cond_1
+    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
+
+    .line 143
+    :goto_1
+    return-void
+
+    .line 141
+    :cond_2
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
+
+    goto :goto_1
+.end method
+
+.method protected a(Lorg/json/JSONObject;)V
     .locals 1
 
     .prologue
-    .line 155
-    if-eqz p1, :cond_0
+    .line 195
+    invoke-static {p1}, Lcom/kahuna/sdk/w;->a(Lorg/json/JSONObject;)Z
 
-    .line 156
-    invoke-virtual {p1}, Lorg/json/JSONArray;->toString()Ljava/lang/String;
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 196
+    invoke-virtual {p1}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
 
-    .line 161
+    .line 201
     :goto_0
     return-void
 
-    .line 159
+    .line 199
     :cond_0
-    const-string/jumbo v0, ""
+    const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
 
@@ -1215,7 +1450,7 @@
     .locals 2
 
     .prologue
-    .line 109
+    .line 112
     iget-wide v0, p0, Lcom/kahuna/sdk/Event;->b:J
 
     return-wide v0
@@ -1225,31 +1460,132 @@
     .locals 0
 
     .prologue
-    .line 147
+    .line 175
     iput p1, p0, Lcom/kahuna/sdk/Event;->i:I
 
-    .line 148
+    .line 176
     return-void
+.end method
+
+.method protected b(Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 116
+    iput-object p1, p0, Lcom/kahuna/sdk/Event;->g:Ljava/lang/String;
+
+    .line 117
+    return-void
+.end method
+
+.method protected b(Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 150
+    invoke-static {p1}, Lcom/kahuna/sdk/w;->a(Ljava/util/Map;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 151
+    new-instance v0, Lorg/json/JSONObject;
+
+    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V
+
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
+
+    .line 156
+    :goto_0
+    return-void
+
+    .line 154
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method protected c()V
     .locals 1
 
     .prologue
-    .line 113
+    .line 120
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/kahuna/sdk/Event;->j:I
 
-    .line 114
+    .line 121
     return-void
+.end method
+
+.method protected c(Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Object;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 204
+    invoke-static {p1}, Lcom/kahuna/sdk/w;->a(Ljava/util/Map;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 205
+    new-instance v0, Lorg/json/JSONObject;
+
+    invoke-direct {v0, p1}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V
+
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
+
+    .line 210
+    :goto_0
+    return-void
+
+    .line 208
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method public synthetic compareTo(Ljava/lang/Object;)I
     .locals 1
 
     .prologue
-    .line 38
+    .line 40
     check-cast p1, Lcom/kahuna/sdk/Event;
 
     invoke-virtual {p0, p1}, Lcom/kahuna/sdk/Event;->a(Lcom/kahuna/sdk/Event;)I
@@ -1259,24 +1595,38 @@
     return v0
 .end method
 
-.method protected d()I
+.method protected d()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 143
-    iget v0, p0, Lcom/kahuna/sdk/Event;->h:I
+    .line 146
+    iget-object v0, p0, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
 
-    return v0
+    return-object v0
 .end method
 
-.method protected e()I
+.method protected e()Z
     .locals 1
 
     .prologue
-    .line 151
-    iget v0, p0, Lcom/kahuna/sdk/Event;->i:I
+    .line 163
+    iget-object v0, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
 
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
@@ -1285,18 +1635,18 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 173
+    .line 230
     instance-of v1, p1, Lcom/kahuna/sdk/Event;
 
     if-eqz v1, :cond_0
 
-    .line 174
+    .line 231
     check-cast p1, Lcom/kahuna/sdk/Event;
 
-    .line 175
+    .line 232
     iget-object v1, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
-    invoke-static {v1}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1304,18 +1654,18 @@
 
     iget-object v1, p1, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
-    invoke-static {v1}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 182
+    .line 239
     :cond_0
     :goto_0
     return v0
 
-    .line 177
+    .line 234
     :cond_1
     iget-object v1, p0, Lcom/kahuna/sdk/Event;->a:Ljava/lang/String;
 
@@ -1335,17 +1685,115 @@
 
     if-nez v1, :cond_0
 
-    .line 178
+    .line 235
     const/4 v0, 0x1
 
     goto :goto_0
 .end method
 
-.method protected f()Z
+.method protected f()I
     .locals 1
 
     .prologue
-    .line 164
+    .line 171
+    iget v0, p0, Lcom/kahuna/sdk/Event;->h:I
+
+    return v0
+.end method
+
+.method protected g()I
+    .locals 1
+
+    .prologue
+    .line 179
+    iget v0, p0, Lcom/kahuna/sdk/Event;->i:I
+
+    return v0
+.end method
+
+.method protected h()Lorg/json/JSONObject;
+    .locals 4
+
+    .prologue
+    .line 184
+    :try_start_0
+    iget-object v0, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 185
+    new-instance v0, Lorg/json/JSONObject;
+
+    iget-object v1, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
+
+    invoke-direct {v0, v1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 191
+    :goto_0
+    return-object v0
+
+    .line 187
+    :catch_0
+    move-exception v0
+
+    .line 188
+    sget-boolean v1, Lcom/kahuna/sdk/l;->a:Z
+
+    if-eqz v1, :cond_0
+
+    .line 189
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Exception building EventProperties from JSON String: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " andException:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 191
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method protected i()Z
+    .locals 1
+
+    .prologue
+    .line 213
     iget v0, p0, Lcom/kahuna/sdk/Event;->k:I
 
     if-lez v0, :cond_0
@@ -1361,33 +1809,43 @@
     goto :goto_0
 .end method
 
-.method protected g()V
+.method protected j()V
     .locals 1
 
     .prologue
-    .line 168
+    .line 217
     iget v0, p0, Lcom/kahuna/sdk/Event;->k:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/kahuna/sdk/Event;->k:I
 
-    .line 169
+    .line 218
     return-void
 .end method
 
-.method protected h()Lorg/json/JSONObject;
-    .locals 5
+.method protected k()J
+    .locals 2
+
+    .prologue
+    .line 225
+    iget-wide v0, p0, Lcom/kahuna/sdk/Event;->l:J
+
+    return-wide v0
+.end method
+
+.method protected l()Lorg/json/JSONObject;
+    .locals 6
 
     .prologue
     const/4 v4, -0x1
 
-    .line 283
+    .line 345
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    .line 286
+    .line 348
     :try_start_0
     const-string/jumbo v1, "event"
 
@@ -1395,19 +1853,19 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 287
+    .line 349
     const-string/jumbo v1, "time"
 
     iget-wide v2, p0, Lcom/kahuna/sdk/Event;->b:J
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    .line 289
+    .line 351
     iget-object v1, p0, Lcom/kahuna/sdk/Event;->c:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
-    .line 290
+    .line 352
     const-string/jumbo v1, "credentials"
 
     new-instance v2, Lorg/json/JSONObject;
@@ -1418,13 +1876,13 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 293
+    .line 355
     :cond_0
     iget-object v1, p0, Lcom/kahuna/sdk/Event;->d:Ljava/lang/String;
 
     if-eqz v1, :cond_1
 
-    .line 294
+    .line 356
     const-string/jumbo v1, "user_info"
 
     new-instance v2, Lorg/json/JSONObject;
@@ -1435,13 +1893,13 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 297
+    .line 359
     :cond_1
     iget-object v1, p0, Lcom/kahuna/sdk/Event;->e:Ljava/lang/String;
 
     if-eqz v1, :cond_2
 
-    .line 298
+    .line 360
     const-string/jumbo v1, "location"
 
     new-instance v2, Lorg/json/JSONObject;
@@ -1452,124 +1910,141 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 301
+    .line 363
     :cond_2
     iget-object v1, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
 
     if-eqz v1, :cond_3
 
-    .line 302
-    const-string/jumbo v1, "attr"
+    .line 364
+    const-string/jumbo v1, "properties"
 
-    new-instance v2, Lorg/json/JSONArray;
+    new-instance v2, Lorg/json/JSONObject;
 
     iget-object v3, p0, Lcom/kahuna/sdk/Event;->f:Ljava/lang/String;
 
-    invoke-direct {v2, v3}, Lorg/json/JSONArray;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 305
+    .line 367
     :cond_3
     iget-object v1, p0, Lcom/kahuna/sdk/Event;->g:Ljava/lang/String;
 
     if-eqz v1, :cond_4
 
-    .line 306
+    .line 368
     const-string/jumbo v1, "tracking_id"
 
     iget-object v2, p0, Lcom/kahuna/sdk/Event;->g:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 309
+    .line 371
     :cond_4
     iget v1, p0, Lcom/kahuna/sdk/Event;->h:I
 
     if-eq v1, v4, :cond_5
 
-    .line 310
+    .line 372
     const-string/jumbo v1, "count"
 
     iget v2, p0, Lcom/kahuna/sdk/Event;->h:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 312
+    .line 374
     :cond_5
     iget v1, p0, Lcom/kahuna/sdk/Event;->i:I
 
     if-eq v1, v4, :cond_6
 
-    .line 313
+    .line 375
     const-string/jumbo v1, "value"
 
     iget v2, p0, Lcom/kahuna/sdk/Event;->i:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 315
+    .line 377
     :cond_6
     iget v1, p0, Lcom/kahuna/sdk/Event;->j:I
 
     if-eq v1, v4, :cond_7
 
-    .line 316
+    .line 378
     const-string/jumbo v1, "push_launch_override"
 
     iget v2, p0, Lcom/kahuna/sdk/Event;->j:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 318
+    .line 380
     :cond_7
     iget v1, p0, Lcom/kahuna/sdk/Event;->k:I
 
     if-lez v1, :cond_8
 
-    .line 319
+    .line 381
     const-string/jumbo v1, "event_count"
 
     iget v2, p0, Lcom/kahuna/sdk/Event;->k:I
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 322
+    .line 384
     :cond_8
-    invoke-static {v0}, Lcom/kahuna/sdk/Event;->a(Lorg/json/JSONObject;)Ljava/lang/String;
+    iget-wide v2, p0, Lcom/kahuna/sdk/Event;->l:J
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v1, v2, v4
+
+    if-lez v1, :cond_9
+
+    .line 385
+    const-string/jumbo v1, "event_number"
+
+    iget-wide v2, p0, Lcom/kahuna/sdk/Event;->l:J
+
+    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+
+    .line 388
+    :cond_9
+    invoke-static {v0}, Lcom/kahuna/sdk/Event;->b(Lorg/json/JSONObject;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 323
+    .line 389
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-lez v2, :cond_9
+    if-lez v2, :cond_a
 
-    .line 324
+    .line 390
     const-string/jumbo v2, "event_hash"
 
     invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 334
-    :cond_9
+    .line 399
+    :cond_a
     :goto_0
     return-object v0
 
-    .line 327
+    .line 392
     :catch_0
     move-exception v0
 
-    .line 328
-    sget-boolean v1, Lcom/kahuna/sdk/h;->a:Z
+    .line 393
+    sget-boolean v1, Lcom/kahuna/sdk/l;->a:Z
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b
 
-    .line 329
-    const-string/jumbo v1, "KahunaAnalytics"
+    .line 394
+    const-string/jumbo v1, "Kahuna"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -1591,8 +2066,8 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 331
-    :cond_a
+    .line 396
+    :cond_b
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1602,7 +2077,7 @@
     .locals 4
 
     .prologue
-    .line 187
+    .line 244
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

@@ -1,16 +1,29 @@
 package com.yelp.android.ui.activities.reservations;
 
-import android.view.View;
-import android.view.View.OnClickListener;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.serializable.ReservationFilter;
+import com.yelp.android.services.f;
+import java.util.Calendar;
+import java.util.Date;
 
-class c
-  implements View.OnClickListener
+public class c
 {
-  c(FindReservation paramFindReservation) {}
-  
-  public void onClick(View paramView)
+  public static ReservationFilter a()
   {
-    FindReservation.a(a);
+    ReservationFilter localReservationFilter = AppData.b().f().Q();
+    if (localReservationFilter != null)
+    {
+      if (localReservationFilter.e().before(Calendar.getInstance().getTime())) {
+        localReservationFilter.a(b());
+      }
+      return localReservationFilter;
+    }
+    return new ReservationFilter(2, b());
+  }
+  
+  public static Date b()
+  {
+    return f.a(Calendar.getInstance(), 15, 19, 23).getTime();
   }
 }
 

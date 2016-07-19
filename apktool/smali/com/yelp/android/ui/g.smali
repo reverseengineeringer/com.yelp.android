@@ -2,147 +2,112 @@
 .super Ljava/lang/Object;
 .source "ActivityMonocle.java"
 
+# interfaces
+.implements Landroid/opengl/GLSurfaceView$Renderer;
+
 
 # instance fields
-.field private a:Landroid/graphics/Bitmap;
+.field public a:Z
 
-.field private b:Landroid/graphics/Canvas;
-
-.field private final c:Landroid/widget/FrameLayout;
+.field private b:Lcom/yelp/android/ui/MonocleEngine;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>()V
     .locals 1
 
     .prologue
-    .line 572
+    .line 866
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 573
-    new-instance v0, Landroid/widget/FrameLayout;
+    .line 867
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    iput-boolean v0, p0, Lcom/yelp/android/ui/g;->a:Z
 
-    iput-object v0, p0, Lcom/yelp/android/ui/g;->c:Landroid/widget/FrameLayout;
-
-    .line 574
+    .line 868
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/view/View;)Landroid/graphics/Bitmap;
-    .locals 5
+.method public onDrawFrame(Ljavax/microedition/khronos/opengles/GL10;)V
+    .locals 1
 
     .prologue
-    const/16 v1, 0x400
+    .line 885
+    iget-boolean v0, p0, Lcom/yelp/android/ui/g;->a:Z
 
-    const/4 v4, 0x0
+    if-eqz v0, :cond_0
 
-    .line 586
-    iget-object v0, p0, Lcom/yelp/android/ui/g;->c:Landroid/widget/FrameLayout;
+    .line 886
+    iget-object v0, p0, Lcom/yelp/android/ui/g;->b:Lcom/yelp/android/ui/MonocleEngine;
 
-    invoke-virtual {v0, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/MonocleEngine;->FlushTextures()V
 
-    .line 587
-    iget-object v0, p0, Lcom/yelp/android/ui/g;->c:Landroid/widget/FrameLayout;
+    .line 887
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1, v1}, Landroid/widget/FrameLayout;->measure(II)V
+    iput-boolean v0, p0, Lcom/yelp/android/ui/g;->a:Z
 
-    .line 588
-    iget-object v0, p0, Lcom/yelp/android/ui/g;->c:Landroid/widget/FrameLayout;
-
-    invoke-virtual {v0, v4, v4, v1, v1}, Landroid/widget/FrameLayout;->layout(IIII)V
-
-    .line 589
-    iget-object v0, p0, Lcom/yelp/android/ui/g;->c:Landroid/widget/FrameLayout;
-
-    invoke-virtual {v0}, Landroid/widget/FrameLayout;->removeAllViews()V
-
-    .line 591
-    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
-
-    move-result v0
-
-    .line 592
-    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
-
-    move-result v1
-
-    .line 596
-    iget-object v2, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v2
-
-    if-ne v2, v0, :cond_0
-
-    iget-object v2, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v2
-
-    if-eq v2, v1, :cond_2
-
-    .line 597
+    .line 890
     :cond_0
-    iget-object v2, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
+    iget-object v0, p0, Lcom/yelp/android/ui/g;->b:Lcom/yelp/android/ui/MonocleEngine;
 
-    if-eqz v2, :cond_1
+    invoke-virtual {v0}, Lcom/yelp/android/ui/MonocleEngine;->Draw()Lcom/yelp/android/ui/ActivityMonocle$MonocleButton;
 
-    .line 598
-    iget-object v2, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
+    .line 891
+    if-eqz v0, :cond_1
 
-    .line 600
+    .line 892
+    invoke-interface {v0}, Lcom/yelp/android/ui/ActivityMonocle$MonocleButton;->a()V
+
+    .line 894
     :cond_1
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    return-void
+.end method
 
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+.method public onSurfaceChanged(Ljavax/microedition/khronos/opengles/GL10;II)V
+    .locals 1
 
-    move-result-object v2
+    .prologue
+    .line 880
+    iget-object v0, p0, Lcom/yelp/android/ui/g;->b:Lcom/yelp/android/ui/MonocleEngine;
 
-    iput-object v2, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
+    invoke-virtual {v0, p2, p3}, Lcom/yelp/android/ui/MonocleEngine;->Resize(II)V
 
-    .line 601
-    new-instance v2, Landroid/graphics/Canvas;
+    .line 881
+    return-void
+.end method
 
-    iget-object v3, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
+.method public onSurfaceCreated(Ljavax/microedition/khronos/opengles/GL10;Ljavax/microedition/khronos/egl/EGLConfig;)V
+    .locals 1
 
-    invoke-direct {v2, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    .prologue
+    .line 872
+    new-instance v0, Lcom/yelp/android/ui/MonocleEngine;
 
-    iput-object v2, p0, Lcom/yelp/android/ui/g;->b:Landroid/graphics/Canvas;
+    invoke-direct {v0}, Lcom/yelp/android/ui/MonocleEngine;-><init>()V
 
-    .line 609
-    :goto_0
-    invoke-virtual {p1, v0, v1}, Landroid/view/View;->measure(II)V
+    iput-object v0, p0, Lcom/yelp/android/ui/g;->b:Lcom/yelp/android/ui/MonocleEngine;
 
-    .line 610
-    invoke-virtual {p1, v4, v4, v0, v1}, Landroid/view/View;->layout(IIII)V
+    .line 873
+    iget-object v0, p0, Lcom/yelp/android/ui/g;->b:Lcom/yelp/android/ui/MonocleEngine;
 
-    .line 611
-    iget-object v0, p0, Lcom/yelp/android/ui/g;->b:Landroid/graphics/Canvas;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/MonocleEngine;->Init()V
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
+    .line 874
+    iget-object v0, p0, Lcom/yelp/android/ui/g;->b:Lcom/yelp/android/ui/MonocleEngine;
 
-    .line 613
-    iget-object v0, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/MonocleEngine;->FlushTextures()V
 
-    return-object v0
+    .line 875
+    const/4 v0, 0x0
 
-    .line 606
-    :cond_2
-    iget-object v2, p0, Lcom/yelp/android/ui/g;->a:Landroid/graphics/Bitmap;
+    iput-boolean v0, p0, Lcom/yelp/android/ui/g;->a:Z
 
-    invoke-virtual {v2, v4}, Landroid/graphics/Bitmap;->eraseColor(I)V
-
-    goto :goto_0
+    .line 876
+    return-void
 .end method

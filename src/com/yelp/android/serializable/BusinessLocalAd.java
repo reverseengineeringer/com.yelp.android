@@ -1,19 +1,18 @@
 package com.yelp.android.serializable;
 
 import android.os.Parcel;
-import com.yelp.android.ui.panels.businesssearch.f;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class BusinessLocalAd
   extends LocalAd
-  implements f
+  implements com.yelp.android.ui.panels.businesssearch.a
 {
-  public static final ah<BusinessLocalAd> CREATOR = new n();
-  private YelpBusiness mBusiness;
+  public static final a<BusinessLocalAd> CREATOR = new BusinessLocalAd.1();
+  private YelpBusiness k;
   
-  public static void initializeBusinessLocalAds(List<BusinessLocalAd> paramList, List<YelpBusiness> paramList1)
+  public static void a(List<BusinessLocalAd> paramList, List<YelpBusiness> paramList1)
   {
     if ((paramList == null) || (paramList1 == null)) {
       return;
@@ -29,31 +28,31 @@ public class BusinessLocalAd
       if (localIterator2.hasNext())
       {
         YelpBusiness localYelpBusiness = (YelpBusiness)localIterator2.next();
-        if (!localBusinessLocalAd.getBusinessId().equals(localYelpBusiness.getId())) {
+        if (!localBusinessLocalAd.m().equals(localYelpBusiness.aD())) {
           break;
         }
-        mBusiness = localYelpBusiness;
+        k = localYelpBusiness;
       }
     }
     label89:
     Collections.sort(paramList);
   }
   
-  public YelpBusiness getBusiness()
+  public YelpBusiness a()
   {
-    return mBusiness;
+    return k;
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public void a(Parcel paramParcel)
   {
-    super.readFromParcel(paramParcel);
-    mBusiness = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+    super.a(paramParcel);
+    k = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeParcelable(mBusiness, 0);
+    paramParcel.writeParcelable(k, 0);
   }
 }
 

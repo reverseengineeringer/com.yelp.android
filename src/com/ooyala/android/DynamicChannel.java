@@ -47,9 +47,9 @@ public class DynamicChannel
       Iterator localIterator;
       try
       {
-        switch (DynamicChannel.1.$SwitchMap$com$ooyala$android$Constants$ReturnState[super.update(paramJSONObject).ordinal()])
+        switch (super.update(paramJSONObject))
         {
-        case 1: 
+        case ???: 
           localIterator = _videos.values().iterator();
           if (localIterator.hasNext())
           {

@@ -1,7 +1,7 @@
 package com.yelp.android.util;
 
 import android.util.Log;
-import com.yelp.android.services.x;
+import com.yelp.android.services.i;
 import java.math.BigInteger;
 import java.security.GeneralSecurityException;
 import java.util.Iterator;
@@ -39,7 +39,7 @@ public class a
     }
     try
     {
-      localCipher.init(1, new SecretKeySpec(new BigInteger(x.i(), 16).toByteArray(), "AES"), new IvParameterSpec(new byte[16]));
+      localCipher.init(1, new SecretKeySpec(new BigInteger(i.j(), 16).toByteArray(), "AES"), new IvParameterSpec(new byte[16]));
       paramMap = String.valueOf(com.yelp.android.services.a.a(localCipher.doFinal(paramMap.getBytes())));
       return paramMap;
     }

@@ -5,14 +5,14 @@ import android.widget.ImageView;
 import com.bumptech.glide.load.d;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.manager.l;
-import com.yelp.android.ag.j;
+import com.yelp.android.am.j;
 
 public class c<ModelType>
-  extends e<ModelType, com.yelp.android.v.h, com.yelp.android.ac.a, com.yelp.android.z.b>
+  extends e<ModelType, com.yelp.android.aa.g, com.yelp.android.ah.a, com.yelp.android.ae.b>
 {
-  c(Context paramContext, Class<ModelType> paramClass, com.yelp.android.ae.f<ModelType, com.yelp.android.v.h, com.yelp.android.ac.a, com.yelp.android.z.b> paramf, h paramh, l paraml, com.bumptech.glide.manager.h paramh1)
+  c(Context paramContext, Class<ModelType> paramClass, com.yelp.android.ak.f<ModelType, com.yelp.android.aa.g, com.yelp.android.ah.a, com.yelp.android.ae.b> paramf, g paramg, l paraml, com.bumptech.glide.manager.g paramg1)
   {
-    super(paramContext, paramClass, paramf, com.yelp.android.z.b.class, paramh, paraml, paramh1);
+    super(paramContext, paramClass, paramf, com.yelp.android.ae.b.class, paramg, paraml, paramg1);
     c();
   }
   
@@ -33,7 +33,13 @@ public class c<ModelType>
     return this;
   }
   
-  public c<ModelType> a(com.bumptech.glide.load.a<com.yelp.android.v.h> parama)
+  public c<ModelType> a(Priority paramPriority)
+  {
+    super.b(paramPriority);
+    return this;
+  }
+  
+  public c<ModelType> a(com.bumptech.glide.load.a<com.yelp.android.aa.g> parama)
   {
     super.b(parama);
     return this;
@@ -45,7 +51,7 @@ public class c<ModelType>
     return this;
   }
   
-  public c<ModelType> a(d<com.yelp.android.v.h, com.yelp.android.ac.a> paramd)
+  public c<ModelType> a(d<com.yelp.android.aa.g, com.yelp.android.ah.a> paramd)
   {
     super.b(paramd);
     return this;
@@ -54,12 +60,6 @@ public class c<ModelType>
   public c<ModelType> a(DiskCacheStrategy paramDiskCacheStrategy)
   {
     super.b(paramDiskCacheStrategy);
-    return this;
-  }
-  
-  public c<ModelType> a(com.bumptech.glide.request.c<? super ModelType, com.yelp.android.z.b> paramc)
-  {
-    super.b(paramc);
     return this;
   }
   
@@ -75,13 +75,13 @@ public class c<ModelType>
     return this;
   }
   
-  public c<ModelType> a(com.bumptech.glide.load.f<com.yelp.android.ac.a>... paramVarArgs)
+  public c<ModelType> a(com.bumptech.glide.load.f<com.yelp.android.ah.a>... paramVarArgs)
   {
     super.b(paramVarArgs);
     return this;
   }
   
-  public j<com.yelp.android.z.b> a(ImageView paramImageView)
+  public j<com.yelp.android.ae.b> a(ImageView paramImageView)
   {
     return super.a(paramImageView);
   }
@@ -99,29 +99,23 @@ public class c<ModelType>
   
   public final c<ModelType> c()
   {
-    super.a(new com.yelp.android.af.a());
+    super.a(new com.yelp.android.al.a());
     return this;
   }
   
-  public c<ModelType> d()
-  {
-    super.h();
-    return this;
-  }
-  
-  void e()
+  void d()
   {
     b();
   }
   
-  void f()
+  void e()
   {
     a();
   }
   
-  public c<ModelType> i()
+  public c<ModelType> g()
   {
-    return (c)super.g();
+    return (c)super.f();
   }
 }
 

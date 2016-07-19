@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:padding="@dimen/base_container_margin" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <TextView android:id="@id/business_name_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/business_name" />
-        <EditText android:id="@id/business_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:hint="@string/business_name_hint" android:selectAllOnFocus="true" android:inputType="text" />
-        <TextView android:id="@id/yomi_name_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/yomigana" />
-        <EditText android:id="@id/yomi_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:hint="@string/business_name_yomigana_hint" android:selectAllOnFocus="true" android:inputType="text" />
-        <TextView android:id="@id/english_name_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/english" />
-        <EditText android:id="@id/english_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:hint="@string/business_name_english_hint" android:selectAllOnFocus="true" android:inputType="text" />
-        <TextView android:id="@id/romaji_name_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/romaji" />
-        <EditText android:id="@id/romaji_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:hint="@string/business_name_romaji_hint" android:selectAllOnFocus="true" android:inputType="text" android:imeOptions="actionDone" />
+<ScrollView android:background="@color/white_dirty_snow" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:id="@id/business_name_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/business_name_title" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+        <com.yelp.android.ui.widgets.SpannableLinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="@style/ButtonFullBleed">
+            <EditText android:id="@id/business_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:inputType="text" />
+        </com.yelp.android.ui.widgets.SpannableLinearLayout>
     </LinearLayout>
 </ScrollView>

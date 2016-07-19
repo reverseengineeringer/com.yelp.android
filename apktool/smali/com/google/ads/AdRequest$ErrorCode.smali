@@ -3,6 +3,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/ads/AdRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "ErrorCode"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -22,7 +31,7 @@
 
 .field public static final enum NO_FILL:Lcom/google/ads/AdRequest$ErrorCode;
 
-.field private static final synthetic a:[Lcom/google/ads/AdRequest$ErrorCode;
+.field private static final synthetic zzaH:[Lcom/google/ads/AdRequest$ErrorCode;
 
 
 # instance fields
@@ -101,7 +110,7 @@
 
     aput-object v1, v0, v6
 
-    sput-object v0, Lcom/google/ads/AdRequest$ErrorCode;->a:[Lcom/google/ads/AdRequest$ErrorCode;
+    sput-object v0, Lcom/google/ads/AdRequest$ErrorCode;->zzaH:[Lcom/google/ads/AdRequest$ErrorCode;
 
     return-void
 .end method
@@ -140,7 +149,7 @@
 .method public static values()[Lcom/google/ads/AdRequest$ErrorCode;
     .locals 1
 
-    sget-object v0, Lcom/google/ads/AdRequest$ErrorCode;->a:[Lcom/google/ads/AdRequest$ErrorCode;
+    sget-object v0, Lcom/google/ads/AdRequest$ErrorCode;->zzaH:[Lcom/google/ads/AdRequest$ErrorCode;
 
     invoke-virtual {v0}, [Lcom/google/ads/AdRequest$ErrorCode;->clone()Ljava/lang/Object;
 

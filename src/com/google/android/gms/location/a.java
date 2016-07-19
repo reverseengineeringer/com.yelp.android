@@ -1,57 +1,39 @@
 package com.google.android.gms.location;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
-import com.google.android.gms.internal.nn;
-import java.util.ArrayList;
+import android.content.Context;
+import android.os.Looper;
+import com.google.android.gms.common.api.Api;
+import com.google.android.gms.common.api.Api.ApiOptions.NoOptions;
+import com.google.android.gms.common.api.Api.zza;
+import com.google.android.gms.common.api.Api.zzc;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.common.api.Result;
+import com.google.android.gms.common.api.internal.zza.zza;
+import com.google.android.gms.common.internal.zzf;
+import com.google.android.gms.location.internal.l;
 
 public class a
-  implements Parcelable.Creator<GeofencingRequest>
 {
-  static void a(GeofencingRequest paramGeofencingRequest, Parcel paramParcel, int paramInt)
+  public static final Api<Api.ApiOptions.NoOptions> a = new Api("ActivityRecognition.API", d, c);
+  public static final b b = new com.google.android.gms.location.internal.a();
+  private static final Api.zzc<l> c = new Api.zzc();
+  private static final Api.zza<l, Api.ApiOptions.NoOptions> d = new Api.zza()
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, paramGeofencingRequest.ng(), false);
-    b.c(paramParcel, 1000, paramGeofencingRequest.getVersionCode());
-    b.c(paramParcel, 2, paramGeofencingRequest.getInitialTrigger());
-    b.H(paramParcel, paramInt);
-  }
-  
-  public GeofencingRequest cI(Parcel paramParcel)
-  {
-    int j = 0;
-    int k = com.google.android.gms.common.internal.safeparcel.a.G(paramParcel);
-    ArrayList localArrayList = null;
-    int i = 0;
-    while (paramParcel.dataPosition() < k)
+    public l a(Context paramAnonymousContext, Looper paramAnonymousLooper, zzf paramAnonymouszzf, Api.ApiOptions.NoOptions paramAnonymousNoOptions, GoogleApiClient.ConnectionCallbacks paramAnonymousConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener paramAnonymousOnConnectionFailedListener)
     {
-      int m = com.google.android.gms.common.internal.safeparcel.a.F(paramParcel);
-      switch (com.google.android.gms.common.internal.safeparcel.a.aH(m))
-      {
-      default: 
-        com.google.android.gms.common.internal.safeparcel.a.b(paramParcel, m);
-        break;
-      case 1: 
-        localArrayList = com.google.android.gms.common.internal.safeparcel.a.c(paramParcel, m, nn.CREATOR);
-        break;
-      case 1000: 
-        i = com.google.android.gms.common.internal.safeparcel.a.g(paramParcel, m);
-        break;
-      case 2: 
-        j = com.google.android.gms.common.internal.safeparcel.a.g(paramParcel, m);
-      }
+      return new l(paramAnonymousContext, paramAnonymousLooper, paramAnonymousConnectionCallbacks, paramAnonymousOnConnectionFailedListener, "activity_recognition");
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new a.a("Overread allowed size end=" + k, paramParcel);
-    }
-    return new GeofencingRequest(i, localArrayList, j);
-  }
+  };
   
-  public GeofencingRequest[] ex(int paramInt)
+  public static abstract class a<R extends Result>
+    extends zza.zza<R, l>
   {
-    return new GeofencingRequest[paramInt];
+    public a(GoogleApiClient paramGoogleApiClient)
+    {
+      super(paramGoogleApiClient);
+    }
   }
 }
 

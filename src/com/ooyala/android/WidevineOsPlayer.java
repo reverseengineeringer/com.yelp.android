@@ -164,7 +164,13 @@ class WidevineOsPlayer
   {
     Log.d("WidevineOsPlayer", "WidevineError: " + eventToString(paramDrmErrorEvent));
     _error = Integer.toString(paramDrmErrorEvent.getType());
-    new Handler(Looper.getMainLooper()).post(new WidevineOsPlayer.2(this));
+    new Handler(Looper.getMainLooper()).post(new Runnable()
+    {
+      public void run()
+      {
+        setState(OoyalaPlayer.State.ERROR);
+      }
+    });
   }
   
   public void onEvent(DrmManagerClient paramDrmManagerClient, DrmEvent paramDrmEvent)
@@ -175,7 +181,18 @@ class WidevineOsPlayer
   public void onFrozen()
   {
     Log.v("WidevineOsPlayer", "onFrozen(): posting the runnable");
-    new Handler(Looper.getMainLooper()).post(new WidevineOsPlayer.1(this));
+    new Handler(Looper.getMainLooper()).post(new Runnable()
+    {
+      public void run()
+      {
+        Log.v("WidevineOsPlayer", "onFrozen(): running the runnable");
+        if (getState() != OoyalaPlayer.State.ERROR)
+        {
+          setState(OoyalaPlayer.State.COMPLETED);
+          _stuckMonitor.reset();
+        }
+      }
+    });
   }
   
   public void onInfo(DrmManagerClient paramDrmManagerClient, DrmInfoEvent paramDrmInfoEvent)

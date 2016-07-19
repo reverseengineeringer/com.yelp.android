@@ -1,83 +1,109 @@
 .class public Lcom/yelp/android/ab/e;
-.super Lcom/yelp/android/z/a;
-.source "GifDrawableResource.java"
+.super Lcom/yelp/android/aa/q;
+.source "FileDescriptorUriLoader.java"
+
+# interfaces
+.implements Lcom/yelp/android/ab/b;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ab/e$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/z/a",
+        "Lcom/yelp/android/aa/q",
         "<",
-        "Lcom/yelp/android/ab/b;",
+        "Landroid/os/ParcelFileDescriptor;",
+        ">;",
+        "Lcom/yelp/android/ab/b",
+        "<",
+        "Landroid/net/Uri;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/ab/b;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/aa/l;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Lcom/yelp/android/aa/l",
+            "<",
+            "Lcom/yelp/android/aa/d;",
+            "Landroid/os/ParcelFileDescriptor;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 11
-    invoke-direct {p0, p1}, Lcom/yelp/android/z/a;-><init>(Landroid/graphics/drawable/Drawable;)V
+    .line 43
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/aa/q;-><init>(Landroid/content/Context;Lcom/yelp/android/aa/l;)V
 
-    .line 12
+    .line 44
     return-void
 .end method
 
 
 # virtual methods
-.method public c()I
-    .locals 2
+.method protected a(Landroid/content/Context;Landroid/net/Uri;)Lcom/yelp/android/w/c;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Landroid/net/Uri;",
+            ")",
+            "Lcom/yelp/android/w/c",
+            "<",
+            "Landroid/os/ParcelFileDescriptor;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 16
-    iget-object v0, p0, Lcom/yelp/android/ab/e;->a:Landroid/graphics/drawable/Drawable;
+    .line 48
+    new-instance v0, Lcom/yelp/android/w/f;
 
-    check-cast v0, Lcom/yelp/android/ab/b;
+    invoke-direct {v0, p1, p2}, Lcom/yelp/android/w/f;-><init>(Landroid/content/Context;Landroid/net/Uri;)V
 
-    invoke-virtual {v0}, Lcom/yelp/android/ab/b;->d()[B
-
-    move-result-object v0
-
-    array-length v1, v0
-
-    iget-object v0, p0, Lcom/yelp/android/ab/e;->a:Landroid/graphics/drawable/Drawable;
-
-    check-cast v0, Lcom/yelp/android/ab/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ab/b;->b()Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/ai/f;->a(Landroid/graphics/Bitmap;)I
-
-    move-result v0
-
-    add-int/2addr v0, v1
-
-    return v0
+    return-object v0
 .end method
 
-.method public d()V
-    .locals 1
+.method protected a(Landroid/content/Context;Ljava/lang/String;)Lcom/yelp/android/w/c;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/yelp/android/w/c",
+            "<",
+            "Landroid/os/ParcelFileDescriptor;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 21
-    iget-object v0, p0, Lcom/yelp/android/ab/e;->a:Landroid/graphics/drawable/Drawable;
+    .line 53
+    new-instance v0, Lcom/yelp/android/w/e;
 
-    check-cast v0, Lcom/yelp/android/ab/b;
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ab/b;->stop()V
+    move-result-object v1
 
-    .line 22
-    iget-object v0, p0, Lcom/yelp/android/ab/e;->a:Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1}, Landroid/content/Context;->getAssets()Landroid/content/res/AssetManager;
 
-    check-cast v0, Lcom/yelp/android/ab/b;
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/ab/b;->f()V
+    invoke-direct {v0, v1, p2}, Lcom/yelp/android/w/e;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
 
-    .line 23
-    return-void
+    return-object v0
 .end method

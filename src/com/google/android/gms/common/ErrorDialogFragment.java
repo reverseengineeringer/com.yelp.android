@@ -1,18 +1,20 @@
 package com.google.android.gms.common;
 
+import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.os.Bundle;
-import com.google.android.gms.internal.jx;
+import com.google.android.gms.common.internal.zzx;
 
+@TargetApi(11)
 public class ErrorDialogFragment
   extends DialogFragment
 {
-  private DialogInterface.OnCancelListener Iw = null;
   private Dialog mDialog = null;
+  private DialogInterface.OnCancelListener zzafD = null;
   
   public static ErrorDialogFragment newInstance(Dialog paramDialog)
   {
@@ -22,20 +24,20 @@ public class ErrorDialogFragment
   public static ErrorDialogFragment newInstance(Dialog paramDialog, DialogInterface.OnCancelListener paramOnCancelListener)
   {
     ErrorDialogFragment localErrorDialogFragment = new ErrorDialogFragment();
-    paramDialog = (Dialog)jx.b(paramDialog, "Cannot display null dialog");
+    paramDialog = (Dialog)zzx.zzb(paramDialog, "Cannot display null dialog");
     paramDialog.setOnCancelListener(null);
     paramDialog.setOnDismissListener(null);
     mDialog = paramDialog;
     if (paramOnCancelListener != null) {
-      Iw = paramOnCancelListener;
+      zzafD = paramOnCancelListener;
     }
     return localErrorDialogFragment;
   }
   
   public void onCancel(DialogInterface paramDialogInterface)
   {
-    if (Iw != null) {
-      Iw.onCancel(paramDialogInterface);
+    if (zzafD != null) {
+      zzafD.onCancel(paramDialogInterface);
     }
   }
   

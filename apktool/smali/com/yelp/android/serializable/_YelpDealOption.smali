@@ -7,19 +7,19 @@
 
 
 # instance fields
-.field protected mAvailableCount:I
+.field protected a:Ljava/lang/String;
 
-.field protected mDescription:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mId:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mOriginalPrice:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
-.field protected mPrice:Ljava/lang/String;
+.field protected e:Ljava/lang/String;
 
-.field protected mPurchasedCount:I
+.field protected f:I
 
-.field protected mTitle:Ljava/lang/String;
+.field protected g:I
 
 
 # direct methods
@@ -27,134 +27,221 @@
     .locals 0
 
     .prologue
-    .line 35
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V
-    .locals 0
-
-    .prologue
-    .line 24
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_YelpDealOption;-><init>()V
-
-    .line 25
-    iput-object p1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mTitle:Ljava/lang/String;
-
-    .line 26
-    iput-object p2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mDescription:Ljava/lang/String;
-
-    .line 27
-    iput-object p3, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mId:Ljava/lang/String;
-
-    .line 28
-    iput-object p4, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPrice:Ljava/lang/String;
-
-    .line 29
-    iput-object p5, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mOriginalPrice:Ljava/lang/String;
-
-    .line 30
-    iput p6, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mAvailableCount:I
-
-    .line 31
-    iput p7, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPurchasedCount:I
-
-    .line 32
+    .line 44
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a()Lorg/json/JSONObject;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 62
-    const/4 v0, 0x0
+    .line 167
+    new-instance v0, Lorg/json/JSONObject;
 
-    return v0
-.end method
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-.method public getAvailableCount()I
-    .locals 1
+    .line 168
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
 
-    .prologue
-    .line 54
-    iget v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mAvailableCount:I
+    if-eqz v1, :cond_0
 
-    return v0
-.end method
+    .line 169
+    const-string/jumbo v1, "title"
 
-.method public getDescription()Ljava/lang/String;
-    .locals 1
+    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
 
-    .prologue
-    .line 42
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mDescription:Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
+    .line 171
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
+
+    if-eqz v1, :cond_1
+
+    .line 172
+    const-string/jumbo v1, "description"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 174
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
+
+    if-eqz v1, :cond_2
+
+    .line 175
+    const-string/jumbo v1, "id"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 177
+    :cond_2
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
+
+    if-eqz v1, :cond_3
+
+    .line 178
+    const-string/jumbo v1, "price"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 180
+    :cond_3
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
+
+    if-eqz v1, :cond_4
+
+    .line 181
+    const-string/jumbo v1, "original_price"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 183
+    :cond_4
+    const-string/jumbo v1, "available_count"
+
+    iget v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    .line 184
+    const-string/jumbo v1, "purchased_count"
+
+    iget v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    .line 185
     return-object v0
 .end method
 
-.method public getId()Ljava/lang/String;
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 45
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mId:Ljava/lang/String;
+    .line 129
+    const-class v0, Ljava/lang/String;
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
+
+    .line 130
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
+
+    .line 131
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
+
+    .line 132
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
+
+    .line 133
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
+
+    .line 134
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
+
+    .line 135
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
+
+    .line 136
+    return-void
 .end method
 
-.method public getOriginalPrice()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mOriginalPrice:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPrice()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPrice:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPurchasedCount()I
-    .locals 1
-
-    .prologue
-    .line 57
-    iget v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPurchasedCount:I
-
-    return v0
-.end method
-
-.method public getTitle()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mTitle:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const/4 v1, -0x1
 
-    .line 86
+    .line 139
     const-string/jumbo v0, "title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -163,16 +250,16 @@
 
     if-nez v0, :cond_0
 
-    .line 87
+    .line 140
     const-string/jumbo v0, "title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mTitle:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
 
-    .line 89
+    .line 142
     :cond_0
     const-string/jumbo v0, "description"
 
@@ -182,16 +269,16 @@
 
     if-nez v0, :cond_1
 
-    .line 90
+    .line 143
     const-string/jumbo v0, "description"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mDescription:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
 
-    .line 92
+    .line 145
     :cond_1
     const-string/jumbo v0, "id"
 
@@ -201,16 +288,16 @@
 
     if-nez v0, :cond_2
 
-    .line 93
+    .line 146
     const-string/jumbo v0, "id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
 
-    .line 95
+    .line 148
     :cond_2
     const-string/jumbo v0, "price"
 
@@ -220,16 +307,16 @@
 
     if-nez v0, :cond_3
 
-    .line 96
+    .line 149
     const-string/jumbo v0, "price"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPrice:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
 
-    .line 98
+    .line 151
     :cond_3
     const-string/jumbo v0, "original_price"
 
@@ -239,16 +326,16 @@
 
     if-nez v0, :cond_4
 
-    .line 99
+    .line 152
     const-string/jumbo v0, "original_price"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mOriginalPrice:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
 
-    .line 101
+    .line 154
     :cond_4
     const-string/jumbo v0, "available_count"
 
@@ -258,16 +345,16 @@
 
     if-nez v0, :cond_5
 
-    .line 102
+    .line 155
     const-string/jumbo v0, "available_count"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mAvailableCount:I
+    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
 
-    .line 106
+    .line 159
     :goto_0
     const-string/jumbo v0, "purchased_count"
 
@@ -277,220 +364,305 @@
 
     if-nez v0, :cond_6
 
-    .line 107
+    .line 160
     const-string/jumbo v0, "purchased_count"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPurchasedCount:I
+    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
 
-    .line 111
+    .line 164
     :goto_1
     return-void
 
-    .line 104
+    .line 157
     :cond_5
-    iput v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mAvailableCount:I
+    iput v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
 
     goto :goto_0
 
-    .line 109
+    .line 162
     :cond_6
-    iput v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPurchasedCount:I
+    iput v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
 
     goto :goto_1
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()I
     .locals 1
 
     .prologue
-    .line 76
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 107
+    iget v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mTitle:Ljava/lang/String;
-
-    .line 77
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mDescription:Ljava/lang/String;
-
-    .line 78
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mId:Ljava/lang/String;
-
-    .line 79
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPrice:Ljava/lang/String;
-
-    .line 80
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mOriginalPrice:Ljava/lang/String;
-
-    .line 81
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mAvailableCount:I
-
-    .line 82
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPurchasedCount:I
-
-    .line 83
-    return-void
+    return v0
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 103
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 99
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 115
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
     .locals 3
 
     .prologue
-    .line 114
-    new-instance v0, Lorg/json/JSONObject;
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    .line 48
+    if-nez p1, :cond_1
 
-    .line 115
-    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mTitle:Ljava/lang/String;
-
-    if-eqz v1, :cond_0
-
-    .line 116
-    const-string/jumbo v1, "title"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mTitle:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 118
+    .line 62
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mDescription:Ljava/lang/String;
+    :goto_0
+    return v0
 
-    if-eqz v1, :cond_1
-
-    .line 119
-    const-string/jumbo v1, "description"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mDescription:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 121
+    .line 52
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mId:Ljava/lang/String;
+    if-ne p1, p0, :cond_2
 
-    if-eqz v1, :cond_2
+    .line 53
+    const/4 v0, 0x1
 
-    .line 122
-    const-string/jumbo v1, "id"
+    goto :goto_0
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mId:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 124
+    .line 56
     :cond_2
-    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPrice:Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-eqz v1, :cond_3
+    move-result-object v1
 
-    .line 125
-    const-string/jumbo v1, "price"
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPrice:Ljava/lang/String;
+    move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    if-ne v1, v2, :cond_0
 
-    .line 127
-    :cond_3
-    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mOriginalPrice:Ljava/lang/String;
+    .line 60
+    check-cast p1, Lcom/yelp/android/serializable/_YelpDealOption;
 
-    if-eqz v1, :cond_4
+    .line 62
+    new-instance v0, Lcom/yelp/android/dc/b;
 
-    .line 128
-    const-string/jumbo v1, "original_price"
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mOriginalPrice:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
 
-    .line 130
-    :cond_4
-    const-string/jumbo v1, "available_count"
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    iget v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mAvailableCount:I
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
 
-    .line 131
-    const-string/jumbo v1, "purchased_count"
+    iget-object v2, p1, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
 
-    iget v2, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPurchasedCount:I
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    move-result-object v0
 
-    .line 132
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 91
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
+
     return-object v0
+.end method
+
+.method public g()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 87
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 75
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mTitle:Ljava/lang/String;
+    .line 119
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->a:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mDescription:Ljava/lang/String;
+    .line 120
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mId:Ljava/lang/String;
+    .line 121
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPrice:Ljava/lang/String;
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 70
-    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mOriginalPrice:Ljava/lang/String;
+    .line 123
+    iget-object v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 71
-    iget v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mAvailableCount:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 72
-    iget v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->mPurchasedCount:I
+    .line 124
+    iget v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->f:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 73
+    .line 125
+    iget v0, p0, Lcom/yelp/android/serializable/_YelpDealOption;->g:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 126
     return-void
 .end method

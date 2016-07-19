@@ -1,40 +1,55 @@
 package com.yelp.android.analytics;
 
-import com.yelp.android.analytics.iris.b;
+import android.content.Context;
+import android.location.Location;
+import com.yelp.android.analytics.iris.IriSource;
+import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.LocationService;
+import com.yelp.android.serializable.ReviewSuggestion;
+import com.yelp.android.util.i;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class h
 {
-  TreeMap<String, String> a = new TreeMap();
-  boolean b = false;
-  private b c = null;
-  private String d;
-  
-  public final g a()
+  public static void a(Context paramContext, g.a parama)
   {
-    if (b) {
-      throw new IllegalStateException("Reusing Builder ... bad");
+    if (AppData.d()) {}
+    for (paramContext = AppData.b().r();; paramContext = LocationService.c(paramContext))
+    {
+      paramContext = paramContext.c();
+      if (paramContext != null)
+      {
+        double d = i.d(paramContext.getAccuracy());
+        TreeMap localTreeMap = new TreeMap();
+        localTreeMap.put("lat", String.valueOf(paramContext.getLatitude()));
+        localTreeMap.put("long", String.valueOf(paramContext.getLongitude()));
+        localTreeMap.put("accuracy", String.valueOf(d));
+        parama.a("efs", com.yelp.android.util.a.a(localTreeMap));
+      }
+      return;
     }
-    b = true;
-    return new g(c, d, new TreeMap(a));
   }
   
-  public h a(b paramb)
+  public static void a(IriSource paramIriSource, List<ReviewSuggestion> paramList)
   {
-    c = paramb;
-    return this;
-  }
-  
-  public h a(String paramString)
-  {
-    d = paramString;
-    return this;
-  }
-  
-  public h a(String paramString1, String paramString2)
-  {
-    a.put(paramString1, paramString2);
-    return this;
+    paramIriSource = paramIriSource.getMapWithParameter();
+    com.yelp.android.g.a locala = new com.yelp.android.g.a();
+    paramList = paramList.iterator();
+    while (paramList.hasNext())
+    {
+      String str = ((ReviewSuggestion)paramList.next()).c();
+      if (locala.containsKey(str)) {
+        locala.put(str, Integer.valueOf(((Integer)locala.get(str)).intValue() + 1));
+      } else {
+        locala.put(str, Integer.valueOf(1));
+      }
+    }
+    paramIriSource.put("suggestion_type_counts", locala);
+    AppData.a(ViewIri.ReviewSuggestionsViewed, paramIriSource);
   }
 }
 

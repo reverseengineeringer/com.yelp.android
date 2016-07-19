@@ -6,17 +6,17 @@ import com.yelp.android.util.ErrorType;
 public class FriendsRankFragment
   extends RankFragment
 {
+  protected CheckInRankingsRequest.SearchMode D_()
+  {
+    return CheckInRankingsRequest.SearchMode.FRIENDS;
+  }
+  
   protected CheckinRankAdapter.RankMode c()
   {
     return CheckinRankAdapter.RankMode.FRIENDS;
   }
   
-  protected CheckInRankingsRequest.SearchMode d()
-  {
-    return CheckInRankingsRequest.SearchMode.FRIENDS;
-  }
-  
-  protected ErrorType e()
+  protected ErrorType f()
   {
     return ErrorType.NO_FRIEND_CHECKINS;
   }

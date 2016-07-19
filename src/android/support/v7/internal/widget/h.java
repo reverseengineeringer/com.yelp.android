@@ -1,23 +1,14 @@
 package android.support.v7.internal.widget;
 
-import android.support.v4.view.ey;
-import android.view.View;
+import android.graphics.Rect;
 
-class h
-  extends ey
+public abstract interface h
 {
-  h(ActionBarOverlayLayout paramActionBarOverlayLayout) {}
+  public abstract void setOnFitSystemWindowsListener(a parama);
   
-  public void b(View paramView)
+  public static abstract interface a
   {
-    ActionBarOverlayLayout.a(a, null);
-    ActionBarOverlayLayout.a(a, false);
-  }
-  
-  public void c(View paramView)
-  {
-    ActionBarOverlayLayout.a(a, null);
-    ActionBarOverlayLayout.a(a, false);
+    public abstract void a(Rect paramRect);
   }
 }
 

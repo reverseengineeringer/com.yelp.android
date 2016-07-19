@@ -1,91 +1,96 @@
-.class public final Lcom/yelp/android/appdata/webrequests/o;
-.super Ljava/lang/Object;
-.source "ApplicationConfigRequest.java"
+.class public Lcom/yelp/android/appdata/webrequests/o;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "BadgeDetailsRequest.java"
 
 
-# instance fields
-.field public final a:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public final b:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public final c:Lcom/yelp/android/serializable/UpdatePrompt;
-
-.field public final d:Z
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/yelp/android/appdata/webrequests/core/b",
+        "<",
+        "Ljava/lang/String;",
+        "Ljava/lang/Void;",
+        "Lcom/yelp/android/serializable/Badge;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/Map;Ljava/util/Map;Lcom/yelp/android/serializable/UpdatePrompt;)V
-    .locals 1
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Map",
+            "Ljava/lang/String;",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;",
-            "Lcom/yelp/android/serializable/UpdatePrompt;",
-            ")V"
+            "Lcom/yelp/android/serializable/Badge;",
+            ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 66
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 12
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    .line 67
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/o;->a:Ljava/util/Map;
+    const-string/jumbo v1, "/badge"
 
-    .line 68
-    iput-object p2, p0, Lcom/yelp/android/appdata/webrequests/o;->b:Ljava/util/Map;
+    invoke-direct {p0, v0, v1, p2}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 69
-    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/o;->c:Lcom/yelp/android/serializable/UpdatePrompt;
+    .line 13
+    const-string/jumbo v0, "badge_id"
 
-    .line 70
-    const-string/jumbo v0, "show_privacy_policy_splash"
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/o;->a(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/yelp/android/appdata/webrequests/o;->d:Z
-
-    .line 71
+    .line 14
     return-void
+.end method
+
+
+# virtual methods
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/Badge;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 18
+    sget-object v0, Lcom/yelp/android/serializable/Badge;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
+
+    const-string/jumbo v1, "badge"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Badge;
+
+    return-object v0
+.end method
+
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 9
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/o;->a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/Badge;
+
+    move-result-object v0
+
+    return-object v0
 .end method

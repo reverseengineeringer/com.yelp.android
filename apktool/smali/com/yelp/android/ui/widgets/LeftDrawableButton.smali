@@ -60,7 +60,7 @@
     .line 51
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
-    const v1, 0x7f0c001f
+    const v1, 0x7f0f0021
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setId(I)V
 
@@ -74,7 +74,7 @@
     .line 54
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
 
-    const v1, 0x7f0c001e
+    const v1, 0x7f0f0020
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setId(I)V
 
@@ -86,7 +86,7 @@
     if-nez v0, :cond_0
 
     .line 57
-    const v0, 0x7f0200d2
+    const v0, 0x7f020112
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->setBackgroundResource(I)V
 
@@ -101,27 +101,27 @@
 
     invoke-direct {v0, v2, v2}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    .line 64
+    .line 65
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v4, v4, v4, v4}, Landroid/widget/ImageView;->setPadding(IIII)V
 
-    .line 65
+    .line 66
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    .line 66
+    .line 67
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setClickable(Z)V
 
-    .line 68
+    .line 69
     new-instance v1, Landroid/widget/RelativeLayout$LayoutParams;
 
     invoke-direct {v1, v2, v2}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    .line 70
+    .line 72
     const/4 v2, 0x1
 
     iget-object v3, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
@@ -132,7 +132,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
-    .line 71
+    .line 73
     const/4 v2, 0x6
 
     iget-object v3, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
@@ -143,7 +143,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
-    .line 72
+    .line 74
     const/16 v2, 0x8
 
     iget-object v3, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
@@ -154,24 +154,24 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
-    .line 73
+    .line 75
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
-    .line 74
+    .line 76
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     const/16 v3, 0x10
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setGravity(I)V
 
-    .line 75
+    .line 77
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     invoke-virtual {v2}, Landroid/widget/TextView;->setSingleLine()V
 
-    .line 76
+    .line 78
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     iget-object v3, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
@@ -182,22 +182,56 @@
 
     invoke-virtual {v2, v3, v4, v4, v4}, Landroid/widget/TextView;->setPadding(IIII)V
 
-    .line 77
+    .line 79
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setClickable(Z)V
 
-    .line 79
+    .line 81
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     invoke-virtual {p0, v2, v1}, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 80
+    .line 82
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 81
+    .line 83
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/ui/util/u$a;)V
+    .locals 1
+
+    .prologue
+    .line 98
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
+
+    invoke-virtual {p1, v0}, Lcom/yelp/android/ui/util/u$a;->a(Landroid/widget/ImageView;)V
+
+    .line 99
+    return-void
+.end method
+
+.method public setEnabled(Z)V
+    .locals 1
+
+    .prologue
+    .line 103
+    invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->setEnabled(Z)V
+
+    .line 104
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setEnabled(Z)V
+
+    .line 105
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
+
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    .line 106
     return-void
 .end method
 
@@ -205,7 +239,7 @@
     .locals 2
 
     .prologue
-    .line 92
+    .line 94
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->b:Landroid/widget/ImageView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->getResources()Landroid/content/res/Resources;
@@ -218,7 +252,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 93
+    .line 95
     return-void
 .end method
 
@@ -226,12 +260,12 @@
     .locals 1
 
     .prologue
-    .line 88
+    .line 90
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 89
+    .line 91
     return-void
 .end method
 
@@ -239,11 +273,11 @@
     .locals 1
 
     .prologue
-    .line 84
+    .line 86
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/LeftDrawableButton;->a:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 85
+    .line 87
     return-void
 .end method

@@ -1,12 +1,11 @@
 package com.yelp.android.ui.util;
 
-import com.yelp.android.appdata.webrequests.YelpException;
+import android.widget.Adapter;
 
-public abstract interface g<T>
+public abstract interface g
+  extends Adapter
 {
-  public abstract void a(T paramT);
-  
-  public abstract void b(YelpException paramYelpException);
+  public abstract void clear();
 }
 
 /* Location:

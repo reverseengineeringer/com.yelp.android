@@ -3,6 +3,14 @@
 .source "OoyalaException.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/OoyalaException$OoyalaErrorCode;
+    }
+.end annotation
+
+
 # static fields
 .field private static final serialVersionUID:J = 0x1L
 

@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field protected mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+.field protected a:Lcom/yelp/android/serializable/Reservation;
 
-.field protected mReservation:Lcom/yelp/android/serializable/Reservation;
+.field protected b:Lcom/yelp/android/serializable/YelpBusiness;
 
 
 # direct methods
@@ -17,67 +17,73 @@
     .locals 0
 
     .prologue
-    .line 25
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
-    return-void
-.end method
-
-.method protected constructor <init>(Lcom/yelp/android/serializable/Reservation;Lcom/yelp/android/serializable/YelpBusiness;)V
-    .locals 0
-
-    .prologue
-    .line 19
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_ReservationChangeEvent;-><init>()V
-
-    .line 20
-    iput-object p1, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mReservation:Lcom/yelp/android/serializable/Reservation;
-
-    .line 21
-    iput-object p2, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
-
-    .line 22
+    .line 27
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public a()Lcom/yelp/android/serializable/YelpBusiness;
     .locals 1
 
     .prologue
-    .line 37
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-    .locals 1
-
-    .prologue
-    .line 32
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
 
     return-object v0
 .end method
 
-.method public getReservation()Lcom/yelp/android/serializable/Reservation;
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 29
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mReservation:Lcom/yelp/android/serializable/Reservation;
+    .line 74
+    const-class v0, Lcom/yelp/android/serializable/Reservation;
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Reservation;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
+
+    .line 75
+    const-class v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 76
+    return-void
 .end method
 
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 51
+    .line 79
     const-string/jumbo v0, "reservation"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -86,8 +92,8 @@
 
     if-nez v0, :cond_0
 
-    .line 52
-    sget-object v0, Lcom/yelp/android/serializable/Reservation;->CREATOR:Lcom/yelp/android/serializable/ah;
+    .line 80
+    sget-object v0, Lcom/yelp/android/serializable/Reservation;->CREATOR:Lcom/yelp/android/serializable/a;
 
     const-string/jumbo v1, "reservation"
 
@@ -95,15 +101,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ah;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/a;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/Reservation;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mReservation:Lcom/yelp/android/serializable/Reservation;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
 
-    .line 54
+    .line 82
     :cond_0
     const-string/jumbo v0, "business"
 
@@ -113,7 +119,7 @@
 
     if-nez v0, :cond_1
 
-    .line 55
+    .line 83
     sget-object v0, Lcom/yelp/android/serializable/YelpBusiness;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     const-string/jumbo v1, "business"
@@ -128,49 +134,125 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 57
+    .line 85
     :cond_1
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()Lcom/yelp/android/serializable/Reservation;
     .locals 1
 
     .prologue
-    .line 46
-    const-class v0, Lcom/yelp/android/serializable/Reservation;
+    .line 57
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 65
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 31
+    if-nez p1, :cond_1
+
+    .line 45
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 35
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 36
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 39
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 43
+    check-cast p1, Lcom/yelp/android/serializable/_ReservationChangeEvent;
+
+    .line 45
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/Reservation;
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mReservation:Lcom/yelp/android/serializable/Reservation;
+    move-result v0
 
-    .line 47
-    const-class v0, Lcom/yelp/android/serializable/YelpBusiness;
+    goto :goto_0
+.end method
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 53
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    move-result v0
 
-    .line 48
-    return-void
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -179,16 +261,16 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 41
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mReservation:Lcom/yelp/android/serializable/Reservation;
+    .line 69
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 42
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 70
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 43
+    .line 71
     return-void
 .end method

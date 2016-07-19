@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@id/edit_review_from_review_page" android:visible="false" android:title="@string/edit_review" yelp:showAsAction="never" />
-    <item android:id="@id/update_review_from_review_page" android:visible="false" android:title="@string/write_an_update" yelp:showAsAction="never" />
+    <item android:icon="@drawable/ic_action_share" android:id="@id/share_review" android:visible="false" android:title="@string/share" yelp:showAsAction="ifRoom" />
+    <item android:id="@id/edit_review" android:visible="false" android:title="@string/edit_review" yelp:showAsAction="never" />
+    <item android:id="@id/delete_review" android:visible="false" android:title="@string/delete_review" yelp:showAsAction="never" />
+    <item android:id="@id/update_review" android:visible="false" android:title="@string/write_an_update" yelp:showAsAction="never" />
     <item android:id="@id/business" android:visible="false" android:title="@string/nav_business" yelp:showAsAction="ifRoom" />
-    <item android:id="@id/flag_review_from_review_page" android:title="@string/report_review" yelp:showAsAction="never" />
+    <item android:id="@id/flag_review" android:title="@string/report_review" yelp:showAsAction="never" />
 </menu>

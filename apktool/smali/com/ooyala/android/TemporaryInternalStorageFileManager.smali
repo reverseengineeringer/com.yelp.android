@@ -164,6 +164,11 @@
 
 .method public next(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Lcom/ooyala/android/TemporaryInternalStorageFile;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 32

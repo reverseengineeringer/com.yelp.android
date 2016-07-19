@@ -1,3 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yelp.android.ui.widgets.SpannedTextView android:gravity="bottom" android:orientation="vertical" android:paddingTop="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom" style="?sublistCell"
+<com.yelp.android.ui.widgets.SpannedTextView android:gravity="bottom" android:orientation="vertical" android:paddingTop="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom" style="?sublistCell"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto" />

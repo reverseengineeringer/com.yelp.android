@@ -1,30 +1,13 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
-import com.google.android.gms.dynamic.d;
-
-public abstract interface bw
-  extends IInterface
+@fv
+public class bw
+  implements cn
 {
-  public abstract void aw();
-  
-  public abstract String bB();
-  
-  public abstract d bC();
-  
-  public abstract d bD();
-  
-  public abstract String bE();
-  
-  public abstract double bF();
-  
-  public abstract String bG();
-  
-  public abstract String bH();
-  
-  public abstract String getBody();
-  
-  public abstract void j(int paramInt);
+  public cl a(ib paramib, int paramInt, String paramString)
+  {
+    return new co(paramib);
+  }
 }
 
 /* Location:

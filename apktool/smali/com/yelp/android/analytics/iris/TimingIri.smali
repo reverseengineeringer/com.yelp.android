@@ -3,7 +3,7 @@
 .source "TimingIri.java"
 
 # interfaces
-.implements Lcom/yelp/android/analytics/iris/b;
+.implements Lcom/yelp/android/analytics/iris/a;
 
 
 # annotations
@@ -13,7 +13,7 @@
         "<",
         "Lcom/yelp/android/analytics/iris/TimingIri;",
         ">;",
-        "Lcom/yelp/android/analytics/iris/b;"
+        "Lcom/yelp/android/analytics/iris/a;"
     }
 .end annotation
 
@@ -23,7 +23,11 @@
 
 .field public static final enum ApplicationStartup:Lcom/yelp/android/analytics/iris/TimingIri;
 
-.field public static final enum BusinessDetailLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+.field public static final enum BusinessDetailsFullyLoaded:Lcom/yelp/android/analytics/iris/TimingIri;
+
+.field public static final enum BusinessDetailsLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+
+.field public static final enum PlatformWebViewIframeLoad:Lcom/yelp/android/analytics/iris/TimingIri;
 
 .field public static final enum PlatformWebViewInitLoad:Lcom/yelp/android/analytics/iris/TimingIri;
 
@@ -34,16 +38,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 8
 
     .prologue
+    const/4 v7, 0x4
+
+    const/4 v6, 0x3
+
     const/4 v5, 0x2
 
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
-    .line 12
+    .line 10
     new-instance v0, Lcom/yelp/android/analytics/iris/TimingIri;
 
     const-string/jumbo v1, "ApplicationStartup"
@@ -54,30 +62,52 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->ApplicationStartup:Lcom/yelp/android/analytics/iris/TimingIri;
 
-    .line 13
+    .line 11
     new-instance v0, Lcom/yelp/android/analytics/iris/TimingIri;
 
-    const-string/jumbo v1, "BusinessDetailLoad"
+    const-string/jumbo v1, "BusinessDetailsLoad"
 
-    const-string/jumbo v2, "business_detail/ready"
+    const-string/jumbo v2, "business_details/ready"
 
     invoke-direct {v0, v1, v4, v2}, Lcom/yelp/android/analytics/iris/TimingIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    sput-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->BusinessDetailLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+    sput-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->BusinessDetailsLoad:Lcom/yelp/android/analytics/iris/TimingIri;
 
-    .line 14
+    .line 12
+    new-instance v0, Lcom/yelp/android/analytics/iris/TimingIri;
+
+    const-string/jumbo v1, "BusinessDetailsFullyLoaded"
+
+    const-string/jumbo v2, "business_details/fully_loaded"
+
+    invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/analytics/iris/TimingIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->BusinessDetailsFullyLoaded:Lcom/yelp/android/analytics/iris/TimingIri;
+
+    .line 13
     new-instance v0, Lcom/yelp/android/analytics/iris/TimingIri;
 
     const-string/jumbo v1, "PlatformWebViewInitLoad"
 
     const-string/jumbo v2, "platform/webview/initial_load"
 
-    invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/analytics/iris/TimingIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v6, v2}, Lcom/yelp/android/analytics/iris/TimingIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->PlatformWebViewInitLoad:Lcom/yelp/android/analytics/iris/TimingIri;
 
-    .line 10
-    const/4 v0, 0x3
+    .line 14
+    new-instance v0, Lcom/yelp/android/analytics/iris/TimingIri;
+
+    const-string/jumbo v1, "PlatformWebViewIframeLoad"
+
+    const-string/jumbo v2, "platform/webview/iframe_load"
+
+    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/analytics/iris/TimingIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->PlatformWebViewIframeLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+
+    .line 9
+    const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/yelp/android/analytics/iris/TimingIri;
 
@@ -85,13 +115,21 @@
 
     aput-object v1, v0, v3
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/TimingIri;->BusinessDetailLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/TimingIri;->BusinessDetailsLoad:Lcom/yelp/android/analytics/iris/TimingIri;
 
     aput-object v1, v0, v4
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/TimingIri;->PlatformWebViewInitLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/TimingIri;->BusinessDetailsFullyLoaded:Lcom/yelp/android/analytics/iris/TimingIri;
 
     aput-object v1, v0, v5
+
+    sget-object v1, Lcom/yelp/android/analytics/iris/TimingIri;->PlatformWebViewInitLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+
+    aput-object v1, v0, v6
+
+    sget-object v1, Lcom/yelp/android/analytics/iris/TimingIri;->PlatformWebViewIframeLoad:Lcom/yelp/android/analytics/iris/TimingIri;
+
+    aput-object v1, v0, v7
 
     sput-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->$VALUES:[Lcom/yelp/android/analytics/iris/TimingIri;
 
@@ -123,7 +161,7 @@
     .locals 1
 
     .prologue
-    .line 10
+    .line 9
     const-class v0, Lcom/yelp/android/analytics/iris/TimingIri;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -139,7 +177,7 @@
     .locals 1
 
     .prologue
-    .line 10
+    .line 9
     sget-object v0, Lcom/yelp/android/analytics/iris/TimingIri;->$VALUES:[Lcom/yelp/android/analytics/iris/TimingIri;
 
     invoke-virtual {v0}, [Lcom/yelp/android/analytics/iris/TimingIri;->clone()Ljava/lang/Object;
@@ -163,22 +201,24 @@
     return-object v0
 .end method
 
-.method public getGaCustomDimenLinks()[Lcom/yelp/android/analytics/c;
+.method public bridge synthetic getGoogleAnalyticMetric()Lcom/yelp/android/bs/b;
     .locals 1
 
     .prologue
-    .line 49
-    sget-object v0, Lcom/yelp/android/analytics/GaCustomDimenLink;->EMPTY_ARRAY:[Lcom/yelp/android/analytics/GaCustomDimenLink;
+    .line 9
+    invoke-virtual {p0}, Lcom/yelp/android/analytics/iris/TimingIri;->getGoogleAnalyticMetric()Lcom/yelp/android/bs/d;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public getGoogleAnalyticsCategory()Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
+.method public getGoogleAnalyticMetric()Lcom/yelp/android/bs/d;
     .locals 1
 
     .prologue
-    .line 34
-    sget-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->TIMING:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
+    .line 39
+    sget-object v0, Lcom/yelp/android/bs/d;->a:Lcom/yelp/android/bs/d;
 
     return-object v0
 .end method
@@ -197,18 +237,8 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 34
     const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public isSampledInGoogleAnalytics()Z
-    .locals 1
-
-    .prologue
-    .line 39
-    const/4 v0, 0x1
 
     return v0
 .end method

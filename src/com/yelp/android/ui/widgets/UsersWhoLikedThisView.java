@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.DisplayableAsUserBadge;
 import com.yelp.android.util.StringUtils;
 import java.util.List;
@@ -38,9 +38,9 @@ public class UsersWhoLikedThisView
   
   private void a()
   {
-    LayoutInflater.from(getContext()).inflate(2130903238, this);
-    a = ((WebImageView)findViewById(2131493446));
-    b = ((TextView)findViewById(2131493610));
+    LayoutInflater.from(getContext()).inflate(2130903273, this);
+    a = ((WebImageView)findViewById(2131690074));
+    b = ((TextView)findViewById(2131690333));
   }
   
   public void a(boolean paramBoolean, List<? extends DisplayableAsUserBadge> paramList, int paramInt)
@@ -54,19 +54,19 @@ public class UsersWhoLikedThisView
     if (paramBoolean)
     {
       if (paramInt == 1) {}
-      for (paramList = StringUtils.a(localContext, 2131166918, new Object[] { ((DisplayableAsUserBadge)paramList.get(0)).getUserName() });; paramList = StringUtils.a(localContext, 2131624004, paramInt - 1, new String[0]))
+      for (paramList = StringUtils.a(localContext, 2131166869, new Object[] { ((DisplayableAsUserBadge)paramList.get(0)).a() });; paramList = StringUtils.a(localContext, 2131230794, paramInt - 1, new String[0]))
       {
-        a.setImageUrl(AppData.b().m().v());
-        paramList = StringUtils.a(paramList, 2131361808, localContext);
+        a.setImageUrl(AppData.b().q().r());
+        paramList = StringUtils.a(paramList, 2131623980, localContext);
         b.setText(paramList);
         setVisibility(0);
         return;
       }
     }
     if (paramInt == 1) {}
-    for (Spanned localSpanned = StringUtils.a(localContext, 2131166874, new Object[] { ((DisplayableAsUserBadge)paramList.get(0)).getUserName() });; localSpanned = StringUtils.a(localContext, 2131623986, paramInt - 1, new String[] { ((DisplayableAsUserBadge)paramList.get(0)).getUserName() }))
+    for (Spanned localSpanned = StringUtils.a(localContext, 2131166833, new Object[] { ((DisplayableAsUserBadge)paramList.get(0)).a() });; localSpanned = StringUtils.a(localContext, 2131230775, paramInt - 1, new String[] { ((DisplayableAsUserBadge)paramList.get(0)).a() }))
     {
-      a.setImageUrl(((DisplayableAsUserBadge)paramList.get(0)).getUserPhotoUrl());
+      a.setImageUrl(((DisplayableAsUserBadge)paramList.get(0)).c());
       paramList = localSpanned;
       break;
     }

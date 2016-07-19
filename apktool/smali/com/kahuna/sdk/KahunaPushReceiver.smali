@@ -8,7 +8,7 @@
 
 
 # instance fields
-.field private final b:Lcom/kahuna/sdk/af;
+.field private final b:Lcom/kahuna/sdk/r;
 
 
 # direct methods
@@ -32,7 +32,7 @@
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     .line 38
-    new-instance v0, Lcom/kahuna/sdk/af;
+    new-instance v0, Lcom/kahuna/sdk/r;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -66,9 +66,9 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/kahuna/sdk/af;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/kahuna/sdk/r;-><init>(Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/kahuna/sdk/KahunaPushReceiver;->b:Lcom/kahuna/sdk/af;
+    iput-object v0, p0, Lcom/kahuna/sdk/KahunaPushReceiver;->b:Lcom/kahuna/sdk/r;
 
     return-void
 .end method
@@ -111,7 +111,7 @@
     const/4 v4, 0x1
 
     .line 42
-    iget-object v0, p0, Lcom/kahuna/sdk/KahunaPushReceiver;->b:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/KahunaPushReceiver;->b:Lcom/kahuna/sdk/r;
 
     const-string/jumbo v1, "onReceive: %s"
 
@@ -123,7 +123,7 @@
 
     aput-object v3, v2, v5
 
-    invoke-virtual {v0, v6, v1, v2}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v6, v1, v2}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     .line 44
     sget-boolean v0, Lcom/kahuna/sdk/KahunaPushReceiver;->a:Z
@@ -151,7 +151,7 @@
     move-result-object v0
 
     .line 50
-    iget-object v1, p0, Lcom/kahuna/sdk/KahunaPushReceiver;->b:Lcom/kahuna/sdk/af;
+    iget-object v1, p0, Lcom/kahuna/sdk/KahunaPushReceiver;->b:Lcom/kahuna/sdk/r;
 
     const-string/jumbo v2, "GCM IntentService class: %s"
 
@@ -159,7 +159,7 @@
 
     aput-object v0, v3, v5
 
-    invoke-virtual {v1, v6, v2, v3}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v1, v6, v2, v3}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     .line 52
     invoke-static {p1, p2, v0}, Lcom/kahuna/sdk/GCMBaseIntentService;->a(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;)V

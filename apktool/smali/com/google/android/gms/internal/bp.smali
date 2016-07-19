@@ -1,26 +1,23 @@
-.class public Lcom/google/android/gms/internal/bp;
+.class public interface abstract Lcom/google/android/gms/internal/bp;
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/gms/ads/doubleclick/a;
+.implements Landroid/os/IInterface;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/bp$a;
+    }
 .end annotation
 
 
-# instance fields
-.field private final pA:Lcom/google/android/gms/internal/bq;
-
-
-# direct methods
-.method public constructor <init>(Lcom/google/android/gms/internal/bq;)V
-    .locals 0
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/bp;->pA:Lcom/google/android/gms/internal/bq;
-
-    return-void
+# virtual methods
+.method public abstract a(Lcom/google/android/gms/internal/bl;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method

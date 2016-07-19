@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/serializable/Offer;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "OfferState"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -43,7 +52,7 @@
 
     const/4 v2, 0x0
 
-    .line 40
+    .line 42
     new-instance v0, Lcom/yelp/android/serializable/Offer$OfferState;
 
     const-string/jumbo v1, "STARTED"
@@ -52,7 +61,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/Offer$OfferState;->STARTED:Lcom/yelp/android/serializable/Offer$OfferState;
 
-    .line 45
+    .line 47
     new-instance v0, Lcom/yelp/android/serializable/Offer$OfferState;
 
     const-string/jumbo v1, "EARNED"
@@ -61,7 +70,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/Offer$OfferState;->EARNED:Lcom/yelp/android/serializable/Offer$OfferState;
 
-    .line 50
+    .line 52
     new-instance v0, Lcom/yelp/android/serializable/Offer$OfferState;
 
     const-string/jumbo v1, "REDEEMED"
@@ -70,7 +79,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/Offer$OfferState;->REDEEMED:Lcom/yelp/android/serializable/Offer$OfferState;
 
-    .line 57
+    .line 59
     new-instance v0, Lcom/yelp/android/serializable/Offer$OfferState;
 
     const-string/jumbo v1, "USED"
@@ -79,7 +88,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/Offer$OfferState;->USED:Lcom/yelp/android/serializable/Offer$OfferState;
 
-    .line 61
+    .line 63
     new-instance v0, Lcom/yelp/android/serializable/Offer$OfferState;
 
     const-string/jumbo v1, "REMOVED"
@@ -88,7 +97,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/Offer$OfferState;->REMOVED:Lcom/yelp/android/serializable/Offer$OfferState;
 
-    .line 35
+    .line 37
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/yelp/android/serializable/Offer$OfferState;
@@ -127,7 +136,7 @@
     .end annotation
 
     .prologue
-    .line 35
+    .line 37
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -137,7 +146,7 @@
     .locals 1
 
     .prologue
-    .line 35
+    .line 37
     const-class v0, Lcom/yelp/android/serializable/Offer$OfferState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -153,7 +162,7 @@
     .locals 1
 
     .prologue
-    .line 35
+    .line 37
     sget-object v0, Lcom/yelp/android/serializable/Offer$OfferState;->$VALUES:[Lcom/yelp/android/serializable/Offer$OfferState;
 
     invoke-virtual {v0}, [Lcom/yelp/android/serializable/Offer$OfferState;->clone()Ljava/lang/Object;

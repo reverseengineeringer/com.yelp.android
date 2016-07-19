@@ -1,38 +1,14 @@
 package com.google.android.gms.tagmanager;
 
-import android.content.Context;
-import com.google.android.gms.internal.d.a;
-import java.util.Map;
+import com.google.android.gms.common.api.Releasable;
+import com.google.android.gms.common.api.Result;
 
-class b
-  extends aj
+public abstract interface b
+  extends Releasable, Result
 {
-  private static final String ID = com.google.android.gms.internal.a.u.toString();
-  private final a aqc;
-  
-  public b(Context paramContext)
+  public static abstract interface a
   {
-    this(a.W(paramContext));
-  }
-  
-  b(a parama)
-  {
-    super(ID, new String[0]);
-    aqc = parama;
-  }
-  
-  public d.a B(Map<String, d.a> paramMap)
-  {
-    paramMap = aqc.pa();
-    if (paramMap == null) {
-      return di.rb();
-    }
-    return di.u(paramMap);
-  }
-  
-  public boolean pe()
-  {
-    return false;
+    public abstract void a(b paramb, String paramString);
   }
 }
 

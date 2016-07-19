@@ -1,42 +1,27 @@
 .class Landroid/support/v4/view/aq;
 .super Ljava/lang/Object;
-.source "MarginLayoutParamsCompat.java"
-
-# interfaces
-.implements Landroid/support/v4/view/ao;
+.source "ViewCompatKitKat.java"
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 82
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public a(Landroid/view/ViewGroup$MarginLayoutParams;)I
+.method public static a(Landroid/view/View;)Z
     .locals 1
 
     .prologue
-    .line 86
-    invoke-static {p1}, Landroid/support/v4/view/ar;->a(Landroid/view/ViewGroup$MarginLayoutParams;)I
+    .line 34
+    invoke-virtual {p0}, Landroid/view/View;->isLaidOut()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public b(Landroid/view/ViewGroup$MarginLayoutParams;)I
+.method public static b(Landroid/view/View;)Z
     .locals 1
 
     .prologue
-    .line 91
-    invoke-static {p1}, Landroid/support/v4/view/ar;->b(Landroid/view/ViewGroup$MarginLayoutParams;)I
+    .line 38
+    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
 
     move-result v0
 

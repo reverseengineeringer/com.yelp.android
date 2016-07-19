@@ -1,25 +1,34 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.webrequests.core.b;
 import com.yelp.android.serializable.Event;
-import com.yelp.android.serializable.Event.EventType;
-import com.yelp.android.serializable.EventRsvp;
+import com.yelp.android.serializable.Event.SubscriptionStatus;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class bq
-  extends g<Void, Void, EventRsvp>
+  extends b<Void, Void, Event>
 {
-  public bq(Event paramEvent, m<EventRsvp> paramm)
+  public bq(String paramString, Event.SubscriptionStatus paramSubscriptionStatus, ApiRequest.b<Event> paramb)
   {
-    super(ApiRequest.RequestType.POST, "/event/rsvp/cancel", paramm);
-    addPostParam("event_id", paramEvent.getId());
-    addPostParam("event_type", paramEvent.getType().toString());
+    super(ApiRequest.RequestType.POST, "event/update_subscription", paramb);
+    b("event_id", paramString);
+    b("subscription_status", paramSubscriptionStatus.getValueString());
   }
   
-  public EventRsvp a(JSONObject paramJSONObject)
+  public Event a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return (EventRsvp)EventRsvp.CREATOR.parse(paramJSONObject.getJSONObject("rsvp"));
+    if (paramJSONObject.optJSONObject("event") == null) {
+      return null;
+    }
+    return (Event)Event.CREATOR.parse(paramJSONObject.getJSONObject("event"));
+  }
+  
+  public String toString()
+  {
+    return "EventSubscriptionRequest";
   }
 }
 

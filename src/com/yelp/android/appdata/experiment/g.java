@@ -2,19 +2,16 @@ package com.yelp.android.appdata.experiment;
 
 public class g
 {
-  private static f a;
+  private static i a;
   
-  public static f a()
+  public static i a()
   {
-    if (a == null) {
-      throw new IllegalStateException("Experiment.DATA should have been initialized by AppData!");
-    }
     return a;
   }
   
-  public static void a(f paramf)
+  public static void a(i parami)
   {
-    a = paramf;
+    a = parami;
   }
 }
 

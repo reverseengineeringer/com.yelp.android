@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:id="@id/scroll_wrapper" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <EditText android:id="@id/post_title_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:hint="@string/title" android:maxLines="3" android:inputType="textAutoCorrect|textCapSentences|textMultiLine|textShortMessage" android:imeOptions="actionNext|flagNoExtractUi" />
+    <LinearLayout android:orientation="vertical" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <EditText android:id="@id/post_title_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_large_gap_size" android:hint="@string/title" android:maxLines="3" android:inputType="textAutoCorrect|textCapSentences|textMultiLine|textShortMessage" android:imeOptions="actionNext|flagNoExtractUi" />
         <EditText android:id="@id/post_message_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/message" android:maxLines="@integer/max_edittext_lines" android:maxLength="@integer/max_talk_post_length" android:inputType="textLongMessage|textAutoCorrect|textCapSentences|textMultiLine" android:imeOptions="flagNoExtractUi" />
-        <TextView android:textAppearance="@style/SubtitleText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize" android:layout_marginBottom="@dimen/margin_below_textview" android:text="@string/category" />
+        <TextView android:textAppearance="@style/DeprecatedSubtitleText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/margin_below_textview" android:text="@string/category" />
         <TextView android:id="@id/select_category" android:background="@drawable/yelp_holo_spinner_selector" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/none_selected" style="?listCellRectStyle" />
-        <Button android:textStyle="bold" android:id="@id/post_button" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="?baseGapSize" android:text="@string/post" android:layout_weight="0.0" />
+        <Button android:textStyle="bold" android:id="@id/post_button" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="@dimen/default_base_gap_size" android:text="@string/post" android:layout_weight="0.0" />
     </LinearLayout>
 </ScrollView>

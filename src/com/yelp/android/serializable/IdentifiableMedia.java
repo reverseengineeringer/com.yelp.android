@@ -1,7 +1,7 @@
 package com.yelp.android.serializable;
 
 public abstract interface IdentifiableMedia
-  extends Media, ay
+  extends Media, b
 {}
 
 /* Location:

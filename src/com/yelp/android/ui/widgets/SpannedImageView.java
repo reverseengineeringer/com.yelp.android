@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Checkable;
 import android.widget.ImageView;
-import com.yelp.android.bf.c;
+import com.yelp.android.co.a.b;
 
 public class SpannedImageView
   extends ImageView
@@ -14,7 +14,7 @@ public class SpannedImageView
   
   public SpannedImageView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, c.spannedTextViewStyle);
+    this(paramContext, paramAttributeSet, a.b.spannedTextViewStyle);
   }
   
   public SpannedImageView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
@@ -77,9 +77,9 @@ public class SpannedImageView
     a.setMiddle(paramBoolean);
   }
   
-  public void setOnCheckedChangeListener(j paramj)
+  public void setOnCheckedChangeListener(c paramc)
   {
-    a.setOnCheckedChangeListener(paramj);
+    a.a(paramc);
     refreshDrawableState();
   }
   

@@ -1,69 +1,99 @@
 package com.yelp.android.database;
 
-import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
-import android.util.Log;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.util.YelpLog;
+import java.util.concurrent.ExecutionException;
 
-class h
-  extends AsyncTask<String, Void, Void>
+public class h
+  extends AsyncTask<Void, Void, Void>
 {
   private final AsyncTask<?, ?, SQLiteDatabase> a;
+  private final b b;
+  private final a c;
+  private boolean d;
+  private Object e;
   
-  public h(AsyncTask<?, ?, SQLiteDatabase> paramAsyncTask)
+  public h(AsyncTask<?, ?, SQLiteDatabase> paramAsyncTask, b paramb, a parama)
   {
     a = paramAsyncTask;
+    b = paramb;
+    c = parama;
+    d = false;
+    e = null;
   }
   
-  protected Void a(String... paramVarArgs)
+  private static void a(Exception paramException)
   {
-    String str = paramVarArgs[0];
-    for (;;)
-    {
-      try
-      {
-        localSQLiteDatabase = (SQLiteDatabase)a.get();
-        paramVarArgs = localSQLiteDatabase.query("recently_viewed_businesses", new String[] { "business_json", "yelp_request_id" }, "business_id= ?", new String[] { str }, null, null, null);
-      }
-      catch (Exception paramVarArgs)
-      {
-        SQLiteDatabase localSQLiteDatabase;
-        Object localObject2;
-        ContentValues localContentValues;
-        label137:
-        Log.w("AdapterRecentlyViewedBusinesses", "Could not remove Offer from Recents", paramVarArgs);
-        return null;
-      }
-      try
-      {
-        if (paramVarArgs.moveToFirst()) {
-          localObject2 = paramVarArgs.getString(0);
-        }
-      }
-      finally
-      {
-        paramVarArgs.close();
-      }
-    }
+    YelpLog.e(AppData.b(), paramException.getMessage(), paramException);
+  }
+  
+  protected Void a(Void... paramVarArgs)
+  {
     try
     {
-      localObject2 = new JSONObject((String)localObject2);
-      if (((JSONObject)localObject2).has("check_in_offer")) {
-        ((JSONObject)localObject2).put("check_in_offer", null);
-      }
-      localContentValues = new ContentValues();
-      localContentValues.put("business_json", ((JSONObject)localObject2).toString());
-      localSQLiteDatabase.update("recently_viewed_businesses", localContentValues, "business_id = ?", new String[] { str });
+      paramVarArgs = (SQLiteDatabase)a.get();
+      e = c.a(paramVarArgs);
+      return null;
     }
-    catch (JSONException localJSONException)
+    catch (InterruptedException paramVarArgs)
     {
-      break label137;
+      for (;;)
+      {
+        d = true;
+        a(paramVarArgs);
+      }
     }
-    paramVarArgs.close();
-    return null;
+    catch (ExecutionException paramVarArgs)
+    {
+      for (;;)
+      {
+        d = true;
+        a(paramVarArgs);
+      }
+    }
+  }
+  
+  public void a(Void paramVoid)
+  {
+    if (b != null)
+    {
+      if (d) {
+        b.b();
+      }
+    }
+    else {
+      return;
+    }
+    b.a(e);
+  }
+  
+  public void onPreExecute()
+  {
+    if (b != null) {
+      b.a();
+    }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract Object a(SQLiteDatabase paramSQLiteDatabase);
+  }
+  
+  public static abstract interface b
+  {
+    public abstract void a();
+    
+    public abstract void a(Object paramObject);
+    
+    public abstract void b();
+  }
+  
+  public static abstract class c
+    implements h.b
+  {
+    public void a() {}
   }
 }
 

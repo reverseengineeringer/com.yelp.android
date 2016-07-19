@@ -1,16 +1,46 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-final class g
-  extends f
+import android.graphics.Bitmap;
+import android.os.ParcelFileDescriptor;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.e;
+import java.io.File;
+
+public class g
+  implements com.yelp.android.ak.b<ParcelFileDescriptor, Bitmap>
 {
-  protected int a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  private final d<File, Bitmap> a;
+  private final h b;
+  private final b c;
+  private final com.bumptech.glide.load.a<ParcelFileDescriptor> d;
+  
+  public g(com.yelp.android.x.c paramc, DecodeFormat paramDecodeFormat)
   {
-    return Math.min(paramInt2 / paramInt4, paramInt1 / paramInt3);
+    a = new com.yelp.android.af.c(new o(paramc, paramDecodeFormat));
+    b = new h(paramc, paramDecodeFormat);
+    c = new b();
+    d = com.yelp.android.ad.a.b();
   }
   
-  public String a()
+  public d<File, Bitmap> a()
   {
-    return "AT_LEAST.com.bumptech.glide.load.data.bitmap";
+    return a;
+  }
+  
+  public d<ParcelFileDescriptor, Bitmap> b()
+  {
+    return b;
+  }
+  
+  public com.bumptech.glide.load.a<ParcelFileDescriptor> c()
+  {
+    return d;
+  }
+  
+  public e<Bitmap> d()
+  {
+    return c;
   }
 }
 

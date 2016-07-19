@@ -3,11 +3,27 @@
 .source "MapMaker.java"
 
 # interfaces
-.implements Lcom/yelp/common/collect/b;
+.implements Lcom/yelp/common/collect/CustomConcurrentHashMap$a;
 .implements Ljava/io/Serializable;
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/MapMaker;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "StrategyImpl"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/common/collect/MapMaker$StrategyImpl$Fields;,
+        Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -16,9 +32,9 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/yelp/common/collect/b",
+        "Lcom/yelp/common/collect/CustomConcurrentHashMap$a",
         "<TK;TV;",
-        "Lcom/yelp/common/collect/f",
+        "Lcom/yelp/common/collect/MapMaker$a",
         "<TK;TV;>;>;",
         "Ljava/io/Serializable;"
     }
@@ -32,12 +48,12 @@
 # instance fields
 .field final expirationNanos:J
 
-.field internals:Lcom/yelp/common/collect/c;
+.field internals:Lcom/yelp/common/collect/CustomConcurrentHashMap$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/common/collect/c",
+            "Lcom/yelp/common/collect/CustomConcurrentHashMap$b",
             "<TK;TV;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;>;"
         }
     .end annotation
@@ -95,7 +111,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;->buildMap(Lcom/yelp/common/collect/d;)Ljava/util/concurrent/ConcurrentMap;
+    invoke-virtual {v0, p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;->buildMap(Lcom/yelp/common/collect/CustomConcurrentHashMap$c;)Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
 
@@ -105,13 +121,13 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/yelp/common/collect/MapMaker;Lcom/yelp/common/base/g;)V
+.method constructor <init>(Lcom/yelp/common/collect/MapMaker;Lcom/yelp/common/base/d;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/yelp/common/collect/MapMaker;",
-            "Lcom/yelp/common/base/g",
+            "Lcom/yelp/common/base/d",
             "<-TK;+TV;>;)V"
         }
     .end annotation
@@ -150,7 +166,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p0, p2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;->buildComputingMap(Lcom/yelp/common/collect/b;Lcom/yelp/common/base/g;)Ljava/util/concurrent/ConcurrentMap;
+    invoke-virtual {v0, p0, p2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;->buildComputingMap(Lcom/yelp/common/collect/CustomConcurrentHashMap$a;Lcom/yelp/common/base/d;)Ljava/util/concurrent/ConcurrentMap;
 
     move-result-object v0
 
@@ -162,6 +178,12 @@
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Ljava/lang/ClassNotFoundException;
+        }
+    .end annotation
 
     .prologue
     .line 722
@@ -233,6 +255,11 @@
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 685
@@ -251,7 +278,7 @@
     invoke-virtual {p1, v0, v1}, Ljava/io/ObjectOutputStream;->writeLong(J)V
 
     .line 693
-    iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/c;
+    iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/CustomConcurrentHashMap$b;
 
     invoke-virtual {p1, v0}, Ljava/io/ObjectOutputStream;->writeObject(Ljava/lang/Object;)V
 
@@ -266,14 +293,14 @@
 
 
 # virtual methods
-.method public compute(Ljava/lang/Object;Lcom/yelp/common/collect/f;Lcom/yelp/common/base/g;)Ljava/lang/Object;
+.method public compute(Ljava/lang/Object;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/base/d;)Ljava/lang/Object;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;",
-            "Lcom/yelp/common/base/g",
+            "Lcom/yelp/common/base/d",
             "<-TK;+TV;>;)TV;"
         }
     .end annotation
@@ -281,7 +308,7 @@
     .prologue
     .line 581
     :try_start_0
-    invoke-interface {p3, p1}, Lcom/yelp/common/base/g;->a(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p3, p1}, Lcom/yelp/common/base/d;->a(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Lcom/yelp/common/collect/ComputationException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
@@ -325,7 +352,7 @@
 
     invoke-direct {v1, v0}, Lcom/yelp/common/collect/MapMaker$NullOutputExceptionReference;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p0, p2, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/g;)V
+    invoke-virtual {p0, p2, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$b;)V
 
     .line 596
     new-instance v1, Lcom/yelp/common/collect/NullOutputException;
@@ -347,7 +374,7 @@
 
     invoke-direct {v1, v2}, Lcom/yelp/common/collect/MapMaker$ComputationExceptionReference;-><init>(Ljava/lang/Throwable;)V
 
-    invoke-virtual {p0, p2, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/g;)V
+    invoke-virtual {p0, p2, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$b;)V
 
     .line 587
     throw v0
@@ -361,7 +388,7 @@
 
     invoke-direct {v1, v0}, Lcom/yelp/common/collect/MapMaker$ComputationExceptionReference;-><init>(Ljava/lang/Throwable;)V
 
-    invoke-virtual {p0, p2, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/g;)V
+    invoke-virtual {p0, p2, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$b;)V
 
     .line 590
     new-instance v1, Lcom/yelp/common/collect/ComputationException;
@@ -372,69 +399,69 @@
 
     .line 598
     :cond_0
-    invoke-virtual {p0, p2, v0}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValue(Lcom/yelp/common/collect/f;Ljava/lang/Object;)V
+    invoke-virtual {p0, p2, v0}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValue(Lcom/yelp/common/collect/MapMaker$a;Ljava/lang/Object;)V
 
     .line 600
     return-object v0
 .end method
 
-.method public bridge synthetic compute(Ljava/lang/Object;Ljava/lang/Object;Lcom/yelp/common/base/g;)Ljava/lang/Object;
+.method public bridge synthetic compute(Ljava/lang/Object;Ljava/lang/Object;Lcom/yelp/common/base/d;)Ljava/lang/Object;
     .locals 1
 
     .prologue
     .line 460
-    check-cast p2, Lcom/yelp/common/collect/f;
+    check-cast p2, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->compute(Ljava/lang/Object;Lcom/yelp/common/collect/f;Lcom/yelp/common/base/g;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->compute(Ljava/lang/Object;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/base/d;)Ljava/lang/Object;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public copyEntry(Ljava/lang/Object;Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+.method public copyEntry(Ljava/lang/Object;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;"
         }
     .end annotation
 
     .prologue
     .line 540
-    invoke-interface {p2}, Lcom/yelp/common/collect/f;->getValueReference()Lcom/yelp/common/collect/g;
+    invoke-interface {p2}, Lcom/yelp/common/collect/MapMaker$a;->getValueReference()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v1
 
     .line 541
-    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/g;
-    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/g;
+    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
+    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
     if-ne v1, v0, :cond_0
 
     .line 542
-    invoke-interface {p2}, Lcom/yelp/common/collect/f;->getHash()I
+    invoke-interface {p2}, Lcom/yelp/common/collect/MapMaker$a;->getHash()I
 
     move-result v0
 
-    invoke-virtual {p0, p1, v0, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+    invoke-virtual {p0, p1, v0, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
 
     move-result-object v0
 
     .line 543
     new-instance v1, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;
 
-    invoke-direct {v1, p0, p2, v0}, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;-><init>(Lcom/yelp/common/collect/MapMaker$StrategyImpl;Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/f;)V
+    invoke-direct {v1, p0, p2, v0}, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;-><init>(Lcom/yelp/common/collect/MapMaker$StrategyImpl;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$a;)V
 
-    invoke-interface {v0, v1}, Lcom/yelp/common/collect/f;->setValueReference(Lcom/yelp/common/collect/g;)V
+    invoke-interface {v0, v1}, Lcom/yelp/common/collect/MapMaker$a;->setValueReference(Lcom/yelp/common/collect/MapMaker$b;)V
 
     .line 548
     :goto_0
@@ -442,20 +469,20 @@
 
     .line 546
     :cond_0
-    invoke-interface {p2}, Lcom/yelp/common/collect/f;->getHash()I
+    invoke-interface {p2}, Lcom/yelp/common/collect/MapMaker$a;->getHash()I
 
     move-result v0
 
-    invoke-virtual {p0, p1, v0, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+    invoke-virtual {p0, p1, v0, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
 
     move-result-object v0
 
     .line 547
-    invoke-interface {v1, v0}, Lcom/yelp/common/collect/g;->copyFor(Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/g;
+    invoke-interface {v1, v0}, Lcom/yelp/common/collect/MapMaker$b;->copyFor(Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/yelp/common/collect/f;->setValueReference(Lcom/yelp/common/collect/g;)V
+    invoke-interface {v0, v1}, Lcom/yelp/common/collect/MapMaker$a;->setValueReference(Lcom/yelp/common/collect/MapMaker$b;)V
 
     goto :goto_0
 .end method
@@ -465,11 +492,11 @@
 
     .prologue
     .line 460
-    check-cast p2, Lcom/yelp/common/collect/f;
+    check-cast p2, Lcom/yelp/common/collect/MapMaker$a;
 
-    check-cast p3, Lcom/yelp/common/collect/f;
+    check-cast p3, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->copyEntry(Ljava/lang/Object;Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->copyEntry(Ljava/lang/Object;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
 
     move-result-object v0
 
@@ -518,19 +545,19 @@
     return v0
 .end method
 
-.method public getHash(Lcom/yelp/common/collect/f;)I
+.method public getHash(Lcom/yelp/common/collect/MapMaker$a;)I
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)I"
         }
     .end annotation
 
     .prologue
     .line 531
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getHash()I
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getHash()I
 
     move-result v0
 
@@ -542,28 +569,28 @@
 
     .prologue
     .line 460
-    check-cast p1, Lcom/yelp/common/collect/f;
+    check-cast p1, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getHash(Lcom/yelp/common/collect/f;)I
+    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getHash(Lcom/yelp/common/collect/MapMaker$a;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public getKey(Lcom/yelp/common/collect/f;)Ljava/lang/Object;
+.method public getKey(Lcom/yelp/common/collect/MapMaker$a;)Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)TK;"
         }
     .end annotation
 
     .prologue
     .line 527
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -575,30 +602,30 @@
 
     .prologue
     .line 460
-    check-cast p1, Lcom/yelp/common/collect/f;
+    check-cast p1, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getKey(Lcom/yelp/common/collect/f;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getKey(Lcom/yelp/common/collect/MapMaker$a;)Ljava/lang/Object;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getNext(Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+.method public getNext(Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;"
         }
     .end annotation
 
     .prologue
     .line 672
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getNext()Lcom/yelp/common/collect/f;
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getNext()Lcom/yelp/common/collect/MapMaker$a;
 
     move-result-object v0
 
@@ -610,33 +637,33 @@
 
     .prologue
     .line 460
-    check-cast p1, Lcom/yelp/common/collect/f;
+    check-cast p1, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getNext(Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getNext(Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getValue(Lcom/yelp/common/collect/f;)Ljava/lang/Object;
+.method public getValue(Lcom/yelp/common/collect/MapMaker$a;)Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)TV;"
         }
     .end annotation
 
     .prologue
     .line 573
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getValueReference()Lcom/yelp/common/collect/g;
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getValueReference()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
     .line 574
-    invoke-interface {v0}, Lcom/yelp/common/collect/g;->get()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/yelp/common/collect/MapMaker$b;->get()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -648,9 +675,9 @@
 
     .prologue
     .line 460
-    check-cast p1, Lcom/yelp/common/collect/f;
+    check-cast p1, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getValue(Lcom/yelp/common/collect/f;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->getValue(Lcom/yelp/common/collect/MapMaker$a;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -671,14 +698,14 @@
     return v0
 .end method
 
-.method public newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+.method public newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;I",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;"
         }
     .end annotation
@@ -687,9 +714,9 @@
     .line 535
     iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->keyStrength:Lcom/yelp/common/collect/MapMaker$Strength;
 
-    iget-object v1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/c;
+    iget-object v1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/CustomConcurrentHashMap$b;
 
-    invoke-virtual {v0, v1, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$Strength;->newEntry(Lcom/yelp/common/collect/c;Ljava/lang/Object;ILcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+    invoke-virtual {v0, v1, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$Strength;->newEntry(Lcom/yelp/common/collect/CustomConcurrentHashMap$b;Ljava/lang/Object;ILcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
 
     move-result-object v0
 
@@ -701,9 +728,9 @@
 
     .prologue
     .line 460
-    check-cast p3, Lcom/yelp/common/collect/f;
+    check-cast p3, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/f;)Lcom/yelp/common/collect/f;
+    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->newEntry(Ljava/lang/Object;ILcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$a;
 
     move-result-object v0
 
@@ -750,32 +777,32 @@
     return-void
 .end method
 
-.method public setInternals(Lcom/yelp/common/collect/c;)V
+.method public setInternals(Lcom/yelp/common/collect/CustomConcurrentHashMap$b;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/c",
+            "Lcom/yelp/common/collect/CustomConcurrentHashMap$b",
             "<TK;TV;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;>;)V"
         }
     .end annotation
 
     .prologue
     .line 676
-    iput-object p1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/c;
+    iput-object p1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/CustomConcurrentHashMap$b;
 
     .line 677
     return-void
 .end method
 
-.method public setValue(Lcom/yelp/common/collect/f;Ljava/lang/Object;)V
+.method public setValue(Lcom/yelp/common/collect/MapMaker$a;Ljava/lang/Object;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;TV;)V"
         }
     .end annotation
@@ -784,11 +811,11 @@
     .line 485
     iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->valueStrength:Lcom/yelp/common/collect/MapMaker$Strength;
 
-    invoke-virtual {v0, p1, p2}, Lcom/yelp/common/collect/MapMaker$Strength;->referenceValue(Lcom/yelp/common/collect/f;Ljava/lang/Object;)Lcom/yelp/common/collect/g;
+    invoke-virtual {v0, p1, p2}, Lcom/yelp/common/collect/MapMaker$Strength;->referenceValue(Lcom/yelp/common/collect/MapMaker$a;Ljava/lang/Object;)Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
-    invoke-virtual {p0, p1, v0}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/g;)V
+    invoke-virtual {p0, p1, v0}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValueReference(Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$b;)V
 
     .line 486
     iget-wide v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->expirationNanos:J
@@ -800,7 +827,7 @@
     if-lez v0, :cond_0
 
     .line 487
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getKey()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -816,33 +843,33 @@
 
     .prologue
     .line 460
-    check-cast p1, Lcom/yelp/common/collect/f;
+    check-cast p1, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValue(Lcom/yelp/common/collect/f;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->setValue(Lcom/yelp/common/collect/MapMaker$a;Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method setValueReference(Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/g;)V
+.method setValueReference(Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$b;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;",
-            "Lcom/yelp/common/collect/g",
+            "Lcom/yelp/common/collect/MapMaker$b",
             "<TK;TV;>;)V"
         }
     .end annotation
 
     .prologue
     .line 607
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getValueReference()Lcom/yelp/common/collect/g;
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getValueReference()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
-    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/g;
-    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/g;
+    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
+    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v1
 
@@ -852,7 +879,7 @@
 
     .line 608
     :goto_0
-    invoke-interface {p1, p2}, Lcom/yelp/common/collect/f;->setValueReference(Lcom/yelp/common/collect/g;)V
+    invoke-interface {p1, p2}, Lcom/yelp/common/collect/MapMaker$a;->setValueReference(Lcom/yelp/common/collect/MapMaker$b;)V
 
     .line 609
     if-eqz v0, :cond_0
@@ -888,25 +915,31 @@
     throw v0
 .end method
 
-.method public waitForValue(Lcom/yelp/common/collect/f;)Ljava/lang/Object;
+.method public waitForValue(Lcom/yelp/common/collect/MapMaker$a;)Ljava/lang/Object;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)TV;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;
         }
     .end annotation
 
     .prologue
     .line 557
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getValueReference()Lcom/yelp/common/collect/g;
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getValueReference()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
     .line 558
-    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/g;
-    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/g;
+    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
+    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v1
 
@@ -918,12 +951,12 @@
     .line 560
     :goto_0
     :try_start_0
-    invoke-interface {p1}, Lcom/yelp/common/collect/f;->getValueReference()Lcom/yelp/common/collect/g;
+    invoke-interface {p1}, Lcom/yelp/common/collect/MapMaker$a;->getValueReference()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
-    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/g;
-    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/g;
+    # getter for: Lcom/yelp/common/collect/MapMaker;->COMPUTING:Lcom/yelp/common/collect/MapMaker$b;
+    invoke-static {}, Lcom/yelp/common/collect/MapMaker;->access$500()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v1
 
@@ -952,7 +985,7 @@
 
     .line 565
     :cond_1
-    invoke-interface {v0}, Lcom/yelp/common/collect/g;->waitForValue()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/yelp/common/collect/MapMaker$b;->waitForValue()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -961,12 +994,17 @@
 
 .method public bridge synthetic waitForValue(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;
+        }
+    .end annotation
 
     .prologue
     .line 460
-    check-cast p1, Lcom/yelp/common/collect/f;
+    check-cast p1, Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->waitForValue(Lcom/yelp/common/collect/f;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->waitForValue(Lcom/yelp/common/collect/MapMaker$a;)Ljava/lang/Object;
 
     move-result-object v0
 

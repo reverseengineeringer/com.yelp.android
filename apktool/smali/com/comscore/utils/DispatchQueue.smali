@@ -43,12 +43,12 @@
 
 
 # virtual methods
-.method public enqueue(Lcom/yelp/android/al/b;)V
+.method public enqueue(Lcom/yelp/android/ar/b;)V
     .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    invoke-virtual {p0, p1}, Lcom/comscore/utils/DispatchQueue;->offer(Lcom/yelp/android/al/b;)Z
+    invoke-virtual {p0, p1}, Lcom/comscore/utils/DispatchQueue;->offer(Lcom/yelp/android/ar/b;)Z
 
     return-void
 .end method
@@ -92,7 +92,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1, v2}, Lcom/comscore/analytics/a;->a(ZZ)V
+    invoke-virtual {v0, v1, v2}, Lcom/comscore/analytics/a;->b(ZZ)V
 
     goto :goto_0
 
@@ -118,7 +118,7 @@
     .end packed-switch
 .end method
 
-.method public offer(Lcom/yelp/android/al/b;)Z
+.method public offer(Lcom/yelp/android/ar/b;)Z
     .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -139,7 +139,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1, v1}, Lcom/yelp/android/al/b;->a([Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Lcom/yelp/android/ar/b;->a([Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -155,13 +155,13 @@
 
     iget-object v0, p0, Lcom/comscore/utils/DispatchQueue;->b:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/al/c;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/ar/c;
 
     move-result-object v0
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, p1, v1}, Lcom/yelp/android/al/c;->a(Lcom/yelp/android/al/b;Z)Z
+    invoke-virtual {v0, p1, v1}, Lcom/yelp/android/ar/c;->a(Lcom/yelp/android/ar/b;Z)Z
 
     move-result v0
 
@@ -187,47 +187,47 @@
 
     iget-object v0, p0, Lcom/comscore/utils/DispatchQueue;->b:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, p1, v1}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, p1, v1}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public processAggregateData(Lcom/yelp/android/al/b;)V
+.method public processAggregateData(Lcom/yelp/android/ar/b;)V
     .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     iget-object v0, p0, Lcom/comscore/utils/DispatchQueue;->b:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/al/c;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/ar/c;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/al/c;->c(Lcom/yelp/android/al/b;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ar/c;->c(Lcom/yelp/android/ar/b;)V
 
     return-void
 .end method
 
-.method public processEventCounter(Lcom/yelp/android/al/b;)V
+.method public processEventCounter(Lcom/yelp/android/ar/b;)V
     .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     iget-object v0, p0, Lcom/comscore/utils/DispatchQueue;->b:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/al/c;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/ar/c;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/al/c;->b(Lcom/yelp/android/al/b;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ar/c;->b(Lcom/yelp/android/ar/b;)V
 
     return-void
 .end method
@@ -239,11 +239,11 @@
 
     iget-object v0, p0, Lcom/comscore/utils/DispatchQueue;->b:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/an/a;->c()V
+    invoke-virtual {v0}, Lcom/yelp/android/at/a;->c()V
 
     return-void
 .end method

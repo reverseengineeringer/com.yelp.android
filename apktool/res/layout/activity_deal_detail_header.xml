@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
-    <LinearLayout android:orientation="horizontal" android:background="@color/gray_light" android:paddingLeft="?baseGapSize" android:paddingRight="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <com.yelp.android.ui.widgets.WebImageView android:gravity="center" android:id="@id/business_image" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="?imageGapSize" android:layout_weight="0.55" yelp:forceRoundingMode="none" />
+    <LinearLayout android:orientation="horizontal" android:background="@color/gray_light" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.yelp.android.ui.widgets.WebImageView android:gravity="center" android:id="@id/business_image" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="@dimen/default_image_gap_size" android:layout_weight="0.55" yelp:forceRoundingMode="none" />
         <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.45">
             <TextView android:id="@id/description" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-            <TextView android:textAppearance="@style/BiggestDarkText" android:gravity="center" android:layout_gravity="center" android:id="@id/price" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+            <TextView android:textAppearance="@style/DeprecatedBiggestDarkText" android:gravity="center" android:layout_gravity="center" android:id="@id/price" android:layout_width="wrap_content" android:layout_height="fill_parent" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout android:orientation="horizontal" android:background="@color/list_spacer" android:paddingTop="@dimen/separator_line_width" android:layout_width="fill_parent" android:layout_height="wrap_content">
@@ -15,8 +15,8 @@
         <include android:id="@id/sold" layout="@layout/panel_deal_detail" />
     </LinearLayout>
     <RadioGroup android:layout_gravity="fill_vertical" android:orientation="horizontal" android:id="@id/biz_content_buttons" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <RadioButton android:id="@id/content_deal" android:paddingTop="?baseGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/deal_what_you_get" android:layout_weight="1.0" style="@style/YelpRadioButtons.Small" />
-        <RadioButton android:id="@id/content_reviews" android:paddingTop="?baseGapSize" android:paddingRight="@dimen/separator_line_width" android:paddingBottom="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/reviews" android:layout_weight="1.0" style="@style/YelpRadioButtons.Small" />
-        <RadioButton android:id="@id/content_biz" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/business_info" android:layout_weight="1.0" style="@style/YelpRadioButtons.Small" />
+        <RadioButton android:id="@id/content_deal" android:paddingTop="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/deal_what_you_get" android:layout_weight="1.0" style="@style/YelpRadioButtons.Small" />
+        <RadioButton android:id="@id/content_reviews" android:paddingTop="@dimen/default_base_gap_size" android:paddingRight="@dimen/separator_line_width" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/reviews" android:layout_weight="1.0" style="@style/YelpRadioButtons.Small" />
+        <RadioButton android:id="@id/content_biz" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/business_info" android:layout_weight="1.0" style="@style/YelpRadioButtons.Small" />
     </RadioGroup>
 </LinearLayout>

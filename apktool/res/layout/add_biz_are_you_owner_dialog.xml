@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.yelp.android.ui.widgets.RoundedImageView android:background="@drawable/city_background_grey_repeat" android:layout_width="fill_parent" android:layout_height="@dimen/claim_business_background_height" android:contentDescription="@null" yelp:forceRoundingMode="clip" />
+        <ImageView android:layout_gravity="bottom|center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:src="@drawable/house" android:contentDescription="@null" />
+    </FrameLayout>
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_large_gap_size" android:text="@string/are_you_a_customer_or_the_owner" style="@style/TextAppearance.AppCompat.Caption" />
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/default_large_gap_size" />
+    <Button android:id="@id/i_am_customer_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:text="@string/i_am_a_customer" style="@style/FullBleedButton" />
+    <Button android:id="@id/i_am_owner_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:text="@string/this_is_my_business" style="@style/FullBleedButton" />
+</LinearLayout>

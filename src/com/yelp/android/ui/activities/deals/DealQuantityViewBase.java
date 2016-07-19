@@ -6,14 +6,14 @@ import android.util.AttributeSet;
 import android.util.SparseIntArray;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.yelp.android.b;
-import com.yelp.android.ui.util.dj;
+import com.yelp.android.b.a;
+import com.yelp.android.ui.util.ay;
 import com.yelp.android.ui.widgets.QuantityDropDownView;
-import com.yelp.android.ui.widgets.s;
+import com.yelp.android.ui.widgets.QuantityDropDownView.a;
 
 public abstract class DealQuantityViewBase
   extends RelativeLayout
-  implements s
+  implements QuantityDropDownView.a
 {
   protected final TextView a;
   private final QuantityDropDownView b;
@@ -22,12 +22,12 @@ public abstract class DealQuantityViewBase
   {
     super(paramContext, paramAttributeSet, paramInt);
     SparseIntArray localSparseIntArray = new SparseIntArray();
-    localSparseIntArray.put(4, 2130903181);
-    dj.a(this, paramContext, paramAttributeSet, paramInt, localSparseIntArray);
-    b = ((QuantityDropDownView)findViewById(2131493458));
+    localSparseIntArray.put(4, 2130903191);
+    ay.a(this, paramContext, paramAttributeSet, paramInt, localSparseIntArray);
+    b = ((QuantityDropDownView)findViewById(2131690136));
     b.setQuantityChangeListener(this);
-    a = ((TextView)findViewById(2131493459));
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.QuantityDropDownView, paramInt, paramInt);
+    a = ((TextView)findViewById(2131690137));
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.QuantityDropDownView, paramInt, paramInt);
     b.setStartRange(paramContext.getInt(1, Integer.MIN_VALUE));
     b.setEndRange(paramContext.getInt(2, Integer.MAX_VALUE));
     paramContext.recycle();
@@ -64,14 +64,14 @@ public abstract class DealQuantityViewBase
     b.setQuantity(paramInt);
   }
   
-  public void setQuantityListener(s params)
+  public void setQuantityListener(QuantityDropDownView.a parama)
   {
-    if (params == null)
+    if (parama == null)
     {
       b.setQuantityChangeListener(this);
       return;
     }
-    b.setQuantityChangeListener(new ae(new s[] { this, params }));
+    b.setQuantityChangeListener(new DealQuantityViewBase.a(new QuantityDropDownView.a[] { this, parama }));
   }
   
   public void setText(CharSequence paramCharSequence)

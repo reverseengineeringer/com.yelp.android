@@ -1,31 +1,28 @@
-.class public final Lcom/yelp/android/bf/b;
+.class public interface abstract Lcom/yelp/android/bf/b;
 .super Ljava/lang/Object;
-.source "R.java"
 
 
-# static fields
-.field public static final activity_expand_in:I = 0x7f040008
+# virtual methods
+.method public abstract a(Lcom/yelp/android/bf/a;)V
+.end method
 
-.field public static final activity_shrink_out:I = 0x7f04000a
+.method public abstract a(Lcom/yelp/android/bf/a;I)V
+.end method
 
-.field public static final activity_slide_in_right:I = 0x7f04000b
+.method public abstract a(Lcom/yelp/android/bf/a;Lcom/yelp/android/be/a;)V
+.end method
 
-.field public static final activity_slide_out_right:I = 0x7f04000c
+.method public abstract b(Lcom/yelp/android/bf/a;)V
+.end method
 
-.field public static final fade_in_fast:I = 0x7f040011
+.method public abstract c(Lcom/yelp/android/bf/a;)V
+.end method
 
-.field public static final slide_in_bottom:I = 0x7f040019
+.method public abstract d(Lcom/yelp/android/bf/a;)V
+.end method
 
-.field public static final slide_in_bottom_fade:I = 0x7f04001a
+.method public abstract e(Lcom/yelp/android/bf/a;)V
+.end method
 
-.field public static final slide_in_left:I = 0x7f04001b
-
-.field public static final slide_in_top_fade:I = 0x7f04001d
-
-.field public static final slide_out_bottom_fade:I = 0x7f04001f
-
-.field public static final slide_out_left:I = 0x7f040020
-
-.field public static final slide_out_right:I = 0x7f040021
-
-.field public static final slide_out_top_fade:I = 0x7f040023
+.method public abstract f(Lcom/yelp/android/bf/a;)V
+.end method

@@ -1,21 +1,21 @@
 package com.yelp.android.ui.activities.messaging;
 
 import com.yelp.android.serializable.Conversation;
-import com.yelp.android.serializable.bg;
+import com.yelp.android.serializable.e;
 
 public abstract interface a
 {
   public abstract void a(Conversation paramConversation);
   
-  public abstract void a(bg parambg);
+  public abstract void a(e parame);
+  
+  public abstract void b();
   
   public abstract void b(Conversation paramConversation);
   
-  public abstract void c();
+  public abstract ActivityMessaging.MessagingActionsFragment c();
   
   public abstract void c(Conversation paramConversation);
-  
-  public abstract ActivityMessaging.MessagingActionsFragment d();
 }
 
 /* Location:

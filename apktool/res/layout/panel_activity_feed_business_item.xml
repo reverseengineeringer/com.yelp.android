@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/selector_white_rect" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/border" />
+    <LinearLayout android:orientation="horizontal" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/business_image" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:src="@drawable/biz_nophoto" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_weight="1.0">
+            <TextView android:textAppearance="@style/DeprecatedSubtitleText" android:id="@id/business_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textAppearance="@style/CaptionGreyText" android:id="@id/star_rating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/business_stars_tiny" android:drawablePadding="5.0dip" />
+        </LinearLayout>
+        <ToggleButton android:layout_gravity="center_vertical" android:id="@id/bookmark_button" android:background="@drawable/button_bookmark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="" android:textOff="" android:contentDescription="@string/action_bookmark" />
+    </LinearLayout>
+</LinearLayout>

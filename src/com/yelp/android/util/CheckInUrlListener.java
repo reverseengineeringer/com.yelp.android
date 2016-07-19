@@ -12,6 +12,11 @@ import com.yelp.android.ui.activities.support.YelpUrlCatcherActivity;
 public class CheckInUrlListener
   extends YelpUrlCatcherActivity
 {
+  protected boolean a()
+  {
+    return false;
+  }
+  
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
@@ -25,7 +30,7 @@ public class CheckInUrlListener
     {
       bool1 = true;
       bool2 = paramBundle.getBooleanExtra("extra_check_in_aggregated", true);
-      switch (d.a[localCheckInType.ordinal()])
+      switch (1.a[localCheckInType.ordinal()])
       {
       default: 
         paramBundle = null;
@@ -33,7 +38,9 @@ public class CheckInUrlListener
     }
     for (;;)
     {
-      startActivity(paramBundle);
+      if (paramBundle != null) {
+        startActivity(paramBundle);
+      }
       finish();
       return;
       bool1 = false;

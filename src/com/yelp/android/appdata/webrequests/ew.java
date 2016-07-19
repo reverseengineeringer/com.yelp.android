@@ -1,50 +1,20 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.MenuItem;
-import com.yelp.android.serializable.MoreInfoAction;
-import com.yelp.android.serializable.ReviewHighlight.ReviewHighlightType;
-import com.yelp.android.serializable.YelpBusinessReview;
-import com.yelp.parcelgen.JsonParser.DualCreator;
-import com.yelp.parcelgen.JsonUtil;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.serializable.Event;
+import com.yelp.android.serializable.Event.EventType;
+import com.yelp.android.util.StringUtils;
 import java.util.ArrayList;
-import org.json.JSONObject;
 
 public class ew
-  extends g<String, Void, ex>
+  extends c
 {
-  public ew(String paramString1, String paramString2, ReviewHighlight.ReviewHighlightType paramReviewHighlightType, String paramString3, int paramInt1, int paramInt2, m<ex> paramm)
+  public ew(Event paramEvent, ArrayList<String> paramArrayList, ApiRequest.b<Void> paramb)
   {
-    super(ApiRequest.RequestType.GET, "highlight/reviews_v2", paramm);
-    addUrlParam("business_id", paramString1);
-    addUrlParam("identifier", paramString2);
-    addUrlParam("type", paramReviewHighlightType.getTypeString());
-    addUrlParam("review_id", paramString3);
-    addUrlParam("offset", paramInt1);
-    addUrlParam("limit", paramInt2);
-  }
-  
-  public ex a(JSONObject paramJSONObject)
-  {
-    MoreInfoAction localMoreInfoAction = null;
-    ArrayList localArrayList = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("reviews"), YelpBusinessReview.CREATOR);
-    int i = paramJSONObject.getInt("total");
-    Object localObject = paramJSONObject.optJSONObject("menu_item");
-    if (localObject == null)
-    {
-      localObject = null;
-      if (paramJSONObject.optJSONObject("more_info_action") != null) {
-        break label80;
-      }
-    }
-    for (;;)
-    {
-      return new ex(localArrayList, i, (MenuItem)localObject, localMoreInfoAction, paramJSONObject.getString("title"));
-      localObject = (MenuItem)MenuItem.CREATOR.parse((JSONObject)localObject);
-      break;
-      label80:
-      localMoreInfoAction = (MoreInfoAction)MoreInfoAction.CREATOR.parse(paramJSONObject.optJSONObject("more_info_action"));
-    }
+    super("event/rsvp/change_guests", paramb);
+    b("event_id", paramEvent.I());
+    b("event_type", paramEvent.K().toString());
+    b("guest_names", StringUtils.a(paramArrayList));
   }
 }
 

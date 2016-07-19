@@ -1,18 +1,17 @@
 package android.support.v4.view;
 
-import android.view.ViewGroup.MarginLayoutParams;
+import android.view.View;
 
 class aq
-  implements ao
 {
-  public int a(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+  public static boolean a(View paramView)
   {
-    return ar.a(paramMarginLayoutParams);
+    return paramView.isLaidOut();
   }
   
-  public int b(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+  public static boolean b(View paramView)
   {
-    return ar.b(paramMarginLayoutParams);
+    return paramView.isAttachedToWindow();
   }
 }
 

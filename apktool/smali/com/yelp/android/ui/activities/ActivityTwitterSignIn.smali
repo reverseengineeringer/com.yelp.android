@@ -6,18 +6,18 @@
 # instance fields
 .field private a:Landroid/webkit/WebView;
 
-.field private b:Lcom/yelp/android/appdata/webrequests/gd;
+.field private b:Lcom/yelp/android/appdata/webrequests/eu;
 
-.field private c:Lcom/yelp/android/appdata/webrequests/ge;
+.field private c:Lcom/yelp/android/appdata/webrequests/ev;
 
 .field private d:Ljava/lang/String;
 
 .field private e:Ljava/lang/String;
 
-.field private final f:Lcom/yelp/android/appdata/webrequests/m;
+.field private final f:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Ljava/lang/String;",
             ">;"
@@ -25,7 +25,7 @@
     .end annotation
 .end field
 
-.field private final g:Lcom/yelp/android/av/i;
+.field private final g:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
 
 # direct methods
@@ -33,22 +33,22 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 23
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 139
-    new-instance v0, Lcom/yelp/android/ui/activities/ef;
+    .line 150
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ef;-><init>(Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn$2;-><init>(Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->f:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->f:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 153
-    new-instance v0, Lcom/yelp/android/ui/activities/eg;
+    .line 168
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn$3;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/eg;-><init>(Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn$3;-><init>(Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->g:Lcom/yelp/android/av/i;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->g:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
     return-void
 .end method
@@ -57,19 +57,19 @@
     .locals 2
 
     .prologue
-    .line 47
+    .line 48
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 48
+    .line 49
     const/high16 v1, 0x20000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 49
+    .line 50
     return-object v0
 .end method
 
@@ -77,7 +77,7 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 23
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a:Landroid/webkit/WebView;
 
     return-object v0
@@ -87,7 +87,7 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 23
     iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->e:Ljava/lang/String;
 
     return-object p1
@@ -97,41 +97,41 @@
     .locals 2
 
     .prologue
-    .line 177
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/gd;
+    .line 190
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/eu;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/gd;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/eu;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/gd;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/eu;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 183
+    .line 196
     :goto_0
     return-void
 
-    .line 181
+    .line 194
     :cond_0
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/gd;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/eu;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->f:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->f:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/gd;-><init>(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/eu;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/gd;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/eu;
 
-    .line 182
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/gd;
+    .line 195
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/eu;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gd;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/eu;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     goto :goto_0
 .end method
@@ -140,7 +140,7 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 23
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->d:Ljava/lang/String;
 
     return-object v0
@@ -150,7 +150,7 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 23
     iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->d:Ljava/lang/String;
 
     return-object p1
@@ -160,7 +160,7 @@
     .locals 3
 
     .prologue
-    .line 186
+    .line 199
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a:Landroid/webkit/WebView;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -185,14 +185,14 @@
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
-    .line 187
+    .line 200
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a:Landroid/webkit/WebView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setVisibility(I)V
 
-    .line 188
+    .line 201
     return-void
 .end method
 
@@ -200,45 +200,45 @@
     .locals 4
 
     .prologue
-    .line 192
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ge;
+    .line 205
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ev;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ge;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ev;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ge;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ev;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 199
+    .line 213
     :goto_0
     return-void
 
-    .line 196
+    .line 209
     :cond_0
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ge;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/ev;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->d:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->e:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->g:Lcom/yelp/android/av/i;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->g:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/appdata/webrequests/ge;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/av/i;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/appdata/webrequests/ev;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ge;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ev;
 
-    .line 198
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ge;
+    .line 212
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ev;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ge;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ev;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     goto :goto_0
 .end method
@@ -247,7 +247,7 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 23
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c()V
 
     return-void
@@ -257,7 +257,7 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 23
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b()V
 
     return-void
@@ -269,17 +269,17 @@
     .locals 1
 
     .prologue
-    .line 224
+    .line 238
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TwitterLogin:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 26
+    .line 23
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -291,13 +291,13 @@
     .locals 2
 
     .prologue
-    .line 54
+    .line 55
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 56
+    .line 57
     if-eqz p1, :cond_0
 
-    .line 57
+    .line 58
     const-string/jumbo v0, "oauth_token"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -306,7 +306,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->d:Ljava/lang/String;
 
-    .line 58
+    .line 59
     const-string/jumbo v0, "oauth_verifier"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -315,7 +315,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->e:Ljava/lang/String;
 
-    .line 61
+    .line 62
     :cond_0
     new-instance v0, Landroid/webkit/WebView;
 
@@ -323,33 +323,33 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a:Landroid/webkit/WebView;
 
-    .line 62
+    .line 63
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a:Landroid/webkit/WebView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/ee;
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ee;-><init>(Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn$1;-><init>(Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;)V
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
-    .line 103
+    .line 114
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a:Landroid/webkit/WebView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setVisibility(I)V
 
-    .line 104
+    .line 115
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a:Landroid/webkit/WebView;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->setContentView(Landroid/view/View;)V
 
-    .line 105
-    const v0, 0x7f070622
+    .line 116
+    const v0, 0x7f07060e
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->showLoadingDialog(I)V
 
-    .line 109
+    .line 120
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->d:Ljava/lang/String;
 
     if-eqz v0, :cond_1
@@ -358,14 +358,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 110
+    .line 121
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c()V
 
-    .line 116
+    .line 127
     :goto_0
     return-void
 
-    .line 111
+    .line 122
     :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->d:Ljava/lang/String;
 
@@ -375,12 +375,12 @@
 
     if-nez v0, :cond_2
 
-    .line 112
+    .line 123
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b()V
 
     goto :goto_0
 
-    .line 114
+    .line 125
     :cond_2
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a()V
 
@@ -391,24 +391,24 @@
     .locals 2
 
     .prologue
-    .line 127
+    .line 138
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
 
-    .line 128
+    .line 139
     const-string/jumbo v0, "GET_TOKEN"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/gd;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/eu;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->freezeRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 129
+    .line 140
     const-string/jumbo v0, "SAVE_TOKEN"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ge;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ev;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->freezeRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 130
+    .line 141
     return-void
 .end method
 
@@ -416,40 +416,40 @@
     .locals 3
 
     .prologue
-    .line 120
+    .line 131
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
 
-    .line 121
+    .line 132
     const-string/jumbo v0, "GET_TOKEN"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/gd;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/eu;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->f:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->f:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/gd;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/eu;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/gd;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b:Lcom/yelp/android/appdata/webrequests/eu;
 
-    .line 122
+    .line 133
     const-string/jumbo v0, "SAVE_TOKEN"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ge;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ev;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->g:Lcom/yelp/android/av/i;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->g:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->thawRequest(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/ge;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/ev;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ge;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c:Lcom/yelp/android/appdata/webrequests/ev;
 
-    .line 123
+    .line 134
     return-void
 .end method
 
@@ -457,24 +457,24 @@
     .locals 2
 
     .prologue
-    .line 134
+    .line 145
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 135
+    .line 146
     const-string/jumbo v0, "oauth_token"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->d:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 136
+    .line 147
     const-string/jumbo v0, "oauth_verifier"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->e:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 137
+    .line 148
     return-void
 .end method
 
@@ -482,39 +482,39 @@
     .locals 0
 
     .prologue
-    .line 205
+    .line 219
     if-nez p1, :cond_0
 
-    .line 206
+    .line 220
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->finish()V
 
-    .line 209
+    .line 223
     :cond_0
     packed-switch p2, :pswitch_data_0
 
-    .line 220
+    .line 234
     :goto_0
     return-void
 
-    .line 211
+    .line 225
     :pswitch_0
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->a()V
 
     goto :goto_0
 
-    .line 214
+    .line 228
     :pswitch_1
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->c()V
 
     goto :goto_0
 
-    .line 217
+    .line 231
     :pswitch_2
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityTwitterSignIn;->b()V
 
     goto :goto_0
 
-    .line 209
+    .line 223
     nop
 
     :pswitch_data_0

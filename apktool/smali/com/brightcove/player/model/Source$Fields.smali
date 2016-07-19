@@ -3,6 +3,17 @@
 .source "Source.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/model/Source;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "Fields"
+.end annotation
+
+
 # static fields
 .field public static final BIT_RATE:Ljava/lang/String; = "bitRate"
 

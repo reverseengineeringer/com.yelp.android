@@ -4,13 +4,15 @@
 
 
 # instance fields
-.field private a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+.field private a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
 .field private b:Lcom/yelp/android/appdata/webrequests/ApiRequest;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;"
+            "<",
+            "Ljava/lang/Void;",
+            "**>;"
         }
     .end annotation
 .end field
@@ -78,9 +80,13 @@
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;)",
+            "<",
+            "Ljava/lang/Void;",
+            "**>;)",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;"
+            "<",
+            "Ljava/lang/Void;",
+            "**>;"
         }
     .end annotation
 .end method
@@ -89,20 +95,20 @@
     .locals 2
 
     .prologue
-    .line 103
+    .line 106
     invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 104
+    .line 107
     instance-of v1, v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
     if-eqz v1, :cond_0
 
-    .line 105
+    .line 108
     check-cast v0, Lcom/yelp/android/serializable/DisplayableAsUserBadge;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getUserId()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->i()Ljava/lang/String;
 
     move-result-object v0
 
@@ -112,7 +118,7 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->startActivity(Landroid/content/Intent;)V
 
-    .line 108
+    .line 112
     :cond_0
     return-void
 .end method
@@ -130,41 +136,41 @@
     .end annotation
 
     .prologue
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    .line 71
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/reviewpage/bk;->a(Ljava/util/Collection;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/reviewpage/f;->a(Ljava/util/Collection;)V
 
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    .line 72
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bk;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/f;->notifyDataSetChanged()V
 
-    .line 70
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    .line 73
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/bk;->isEmpty()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviewpage/f;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 71
-    const v0, 0x7f070037
+    .line 74
+    const v0, 0x7f0700bf
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/cr;->a(II)V
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/as;->a(II)V
 
-    .line 72
+    .line 75
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->finish()V
 
-    .line 74
+    .line 77
     :cond_0
     return-void
 .end method
 
-.method public c()Lcom/yelp/android/appdata/webrequests/ApiRequest;
+.method public b()Lcom/yelp/android/appdata/webrequests/ApiRequest;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -175,7 +181,7 @@
     .end annotation
 
     .prologue
-    .line 87
+    .line 90
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->b:Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     return-object v0
@@ -192,7 +198,7 @@
     .end annotation
 
     .prologue
-    .line 92
+    .line 95
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->getLastCustomNonConfigurationInstance()Ljava/lang/Object;
 
     move-result-object v0
@@ -227,11 +233,11 @@
     move-result-object v0
 
     .line 42
-    invoke-static {p1}, Lcom/yelp/android/ui/activities/reviewpage/bk;->b(Landroid/os/Bundle;)Lcom/yelp/android/ui/activities/reviewpage/bk;
+    invoke-static {p1}, Lcom/yelp/android/ui/activities/reviewpage/f;->b(Landroid/os/Bundle;)Lcom/yelp/android/ui/activities/reviewpage/f;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
     .line 43
     const-string/jumbo v1, "pre_populated"
@@ -241,30 +247,30 @@
     move-result-object v1
 
     .line 45
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
     if-nez v2, :cond_0
 
     .line 46
-    new-instance v2, Lcom/yelp/android/ui/activities/reviewpage/bk;
+    new-instance v2, Lcom/yelp/android/ui/activities/reviewpage/f;
 
-    invoke-direct {v2}, Lcom/yelp/android/ui/activities/reviewpage/bk;-><init>()V
+    invoke-direct {v2}, Lcom/yelp/android/ui/activities/reviewpage/f;-><init>()V
 
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
     .line 47
     if-eqz v1, :cond_0
 
     .line 48
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
-    invoke-virtual {v2, v1}, Lcom/yelp/android/ui/activities/reviewpage/bk;->a(Ljava/util/Collection;)V
+    invoke-virtual {v2, v1}, Lcom/yelp/android/ui/activities/reviewpage/f;->a(Ljava/util/Collection;)V
 
     .line 52
     :cond_0
     const-string/jumbo v2, "title_res"
 
-    const v3, 0x7f07048f
+    const v3, 0x7f0704a6
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -273,26 +279,26 @@
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->setTitle(I)V
 
     .line 54
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
     invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
     .line 55
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    new-instance v2, Lcom/yelp/android/ui/activities/reviewpage/bl;
+    new-instance v2, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList$1;
 
-    invoke-direct {v2, p0, v1}, Lcom/yelp/android/ui/activities/reviewpage/bl;-><init>(Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;Ljava/util/ArrayList;)V
+    invoke-direct {v2, p0, v1}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList$1;-><init>(Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;Ljava/util/ArrayList;)V
 
     invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnLoadNeeded(Ljava/lang/Runnable;)V
 
-    .line 65
+    .line 68
     return-void
 .end method
 
@@ -301,7 +307,7 @@
 
     .prologue
     .line 23
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->c()Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->b()Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
@@ -312,14 +318,14 @@
     .locals 1
 
     .prologue
-    .line 97
+    .line 100
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/bk;
+    .line 101
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;->a:Lcom/yelp/android/ui/activities/reviewpage/f;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/reviewpage/bk;->a(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/reviewpage/f;->a(Landroid/os/Bundle;)V
 
-    .line 99
+    .line 102
     return-void
 .end method

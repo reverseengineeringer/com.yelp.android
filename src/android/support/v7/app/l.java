@@ -1,42 +1,108 @@
 package android.support.v7.app;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.support.v7.internal.widget.bd;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.widget.FrameLayout;
+import android.content.res.Resources.Theme;
+import android.os.Bundle;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import com.yelp.android.r.a;
 
-class l
-  extends FrameLayout
+public class l
+  extends Dialog
+  implements e
 {
-  public l(ActionBarActivityDelegateBase paramActionBarActivityDelegateBase, Context paramContext)
+  private f a;
+  
+  public l(Context paramContext, int paramInt)
   {
-    super(paramContext);
+    super(paramContext, a(paramContext, paramInt));
+    a().a(null);
   }
   
-  private boolean a(int paramInt1, int paramInt2)
+  private static int a(Context paramContext, int paramInt)
   {
-    return (paramInt1 < -5) || (paramInt2 < -5) || (paramInt1 > getWidth() + 5) || (paramInt2 > getHeight() + 5);
-  }
-  
-  public boolean dispatchKeyEvent(KeyEvent paramKeyEvent)
-  {
-    return a.a(paramKeyEvent);
-  }
-  
-  public boolean onInterceptTouchEvent(MotionEvent paramMotionEvent)
-  {
-    if ((paramMotionEvent.getAction() == 0) && (a((int)paramMotionEvent.getX(), (int)paramMotionEvent.getY())))
+    int i = paramInt;
+    if (paramInt == 0)
     {
-      ActionBarActivityDelegateBase.d(a, 0);
-      return true;
+      TypedValue localTypedValue = new TypedValue();
+      paramContext.getTheme().resolveAttribute(com.yelp.android.j.a.a.dialogTheme, localTypedValue, true);
+      i = resourceId;
     }
-    return super.onInterceptTouchEvent(paramMotionEvent);
+    return i;
   }
   
-  public void setBackgroundResource(int paramInt)
+  public f a()
   {
-    setBackgroundDrawable(bd.a(getContext(), paramInt));
+    if (a == null) {
+      a = f.a(this, this);
+    }
+    return a;
+  }
+  
+  public void addContentView(View paramView, ViewGroup.LayoutParams paramLayoutParams)
+  {
+    a().b(paramView, paramLayoutParams);
+  }
+  
+  public boolean b(int paramInt)
+  {
+    return a().b(paramInt);
+  }
+  
+  public void invalidateOptionsMenu()
+  {
+    a().e();
+  }
+  
+  protected void onCreate(Bundle paramBundle)
+  {
+    a().h();
+    super.onCreate(paramBundle);
+    a().a(paramBundle);
+  }
+  
+  protected void onStop()
+  {
+    super.onStop();
+    a().c();
+  }
+  
+  public void onSupportActionModeFinished(a parama) {}
+  
+  public void onSupportActionModeStarted(a parama) {}
+  
+  public a onWindowStartingSupportActionMode(com.yelp.android.r.a.a parama)
+  {
+    return null;
+  }
+  
+  public void setContentView(int paramInt)
+  {
+    a().a(paramInt);
+  }
+  
+  public void setContentView(View paramView)
+  {
+    a().a(paramView);
+  }
+  
+  public void setContentView(View paramView, ViewGroup.LayoutParams paramLayoutParams)
+  {
+    a().a(paramView, paramLayoutParams);
+  }
+  
+  public void setTitle(int paramInt)
+  {
+    super.setTitle(paramInt);
+    a().a(getContext().getString(paramInt));
+  }
+  
+  public void setTitle(CharSequence paramCharSequence)
+  {
+    super.setTitle(paramCharSequence);
+    a().a(paramCharSequence);
   }
 }
 

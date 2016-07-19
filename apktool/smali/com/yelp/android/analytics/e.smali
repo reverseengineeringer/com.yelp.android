@@ -55,30 +55,30 @@
     .end annotation
 
     .prologue
-    .line 25
+    .line 29
     invoke-direct {p0}, Lcom/yelp/android/analytics/b;-><init>()V
 
-    .line 26
+    .line 30
     sget-object v0, Lcom/yelp/android/analytics/iris/AnalyticCategory;->ERROR:Lcom/yelp/android/analytics/iris/AnalyticCategory;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/analytics/e;->a(Lcom/yelp/android/analytics/iris/AnalyticCategory;)V
 
-    .line 27
+    .line 31
     iput-object p1, p0, Lcom/yelp/android/analytics/e;->a:Ljava/lang/String;
 
-    .line 28
+    .line 32
     iput-object p2, p0, Lcom/yelp/android/analytics/e;->b:Ljava/lang/String;
 
-    .line 29
+    .line 33
     iput-object p3, p0, Lcom/yelp/android/analytics/e;->c:Ljava/util/List;
 
-    .line 30
+    .line 34
     iput-boolean p5, p0, Lcom/yelp/android/analytics/e;->e:Z
 
-    .line 31
+    .line 35
     iput-object p4, p0, Lcom/yelp/android/analytics/e;->d:Ljava/util/Map;
 
-    .line 32
+    .line 36
     return-void
 .end method
 
@@ -86,7 +86,7 @@
     .locals 1
 
     .prologue
-    .line 48
+    .line 52
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
@@ -116,24 +116,24 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 52
-    invoke-static {}, Lcom/yelp/android/appdata/BaseYelpApplication;->z()Lcom/yelp/android/appdata/BaseYelpApplication;
+    .line 56
+    invoke-static {}, Lcom/yelp/android/appdata/BaseYelpApplication;->K()Lcom/yelp/android/appdata/BaseYelpApplication;
 
     move-result-object v2
 
-    .line 53
+    .line 57
     invoke-virtual {p0}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
 
     move-result-object v1
 
-    .line 54
+    .line 58
     new-instance v3, Ljava/util/ArrayList;
 
     array-length v0, v1
 
     invoke-direct {v3, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 55
+    .line 59
     array-length v4, v1
 
     move v0, v5
@@ -143,19 +143,19 @@
 
     aget-object v6, v1, v0
 
-    .line 56
+    .line 60
     invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
     invoke-interface {v3, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 55
+    .line 59
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 58
+    .line 62
     :cond_0
     new-instance v0, Lcom/yelp/android/analytics/e;
 
@@ -178,28 +178,33 @@
 # virtual methods
 .method public c()Lorg/json/JSONObject;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 36
+    .line 40
     invoke-super {p0}, Lcom/yelp/android/analytics/b;->c()Lorg/json/JSONObject;
 
     move-result-object v0
 
-    .line 37
+    .line 41
     const-string/jumbo v1, "type"
 
     iget-object v2, p0, Lcom/yelp/android/analytics/e;->a:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 38
+    .line 42
     const-string/jumbo v1, "app_version"
 
     iget-object v2, p0, Lcom/yelp/android/analytics/e;->b:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 39
+    .line 43
     const-string/jumbo v1, "trace"
 
     new-instance v2, Lorg/json/JSONArray;
@@ -210,7 +215,7 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 40
+    .line 44
     iget-object v1, p0, Lcom/yelp/android/analytics/e;->d:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
@@ -219,7 +224,7 @@
 
     if-nez v1, :cond_0
 
-    .line 41
+    .line 45
     const-string/jumbo v1, "details"
 
     new-instance v2, Lorg/json/JSONObject;
@@ -230,7 +235,7 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 43
+    .line 47
     :cond_0
     const-string/jumbo v1, "is_crash"
 
@@ -238,6 +243,6 @@
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 44
+    .line 48
     return-object v0
 .end method

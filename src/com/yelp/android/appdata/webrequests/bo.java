@@ -1,32 +1,34 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import java.io.File;
-import java.io.FileNotFoundException;
+import android.text.TextUtils;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Event;
+import com.yelp.android.serializable.Event.EventType;
+import com.yelp.android.serializable.EventRsvp;
+import com.yelp.android.util.StringUtils;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-final class bo
-  implements Parcelable.Creator<EditTipRequest>
+public class bo
+  extends b<Void, Void, EventRsvp>
 {
-  public EditTipRequest a(Parcel paramParcel)
+  public bo(Event paramEvent, ArrayList<String> paramArrayList, String paramString, ApiRequest.b<EventRsvp> paramb)
   {
-    File localFile = PhotoUploadRequestBase.readFromParcel(paramParcel);
-    String str = paramParcel.readString();
-    paramParcel = paramParcel.readString();
-    try
-    {
-      paramParcel = new EditTipRequest(str, paramParcel, localFile);
-      return paramParcel;
+    super(ApiRequest.RequestType.POST, "/event/rsvp/record", paramb);
+    b("event_id", paramEvent.I());
+    b("event_type", paramEvent.K().toString());
+    if (!TextUtils.isEmpty(paramString)) {
+      b("freeform_response", paramString);
     }
-    catch (FileNotFoundException paramParcel)
-    {
-      throw new IllegalStateException("File Deleted while parceled", paramParcel);
-    }
+    b("guest_names", StringUtils.a(paramArrayList));
   }
   
-  public EditTipRequest[] a(int paramInt)
+  public EventRsvp a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return new EditTipRequest[paramInt];
+    return (EventRsvp)EventRsvp.CREATOR.parse(paramJSONObject.getJSONObject("rsvp"));
   }
 }
 

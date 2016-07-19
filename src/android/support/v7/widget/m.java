@@ -1,25 +1,14 @@
 package android.support.v7.widget;
 
-import android.support.v7.internal.view.menu.i;
-import android.support.v7.internal.view.menu.j;
-import android.view.MenuItem;
+import android.content.res.Resources.Theme;
+import android.widget.SpinnerAdapter;
 
-class m
-  implements j
+public abstract interface m
+  extends SpinnerAdapter
 {
-  private m(ActionMenuView paramActionMenuView) {}
+  public abstract Resources.Theme a();
   
-  public void a(i parami)
-  {
-    if (ActionMenuView.b(a) != null) {
-      ActionMenuView.b(a).a(parami);
-    }
-  }
-  
-  public boolean a(i parami, MenuItem paramMenuItem)
-  {
-    return (ActionMenuView.a(a) != null) && (ActionMenuView.a(a).a(paramMenuItem));
-  }
+  public abstract void a(Resources.Theme paramTheme);
 }
 
 /* Location:

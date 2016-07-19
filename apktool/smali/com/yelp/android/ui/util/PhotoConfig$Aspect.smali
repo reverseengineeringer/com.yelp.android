@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/util/PhotoConfig;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Aspect"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -35,7 +44,7 @@
 
     const/4 v3, 0x0
 
-    .line 27
+    .line 28
     new-instance v0, Lcom/yelp/android/ui/util/PhotoConfig$Aspect;
 
     const-string/jumbo v1, "Square"
@@ -46,7 +55,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/util/PhotoConfig$Aspect;->Square:Lcom/yelp/android/ui/util/PhotoConfig$Aspect;
 
-    .line 28
+    .line 29
     new-instance v0, Lcom/yelp/android/ui/util/PhotoConfig$Aspect;
 
     const-string/jumbo v1, "Normal"
@@ -57,7 +66,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/util/PhotoConfig$Aspect;->Normal:Lcom/yelp/android/ui/util/PhotoConfig$Aspect;
 
-    .line 26
+    .line 27
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/yelp/android/ui/util/PhotoConfig$Aspect;
@@ -86,13 +95,13 @@
     .end annotation
 
     .prologue
-    .line 32
+    .line 33
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 33
+    .line 34
     iput-object p3, p0, Lcom/yelp/android/ui/util/PhotoConfig$Aspect;->shape:Ljava/lang/String;
 
-    .line 34
+    .line 35
     return-void
 .end method
 
@@ -100,7 +109,7 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 27
     const-class v0, Lcom/yelp/android/ui/util/PhotoConfig$Aspect;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -116,7 +125,7 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 27
     sget-object v0, Lcom/yelp/android/ui/util/PhotoConfig$Aspect;->$VALUES:[Lcom/yelp/android/ui/util/PhotoConfig$Aspect;
 
     invoke-virtual {v0}, [Lcom/yelp/android/ui/util/PhotoConfig$Aspect;->clone()Ljava/lang/Object;

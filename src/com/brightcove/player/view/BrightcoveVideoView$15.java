@@ -15,7 +15,13 @@ class BrightcoveVideoView$15
     if (this$0.mediaController != null)
     {
       this$0.mediaController.hide();
-      this$0.eventEmitter.once("progress", new BrightcoveVideoView.15.1(this));
+      this$0.eventEmitter.once("progress", new EventListener()
+      {
+        public void processEvent(Event paramAnonymousEvent)
+        {
+          this$0.mediaController.show();
+        }
+      });
     }
   }
 }

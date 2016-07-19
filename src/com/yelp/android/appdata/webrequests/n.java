@@ -1,68 +1,27 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.os.Build.VERSION;
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.UpdatePrompt;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.BackgroundLocationResponse;
 import com.yelp.parcelgen.JsonParser.DualCreator;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class n
-  extends g<Void, Void, o>
+  extends b<Void, Void, BackgroundLocationResponse>
 {
-  public n(m<o> paramm)
+  public n(double paramDouble1, double paramDouble2, float paramFloat, boolean paramBoolean)
   {
-    super(ApiRequest.RequestType.GET, "version/android", paramm);
-    addUrlParam("android_api", Build.VERSION.SDK_INT);
+    super(ApiRequest.RequestType.GET, "/location/update", null);
+    a("latitude", paramDouble1);
+    a("longitude", paramDouble2);
+    a("accuracy", paramFloat);
+    a("is_stationary", paramBoolean);
   }
   
-  public o a(JSONObject paramJSONObject)
+  public BackgroundLocationResponse a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    Object localObject1 = Collections.emptyMap();
-    Object localObject2 = Collections.emptyMap();
-    UpdatePrompt localUpdatePrompt = new UpdatePrompt();
-    JSONObject localJSONObject;
-    HashMap localHashMap;
-    Iterator localIterator;
-    if (!paramJSONObject.isNull("experiments"))
-    {
-      localJSONObject = paramJSONObject.getJSONObject("experiments");
-      localHashMap = new HashMap();
-      localIterator = localJSONObject.keys();
-      for (;;)
-      {
-        localObject1 = localHashMap;
-        if (!localIterator.hasNext()) {
-          break;
-        }
-        localObject1 = (String)localIterator.next();
-        localHashMap.put(localObject1, localJSONObject.getString((String)localObject1));
-      }
-    }
-    if (!paramJSONObject.isNull("features"))
-    {
-      localJSONObject = paramJSONObject.getJSONObject("features");
-      localHashMap = new HashMap();
-      localIterator = localJSONObject.keys();
-      for (;;)
-      {
-        localObject2 = localHashMap;
-        if (!localIterator.hasNext()) {
-          break;
-        }
-        localObject2 = (String)localIterator.next();
-        localHashMap.put(localObject2, localJSONObject.getString((String)localObject2));
-      }
-    }
-    if (!paramJSONObject.isNull("available_version")) {
-      paramJSONObject = paramJSONObject.getJSONObject("available_version");
-    }
-    for (paramJSONObject = (UpdatePrompt)UpdatePrompt.CREATOR.parse(paramJSONObject);; paramJSONObject = localUpdatePrompt) {
-      return new o((Map)localObject2, (Map)localObject1, paramJSONObject);
-    }
+    return (BackgroundLocationResponse)BackgroundLocationResponse.CREATOR.parse(paramJSONObject);
   }
 }
 

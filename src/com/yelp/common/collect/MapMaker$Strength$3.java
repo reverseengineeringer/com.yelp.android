@@ -7,13 +7,13 @@ package com.yelp.common.collect;
     super(paramString, paramInt, null);
   }
   
-  <K, V> f<K, V> copyEntry(K paramK, f<K, V> paramf1, f<K, V> paramf2)
+  <K, V> MapMaker.a<K, V> copyEntry(K paramK, MapMaker.a<K, V> parama1, MapMaker.a<K, V> parama2)
   {
-    paramf1 = (MapMaker.StrongEntry)paramf1;
-    if (paramf2 == null) {
+    parama1 = (MapMaker.StrongEntry)parama1;
+    if (parama2 == null) {
       return new MapMaker.StrongEntry(internals, paramK, hash);
     }
-    return new MapMaker.LinkedStrongEntry(internals, paramK, hash, paramf2);
+    return new MapMaker.LinkedStrongEntry(internals, paramK, hash, parama2);
   }
   
   boolean equal(Object paramObject1, Object paramObject2)
@@ -26,15 +26,15 @@ package com.yelp.common.collect;
     return paramObject.hashCode();
   }
   
-  <K, V> f<K, V> newEntry(c<K, V, f<K, V>> paramc, K paramK, int paramInt, f<K, V> paramf)
+  <K, V> MapMaker.a<K, V> newEntry(CustomConcurrentHashMap.b<K, V, MapMaker.a<K, V>> paramb, K paramK, int paramInt, MapMaker.a<K, V> parama)
   {
-    if (paramf == null) {
-      return new MapMaker.StrongEntry(paramc, paramK, paramInt);
+    if (parama == null) {
+      return new MapMaker.StrongEntry(paramb, paramK, paramInt);
     }
-    return new MapMaker.LinkedStrongEntry(paramc, paramK, paramInt, paramf);
+    return new MapMaker.LinkedStrongEntry(paramb, paramK, paramInt, parama);
   }
   
-  <K, V> g<K, V> referenceValue(f<K, V> paramf, V paramV)
+  <K, V> MapMaker.b<K, V> referenceValue(MapMaker.a<K, V> parama, V paramV)
   {
     return new MapMaker.StrongValueReference(paramV);
   }

@@ -2,10 +2,8 @@ package com.google.android.gms.common.api;
 
 import java.util.concurrent.TimeUnit;
 
-public abstract interface PendingResult<R extends Result>
+public abstract class PendingResult<R extends Result>
 {
-  public abstract void a(PendingResult.a parama);
-  
   public abstract R await();
   
   public abstract R await(long paramLong, TimeUnit paramTimeUnit);
@@ -14,9 +12,29 @@ public abstract interface PendingResult<R extends Result>
   
   public abstract boolean isCanceled();
   
-  public abstract void setResultCallback(ResultCallback<R> paramResultCallback);
+  public abstract void setResultCallback(ResultCallback<? super R> paramResultCallback);
   
-  public abstract void setResultCallback(ResultCallback<R> paramResultCallback, long paramLong, TimeUnit paramTimeUnit);
+  public abstract void setResultCallback(ResultCallback<? super R> paramResultCallback, long paramLong, TimeUnit paramTimeUnit);
+  
+  public <S extends Result> TransformedResult<S> then(ResultTransform<? super R, ? extends S> paramResultTransform)
+  {
+    throw new UnsupportedOperationException();
+  }
+  
+  public void zza(zza paramzza)
+  {
+    throw new UnsupportedOperationException();
+  }
+  
+  public Integer zzpa()
+  {
+    throw new UnsupportedOperationException();
+  }
+  
+  public static abstract interface zza
+  {
+    public abstract void zzu(Status paramStatus);
+  }
 }
 
 /* Location:

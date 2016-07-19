@@ -27,7 +27,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/comscore/analytics/h;->a(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/comscore/analytics/k;->a(Landroid/content/Context;)V
 
     return-void
 .end method
@@ -37,7 +37,7 @@
 
     invoke-super {p0}, Landroid/app/TabActivity;->onPause()V
 
-    invoke-static {}, Lcom/comscore/analytics/h;->b()V
+    invoke-static {}, Lcom/comscore/analytics/k;->b()V
 
     return-void
 .end method
@@ -47,7 +47,7 @@
 
     invoke-super {p0}, Landroid/app/TabActivity;->onResume()V
 
-    invoke-static {}, Lcom/comscore/analytics/h;->e()Lcom/comscore/analytics/a;
+    invoke-static {}, Lcom/comscore/analytics/k;->d()Lcom/comscore/analytics/a;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
 
     invoke-virtual {v0, v1}, Lcom/comscore/analytics/a;->a(Ljava/lang/String;)V
 
-    invoke-static {}, Lcom/comscore/analytics/h;->a()V
+    invoke-static {}, Lcom/comscore/analytics/k;->a()V
 
     return-void
 .end method

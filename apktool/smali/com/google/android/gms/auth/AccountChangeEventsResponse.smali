@@ -6,13 +6,22 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/google/android/gms/auth/AccountChangeEventsResponseCreator;
+.field public static final CREATOR:Landroid/os/Parcelable$Creator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/Parcelable$Creator",
+            "<",
+            "Lcom/google/android/gms/auth/AccountChangeEventsResponse;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # instance fields
-.field final Ef:I
+.field final a:I
 
-.field final mp:Ljava/util/List;
+.field final b:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -28,11 +37,11 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/auth/AccountChangeEventsResponseCreator;
+    new-instance v0, Lcom/google/android/gms/auth/d;
 
-    invoke-direct {v0}, Lcom/google/android/gms/auth/AccountChangeEventsResponseCreator;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/auth/d;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->CREATOR:Lcom/google/android/gms/auth/AccountChangeEventsResponseCreator;
+    sput-object v0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
@@ -51,44 +60,15 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->Ef:I
+    iput p1, p0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->a:I
 
-    invoke-static {p2}, Lcom/google/android/gms/internal/jx;->i(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/List;
-
-    iput-object v0, p0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->mp:Ljava/util/List;
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/util/List;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/google/android/gms/auth/AccountChangeEvent;",
-            ">;)V"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x1
-
-    iput v0, p0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->Ef:I
-
-    invoke-static {p1}, Lcom/google/android/gms/internal/jx;->i(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/List;
 
-    iput-object v0, p0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->mp:Ljava/util/List;
+    iput-object v0, p0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->b:Ljava/util/List;
 
     return-void
 .end method
@@ -103,27 +83,10 @@
     return v0
 .end method
 
-.method public getEvents()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/google/android/gms/auth/AccountChangeEvent;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/gms/auth/AccountChangeEventsResponse;->mp:Ljava/util/List;
-
-    return-object v0
-.end method
-
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/auth/AccountChangeEventsResponseCreator;->a(Lcom/google/android/gms/auth/AccountChangeEventsResponse;Landroid/os/Parcel;I)V
+    invoke-static {p0, p1, p2}, Lcom/google/android/gms/auth/d;->a(Lcom/google/android/gms/auth/AccountChangeEventsResponse;Landroid/os/Parcel;I)V
 
     return-void
 .end method

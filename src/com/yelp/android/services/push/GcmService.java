@@ -2,10 +2,10 @@ package com.yelp.android.services.push;
 
 import android.app.IntentService;
 import android.content.Intent;
-import com.yelp.android.analytics.iris.PushNotificationIri;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.n;
-import com.yelp.android.appdata.webrequests.au;
+import com.yelp.android.appdata.f;
+import com.yelp.android.appdata.webrequests.ar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,9 +19,9 @@ public class GcmService
   
   protected void onHandleIntent(Intent paramIntent)
   {
-    p localp = new p(paramIntent.getExtras());
-    if (AppData.b().h().b().equals(localp.g())) {
-      new Notifier(this).a(localp);
+    g localg = new g(paramIntent.getExtras());
+    if (AppData.b().h().b().equals(localg.g())) {
+      new Notifier(this).a(localg);
     }
     for (;;)
     {
@@ -29,9 +29,9 @@ public class GcmService
       return;
       HashMap localHashMap = new HashMap();
       localHashMap.put("device_id", AppData.b().h().b());
-      localHashMap.put("notification_device_id", localp.g());
-      AppData.a(PushNotificationIri.PushNotificationWrongDeviceId, localHashMap);
-      new au(localp.g()).execute(new Void[0]);
+      localHashMap.put("notification_device_id", localg.g());
+      AppData.a(EventIri.PushNotificationWrongDeviceId, localHashMap);
+      new ar(localg.g()).f(new Void[0]);
     }
   }
 }

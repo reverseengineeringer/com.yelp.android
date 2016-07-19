@@ -3,14 +3,8 @@
 .source "ActivityVideoCapture.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/camera/ab;
-.implements Lcom/yelp/android/ui/activities/camera/x;
-
-
-# annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0xe
-.end annotation
+.implements Lcom/yelp/android/ui/activities/camera/VideoCaptureFragment$a;
+.implements Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
 
 
 # instance fields
@@ -26,7 +20,7 @@
     .locals 0
 
     .prologue
-    .line 24
+    .line 22
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
     return-void
@@ -36,7 +30,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 35
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->a(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Intent;
@@ -50,24 +44,24 @@
     .locals 2
 
     .prologue
-    .line 41
+    .line 39
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 42
+    .line 40
     const-string/jumbo v1, "business_id"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 43
+    .line 41
     const-string/jumbo v1, "extra_started_from_gallery"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 44
+    .line 43
     return-object v0
 .end method
 
@@ -75,12 +69,17 @@
 # virtual methods
 .method public a(Ljava/lang/String;)V
     .locals 4
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
 
     .prologue
-    .line 98
+    .line 103
     iput-object p1, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->c:Ljava/lang/String;
 
-    .line 99
+    .line 104
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->b:Ljava/lang/String;
 
     invoke-static {p1, v0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;
@@ -89,45 +88,45 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->a:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;
 
-    .line 100
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 105
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    const v1, 0x7f0c01d4
+    const v1, 0x7f0f020d
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->a:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;
 
     const-string/jumbo v3, "preview"
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/FragmentTransaction;->replace(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/o;->b(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/o;->a(Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 102
+    .line 110
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->supportInvalidateOptionsMenu()V
 
-    .line 103
+    .line 111
     return-void
 .end method
 
-.method public b()V
+.method public c()V
     .locals 3
 
     .prologue
-    .line 107
+    .line 115
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->c:Ljava/lang/String;
@@ -142,23 +141,23 @@
 
     move-result-object v0
 
-    .line 108
+    .line 117
     const/4 v1, -0x1
 
     invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->setResult(ILandroid/content/Intent;)V
 
-    .line 109
+    .line 118
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->finish()V
 
-    .line 110
+    .line 119
     return-void
 .end method
 
-.method public c()V
+.method public d()V
     .locals 2
 
     .prologue
-    .line 116
+    .line 125
     new-instance v0, Ljava/io/File;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->c:Ljava/lang/String;
@@ -167,7 +166,7 @@
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    .line 117
+    .line 126
     return-void
 .end method
 
@@ -175,17 +174,17 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 49
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 23
+    .line 22
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -195,22 +194,27 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 5
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
 
     .prologue
-    .line 56
+    .line 57
     const/16 v0, 0x9
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->supportRequestWindowFeature(I)Z
 
-    .line 58
+    .line 59
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 59
+    .line 60
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 60
+    .line 61
     const-string/jumbo v1, "business_id"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -219,7 +223,7 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->b:Ljava/lang/String;
 
-    .line 61
+    .line 62
     const-string/jumbo v1, "extra_started_from_gallery"
 
     const/4 v2, 0x0
@@ -228,48 +232,48 @@
 
     move-result v0
 
-    .line 63
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 65
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
-    .line 64
+    .line 66
     const-string/jumbo v2, "capture"
 
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v1, v2}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v2
 
-    .line 65
+    .line 67
     if-nez v2, :cond_0
 
-    .line 66
+    .line 68
     iget-object v2, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->b:Ljava/lang/String;
 
     invoke-static {v2, v0}, Lcom/yelp/android/ui/activities/camera/VideoCaptureFragment;->a(Ljava/lang/String;Z)Lcom/yelp/android/ui/activities/camera/VideoCaptureFragment;
 
     move-result-object v0
 
-    .line 67
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    .line 69
+    invoke-virtual {v1}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v2
 
-    const v3, 0x7f0c01d4
+    const v3, 0x7f0f020d
 
     const-string/jumbo v4, "capture"
 
-    invoke-virtual {v2, v3, v0, v4}, Landroid/support/v4/app/FragmentTransaction;->replace(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v2, v3, v0, v4}, Landroid/support/v4/app/o;->b(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 72
+    .line 74
     :cond_0
     if-eqz p1, :cond_1
 
-    .line 73
+    .line 75
     const-string/jumbo v0, "video_file_path"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -278,10 +282,10 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->c:Ljava/lang/String;
 
-    .line 74
+    .line 76
     const-string/jumbo v0, "preview"
 
-    invoke-virtual {v1, v0}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v1, v0}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -289,7 +293,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->a:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;
 
-    .line 76
+    .line 79
     :cond_1
     return-void
 .end method
@@ -298,14 +302,14 @@
     .locals 1
 
     .prologue
-    .line 80
+    .line 83
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 87
+    .line 90
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -313,16 +317,16 @@
     :goto_0
     return v0
 
-    .line 84
+    .line 87
     :pswitch_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->onBackPressed()V
 
-    .line 85
+    .line 88
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 80
+    .line 83
     nop
 
     :pswitch_data_0
@@ -335,16 +339,16 @@
     .locals 2
 
     .prologue
-    .line 92
+    .line 95
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 93
+    .line 96
     const-string/jumbo v0, "video_file_path"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/ActivityVideoCapture;->c:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 94
+    .line 97
     return-void
 .end method

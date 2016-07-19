@@ -1,8 +1,25 @@
 package com.google.android.gms.analytics;
 
-abstract interface e
+@Deprecated
+public abstract interface e
 {
-  public abstract void B(boolean paramBoolean);
+  @Deprecated
+  public abstract int a();
+  
+  @Deprecated
+  public abstract void a(int paramInt);
+  
+  @Deprecated
+  public abstract void a(String paramString);
+  
+  @Deprecated
+  public abstract void b(String paramString);
+  
+  @Deprecated
+  public abstract void c(String paramString);
+  
+  @Deprecated
+  public abstract void d(String paramString);
 }
 
 /* Location:

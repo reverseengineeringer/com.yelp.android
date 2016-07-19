@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/OoyalaAPIClient;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "ObjectFromBacklotAPITask"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroid/os/AsyncTask",

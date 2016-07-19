@@ -1,23 +1,17 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.util.aa;
-import org.apache.http.client.CookieStore;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import java.util.Map;
+import org.json.JSONObject;
 
-class de
-  extends aa<CookieStore, Void, Void>
+public class de
+  extends c
 {
-  de(dc paramdc) {}
-  
-  public Void a(CookieStore... paramVarArgs)
+  public de(Map<String, Integer> paramMap, c.a parama)
   {
-    int j = paramVarArgs.length;
-    int i = 0;
-    while (i < j)
-    {
-      paramVarArgs[i].clear();
-      i += 1;
-    }
-    return null;
+    super(ApiRequest.RequestType.POST, "preferences/save", parama);
+    b("values", new JSONObject(paramMap).toString());
   }
 }
 

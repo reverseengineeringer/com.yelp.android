@@ -1,114 +1,27 @@
 package com.google.android.gms.internal;
 
-import android.text.TextUtils;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import java.net.URI;
-import java.net.URISyntaxException;
+import android.util.Log;
+import com.google.android.gms.ads.internal.util.client.b;
 
-@ey
-public class gz
-  extends WebViewClient
+@fv
+public final class gz
+  extends b
 {
-  private final gu mo;
-  private final String xr = Z(paramString);
-  private boolean xs = false;
-  private final fb xt;
-  
-  public gz(fb paramfb, gu paramgu, String paramString)
+  public static boolean a()
   {
-    mo = paramgu;
-    xt = paramfb;
+    return ((Boolean)ao.ak.c()).booleanValue();
   }
   
-  private String Z(String paramString)
+  private static boolean b()
   {
-    if (TextUtils.isEmpty(paramString)) {}
-    for (;;)
-    {
-      return paramString;
-      try
-      {
-        if (paramString.endsWith("/"))
-        {
-          String str = paramString.substring(0, paramString.length() - 1);
-          return str;
-        }
-      }
-      catch (IndexOutOfBoundsException localIndexOutOfBoundsException)
-      {
-        gr.T(localIndexOutOfBoundsException.getMessage());
-      }
-    }
-    return paramString;
+    return (a(2)) && (a());
   }
   
-  protected boolean Y(String paramString)
+  public static void e(String paramString)
   {
-    paramString = Z(paramString);
-    if (TextUtils.isEmpty(paramString)) {}
-    for (;;)
-    {
-      return false;
-      try
-      {
-        Object localObject1 = new URI(paramString);
-        if ("passback".equals(((URI)localObject1).getScheme()))
-        {
-          gr.S("Passback received");
-          xt.cG();
-          return true;
-        }
-        if (!TextUtils.isEmpty(xr))
-        {
-          Object localObject2 = new URI(xr);
-          paramString = ((URI)localObject2).getHost();
-          String str = ((URI)localObject1).getHost();
-          localObject2 = ((URI)localObject2).getPath();
-          localObject1 = ((URI)localObject1).getPath();
-          if ((jv.equal(paramString, str)) && (jv.equal(localObject2, localObject1)))
-          {
-            gr.S("Passback received");
-            xt.cG();
-            return true;
-          }
-        }
-      }
-      catch (URISyntaxException paramString)
-      {
-        gr.T(paramString.getMessage());
-      }
+    if (b()) {
+      Log.v("Ads", paramString);
     }
-    return false;
-  }
-  
-  public void onLoadResource(WebView paramWebView, String paramString)
-  {
-    gr.S("JavascriptAdWebViewClient::onLoadResource: " + paramString);
-    if (!Y(paramString)) {
-      mo.dD().onLoadResource(mo, paramString);
-    }
-  }
-  
-  public void onPageFinished(WebView paramWebView, String paramString)
-  {
-    gr.S("JavascriptAdWebViewClient::onPageFinished: " + paramString);
-    if (!xs)
-    {
-      xt.cF();
-      xs = true;
-    }
-  }
-  
-  public boolean shouldOverrideUrlLoading(WebView paramWebView, String paramString)
-  {
-    gr.S("JavascriptAdWebViewClient::shouldOverrideUrlLoading: " + paramString);
-    if (Y(paramString))
-    {
-      gr.S("shouldOverrideUrlLoading: received passback url");
-      return true;
-    }
-    return mo.dD().shouldOverrideUrlLoading(mo, paramString);
   }
 }
 

@@ -9,32 +9,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.gp;
-import com.yelp.android.appdata.webrequests.gq;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.fh;
+import com.yelp.android.appdata.webrequests.fh.a;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.activities.support.YelpListFragment;
-import com.yelp.android.ui.panels.aa;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.cj;
+import com.yelp.android.ui.util.ap;
 import com.yelp.android.ui.widgets.EditTextAndClearButton;
 import com.yelp.android.util.ErrorType;
-import com.yelp.android.util.u;
+import com.yelp.android.util.m;
 
 public class FriendsListFragment
   extends YelpListFragment
 {
-  private u a;
-  private cj b;
-  private gp c;
+  private m a;
+  private ap b;
+  private fh c;
   private User d;
   private EditTextAndClearButton e;
-  private final m<gq> g = new r(this);
-  private final aa h = new s(this);
+  private final ApiRequest.b<fh.a> f = new FriendsListFragment.2(this);
+  private final PanelError.a g = new FriendsListFragment.3(this);
   
   public static FriendsListFragment a(User paramUser)
   {
@@ -45,16 +45,16 @@ public class FriendsListFragment
     return localFriendsListFragment;
   }
   
-  private void e()
+  private void f()
   {
-    a(ErrorType.NO_FRIENDS, h);
+    a(ErrorType.NO_FRIENDS, g);
     e.setVisibility(8);
   }
   
-  private void f()
+  private void g()
   {
     m().setOnTouchListener(a);
-    e.a(new q(this));
+    e.a(new FriendsListFragment.1(this));
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
@@ -62,17 +62,11 @@ public class FriendsListFragment
     super.a(paramListView, paramView, paramInt, paramLong);
     paramListView = paramListView.getItemAtPosition(paramInt);
     if ((paramListView instanceof User)) {
-      startActivity(ActivityUserProfile.a(getActivity(), ((User)paramListView).getId()));
+      startActivity(ActivityUserProfile.a(getActivity(), ((User)paramListView).ae()));
     }
   }
   
-  public void a_()
-  {
-    b.clear();
-    super.a_();
-  }
-  
-  public b getIri()
+  public a getIri()
   {
     return ViewIri.Friends;
   }
@@ -82,19 +76,19 @@ public class FriendsListFragment
     super.onActivityCreated(paramBundle);
     a(b);
     m().setFastScrollEnabled(true);
-    if ((b.isEmpty()) && (!s()))
+    if ((b.isEmpty()) && (!r()))
     {
-      c = new gp(d, g);
-      c.execute(new Void[0]);
+      c = new fh(d, f);
+      c.f(new Void[0]);
       a(c);
     }
     for (;;)
     {
-      a = new u(e, m());
-      f();
+      a = new m(e, m());
+      g();
       return;
       if (b.isEmpty()) {
-        e();
+        f();
       }
     }
   }
@@ -106,9 +100,9 @@ public class FriendsListFragment
       d = ((User)getArguments().getParcelable("user"));
     }
     if (d == null) {
-      d = AppData.b().m().s();
+      d = AppData.b().q().p();
     }
-    b = cj.a(paramBundle);
+    b = ap.a(paramBundle);
     b.a(true);
     b(b.getCount());
     setHasOptionsMenu(true);
@@ -117,15 +111,15 @@ public class FriendsListFragment
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-    paramMenuInflater.inflate(2131755025, paramMenu);
-    paramMenu.findItem(2131494149).setIntent(ActivityFindFriends.a(getActivity(), false, false));
+    paramMenuInflater.inflate(2131755028, paramMenu);
+    paramMenu.findItem(2131691022).setIntent(ActivityFindFriends.a(getActivity(), false));
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903222, paramViewGroup, false);
-    e = ((EditTextAndClearButton)paramLayoutInflater.findViewById(2131493226));
-    e.setHint(2131166503);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903248, paramViewGroup, false);
+    e = ((EditTextAndClearButton)paramLayoutInflater.findViewById(2131690889));
+    e.setHint(2131166500);
     e.setFocusable(true);
     e.setFocusableInTouchMode(true);
     return paramLayoutInflater;
@@ -134,20 +128,26 @@ public class FriendsListFragment
   public void onDetach()
   {
     super.onDetach();
-    b(c);
+    c(c);
   }
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
     super.onPrepareOptionsMenu(paramMenu);
-    boolean bool = AppData.b().m().a(d);
-    paramMenu.findItem(2131494149).setVisible(bool);
+    boolean bool = AppData.b().q().a(d);
+    paramMenu.findItem(2131691022).setVisible(bool);
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
     b.b(paramBundle);
+  }
+  
+  public void p_()
+  {
+    b.clear();
+    super.p_();
   }
 }
 

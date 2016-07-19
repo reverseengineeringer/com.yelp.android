@@ -204,14 +204,14 @@
     return-void
 .end method
 
-.method public setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/j;)V
+.method public setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/c;)V
     .locals 1
 
     .prologue
     .line 95
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->a:Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/j;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a(Lcom/yelp/android/ui/widgets/c;)V
 
     .line 96
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->refreshDrawableState()V

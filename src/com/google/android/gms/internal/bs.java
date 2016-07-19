@@ -1,21 +1,26 @@
 package com.google.android.gms.internal;
 
-import com.google.android.gms.ads.doubleclick.b;
+import com.google.android.gms.ads.formats.d.a;
 
-@ey
-public final class bs
-  extends br.a
+@fv
+public class bs
+  extends bn.a
 {
-  private final b oO;
+  private final d.a a;
   
-  public bs(b paramb)
+  public bs(d.a parama)
   {
-    oO = paramb;
+    a = parama;
   }
   
-  public void a(bq parambq)
+  public void a(bj parambj)
   {
-    oO.a(new bp(parambq));
+    a.a(b(parambj));
+  }
+  
+  bk b(bj parambj)
+  {
+    return new bk(parambj);
   }
 }
 

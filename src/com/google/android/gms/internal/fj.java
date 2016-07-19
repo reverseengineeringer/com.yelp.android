@@ -1,114 +1,211 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import java.util.Collections;
-import java.util.List;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.Canvas;
+import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import android.view.View.MeasureSpec;
+import android.webkit.WebView;
+import com.google.android.gms.ads.internal.request.AdResponseParcel;
+import com.google.android.gms.ads.internal.s;
 
-@ey
-public final class fj
-  implements SafeParcelable
+@fv
+public class fj
+  implements Runnable
 {
-  public static final fk CREATOR = new fk();
-  public final int errorCode;
-  public final int orientation;
-  public final long qA;
-  public final List<String> qw;
-  public final List<String> qx;
-  public final String sg;
-  public final boolean tT;
-  public final String tU;
-  public final long tV;
-  public final boolean tW;
-  public final long tX;
-  public final List<String> tY;
-  public final String tZ;
-  public final long ua;
-  public final String ub;
-  public final boolean uc;
-  public final String ud;
-  public final String ue;
-  public final boolean uf;
-  public final boolean ug;
-  public final boolean uh;
-  public final int versionCode;
+  protected final ib a;
+  protected boolean b;
+  protected boolean c;
+  private final Handler d;
+  private final long e;
+  private long f;
+  private ic.a g;
+  private final int h;
+  private final int i;
   
-  public fj(int paramInt)
+  public fj(ic.a parama, ib paramib, int paramInt1, int paramInt2)
   {
-    this(10, null, null, null, paramInt, null, -1L, false, -1L, null, -1L, -1, null, -1L, null, false, null, null, false, false, false, false);
+    this(parama, paramib, paramInt1, paramInt2, 200L, 50L);
   }
   
-  public fj(int paramInt, long paramLong)
+  public fj(ic.a parama, ib paramib, int paramInt1, int paramInt2, long paramLong1, long paramLong2)
   {
-    this(10, null, null, null, paramInt, null, -1L, false, -1L, null, paramLong, -1, null, -1L, null, false, null, null, false, false, false, false);
+    e = paramLong1;
+    f = paramLong2;
+    d = new Handler(Looper.getMainLooper());
+    a = paramib;
+    g = parama;
+    b = false;
+    c = false;
+    h = paramInt2;
+    i = paramInt1;
   }
   
-  fj(int paramInt1, String paramString1, String paramString2, List<String> paramList1, int paramInt2, List<String> paramList2, long paramLong1, boolean paramBoolean1, long paramLong2, List<String> paramList3, long paramLong3, int paramInt3, String paramString3, long paramLong4, String paramString4, boolean paramBoolean2, String paramString5, String paramString6, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5, boolean paramBoolean6)
+  public void a()
   {
-    versionCode = paramInt1;
-    sg = paramString1;
-    tU = paramString2;
-    if (paramList1 != null)
+    d.postDelayed(this, e);
+  }
+  
+  public void a(AdResponseParcel paramAdResponseParcel)
+  {
+    a(paramAdResponseParcel, new ik(this, a, q));
+  }
+  
+  public void a(AdResponseParcel paramAdResponseParcel, ik paramik)
+  {
+    a.setWebViewClient(paramik);
+    ib localib = a;
+    if (TextUtils.isEmpty(b)) {}
+    for (paramik = null;; paramik = s.e().a(b))
     {
-      paramString1 = Collections.unmodifiableList(paramList1);
-      qw = paramString1;
-      errorCode = paramInt2;
-      if (paramList2 == null) {
-        break label169;
-      }
-      paramString1 = Collections.unmodifiableList(paramList2);
-      label52:
-      qx = paramString1;
-      tV = paramLong1;
-      tW = paramBoolean1;
-      tX = paramLong2;
-      if (paramList3 == null) {
-        break label174;
-      }
-    }
-    label169:
-    label174:
-    for (paramString1 = Collections.unmodifiableList(paramList3);; paramString1 = null)
-    {
-      tY = paramString1;
-      qA = paramLong3;
-      orientation = paramInt3;
-      tZ = paramString3;
-      ua = paramLong4;
-      ub = paramString4;
-      uc = paramBoolean2;
-      ud = paramString5;
-      ue = paramString6;
-      uf = paramBoolean3;
-      ug = paramBoolean4;
-      tT = paramBoolean5;
-      uh = paramBoolean6;
+      localib.loadDataWithBaseURL(paramik, c, "text/html", "UTF-8", null);
       return;
-      paramString1 = null;
-      break;
-      paramString1 = null;
-      break label52;
     }
   }
   
-  public fj(String paramString1, String paramString2, List<String> paramList1, List<String> paramList2, long paramLong1, boolean paramBoolean1, long paramLong2, List<String> paramList3, long paramLong3, int paramInt, String paramString3, long paramLong4, String paramString4, String paramString5, boolean paramBoolean2, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5)
+  public void b()
   {
-    this(10, paramString1, paramString2, paramList1, -2, paramList2, paramLong1, paramBoolean1, paramLong2, paramList3, paramLong3, paramInt, paramString3, paramLong4, paramString4, false, null, paramString5, paramBoolean2, paramBoolean3, paramBoolean4, paramBoolean5);
+    try
+    {
+      b = true;
+      return;
+    }
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
   }
   
-  public fj(String paramString1, String paramString2, List<String> paramList1, List<String> paramList2, long paramLong1, boolean paramBoolean1, long paramLong2, List<String> paramList3, long paramLong3, int paramInt, String paramString3, long paramLong4, String paramString4, boolean paramBoolean2, String paramString5, String paramString6, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5, boolean paramBoolean6)
+  public boolean c()
   {
-    this(10, paramString1, paramString2, paramList1, -2, paramList2, paramLong1, paramBoolean1, paramLong2, paramList3, paramLong3, paramInt, paramString3, paramLong4, paramString4, paramBoolean2, paramString5, paramString6, paramBoolean3, paramBoolean4, paramBoolean5, paramBoolean6);
+    try
+    {
+      boolean bool = b;
+      return bool;
+    }
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
   }
   
-  public int describeContents()
+  public boolean d()
   {
-    return 0;
+    return c;
   }
   
-  public void writeToParcel(Parcel paramParcel, int paramInt)
+  public void run()
   {
-    fk.a(this, paramParcel, paramInt);
+    if ((a == null) || (c()))
+    {
+      g.a(a, true);
+      return;
+    }
+    new a(a.a()).execute(new Void[0]);
+  }
+  
+  protected final class a
+    extends AsyncTask<Void, Void, Boolean>
+  {
+    private final WebView b;
+    private Bitmap c;
+    
+    public a(WebView paramWebView)
+    {
+      b = paramWebView;
+    }
+    
+    protected Boolean a(Void... paramVarArgs)
+    {
+      for (;;)
+      {
+        int i;
+        int m;
+        try
+        {
+          int n = c.getWidth();
+          int i1 = c.getHeight();
+          if ((n == 0) || (i1 == 0))
+          {
+            paramVarArgs = Boolean.valueOf(false);
+            return paramVarArgs;
+          }
+          i = 0;
+          j = 0;
+          int k;
+          if (i < n)
+          {
+            k = 0;
+            if (k >= i1) {
+              break label139;
+            }
+            m = j;
+            if (c.getPixel(i, k) != 0) {
+              m = j + 1;
+            }
+          }
+          else
+          {
+            if (j / (n * i1 / 100.0D) > 0.1D)
+            {
+              bool = true;
+              paramVarArgs = Boolean.valueOf(bool);
+              continue;
+            }
+            boolean bool = false;
+            continue;
+          }
+          k += 10;
+        }
+        finally {}
+        int j = m;
+        continue;
+        label139:
+        i += 10;
+      }
+    }
+    
+    protected void a(Boolean paramBoolean)
+    {
+      fj.c(fj.this);
+      if ((paramBoolean.booleanValue()) || (c()) || (fj.d(fj.this) <= 0L))
+      {
+        c = paramBoolean.booleanValue();
+        fj.e(fj.this).a(a, true);
+      }
+      while (fj.d(fj.this) <= 0L) {
+        return;
+      }
+      if (gz.a(2)) {
+        gz.a("Ad not detected, scheduling another run.");
+      }
+      fj.g(fj.this).postDelayed(fj.this, fj.f(fj.this));
+    }
+    
+    protected void onPreExecute()
+    {
+      try
+      {
+        c = Bitmap.createBitmap(fj.a(fj.this), fj.b(fj.this), Bitmap.Config.ARGB_8888);
+        b.setVisibility(0);
+        b.measure(View.MeasureSpec.makeMeasureSpec(fj.a(fj.this), 0), View.MeasureSpec.makeMeasureSpec(fj.b(fj.this), 0));
+        b.layout(0, 0, fj.a(fj.this), fj.b(fj.this));
+        Canvas localCanvas = new Canvas(c);
+        b.draw(localCanvas);
+        b.invalidate();
+        return;
+      }
+      finally
+      {
+        localObject = finally;
+        throw ((Throwable)localObject);
+      }
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 package com.google.android.gms.common.data;
 
 final class DataHolder$1
-  extends DataHolder.a
+  extends DataHolder.zza
 {
   DataHolder$1(String[] paramArrayOfString, String paramString)
   {

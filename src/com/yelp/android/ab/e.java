@@ -1,26 +1,42 @@
 package com.yelp.android.ab;
 
-import com.yelp.android.ai.f;
-import com.yelp.android.z.a;
+import android.content.Context;
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
+import com.yelp.android.aa.d;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.aa.q;
+import com.yelp.android.w.f;
 
 public class e
-  extends a<b>
+  extends q<ParcelFileDescriptor>
+  implements b<Uri>
 {
-  public e(b paramb)
+  public e(Context paramContext, l<d, ParcelFileDescriptor> paraml)
   {
-    super(paramb);
+    super(paramContext, paraml);
   }
   
-  public int c()
+  protected com.yelp.android.w.c<ParcelFileDescriptor> a(Context paramContext, Uri paramUri)
   {
-    int i = ((b)a).d().length;
-    return f.a(((b)a).b()) + i;
+    return new f(paramContext, paramUri);
   }
   
-  public void d()
+  protected com.yelp.android.w.c<ParcelFileDescriptor> a(Context paramContext, String paramString)
   {
-    ((b)a).stop();
-    ((b)a).f();
+    return new com.yelp.android.w.e(paramContext.getApplicationContext().getAssets(), paramString);
+  }
+  
+  public static class a
+    implements m<Uri, ParcelFileDescriptor>
+  {
+    public l<Uri, ParcelFileDescriptor> a(Context paramContext, com.yelp.android.aa.c paramc)
+    {
+      return new e(paramContext, paramc.a(d.class, ParcelFileDescriptor.class));
+    }
+    
+    public void a() {}
   }
 }
 

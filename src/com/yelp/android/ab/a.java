@@ -1,30 +1,31 @@
 package com.yelp.android.ab;
 
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.yelp.android.p.b;
+import android.content.Context;
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
+import com.yelp.android.aa.c;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import java.io.File;
 
-class a
-  implements b
+public class a
+  extends com.yelp.android.aa.b<ParcelFileDescriptor>
+  implements b<File>
 {
-  private final e a;
-  
-  public a(e parame)
+  public a(l<Uri, ParcelFileDescriptor> paraml)
   {
-    a = parame;
+    super(paraml);
   }
   
-  public Bitmap a(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
+  public static class a
+    implements m<File, ParcelFileDescriptor>
   {
-    return a.b(paramInt1, paramInt2, paramConfig);
-  }
-  
-  public void a(Bitmap paramBitmap)
-  {
-    if (!a.a(paramBitmap)) {
-      paramBitmap.recycle();
+    public l<File, ParcelFileDescriptor> a(Context paramContext, c paramc)
+    {
+      return new a(paramc.a(Uri.class, ParcelFileDescriptor.class));
     }
+    
+    public void a() {}
   }
 }
 

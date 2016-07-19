@@ -14,20 +14,23 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.ay;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.as.c;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.Compliment;
 import com.yelp.android.serializable.Compliment.ComplimentType;
 import com.yelp.android.serializable.Complimentable;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.activities.support.b.b;
+import com.yelp.android.ui.util.as;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -36,7 +39,7 @@ import java.util.Set;
 
 public class SendCompliment
   extends YelpActivity
-  implements m<Compliment>
+  implements ApiRequest.b<Compliment>
 {
   private String a;
   private Complimentable b;
@@ -66,7 +69,7 @@ public class SendCompliment
   {
     if (paramComplimentType != null)
     {
-      paramComplimentType = (CompoundButton)((ViewGroup)findViewById(2131493292)).findViewWithTag(paramComplimentType.name());
+      paramComplimentType = (CompoundButton)((ViewGroup)findViewById(2131689953)).findViewWithTag(paramComplimentType.name());
       if (paramComplimentType != null) {
         paramComplimentType.setChecked(true);
       }
@@ -85,7 +88,7 @@ public class SendCompliment
       }
     }
     label34:
-    for (paramUser = paramUser.getId();; paramUser = a)
+    for (paramUser = paramUser.ae();; paramUser = a)
     {
       a = paramUser;
       return;
@@ -96,7 +99,7 @@ public class SendCompliment
   
   private void b()
   {
-    ViewGroup localViewGroup = (ViewGroup)findViewById(2131493292);
+    ViewGroup localViewGroup = (ViewGroup)findViewById(2131689953);
     Object localObject1 = new LinkedHashSet();
     int j = localViewGroup.getChildCount();
     int i = 0;
@@ -113,9 +116,9 @@ public class SendCompliment
       localRadioGroup = (RadioGroup)((Iterator)localObject2).next();
       localObject3 = new HashSet((Collection)localObject1);
       ((Set)localObject3).remove(localRadioGroup);
-      localRadioGroup.setOnCheckedChangeListener(new i((Set)localObject3));
+      localRadioGroup.setOnCheckedChangeListener(new b((Set)localObject3));
     }
-    localObject1 = new h((EditText)findViewById(2131492893), findViewById(2131493293));
+    localObject1 = new a((EditText)findViewById(2131689503), findViewById(2131689954));
     localObject2 = Compliment.ComplimentType.values();
     j = localObject2.length;
     i = 0;
@@ -138,26 +141,33 @@ public class SendCompliment
   
   public void a()
   {
-    EditText localEditText = (EditText)findViewById(2131492893);
+    final EditText localEditText = (EditText)findViewById(2131689503);
     Object localObject = (Compliment.ComplimentType)localEditText.getTag();
     if (localObject == null)
     {
-      showDialog(2131166097);
+      showDialog(2131166159);
       return;
     }
     String str = String.valueOf(localEditText.getText()).trim();
     if (TextUtils.isEmpty(str))
     {
-      showDialog(2131166098);
+      showDialog(2131166160);
       return;
     }
-    User localUser = AppData.b().m().s();
+    User localUser = AppData.b().q().p();
     localObject = new Compliment(str, (Compliment.ComplimentType)localObject, b, localUser);
     localEditText.setEnabled(false);
     updateOptionsMenu();
-    localObject = new ay(this, (Compliment)localObject, a);
-    ((ay)localObject).execute(new Void[0]);
-    showLoadingDialog((ApiRequest)localObject, new g(this, localEditText));
+    localObject = new as.c(this, (Compliment)localObject, a);
+    ((as.c)localObject).f(new Void[0]);
+    showLoadingDialog((ApiRequest)localObject, new b.b()
+    {
+      public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest)
+      {
+        localEditText.setEnabled(true);
+        updateOptionsMenu();
+      }
+    });
   }
   
   public void a(ApiRequest<?, ?, ?> paramApiRequest, Compliment paramCompliment)
@@ -166,7 +176,7 @@ public class SendCompliment
       return;
     }
     hideLoadingDialog();
-    cr.a(getString(2131165629), 0);
+    as.a(getString(2131165683), 0);
     paramApiRequest = new Intent();
     paramApiRequest.putExtra("extra.compliment", paramCompliment);
     setResult(-1, paramApiRequest);
@@ -177,7 +187,7 @@ public class SendCompliment
   {
     b = paramComplimentable;
     if (paramComplimentable != null) {}
-    for (paramComplimentable = paramComplimentable.getUserId();; paramComplimentable = a)
+    for (paramComplimentable = paramComplimentable.b();; paramComplimentable = a)
     {
       a = paramComplimentable;
       return;
@@ -192,14 +202,14 @@ public class SendCompliment
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903112);
+    setContentView(2130903123);
     paramBundle = getIntent();
     a((User)paramBundle.getParcelableExtra("extra.user"));
     a((Complimentable)paramBundle.getParcelableExtra("extra.complimentable"));
-    dc localdc = AppData.b().m();
-    if ((!TextUtils.isEmpty(a)) && (a.equals(localdc.b())))
+    co localco = AppData.b().q();
+    if ((!TextUtils.isEmpty(a)) && (a.equals(localco.a())))
     {
-      cr.a(2131165463, 1);
+      as.a(2131165590, 1);
       finish();
     }
     b();
@@ -214,17 +224,17 @@ public class SendCompliment
     {
     default: 
       return super.onCreateDialog(paramInt);
-    case 2131166097: 
-      return new AlertDialog.Builder(this).setMessage(2131166097).setPositiveButton(2131166237, null).setIcon(17301543).setTitle(2131165763).create();
+    case 2131166159: 
+      return new AlertDialog.Builder(this).setMessage(2131166159).setPositiveButton(2131166290, null).setIcon(17301543).setTitle(2131165847).create();
     }
-    return new AlertDialog.Builder(this).setMessage(2131166098).setPositiveButton(2131166237, null).setIcon(17301543).setTitle(2131165763).create();
+    return new AlertDialog.Builder(this).setMessage(2131166160).setPositiveButton(2131166290, null).setIcon(17301543).setTitle(2131165847).create();
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755019, paramMenu);
-    paramMenu.findItem(2131494141).setTitle(2131166542);
+    getMenuInflater().inflate(2131755021, paramMenu);
+    paramMenu.findItem(2131691015).setTitle(2131166542);
     return true;
   }
   
@@ -234,14 +244,14 @@ public class SendCompliment
       return;
     }
     hideLoadingDialog();
-    findViewById(2131492893).setEnabled(true);
-    cr.a(paramYelpException.getMessage(this), 0);
+    findViewById(2131689503).setEnabled(true);
+    as.a(paramYelpException.getMessage(this), 0);
     updateOptionsMenu();
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494141) {
+    if (paramMenuItem.getItemId() == 2131691015) {
       a();
     }
     return super.onOptionsItemSelected(paramMenuItem);
@@ -249,8 +259,62 @@ public class SendCompliment
   
   public boolean onPrepareOptionsMenu(Menu paramMenu)
   {
-    paramMenu.findItem(2131494141).setEnabled(findViewById(2131492893).isEnabled());
+    paramMenu.findItem(2131691015).setEnabled(findViewById(2131689503).isEnabled());
     return super.onPrepareOptionsMenu(paramMenu);
+  }
+  
+  public static final class a
+    implements CompoundButton.OnCheckedChangeListener
+  {
+    private final EditText a;
+    private final View b;
+    
+    public a(EditText paramEditText, View paramView)
+    {
+      a = paramEditText;
+      b = paramView;
+    }
+    
+    public void onCheckedChanged(CompoundButton paramCompoundButton, boolean paramBoolean)
+    {
+      if (paramBoolean) {}
+      try
+      {
+        Compliment.ComplimentType localComplimentType = Compliment.ComplimentType.valueOf((String)paramCompoundButton.getTag());
+        a.setTag(localComplimentType);
+        Context localContext = a.getContext();
+        paramCompoundButton = "";
+        if (!localComplimentType.equals(Compliment.ComplimentType.NOTE)) {
+          paramCompoundButton = localContext.getString(2131165882, new Object[] { localContext.getString(mDescription) });
+        }
+        a.setHint(paramCompoundButton);
+        b.requestFocus();
+        return;
+      }
+      catch (IllegalArgumentException paramCompoundButton) {}
+    }
+  }
+  
+  public static final class b
+    implements RadioGroup.OnCheckedChangeListener
+  {
+    private final Set<RadioGroup> a;
+    
+    public b(Set<RadioGroup> paramSet)
+    {
+      a = paramSet;
+    }
+    
+    public void onCheckedChanged(RadioGroup paramRadioGroup, int paramInt)
+    {
+      if ((paramInt != -1) && (((RadioButton)paramRadioGroup.findViewById(paramInt)).isChecked()))
+      {
+        paramRadioGroup = a.iterator();
+        while (paramRadioGroup.hasNext()) {
+          ((RadioGroup)paramRadioGroup.next()).clearCheck();
+        }
+      }
+    }
   }
 }
 

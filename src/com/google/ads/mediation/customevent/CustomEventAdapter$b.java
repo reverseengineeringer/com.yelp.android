@@ -1,49 +1,17 @@
 package com.google.ads.mediation.customevent;
 
-import com.google.ads.AdRequest.ErrorCode;
-import com.google.ads.mediation.MediationInterstitialListener;
-import com.google.android.gms.internal.gr;
+import com.google.ads.mediation.g;
 
 class CustomEventAdapter$b
-  implements CustomEventInterstitialListener
+  implements e
 {
-  private final CustomEventAdapter q;
-  private final MediationInterstitialListener s;
+  private final CustomEventAdapter b;
+  private final g c;
   
-  public CustomEventAdapter$b(CustomEventAdapter paramCustomEventAdapter1, CustomEventAdapter paramCustomEventAdapter2, MediationInterstitialListener paramMediationInterstitialListener)
+  public CustomEventAdapter$b(CustomEventAdapter paramCustomEventAdapter1, CustomEventAdapter paramCustomEventAdapter2, g paramg)
   {
-    q = paramCustomEventAdapter2;
-    s = paramMediationInterstitialListener;
-  }
-  
-  public void onDismissScreen()
-  {
-    gr.S("Custom event adapter called onDismissScreen.");
-    s.onDismissScreen(q);
-  }
-  
-  public void onFailedToReceiveAd()
-  {
-    gr.S("Custom event adapter called onFailedToReceiveAd.");
-    s.onFailedToReceiveAd(q, AdRequest.ErrorCode.NO_FILL);
-  }
-  
-  public void onLeaveApplication()
-  {
-    gr.S("Custom event adapter called onLeaveApplication.");
-    s.onLeaveApplication(q);
-  }
-  
-  public void onPresentScreen()
-  {
-    gr.S("Custom event adapter called onPresentScreen.");
-    s.onPresentScreen(q);
-  }
-  
-  public void onReceivedAd()
-  {
-    gr.S("Custom event adapter called onReceivedAd.");
-    s.onReceivedAd(t);
+    b = paramCustomEventAdapter2;
+    c = paramg;
   }
 }
 

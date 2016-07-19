@@ -13,33 +13,30 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import com.bumptech.glide.c;
-import com.bumptech.glide.d;
-import com.bumptech.glide.h;
-import com.bumptech.glide.j;
-import com.yelp.android.b;
+import com.yelp.android.b.a;
 import com.yelp.android.serializable.Media;
 import com.yelp.android.serializable.Media.MediaType;
+import com.yelp.android.ui.util.DynamicImageView.a;
 import com.yelp.android.ui.util.SlightlyLessBrokenLinearLayout;
-import com.yelp.android.ui.util.bc;
-import com.yelp.android.ui.util.br;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.util.w;
+import com.yelp.android.ui.util.aa;
+import com.yelp.android.ui.util.ag;
+import com.yelp.android.ui.util.t;
+import com.yelp.android.ui.util.u.a;
 import com.yelp.android.ui.widgets.WebImageView;
-import com.yelp.android.ui.widgets.i;
+import com.yelp.android.ui.widgets.b;
 import java.util.List;
 
 public class SpanOfPhotosView
   extends SlightlyLessBrokenLinearLayout
 {
   public static final String a = SpanOfPhotosView.class + ".empty";
-  private br b;
-  private br c;
+  private ag b;
+  private ag c;
   private final int d;
   private final int e;
   private int f;
   private final int g;
-  private j h;
+  private t h;
   
   public SpanOfPhotosView(Context paramContext)
   {
@@ -48,32 +45,32 @@ public class SpanOfPhotosView
   
   public SpanOfPhotosView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 2130772155);
+    this(paramContext, paramAttributeSet, 2130772219);
   }
   
   public SpanOfPhotosView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, b.SpanOfPhotosView, paramInt, paramInt);
+    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.SpanOfPhotosView, paramInt, paramInt);
     f = paramAttributeSet.getInteger(1, 3);
-    g = paramAttributeSet.getDimensionPixelSize(2, paramContext.getResources().getDimensionPixelSize(2131427517));
+    g = paramAttributeSet.getDimensionPixelSize(2, paramContext.getResources().getDimensionPixelSize(2131362091));
     e = paramAttributeSet.getInt(4, 0);
     d = paramAttributeSet.getResourceId(5, 0);
-    h = h.c(paramContext);
+    h = t.a(paramContext);
     paramAttributeSet.recycle();
   }
   
   private View a(Media paramMedia)
   {
-    View localView = LayoutInflater.from(getContext()).inflate(2130903390, this, false);
-    ImageView localImageView = (ImageView)localView.findViewById(2131492992);
+    View localView = LayoutInflater.from(getContext()).inflate(2130903496, this, false);
+    ImageView localImageView = (ImageView)localView.findViewById(2131689637);
     RelativeLayout.LayoutParams localLayoutParams = (RelativeLayout.LayoutParams)localImageView.getLayoutParams();
     height = g;
     width = g;
-    h.a(paramMedia.getThumbnailUrl()).a(2130838258).a(localImageView);
+    h.a(paramMedia.f()).a(2130838553).a(localImageView);
     localView.setOnClickListener(b);
-    if (paramMedia.isMediaType(Media.MediaType.VIDEO)) {
-      localView.findViewById(2131493982).setVisibility(0);
+    if (paramMedia.a(Media.MediaType.VIDEO)) {
+      localView.findViewById(2131690840).setVisibility(0);
     }
     return localView;
   }
@@ -82,8 +79,8 @@ public class SpanOfPhotosView
   {
     setMinimumHeight(g);
     setMinimumWidth(g);
-    leftMargin = cp.a(getContext(), 2130772040);
-    rightMargin = cp.a(getContext(), 2130772040);
+    leftMargin = getContext().getResources().getDimensionPixelSize(2131361963);
+    rightMargin = getContext().getResources().getDimensionPixelSize(2131361963);
     weight = 1.0F;
     gravity = 17;
     return paramLayoutParams;
@@ -100,7 +97,7 @@ public class SpanOfPhotosView
       localImageView.setOnClickListener(c);
       return localImageView;
     }
-    localImageView.setImageResource(2130838258);
+    localImageView.setImageResource(2130838553);
     localImageView.setOnClickListener(b);
     return localImageView;
   }
@@ -110,10 +107,10 @@ public class SpanOfPhotosView
     removeAllViews();
   }
   
-  public void a(PendingIntent paramPendingIntent, bc parambc)
+  public void a(PendingIntent paramPendingIntent, aa paramaa)
   {
-    b = new br(paramPendingIntent, false, parambc);
-    c = new br(paramPendingIntent, true, parambc);
+    b = new ag(paramPendingIntent, false, paramaa);
+    c = new ag(paramPendingIntent, true, paramaa);
   }
   
   public void a(List<? extends Media> paramList, int paramInt, View.OnClickListener paramOnClickListener)
@@ -131,16 +128,16 @@ public class SpanOfPhotosView
       }
       j = 0;
       if (j >= i) {
-        break label209;
+        break label208;
       }
       if ((j < paramList.size()) || (paramOnClickListener == null)) {
-        break label161;
+        break label160;
       }
-      localObject = new i(getContext());
-      b.setText(2131165338);
+      localObject = new b(getContext());
+      b.setText(2131165464);
       a.setImageResource(paramInt);
-      ((i)localObject).setOnClickListener(paramOnClickListener);
-      ((i)localObject).setTag(Integer.valueOf(j));
+      ((b)localObject).setOnClickListener(paramOnClickListener);
+      ((b)localObject).setTag(Integer.valueOf(j));
       addView((View)localObject, a(new LinearLayout.LayoutParams(g, g)));
     }
     for (;;)
@@ -149,12 +146,12 @@ public class SpanOfPhotosView
       break label36;
       i = Math.min(paramList.size() + 1, f);
       break;
-      label161:
+      label160:
       localObject = a((Media)paramList.get(j));
       ((View)localObject).setTag(Integer.valueOf(j));
       addView((View)localObject, a((LinearLayout.LayoutParams)((View)localObject).getLayoutParams()));
     }
-    label209:
+    label208:
     if (i < e)
     {
       setVisibility(0);
@@ -180,13 +177,13 @@ public class SpanOfPhotosView
     return f;
   }
   
-  public void setItemSelectedListener(w paramw)
+  public void setItemSelectedListener(DynamicImageView.a parama)
   {
     if (b != null) {
-      b.c = paramw;
+      b.c = parama;
     }
     if (c != null) {
-      c.c = paramw;
+      c.c = parama;
     }
   }
   

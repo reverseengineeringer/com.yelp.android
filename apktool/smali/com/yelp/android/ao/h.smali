@@ -1,395 +1,473 @@
-.class public Lcom/yelp/android/ao/h;
-.super Lcom/yelp/android/ao/f;
-.source "BinaryHttpResponseHandler.java"
+.class public final Lcom/yelp/android/ao/h;
+.super Ljava/lang/Object;
+.source "Util.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ao/h$1;
+    }
+.end annotation
 
 
 # static fields
-.field private static a:[Ljava/lang/String;
+.field private static final a:[C
+
+.field private static final b:[C
+
+.field private static final c:[C
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 1
 
     .prologue
-    .line 60
-    const/4 v0, 0x2
+    .line 20
+    const-string/jumbo v0, "0123456789abcdef"
 
-    new-array v0, v0, [Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    const-string/jumbo v2, "image/jpeg"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x1
-
-    const-string/jumbo v2, "image/png"
-
-    aput-object v2, v0, v1
-
-    sput-object v0, Lcom/yelp/android/ao/h;->a:[Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 69
-    invoke-direct {p0}, Lcom/yelp/android/ao/f;-><init>()V
-
-    .line 70
-    return-void
-.end method
-
-
-# virtual methods
-.method public a(I[B)V
-    .locals 0
-
-    .prologue
-    .line 98
-    invoke-virtual {p0, p2}, Lcom/yelp/android/ao/h;->a([B)V
-
-    .line 99
-    return-void
-.end method
-
-.method protected a(Landroid/os/Message;)V
-    .locals 3
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    .line 143
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    packed-switch v0, :pswitch_data_0
-
-    .line 153
-    invoke-super {p0, p1}, Lcom/yelp/android/ao/f;->a(Landroid/os/Message;)V
-
-    .line 156
-    :goto_0
-    return-void
-
-    .line 145
-    :pswitch_0
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    .line 146
-    aget-object v1, v0, v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    aget-object v0, v0, v2
-
-    check-cast v0, [B
-
-    check-cast v0, [B
-
-    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ao/h;->c(I[B)V
-
-    goto :goto_0
-
-    .line 149
-    :pswitch_1
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    .line 150
-    aget-object v1, v0, v1
-
-    check-cast v1, Ljava/lang/Throwable;
-
-    aget-object v0, v0, v2
-
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v0
 
-    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ao/h;->c(Ljava/lang/Throwable;Ljava/lang/String;)V
+    sput-object v0, Lcom/yelp/android/ao/h;->a:[C
 
+    .line 22
+    const/16 v0, 0x40
+
+    new-array v0, v0, [C
+
+    sput-object v0, Lcom/yelp/android/ao/h;->b:[C
+
+    .line 24
+    const/16 v0, 0x28
+
+    new-array v0, v0, [C
+
+    sput-object v0, Lcom/yelp/android/ao/h;->c:[C
+
+    return-void
+.end method
+
+.method public static a(IILandroid/graphics/Bitmap$Config;)I
+    .locals 2
+
+    .prologue
+    .line 94
+    mul-int v0, p0, p1
+
+    invoke-static {p2}, Lcom/yelp/android/ao/h;->a(Landroid/graphics/Bitmap$Config;)I
+
+    move-result v1
+
+    mul-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method private static a(Landroid/graphics/Bitmap$Config;)I
+    .locals 2
+
+    .prologue
+    .line 99
+    if-nez p0, :cond_0
+
+    .line 100
+    sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    .line 104
+    :cond_0
+    sget-object v0, Lcom/yelp/android/ao/h$1;->a:[I
+
+    invoke-virtual {p0}, Landroid/graphics/Bitmap$Config;->ordinal()I
+
+    move-result v1
+
+    aget v0, v0, v1
+
+    packed-switch v0, :pswitch_data_0
+
+    .line 114
+    const/4 v0, 0x4
+
+    .line 116
+    :goto_0
+    return v0
+
+    .line 106
+    :pswitch_0
+    const/4 v0, 0x1
+
+    .line 107
     goto :goto_0
 
-    .line 143
+    .line 110
+    :pswitch_1
+    const/4 v0, 0x2
+
+    .line 111
+    goto :goto_0
+
+    .line 104
     nop
 
     :pswitch_data_0
-    .packed-switch 0x0
+    .packed-switch 0x1
         :pswitch_0
+        :pswitch_1
         :pswitch_1
     .end packed-switch
 .end method
 
-.method protected a(Ljava/lang/Throwable;[B)V
-    .locals 3
+.method public static a(Landroid/graphics/Bitmap;)I
+    .locals 2
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x13
+    .end annotation
 
     .prologue
-    const/4 v2, 0x1
+    .line 78
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 124
-    const/4 v0, 0x2
+    const/16 v1, 0x13
 
-    new-array v0, v0, [Ljava/lang/Object;
+    if-lt v0, v1, :cond_0
 
-    const/4 v1, 0x0
-
-    aput-object p1, v0, v1
-
-    aput-object p2, v0, v2
-
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ao/h;->a(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ao/h;->b(Landroid/os/Message;)V
-
-    .line 125
-    return-void
-.end method
-
-.method a(Lorg/apache/http/HttpResponse;)V
-    .locals 10
-
-    .prologue
-    const/4 v2, 0x1
-
-    const/4 v1, 0x0
-
-    const/4 v0, 0x0
-
-    .line 161
-    invoke-interface {p1}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
-
-    move-result-object v4
-
-    .line 162
-    const-string/jumbo v3, "Content-Type"
-
-    invoke-interface {p1, v3}, Lorg/apache/http/HttpResponse;->getHeaders(Ljava/lang/String;)[Lorg/apache/http/Header;
-
-    move-result-object v3
-
-    .line 164
-    array-length v5, v3
-
-    if-eq v5, v2, :cond_0
-
-    .line 166
-    new-instance v0, Lorg/apache/http/client/HttpResponseException;
-
-    invoke-interface {v4}, Lorg/apache/http/StatusLine;->getStatusCode()I
-
-    move-result v2
-
-    const-string/jumbo v3, "None, or more than one, Content-Type Header found!"
-
-    invoke-direct {v0, v2, v3}, Lorg/apache/http/client/HttpResponseException;-><init>(ILjava/lang/String;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ao/h;->a(Ljava/lang/Throwable;[B)V
-
-    .line 197
-    :goto_0
-    return-void
-
-    .line 169
-    :cond_0
-    aget-object v5, v3, v0
-
-    .line 171
-    sget-object v6, Lcom/yelp/android/ao/h;->a:[Ljava/lang/String;
-
-    array-length v7, v6
-
-    move v3, v0
-
-    :goto_1
-    if-ge v3, v7, :cond_2
-
-    aget-object v8, v6, v3
-
-    .line 172
-    invoke-interface {v5}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Ljava/util/regex/Pattern;->matches(Ljava/lang/String;Ljava/lang/CharSequence;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_1
-
-    move v0, v2
-
-    .line 171
-    :cond_1
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1
-
-    .line 176
-    :cond_2
-    if-nez v0, :cond_3
-
-    .line 178
-    new-instance v0, Lorg/apache/http/client/HttpResponseException;
-
-    invoke-interface {v4}, Lorg/apache/http/StatusLine;->getStatusCode()I
-
-    move-result v2
-
-    const-string/jumbo v3, "Content-Type not allowed!"
-
-    invoke-direct {v0, v2, v3}, Lorg/apache/http/client/HttpResponseException;-><init>(ILjava/lang/String;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ao/h;->a(Ljava/lang/Throwable;[B)V
-
-    goto :goto_0
-
-    .line 183
-    :cond_3
+    .line 81
     :try_start_0
-    invoke-interface {p1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
-
-    move-result-object v2
-
-    .line 184
-    if-eqz v2, :cond_5
-
-    .line 185
-    new-instance v0, Lorg/apache/http/entity/BufferedHttpEntity;
-
-    invoke-direct {v0, v2}, Lorg/apache/http/entity/BufferedHttpEntity;-><init>(Lorg/apache/http/HttpEntity;)V
-
-    .line 187
-    :goto_2
-    invoke-static {v0}, Lorg/apache/http/util/EntityUtils;->toByteArray(Lorg/apache/http/HttpEntity;)[B
+    invoke-virtual {p0}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 192
-    :goto_3
-    invoke-interface {v4}, Lorg/apache/http/StatusLine;->getStatusCode()I
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
-    const/16 v2, 0x12c
+    .line 86
+    :goto_0
+    return v0
 
-    if-lt v0, v2, :cond_4
-
-    .line 193
-    new-instance v0, Lorg/apache/http/client/HttpResponseException;
-
-    invoke-interface {v4}, Lorg/apache/http/StatusLine;->getStatusCode()I
-
-    move-result v2
-
-    invoke-interface {v4}, Lorg/apache/http/StatusLine;->getReasonPhrase()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v0, v2, v3}, Lorg/apache/http/client/HttpResponseException;-><init>(ILjava/lang/String;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ao/h;->a(Ljava/lang/Throwable;[B)V
-
-    goto :goto_0
-
-    .line 188
+    .line 82
     :catch_0
     move-exception v0
 
-    move-object v2, v0
-
-    move-object v0, v1
-
-    .line 189
-    check-cast v0, [B
-
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ao/h;->a(Ljava/lang/Throwable;[B)V
-
-    goto :goto_3
-
-    .line 195
-    :cond_4
-    invoke-interface {v4}, Lorg/apache/http/StatusLine;->getStatusCode()I
+    .line 86
+    :cond_0
+    invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ao/h;->b(I[B)V
+    invoke-virtual {p0}, Landroid/graphics/Bitmap;->getRowBytes()I
+
+    move-result v1
+
+    mul-int/2addr v0, v1
 
     goto :goto_0
-
-    :cond_5
-    move-object v0, v1
-
-    goto :goto_2
 .end method
 
-.method public a([B)V
-    .locals 0
+.method public static a([B)Ljava/lang/String;
+    .locals 2
 
     .prologue
-    .line 90
-    return-void
-.end method
+    .line 34
+    sget-object v1, Lcom/yelp/android/ao/h;->b:[C
 
-.method protected b(I[B)V
-    .locals 3
+    monitor-enter v1
 
-    .prologue
-    const/4 v2, 0x0
+    .line 35
+    :try_start_0
+    sget-object v0, Lcom/yelp/android/ao/h;->b:[C
 
-    .line 119
-    const/4 v0, 0x2
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x1
-
-    aput-object p2, v0, v1
-
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ao/h;->a(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-static {p0, v0}, Lcom/yelp/android/ao/h;->a([B[C)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ao/h;->b(Landroid/os/Message;)V
+    monitor-exit v1
 
-    .line 120
+    return-object v0
+
+    .line 36
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+.end method
+
+.method private static a([B[C)Ljava/lang/String;
+    .locals 5
+
+    .prologue
+    .line 52
+    const/4 v0, 0x0
+
+    :goto_0
+    array-length v1, p0
+
+    if-ge v0, v1, :cond_0
+
+    .line 53
+    aget-byte v1, p0, v0
+
+    and-int/lit16 v1, v1, 0xff
+
+    .line 54
+    mul-int/lit8 v2, v0, 0x2
+
+    sget-object v3, Lcom/yelp/android/ao/h;->a:[C
+
+    ushr-int/lit8 v4, v1, 0x4
+
+    aget-char v3, v3, v4
+
+    aput-char v3, p1, v2
+
+    .line 55
+    mul-int/lit8 v2, v0, 0x2
+
+    add-int/lit8 v2, v2, 0x1
+
+    sget-object v3, Lcom/yelp/android/ao/h;->a:[C
+
+    and-int/lit8 v1, v1, 0xf
+
+    aget-char v1, v3, v1
+
+    aput-char v1, p1, v2
+
+    .line 52
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 57
+    :cond_0
+    new-instance v0, Ljava/lang/String;
+
+    invoke-direct {v0, p1}, Ljava/lang/String;-><init>([C)V
+
+    return-object v0
+.end method
+
+.method public static a(Ljava/util/Collection;)Ljava/util/List;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/Collection",
+            "<TT;>;)",
+            "Ljava/util/List",
+            "<TT;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 178
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-interface {p0}, Ljava/util/Collection;->size()I
+
+    move-result v1
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    .line 179
+    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    .line 180
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    .line 182
+    :cond_0
+    return-object v0
+.end method
+
+.method public static a(I)Ljava/util/Queue;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(I)",
+            "Ljava/util/Queue",
+            "<TT;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 166
+    new-instance v0, Ljava/util/ArrayDeque;
+
+    invoke-direct {v0, p0}, Ljava/util/ArrayDeque;-><init>(I)V
+
+    return-object v0
+.end method
+
+.method public static a()V
+    .locals 2
+
+    .prologue
+    .line 134
+    invoke-static {}, Lcom/yelp/android/ao/h;->c()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 135
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "You must call this method on the main thread"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 137
+    :cond_0
     return-void
 .end method
 
-.method protected c(I[B)V
-    .locals 0
+.method public static a(II)Z
+    .locals 1
 
     .prologue
-    .line 132
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ao/h;->a(I[B)V
+    .line 123
+    invoke-static {p0}, Lcom/yelp/android/ao/h;->b(I)Z
 
-    .line 133
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p1}, Lcom/yelp/android/ao/h;->b(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static b()V
+    .locals 2
+
+    .prologue
+    .line 143
+    invoke-static {}, Lcom/yelp/android/ao/h;->d()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 144
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "YOu must call this method on a background thread"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 146
+    :cond_0
     return-void
+.end method
+
+.method private static b(I)Z
+    .locals 1
+
+    .prologue
+    .line 127
+    if-gtz p0, :cond_0
+
+    const/high16 v0, -0x80000000
+
+    if-ne p0, v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static c()Z
+    .locals 2
+
+    .prologue
+    .line 152
+    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static d()Z
+    .locals 1
+
+    .prologue
+    .line 159
+    invoke-static {}, Lcom/yelp/android/ao/h;->c()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

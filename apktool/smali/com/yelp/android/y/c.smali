@@ -1,98 +1,299 @@
-.class public Lcom/yelp/android/y/c;
+.class final Lcom/yelp/android/y/c;
 .super Ljava/lang/Object;
-.source "SimpleResource.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/load/engine/t;
+.source "DiskCacheWriteLocker.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/Signature;
+.annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/engine/t",
-        "<TT;>;"
+        Lcom/yelp/android/y/c$1;,
+        Lcom/yelp/android/y/c$b;,
+        Lcom/yelp/android/y/c$a;
     }
 .end annotation
 
 
 # instance fields
-.field protected final a:Ljava/lang/Object;
+.field private final a:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "TT;"
+            "Ljava/util/Map",
+            "<",
+            "Lcom/bumptech/glide/load/b;",
+            "Lcom/yelp/android/y/c$a;",
+            ">;"
         }
     .end annotation
 .end field
 
+.field private final b:Lcom/yelp/android/y/c$b;
+
 
 # direct methods
-.method public constructor <init>(Ljava/lang/Object;)V
+.method constructor <init>()V
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
 
     .prologue
-    .line 15
+    .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 16
-    if-nez p1, :cond_0
+    .line 21
+    new-instance v0, Ljava/util/HashMap;
 
-    .line 17
-    new-instance v0, Ljava/lang/NullPointerException;
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    const-string/jumbo v1, "Data must not be null"
+    iput-object v0, p0, Lcom/yelp/android/y/c;->a:Ljava/util/Map;
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    .line 22
+    new-instance v0, Lcom/yelp/android/y/c$b;
 
-    throw v0
+    const/4 v1, 0x0
 
-    .line 19
-    :cond_0
-    iput-object p1, p0, Lcom/yelp/android/y/c;->a:Ljava/lang/Object;
+    invoke-direct {v0, v1}, Lcom/yelp/android/y/c$b;-><init>(Lcom/yelp/android/y/c$1;)V
 
-    .line 20
+    iput-object v0, p0, Lcom/yelp/android/y/c;->b:Lcom/yelp/android/y/c$b;
+
+    .line 68
     return-void
 .end method
 
 
 # virtual methods
-.method public final b()Ljava/lang/Object;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
+.method a(Lcom/bumptech/glide/load/b;)V
+    .locals 2
 
     .prologue
-    .line 24
-    iget-object v0, p0, Lcom/yelp/android/y/c;->a:Ljava/lang/Object;
+    .line 26
+    monitor-enter p0
 
-    return-object v0
-.end method
+    .line 27
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/y/c;->a:Ljava/util/Map;
 
-.method public final c()I
-    .locals 1
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .prologue
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/y/c$a;
+
+    .line 28
+    if-nez v0, :cond_0
+
     .line 29
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/yelp/android/y/c;->b:Lcom/yelp/android/y/c$b;
 
-    return v0
+    invoke-virtual {v0}, Lcom/yelp/android/y/c$b;->a()Lcom/yelp/android/y/c$a;
+
+    move-result-object v0
+
+    .line 30
+    iget-object v1, p0, Lcom/yelp/android/y/c;->a:Ljava/util/Map;
+
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 32
+    :cond_0
+    iget v1, v0, Lcom/yelp/android/y/c$a;->b:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    iput v1, v0, Lcom/yelp/android/y/c$a;->b:I
+
+    .line 33
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 35
+    iget-object v0, v0, Lcom/yelp/android/y/c$a;->a:Ljava/util/concurrent/locks/Lock;
+
+    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
+
+    .line 36
+    return-void
+
+    .line 33
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
 .end method
 
-.method public d()V
-    .locals 0
+.method b(Lcom/bumptech/glide/load/b;)V
+    .locals 5
 
     .prologue
-    .line 35
+    .line 40
+    monitor-enter p0
+
+    .line 41
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/y/c;->a:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/y/c$a;
+
+    .line 42
+    if-eqz v0, :cond_0
+
+    iget v1, v0, Lcom/yelp/android/y/c$a;->b:I
+
+    if-gtz v1, :cond_2
+
+    .line 43
+    :cond_0
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Cannot release a lock that is not held, key: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, ", interestedThreads: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    if-nez v0, :cond_1
+
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    .line 58
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+
+    .line 43
+    :cond_1
+    :try_start_1
+    iget v0, v0, Lcom/yelp/android/y/c$a;->b:I
+
+    goto :goto_0
+
+    .line 48
+    :cond_2
+    iget v1, v0, Lcom/yelp/android/y/c$a;->b:I
+
+    add-int/lit8 v1, v1, -0x1
+
+    iput v1, v0, Lcom/yelp/android/y/c$a;->b:I
+
+    if-nez v1, :cond_4
+
+    .line 49
+    iget-object v1, p0, Lcom/yelp/android/y/c;->a:Ljava/util/Map;
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/y/c$a;
+
+    .line 50
+    invoke-virtual {v1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    .line 51
+    new-instance v2, Ljava/lang/IllegalStateException;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Removed the wrong lock, expected to remove: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v3, ", but actually removed: "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ", key: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v2, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 56
+    :cond_3
+    iget-object v2, p0, Lcom/yelp/android/y/c;->b:Lcom/yelp/android/y/c$b;
+
+    invoke-virtual {v2, v1}, Lcom/yelp/android/y/c$b;->a(Lcom/yelp/android/y/c$a;)V
+
+    .line 58
+    :cond_4
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 60
+    iget-object v0, v0, Lcom/yelp/android/y/c$a;->a:Ljava/util/concurrent/locks/Lock;
+
+    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
+
+    .line 61
     return-void
 .end method

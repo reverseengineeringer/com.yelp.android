@@ -1,0 +1,17 @@
+.class public interface abstract Lcom/adjust/sdk/ISdkClickHandler;
+.super Ljava/lang/Object;
+.source "ISdkClickHandler.java"
+
+
+# virtual methods
+.method public abstract init(Z)V
+.end method
+
+.method public abstract pauseSending()V
+.end method
+
+.method public abstract resumeSending()V
+.end method
+
+.method public abstract sendSdkClick(Lcom/adjust/sdk/ActivityPackage;)V
+.end method

@@ -6,23 +6,31 @@
 .implements Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "BusinessSearchResponse"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse$a;
+    }
+.end annotation
+
+
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/appdata/webrequests/af;
+.field public static final CREATOR:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse$a;
 
 
 # instance fields
-.field private mAdBusinessSearchResults:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/BusinessSearchResult;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private a:Ljava/lang/String;
 
-.field private mAmbiguousLocations:Ljava/util/List;
+.field private b:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -33,9 +41,7 @@
     .end annotation
 .end field
 
-.field private mAttribution:Ljava/lang/String;
-
-.field private mBusinessSearchResults:Ljava/util/List;
+.field private c:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -46,9 +52,21 @@
     .end annotation
 .end field
 
-.field private mFolded:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+.field private d:Landroid/location/Address;
 
-.field private mLocalAds:Ljava/util/List;
+.field private e:Ljava/lang/String;
+
+.field private f:[D
+
+.field private g:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+
+.field private h:I
+
+.field private i:I
+
+.field private j:Ljava/lang/String;
+
+.field private k:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -59,21 +77,40 @@
     .end annotation
 .end field
 
-.field private mLocation:Landroid/location/Address;
+.field private l:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/BusinessSearchResult;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private mOffset:I
+.field private m:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private mPromotedFilter:Lcom/yelp/android/serializable/PromotedFilter;
+.field private n:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/SearchSeparator;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private mRegion:[D
-
-.field private mRequestId:Ljava/lang/String;
-
-.field private mSuggestedFilters:Lcom/yelp/android/serializable/AttributeFilters;
-
-.field private mSuggestedSpelling:Ljava/lang/String;
-
-.field private mTotal:I
+.field private o:Lcom/yelp/android/serializable/AndroidAppAnnotation;
 
 
 # direct methods
@@ -81,12 +118,12 @@
     .locals 1
 
     .prologue
-    .line 671
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ae;
+    .line 703
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/ae;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->CREATOR:Lcom/yelp/android/appdata/webrequests/af;
+    sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->CREATOR:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse$a;
 
     return-void
 .end method
@@ -95,246 +132,227 @@
     .locals 1
 
     .prologue
-    .line 572
+    .line 599
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 573
+    .line 600
     const/4 v0, 0x0
 
     new-array v0, v0, [D
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRegion:[D
+    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->f:[D
 
-    .line 574
+    .line 601
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mBusinessSearchResults:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->c:Ljava/util/List;
 
-    .line 575
+    .line 602
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAmbiguousLocations:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->b:Ljava/util/List;
 
-    .line 576
+    .line 603
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;I)I
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;I)I
     .locals 0
 
     .prologue
-    .line 555
-    iput p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mOffset:I
+    .line 576
+    iput p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->i:I
 
     return p1
 .end method
 
-.method static synthetic access$1002(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Landroid/location/Address;)Landroid/location/Address;
     .locals 0
 
     .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAttribution:Ljava/lang/String;
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->d:Landroid/location/Address;
 
     return-object p1
 .end method
 
-.method static synthetic access$102(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;)Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;)Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
     .locals 0
 
     .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mFolded:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->g:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
     return-object p1
 .end method
 
-.method static synthetic access$1100(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)Ljava/util/List;
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Lcom/yelp/android/serializable/AndroidAppAnnotation;)Lcom/yelp/android/serializable/AndroidAppAnnotation;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->o:Lcom/yelp/android/serializable/AndroidAppAnnotation;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->e:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->b:Ljava/util/List;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)[D
     .locals 1
 
     .prologue
-    .line 555
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mLocalAds:Ljava/util/List;
+    .line 576
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->f:[D
 
     return-object v0
 .end method
 
-.method static synthetic access$1102(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+.method static synthetic a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;[D)[D
     .locals 0
 
     .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mLocalAds:Ljava/util/List;
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->f:[D
 
     return-object p1
 .end method
 
-.method static synthetic access$1200(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 555
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAdBusinessSearchResults:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1202(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+.method static synthetic b(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;I)I
     .locals 0
 
     .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAdBusinessSearchResults:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1302(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Lcom/yelp/android/serializable/AttributeFilters;)Lcom/yelp/android/serializable/AttributeFilters;
-    .locals 0
-
-    .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mSuggestedFilters:Lcom/yelp/android/serializable/AttributeFilters;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1402(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Lcom/yelp/android/serializable/PromotedFilter;)Lcom/yelp/android/serializable/PromotedFilter;
-    .locals 0
-
-    .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mPromotedFilter:Lcom/yelp/android/serializable/PromotedFilter;
-
-    return-object p1
-.end method
-
-.method static synthetic access$302(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAmbiguousLocations:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 555
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mBusinessSearchResults:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method static synthetic access$402(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mBusinessSearchResults:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$502(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Landroid/location/Address;)Landroid/location/Address;
-    .locals 0
-
-    .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mLocation:Landroid/location/Address;
-
-    return-object p1
-.end method
-
-.method static synthetic access$602(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mSuggestedSpelling:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$700(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)[D
-    .locals 1
-
-    .prologue
-    .line 555
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRegion:[D
-
-    return-object v0
-.end method
-
-.method static synthetic access$702(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;[D)[D
-    .locals 0
-
-    .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRegion:[D
-
-    return-object p1
-.end method
-
-.method static synthetic access$802(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;I)I
-    .locals 0
-
-    .prologue
-    .line 555
-    iput p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mTotal:I
+    .line 576
+    iput p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->h:I
 
     return p1
 .end method
 
-.method static synthetic access$902(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic b(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     .prologue
-    .line 555
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRequestId:Ljava/lang/String;
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->a:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic b(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 576
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->c:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method static synthetic b(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->c:Ljava/util/List;
+
+    return-object p1
+.end method
+
+.method static synthetic c(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->j:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic c(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 576
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->k:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method static synthetic c(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->k:Ljava/util/List;
+
+    return-object p1
+.end method
+
+.method static synthetic d(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;)Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 576
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->l:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method static synthetic d(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->l:Ljava/util/List;
+
+    return-object p1
+.end method
+
+.method static synthetic e(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->n:Ljava/util/List;
+
+    return-object p1
+.end method
+
+.method static synthetic f(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;Ljava/util/List;)Ljava/util/List;
+    .locals 0
+
+    .prologue
+    .line 576
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->m:Ljava/util/List;
 
     return-object p1
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
-
-    .prologue
-    .line 625
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getAdBusinessSearchResults()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/BusinessSearchResult;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 650
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAdBusinessSearchResults:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method public getAmbiguousLocations()Ljava/util/List;
+.method public a()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -347,23 +365,13 @@
     .end annotation
 
     .prologue
-    .line 590
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAmbiguousLocations:Ljava/util/List;
+    .line 607
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->b:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getAttribution()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 635
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAttribution:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getBusinessSearchResults()Ljava/util/List;
+.method public b()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -376,13 +384,93 @@
     .end annotation
 
     .prologue
-    .line 595
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mBusinessSearchResults:Ljava/util/List;
+    .line 612
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->c:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getLocalAds()Ljava/util/List;
+.method public c()Landroid/location/Address;
+    .locals 1
+
+    .prologue
+    .line 617
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->d:Landroid/location/Address;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 622
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 642
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+    .locals 1
+
+    .prologue
+    .line 627
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->g:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+
+    return-object v0
+.end method
+
+.method public f()I
+    .locals 1
+
+    .prologue
+    .line 632
+    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->h:I
+
+    return v0
+.end method
+
+.method public g()I
+    .locals 1
+
+    .prologue
+    .line 647
+    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->i:I
+
+    return v0
+.end method
+
+.method public h()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 652
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->j:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 657
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public j()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -395,98 +483,75 @@
     .end annotation
 
     .prologue
-    .line 645
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mLocalAds:Ljava/util/List;
+    .line 662
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->k:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getLocation()Landroid/location/Address;
+.method public k()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/BusinessSearchResult;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 600
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mLocation:Landroid/location/Address;
+    .line 667
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->l:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getOffset()I
+.method public l()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 630
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mOffset:I
-
-    return v0
-.end method
-
-.method public getPromotedFilter()Lcom/yelp/android/serializable/PromotedFilter;
-    .locals 1
-
-    .prologue
-    .line 585
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mPromotedFilter:Lcom/yelp/android/serializable/PromotedFilter;
+    .line 672
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->m:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getRegion()[D
+.method public m()Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/SearchSeparator;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 620
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRegion:[D
+    .line 677
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->n:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getRequestId()Ljava/lang/String;
+.method public n()Lcom/yelp/android/serializable/AndroidAppAnnotation;
     .locals 1
 
     .prologue
-    .line 640
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRequestId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getSpellingSuggestion()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 605
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mSuggestedSpelling:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getSuggestedFilters()Lcom/yelp/android/serializable/AttributeFilters;
-    .locals 1
-
-    .prologue
-    .line 580
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mSuggestedFilters:Lcom/yelp/android/serializable/AttributeFilters;
-
-    return-object v0
-.end method
-
-.method public getTotal()I
-    .locals 1
-
-    .prologue
-    .line 615
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mTotal:I
-
-    return v0
-.end method
-
-.method public isFolded()Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
-    .locals 1
-
-    .prologue
-    .line 610
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mFolded:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+    .line 681
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->o:Lcom/yelp/android/serializable/AndroidAppAnnotation;
 
     return-object v0
 .end method
@@ -495,78 +560,83 @@
     .locals 1
 
     .prologue
-    .line 655
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAmbiguousLocations:Ljava/util/List;
+    .line 686
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->b:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 656
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mBusinessSearchResults:Ljava/util/List;
+    .line 687
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->c:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 657
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mLocation:Landroid/location/Address;
+    .line 688
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->d:Landroid/location/Address;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 658
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mSuggestedSpelling:Ljava/lang/String;
+    .line 689
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->e:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 659
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRegion:[D
+    .line 690
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->f:[D
 
     array-length v0, v0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 660
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRegion:[D
+    .line 691
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->f:[D
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeDoubleArray([D)V
 
-    .line 661
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mTotal:I
+    .line 692
+    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->h:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 662
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mFolded:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+    .line 693
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->g:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeSerializable(Ljava/io/Serializable;)V
 
-    .line 663
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mOffset:I
+    .line 694
+    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->i:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 664
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mRequestId:Ljava/lang/String;
+    .line 695
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->a:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 665
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAttribution:Ljava/lang/String;
+    .line 696
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->j:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 666
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mLocalAds:Ljava/util/List;
+    .line 697
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->k:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 667
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mAdBusinessSearchResults:Ljava/util/List;
+    .line 698
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->l:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
 
-    .line 668
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->mSuggestedFilters:Lcom/yelp/android/serializable/AttributeFilters;
+    .line 699
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->n:Ljava/util/List;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+
+    .line 700
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$BusinessSearchResponse;->o:Lcom/yelp/android/serializable/AndroidAppAnnotation;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 669
+    .line 701
     return-void
 .end method

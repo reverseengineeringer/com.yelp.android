@@ -18,12 +18,12 @@ class FragmentActivity$1
       do
       {
         return;
-      } while (!this$0.mStopped);
-      this$0.doReallyStop(false);
+      } while (!a.mStopped);
+      a.doReallyStop(false);
       return;
     }
-    this$0.onResumeFragments();
-    this$0.mFragments.execPendingActions();
+    a.onResumeFragments();
+    a.mFragments.p();
   }
 }
 

@@ -1,22 +1,55 @@
 package android.support.v4.view;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater.Factory2;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 class ak
-  extends ai
-  implements LayoutInflater.Factory2
 {
-  ak(am paramam)
+  private static Method a;
+  
+  public static void a(ViewGroup paramViewGroup, boolean paramBoolean)
   {
-    super(paramam);
+    if (a == null) {}
+    try
+    {
+      a = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", new Class[] { Boolean.TYPE });
+      a.setAccessible(true);
+    }
+    catch (NoSuchMethodException localNoSuchMethodException)
+    {
+      for (;;)
+      {
+        try
+        {
+          a.invoke(paramViewGroup, new Object[] { Boolean.valueOf(paramBoolean) });
+          return;
+        }
+        catch (IllegalAccessException paramViewGroup)
+        {
+          Log.e("ViewCompat", "Unable to invoke childrenDrawingOrderEnabled", paramViewGroup);
+          return;
+        }
+        catch (IllegalArgumentException paramViewGroup)
+        {
+          Log.e("ViewCompat", "Unable to invoke childrenDrawingOrderEnabled", paramViewGroup);
+          return;
+        }
+        catch (InvocationTargetException paramViewGroup)
+        {
+          Log.e("ViewCompat", "Unable to invoke childrenDrawingOrderEnabled", paramViewGroup);
+        }
+        localNoSuchMethodException = localNoSuchMethodException;
+        Log.e("ViewCompat", "Unable to find childrenDrawingOrderEnabled", localNoSuchMethodException);
+      }
+    }
   }
   
-  public View onCreateView(View paramView, String paramString, Context paramContext, AttributeSet paramAttributeSet)
+  public static boolean a(View paramView)
   {
-    return a.onCreateView(paramView, paramString, paramContext, paramAttributeSet);
+    return paramView.isOpaque();
   }
 }
 

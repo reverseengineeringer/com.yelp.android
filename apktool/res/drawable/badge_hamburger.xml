@@ -2,6 +2,6 @@
 <shape android:shape="rectangle"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="@color/red_ruby_ring" />
-    <corners android:radius="@dimen/corner_radius" />
+    <corners android:radius="@dimen/badge_border" />
     <size android:height="@dimen/badge_height" android:width="@dimen/badge_width" />
 </shape>

@@ -6,7 +6,10 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextUtils;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,48 +17,50 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.IriSource;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.ay.e;
-import com.yelp.android.ay.r;
-import com.yelp.android.bb.d;
-import com.yelp.android.database.q;
+import com.yelp.android.cc.i;
+import com.yelp.android.database.g;
 import com.yelp.android.serializable.Conversation;
-import com.yelp.android.serializable.bg;
+import com.yelp.android.serializable.ConversationMessage;
+import com.yelp.android.services.push.e.a;
 import com.yelp.android.ui.activities.messaging.apimanagers.ApiListManager.RequestResult;
 import com.yelp.android.ui.activities.messaging.apimanagers.MessagingAction;
+import com.yelp.android.ui.activities.messaging.apimanagers.c;
+import com.yelp.android.ui.activities.messaging.apimanagers.g.a;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.util.ScrollToLoadListView;
+import com.yelp.android.ui.util.h;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ConversationThreadFragment
   extends YelpFragment
 {
-  private e a;
-  private d b;
-  private com.yelp.android.ui.activities.messaging.apimanagers.i c;
+  private com.yelp.android.cc.b a;
+  private com.yelp.android.cl.b b;
+  private com.yelp.android.ui.activities.messaging.apimanagers.e c;
   private ScrollToLoadListView d;
   private Button e;
-  private EditText g;
-  private Conversation h;
+  private EditText f;
+  private Conversation g;
   private String i;
-  private bg j;
+  private com.yelp.android.serializable.e j;
   private boolean k = false;
   private boolean l;
   private a m;
   private MessagingActionsHelper n;
-  private final com.yelp.android.services.push.j o = new j(this);
-  private final com.yelp.android.ui.activities.messaging.apimanagers.p p = new k(this);
-  private final com.yelp.android.ui.activities.messaging.apimanagers.p q = new l(this);
-  private final com.yelp.android.ui.activities.messaging.apimanagers.g r = new m(this);
+  private final e.a o = new ConversationThreadFragment.4(this);
+  private final g.a p = new ConversationThreadFragment.5(this);
+  private final g.a q = new ConversationThreadFragment.6(this);
+  private final c r = new ConversationThreadFragment.7(this);
   
   public static ConversationThreadFragment a(Conversation paramConversation)
   {
@@ -78,101 +83,106 @@ public class ConversationThreadFragment
   
   private void a(MessagingAction paramMessagingAction, YelpException paramYelpException)
   {
-    n();
-    n.a(paramMessagingAction, paramYelpException, h);
-  }
-  
-  private void f()
-  {
-    l = true;
-    w();
+    o();
+    n.a(paramMessagingAction, paramYelpException, g);
   }
   
   private void g()
+  {
+    l = true;
+    y();
+  }
+  
+  private void h()
   {
     d.setPanelLoadingBackground(17170443);
     if (!c.b())
     {
       d.setAdapter(null);
-      d.setOnLoadNeeded(new n(this));
+      d.setOnLoadNeeded(new ConversationThreadFragment.8(this));
       d.setAdapter(c.a());
     }
   }
   
-  private void h()
-  {
-    a.a(h, new o(this));
-  }
-  
   private void i()
   {
-    if (g.getText().length() > 0)
+    a.a(g, new ConversationThreadFragment.9(this));
+  }
+  
+  private void j()
+  {
+    if (f.getText().length() > 0)
     {
-      r localr = new r(o(), g.getText().toString());
-      a.a(localr, new p(this));
+      i locali = new i(p(), f.getText().toString());
+      a.a(locali, new ConversationThreadFragment.10(this));
     }
   }
   
   private void k()
   {
-    a.a(h);
-  }
-  
-  private void l()
-  {
-    g.clearFocus();
-    g.setText("");
+    a.a(g);
   }
   
   private void m()
+  {
+    f.clearFocus();
+    f.setText("");
+  }
+  
+  private void n()
   {
     a();
     a(null, 0);
   }
   
-  private void n()
+  private void o()
   {
-    f();
-    j();
+    g();
+    l();
   }
   
-  private String o()
+  private String p()
   {
-    if (h != null) {
-      return h.getId();
+    if (g != null) {
+      return g.h();
     }
     return i;
+  }
+  
+  Conversation F_()
+  {
+    return g;
   }
   
   public void a()
   {
     l = false;
-    w();
+    y();
   }
   
   public void b()
   {
     if (c.b()) {
-      g();
+      h();
     }
     d.setBottomReached(false);
-    c.a(o());
-    m();
+    c.a(p());
+    n();
   }
   
   public void b(Conversation paramConversation)
   {
-    h = paramConversation;
-    n.a(h);
-    j = h.getOtherUser();
-    if ((getResourcesgetConfigurationorientation == 1) && (!TextUtils.isEmpty(h.getSubject()))) {
-      getActivity().setTitle(h.getSubject());
+    g = paramConversation;
+    n.a(g);
+    j = g.a();
+    if ((getResourcesgetConfigurationorientation == 1) && (!TextUtils.isEmpty(g.g()))) {
+      getActivity().setTitle(g.g());
     }
-    h();
-    r.a(ApiListManager.RequestResult.CONTENT_TRASHED, paramConversation.getLatestMessages());
-    m.d().a(q, p);
+    i();
+    r.a(ApiListManager.RequestResult.CONTENT_TRASHED, paramConversation.j());
+    m.c().a(q, p);
     if (!k) {
-      e();
+      f();
     }
   }
   
@@ -181,30 +191,25 @@ public class ConversationThreadFragment
     b();
   }
   
-  Conversation d()
-  {
-    return h;
-  }
-  
-  public void e()
+  public void f()
   {
     a();
-    m.d().b(h, p);
-    m.b(h);
+    m.c().b(g, p);
+    m.b(g);
   }
   
-  public b getIri()
+  public com.yelp.android.analytics.iris.a getIri()
   {
     return ViewIri.MessagingConversation;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.a parama)
   {
     HashMap localHashMap = new HashMap();
     if ((Conversation)getArguments().getParcelable("conversation") != null) {}
-    for (paramb = IriSource.Inbox;; paramb = IriSource.PushNotification)
+    for (parama = IriSource.Inbox;; parama = IriSource.PushNotification)
     {
-      paramb.addParameter(localHashMap);
+      parama.addParameter(localHashMap);
       return localHashMap;
     }
   }
@@ -217,10 +222,10 @@ public class ConversationThreadFragment
     }
     if (getArguments().getBoolean("show_keyboard", false))
     {
-      g.requestFocus();
-      ((InputMethodManager)getActivity().getSystemService("input_method")).showSoftInput(g, 2);
+      f.requestFocus();
+      ((InputMethodManager)getActivity().getSystemService("input_method")).showSoftInput(f, 2);
     }
-    g();
+    h();
   }
   
   public void onAttach(Activity paramActivity)
@@ -237,19 +242,31 @@ public class ConversationThreadFragment
     }
   }
   
+  public boolean onContextItemSelected(MenuItem paramMenuItem)
+  {
+    switch (paramMenuItem.getItemId())
+    {
+    default: 
+      return super.onContextItemSelected(paramMenuItem);
+    }
+    int i1 = getMenuInfoposition;
+    h.a(getString(2131166143), Html.fromHtml(((ConversationMessage)b.getItem(i1)).b()).toString());
+    return true;
+  }
+  
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = AppData.b().i().i();
-    c = new com.yelp.android.ui.activities.messaging.apimanagers.i(getActivity(), r);
+    a = AppData.b().i().g();
+    c = new com.yelp.android.ui.activities.messaging.apimanagers.e(getActivity(), r);
     b = c.a();
-    n = new MessagingActionsHelper(q, m.d());
+    n = new MessagingActionsHelper(q, m.c());
     n.a(getActivity());
-    h = ((Conversation)getArguments().getParcelable("conversation"));
-    if (h != null)
+    g = ((Conversation)getArguments().getParcelable("conversation"));
+    if (g != null)
     {
-      i = h.getId();
-      n.a(h);
+      i = g.h();
+      n.a(g);
     }
     for (;;)
     {
@@ -260,19 +277,25 @@ public class ConversationThreadFragment
     }
   }
   
+  public void onCreateContextMenu(ContextMenu paramContextMenu, View paramView, ContextMenu.ContextMenuInfo paramContextMenuInfo)
+  {
+    paramContextMenu.add(0, 2131165735, 0, 2131165735);
+  }
+  
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755015, paramMenu);
+    paramMenuInflater.inflate(2131755017, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903215, (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle));
-    d = ((ScrollToLoadListView)paramLayoutInflater.findViewById(2131493550));
-    e = ((Button)paramLayoutInflater.findViewById(2131493867));
-    g = ((EditText)paramLayoutInflater.findViewById(2131493866));
-    e.setOnClickListener(new g(this, EventIri.MessagingConversationSend));
-    g.addTextChangedListener(new i(this));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903240, (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle));
+    d = ((ScrollToLoadListView)paramLayoutInflater.findViewById(2131690253));
+    registerForContextMenu(d);
+    e = ((Button)paramLayoutInflater.findViewById(2131690702));
+    f = ((EditText)paramLayoutInflater.findViewById(2131690701));
+    e.setOnClickListener(new ConversationThreadFragment.1(this, EventIri.MessagingConversationSend));
+    f.addTextChangedListener(new ConversationThreadFragment.3(this));
     return paramLayoutInflater;
   }
   
@@ -284,16 +307,16 @@ public class ConversationThreadFragment
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    return n.a(getActivity().getSupportFragmentManager(), paramMenuItem.getItemId(), h);
+    return n.a(getActivity().getSupportFragmentManager(), paramMenuItem.getItemId(), g);
   }
   
   public void onPause()
   {
     super.onPause();
     AppData.b().c().b(o);
-    m.d().a(null, null);
-    if (!m.d().a()) {
-      i();
+    m.c().a(null, null);
+    if (!m.c().a()) {
+      j();
     }
     for (;;)
     {
@@ -301,7 +324,7 @@ public class ConversationThreadFragment
         c.h();
       }
       return;
-      if (h != null) {
+      if (g != null) {
         k();
       }
     }
@@ -311,39 +334,39 @@ public class ConversationThreadFragment
   {
     if ((c.c()) && (l))
     {
-      paramMenu.setGroupVisible(2131494132, true);
-      MenuItem localMenuItem = paramMenu.findItem(2131494133);
+      paramMenu.setGroupVisible(2131691006, true);
+      MenuItem localMenuItem = paramMenu.findItem(2131691007);
       Object localObject;
       boolean bool;
-      if (h.getBizUser() != null)
+      if (g.k() != null)
       {
-        localObject = getString(2131165407);
+        localObject = getString(2131165546);
         localMenuItem.setTitle((CharSequence)localObject);
-        if (j.isBlocked()) {
+        if (j.b()) {
           break label168;
         }
         bool = true;
         label79:
         localMenuItem.setVisible(bool);
-        localObject = paramMenu.findItem(2131494134);
-        if (h.getBizUser() == null) {
+        localObject = paramMenu.findItem(2131691008);
+        if (g.k() == null) {
           break label173;
         }
       }
       label168:
       label173:
-      for (paramMenu = getString(2131166765);; paramMenu = getString(2131166766, new Object[] { j.getName() }))
+      for (paramMenu = getString(2131166745);; paramMenu = getString(2131166746, new Object[] { j.c() }))
       {
         ((MenuItem)localObject).setTitle(paramMenu);
-        ((MenuItem)localObject).setVisible(j.isBlocked());
+        ((MenuItem)localObject).setVisible(j.b());
         return;
-        localObject = getString(2131165408, new Object[] { j.getName() });
+        localObject = getString(2131165547, new Object[] { j.c() });
         break;
         bool = false;
         break label79;
       }
     }
-    paramMenu.setGroupVisible(2131494132, false);
+    paramMenu.setGroupVisible(2131691006, false);
   }
   
   public void onResume()
@@ -351,8 +374,8 @@ public class ConversationThreadFragment
     super.onResume();
     if (c.c())
     {
-      m.d().a(q, p);
-      c.b(h);
+      m.c().a(q, p);
+      c.b(g);
     }
     for (;;)
     {

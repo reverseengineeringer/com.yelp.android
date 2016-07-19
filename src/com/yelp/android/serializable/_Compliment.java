@@ -2,36 +2,68 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Compliment
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected String mBusinessName;
-  protected String mComplimentableId;
-  protected Date mDateModified;
-  protected String mId;
-  protected String mMessage;
-  protected Photo mPhoto;
-  protected User mSender;
+  protected Date a;
+  protected Photo b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected User h;
   
-  protected _Compliment() {}
-  
-  protected _Compliment(Date paramDate, Photo paramPhoto, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, User paramUser)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mDateModified = paramDate;
-    mPhoto = paramPhoto;
-    mId = paramString1;
-    mMessage = paramString2;
-    mBusinessName = paramString3;
-    mBusinessId = paramString4;
-    mComplimentableId = paramString5;
-    mSender = paramUser;
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      a = new Date(l);
+    }
+    b = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("photo")) {
+      b = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
+    }
+    if (!paramJSONObject.isNull("id")) {
+      c = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("message")) {
+      d = paramJSONObject.optString("message");
+    }
+    if (!paramJSONObject.isNull("business_name")) {
+      e = paramJSONObject.optString("business_name");
+    }
+    if (!paramJSONObject.isNull("business_id")) {
+      f = paramJSONObject.optString("business_id");
+    }
+    if (!paramJSONObject.isNull("complimentable_id")) {
+      g = paramJSONObject.optString("complimentable_id");
+    }
+    if (!paramJSONObject.isNull("user")) {
+      h = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
+    }
   }
   
   public int describeContents()
@@ -39,102 +71,78 @@ abstract class _Compliment
     return 0;
   }
   
-  public String getBusinessId()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessId;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Compliment)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a();
   }
   
-  public String getBusinessName()
+  public int hashCode()
   {
-    return mBusinessName;
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a();
   }
   
-  public String getComplimentableId()
+  public User m()
   {
-    return mComplimentableId;
+    return h;
   }
   
-  public Date getDateModified()
+  public String n()
   {
-    return mDateModified;
+    return g;
   }
   
-  public String getId()
+  public String o()
   {
-    return mId;
+    return f;
   }
   
-  public String getMessage()
+  public String p()
   {
-    return mMessage;
+    return e;
   }
   
-  public Photo getPhoto()
+  public String q()
   {
-    return mPhoto;
+    return d;
   }
   
-  public User getSender()
+  public String r()
   {
-    return mSender;
+    return c;
   }
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public Photo s()
   {
-    if (!paramJSONObject.isNull("time_created")) {
-      mDateModified = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("photo")) {
-      mPhoto = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("message")) {
-      mMessage = paramJSONObject.optString("message");
-    }
-    if (!paramJSONObject.isNull("business_name")) {
-      mBusinessName = paramJSONObject.optString("business_name");
-    }
-    if (!paramJSONObject.isNull("business_id")) {
-      mBusinessId = paramJSONObject.optString("business_id");
-    }
-    if (!paramJSONObject.isNull("complimentable_id")) {
-      mComplimentableId = paramJSONObject.optString("complimentable_id");
-    }
-    if (!paramJSONObject.isNull("user")) {
-      mSender = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
-    }
+    return b;
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public Date t()
   {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateModified = new Date(l);
-    }
-    mPhoto = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
-    mId = paramParcel.readString();
-    mMessage = paramParcel.readString();
-    mBusinessName = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mComplimentableId = paramParcel.readString();
-    mSender = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+    return a;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mDateModified == null) {}
-    for (long l = -2147483648L;; l = mDateModified.getTime())
+    if (a == null) {}
+    for (long l = -2147483648L;; l = a.getTime())
     {
       paramParcel.writeLong(l);
-      paramParcel.writeParcelable(mPhoto, 0);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mMessage);
-      paramParcel.writeString(mBusinessName);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeString(mComplimentableId);
-      paramParcel.writeParcelable(mSender, 0);
+      paramParcel.writeParcelable(b, 0);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeParcelable(h, 0);
       return;
     }
   }

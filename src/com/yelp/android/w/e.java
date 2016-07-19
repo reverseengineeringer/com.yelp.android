@@ -1,21 +1,29 @@
 package com.yelp.android.w;
 
-import android.content.Context;
-import android.net.Uri;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.os.ParcelFileDescriptor;
-import com.yelp.android.v.c;
-import com.yelp.android.v.m;
-import com.yelp.android.v.n;
+import java.io.IOException;
 
 public class e
-  implements n<Integer, ParcelFileDescriptor>
+  extends a<ParcelFileDescriptor>
 {
-  public m<Integer, ParcelFileDescriptor> a(Context paramContext, c paramc)
+  public e(AssetManager paramAssetManager, String paramString)
   {
-    return new d(paramContext, paramc.a(Uri.class, ParcelFileDescriptor.class));
+    super(paramAssetManager, paramString);
   }
   
-  public void a() {}
+  protected void a(ParcelFileDescriptor paramParcelFileDescriptor)
+    throws IOException
+  {
+    paramParcelFileDescriptor.close();
+  }
+  
+  protected ParcelFileDescriptor b(AssetManager paramAssetManager, String paramString)
+    throws IOException
+  {
+    return paramAssetManager.openFd(paramString).getParcelFileDescriptor();
+  }
 }
 
 /* Location:

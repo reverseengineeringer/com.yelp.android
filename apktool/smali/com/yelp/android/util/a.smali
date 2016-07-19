@@ -137,7 +137,7 @@
     :try_start_1
     new-instance v3, Ljava/math/BigInteger;
 
-    invoke-static {}, Lcom/yelp/android/services/x;->i()Ljava/lang/String;
+    invoke-static {}, Lcom/yelp/android/services/i;->j()Ljava/lang/String;
 
     move-result-object v4
 

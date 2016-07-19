@@ -40,13 +40,13 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 42
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -79,7 +79,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0e002e
+    const v1, 0x7f080031
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityFirstTranslation;->getIntent()Landroid/content/Intent;
 
@@ -103,7 +103,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 31
+    .line 35
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityFirstTranslation;->a:Landroid/view/View;
 
     check-cast v0, Landroid/widget/TextView;
@@ -112,7 +112,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0073
+    const v2, 0x7f0e00ac
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -120,6 +120,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    .line 32
+    .line 36
     return-void
 .end method

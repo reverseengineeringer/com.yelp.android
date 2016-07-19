@@ -5,7 +5,8 @@ import com.brightcove.player.model.Video;
 
 public abstract interface SourceSelector
 {
-  public abstract Source selectSource(Video paramVideo);
+  public abstract Source selectSource(Video paramVideo)
+    throws NoSourceFoundException;
 }
 
 /* Location:

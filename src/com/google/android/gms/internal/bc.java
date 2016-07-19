@@ -1,19 +1,22 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
+import com.google.android.gms.ads.doubleclick.c;
 
-public abstract interface bc
-  extends IInterface
+@fv
+public final class bc
+  extends bb.a
 {
-  public abstract void onAdClosed();
+  private final c a;
   
-  public abstract void onAdFailedToLoad(int paramInt);
+  public bc(c paramc)
+  {
+    a = paramc;
+  }
   
-  public abstract void onAdLeftApplication();
-  
-  public abstract void onAdLoaded();
-  
-  public abstract void onAdOpened();
+  public void a(ba paramba)
+  {
+    a.a(new az(paramba));
+  }
 }
 
 /* Location:

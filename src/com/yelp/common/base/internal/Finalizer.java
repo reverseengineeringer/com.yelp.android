@@ -39,13 +39,14 @@ public class Finalizer
   }
   
   private void cleanUp(Reference<?> paramReference)
+    throws Finalizer.ShutDown
   {
     Method localMethod = getFinalizeReferentMethod();
     for (;;)
     {
       paramReference.clear();
       if (paramReference == frqReference) {
-        throw new Finalizer.ShutDown(null);
+        throw new ShutDown(null);
       }
       try
       {
@@ -68,10 +69,11 @@ public class Finalizer
   }
   
   private Method getFinalizeReferentMethod()
+    throws Finalizer.ShutDown
   {
     Object localObject = (Class)finalizableReferenceClassReference.get();
     if (localObject == null) {
-      throw new Finalizer.ShutDown(null);
+      throw new ShutDown(null);
     }
     try
     {
@@ -122,8 +124,12 @@ public class Finalizer
     {
       for (;;) {}
     }
-    catch (Finalizer.ShutDown localShutDown) {}
+    catch (ShutDown localShutDown) {}
   }
+  
+  private static class ShutDown
+    extends Exception
+  {}
 }
 
 /* Location:

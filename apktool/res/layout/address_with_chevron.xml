@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" style="?sublistCell"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/chevron" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+    <com.yelp.android.ui.activities.search.vertical.UserAddressView android:id="@id/address_view" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/chevron" android:layout_alignParentLeft="true" />
+</RelativeLayout>

@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/comscore/analytics/i;->a:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/comscore/analytics/a;->b(Ljava/lang/String;)V
 
     return-void
 .end method

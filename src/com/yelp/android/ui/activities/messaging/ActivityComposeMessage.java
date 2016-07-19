@@ -3,40 +3,55 @@ package com.yelp.android.ui.activities.messaging;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.ActivityLogin;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.panels.PanelError;
-import com.yelp.android.ui.panels.aa;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.panels.PanelError.a;
+import com.yelp.android.ui.util.as;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class ActivityComposeMessage
   extends YelpActivity
-  implements f, x, aa
+  implements ComposeMessageFragment.a, FriendsFragment.a, PanelError.a
 {
   private ComposeMessageFragment a;
   
   public static Intent a(Context paramContext)
   {
-    return new Intent(paramContext, ActivityComposeMessage.class);
+    paramContext = new Intent(paramContext, ActivityComposeMessage.class);
+    paramContext.setAction("android.intent.action.SEND");
+    paramContext.setType("text/plain");
+    return paramContext;
   }
   
   public static Intent a(Context paramContext, User paramUser)
   {
     Intent localIntent = a(paramContext);
     localIntent.putExtra("extra_user", paramUser);
-    return ActivityLogin.a(paramContext, 2131166785, 2131166042, localIntent);
+    return ActivityLogin.a(paramContext, 2131165701, 2131166101, localIntent);
   }
   
-  private User d()
+  private void c()
+  {
+    a = ((ComposeMessageFragment)getSupportFragmentManager().a(2131689997));
+    if (a == null)
+    {
+      a = ComposeMessageFragment.a(e(), f());
+      getSupportFragmentManager().a().b(2131689997, a).a();
+    }
+  }
+  
+  private User e()
   {
     Bundle localBundle = getIntent().getExtras();
     if ((localBundle != null) && (localBundle.containsKey("extra_user"))) {
@@ -45,22 +60,31 @@ public class ActivityComposeMessage
     return null;
   }
   
+  private String f()
+  {
+    Bundle localBundle = getIntent().getExtras();
+    if ((localBundle != null) && (localBundle.containsKey("android.intent.extra.TEXT"))) {
+      return localBundle.getString("android.intent.extra.TEXT");
+    }
+    return null;
+  }
+  
   public void a()
   {
     setResult(-1);
     finish();
-    cr.a(2131166926, 0);
+    as.a(2131166878, 0);
   }
   
   public void a(User paramUser)
   {
-    a.c(paramUser);
-    getSupportFragmentManager().popBackStack();
+    a.b(paramUser);
+    getSupportFragmentManager().c();
   }
   
-  public void c()
+  public void b()
   {
-    a.f();
+    a.g();
   }
   
   public PanelError getErrorPanel()
@@ -73,44 +97,62 @@ public class ActivityComposeMessage
     return ViewIri.MessagingNewConversation;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
     TreeMap localTreeMap = new TreeMap();
-    if (d() == null) {}
-    for (paramb = "inbox";; paramb = "user_profile")
+    if (e() == null) {}
+    for (parama = "inbox";; parama = "user_profile")
     {
-      localTreeMap.put("source", paramb);
+      localTreeMap.put("source", parama);
       return localTreeMap;
     }
   }
   
-  public void m_()
+  protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
-    a.d();
+    super.onActivityResult(paramInt1, paramInt2, paramIntent);
+    switch (paramInt1)
+    {
+    default: 
+      return;
+    }
+    if (AppData.b().q().d())
+    {
+      c();
+      return;
+    }
+    finish();
   }
   
   public void onBackPressed()
   {
-    ComposeMessageFragment localComposeMessageFragment = a;
-    ComposeMessageFragment.a();
+    a.a();
     super.onBackPressed();
   }
   
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = ((ComposeMessageFragment)getSupportFragmentManager().findFragmentById(2131493332));
-    if (a == null)
+    setTitle(2131166231);
+    if ((getIntent() != null) && (!"android.intent.action.SEND".equals(getIntent().getAction())))
     {
-      a = ComposeMessageFragment.a(d());
-      getSupportFragmentManager().beginTransaction().replace(2131493332, a).commit();
+      finish();
+      return;
     }
+    if (AppData.b().q().d())
+    {
+      c();
+      return;
+    }
+    startActivityForResult(ActivityLogin.a(this, 2131165701, 2131166101), 1049);
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    a.onCreateOptionsMenu(paramMenu, getMenuInflater());
+    if (a != null) {
+      a.onCreateOptionsMenu(paramMenu, getMenuInflater());
+    }
     return true;
   }
   
@@ -120,6 +162,11 @@ public class ActivityComposeMessage
       return super.onOptionsItemSelected(paramMenuItem);
     }
     return true;
+  }
+  
+  public void q_()
+  {
+    a.E_();
   }
 }
 

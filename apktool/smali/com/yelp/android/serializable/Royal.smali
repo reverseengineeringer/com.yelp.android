@@ -20,15 +20,15 @@
 
 
 # instance fields
-.field private final mDescription:Ljava/lang/String;
+.field private final a:Lcom/yelp/android/serializable/User;
 
-.field private final mDukedoms:I
+.field private final b:Ljava/lang/String;
 
-.field private final mLocationName:Ljava/lang/String;
+.field private final c:I
 
-.field private final mTitle:Ljava/lang/String;
+.field private final d:Ljava/lang/String;
 
-.field private final mUser:Lcom/yelp/android/serializable/User;
+.field private final e:Ljava/lang/String;
 
 
 # direct methods
@@ -37,9 +37,9 @@
 
     .prologue
     .line 76
-    new-instance v0, Lcom/yelp/android/serializable/cw;
+    new-instance v0, Lcom/yelp/android/serializable/Royal$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/cw;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/Royal$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/Royal;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -66,41 +66,41 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->mUser:Lcom/yelp/android/serializable/User;
+    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->a:Lcom/yelp/android/serializable/User;
 
     .line 30
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->mLocationName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->b:Ljava/lang/String;
 
     .line 31
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/Royal;->mDukedoms:I
+    iput v0, p0, Lcom/yelp/android/serializable/Royal;->c:I
 
     .line 32
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->mTitle:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->d:Ljava/lang/String;
 
     .line 33
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->mDescription:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/Royal;->e:Ljava/lang/String;
 
     .line 34
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/os/Parcel;Lcom/yelp/android/serializable/cw;)V
+.method synthetic constructor <init>(Landroid/os/Parcel;Lcom/yelp/android/serializable/Royal$1;)V
     .locals 0
 
     .prologue
@@ -118,19 +118,19 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 45
-    iput-object p1, p0, Lcom/yelp/android/serializable/Royal;->mUser:Lcom/yelp/android/serializable/User;
+    iput-object p1, p0, Lcom/yelp/android/serializable/Royal;->a:Lcom/yelp/android/serializable/User;
 
     .line 46
-    iput-object p2, p0, Lcom/yelp/android/serializable/Royal;->mLocationName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/yelp/android/serializable/Royal;->b:Ljava/lang/String;
 
     .line 47
-    iput p3, p0, Lcom/yelp/android/serializable/Royal;->mDukedoms:I
+    iput p3, p0, Lcom/yelp/android/serializable/Royal;->c:I
 
     .line 48
-    iput-object p4, p0, Lcom/yelp/android/serializable/Royal;->mTitle:Ljava/lang/String;
+    iput-object p4, p0, Lcom/yelp/android/serializable/Royal;->d:Ljava/lang/String;
 
     .line 49
-    iput-object p5, p0, Lcom/yelp/android/serializable/Royal;->mDescription:Ljava/lang/String;
+    iput-object p5, p0, Lcom/yelp/android/serializable/Royal;->e:Ljava/lang/String;
 
     .line 50
     return-void
@@ -138,6 +138,46 @@
 
 
 # virtual methods
+.method public a()Lcom/yelp/android/serializable/User;
+    .locals 1
+
+    .prologue
+    .line 53
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->a:Lcom/yelp/android/serializable/User;
+
+    return-object v0
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 57
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c()I
+    .locals 1
+
+    .prologue
+    .line 61
+    iget v0, p0, Lcom/yelp/android/serializable/Royal;->c:I
+
+    return v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 65
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public describeContents()I
     .locals 1
 
@@ -148,64 +188,14 @@
     return v0
 .end method
 
-.method public getDescription()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mDescription:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getDukedomCount()I
-    .locals 1
-
-    .prologue
-    .line 61
-    iget v0, p0, Lcom/yelp/android/serializable/Royal;->mDukedoms:I
-
-    return v0
-.end method
-
-.method public getLocationName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mLocationName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTitle()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 65
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mTitle:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getUser()Lcom/yelp/android/serializable/User;
-    .locals 1
-
-    .prologue
-    .line 53
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mUser:Lcom/yelp/android/serializable/User;
-
-    return-object v0
-.end method
-
-.method public getUserId()Ljava/lang/String;
+.method public e()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 73
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mUser:Lcom/yelp/android/serializable/User;
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->a:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v0
 
@@ -217,27 +207,27 @@
 
     .prologue
     .line 21
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mUser:Lcom/yelp/android/serializable/User;
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->a:Lcom/yelp/android/serializable/User;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     .line 22
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mLocationName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->b:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 23
-    iget v0, p0, Lcom/yelp/android/serializable/Royal;->mDukedoms:I
+    iget v0, p0, Lcom/yelp/android/serializable/Royal;->c:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 24
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mTitle:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->d:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 25
-    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->mDescription:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/serializable/Royal;->e:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 

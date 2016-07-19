@@ -31,6 +31,7 @@ public class OrderedMap<K, V extends OrderedMapValue<K>>
   }
   
   private int verifyIndex(int paramInt)
+    throws ArrayIndexOutOfBoundsException
   {
     if ((paramInt >= _array.size()) || (paramInt < 0)) {
       throw new ArrayIndexOutOfBoundsException(paramInt);

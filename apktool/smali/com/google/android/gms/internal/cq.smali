@@ -1,168 +1,130 @@
-.class public final Lcom/google/android/gms/internal/cq;
+.class Lcom/google/android/gms/internal/cq;
 .super Ljava/lang/Object;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/cq$a;
+    }
 .end annotation
 
 
 # instance fields
-.field public final qn:Ljava/lang/String;
-
-.field public final qo:Ljava/lang/String;
-
-.field public final qp:Ljava/util/List;
+.field private final a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
             "<",
-            "Ljava/lang/String;",
+            "Lcom/google/android/gms/internal/cq$a;",
             ">;"
         }
     .end annotation
 .end field
-
-.field public final qq:Ljava/lang/String;
-
-.field public final qr:Ljava/lang/String;
-
-.field public final qs:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public final qt:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Lorg/json/JSONObject;)V
-    .locals 5
-
-    const/4 v1, 0x0
+.method constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-string/jumbo v0, "id"
+    new-instance v0, Ljava/util/LinkedList;
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
-    move-result-object v0
+    iput-object v0, p0, Lcom/google/android/gms/internal/cq;->a:Ljava/util/List;
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/cq;->qo:Ljava/lang/String;
+    return-void
+.end method
 
-    const-string/jumbo v0, "adapters"
+.method static synthetic a(Lcom/google/android/gms/internal/cq;)Ljava/util/List;
+    .locals 1
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    iget-object v0, p0, Lcom/google/android/gms/internal/cq;->a:Ljava/util/List;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method a(Lcom/google/android/gms/ads/internal/l;)V
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/internal/cq$1;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/cq$1;-><init>(Lcom/google/android/gms/internal/cq;)V
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/ads/internal/l;->a(Lcom/google/android/gms/ads/internal/client/y;)V
+
+    new-instance v0, Lcom/google/android/gms/internal/cq$2;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/cq$2;-><init>(Lcom/google/android/gms/internal/cq;)V
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/ads/internal/l;->a(Lcom/google/android/gms/ads/internal/client/ae;)V
+
+    new-instance v0, Lcom/google/android/gms/internal/cq$3;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/cq$3;-><init>(Lcom/google/android/gms/internal/cq;)V
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/ads/internal/l;->a(Lcom/google/android/gms/internal/ez;)V
+
+    new-instance v0, Lcom/google/android/gms/internal/cq$4;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/cq$4;-><init>(Lcom/google/android/gms/internal/cq;)V
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/ads/internal/l;->a(Lcom/google/android/gms/internal/bb;)V
+
+    new-instance v0, Lcom/google/android/gms/internal/cq$5;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/cq$5;-><init>(Lcom/google/android/gms/internal/cq;)V
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/ads/internal/l;->a(Lcom/google/android/gms/ads/internal/client/x;)V
+
+    new-instance v0, Lcom/google/android/gms/internal/cq$6;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/cq$6;-><init>(Lcom/google/android/gms/internal/cq;)V
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/ads/internal/l;->a(Lcom/yelp/android/bb/c;)V
+
+    return-void
+.end method
+
+.method a(Lcom/google/android/gms/internal/cr;)V
+    .locals 4
+
+    sget-object v1, Lcom/google/android/gms/internal/hd;->a:Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/cq;->a:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    invoke-direct {v3, v0}, Ljava/util/ArrayList;-><init>(I)V
+    if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    :goto_0
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+    move-result-object v0
 
-    move-result v4
+    check-cast v0, Lcom/google/android/gms/internal/cq$a;
 
-    if-ge v0, v4, :cond_0
+    new-instance v3, Lcom/google/android/gms/internal/cq$7;
 
-    invoke-virtual {v2, v0}, Lorg/json/JSONArray;->getString(I)Ljava/lang/String;
+    invoke-direct {v3, p0, v0, p1}, Lcom/google/android/gms/internal/cq$7;-><init>(Lcom/google/android/gms/internal/cq;Lcom/google/android/gms/internal/cq$a;Lcom/google/android/gms/internal/cr;)V
 
-    move-result-object v4
-
-    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {v1, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
     :cond_0
-    invoke-static {v3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/cq;->qp:Ljava/util/List;
-
-    const-string/jumbo v0, "allocation_id"
-
-    invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/cq;->qq:Ljava/lang/String;
-
-    const-string/jumbo v0, "imp_urls"
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/cw;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/cq;->qs:Ljava/util/List;
-
-    const-string/jumbo v0, "ad"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_1
-    iput-object v0, p0, Lcom/google/android/gms/internal/cq;->qn:Ljava/lang/String;
-
-    const-string/jumbo v0, "data"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_3
-
-    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_2
-    iput-object v0, p0, Lcom/google/android/gms/internal/cq;->qt:Ljava/lang/String;
-
-    if-eqz v2, :cond_1
-
-    const-string/jumbo v0, "class_name"
-
-    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    :cond_1
-    iput-object v1, p0, Lcom/google/android/gms/internal/cq;->qr:Ljava/lang/String;
-
     return-void
-
-    :cond_2
-    move-object v0, v1
-
-    goto :goto_1
-
-    :cond_3
-    move-object v0, v1
-
-    goto :goto_2
 .end method

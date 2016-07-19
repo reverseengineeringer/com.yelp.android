@@ -640,7 +640,7 @@
     return-wide v0
 .end method
 
-.method protected f()J
+.method public f()J
     .locals 2
 
     iget-wide v0, p0, Lcom/comscore/streaming/b;->g:J

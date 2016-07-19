@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 public enum PhotoPromptType
 {
-  REVIEW(2131166689, "review"),  TIP(2131166690, "quicktip");
+  REVIEW(2131166665, "review"),  TIP(2131166666, "quicktip");
   
   private static final String INTENT_KEY = "photoprompt_type";
   private String mSource;

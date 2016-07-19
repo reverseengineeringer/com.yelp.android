@@ -3,7 +3,15 @@
 .source "DealQuantityViewBase.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/widgets/s;
+.implements Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase$a;
+    }
+.end annotation
 
 
 # instance fields
@@ -17,26 +25,26 @@
     .locals 4
 
     .prologue
-    .line 42
+    .line 44
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 43
+    .line 45
     new-instance v0, Landroid/util/SparseIntArray;
 
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 44
+    .line 46
     const/4 v1, 0x4
 
-    const v2, 0x7f03008d
+    const v2, 0x7f030097
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->put(II)V
 
-    .line 45
-    invoke-static {p0, p1, p2, p3, v0}, Lcom/yelp/android/ui/util/dj;->a(Landroid/view/ViewGroup;Landroid/content/Context;Landroid/util/AttributeSet;ILandroid/util/SparseIntArray;)V
+    .line 47
+    invoke-static {p0, p1, p2, p3, v0}, Lcom/yelp/android/ui/util/ay;->a(Landroid/view/ViewGroup;Landroid/content/Context;Landroid/util/AttributeSet;ILandroid/util/SparseIntArray;)V
 
-    .line 46
-    const v0, 0x7f0c0252
+    .line 48
+    const v0, 0x7f0f0298
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->findViewById(I)Landroid/view/View;
 
@@ -46,13 +54,13 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
-    .line 47
+    .line 49
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setQuantityChangeListener(Lcom/yelp/android/ui/widgets/s;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setQuantityChangeListener(Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;)V
 
-    .line 48
-    const v0, 0x7f0c0253
+    .line 50
+    const v0, 0x7f0f0299
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->findViewById(I)Landroid/view/View;
 
@@ -62,14 +70,14 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->a:Landroid/widget/TextView;
 
-    .line 49
-    sget-object v0, Lcom/yelp/android/b;->QuantityDropDownView:[I
+    .line 51
+    sget-object v0, Lcom/yelp/android/b$a;->QuantityDropDownView:[I
 
     invoke-virtual {p1, p2, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 51
+    .line 54
     iget-object v1, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
     const/4 v2, 0x1
@@ -82,7 +90,7 @@
 
     invoke-virtual {v1, v2}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setStartRange(I)V
 
-    .line 53
+    .line 56
     iget-object v1, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
     const/4 v2, 0x2
@@ -95,17 +103,17 @@
 
     invoke-virtual {v1, v2}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setEndRange(I)V
 
-    .line 55
+    .line 58
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 56
+    .line 59
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->isEnabled()Z
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->setEnabled(Z)V
 
-    .line 57
+    .line 60
     return-void
 .end method
 
@@ -115,7 +123,7 @@
     .locals 0
 
     .prologue
-    .line 74
+    .line 75
     return-void
 .end method
 
@@ -123,14 +131,14 @@
     .locals 1
 
     .prologue
-    .line 107
+    .line 108
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getQuantity()Ljava/lang/Integer;
 
     move-result-object v0
 
-    .line 108
+    .line 109
     if-nez v0, :cond_0
 
     const/4 v0, 0x0
@@ -150,15 +158,15 @@
     .locals 2
 
     .prologue
-    .line 61
+    .line 64
     invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->setEnabled(Z)V
 
-    .line 62
+    .line 65
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
     invoke-virtual {v0, p1}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setEnabled(Z)V
 
-    .line 63
+    .line 66
     iget-object v1, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
     if-eqz p1, :cond_0
@@ -170,13 +178,13 @@
     :goto_0
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setVisibility(I)V
 
-    .line 64
+    .line 67
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->forceLayout()V
 
-    .line 65
+    .line 68
     return-void
 
-    .line 63
+    .line 66
     :cond_0
     const/4 v0, 0x4
 
@@ -187,40 +195,40 @@
     .locals 1
 
     .prologue
-    .line 98
+    .line 99
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
     invoke-virtual {v0, p1}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setQuantity(I)V
 
-    .line 99
+    .line 100
     return-void
 .end method
 
-.method public setQuantityListener(Lcom/yelp/android/ui/widgets/s;)V
+.method public setQuantityListener(Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;)V
     .locals 4
 
     .prologue
-    .line 84
+    .line 85
     if-nez p1, :cond_0
 
-    .line 85
+    .line 86
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setQuantityChangeListener(Lcom/yelp/android/ui/widgets/s;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setQuantityChangeListener(Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;)V
 
-    .line 89
+    .line 90
     :goto_0
     return-void
 
-    .line 87
+    .line 88
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->b:Lcom/yelp/android/ui/widgets/QuantityDropDownView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/deals/ae;
+    new-instance v1, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase$a;
 
     const/4 v2, 0x2
 
-    new-array v2, v2, [Lcom/yelp/android/ui/widgets/s;
+    new-array v2, v2, [Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
 
     const/4 v3, 0x0
 
@@ -230,9 +238,9 @@
 
     aput-object p1, v2, v3
 
-    invoke-direct {v1, v2}, Lcom/yelp/android/ui/activities/deals/ae;-><init>([Lcom/yelp/android/ui/widgets/s;)V
+    invoke-direct {v1, v2}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase$a;-><init>([Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;)V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setQuantityChangeListener(Lcom/yelp/android/ui/widgets/s;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setQuantityChangeListener(Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;)V
 
     goto :goto_0
 .end method
@@ -241,11 +249,11 @@
     .locals 1
 
     .prologue
-    .line 112
+    .line 113
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->a:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 113
+    .line 114
     return-void
 .end method

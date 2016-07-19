@@ -1,40 +1,47 @@
 package com.yelp.android.ui;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.content.DialogInterface.OnClickListener;
 import android.hardware.Camera;
 import android.opengl.GLSurfaceView;
+import android.os.AsyncTask;
 import android.os.AsyncTask.Status;
 import android.util.Log;
 import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.serializable.Category;
 import com.yelp.android.ui.activities.support.YelpActivity;
+import com.yelp.android.ui.activities.support.b.e;
+import com.yelp.android.ui.util.as;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 
 public class ActivityMonocle
   extends YelpActivity
-  implements com.yelp.android.ui.activities.support.o
+  implements b.e
 {
   static Dialog a;
-  public e b;
+  public a b;
   public ImageView c;
   public int d;
-  private o e;
+  private j e;
   private GLSurfaceView f;
   private ViewGroup g;
-  private q h;
+  private l h;
   private MonocleEngine i;
-  private m j;
-  private l k;
-  private d l;
+  private h j;
+  private g k;
+  private b l;
   private Camera m;
   
   private void c()
   {
     d();
-    l = new d(this, null);
+    l = new b(null);
     l.execute(new Void[0]);
   }
   
@@ -92,14 +99,14 @@ public class ActivityMonocle
     finish();
   }
   
+  public void b()
+  {
+    j.b();
+  }
+  
   public ViewIri getIri()
   {
     return ViewIri.Monocle;
-  }
-  
-  public void k_()
-  {
-    j.b();
   }
   
   /* Error */
@@ -108,382 +115,376 @@ public class ActivityMonocle
     // Byte code:
     //   0: aload_0
     //   1: aload_1
-    //   2: invokespecial 148	com/yelp/android/ui/activities/support/YelpActivity:onCreate	(Landroid/os/Bundle;)V
+    //   2: invokespecial 156	com/yelp/android/ui/activities/support/YelpActivity:onCreate	(Landroid/os/Bundle;)V
     //   5: aload_0
-    //   6: new 150	com/yelp/android/ui/MonocleEngine
-    //   9: dup
-    //   10: invokespecial 151	com/yelp/android/ui/MonocleEngine:<init>	()V
-    //   13: putfield 153	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
-    //   16: aload_0
-    //   17: getfield 153	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
-    //   20: invokevirtual 156	com/yelp/android/ui/MonocleEngine:ClearObjects	()V
+    //   6: sipush 250
+    //   9: iconst_1
+    //   10: anewarray 158	com/yelp/android/appdata/PermissionGroup
+    //   13: dup
+    //   14: iconst_0
+    //   15: getstatic 162	com/yelp/android/appdata/PermissionGroup:CAMERA	Lcom/yelp/android/appdata/PermissionGroup;
+    //   18: aastore
+    //   19: invokestatic 167	com/yelp/android/appdata/k:a	(Landroid/app/Activity;I[Lcom/yelp/android/appdata/PermissionGroup;)Z
+    //   22: pop
     //   23: aload_0
-    //   24: invokevirtual 160	com/yelp/android/ui/ActivityMonocle:getWindow	()Landroid/view/Window;
-    //   27: sipush 1152
-    //   30: sipush 1152
-    //   33: invokevirtual 166	android/view/Window:setFlags	(II)V
-    //   36: aload_0
-    //   37: new 64	com/yelp/android/ui/o
-    //   40: dup
+    //   24: new 169	com/yelp/android/ui/MonocleEngine
+    //   27: dup
+    //   28: invokespecial 170	com/yelp/android/ui/MonocleEngine:<init>	()V
+    //   31: putfield 172	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
+    //   34: aload_0
+    //   35: getfield 172	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
+    //   38: invokevirtual 175	com/yelp/android/ui/MonocleEngine:ClearObjects	()V
     //   41: aload_0
-    //   42: invokespecial 169	com/yelp/android/ui/o:<init>	(Landroid/content/Context;)V
-    //   45: putfield 46	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/o;
-    //   48: aload_0
-    //   49: getfield 46	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/o;
-    //   52: sipush 1001
-    //   55: invokestatic 174	com/yelp/android/ui/u:b	(Landroid/view/SurfaceView;I)V
-    //   58: aload_0
-    //   59: new 176	com/yelp/android/ui/j
-    //   62: dup
-    //   63: aload_0
-    //   64: invokespecial 177	com/yelp/android/ui/j:<init>	(Landroid/content/Context;)V
-    //   67: putfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
-    //   70: aload_0
-    //   71: getfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
-    //   74: bipush 8
-    //   76: bipush 8
-    //   78: bipush 8
-    //   80: bipush 8
-    //   82: bipush 16
-    //   84: iconst_0
-    //   85: invokevirtual 185	android/opengl/GLSurfaceView:setEGLConfigChooser	(IIIIII)V
+    //   42: invokevirtual 179	com/yelp/android/ui/ActivityMonocle:getWindow	()Landroid/view/Window;
+    //   45: sipush 1152
+    //   48: sipush 1152
+    //   51: invokevirtual 185	android/view/Window:setFlags	(II)V
+    //   54: aload_0
+    //   55: new 73	com/yelp/android/ui/j
+    //   58: dup
+    //   59: aload_0
+    //   60: invokespecial 188	com/yelp/android/ui/j:<init>	(Landroid/content/Context;)V
+    //   63: putfield 57	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/j;
+    //   66: aload_0
+    //   67: getfield 57	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/j;
+    //   70: sipush 1001
+    //   73: invokestatic 193	com/yelp/android/ui/m:b	(Landroid/view/SurfaceView;I)V
+    //   76: aload_0
+    //   77: new 195	com/yelp/android/ui/e
+    //   80: dup
+    //   81: aload_0
+    //   82: invokespecial 196	com/yelp/android/ui/e:<init>	(Landroid/content/Context;)V
+    //   85: putfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
     //   88: aload_0
-    //   89: new 187	com/yelp/android/ui/l
-    //   92: dup
-    //   93: invokespecial 188	com/yelp/android/ui/l:<init>	()V
-    //   96: putfield 190	com/yelp/android/ui/ActivityMonocle:k	Lcom/yelp/android/ui/l;
-    //   99: aload_0
-    //   100: getfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
-    //   103: aload_0
-    //   104: getfield 190	com/yelp/android/ui/ActivityMonocle:k	Lcom/yelp/android/ui/l;
-    //   107: invokevirtual 194	android/opengl/GLSurfaceView:setRenderer	(Landroid/opengl/GLSurfaceView$Renderer;)V
-    //   110: aload_0
-    //   111: getfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
-    //   114: invokevirtual 198	android/opengl/GLSurfaceView:getHolder	()Landroid/view/SurfaceHolder;
-    //   117: bipush -3
-    //   119: invokeinterface 204 2 0
-    //   124: aload_0
-    //   125: getfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
-    //   128: sipush 1004
-    //   131: invokestatic 174	com/yelp/android/ui/u:b	(Landroid/view/SurfaceView;I)V
-    //   134: aload_0
-    //   135: getfield 43	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/m;
-    //   138: ifnonnull +31 -> 169
-    //   141: aload_0
-    //   142: new 136	com/yelp/android/ui/m
-    //   145: dup
-    //   146: aload_0
-    //   147: aload_0
-    //   148: getfield 153	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
-    //   151: aload_0
-    //   152: getfield 190	com/yelp/android/ui/ActivityMonocle:k	Lcom/yelp/android/ui/l;
-    //   155: aload_0
-    //   156: getfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   89: getfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   92: bipush 8
+    //   94: bipush 8
+    //   96: bipush 8
+    //   98: bipush 8
+    //   100: bipush 16
+    //   102: iconst_0
+    //   103: invokevirtual 204	android/opengl/GLSurfaceView:setEGLConfigChooser	(IIIIII)V
+    //   106: aload_0
+    //   107: new 206	com/yelp/android/ui/g
+    //   110: dup
+    //   111: invokespecial 207	com/yelp/android/ui/g:<init>	()V
+    //   114: putfield 209	com/yelp/android/ui/ActivityMonocle:k	Lcom/yelp/android/ui/g;
+    //   117: aload_0
+    //   118: getfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   121: aload_0
+    //   122: getfield 209	com/yelp/android/ui/ActivityMonocle:k	Lcom/yelp/android/ui/g;
+    //   125: invokevirtual 213	android/opengl/GLSurfaceView:setRenderer	(Landroid/opengl/GLSurfaceView$Renderer;)V
+    //   128: aload_0
+    //   129: getfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   132: invokevirtual 217	android/opengl/GLSurfaceView:getHolder	()Landroid/view/SurfaceHolder;
+    //   135: bipush -3
+    //   137: invokeinterface 223 2 0
+    //   142: aload_0
+    //   143: getfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   146: sipush 1004
+    //   149: invokestatic 193	com/yelp/android/ui/m:b	(Landroid/view/SurfaceView;I)V
+    //   152: aload_0
+    //   153: getfield 54	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/h;
+    //   156: ifnonnull +27 -> 183
     //   159: aload_0
-    //   160: getfield 46	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/o;
-    //   163: invokespecial 207	com/yelp/android/ui/m:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/MonocleEngine;Lcom/yelp/android/ui/l;Landroid/view/SurfaceView;Landroid/view/SurfaceView;)V
-    //   166: putfield 43	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/m;
-    //   169: invokestatic 212	com/yelp/android/appdata/AppData:b	()Lcom/yelp/android/appdata/AppData;
-    //   172: invokevirtual 215	com/yelp/android/appdata/AppData:j	()Lcom/yelp/android/database/m;
-    //   175: astore_3
-    //   176: iconst_3
-    //   177: anewarray 217	java/lang/String
-    //   180: astore_2
-    //   181: aload_2
-    //   182: iconst_0
-    //   183: aload_0
-    //   184: ldc -38
-    //   186: invokevirtual 222	com/yelp/android/ui/ActivityMonocle:getString	(I)Ljava/lang/String;
-    //   189: aastore
-    //   190: aload_2
-    //   191: iconst_1
-    //   192: aload_0
-    //   193: ldc -33
-    //   195: invokevirtual 222	com/yelp/android/ui/ActivityMonocle:getString	(I)Ljava/lang/String;
-    //   198: aastore
-    //   199: aload_2
-    //   200: iconst_2
-    //   201: aload_0
-    //   202: ldc -32
-    //   204: invokevirtual 222	com/yelp/android/ui/ActivityMonocle:getString	(I)Ljava/lang/String;
-    //   207: aastore
-    //   208: aload_3
-    //   209: ldc -30
-    //   211: invokevirtual 231	com/yelp/android/database/m:a	(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
-    //   214: astore_1
-    //   215: aload_2
-    //   216: iconst_0
-    //   217: aaload
-    //   218: invokestatic 237	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
-    //   221: ifeq +10 -> 231
-    //   224: aload_2
-    //   225: iconst_0
-    //   226: aload_1
-    //   227: invokevirtual 243	com/yelp/android/serializable/Category:getName	()Ljava/lang/String;
-    //   230: aastore
-    //   231: aload_3
-    //   232: ldc -11
-    //   234: invokevirtual 231	com/yelp/android/database/m:a	(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
-    //   237: astore_3
+    //   160: new 134	com/yelp/android/ui/h
+    //   163: dup
+    //   164: aload_0
+    //   165: aload_0
+    //   166: getfield 172	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
+    //   169: aload_0
+    //   170: getfield 209	com/yelp/android/ui/ActivityMonocle:k	Lcom/yelp/android/ui/g;
+    //   173: aload_0
+    //   174: getfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   177: invokespecial 226	com/yelp/android/ui/h:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/MonocleEngine;Lcom/yelp/android/ui/g;Landroid/view/SurfaceView;)V
+    //   180: putfield 54	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/h;
+    //   183: invokestatic 231	com/yelp/android/appdata/AppData:b	()Lcom/yelp/android/appdata/AppData;
+    //   186: invokevirtual 234	com/yelp/android/appdata/AppData:j	()Lcom/yelp/android/database/e;
+    //   189: astore_3
+    //   190: iconst_3
+    //   191: anewarray 236	java/lang/String
+    //   194: astore_2
+    //   195: aload_2
+    //   196: iconst_0
+    //   197: aload_0
+    //   198: ldc -19
+    //   200: invokevirtual 241	com/yelp/android/ui/ActivityMonocle:getString	(I)Ljava/lang/String;
+    //   203: aastore
+    //   204: aload_2
+    //   205: iconst_1
+    //   206: aload_0
+    //   207: ldc -14
+    //   209: invokevirtual 241	com/yelp/android/ui/ActivityMonocle:getString	(I)Ljava/lang/String;
+    //   212: aastore
+    //   213: aload_2
+    //   214: iconst_2
+    //   215: aload_0
+    //   216: ldc -13
+    //   218: invokevirtual 241	com/yelp/android/ui/ActivityMonocle:getString	(I)Ljava/lang/String;
+    //   221: aastore
+    //   222: aload_3
+    //   223: ldc -11
+    //   225: invokevirtual 250	com/yelp/android/database/e:a	(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
+    //   228: astore_1
+    //   229: aload_2
+    //   230: iconst_0
+    //   231: aaload
+    //   232: invokestatic 256	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
+    //   235: ifeq +10 -> 245
     //   238: aload_2
-    //   239: iconst_1
-    //   240: aaload
-    //   241: invokestatic 237	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
-    //   244: ifeq +10 -> 254
-    //   247: aload_2
-    //   248: iconst_1
-    //   249: aload_3
-    //   250: invokevirtual 243	com/yelp/android/serializable/Category:getName	()Ljava/lang/String;
-    //   253: aastore
-    //   254: aload_0
-    //   255: new 247	com/yelp/android/ui/e
-    //   258: dup
-    //   259: aload_0
-    //   260: aload_2
-    //   261: iconst_3
-    //   262: anewarray 249	java/lang/Runnable
-    //   265: dup
-    //   266: iconst_0
-    //   267: new 251	com/yelp/android/ui/b
-    //   270: dup
-    //   271: aload_0
-    //   272: aload_0
-    //   273: getfield 43	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/m;
-    //   276: aload_1
-    //   277: invokespecial 254	com/yelp/android/ui/b:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/m;Lcom/yelp/android/serializable/Category;)V
-    //   280: aastore
-    //   281: dup
-    //   282: iconst_1
-    //   283: new 251	com/yelp/android/ui/b
-    //   286: dup
+    //   239: iconst_0
+    //   240: aload_1
+    //   241: invokevirtual 261	com/yelp/android/serializable/Category:a	()Ljava/lang/String;
+    //   244: aastore
+    //   245: aload_3
+    //   246: ldc_w 263
+    //   249: invokevirtual 250	com/yelp/android/database/e:a	(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
+    //   252: astore_3
+    //   253: aload_2
+    //   254: iconst_1
+    //   255: aaload
+    //   256: invokestatic 256	android/text/TextUtils:isEmpty	(Ljava/lang/CharSequence;)Z
+    //   259: ifeq +10 -> 269
+    //   262: aload_2
+    //   263: iconst_1
+    //   264: aload_3
+    //   265: invokevirtual 261	com/yelp/android/serializable/Category:a	()Ljava/lang/String;
+    //   268: aastore
+    //   269: aload_0
+    //   270: new 265	com/yelp/android/ui/a
+    //   273: dup
+    //   274: aload_0
+    //   275: aload_2
+    //   276: iconst_3
+    //   277: anewarray 267	java/lang/Runnable
+    //   280: dup
+    //   281: iconst_0
+    //   282: new 15	com/yelp/android/ui/ActivityMonocle$a
+    //   285: dup
+    //   286: aload_0
     //   287: aload_0
-    //   288: aload_0
-    //   289: getfield 43	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/m;
-    //   292: aload_3
-    //   293: invokespecial 254	com/yelp/android/ui/b:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/m;Lcom/yelp/android/serializable/Category;)V
-    //   296: aastore
-    //   297: dup
-    //   298: iconst_2
-    //   299: new 251	com/yelp/android/ui/b
-    //   302: dup
+    //   288: getfield 54	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/h;
+    //   291: aload_1
+    //   292: invokespecial 270	com/yelp/android/ui/ActivityMonocle$a:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/h;Lcom/yelp/android/serializable/Category;)V
+    //   295: aastore
+    //   296: dup
+    //   297: iconst_1
+    //   298: new 15	com/yelp/android/ui/ActivityMonocle$a
+    //   301: dup
+    //   302: aload_0
     //   303: aload_0
-    //   304: aload_0
-    //   305: getfield 43	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/m;
-    //   308: aconst_null
-    //   309: invokespecial 254	com/yelp/android/ui/b:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/m;Lcom/yelp/android/serializable/Category;)V
-    //   312: aastore
-    //   313: invokespecial 257	com/yelp/android/ui/e:<init>	(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/Runnable;)V
-    //   316: putfield 259	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/e;
+    //   304: getfield 54	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/h;
+    //   307: aload_3
+    //   308: invokespecial 270	com/yelp/android/ui/ActivityMonocle$a:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/h;Lcom/yelp/android/serializable/Category;)V
+    //   311: aastore
+    //   312: dup
+    //   313: iconst_2
+    //   314: new 15	com/yelp/android/ui/ActivityMonocle$a
+    //   317: dup
+    //   318: aload_0
     //   319: aload_0
-    //   320: new 261	android/widget/FrameLayout
-    //   323: dup
-    //   324: aload_0
-    //   325: invokespecial 262	android/widget/FrameLayout:<init>	(Landroid/content/Context;)V
-    //   328: putfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   331: aload_0
-    //   332: aload_0
-    //   333: getfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   336: invokevirtual 268	com/yelp/android/ui/ActivityMonocle:setContentView	(Landroid/view/View;)V
+    //   320: getfield 54	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/h;
+    //   323: aconst_null
+    //   324: invokespecial 270	com/yelp/android/ui/ActivityMonocle$a:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/h;Lcom/yelp/android/serializable/Category;)V
+    //   327: aastore
+    //   328: invokespecial 273	com/yelp/android/ui/a:<init>	(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/Runnable;)V
+    //   331: putfield 275	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/a;
+    //   334: aload_0
+    //   335: new 277	android/widget/FrameLayout
+    //   338: dup
     //   339: aload_0
-    //   340: new 270	android/widget/ImageView
-    //   343: dup
-    //   344: aload_0
-    //   345: invokespecial 271	android/widget/ImageView:<init>	(Landroid/content/Context;)V
-    //   348: putfield 273	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
-    //   351: aload_0
-    //   352: getfield 273	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
-    //   355: ldc_w 274
-    //   358: invokevirtual 277	android/widget/ImageView:setImageResource	(I)V
-    //   361: aload_0
-    //   362: getfield 273	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
-    //   365: iconst_1
-    //   366: invokevirtual 280	android/widget/ImageView:setAdjustViewBounds	(Z)V
-    //   369: new 282	android/widget/FrameLayout$LayoutParams
-    //   372: dup
-    //   373: bipush -2
-    //   375: bipush -2
-    //   377: invokespecial 284	android/widget/FrameLayout$LayoutParams:<init>	(II)V
-    //   380: astore_2
-    //   381: aload_2
-    //   382: bipush 85
-    //   384: putfield 287	android/widget/FrameLayout$LayoutParams:gravity	I
-    //   387: aload_2
-    //   388: bipush 12
-    //   390: putfield 290	android/widget/FrameLayout$LayoutParams:rightMargin	I
-    //   393: aload_2
-    //   394: bipush 12
-    //   396: putfield 293	android/widget/FrameLayout$LayoutParams:bottomMargin	I
-    //   399: aload_0
-    //   400: getfield 273	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
-    //   403: aload_2
-    //   404: invokevirtual 297	android/widget/ImageView:setLayoutParams	(Landroid/view/ViewGroup$LayoutParams;)V
-    //   407: aload_0
-    //   408: getfield 273	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
-    //   411: iconst_4
-    //   412: invokevirtual 300	android/widget/ImageView:setVisibility	(I)V
-    //   415: getstatic 306	java/lang/Boolean:TYPE	Ljava/lang/Class;
-    //   418: astore_2
-    //   419: ldc_w 308
-    //   422: ldc_w 310
-    //   425: iconst_1
-    //   426: anewarray 312	java/lang/Class
-    //   429: dup
-    //   430: iconst_0
-    //   431: aload_2
-    //   432: aastore
-    //   433: invokevirtual 316	java/lang/Class:getDeclaredMethod	(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    //   436: pop
-    //   437: aload_0
-    //   438: getfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   441: aload_0
-    //   442: getfield 46	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/o;
+    //   340: invokespecial 278	android/widget/FrameLayout:<init>	(Landroid/content/Context;)V
+    //   343: putfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   346: aload_0
+    //   347: aload_0
+    //   348: getfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   351: invokevirtual 284	com/yelp/android/ui/ActivityMonocle:setContentView	(Landroid/view/View;)V
+    //   354: aload_0
+    //   355: new 286	android/widget/ImageView
+    //   358: dup
+    //   359: aload_0
+    //   360: invokespecial 287	android/widget/ImageView:<init>	(Landroid/content/Context;)V
+    //   363: putfield 289	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
+    //   366: aload_0
+    //   367: getfield 289	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
+    //   370: ldc_w 290
+    //   373: invokevirtual 293	android/widget/ImageView:setImageResource	(I)V
+    //   376: aload_0
+    //   377: getfield 289	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
+    //   380: iconst_1
+    //   381: invokevirtual 296	android/widget/ImageView:setAdjustViewBounds	(Z)V
+    //   384: new 298	android/widget/FrameLayout$LayoutParams
+    //   387: dup
+    //   388: bipush -2
+    //   390: bipush -2
+    //   392: invokespecial 300	android/widget/FrameLayout$LayoutParams:<init>	(II)V
+    //   395: astore_2
+    //   396: aload_2
+    //   397: bipush 85
+    //   399: putfield 303	android/widget/FrameLayout$LayoutParams:gravity	I
+    //   402: aload_2
+    //   403: bipush 12
+    //   405: putfield 306	android/widget/FrameLayout$LayoutParams:rightMargin	I
+    //   408: aload_2
+    //   409: bipush 12
+    //   411: putfield 309	android/widget/FrameLayout$LayoutParams:bottomMargin	I
+    //   414: aload_0
+    //   415: getfield 289	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
+    //   418: aload_2
+    //   419: invokevirtual 313	android/widget/ImageView:setLayoutParams	(Landroid/view/ViewGroup$LayoutParams;)V
+    //   422: aload_0
+    //   423: getfield 289	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
+    //   426: iconst_4
+    //   427: invokevirtual 316	android/widget/ImageView:setVisibility	(I)V
+    //   430: getstatic 322	java/lang/Boolean:TYPE	Ljava/lang/Class;
+    //   433: astore_2
+    //   434: ldc_w 324
+    //   437: ldc_w 326
+    //   440: iconst_1
+    //   441: anewarray 328	java/lang/Class
+    //   444: dup
     //   445: iconst_0
-    //   446: invokevirtual 322	android/view/ViewGroup:addView	(Landroid/view/View;I)V
-    //   449: aload_0
-    //   450: getfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   453: aload_0
-    //   454: getfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
-    //   457: iconst_1
-    //   458: invokevirtual 322	android/view/ViewGroup:addView	(Landroid/view/View;I)V
-    //   461: new 282	android/widget/FrameLayout$LayoutParams
-    //   464: dup
-    //   465: iconst_m1
-    //   466: bipush -2
-    //   468: invokespecial 284	android/widget/FrameLayout$LayoutParams:<init>	(II)V
-    //   471: astore_2
-    //   472: aload_2
-    //   473: bipush 80
-    //   475: putfield 287	android/widget/FrameLayout$LayoutParams:gravity	I
-    //   478: aload_0
-    //   479: getfield 259	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/e;
-    //   482: aload_2
-    //   483: invokevirtual 323	com/yelp/android/ui/e:setLayoutParams	(Landroid/view/ViewGroup$LayoutParams;)V
-    //   486: aload_0
-    //   487: getfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   490: aload_0
-    //   491: getfield 259	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/e;
-    //   494: iconst_2
-    //   495: invokevirtual 322	android/view/ViewGroup:addView	(Landroid/view/View;I)V
-    //   498: aload_0
-    //   499: getfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   502: aload_0
-    //   503: getfield 273	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
-    //   506: iconst_3
-    //   507: invokevirtual 322	android/view/ViewGroup:addView	(Landroid/view/View;I)V
-    //   510: bipush 8
-    //   512: invokestatic 328	com/yelp/android/appdata/n:a	(I)Z
-    //   515: ifeq +186 -> 701
-    //   518: aload_0
-    //   519: new 330	com/yelp/android/ui/f
-    //   522: dup
-    //   523: aload_0
-    //   524: aload_0
-    //   525: ldc_w 332
-    //   528: invokevirtual 336	com/yelp/android/ui/ActivityMonocle:getSystemService	(Ljava/lang/String;)Ljava/lang/Object;
-    //   531: checkcast 338	android/hardware/SensorManager
-    //   534: invokespecial 341	com/yelp/android/ui/f:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
-    //   537: putfield 343	com/yelp/android/ui/ActivityMonocle:h	Lcom/yelp/android/ui/q;
-    //   540: new 345	com/yelp/android/ui/dialogs/bn
-    //   543: dup
-    //   544: aload_0
-    //   545: invokespecial 346	com/yelp/android/ui/dialogs/bn:<init>	(Landroid/content/Context;)V
-    //   548: putstatic 348	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
-    //   551: getstatic 348	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
-    //   554: new 350	com/yelp/android/ui/c
-    //   557: dup
-    //   558: aload_0
-    //   559: invokespecial 353	com/yelp/android/ui/c:<init>	(Lcom/yelp/android/ui/ActivityMonocle;)V
-    //   562: invokevirtual 359	android/app/Dialog:setOnCancelListener	(Landroid/content/DialogInterface$OnCancelListener;)V
-    //   565: getstatic 348	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
-    //   568: iconst_1
-    //   569: invokevirtual 362	android/app/Dialog:setCancelable	(Z)V
-    //   572: getstatic 348	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
-    //   575: invokevirtual 365	android/app/Dialog:show	()V
-    //   578: aload_0
-    //   579: iconst_2
-    //   580: putfield 367	com/yelp/android/ui/ActivityMonocle:d	I
-    //   583: aload_0
-    //   584: getfield 259	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/e;
-    //   587: aload_0
-    //   588: getfield 367	com/yelp/android/ui/ActivityMonocle:d	I
-    //   591: invokevirtual 369	com/yelp/android/ui/e:a	(I)V
+    //   446: aload_2
+    //   447: aastore
+    //   448: invokevirtual 332	java/lang/Class:getDeclaredMethod	(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    //   451: pop
+    //   452: aload_0
+    //   453: getfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   456: aload_0
+    //   457: getfield 57	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/j;
+    //   460: iconst_0
+    //   461: invokevirtual 338	android/view/ViewGroup:addView	(Landroid/view/View;I)V
+    //   464: aload_0
+    //   465: getfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   468: aload_0
+    //   469: getfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   472: iconst_1
+    //   473: invokevirtual 338	android/view/ViewGroup:addView	(Landroid/view/View;I)V
+    //   476: new 298	android/widget/FrameLayout$LayoutParams
+    //   479: dup
+    //   480: iconst_m1
+    //   481: bipush -2
+    //   483: invokespecial 300	android/widget/FrameLayout$LayoutParams:<init>	(II)V
+    //   486: astore_2
+    //   487: aload_2
+    //   488: bipush 80
+    //   490: putfield 303	android/widget/FrameLayout$LayoutParams:gravity	I
+    //   493: aload_0
+    //   494: getfield 275	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/a;
+    //   497: aload_2
+    //   498: invokevirtual 339	com/yelp/android/ui/a:setLayoutParams	(Landroid/view/ViewGroup$LayoutParams;)V
+    //   501: aload_0
+    //   502: getfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   505: aload_0
+    //   506: getfield 275	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/a;
+    //   509: iconst_2
+    //   510: invokevirtual 338	android/view/ViewGroup:addView	(Landroid/view/View;I)V
+    //   513: aload_0
+    //   514: getfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   517: aload_0
+    //   518: getfield 289	com/yelp/android/ui/ActivityMonocle:c	Landroid/widget/ImageView;
+    //   521: iconst_3
+    //   522: invokevirtual 338	android/view/ViewGroup:addView	(Landroid/view/View;I)V
+    //   525: aload_0
+    //   526: new 341	com/yelp/android/ui/b
+    //   529: dup
+    //   530: aload_0
+    //   531: aload_0
+    //   532: ldc_w 343
+    //   535: invokevirtual 347	com/yelp/android/ui/ActivityMonocle:getSystemService	(Ljava/lang/String;)Ljava/lang/Object;
+    //   538: checkcast 349	android/hardware/SensorManager
+    //   541: invokespecial 352	com/yelp/android/ui/b:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
+    //   544: putfield 354	com/yelp/android/ui/ActivityMonocle:h	Lcom/yelp/android/ui/l;
+    //   547: new 356	com/yelp/android/ui/dialogs/e
+    //   550: dup
+    //   551: aload_0
+    //   552: invokespecial 357	com/yelp/android/ui/dialogs/e:<init>	(Landroid/content/Context;)V
+    //   555: putstatic 359	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
+    //   558: getstatic 359	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
+    //   561: new 10	com/yelp/android/ui/ActivityMonocle$2
+    //   564: dup
+    //   565: aload_0
+    //   566: invokespecial 362	com/yelp/android/ui/ActivityMonocle$2:<init>	(Lcom/yelp/android/ui/ActivityMonocle;)V
+    //   569: invokevirtual 368	android/app/Dialog:setOnCancelListener	(Landroid/content/DialogInterface$OnCancelListener;)V
+    //   572: getstatic 359	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
+    //   575: iconst_1
+    //   576: invokevirtual 371	android/app/Dialog:setCancelable	(Z)V
+    //   579: getstatic 359	com/yelp/android/ui/ActivityMonocle:a	Landroid/app/Dialog;
+    //   582: invokevirtual 374	android/app/Dialog:show	()V
+    //   585: aload_0
+    //   586: iconst_2
+    //   587: putfield 376	com/yelp/android/ui/ActivityMonocle:d	I
+    //   590: aload_0
+    //   591: getfield 275	com/yelp/android/ui/ActivityMonocle:b	Lcom/yelp/android/ui/a;
     //   594: aload_0
-    //   595: getfield 43	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/m;
-    //   598: aload_1
-    //   599: invokevirtual 372	com/yelp/android/ui/m:a	(Lcom/yelp/android/serializable/Category;)V
-    //   602: aload_0
-    //   603: getfield 43	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/m;
-    //   606: invokevirtual 138	com/yelp/android/ui/m:b	()V
-    //   609: return
-    //   610: astore_1
-    //   611: aload_0
-    //   612: aconst_null
-    //   613: putfield 153	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
-    //   616: new 374	android/app/AlertDialog$Builder
-    //   619: dup
-    //   620: aload_0
-    //   621: invokespecial 375	android/app/AlertDialog$Builder:<init>	(Landroid/content/Context;)V
-    //   624: astore_1
-    //   625: aload_1
-    //   626: ldc_w 376
-    //   629: invokevirtual 380	android/app/AlertDialog$Builder:setMessage	(I)Landroid/app/AlertDialog$Builder;
-    //   632: ldc_w 381
-    //   635: new 383	com/yelp/android/ui/a
-    //   638: dup
-    //   639: aload_0
-    //   640: invokespecial 384	com/yelp/android/ui/a:<init>	(Lcom/yelp/android/ui/ActivityMonocle;)V
-    //   643: invokevirtual 388	android/app/AlertDialog$Builder:setPositiveButton	(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-    //   646: pop
-    //   647: aload_1
-    //   648: invokevirtual 392	android/app/AlertDialog$Builder:create	()Landroid/app/AlertDialog;
-    //   651: invokevirtual 395	android/app/AlertDialog:show	()V
-    //   654: ldc_w 397
-    //   657: ldc_w 399
-    //   660: invokestatic 401	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;)I
-    //   663: pop
-    //   664: return
-    //   665: astore_2
-    //   666: aload_2
-    //   667: invokestatic 407	com/yelp/android/util/YelpLog:error	(Ljava/lang/Exception;)V
-    //   670: goto -209 -> 461
-    //   673: astore_2
-    //   674: aload_0
-    //   675: getfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   678: aload_0
-    //   679: getfield 179	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
-    //   682: iconst_0
-    //   683: invokevirtual 322	android/view/ViewGroup:addView	(Landroid/view/View;I)V
-    //   686: aload_0
-    //   687: getfield 264	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
-    //   690: aload_0
-    //   691: getfield 46	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/o;
-    //   694: iconst_1
-    //   695: invokevirtual 322	android/view/ViewGroup:addView	(Landroid/view/View;I)V
-    //   698: goto -237 -> 461
-    //   701: aload_0
-    //   702: new 409	com/yelp/android/ui/q
-    //   705: dup
-    //   706: aload_0
-    //   707: aload_0
-    //   708: ldc_w 332
-    //   711: invokevirtual 336	com/yelp/android/ui/ActivityMonocle:getSystemService	(Ljava/lang/String;)Ljava/lang/Object;
-    //   714: checkcast 338	android/hardware/SensorManager
-    //   717: invokespecial 410	com/yelp/android/ui/q:<init>	(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
-    //   720: putfield 343	com/yelp/android/ui/ActivityMonocle:h	Lcom/yelp/android/ui/q;
-    //   723: goto -183 -> 540
+    //   595: getfield 376	com/yelp/android/ui/ActivityMonocle:d	I
+    //   598: invokevirtual 378	com/yelp/android/ui/a:a	(I)V
+    //   601: aload_0
+    //   602: getfield 54	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/h;
+    //   605: aload_1
+    //   606: invokevirtual 381	com/yelp/android/ui/h:a	(Lcom/yelp/android/serializable/Category;)V
+    //   609: aload_0
+    //   610: getfield 54	com/yelp/android/ui/ActivityMonocle:j	Lcom/yelp/android/ui/h;
+    //   613: invokevirtual 136	com/yelp/android/ui/h:b	()V
+    //   616: return
+    //   617: astore_1
+    //   618: aload_0
+    //   619: aconst_null
+    //   620: putfield 172	com/yelp/android/ui/ActivityMonocle:i	Lcom/yelp/android/ui/MonocleEngine;
+    //   623: new 383	android/app/AlertDialog$Builder
+    //   626: dup
+    //   627: aload_0
+    //   628: invokespecial 384	android/app/AlertDialog$Builder:<init>	(Landroid/content/Context;)V
+    //   631: astore_1
+    //   632: aload_1
+    //   633: ldc_w 385
+    //   636: invokevirtual 389	android/app/AlertDialog$Builder:setMessage	(I)Landroid/app/AlertDialog$Builder;
+    //   639: ldc_w 390
+    //   642: new 8	com/yelp/android/ui/ActivityMonocle$1
+    //   645: dup
+    //   646: aload_0
+    //   647: invokespecial 391	com/yelp/android/ui/ActivityMonocle$1:<init>	(Lcom/yelp/android/ui/ActivityMonocle;)V
+    //   650: invokevirtual 395	android/app/AlertDialog$Builder:setPositiveButton	(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    //   653: pop
+    //   654: aload_1
+    //   655: invokevirtual 399	android/app/AlertDialog$Builder:create	()Landroid/app/AlertDialog;
+    //   658: invokevirtual 402	android/app/AlertDialog:show	()V
+    //   661: ldc_w 404
+    //   664: ldc_w 406
+    //   667: invokestatic 408	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;)I
+    //   670: pop
+    //   671: return
+    //   672: astore_2
+    //   673: aload_2
+    //   674: invokestatic 414	com/yelp/android/util/YelpLog:remoteError	(Ljava/lang/Throwable;)V
+    //   677: goto -201 -> 476
+    //   680: astore_2
+    //   681: aload_0
+    //   682: getfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   685: aload_0
+    //   686: getfield 198	com/yelp/android/ui/ActivityMonocle:f	Landroid/opengl/GLSurfaceView;
+    //   689: iconst_0
+    //   690: invokevirtual 338	android/view/ViewGroup:addView	(Landroid/view/View;I)V
+    //   693: aload_0
+    //   694: getfield 280	com/yelp/android/ui/ActivityMonocle:g	Landroid/view/ViewGroup;
+    //   697: aload_0
+    //   698: getfield 57	com/yelp/android/ui/ActivityMonocle:e	Lcom/yelp/android/ui/j;
+    //   701: iconst_1
+    //   702: invokevirtual 338	android/view/ViewGroup:addView	(Landroid/view/View;I)V
+    //   705: goto -229 -> 476
     // Local variable table:
     //   start	length	slot	name	signature
-    //   0	726	0	this	ActivityMonocle
-    //   0	726	1	paramBundle	android.os.Bundle
-    //   180	303	2	localObject1	Object
-    //   665	2	2	localSecurityException	SecurityException
-    //   673	1	2	localNoSuchMethodException	NoSuchMethodException
-    //   175	118	3	localObject2	Object
+    //   0	708	0	this	ActivityMonocle
+    //   0	708	1	paramBundle	android.os.Bundle
+    //   194	304	2	localObject1	Object
+    //   672	2	2	localSecurityException	SecurityException
+    //   680	1	2	localNoSuchMethodException	NoSuchMethodException
+    //   189	119	3	localObject2	Object
     // Exception table:
     //   from	to	target	type
-    //   5	23	610	java/lang/UnsatisfiedLinkError
-    //   419	461	665	java/lang/SecurityException
-    //   419	461	673	java/lang/NoSuchMethodException
+    //   23	41	617	java/lang/UnsatisfiedLinkError
+    //   434	476	672	java/lang/SecurityException
+    //   434	476	680	java/lang/NoSuchMethodException
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
@@ -523,6 +524,87 @@ public class ActivityMonocle
       c();
       h.b();
       f.onResume();
+    }
+  }
+  
+  static abstract interface MonocleButton
+  {
+    public abstract void a();
+  }
+  
+  class a
+    implements Runnable
+  {
+    private final h b;
+    private final Category c;
+    
+    public a(h paramh, Category paramCategory)
+    {
+      b = paramh;
+      c = paramCategory;
+    }
+    
+    public void run()
+    {
+      b.a(c);
+      b.b();
+    }
+  }
+  
+  private class b
+    extends AsyncTask<Void, Void, Camera>
+  {
+    private b() {}
+    
+    protected Camera a(Void... paramVarArgs)
+    {
+      try
+      {
+        paramVarArgs = Camera.open();
+        return paramVarArgs;
+      }
+      catch (RuntimeException paramVarArgs)
+      {
+        Log.e("Monocle", "runtime exception while trying to normally acquire camera", paramVarArgs);
+      }
+      return null;
+    }
+    
+    protected void a(Camera paramCamera)
+    {
+      int i = 0;
+      StringBuilder localStringBuilder = new StringBuilder().append("We successfully acquired a camera? ");
+      boolean bool;
+      if (paramCamera != null)
+      {
+        bool = true;
+        Log.i("Monocle", bool);
+        if (paramCamera != null) {
+          break label95;
+        }
+        i = 1;
+      }
+      for (;;)
+      {
+        if (i != 0)
+        {
+          if (ActivityMonocle.c(ActivityMonocle.this) != null)
+          {
+            ActivityMonocle.c(ActivityMonocle.this).release();
+            ActivityMonocle.a(ActivityMonocle.this, null);
+          }
+          as.a(2131166163, 1);
+          finish();
+        }
+        return;
+        bool = false;
+        break;
+        label95:
+        ActivityMonocle.a(ActivityMonocle.this, paramCamera);
+        if (!ActivityMonocle.b(ActivityMonocle.this).a(paramCamera)) {
+          i = 1;
+        }
+      }
     }
   }
 }

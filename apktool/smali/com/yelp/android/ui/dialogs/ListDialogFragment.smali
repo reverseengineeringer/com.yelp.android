@@ -3,8 +3,16 @@
 .source "ListDialogFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/dialogs/ListDialogFragment$a;
+    }
+.end annotation
+
+
 # instance fields
-.field protected a:Lcom/yelp/android/ui/dialogs/as;
+.field protected a:Lcom/yelp/android/ui/dialogs/ListDialogFragment$a;
 
 .field private b:I
 
@@ -29,7 +37,7 @@
     .line 20
     invoke-direct {p0}, Landroid/support/v4/app/DialogFragment;-><init>()V
 
-    .line 75
+    .line 92
     return-void
 .end method
 
@@ -55,10 +63,10 @@
     .end annotation
 
     .prologue
-    .line 40
+    .line 43
     iput p1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->b:I
 
-    .line 41
+    .line 44
     new-instance v0, Ljava/util/HashMap;
 
     invoke-interface {p2}, Ljava/util/List;->size()I
@@ -69,7 +77,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->c:Ljava/util/Map;
 
-    .line 42
+    .line 45
     invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -87,7 +95,7 @@
 
     check-cast v0, Landroid/util/Pair;
 
-    .line 43
+    .line 46
     iget-object v2, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->c:Ljava/util/Map;
 
     iget-object v3, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
@@ -98,33 +106,33 @@
 
     goto :goto_0
 
-    .line 46
+    .line 49
     :cond_0
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 47
+    .line 50
     iget-object v1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->c:Ljava/util/Map;
 
-    invoke-static {v1}, Lcom/yelp/android/ui/util/m;->a(Ljava/util/Map;)Landroid/os/Bundle;
+    invoke-static {v1}, Lcom/yelp/android/ui/util/i;->a(Ljava/util/Map;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 48
+    .line 51
     const-string/jumbo v2, "data"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    .line 49
+    .line 52
     const-string/jumbo v1, "title"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 51
+    .line 54
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 53
+    .line 56
     return-object p0
 .end method
 
@@ -142,20 +150,20 @@
     .end annotation
 
     .prologue
-    .line 68
+    .line 78
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->c:Ljava/util/Map;
 
     return-object v0
 .end method
 
-.method public a(Lcom/yelp/android/ui/dialogs/as;)V
+.method public a(Lcom/yelp/android/ui/dialogs/ListDialogFragment$a;)V
     .locals 0
 
     .prologue
-    .line 82
-    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->a:Lcom/yelp/android/ui/dialogs/as;
+    .line 98
+    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->a:Lcom/yelp/android/ui/dialogs/ListDialogFragment$a;
 
-    .line 83
+    .line 99
     return-void
 .end method
 
@@ -163,10 +171,10 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 59
+    .line 62
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -175,26 +183,83 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 60
+    .line 63
+    if-eqz p1, :cond_0
+
+    .line 64
+    const-string/jumbo v1, "saved_title"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->b:I
+
+    .line 65
+    const-string/jumbo v1, "saved_data"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-class v2, Landroid/os/Parcelable;
+
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/i;->a(Landroid/os/Bundle;Ljava/lang/Class;)Ljava/util/Map;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->c:Ljava/util/Map;
+
+    .line 70
+    :cond_0
     iget v1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->b:I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    .line 61
+    .line 71
     iget v1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->b:I
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    .line 63
-    :cond_0
+    .line 73
+    :cond_1
     invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->a(Landroid/os/Bundle;Landroid/app/AlertDialog$Builder;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    .line 64
+    .line 74
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+
+    .prologue
+    .line 83
+    invoke-super {p0, p1}, Landroid/support/v4/app/DialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    .line 84
+    const-string/jumbo v0, "saved_title"
+
+    iget v1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->b:I
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    .line 85
+    const-string/jumbo v0, "saved_data"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->c:Ljava/util/Map;
+
+    invoke-static {v1}, Lcom/yelp/android/ui/util/i;->a(Ljava/util/Map;)Landroid/os/Bundle;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    .line 86
+    return-void
 .end method

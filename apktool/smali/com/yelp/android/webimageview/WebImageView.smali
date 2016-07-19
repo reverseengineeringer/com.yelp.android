@@ -3,6 +3,15 @@
 .source "WebImageView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/webimageview/WebImageView$ImageLoadedCallback;,
+        Lcom/yelp/android/webimageview/WebImageView$WebImageLoaderHandler;
+    }
+.end annotation
+
+
 # static fields
 .field public static final ACTION_INVALID_BUNDLE_URL:Ljava/lang/String; = "com.yelp.android.webimageview.intent.invalid_bundle_url"
 

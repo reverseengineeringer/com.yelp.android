@@ -12,11 +12,21 @@ import com.brightcove.player.event.Component;
 import com.brightcove.player.event.Emits;
 import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
+import com.brightcove.player.event.EventListener;
 import com.brightcove.player.event.ListensFor;
+import com.brightcove.player.media.HttpService;
 import com.brightcove.player.model.Video;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 @Emits(events={"didSetAnalyticsBaseParams", "error"})
 @ListensFor(events={"addAnalyticsBaseParams", "completed", "didSeekTo", "didSetVideo", "progress", "readyToPlay", "setAnalyticsBaseParams"})
@@ -80,12 +90,97 @@ public class Analytics
   
   private void initializeEvents(EventEmitter paramEventEmitter)
   {
-    paramEventEmitter.on("addAnalyticsBaseParams", new Analytics.1(this));
-    paramEventEmitter.on("setAnalyticsBaseParams", new Analytics.2(this));
-    paramEventEmitter.on("didSetVideo", new Analytics.3(this));
-    paramEventEmitter.on("didSeekTo", new Analytics.4(this));
-    paramEventEmitter.on("progress", new Analytics.5(this));
-    paramEventEmitter.on("completed", new Analytics.6(this));
+    paramEventEmitter.on("addAnalyticsBaseParams", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        paramAnonymousEvent = (Map)properties.get("baseParams");
+        if (paramAnonymousEvent != null) {
+          baseParams.putAll(paramAnonymousEvent);
+        }
+        Analytics.this.emitDidSetEvent();
+      }
+    });
+    paramEventEmitter.on("setAnalyticsBaseParams", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        paramAnonymousEvent = (Map)properties.get("baseParams");
+        if (paramAnonymousEvent != null)
+        {
+          baseParams.clear();
+          baseParams.putAll(paramAnonymousEvent);
+        }
+        Analytics.this.emitDidSetEvent();
+      }
+    });
+    paramEventEmitter.on("didSetVideo", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        if (endTime - startTime > 0) {
+          Analytics.this.sendVideoEngagementRequest(paramAnonymousEvent, startTime, endTime);
+        }
+        Analytics.this.sendVideoAnalyticsRequest(paramAnonymousEvent, "video_impression", null);
+        Analytics.access$302(Analytics.this, Analytics.access$202(Analytics.this, 0));
+        Analytics.access$602(Analytics.this, false);
+      }
+    });
+    paramEventEmitter.on("didSeekTo", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        int i = paramAnonymousEvent.getIntegerProperty("seekPosition");
+        if ((i <= 0) || (i - endTime <= 1000)) {
+          return;
+        }
+        Analytics.this.sendVideoEngagementRequest(paramAnonymousEvent, startTime, endTime);
+        Analytics.access$302(Analytics.this, Analytics.access$202(Analytics.this, i));
+      }
+    });
+    paramEventEmitter.on("progress", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        Video localVideo = (Video)properties.get("video");
+        int i = paramAnonymousEvent.getIntegerProperty("playheadPosition");
+        if (i >= 0)
+        {
+          if (Math.abs(endTime - i) <= 5000) {
+            break label83;
+          }
+          Analytics.this.sendVideoEngagementRequest(paramAnonymousEvent, startTime, endTime);
+          Analytics.access$302(Analytics.this, Analytics.access$202(Analytics.this, i));
+        }
+        label83:
+        do
+        {
+          return;
+          Analytics.access$202(Analytics.this, i);
+          if ((!hasStarted) && (localVideo != null) && (endTime != 0))
+          {
+            Analytics.this.sendVideoAnalyticsRequest(paramAnonymousEvent, "video_view", null);
+            Analytics.access$602(Analytics.this, true);
+          }
+        } while (endTime - startTime < 10000);
+        Analytics.this.sendVideoEngagementRequest(paramAnonymousEvent, startTime, endTime);
+        Analytics.access$302(Analytics.this, endTime);
+      }
+    });
+    paramEventEmitter.on("completed", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        int i = paramAnonymousEvent.getIntegerProperty("playheadPosition");
+        if (i >= 0)
+        {
+          Analytics.access$202(Analytics.this, i);
+          Analytics.this.sendVideoEngagementRequest(paramAnonymousEvent, startTime, endTime);
+          Analytics.access$302(Analytics.this, endTime);
+          Analytics.this.sendVideoAnalyticsRequest(paramAnonymousEvent, "video_complete", null);
+        }
+      }
+    });
   }
   
   private void sendVideoAnalyticsRequest(Event paramEvent, String paramString, Map<String, String> paramMap)
@@ -187,7 +282,7 @@ public class Analytics
     localHashMap.put("embed", playerName);
     localHashMap.put("player_name", playerName);
     localHashMap.put("destination", destination);
-    paramEvent = new Analytics.HttpAsyncTask(this);
+    paramEvent = new HttpAsyncTask();
     paramString = new HashMap[1];
     paramString[0] = localHashMap;
     if (Build.VERSION.SDK_INT >= 14) {
@@ -197,6 +292,84 @@ public class Analytics
     {
       return localHashMap;
       paramEvent.execute(paramString);
+    }
+  }
+  
+  public static class Fields
+  {
+    public static final String BASE_PARAMS = "baseParams";
+    protected static final String DESTINATION = "destination";
+    protected static final String DEVICE_OS = "device_os";
+    protected static final String DEVICE_OS_VERSION = "device_os_version";
+    protected static final String DEVICE_TYPE = "device_type";
+    protected static final String DOMAIN = "domain";
+    protected static final String EMBED = "embed";
+    protected static final String EVENT = "event";
+    protected static final String EVENT_VIDEO_COMPLETE = "video_complete";
+    protected static final String EVENT_VIDEO_ENGAGEMENT = "video_engagement";
+    protected static final String EVENT_VIDEO_IMPRESSION = "video_impression";
+    protected static final String EVENT_VIDEO_VIEW = "video_view";
+    protected static final String PLAYER_NAME = "player_name";
+    protected static final String PUBLISHER_ID = "account";
+    protected static final String RANGE = "range";
+    protected static final String TIME = "time";
+    protected static final String VIDEO_DURATION = "video_duration";
+    protected static final String VIDEO_ID = "video";
+    protected static final String VIDEO_NAME = "video_name";
+  }
+  
+  class HttpAsyncTask
+    extends AsyncTask<Map<String, String>, Integer, Void>
+  {
+    HttpService httpService = new HttpService(60, 60);
+    
+    public HttpAsyncTask() {}
+    
+    @SafeVarargs
+    protected final Void doInBackground(Map<String, String>... paramVarArgs)
+    {
+      Object localObject = paramVarArgs[0];
+      paramVarArgs = new HashMap();
+      localObject = ((Map)localObject).entrySet().iterator();
+      while (((Iterator)localObject).hasNext())
+      {
+        Map.Entry localEntry = (Map.Entry)((Iterator)localObject).next();
+        paramVarArgs.put(localEntry.getKey(), localEntry.getValue());
+      }
+      try
+      {
+        paramVarArgs = HttpService.buildURIWithQueryParameters("http://metrics.brightcove.com/tracker", paramVarArgs);
+        httpService.doGetRequest(paramVarArgs);
+        return null;
+      }
+      catch (MalformedURLException paramVarArgs)
+      {
+        for (;;)
+        {
+          eventEmitter.emit("error", Collections.singletonMap("error", paramVarArgs));
+        }
+      }
+      catch (UnsupportedEncodingException paramVarArgs)
+      {
+        for (;;)
+        {
+          eventEmitter.emit("error", Collections.singletonMap("error", paramVarArgs));
+        }
+      }
+      catch (URISyntaxException paramVarArgs)
+      {
+        for (;;)
+        {
+          eventEmitter.emit("error", Collections.singletonMap("error", paramVarArgs));
+        }
+      }
+      catch (IOException paramVarArgs)
+      {
+        for (;;)
+        {
+          eventEmitter.emit("error", Collections.singletonMap("error", paramVarArgs));
+        }
+      }
     }
   }
 }

@@ -1,16 +1,39 @@
 package com.yelp.android.d;
 
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.drawable.Drawable;
+
 class d
-  implements b
 {
-  public String a(String paramString)
+  public static Drawable a(Drawable paramDrawable)
   {
-    return e.a(paramString);
+    Object localObject = paramDrawable;
+    if (!(paramDrawable instanceof j)) {
+      localObject = new j(paramDrawable);
+    }
+    return (Drawable)localObject;
   }
   
-  public String b(String paramString)
+  public static void a(Drawable paramDrawable, int paramInt)
   {
-    return e.b(paramString);
+    if ((paramDrawable instanceof i)) {
+      ((i)paramDrawable).setTint(paramInt);
+    }
+  }
+  
+  public static void a(Drawable paramDrawable, ColorStateList paramColorStateList)
+  {
+    if ((paramDrawable instanceof i)) {
+      ((i)paramDrawable).setTintList(paramColorStateList);
+    }
+  }
+  
+  public static void a(Drawable paramDrawable, PorterDuff.Mode paramMode)
+  {
+    if ((paramDrawable instanceof i)) {
+      ((i)paramDrawable).setTintMode(paramMode);
+    }
   }
 }
 

@@ -2,21 +2,22 @@ package android.support.v4.widget;
 
 import android.content.res.Resources;
 import android.os.SystemClock;
-import android.support.v4.view.ba;
-import android.support.v4.view.ce;
+import android.support.v4.view.ai;
+import android.support.v4.view.t;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
 public abstract class a
   implements View.OnTouchListener
 {
   private static final int r = ;
-  private final c a = new c();
+  private final a a = new a();
   private final Interpolator b = new AccelerateInterpolator();
   private final View c;
   private Runnable d;
@@ -87,9 +88,9 @@ public abstract class a
   
   private boolean a()
   {
-    c localc = a;
-    int i1 = localc.f();
-    int i2 = localc.e();
+    a locala = a;
+    int i1 = locala.f();
+    int i2 = locala.e();
     return ((i1 != 0) && (f(i1))) || ((i2 != 0) && (e(i2)));
   }
   
@@ -118,12 +119,12 @@ public abstract class a
   private void b()
   {
     if (d == null) {
-      d = new d(this, null);
+      d = new b(null);
     }
     o = true;
     m = true;
     if ((!l) && (h > 0)) {
-      ce.a(c, d, h);
+      ai.a(c, d, h);
     }
     for (;;)
     {
@@ -256,7 +257,7 @@ public abstract class a
     if (!p) {
       return false;
     }
-    switch (ba.a(paramMotionEvent))
+    switch (t.a(paramMotionEvent))
     {
     default: 
       if ((!q) || (!o)) {
@@ -279,6 +280,146 @@ public abstract class a
       c();
       break;
       bool = false;
+    }
+  }
+  
+  private static class a
+  {
+    private int a;
+    private int b;
+    private float c;
+    private float d;
+    private long e = Long.MIN_VALUE;
+    private long f = 0L;
+    private int g = 0;
+    private int h = 0;
+    private long i = -1L;
+    private float j;
+    private int k;
+    
+    private float a(float paramFloat)
+    {
+      return -4.0F * paramFloat * paramFloat + 4.0F * paramFloat;
+    }
+    
+    private float a(long paramLong)
+    {
+      if (paramLong < e) {
+        return 0.0F;
+      }
+      if ((i < 0L) || (paramLong < i)) {
+        return a.a((float)(paramLong - e) / a, 0.0F, 1.0F) * 0.5F;
+      }
+      long l = i;
+      float f1 = j;
+      float f2 = j;
+      return a.a((float)(paramLong - l) / k, 0.0F, 1.0F) * f2 + (1.0F - f1);
+    }
+    
+    public void a()
+    {
+      e = AnimationUtils.currentAnimationTimeMillis();
+      i = -1L;
+      f = e;
+      j = 0.5F;
+      g = 0;
+      h = 0;
+    }
+    
+    public void a(float paramFloat1, float paramFloat2)
+    {
+      c = paramFloat1;
+      d = paramFloat2;
+    }
+    
+    public void a(int paramInt)
+    {
+      a = paramInt;
+    }
+    
+    public void b()
+    {
+      long l = AnimationUtils.currentAnimationTimeMillis();
+      k = a.a((int)(l - e), 0, b);
+      j = a(l);
+      i = l;
+    }
+    
+    public void b(int paramInt)
+    {
+      b = paramInt;
+    }
+    
+    public boolean c()
+    {
+      return (i > 0L) && (AnimationUtils.currentAnimationTimeMillis() > i + k);
+    }
+    
+    public void d()
+    {
+      if (f == 0L) {
+        throw new RuntimeException("Cannot compute scroll delta before calling start()");
+      }
+      long l1 = AnimationUtils.currentAnimationTimeMillis();
+      float f1 = a(a(l1));
+      long l2 = l1 - f;
+      f = l1;
+      g = ((int)((float)l2 * f1 * c));
+      h = ((int)((float)l2 * f1 * d));
+    }
+    
+    public int e()
+    {
+      return (int)(c / Math.abs(c));
+    }
+    
+    public int f()
+    {
+      return (int)(d / Math.abs(d));
+    }
+    
+    public int g()
+    {
+      return g;
+    }
+    
+    public int h()
+    {
+      return h;
+    }
+  }
+  
+  private class b
+    implements Runnable
+  {
+    private b() {}
+    
+    public void run()
+    {
+      if (!a.a(a.this)) {
+        return;
+      }
+      if (a.b(a.this))
+      {
+        a.a(a.this, false);
+        a.c(a.this).a();
+      }
+      a.a locala = a.c(a.this);
+      if ((locala.c()) || (!a.d(a.this)))
+      {
+        a.b(a.this, false);
+        return;
+      }
+      if (a.e(a.this))
+      {
+        a.c(a.this, false);
+        a.f(a.this);
+      }
+      locala.d();
+      int i = locala.g();
+      int j = locala.h();
+      a(i, j);
+      ai.a(a.g(a.this), this);
     }
   }
 }

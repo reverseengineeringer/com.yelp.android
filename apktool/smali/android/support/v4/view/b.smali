@@ -1,128 +1,132 @@
 .class Landroid/support/v4/view/b;
-.super Landroid/support/v4/view/g;
-.source "AccessibilityDelegateCompat.java"
+.super Ljava/lang/Object;
+.source "AccessibilityDelegateCompatIcs.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/view/b$a;
+    }
+.end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 119
-    invoke-direct {p0}, Landroid/support/v4/view/g;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public a()Ljava/lang/Object;
+.method public static a()Ljava/lang/Object;
     .locals 1
 
     .prologue
-    .line 122
-    invoke-static {}, Landroid/support/v4/view/h;->a()Ljava/lang/Object;
+    .line 42
+    new-instance v0, Landroid/view/View$AccessibilityDelegate;
 
-    move-result-object v0
+    invoke-direct {v0}, Landroid/view/View$AccessibilityDelegate;-><init>()V
 
     return-object v0
 .end method
 
-.method public a(Landroid/support/v4/view/a;)Ljava/lang/Object;
+.method public static a(Landroid/support/v4/view/b$a;)Ljava/lang/Object;
     .locals 1
 
     .prologue
-    .line 127
-    new-instance v0, Landroid/support/v4/view/c;
+    .line 46
+    new-instance v0, Landroid/support/v4/view/b$1;
 
-    invoke-direct {v0, p0, p1}, Landroid/support/v4/view/c;-><init>(Landroid/support/v4/view/b;Landroid/support/v4/view/a;)V
-
-    invoke-static {v0}, Landroid/support/v4/view/h;->a(Landroid/support/v4/view/j;)Ljava/lang/Object;
-
-    move-result-object v0
+    invoke-direct {v0, p0}, Landroid/support/v4/view/b$1;-><init>(Landroid/support/v4/view/b$a;)V
 
     return-object v0
 .end method
 
-.method public a(Ljava/lang/Object;Landroid/view/View;I)V
+.method public static a(Ljava/lang/Object;Landroid/view/View;I)V
     .locals 0
 
     .prologue
-    .line 204
-    invoke-static {p1, p2, p3}, Landroid/support/v4/view/h;->a(Ljava/lang/Object;Landroid/view/View;I)V
+    .line 112
+    check-cast p0, Landroid/view/View$AccessibilityDelegate;
 
-    .line 205
+    invoke-virtual {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->sendAccessibilityEvent(Landroid/view/View;I)V
+
+    .line 113
     return-void
 .end method
 
-.method public a(Ljava/lang/Object;Landroid/view/View;Lcom/yelp/android/f/g;)V
-    .locals 1
+.method public static a(Ljava/lang/Object;Landroid/view/View;Ljava/lang/Object;)V
+    .locals 0
 
     .prologue
-    .line 185
-    invoke-virtual {p3}, Lcom/yelp/android/f/g;->a()Ljava/lang/Object;
+    .line 96
+    check-cast p0, Landroid/view/View$AccessibilityDelegate;
 
-    move-result-object v0
+    check-cast p2, Landroid/view/accessibility/AccessibilityNodeInfo;
 
-    invoke-static {p1, p2, v0}, Landroid/support/v4/view/h;->a(Ljava/lang/Object;Landroid/view/View;Ljava/lang/Object;)V
+    invoke-virtual {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    .line 187
+    .line 98
     return-void
 .end method
 
-.method public a(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+.method public static a(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
 
     .prologue
-    .line 172
-    invoke-static {p1, p2, p3}, Landroid/support/v4/view/h;->a(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+    .line 87
+    check-cast p0, Landroid/view/View$AccessibilityDelegate;
+
+    invoke-virtual {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public a(Ljava/lang/Object;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+.method public static a(Ljava/lang/Object;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
 
     .prologue
-    .line 198
-    invoke-static {p1, p2, p3, p4}, Landroid/support/v4/view/h;->a(Ljava/lang/Object;Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+    .line 107
+    check-cast p0, Landroid/view/View$AccessibilityDelegate;
+
+    invoke-virtual {p0, p1, p2, p3}, Landroid/view/View$AccessibilityDelegate;->onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public b(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+.method public static b(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 0
 
     .prologue
-    .line 179
-    invoke-static {p1, p2, p3}, Landroid/support/v4/view/h;->b(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+    .line 92
+    check-cast p0, Landroid/view/View$AccessibilityDelegate;
 
-    .line 180
+    invoke-virtual {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+
+    .line 93
     return-void
 .end method
 
-.method public c(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+.method public static c(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 0
 
     .prologue
-    .line 192
-    invoke-static {p1, p2, p3}, Landroid/support/v4/view/h;->c(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+    .line 102
+    check-cast p0, Landroid/view/View$AccessibilityDelegate;
 
-    .line 193
+    invoke-virtual {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+
+    .line 103
     return-void
 .end method
 
-.method public d(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+.method public static d(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 0
 
     .prologue
-    .line 210
-    invoke-static {p1, p2, p3}, Landroid/support/v4/view/h;->d(Ljava/lang/Object;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+    .line 117
+    check-cast p0, Landroid/view/View$AccessibilityDelegate;
 
-    .line 211
+    invoke-virtual {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+
+    .line 118
     return-void
 .end method

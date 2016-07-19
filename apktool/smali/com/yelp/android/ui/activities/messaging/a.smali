@@ -7,17 +7,17 @@
 .method public abstract a(Lcom/yelp/android/serializable/Conversation;)V
 .end method
 
-.method public abstract a(Lcom/yelp/android/serializable/bg;)V
+.method public abstract a(Lcom/yelp/android/serializable/e;)V
+.end method
+
+.method public abstract b()V
 .end method
 
 .method public abstract b(Lcom/yelp/android/serializable/Conversation;)V
 .end method
 
-.method public abstract c()V
+.method public abstract c()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 .end method
 
 .method public abstract c(Lcom/yelp/android/serializable/Conversation;)V
-.end method
-
-.method public abstract d()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 .end method

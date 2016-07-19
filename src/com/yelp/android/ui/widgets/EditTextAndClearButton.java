@@ -31,18 +31,18 @@ public class EditTextAndClearButton
   public void a(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     a = new ImageView(paramContext, paramAttributeSet, paramInt);
-    a.setId(2131492965);
+    a.setId(2131689610);
     a.setVisibility(8);
     b = new EditText(paramContext, paramAttributeSet);
-    b.setId(2131493322);
+    b.setId(2131689978);
     paramContext = new RelativeLayout.LayoutParams(-2, -2);
     paramContext.addRule(11);
     paramAttributeSet = getResources();
-    paramInt = (int)paramAttributeSet.getDimension(2131427498);
-    int i = (int)paramAttributeSet.getDimension(2131427498);
-    int j = (int)paramAttributeSet.getDimension(2131427501);
+    paramInt = (int)paramAttributeSet.getDimension(2131362072);
+    int i = (int)paramAttributeSet.getDimension(2131362072);
+    int j = (int)paramAttributeSet.getDimension(2131362075);
     a.setPadding(0, paramInt, j, i);
-    a.setImageDrawable(paramAttributeSet.getDrawable(2130838348));
+    a.setImageDrawable(paramAttributeSet.getDrawable(2130838683));
     paramAttributeSet = new RelativeLayout.LayoutParams(-1, -1);
     paramAttributeSet.addRule(9);
     paramAttributeSet.addRule(0, a.getId());
@@ -51,8 +51,8 @@ public class EditTextAndClearButton
     b.setPadding(0, 0, 0, 0);
     addView(b, paramAttributeSet);
     addView(a, paramContext);
-    b.addTextChangedListener(new g(this));
-    a.setOnClickListener(new h(this));
+    b.addTextChangedListener(new EditTextAndClearButton.1(this));
+    a.setOnClickListener(new EditTextAndClearButton.2(this));
   }
   
   public void a(TextWatcher paramTextWatcher)
@@ -63,6 +63,11 @@ public class EditTextAndClearButton
   public EditText getEditText()
   {
     return b;
+  }
+  
+  public ImageView getImageView()
+  {
+    return a;
   }
   
   public Editable getText()

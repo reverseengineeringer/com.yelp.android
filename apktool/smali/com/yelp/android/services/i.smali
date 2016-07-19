@@ -1,587 +1,1341 @@
-.class Lcom/yelp/android/services/i;
-.super Lcom/yelp/android/appdata/webrequests/ep;
-.source "PhotoUploadService.java"
+.class public Lcom/yelp/android/services/i;
+.super Ljava/lang/Object;
+.source "YelpWebStrings.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/yelp/android/appdata/webrequests/ep",
-        "<",
-        "Ljava/lang/Float;",
-        "Ljava/lang/Object;",
-        ">;"
-    }
-.end annotation
+# static fields
+.field static a:Ljava/lang/String;
 
+.field static b:Ljava/lang/String;
 
-# instance fields
-.field private final a:Landroid/content/Context;
+.field static c:Ljava/lang/String;
 
-.field private final b:I
+.field static d:Lcom/yelp/android/debug/d;
 
-.field private final c:Landroid/content/Intent;
+.field static e:Lcom/yelp/android/debug/Debug$ApiEndpoint;
 
-.field private final d:Landroid/app/NotificationManager;
+.field private static final f:Ljava/lang/String;
 
-.field private final e:Landroid/graphics/Bitmap;
+.field private static final g:Ljava/lang/String;
+
+.field private static final h:Ljava/lang/String;
+
+.field private static final i:Ljava/lang/String;
+
+.field private static final j:Ljava/lang/String;
+
+.field private static final k:Ljava/lang/String;
+
+.field private static final l:Ljava/lang/String;
+
+.field private static final m:Ljava/lang/String;
+
+.field private static final n:Ljava/lang/String;
+
+.field private static final o:Ljava/lang/String;
+
+.field private static final p:Ljava/lang/String;
+
+.field private static final q:Ljava/lang/String;
+
+.field private static final r:Ljava/lang/String;
+
+.field private static final s:Ljava/lang/String;
+
+.field private static final t:Ljava/lang/String;
+
+.field private static final u:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;ILandroid/content/Intent;Landroid/graphics/Bitmap;)V
+.method static constructor <clinit>()V
+    .locals 6
+
+    .prologue
+    const/16 v5, 0x2c
+
+    const/16 v4, 0x24
+
+    const/16 v3, 0x1c
+
+    const/16 v2, 0x20
+
+    const/16 v1, 0x18
+
+    .line 17
+    new-array v0, v2, [C
+
+    fill-array-data v0, :array_0
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->f:Ljava/lang/String;
+
+    .line 24
+    new-array v0, v4, [C
+
+    fill-array-data v0, :array_1
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->g:Ljava/lang/String;
+
+    .line 31
+    new-array v0, v2, [C
+
+    fill-array-data v0, :array_2
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->h:Ljava/lang/String;
+
+    .line 38
+    new-array v0, v4, [C
+
+    fill-array-data v0, :array_3
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->i:Ljava/lang/String;
+
+    .line 46
+    new-array v0, v3, [C
+
+    fill-array-data v0, :array_4
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->j:Ljava/lang/String;
+
+    .line 52
+    new-array v0, v2, [C
+
+    fill-array-data v0, :array_5
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->k:Ljava/lang/String;
+
+    .line 60
+    const/16 v0, 0xc
+
+    new-array v0, v0, [C
+
+    fill-array-data v0, :array_6
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->l:Ljava/lang/String;
+
+    .line 63
+    new-array v0, v5, [C
+
+    fill-array-data v0, :array_7
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->m:Ljava/lang/String;
+
+    .line 71
+    new-array v0, v1, [C
+
+    fill-array-data v0, :array_8
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->n:Ljava/lang/String;
+
+    .line 78
+    new-array v0, v1, [C
+
+    fill-array-data v0, :array_9
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->o:Ljava/lang/String;
+
+    .line 85
+    new-array v0, v1, [C
+
+    fill-array-data v0, :array_a
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->p:Ljava/lang/String;
+
+    .line 92
+    const/16 v0, 0x10
+
+    new-array v0, v0, [C
+
+    fill-array-data v0, :array_b
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->q:Ljava/lang/String;
+
+    .line 99
+    new-array v0, v5, [C
+
+    fill-array-data v0, :array_c
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->r:Ljava/lang/String;
+
+    .line 107
+    new-array v0, v3, [C
+
+    fill-array-data v0, :array_d
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->s:Ljava/lang/String;
+
+    .line 113
+    const/16 v0, 0x58
+
+    new-array v0, v0, [C
+
+    fill-array-data v0, :array_e
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->t:Ljava/lang/String;
+
+    .line 124
+    new-array v0, v1, [C
+
+    fill-array-data v0, :array_f
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->u:Ljava/lang/String;
+
+    .line 136
+    new-instance v0, Lcom/yelp/android/debug/d;
+
+    const-string/jumbo v1, "yelp.com"
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/debug/d;-><init>(Ljava/lang/String;)V
+
+    sget-object v1, Lcom/yelp/android/debug/Debug$ApiEndpoint;->AUTO_API:Lcom/yelp/android/debug/Debug$ApiEndpoint;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/services/i;->a(Lcom/yelp/android/debug/d;Lcom/yelp/android/debug/Debug$ApiEndpoint;)V
+
+    .line 137
+    return-void
+
+    .line 17
+    :array_0
+    .array-data 2
+        0x3ds
+        0x3ds
+        0x77s
+        0x64s
+        0x58s
+        0x56s
+        0x7as
+        0x52s
+        0x4bs
+        0x6cs
+        0x6es
+        0x4ds
+        0x7as
+        0x67s
+        0x6es
+        0x59s
+        0x54s
+        0x4es
+        0x58s
+        0x61s
+        0x72s
+        0x78s
+        0x32s
+        0x51s
+        0x76s
+        0x39s
+        0x32s
+        0x56s
+        0x35s
+        0x4es
+        0x54s
+        0x57s
+    .end array-data
+
+    .line 24
+    :array_1
+    .array-data 2
+        0x3ds
+        0x3ds
+        0x67s
+        0x4es
+        0x4fs
+        0x78s
+        0x6ds
+        0x57s
+        0x4bs
+        0x46s
+        0x55s
+        0x49s
+        0x75s
+        0x56s
+        0x44s
+        0x51s
+        0x39s
+        0x55s
+        0x33s
+        0x4fs
+        0x54s
+        0x5as
+        0x6cs
+        0x4ds
+        0x38s
+        0x73s
+        0x69s
+        0x4cs
+        0x71s
+        0x56s
+        0x32s
+        0x51s
+        0x73s
+        0x5as
+        0x6bs
+        0x54s
+    .end array-data
+
+    .line 31
+    :array_2
+    .array-data 2
+        0x3ds
+        0x3ds
+        0x77s
+        0x64s
+        0x6bs
+        0x31s
+        0x79s
+        0x62s
+        0x58s
+        0x64s
+        0x56s
+        0x56s
+        0x51s
+        0x68s
+        0x48s
+        0x53s
+        0x44s
+        0x31s
+        0x6ds
+        0x65s
+        0x79s
+        0x45s
+        0x47s
+        0x54s
+        0x69s
+        0x4as
+        0x6cs
+        0x4ds
+        0x74s
+        0x46s
+        0x7as
+        0x55s
+    .end array-data
+
+    .line 38
+    :array_3
+    .array-data 2
+        0x3ds
+        0x3ds
+        0x77s
+        0x4es
+        0x6as
+        0x56s
+        0x53s
+        0x4bs
+        0x6ds
+        0x64s
+        0x32s
+        0x4fs
+        0x70s
+        0x63s
+        0x6as
+        0x53s
+        0x54s
+        0x5as
+        0x57s
+        0x4ds
+        0x6bs
+        0x73s
+        0x58s
+        0x56s
+        0x4as
+        0x31s
+        0x79s
+        0x49s
+        0x46s
+        0x46s
+        0x32s
+        0x49s
+        0x73s
+        0x67s
+        0x47s
+        0x56s
+    .end array-data
+
+    .line 46
+    :array_4
+    .array-data 2
+        0x74s
+        0x39s
+        0x32s
+        0x59s
+        0x75s
+        0x77s
+        0x57s
+        0x61s
+        0x68s
+        0x31s
+        0x32s
+        0x5as
+        0x41s
+        0x52s
+        0x57s
+        0x61s
+        0x76s
+        0x4as
+        0x48s
+        0x5as
+        0x75s
+        0x46s
+        0x47s
+        0x63s
+        0x73s
+        0x56s
+        0x57s
+        0x65s
+    .end array-data
+
+    .line 52
+    :array_5
+    .array-data 2
+        0x74s
+        0x39s
+        0x32s
+        0x59s
+        0x75s
+        0x77s
+        0x57s
+        0x61s
+        0x68s
+        0x31s
+        0x32s
+        0x5as
+        0x41s
+        0x5as
+        0x58s
+        0x5as
+        0x6bs
+        0x52s
+        0x57s
+        0x61s
+        0x76s
+        0x4as
+        0x48s
+        0x5as
+        0x75s
+        0x46s
+        0x47s
+        0x63s
+        0x73s
+        0x56s
+        0x57s
+        0x65s
+    .end array-data
+
+    .line 60
+    :array_6
+    .array-data 2
+        0x3ds
+        0x3ds
+        0x51s
+        0x4ds
+        0x78s
+        0x55s
+        0x44s
+        0x4ds
+        0x7as
+        0x45s
+        0x7as
+        0x4es
+    .end array-data
+
+    .line 63
+    :array_7
+    .array-data 2
+        0x3ds
+        0x41s
+        0x44s
+        0x4ds
+        0x35s
+        0x45s
+        0x32s
+        0x4es
+        0x68s
+        0x5as
+        0x32s
+        0x4es
+        0x6bs
+        0x5as
+        0x7as
+        0x4es
+        0x6as
+        0x5as
+        0x32s
+        0x4ds
+        0x6as
+        0x64s
+        0x54s
+        0x59s
+        0x78s
+        0x4ds
+        0x44s
+        0x4ds
+        0x30s
+        0x49s
+        0x32s
+        0x59s
+        0x31s
+        0x59s
+        0x54s
+        0x4es
+        0x31s
+        0x51s
+        0x7as
+        0x4ds
+        0x79s
+        0x59s
+        0x47s
+        0x5as
+    .end array-data
+
+    .line 71
+    :array_8
+    .array-data 2
+        0x3ds
+        0x49s
+        0x6as
+        0x4es
+        0x78s
+        0x67s
+        0x7as
+        0x4ds
+        0x78s
+        0x45s
+        0x6as
+        0x4es
+        0x78s
+        0x45s
+        0x54s
+        0x4ds
+        0x79s
+        0x4ds
+        0x54s
+        0x4es
+        0x78s
+        0x41s
+        0x54s
+        0x4ds
+    .end array-data
+
+    .line 78
+    :array_9
+    .array-data 2
+        0x3ds
+        0x49s
+        0x6as
+        0x4es
+        0x78s
+        0x4ds
+        0x54s
+        0x4ds
+        0x35s
+        0x59s
+        0x6as
+        0x4ds
+        0x30s
+        0x4ds
+        0x6as
+        0x4ds
+        0x78s
+        0x4ds
+        0x54s
+        0x4es
+        0x78s
+        0x41s
+        0x54s
+        0x4ds
+    .end array-data
+
+    .line 85
+    :array_a
+    .array-data 2
+        0x3ds
+        0x49s
+        0x6as
+        0x4es
+        0x78s
+        0x4ds
+        0x54s
+        0x4fs
+        0x31s
+        0x45s
+        0x44s
+        0x4ds
+        0x35s
+        0x41s
+        0x6as
+        0x4ds
+        0x78s
+        0x4ds
+        0x54s
+        0x4es
+        0x78s
+        0x41s
+        0x54s
+        0x4ds
+    .end array-data
+
+    .line 92
+    :array_b
+    .array-data 2
+        0x3ds
+        0x45s
+        0x6as
+        0x4es
+        0x78s
+        0x4ds
+        0x54s
+        0x4es
+        0x33s
+        0x51s
+        0x7as
+        0x4ds
+        0x31s
+        0x63s
+        0x54s
+        0x4fs
+    .end array-data
+
+    .line 99
+    :array_c
+    .array-data 2
+        0x3ds
+        0x4ds
+        0x32s
+        0x59s
+        0x79s
+        0x6bs
+        0x7as
+        0x59s
+        0x69s
+        0x68s
+        0x54s
+        0x4ds
+        0x33s
+        0x49s
+        0x6ds
+        0x5as
+        0x32s
+        0x45s
+        0x57s
+        0x4es
+        0x6ds
+        0x46s
+        0x6ds
+        0x4ds
+        0x77s
+        0x59s
+        0x54s
+        0x4fs
+        0x32s
+        0x51s
+        0x44s
+        0x5as
+        0x33s
+        0x49s
+        0x32s
+        0x4ds
+        0x35s
+        0x55s
+        0x7as
+        0x59s
+        0x79s
+        0x59s
+        0x32s
+        0x4ds
+    .end array-data
+
+    .line 107
+    :array_d
+    .array-data 2
+        0x3ds
+        0x6fs
+        0x58s
+        0x61s
+        0x69s
+        0x35s
+        0x43s
+        0x5as
+        0x70s
+        0x39s
+        0x6ds
+        0x63s
+        0x6bs
+        0x35s
+        0x57s
+        0x59s
+        0x75s
+        0x41s
+        0x48s
+        0x62s
+        0x6cs
+        0x6cs
+        0x6es
+        0x4cs
+        0x74s
+        0x39s
+        0x32s
+        0x59s
+    .end array-data
+
+    .line 113
+    :array_e
+    .array-data 2
+        0x3ds
+        0x3ds
+        0x41s
+        0x5as
+        0x31s
+        0x63s
+        0x54s
+        0x59s
+        0x32s
+        0x59s
+        0x7as
+        0x59s
+        0x6as
+        0x4as
+        0x7as
+        0x59s
+        0x6cs
+        0x42s
+        0x54s
+        0x4fs
+        0x32s
+        0x67s
+        0x6as
+        0x5as
+        0x33s
+        0x45s
+        0x57s
+        0x59s
+        0x68s
+        0x4es
+        0x6as
+        0x59s
+        0x6cs
+        0x56s
+        0x57s
+        0x5as
+        0x34s
+        0x67s
+        0x54s
+        0x4es
+        0x6as
+        0x5as
+        0x57s
+        0x4ds
+        0x6cs
+        0x5as
+        0x54s
+        0x4ds
+        0x35s
+        0x45s
+        0x7as
+        0x59s
+        0x78s
+        0x63s
+        0x44s
+        0x4es
+        0x33s
+        0x55s
+        0x7as
+        0x4ds
+        0x79s
+        0x41s
+        0x6as
+        0x5as
+        0x77s
+        0x6bs
+        0x54s
+        0x4es
+        0x6as
+        0x4es
+        0x6ds
+        0x4es
+        0x34s
+        0x59s
+        0x54s
+        0x59s
+        0x78s
+        0x49s
+        0x6ds
+        0x4es
+        0x31s
+        0x67s
+        0x54s
+        0x4es
+        0x30s
+        0x55s
+        0x54s
+        0x5as
+    .end array-data
+
+    .line 124
+    :array_f
+    .array-data 2
+        0x3ds
+        0x3ds
+        0x41s
+        0x5as
+        0x70s
+        0x39s
+        0x6ds
+        0x63s
+        0x6bs
+        0x35s
+        0x57s
+        0x59s
+        0x75s
+        0x41s
+        0x48s
+        0x62s
+        0x6cs
+        0x6cs
+        0x6es
+        0x4cs
+        0x74s
+        0x39s
+        0x32s
+        0x59s
+    .end array-data
+.end method
+
+.method public static a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 236
-    invoke-direct {p0}, Lcom/yelp/android/appdata/webrequests/ep;-><init>()V
+    .line 180
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
 
-    .line 237
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->c()Z
 
-    move-result-object v0
+    move-result v0
 
-    iput-object v0, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
+    if-eqz v0, :cond_0
 
-    .line 238
-    iput p2, p0, Lcom/yelp/android/services/i;->b:I
+    .line 181
+    const-string/jumbo v0, "=IGM4ADNxQGN4ATN2IGN2MjZiVmY1czMiJGN1MDMjhjZ"
 
-    .line 239
-    iput-object p3, p0, Lcom/yelp/android/services/i;->c:Landroid/content/Intent;
-
-    .line 240
-    const-string/jumbo v0, "notification"
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Landroid/app/NotificationManager;
-
-    iput-object v0, p0, Lcom/yelp/android/services/i;->d:Landroid/app/NotificationManager;
-
-    .line 242
-    iput-object p4, p0, Lcom/yelp/android/services/i;->e:Landroid/graphics/Bitmap;
-
-    .line 243
-    return-void
-.end method
-
-.method private a(Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;Lcom/yelp/android/appdata/webrequests/YelpException;)Landroid/app/Notification;
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase",
-            "<*>;",
-            "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ")",
-            "Landroid/app/Notification;"
-        }
-    .end annotation
-
-    .prologue
-    const/16 v10, 0x64
-
-    const/4 v9, 0x1
-
-    const v8, 0x7f070251
-
-    const/high16 v7, 0x40000000    # 2.0f
-
-    const/4 v6, 0x0
-
-    .line 268
-    new-instance v0, Landroid/support/v4/app/NotificationCompat$Builder;
-
-    iget-object v1, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;-><init>(Landroid/content/Context;)V
-
-    .line 270
-    new-instance v1, Landroid/content/Intent;
-
-    iget-object v2, p0, Lcom/yelp/android/services/i;->c:Landroid/content/Intent;
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
-
-    .line 271
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;->getFile()Ljava/io/File;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    .line 272
-    const-string/jumbo v2, "entity_id"
-
-    iget v3, p0, Lcom/yelp/android/services/i;->b:I
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 273
-    iget-object v2, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-static {v2, v6, v1, v7}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    .line 275
-    const v2, 0x7f020257
-
-    iget-object v3, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    const v4, 0x7f070620
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v2, v3, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->addAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 278
-    new-instance v1, Landroid/content/Intent;
-
-    iget-object v2, p0, Lcom/yelp/android/services/i;->c:Landroid/content/Intent;
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
-
-    .line 279
-    const-string/jumbo v2, "entity_id"
-
-    iget v3, p0, Lcom/yelp/android/services/i;->b:I
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 280
-    const-string/jumbo v2, "android.intent.action.DELETE"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 281
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;->getFile()Ljava/io/File;
-
-    move-result-object v2
-
-    .line 282
-    invoke-virtual {v2}, Ljava/io/File;->getAbsoluteFile()Ljava/io/File;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    .line 283
-    iget-object v3, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-static {v3, v6, v1, v7}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    .line 285
-    const v3, 0x7f0202c4
-
-    iget-object v4, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    const v5, 0x7f070110
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v3, v4, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->addAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 287
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    invoke-virtual {v0, v4, v5}, Landroid/support/v4/app/NotificationCompat$Builder;->setWhen(J)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 288
-    const/high16 v3, -0x10000
-
-    invoke-virtual {v0, v3, v10, v10}, Landroid/support/v4/app/NotificationCompat$Builder;->setLights(III)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 289
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setDeleteIntent(Landroid/app/PendingIntent;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 291
-    invoke-virtual {v0, v9}, Landroid/support/v4/app/NotificationCompat$Builder;->setAutoCancel(Z)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 292
-    const v1, 0x108004b
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setSmallIcon(I)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 293
-    iget-object v1, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;->getFile()Ljava/io/File;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/yelp/android/services/i;->c:Landroid/content/Intent;
-
-    invoke-static {v1, v3, v4}, Lcom/yelp/android/ui/activities/camera/RetryPhoto;->a(Landroid/content/Context;Ljava/io/File;Landroid/content/Intent;)Landroid/content/Intent;
-
-    move-result-object v1
-
-    .line 294
-    invoke-virtual {v2}, Ljava/io/File;->getAbsoluteFile()Ljava/io/File;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    .line 295
-    iget-object v2, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-static {v2, v6, v1, v7}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v1
-
-    .line 297
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 298
-    iget-object v1, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-virtual {v1, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setTicker(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 299
-    iget-object v1, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-virtual {p2, v1}, Lcom/yelp/android/appdata/webrequests/YelpException;->getMessage(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setContentText(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 300
-    iget-object v1, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-virtual {v1, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setContentTitle(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 302
-    :try_start_0
-    iget-object v1, p0, Lcom/yelp/android/services/i;->e:Landroid/graphics/Bitmap;
-
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v3}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    .line 303
-    new-instance v2, Landroid/graphics/Canvas;
-
-    invoke-direct {v2, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    .line 304
-    new-instance v3, Landroid/graphics/Matrix;
-
-    invoke-direct {v3}, Landroid/graphics/Matrix;-><init>()V
-
-    .line 305
-    new-instance v4, Landroid/graphics/Paint;
-
-    invoke-direct {v4}, Landroid/graphics/Paint;-><init>()V
-
-    .line 306
-    new-instance v5, Landroid/graphics/ColorMatrix;
-
-    invoke-direct {v5}, Landroid/graphics/ColorMatrix;-><init>()V
-
-    .line 307
-    const/4 v6, 0x0
-
-    invoke-virtual {v5, v6}, Landroid/graphics/ColorMatrix;->setSaturation(F)V
-
-    .line 308
-    new-instance v6, Landroid/graphics/ColorMatrixColorFilter;
-
-    invoke-direct {v6, v5}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
-
-    .line 309
-    invoke-virtual {v4, v6}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
-
-    .line 310
-    invoke-virtual {v2, v1, v3, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Matrix;Landroid/graphics/Paint;)V
-
-    .line 311
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/NotificationCompat$Builder;->setLargeIcon(Landroid/graphics/Bitmap;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    .line 312
-    new-instance v2, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;
-
-    invoke-direct {v2, v0}, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;-><init>(Landroid/support/v4/app/NotificationCompat$Builder;)V
-
-    invoke-virtual {v2, v1}, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->bigPicture(Landroid/graphics/Bitmap;)Landroid/support/v4/app/NotificationCompat$BigPictureStyle;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f020078
-
-    invoke-static {v2, v3}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/support/v4/app/NotificationCompat$BigPictureStyle;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    const v3, 0x7f070251
-
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->setBigContentTitle(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$BigPictureStyle;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    invoke-virtual {p2, v2}, Lcom/yelp/android/appdata/webrequests/YelpException;->getMessage(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->setSummaryText(Ljava/lang/CharSequence;)Landroid/support/v4/app/NotificationCompat$BigPictureStyle;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->build()Landroid/app/Notification;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    .line 319
+    .line 186
     :goto_0
     return-object v0
 
-    .line 318
-    :catch_0
-    move-exception v1
+    .line 183
+    :cond_0
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
 
-    .line 319
-    invoke-virtual {v0}, Landroid/support/v4/app/NotificationCompat$Builder;->build()Landroid/app/Notification;
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 184
+    const-string/jumbo v0, "=kzN1QmZmZ2MhdzNlVmMkZzNkFDZzIDM1E2NlRjN1QTN"
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 186
+    :cond_1
+    const-string/jumbo v0, "=Q2N1cTN2EWZ0QWZjhzMhN2NkR2NmhzMjNWZkZ2Y3QWN"
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method private a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+.method public static a(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;)V"
-        }
-    .end annotation
 
     .prologue
-    .line 254
-    instance-of v0, p1, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;
+    .line 228
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->c()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 255
-    check-cast p1, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;
+    .line 229
+    sget v0, Lcom/yelp/android/co/a$j;->mobile_host:I
 
-    .line 256
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;->getFile()Ljava/io/File;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+    .line 231
+    :goto_0
+    return-object v0
 
-    .line 258
     :cond_0
-    return-void
-.end method
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
 
-
-# virtual methods
-.method public a(Ljava/lang/Float;)V
-    .locals 4
-
-    .prologue
-    .line 262
-    iget-object v0, p0, Lcom/yelp/android/services/i;->a:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/yelp/android/services/i;->c:Landroid/content/Intent;
-
-    iget-object v2, p0, Lcom/yelp/android/services/i;->e:Landroid/graphics/Bitmap;
-
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
-
-    move-result v3
-
-    invoke-static {v0, v1, v2, v3}, Lcom/yelp/android/services/PhotoUploadService;->a(Landroid/content/Context;Landroid/content/Intent;Landroid/graphics/Bitmap;F)Landroid/app/Notification;
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->b()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 264
-    iget-object v1, p0, Lcom/yelp/android/services/i;->d:Landroid/app/NotificationManager;
-
-    const-string/jumbo v2, "PhotoUploadListener.notification"
-
-    iget v3, p0, Lcom/yelp/android/services/i;->b:I
-
-    invoke-virtual {v1, v2, v3, v0}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
-
-    .line 265
-    return-void
+    goto :goto_0
 .end method
 
-.method public bridge synthetic a(Ljava/lang/Object;)V
-    .locals 0
-
-    .prologue
-    .line 227
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-virtual {p0, p1}, Lcom/yelp/android/services/i;->a(Ljava/lang/Float;)V
-
-    return-void
-.end method
-
-.method public a()Z
+.method public static a(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 325
-    const/4 v0, 0x1
+    .line 235
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
 
-    return v0
+    invoke-virtual {v0, p0}, Lcom/yelp/android/debug/d;->a(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ")V"
-        }
-    .end annotation
+.method public static a(Lcom/yelp/android/debug/d;Lcom/yelp/android/debug/Debug$ApiEndpoint;)V
+    .locals 2
+
+    .prologue
+    .line 152
+    sput-object p0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    .line 153
+    sput-object p1, Lcom/yelp/android/services/i;->e:Lcom/yelp/android/debug/Debug$ApiEndpoint;
+
+    .line 154
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    if-nez v0, :cond_0
+
+    .line 155
+    new-instance v0, Lcom/yelp/android/debug/d;
+
+    const-string/jumbo v1, "yelp.com"
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/debug/d;-><init>(Ljava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    .line 157
+    :cond_0
+    sget-object v0, Lcom/yelp/android/services/i;->e:Lcom/yelp/android/debug/Debug$ApiEndpoint;
+
+    if-nez v0, :cond_1
+
+    .line 158
+    sget-object v0, Lcom/yelp/android/debug/Debug$ApiEndpoint;->AUTO_API:Lcom/yelp/android/debug/Debug$ApiEndpoint;
+
+    sput-object v0, Lcom/yelp/android/services/i;->e:Lcom/yelp/android/debug/Debug$ApiEndpoint;
+
+    .line 160
+    :cond_1
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    sget-object v1, Lcom/yelp/android/services/i;->e:Lcom/yelp/android/debug/Debug$ApiEndpoint;
+
+    iget-object v1, v1, Lcom/yelp/android/debug/Debug$ApiEndpoint;->endpoint:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    invoke-virtual {v1}, Lcom/yelp/android/debug/d;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->a:Ljava/lang/String;
+
+    .line 162
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->c()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 163
+    sget-object v0, Lcom/yelp/android/services/i;->f:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->b:Ljava/lang/String;
+
+    .line 164
+    sget-object v0, Lcom/yelp/android/services/i;->g:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->c:Ljava/lang/String;
+
+    .line 169
+    :goto_0
+    return-void
+
+    .line 166
+    :cond_2
+    sget-object v0, Lcom/yelp/android/services/i;->h:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->b:Ljava/lang/String;
+
+    .line 167
+    sget-object v0, Lcom/yelp/android/services/i;->i:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/services/i;->c:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method public static b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 191
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->c()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 192
+    sget-object v0, Lcom/yelp/android/services/i;->q:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 199
+    :goto_0
+    return-object v0
+
+    .line 194
+    :cond_0
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->d()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 195
+    sget-object v0, Lcom/yelp/android/services/i;->o:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 196
+    :cond_1
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    invoke-virtual {v0}, Lcom/yelp/android/debug/d;->e()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 197
+    sget-object v0, Lcom/yelp/android/services/i;->p:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 199
+    :cond_2
+    sget-object v0, Lcom/yelp/android/services/i;->n:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method protected static b(Ljava/lang/String;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 263
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0, p0}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->reverse()Ljava/lang/StringBuffer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/services/a;->a(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static c()Lcom/yelp/android/debug/d;
+    .locals 1
+
+    .prologue
+    .line 204
+    sget-object v0, Lcom/yelp/android/services/i;->d:Lcom/yelp/android/debug/d;
+
+    return-object v0
+.end method
+
+.method public static d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 212
+    sget-object v0, Lcom/yelp/android/services/i;->l:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static e()Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 216
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "https://sb.scorecardresearch.com/p2?c2="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/yelp/android/services/i;->d()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 220
+    sget-object v0, Lcom/yelp/android/services/i;->m:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static g()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 224
+    sget-object v0, Lcom/yelp/android/services/i;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static h()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 239
+    sget-object v0, Lcom/yelp/android/services/i;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 243
+    sget-object v0, Lcom/yelp/android/services/i;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static j()Ljava/lang/String;
+    .locals 1
 
     .prologue
     .line 247
-    iget-object v0, p0, Lcom/yelp/android/services/i;->d:Landroid/app/NotificationManager;
+    sget-object v0, Lcom/yelp/android/services/i;->r:Ljava/lang/String;
 
-    const-string/jumbo v1, "PhotoUploadListener.notification"
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
 
-    iget v2, p0, Lcom/yelp/android/services/i;->b:I
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
-
-    .line 248
-    iget-object v0, p0, Lcom/yelp/android/services/i;->d:Landroid/app/NotificationManager;
-
-    const-string/jumbo v1, "PhotoUploadListener.notification"
-
-    iget v2, p0, Lcom/yelp/android/services/i;->b:I
-
-    check-cast p1, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;
-
-    invoke-direct {p0, p1, p2}, Lcom/yelp/android/services/i;->a(Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;Lcom/yelp/android/appdata/webrequests/YelpException;)Landroid/app/Notification;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
-
-    .line 250
-    iget-object v0, p0, Lcom/yelp/android/services/i;->e:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 251
-    return-void
+    return-object v0
 .end method
 
-.method public onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Ljava/lang/Object;",
-            ")V"
-        }
-    .end annotation
+.method public static k()Ljava/lang/String;
+    .locals 1
 
     .prologue
-    .line 330
-    iget-object v0, p0, Lcom/yelp/android/services/i;->d:Landroid/app/NotificationManager;
+    .line 251
+    sget-object v0, Lcom/yelp/android/services/i;->s:Ljava/lang/String;
 
-    const-string/jumbo v1, "PhotoUploadListener.notification"
-
-    iget v2, p0, Lcom/yelp/android/services/i;->b:I
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
-
-    .line 331
-    iget-object v0, p0, Lcom/yelp/android/services/i;->e:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 333
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    return-object v0
+.end method
+
+.method public static l()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 255
+    sget-object v0, Lcom/yelp/android/services/i;->u:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->s()Lcom/yelp/android/serializable/User;
+    return-object v0
+.end method
+
+.method public static m()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 259
+    sget-object v0, Lcom/yelp/android/services/i;->t:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/services/i;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 334
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/User;->addPhotoCount(I)V
-
-    .line 335
-    invoke-direct {p0, p1}, Lcom/yelp/android/services/i;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
-
-    .line 336
-    return-void
+    return-object v0
 .end method

@@ -1,59 +1,49 @@
 package com.yelp.android.ac;
 
-import android.graphics.Bitmap;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.bumptech.glide.load.engine.t;
+import android.content.Context;
+import android.net.Uri;
+import com.bumptech.glide.g;
+import com.yelp.android.aa.d;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.aa.q;
+import com.yelp.android.w.j;
+import com.yelp.android.w.k;
+import java.io.InputStream;
 
 public class h
-  implements com.bumptech.glide.load.f<a>
+  extends q<InputStream>
+  implements e<Uri>
 {
-  private final com.bumptech.glide.load.f<Bitmap> a;
-  private final com.bumptech.glide.load.f<com.yelp.android.ab.b> b;
-  
-  public h(e parame, com.bumptech.glide.load.f<Bitmap> paramf)
+  public h(Context paramContext)
   {
-    this(paramf, new com.yelp.android.ab.f(paramf, parame));
+    this(paramContext, g.a(d.class, paramContext));
   }
   
-  h(com.bumptech.glide.load.f<Bitmap> paramf, com.bumptech.glide.load.f<com.yelp.android.ab.b> paramf1)
+  public h(Context paramContext, l<d, InputStream> paraml)
   {
-    a = paramf;
-    b = paramf1;
+    super(paramContext, paraml);
   }
   
-  public t<a> a(t<a> paramt, int paramInt1, int paramInt2)
+  protected com.yelp.android.w.c<InputStream> a(Context paramContext, Uri paramUri)
   {
-    t localt1 = ((a)paramt.b()).b();
-    t localt2 = ((a)paramt.b()).c();
-    Object localObject;
-    if ((localt1 != null) && (a != null))
+    return new k(paramContext, paramUri);
+  }
+  
+  protected com.yelp.android.w.c<InputStream> a(Context paramContext, String paramString)
+  {
+    return new j(paramContext.getApplicationContext().getAssets(), paramString);
+  }
+  
+  public static class a
+    implements m<Uri, InputStream>
+  {
+    public l<Uri, InputStream> a(Context paramContext, com.yelp.android.aa.c paramc)
     {
-      localt2 = a.a(localt1, paramInt1, paramInt2);
-      localObject = paramt;
-      if (!localt1.equals(localt2)) {
-        localObject = new b(new a(localt2, ((a)paramt.b()).c()));
-      }
+      return new h(paramContext, paramc.a(d.class, InputStream.class));
     }
-    do
-    {
-      do
-      {
-        do
-        {
-          return (t<a>)localObject;
-          localObject = paramt;
-        } while (localt2 == null);
-        localObject = paramt;
-      } while (b == null);
-      localt1 = b.a(localt2, paramInt1, paramInt2);
-      localObject = paramt;
-    } while (localt2.equals(localt1));
-    return new b(new a(((a)paramt.b()).b(), localt1));
-  }
-  
-  public String a()
-  {
-    return a.a();
+    
+    public void a() {}
   }
 }
 

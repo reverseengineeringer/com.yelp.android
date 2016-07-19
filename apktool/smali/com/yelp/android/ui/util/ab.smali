@@ -1,599 +1,588 @@
 .class public Lcom/yelp/android/ui/util/ab;
-.super Lcom/yelp/android/ui/util/bh;
-.source "HideToolbarAnimationListener.java"
+.super Ljava/lang/Object;
+.source "MenuUtils.java"
 
 
-# instance fields
-.field private a:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/View;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private b:F
-
-.field private c:Z
-
-.field private d:F
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/util/ab$a;
+    }
+.end annotation
 
 
 # direct methods
-.method public varargs constructor <init>(Landroid/view/View;Landroid/view/View;[Landroid/view/View;)V
-    .locals 2
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusinessReview;)Landroid/view/MenuItem;
+    .locals 5
 
     .prologue
-    .line 33
-    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/util/bh;-><init>(Landroid/view/View;Landroid/view/View;)V
-
-    .line 34
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0b002a
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    .line 35
-    invoke-static {p3}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/util/ab;->a:Ljava/util/List;
-
     .line 36
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessReview;->O()Ljava/lang/String;
 
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/ui/util/ab;->d:F
+    move-result-object v0
 
     .line 37
-    return-void
-.end method
+    const v1, 0x7f02008e
 
-
-# virtual methods
-.method protected a()V
-    .locals 1
-
-    .prologue
-    .line 114
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/util/ab;->c:Z
-
-    .line 115
-    return-void
-.end method
-
-.method protected a(F)V
-    .locals 3
-
-    .prologue
-    .line 103
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    neg-float v1, p1
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
-
-    .line 104
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->a:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p1, v1}, Landroid/view/ContextMenu;->setHeaderIcon(I)Landroid/view/ContextMenu;
 
     move-result-object v1
 
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    .line 38
+    const v2, 0x7f070220
 
-    move-result v0
+    const/4 v3, 0x1
 
-    if-eqz v0, :cond_0
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const/4 v4, 0x0
+
+    aput-object v0, v3, v4
+
+    invoke-static {p0, v2, v3}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;I[Ljava/lang/Object;)Landroid/text/Spanned;
 
     move-result-object v0
 
-    check-cast v0, Landroid/view/View;
+    .line 41
+    invoke-interface {v1, v0}, Landroid/view/ContextMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    .line 105
-    neg-float v2, p1
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setTranslationY(F)V
+    .line 42
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    goto :goto_0
+    move-result-object v0
 
-    .line 107
-    :cond_0
-    return-void
+    invoke-interface {v1, v0}, Landroid/view/MenuItem;->setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    .line 43
+    return-object v1
 .end method
 
-.method public b()V
-    .locals 1
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/BusinessSearchResult;)V
+    .locals 3
 
     .prologue
-    .line 59
-    const/4 v0, 0x0
+    .line 54
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/BusinessSearchResult;->a()Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ab;->a(F)V
+    move-result-object v0
+
+    .line 55
+    const v1, 0x7f07021d
+
+    invoke-interface {p1, v1}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    .line 56
+    const/4 v2, 0x0
+
+    invoke-static {p0, p2, v2}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->a(Landroid/content/Context;Lcom/yelp/android/serializable/BusinessSearchResult;Lcom/yelp/android/appdata/webrequests/SearchRequest;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 59
+    invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/util/ab;->c(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
 
     .line 60
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ab;->d()V
-
-    .line 61
     return-void
 .end method
 
-.method public b(F)V
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/CheckIn;)V
     .locals 2
 
     .prologue
-    .line 71
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
+    .line 154
+    instance-of v0, p2, Lcom/yelp/android/serializable/YelpCheckIn;
 
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
+    if-eqz v0, :cond_0
 
-    move-result v0
+    move-object v0, p2
 
-    iget v1, p0, Lcom/yelp/android/ui/util/ab;->b:F
+    .line 155
+    check-cast v0, Lcom/yelp/android/serializable/YelpCheckIn;
 
-    neg-float v1, v1
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->i()Ljava/lang/String;
 
-    cmpl-float v0, v0, v1
+    move-result-object v0
 
-    if-nez v0, :cond_1
+    invoke-interface {p2}, Lcom/yelp/android/serializable/CheckIn;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, p1, v0, v1}, Lcom/yelp/android/ui/util/ab;->a(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 158
+    :cond_0
+    invoke-interface {p2}, Lcom/yelp/android/serializable/CheckIn;->d()Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v0
+
+    invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/util/ab;->b(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 159
+    return-void
+.end method
+
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/Compliment;Ljava/lang/String;Z)V
+    .locals 7
+
+    .prologue
+    .line 72
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->j()Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->REVIEW:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
+
+    if-ne v0, v1, :cond_0
+
+    .line 73
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->n()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->o()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->p()Ljava/lang/String;
+
+    move-result-object v6
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v3, p3
+
+    move v4, p4
+
+    invoke-static/range {v0 .. v6}, Lcom/yelp/android/ui/util/ab;->a(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V
+
+    .line 81
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->o()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->p()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, p1, v0, v1}, Lcom/yelp/android/ui/util/ab;->b(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;)V
 
     .line 84
     :cond_0
-    :goto_0
-    return-void
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->j()Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
-    .line 75
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->BIZ_PHOTO:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
+
+    if-ne v0, v1, :cond_1
+
+    .line 85
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->o()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Compliment;->p()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, p1, v0, v1}, Lcom/yelp/android/ui/util/ab;->b(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 88
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    iget v1, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    neg-float v1, v1
-
-    cmpl-float v0, v0, v1
-
-    if-lez v0, :cond_2
-
-    .line 76
-    iget v0, p0, Lcom/yelp/android/ui/util/ab;->d:F
-
-    sub-float/2addr v0, p1
-
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ab;->a(F)V
-
-    .line 79
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    iget v1, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    neg-float v1, v1
-
-    cmpg-float v0, v0, v1
-
-    if-gtz v0, :cond_0
-
-    .line 80
-    iget v0, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ab;->a(F)V
-
-    .line 81
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ab;->a()V
-
-    .line 82
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/ui/util/ab;->d:F
-
-    goto :goto_0
-.end method
-
-.method public c()V
-    .locals 1
-
-    .prologue
-    .line 65
-    iget v0, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ab;->a(F)V
-
-    .line 66
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ab;->a()V
-
-    .line 67
     return-void
 .end method
 
-.method public c(F)V
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/User;)V
     .locals 2
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 88
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    cmpl-float v0, v0, v1
-
-    if-nez v0, :cond_1
-
-    .line 100
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 92
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    cmpg-float v0, v0, v1
-
-    if-gez v0, :cond_2
-
-    .line 93
-    iget v0, p0, Lcom/yelp/android/ui/util/ab;->d:F
-
-    neg-float v0, v0
-
-    sub-float/2addr v0, p1
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ab;->a(F)V
-
-    .line 96
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    cmpl-float v0, v0, v1
-
-    if-ltz v0, :cond_0
-
-    .line 97
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/util/ab;->a(F)V
-
-    .line 98
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ab;->d()V
-
-    goto :goto_0
-.end method
-
-.method protected d()V
-    .locals 1
-
-    .prologue
-    .line 110
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/util/ab;->c:Z
-
-    .line 111
-    return-void
-.end method
-
-.method protected e()V
-    .locals 5
-
-    .prologue
-    const/4 v4, 0x1
-
-    .line 118
-    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ab;->c:Z
-
-    if-eqz v0, :cond_0
-
-    .line 140
-    :goto_0
-    return-void
-
-    .line 122
-    :cond_0
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getTranslationY()F
-
-    move-result v2
-
-    neg-float v2, v2
-
-    aput v2, v0, v1
-
-    iget v1, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    aput v1, v0, v4
-
-    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+    .line 63
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v0
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/User;->ad()Ljava/lang/String;
 
-    int-to-long v2, v1
+    move-result-object v1
 
-    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-static {p0, p1, v0, v1}, Lcom/yelp/android/ui/util/ab;->a(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v0
-
-    .line 125
-    new-instance v1, Lcom/yelp/android/ui/util/ac;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/util/ac;-><init>(Lcom/yelp/android/ui/util/ab;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    .line 131
-    new-instance v1, Lcom/yelp/android/ui/util/ad;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/util/ad;-><init>(Lcom/yelp/android/ui/util/ab;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    .line 138
-    iput-boolean v4, p0, Lcom/yelp/android/ui/util/ab;->c:Z
-
-    .line 139
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
-
-    goto :goto_0
-.end method
-
-.method public f()V
-    .locals 5
-
-    .prologue
-    const/4 v4, 0x1
-
-    .line 143
-    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ab;->c:Z
-
-    if-eqz v0, :cond_0
-
-    .line 164
-    :goto_0
-    return-void
-
-    .line 147
-    :cond_0
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getTranslationY()F
-
-    move-result v2
-
-    neg-float v2, v2
-
-    aput v2, v0, v1
-
-    const/4 v1, 0x0
-
-    aput v1, v0, v4
-
-    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
-
-    int-to-long v2, v1
-
-    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    .line 150
-    new-instance v1, Lcom/yelp/android/ui/util/ae;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/util/ae;-><init>(Lcom/yelp/android/ui/util/ab;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    .line 156
-    new-instance v1, Lcom/yelp/android/ui/util/af;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/util/af;-><init>(Lcom/yelp/android/ui/util/ab;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    .line 162
-    iput-boolean v4, p0, Lcom/yelp/android/ui/util/ab;->c:Z
-
-    .line 163
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
-
-    goto :goto_0
-.end method
-
-.method protected g()V
-    .locals 1
-
-    .prologue
-    .line 168
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/ui/util/ab;->d:F
-
-    .line 169
+    .line 64
     return-void
 .end method
 
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 6
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
+    .locals 2
 
     .prologue
-    .line 41
-    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
+    .line 47
+    const v0, 0x7f07021d
 
-    move-result v0
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
 
-    packed-switch v0, :pswitch_data_0
-
-    .line 54
-    :cond_0
-    :goto_0
-    invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/util/bh;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    return v0
-
-    .line 43
-    :pswitch_0
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    neg-float v0, v0
-
-    float-to-double v0, v0
-
-    iget v2, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    float-to-double v2, v2
-
-    const-wide/high16 v4, 0x3ff4000000000000L    # 1.25
-
-    div-double/2addr v2, v4
-
-    cmpl-double v0, v0, v2
-
-    if-lez v0, :cond_1
-
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    neg-float v0, v0
-
-    iget v1, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    cmpl-float v0, v0, v1
-
-    if-eqz v0, :cond_1
-
-    .line 45
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ab;->e()V
-
-    goto :goto_0
-
-    .line 46
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    neg-float v0, v0
-
-    iget v1, p0, Lcom/yelp/android/ui/util/ab;->b:F
-
-    cmpl-float v0, v0, v1
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    cmpl-float v0, v0, v1
-
-    if-eqz v0, :cond_0
+    move-result-object v0
 
     .line 48
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ab;->f()V
+    invoke-static {p0, p2}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->b(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 49
+    invoke-static {p0, p1, p2}, Lcom/yelp/android/ui/util/ab;->c(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 50
+    return-void
+.end method
+
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    .line 92
+    const v0, 0x7f07021f
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p3, v1, v2
+
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;I[Ljava/lang/Object;)Landroid/text/Spanned;
+
+    move-result-object v0
+
+    .line 94
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    .line 95
+    invoke-static {p0, p2}, Lcom/yelp/android/ui/activities/profile/ActivityUserProfile;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 96
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v1, v0}, Landroid/view/MenuItem;->setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    .line 97
+    return-void
+.end method
+
+.method public static a(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    .line 111
+    if-eqz p4, :cond_0
+
+    const v0, 0x7f070221
+
+    :goto_0
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p3, v1, v2
+
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;I[Ljava/lang/Object;)Landroid/text/Spanned;
+
+    move-result-object v0
+
+    .line 118
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    .line 119
+    invoke-static {p0, p2, p5, p6}, Lcom/yelp/android/ui/activities/reviewpage/ActivityReviewPager;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 121
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v1, v0}, Landroid/view/MenuItem;->setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    .line 122
+    return-void
+
+    .line 111
+    :cond_0
+    const v0, 0x7f070220
 
     goto :goto_0
+.end method
 
-    .line 52
-    :pswitch_1
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ab;->o:Landroid/view/View;
+.method public static b(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
+    .locals 4
 
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
+    .prologue
+    .line 140
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/ui/util/ab;->d:F
+    if-eqz v0, :cond_0
+
+    const v0, 0x7f07021d
+
+    .line 144
+    :goto_0
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;I[Ljava/lang/Object;)Landroid/text/Spanned;
+
+    move-result-object v0
+
+    .line 147
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    .line 148
+    invoke-static {p0, p2}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->b(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 149
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v1, v0}, Landroid/view/MenuItem;->setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    .line 150
+    return-void
+
+    .line 140
+    :cond_0
+    const v0, 0x7f07021e
 
     goto :goto_0
+.end method
 
-    .line 41
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+.method public static b(Landroid/content/Context;Landroid/view/ContextMenu;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    .prologue
+    .line 127
+    invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const v0, 0x7f07021d
+
+    .line 131
+    :goto_0
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    aput-object p3, v1, v2
+
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;I[Ljava/lang/Object;)Landroid/text/Spanned;
+
+    move-result-object v0
+
+    .line 133
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    move-result-object v1
+
+    .line 134
+    invoke-static {p0, p2}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->b(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 135
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-interface {v1, v0}, Landroid/view/MenuItem;->setTitleCondensed(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+
+    .line 136
+    return-void
+
+    .line 127
+    :cond_0
+    const v0, 0x7f07021e
+
+    goto :goto_0
+.end method
+
+.method private static c(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
+    .locals 4
+
+    .prologue
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 163
+    const v0, 0x7f0700ef
+
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    .line 164
+    invoke-static {p0, p2}, Lcom/yelp/android/ui/activities/ActivityCheckIn;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+
+    move-result-object v3
+
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 165
+    const v0, 0x7f07011b
+
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    .line 166
+    invoke-static {p0, p2}, Lcom/yelp/android/ui/activities/tips/WriteTip;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+
+    move-result-object v3
+
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 167
+    const v0, 0x7f070664
+
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    .line 168
+    sget-object v3, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->BizListLongPress:Lcom/yelp/android/ui/activities/reviews/ReviewSource;
+
+    invoke-static {p0, p2, v3}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewWrite;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Landroid/content/Intent;
+
+    move-result-object v3
+
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 171
+    const v0, 0x7f070307
+
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
+
+    move-result-object v3
+
+    .line 172
+    new-instance v0, Lcom/yelp/android/ui/util/ab$a;
+
+    invoke-direct {v0, p0, p2}, Lcom/yelp/android/ui/util/ab$a;-><init>(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    invoke-interface {v3, v0}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
+
+    .line 173
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusiness;->j()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    move v0, v1
+
+    :goto_0
+    invoke-interface {v3, v0}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    .line 174
+    const v0, 0x7f07018d
+
+    invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
+
+    move-result-object v0
+
+    .line 175
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusiness;->ao()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/yelp/android/util/k;->a(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v3
+
+    invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
+
+    .line 176
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusiness;->ao()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    :goto_1
+    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
+
+    .line 177
+    return-void
+
+    :cond_0
+    move v0, v2
+
+    .line 173
+    goto :goto_0
+
+    :cond_1
+    move v1, v2
+
+    .line 176
+    goto :goto_1
 .end method

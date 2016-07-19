@@ -1,118 +1,186 @@
 .class public Lcom/google/android/gms/internal/v;
-.super Ljava/lang/Object;
+.super Lcom/google/android/gms/internal/o;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
 # instance fields
-.field private mk:Lcom/google/android/gms/internal/v$a;
+.field private d:Lcom/google/android/gms/internal/db$d;
 
-.field private ml:Z
-
-.field private mm:Z
+.field private e:Z
 
 
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/ads/internal/client/AdSizeParcel;Lcom/google/android/gms/internal/gr;Lcom/google/android/gms/ads/internal/util/client/VersionInfoParcel;Lcom/google/android/gms/internal/w;Lcom/google/android/gms/internal/db;)V
     .locals 3
 
-    const/4 v0, 0x0
+    invoke-direct/range {p0 .. p5}, Lcom/google/android/gms/internal/o;-><init>(Landroid/content/Context;Lcom/google/android/gms/ads/internal/client/AdSizeParcel;Lcom/google/android/gms/internal/gr;Lcom/google/android/gms/ads/internal/util/client/VersionInfoParcel;Lcom/google/android/gms/internal/w;)V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-virtual {p6}, Lcom/google/android/gms/internal/db;->b()Lcom/google/android/gms/internal/db$d;
 
-    invoke-static {}, Lcom/google/android/gms/internal/ga;->bN()Landroid/os/Bundle;
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/v;->d:Lcom/google/android/gms/internal/db$d;
+
+    :try_start_0
+    invoke-interface {p5}, Lcom/google/android/gms/internal/w;->c()Lcom/google/android/gms/internal/w;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/w;->a()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/v;->a(Landroid/view/View;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/v;->d:Lcom/google/android/gms/internal/db$d;
+
+    new-instance v2, Lcom/google/android/gms/internal/v$1;
+
+    invoke-direct {v2, p0, v0}, Lcom/google/android/gms/internal/v$1;-><init>(Lcom/google/android/gms/internal/v;Lorg/json/JSONObject;)V
+
+    new-instance v0, Lcom/google/android/gms/internal/v$2;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/v$2;-><init>(Lcom/google/android/gms/internal/v;)V
+
+    invoke-virtual {v1, v2, v0}, Lcom/google/android/gms/internal/db$d;->a(Lcom/google/android/gms/internal/hu$c;Lcom/google/android/gms/internal/hu$a;)V
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/v;->d:Lcom/google/android/gms/internal/db$d;
+
+    new-instance v1, Lcom/google/android/gms/internal/v$3;
+
+    invoke-direct {v1, p0}, Lcom/google/android/gms/internal/v$3;-><init>(Lcom/google/android/gms/internal/v;)V
+
+    new-instance v2, Lcom/google/android/gms/internal/v$4;
+
+    invoke-direct {v2, p0}, Lcom/google/android/gms/internal/v$4;-><init>(Lcom/google/android/gms/internal/v;)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/db$d;->a(Lcom/google/android/gms/internal/hu$c;Lcom/google/android/gms/internal/hu$a;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Tracking ad unit: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/v;->b:Lcom/google/android/gms/internal/q;
+
+    invoke-virtual {v1}, Lcom/google/android/gms/internal/q;->d()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v2, "gads:block_autoclicks"
+    move-result-object v0
 
-    invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :cond_0
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/v;->mm:Z
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->a(Ljava/lang/String;)V
 
     return-void
-.end method
 
-.method public constructor <init>(Z)V
-    .locals 0
+    :catch_0
+    move-exception v0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string/jumbo v1, "Failure while processing active view data."
 
-    iput-boolean p1, p0, Lcom/google/android/gms/internal/v;->mm:Z
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gz;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    return-void
-.end method
+    goto :goto_0
 
-
-# virtual methods
-.method public a(Lcom/google/android/gms/internal/v$a;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/v;->mk:Lcom/google/android/gms/internal/v$a;
-
-    return-void
-.end method
-
-.method public av()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/v;->ml:Z
-
-    return-void
-.end method
-
-.method public az()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/v;->mm:Z
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/v;->ml:Z
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
+    :catch_1
+    move-exception v0
 
     goto :goto_0
 .end method
 
-.method public d(Ljava/lang/String;)V
+.method static synthetic a(Lcom/google/android/gms/internal/v;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/v;->e:Z
+
+    return p1
+.end method
+
+
+# virtual methods
+.method protected b(Lorg/json/JSONObject;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/v;->d:Lcom/google/android/gms/internal/db$d;
+
+    new-instance v1, Lcom/google/android/gms/internal/v$5;
+
+    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/internal/v$5;-><init>(Lcom/google/android/gms/internal/v;Lorg/json/JSONObject;)V
+
+    new-instance v2, Lcom/google/android/gms/internal/hu$b;
+
+    invoke-direct {v2}, Lcom/google/android/gms/internal/hu$b;-><init>()V
+
+    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/internal/db$d;->a(Lcom/google/android/gms/internal/hu$c;Lcom/google/android/gms/internal/hu$a;)V
+
+    return-void
+.end method
+
+.method protected c()V
+    .locals 4
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/v;->a:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-super {p0}, Lcom/google/android/gms/internal/o;->c()V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/v;->d:Lcom/google/android/gms/internal/db$d;
+
+    new-instance v2, Lcom/google/android/gms/internal/v$6;
+
+    invoke-direct {v2, p0}, Lcom/google/android/gms/internal/v$6;-><init>(Lcom/google/android/gms/internal/v;)V
+
+    new-instance v3, Lcom/google/android/gms/internal/hu$b;
+
+    invoke-direct {v3}, Lcom/google/android/gms/internal/hu$b;-><init>()V
+
+    invoke-virtual {v0, v2, v3}, Lcom/google/android/gms/internal/db$d;->a(Lcom/google/android/gms/internal/hu$c;Lcom/google/android/gms/internal/hu$a;)V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/v;->d:Lcom/google/android/gms/internal/db$d;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/db$d;->a()V
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+.end method
+
+.method protected j()Z
     .locals 1
 
-    const-string/jumbo v0, "Action was blocked because no click was detected."
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/v;->e:Z
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->S(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/v;->mk:Lcom/google/android/gms/internal/v$a;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/v;->mk:Lcom/google/android/gms/internal/v$a;
-
-    invoke-interface {v0, p1}, Lcom/google/android/gms/internal/v$a;->e(Ljava/lang/String;)V
-
-    :cond_0
-    return-void
+    return v0
 .end method

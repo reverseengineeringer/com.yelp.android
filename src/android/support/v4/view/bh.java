@@ -1,12 +1,55 @@
 package android.support.v4.view;
 
-import android.view.MotionEvent;
+import android.view.WindowInsets;
 
 class bh
+  extends bg
 {
-  public static int a(MotionEvent paramMotionEvent)
+  private final WindowInsets a;
+  
+  bh(WindowInsets paramWindowInsets)
   {
-    return paramMotionEvent.getSource();
+    a = paramWindowInsets;
+  }
+  
+  public int a()
+  {
+    return a.getSystemWindowInsetLeft();
+  }
+  
+  public bg a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  {
+    return new bh(a.replaceSystemWindowInsets(paramInt1, paramInt2, paramInt3, paramInt4));
+  }
+  
+  public int b()
+  {
+    return a.getSystemWindowInsetTop();
+  }
+  
+  public int c()
+  {
+    return a.getSystemWindowInsetRight();
+  }
+  
+  public int d()
+  {
+    return a.getSystemWindowInsetBottom();
+  }
+  
+  public boolean e()
+  {
+    return a.isConsumed();
+  }
+  
+  public bg f()
+  {
+    return new bh(a.consumeSystemWindowInsets());
+  }
+  
+  WindowInsets g()
+  {
+    return a;
   }
 }
 

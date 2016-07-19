@@ -1,33 +1,25 @@
 package com.yelp.android.ad;
 
-import android.graphics.Bitmap;
-import com.bumptech.glide.load.engine.t;
-import com.bumptech.glide.load.resource.bitmap.m;
-import com.yelp.android.z.b;
+import java.io.OutputStream;
 
-public class a
-  implements c<com.yelp.android.ac.a, b>
+public class a<T>
+  implements com.bumptech.glide.load.a<T>
 {
-  private final c<Bitmap, m> a;
+  private static final a<?> a = new a();
   
-  public a(c<Bitmap, m> paramc)
+  public static <T> com.bumptech.glide.load.a<T> b()
   {
-    a = paramc;
-  }
-  
-  public t<b> a(t<com.yelp.android.ac.a> paramt)
-  {
-    paramt = (com.yelp.android.ac.a)paramt.b();
-    t localt = paramt.b();
-    if (localt != null) {
-      return a.a(localt);
-    }
-    return paramt.c();
+    return a;
   }
   
   public String a()
   {
-    return "GifBitmapWrapperDrawableTranscoder.com.bumptech.glide.load.resource.transcode";
+    return "";
+  }
+  
+  public boolean a(T paramT, OutputStream paramOutputStream)
+  {
+    return false;
   }
 }
 

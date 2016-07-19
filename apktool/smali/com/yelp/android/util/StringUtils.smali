@@ -3,6 +3,20 @@
 .source "StringUtils.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/util/StringUtils$1;,
+        Lcom/yelp/android/util/StringUtils$c;,
+        Lcom/yelp/android/util/StringUtils$b;,
+        Lcom/yelp/android/util/StringUtils$a;,
+        Lcom/yelp/android/util/StringUtils$d;,
+        Lcom/yelp/android/util/StringUtils$Unit;,
+        Lcom/yelp/android/util/StringUtils$Format;
+    }
+.end annotation
+
+
 # static fields
 .field public static a:C
 
@@ -37,12 +51,12 @@
 
     const/4 v3, 0x0
 
-    .line 154
+    .line 168
     const/16 v0, 0x2026
 
     sput-char v0, Lcom/yelp/android/util/StringUtils;->a:C
 
-    .line 156
+    .line 170
     new-array v0, v7, [Ljava/lang/String;
 
     const-string/jumbo v1, "/"
@@ -67,127 +81,127 @@
 
     sput-object v0, Lcom/yelp/android/util/StringUtils;->d:Ljava/util/List;
 
-    .line 164
-    const/16 v0, 0xb
-
-    new-array v0, v0, [I
-
-    sget v1, Lcom/yelp/android/bf/k;->LessThanAMinute:I
-
-    aput v1, v0, v3
-
-    sget v1, Lcom/yelp/android/bf/k;->OneMinute:I
-
-    aput v1, v0, v4
-
-    sget v1, Lcom/yelp/android/bf/k;->XMinutes:I
-
-    aput v1, v0, v5
-
-    sget v1, Lcom/yelp/android/bf/k;->About1Hour:I
-
-    aput v1, v0, v6
-
-    sget v1, Lcom/yelp/android/bf/k;->AboutXHours:I
-
-    aput v1, v0, v7
-
-    const/4 v1, 0x5
-
-    sget v2, Lcom/yelp/android/bf/k;->OneDay:I
-
-    aput v2, v0, v1
-
-    const/4 v1, 0x6
-
-    sget v2, Lcom/yelp/android/bf/k;->XDays:I
-
-    aput v2, v0, v1
-
-    const/4 v1, 0x7
-
-    sget v2, Lcom/yelp/android/bf/k;->About1Month:I
-
-    aput v2, v0, v1
-
-    const/16 v1, 0x8
-
-    sget v2, Lcom/yelp/android/bf/k;->XMonths:I
-
-    aput v2, v0, v1
-
-    const/16 v1, 0x9
-
-    sget v2, Lcom/yelp/android/bf/k;->About1Year:I
-
-    aput v2, v0, v1
-
-    const/16 v1, 0xa
-
-    sget v2, Lcom/yelp/android/bf/k;->OverXYears:I
-
-    aput v2, v0, v1
-
-    sput-object v0, Lcom/yelp/android/util/StringUtils;->b:[I
-
     .line 178
     const/16 v0, 0xb
 
     new-array v0, v0, [I
 
-    sget v1, Lcom/yelp/android/bf/k;->Abbreviated_XSeconds:I
+    sget v1, Lcom/yelp/android/co/a$j;->LessThanAMinute:I
 
     aput v1, v0, v3
 
-    sget v1, Lcom/yelp/android/bf/k;->Abbreviated_XMinutes:I
+    sget v1, Lcom/yelp/android/co/a$j;->OneMinute:I
 
     aput v1, v0, v4
 
-    sget v1, Lcom/yelp/android/bf/k;->Abbreviated_XMinutes:I
+    sget v1, Lcom/yelp/android/co/a$j;->XMinutes:I
 
     aput v1, v0, v5
 
-    sget v1, Lcom/yelp/android/bf/k;->Abbreviated_XHours:I
+    sget v1, Lcom/yelp/android/co/a$j;->About1Hour:I
 
     aput v1, v0, v6
 
-    sget v1, Lcom/yelp/android/bf/k;->Abbreviated_XHours:I
+    sget v1, Lcom/yelp/android/co/a$j;->AboutXHours:I
 
     aput v1, v0, v7
 
     const/4 v1, 0x5
 
-    sget v2, Lcom/yelp/android/bf/k;->Abbreviated_XDays:I
+    sget v2, Lcom/yelp/android/co/a$j;->OneDay:I
 
     aput v2, v0, v1
 
     const/4 v1, 0x6
 
-    sget v2, Lcom/yelp/android/bf/k;->Abbreviated_XDays:I
+    sget v2, Lcom/yelp/android/co/a$j;->XDays:I
 
     aput v2, v0, v1
 
     const/4 v1, 0x7
 
-    sget v2, Lcom/yelp/android/bf/k;->Abbreviated_XMonths:I
+    sget v2, Lcom/yelp/android/co/a$j;->About1Month:I
 
     aput v2, v0, v1
 
     const/16 v1, 0x8
 
-    sget v2, Lcom/yelp/android/bf/k;->Abbreviated_XMonths:I
+    sget v2, Lcom/yelp/android/co/a$j;->XMonths:I
 
     aput v2, v0, v1
 
     const/16 v1, 0x9
 
-    sget v2, Lcom/yelp/android/bf/k;->Abbreviated_XYears:I
+    sget v2, Lcom/yelp/android/co/a$j;->About1Year:I
 
     aput v2, v0, v1
 
     const/16 v1, 0xa
 
-    sget v2, Lcom/yelp/android/bf/k;->Abbreviated_XYears:I
+    sget v2, Lcom/yelp/android/co/a$j;->OverXYears:I
+
+    aput v2, v0, v1
+
+    sput-object v0, Lcom/yelp/android/util/StringUtils;->b:[I
+
+    .line 193
+    const/16 v0, 0xb
+
+    new-array v0, v0, [I
+
+    sget v1, Lcom/yelp/android/co/a$j;->Abbreviated_XSeconds:I
+
+    aput v1, v0, v3
+
+    sget v1, Lcom/yelp/android/co/a$j;->Abbreviated_XMinutes:I
+
+    aput v1, v0, v4
+
+    sget v1, Lcom/yelp/android/co/a$j;->Abbreviated_XMinutes:I
+
+    aput v1, v0, v5
+
+    sget v1, Lcom/yelp/android/co/a$j;->Abbreviated_XHours:I
+
+    aput v1, v0, v6
+
+    sget v1, Lcom/yelp/android/co/a$j;->Abbreviated_XHours:I
+
+    aput v1, v0, v7
+
+    const/4 v1, 0x5
+
+    sget v2, Lcom/yelp/android/co/a$j;->Abbreviated_XDays:I
+
+    aput v2, v0, v1
+
+    const/4 v1, 0x6
+
+    sget v2, Lcom/yelp/android/co/a$j;->Abbreviated_XDays:I
+
+    aput v2, v0, v1
+
+    const/4 v1, 0x7
+
+    sget v2, Lcom/yelp/android/co/a$j;->Abbreviated_XMonths:I
+
+    aput v2, v0, v1
+
+    const/16 v1, 0x8
+
+    sget v2, Lcom/yelp/android/co/a$j;->Abbreviated_XMonths:I
+
+    aput v2, v0, v1
+
+    const/16 v1, 0x9
+
+    sget v2, Lcom/yelp/android/co/a$j;->Abbreviated_XYears:I
+
+    aput v2, v0, v1
+
+    const/16 v1, 0xa
+
+    sget v2, Lcom/yelp/android/co/a$j;->Abbreviated_XYears:I
 
     aput v2, v0, v1
 
@@ -213,7 +227,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 488
+    .line 506
     invoke-interface {p0}, Landroid/text/Spannable;->length()I
 
     move-result v0
@@ -222,7 +236,7 @@
 
     move-result-object v3
 
-    .line 489
+    .line 507
     instance-of v0, p2, Landroid/text/style/CharacterStyle;
 
     if-eqz v0, :cond_0
@@ -235,7 +249,7 @@
 
     move v1, v0
 
-    .line 490
+    .line 508
     :goto_0
     array-length v4, v3
 
@@ -244,33 +258,33 @@
 
     aget-object v5, v3, v2
 
-    .line 492
+    .line 510
     if-eqz v1, :cond_2
 
     move-object v0, p2
 
-    .line 493
+    .line 511
     check-cast v0, Landroid/text/style/CharacterStyle;
 
     invoke-static {v0}, Landroid/text/style/CharacterStyle;->wrap(Landroid/text/style/CharacterStyle;)Landroid/text/style/CharacterStyle;
 
     move-result-object v0
 
-    .line 495
+    .line 513
     :goto_2
     invoke-interface {p0, v5}, Landroid/text/Spannable;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v6
 
-    .line 496
+    .line 514
     invoke-interface {p0, v5}, Landroid/text/Spannable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v5
 
-    .line 497
+    .line 515
     invoke-interface {p0, v0, v6, v5, p3}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
-    .line 490
+    .line 508
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
@@ -278,10 +292,10 @@
     :cond_0
     move v1, v2
 
-    .line 489
+    .line 507
     goto :goto_0
 
-    .line 499
+    .line 517
     :cond_1
     return-object p0
 
@@ -295,25 +309,25 @@
     .locals 3
 
     .prologue
-    .line 512
+    .line 530
     invoke-interface {p0, p1}, Landroid/text/Spannable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 513
+    .line 531
     invoke-interface {p0, p1}, Landroid/text/Spannable;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v1
 
-    .line 514
+    .line 532
     invoke-interface {p0, p1}, Landroid/text/Spannable;->getSpanFlags(Ljava/lang/Object;)I
 
     move-result v2
 
-    .line 515
+    .line 533
     invoke-interface {p0, p2, v1, v0, v2}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
-    .line 516
+    .line 534
     return-object p0
 .end method
 
@@ -321,19 +335,19 @@
     .locals 5
 
     .prologue
-    .line 564
+    .line 582
     invoke-static {p0}, Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;
 
     move-result-object v0
 
-    .line 565
+    .line 583
     new-instance v1, Landroid/text/style/StyleSpan;
 
     const/4 v2, 0x1
 
     invoke-direct {v1, v2}, Landroid/text/style/StyleSpan;-><init>(I)V
 
-    .line 566
+    .line 584
     const/4 v2, 0x0
 
     invoke-interface {v0}, Landroid/text/Spannable;->length()I
@@ -344,7 +358,7 @@
 
     invoke-interface {v0, v1, v2, v3, v4}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
-    .line 568
+    .line 586
     return-object v0
 .end method
 
@@ -352,15 +366,15 @@
     .locals 5
 
     .prologue
-    .line 545
+    .line 563
     new-instance v1, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v1, p0}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 546
+    .line 564
     const/4 v0, -0x1
 
-    .line 548
+    .line 567
     :goto_0
     invoke-virtual {v1}, Landroid/text/SpannableStringBuilder;->length()I
 
@@ -378,7 +392,7 @@
 
     if-eq v2, v0, :cond_0
 
-    .line 550
+    .line 568
     invoke-virtual {v1}, Landroid/text/SpannableStringBuilder;->length()I
 
     move-result v0
@@ -389,7 +403,7 @@
 
     move-result v0
 
-    .line 551
+    .line 569
     new-instance v3, Landroid/text/style/ForegroundColorSpan;
 
     invoke-direct {v3, p1}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
@@ -400,7 +414,7 @@
 
     goto :goto_0
 
-    .line 554
+    .line 572
     :cond_0
     return-object v1
 .end method
@@ -409,12 +423,12 @@
     .locals 4
 
     .prologue
-    .line 530
+    .line 548
     invoke-static {p0}, Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;
 
     move-result-object v0
 
-    .line 531
+    .line 549
     new-instance v1, Landroid/text/style/ForegroundColorSpan;
 
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -427,7 +441,7 @@
 
     invoke-direct {v1, v2}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
 
-    .line 533
+    .line 551
     const-class v2, Landroid/text/style/StyleSpan;
 
     const/4 v3, 0x0
@@ -445,7 +459,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 330
+    .line 338
     move v0, v1
 
     :goto_0
@@ -453,7 +467,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 331
+    .line 339
     aget-object v2, p3, v0
 
     invoke-static {v2}, Landroid/text/TextUtils;->htmlEncode(Ljava/lang/String;)Ljava/lang/String;
@@ -462,12 +476,12 @@
 
     aput-object v2, p3, v0
 
-    .line 330
+    .line 338
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 333
+    .line 341
     :cond_0
     check-cast p3, [Ljava/lang/Object;
 
@@ -475,18 +489,18 @@
 
     move-result-object v0
 
-    .line 335
-    new-instance v2, Lcom/yelp/android/util/ah;
+    .line 343
+    new-instance v2, Lcom/yelp/android/util/StringUtils$d;
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    invoke-direct {v2, v3, v1}, Lcom/yelp/android/util/ah;-><init>(Landroid/content/res/Resources;I)V
+    invoke-direct {v2, v3, v1}, Lcom/yelp/android/util/StringUtils$d;-><init>(Landroid/content/res/Resources;I)V
 
-    new-instance v1, Lcom/yelp/android/util/ae;
+    new-instance v1, Lcom/yelp/android/util/StringUtils$b;
 
-    invoke-direct {v1}, Lcom/yelp/android/util/ae;-><init>()V
+    invoke-direct {v1}, Lcom/yelp/android/util/StringUtils$b;-><init>()V
 
     invoke-static {v0, v2, v1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;Landroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
 
@@ -501,7 +515,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 303
+    .line 311
     move v0, v1
 
     :goto_0
@@ -509,10 +523,10 @@
 
     if-ge v0, v2, :cond_1
 
-    .line 304
+    .line 312
     aget-object v2, p2, v0
 
-    .line 306
+    .line 314
     instance-of v3, v2, Ljava/lang/Number;
 
     if-nez v3, :cond_0
@@ -521,7 +535,7 @@
 
     if-nez v2, :cond_0
 
-    .line 307
+    .line 315
     aget-object v2, p2, v0
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -534,30 +548,30 @@
 
     aput-object v2, p2, v0
 
-    .line 303
+    .line 311
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 310
+    .line 318
     :cond_1
     invoke-virtual {p0, p1, p2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 311
-    new-instance v2, Lcom/yelp/android/util/ah;
+    .line 319
+    new-instance v2, Lcom/yelp/android/util/StringUtils$d;
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    invoke-direct {v2, v3, v1}, Lcom/yelp/android/util/ah;-><init>(Landroid/content/res/Resources;I)V
+    invoke-direct {v2, v3, v1}, Lcom/yelp/android/util/StringUtils$d;-><init>(Landroid/content/res/Resources;I)V
 
-    new-instance v1, Lcom/yelp/android/util/ae;
+    new-instance v1, Lcom/yelp/android/util/StringUtils$b;
 
-    invoke-direct {v1}, Lcom/yelp/android/util/ae;-><init>()V
+    invoke-direct {v1}, Lcom/yelp/android/util/StringUtils$b;-><init>()V
 
     invoke-static {v0, v2, v1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;Landroid/text/Html$ImageGetter;Landroid/text/Html$TagHandler;)Landroid/text/Spanned;
 
@@ -570,34 +584,34 @@
     .locals 2
 
     .prologue
-    .line 731
+    .line 786
     if-eqz p2, :cond_1
 
-    .line 733
+    .line 788
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
     cmpg-double v0, p0, v0
 
     if-gez v0, :cond_0
 
-    .line 734
+    .line 789
     sget-object v0, Lcom/yelp/android/util/StringUtils$Unit;->METER:Lcom/yelp/android/util/StringUtils$Unit;
 
-    .line 745
+    .line 800
     :goto_0
     return-object v0
 
-    .line 736
+    .line 791
     :cond_0
     sget-object v0, Lcom/yelp/android/util/StringUtils$Unit;->KILOMETER:Lcom/yelp/android/util/StringUtils$Unit;
 
     goto :goto_0
 
-    .line 742
+    .line 797
     :cond_1
     const-wide v0, 0x3fb999999999999aL    # 0.1
 
-    invoke-static {v0, v1}, Lcom/yelp/android/util/o;->b(D)D
+    invoke-static {v0, v1}, Lcom/yelp/android/util/i;->b(D)D
 
     move-result-wide v0
 
@@ -607,12 +621,12 @@
 
     if-gez v0, :cond_2
 
-    .line 743
+    .line 798
     sget-object v0, Lcom/yelp/android/util/StringUtils$Unit;->FOOT:Lcom/yelp/android/util/StringUtils$Unit;
 
     goto :goto_0
 
-    .line 745
+    .line 800
     :cond_2
     sget-object v0, Lcom/yelp/android/util/StringUtils$Unit;->MILE:Lcom/yelp/android/util/StringUtils$Unit;
 
@@ -638,20 +652,20 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 464
+    .line 477
     invoke-static {p5, p2}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 465
+    .line 478
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result v1
 
-    .line 466
+    .line 479
     if-le v1, p3, :cond_0
 
-    .line 467
+    .line 480
     invoke-interface {p2, v6, p3}, Ljava/util/List;->subList(II)Ljava/util/List;
 
     move-result-object v0
@@ -660,18 +674,18 @@
 
     move-result-object v0
 
-    .line 469
+    .line 482
     :cond_0
     add-int v2, v1, p4
 
     if-le v2, p3, :cond_1
 
-    .line 470
+    .line 483
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    sget v3, Lcom/yelp/android/bf/j;->these_and_others:I
+    sget v3, Lcom/yelp/android/co/a$i;->these_and_others:I
 
     add-int v4, v1, p4
 
@@ -699,7 +713,7 @@
 
     move-result-object v0
 
-    .line 474
+    .line 492
     :cond_1
     return-object v0
 .end method
@@ -721,8 +735,8 @@
     .end annotation
 
     .prologue
-    .line 437
-    sget v0, Lcom/yelp/android/bf/j;->these_and_others:I
+    .line 445
+    sget v0, Lcom/yelp/android/co/a$i;->these_and_others:I
 
     move-object v1, p0
 
@@ -745,8 +759,8 @@
     .locals 2
 
     .prologue
-    .line 685
-    invoke-static {p2, p3}, Lcom/yelp/android/util/o;->c(D)D
+    .line 737
+    invoke-static {p2, p3}, Lcom/yelp/android/util/i;->c(D)D
 
     move-result-wide v0
 
@@ -754,10 +768,10 @@
 
     if-gez v0, :cond_0
 
-    .line 686
+    .line 738
     const-string/jumbo v0, ""
 
-    .line 689
+    .line 741
     :goto_0
     return-object v0
 
@@ -773,13 +787,13 @@
     .locals 4
 
     .prologue
-    .line 380
+    .line 388
     rem-int/lit8 v1, p1, 0x64
 
-    .line 381
-    sget v0, Lcom/yelp/android/bf/k;->ordinal_other:I
+    .line 389
+    sget v0, Lcom/yelp/android/co/a$j;->ordinal_other:I
 
-    .line 382
+    .line 390
     const/16 v2, 0xb
 
     if-lt v1, v2, :cond_0
@@ -788,13 +802,13 @@
 
     if-le v1, v2, :cond_1
 
-    .line 383
+    .line 391
     :cond_0
     rem-int/lit8 v1, p1, 0xa
 
     packed-switch v1, :pswitch_data_0
 
-    .line 395
+    .line 403
     :cond_1
     :goto_0
     const/4 v1, 0x1
@@ -815,25 +829,25 @@
 
     return-object v0
 
-    .line 385
+    .line 393
     :pswitch_0
-    sget v0, Lcom/yelp/android/bf/k;->ordinal_first:I
+    sget v0, Lcom/yelp/android/co/a$j;->ordinal_first:I
 
     goto :goto_0
 
-    .line 388
+    .line 396
     :pswitch_1
-    sget v0, Lcom/yelp/android/bf/k;->ordinal_second:I
+    sget v0, Lcom/yelp/android/co/a$j;->ordinal_second:I
+
+    goto :goto_0
+
+    .line 399
+    :pswitch_2
+    sget v0, Lcom/yelp/android/co/a$j;->ordinal_third:I
 
     goto :goto_0
 
     .line 391
-    :pswitch_2
-    sget v0, Lcom/yelp/android/bf/k;->ordinal_third:I
-
-    goto :goto_0
-
-    .line 383
     nop
 
     :pswitch_data_0
@@ -848,7 +862,7 @@
     .locals 4
 
     .prologue
-    .line 349
+    .line 357
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -878,28 +892,28 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 365
+    .line 373
     array-length v0, p3
 
     add-int/lit8 v0, v0, 0x1
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    .line 366
+    .line 374
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
     aput-object v1, v0, v3
 
-    .line 367
+    .line 375
     const/4 v1, 0x1
 
     array-length v2, p3
 
     invoke-static {p3, v3, v0, v1, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 368
+    .line 376
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -915,8 +929,8 @@
     .locals 2
 
     .prologue
-    .line 251
-    sget-object v0, Lcom/yelp/android/util/ab;->b:[I
+    .line 267
+    sget-object v0, Lcom/yelp/android/util/StringUtils$1;->b:[I
 
     invoke-virtual {p1}, Lcom/yelp/android/util/StringUtils$Format;->ordinal()I
 
@@ -926,7 +940,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 256
+    .line 272
     invoke-static {p0, p2}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v0
@@ -934,7 +948,7 @@
     :goto_0
     return-object v0
 
-    .line 253
+    .line 269
     :pswitch_0
     invoke-static {p0, p2}, Lcom/yelp/android/util/StringUtils;->b(Landroid/content/Context;Ljava/util/Date;)Ljava/lang/String;
 
@@ -942,7 +956,7 @@
 
     goto :goto_0
 
-    .line 251
+    .line 267
     nop
 
     :pswitch_data_0
@@ -955,7 +969,7 @@
     .locals 6
 
     .prologue
-    .line 261
+    .line 277
     invoke-virtual {p1}, Ljava/util/Date;->getTime()J
 
     move-result-wide v0
@@ -972,7 +986,7 @@
 
     if-gez v0, :cond_0
 
-    .line 262
+    .line 278
     invoke-virtual {p1}, Ljava/util/Date;->getTime()J
 
     move-result-wide v0
@@ -983,12 +997,12 @@
 
     move-result-object v0
 
-    .line 264
+    .line 280
     :goto_0
     return-object v0
 
     :cond_0
-    sget v0, Lcom/yelp/android/bf/k;->time_ago:I
+    sget v0, Lcom/yelp/android/co/a$j;->time_ago:I
 
     const/4 v1, 0x1
 
@@ -1023,7 +1037,7 @@
 
     const/4 v6, 0x1
 
-    .line 218
+    .line 235
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -1040,7 +1054,7 @@
 
     div-double/2addr v0, v2
 
-    .line 219
+    .line 236
     invoke-static {v0, v1}, Ljava/lang/Math;->abs(D)D
 
     move-result-wide v2
@@ -1051,7 +1065,7 @@
 
     move-result-wide v2
 
-    .line 221
+    .line 238
     cmp-long v4, v2, v10
 
     if-ltz v4, :cond_1
@@ -1062,7 +1076,7 @@
 
     if-gtz v4, :cond_1
 
-    .line 222
+    .line 239
     cmp-long v2, v2, v10
 
     if-gtz v2, :cond_0
@@ -1089,11 +1103,11 @@
 
     move-result-object v0
 
-    .line 246
+    .line 261
     :goto_0
     return-object v0
 
-    .line 222
+    .line 239
     :cond_0
     aget v0, p2, v6
 
@@ -1111,7 +1125,7 @@
 
     goto :goto_0
 
-    .line 229
+    .line 244
     :cond_1
     const-wide/16 v0, 0x2
 
@@ -1125,7 +1139,7 @@
 
     if-gtz v0, :cond_2
 
-    .line 230
+    .line 245
     const/4 v0, 0x2
 
     aget v0, p2, v0
@@ -1144,7 +1158,7 @@
 
     goto :goto_0
 
-    .line 231
+    .line 246
     :cond_2
     const-wide/16 v0, 0x2d
 
@@ -1158,7 +1172,7 @@
 
     if-gtz v0, :cond_3
 
-    .line 232
+    .line 247
     const/4 v0, 0x3
 
     aget v0, p2, v0
@@ -1177,7 +1191,7 @@
 
     goto :goto_0
 
-    .line 233
+    .line 248
     :cond_3
     const-wide/16 v0, 0x5a
 
@@ -1191,7 +1205,7 @@
 
     if-gtz v0, :cond_4
 
-    .line 234
+    .line 249
     const/4 v0, 0x4
 
     aget v0, p2, v0
@@ -1218,7 +1232,7 @@
 
     goto :goto_0
 
-    .line 235
+    .line 250
     :cond_4
     const-wide/16 v0, 0x5a0
 
@@ -1232,7 +1246,7 @@
 
     if-gtz v0, :cond_5
 
-    .line 236
+    .line 251
     const/4 v0, 0x5
 
     aget v0, p2, v0
@@ -1251,7 +1265,7 @@
 
     goto/16 :goto_0
 
-    .line 237
+    .line 252
     :cond_5
     const-wide/16 v0, 0xb40
 
@@ -1265,7 +1279,7 @@
 
     if-gtz v0, :cond_6
 
-    .line 238
+    .line 253
     const/4 v0, 0x6
 
     aget v0, p2, v0
@@ -1294,7 +1308,7 @@
 
     goto/16 :goto_0
 
-    .line 239
+    .line 254
     :cond_6
     const-wide/32 v0, 0xa8c0
 
@@ -1308,7 +1322,7 @@
 
     if-gtz v0, :cond_7
 
-    .line 240
+    .line 255
     const/4 v0, 0x7
 
     aget v0, p2, v0
@@ -1327,7 +1341,7 @@
 
     goto/16 :goto_0
 
-    .line 241
+    .line 256
     :cond_7
     const-wide/32 v0, 0x15180
 
@@ -1341,7 +1355,7 @@
 
     if-gtz v0, :cond_8
 
-    .line 242
+    .line 257
     const/16 v0, 0x8
 
     aget v0, p2, v0
@@ -1370,7 +1384,7 @@
 
     goto/16 :goto_0
 
-    .line 243
+    .line 258
     :cond_8
     const-wide/32 v0, 0x80520
 
@@ -1384,7 +1398,7 @@
 
     if-gtz v0, :cond_9
 
-    .line 244
+    .line 259
     const/16 v0, 0x9
 
     aget v0, p2, v0
@@ -1403,7 +1417,7 @@
 
     goto/16 :goto_0
 
-    .line 246
+    .line 261
     :cond_9
     const/16 v0, 0xa
 
@@ -1440,12 +1454,12 @@
     .locals 3
 
     .prologue
-    .line 213
+    .line 229
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 214
+    .line 230
     new-instance v1, Ljava/util/Random;
 
     invoke-direct {v1}, Ljava/util/Random;-><init>()V
@@ -1461,32 +1475,16 @@
     return-object v0
 .end method
 
-.method public static a(Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 275
-    invoke-virtual {p0, p1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 276
-    invoke-virtual {p0, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p2
-
-    .line 278
-    :cond_0
-    return-object p2
-.end method
-
 .method public static a(Ljava/io/File;)Ljava/lang/String;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    .line 407
+    .line 415
     new-instance v0, Ljava/io/BufferedReader;
 
     new-instance v1, Ljava/io/FileReader;
@@ -1495,12 +1493,12 @@
 
     invoke-direct {v0, v1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
-    .line 408
+    .line 416
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 410
+    .line 418
     :goto_0
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
@@ -1508,10 +1506,10 @@
 
     if-eqz v2, :cond_0
 
-    .line 411
+    .line 419
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 412
+    .line 420
     const-string/jumbo v2, "line.separator"
 
     invoke-static {v2}, Ljava/lang/System;->getProperty(Ljava/lang/String;)Ljava/lang/String;
@@ -1522,11 +1520,11 @@
 
     goto :goto_0
 
-    .line 414
+    .line 422
     :cond_0
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
 
-    .line 415
+    .line 423
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1534,7 +1532,7 @@
     return-object v0
 .end method
 
-.method public static a(Ljava/lang/CharSequence;Ljava/lang/Iterable;Lcom/yelp/android/util/ag;)Ljava/lang/String;
+.method public static a(Ljava/lang/CharSequence;Ljava/lang/Iterable;Lcom/yelp/android/util/StringUtils$c;)Ljava/lang/String;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1544,19 +1542,19 @@
             "Ljava/lang/CharSequence;",
             "Ljava/lang/Iterable",
             "<TT;>;",
-            "Lcom/yelp/android/util/ag",
+            "Lcom/yelp/android/util/StringUtils$c",
             "<TT;>;)",
             "Ljava/lang/String;"
         }
     .end annotation
 
     .prologue
-    .line 807
+    .line 864
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    .line 808
+    .line 865
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -1572,19 +1570,19 @@
 
     move-result-object v2
 
-    .line 809
+    .line 866
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v3
 
     if-lez v3, :cond_0
 
-    .line 810
+    .line 867
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    .line 812
+    .line 869
     :cond_0
-    invoke-interface {p2, v2}, Lcom/yelp/android/util/ag;->a(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {p2, v2}, Lcom/yelp/android/util/StringUtils$c;->a(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1592,7 +1590,7 @@
 
     goto :goto_0
 
-    .line 814
+    .line 871
     :cond_1
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1605,17 +1603,17 @@
     .locals 2
 
     .prologue
-    .line 283
+    .line 291
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 284
+    .line 292
     const-string/jumbo v0, ""
 
-    .line 286
+    .line 294
     :goto_0
     return-object v0
 
@@ -1649,7 +1647,7 @@
     .end annotation
 
     .prologue
-    .line 849
+    .line 906
     if-eqz p0, :cond_0
 
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -1658,7 +1656,7 @@
 
     if-nez v0, :cond_1
 
-    .line 850
+    .line 907
     :cond_0
     new-instance v0, Lorg/json/JSONArray;
 
@@ -1668,17 +1666,17 @@
 
     move-result-object v0
 
-    .line 859
+    .line 916
     :goto_0
     return-object v0
 
-    .line 853
+    .line 910
     :cond_1
     new-instance v1, Lorg/json/JSONArray;
 
     invoke-direct {v1}, Lorg/json/JSONArray;-><init>()V
 
-    .line 854
+    .line 911
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
@@ -1697,25 +1695,244 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 855
+    .line 912
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_2
 
-    .line 856
+    .line 913
     invoke-virtual {v1, v0}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
 
     goto :goto_1
 
-    .line 859
+    .line 916
     :cond_3
     invoke-virtual {v1}, Lorg/json/JSONArray;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
+.end method
+
+.method public static a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/Comparable;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/Map",
+            "<TT;TV;>;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    .prologue
+    .line 999
+    if-nez p0, :cond_0
+
+    .line 1021
+    :goto_0
+    return-object p1
+
+    .line 1003
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 1006
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    .line 1007
+    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    .line 1009
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Comparable;
+
+    .line 1010
+    invoke-interface {p0, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    .line 1012
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, "\t("
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    if-nez v0, :cond_1
+
+    const-string/jumbo v0, "null"
+
+    :goto_2
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v4, ", "
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    if-nez v3, :cond_2
+
+    const-string/jumbo v0, "null"
+
+    :goto_3
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v3, ")\n"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_2
+
+    :cond_2
+    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_3
+
+    .line 1021
+    :cond_3
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    goto :goto_0
+.end method
+
+.method public static a(Lorg/apache/http/client/methods/HttpUriRequest;)Ljava/lang/String;
+    .locals 3
+
+    .prologue
+    .line 1048
+    invoke-static {p0}, Lcom/yelp/android/util/g;->d(Lorg/apache/http/client/methods/HttpUriRequest;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1050
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "\n"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "\tPath: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "null"
+
+    :cond_0
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\n"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\tWith params:\n"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-static {p0}, Lcom/yelp/android/util/g;->a(Lorg/apache/http/client/methods/HttpUriRequest;)Ljava/util/Map;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "\t"
+
+    invoke-static {v1, v2}, Lcom/yelp/android/util/StringUtils;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\n\n"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    .line 1064
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private static a(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
@@ -1734,30 +1951,30 @@
     .end annotation
 
     .prologue
-    .line 648
+    .line 697
     new-instance v1, Ljava/util/LinkedList;
 
     invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
 
-    .line 649
+    .line 698
     invoke-virtual {p1, p0}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 650
+    .line 699
     :goto_0
     const/4 v2, -0x1
 
     if-eq v0, v2, :cond_0
 
-    .line 651
+    .line 700
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 652
+    .line 701
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
@@ -1770,7 +1987,7 @@
 
     goto :goto_0
 
-    .line 654
+    .line 703
     :cond_0
     return-object v1
 .end method
@@ -1781,7 +1998,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 589
+    .line 607
     invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v0
@@ -1792,12 +2009,12 @@
 
     invoke-virtual {p2, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 590
+    .line 608
     new-instance v0, Landroid/text/style/ImageSpan;
 
     invoke-direct {v0, p2, v2}, Landroid/text/style/ImageSpan;-><init>(Landroid/graphics/drawable/Drawable;I)V
 
-    .line 591
+    .line 609
     invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1806,19 +2023,72 @@
 
     move-result v1
 
-    .line 592
+    .line 610
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v2
 
     add-int/2addr v2, v1
 
-    .line 593
+    .line 611
     const/16 v3, 0x21
 
     invoke-interface {p0, v0, v1, v2, v3}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
 
-    .line 594
+    .line 612
+    return-void
+.end method
+
+.method public static a(Landroid/text/TextWatcher;Landroid/widget/TextView;Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 928
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->removeTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 929
+    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 930
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 931
+    return-void
+.end method
+
+.method public static final a(Landroid/widget/TextView;)V
+    .locals 1
+
+    .prologue
+    .line 652
+    invoke-virtual {p0}, Landroid/widget/TextView;->getMovementMethod()Landroid/text/method/MovementMethod;
+
+    move-result-object v0
+
+    .line 653
+    if-eqz v0, :cond_0
+
+    instance-of v0, v0, Landroid/text/method/LinkMovementMethod;
+
+    if-nez v0, :cond_1
+
+    .line 654
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/TextView;->getLinksClickable()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 655
+    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
+
+    .line 658
+    :cond_1
     return-void
 .end method
 
@@ -1826,19 +2096,19 @@
     .locals 2
 
     .prologue
-    .line 604
+    .line 622
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setClickable(Z)V
 
-    .line 605
+    .line 623
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    .line 606
+    .line 624
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1881,14 +2151,14 @@
 
     move-result-object v0
 
-    .line 608
+    .line 626
     invoke-static {v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 609
+    .line 627
     return-void
 .end method
 
@@ -1907,7 +2177,7 @@
     .end annotation
 
     .prologue
-    .line 818
+    .line 875
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -1925,17 +2195,17 @@
 
     check-cast v0, Ljava/lang/String;
 
-    .line 819
+    .line 876
     invoke-virtual {v0, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 820
+    .line 877
     const/4 v0, 0x1
 
-    .line 823
+    .line 880
     :goto_0
     return v0
 
@@ -1943,6 +2213,42 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public static b(Landroid/content/Context;II)Landroid/text/Spannable;
+    .locals 5
+
+    .prologue
+    .line 639
+    new-instance v0, Landroid/text/SpannableString;
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+
+    .line 640
+    new-instance v1, Landroid/text/style/URLSpan;
+
+    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/text/style/URLSpan;-><init>(Ljava/lang/String;)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0}, Landroid/text/SpannableString;->length()I
+
+    move-result v3
+
+    const/16 v4, 0x21
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+
+    .line 645
+    return-object v0
 .end method
 
 .method public static b(DDLcom/yelp/android/util/StringUtils$Format;Landroid/content/Context;)Ljava/lang/String;
@@ -1953,7 +2259,7 @@
 
     const/4 v2, 0x0
 
-    .line 710
+    .line 762
     invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result v0
@@ -1966,15 +2272,15 @@
 
     if-eqz v0, :cond_1
 
-    .line 711
+    .line 763
     :cond_0
     const-string/jumbo v0, ""
 
-    .line 726
+    .line 778
     :goto_0
     return-object v0
 
-    .line 714
+    .line 766
     :cond_1
     invoke-static {p5}, Lcom/yelp/android/appdata/BaseYelpApplication;->d(Landroid/content/Context;)Lcom/yelp/android/appdata/BaseYelpApplication;
 
@@ -1984,7 +2290,7 @@
 
     move-result-object v0
 
-    .line 715
+    .line 767
     invoke-virtual {v0, p5}, Lcom/yelp/android/appdata/LocaleSettings;->a(Landroid/content/Context;)Z
 
     move-result v3
@@ -1993,12 +2299,12 @@
 
     move-result-object v3
 
-    .line 716
+    .line 768
     invoke-virtual {v3, p2, p3}, Lcom/yelp/android/util/StringUtils$Unit;->getLocationPrecision(D)I
 
     move-result v4
 
-    .line 718
+    .line 770
     invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
 
     move-result-object v5
@@ -2007,7 +2313,7 @@
 
     move-result-object v5
 
-    .line 719
+    .line 771
     rsub-int/lit8 v6, v4, 0x1
 
     invoke-static {v2, v6}, Ljava/lang/Math;->max(II)I
@@ -2016,10 +2322,10 @@
 
     invoke-virtual {v5, v6}, Ljava/text/NumberFormat;->setMaximumFractionDigits(I)V
 
-    .line 720
+    .line 772
     invoke-virtual {v5, v2}, Ljava/text/NumberFormat;->setMinimumFractionDigits(I)V
 
-    .line 721
+    .line 773
     invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->d()Z
 
     move-result v0
@@ -2031,7 +2337,7 @@
     :goto_1
     invoke-virtual {v5, v0}, Ljava/text/NumberFormat;->setMinimumIntegerDigits(I)V
 
-    .line 723
+    .line 775
     new-instance v0, Ljava/math/BigDecimal;
 
     invoke-virtual {v3, p0, p1}, Lcom/yelp/android/util/StringUtils$Unit;->convertFromKm(D)D
@@ -2040,7 +2346,7 @@
 
     invoke-direct {v0, v6, v7}, Ljava/math/BigDecimal;-><init>(D)V
 
-    .line 724
+    .line 776
     rsub-int/lit8 v4, v4, 0x0
 
     sget-object v6, Ljava/math/RoundingMode;->HALF_UP:Ljava/math/RoundingMode;
@@ -2049,7 +2355,7 @@
 
     move-result-object v0
 
-    .line 726
+    .line 778
     invoke-virtual {p5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
@@ -2079,7 +2385,7 @@
     :cond_2
     move v0, v2
 
-    .line 721
+    .line 773
     goto :goto_1
 .end method
 
@@ -2087,8 +2393,8 @@
     .locals 4
 
     .prologue
-    .line 270
-    sget v0, Lcom/yelp/android/bf/k;->time_ago:I
+    .line 286
+    sget v0, Lcom/yelp/android/co/a$j;->time_ago:I
 
     const/4 v1, 0x1
 
@@ -2117,7 +2423,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 619
+    .line 668
     const-string/jumbo v0, "access_token="
 
     invoke-static {v0, p0}, Lcom/yelp/android/util/StringUtils;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
@@ -2145,7 +2451,7 @@
 
     move-result v0
 
-    .line 620
+    .line 669
     add-int/lit8 v2, v0, -0x1
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -2156,7 +2462,7 @@
 
     move-result-object v2
 
-    .line 623
+    .line 672
     sget-object v3, Lcom/yelp/android/util/StringUtils;->d:Ljava/util/List;
 
     invoke-interface {v3, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -2165,7 +2471,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 624
+    .line 673
     const-string/jumbo v1, "&"
 
     const-string/jumbo v3, "access_token="
@@ -2180,12 +2486,12 @@
 
     move-result v1
 
-    .line 626
+    .line 675
     const/4 v3, -0x1
 
     if-ne v1, v3, :cond_3
 
-    .line 627
+    .line 676
     const-string/jumbo v1, "&"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2194,19 +2500,19 @@
 
     if-eqz v1, :cond_2
 
-    .line 630
+    .line 679
     add-int/lit8 v0, v0, -0x1
 
     invoke-virtual {p0, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object p0
 
-    .line 639
+    .line 688
     :cond_1
     :goto_0
     return-object p0
 
-    .line 633
+    .line 682
     :cond_2
     invoke-virtual {p0, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -2214,7 +2520,7 @@
 
     goto :goto_0
 
-    .line 636
+    .line 685
     :cond_3
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -2245,11 +2551,101 @@
     goto :goto_0
 .end method
 
+.method public static b(Ljava/util/List;)Ljava/lang/String;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Ljava/lang/Comparable;",
+            ">(",
+            "Ljava/util/List",
+            "<TT;>;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    .prologue
+    .line 1028
+    if-nez p0, :cond_0
+
+    .line 1029
+    const-string/jumbo v0, ""
+
+    .line 1041
+    :goto_0
+    return-object v0
+
+    .line 1032
+    :cond_0
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    .line 1033
+    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    .line 1035
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 1036
+    const-string/jumbo v2, "["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1037
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Comparable;
+
+    .line 1038
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v3, ", "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_1
+
+    .line 1040
+    :cond_1
+    const-string/jumbo v0, "]\n"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1041
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
 .method public static c(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
     .prologue
-    .line 827
+    .line 884
     const/4 v0, 0x0
 
     const/16 v1, 0x20
@@ -2265,33 +2661,11 @@
     return-object v0
 .end method
 
-.method public static d(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
-
-    .prologue
-    .line 837
-    const-string/jumbo v0, "\u201c%s\u201d"
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    aput-object p0, v1, v2
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static e(Ljava/lang/String;)Z
+.method public static d(Ljava/lang/String;)Z
     .locals 1
 
     .prologue
-    .line 845
+    .line 902
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0

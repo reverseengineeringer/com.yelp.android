@@ -3,26 +3,46 @@ package com.yelp.android.util;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.crashlytics.android.d;
-import com.yelp.android.analytics.e;
+import com.bugsnag.android.Bugsnag;
+import com.bugsnag.android.MetaData;
+import com.bugsnag.android.Severity;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.av.a;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
+import com.yelp.android.au.a;
 
 public class YelpLogDelegate
-  implements al
+  implements YelpLog.a
 {
-  public void error(Object paramObject, String paramString, Exception paramException)
+  public void remoteBreadcrumb(String paramString)
+  {
+    ec.a(paramString);
+    Bugsnag.leaveBreadcrumb(paramString);
+  }
+  
+  public void remoteError(Object paramObject, String paramString, Throwable paramThrowable)
   {
     if (!TextUtils.isEmpty(paramString)) {
-      d.c(paramString);
+      a.a(paramString);
     }
-    d.a(paramException);
-    AppData.b().k().a(e.a(paramException));
+    a.a(paramThrowable);
+    if (TextUtils.isEmpty(paramString)) {
+      Bugsnag.notify(paramThrowable, Severity.INFO);
+    }
+    for (;;)
+    {
+      if (AppData.b().k() != null) {
+        AppData.b().k().a(com.yelp.android.analytics.e.a(paramThrowable));
+      }
+      return;
+      paramObject = new MetaData();
+      ((MetaData)paramObject).addToTab("User", "Message", paramString);
+      Bugsnag.notify(paramThrowable, Severity.INFO, (MetaData)paramObject);
+    }
   }
   
   public void showDebugToast(String paramString)
   {
-    new Handler(Looper.getMainLooper()).post(new am(this, paramString));
+    new Handler(Looper.getMainLooper()).post(new YelpLogDelegate.1(this, paramString));
   }
 }
 

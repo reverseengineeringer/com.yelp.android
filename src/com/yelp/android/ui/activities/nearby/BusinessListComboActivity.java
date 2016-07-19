@@ -9,10 +9,10 @@ import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
 import com.yelp.android.ui.map.b;
 import com.yelp.android.ui.map.e;
-import com.yelp.android.ui.map.k;
+import com.yelp.android.ui.map.j;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter.DisplayFeature;
-import com.yelp.android.ui.util.au;
+import com.yelp.android.ui.util.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -39,8 +39,8 @@ public class BusinessListComboActivity
     while (paramArrayList.hasNext())
     {
       NearbyRow localNearbyRow = (NearbyRow)paramArrayList.next();
-      localArrayList1.add((ArrayList)localNearbyRow.getBusinessListForResults());
-      localArrayList2.add(localNearbyRow.getHeader());
+      localArrayList1.add((ArrayList)localNearbyRow.a());
+      localArrayList2.add(localNearbyRow.d());
     }
     return a(paramContext, localArrayList1, localArrayList2, paramInt);
   }
@@ -59,7 +59,7 @@ public class BusinessListComboActivity
     return new b(this);
   }
   
-  protected au<YelpBusiness> a(int paramInt)
+  protected w<YelpBusiness> a(int paramInt)
   {
     BusinessAdapter localBusinessAdapter = new BusinessAdapter(this);
     localBusinessAdapter.a(new BusinessAdapter.DisplayFeature[] { BusinessAdapter.DisplayFeature.ALTERNATE_NAMES, BusinessAdapter.DisplayFeature.RATING, BusinessAdapter.DisplayFeature.BOOKMARK, BusinessAdapter.DisplayFeature.CATEGORY, BusinessAdapter.DisplayFeature.PRICE, BusinessAdapter.DisplayFeature.NUMBERED, BusinessAdapter.DisplayFeature.ADDRESS, BusinessAdapter.DisplayFeature.DISTANCE });
@@ -74,8 +74,8 @@ public class BusinessListComboActivity
   
   public void a(ComboListFragment<YelpBusiness> paramComboListFragment)
   {
-    paramComboListFragment.a((String)c.get(paramComboListFragment.d()));
-    paramComboListFragment.a(true);
+    paramComboListFragment.a((String)c.get(paramComboListFragment.e()));
+    paramComboListFragment.b(true);
   }
   
   public void a(ComboListFragment<YelpBusiness> paramComboListFragment, Object paramObject)
@@ -88,14 +88,14 @@ public class BusinessListComboActivity
   protected void b(int paramInt)
   {
     super.b(paramInt);
-    j().a((List)a.get(paramInt), new k(this, 0));
+    j().a((List)a.get(paramInt), new j(this, 0));
   }
   
   public void b(YelpBusiness paramYelpBusiness) {}
   
   public void c()
   {
-    j().a((List)a.get(d), new k(this, 0));
+    j().a((List)a.get(d), new j(this, 0));
   }
   
   protected int g()

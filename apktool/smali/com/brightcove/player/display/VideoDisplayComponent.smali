@@ -43,6 +43,21 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnSetVolumeListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnWillInterruptContentListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnWillResumeContentListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnCompletedListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnPrebufferNextVideoListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnStopListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnPauseListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnSeekListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnPlayListener;,
+        Lcom/brightcove/player/display/VideoDisplayComponent$OnSetSourceListener;
+    }
+.end annotation
+
 
 # static fields
 .field private static final EXECUTOR:Ljava/util/concurrent/ScheduledExecutorService;

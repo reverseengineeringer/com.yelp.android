@@ -4,20 +4,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.yelp.android.serializable.Media;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.panels.PanelLoading;
 
-public class MediaBaseFragment
+public abstract class MediaBaseFragment
   extends YelpFragment
 {
   protected PanelLoading a;
   
-  public void i_()
+  public void H_()
   {
     a.setVisibility(0);
   }
   
-  public void j()
+  public abstract Media k();
+  
+  public void l()
   {
     a.setVisibility(8);
   }
@@ -25,8 +28,8 @@ public class MediaBaseFragment
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     paramViewGroup = (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
-    paramLayoutInflater.inflate(2130903224, paramViewGroup);
-    a = ((PanelLoading)paramViewGroup.findViewById(2131492904));
+    paramLayoutInflater.inflate(2130903250, paramViewGroup);
+    a = ((PanelLoading)paramViewGroup.findViewById(2131689517));
     return paramViewGroup;
   }
   

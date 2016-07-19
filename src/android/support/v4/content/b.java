@@ -1,53 +1,71 @@
 package android.support.v4.content;
 
-import java.util.concurrent.CountDownLatch;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build.VERSION;
+import android.support.v4.os.OperationCanceledException;
 
-final class b
-  extends ModernAsyncTask<Void, Void, D>
-  implements Runnable
+public class b
 {
-  D a;
-  boolean b;
-  private CountDownLatch e = new CountDownLatch(1);
+  private static final a a = new b();
   
-  b(a parama) {}
-  
-  protected D a(Void... paramVarArgs)
+  static
   {
-    a = c.d();
-    return (D)a;
-  }
-  
-  protected void a()
-  {
-    try
+    if (Build.VERSION.SDK_INT >= 16)
     {
-      c.a(this, a);
+      a = new c();
       return;
     }
-    finally
+  }
+  
+  public static Cursor a(ContentResolver paramContentResolver, Uri paramUri, String[] paramArrayOfString1, String paramString1, String[] paramArrayOfString2, String paramString2, android.support.v4.os.c paramc)
+  {
+    return a.a(paramContentResolver, paramUri, paramArrayOfString1, paramString1, paramArrayOfString2, paramString2, paramc);
+  }
+  
+  static abstract interface a
+  {
+    public abstract Cursor a(ContentResolver paramContentResolver, Uri paramUri, String[] paramArrayOfString1, String paramString1, String[] paramArrayOfString2, String paramString2, android.support.v4.os.c paramc);
+  }
+  
+  static class b
+    implements b.a
+  {
+    public Cursor a(ContentResolver paramContentResolver, Uri paramUri, String[] paramArrayOfString1, String paramString1, String[] paramArrayOfString2, String paramString2, android.support.v4.os.c paramc)
     {
-      e.countDown();
+      if (paramc != null) {
+        paramc.b();
+      }
+      return paramContentResolver.query(paramUri, paramArrayOfString1, paramString1, paramArrayOfString2, paramString2);
     }
   }
   
-  protected void a(D paramD)
+  static class c
+    extends b.b
   {
-    try
+    public Cursor a(ContentResolver paramContentResolver, Uri paramUri, String[] paramArrayOfString1, String paramString1, String[] paramArrayOfString2, String paramString2, android.support.v4.os.c paramc)
     {
-      c.b(this, paramD);
-      return;
+      if (paramc != null) {}
+      for (;;)
+      {
+        try
+        {
+          paramc = paramc.d();
+          paramContentResolver = c.a(paramContentResolver, paramUri, paramArrayOfString1, paramString1, paramArrayOfString2, paramString2, paramc);
+          return paramContentResolver;
+        }
+        catch (Exception paramContentResolver)
+        {
+          if (!c.a(paramContentResolver)) {
+            continue;
+          }
+          throw new OperationCanceledException();
+          throw paramContentResolver;
+        }
+        paramc = null;
+      }
     }
-    finally
-    {
-      e.countDown();
-    }
-  }
-  
-  public void run()
-  {
-    b = false;
-    c.b();
   }
 }
 

@@ -1,47 +1,39 @@
 package com.yelp.android.ui;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.Canvas;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.opengl.GLSurfaceView.Renderer;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
 
 class g
+  implements GLSurfaceView.Renderer
 {
-  private Bitmap a;
-  private Canvas b;
-  private final FrameLayout c;
+  public boolean a = false;
+  private MonocleEngine b;
   
-  public g(Context paramContext)
+  public void onDrawFrame(GL10 paramGL10)
   {
-    c = new FrameLayout(paramContext);
+    if (a)
+    {
+      b.FlushTextures();
+      a = false;
+    }
+    paramGL10 = b.Draw();
+    if (paramGL10 != null) {
+      paramGL10.a();
+    }
   }
   
-  public Bitmap a(View paramView)
+  public void onSurfaceChanged(GL10 paramGL10, int paramInt1, int paramInt2)
   {
-    c.addView(paramView);
-    c.measure(1024, 1024);
-    c.layout(0, 0, 1024, 1024);
-    c.removeAllViews();
-    int i = paramView.getWidth();
-    int j = paramView.getHeight();
-    if ((a == null) || (a.getWidth() != i) || (a.getHeight() != j))
-    {
-      if (a != null) {
-        a.recycle();
-      }
-      a = Bitmap.createBitmap(i, j, Bitmap.Config.ARGB_8888);
-      b = new Canvas(a);
-    }
-    for (;;)
-    {
-      paramView.measure(i, j);
-      paramView.layout(0, 0, i, j);
-      paramView.draw(b);
-      return a;
-      a.eraseColor(0);
-    }
+    b.Resize(paramInt1, paramInt2);
+  }
+  
+  public void onSurfaceCreated(GL10 paramGL10, EGLConfig paramEGLConfig)
+  {
+    b = new MonocleEngine();
+    b.Init();
+    b.FlushTextures();
+    a = false;
   }
 }
 

@@ -1,18 +1,50 @@
 package com.google.android.gms.maps.model;
 
-import android.os.Parcel;
+import android.graphics.Bitmap;
+import android.os.RemoteException;
+import com.google.android.gms.common.internal.zzx;
 
-public class b
+public final class b
 {
-  static void a(CameraPosition paramCameraPosition, Parcel paramParcel, int paramInt)
+  private static com.yelp.android.bk.b a;
+  
+  public static a a(int paramInt)
   {
-    int i = com.google.android.gms.common.internal.safeparcel.b.H(paramParcel);
-    com.google.android.gms.common.internal.safeparcel.b.c(paramParcel, 1, paramCameraPosition.getVersionCode());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 2, target, paramInt, false);
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 3, zoom);
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 4, tilt);
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 5, bearing);
-    com.google.android.gms.common.internal.safeparcel.b.H(paramParcel, i);
+    try
+    {
+      a locala = new a(a().a(paramInt));
+      return locala;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new RuntimeRemoteException(localRemoteException);
+    }
+  }
+  
+  public static a a(Bitmap paramBitmap)
+  {
+    try
+    {
+      paramBitmap = new a(a().a(paramBitmap));
+      return paramBitmap;
+    }
+    catch (RemoteException paramBitmap)
+    {
+      throw new RuntimeRemoteException(paramBitmap);
+    }
+  }
+  
+  private static com.yelp.android.bk.b a()
+  {
+    return (com.yelp.android.bk.b)zzx.zzb(a, "IBitmapDescriptorFactory is not initialized");
+  }
+  
+  public static void a(com.yelp.android.bk.b paramb)
+  {
+    if (a != null) {
+      return;
+    }
+    a = (com.yelp.android.bk.b)zzx.zzz(paramb);
   }
 }
 

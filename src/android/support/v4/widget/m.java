@@ -1,45 +1,13 @@
 package android.support.v4.widget;
 
-import android.database.Cursor;
-import android.widget.Filter;
-import android.widget.Filter.FilterResults;
+import android.widget.EdgeEffect;
 
 class m
-  extends Filter
 {
-  n a;
-  
-  m(n paramn)
+  public static boolean a(Object paramObject, float paramFloat1, float paramFloat2)
   {
-    a = paramn;
-  }
-  
-  public CharSequence convertResultToString(Object paramObject)
-  {
-    return a.c((Cursor)paramObject);
-  }
-  
-  protected Filter.FilterResults performFiltering(CharSequence paramCharSequence)
-  {
-    paramCharSequence = a.a(paramCharSequence);
-    Filter.FilterResults localFilterResults = new Filter.FilterResults();
-    if (paramCharSequence != null)
-    {
-      count = paramCharSequence.getCount();
-      values = paramCharSequence;
-      return localFilterResults;
-    }
-    count = 0;
-    values = null;
-    return localFilterResults;
-  }
-  
-  protected void publishResults(CharSequence paramCharSequence, Filter.FilterResults paramFilterResults)
-  {
-    paramCharSequence = a.a();
-    if ((values != null) && (values != paramCharSequence)) {
-      a.a((Cursor)values);
-    }
+    ((EdgeEffect)paramObject).onPull(paramFloat1, paramFloat2);
+    return true;
   }
 }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size" style="?sublistCell"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/icon" android:visibility="gone" android:layout_width="@dimen/category_search_suggest_icon_size" android:layout_height="@dimen/category_search_suggest_icon_size" android:layout_marginRight="?imageGapSize" android:layout_centerVertical="true" android:contentDescription="@null" />
-    <TextView android:textAppearance="@style/HeadlineText" android:ellipsize="end" android:id="@id/term" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/icon" android:visibility="gone" android:layout_width="@dimen/category_search_suggest_icon_size" android:layout_height="@dimen/category_search_suggest_icon_size" android:layout_marginRight="@dimen/default_image_gap_size" android:layout_centerVertical="true" android:contentDescription="@null" />
+    <TextView android:textAppearance="@style/SectionText" android:ellipsize="end" android:id="@id/title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" android:layout_centerVertical="true" />
+    <TextView android:textAppearance="@style/ButtonText" android:textColor="@color/WhiteText" android:id="@id/new_tag" android:background="@drawable/list_item_textbadge" android:paddingLeft="@dimen/base_text_padding" android:paddingTop="2.0dip" android:paddingRight="@dimen/base_text_padding" android:paddingBottom="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/new_search_suggestion" />
 </com.yelp.android.ui.widgets.SpannableLinearLayout>

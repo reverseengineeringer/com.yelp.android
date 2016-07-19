@@ -1,142 +1,91 @@
 package com.yelp.android.ui;
 
-import android.app.Dialog;
-import android.graphics.Bitmap;
-import android.location.Location;
-import android.util.Log;
 import android.view.SurfaceView;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.BusinessSearchRequest;
-import com.yelp.android.appdata.webrequests.BusinessSearchRequest.SearchMode;
-import com.yelp.android.appdata.webrequests.SearchRequest.SearchResponse;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.database.q;
-import com.yelp.android.serializable.BusinessSearchResult;
-import com.yelp.android.serializable.Category;
-import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.ui.panels.ac;
-import com.yelp.android.util.StringUtils.Format;
-import java.nio.ByteBuffer;
-import java.util.List;
+import android.view.WindowManager.LayoutParams;
+import com.yelp.android.s.a;
+import com.yelp.android.util.YelpLog;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 class m
-  extends j<SearchRequest.SearchResponse>
 {
-  public static BusinessSearchRequest a;
-  private final ActivityMonocle b;
-  private final MonocleEngine c;
-  private final l d;
-  private final SurfaceView e;
-  private Category f = null;
-  
-  public m(ActivityMonocle paramActivityMonocle, MonocleEngine paramMonocleEngine, l paraml, SurfaceView paramSurfaceView1, SurfaceView paramSurfaceView2)
+  public static void a(SurfaceView paramSurfaceView, int paramInt)
   {
-    b = paramActivityMonocle;
-    c = paramMonocleEngine;
-    d = paraml;
-    e = paramSurfaceView1;
-  }
-  
-  public void a(Location paramLocation)
-  {
-    Log.i("SEARCH", "Starting HTTP Request");
-  }
-  
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, SearchRequest.SearchResponse paramSearchResponse)
-  {
-    if (!(paramApiRequest instanceof BusinessSearchRequest)) {
-      throw new IllegalStateException("Cannot use this request object");
-    }
-    paramApiRequest = (BusinessSearchRequest)paramApiRequest;
-    paramSearchResponse = BusinessSearchResult.getBusinessesFromBusinessSearchResult(paramSearchResponse.getBusinessSearchResults());
-    Log.i("SEARCH", "done");
-    e.setVisibility(0);
-    u.b(e, 1004);
-    c.SetLocation((float)paramApiRequest.getLocation().getLatitude(), (float)paramApiRequest.getLocation().getLongitude());
-    ac localac = new ac(b);
-    localac.a(null);
-    c.ClearObjects();
-    paramApiRequest = null;
-    g localg = new g(b);
-    int i = 0;
-    YelpBusiness localYelpBusiness;
-    Bitmap localBitmap;
-    if (i < paramSearchResponse.size())
+    try
     {
-      localYelpBusiness = (YelpBusiness)paramSearchResponse.get(i);
-      localac.a(localYelpBusiness);
-      localac.setDistance(localYelpBusiness.getDistanceFormatted(b, StringUtils.Format.ABBREVIATED));
-      localac.setVisibility(0);
-      localBitmap = localg.a(localac);
-      int j = localBitmap.getHeight() * localBitmap.getRowBytes();
-      if ((paramApiRequest != null) && (paramApiRequest.array().length >= j)) {
-        break label325;
+      Object localObject = SurfaceView.class.getDeclaredField("mSession");
+      ((Field)localObject).setAccessible(true);
+      if (!Proxy.isProxyClass(((Field)localObject).get(paramSurfaceView).getClass()))
+      {
+        ClassLoader localClassLoader = paramSurfaceView.getClass().getClassLoader();
+        n localn = new n(paramInt, ((Field)localObject).get(paramSurfaceView));
+        ((Field)localObject).set(paramSurfaceView, Proxy.newProxyInstance(localClassLoader, new Class[] { a.class }, localn));
       }
-      paramApiRequest = ByteBuffer.allocate(j);
-    }
-    label325:
-    for (;;)
-    {
-      paramApiRequest.rewind();
-      localBitmap.copyPixelsToBuffer(paramApiRequest);
-      c.AddObject(paramApiRequest.array(), localBitmap.getWidth(), localBitmap.getHeight(), (float)localYelpBusiness.getLatitude(), (float)localYelpBusiness.getLongitude(), new n(b, localYelpBusiness));
-      i += 1;
-      break;
-      d.a = true;
-      if (ActivityMonocle.a != null) {
-        ActivityMonocle.a.hide();
-      }
-      b.d = b.b.a();
-      a = null;
+      localObject = SurfaceView.class.getDeclaredMethod("updateWindow", new Class[] { Boolean.TYPE, Boolean.TYPE });
+      ((Method)localObject).setAccessible(true);
+      ((Method)localObject).invoke(paramSurfaceView, new Object[] { Boolean.valueOf(true), Boolean.valueOf(false) });
       return;
     }
-  }
-  
-  public void a(Category paramCategory)
-  {
-    f = paramCategory;
-  }
-  
-  public boolean a()
-  {
-    b.a();
-    Log.i("SEARCH", "No location provider for search");
-    return false;
-  }
-  
-  public void b()
-  {
-    a = new BusinessSearchRequest(AppData.b().i().g(), this);
-    a.setSearchMode(BusinessSearchRequest.SearchMode.MONOCLE);
-    if (f != null) {
-      a.setCategory(f);
-    }
-    a.search();
-    if (ActivityMonocle.a != null) {
-      ActivityMonocle.a.show();
-    }
-  }
-  
-  public void c()
-  {
-    if (a != null)
+    catch (Exception paramSurfaceView)
     {
-      a.setCallback(null);
-      a.cancel(true);
+      YelpLog.remoteError(paramSurfaceView);
     }
-    b.b.a(b.d);
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public static void b(SurfaceView paramSurfaceView, int paramInt)
   {
-    Log.i("SEARCH", "Error" + paramYelpException.getMessage());
-    a = null;
-    if (ActivityMonocle.a != null) {
-      ActivityMonocle.a.hide();
+    try
+    {
+      Field localField1 = SurfaceView.class.getDeclaredField("mWindowType");
+      localField1.setAccessible(true);
+      localField1.set(paramSurfaceView, Integer.valueOf(paramInt));
+      return;
     }
-    b();
+    catch (SecurityException paramSurfaceView)
+    {
+      YelpLog.remoteError(paramSurfaceView);
+      return;
+    }
+    catch (NoSuchFieldException localNoSuchFieldException)
+    {
+      try
+      {
+        Field localField2 = SurfaceView.class.getDeclaredField("mLayout");
+        localField2.setAccessible(true);
+        gettype = paramInt;
+        return;
+      }
+      catch (SecurityException paramSurfaceView)
+      {
+        YelpLog.remoteError(paramSurfaceView);
+        return;
+      }
+      catch (NoSuchFieldException paramSurfaceView)
+      {
+        YelpLog.remoteError(paramSurfaceView);
+        return;
+      }
+      catch (IllegalArgumentException paramSurfaceView)
+      {
+        YelpLog.remoteError(paramSurfaceView);
+        return;
+      }
+      catch (IllegalAccessException paramSurfaceView)
+      {
+        YelpLog.remoteError(paramSurfaceView);
+        return;
+      }
+    }
+    catch (IllegalArgumentException paramSurfaceView)
+    {
+      YelpLog.remoteError(paramSurfaceView);
+      return;
+    }
+    catch (IllegalAccessException paramSurfaceView)
+    {
+      YelpLog.remoteError(paramSurfaceView);
+    }
   }
 }
 

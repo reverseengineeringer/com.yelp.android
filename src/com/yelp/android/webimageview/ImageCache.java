@@ -1,10 +1,13 @@
 package com.yelp.android.webimageview;
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapFactory.Options;
 import android.os.Build.VERSION;
 import android.os.Environment;
 import android.os.StatFs;
@@ -31,7 +34,7 @@ public class ImageCache
   private static final int MAX_EXTERNAL = 5242880;
   private static final int MAX_INTERNAL = 1048576;
   private static final int MEGABYTE_IN_BYTES = 1048576;
-  private static final ImageCache.OptionsFactory OPTIONS;
+  private static final OptionsFactory OPTIONS;
   private static final String TAG = "DroidFu.ImageCache";
   private final ConcurrentMap<String, Bitmap> mCache;
   Context mContext;
@@ -45,11 +48,27 @@ public class ImageCache
   static
   {
     if (Integer.valueOf(Build.VERSION.SDK).intValue() >= 4) {}
-    for (Object localObject = new ImageCache.EfficientOptionsFactory(null);; localObject = new ImageCache.OptionsFactory(null))
+    for (Object localObject = new EfficientOptionsFactory(null);; localObject = new OptionsFactory(null))
     {
-      OPTIONS = (ImageCache.OptionsFactory)localObject;
-      FILE_COMPARATOR = new ImageCache.2();
-      FILE_COMPARATOR_FALLBACK = new ImageCache.3();
+      OPTIONS = (OptionsFactory)localObject;
+      FILE_COMPARATOR = new Comparator()
+      {
+        public int compare(File paramAnonymousFile1, File paramAnonymousFile2)
+        {
+          int i = (int)(paramAnonymousFile2.lastModified() - paramAnonymousFile1.lastModified());
+          if (i != 0) {
+            return i;
+          }
+          return paramAnonymousFile2.compareTo(paramAnonymousFile1);
+        }
+      };
+      FILE_COMPARATOR_FALLBACK = new Comparator()
+      {
+        public int compare(File paramAnonymousFile1, File paramAnonymousFile2)
+        {
+          return paramAnonymousFile2.getName().compareTo(paramAnonymousFile2.getName());
+        }
+      };
       return;
     }
   }
@@ -86,7 +105,7 @@ public class ImageCache
   {
     try
     {
-      File localFile = ImageCache.ExternalStorageWrapper.getExternalCacheDir(paramContext);
+      File localFile = ExternalStorageWrapper.getExternalCacheDir(paramContext);
       return localFile;
     }
     catch (Throwable localThrowable) {}
@@ -175,11 +194,13 @@ public class ImageCache
   }
   
   public Bitmap put(String paramString, InputStream paramInputStream)
+    throws IOException
   {
     return put(paramString, paramInputStream, false);
   }
   
   public Bitmap put(String paramString, InputStream paramInputStream, boolean paramBoolean)
+    throws IOException
   {
     incrementAndTrim();
     if (paramBoolean) {
@@ -236,7 +257,13 @@ public class ImageCache
   
   void registerForExternalStorageUpdates(Context paramContext)
   {
-    mExternalStorageReceiver = new ImageCache.1(this);
+    mExternalStorageReceiver = new BroadcastReceiver()
+    {
+      public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+      {
+        updateExternalStorageState(paramAnonymousContext);
+      }
+    };
     IntentFilter localIntentFilter = new IntentFilter();
     localIntentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
     localIntentFilter.addAction("android.intent.action.MEDIA_REMOVED");
@@ -357,6 +384,40 @@ public class ImageCache
   {
     mSecondLevelCacheDir = mInternalCacheDir;
     mSecondLevelCacheDir.mkdirs();
+  }
+  
+  private static class EfficientOptionsFactory
+    extends ImageCache.OptionsFactory
+  {
+    private EfficientOptionsFactory()
+    {
+      super();
+    }
+    
+    public BitmapFactory.Options getOptions()
+    {
+      BitmapFactory.Options localOptions = super.getOptions();
+      inInputShareable = true;
+      inPurgeable = true;
+      return localOptions;
+    }
+  }
+  
+  @TargetApi(8)
+  public static class ExternalStorageWrapper
+  {
+    public static File getExternalCacheDir(Context paramContext)
+    {
+      return paramContext.getExternalCacheDir();
+    }
+  }
+  
+  private static class OptionsFactory
+  {
+    public BitmapFactory.Options getOptions()
+    {
+      return new BitmapFactory.Options();
+    }
   }
 }
 

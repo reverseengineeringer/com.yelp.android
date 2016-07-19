@@ -3,6 +3,18 @@
 .source "ReviewPagerFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/widgets/ReviewPagerFragment$5;,
+        Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;,
+        Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;,
+        Lcom/yelp/android/ui/widgets/ReviewPagerFragment$LoadingFragment;,
+        Lcom/yelp/android/ui/widgets/ReviewPagerFragment$b;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -19,13 +31,13 @@
 
 .field private c:Ljava/lang/String;
 
-.field private d:Lcom/yelp/android/ui/widgets/ag;
+.field private d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-.field private e:Lcom/yelp/android/ui/widgets/ah;
+.field private e:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$b;
 
-.field private g:Landroid/support/v4/view/ViewPager;
+.field private f:Landroid/support/v4/view/ViewPager;
 
-.field private h:Landroid/widget/FrameLayout;
+.field private g:Landroid/widget/FrameLayout;
 
 .field private i:Landroid/widget/ImageView;
 
@@ -52,11 +64,11 @@
 
 .field private p:I
 
-.field private final q:Lcom/yelp/android/av/i;
+.field private final q:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
-.field private final r:Lcom/yelp/android/ui/activities/reviewpage/av;
+.field private final r:Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment$a;
 
-.field private final s:Landroid/support/v4/view/du;
+.field private final s:Landroid/support/v4/view/ViewPager$e;
 
 .field private final t:Ljava/lang/Runnable;
 
@@ -69,39 +81,39 @@
     .line 48
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;-><init>()V
 
-    .line 272
-    new-instance v0, Lcom/yelp/android/ui/widgets/ab;
+    .line 279
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ab;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$1;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->q:Lcom/yelp/android/av/i;
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->q:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
-    .line 317
-    new-instance v0, Lcom/yelp/android/ui/widgets/ac;
+    .line 327
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ac;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$2;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->r:Lcom/yelp/android/ui/activities/reviewpage/av;
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->r:Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment$a;
 
-    .line 377
-    new-instance v0, Lcom/yelp/android/ui/widgets/ad;
+    .line 394
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$3;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ad;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$3;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->s:Landroid/support/v4/view/du;
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->s:Landroid/support/v4/view/ViewPager$e;
 
-    .line 501
-    new-instance v0, Lcom/yelp/android/ui/widgets/ae;
+    .line 524
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$4;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ae;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$4;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->t:Ljava/lang/Runnable;
 
-    .line 576
+    .line 605
     return-void
 .end method
 
-.method public static a(Ljava/lang/String;Ljava/util/ArrayList;IILjava/lang/String;)Lcom/yelp/android/ui/widgets/ReviewPagerFragment;
+.method public static a(Ljava/lang/String;Ljava/util/ArrayList;IILjava/lang/String;Ljava/lang/String;)Lcom/yelp/android/ui/widgets/ReviewPagerFragment;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -112,51 +124,57 @@
             "Lcom/yelp/android/serializable/YelpBusinessReview;",
             ">;II",
             "Ljava/lang/String;",
+            "Ljava/lang/String;",
             ")",
             "Lcom/yelp/android/ui/widgets/ReviewPagerFragment;"
         }
     .end annotation
 
     .prologue
-    .line 142
+    .line 147
     new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;-><init>()V
 
-    .line 143
+    .line 148
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 144
+    .line 149
     const-string/jumbo v2, "business_id"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 145
+    .line 150
     const-string/jumbo v2, "reviews"
 
     invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 146
+    .line 151
     const-string/jumbo v2, "start_index"
 
     invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 147
+    .line 152
     const-string/jumbo v2, "total"
 
     invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 148
+    .line 153
     const-string/jumbo v2, "business_name"
 
     invoke-virtual {v1, v2, p4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 149
+    .line 154
+    const-string/jumbo v2, "business_country"
+
+    invoke-virtual {v1, v2, p5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 155
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 150
+    .line 156
     return-object v0
 .end method
 
@@ -198,7 +216,7 @@
 
     const/4 v1, 0x0
 
-    .line 511
+    .line 535
     iget-object v3, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->i:Landroid/widget/ImageView;
 
     if-eqz p1, :cond_0
@@ -208,7 +226,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 512
+    .line 536
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->j:Landroid/widget/ImageView;
 
     if-eqz p2, :cond_1
@@ -216,19 +234,19 @@
     :goto_1
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 513
+    .line 537
     return-void
 
     :cond_0
     move v0, v2
 
-    .line 511
+    .line 535
     goto :goto_0
 
     :cond_1
     move v1, v2
 
-    .line 512
+    .line 536
     goto :goto_1
 .end method
 
@@ -243,24 +261,34 @@
 .end method
 
 .method private b(Lcom/yelp/android/serializable/YelpBusinessReview;)Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment;
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 571
+    .line 595
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->b:Ljava/lang/String;
 
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->c:Ljava/lang/String;
 
-    invoke-static {p1, v0, v1}, Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment;->a(Lcom/yelp/android/serializable/YelpBusinessReview;Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "business_country"
+
+    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p1, v0, v1, v2}, Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment;->a(Lcom/yelp/android/serializable/YelpBusinessReview;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment;
 
     move-result-object v0
 
-    .line 572
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->r:Lcom/yelp/android/ui/activities/reviewpage/av;
+    .line 601
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->r:Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment$a;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment;->a(Lcom/yelp/android/ui/activities/reviewpage/av;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment;->a(Lcom/yelp/android/ui/activities/reviewpage/ReviewFragment$a;)V
 
-    .line 573
+    .line 602
     return-object v0
 .end method
 
@@ -276,12 +304,12 @@
     return-object v0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)Lcom/yelp/android/ui/widgets/ag;
+.method static synthetic b(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
     .locals 1
 
     .prologue
     .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
     return-object v0
 .end method
@@ -291,7 +319,7 @@
 
     .prologue
     .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     return-object v0
 .end method
@@ -300,44 +328,44 @@
     .locals 3
 
     .prologue
-    .line 642
+    .line 671
     new-instance v0, Ljava/util/HashMap;
 
     const/4 v1, 0x2
 
     invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
 
-    .line 643
+    .line 672
     const-string/jumbo v1, "review_id"
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getId()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->a()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 644
+    .line 673
     const-string/jumbo v1, "business_id"
 
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->b:Ljava/lang/String;
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 645
+    .line 674
     const-string/jumbo v1, "user_id"
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserId()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->b()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 646
+    .line 675
     sget-object v1, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewFullPage:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
-    .line 647
+    .line 676
     return-void
 .end method
 
@@ -346,17 +374,17 @@
 
     .prologue
     .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
     return-object v0
 .end method
 
-.method static synthetic e(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)Lcom/yelp/android/av/i;
+.method static synthetic e(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)Lcom/yelp/android/appdata/webrequests/core/c$a;
     .locals 1
 
     .prologue
     .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->q:Lcom/yelp/android/av/i;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->q:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
     return-object v0
 .end method
@@ -371,21 +399,21 @@
     return-object v0
 .end method
 
-.method static synthetic g(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)Lcom/yelp/android/ui/widgets/ah;
+.method static synthetic g(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;)Lcom/yelp/android/ui/widgets/ReviewPagerFragment$b;
     .locals 1
 
     .prologue
     .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->e:Lcom/yelp/android/ui/widgets/ah;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->e:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$b;
 
     return-object v0
 .end method
 
-.method private g()Z
+.method private h()Z
     .locals 2
 
     .prologue
-    .line 546
+    .line 570
     iget v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->l:I
 
     iget v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->k:I
@@ -393,26 +421,6 @@
     add-int/lit8 v1, v1, -0x1
 
     if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method private h()Z
-    .locals 1
-
-    .prologue
-    .line 550
-    iget v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->m:I
-
-    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 
@@ -445,91 +453,22 @@
     return v0
 .end method
 
-.method private i()Lcom/yelp/android/ui/widgets/ag;
-    .locals 3
+.method private i()Z
+    .locals 1
 
     .prologue
-    .line 555
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g()Z
+    .line 574
+    iget v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->m:I
 
-    move-result v0
+    if-nez v0, :cond_0
 
-    if-eqz v0, :cond_0
+    const/4 v0, 0x1
 
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 557
-    new-instance v0, Lcom/yelp/android/ui/widgets/ag;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->DEFAULT:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
-
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ag;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/FragmentManager;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
-
-    .line 566
     :goto_0
-    return-object v0
+    return v0
 
-    .line 558
     :cond_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 560
-    new-instance v0, Lcom/yelp/android/ui/widgets/ag;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->LOADING_BACKWARDS:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
-
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ag;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/FragmentManager;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
-
-    goto :goto_0
-
-    .line 561
-    :cond_1
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 563
-    new-instance v0, Lcom/yelp/android/ui/widgets/ag;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->LOADING_FORWARDS:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
-
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ag;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/FragmentManager;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
-
-    goto :goto_0
-
-    .line 566
-    :cond_2
-    new-instance v0, Lcom/yelp/android/ui/widgets/ag;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->LOADING:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
-
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ag;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/FragmentManager;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -544,20 +483,109 @@
     return v0
 .end method
 
+.method private j()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
+    .locals 3
+
+    .prologue
+    .line 579
+    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->i()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 581
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->DEFAULT:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/l;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
+
+    .line 590
+    :goto_0
+    return-object v0
+
+    .line 582
+    :cond_0
+    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 584
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->LOADING_BACKWARDS:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/l;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
+
+    goto :goto_0
+
+    .line 585
+    :cond_1
+    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->i()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 587
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->LOADING_FORWARDS:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/l;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
+
+    goto :goto_0
+
+    .line 590
+    :cond_2
+    new-instance v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;->LOADING:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+
+    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;-><init>(Lcom/yelp/android/ui/widgets/ReviewPagerFragment;Landroid/support/v4/app/l;Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;)V
+
+    goto :goto_0
+.end method
+
 
 # virtual methods
 .method public a()V
     .locals 2
 
     .prologue
-    .line 248
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    .line 255
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->c()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/ag;->getItem(I)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;->a(I)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -565,8 +593,8 @@
 
     if-eqz v0, :cond_0
 
-    .line 251
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    .line 258
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Landroid/support/v4/view/ViewPager;->getCurrentItem()I
 
@@ -576,25 +604,25 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 252
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    .line 259
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setCurrentItem(I)V
 
-    .line 267
+    .line 274
     :cond_0
     :goto_0
     return-void
 
-    .line 255
+    .line 262
     :cond_1
-    sget-object v0, Lcom/yelp/android/ui/widgets/af;->a:[I
+    sget-object v0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$5;->a:[I
 
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/widgets/ag;->a()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+    invoke-virtual {v1}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;->d()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
 
     move-result-object v1
 
@@ -608,9 +636,9 @@
 
     goto :goto_0
 
-    .line 260
+    .line 267
     :pswitch_0
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
@@ -622,9 +650,9 @@
 
     goto :goto_0
 
-    .line 263
+    .line 270
     :pswitch_1
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
@@ -638,7 +666,7 @@
 
     goto :goto_0
 
-    .line 255
+    .line 262
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -651,10 +679,10 @@
     .locals 2
 
     .prologue
-    .line 483
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    .line 506
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/ag;->a()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;->d()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
 
     move-result-object v0
 
@@ -662,9 +690,9 @@
 
     if-eq v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/ag;->a()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;->d()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
 
     move-result-object v0
 
@@ -672,34 +700,34 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 485
+    .line 508
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     add-int/lit8 v1, p1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setCurrentItem(I)V
 
-    .line 495
+    .line 518
     :cond_1
     :goto_0
     return-void
 
-    .line 487
+    .line 510
     :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0, p1}, Landroid/support/v4/view/ViewPager;->setCurrentItem(I)V
 
-    .line 491
+    .line 514
     if-nez p1, :cond_1
 
-    .line 492
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->s:Landroid/support/v4/view/du;
+    .line 515
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->s:Landroid/support/v4/view/ViewPager$e;
 
     const/4 v1, 0x0
 
-    invoke-interface {v0, v1}, Landroid/support/v4/view/du;->a(I)V
+    invoke-interface {v0, v1}, Landroid/support/v4/view/ViewPager$e;->b(I)V
 
     goto :goto_0
 .end method
@@ -708,34 +736,34 @@
     .locals 2
 
     .prologue
-    .line 650
+    .line 679
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result v0
 
-    .line 651
+    .line 680
     if-ltz v0, :cond_0
 
-    .line 652
+    .line 681
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0, p1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 654
+    .line 683
     :cond_0
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/ui/widgets/ah;)V
+.method public a(Lcom/yelp/android/ui/widgets/ReviewPagerFragment$b;)V
     .locals 0
 
     .prologue
-    .line 449
-    iput-object p1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->e:Lcom/yelp/android/ui/widgets/ah;
+    .line 471
+    iput-object p1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->e:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$b;
 
-    .line 450
+    .line 472
     return-void
 .end method
 
@@ -754,24 +782,24 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 459
+    .line 481
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    .line 461
+    .line 483
     iget-boolean v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->n:Z
 
     if-eqz v2, :cond_1
 
-    .line 462
+    .line 484
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v2, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 468
+    .line 490
     iget v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->l:I
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -789,11 +817,22 @@
 
     iput v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->l:I
 
-    .line 476
+    .line 498
     :goto_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->j()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    .line 479
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
+
+    .line 499
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
+
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/ac;)V
+
+    .line 502
     iget-boolean v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->n:Z
 
     if-eqz v0, :cond_2
@@ -803,16 +842,16 @@
     :goto_1
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a(I)V
 
-    .line 480
+    .line 503
     return-void
 
-    .line 470
+    .line 492
     :cond_1
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v2, v0, p1}, Ljava/util/ArrayList;->addAll(ILjava/util/Collection;)Z
 
-    .line 471
+    .line 493
     iget v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->m:I
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -825,7 +864,7 @@
 
     goto :goto_0
 
-    .line 479
+    .line 502
     :cond_2
     invoke-interface {p1}, Ljava/util/List;->size()I
 
@@ -842,7 +881,7 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 424
+    .line 446
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     if-eqz v1, :cond_0
@@ -855,18 +894,18 @@
 
     if-nez v1, :cond_1
 
-    .line 437
+    .line 459
     :cond_0
     :goto_0
     return-object v0
 
-    .line 427
+    .line 449
     :cond_1
-    sget-object v1, Lcom/yelp/android/ui/widgets/af;->a:[I
+    sget-object v1, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$5;->a:[I
 
-    iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/widgets/ag;->a()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;->d()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$AdapterState;
 
     move-result-object v2
 
@@ -880,11 +919,11 @@
 
     goto :goto_0
 
-    .line 431
+    .line 453
     :pswitch_0
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v1}, Landroid/support/v4/view/ViewPager;->getCurrentItem()I
 
@@ -900,11 +939,11 @@
 
     goto :goto_0
 
-    .line 429
+    .line 451
     :pswitch_1
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v1}, Landroid/support/v4/view/ViewPager;->getCurrentItem()I
 
@@ -918,11 +957,11 @@
 
     goto :goto_0
 
-    .line 433
+    .line 455
     :pswitch_2
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v1}, Landroid/support/v4/view/ViewPager;->getCurrentItem()I
 
@@ -938,11 +977,11 @@
 
     goto :goto_0
 
-    .line 435
+    .line 457
     :pswitch_3
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v1}, Landroid/support/v4/view/ViewPager;->getCurrentItem()I
 
@@ -956,7 +995,7 @@
 
     goto :goto_0
 
-    .line 427
+    .line 449
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -970,8 +1009,8 @@
     .locals 1
 
     .prologue
-    .line 498
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    .line 521
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Landroid/support/v4/view/ViewPager;->getCurrentItem()I
 
@@ -980,23 +1019,23 @@
     return v0
 .end method
 
-.method public e()V
+.method public f()V
     .locals 6
 
     .prologue
     const-wide/16 v4, 0x1388
 
-    .line 520
+    .line 544
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    .line 521
+    .line 545
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->t:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 523
+    .line 547
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -1005,8 +1044,8 @@
 
     if-eqz v1, :cond_1
 
-    .line 524
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    .line 548
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1}, Landroid/widget/FrameLayout;->getVisibility()I
 
@@ -1014,38 +1053,38 @@
 
     if-nez v1, :cond_0
 
-    .line 525
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    .line 549
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
-    invoke-static {v0, v4, v5}, Lcom/yelp/android/ui/util/cw;->b(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-static {v0, v4, v5}, Lcom/yelp/android/ui/util/av;->b(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
 
-    .line 535
+    .line 559
     :goto_0
     return-void
 
-    .line 527
+    .line 551
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
-    invoke-static {v1, v4, v5}, Lcom/yelp/android/ui/util/cw;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-static {v1, v4, v5}, Lcom/yelp/android/ui/util/av;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
 
-    .line 528
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    .line 552
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 530
+    .line 554
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->t:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 
-    .line 533
+    .line 557
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
     const/16 v1, 0x8
 
@@ -1054,35 +1093,35 @@
     goto :goto_0
 .end method
 
-.method public f()V
+.method public g()V
     .locals 3
 
     .prologue
-    .line 539
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    .line 563
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
     invoke-virtual {v0}, Landroid/support/v4/view/ViewPager;->getCurrentItem()I
 
     move-result v0
 
-    .line 540
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->i()Lcom/yelp/android/ui/widgets/ag;
+    .line 564
+    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->j()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iput-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    .line 541
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    .line 565
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    invoke-virtual {v1, v2}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/bo;)V
+    invoke-virtual {v1, v2}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/ac;)V
 
-    .line 542
+    .line 566
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a(I)V
 
-    .line 543
+    .line 567
     return-void
 .end method
 
@@ -1090,13 +1129,13 @@
     .locals 2
 
     .prologue
-    .line 191
+    .line 197
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 194
+    .line 200
     if-nez p1, :cond_1
 
-    .line 195
+    .line 201
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -1107,25 +1146,25 @@
 
     move-result-object v0
 
-    .line 198
+    .line 204
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 199
+    .line 205
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a(Ljava/util/List;)V
 
-    .line 209
+    .line 215
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->e()V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f()V
 
-    .line 210
+    .line 216
     return-void
 
-    .line 202
+    .line 208
     :cond_1
     const-string/jumbo v0, "reviews"
 
@@ -1135,21 +1174,21 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
-    .line 203
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->i()Lcom/yelp/android/ui/widgets/ag;
+    .line 209
+    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->j()Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    .line 204
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    .line 210
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ag;
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->d:Lcom/yelp/android/ui/widgets/ReviewPagerFragment$a;
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/bo;)V
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/ac;)V
 
-    .line 205
+    .line 211
     const-string/jumbo v0, "is_loading_forward"
 
     iget-boolean v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->n:Z
@@ -1169,20 +1208,20 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 155
+    .line 161
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 156
+    .line 162
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->n:Z
 
-    .line 157
+    .line 163
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 158
+    .line 164
     const-string/jumbo v1, "business_id"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -1191,7 +1230,7 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->b:Ljava/lang/String;
 
-    .line 159
+    .line 165
     const-string/jumbo v1, "business_name"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -1200,17 +1239,17 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->c:Ljava/lang/String;
 
-    .line 162
+    .line 168
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
-    .line 163
+    .line 169
     if-nez p1, :cond_0
 
-    .line 164
+    .line 170
     const-string/jumbo v1, "start_index"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -1219,15 +1258,15 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->l:I
 
-    .line 165
+    .line 171
     iget v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->l:I
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->m:I
 
-    .line 166
+    .line 172
     iput v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->p:I
 
-    .line 172
+    .line 178
     :goto_0
     new-instance v1, Ljava/util/ArrayList;
 
@@ -1235,7 +1274,7 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->o:Ljava/util/List;
 
-    .line 173
+    .line 179
     const-string/jumbo v1, "total"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -1244,10 +1283,10 @@
 
     iput v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->k:I
 
-    .line 174
+    .line 180
     return-void
 
-    .line 168
+    .line 174
     :cond_0
     const-string/jumbo v1, "forward_index"
 
@@ -1257,7 +1296,7 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->l:I
 
-    .line 169
+    .line 175
     const-string/jumbo v1, "backwards_index"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -1266,7 +1305,7 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->m:I
 
-    .line 170
+    .line 176
     const-string/jumbo v1, "review_votes_count"
 
     invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
@@ -1282,8 +1321,8 @@
     .locals 3
 
     .prologue
-    .line 179
-    const v0, 0x7f030170
+    .line 185
+    const v0, 0x7f0301df
 
     const/4 v1, 0x0
 
@@ -1291,8 +1330,8 @@
 
     move-result-object v1
 
-    .line 180
-    const v0, 0x7f0c047b
+    .line 186
+    const v0, 0x7f0f03bb
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1300,17 +1339,17 @@
 
     check-cast v0, Landroid/support/v4/view/ViewPager;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
-    .line 181
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/support/v4/view/ViewPager;
+    .line 187
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->f:Landroid/support/v4/view/ViewPager;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->s:Landroid/support/v4/view/du;
+    iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->s:Landroid/support/v4/view/ViewPager$e;
 
-    invoke-virtual {v0, v2}, Landroid/support/v4/view/ViewPager;->setOnPageChangeListener(Landroid/support/v4/view/du;)V
+    invoke-virtual {v0, v2}, Landroid/support/v4/view/ViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$e;)V
 
-    .line 182
-    const v0, 0x7f0c047c
+    .line 188
+    const v0, 0x7f0f0582
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1318,12 +1357,12 @@
 
     check-cast v0, Landroid/widget/FrameLayout;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
-    .line 183
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    .line 189
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
-    const v2, 0x7f0c047d
+    const v2, 0x7f0f0583
 
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1333,10 +1372,10 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->i:Landroid/widget/ImageView;
 
-    .line 184
-    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->h:Landroid/widget/FrameLayout;
+    .line 190
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->g:Landroid/widget/FrameLayout;
 
-    const v2, 0x7f0c047e
+    const v2, 0x7f0f0584
 
     invoke-virtual {v0, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1346,7 +1385,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->j:Landroid/widget/ImageView;
 
-    .line 186
+    .line 192
     return-object v1
 .end method
 
@@ -1354,13 +1393,13 @@
     .locals 5
 
     .prologue
-    .line 225
+    .line 232
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onPause()V
 
-    .line 227
+    .line 234
     const/4 v0, 0x0
 
-    .line 228
+    .line 235
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->o:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -1382,14 +1421,14 @@
 
     check-cast v0, Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest;
 
-    .line 229
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest;->isCompleted()Z
+    .line 236
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest;->v()Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    .line 230
+    .line 237
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1410,20 +1449,20 @@
 
     invoke-virtual {p0, v3, v0}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 231
+    .line 238
     add-int/lit8 v0, v1, 0x1
 
     :goto_1
     move v1, v0
 
-    .line 233
+    .line 240
     goto :goto_0
 
-    .line 234
+    .line 241
     :cond_0
     iput v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->p:I
 
-    .line 235
+    .line 242
     return-void
 
     :cond_1
@@ -1436,15 +1475,15 @@
     .locals 5
 
     .prologue
-    .line 214
+    .line 220
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onResume()V
 
-    .line 216
+    .line 222
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->o:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 217
+    .line 223
     const/4 v0, 0x0
 
     move v1, v0
@@ -1454,7 +1493,7 @@
 
     if-ge v1, v0, :cond_0
 
-    .line 218
+    .line 224
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->o:Ljava/util/List;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1477,9 +1516,9 @@
 
     const/4 v3, 0x0
 
-    iget-object v4, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->q:Lcom/yelp/android/av/i;
+    iget-object v4, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->q:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
-    invoke-virtual {p0, v0, v3, v4}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v3, v4}, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
@@ -1487,14 +1526,14 @@
 
     invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 217
+    .line 223
     add-int/lit8 v0, v1, 0x1
 
     move v1, v0
 
     goto :goto_0
 
-    .line 221
+    .line 228
     :cond_0
     return-void
 .end method
@@ -1503,44 +1542,44 @@
     .locals 2
 
     .prologue
-    .line 239
+    .line 246
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 240
+    .line 247
     const-string/jumbo v0, "reviews"
 
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 241
+    .line 248
     const-string/jumbo v0, "forward_index"
 
     iget v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->l:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 242
+    .line 249
     const-string/jumbo v0, "backwards_index"
 
     iget v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->m:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 243
+    .line 250
     const-string/jumbo v0, "is_loading_forward"
 
     iget-boolean v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->n:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 244
+    .line 251
     const-string/jumbo v0, "review_votes_count"
 
     iget v1, p0, Lcom/yelp/android/ui/widgets/ReviewPagerFragment;->p:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 245
+    .line 252
     return-void
 .end method

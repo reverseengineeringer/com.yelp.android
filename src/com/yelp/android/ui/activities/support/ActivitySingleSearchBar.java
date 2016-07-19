@@ -2,8 +2,8 @@ package com.yelp.android.ui.activities.support;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +19,11 @@ public abstract class ActivitySingleSearchBar<FragmentType extends YelpListFragm
   public void a(ListView paramListView)
   {
     View localView = new View(this);
-    localView.setMinimumHeight(getResources().getDimensionPixelSize(2131427370));
+    localView.setMinimumHeight(getResources().getDimensionPixelSize(2131361892));
     paramListView.addHeaderView(localView);
   }
   
-  protected abstract FragmentType c();
+  protected abstract FragmentType d();
   
   protected FragmentType e()
   {
@@ -33,20 +33,20 @@ public abstract class ActivitySingleSearchBar<FragmentType extends YelpListFragm
   protected List<View> getViewsToHideOnDrawerSelected()
   {
     ArrayList localArrayList = new ArrayList(super.getViewsToHideOnDrawerSelected());
-    localArrayList.add(findViewById(2131494015));
-    localArrayList.add(findViewById(2131493600));
+    localArrayList.add(findViewById(2131690886));
+    localArrayList.add(findViewById(2131690311));
     return localArrayList;
   }
   
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    getLayoutInflater().inflate(2130903412, (ViewGroup)findViewById(2131493629));
-    a = ((YelpListFragment)getSupportFragmentManager().findFragmentById(2131493332));
+    getLayoutInflater().inflate(2130903525, (ViewGroup)findViewById(2131690373));
+    a = ((YelpListFragment)getSupportFragmentManager().a(2131689997));
     if (a == null)
     {
-      a = c();
-      getSupportFragmentManager().beginTransaction().add(2131493332, a).commit();
+      a = d();
+      getSupportFragmentManager().a().a(2131689997, a).a();
     }
   }
 }

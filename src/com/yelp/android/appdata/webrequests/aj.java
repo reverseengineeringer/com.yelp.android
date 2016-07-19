@@ -1,17 +1,17 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 import com.yelp.android.serializable.YelpBusiness;
 
 public class aj
-  extends h
+  extends c
 {
-  public aj(YelpBusiness paramYelpBusiness, i parami)
+  public aj(YelpBusiness paramYelpBusiness, c.a parama)
   {
-    super("reservation/cancel", parami);
-    addPostParam("business_id", paramYelpBusiness.getId());
-    addPostParam("reservation_provider", paramYelpBusiness.getReservationProviderString());
+    super("reservation/cancel", parama);
+    b("business_id", paramYelpBusiness.aD());
+    b("reservation_provider", paramYelpBusiness.ae());
   }
 }
 

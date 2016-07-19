@@ -1,6 +1,7 @@
 package com.ooyala.android;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.widget.FrameLayout.LayoutParams;
 
 public class OoyalaPlayerLayoutController
@@ -79,7 +80,18 @@ public class OoyalaPlayerLayoutController
       return;
       if ((!isFullscreen()) && (paramBoolean))
       {
-        _fullscreenDialog = new OoyalaPlayerLayoutController.1(this, _layout.getContext(), 16973834);
+        _fullscreenDialog = new Dialog(_layout.getContext(), 16973834)
+        {
+          public void onBackPressed()
+          {
+            if (_player.isFullscreen())
+            {
+              _player.setFullscreen(false);
+              return;
+            }
+            super.onBackPressed();
+          }
+        };
         _fullscreenLayout = new OoyalaPlayerLayout(_fullscreenDialog.getContext());
         _fullscreenLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1, 119));
         _fullscreenLayout.setLayoutController(this);

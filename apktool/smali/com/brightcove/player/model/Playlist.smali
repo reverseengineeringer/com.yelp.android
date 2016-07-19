@@ -3,6 +3,14 @@
 .source "Playlist.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/model/Playlist$Fields;
+    }
+.end annotation
+
+
 # instance fields
 .field private videos:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;

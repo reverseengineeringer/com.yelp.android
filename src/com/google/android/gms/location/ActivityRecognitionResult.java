@@ -4,60 +4,80 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jx;
-import java.util.Collections;
+import com.google.android.gms.common.internal.zzw;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class ActivityRecognitionResult
   implements SafeParcelable
 {
-  public static final ActivityRecognitionResultCreator CREATOR = new ActivityRecognitionResultCreator();
-  public static final String EXTRA_ACTIVITY_RESULT = "com.google.android.location.internal.EXTRA_ACTIVITY_RESULT";
-  private final int CK;
-  List<DetectedActivity> afX;
-  long afY;
-  long afZ;
+  public static final c CREATOR = new c();
+  List<DetectedActivity> a;
+  long b;
+  long c;
+  int d;
+  Bundle e;
+  private final int f;
   
-  public ActivityRecognitionResult(int paramInt, List<DetectedActivity> paramList, long paramLong1, long paramLong2)
+  public ActivityRecognitionResult(int paramInt1, List<DetectedActivity> paramList, long paramLong1, long paramLong2, int paramInt2, Bundle paramBundle)
   {
-    CK = 1;
-    afX = paramList;
-    afY = paramLong1;
-    afZ = paramLong2;
+    f = paramInt1;
+    a = paramList;
+    b = paramLong1;
+    c = paramLong2;
+    d = paramInt2;
+    e = paramBundle;
   }
   
-  public ActivityRecognitionResult(DetectedActivity paramDetectedActivity, long paramLong1, long paramLong2)
+  public static boolean a(Intent paramIntent)
   {
-    this(Collections.singletonList(paramDetectedActivity), paramLong1, paramLong2);
+    if (paramIntent == null) {
+      return false;
+    }
+    return paramIntent.hasExtra("com.google.android.location.internal.EXTRA_ACTIVITY_RESULT");
   }
   
-  public ActivityRecognitionResult(List<DetectedActivity> paramList, long paramLong1, long paramLong2)
+  private static boolean a(Bundle paramBundle1, Bundle paramBundle2)
   {
-    if ((paramList != null) && (paramList.size() > 0)) {}
-    for (boolean bool1 = true;; bool1 = false)
+    if ((paramBundle1 == null) && (paramBundle2 == null)) {
+      return true;
+    }
+    if (((paramBundle1 == null) && (paramBundle2 != null)) || ((paramBundle1 != null) && (paramBundle2 == null))) {
+      return false;
+    }
+    if (paramBundle1.size() != paramBundle2.size()) {
+      return false;
+    }
+    Iterator localIterator = paramBundle1.keySet().iterator();
+    while (localIterator.hasNext())
     {
-      jx.b(bool1, "Must have at least 1 detected activity");
-      bool1 = bool2;
-      if (paramLong1 > 0L)
+      String str = (String)localIterator.next();
+      if (!paramBundle2.containsKey(str)) {
+        return false;
+      }
+      if (paramBundle1.get(str) == null)
       {
-        bool1 = bool2;
-        if (paramLong2 > 0L) {
-          bool1 = true;
+        if (paramBundle2.get(str) != null) {
+          return false;
         }
       }
-      jx.b(bool1, "Must set times");
-      CK = 1;
-      afX = paramList;
-      afY = paramLong1;
-      afZ = paramLong2;
-      return;
+      else if ((paramBundle1.get(str) instanceof Bundle))
+      {
+        if (!a(paramBundle1.getBundle(str), paramBundle2.getBundle(str))) {
+          return false;
+        }
+      }
+      else if (!paramBundle1.get(str).equals(paramBundle2.get(str))) {
+        return false;
+      }
     }
+    return true;
   }
   
-  public static ActivityRecognitionResult extractResult(Intent paramIntent)
+  public static ActivityRecognitionResult b(Intent paramIntent)
   {
-    if (!hasResult(paramIntent)) {
+    if (!a(paramIntent)) {
       return null;
     }
     paramIntent = paramIntent.getExtras().get("com.google.android.location.internal.EXTRA_ACTIVITY_RESULT");
@@ -66,7 +86,7 @@ public class ActivityRecognitionResult
       Parcel localParcel = Parcel.obtain();
       localParcel.unmarshall((byte[])paramIntent, 0, ((byte[])paramIntent).length);
       localParcel.setDataPosition(0);
-      return CREATOR.createFromParcel(localParcel);
+      return CREATOR.a(localParcel);
     }
     if ((paramIntent instanceof ActivityRecognitionResult)) {
       return (ActivityRecognitionResult)paramIntent;
@@ -74,12 +94,14 @@ public class ActivityRecognitionResult
     return null;
   }
   
-  public static boolean hasResult(Intent paramIntent)
+  public DetectedActivity a()
   {
-    if (paramIntent == null) {
-      return false;
-    }
-    return paramIntent.hasExtra("com.google.android.location.internal.EXTRA_ACTIVITY_RESULT");
+    return (DetectedActivity)a.get(0);
+  }
+  
+  public int b()
+  {
+    return f;
   }
   
   public int describeContents()
@@ -87,52 +109,33 @@ public class ActivityRecognitionResult
     return 0;
   }
   
-  public int getActivityConfidence(int paramInt)
+  public boolean equals(Object paramObject)
   {
-    Iterator localIterator = afX.iterator();
-    while (localIterator.hasNext())
+    if (this == paramObject) {}
+    do
     {
-      DetectedActivity localDetectedActivity = (DetectedActivity)localIterator.next();
-      if (localDetectedActivity.getType() == paramInt) {
-        return localDetectedActivity.getConfidence();
+      return true;
+      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
+        return false;
       }
-    }
-    return 0;
+      paramObject = (ActivityRecognitionResult)paramObject;
+    } while ((b == b) && (c == c) && (d == d) && (zzw.equal(a, a)) && (a(e, e)));
+    return false;
   }
   
-  public long getElapsedRealtimeMillis()
+  public int hashCode()
   {
-    return afZ;
-  }
-  
-  public DetectedActivity getMostProbableActivity()
-  {
-    return (DetectedActivity)afX.get(0);
-  }
-  
-  public List<DetectedActivity> getProbableActivities()
-  {
-    return afX;
-  }
-  
-  public long getTime()
-  {
-    return afY;
-  }
-  
-  public int getVersionCode()
-  {
-    return CK;
+    return zzw.hashCode(new Object[] { Long.valueOf(b), Long.valueOf(c), Integer.valueOf(d), a, e });
   }
   
   public String toString()
   {
-    return "ActivityRecognitionResult [probableActivities=" + afX + ", timeMillis=" + afY + ", elapsedRealtimeMillis=" + afZ + "]";
+    return "ActivityRecognitionResult [probableActivities=" + a + ", timeMillis=" + b + ", elapsedRealtimeMillis=" + c + "]";
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    ActivityRecognitionResultCreator.a(this, paramParcel, paramInt);
+    c.a(this, paramParcel, paramInt);
   }
 }
 

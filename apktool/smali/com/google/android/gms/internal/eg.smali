@@ -1,212 +1,218 @@
 .class public final Lcom/google/android/gms/internal/eg;
-.super Lcom/google/android/gms/internal/eq$a;
+.super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/content/ServiceConnection;
+.implements Lcom/google/ads/mediation/e;
+.implements Lcom/google/ads/mediation/g;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<NETWORK_EXTRAS::",
+        "Lcom/google/ads/mediation/h;",
+        "SERVER_PARAMETERS:",
+        "Lcom/google/ads/mediation/MediationServerParameters;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lcom/google/ads/mediation/e;",
+        "Lcom/google/ads/mediation/g;"
+    }
 .end annotation
 
 
 # instance fields
-.field private mContext:Landroid/content/Context;
-
-.field private sF:Lcom/google/android/gms/internal/eb;
-
-.field private sM:Ljava/lang/String;
-
-.field private sQ:Lcom/google/android/gms/internal/ef;
-
-.field private sW:Z
-
-.field private sX:I
-
-.field private sY:Landroid/content/Intent;
+.field private final a:Lcom/google/android/gms/internal/du;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;ZILandroid/content/Intent;Lcom/google/android/gms/internal/ef;)V
-    .locals 1
+.method public constructor <init>(Lcom/google/android/gms/internal/du;)V
+    .locals 0
 
-    invoke-direct {p0}, Lcom/google/android/gms/internal/eq$a;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/eg;->sW:Z
-
-    iput-object p2, p0, Lcom/google/android/gms/internal/eg;->sM:Ljava/lang/String;
-
-    iput p4, p0, Lcom/google/android/gms/internal/eg;->sX:I
-
-    iput-object p5, p0, Lcom/google/android/gms/internal/eg;->sY:Landroid/content/Intent;
-
-    iput-boolean p3, p0, Lcom/google/android/gms/internal/eg;->sW:Z
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/eg;->mContext:Landroid/content/Context;
-
-    iput-object p6, p0, Lcom/google/android/gms/internal/eg;->sQ:Lcom/google/android/gms/internal/ef;
+    iput-object p1, p0, Lcom/google/android/gms/internal/eg;->a:Lcom/google/android/gms/internal/du;
 
     return-void
+.end method
+
+.method static synthetic a(Lcom/google/android/gms/internal/eg;)Lcom/google/android/gms/internal/du;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->a:Lcom/google/android/gms/internal/du;
+
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public finishPurchase()V
-    .locals 3
+.method public a(Lcom/google/ads/mediation/d;Lcom/google/ads/AdRequest$ErrorCode;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/ads/mediation/d",
+            "<**>;",
+            "Lcom/google/ads/AdRequest$ErrorCode;",
+            ")V"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->sY:Landroid/content/Intent;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/ei;->d(Landroid/content/Intent;)I
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "Adapter called onFailedToReceiveAd with error. "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/b;->a(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/client/v;->a()Lcom/google/android/gms/ads/internal/util/client/a;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/internal/util/client/a;->b()Z
 
     move-result v0
-
-    iget v1, p0, Lcom/google/android/gms/internal/eg;->sX:I
-
-    const/4 v2, -0x1
-
-    if-ne v1, v2, :cond_0
-
-    if-eqz v0, :cond_1
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    new-instance v0, Lcom/google/android/gms/internal/eb;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/eg;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Lcom/google/android/gms/internal/eb;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/eg;->sF:Lcom/google/android/gms/internal/eb;
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-string/jumbo v1, "com.android.vending.billing.InAppBillingService.BIND"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string/jumbo v1, "com.android.vending"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/eg;->mContext:Landroid/content/Context;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v0, p0, v2}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-
-    goto :goto_0
-.end method
-
-.method public getProductId()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->sM:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPurchaseData()Landroid/content/Intent;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->sY:Landroid/content/Intent;
-
-    return-object v0
-.end method
-
-.method public getResultCode()I
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/gms/internal/eg;->sX:I
-
-    return v0
-.end method
-
-.method public isVerified()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/eg;->sW:Z
-
-    return v0
-.end method
-
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
-
-    const-string/jumbo v0, "In-app billing service connected."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->U(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->sF:Lcom/google/android/gms/internal/eb;
-
-    invoke-virtual {v0, p2}, Lcom/google/android/gms/internal/eb;->t(Landroid/os/IBinder;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->sY:Landroid/content/Intent;
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/ei;->e(Landroid/content/Intent;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/ei;->E(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
 
     if-nez v0, :cond_0
 
+    const-string/jumbo v0, "onFailedToReceiveAd must be called on the main UI thread."
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/b;->d(Ljava/lang/String;)V
+
+    sget-object v0, Lcom/google/android/gms/ads/internal/util/client/a;->a:Landroid/os/Handler;
+
+    new-instance v1, Lcom/google/android/gms/internal/eg$2;
+
+    invoke-direct {v1, p0, p2}, Lcom/google/android/gms/internal/eg$2;-><init>(Lcom/google/android/gms/internal/eg;Lcom/google/ads/AdRequest$ErrorCode;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/google/android/gms/internal/eg;->sF:Lcom/google/android/gms/internal/eb;
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->a:Lcom/google/android/gms/internal/du;
 
-    iget-object v2, p0, Lcom/google/android/gms/internal/eg;->mContext:Landroid/content/Context;
+    invoke-static {p2}, Lcom/google/android/gms/internal/eh;->a(Lcom/google/ads/AdRequest$ErrorCode;)I
 
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    move-result v1
 
-    move-result-object v2
+    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/du;->a(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-virtual {v1, v2, v0}, Lcom/google/android/gms/internal/eb;->c(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_0
 
-    move-result v0
+    :catch_0
+    move-exception v0
 
-    if-nez v0, :cond_1
+    const-string/jumbo v1, "Could not call onAdFailedToLoad."
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/eh;->j(Landroid/content/Context;)Lcom/google/android/gms/internal/eh;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/eg;->sQ:Lcom/google/android/gms/internal/ef;
-
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/eh;->a(Lcom/google/android/gms/internal/ef;)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->sF:Lcom/google/android/gms/internal/eb;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/eb;->destroy()V
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method
 
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 1
+.method public a(Lcom/google/ads/mediation/f;Lcom/google/ads/AdRequest$ErrorCode;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/ads/mediation/f",
+            "<**>;",
+            "Lcom/google/ads/AdRequest$ErrorCode;",
+            ")V"
+        }
+    .end annotation
 
-    const-string/jumbo v0, "In-app billing service disconnected."
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->U(Ljava/lang/String;)V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->sF:Lcom/google/android/gms/internal/eb;
+    const-string/jumbo v1, "Adapter called onFailedToReceiveAd with error "
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/eb;->destroy()V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "."
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/b;->a(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/client/v;->a()Lcom/google/android/gms/ads/internal/util/client/a;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/internal/util/client/a;->b()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "onFailedToReceiveAd must be called on the main UI thread."
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/util/client/b;->d(Ljava/lang/String;)V
+
+    sget-object v0, Lcom/google/android/gms/ads/internal/util/client/a;->a:Landroid/os/Handler;
+
+    new-instance v1, Lcom/google/android/gms/internal/eg$1;
+
+    invoke-direct {v1, p0, p2}, Lcom/google/android/gms/internal/eg$1;-><init>(Lcom/google/android/gms/internal/eg;Lcom/google/ads/AdRequest$ErrorCode;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    :goto_0
     return-void
+
+    :cond_0
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/eg;->a:Lcom/google/android/gms/internal/du;
+
+    invoke-static {p2}, Lcom/google/android/gms/internal/eh;->a(Lcom/google/ads/AdRequest$ErrorCode;)I
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/du;->a(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "Could not call onAdFailedToLoad."
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    goto :goto_0
 .end method

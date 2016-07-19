@@ -6,69 +6,50 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;
+    }
+.end annotation
+
+
 # virtual methods
-.method public abstract cancel(Z)V
+.method public abstract D()Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 .end method
 
-.method public abstract copy()Lcom/yelp/android/appdata/webrequests/SearchRequest;
+.method public abstract E()Ljava/lang/String;
 .end method
 
-.method public abstract getCategory()Lcom/yelp/android/serializable/Category;
+.method public abstract F()Ljava/lang/String;
 .end method
 
-.method public abstract getFilter()Lcom/yelp/android/serializable/Filter;
+.method public abstract G()Lcom/yelp/android/serializable/Category;
 .end method
 
-.method public abstract getFormatMode()Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;
+.method public abstract H()Lcom/yelp/android/serializable/Filter;
 .end method
 
-.method public abstract getRegion()[D
+.method public abstract I()[D
 .end method
 
-.method public abstract getSearchMode()Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
+.method public abstract J()Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;
 .end method
 
-.method public abstract getSearchOptions()Ljava/util/EnumSet;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/EnumSet",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchOption;",
-            ">;"
-        }
-    .end annotation
+.method public abstract K()Lcom/yelp/android/appdata/webrequests/SearchRequest;
 .end method
 
-.method public abstract getSearchTerms()Ljava/lang/String;
+.method public abstract a(I)V
 .end method
 
-.method public abstract getTermNear()Ljava/lang/String;
+.method public abstract a(Z)V
 .end method
 
-.method public abstract getUrlString()Ljava/lang/String;
-.end method
-
-.method public abstract isCompleted()Z
-.end method
-
-.method public abstract isFetching()Z
-.end method
-
-.method public abstract prepareQuery()V
-.end method
-
-.method public abstract search()V
-.end method
-
-.method public abstract setCacheAdapter(Lcom/yelp/android/ax/a;)Lcom/yelp/android/appdata/webrequests/SearchRequest;
-.end method
-
-.method public abstract setCallback(Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/SearchRequest;
+.method public abstract b(Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/SearchRequest;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<",
             "Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;",
             ">;)",
@@ -77,17 +58,20 @@
     .end annotation
 .end method
 
-.method public abstract setOffset(I)V
+.method public abstract b(Lcom/yelp/android/ca/a;)Lcom/yelp/android/appdata/webrequests/SearchRequest;
 .end method
 
-.method public abstract setSearchOptions(Ljava/util/EnumSet;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/EnumSet",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchOption;",
-            ">;)V"
-        }
-    .end annotation
+.method public abstract h(Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/SearchRequest;
+.end method
+
+.method public abstract i_()Ljava/lang/String;
+.end method
+
+.method public abstract u()Z
+.end method
+
+.method public abstract v()Z
+.end method
+
+.method public abstract y()V
 .end method

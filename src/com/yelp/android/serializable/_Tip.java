@@ -2,54 +2,114 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Tip
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected String mBusinessName;
-  protected String mBusinessPhotoUrl;
-  protected int mComplimentCount;
-  protected String mId;
-  protected boolean mIsFirstTip;
-  protected Photo mPhoto;
-  protected int mPositiveFeedback;
-  protected List<String> mPrivateFeedback;
-  protected String mText;
-  protected Date mTime;
-  protected Date mTipOfTheDayTime;
-  protected String mUserId;
-  protected String mUserName;
-  protected String mUserPhotoUrl;
+  protected Date b;
+  protected Date c;
+  protected List<String> d;
+  protected Photo e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected String k;
+  protected String l;
+  protected String m;
+  protected boolean n;
+  protected int o;
+  protected int p;
   
-  protected _Tip() {}
-  
-  protected _Tip(Date paramDate1, Date paramDate2, List<String> paramList, Photo paramPhoto, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, boolean paramBoolean, int paramInt1, int paramInt2)
+  public String a()
   {
-    this();
-    mTime = paramDate1;
-    mTipOfTheDayTime = paramDate2;
-    mPrivateFeedback = paramList;
-    mPhoto = paramPhoto;
-    mId = paramString1;
-    mUserName = paramString2;
-    mUserId = paramString3;
-    mText = paramString4;
-    mBusinessId = paramString5;
-    mBusinessPhotoUrl = paramString6;
-    mBusinessName = paramString7;
-    mUserPhotoUrl = paramString8;
-    mIsFirstTip = paramBoolean;
-    mPositiveFeedback = paramInt1;
-    mComplimentCount = paramInt2;
+    return f;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      b = new Date(l1);
+    }
+    l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      c = new Date(l1);
+    }
+    d = paramParcel.createStringArrayList();
+    e = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    l = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    m = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    n = paramParcel.createBooleanArray()[0];
+    o = paramParcel.readInt();
+    p = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_modified")) {
+      b = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
+    }
+    if (!paramJSONObject.isNull("totd_time")) {
+      c = JsonUtil.parseTimestamp(paramJSONObject, "totd_time");
+    }
+    if (!paramJSONObject.isNull("feedback")) {}
+    for (d = JsonUtil.getStringList(paramJSONObject.optJSONArray("feedback"));; d = Collections.emptyList())
+    {
+      if (!paramJSONObject.isNull("photo")) {
+        e = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
+      }
+      if (!paramJSONObject.isNull("id")) {
+        f = paramJSONObject.optString("id");
+      }
+      if (!paramJSONObject.isNull("user_name")) {
+        g = paramJSONObject.optString("user_name");
+      }
+      if (!paramJSONObject.isNull("user_id")) {
+        h = paramJSONObject.optString("user_id");
+      }
+      if (!paramJSONObject.isNull("text")) {
+        i = paramJSONObject.optString("text");
+      }
+      if (!paramJSONObject.isNull("business_id")) {
+        j = paramJSONObject.optString("business_id");
+      }
+      if (!paramJSONObject.isNull("business_photo_url")) {
+        k = paramJSONObject.optString("business_photo_url");
+      }
+      if (!paramJSONObject.isNull("business_name")) {
+        l = paramJSONObject.optString("business_name");
+      }
+      if (!paramJSONObject.isNull("user_photo_url")) {
+        m = paramJSONObject.optString("user_photo_url");
+      }
+      n = paramJSONObject.optBoolean("is_first_tip");
+      o = paramJSONObject.optInt("feedback_positive_count");
+      p = paramJSONObject.optInt("compliment_count");
+      return;
+    }
+  }
+  
+  public String b()
+  {
+    return h;
   }
   
   public int describeContents()
@@ -57,232 +117,115 @@ abstract class _Tip
     return 0;
   }
   
-  public String getBusinessId()
+  public String e()
   {
-    return mBusinessId;
+    return i;
   }
   
-  public String getBusinessName()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessName;
-  }
-  
-  public String getBusinessPhotoUrl()
-  {
-    return mBusinessPhotoUrl;
-  }
-  
-  public int getComplimentCount()
-  {
-    return mComplimentCount;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public Photo getPhoto()
-  {
-    return mPhoto;
-  }
-  
-  public int getPositiveFeedback()
-  {
-    return mPositiveFeedback;
-  }
-  
-  public List<String> getPrivateFeedback()
-  {
-    return mPrivateFeedback;
-  }
-  
-  public String getText()
-  {
-    return mText;
-  }
-  
-  public Date getTime()
-  {
-    return mTime;
-  }
-  
-  public Date getTipOfTheDayTime()
-  {
-    return mTipOfTheDayTime;
-  }
-  
-  public String getUserId()
-  {
-    return mUserId;
-  }
-  
-  public String getUserName()
-  {
-    return mUserName;
-  }
-  
-  public String getUserPhotoUrl()
-  {
-    return mUserPhotoUrl;
-  }
-  
-  public boolean isFirstTip()
-  {
-    return mIsFirstTip;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_modified")) {
-      mTime = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
-    }
-    if (!paramJSONObject.isNull("totd_time")) {
-      mTipOfTheDayTime = JsonUtil.parseTimestamp(paramJSONObject, "totd_time");
-    }
-    if (!paramJSONObject.isNull("feedback")) {}
-    for (mPrivateFeedback = JsonUtil.getStringList(paramJSONObject.optJSONArray("feedback"));; mPrivateFeedback = Collections.emptyList())
+    if (paramObject == null) {}
+    do
     {
-      if (!paramJSONObject.isNull("photo")) {
-        mPhoto = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      if (!paramJSONObject.isNull("id")) {
-        mId = paramJSONObject.optString("id");
-      }
-      if (!paramJSONObject.isNull("user_name")) {
-        mUserName = paramJSONObject.optString("user_name");
-      }
-      if (!paramJSONObject.isNull("user_id")) {
-        mUserId = paramJSONObject.optString("user_id");
-      }
-      if (!paramJSONObject.isNull("text")) {
-        mText = paramJSONObject.optString("text");
-      }
-      if (!paramJSONObject.isNull("business_id")) {
-        mBusinessId = paramJSONObject.optString("business_id");
-      }
-      if (!paramJSONObject.isNull("business_photo_url")) {
-        mBusinessPhotoUrl = paramJSONObject.optString("business_photo_url");
-      }
-      if (!paramJSONObject.isNull("business_name")) {
-        mBusinessName = paramJSONObject.optString("business_name");
-      }
-      if (!paramJSONObject.isNull("user_photo_url")) {
-        mUserPhotoUrl = paramJSONObject.optString("user_photo_url");
-      }
-      mIsFirstTip = paramJSONObject.optBoolean("is_first_tip");
-      mPositiveFeedback = paramJSONObject.optInt("feedback_positive_count");
-      mComplimentCount = paramJSONObject.optInt("compliment_count");
-      return;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Tip)paramObject;
+    return new b().a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a(n, n).a(o, o).a(p, p).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public String h()
   {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mTime = new Date(l);
-    }
-    l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mTipOfTheDayTime = new Date(l);
-    }
-    mPrivateFeedback = paramParcel.createStringArrayList();
-    mPhoto = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
-    mId = paramParcel.readString();
-    mUserName = paramParcel.readString();
-    mUserId = paramParcel.readString();
-    mText = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mBusinessPhotoUrl = paramParcel.readString();
-    mBusinessName = paramParcel.readString();
-    mUserPhotoUrl = paramParcel.readString();
-    mIsFirstTip = paramParcel.createBooleanArray()[0];
-    mPositiveFeedback = paramParcel.readInt();
-    mComplimentCount = paramParcel.readInt();
+    return g;
   }
   
-  public JSONObject writeJSON()
+  public int hashCode()
   {
-    JSONObject localJSONObject = new JSONObject();
-    if (mTime != null) {
-      localJSONObject.put("time_modified", mTime.getTime() / 1000L);
-    }
-    if (mTipOfTheDayTime != null) {
-      localJSONObject.put("totd_time", mTipOfTheDayTime.getTime() / 1000L);
-    }
-    if (mPrivateFeedback != null)
-    {
-      JSONArray localJSONArray = new JSONArray();
-      Iterator localIterator = mPrivateFeedback.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put((String)localIterator.next());
-      }
-      localJSONObject.put("feedback", localJSONArray);
-    }
-    if (mPhoto != null) {
-      localJSONObject.put("photo", mPhoto.writeJSON());
-    }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
-    }
-    if (mUserName != null) {
-      localJSONObject.put("user_name", mUserName);
-    }
-    if (mUserId != null) {
-      localJSONObject.put("user_id", mUserId);
-    }
-    if (mText != null) {
-      localJSONObject.put("text", mText);
-    }
-    if (mBusinessId != null) {
-      localJSONObject.put("business_id", mBusinessId);
-    }
-    if (mBusinessPhotoUrl != null) {
-      localJSONObject.put("business_photo_url", mBusinessPhotoUrl);
-    }
-    if (mBusinessName != null) {
-      localJSONObject.put("business_name", mBusinessName);
-    }
-    if (mUserPhotoUrl != null) {
-      localJSONObject.put("user_photo_url", mUserPhotoUrl);
-    }
-    localJSONObject.put("is_first_tip", mIsFirstTip);
-    localJSONObject.put("feedback_positive_count", mPositiveFeedback);
-    localJSONObject.put("compliment_count", mComplimentCount);
-    return localJSONObject;
+    return new c().a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a(n).a(o).a(p).a();
+  }
+  
+  public int k()
+  {
+    return p;
+  }
+  
+  public int l()
+  {
+    return o;
+  }
+  
+  public boolean m()
+  {
+    return n;
+  }
+  
+  public String n()
+  {
+    return m;
+  }
+  
+  public String o()
+  {
+    return l;
+  }
+  
+  public String p()
+  {
+    return k;
+  }
+  
+  public String q()
+  {
+    return j;
+  }
+  
+  public Photo r()
+  {
+    return e;
+  }
+  
+  public List<String> s()
+  {
+    return d;
+  }
+  
+  public Date t()
+  {
+    return b;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     long l2 = -2147483648L;
-    if (mTime == null)
+    if (b == null)
     {
       l1 = -2147483648L;
       paramParcel.writeLong(l1);
-      if (mTipOfTheDayTime != null) {
+      if (c != null) {
         break label159;
       }
     }
     label159:
-    for (long l1 = l2;; l1 = mTipOfTheDayTime.getTime())
+    for (long l1 = l2;; l1 = c.getTime())
     {
       paramParcel.writeLong(l1);
-      paramParcel.writeStringList(mPrivateFeedback);
-      paramParcel.writeParcelable(mPhoto, 0);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mUserName);
-      paramParcel.writeString(mUserId);
-      paramParcel.writeString(mText);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeString(mBusinessPhotoUrl);
-      paramParcel.writeString(mBusinessName);
-      paramParcel.writeString(mUserPhotoUrl);
-      paramParcel.writeBooleanArray(new boolean[] { mIsFirstTip });
-      paramParcel.writeInt(mPositiveFeedback);
-      paramParcel.writeInt(mComplimentCount);
+      paramParcel.writeStringList(d);
+      paramParcel.writeParcelable(e, 0);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeValue(j);
+      paramParcel.writeValue(k);
+      paramParcel.writeValue(l);
+      paramParcel.writeValue(m);
+      paramParcel.writeBooleanArray(new boolean[] { n });
+      paramParcel.writeInt(o);
+      paramParcel.writeInt(p);
       return;
-      l1 = mTime.getTime();
+      l1 = b.getTime();
       break;
     }
   }

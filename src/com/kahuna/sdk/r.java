@@ -1,56 +1,23 @@
 package com.kahuna.sdk;
 
 import android.util.Log;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicInteger;
 
 class r
-  extends TimerTask
 {
-  r(q paramq) {}
+  private final String a = "Kahuna";
+  private final String b;
   
-  public void run()
+  r(String paramString)
   {
-    for (;;)
+    b = paramString;
+  }
+  
+  protected void a(int paramInt, String paramString, Object... paramVarArgs)
+  {
+    if (Log.isLoggable(a, paramInt))
     {
-      try
-      {
-        synchronized ()
-        {
-          localh = h.a();
-          if (h.l(localh) != null)
-          {
-            h.l(localh).cancel();
-            h.a(localh, null);
-          }
-          int i = h.h(localh).get();
-          if (i > 0) {
-            return;
-          }
-        }
-      }
-      catch (Exception localException)
-      {
-        h localh;
-        if (!h.a) {
-          continue;
-        }
-        Log.d("KahunaAnalytics", "Handled exception in KahunaAnalytics.stop() timer: " + localException);
-        continue;
-      }
-      synchronized (h.p(localh))
-      {
-        if (h.q(localh) != null)
-        {
-          h.q(localh).cancel();
-          h.a(localh, null);
-        }
-        h.b(localh, "k_app_bg");
-        return;
-        localObject3 = finally;
-        throw ((Throwable)localObject3);
-      }
+      paramString = String.format(paramString, paramVarArgs);
+      Log.println(paramInt, a, b + paramString);
     }
   }
 }

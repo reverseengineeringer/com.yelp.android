@@ -1,12 +1,13 @@
 package com.yelp.android.ui.activities.events;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,17 +19,17 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.c.e;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.IriSource;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.ao;
+import com.yelp.android.appdata.n;
 import com.yelp.android.appdata.webrequests.ApiException;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.Event;
 import com.yelp.android.serializable.Event.EventType;
 import com.yelp.android.serializable.Event.SubscriptionStatus;
@@ -36,28 +37,32 @@ import com.yelp.android.serializable.EventAttendees;
 import com.yelp.android.serializable.EventRsvp;
 import com.yelp.android.serializable.User;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.serializable.by;
 import com.yelp.android.ui.activities.ActivityLogin;
-import com.yelp.android.ui.activities.photoviewer.ActivityMediaViewer;
+import com.yelp.android.ui.activities.photoviewer.ActivityEventMediaViewer;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.dialogs.FlagContentDialog;
 import com.yelp.android.ui.dialogs.UserFeedbackDialog;
+import com.yelp.android.ui.dialogs.b;
 import com.yelp.android.ui.map.MapSpannableLinearLayout;
 import com.yelp.android.ui.map.YelpMap;
-import com.yelp.android.ui.map.f;
-import com.yelp.android.ui.map.l;
+import com.yelp.android.ui.map.e.a;
+import com.yelp.android.ui.map.k;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bv;
-import com.yelp.android.ui.util.bw;
-import com.yelp.android.ui.util.cj;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.b;
+import com.yelp.android.ui.util.aj.c;
+import com.yelp.android.ui.util.ap;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.as;
+import com.yelp.android.ui.util.h;
+import com.yelp.android.ui.util.t;
+import com.yelp.android.ui.util.u.a;
 import com.yelp.android.ui.widgets.RoundedImageView;
 import com.yelp.android.ui.widgets.SpannableLinearLayout;
 import com.yelp.android.ui.widgets.SpannableRelativeLayout;
+import com.yelp.android.ui.widgets.d.a;
 import com.yelp.android.util.ErrorType;
 import com.yelp.android.util.ObjectDirtyEvent;
 import java.util.ArrayList;
@@ -70,64 +75,33 @@ import java.util.TimeZone;
 public class EventFragment
   extends YelpListFragment
 {
-  private ba a;
-  private bs b;
-  private YelpMap<by> c;
+  private g a;
+  private aj b;
+  private YelpMap<com.yelp.android.serializable.f> c;
   private EventRequestFragment d;
-  private al e;
-  private af g;
-  private Event h;
+  private d e;
+  private c f;
+  private Event g;
   private EventAttendees i;
   private IriSource j;
   private boolean k;
   private boolean l;
-  private final com.yelp.android.ui.widgets.o m = new q(this);
-  private final View.OnClickListener n = new r(this);
-  private final f<by> o = new s(this);
-  private final View.OnClickListener p = new t(this);
-  private final GoogleMap.OnMapClickListener q = new i(this);
-  private final View.OnClickListener r = new j(this);
-  private final com.yelp.android.ui.dialogs.r s = new k(this);
-  
-  private void F()
-  {
-    Object localObject = b.a(2131493907);
-    int i1;
-    if (localObject == null)
-    {
-      localObject = new cj(2130903311);
-      if (h.getType() == Event.EventType.ELITE)
-      {
-        i1 = 2131165584;
-        bv localbv = bw.a(getString(i1), (BaseAdapter)localObject).a(2131493851, 0, ao.c).a(2130772318).a();
-        b.a(2131493907, localbv);
-      }
-    }
-    for (;;)
-    {
-      if ((h()) && (((cj)localObject).isEmpty())) {
-        ((cj)localObject).a(h.getUser(), false);
-      }
-      return;
-      i1 = 2131166618;
-      break;
-      localObject = (cj)((com.yelp.android.ui.activities.profile.s)a).a();
-    }
-  }
-  
-  private void G()
-  {
-    new ObjectDirtyEvent(h, "com.yelp.android.events.update").a(getActivity());
-  }
+  private final d.a m = new EventFragment.14(this);
+  private final View.OnClickListener n = new EventFragment.15(this);
+  private final e.a<com.yelp.android.serializable.f> o = new EventFragment.2(this);
+  private final View.OnClickListener p = new EventFragment.3(this);
+  private final c.e q = new EventFragment.4(this);
+  private final View.OnClickListener r = new EventFragment.5(this);
+  private final b s = new EventFragment.6(this);
   
   private void H()
   {
-    if (h.getPhoto() == null) {
+    if (g.J() == null) {
       return;
     }
-    List localList = Collections.singletonList(h.getPhoto());
-    startActivity(ActivityMediaViewer.c(getActivity(), h.getId(), localList, 0));
-    AppData.a(EventIri.EventPullOpenPhoto, "event_id", h.getId());
+    List localList = Collections.singletonList(g.J());
+    startActivity(ActivityEventMediaViewer.a(getActivity(), g.I(), localList, 0));
+    AppData.a(EventIri.EventPullOpenPhoto, "event_id", g.I());
   }
   
   public static EventFragment a(Event paramEvent, Event.EventType paramEventType, IriSource paramIriSource)
@@ -165,203 +139,194 @@ public class EventFragment
   
   private void a(Bundle paramBundle)
   {
-    b = new bs();
-    getActivity().setTitle(h.getName());
+    b = new aj();
+    getActivity().setTitle(g.G());
     k();
     e.a(b, m());
-    g.a(b, m());
-    l();
+    f.a(b, m());
+    t();
     b(paramBundle);
     u();
     v();
-    F();
+    w();
     m().setAdapter(b);
-    m().setSelector(2131362006);
-    if (h()) {
+    m().setSelector(2131624229);
+    if (i()) {
       m().f();
     }
     k = true;
-    w();
+    y();
   }
   
   private void a(IriSource paramIriSource)
   {
-    Object localObject = new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event").putExtra("beginTime", h.getBeginTime()).putExtra("title", h.getName()).putExtra("eventLocation", h.getFormattedLocation()).putExtra("description", h.getFormattedDescription()).putExtra("eventTimeZone", TimeZone.getTimeZone(h.getTimezone()));
-    if (h.getTimeEnd() != 0L) {
-      ((Intent)localObject).putExtra("endTime", h.getEndTime());
+    Object localObject = new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event").putExtra("beginTime", g.e()).putExtra("title", g.G()).putExtra("eventLocation", g.g()).putExtra("description", g.d()).putExtra("eventTimeZone", TimeZone.getTimeZone(g.x()));
+    if (g.k() != 0L) {
+      ((Intent)localObject).putExtra("endTime", g.f());
     }
     startActivity((Intent)localObject);
     localObject = new HashMap();
-    ((Map)localObject).put("event_id", h.getId());
+    ((Map)localObject).put("event_id", g.I());
     paramIriSource.addParameter((Map)localObject);
     AppData.a(EventIri.EventAddToCalendar, (Map)localObject);
   }
   
   private void b(Bundle paramBundle)
   {
-    View localView1 = getActivity().getLayoutInflater().inflate(2130903305, m(), false);
-    View localView2 = localView1.findViewById(2131493371);
-    MapSpannableLinearLayout localMapSpannableLinearLayout1 = (MapSpannableLinearLayout)localView2;
-    c = localMapSpannableLinearLayout1.getYelpMap();
-    SpannableRelativeLayout localSpannableRelativeLayout = (SpannableRelativeLayout)localView1.findViewById(2131493372);
-    TextView localTextView1 = (TextView)localSpannableRelativeLayout.findViewById(2131493834);
-    TextView localTextView2 = (TextView)localSpannableRelativeLayout.findViewById(2131493835);
-    MapSpannableLinearLayout localMapSpannableLinearLayout2;
-    if (h.hasBusiness())
+    View localView1 = getActivity().getLayoutInflater().inflate(2130903401, m(), false);
+    View localView2 = localView1.findViewById(2131690016);
+    c = ((MapSpannableLinearLayout)localView2).getYelpMap();
+    SpannableRelativeLayout localSpannableRelativeLayout = (SpannableRelativeLayout)localView1.findViewById(2131690053);
+    TextView localTextView1 = (TextView)localSpannableRelativeLayout.findViewById(2131690670);
+    TextView localTextView2 = (TextView)localSpannableRelativeLayout.findViewById(2131690671);
+    if (g.c())
     {
-      localMapSpannableLinearLayout2 = (MapSpannableLinearLayout)localView2;
-      l locall = new l(getActivity(), h.getBusiness());
-      localMapSpannableLinearLayout2.b(h.getBusiness(), locall, h.getBusiness().getAssetForMap(), paramBundle, true);
-      if (localMapSpannableLinearLayout1.a())
+      MapSpannableLinearLayout localMapSpannableLinearLayout = (MapSpannableLinearLayout)localView2;
+      k localk = new k(getActivity(), g.t());
+      localMapSpannableLinearLayout.b(g.t(), localk, g.t().B(), paramBundle, com.yelp.android.util.f.a());
+      if (c.h())
       {
         c.setInfoWindowListener(o);
-        locall.a(c.getMapView().getMap(), q);
+        paramBundle = new EventFragment.9(this);
+        c.getMapView().a(new EventFragment.10(this, paramBundle));
         c.c();
       }
-      localTextView1.setText(h.getAddress().replace("\n", ", "));
-      localTextView2.setText(h.getBusiness().getGeneralAddress());
+      localTextView1.setText(g.A().replace("\n", ", "));
+      localTextView2.setText(g.t().l());
       if (TextUtils.isEmpty(localTextView2.getText())) {
         localTextView2.setVisibility(8);
       }
-      if (!localMapSpannableLinearLayout1.a())
+      if (!c.h())
       {
         localView2.setVisibility(8);
-        if (!h.hasBusiness()) {
-          break label450;
+        if (!g.c()) {
+          break label462;
         }
-        paramBundle = (SpannableRelativeLayout)localView1.findViewById(2131493833);
-        e(paramBundle);
+        paramBundle = (SpannableRelativeLayout)localView1.findViewById(2131690669);
+        f(paramBundle);
         paramBundle.setLeft(true);
       }
     }
     for (;;)
     {
-      com.yelp.android.ui.util.k.a(localSpannableRelativeLayout, 2131165348, h.getAddress());
+      h.a(localSpannableRelativeLayout, 2131165472, g.A());
       localSpannableRelativeLayout.setOnClickListener(r);
-      b.a(2130903305, bw.a(new com.yelp.android.ui.util.h(new View[] { localView1 })).a(2130772318).a());
+      b.a(2130903401, aj.c.a(new com.yelp.android.ui.util.e(new View[] { localView1 })).a(2130772428).b());
       return;
-      localMapSpannableLinearLayout2 = (MapSpannableLinearLayout)localView2;
-      localMapSpannableLinearLayout2.a(h, new com.yelp.android.ui.map.d(getActivity()), 2130838156, paramBundle, true);
-      if (localMapSpannableLinearLayout2.a())
+      ((MapSpannableLinearLayout)localView2).a(g, new com.yelp.android.ui.map.d(getActivity()), 2130838393, paramBundle, com.yelp.android.util.f.a());
+      if (c.h())
       {
         localView2.setOnClickListener(r);
         c.c();
       }
-      localTextView1.setText(h.getLocationName());
-      localTextView2.setText(h.getAddress().replace("\n", ", "));
+      localTextView1.setText(g.y());
+      localTextView2.setText(g.A().replace("\n", ", "));
       localTextView2.setTextColor(localTextView1.getCurrentTextColor());
       break;
-      label450:
+      label462:
       localSpannableRelativeLayout.setLeft(true);
     }
   }
   
-  private void e()
+  private void f()
   {
-    if (AppData.b().m().e())
+    if (AppData.b().q().d())
     {
-      f();
+      g();
       return;
     }
-    boolean bool = AppData.b().m().c();
-    FragmentActivity localFragmentActivity = getActivity();
-    if (bool) {}
-    for (int i1 = 2131166781;; i1 = 2131166045)
-    {
-      startActivityForResult(ActivityLogin.a(localFragmentActivity, i1), 1024);
-      return;
-    }
+    startActivityForResult(ActivityLogin.a(getActivity(), 2131165705, 2131166105), 1027);
   }
   
-  private void e(View paramView)
+  private void f(View paramView)
   {
-    RoundedImageView localRoundedImageView = (RoundedImageView)paramView.findViewById(2131493648);
-    TextView localTextView1 = (TextView)paramView.findViewById(2131493020);
-    TextView localTextView2 = (TextView)paramView.findViewById(2131493676);
-    localTextView1.setText(h.getBusiness().getDisplayName());
-    int i1 = h.getBusiness().getReviewCount();
-    localTextView2.setText(getResources().getQuantityString(2131623970, i1, new Object[] { Integer.valueOf(i1) }));
-    cp.a(localTextView2, h.getBusiness().getAvgRating());
-    com.bumptech.glide.h.a(this).a(h.getBusiness().getPhotoUrl()).a(localRoundedImageView);
+    RoundedImageView localRoundedImageView = (RoundedImageView)paramView.findViewById(2131690208);
+    TextView localTextView1 = (TextView)paramView.findViewById(2131689684);
+    TextView localTextView2 = (TextView)paramView.findViewById(2131690442);
+    localTextView1.setText(g.t().z());
+    int i1 = g.t().N();
+    localTextView2.setText(getResources().getQuantityString(2131230757, i1, new Object[] { Integer.valueOf(i1) }));
+    ar.a(localTextView2, g.t().P());
+    t.a(this).a(g.t().au()).a(localRoundedImageView);
     paramView.setVisibility(0);
     paramView.setOnClickListener(p);
   }
   
-  private void f()
+  private void g()
   {
-    AppData.a(ViewIri.FlagEvent, "event_id", h.getId());
-    FlagContentDialog localFlagContentDialog = FlagContentDialog.a(getString(2131166343), getString(2131166452));
+    AppData.a(ViewIri.FlagEvent, "event_id", g.I());
+    FlagContentDialog localFlagContentDialog = FlagContentDialog.a(getString(2131166364), getString(2131166454));
     localFlagContentDialog.a(s);
     localFlagContentDialog.show(getActivity().getSupportFragmentManager(), "tag_flag_dialog");
   }
   
-  private void g()
+  private void h()
   {
     v();
-    F();
+    w();
     m().f();
   }
   
-  private boolean h()
+  private boolean i()
   {
     return (i != null) || (l);
   }
   
-  private void i()
+  private void j()
   {
     a(null, 0);
-    ((com.yelp.android.ui.activities.profile.s)b.a(2130903364).a).clear();
+    ((com.yelp.android.ui.activities.profile.e)b.a(2130903463).a).clear();
     i = null;
     l = false;
-    d.a(h);
+    d.a(g);
   }
   
   private void k()
   {
     if (a == null)
     {
-      a = new ba(m(), m, n);
+      a = new g(m(), m, n);
       m().addHeaderView(a);
     }
-    a.a(h, m());
+    a.a(g, m());
   }
   
-  private void l()
+  private void t()
   {
-    View localView = getActivity().getLayoutInflater().inflate(2130903303, m(), false);
-    ((TextView)localView.findViewById(2131493825)).setText(h.getFormattedTimeRange(AppData.b()));
-    ((TextView)localView.findViewById(2131493828)).setText(h.getFormattedShortDescription(getActivity()));
-    localView.findViewById(2131493822).setOnClickListener(new h(this));
-    localView.findViewById(2131493145).setOnClickListener(new m(this));
-    b.a(2130903303, bw.a(new com.yelp.android.ui.util.h(new View[] { localView })).a());
+    View localView = getActivity().getLayoutInflater().inflate(2130903399, m(), false);
+    ((TextView)localView.findViewById(2131690661)).setText(g.a(AppData.b()));
+    ((TextView)localView.findViewById(2131690664)).setText(g.b(getActivity()));
+    localView.findViewById(2131690658).setOnClickListener(new EventFragment.1(this));
+    localView.findViewById(2131689711).setOnClickListener(new EventFragment.8(this));
+    b.a(2130903399, aj.c.a(new com.yelp.android.ui.util.e(new View[] { localView })).b());
   }
   
   private void u()
   {
     FragmentActivity localFragmentActivity = getActivity();
-    View localView1 = localFragmentActivity.getLayoutInflater().inflate(2130903299, m(), false);
-    localView1.findViewById(2131493814).setOnClickListener(new n(this, localFragmentActivity));
-    Object localObject = (SpannableLinearLayout)localView1.findViewById(2131493815);
-    ((SpannableLinearLayout)localObject).setOnClickListener(new o(this, EventIri.EventAddToCalendar));
-    View localView2 = localView1.findViewById(2131493816);
+    View localView1 = localFragmentActivity.getLayoutInflater().inflate(2130903395, m(), false);
+    localView1.findViewById(2131690650).setOnClickListener(new EventFragment.11(this, localFragmentActivity));
+    Object localObject = (SpannableLinearLayout)localView1.findViewById(2131690651);
+    ((SpannableLinearLayout)localObject).setOnClickListener(new EventFragment.12(this, EventIri.EventAddToCalendar));
+    View localView2 = localView1.findViewById(2131690652);
     int i1;
-    if ((!TextUtils.isEmpty(h.getTalkTopicId())) && (h.getType() != Event.EventType.ELITE))
+    if ((!TextUtils.isEmpty(g.v())) && (g.K() != Event.EventType.ELITE))
     {
-      i1 = h.getTalkTopicUserCount();
-      localObject = (TextView)localView1.findViewById(2131493817);
+      i1 = g.m();
+      localObject = (TextView)localView1.findViewById(2131690653);
       if (i1 == 0)
       {
         ((TextView)localObject).setVisibility(8);
         localObject = new HashMap();
-        ((Map)localObject).put("event_id", h.getId());
-        localView2.setOnClickListener(new p(this, EventIri.EventTalk, (Map)localObject, localFragmentActivity));
+        ((Map)localObject).put("event_id", g.I());
+        localView2.setOnClickListener(new EventFragment.13(this, EventIri.EventTalk, (Map)localObject, localFragmentActivity));
       }
     }
     for (;;)
     {
-      b.a(2130903299, bw.a(new com.yelp.android.ui.util.h(new View[] { localView1 })).a(2130772318).a());
+      b.a(2130903395, aj.c.a(new com.yelp.android.ui.util.e(new View[] { localView1 })).a(2130772428).b());
       return;
-      ((TextView)localObject).setText(getResources().getQuantityString(2131623946, i1, new Object[] { Integer.valueOf(i1) }));
+      ((TextView)localObject).setText(getResources().getQuantityString(2131230730, i1, new Object[] { Integer.valueOf(i1) }));
       break;
       localView2.setVisibility(8);
       ((SpannableLinearLayout)localObject).setRight(true);
@@ -371,33 +336,64 @@ public class EventFragment
   
   private void v()
   {
-    Object localObject1 = b.a(2130903364);
+    Object localObject1 = b.a(2130903463);
     if (localObject1 == null)
     {
-      localObject1 = new aq();
-      localObject2 = bw.a(getString(2131165941), (BaseAdapter)localObject1).a(2130772319).a(2131492893, ao.l, ao.c).a();
-      b.a(2130903364, (bv)localObject2);
+      localObject1 = new e();
+      localObject2 = aj.c.a(getString(2131166008), (BaseAdapter)localObject1).a(2130772429).a(2131689503, n.l, n.c).b();
+      b.a(2130903463, (aj.b)localObject2);
     }
-    while ((!h()) || (!((aq)localObject1).isEmpty()) || (i == null) || (i.getAttendees().isEmpty()))
+    while ((!i()) || (!((e)localObject1).isEmpty()) || (i == null) || (i.c().isEmpty()))
     {
       return;
-      localObject1 = (aq)((com.yelp.android.ui.activities.profile.s)a).a();
+      localObject1 = (e)((com.yelp.android.ui.activities.profile.e)a).a();
     }
-    int i2 = Math.min(i.getAttendees().size(), 3);
+    int i2 = Math.min(i.c().size(), 3);
     ArrayList localArrayList = new ArrayList();
     int i1 = 0;
     while (i1 < i2)
     {
-      localArrayList.add(i.getAttendees().get(i1));
+      localArrayList.add(i.c().get(i1));
       i1 += 1;
     }
-    if (i.getAttendees().size() > 3) {}
-    for (Object localObject2 = i.getAttendeesText();; localObject2 = null)
+    if (i.c().size() > 3) {}
+    for (Object localObject2 = i.b();; localObject2 = null)
     {
-      ((aq)localObject1).a(localArrayList, (String)localObject2);
-      ((aq)localObject1).notifyDataSetChanged();
+      ((e)localObject1).a(localArrayList, (String)localObject2);
+      ((e)localObject1).notifyDataSetChanged();
       return;
     }
+  }
+  
+  private void w()
+  {
+    Object localObject = b.a(2131690076);
+    int i1;
+    if (localObject == null)
+    {
+      localObject = new ap(2130903408);
+      if (g.K() == Event.EventType.ELITE)
+      {
+        i1 = 2131165659;
+        aj.b localb = aj.c.a(getString(i1), (BaseAdapter)localObject).a(2131690690, 0, n.c).a(2130772428).b();
+        b.a(2131690076, localb);
+      }
+    }
+    for (;;)
+    {
+      if ((i()) && (((ap)localObject).isEmpty())) {
+        ((ap)localObject).a(g.u(), false);
+      }
+      return;
+      i1 = 2131166631;
+      break;
+      localObject = (ap)((com.yelp.android.ui.activities.profile.e)a).a();
+    }
+  }
+  
+  private void x()
+  {
+    new ObjectDirtyEvent(g, "com.yelp.android.events.update").a(getActivity());
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
@@ -405,24 +401,24 @@ public class EventFragment
     paramListView = paramListView.getAdapter().getItem(paramInt);
     if ((paramListView instanceof User))
     {
-      if (paramListView == aq.a) {
-        startActivity(ActivityEventAttendees.a(getActivity(), h, i));
+      if (paramListView == e.a) {
+        startActivity(ActivityEventAttendees.a(getActivity(), g, i));
       }
     }
     else {
       return;
     }
-    AppData.a(EventIri.EventUser, "event_id", h.getId());
+    AppData.a(EventIri.EventUser, "event_id", g.I());
     startActivity(ActivityUserProfile.a(getActivity(), (User)paramListView));
   }
   
   public void a(YelpException paramYelpException, EventRequestFragment.RequestType paramRequestType)
   {
-    j();
-    switch (l.a[paramRequestType.ordinal()])
+    l();
+    switch (EventFragment.7.a[paramRequestType.ordinal()])
     {
     default: 
-      cr.a(paramYelpException.getMessage(AppData.b()), 1);
+      as.a(paramYelpException.getMessage(AppData.b()), 1);
     case 1: 
       do
       {
@@ -437,21 +433,21 @@ public class EventFragment
       return;
     case 2: 
       l = true;
-      g();
+      h();
       return;
     case 3: 
       e.a(paramYelpException);
       return;
     }
-    g.a(paramYelpException);
+    f.a(paramYelpException);
   }
   
   public void a(Object paramObject, EventRequestFragment.RequestType paramRequestType)
   {
     boolean bool = true;
     int i1 = 1;
-    j();
-    switch (l.a[paramRequestType.ordinal()])
+    l();
+    switch (EventFragment.7.a[paramRequestType.ordinal()])
     {
     default: 
     case 1: 
@@ -459,69 +455,69 @@ public class EventFragment
       do
       {
         return;
-        if (h == null) {}
+        if (g == null) {}
         for (;;)
         {
-          h = ((Event)paramObject);
+          g = ((Event)paramObject);
           if (i1 != 0) {
-            E();
+            G();
           }
           a(null);
-          g.b();
-          w();
-          G();
+          f.b();
+          y();
+          x();
           if (l) {
             break;
           }
-          d.a(h);
+          d.a(g);
           return;
           i1 = 0;
         }
         i = ((EventAttendees)paramObject);
         l = true;
       } while (!isAdded());
-      g();
+      h();
       return;
     case 3: 
       e.a(paramObject);
-      w();
-      G();
-      i();
+      y();
+      x();
+      j();
       return;
     case 5: 
     case 6: 
       if (paramRequestType == EventRequestFragment.RequestType.EVENT_ENABLE_REMINDER_REQUEST) {}
       for (;;)
       {
-        h.setReminderNotification(bool);
+        g.a(bool);
         e.b();
-        G();
+        x();
         return;
         bool = false;
       }
     case 7: 
-      cr.a((String)paramObject, 1);
+      as.a((String)paramObject, 1);
       return;
     case 4: 
     case 8: 
-      g.a((EventRsvp)paramObject);
-      G();
-      i();
+      f.a((EventRsvp)paramObject);
+      x();
+      j();
       return;
     }
-    g.a();
-    G();
-    i();
+    f.a();
+    x();
+    j();
   }
   
   public void a(boolean paramBoolean, String paramString, ArrayList<String> paramArrayList)
   {
     if (paramBoolean)
     {
-      g.a(paramArrayList);
+      f.a(paramArrayList);
       return;
     }
-    g.a(paramArrayList, paramString);
+    f.a(paramArrayList, paramString);
   }
   
   EventRequestFragment c()
@@ -531,32 +527,32 @@ public class EventFragment
   
   Event d()
   {
-    return h;
+    return g;
   }
   
-  public b getIri()
+  public a getIri()
   {
-    if (h == null) {
+    if (g == null) {
       return null;
     }
     return ViewIri.Event;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    paramb = new HashMap();
-    paramb.put("event_id", h.getId());
+    parama = new HashMap();
+    parama.put("event_id", g.I());
     if (j == IriSource.EventsSections) {
-      paramb.put("section_alias", getArguments().getString("section_alias"));
+      parama.put("section_alias", getArguments().getString("section_alias"));
     }
-    j.addParameter(paramb);
-    return paramb;
+    j.addParameter(parama);
+    return parama;
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    if (h != null) {
+    if (g != null) {
       a(paramBundle);
     }
     for (;;)
@@ -565,7 +561,7 @@ public class EventFragment
         a(null, 0);
       }
       if ((k) && (!l)) {
-        d.a(h);
+        d.a(g);
       }
       return;
       paramBundle = getArguments().getString("event_id_or_alias");
@@ -591,45 +587,46 @@ public class EventFragment
     {
     default: 
       return;
-    case 1024: 
-      f();
+    case 1027: 
+      g();
       return;
-    case 1050: 
+    case 1059: 
       e.a();
       return;
     }
     a(null, 0);
-    d.a(h.getId(), h.getType());
+    d.a(g.I(), g.K());
   }
   
+  @SuppressLint({"CommitTransaction"})
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     if (paramBundle != null)
     {
-      h = ((Event)paramBundle.getParcelable("saved_event"));
+      g = ((Event)paramBundle.getParcelable("saved_event"));
       j = ((IriSource)paramBundle.getSerializable("saved_event_source"));
       i = ((EventAttendees)paramBundle.getParcelable("saved_event_attendees"));
       l = paramBundle.getBoolean("saved_event_attendees_request_done");
     }
     for (;;)
     {
-      d = ((EventRequestFragment)getFragmentManager().findFragmentByTag("tag_request_fragment"));
+      d = ((EventRequestFragment)getFragmentManager().a("tag_request_fragment"));
       if (d == null)
       {
         d = new EventRequestFragment();
-        getFragmentManager().beginTransaction().add(d, "tag_request_fragment").commit();
+        getFragmentManager().a().a(d, "tag_request_fragment").a();
       }
       d.setTargetFragment(this, 0);
-      FlagContentDialog localFlagContentDialog = (FlagContentDialog)getFragmentManager().findFragmentByTag("tag_flag_dialog");
+      FlagContentDialog localFlagContentDialog = (FlagContentDialog)getFragmentManager().a("tag_flag_dialog");
       if (localFlagContentDialog != null) {
         localFlagContentDialog.a(s);
       }
-      e = new al(this, paramBundle);
-      g = new af(this, paramBundle);
+      e = new d(this, paramBundle);
+      f = new c(this, paramBundle);
       setHasOptionsMenu(true);
       return;
-      h = ((Event)getArguments().getParcelable("args_event"));
+      g = ((Event)getArguments().getParcelable("args_event"));
       j = ((IriSource)getArguments().getSerializable("event_source"));
     }
   }
@@ -640,14 +637,14 @@ public class EventFragment
     if (!k) {
       return;
     }
-    paramMenuInflater.inflate(2131755020, paramMenu);
-    paramMenuInflater = paramMenu.findItem(2131494142);
-    if (h.getSubscriptionStatusEnum() != Event.SubscriptionStatus.Unassigned)
+    paramMenuInflater.inflate(2131755022, paramMenu);
+    paramMenuInflater = paramMenu.findItem(2131691016);
+    if (g.h() != Event.SubscriptionStatus.Unassigned)
     {
       bool1 = true;
       paramMenuInflater.setVisible(bool1);
-      paramMenu = paramMenu.findItem(2131494143);
-      if (h.getType() == Event.EventType.ELITE) {
+      paramMenu = paramMenu.findItem(2131691017);
+      if (g.K() == Event.EventType.ELITE) {
         break label92;
       }
     }
@@ -681,17 +678,17 @@ public class EventFragment
     {
     default: 
       return false;
-    case 2131494128: 
-      getActivity().showDialog(1);
+    case 2131691002: 
+      a(new EventShareFormatter(g));
       return true;
-    case 2131494142: 
+    case 2131691016: 
       e.a(Event.SubscriptionStatus.Unassigned);
       return true;
-    case 2131493815: 
+    case 2131690651: 
       a(IriSource.Menu);
       return true;
     }
-    e();
+    f();
     return true;
   }
   
@@ -717,7 +714,7 @@ public class EventFragment
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putParcelable("saved_event", h);
+    paramBundle.putParcelable("saved_event", g);
     paramBundle.putSerializable("saved_event_source", j);
     paramBundle.putBoolean("saved_event_attendees_request_done", l);
     if (i != null) {
@@ -727,7 +724,7 @@ public class EventFragment
       c.a(paramBundle);
     }
     e.a(paramBundle);
-    g.a(paramBundle);
+    f.a(paramBundle);
   }
 }
 

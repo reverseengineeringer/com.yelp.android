@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#62000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/sliderLayout" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <ImageView android:id="@id/image" android:layout_width="@dimen/kahuna_inapp_slider_image_size" android:layout_height="@dimen/kahuna_inapp_slider_image_size" android:layout_margin="5.0dip" android:scaleType="centerCrop" />
+        <TextView android:textSize="@dimen/kahuna_inapp_slider_message_text_size" android:textColor="@color/kahuna_inapp_slider_msg" android:gravity="left" android:id="@id/message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="5.0dip" android:text="...of our new in-app messages! This is the modla (partial-screen) format. A full-screen format will be available as well." android:maxLines="@integer/kahuna_inapp_message_slider_text_max_lines" android:layout_toLeftOf="@id/closeTextView" android:layout_toRightOf="@id/image" android:layout_centerVertical="true" android:lineSpacingMultiplier="1.2" />
+        <TextView android:textSize="@dimen/kahuna_inapp_slider_close_box_text_size" android:textColor="#ff000000" android:id="@id/closeTextView" android:background="#ffffffff" android:paddingLeft="8.0dip" android:paddingRight="5.0dip" android:paddingBottom="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="X" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+</RelativeLayout>

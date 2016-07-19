@@ -9,11 +9,12 @@ import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import com.yelp.android.analytics.g;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.SearchRequest;
-import com.yelp.android.appdata.webrequests.eu;
-import com.yelp.android.appdata.webrequests.ev;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.dw;
+import com.yelp.android.appdata.webrequests.dw.a;
 import com.yelp.android.serializable.ReviewHighlight;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpBusinessReview;
@@ -21,32 +22,57 @@ import com.yelp.android.serializable.YelpBusinessReviewInsight;
 import com.yelp.android.ui.panels.PanelLoading;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
-import com.yelp.android.ui.util.bf;
-import com.yelp.android.ui.util.bs;
+import com.yelp.android.ui.util.ab;
+import com.yelp.android.ui.util.aj;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class ActivityHighlights
   extends YelpListActivity
-  implements v
+  implements a.a
 {
-  protected t a;
+  protected a a;
   protected ArrayList<ReviewHighlight> b;
   protected ArrayList<YelpBusinessReviewInsight> c;
-  private bs d;
-  private eu e;
+  private aj d;
+  private dw e;
   private int f;
   private YelpBusiness g;
   private SearchRequest h;
-  private final m<ev> i = new h(this);
+  private final ApiRequest.b<dw.a> i = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, dw.a paramAnonymousa)
+    {
+      ActivityHighlights.a(ActivityHighlights.this, paramAnonymousa.b());
+      b.addAll(paramAnonymousa.a());
+      a.a(false);
+      if (b.size() >= paramAnonymousa.b())
+      {
+        r().f();
+        a.c();
+      }
+      a.a(ActivityHighlights.b(ActivityHighlights.this, b.size()));
+      a.notifyDataSetChanged();
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      if ((paramAnonymousApiRequest instanceof dw))
+      {
+        r().f();
+        a.c();
+        a.notifyDataSetChanged();
+      }
+    }
+  };
   
   public static Intent a(Context paramContext, YelpBusiness paramYelpBusiness, List<ReviewHighlight> paramList, SearchRequest paramSearchRequest)
   {
     paramContext = new Intent(paramContext, ActivityHighlights.class);
     paramContext.putExtra("extra.param.business", paramYelpBusiness);
     paramContext.putExtra("extra.review_highlights", new ArrayList(paramList));
-    paramContext.putExtra("extra.review_insights", new ArrayList(paramYelpBusiness.getReviewInsights()));
+    paramContext.putExtra("extra.review_insights", new ArrayList(paramYelpBusiness.aO()));
     if (paramSearchRequest != null) {
       paramContext.putExtra("extra.search_request", paramSearchRequest);
     }
@@ -69,22 +95,22 @@ public class ActivityHighlights
   private void a(String paramString)
   {
     int j = b.size();
-    if (((e != null) && (e.isFetching())) || (j == f)) {
+    if (((e != null) && (e.u())) || (j == f)) {
       return;
     }
-    e = new eu(paramString, j, 8, h, i);
-    e.execute(new String[0]);
+    e = new dw(paramString, j, 8, h, i);
+    e.f(new String[0]);
   }
   
-  private String c()
+  private String b()
   {
     if ((c.size() > 0) && (b.size() > 0)) {
-      return getString(2131166519);
+      return getString(2131166518);
     }
     if (b.size() == 0) {
-      return getString(2131166520);
+      return getString(2131166519);
     }
-    return getString(2131166518);
+    return getString(2131166517);
   }
   
   public void a(ReviewHighlight paramReviewHighlight)
@@ -92,10 +118,10 @@ public class ActivityHighlights
     startActivity(ActivityReviewsFilteredByHighlightPage.a(this, g, paramReviewHighlight));
   }
   
-  protected void d()
+  protected void c()
   {
-    super.d();
-    a(g.getId());
+    super.c();
+    a(g.aD());
   }
   
   public ViewIri getIri()
@@ -103,15 +129,15 @@ public class ActivityHighlights
     return ViewIri.BusinessHighlights;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.a parama)
   {
-    return g.b(g.getId());
+    return g.b(g.aD());
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    ScrollToLoadListView localScrollToLoadListView = q();
+    ScrollToLoadListView localScrollToLoadListView = r();
     Object localObject = getIntent();
     g = ((YelpBusiness)((Intent)localObject).getParcelableExtra("extra.param.business"));
     b = ((Intent)localObject).getParcelableArrayListExtra("extra.review_highlights");
@@ -119,11 +145,11 @@ public class ActivityHighlights
     h = ((SearchRequest)((Intent)localObject).getParcelableExtra("extra.search_request"));
     localScrollToLoadListView.setItemsCanFocus(true);
     localObject = createLoadingPanel();
-    ((PanelLoading)localObject).b(2131166017);
+    ((PanelLoading)localObject).a(2131166076);
     localScrollToLoadListView.setEmptyView((View)localObject);
-    d = new bs();
-    a = new t(2130903357, this, g);
-    d.a(2131166519, c(), a);
+    d = new aj();
+    a = new a(2130903455, this);
+    d.a(2131166518, b(), a);
     if (paramBundle != null)
     {
       f = paramBundle.getInt("HighlightsTotal");
@@ -131,20 +157,20 @@ public class ActivityHighlights
       a.a(a(b.size()));
       if (b.size() >= f)
       {
-        q().f();
+        r().f();
         a.c();
       }
       h = ((SearchRequest)paramBundle.getParcelable("search_request"));
     }
     for (;;)
     {
-      setTitle(g.getDisplayName());
+      setTitle(g.z());
       registerForContextMenu(localScrollToLoadListView);
       localScrollToLoadListView.setAdapter(d);
       return;
       a.a(a(b.size()));
       f = Integer.MAX_VALUE;
-      a(g.getId());
+      a(g.aD());
     }
   }
   
@@ -156,8 +182,8 @@ public class ActivityHighlights
     if ((paramView instanceof YelpBusinessReview))
     {
       paramView = (YelpBusinessReview)paramView;
-      paramContextMenu.setHeaderTitle(g.getDisplayName());
-      bf.a(this, paramContextMenu, paramView.getUserId(), paramView.getUserName());
+      paramContextMenu.setHeaderTitle(g.z());
+      ab.a(this, paramContextMenu, paramView.b(), paramView.O());
     }
   }
   

@@ -1,21 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.serializable.Photo;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class fm
-  extends h
+  extends c
 {
-  public fm(Photo paramPhoto, boolean paramBoolean)
+  public fm(String paramString, c.a parama)
   {
-    super("business/photos/save_feedback", null);
-    addPostParam("photo_id", paramPhoto.getId());
-    if (paramBoolean) {}
-    for (paramPhoto = "POSITIVE";; paramPhoto = "NONE")
-    {
-      addPostParam("feedback", paramPhoto);
-      return;
-    }
+    super("/user/profile/photo/set_primary", parama);
+    b("photo_id", paramString);
   }
 }
 

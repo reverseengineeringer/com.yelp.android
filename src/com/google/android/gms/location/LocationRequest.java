@@ -3,76 +3,54 @@ package com.google.android.gms.location;
 import android.os.Parcel;
 import android.os.SystemClock;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
+import com.google.android.gms.common.internal.zzw;
 
 public final class LocationRequest
   implements SafeParcelable
 {
-  public static final d CREATOR = new d();
-  public static final int PRIORITY_BALANCED_POWER_ACCURACY = 102;
-  public static final int PRIORITY_HIGH_ACCURACY = 100;
-  public static final int PRIORITY_LOW_POWER = 104;
-  public static final int PRIORITY_NO_POWER = 105;
-  private final int CK;
-  boolean Wg;
-  long age;
-  long agr;
-  long ags;
-  int agt;
-  float agu;
-  long agv;
-  int mPriority;
+  public static final k CREATOR = new k();
+  int a;
+  long b;
+  long c;
+  boolean d;
+  long e;
+  int f;
+  float g;
+  long h;
+  private final int i;
   
   public LocationRequest()
   {
-    CK = 1;
-    mPriority = 102;
-    agr = 3600000L;
-    ags = 600000L;
-    Wg = false;
-    age = Long.MAX_VALUE;
-    agt = Integer.MAX_VALUE;
-    agu = 0.0F;
-    agv = 0L;
+    i = 1;
+    a = 102;
+    b = 3600000L;
+    c = 600000L;
+    d = false;
+    e = Long.MAX_VALUE;
+    f = Integer.MAX_VALUE;
+    g = 0.0F;
+    h = 0L;
   }
   
   LocationRequest(int paramInt1, int paramInt2, long paramLong1, long paramLong2, boolean paramBoolean, long paramLong3, int paramInt3, float paramFloat, long paramLong4)
   {
-    CK = paramInt1;
-    mPriority = paramInt2;
-    agr = paramLong1;
-    ags = paramLong2;
-    Wg = paramBoolean;
-    age = paramLong3;
-    agt = paramInt3;
-    agu = paramFloat;
-    agv = paramLong4;
+    i = paramInt1;
+    a = paramInt2;
+    b = paramLong1;
+    c = paramLong2;
+    d = paramBoolean;
+    e = paramLong3;
+    f = paramInt3;
+    g = paramFloat;
+    h = paramLong4;
   }
   
-  private static void a(float paramFloat)
-  {
-    if (paramFloat < 0.0F) {
-      throw new IllegalArgumentException("invalid displacement: " + paramFloat);
-    }
-  }
-  
-  public static LocationRequest create()
+  public static LocationRequest a()
   {
     return new LocationRequest();
   }
   
-  private static void ey(int paramInt)
-  {
-    switch (paramInt)
-    {
-    case 101: 
-    case 103: 
-    default: 
-      throw new IllegalArgumentException("invalid quality: " + paramInt);
-    }
-  }
-  
-  public static String ez(int paramInt)
+  public static String c(int paramInt)
   {
     switch (paramInt)
     {
@@ -90,11 +68,68 @@ public final class LocationRequest
     return "PRIORITY_NO_POWER";
   }
   
-  private static void v(long paramLong)
+  private static void d(int paramInt)
+  {
+    switch (paramInt)
+    {
+    case 101: 
+    case 103: 
+    default: 
+      throw new IllegalArgumentException("invalid quality: " + paramInt);
+    }
+  }
+  
+  private static void d(long paramLong)
   {
     if (paramLong < 0L) {
       throw new IllegalArgumentException("invalid interval: " + paramLong);
     }
+  }
+  
+  public LocationRequest a(int paramInt)
+  {
+    d(paramInt);
+    a = paramInt;
+    return this;
+  }
+  
+  public LocationRequest a(long paramLong)
+  {
+    d(paramLong);
+    b = paramLong;
+    if (!d) {
+      c = ((b / 6.0D));
+    }
+    return this;
+  }
+  
+  int b()
+  {
+    return i;
+  }
+  
+  public LocationRequest b(int paramInt)
+  {
+    if (paramInt <= 0) {
+      throw new IllegalArgumentException("invalid numUpdates: " + paramInt);
+    }
+    f = paramInt;
+    return this;
+  }
+  
+  public LocationRequest b(long paramLong)
+  {
+    d(paramLong);
+    h = paramLong;
+    return this;
+  }
+  
+  public LocationRequest c(long paramLong)
+  {
+    d(paramLong);
+    d = true;
+    c = paramLong;
+    return this;
   }
   
   public int describeContents()
@@ -112,133 +147,40 @@ public final class LocationRequest
         return false;
       }
       paramObject = (LocationRequest)paramObject;
-    } while ((mPriority == mPriority) && (agr == agr) && (ags == ags) && (Wg == Wg) && (age == age) && (agt == agt) && (agu == agu));
+    } while ((a == a) && (b == b) && (c == c) && (d == d) && (e == e) && (f == f) && (g == g));
     return false;
-  }
-  
-  public long getExpirationTime()
-  {
-    return age;
-  }
-  
-  public long getFastestInterval()
-  {
-    return ags;
-  }
-  
-  public long getInterval()
-  {
-    return agr;
-  }
-  
-  public int getNumUpdates()
-  {
-    return agt;
-  }
-  
-  public int getPriority()
-  {
-    return mPriority;
-  }
-  
-  public float getSmallestDisplacement()
-  {
-    return agu;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { Integer.valueOf(mPriority), Long.valueOf(agr), Long.valueOf(ags), Boolean.valueOf(Wg), Long.valueOf(age), Integer.valueOf(agt), Float.valueOf(agu) });
-  }
-  
-  public LocationRequest setExpirationDuration(long paramLong)
-  {
-    long l = SystemClock.elapsedRealtime();
-    if (paramLong > Long.MAX_VALUE - l) {}
-    for (age = Long.MAX_VALUE;; age = (l + paramLong))
-    {
-      if (age < 0L) {
-        age = 0L;
-      }
-      return this;
-    }
-  }
-  
-  public LocationRequest setExpirationTime(long paramLong)
-  {
-    age = paramLong;
-    if (age < 0L) {
-      age = 0L;
-    }
-    return this;
-  }
-  
-  public LocationRequest setFastestInterval(long paramLong)
-  {
-    v(paramLong);
-    Wg = true;
-    ags = paramLong;
-    return this;
-  }
-  
-  public LocationRequest setInterval(long paramLong)
-  {
-    v(paramLong);
-    agr = paramLong;
-    if (!Wg) {
-      ags = ((agr / 6.0D));
-    }
-    return this;
-  }
-  
-  public LocationRequest setNumUpdates(int paramInt)
-  {
-    if (paramInt <= 0) {
-      throw new IllegalArgumentException("invalid numUpdates: " + paramInt);
-    }
-    agt = paramInt;
-    return this;
-  }
-  
-  public LocationRequest setPriority(int paramInt)
-  {
-    ey(paramInt);
-    mPriority = paramInt;
-    return this;
-  }
-  
-  public LocationRequest setSmallestDisplacement(float paramFloat)
-  {
-    a(paramFloat);
-    agu = paramFloat;
-    return this;
+    return zzw.hashCode(new Object[] { Integer.valueOf(a), Long.valueOf(b), Long.valueOf(c), Boolean.valueOf(d), Long.valueOf(e), Integer.valueOf(f), Float.valueOf(g) });
   }
   
   public String toString()
   {
     StringBuilder localStringBuilder = new StringBuilder();
-    localStringBuilder.append("Request[").append(ez(mPriority));
-    if (mPriority != 105)
+    localStringBuilder.append("Request[").append(c(a));
+    if (a != 105)
     {
       localStringBuilder.append(" requested=");
-      localStringBuilder.append(agr + "ms");
+      localStringBuilder.append(b).append("ms");
     }
     localStringBuilder.append(" fastest=");
-    localStringBuilder.append(ags + "ms");
-    if (age != Long.MAX_VALUE)
+    localStringBuilder.append(c).append("ms");
+    if (h > b)
     {
-      long l1 = age;
+      localStringBuilder.append(" maxWait=");
+      localStringBuilder.append(h).append("ms");
+    }
+    if (e != Long.MAX_VALUE)
+    {
+      long l1 = e;
       long l2 = SystemClock.elapsedRealtime();
       localStringBuilder.append(" expireIn=");
-      localStringBuilder.append(l1 - l2 + "ms");
+      localStringBuilder.append(l1 - l2).append("ms");
     }
-    if (agt != Integer.MAX_VALUE) {
-      localStringBuilder.append(" num=").append(agt);
+    if (f != Integer.MAX_VALUE) {
+      localStringBuilder.append(" num=").append(f);
     }
     localStringBuilder.append(']');
     return localStringBuilder.toString();
@@ -246,7 +188,7 @@ public final class LocationRequest
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    d.a(this, paramParcel, paramInt);
+    k.a(this, paramParcel, paramInt);
   }
 }
 

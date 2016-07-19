@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/FriendRequestAcknowledgment;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Acknowledgment"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -46,6 +55,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/FriendRequestAcknowledgment$Acknowledgment;->APPROVE:Lcom/yelp/android/appdata/webrequests/FriendRequestAcknowledgment$Acknowledgment;
 
+    .line 15
     new-instance v0, Lcom/yelp/android/appdata/webrequests/FriendRequestAcknowledgment$Acknowledgment;
 
     const-string/jumbo v1, "IGNORE"
@@ -85,13 +95,13 @@
     .end annotation
 
     .prologue
-    .line 17
+    .line 18
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 18
+    .line 19
     iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/FriendRequestAcknowledgment$Acknowledgment;->url:Ljava/lang/String;
 
-    .line 19
+    .line 20
     return-void
 .end method
 

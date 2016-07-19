@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class PlatformAction
   extends _PlatformAction
 {
-  public static final JsonParser.DualCreator<PlatformAction> CREATOR = new bv();
+  public static final JsonParser.DualCreator<PlatformAction> CREATOR = new PlatformAction.1();
 }
 
 /* Location:

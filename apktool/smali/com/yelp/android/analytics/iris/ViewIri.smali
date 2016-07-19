@@ -1,9 +1,9 @@
-.class public final enum Lcom/yelp/android/analytics/iris/ViewIri;
+.class public enum Lcom/yelp/android/analytics/iris/ViewIri;
 .super Ljava/lang/Enum;
 .source "ViewIri.java"
 
 # interfaces
-.implements Lcom/yelp/android/analytics/iris/b;
+.implements Lcom/yelp/android/analytics/iris/a;
 
 
 # annotations
@@ -13,7 +13,7 @@
         "<",
         "Lcom/yelp/android/analytics/iris/ViewIri;",
         ">;",
-        "Lcom/yelp/android/analytics/iris/b;"
+        "Lcom/yelp/android/analytics/iris/a;"
     }
 .end annotation
 
@@ -29,13 +29,33 @@
 
 .field public static final enum AddReviewPage:Lcom/yelp/android/analytics/iris/ViewIri;
 
+.field public static final enum AdsBusinessPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+
 .field public static final enum AlertsList:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum AnimatedOnboardingPageFour:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum AnimatedOnboardingPageOne:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum AnimatedOnboardingPageThree:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum AnimatedOnboardingPageTwo:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum Award:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum BackgroundLocationAttachToAccountDialog:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum BackgroundLocationOptIn:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum BackgroundLocationSettings:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum BadgeDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum BadgeUsers:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum Bookmarks:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum BookmarksList:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum BookmarksMap:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -46,6 +66,8 @@
 .field public static final enum Business:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum BusinessAdd:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum BusinessCotinueLastOrder:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum BusinessEditAddress:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -68,6 +90,8 @@
 .field public static final enum BusinessMoreInfo:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum BusinessNewMessage:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum BusinessNewMessageMultibiz:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum BusinessPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -121,6 +145,8 @@
 
 .field public static final enum CallToActionWebView:Lcom/yelp/android/analytics/iris/ViewIri;
 
+.field public static final enum ChangePrimaryEmail:Lcom/yelp/android/analytics/iris/ViewIri;
+
 .field public static final enum CheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum CheckInCommentThread:Lcom/yelp/android/analytics/iris/ViewIri;
@@ -140,6 +166,10 @@
 .field public static final enum CheckInsReceiptTipButton:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum CheckInsWeekRankings:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum ConfirmEmail:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum ConfirmEmailBanner:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum Deal:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -163,6 +193,8 @@
 
 .field public static final enum Drawer:Lcom/yelp/android/analytics/iris/ViewIri;
 
+.field public static final enum EmailConfirmed:Lcom/yelp/android/analytics/iris/ViewIri;
+
 .field public static final enum Event:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum EventAttendees:Lcom/yelp/android/analytics/iris/ViewIri;
@@ -177,7 +209,17 @@
 
 .field public static final enum EventsSections:Lcom/yelp/android/analytics/iris/ViewIri;
 
+.field public static final enum FavoritesList:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum FeedCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum FeedFollowing:Lcom/yelp/android/analytics/iris/ViewIri;
+
 .field public static final enum FeedFriend:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum FeedMain:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum FeedNearby:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum FlagEvent:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -203,7 +245,17 @@
 
 .field public static final enum Home:Lcom/yelp/android/analytics/iris/ViewIri;
 
+.field public static final enum LineSignupShown:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum LocalIssue:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum LocalIssueSponsor:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum LocalIssueUnavailable:Lcom/yelp/android/analytics/iris/ViewIri;
+
 .field public static final enum LogIn:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum LoginContext:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum Map:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -235,7 +287,11 @@
 
 .field public static final enum NewTipFeedback:Lcom/yelp/android/analytics/iris/ViewIri;
 
-.field public static final enum OnboardingFirstSearch:Lcom/yelp/android/analytics/iris/ViewIri;
+.field public static final enum OnboardingGuidePageOne:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum OnboardingGuidePageTwo:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum OnboardingLocationPermission:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum OpenURL:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -293,6 +349,10 @@
 
 .field public static final enum SearchBarSuggestRichDisplay:Lcom/yelp/android/analytics/iris/ViewIri;
 
+.field public static final enum SearchDeliveryAddressAdd:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum SearchDeliveryAddressList:Lcom/yelp/android/analytics/iris/ViewIri;
+
 .field public static final enum SearchFilter:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum SearchFilterBizAttributes:Lcom/yelp/android/analytics/iris/ViewIri;
@@ -313,9 +373,9 @@
 
 .field public static final enum SignUp:Lcom/yelp/android/analytics/iris/ViewIri;
 
-.field public static final enum SignUpComplete:Lcom/yelp/android/analytics/iris/ViewIri;
-
 .field public static final enum SplashScreenLogin:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum SupportCenter:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum TakePhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -351,15 +411,11 @@
 
 .field public static final enum UserRankingsBusinesses:Lcom/yelp/android/analytics/iris/ViewIri;
 
-.field public static final VIEW_CATEGORY:Lcom/yelp/android/analytics/iris/AnalyticCategory;
-
 .field public static final enum ViewTipLikesCompliments:Lcom/yelp/android/analytics/iris/ViewIri;
 
-.field public static final enum Weekly:Lcom/yelp/android/analytics/iris/ViewIri;
-
-.field public static final enum WeeklyUnavailable:Lcom/yelp/android/analytics/iris/ViewIri;
-
 .field public static final enum WhatsAnElite:Lcom/yelp/android/analytics/iris/ViewIri;
+
+.field public static final enum WhatsNewPrompt:Lcom/yelp/android/analytics/iris/ViewIri;
 
 .field public static final enum WhoLikedThisCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
@@ -369,86 +425,82 @@
 
 
 # instance fields
-.field private final mCustomDimenLinks:[Lcom/yelp/android/analytics/c;
+.field private final mIri:Ljava/lang/String;
 
-.field public final mIri:Ljava/lang/String;
-
-.field private final mIsExcluded:Z
-
-.field private final mIsSampled:Z
+.field private final mScreenName:Lcom/yelp/android/bs/c;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .locals 10
 
     .prologue
-    const/4 v14, 0x4
+    const/4 v9, 0x4
 
-    const/4 v13, 0x3
+    const/4 v8, 0x3
 
-    const/4 v12, 0x2
+    const/4 v7, 0x2
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    .line 14
+    .line 12
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Profile"
 
     const-string/jumbo v2, "profile"
 
-    invoke-direct {v0, v1, v4, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Profile:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 15
+    .line 13
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileEliteNomination"
 
     const-string/jumbo v2, "profile/nominate_elite"
 
-    invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v6, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileEliteNomination:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 17
+    .line 15
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FriendRequests"
 
     const-string/jumbo v2, "profile/friend_requests"
 
-    invoke-direct {v0, v1, v12, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FriendRequests:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 19
+    .line 17
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FriendRequest"
 
     const-string/jumbo v2, "profile/friend_request"
 
-    invoke-direct {v0, v1, v13, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v8, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FriendRequest:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 20
+    .line 18
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BrowseCompliments"
 
     const-string/jumbo v2, "profile/compliments"
 
-    invoke-direct {v0, v1, v14, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v9, v2}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BrowseCompliments:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 21
+    .line 19
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileBadges"
@@ -461,7 +513,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileBadges:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 22
+    .line 20
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileTips"
@@ -474,7 +526,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileTips:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 23
+    .line 21
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileCheckIns"
@@ -487,7 +539,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileCheckIns:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 24
+    .line 22
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileReviews"
@@ -500,7 +552,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileReviews:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 25
+    .line 23
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileDrafts"
@@ -513,7 +565,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileDrafts:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 26
+    .line 24
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileBizPhotosFullScreen"
@@ -526,7 +578,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileBizPhotosFullScreen:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 27
+    .line 25
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfileBizPhotosGrid"
@@ -539,7 +591,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileBizPhotosGrid:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 28
+    .line 26
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ProfilePhotoPrompt"
@@ -552,7 +604,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfilePhotoPrompt:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 29
+    .line 27
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MoreAboutMe"
@@ -565,7 +617,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MoreAboutMe:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 30
+    .line 28
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MoreAboutUser"
@@ -578,7 +630,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MoreAboutUser:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 31
+    .line 29
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserProfileFirsts"
@@ -591,7 +643,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserProfileFirsts:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 32
+    .line 30
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "WhatsAnElite"
@@ -604,7 +656,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->WhatsAnElite:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 33
+    .line 31
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserProfile"
@@ -617,7 +669,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserProfile:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 34
+    .line 32
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserRankingsBusinesses"
@@ -630,7 +682,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserRankingsBusinesses:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 35
+    .line 33
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserBadges"
@@ -643,7 +695,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserBadges:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 36
+    .line 34
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserPhotosFullscreen"
@@ -656,7 +708,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserPhotosFullscreen:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 37
+    .line 35
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserPhotosGrid"
@@ -669,7 +721,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserPhotosGrid:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 38
+    .line 36
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserImageUpload"
@@ -682,7 +734,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserImageUpload:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 40
+    .line 37
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SendCompliment"
@@ -695,7 +747,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SendCompliment:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 41
+    .line 38
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "AddFriend"
@@ -708,7 +760,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AddFriend:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 43
+    .line 39
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchList"
@@ -721,7 +773,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchList:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 44
+    .line 40
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchMap"
@@ -734,7 +786,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchMap:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 45
+    .line 41
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchFilter"
@@ -743,11 +795,15 @@
 
     const-string/jumbo v3, "search/filter"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$1;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$1;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchFilter:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 46
+    .line 49
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchOverlay"
@@ -760,7 +816,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchOverlay:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 47
+    .line 50
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchNearbyCheckIn"
@@ -773,7 +829,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchNearbyCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 48
+    .line 51
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchAddPhoto"
@@ -786,7 +842,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchAddPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 49
+    .line 52
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchFilterBizAttributes"
@@ -799,55 +855,85 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchFilterBizAttributes:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 57
+    .line 53
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "SearchDeliveryAddressList"
+
+    const/16 v2, 0x20
+
+    const-string/jumbo v3, "search/delivery/address/list"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchDeliveryAddressList:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 54
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "SearchDeliveryAddressAdd"
+
+    const/16 v2, 0x21
+
+    const-string/jumbo v3, "search/delivery/address/add"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchDeliveryAddressAdd:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 55
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SearchBarSuggestRichDisplay"
 
-    const/16 v2, 0x20
+    const/16 v2, 0x22
 
     const-string/jumbo v3, "search/bar/suggest_rich/display"
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$13;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$13;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchBarSuggestRichDisplay:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 62
-    new-instance v6, Lcom/yelp/android/analytics/iris/ViewIri;
+    .line 63
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri$3;
 
-    const-string/jumbo v7, "SearchPromotedFilterShown"
+    const-string/jumbo v1, "SearchPromotedFilterShown"
 
-    const/16 v8, 0x21
+    const/16 v2, 0x23
 
-    const-string/jumbo v9, "search/promoted_filter_shown"
+    const-string/jumbo v3, "search/promoted_filter_shown"
 
-    move v10, v5
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri$3;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    move v11, v4
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SearchPromotedFilterShown:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    invoke-direct/range {v6 .. v11}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
-
-    sput-object v6, Lcom/yelp/android/analytics/iris/ViewIri;->SearchPromotedFilterShown:Lcom/yelp/android/analytics/iris/ViewIri;
-
-    .line 64
+    .line 69
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Business"
 
-    const/16 v2, 0x22
+    const/16 v2, 0x24
 
     const-string/jumbo v3, "business"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$18;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$18;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Business:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 66
+    .line 79
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessSpamAlertEvidence"
 
-    const/16 v2, 0x23
+    const/16 v2, 0x25
 
     const-string/jumbo v3, "business/spam_alert/evidence"
 
@@ -855,12 +941,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessSpamAlertEvidence:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 67
+    .line 80
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessReviews"
 
-    const/16 v2, 0x24
+    const/16 v2, 0x26
 
     const-string/jumbo v3, "business/reviews_2"
 
@@ -868,12 +954,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessReviews:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 71
+    .line 81
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessHighlights"
 
-    const/16 v2, 0x25
+    const/16 v2, 0x27
 
     const-string/jumbo v3, "business/highlights"
 
@@ -881,12 +967,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessHighlights:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 76
+    .line 82
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessHighlightReviews"
 
-    const/16 v2, 0x26
+    const/16 v2, 0x28
 
     const-string/jumbo v3, "business/highlight/reviews"
 
@@ -894,12 +980,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessHighlightReviews:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 77
+    .line 83
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessTips"
 
-    const/16 v2, 0x27
+    const/16 v2, 0x29
 
     const-string/jumbo v3, "business/quicktips"
 
@@ -907,25 +993,29 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessTips:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 78
+    .line 84
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessMenu"
 
-    const/16 v2, 0x28
+    const/16 v2, 0x2a
 
     const-string/jumbo v3, "business/menu"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$19;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$19;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessMenu:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 79
+    .line 92
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessMoreInfo"
 
-    const/16 v2, 0x29
+    const/16 v2, 0x2b
 
     const-string/jumbo v3, "business/more_info"
 
@@ -933,25 +1023,29 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessMoreInfo:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 80
+    .line 93
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessReviewsBrowse"
 
-    const/16 v2, 0x2a
+    const/16 v2, 0x2c
 
     const-string/jumbo v3, "business/reviews/browse"
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$20;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$20;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessReviewsBrowse:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 81
+    .line 101
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPreviousReviewsBrowse"
 
-    const/16 v2, 0x2b
+    const/16 v2, 0x2d
 
     const-string/jumbo v3, "business/reviews/browse_previous"
 
@@ -959,12 +1053,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPreviousReviewsBrowse:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 82
+    .line 102
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessRegulars"
 
-    const/16 v2, 0x2c
+    const/16 v2, 0x2e
 
     const-string/jumbo v3, "business/regulars"
 
@@ -972,12 +1066,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessRegulars:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 83
+    .line 103
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessRecentFriends"
 
-    const/16 v2, 0x2d
+    const/16 v2, 0x2f
 
     const-string/jumbo v3, "business/recent_friends"
 
@@ -985,12 +1079,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessRecentFriends:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 84
+    .line 104
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhotoSwipe"
 
-    const/16 v2, 0x2e
+    const/16 v2, 0x30
 
     const-string/jumbo v3, "business/photo_swipe_bar"
 
@@ -998,25 +1092,29 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoSwipe:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 85
+    .line 105
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhoto"
 
-    const/16 v2, 0x2f
+    const/16 v2, 0x31
 
     const-string/jumbo v3, "business/photo"
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$21;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$21;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 86
+    .line 118
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhotoDelete"
 
-    const/16 v2, 0x30
+    const/16 v2, 0x32
 
     const-string/jumbo v3, "business/photo/delete"
 
@@ -1024,38 +1122,46 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoDelete:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 87
+    .line 119
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhotosGrid"
 
-    const/16 v2, 0x31
+    const/16 v2, 0x33
 
     const-string/jumbo v3, "business/photos"
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$22;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$22;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotosGrid:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 88
+    .line 127
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhotosFullscreen"
 
-    const/16 v2, 0x32
+    const/16 v2, 0x34
 
     const-string/jumbo v3, "business/images"
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$23;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$23;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotosFullscreen:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 89
+    .line 135
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhotoFeedbackList"
 
-    const/16 v2, 0x33
+    const/16 v2, 0x35
 
     const-string/jumbo v3, "business/photos/list_feedbacks"
 
@@ -1063,12 +1169,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoFeedbackList:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 90
+    .line 136
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhotoShare"
 
-    const/16 v2, 0x34
+    const/16 v2, 0x36
 
     const-string/jumbo v3, "business/photo/share"
 
@@ -1076,12 +1182,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoShare:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 91
+    .line 137
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessPhotoTeaser"
 
-    const/16 v2, 0x35
+    const/16 v2, 0x37
 
     const-string/jumbo v3, "business/photos/prompt_more"
 
@@ -1089,25 +1195,29 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoTeaser:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 92
+    .line 138
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessVideo"
 
-    const/16 v2, 0x36
+    const/16 v2, 0x38
 
     const-string/jumbo v3, "business/video"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$2;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$2;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideo:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 93
+    .line 146
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessVideoCapture"
 
-    const/16 v2, 0x37
+    const/16 v2, 0x39
 
     const-string/jumbo v3, "business/videos/capture"
 
@@ -1115,12 +1225,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoCapture:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 94
+    .line 147
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessVideoTrim"
 
-    const/16 v2, 0x38
+    const/16 v2, 0x3a
 
     const-string/jumbo v3, "business/videos/trim"
 
@@ -1128,12 +1238,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoTrim:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 95
+    .line 148
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessVideoPreview"
 
-    const/16 v2, 0x39
+    const/16 v2, 0x3b
 
     const-string/jumbo v3, "business/videos/preview"
 
@@ -1141,12 +1251,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoPreview:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 96
+    .line 149
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessVideoShare"
 
-    const/16 v2, 0x3a
+    const/16 v2, 0x3c
 
     const-string/jumbo v3, "business/video/share"
 
@@ -1154,12 +1264,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoShare:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 97
+    .line 150
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessVideoFeedbackList"
 
-    const/16 v2, 0x3b
+    const/16 v2, 0x3d
 
     const-string/jumbo v3, "business/video/list_feedbacks"
 
@@ -1167,12 +1277,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoFeedbackList:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 98
+    .line 151
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessVideoDelete"
 
-    const/16 v2, 0x3c
+    const/16 v2, 0x3e
 
     const-string/jumbo v3, "business/video/delete"
 
@@ -1180,12 +1290,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoDelete:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 99
+    .line 152
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessNewMessage"
 
-    const/16 v2, 0x3d
+    const/16 v2, 0x3f
 
     const-string/jumbo v3, "business/new_message"
 
@@ -1193,12 +1303,38 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessNewMessage:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 100
+    .line 153
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "BusinessCotinueLastOrder"
+
+    const/16 v2, 0x40
+
+    const-string/jumbo v3, "business/continue_last_order"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessCotinueLastOrder:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 154
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "BusinessNewMessageMultibiz"
+
+    const/16 v2, 0x41
+
+    const-string/jumbo v3, "business/new_message/multibiz"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessNewMessageMultibiz:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 155
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "TakePhoto"
 
-    const/16 v2, 0x3e
+    const/16 v2, 0x42
 
     const-string/jumbo v3, "business/photos/capture"
 
@@ -1206,12 +1342,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TakePhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 101
+    .line 156
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "YesOrNoPhoto"
 
-    const/16 v2, 0x3f
+    const/16 v2, 0x43
 
     const-string/jumbo v3, "business/photos/confirm_photo"
 
@@ -1219,12 +1355,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->YesOrNoPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 104
+    .line 159
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessAdd"
 
-    const/16 v2, 0x40
+    const/16 v2, 0x44
 
     const-string/jumbo v3, "business/add_business"
 
@@ -1232,12 +1368,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessAdd:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 105
+    .line 160
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessUpdate"
 
-    const/16 v2, 0x41
+    const/16 v2, 0x45
 
     const-string/jumbo v3, "business/update"
 
@@ -1245,12 +1381,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessUpdate:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 106
+    .line 161
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessEditCategory"
 
-    const/16 v2, 0x42
+    const/16 v2, 0x46
 
     const-string/jumbo v3, "business/edit_categories"
 
@@ -1258,12 +1394,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditCategory:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 107
+    .line 162
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessSelectCategory"
 
-    const/16 v2, 0x43
+    const/16 v2, 0x47
 
     const-string/jumbo v3, "business/select_categories"
 
@@ -1271,12 +1407,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessSelectCategory:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 108
+    .line 163
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessEditField"
 
-    const/16 v2, 0x44
+    const/16 v2, 0x48
 
     const-string/jumbo v3, "business/edit_field"
 
@@ -1284,12 +1420,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditField:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 109
+    .line 164
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessEditAddress"
 
-    const/16 v2, 0x45
+    const/16 v2, 0x49
 
     const-string/jumbo v3, "business/edit_address"
 
@@ -1297,12 +1433,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddress:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 110
+    .line 165
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessEditAddressPosition"
 
-    const/16 v2, 0x46
+    const/16 v2, 0x4a
 
     const-string/jumbo v3, "business/edit_position"
 
@@ -1310,12 +1446,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddressPosition:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 111
+    .line 166
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessEditHours"
 
-    const/16 v2, 0x47
+    const/16 v2, 0x4b
 
     const-string/jumbo v3, "business/edit_hours"
 
@@ -1323,12 +1459,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditHours:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 112
+    .line 167
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BusinessEditHoursDescription"
 
-    const/16 v2, 0x48
+    const/16 v2, 0x4c
 
     const-string/jumbo v3, "business/edit_hours_description"
 
@@ -1336,12 +1472,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditHoursDescription:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 114
+    .line 168
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FlagPhoto"
 
-    const/16 v2, 0x49
+    const/16 v2, 0x4d
 
     const-string/jumbo v3, "flagging/photo"
 
@@ -1349,12 +1485,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FlagPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 115
+    .line 169
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FlagVideo"
 
-    const/16 v2, 0x4a
+    const/16 v2, 0x4e
 
     const-string/jumbo v3, "flagging/video"
 
@@ -1362,12 +1498,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FlagVideo:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 116
+    .line 170
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FlagReview"
 
-    const/16 v2, 0x4b
+    const/16 v2, 0x4f
 
     const-string/jumbo v3, "flagging/review"
 
@@ -1375,12 +1511,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FlagReview:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 118
+    .line 171
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReviewDraft"
 
-    const/16 v2, 0x4c
+    const/16 v2, 0x50
 
     const-string/jumbo v3, "review_draft"
 
@@ -1388,12 +1524,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewDraft:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 120
+    .line 172
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckIn"
 
-    const/16 v2, 0x4d
+    const/16 v2, 0x51
 
     const-string/jumbo v3, "check_in"
 
@@ -1401,12 +1537,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 121
+    .line 173
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInCommentThread"
 
-    const/16 v2, 0x4e
+    const/16 v2, 0x52
 
     const-string/jumbo v3, "check_in/comment"
 
@@ -1414,12 +1550,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInCommentThread:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 122
+    .line 174
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "WhoLikedThisCheckIn"
 
-    const/16 v2, 0x4f
+    const/16 v2, 0x53
 
     const-string/jumbo v3, "check_in/feedbacks"
 
@@ -1427,12 +1563,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->WhoLikedThisCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 123
+    .line 175
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInsFriends"
 
-    const/16 v2, 0x50
+    const/16 v2, 0x54
 
     const-string/jumbo v3, "check_ins/friends"
 
@@ -1440,12 +1576,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsFriends:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 124
+    .line 176
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInsWeekRankings"
 
-    const/16 v2, 0x51
+    const/16 v2, 0x55
 
     const-string/jumbo v3, "check_ins/rankings/week"
 
@@ -1453,12 +1589,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsWeekRankings:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 125
+    .line 177
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInsReceiptReviewStars"
 
-    const/16 v2, 0x52
+    const/16 v2, 0x56
 
     const-string/jumbo v3, "check_ins/receipt/review_stars/shown"
 
@@ -1466,12 +1602,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptReviewStars:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 126
+    .line 178
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInsReceiptTipButton"
 
-    const/16 v2, 0x53
+    const/16 v2, 0x57
 
     const-string/jumbo v3, "check_ins/receipt/tip_button/shown"
 
@@ -1479,12 +1615,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptTipButton:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 127
+    .line 179
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInsReceiptAddPhotoVideoButton"
 
-    const/16 v2, 0x54
+    const/16 v2, 0x58
 
     const-string/jumbo v3, "check_ins/receipt/add_photo_video_button/shown"
 
@@ -1492,12 +1628,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptAddPhotoVideoButton:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 129
+    .line 180
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CallToActionBusinessShown"
 
-    const/16 v2, 0x55
+    const/16 v2, 0x59
 
     const-string/jumbo v3, "call_to_action/business/shown"
 
@@ -1505,12 +1641,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionBusinessShown:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 130
+    .line 181
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CallToActionWebView"
 
-    const/16 v2, 0x56
+    const/16 v2, 0x5a
 
     const-string/jumbo v3, "call_to_action/business/webview"
 
@@ -1518,12 +1654,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionWebView:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 132
+    .line 182
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInPromo"
 
-    const/16 v2, 0x57
+    const/16 v2, 0x5b
 
     const-string/jumbo v3, "check_in/splash"
 
@@ -1531,12 +1667,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInPromo:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 134
+    .line 183
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInOfferView"
 
-    const/16 v2, 0x58
+    const/16 v2, 0x5c
 
     const-string/jumbo v3, "check_ins/offers/view"
 
@@ -1544,12 +1680,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInOfferView:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 135
+    .line 184
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "CheckInOfferListView"
 
-    const/16 v2, 0x59
+    const/16 v2, 0x5d
 
     const-string/jumbo v3, "check_ins/offers"
 
@@ -1557,12 +1693,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInOfferListView:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 137
+    .line 185
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FromThisBusiness"
 
-    const/16 v2, 0x5a
+    const/16 v2, 0x5e
 
     const-string/jumbo v3, "business/from_this_business"
 
@@ -1570,25 +1706,29 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FromThisBusiness:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 139
+    .line 186
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Nearby"
 
-    const/16 v2, 0x5b
+    const/16 v2, 0x5f
 
     const-string/jumbo v3, "nearby"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$4;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$4;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Nearby:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 140
+    .line 197
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "NearbyMoreCategories"
 
-    const/16 v2, 0x5c
+    const/16 v2, 0x60
 
     const-string/jumbo v3, "nearby/more_categories"
 
@@ -1596,12 +1736,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->NearbyMoreCategories:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 141
+    .line 198
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "NearbySuggestSearches"
 
-    const/16 v2, 0x5d
+    const/16 v2, 0x61
 
     const-string/jumbo v3, "nearby/suggested_searches"
 
@@ -1609,12 +1749,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->NearbySuggestSearches:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 142
+    .line 199
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "NearbyDefaultSearches"
 
-    const/16 v2, 0x5e
+    const/16 v2, 0x62
 
     const-string/jumbo v3, "nearby/default_searches"
 
@@ -1622,12 +1762,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->NearbyDefaultSearches:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 144
+    .line 200
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "EventsSections"
 
-    const/16 v2, 0x5f
+    const/16 v2, 0x63
 
     const-string/jumbo v3, "events_sections"
 
@@ -1635,12 +1775,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EventsSections:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 145
+    .line 201
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "EventsSection"
 
-    const/16 v2, 0x60
+    const/16 v2, 0x64
 
     const-string/jumbo v3, "events_sections/section"
 
@@ -1648,12 +1788,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EventsSection:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 146
+    .line 202
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Event"
 
-    const/16 v2, 0x61
+    const/16 v2, 0x65
 
     const-string/jumbo v3, "event"
 
@@ -1661,12 +1801,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Event:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 147
+    .line 203
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "EventDetails"
 
-    const/16 v2, 0x62
+    const/16 v2, 0x66
 
     const-string/jumbo v3, "event/details"
 
@@ -1674,12 +1814,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EventDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 148
+    .line 204
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "EventPhoto"
 
-    const/16 v2, 0x63
+    const/16 v2, 0x67
 
     const-string/jumbo v3, "event/photo"
 
@@ -1687,12 +1827,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EventPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 149
+    .line 205
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "EventPhotoFullScreen"
 
-    const/16 v2, 0x64
+    const/16 v2, 0x68
 
     const-string/jumbo v3, "event/images"
 
@@ -1700,12 +1840,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EventPhotoFullScreen:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 150
+    .line 206
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "EventAttendees"
 
-    const/16 v2, 0x65
+    const/16 v2, 0x69
 
     const-string/jumbo v3, "event/attendees"
 
@@ -1713,12 +1853,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EventAttendees:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 152
+    .line 207
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Home"
 
-    const/16 v2, 0x66
+    const/16 v2, 0x6a
 
     const-string/jumbo v3, "home"
 
@@ -1726,12 +1866,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Home:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 153
+    .line 208
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "AlertsList"
 
-    const/16 v2, 0x67
+    const/16 v2, 0x6b
 
     const-string/jumbo v3, "alerts_list"
 
@@ -1739,12 +1879,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AlertsList:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 155
+    .line 209
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Bookmarks"
 
-    const/16 v2, 0x68
+    const/16 v2, 0x6c
 
     const-string/jumbo v3, "bookmarks/combined_view"
 
@@ -1752,12 +1892,25 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Bookmarks:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 157
+    .line 210
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "BookmarksList"
+
+    const/16 v2, 0x6d
+
+    const-string/jumbo v3, "bookmarks/list"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BookmarksList:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 212
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BookmarksMap"
 
-    const/16 v2, 0x69
+    const/16 v2, 0x6e
 
     const-string/jumbo v3, "bookmarks/map"
 
@@ -1765,12 +1918,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BookmarksMap:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 159
+    .line 213
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "WriteTip"
 
-    const/16 v2, 0x6a
+    const/16 v2, 0x6f
 
     const-string/jumbo v3, "quicktip"
 
@@ -1778,12 +1931,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->WriteTip:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 160
+    .line 214
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "TipLikes"
 
-    const/16 v2, 0x6b
+    const/16 v2, 0x70
 
     const-string/jumbo v3, "quicktip_likes"
 
@@ -1791,12 +1944,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TipLikes:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 161
+    .line 215
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "NewTipFeedback"
 
-    const/16 v2, 0x6c
+    const/16 v2, 0x71
 
     const-string/jumbo v3, "quicktip/new_feedback"
 
@@ -1804,12 +1957,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->NewTipFeedback:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 162
+    .line 216
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ViewTipLikesCompliments"
 
-    const/16 v2, 0x6d
+    const/16 v2, 0x72
 
     const-string/jumbo v3, "quicktip_feedbacks"
 
@@ -1817,12 +1970,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ViewTipLikesCompliments:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 164
+    .line 217
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "OpenURL"
 
-    const/16 v2, 0x6e
+    const/16 v2, 0x73
 
     const-string/jumbo v3, "open_url"
 
@@ -1830,12 +1983,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->OpenURL:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 166
+    .line 218
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Recents"
 
-    const/16 v2, 0x6f
+    const/16 v2, 0x74
 
     const-string/jumbo v3, "recent"
 
@@ -1843,12 +1996,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Recents:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 168
+    .line 219
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Talk"
 
-    const/16 v2, 0x70
+    const/16 v2, 0x75
 
     const-string/jumbo v3, "talk"
 
@@ -1856,12 +2009,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Talk:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 169
+    .line 220
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "TalkPost"
 
-    const/16 v2, 0x71
+    const/16 v2, 0x76
 
     const-string/jumbo v3, "talk/post"
 
@@ -1869,12 +2022,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TalkPost:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 170
+    .line 221
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "TalkListTopics"
 
-    const/16 v2, 0x72
+    const/16 v2, 0x77
 
     const-string/jumbo v3, "talk/list/topics"
 
@@ -1882,12 +2035,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TalkListTopics:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 171
+    .line 222
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "TalkViewPost"
 
-    const/16 v2, 0x73
+    const/16 v2, 0x78
 
     const-string/jumbo v3, "talk/view/post"
 
@@ -1895,12 +2048,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TalkViewPost:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 173
+    .line 223
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Monocle"
 
-    const/16 v2, 0x74
+    const/16 v2, 0x79
 
     const-string/jumbo v3, "monocle"
 
@@ -1908,12 +2061,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Monocle:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 174
+    .line 224
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Friends"
 
-    const/16 v2, 0x75
+    const/16 v2, 0x7a
 
     const-string/jumbo v3, "friends"
 
@@ -1921,12 +2074,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Friends:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 175
+    .line 225
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FriendFinder"
 
-    const/16 v2, 0x76
+    const/16 v2, 0x7b
 
     const-string/jumbo v3, "friend_finder"
 
@@ -1934,12 +2087,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinder:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 176
+    .line 226
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FriendFinderSplash"
 
-    const/16 v2, 0x77
+    const/16 v2, 0x7c
 
     const-string/jumbo v3, "friend_finder/splash"
 
@@ -1947,12 +2100,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinderSplash:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 177
+    .line 227
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FriendFinderSelectSources"
 
-    const/16 v2, 0x78
+    const/16 v2, 0x7d
 
     const-string/jumbo v3, "friend_finder/select_sources"
 
@@ -1960,12 +2113,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinderSelectSources:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 178
+    .line 228
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "TwitterLogin"
 
-    const/16 v2, 0x79
+    const/16 v2, 0x7e
 
     const-string/jumbo v3, "twitter/login"
 
@@ -1973,12 +2126,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TwitterLogin:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 180
+    .line 229
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Settings"
 
-    const/16 v2, 0x7a
+    const/16 v2, 0x7f
 
     const-string/jumbo v3, "settings"
 
@@ -1986,12 +2139,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Settings:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 181
+    .line 230
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DistanceUnit"
 
-    const/16 v2, 0x7b
+    const/16 v2, 0x80
 
     const-string/jumbo v3, "settings/distance_unit"
 
@@ -1999,12 +2152,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DistanceUnit:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 182
+    .line 231
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "PrivacySettings"
 
-    const/16 v2, 0x7c
+    const/16 v2, 0x81
 
     const-string/jumbo v3, "settings/privacy"
 
@@ -2012,12 +2165,25 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->PrivacySettings:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 184
+    .line 232
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "BackgroundLocationSettings"
+
+    const/16 v2, 0x82
+
+    const-string/jumbo v3, "settings/background_location"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BackgroundLocationSettings:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 233
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SignUp"
 
-    const/16 v2, 0x7d
+    const/16 v2, 0x83
 
     const-string/jumbo v3, "sign_up"
 
@@ -2025,25 +2191,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SignUp:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 185
-    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
-
-    const-string/jumbo v1, "SignUpComplete"
-
-    const/16 v2, 0x7e
-
-    const-string/jumbo v3, "sign_up/complete"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
-
-    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SignUpComplete:Lcom/yelp/android/analytics/iris/ViewIri;
-
-    .line 186
+    .line 234
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "LogIn"
 
-    const/16 v2, 0x7f
+    const/16 v2, 0x84
 
     const-string/jumbo v3, "log_in"
 
@@ -2051,12 +2204,51 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->LogIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 187
+    .line 235
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "ConfirmEmail"
+
+    const/16 v2, 0x85
+
+    const-string/jumbo v3, "email_confirmation_splash"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ConfirmEmail:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 236
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "ChangePrimaryEmail"
+
+    const/16 v2, 0x86
+
+    const-string/jumbo v3, "account/edit_primary_email"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ChangePrimaryEmail:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 237
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "EmailConfirmed"
+
+    const/16 v2, 0x87
+
+    const-string/jumbo v3, "account/email_confirmed"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EmailConfirmed:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 238
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MemberSearch"
 
-    const/16 v2, 0x80
+    const/16 v2, 0x88
 
     const-string/jumbo v3, "user_search"
 
@@ -2064,12 +2256,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MemberSearch:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 189
+    .line 239
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BadgeDetails"
 
-    const/16 v2, 0x81
+    const/16 v2, 0x89
 
     const-string/jumbo v3, "badge/details"
 
@@ -2077,12 +2269,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BadgeDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 190
+    .line 240
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BadgeUsers"
 
-    const/16 v2, 0x82
+    const/16 v2, 0x8a
 
     const-string/jumbo v3, "badge/users"
 
@@ -2090,12 +2282,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BadgeUsers:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 192
+    .line 241
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Map"
 
-    const/16 v2, 0x83
+    const/16 v2, 0x8b
 
     const-string/jumbo v3, "map"
 
@@ -2103,12 +2295,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Map:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 195
+    .line 242
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "AccountAddCreditCard"
 
-    const/16 v2, 0x84
+    const/16 v2, 0x8c
 
     const-string/jumbo v3, "account/add_cc"
 
@@ -2116,12 +2308,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AccountAddCreditCard:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 196
+    .line 243
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "AccountPaymentMethods"
 
-    const/16 v2, 0x85
+    const/16 v2, 0x8d
 
     const-string/jumbo v3, "account/payment_methods"
 
@@ -2129,12 +2321,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AccountPaymentMethods:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 199
+    .line 244
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Deal"
 
-    const/16 v2, 0x86
+    const/16 v2, 0x8e
 
     const-string/jumbo v3, "deal"
 
@@ -2142,12 +2334,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Deal:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 200
+    .line 245
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealPurchase"
 
-    const/16 v2, 0x87
+    const/16 v2, 0x8f
 
     const-string/jumbo v3, "deal/purchase"
 
@@ -2155,12 +2347,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealPurchase:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 201
+    .line 246
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealAddGiftRecipient"
 
-    const/16 v2, 0x88
+    const/16 v2, 0x90
 
     const-string/jumbo v3, "deal/add_gift_recipient"
 
@@ -2168,12 +2360,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealAddGiftRecipient:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 202
+    .line 247
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealOptions"
 
-    const/16 v2, 0x89
+    const/16 v2, 0x91
 
     const-string/jumbo v3, "deal/options"
 
@@ -2181,12 +2373,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealOptions:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 203
+    .line 248
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealsTab"
 
-    const/16 v2, 0x8a
+    const/16 v2, 0x92
 
     const-string/jumbo v3, "deals"
 
@@ -2194,12 +2386,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealsTab:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 204
+    .line 249
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealLocations"
 
-    const/16 v2, 0x8b
+    const/16 v2, 0x93
 
     const-string/jumbo v3, "deal/location_settings"
 
@@ -2207,12 +2399,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealLocations:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 205
+    .line 250
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UserDealsList"
 
-    const/16 v2, 0x8c
+    const/16 v2, 0x94
 
     const-string/jumbo v3, "user/deals"
 
@@ -2220,12 +2412,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UserDealsList:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 206
+    .line 251
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealRedemption"
 
-    const/16 v2, 0x8d
+    const/16 v2, 0x95
 
     const-string/jumbo v3, "deal/redeem"
 
@@ -2233,12 +2425,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealRedemption:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 207
+    .line 252
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealExpired"
 
-    const/16 v2, 0x8e
+    const/16 v2, 0x96
 
     const-string/jumbo v3, "deal/expired"
 
@@ -2246,12 +2438,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealExpired:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 208
+    .line 253
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "DealRedeemed"
 
-    const/16 v2, 0x8f
+    const/16 v2, 0x97
 
     const-string/jumbo v3, "deal/redeemed"
 
@@ -2259,12 +2451,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->DealRedeemed:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 210
+    .line 254
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FlagEvent"
 
-    const/16 v2, 0x90
+    const/16 v2, 0x98
 
     const-string/jumbo v3, "flagging/event"
 
@@ -2272,12 +2464,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FlagEvent:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 217
+    .line 255
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReservationFind"
 
-    const/16 v2, 0x91
+    const/16 v2, 0x99
 
     const-string/jumbo v3, "reservation/find"
 
@@ -2285,12 +2477,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationFind:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 222
+    .line 256
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReservationMatches"
 
-    const/16 v2, 0x92
+    const/16 v2, 0x9a
 
     const-string/jumbo v3, "reservation/matches"
 
@@ -2298,12 +2490,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationMatches:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 227
+    .line 257
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReservationConfirmation"
 
-    const/16 v2, 0x93
+    const/16 v2, 0x9b
 
     const-string/jumbo v3, "reservation/confirmation"
 
@@ -2311,12 +2503,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationConfirmation:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 232
+    .line 258
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReservationCancel"
 
-    const/16 v2, 0x94
+    const/16 v2, 0x9c
 
     const-string/jumbo v3, "reservation/cancel"
 
@@ -2324,12 +2516,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationCancel:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 237
+    .line 259
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReservationDetails"
 
-    const/16 v2, 0x95
+    const/16 v2, 0x9d
 
     const-string/jumbo v3, "reservation/details"
 
@@ -2337,38 +2529,80 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 240
+    .line 260
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "SplashScreenLogin"
 
-    const/16 v2, 0x96
+    const/16 v2, 0x9e
 
     const-string/jumbo v3, "login/splash"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$5;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$5;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SplashScreenLogin:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 242
+    .line 268
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
-    const-string/jumbo v1, "OnboardingFirstSearch"
+    const-string/jumbo v1, "OnboardingGuidePageOne"
 
-    const/16 v2, 0x97
+    const/16 v2, 0x9f
 
-    const-string/jumbo v3, "onboarding/2015/first_search"
+    const-string/jumbo v3, "onboarding/guide/1"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$6;
 
-    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingFirstSearch:Lcom/yelp/android/analytics/iris/ViewIri;
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$6;-><init>()V
 
-    .line 244
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingGuidePageOne:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 276
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "OnboardingGuidePageTwo"
+
+    const/16 v2, 0xa0
+
+    const-string/jumbo v3, "onboarding/guide/2"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$7;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$7;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingGuidePageTwo:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 284
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "OnboardingLocationPermission"
+
+    const/16 v2, 0xa1
+
+    const-string/jumbo v3, "onboarding/2015/location"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$8;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$8;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingLocationPermission:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 292
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "PhotoFeedbackAlerts"
 
-    const/16 v2, 0x98
+    const/16 v2, 0xa2
 
     const-string/jumbo v3, "profile/photofeedback_alerts"
 
@@ -2376,12 +2610,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->PhotoFeedbackAlerts:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 247
+    .line 293
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MessagingInbox"
 
-    const/16 v2, 0x99
+    const/16 v2, 0xa3
 
     const-string/jumbo v3, "messaging/inbox"
 
@@ -2389,12 +2623,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingInbox:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 248
+    .line 294
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MessagingConversation"
 
-    const/16 v2, 0x9a
+    const/16 v2, 0xa4
 
     const-string/jumbo v3, "messaging/conversation"
 
@@ -2402,12 +2636,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingConversation:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 249
+    .line 295
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MessagingNewConversation"
 
-    const/16 v2, 0x9b
+    const/16 v2, 0xa5
 
     const-string/jumbo v3, "messaging/new_conversation"
 
@@ -2415,12 +2649,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingNewConversation:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 250
+    .line 296
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MessagingFlagConversation"
 
-    const/16 v2, 0x9c
+    const/16 v2, 0xa6
 
     const-string/jumbo v3, "messaging/flag_conversation"
 
@@ -2428,12 +2662,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingFlagConversation:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 256
+    .line 297
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReviewWrite"
 
-    const/16 v2, 0x9d
+    const/16 v2, 0xa7
 
     const-string/jumbo v3, "review/write"
 
@@ -2441,12 +2675,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewWrite:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 263
+    .line 298
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReviewPosted"
 
-    const/16 v2, 0x9e
+    const/16 v2, 0xa8
 
     const-string/jumbo v3, "review/posted"
 
@@ -2454,12 +2688,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPosted:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 264
+    .line 299
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReviewPostedEliteSplash"
 
-    const/16 v2, 0x9f
+    const/16 v2, 0xa9
 
     const-string/jumbo v3, "review/posted/elite_splash"
 
@@ -2467,12 +2701,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPostedEliteSplash:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 265
+    .line 300
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReviewPostedEliteLearnMore"
 
-    const/16 v2, 0xa0
+    const/16 v2, 0xaa
 
     const-string/jumbo v3, "review/posted/elite_splash/learn_more"
 
@@ -2480,25 +2714,29 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPostedEliteLearnMore:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 266
+    .line 301
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReviewFullPage"
 
-    const/16 v2, 0xa1
+    const/16 v2, 0xab
 
     const-string/jumbo v3, "review"
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$9;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$9;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewFullPage:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 268
+    .line 309
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "MoviesList"
 
-    const/16 v2, 0xa2
+    const/16 v2, 0xac
 
     const-string/jumbo v3, "fandango/showtimes"
 
@@ -2506,25 +2744,29 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MoviesList:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 270
+    .line 310
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "ReviewSuggestionsViewed"
 
-    const/16 v2, 0xa3
+    const/16 v2, 0xad
 
     const-string/jumbo v3, "reviews/suggestions/viewed"
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$10;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$10;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewSuggestionsViewed:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 271
+    .line 318
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "AddReviewPage"
 
-    const/16 v2, 0xa4
+    const/16 v2, 0xae
 
     const-string/jumbo v3, "tab/add/review"
 
@@ -2532,12 +2774,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AddReviewPage:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 273
+    .line 319
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UploadGallery"
 
-    const/16 v2, 0xa5
+    const/16 v2, 0xaf
 
     const-string/jumbo v3, "upload/gallery"
 
@@ -2545,12 +2787,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UploadGallery:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 275
+    .line 320
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "BugReport"
 
-    const/16 v2, 0xa6
+    const/16 v2, 0xb0
 
     const-string/jumbo v3, "bug_report"
 
@@ -2558,12 +2800,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BugReport:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 277
+    .line 321
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "UpdatePrompt"
 
-    const/16 v2, 0xa7
+    const/16 v2, 0xb1
 
     const-string/jumbo v3, "update_prompt"
 
@@ -2571,31 +2813,51 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->UpdatePrompt:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 279
+    .line 322
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "WhatsNewPrompt"
+
+    const/16 v2, 0xb2
+
+    const-string/jumbo v3, "whats_new_prompt"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->WhatsNewPrompt:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 323
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "Drawer"
 
-    const/16 v2, 0xa8
+    const/16 v2, 0xb3
 
     const-string/jumbo v3, "drawer"
 
-    new-array v6, v5, [Lcom/yelp/android/analytics/c;
-
-    sget-object v7, Lcom/yelp/android/analytics/GaCustomDimenLink;->nav_dino_experiment:Lcom/yelp/android/analytics/GaCustomDimenLink;
-
-    aput-object v7, v6, v4
-
-    invoke-direct {v0, v1, v2, v3, v6}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;[Lcom/yelp/android/analytics/c;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Drawer:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 281
+    .line 324
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "FeedMain"
+
+    const/16 v2, 0xb4
+
+    const-string/jumbo v3, "feed/all"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FeedMain:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 325
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     const-string/jumbo v1, "FeedFriend"
 
-    const/16 v2, 0xa9
+    const/16 v2, 0xb5
 
     const-string/jumbo v3, "feed/friend"
 
@@ -2603,56 +2865,301 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FeedFriend:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 283
+    .line 326
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
-    const-string/jumbo v1, "Weekly"
+    const-string/jumbo v1, "FeedNearby"
 
-    const/16 v2, 0xaa
+    const/16 v2, 0xb6
+
+    const-string/jumbo v3, "feed/nearby"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FeedNearby:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 327
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "FeedFollowing"
+
+    const/16 v2, 0xb7
+
+    const-string/jumbo v3, "feed/following"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FeedFollowing:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 328
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "FeedCheckIn"
+
+    const/16 v2, 0xb8
+
+    const-string/jumbo v3, "feed/check_in"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FeedCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 329
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "LocalIssue"
+
+    const/16 v2, 0xb9
 
     const-string/jumbo v3, "weekly"
 
     invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Weekly:Lcom/yelp/android/analytics/iris/ViewIri;
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->LocalIssue:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 284
+    .line 330
     new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
-    const-string/jumbo v1, "WeeklyUnavailable"
+    const-string/jumbo v1, "LocalIssueUnavailable"
 
-    const/16 v2, 0xab
+    const/16 v2, 0xba
 
     const-string/jumbo v3, "weekly/unavailable"
 
     invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->WeeklyUnavailable:Lcom/yelp/android/analytics/iris/ViewIri;
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->LocalIssueUnavailable:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 12
-    const/16 v0, 0xac
+    .line 331
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "LocalIssueSponsor"
+
+    const/16 v2, 0xbb
+
+    const-string/jumbo v3, "weekly/sponsor"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->LocalIssueSponsor:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 332
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "AdsBusinessPhoto"
+
+    const/16 v2, 0xbc
+
+    const-string/jumbo v3, "ads/business/photo"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AdsBusinessPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 333
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "LoginContext"
+
+    const/16 v2, 0xbd
+
+    const-string/jumbo v3, "signup_or_login_combination_context"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->LoginContext:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 334
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "Award"
+
+    const/16 v2, 0xbe
+
+    const-string/jumbo v3, "award"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Award:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 335
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "FavoritesList"
+
+    const/16 v2, 0xbf
+
+    const-string/jumbo v3, "favorites_list"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$11;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$11;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FavoritesList:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 343
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "LineSignupShown"
+
+    const/16 v2, 0xc0
+
+    const-string/jumbo v3, "sign_up/line/shown"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->LineSignupShown:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 344
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "BackgroundLocationOptIn"
+
+    const/16 v2, 0xc1
+
+    const-string/jumbo v3, "background_location/opt_in"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$12;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$12;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BackgroundLocationOptIn:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 352
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "BackgroundLocationAttachToAccountDialog"
+
+    const/16 v2, 0xc2
+
+    const-string/jumbo v3, "background_location/attach_to_account_dialog"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BackgroundLocationAttachToAccountDialog:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 353
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "SupportCenter"
+
+    const/16 v2, 0xc3
+
+    const-string/jumbo v3, "support_center"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SupportCenter:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 354
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "ConfirmEmailBanner"
+
+    const/16 v2, 0xc4
+
+    const-string/jumbo v3, "confirm/email/banner"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ConfirmEmailBanner:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 355
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "AnimatedOnboardingPageOne"
+
+    const/16 v2, 0xc5
+
+    const-string/jumbo v3, "onboarding/guide/1"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$14;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$14;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageOne:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 363
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "AnimatedOnboardingPageTwo"
+
+    const/16 v2, 0xc6
+
+    const-string/jumbo v3, "onboarding/guide/2"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$15;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$15;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageTwo:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 371
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "AnimatedOnboardingPageThree"
+
+    const/16 v2, 0xc7
+
+    const-string/jumbo v3, "onboarding/guide/3"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$16;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$16;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageThree:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 379
+    new-instance v0, Lcom/yelp/android/analytics/iris/ViewIri;
+
+    const-string/jumbo v1, "AnimatedOnboardingPageFour"
+
+    const/16 v2, 0xc8
+
+    const-string/jumbo v3, "onboarding/guide/4"
+
+    new-instance v4, Lcom/yelp/android/analytics/iris/ViewIri$17;
+
+    invoke-direct {v4}, Lcom/yelp/android/analytics/iris/ViewIri$17;-><init>()V
+
+    invoke-direct {v0, v1, v2, v3, v4}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageFour:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    .line 11
+    const/16 v0, 0xc9
 
     new-array v0, v0, [Lcom/yelp/android/analytics/iris/ViewIri;
 
     sget-object v1, Lcom/yelp/android/analytics/iris/ViewIri;->Profile:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     sget-object v1, Lcom/yelp/android/analytics/iris/ViewIri;->ProfileEliteNomination:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v6
 
     sget-object v1, Lcom/yelp/android/analytics/iris/ViewIri;->FriendRequests:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    aput-object v1, v0, v12
+    aput-object v1, v0, v7
 
     sget-object v1, Lcom/yelp/android/analytics/iris/ViewIri;->FriendRequest:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    aput-object v1, v0, v13
+    aput-object v1, v0, v8
 
     sget-object v1, Lcom/yelp/android/analytics/iris/ViewIri;->BrowseCompliments:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    aput-object v1, v0, v14
+    aput-object v1, v0, v9
 
     const/4 v1, 0x5
 
@@ -2818,856 +3325,1025 @@
 
     const/16 v1, 0x20
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SearchBarSuggestRichDisplay:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SearchDeliveryAddressList:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x21
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SearchPromotedFilterShown:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SearchDeliveryAddressAdd:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x22
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Business:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SearchBarSuggestRichDisplay:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x23
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessSpamAlertEvidence:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SearchPromotedFilterShown:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x24
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessReviews:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Business:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x25
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessHighlights:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessSpamAlertEvidence:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x26
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessHighlightReviews:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessReviews:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x27
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessTips:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessHighlights:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x28
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessMenu:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessHighlightReviews:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x29
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessMoreInfo:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessTips:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x2a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessReviewsBrowse:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessMenu:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x2b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPreviousReviewsBrowse:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessMoreInfo:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x2c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessRegulars:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessReviewsBrowse:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x2d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessRecentFriends:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPreviousReviewsBrowse:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x2e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoSwipe:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessRegulars:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x2f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessRecentFriends:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x30
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoDelete:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoSwipe:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x31
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotosGrid:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x32
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotosFullscreen:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoDelete:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x33
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoFeedbackList:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotosGrid:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x34
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoShare:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotosFullscreen:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x35
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoTeaser:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoFeedbackList:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x36
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideo:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoShare:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x37
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoCapture:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessPhotoTeaser:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x38
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoTrim:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideo:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x39
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoPreview:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoCapture:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x3a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoShare:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoTrim:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x3b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoFeedbackList:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoPreview:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x3c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoDelete:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoShare:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x3d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessNewMessage:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoFeedbackList:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x3e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TakePhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoDelete:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x3f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->YesOrNoPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessNewMessage:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x40
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessAdd:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessCotinueLastOrder:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x41
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessUpdate:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessNewMessageMultibiz:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x42
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditCategory:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TakePhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x43
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessSelectCategory:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->YesOrNoPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x44
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditField:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessAdd:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x45
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddress:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessUpdate:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x46
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddressPosition:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditCategory:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x47
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditHours:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessSelectCategory:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x48
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditHoursDescription:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditField:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x49
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddress:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagVideo:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddressPosition:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagReview:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditHours:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewDraft:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditHoursDescription:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInCommentThread:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagVideo:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x4f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->WhoLikedThisCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagReview:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x50
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsFriends:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewDraft:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x51
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsWeekRankings:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x52
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptReviewStars:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInCommentThread:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x53
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptTipButton:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->WhoLikedThisCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x54
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptAddPhotoVideoButton:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsFriends:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x55
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionBusinessShown:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsWeekRankings:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x56
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionWebView:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptReviewStars:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x57
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInPromo:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptTipButton:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x58
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInOfferView:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInsReceiptAddPhotoVideoButton:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x59
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInOfferListView:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionBusinessShown:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FromThisBusiness:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CallToActionWebView:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Nearby:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInPromo:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NearbyMoreCategories:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInOfferView:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NearbySuggestSearches:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInOfferListView:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NearbyDefaultSearches:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FromThisBusiness:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x5f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventsSections:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Nearby:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x60
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventsSection:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NearbyMoreCategories:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x61
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Event:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NearbySuggestSearches:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x62
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventDetails:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NearbyDefaultSearches:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x63
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventsSections:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x64
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventPhotoFullScreen:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventsSection:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x65
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventAttendees:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Event:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x66
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Home:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x67
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AlertsList:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x68
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Bookmarks:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventPhotoFullScreen:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x69
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BookmarksMap:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EventAttendees:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x6a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->WriteTip:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Home:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x6b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TipLikes:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AlertsList:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x6c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NewTipFeedback:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Bookmarks:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x6d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ViewTipLikesCompliments:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BookmarksList:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x6e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->OpenURL:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BookmarksMap:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x6f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Recents:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->WriteTip:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x70
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Talk:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TipLikes:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x71
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TalkPost:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->NewTipFeedback:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x72
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TalkListTopics:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ViewTipLikesCompliments:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x73
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TalkViewPost:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->OpenURL:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x74
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Monocle:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Recents:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x75
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Friends:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Talk:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x76
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinder:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TalkPost:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x77
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinderSplash:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TalkListTopics:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x78
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinderSelectSources:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TalkViewPost:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x79
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TwitterLogin:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Monocle:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x7a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Settings:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Friends:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x7b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DistanceUnit:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinder:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x7c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->PrivacySettings:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinderSplash:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x7d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SignUp:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FriendFinderSelectSources:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x7e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SignUpComplete:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->TwitterLogin:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x7f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->LogIn:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Settings:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x80
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MemberSearch:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DistanceUnit:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x81
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BadgeDetails:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->PrivacySettings:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x82
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BadgeUsers:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BackgroundLocationSettings:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x83
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Map:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SignUp:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x84
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AccountAddCreditCard:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->LogIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x85
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AccountPaymentMethods:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ConfirmEmail:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x86
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Deal:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ChangePrimaryEmail:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x87
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealPurchase:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->EmailConfirmed:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x88
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealAddGiftRecipient:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MemberSearch:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x89
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealOptions:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BadgeDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealsTab:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BadgeUsers:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealLocations:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Map:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->UserDealsList:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AccountAddCreditCard:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealRedemption:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AccountPaymentMethods:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealExpired:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Deal:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x8f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealRedeemed:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealPurchase:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x90
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagEvent:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealAddGiftRecipient:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x91
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationFind:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealOptions:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x92
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationMatches:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealsTab:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x93
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationConfirmation:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealLocations:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x94
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationCancel:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->UserDealsList:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x95
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationDetails:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealRedemption:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x96
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SplashScreenLogin:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealExpired:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x97
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingFirstSearch:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->DealRedeemed:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x98
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->PhotoFeedbackAlerts:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FlagEvent:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x99
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingInbox:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationFind:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9a
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingConversation:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationMatches:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9b
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingNewConversation:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationConfirmation:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9c
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingFlagConversation:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationCancel:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9d
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewWrite:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReservationDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9e
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPosted:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SplashScreenLogin:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x9f
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPostedEliteSplash:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingGuidePageOne:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa0
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPostedEliteLearnMore:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingGuidePageTwo:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa1
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewFullPage:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->OnboardingLocationPermission:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa2
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MoviesList:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->PhotoFeedbackAlerts:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa3
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewSuggestionsViewed:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingInbox:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa4
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AddReviewPage:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingConversation:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa5
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->UploadGallery:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingNewConversation:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa6
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BugReport:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingFlagConversation:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa7
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->UpdatePrompt:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewWrite:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa8
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Drawer:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPosted:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xa9
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FeedFriend:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPostedEliteSplash:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xaa
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Weekly:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewPostedEliteLearnMore:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0xab
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->WeeklyUnavailable:Lcom/yelp/android/analytics/iris/ViewIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewFullPage:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xac
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->MoviesList:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xad
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ReviewSuggestionsViewed:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xae
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AddReviewPage:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xaf
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->UploadGallery:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb0
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BugReport:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb1
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->UpdatePrompt:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb2
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->WhatsNewPrompt:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb3
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Drawer:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb4
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FeedMain:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb5
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FeedFriend:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb6
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FeedNearby:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb7
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FeedFollowing:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb8
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FeedCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xb9
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->LocalIssue:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xba
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->LocalIssueUnavailable:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xbb
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->LocalIssueSponsor:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xbc
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AdsBusinessPhoto:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xbd
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->LoginContext:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xbe
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->Award:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xbf
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->FavoritesList:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc0
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->LineSignupShown:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc1
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BackgroundLocationOptIn:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc2
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->BackgroundLocationAttachToAccountDialog:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc3
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->SupportCenter:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc4
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->ConfirmEmailBanner:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc5
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageOne:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc6
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageTwo:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc7
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageThree:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xc8
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AnimatedOnboardingPageFour:Lcom/yelp/android/analytics/iris/ViewIri;
 
     aput-object v2, v0, v1
 
     sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->$VALUES:[Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 286
-    sget-object v0, Lcom/yelp/android/analytics/iris/AnalyticCategory;->VIEW:Lcom/yelp/android/analytics/iris/AnalyticCategory;
-
-    sput-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->VIEW_CATEGORY:Lcom/yelp/android/analytics/iris/AnalyticCategory;
-
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 6
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3677,120 +4353,53 @@
     .end annotation
 
     .prologue
-    const/4 v4, 0x0
+    .line 391
+    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 294
-    move-object v0, p0
+    .line 392
+    iput-object p3, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mIri:Ljava/lang/String;
 
-    move-object v1, p1
+    .line 393
+    sget-object v0, Lcom/yelp/android/bs/c;->a:Lcom/yelp/android/bs/c;
 
-    move v2, p2
+    iput-object v0, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mScreenName:Lcom/yelp/android/bs/c;
 
-    move-object v3, p3
-
-    move v5, v4
-
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
-
-    .line 295
+    .line 394
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;ILjava/lang/String;ZZ)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "ZZ)V"
-        }
-    .end annotation
+.method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri$1;)V
+    .locals 0
 
     .prologue
-    .line 302
-    sget-object v6, Lcom/yelp/android/analytics/GaCustomDimenLink;->EMPTY_ARRAY:[Lcom/yelp/android/analytics/GaCustomDimenLink;
+    .line 11
+    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move-object v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ[Lcom/yelp/android/analytics/c;)V
-
-    .line 303
     return-void
 .end method
 
-.method private varargs constructor <init>(Ljava/lang/String;ILjava/lang/String;ZZ[Lcom/yelp/android/analytics/c;)V
+.method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Lcom/yelp/android/bs/c;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "ZZ[",
-            "Lcom/yelp/android/analytics/c;",
+            "Lcom/yelp/android/bs/c;",
             ")V"
         }
     .end annotation
 
     .prologue
-    .line 310
+    .line 396
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 311
+    .line 397
     iput-object p3, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mIri:Ljava/lang/String;
 
-    .line 312
-    iput-boolean p4, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mIsExcluded:Z
+    .line 398
+    iput-object p4, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mScreenName:Lcom/yelp/android/bs/c;
 
-    .line 313
-    iput-boolean p5, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mIsSampled:Z
-
-    .line 314
-    iput-object p6, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mCustomDimenLinks:[Lcom/yelp/android/analytics/c;
-
-    .line 315
-    return-void
-.end method
-
-.method private varargs constructor <init>(Ljava/lang/String;ILjava/lang/String;[Lcom/yelp/android/analytics/c;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "[",
-            "Lcom/yelp/android/analytics/c;",
-            ")V"
-        }
-    .end annotation
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 298
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move-object v3, p3
-
-    move v5, v4
-
-    move-object v6, p4
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/analytics/iris/ViewIri;-><init>(Ljava/lang/String;ILjava/lang/String;ZZ[Lcom/yelp/android/analytics/c;)V
-
-    .line 299
+    .line 399
     return-void
 .end method
 
@@ -3798,7 +4407,7 @@
     .locals 1
 
     .prologue
-    .line 12
+    .line 11
     const-class v0, Lcom/yelp/android/analytics/iris/ViewIri;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -3814,7 +4423,7 @@
     .locals 1
 
     .prologue
-    .line 12
+    .line 11
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->$VALUES:[Lcom/yelp/android/analytics/iris/ViewIri;
 
     invoke-virtual {v0}, [Lcom/yelp/android/analytics/iris/ViewIri;->clone()Ljava/lang/Object;
@@ -3832,28 +4441,30 @@
     .locals 1
 
     .prologue
-    .line 324
-    sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->VIEW_CATEGORY:Lcom/yelp/android/analytics/iris/AnalyticCategory;
+    .line 408
+    sget-object v0, Lcom/yelp/android/analytics/iris/AnalyticCategory;->VIEW:Lcom/yelp/android/analytics/iris/AnalyticCategory;
 
     return-object v0
 .end method
 
-.method public getGaCustomDimenLinks()[Lcom/yelp/android/analytics/c;
+.method public bridge synthetic getGoogleAnalyticMetric()Lcom/yelp/android/bs/b;
     .locals 1
 
     .prologue
-    .line 344
-    iget-object v0, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mCustomDimenLinks:[Lcom/yelp/android/analytics/c;
+    .line 11
+    invoke-virtual {p0}, Lcom/yelp/android/analytics/iris/ViewIri;->getGoogleAnalyticMetric()Lcom/yelp/android/bs/c;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public getGoogleAnalyticsCategory()Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
+.method public getGoogleAnalyticMetric()Lcom/yelp/android/bs/c;
     .locals 1
 
     .prologue
-    .line 329
-    sget-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->VIEW:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
+    .line 418
+    iget-object v0, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mScreenName:Lcom/yelp/android/bs/c;
 
     return-object v0
 .end method
@@ -3862,7 +4473,7 @@
     .locals 1
 
     .prologue
-    .line 319
+    .line 403
     iget-object v0, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mIri:Ljava/lang/String;
 
     return-object v0
@@ -3872,18 +4483,8 @@
     .locals 1
 
     .prologue
-    .line 339
-    iget-boolean v0, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mIsExcluded:Z
-
-    return v0
-.end method
-
-.method public isSampledInGoogleAnalytics()Z
-    .locals 1
-
-    .prologue
-    .line 334
-    iget-boolean v0, p0, Lcom/yelp/android/analytics/iris/ViewIri;->mIsSampled:Z
+    .line 413
+    const/4 v0, 0x0
 
     return v0
 .end method

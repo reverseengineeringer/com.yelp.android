@@ -19,26 +19,21 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/Collection;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection",
-            "<",
-            "Landroid/content/IntentFilter;",
-            ">;)V"
-        }
-    .end annotation
+.method public varargs constructor <init>([Landroid/content/IntentFilter;)V
+    .locals 1
 
     .prologue
-    .line 14
+    .line 15
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 15
-    iput-object p1, p0, Lcom/yelp/android/util/BasicBroadcastReceiver;->a:Ljava/util/Collection;
-
     .line 16
+    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/util/BasicBroadcastReceiver;->a:Ljava/util/Collection;
+
+    .line 17
     return-void
 .end method
 
@@ -48,7 +43,7 @@
     .locals 2
 
     .prologue
-    .line 19
+    .line 20
     iget-object v0, p0, Lcom/yelp/android/util/BasicBroadcastReceiver;->a:Ljava/util/Collection;
 
     invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
@@ -68,18 +63,18 @@
 
     check-cast v0, Landroid/content/IntentFilter;
 
-    .line 20
+    .line 21
     invoke-virtual {p1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     goto :goto_0
 
-    .line 22
+    .line 23
     :cond_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/util/BasicBroadcastReceiver;->b:Z
 
-    .line 23
+    .line 24
     return-void
 .end method
 
@@ -87,20 +82,20 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 27
     iget-boolean v0, p0, Lcom/yelp/android/util/BasicBroadcastReceiver;->b:Z
 
     if-eqz v0, :cond_0
 
-    .line 27
+    .line 28
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 28
+    .line 29
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/util/BasicBroadcastReceiver;->b:Z
 
-    .line 30
+    .line 31
     :cond_0
     return-void
 .end method
@@ -109,7 +104,7 @@
     .locals 1
 
     .prologue
-    .line 33
+    .line 34
     iget-boolean v0, p0, Lcom/yelp/android/util/BasicBroadcastReceiver;->b:Z
 
     return v0

@@ -1,59 +1,160 @@
-.class public final Lcom/google/android/gms/internal/cv;
+.class Lcom/google/android/gms/internal/cv;
 .super Ljava/lang/Object;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/cv$a;
+    }
 .end annotation
 
 
 # instance fields
-.field public final qO:I
+.field private final a:Ljava/util/LinkedList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/LinkedList",
+            "<",
+            "Lcom/google/android/gms/internal/cv$a;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field public final qP:Lcom/google/android/gms/internal/cq;
+.field private b:Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
 
-.field public final qQ:Lcom/google/android/gms/internal/cz;
+.field private final c:Ljava/lang/String;
 
-.field public final qR:Ljava/lang/String;
-
-.field public final qS:Lcom/google/android/gms/internal/ct;
+.field private final d:I
 
 
 # direct methods
-.method public constructor <init>(I)V
-    .locals 6
+.method constructor <init>(Lcom/google/android/gms/ads/internal/client/AdRequestParcel;Ljava/lang/String;I)V
+    .locals 1
 
-    const/4 v1, 0x0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-object v0, p0
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v2, v1
+    invoke-static {p2}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v3, v1
+    new-instance v0, Ljava/util/LinkedList;
 
-    move-object v4, v1
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
-    move v5, p1
+    iput-object v0, p0, Lcom/google/android/gms/internal/cv;->a:Ljava/util/LinkedList;
 
-    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/internal/cv;-><init>(Lcom/google/android/gms/internal/cq;Lcom/google/android/gms/internal/cz;Ljava/lang/String;Lcom/google/android/gms/internal/ct;I)V
+    iput-object p1, p0, Lcom/google/android/gms/internal/cv;->b:Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/cv;->c:Ljava/lang/String;
+
+    iput p3, p0, Lcom/google/android/gms/internal/cv;->d:I
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/google/android/gms/internal/cq;Lcom/google/android/gms/internal/cz;Ljava/lang/String;Lcom/google/android/gms/internal/ct;I)V
+.method static synthetic a(Lcom/google/android/gms/internal/cv;Lcom/google/android/gms/ads/internal/client/AdRequestParcel;)Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p1, p0, Lcom/google/android/gms/internal/cv;->b:Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/cv;->qP:Lcom/google/android/gms/internal/cq;
+    return-object p1
+.end method
 
-    iput-object p2, p0, Lcom/google/android/gms/internal/cv;->qQ:Lcom/google/android/gms/internal/cz;
+.method static synthetic a(Lcom/google/android/gms/internal/cv;)Ljava/lang/String;
+    .locals 1
 
-    iput-object p3, p0, Lcom/google/android/gms/internal/cv;->qR:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/internal/cv;->c:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/google/android/gms/internal/cv;->qS:Lcom/google/android/gms/internal/ct;
+    return-object v0
+.end method
 
-    iput p5, p0, Lcom/google/android/gms/internal/cv;->qO:I
+.method static synthetic b(Lcom/google/android/gms/internal/cv;)Ljava/util/LinkedList;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/cv;->a:Ljava/util/LinkedList;
+
+    return-object v0
+.end method
+
+.method static synthetic c(Lcom/google/android/gms/internal/cv;)Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/cv;->b:Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
+
+    return-object v0
+.end method
+
+
+# virtual methods
+.method a()Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/cv;->b:Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
+
+    return-object v0
+.end method
+
+.method a(Lcom/google/android/gms/internal/cp;)V
+    .locals 2
+
+    new-instance v0, Lcom/google/android/gms/internal/cv$a;
+
+    invoke-direct {v0, p0, p1}, Lcom/google/android/gms/internal/cv$a;-><init>(Lcom/google/android/gms/internal/cv;Lcom/google/android/gms/internal/cp;)V
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/cv;->a:Ljava/util/LinkedList;
+
+    invoke-virtual {v1, v0}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/cv;->b:Lcom/google/android/gms/ads/internal/client/AdRequestParcel;
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/cv$a;->a(Lcom/google/android/gms/ads/internal/client/AdRequestParcel;)V
 
     return-void
+.end method
+
+.method b()I
+    .locals 1
+
+    iget v0, p0, Lcom/google/android/gms/internal/cv;->d:I
+
+    return v0
+.end method
+
+.method c()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/cv;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method d()Lcom/google/android/gms/internal/cv$a;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/cv;->a:Ljava/util/LinkedList;
+
+    invoke-virtual {v0}, Ljava/util/LinkedList;->remove()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/internal/cv$a;
+
+    return-object v0
+.end method
+
+.method e()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/cv;->a:Ljava/util/LinkedList;
+
+    invoke-virtual {v0}, Ljava/util/LinkedList;->size()I
+
+    move-result v0
+
+    return v0
 .end method

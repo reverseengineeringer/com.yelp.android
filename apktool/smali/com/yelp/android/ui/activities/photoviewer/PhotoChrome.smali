@@ -3,78 +3,84 @@
 .source "PhotoChrome.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/photoviewer/am;
+.implements Lcom/yelp/android/ui/activities/photoviewer/a$a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;,
+        Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;,
+        Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;,
+        Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+    }
+.end annotation
 
 
 # instance fields
-.field private A:Landroid/widget/CompoundButton$OnCheckedChangeListener;
-
-.field private B:Lcom/yelp/android/ui/activities/photoviewer/ad;
-
-.field private C:Ljava/util/List;
+.field private final a:Ljava/util/EnumSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
+            "Ljava/util/EnumSet",
             "<",
-            "Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;",
+            "Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private D:Lcom/yelp/android/ui/activities/photoviewer/ae;
-
-.field private a:Z
-
 .field private b:Z
 
-.field private c:Z
+.field private c:Lcom/yelp/android/serializable/Media;
 
-.field private d:Z
+.field private d:Landroid/view/View;
 
-.field private e:Z
+.field private e:Landroid/view/View;
 
-.field private f:Z
+.field private f:Landroid/view/View;
 
-.field private g:Z
+.field private g:Landroid/view/View;
 
-.field private h:Z
+.field private h:Landroid/widget/TextView;
 
-.field private i:Lcom/yelp/android/serializable/Media;
+.field private i:Landroid/widget/TextView;
 
-.field private j:Landroid/view/View;
+.field private j:Landroid/widget/TextView;
 
-.field private k:Landroid/view/View;
+.field private k:Landroid/widget/ToggleButton;
 
 .field private l:Landroid/view/View;
 
-.field private m:Landroid/view/View;
+.field private m:Lcom/yelp/android/ui/util/ap$b;
 
-.field private n:Landroid/widget/TextView;
+.field private n:Landroid/support/v7/widget/ListPopupWindow;
 
-.field private o:Landroid/widget/TextView;
+.field private o:Landroid/view/animation/Animation;
 
-.field private p:Landroid/widget/TextView;
+.field private p:Landroid/view/animation/Animation;
 
-.field private q:Landroid/widget/CompoundButton;
+.field private q:Landroid/view/animation/Animation;
 
-.field private r:Landroid/view/View;
+.field private r:Landroid/view/animation/Animation;
 
-.field private s:Lcom/yelp/android/ui/util/cn;
+.field private s:Landroid/view/animation/Animation;
 
-.field private t:Landroid/support/v7/widget/ListPopupWindow;
+.field private t:Landroid/view/animation/Animation;
 
-.field private u:Landroid/view/animation/Animation;
+.field private u:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
 
-.field private v:Landroid/view/animation/Animation;
+.field private v:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private w:Landroid/view/animation/Animation;
-
-.field private x:Landroid/view/animation/Animation;
-
-.field private y:Landroid/view/animation/Animation;
-
-.field private z:Landroid/view/animation/Animation;
+.field private w:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;
 
 
 # direct methods
@@ -82,20 +88,29 @@
     .locals 1
 
     .prologue
-    .line 117
+    .line 123
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 91
+    .line 50
+    const-class v0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    .line 78
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
 
-    .line 118
+    .line 124
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a(Landroid/content/Context;)V
 
-    .line 119
+    .line 125
     return-void
 .end method
 
@@ -103,20 +118,29 @@
     .locals 1
 
     .prologue
-    .line 122
+    .line 128
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 91
+    .line 50
+    const-class v0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    .line 78
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
 
-    .line 123
+    .line 129
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a(Landroid/content/Context;)V
 
-    .line 124
+    .line 130
     return-void
 .end method
 
@@ -124,29 +148,38 @@
     .locals 1
 
     .prologue
-    .line 127
+    .line 133
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 91
+    .line 50
+    const-class v0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    .line 78
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
 
-    .line 128
+    .line 134
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a(Landroid/content/Context;)V
 
-    .line 129
+    .line 135
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/support/v7/widget/ListPopupWindow;
+.method static synthetic a(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/view/View;
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Landroid/view/View;
 
     return-object v0
 .end method
@@ -157,17 +190,17 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 138
+    .line 400
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v1, 0x7f03015b
+    const v1, 0x7f0301c5
 
     invoke-virtual {v0, v1, p0, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    .line 140
-    const v0, 0x7f0c0458
+    .line 402
+    const v0, 0x7f0f0552
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
 
@@ -175,50 +208,39 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Landroid/widget/TextView;
 
-    .line 141
-    const v0, 0x7f0c0455
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/view/View;
-
-    .line 142
-    const v0, 0x7f0c0457
+    .line 403
+    const v0, 0x7f0f054f
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Landroid/view/View;
 
-    .line 143
-    const v0, 0x7f0c0339
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/CompoundButton;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
-
-    .line 144
-    const v0, 0x7f0c033a
+    .line 404
+    const v0, 0x7f0f0551
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e:Landroid/view/View;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
+    .line 405
+    const v0, 0x7f0f03de
 
-    .line 145
-    const v0, 0x7f0c045a
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ToggleButton;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
+
+    .line 406
+    const v0, 0x7f0f0405
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
 
@@ -226,10 +248,30 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->p:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
 
-    .line 146
-    const v0, 0x7f0c00ba
+    .line 407
+    const v0, 0x7f0f0554
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/widget/TextView;
+
+    .line 408
+    const v0, 0x7f0f00f7
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f:Landroid/view/View;
+
+    .line 409
+    const v0, 0x7f0f0183
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
 
@@ -237,98 +279,83 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->l:Landroid/view/View;
 
-    .line 147
-    const v0, 0x7f0c02e4
+    .line 410
+    const v0, 0x7f0f0550
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Landroid/view/View;
 
-    .line 148
-    const v0, 0x7f0c0456
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Landroid/view/View;
-
-    .line 149
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Z
-
-    .line 151
+    .line 412
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b(Landroid/content/Context;)V
 
-    .line 153
-    new-instance v0, Lcom/yelp/android/ui/util/cn;
+    .line 414
+    new-instance v0, Lcom/yelp/android/ui/util/ap$b;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/View;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->l:Landroid/view/View;
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/util/cn;-><init>(Landroid/view/View;Z)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/util/ap$b;-><init>(Landroid/view/View;Z)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->s:Lcom/yelp/android/ui/util/cn;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Lcom/yelp/android/ui/util/ap$b;
 
-    .line 154
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Z
+    .line 415
+    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
 
-    .line 155
+    .line 416
     return-void
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Lcom/yelp/android/ui/activities/photoviewer/ad;
+.method static synthetic b(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/view/View;
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->B:Lcom/yelp/android/ui/activities/photoviewer/ad;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e:Landroid/view/View;
 
     return-object v0
 .end method
 
 .method private b(Landroid/content/Context;)V
     .locals 3
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
 
     .prologue
-    .line 161
+    .line 421
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    const v1, 0x7f0f0173
+    const v1, 0x7f0901e4
 
     invoke-direct {v0, p1, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    .line 163
-    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/ae;
+    .line 423
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
 
-    invoke-direct {v1, v2, v0}, Lcom/yelp/android/ui/activities/photoviewer/ae;-><init>(Ljava/util/List;Landroid/content/Context;)V
+    invoke-direct {v1, v2, v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;-><init>(Ljava/util/List;Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->D:Lcom/yelp/android/ui/activities/photoviewer/ae;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->w:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;
 
-    .line 165
+    .line 425
     new-instance v1, Landroid/support/v7/widget/ListPopupWindow;
 
     const/4 v2, 0x0
 
     invoke-direct {v1, v0, v2}, Landroid/support/v7/widget/ListPopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
 
-    .line 166
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    .line 426
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f0b0077
+    const v2, 0x7f0a00c8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -336,67 +363,67 @@
 
     float-to-int v1, v1
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ListPopupWindow;->d(I)V
+    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ListPopupWindow;->e(I)V
 
-    .line 168
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    .line 428
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Landroid/view/View;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/ListPopupWindow;->a(Landroid/view/View;)V
 
-    .line 169
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    .line 429
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->D:Lcom/yelp/android/ui/activities/photoviewer/ae;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->w:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/ListPopupWindow;->a(Landroid/widget/ListAdapter;)V
 
-    .line 172
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    .line 432
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/ListPopupWindow;->a(Z)V
 
-    .line 173
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    .line 433
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/v;
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$3;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/v;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$3;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
 
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/ListPopupWindow;->a(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 203
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Landroid/view/View;
+    .line 448
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Landroid/view/View;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/w;
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$4;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/w;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$4;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 213
+    .line 464
     return-void
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Lcom/yelp/android/serializable/Media;
+.method static synthetic c(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
 
     return-object v0
 .end method
 
-.method static synthetic d(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/view/View;
+.method static synthetic d(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Lcom/yelp/android/serializable/Media;
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/view/View;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
     return-object v0
 .end method
@@ -405,43 +432,53 @@
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/view/View;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->l:Landroid/view/View;
 
     return-object v0
 .end method
 
-.method private e()Z
+.method static synthetic f(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/support/v7/widget/ListPopupWindow;
+    .locals 1
+
+    .prologue
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
+
+    return-object v0
+.end method
+
+.method private f()Z
     .locals 2
 
     .prologue
-    .line 132
+    .line 393
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    .line 133
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    .line 394
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->b()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->a()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/Media;->getUserId()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/Media;->b()Ljava/lang/String;
 
     move-result-object v1
 
@@ -462,333 +499,320 @@
     goto :goto_0
 .end method
 
-.method static synthetic f(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/view/animation/Animation;
-    .locals 1
+.method private g()Z
+    .locals 2
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->y:Landroid/view/animation/Animation;
+    .line 467
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
 
-    return-object v0
-.end method
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->MAKE_PRIMARY_PHOTO:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
 
-.method private f()V
-    .locals 4
-
-    .prologue
-    .line 220
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    sget-object v1, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
-
-    invoke-interface {v0, v1}, Lcom/yelp/android/serializable/Media;->isMediaType(Lcom/yelp/android/serializable/Media$MediaType;)Z
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    check-cast v0, Lcom/yelp/android/serializable/Video;
+    sget-object v1, Lcom/yelp/android/serializable/Media$MediaType;->PHOTO:Lcom/yelp/android/serializable/Media$MediaType;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Video;->uploadedByBusinessOwner()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 222
-    :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    sget-object v2, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
-
-    invoke-interface {v0, v2}, Lcom/yelp/android/serializable/Media;->isMediaType(Lcom/yelp/android/serializable/Media$MediaType;)Z
+    invoke-interface {v0, v1}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
-    const v0, 0x7f0704f7
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    check-cast v0, Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->m()Lcom/yelp/android/serializable/Photo$PhotoType;
 
     move-result-object v0
 
-    .line 224
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
+    sget-object v1, Lcom/yelp/android/serializable/Photo$PhotoType;->USER_PROFILE_PRIMARY:Lcom/yelp/android/serializable/Photo$PhotoType;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;
+    if-eq v0, v1, :cond_0
 
-    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;->FLAG:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;
+    const/4 v0, 0x1
 
-    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;)V
+    :goto_0
+    return v0
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 226
-    :cond_1
-    return-void
-
-    .line 222
-    :cond_2
-    const v0, 0x7f0704f5
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method static synthetic g(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/widget/CompoundButton;
+.method static synthetic g(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Z
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 48
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g()Z
 
-    return-object v0
-.end method
+    move-result v0
 
-.method private g()V
-    .locals 2
-
-    .prologue
-    .line 322
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/y;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/y;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 330
-    return-void
+    return v0
 .end method
 
 .method static synthetic h(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/view/animation/Animation;
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->z:Landroid/view/animation/Animation;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->s:Landroid/view/animation/Animation;
 
     return-object v0
 .end method
 
 .method private h()V
+    .locals 2
+
+    .prologue
+    .line 473
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$5;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$5;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 483
+    return-void
+.end method
+
+.method static synthetic i(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/widget/ToggleButton;
+    .locals 1
+
+    .prologue
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
+
+    return-object v0
+.end method
+
+.method private i()V
     .locals 5
 
     .prologue
     const/4 v4, 0x1
 
-    .line 333
-    new-instance v0, Lcom/yelp/android/ui/activities/photoviewer/z;
+    .line 486
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/photoviewer/z;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$6;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->A:Landroid/widget/CompoundButton$OnCheckedChangeListener;
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$6;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
 
-    .line 352
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->A:Landroid/widget/CompoundButton$OnCheckedChangeListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    .line 355
+    .line 496
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f04000e
+    const v1, 0x7f040010
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->y:Landroid/view/animation/Animation;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->s:Landroid/view/animation/Animation;
 
-    .line 356
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->y:Landroid/view/animation/Animation;
+    .line 497
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->s:Landroid/view/animation/Animation;
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->f:I
+    sget v1, Lcom/yelp/android/ui/util/av;->f:I
 
     int-to-long v2, v1
 
     invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    .line 357
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->y:Landroid/view/animation/Animation;
+    .line 498
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->s:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v4}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
-    .line 359
+    .line 500
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const v1, 0x7f04000d
+    const v1, 0x7f04000f
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->z:Landroid/view/animation/Animation;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/view/animation/Animation;
 
-    .line 360
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->z:Landroid/view/animation/Animation;
+    .line 501
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/view/animation/Animation;
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->f:I
+    sget v1, Lcom/yelp/android/ui/util/av;->f:I
 
     int-to-long v2, v1
 
     invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    .line 361
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->z:Landroid/view/animation/Animation;
+    .line 502
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v4}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
-    .line 363
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 504
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/aa;
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$7;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/aa;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$7;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 382
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 524
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v0, v4}, Landroid/widget/CompoundButton;->setClickable(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/ToggleButton;->setClickable(Z)V
 
-    .line 383
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 525
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v0, v4}, Landroid/widget/CompoundButton;->setEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/ToggleButton;->setEnabled(Z)V
 
-    .line 384
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 526
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v0, v4}, Landroid/widget/CompoundButton;->setFocusable(Z)V
+    invoke-virtual {v0, v4}, Landroid/widget/ToggleButton;->setFocusable(Z)V
 
-    .line 385
+    .line 527
     return-void
 .end method
 
-.method private i()V
+.method static synthetic j(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)Landroid/view/animation/Animation;
+    .locals 1
+
+    .prologue
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/view/animation/Animation;
+
+    return-object v0
+.end method
+
+.method private j()V
     .locals 8
 
     .prologue
-    const/4 v1, 0x4
+    const/4 v3, 0x4
 
     const/4 v7, 0x0
 
     const/16 v2, 0x8
 
-    .line 388
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Z
+    .line 530
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->LIKE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
 
     if-nez v0, :cond_0
 
-    .line 389
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
+    .line 531
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 390
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->l:Landroid/view/View;
+    .line 532
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 391
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 533
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v0, v2}, Landroid/widget/CompoundButton;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    .line 392
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 534
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    .line 419
+    .line 561
     :goto_0
     return-void
 
-    .line 396
+    .line 538
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
     if-nez v0, :cond_1
 
-    .line 397
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 539
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v0, v1}, Landroid/widget/CompoundButton;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    .line 398
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
+    .line 540
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 402
+    .line 544
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v0, v7}, Landroid/widget/CompoundButton;->setVisibility(I)V
+    invoke-virtual {v0, v7}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    .line 403
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
+    .line 545
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
 
     invoke-virtual {v0, v7}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 405
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
+    .line 547
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->getFeedback()Lcom/yelp/android/serializable/Feedback;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->j()Lcom/yelp/android/serializable/Feedback;
 
     move-result-object v0
 
-    .line 406
+    .line 548
     if-nez v0, :cond_2
 
-    .line 407
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
+    .line 549
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 409
+    .line 551
     :cond_2
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->getPositiveFeedbackCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->d()I
 
     move-result v1
 
-    .line 410
+    .line 552
     if-lez v1, :cond_3
 
-    .line 411
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
+    .line 553
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0e003b
+    const v4, 0x7f080041
 
     const/4 v5, 0x1
 
@@ -806,21 +830,21 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 417
+    .line 559
     :goto_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->isLikedByUser()Z
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->c()Z
 
     move-result v0
 
-    invoke-virtual {v1, v0}, Landroid/widget/CompoundButton;->setChecked(Z)V
+    invoke-virtual {v1, v0}, Landroid/widget/ToggleButton;->setChecked(Z)V
 
     goto :goto_0
 
-    .line 414
+    .line 556
     :cond_3
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
@@ -830,354 +854,94 @@
 
 # virtual methods
 .method public a()V
-    .locals 5
+    .locals 1
 
     .prologue
-    .line 234
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
+    .line 144
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
 
-    move-result-object v1
+    if-nez v0, :cond_0
 
-    .line 235
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    .line 236
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->D:Lcom/yelp/android/ui/activities/photoviewer/ae;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/photoviewer/ae;->clear()V
-
-    .line 237
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    .line 238
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Z
-
-    if-eqz v0, :cond_4
-
-    .line 239
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    sget-object v2, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
-
-    invoke-interface {v0, v2}, Lcom/yelp/android/serializable/Media;->isMediaType(Lcom/yelp/android/serializable/Media$MediaType;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const v0, 0x7f0701fa
-
+    .line 154
     :goto_0
-    invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 241
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
-
-    new-instance v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;
-
-    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;->DELETE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;
-
-    invoke-direct {v3, v0, v4}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;)V
-
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 247
-    :cond_0
-    :goto_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    sget-object v2, Lcom/yelp/android/serializable/Media$MediaType;->PHOTO:Lcom/yelp/android/serializable/Media$MediaType;
-
-    invoke-interface {v0, v2}, Lcom/yelp/android/serializable/Media;->isMediaType(Lcom/yelp/android/serializable/Media$MediaType;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Z
-
-    if-eqz v0, :cond_1
-
-    .line 248
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;
-
-    const v3, 0x7f070225
-
-    invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;->EDIT:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;
-
-    invoke-direct {v2, v3, v4}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;)V
-
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 259
-    :cond_1
-    :goto_2
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e:Z
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->getBusinessId()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    .line 260
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;
-
-    const v3, 0x7f0701d0
-
-    invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;->VIEW:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;
-
-    invoke-direct {v2, v1, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;)V
-
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 265
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->D:Lcom/yelp/android/ui/activities/photoviewer/ae;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/photoviewer/ae;->a(Ljava/util/List;)V
-
-    .line 267
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->D:Lcom/yelp/android/ui/activities/photoviewer/ae;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/photoviewer/ae;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    .line 268
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Landroid/view/View;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    .line 272
-    :goto_3
     return-void
 
-    .line 239
-    :cond_3
-    const v0, 0x7f0701f9
+    .line 149
+    :cond_0
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
+
+    if-eqz v0, :cond_1
+
+    .line 150
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d()V
 
     goto :goto_0
 
-    .line 242
-    :cond_4
-    instance-of v0, v1, Lcom/yelp/android/ui/activities/photoviewer/UserMediaViewer;
+    .line 152
+    :cond_1
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e()V
 
-    if-eqz v0, :cond_0
-
-    .line 243
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;
-
-    const v3, 0x7f070084
-
-    invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;->ADD_PHOTO:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;
-
-    invoke-direct {v2, v3, v4}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;)V
-
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    .line 252
-    :cond_5
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f()V
-
-    .line 253
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    sget-object v2, Lcom/yelp/android/serializable/Media$MediaType;->PHOTO:Lcom/yelp/android/serializable/Media$MediaType;
-
-    invoke-interface {v0, v2}, Lcom/yelp/android/serializable/Media;->isMediaType(Lcom/yelp/android/serializable/Media$MediaType;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->getUserId()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->getUserPassport()Lcom/yelp/android/serializable/Passport;
-
-    move-result-object v0
-
-    sget-object v2, Lcom/yelp/android/serializable/FeatureSet$Feature;->SEND_COMPLIMENT:Lcom/yelp/android/serializable/FeatureSet$Feature;
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/serializable/Passport;->isFeatureDisabled(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 255
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->C:Ljava/util/List;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;
-
-    const v3, 0x7f070550
-
-    invoke-virtual {v1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;->COMPLIMENT:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;
-
-    invoke-direct {v2, v3, v4}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$OptionsMenuItem$OptionsMenuType;)V
-
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_2
-
-    .line 270
-    :cond_6
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Landroid/view/View;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    goto :goto_3
+    goto :goto_0
 .end method
 
 .method public a(Lcom/yelp/android/serializable/Media;)V
-    .locals 11
+    .locals 10
 
     .prologue
-    const/16 v0, 0x8
-
     const/4 v9, 0x0
 
-    const/4 v4, 0x4
+    .line 343
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    .line 504
-    if-nez p1, :cond_0
+    .line 345
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b()V
 
-    .line 507
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/widget/TextView;
+    .line 347
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j()V
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    .line 349
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Landroid/widget/TextView;
 
-    .line 508
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->p:Landroid/widget/TextView;
+    invoke-virtual {v0, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    .line 350
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Landroid/widget/TextView;
 
-    .line 510
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/View;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
-
-    .line 511
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
-
-    invoke-virtual {v0, v4}, Landroid/widget/CompoundButton;->setVisibility(I)V
-
-    .line 512
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 513
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Landroid/view/View;
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
-
-    .line 555
-    :goto_0
-    return-void
-
-    .line 517
-    :cond_0
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    .line 519
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a()V
-
-    .line 521
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i()V
-
-    .line 523
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v9}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 524
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/widget/TextView;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    invoke-interface {v2}, Lcom/yelp/android/serializable/Media;->getCaption()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 526
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    invoke-interface {v1}, Lcom/yelp/android/serializable/Media;->getTimeCreated()Ljava/util/Date;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/Media;->g()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 527
-    if-eqz v1, :cond_3
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 528
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->p:Landroid/widget/TextView;
+    .line 352
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    iget-boolean v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Z
+    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->h()Ljava/util/Date;
 
-    if-eqz v3, :cond_1
+    move-result-object v0
 
-    move v0, v9
+    .line 353
+    if-eqz v0, :cond_1
 
-    :cond_1
-    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
 
-    .line 529
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->p:Landroid/widget/TextView;
+    sget-object v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->UPLOADED_AGO:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v1, v2}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 354
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 355
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
 
@@ -1185,357 +949,975 @@
 
     sget-object v3, Lcom/yelp/android/util/StringUtils$Format;->LONG:Lcom/yelp/android/util/StringUtils$Format;
 
-    invoke-static {v2, v3, v1}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;Lcom/yelp/android/util/StringUtils$Format;Ljava/util/Date;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 534
-    :goto_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->getUserPassport()Lcom/yelp/android/serializable/Passport;
-
-    move-result-object v10
-
-    .line 535
-    if-eqz v10, :cond_2
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getName()Ljava/lang/String;
+    invoke-static {v2, v3, v0}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;Lcom/yelp/android/util/StringUtils$Format;Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 537
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/View;
+    .line 360
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
-
-    goto :goto_0
-
-    .line 531
-    :cond_3
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->p:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto :goto_1
-
-    .line 540
-    :cond_4
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/View;
-
-    invoke-virtual {v0, v9}, Landroid/view/View;->setVisibility(I)V
-
-    .line 542
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->s:Lcom/yelp/android/ui/util/cn;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getFriendCount()I
-
-    move-result v3
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getReviewCount()I
-
-    move-result v4
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getPhotoCount()I
-
-    move-result v5
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getVideoCount()I
-
-    move-result v6
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getMediaCount()I
-
-    move-result v7
-
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/Passport;->getProfileThumbnail()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/Media;->i()Lcom/yelp/android/serializable/Passport;
 
     move-result-object v8
 
-    invoke-virtual/range {v0 .. v9}, Lcom/yelp/android/ui/util/cn;->a(Landroid/content/Context;Ljava/lang/CharSequence;IIIIILjava/lang/String;Z)V
+    .line 361
+    if-eqz v8, :cond_0
 
-    .line 546
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/View;
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->o()Ljava/lang/String;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/ab;
+    move-result-object v0
 
-    invoke-direct {v1, p0, v10}, Lcom/yelp/android/ui/activities/photoviewer/ab;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;Lcom/yelp/android/serializable/Passport;)V
+    if-nez v0, :cond_2
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    .line 363
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->l:Landroid/view/View;
 
-    goto/16 :goto_0
-.end method
-
-.method public a(Z)V
-    .locals 0
-
-    .prologue
-    .line 500
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Z
-
-    .line 501
-    return-void
-.end method
-
-.method public a(ZZZZZZLcom/yelp/android/ui/activities/photoviewer/ad;)V
-    .locals 3
-
-    .prologue
-    const/4 v2, 0x0
-
-    const/16 v1, 0x8
-
-    .line 280
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
-
-    .line 281
-    iput-boolean p2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Z
-
-    .line 282
-    iput-boolean p3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Z
-
-    .line 283
-    iput-boolean p4, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Z
-
-    .line 284
-    iput-boolean p5, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e:Z
-
-    .line 285
-    iput-boolean p6, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f:Z
-
-    .line 286
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f:Z
-
-    if-eqz v0, :cond_0
-
-    .line 287
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/view/View;
+    const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 289
+    .line 390
+    :goto_1
+    return-void
+
+    .line 357
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/widget/TextView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_0
+
+    .line 366
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->l:Landroid/view/View;
+
+    invoke-virtual {v0, v9}, Landroid/view/View;->setVisibility(I)V
+
+    .line 368
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->m:Lcom/yelp/android/ui/util/ap$b;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->o()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->k_()I
+
+    move-result v3
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->j_()I
+
+    move-result v4
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->l_()I
+
+    move-result v5
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->m_()I
+
+    move-result v6
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->n_()I
+
+    move-result v7
+
+    invoke-virtual {v8}, Lcom/yelp/android/serializable/Passport;->j()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual/range {v0 .. v9}, Lcom/yelp/android/ui/util/ap$b;->a(Landroid/content/Context;Ljava/lang/CharSequence;IIIIILjava/lang/String;Z)V
+
+    .line 379
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->l:Landroid/view/View;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$2;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$2;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    goto :goto_1
+.end method
+
+.method public a(Ljava/util/Collection;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection",
+            "<",
+            "Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 263
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    invoke-virtual {v0, p1}, Ljava/util/EnumSet;->addAll(Ljava/util/Collection;)Z
+
+    .line 264
+    return-void
+.end method
+
+.method public a(Ljava/util/Collection;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection",
+            "<",
+            "Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;",
+            ">;",
+            "Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;",
+            ")V"
+        }
+    .end annotation
+
+    .prologue
+    const/16 v2, 0x8
+
+    .line 267
+    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 268
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->setVisibility(I)V
+
+    .line 269
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
+
+    .line 300
     :cond_0
-    iput-object p7, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->B:Lcom/yelp/android/ui/activities/photoviewer/ad;
-
-    .line 291
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
-
-    if-nez v0, :cond_1
-
-    .line 292
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->setVisibility(I)V
-
-    .line 293
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->B:Lcom/yelp/android/ui/activities/photoviewer/ad;
-
-    .line 319
     :goto_0
     return-void
 
-    .line 298
+    .line 273
     :cond_1
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a(Ljava/util/Collection;)V
+
+    .line 274
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->HIDE_TOP:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 275
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Landroid/view/View;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 277
+    :cond_2
+    iput-object p2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
+
+    .line 280
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 299
-    const v1, 0x7f04001d
-
-    invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Landroid/view/animation/Animation;
-
-    .line 300
+    .line 281
     const v1, 0x7f040023
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Landroid/view/animation/Animation;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->p:Landroid/view/animation/Animation;
 
-    .line 301
-    const v1, 0x7f04001a
+    .line 282
+    const v1, 0x7f040029
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->x:Landroid/view/animation/Animation;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/view/animation/Animation;
 
-    .line 302
-    const v1, 0x7f04001f
+    .line 283
+    const v1, 0x7f040020
+
+    invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/animation/Animation;
+
+    .line 284
+    const v1, 0x7f040025
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->w:Landroid/view/animation/Animation;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/view/animation/Animation;
 
-    .line 305
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Landroid/view/animation/Animation;
+    .line 287
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/view/animation/Animation;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/x;
+    new-instance v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/x;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$1;-><init>(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;)V
 
     invoke-virtual {v0, v1}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 313
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Z
+    .line 296
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
 
-    if-eqz v0, :cond_2
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->LIKE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
 
-    .line 314
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g()V
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
 
-    .line 315
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 297
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h()V
 
-    .line 318
-    :cond_2
-    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a(Lcom/yelp/android/serializable/Media;)V
+    .line 298
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i()V
 
     goto :goto_0
 .end method
 
 .method public b()V
+    .locals 8
+
+    .prologue
+    const v0, 0x7f070573
+
+    const v1, 0x7f07056b
+
+    const v7, 0x7f07021d
+
+    .line 157
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    .line 158
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->clear()V
+
+    .line 159
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->w:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;->clear()V
+
+    .line 160
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    .line 161
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->ADD_ACCOUNT_PHOTO:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v3, v4}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    .line 162
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    const v5, 0x7f0700ff
+
+    invoke-virtual {v2, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->ADD_ACCOUNT_PHOTO:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v4, v5, v6}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 167
+    :cond_0
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->VIEW_BUSINESS:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v3, v4}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    invoke-interface {v3}, Lcom/yelp/android/serializable/Media;->k()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    .line 169
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    invoke-virtual {v2, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->VIEW_BUSINESS:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v4, v5, v6}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 174
+    :cond_1
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v4, Lcom/yelp/android/serializable/Media$MediaType;->PHOTO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v3, v4}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->EDIT_CAPTION:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v3, v4}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 176
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    const v5, 0x7f070274
+
+    invoke-virtual {v2, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->EDIT_CAPTION:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v4, v5, v6}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 181
+    :cond_2
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->SHARE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v3, v4}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    invoke-interface {v3}, Lcom/yelp/android/serializable/Media;->l()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_3
+
+    .line 182
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v4, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v3, v4}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    :goto_0
+    invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 187
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->SHARE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v3, v0, v4}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 189
+    :cond_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->DELETE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    .line 190
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v1, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    const v0, 0x7f070248
+
+    :goto_1
+    invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 195
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->DELETE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 197
+    :cond_4
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    .line 198
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x7f0703a8
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 199
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->MAKE_PRIMARY_PHOTO:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 248
+    :cond_5
+    :goto_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->w:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;->a(Ljava/util/List;)V
+
+    .line 250
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->w:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$c;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_11
+
+    .line 251
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Landroid/view/View;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 255
+    :goto_3
+    return-void
+
+    :cond_6
+    move v0, v1
+
+    .line 182
+    goto :goto_0
+
+    .line 190
+    :cond_7
+    const v0, 0x7f070245
+
+    goto :goto_1
+
+    .line 203
+    :cond_8
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->VIEW_BUSINESS:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v3, v4}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    invoke-interface {v3}, Lcom/yelp/android/serializable/Media;->k()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_9
+
+    .line 205
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    invoke-virtual {v2, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->VIEW_BUSINESS:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v4, v5, v6}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 210
+    :cond_9
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->COMPLIMENT:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v3, v4}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v4, Lcom/yelp/android/serializable/Media$MediaType;->PHOTO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v3, v4}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    invoke-interface {v3}, Lcom/yelp/android/serializable/Media;->b()Ljava/lang/String;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_a
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    invoke-interface {v3}, Lcom/yelp/android/serializable/Media;->i()Lcom/yelp/android/serializable/Passport;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/yelp/android/serializable/FeatureSet$Feature;->SEND_COMPLIMENT:Lcom/yelp/android/serializable/FeatureSet$Feature;
+
+    invoke-virtual {v3, v4}, Lcom/yelp/android/serializable/Passport;->a(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    .line 214
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v4, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    const v5, 0x7f070550
+
+    invoke-virtual {v2, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v5, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->COMPLIMENT:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v4, v2, v5}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 219
+    :cond_a
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->SHARE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v2, v3}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_b
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    invoke-interface {v2}, Lcom/yelp/android/serializable/Media;->l()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_b
+
+    .line 220
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v4, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v3, v4}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_f
+
+    :goto_4
+    invoke-virtual {v2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 226
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->SHARE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 228
+    :cond_b
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->FLAG:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v1, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_c
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    check-cast v0, Lcom/yelp/android/serializable/Video;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Video;->m()Z
+
+    move-result v0
+
+    if-nez v0, :cond_d
+
+    .line 230
+    :cond_c
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v2, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v0, v2}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    const v0, 0x7f0704f9
+
+    :goto_5
+    invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 236
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->FLAG:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 238
+    :cond_d
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->NOT_HELPFUL:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    sget-object v1, Lcom/yelp/android/serializable/Media$MediaType;->PHOTO:Lcom/yelp/android/serializable/Media$MediaType;
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/serializable/Media;->a(Lcom/yelp/android/serializable/Media$MediaType;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    instance-of v0, v0, Lcom/yelp/android/serializable/Photo;
+
+    if-eqz v0, :cond_e
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    check-cast v0, Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->p()Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    .line 242
+    :cond_e
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x7f070487
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 243
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Ljava/util/List;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;
+
+    sget-object v3, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->NOT_HELPFUL:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$b;-><init>(Ljava/lang/String;Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_2
+
+    :cond_f
+    move v0, v1
+
+    .line 220
+    goto/16 :goto_4
+
+    .line 230
+    :cond_10
+    const v0, 0x7f0704f7
+
+    goto :goto_5
+
+    .line 253
+    :cond_11
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->g:Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_3
+.end method
+
+.method public c()V
     .locals 1
 
     .prologue
-    .line 463
+    .line 303
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->performClick()Z
+
+    .line 304
+    return-void
+.end method
+
+.method public d()V
+    .locals 2
+
+    .prologue
+    .line 319
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
 
     if-nez v0, :cond_0
 
-    .line 474
+    .line 326
     :goto_0
     return-void
 
-    .line 469
+    .line 322
     :cond_0
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Z
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Landroid/view/View;
 
-    if-eqz v0, :cond_1
-
-    .line 470
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c()V
-
-    goto :goto_0
-
-    .line 472
-    :cond_1
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d()V
-
-    goto :goto_0
-.end method
-
-.method public c()V
-    .locals 2
-
-    .prologue
-    .line 477
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Z
-
-    if-nez v0, :cond_0
-
-    .line 484
-    :goto_0
-    return-void
-
-    .line 480
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Landroid/view/animation/Animation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->o:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 481
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/view/View;
+    .line 323
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->w:Landroid/view/animation/Animation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 482
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->t:Landroid/support/v7/widget/ListPopupWindow;
+    .line 324
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->n:Landroid/support/v7/widget/ListPopupWindow;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->a()V
+    invoke-virtual {v0}, Landroid/support/v7/widget/ListPopupWindow;->i()V
 
-    .line 483
+    .line 325
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
 
     goto :goto_0
 .end method
 
-.method public d()V
+.method public e()V
     .locals 3
 
     .prologue
     const/4 v2, 0x0
 
-    .line 487
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Z
+    .line 329
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
 
     if-eqz v0, :cond_0
 
-    .line 497
+    .line 339
     :goto_0
     return-void
 
-    .line 490
+    .line 332
     :cond_0
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f:Z
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->a:Ljava/util/EnumSet;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->HIDE_TOP:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    invoke-virtual {v0, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
 
     if-nez v0, :cond_1
 
-    .line 491
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/view/View;
+    .line 333
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 492
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->j:Landroid/view/View;
+    .line 334
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->d:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->v:Landroid/view/animation/Animation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->p:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 494
+    .line 336
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 495
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/view/View;
+    .line 337
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->e:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->x:Landroid/view/animation/Animation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->r:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 496
+    .line 338
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
 
     goto :goto_0
 .end method
@@ -1544,211 +1926,56 @@
     .locals 1
 
     .prologue
-    .line 230
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Z
+    .line 139
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->b:Z
 
     return v0
 .end method
 
-.method public setLikeButtonChecked(Z)V
-    .locals 6
-
-    .prologue
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    .line 422
-    .line 425
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    invoke-interface {v2}, Lcom/yelp/android/serializable/Media;->getFeedback()Lcom/yelp/android/serializable/Feedback;
-
-    move-result-object v2
-
-    .line 426
-    if-eqz p1, :cond_2
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Feedback;->isLikedByUser()Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    .line 427
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Feedback;->addPositiveFeedback()V
-
-    .line 433
-    :goto_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i()V
-
-    .line 435
-    if-eqz v0, :cond_1
-
-    .line 436
-    new-instance v3, Ljava/util/HashMap;
-
-    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
-
-    .line 438
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    sget-object v2, Lcom/yelp/android/serializable/Media$MediaType;->VIDEO:Lcom/yelp/android/serializable/Media$MediaType;
-
-    invoke-interface {v0, v2}, Lcom/yelp/android/serializable/Media;->isMediaType(Lcom/yelp/android/serializable/Media$MediaType;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 439
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    check-cast v0, Lcom/yelp/android/serializable/Video;
-
-    .line 440
-    new-instance v2, Lcom/yelp/android/appdata/webrequests/fn;
-
-    invoke-direct {v2, v0, p1}, Lcom/yelp/android/appdata/webrequests/fn;-><init>(Lcom/yelp/android/serializable/Video;Z)V
-
-    .line 441
-    const-string/jumbo v4, "id"
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Video;->getBusinessId()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 442
-    const-string/jumbo v4, "video_id"
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Video;->getId()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 443
-    const-string/jumbo v4, "video_source"
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Video;->getVideoSource()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 444
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessSaveVideoFeedback:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-static {v0, v3}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    move-object v0, v2
-
-    .line 454
-    :goto_1
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->B:Lcom/yelp/android/ui/activities/photoviewer/ad;
-
-    if-eqz v2, :cond_0
-
-    .line 455
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->B:Lcom/yelp/android/ui/activities/photoviewer/ad;
-
-    invoke-interface {v2, p1}, Lcom/yelp/android/ui/activities/photoviewer/ad;->a(Z)V
-
-    .line 457
-    :cond_0
-    new-array v1, v1, [Ljava/lang/Void;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/av/h;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    .line 459
-    :cond_1
-    return-void
-
-    .line 429
-    :cond_2
-    if-nez p1, :cond_4
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Feedback;->isLikedByUser()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    .line 430
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Feedback;->removePositiveFeedback()V
-
-    goto :goto_0
-
-    .line 446
-    :cond_3
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    check-cast v0, Lcom/yelp/android/serializable/Photo;
-
-    .line 447
-    new-instance v2, Lcom/yelp/android/appdata/webrequests/fm;
-
-    invoke-direct {v2, v0, p1}, Lcom/yelp/android/appdata/webrequests/fm;-><init>(Lcom/yelp/android/serializable/Photo;Z)V
-
-    .line 448
-    const-string/jumbo v4, "id"
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->getBusinessId()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 449
-    const-string/jumbo v4, "photo_id"
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 450
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessSavePhotoFeedback:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-static {v0, v3}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 451
-    new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent;
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->i:Lcom/yelp/android/serializable/Media;
-
-    const-string/jumbo v4, "com.yelp.android.media.update"
-
-    invoke-direct {v0, v3, v4}, Lcom/yelp/android/util/ObjectDirtyEvent;-><init>(Landroid/os/Parcelable;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Landroid/content/Context;)V
-
-    move-object v0, v2
-
-    goto :goto_1
-
-    :cond_4
-    move v0, v1
-
-    goto/16 :goto_0
-.end method
-
-.method public setLikeDrawable(I)V
+.method public setCaptionVisibility(I)V
     .locals 1
 
     .prologue
-    .line 275
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->q:Landroid/widget/CompoundButton;
+    .line 307
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->h:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/CompoundButton;->setButtonDrawable(I)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 276
+    .line 308
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->f:Landroid/view/View;
+
+    invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 309
+    return-void
+.end method
+
+.method public setLikeButtonChecked(Z)V
+    .locals 4
+
+    .prologue
+    .line 312
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
+
+    invoke-virtual {v0, p1}, Landroid/widget/ToggleButton;->setChecked(Z)V
+
+    .line 313
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
+
+    if-eqz v0, :cond_0
+
+    .line 314
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->u:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;->LIKE:Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->c:Lcom/yelp/android/serializable/Media;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome;->k:Landroid/widget/ToggleButton;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$a;->a(Lcom/yelp/android/ui/activities/photoviewer/PhotoChrome$DisplayFeature;Lcom/yelp/android/serializable/Media;Landroid/view/View;)V
+
+    .line 316
+    :cond_0
     return-void
 .end method

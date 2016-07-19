@@ -1,600 +1,192 @@
-.class public final Lcom/google/android/gms/internal/de;
-.super Lcom/google/android/gms/internal/cz$a;
+.class public Lcom/google/android/gms/internal/de;
+.super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/google/android/gms/internal/dd;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
-.end annotation
-
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<NETWORK_EXTRAS::",
-        "Lcom/google/ads/mediation/NetworkExtras;",
-        "SERVER_PARAMETERS:",
-        "Lcom/google/ads/mediation/MediationServerParameters;",
-        ">",
-        "Lcom/google/android/gms/internal/cz$a;"
-    }
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
 # instance fields
-.field private final qX:Lcom/google/ads/mediation/MediationAdapter;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/ads/mediation/MediationAdapter",
-            "<TNETWORK_EXTRAS;TSERVER_PARAMETERS;>;"
-        }
-    .end annotation
-.end field
+.field private final a:Lcom/google/android/gms/internal/dc;
 
-.field private final qY:Lcom/google/ads/mediation/NetworkExtras;
+.field private final b:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "TNETWORK_EXTRAS;"
+            "Ljava/util/HashSet",
+            "<",
+            "Ljava/util/AbstractMap$SimpleEntry",
+            "<",
+            "Ljava/lang/String;",
+            "Lcom/google/android/gms/internal/bz;",
+            ">;>;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/ads/mediation/MediationAdapter;Lcom/google/ads/mediation/NetworkExtras;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/ads/mediation/MediationAdapter",
-            "<TNETWORK_EXTRAS;TSERVER_PARAMETERS;>;TNETWORK_EXTRAS;)V"
-        }
-    .end annotation
+.method public constructor <init>(Lcom/google/android/gms/internal/dc;)V
+    .locals 1
 
-    invoke-direct {p0}, Lcom/google/android/gms/internal/cz$a;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
+    iput-object p1, p0, Lcom/google/android/gms/internal/de;->a:Lcom/google/android/gms/internal/dc;
 
-    iput-object p2, p0, Lcom/google/android/gms/internal/de;->qY:Lcom/google/ads/mediation/NetworkExtras;
+    new-instance v0, Ljava/util/HashSet;
+
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/de;->b:Ljava/util/HashSet;
 
     return-void
-.end method
-
-.method private b(Ljava/lang/String;ILjava/lang/String;)Lcom/google/ads/mediation/MediationServerParameters;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "I",
-            "Ljava/lang/String;",
-            ")TSERVER_PARAMETERS;"
-        }
-    .end annotation
-
-    if-eqz p1, :cond_0
-
-    :try_start_0
-    new-instance v2, Lorg/json/JSONObject;
-
-    invoke-direct {v2, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-virtual {v2}, Lorg/json/JSONObject;->length()I
-
-    move-result v0
-
-    invoke-direct {v1, v0}, Ljava/util/HashMap;-><init>(I)V
-
-    invoke-virtual {v2}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v1, v0, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Could not get MediationServerParameters."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    :try_start_1
-    new-instance v0, Ljava/util/HashMap;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Ljava/util/HashMap;-><init>(I)V
-
-    move-object v1, v0
-
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    invoke-interface {v0}, Lcom/google/ads/mediation/MediationAdapter;->getServerParametersType()Ljava/lang/Class;
-
-    move-result-object v2
-
-    const/4 v0, 0x0
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {v2}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/ads/mediation/MediationServerParameters;
-
-    invoke-virtual {v0, v1}, Lcom/google/ads/mediation/MediationServerParameters;->load(Ljava/util/Map;)V
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
-
-    :cond_2
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/dynamic/d;Lcom/google/android/gms/internal/av;Ljava/lang/String;Lcom/google/android/gms/internal/da;)V
-    .locals 6
+.method public a()V
+    .locals 4
 
-    const/4 v4, 0x0
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->b:Ljava/util/HashSet;
 
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move-object v5, p4
-
-    invoke-virtual/range {v0 .. v5}, Lcom/google/android/gms/internal/de;->a(Lcom/google/android/gms/dynamic/d;Lcom/google/android/gms/internal/av;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/da;)V
-
-    return-void
-.end method
-
-.method public a(Lcom/google/android/gms/dynamic/d;Lcom/google/android/gms/internal/av;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/da;)V
-    .locals 6
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    instance-of v0, v0, Lcom/google/ads/mediation/MediationInterstitialAdapter;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "MediationAdapter is not a MediationInterstitialAdapter: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    const-string/jumbo v0, "Requesting interstitial ad from adapter."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->S(Ljava/lang/String;)V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    check-cast v0, Lcom/google/ads/mediation/MediationInterstitialAdapter;
-
-    new-instance v1, Lcom/google/android/gms/internal/df;
-
-    invoke-direct {v1, p5}, Lcom/google/android/gms/internal/df;-><init>(Lcom/google/android/gms/internal/da;)V
-
-    invoke-static {p1}, Lcom/google/android/gms/dynamic/e;->f(Lcom/google/android/gms/dynamic/d;)Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Landroid/app/Activity;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    iget v3, p2, Lcom/google/android/gms/internal/av;->oh:I
+    move-result v0
 
-    invoke-direct {p0, p3, v3, p4}, Lcom/google/android/gms/internal/de;->b(Ljava/lang/String;ILjava/lang/String;)Lcom/google/ads/mediation/MediationServerParameters;
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/AbstractMap$SimpleEntry;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Unregistering eventhandler: "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-static {p2}, Lcom/google/android/gms/internal/dg;->d(Lcom/google/android/gms/internal/av;)Lcom/google/ads/mediation/MediationAdRequest;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/google/android/gms/internal/de;->qY:Lcom/google/ads/mediation/NetworkExtras;
-
-    invoke-interface/range {v0 .. v5}, Lcom/google/ads/mediation/MediationInterstitialAdapter;->requestInterstitialAd(Lcom/google/ads/mediation/MediationInterstitialListener;Landroid/app/Activity;Lcom/google/ads/mediation/MediationServerParameters;Lcom/google/ads/mediation/MediationAdRequest;Lcom/google/ads/mediation/NetworkExtras;)V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Could not request interstitial ad from adapter."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-.end method
-
-.method public a(Lcom/google/android/gms/dynamic/d;Lcom/google/android/gms/internal/ay;Lcom/google/android/gms/internal/av;Ljava/lang/String;Lcom/google/android/gms/internal/da;)V
-    .locals 7
-
-    const/4 v5, 0x0
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move-object v6, p5
-
-    invoke-virtual/range {v0 .. v6}, Lcom/google/android/gms/internal/de;->a(Lcom/google/android/gms/dynamic/d;Lcom/google/android/gms/internal/ay;Lcom/google/android/gms/internal/av;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/da;)V
-
-    return-void
-.end method
-
-.method public a(Lcom/google/android/gms/dynamic/d;Lcom/google/android/gms/internal/ay;Lcom/google/android/gms/internal/av;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/da;)V
-    .locals 7
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    instance-of v0, v0, Lcom/google/ads/mediation/MediationBannerAdapter;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "MediationAdapter is not a MediationBannerAdapter: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {v0}, Ljava/util/AbstractMap$SimpleEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+    check-cast v1, Lcom/google/android/gms/internal/bz;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/google/android/gms/internal/gz;->e(Ljava/lang/String;)V
+
+    iget-object v3, p0, Lcom/google/android/gms/internal/de;->a:Lcom/google/android/gms/internal/dc;
+
+    invoke-virtual {v0}, Ljava/util/AbstractMap$SimpleEntry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/util/AbstractMap$SimpleEntry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    check-cast v0, Lcom/google/android/gms/internal/bz;
 
-    move-result-object v0
+    invoke-interface {v3, v1, v0}, Lcom/google/android/gms/internal/dc;->b(Ljava/lang/String;Lcom/google/android/gms/internal/bz;)V
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
+    goto :goto_0
 
     :cond_0
-    const-string/jumbo v0, "Requesting banner ad from adapter."
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->b:Ljava/util/HashSet;
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->S(Ljava/lang/String;)V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    check-cast v0, Lcom/google/ads/mediation/MediationBannerAdapter;
-
-    new-instance v1, Lcom/google/android/gms/internal/df;
-
-    invoke-direct {v1, p6}, Lcom/google/android/gms/internal/df;-><init>(Lcom/google/android/gms/internal/da;)V
-
-    invoke-static {p1}, Lcom/google/android/gms/dynamic/e;->f(Lcom/google/android/gms/dynamic/d;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/app/Activity;
-
-    iget v3, p3, Lcom/google/android/gms/internal/av;->oh:I
-
-    invoke-direct {p0, p4, v3, p5}, Lcom/google/android/gms/internal/de;->b(Ljava/lang/String;ILjava/lang/String;)Lcom/google/ads/mediation/MediationServerParameters;
-
-    move-result-object v3
-
-    invoke-static {p2}, Lcom/google/android/gms/internal/dg;->b(Lcom/google/android/gms/internal/ay;)Lcom/google/ads/AdSize;
-
-    move-result-object v4
-
-    invoke-static {p3}, Lcom/google/android/gms/internal/dg;->d(Lcom/google/android/gms/internal/av;)Lcom/google/ads/mediation/MediationAdRequest;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/google/android/gms/internal/de;->qY:Lcom/google/ads/mediation/NetworkExtras;
-
-    invoke-interface/range {v0 .. v6}, Lcom/google/ads/mediation/MediationBannerAdapter;->requestBannerAd(Lcom/google/ads/mediation/MediationBannerListener;Landroid/app/Activity;Lcom/google/ads/mediation/MediationServerParameters;Lcom/google/ads/AdSize;Lcom/google/ads/mediation/MediationAdRequest;Lcom/google/ads/mediation/NetworkExtras;)V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v0}, Ljava/util/HashSet;->clear()V
 
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Could not request banner ad from adapter."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
 .end method
 
-.method public destroy()V
+.method public a(Ljava/lang/String;Lcom/google/android/gms/internal/bz;)V
     .locals 2
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->a:Lcom/google/android/gms/internal/dc;
 
-    invoke-interface {v0}, Lcom/google/ads/mediation/MediationAdapter;->destroy()V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-interface {v0, p1, p2}, Lcom/google/android/gms/internal/dc;->a(Ljava/lang/String;Lcom/google/android/gms/internal/bz;)V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->b:Ljava/util/HashSet;
+
+    new-instance v1, Ljava/util/AbstractMap$SimpleEntry;
+
+    invoke-direct {v1, p1, p2}, Ljava/util/AbstractMap$SimpleEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Could not destroy adapter."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
 .end method
 
-.method public getView()Lcom/google/android/gms/dynamic/d;
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    instance-of v0, v0, Lcom/google/ads/mediation/MediationBannerAdapter;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "MediationAdapter is not a MediationBannerAdapter: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    check-cast v0, Lcom/google/ads/mediation/MediationBannerAdapter;
-
-    invoke-interface {v0}, Lcom/google/ads/mediation/MediationBannerAdapter;->getBannerView()Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/e;->k(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/d;
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    return-object v0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Could not get banner view from adapter."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-.end method
-
-.method public pause()V
+.method public a(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
 
-    new-instance v0, Landroid/os/RemoteException;
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->a:Lcom/google/android/gms/internal/dc;
 
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-.end method
-
-.method public resume()V
-    .locals 1
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-.end method
-
-.method public showInterstitial()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    instance-of v0, v0, Lcom/google/ads/mediation/MediationInterstitialAdapter;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "MediationAdapter is not a MediationInterstitialAdapter: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    new-instance v0, Landroid/os/RemoteException;
-
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    const-string/jumbo v0, "Showing interstitial from adapter."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->S(Ljava/lang/String;)V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/de;->qX:Lcom/google/ads/mediation/MediationAdapter;
-
-    check-cast v0, Lcom/google/ads/mediation/MediationInterstitialAdapter;
-
-    invoke-interface {v0}, Lcom/google/ads/mediation/MediationInterstitialAdapter;->showInterstitial()V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-interface {v0, p1, p2}, Lcom/google/android/gms/internal/dc;->a(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
+.end method
 
-    :catch_0
-    move-exception v0
+.method public a(Ljava/lang/String;Lorg/json/JSONObject;)V
+    .locals 1
 
-    const-string/jumbo v1, "Could not show interstitial from adapter."
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->a:Lcom/google/android/gms/internal/dc;
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1, p2}, Lcom/google/android/gms/internal/dc;->a(Ljava/lang/String;Lorg/json/JSONObject;)V
 
-    new-instance v0, Landroid/os/RemoteException;
+    return-void
+.end method
 
-    invoke-direct {v0}, Landroid/os/RemoteException;-><init>()V
+.method public b(Ljava/lang/String;Lcom/google/android/gms/internal/bz;)V
+    .locals 2
 
-    throw v0
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->a:Lcom/google/android/gms/internal/dc;
+
+    invoke-interface {v0, p1, p2}, Lcom/google/android/gms/internal/dc;->b(Ljava/lang/String;Lcom/google/android/gms/internal/bz;)V
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->b:Ljava/util/HashSet;
+
+    new-instance v1, Ljava/util/AbstractMap$SimpleEntry;
+
+    invoke-direct {v1, p1, p2}, Ljava/util/AbstractMap$SimpleEntry;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public b(Ljava/lang/String;Lorg/json/JSONObject;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/de;->a:Lcom/google/android/gms/internal/dc;
+
+    invoke-interface {v0, p1, p2}, Lcom/google/android/gms/internal/dc;->b(Ljava/lang/String;Lorg/json/JSONObject;)V
+
+    return-void
 .end method

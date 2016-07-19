@@ -2,5 +2,12 @@
 <LinearLayout android:orientation="vertical" android:id="@id/activity_businesslistresultsmap_content_area" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView android:id="@id/filter_bar" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?grayListSeparatorTextViewStyle" />
-    <com.yelp.android.ui.map.YelpMap android:id="@id/mapview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:id="@id/redo_button_map_holder" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.yelp.android.ui.map.YelpMapWrapperLayout android:id="@id/map_wrapper" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.yelp.android.ui.map.YelpMap android:id="@id/mapview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </com.yelp.android.ui.map.YelpMapWrapperLayout>
+        <FrameLayout android:id="@id/redo_search_button_frame" android:background="@color/transparent_tint" android:padding="@dimen/default_base_gap_size" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <Button android:id="@id/redo_search" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/map_business_search_redo_search" />
+        </FrameLayout>
+    </RelativeLayout>
 </LinearLayout>

@@ -1,26 +1,37 @@
 package com.google.android.gms.auth;
 
+import android.accounts.Account;
 import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import android.text.TextUtils;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 
 public class AccountChangeEventsRequest
   implements SafeParcelable
 {
-  public static final AccountChangeEventsRequestCreator CREATOR = new AccountChangeEventsRequestCreator();
-  String DZ;
-  final int Ef;
-  int Ei;
+  public static final Parcelable.Creator<AccountChangeEventsRequest> CREATOR = new c();
+  final int a;
+  int b;
+  @Deprecated
+  String c;
+  Account d;
   
   public AccountChangeEventsRequest()
   {
-    Ef = 1;
+    a = 1;
   }
   
-  AccountChangeEventsRequest(int paramInt1, int paramInt2, String paramString)
+  AccountChangeEventsRequest(int paramInt1, int paramInt2, String paramString, Account paramAccount)
   {
-    Ef = paramInt1;
-    Ei = paramInt2;
-    DZ = paramString;
+    a = paramInt1;
+    b = paramInt2;
+    c = paramString;
+    if ((paramAccount == null) && (!TextUtils.isEmpty(paramString)))
+    {
+      d = new Account(paramString, "com.google");
+      return;
+    }
+    d = paramAccount;
   }
   
   public int describeContents()
@@ -28,31 +39,9 @@ public class AccountChangeEventsRequest
     return 0;
   }
   
-  public String getAccountName()
-  {
-    return DZ;
-  }
-  
-  public int getEventIndex()
-  {
-    return Ei;
-  }
-  
-  public AccountChangeEventsRequest setAccountName(String paramString)
-  {
-    DZ = paramString;
-    return this;
-  }
-  
-  public AccountChangeEventsRequest setEventIndex(int paramInt)
-  {
-    Ei = paramInt;
-    return this;
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    AccountChangeEventsRequestCreator.a(this, paramParcel, paramInt);
+    c.a(this, paramParcel, paramInt);
   }
 }
 

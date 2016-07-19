@@ -31,7 +31,7 @@
 
 
 # instance fields
-.field private final mGoogleAnalyticsCategoryName:Ljava/lang/String;
+.field private final mName:Ljava/lang/String;
 
 
 # direct methods
@@ -49,7 +49,7 @@
 
     const/4 v4, 0x0
 
-    .line 9
+    .line 7
     new-instance v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     const-string/jumbo v1, "PUSH_NOTIFICATION"
@@ -60,7 +60,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->PUSH_NOTIFICATION:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
-    .line 10
+    .line 8
     new-instance v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     const-string/jumbo v1, "REVIEW"
@@ -71,7 +71,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->REVIEW:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
-    .line 12
+    .line 10
     new-instance v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     const-string/jumbo v1, "EVENT"
@@ -82,7 +82,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->EVENT:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
-    .line 13
+    .line 11
     new-instance v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     const-string/jumbo v1, "OTHER"
@@ -93,7 +93,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->OTHER:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
-    .line 15
+    .line 13
     new-instance v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     const-string/jumbo v1, "VIEW"
@@ -104,7 +104,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->VIEW:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
-    .line 16
+    .line 14
     new-instance v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     const-string/jumbo v1, "TIMING"
@@ -117,7 +117,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->TIMING:Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
-    .line 4
+    .line 3
     const/4 v0, 0x6
 
     new-array v0, v0, [Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
@@ -164,13 +164,13 @@
     .end annotation
 
     .prologue
-    .line 20
+    .line 18
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 21
-    iput-object p3, p0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->mGoogleAnalyticsCategoryName:Ljava/lang/String;
+    .line 19
+    iput-object p3, p0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->mName:Ljava/lang/String;
 
-    .line 22
+    .line 20
     return-void
 .end method
 
@@ -178,7 +178,7 @@
     .locals 1
 
     .prologue
-    .line 4
+    .line 3
     const-class v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -194,7 +194,7 @@
     .locals 1
 
     .prologue
-    .line 4
+    .line 3
     sget-object v0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->$VALUES:[Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;
 
     invoke-virtual {v0}, [Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->clone()Ljava/lang/Object;
@@ -208,12 +208,12 @@
 
 
 # virtual methods
-.method public getGoogleAnalyticsCategoryName()Ljava/lang/String;
+.method public getName()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 25
-    iget-object v0, p0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->mGoogleAnalyticsCategoryName:Ljava/lang/String;
+    .line 23
+    iget-object v0, p0, Lcom/yelp/android/analytics/iris/GoogleAnalyticsCategory;->mName:Ljava/lang/String;
 
     return-object v0
 .end method

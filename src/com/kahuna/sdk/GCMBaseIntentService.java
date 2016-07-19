@@ -13,7 +13,7 @@ public abstract class GCMBaseIntentService
   private static PowerManager.WakeLock b;
   private static final Object c = GCMBaseIntentService.class;
   private static int e = 0;
-  private final af a = new af("[" + getClass().getName() + "]: ");
+  private final r a = new r("[" + getClass().getName() + "]: ");
   private final String[] d;
   
   protected GCMBaseIntentService()
@@ -67,8 +67,8 @@ public abstract class GCMBaseIntentService
     {
       for (;;)
       {
-        if (h.a) {
-          Log.w("KahunaAnalytics", "App does not have WAKE_LOCK permission");
+        if (l.a) {
+          Log.w("Kahuna", "App does not have WAKE_LOCK permission");
         }
       }
     }
@@ -96,7 +96,7 @@ public abstract class GCMBaseIntentService
     }
     if ("SERVICE_NOT_AVAILABLE".equals(str2))
     {
-      f.c();
+      f.e();
       return;
     }
     a(paramContext, str2);
@@ -130,72 +130,72 @@ public abstract class GCMBaseIntentService
     //   5: aload_1
     //   6: invokevirtual 199	android/content/Intent:getAction	()Ljava/lang/String;
     //   9: astore 4
-    //   11: invokestatic 202	com/kahuna/sdk/f:b	()Z
+    //   11: invokestatic 202	com/kahuna/sdk/f:c	()Z
     //   14: ifeq +73 -> 87
     //   17: aload_1
     //   18: invokevirtual 206	android/content/Intent:getExtras	()Landroid/os/Bundle;
     //   21: astore 4
     //   23: aload_0
-    //   24: invokestatic 212	com/google/android/gms/gcm/GoogleCloudMessaging:getInstance	(Landroid/content/Context;)Lcom/google/android/gms/gcm/GoogleCloudMessaging;
+    //   24: invokestatic 211	com/google/android/gms/gcm/a:a	(Landroid/content/Context;)Lcom/google/android/gms/gcm/a;
     //   27: aload_1
-    //   28: invokevirtual 216	com/google/android/gms/gcm/GoogleCloudMessaging:getMessageType	(Landroid/content/Intent;)Ljava/lang/String;
+    //   28: invokevirtual 214	com/google/android/gms/gcm/a:a	(Landroid/content/Intent;)Ljava/lang/String;
     //   31: astore 5
     //   33: aload 4
-    //   35: invokevirtual 221	android/os/Bundle:isEmpty	()Z
+    //   35: invokevirtual 219	android/os/Bundle:isEmpty	()Z
     //   38: ifne +19 -> 57
-    //   41: ldc -33
+    //   41: ldc -35
     //   43: aload 5
     //   45: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   48: ifeq +9 -> 57
     //   51: aload_0
     //   52: aload_3
     //   53: aload_1
-    //   54: invokevirtual 225	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;Landroid/content/Intent;)V
+    //   54: invokevirtual 223	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;Landroid/content/Intent;)V
     //   57: getstatic 18	com/kahuna/sdk/GCMBaseIntentService:c	Ljava/lang/Object;
     //   60: astore_1
     //   61: aload_1
     //   62: monitorenter
     //   63: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   66: ifnull +401 -> 467
+    //   66: ifnull +400 -> 466
     //   69: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   72: invokevirtual 228	android/os/PowerManager$WakeLock:isHeld	()Z
-    //   75: ifeq +392 -> 467
+    //   72: invokevirtual 226	android/os/PowerManager$WakeLock:isHeld	()Z
+    //   75: ifeq +391 -> 466
     //   78: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   81: invokevirtual 231	android/os/PowerManager$WakeLock:release	()V
+    //   81: invokevirtual 229	android/os/PowerManager$WakeLock:release	()V
     //   84: aload_1
     //   85: monitorexit
     //   86: return
     //   87: aload 4
-    //   89: ldc -23
+    //   89: ldc -25
     //   91: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   94: ifeq +70 -> 164
     //   97: aload_3
-    //   98: invokestatic 234	com/kahuna/sdk/e:b	(Landroid/content/Context;)V
+    //   98: invokestatic 232	com/kahuna/sdk/e:b	(Landroid/content/Context;)V
     //   101: aload_0
     //   102: aload_3
     //   103: aload_1
-    //   104: invokespecial 236	com/kahuna/sdk/GCMBaseIntentService:b	(Landroid/content/Context;Landroid/content/Intent;)V
+    //   104: invokespecial 234	com/kahuna/sdk/GCMBaseIntentService:b	(Landroid/content/Context;Landroid/content/Intent;)V
     //   107: goto -50 -> 57
     //   110: astore_1
-    //   111: getstatic 127	com/kahuna/sdk/h:a	Z
+    //   111: getstatic 127	com/kahuna/sdk/l:a	Z
     //   114: ifeq +15 -> 129
     //   117: ldc -127
-    //   119: ldc -18
+    //   119: ldc -20
     //   121: invokestatic 137	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;)I
     //   124: pop
     //   125: aload_1
-    //   126: invokevirtual 241	java/lang/Exception:printStackTrace	()V
+    //   126: invokevirtual 239	java/lang/Exception:printStackTrace	()V
     //   129: getstatic 18	com/kahuna/sdk/GCMBaseIntentService:c	Ljava/lang/Object;
     //   132: astore_1
     //   133: aload_1
     //   134: monitorenter
     //   135: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   138: ifnull +353 -> 491
+    //   138: ifnull +352 -> 490
     //   141: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   144: invokevirtual 228	android/os/PowerManager$WakeLock:isHeld	()Z
-    //   147: ifeq +344 -> 491
+    //   144: invokevirtual 226	android/os/PowerManager$WakeLock:isHeld	()Z
+    //   147: ifeq +343 -> 490
     //   150: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   153: invokevirtual 231	android/os/PowerManager$WakeLock:release	()V
+    //   153: invokevirtual 229	android/os/PowerManager$WakeLock:release	()V
     //   156: aload_1
     //   157: monitorexit
     //   158: return
@@ -205,202 +205,202 @@ public abstract class GCMBaseIntentService
     //   162: aload_3
     //   163: athrow
     //   164: aload 4
-    //   166: ldc -13
+    //   166: ldc -15
     //   168: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
-    //   171: ifeq +162 -> 333
+    //   171: ifeq +161 -> 332
     //   174: aload_1
-    //   175: ldc -11
+    //   175: ldc -13
     //   177: invokevirtual 145	android/content/Intent:getStringExtra	(Ljava/lang/String;)Ljava/lang/String;
     //   180: astore 4
     //   182: aload 4
-    //   184: ifnull +140 -> 324
+    //   184: ifnull +139 -> 323
     //   187: aload 4
-    //   189: ldc -9
+    //   189: ldc -11
     //   191: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
-    //   194: ifeq +106 -> 300
+    //   194: ifeq +105 -> 299
     //   197: aload_1
-    //   198: ldc -7
+    //   198: ldc -9
     //   200: invokevirtual 145	android/content/Intent:getStringExtra	(Ljava/lang/String;)Ljava/lang/String;
     //   203: astore_1
     //   204: aload_1
     //   205: ifnull -148 -> 57
     //   208: aload_1
-    //   209: invokestatic 255	java/lang/Integer:parseInt	(Ljava/lang/String;)I
+    //   209: invokestatic 253	java/lang/Integer:parseInt	(Ljava/lang/String;)I
     //   212: istore_2
     //   213: aload_0
-    //   214: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
+    //   214: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
     //   217: iconst_2
-    //   218: ldc_w 257
-    //   221: iconst_1
-    //   222: anewarray 47	java/lang/Object
-    //   225: dup
-    //   226: iconst_0
-    //   227: iload_2
-    //   228: invokestatic 261	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
-    //   231: aastore
-    //   232: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   235: aload_0
-    //   236: aload_3
-    //   237: iload_2
-    //   238: invokevirtual 263	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;I)V
-    //   241: goto -184 -> 57
-    //   244: astore_3
-    //   245: aload_0
-    //   246: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
-    //   249: bipush 6
-    //   251: ldc_w 265
-    //   254: iconst_1
-    //   255: anewarray 47	java/lang/Object
-    //   258: dup
-    //   259: iconst_0
-    //   260: aload_1
-    //   261: aastore
-    //   262: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   265: goto -208 -> 57
-    //   268: astore_3
-    //   269: getstatic 18	com/kahuna/sdk/GCMBaseIntentService:c	Ljava/lang/Object;
-    //   272: astore_1
-    //   273: aload_1
-    //   274: monitorenter
-    //   275: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   278: ifnull +232 -> 510
-    //   281: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   284: invokevirtual 228	android/os/PowerManager$WakeLock:isHeld	()Z
-    //   287: ifeq +223 -> 510
-    //   290: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   293: invokevirtual 231	android/os/PowerManager$WakeLock:release	()V
-    //   296: aload_1
-    //   297: monitorexit
-    //   298: aload_3
-    //   299: athrow
-    //   300: aload_0
-    //   301: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
-    //   304: bipush 6
-    //   306: ldc_w 267
-    //   309: iconst_1
-    //   310: anewarray 47	java/lang/Object
-    //   313: dup
-    //   314: iconst_0
-    //   315: aload 4
-    //   317: aastore
-    //   318: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   321: goto -264 -> 57
-    //   324: aload_0
-    //   325: aload_3
-    //   326: aload_1
-    //   327: invokevirtual 225	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;Landroid/content/Intent;)V
-    //   330: goto -273 -> 57
-    //   333: aload 4
-    //   335: ldc_w 269
-    //   338: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
-    //   341: ifeq -284 -> 57
-    //   344: aload_1
-    //   345: invokevirtual 272	android/content/Intent:getPackage	()Ljava/lang/String;
-    //   348: astore_1
-    //   349: aload_1
-    //   350: ifnull +17 -> 367
-    //   353: aload_1
-    //   354: aload_0
-    //   355: invokevirtual 196	com/kahuna/sdk/GCMBaseIntentService:getApplicationContext	()Landroid/content/Context;
-    //   358: invokevirtual 275	android/content/Context:getPackageName	()Ljava/lang/String;
-    //   361: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
-    //   364: ifne +77 -> 441
-    //   367: aload_0
-    //   368: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
-    //   371: bipush 6
-    //   373: ldc_w 277
-    //   376: iconst_1
-    //   377: anewarray 47	java/lang/Object
-    //   380: dup
-    //   381: iconst_0
-    //   382: aload_1
-    //   383: aastore
-    //   384: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   387: getstatic 18	com/kahuna/sdk/GCMBaseIntentService:c	Ljava/lang/Object;
-    //   390: astore_1
-    //   391: aload_1
-    //   392: monitorenter
-    //   393: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   396: ifnull +26 -> 422
-    //   399: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   402: invokevirtual 228	android/os/PowerManager$WakeLock:isHeld	()Z
-    //   405: ifeq +17 -> 422
-    //   408: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
-    //   411: invokevirtual 231	android/os/PowerManager$WakeLock:release	()V
-    //   414: aload_1
-    //   415: monitorexit
-    //   416: return
-    //   417: astore_3
-    //   418: aload_1
-    //   419: monitorexit
-    //   420: aload_3
-    //   421: athrow
-    //   422: aload_0
-    //   423: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
-    //   426: bipush 6
-    //   428: ldc_w 279
-    //   431: iconst_0
-    //   432: anewarray 47	java/lang/Object
-    //   435: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   438: goto -24 -> 414
-    //   441: aload_3
-    //   442: invokestatic 282	com/kahuna/sdk/e:d	(Landroid/content/Context;)Z
-    //   445: ifeq +10 -> 455
-    //   448: aload_3
-    //   449: invokestatic 284	com/kahuna/sdk/e:a	(Landroid/content/Context;)V
-    //   452: goto -395 -> 57
-    //   455: aload_3
-    //   456: aload_0
-    //   457: aload_3
-    //   458: invokevirtual 286	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;)[Ljava/lang/String;
-    //   461: invokestatic 289	com/kahuna/sdk/e:b	(Landroid/content/Context;[Ljava/lang/String;)V
-    //   464: goto -407 -> 57
-    //   467: aload_0
-    //   468: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
-    //   471: bipush 6
-    //   473: ldc_w 279
-    //   476: iconst_0
-    //   477: anewarray 47	java/lang/Object
-    //   480: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   483: goto -399 -> 84
-    //   486: astore_3
-    //   487: aload_1
-    //   488: monitorexit
-    //   489: aload_3
-    //   490: athrow
-    //   491: aload_0
-    //   492: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
-    //   495: bipush 6
-    //   497: ldc_w 279
-    //   500: iconst_0
-    //   501: anewarray 47	java/lang/Object
-    //   504: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   507: goto -351 -> 156
-    //   510: aload_0
-    //   511: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/af;
-    //   514: bipush 6
-    //   516: ldc_w 279
-    //   519: iconst_0
-    //   520: anewarray 47	java/lang/Object
-    //   523: invokevirtual 72	com/kahuna/sdk/af:a	(ILjava/lang/String;[Ljava/lang/Object;)V
-    //   526: goto -230 -> 296
-    //   529: astore_3
-    //   530: aload_1
-    //   531: monitorexit
-    //   532: aload_3
-    //   533: athrow
+    //   218: ldc -1
+    //   220: iconst_1
+    //   221: anewarray 47	java/lang/Object
+    //   224: dup
+    //   225: iconst_0
+    //   226: iload_2
+    //   227: invokestatic 259	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
+    //   230: aastore
+    //   231: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   234: aload_0
+    //   235: aload_3
+    //   236: iload_2
+    //   237: invokevirtual 261	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;I)V
+    //   240: goto -183 -> 57
+    //   243: astore_3
+    //   244: aload_0
+    //   245: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
+    //   248: bipush 6
+    //   250: ldc_w 263
+    //   253: iconst_1
+    //   254: anewarray 47	java/lang/Object
+    //   257: dup
+    //   258: iconst_0
+    //   259: aload_1
+    //   260: aastore
+    //   261: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   264: goto -207 -> 57
+    //   267: astore_3
+    //   268: getstatic 18	com/kahuna/sdk/GCMBaseIntentService:c	Ljava/lang/Object;
+    //   271: astore_1
+    //   272: aload_1
+    //   273: monitorenter
+    //   274: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
+    //   277: ifnull +232 -> 509
+    //   280: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
+    //   283: invokevirtual 226	android/os/PowerManager$WakeLock:isHeld	()Z
+    //   286: ifeq +223 -> 509
+    //   289: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
+    //   292: invokevirtual 229	android/os/PowerManager$WakeLock:release	()V
+    //   295: aload_1
+    //   296: monitorexit
+    //   297: aload_3
+    //   298: athrow
+    //   299: aload_0
+    //   300: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
+    //   303: bipush 6
+    //   305: ldc_w 265
+    //   308: iconst_1
+    //   309: anewarray 47	java/lang/Object
+    //   312: dup
+    //   313: iconst_0
+    //   314: aload 4
+    //   316: aastore
+    //   317: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   320: goto -263 -> 57
+    //   323: aload_0
+    //   324: aload_3
+    //   325: aload_1
+    //   326: invokevirtual 223	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;Landroid/content/Intent;)V
+    //   329: goto -272 -> 57
+    //   332: aload 4
+    //   334: ldc_w 267
+    //   337: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   340: ifeq -283 -> 57
+    //   343: aload_1
+    //   344: invokevirtual 270	android/content/Intent:getPackage	()Ljava/lang/String;
+    //   347: astore_1
+    //   348: aload_1
+    //   349: ifnull +17 -> 366
+    //   352: aload_1
+    //   353: aload_0
+    //   354: invokevirtual 196	com/kahuna/sdk/GCMBaseIntentService:getApplicationContext	()Landroid/content/Context;
+    //   357: invokevirtual 273	android/content/Context:getPackageName	()Ljava/lang/String;
+    //   360: invokevirtual 175	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   363: ifne +77 -> 440
+    //   366: aload_0
+    //   367: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
+    //   370: bipush 6
+    //   372: ldc_w 275
+    //   375: iconst_1
+    //   376: anewarray 47	java/lang/Object
+    //   379: dup
+    //   380: iconst_0
+    //   381: aload_1
+    //   382: aastore
+    //   383: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   386: getstatic 18	com/kahuna/sdk/GCMBaseIntentService:c	Ljava/lang/Object;
+    //   389: astore_1
+    //   390: aload_1
+    //   391: monitorenter
+    //   392: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
+    //   395: ifnull +26 -> 421
+    //   398: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
+    //   401: invokevirtual 226	android/os/PowerManager$WakeLock:isHeld	()Z
+    //   404: ifeq +17 -> 421
+    //   407: getstatic 91	com/kahuna/sdk/GCMBaseIntentService:b	Landroid/os/PowerManager$WakeLock;
+    //   410: invokevirtual 229	android/os/PowerManager$WakeLock:release	()V
+    //   413: aload_1
+    //   414: monitorexit
+    //   415: return
+    //   416: astore_3
+    //   417: aload_1
+    //   418: monitorexit
+    //   419: aload_3
+    //   420: athrow
+    //   421: aload_0
+    //   422: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
+    //   425: bipush 6
+    //   427: ldc_w 277
+    //   430: iconst_0
+    //   431: anewarray 47	java/lang/Object
+    //   434: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   437: goto -24 -> 413
+    //   440: aload_3
+    //   441: invokestatic 280	com/kahuna/sdk/e:d	(Landroid/content/Context;)Z
+    //   444: ifeq +10 -> 454
+    //   447: aload_3
+    //   448: invokestatic 282	com/kahuna/sdk/e:a	(Landroid/content/Context;)V
+    //   451: goto -394 -> 57
+    //   454: aload_3
+    //   455: aload_0
+    //   456: aload_3
+    //   457: invokevirtual 284	com/kahuna/sdk/GCMBaseIntentService:a	(Landroid/content/Context;)[Ljava/lang/String;
+    //   460: invokestatic 287	com/kahuna/sdk/e:b	(Landroid/content/Context;[Ljava/lang/String;)V
+    //   463: goto -406 -> 57
+    //   466: aload_0
+    //   467: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
+    //   470: bipush 6
+    //   472: ldc_w 277
+    //   475: iconst_0
+    //   476: anewarray 47	java/lang/Object
+    //   479: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   482: goto -398 -> 84
+    //   485: astore_3
+    //   486: aload_1
+    //   487: monitorexit
+    //   488: aload_3
+    //   489: athrow
+    //   490: aload_0
+    //   491: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
+    //   494: bipush 6
+    //   496: ldc_w 277
+    //   499: iconst_0
+    //   500: anewarray 47	java/lang/Object
+    //   503: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   506: goto -350 -> 156
+    //   509: aload_0
+    //   510: getfield 65	com/kahuna/sdk/GCMBaseIntentService:a	Lcom/kahuna/sdk/r;
+    //   513: bipush 6
+    //   515: ldc_w 277
+    //   518: iconst_0
+    //   519: anewarray 47	java/lang/Object
+    //   522: invokevirtual 72	com/kahuna/sdk/r:a	(ILjava/lang/String;[Ljava/lang/Object;)V
+    //   525: goto -230 -> 295
+    //   528: astore_3
+    //   529: aload_1
+    //   530: monitorexit
+    //   531: aload_3
+    //   532: athrow
     // Local variable table:
     //   start	length	slot	name	signature
-    //   0	534	0	this	GCMBaseIntentService
-    //   212	26	2	i	int
+    //   0	533	0	this	GCMBaseIntentService
+    //   212	25	2	i	int
     //   4	99	3	localContext1	Context
-    //   159	78	3	localContext2	Context
-    //   244	1	3	localNumberFormatException	NumberFormatException
-    //   268	58	3	localContext3	Context
-    //   417	41	3	localContext4	Context
-    //   486	4	3	localObject1	Object
-    //   529	4	3	localObject2	Object
-    //   9	325	4	localObject3	Object
+    //   159	77	3	localContext2	Context
+    //   243	1	3	localNumberFormatException	NumberFormatException
+    //   267	58	3	localContext3	Context
+    //   416	41	3	localContext4	Context
+    //   485	4	3	localObject1	Object
+    //   528	4	3	localObject2	Object
+    //   9	324	4	localObject3	Object
     //   31	13	5	str	String
     // Exception table:
     //   from	to	target	type
@@ -408,46 +408,46 @@ public abstract class GCMBaseIntentService
     //   87	107	110	java/lang/Exception
     //   164	182	110	java/lang/Exception
     //   187	204	110	java/lang/Exception
-    //   208	241	110	java/lang/Exception
-    //   245	265	110	java/lang/Exception
-    //   300	321	110	java/lang/Exception
-    //   324	330	110	java/lang/Exception
-    //   333	349	110	java/lang/Exception
-    //   353	367	110	java/lang/Exception
-    //   367	387	110	java/lang/Exception
-    //   441	452	110	java/lang/Exception
-    //   455	464	110	java/lang/Exception
+    //   208	240	110	java/lang/Exception
+    //   244	264	110	java/lang/Exception
+    //   299	320	110	java/lang/Exception
+    //   323	329	110	java/lang/Exception
+    //   332	348	110	java/lang/Exception
+    //   352	366	110	java/lang/Exception
+    //   366	386	110	java/lang/Exception
+    //   440	451	110	java/lang/Exception
+    //   454	463	110	java/lang/Exception
     //   135	156	159	finally
     //   156	158	159	finally
     //   160	162	159	finally
-    //   491	507	159	finally
-    //   208	241	244	java/lang/NumberFormatException
-    //   0	57	268	finally
-    //   87	107	268	finally
-    //   111	129	268	finally
-    //   164	182	268	finally
-    //   187	204	268	finally
-    //   208	241	268	finally
-    //   245	265	268	finally
-    //   300	321	268	finally
-    //   324	330	268	finally
-    //   333	349	268	finally
-    //   353	367	268	finally
-    //   367	387	268	finally
-    //   441	452	268	finally
-    //   455	464	268	finally
-    //   393	414	417	finally
-    //   414	416	417	finally
-    //   418	420	417	finally
-    //   422	438	417	finally
-    //   63	84	486	finally
-    //   84	86	486	finally
-    //   467	483	486	finally
-    //   487	489	486	finally
-    //   275	296	529	finally
-    //   296	298	529	finally
-    //   510	526	529	finally
-    //   530	532	529	finally
+    //   490	506	159	finally
+    //   208	240	243	java/lang/NumberFormatException
+    //   0	57	267	finally
+    //   87	107	267	finally
+    //   111	129	267	finally
+    //   164	182	267	finally
+    //   187	204	267	finally
+    //   208	240	267	finally
+    //   244	264	267	finally
+    //   299	320	267	finally
+    //   323	329	267	finally
+    //   332	348	267	finally
+    //   352	366	267	finally
+    //   366	386	267	finally
+    //   440	451	267	finally
+    //   454	463	267	finally
+    //   392	413	416	finally
+    //   413	415	416	finally
+    //   417	419	416	finally
+    //   421	437	416	finally
+    //   63	84	485	finally
+    //   84	86	485	finally
+    //   466	482	485	finally
+    //   486	488	485	finally
+    //   274	295	528	finally
+    //   295	297	528	finally
+    //   509	525	528	finally
+    //   529	531	528	finally
   }
 }
 

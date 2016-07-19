@@ -1,5 +1,8 @@
-.class public interface abstract Lcom/yelp/android/x/h;
+.class interface abstract Lcom/yelp/android/x/h;
 .super Ljava/lang/Object;
+.source "Poolable.java"
 
-# interfaces
-.implements Lcom/yelp/android/v/m;
+
+# virtual methods
+.method public abstract a()V
+.end method

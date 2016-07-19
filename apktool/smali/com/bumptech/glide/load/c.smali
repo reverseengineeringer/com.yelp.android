@@ -82,14 +82,14 @@
 
 
 # virtual methods
-.method public a(Lcom/bumptech/glide/load/engine/t;II)Lcom/bumptech/glide/load/engine/t;
+.method public a(Lcom/bumptech/glide/load/engine/i;II)Lcom/bumptech/glide/load/engine/i;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;II)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;"
         }
     .end annotation
@@ -119,7 +119,7 @@
     check-cast v0, Lcom/bumptech/glide/load/f;
 
     .line 37
-    invoke-interface {v0, v1, p2, p3}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/engine/t;II)Lcom/bumptech/glide/load/engine/t;
+    invoke-interface {v0, v1, p2, p3}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/engine/i;II)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
@@ -139,7 +139,7 @@
     if-nez v3, :cond_0
 
     .line 39
-    invoke-interface {v1}, Lcom/bumptech/glide/load/engine/t;->d()V
+    invoke-interface {v1}, Lcom/bumptech/glide/load/engine/i;->d()V
 
     :cond_0
     move-object v1, v0

@@ -3,18 +3,22 @@
 .source "AddAddressFragment.java"
 
 # interfaces
-.implements Landroid/text/TextWatcher;
-.implements Lcom/yelp/android/ui/activities/support/o;
-.implements Lcom/yelp/android/ui/util/g;
+.implements Lcom/yelp/android/ui/activities/support/b$e;
+.implements Lcom/yelp/android/ui/util/d$a;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/android/ui/activities/support/YelpFragment;",
-        "Landroid/text/TextWatcher;",
-        "Lcom/yelp/android/ui/activities/support/o;",
-        "Lcom/yelp/android/ui/util/g",
+        "Lcom/yelp/android/ui/activities/support/b$e;",
+        "Lcom/yelp/android/ui/util/d$a",
         "<",
         "Ljava/util/List",
         "<",
@@ -25,7 +29,7 @@
 
 
 # instance fields
-.field a:Z
+.field protected a:Z
 
 .field protected b:Z
 
@@ -35,9 +39,9 @@
 
 .field private e:Landroid/widget/TextView;
 
-.field private g:Landroid/widget/TextView;
+.field private f:Landroid/widget/TextView;
 
-.field private h:Landroid/widget/TextView;
+.field private g:Landroid/widget/TextView;
 
 .field private i:Landroid/widget/TextView;
 
@@ -49,28 +53,19 @@
 
 .field private m:Landroid/location/Address;
 
-.field private n:Landroid/location/Address;
+.field private n:Ljava/lang/String;
 
-.field private o:Landroid/widget/ImageButton;
+.field private o:Landroid/view/View;
 
-.field private p:Ljava/util/Locale;
+.field private p:Z
 
 .field private q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-.field private r:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+.field private r:Lcom/yelp/android/serializable/BusinessAttributes;
 
-.field private s:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/ui/dialogs/ap;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private s:Lcom/yelp/android/appdata/webrequests/w;
 
-.field private t:Lcom/yelp/android/ui/activities/mutatebiz/e;
+.field private t:Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$a;
 
 .field private u:Lcom/yelp/android/ui/util/BackgroundTaskFragment;
     .annotation system Ldalvik/annotation/Signature;
@@ -86,7 +81,18 @@
     .end annotation
 .end field
 
-.field private final v:Lcom/yelp/android/ui/dialogs/ar;
+.field private final v:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/BusinessAttributes;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final w:Landroid/text/TextWatcher;
 
 
 # direct methods
@@ -97,66 +103,50 @@
     .line 66
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;-><init>()V
 
-    .line 626
-    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+    .line 671
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$3;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/d;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$3;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->v:Lcom/yelp/android/ui/dialogs/ar;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->v:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    .line 697
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$4;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$4;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->w:Landroid/text/TextWatcher;
 
     return-void
 .end method
 
-.method public static a(Landroid/os/Bundle;)Landroid/location/Address;
-    .locals 1
+.method static synthetic a(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;Lcom/yelp/android/serializable/BusinessAttributes;)Lcom/yelp/android/serializable/BusinessAttributes;
+    .locals 0
 
     .prologue
-    .line 140
-    const-string/jumbo v0, "address"
+    .line 66
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
 
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/location/Address;
-
-    return-object v0
+    return-object p1
 .end method
 
-.method public static a(Landroid/location/Address;Ljava/lang/CharSequence;Lcom/yelp/android/serializable/YelpBusinessAddresses;Z)Landroid/os/Bundle;
-    .locals 3
+.method public static a(Landroid/location/Address;Ljava/lang/CharSequence;Lcom/yelp/android/serializable/YelpBusinessAddresses;Lcom/yelp/android/serializable/BusinessAttributes;Ljava/lang/String;Z)Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;
+    .locals 2
 
     .prologue
-    .line 131
-    new-instance v0, Landroid/os/Bundle;
+    .line 111
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;-><init>()V
 
-    .line 132
-    const-string/jumbo v1, "address"
+    .line 112
+    invoke-static/range {p0 .. p5}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b(Landroid/location/Address;Ljava/lang/CharSequence;Lcom/yelp/android/serializable/YelpBusinessAddresses;Lcom/yelp/android/serializable/BusinessAttributes;Ljava/lang/String;Z)Landroid/os/Bundle;
 
-    invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+    move-result-object v1
 
-    .line 133
-    const-string/jumbo v1, "business_name"
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->setArguments(Landroid/os/Bundle;)V
 
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 134
-    const-string/jumbo v1, "business_addresses"
-
-    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 135
-    const-string/jumbo v1, "is_address_edit"
-
-    invoke-virtual {v0, v1, p3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 136
+    .line 120
     return-object v0
 .end method
 
@@ -170,437 +160,682 @@
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;Ljava/util/Locale;I)V
+.method static synthetic a(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;Landroid/view/View;)V
     .locals 0
 
     .prologue
     .line 66
-    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/util/Locale;I)V
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method private a(Ljava/lang/String;)V
+.method static synthetic a(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;Lcom/yelp/android/appdata/webrequests/YelpException;)V
+    .locals 0
+
+    .prologue
+    .line 66
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Lcom/yelp/android/appdata/webrequests/YelpException;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;Z)Z
+    .locals 0
+
+    .prologue
+    .line 66
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Z
+
+    return p1
+.end method
+
+.method public static b(Landroid/location/Address;Ljava/lang/CharSequence;Lcom/yelp/android/serializable/YelpBusinessAddresses;Lcom/yelp/android/serializable/BusinessAttributes;Ljava/lang/String;Z)Landroid/os/Bundle;
     .locals 3
 
     .prologue
-    .line 447
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->s:Ljava/util/ArrayList;
+    .line 130
+    new-instance v1, Landroid/os/Bundle;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    move-result-object v1
+    .line 131
+    const-string/jumbo v0, "address"
 
-    :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v1, v0, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    move-result v0
+    .line 132
+    const-string/jumbo v2, "business_name"
 
-    if-eqz v0, :cond_1
+    if-nez p1, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/dialogs/ap;
-
-    .line 448
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/ap;->b()Ljava/util/Locale;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 449
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/ap;->b()Ljava/util/Locale;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/ap;->a()I
-
-    move-result v0
-
-    invoke-direct {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/util/Locale;I)V
-
-    .line 453
-    :cond_1
-    return-void
-.end method
-
-.method private a(Ljava/util/Locale;)V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    const/16 v2, 0x8
-
-    .line 414
-    invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->d(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 415
-    invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;->getFromCountry(Ljava/lang/String;)Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;
-
-    move-result-object v0
-
-    .line 416
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
-
-    if-eqz v1, :cond_0
-
-    .line 417
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    iget v2, v0, Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;->address1Primary:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 418
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    iget v2, v0, Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;->address2Primary:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 419
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
-
-    iget v2, v0, Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;->address1Alt:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 420
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
-
-    iget v0, v0, Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;->address2Alt:I
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 421
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 422
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 423
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->i:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 424
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 444
     :goto_0
-    return-void
+    invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 427
+    .line 134
+    const-string/jumbo v0, "business_addresses"
+
+    invoke-virtual {v1, v0, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 135
+    const-string/jumbo v0, "business_attributes"
+
+    invoke-virtual {v1, v0, p3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 136
+    const-string/jumbo v0, "business_country"
+
+    invoke-virtual {v1, v0, p4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 137
+    const-string/jumbo v0, "is_address_edit"
+
+    invoke-virtual {v1, v0, p5}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 138
+    return-object v1
+
+    .line 132
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 428
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 429
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->i:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 430
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 431
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    iget v2, v0, Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;->address1:I
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 432
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    iget v0, v0, Lcom/yelp/android/ui/activities/mutatebiz/AddressHint;->address2:I
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setHint(I)V
-
-    goto :goto_0
-
-    .line 435
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 436
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 437
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->i:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 438
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 441
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    const v1, 0x7f0700a5
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 442
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    const v1, 0x7f0700a6
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(I)V
-
-    goto :goto_0
-.end method
-
-.method private a(Ljava/util/Locale;I)V
-    .locals 5
-
-    .prologue
-    const v4, 0x7f0702e0
-
-    .line 390
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->o:Landroid/widget/ImageButton;
-
-    invoke-virtual {v0, p2}, Landroid/widget/ImageButton;->setImageResource(I)V
-
-    .line 391
-    new-instance v0, Landroid/content/res/Configuration;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
-
-    .line 392
-    iput-object p1, v0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    .line 393
-    new-instance v1, Landroid/util/DisplayMetrics;
-
-    invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
-
-    .line 394
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/support/v4/app/FragmentActivity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
-
-    .line 396
-    new-instance v2, Landroid/content/res/Resources;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/support/v4/app/FragmentActivity;->getAssets()Landroid/content/res/AssetManager;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3, v1, v0}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;)V
-
-    .line 397
-    const v0, 0x7f070344
-
-    invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 398
-    invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/yelp/android/appdata/LocaleSettings;->b(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 401
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(I)V
-
-    .line 402
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    const v1, 0x7f07014c
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 409
-    :goto_0
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/util/Locale;)V
-
-    .line 410
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    .line 411
-    return-void
-
-    .line 404
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    .line 405
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    const-string/jumbo v2, ""
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 407
-    :cond_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setHint(Ljava/lang/CharSequence;)V
-
     goto :goto_0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)Landroid/location/Address;
+.method static synthetic b(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)Z
     .locals 1
 
     .prologue
     .line 66
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Landroid/location/Address;
-
-    return-object v0
-.end method
-
-.method public static b(Landroid/os/Bundle;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
-    .locals 1
-
-    .prologue
-    .line 144
-    const-string/jumbo v0, "business_addresses"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/YelpBusinessAddresses;
-
-    return-object v0
-.end method
-
-.method public static c(Landroid/os/Bundle;)Landroid/location/Address;
-    .locals 1
-
-    .prologue
-    .line 148
-    const-string/jumbo v0, "geocoded"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/location/Address;
-
-    return-object v0
-.end method
-
-.method public static d(Landroid/os/Bundle;)Z
-    .locals 1
-
-    .prologue
-    .line 152
-    const-string/jumbo v0, "is_address_edit"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Z
 
     return v0
 .end method
 
-.method private g()V
-    .locals 3
+.method static synthetic c(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)Lcom/yelp/android/serializable/BusinessAttributes;
+    .locals 1
 
     .prologue
-    .line 474
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 66
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    return-object v0
+.end method
+
+.method private c(Landroid/view/View;)V
+    .locals 9
+
+    .prologue
+    const v8, 0x7f0f05b4
+
+    const v7, 0x7f0f05b3
+
+    const v6, 0x7f0706c4
+
+    const/16 v5, 0x8
+
+    const/4 v4, 0x0
+
+    .line 458
+    const-string/jumbo v2, ""
+
+    .line 459
+    const-string/jumbo v1, ""
+
+    .line 460
+    const-string/jumbo v0, ""
+
+    .line 461
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    if-eqz v3, :cond_5
+
+    .line 462
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    .line 463
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    .line 464
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    move-object v3, v2
+
+    move-object v2, v1
+
+    move-object v1, v0
+
+    .line 466
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->e(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 467
+    invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    .line 468
+    invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    .line 469
+    const v0, 0x7f0f05b5
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    .line 477
+    :goto_1
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Z
+
+    if-eqz v0, :cond_1
+
+    .line 478
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v5}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 479
+    const v0, 0x7f0f05bb
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    .line 480
+    const v0, 0x7f0f05ba
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+
+    .line 485
+    :goto_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 486
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 487
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 489
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttributes;->i()Lcom/yelp/android/serializable/AddressAttribute;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/AddressAttribute;->b()Lcom/yelp/android/serializable/AddressExample;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/AddressExample;->b()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(Ljava/lang/CharSequence;)V
+
+    .line 490
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttributes;->i()Lcom/yelp/android/serializable/AddressAttribute;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/AddressAttribute;->b()Lcom/yelp/android/serializable/AddressExample;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/AddressExample;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(Ljava/lang/CharSequence;)V
+
+    .line 492
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->b(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 494
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setText(I)V
+
+    .line 495
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    const v1, 0x7f0701c9
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(I)V
+
+    .line 504
+    :goto_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessAttributes;->i()Lcom/yelp/android/serializable/AddressAttribute;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/AddressAttribute;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    .line 505
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->i:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 506
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->i:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttributes;->i()Lcom/yelp/android/serializable/AddressAttribute;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/AddressAttribute;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 513
+    :goto_4
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g()V
+
+    .line 514
+    return-void
+
+    .line 471
+    :cond_0
+    invoke-virtual {p1, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    .line 472
+    invoke-virtual {p1, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    .line 473
+    const v0, 0x7f0f05b5
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    goto/16 :goto_1
+
+    .line 482
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 483
+    const v0, 0x7f0f05ba
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_2
+
+    .line 497
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 498
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 500
+    :cond_3
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttributes;->h()Lcom/yelp/android/serializable/BusinessAttribute;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttribute;->b()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_3
+
+    .line 510
+    :cond_4
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->i:Landroid/widget/TextView;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_4
+
+    :cond_5
+    move-object v3, v2
+
+    move-object v2, v1
+
+    move-object v1, v0
+
+    goto/16 :goto_0
+.end method
+
+.method static synthetic d(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)Landroid/view/View;
+    .locals 1
+
+    .prologue
+    .line 66
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->l:Landroid/view/View;
+
+    return-object v0
+.end method
+
+.method private g()V
+    .locals 4
+
+    .prologue
+    const/16 v1, 0x8
+
+    const/4 v3, 0x0
+
+    .line 518
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Z
+
+    if-eqz v0, :cond_1
+
+    .line 520
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessAttributes;->b()Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/AddressAttribute;
+
+    .line 522
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/AddressAttribute;->b()Lcom/yelp/android/serializable/AddressExample;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/AddressExample;->b()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(Ljava/lang/CharSequence;)V
+
+    .line 523
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/AddressAttribute;->b()Lcom/yelp/android/serializable/AddressExample;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/AddressExample;->a()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(Ljava/lang/CharSequence;)V
+
+    .line 524
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->o:Landroid/view/View;
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
+
+    .line 525
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 526
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 527
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/AddressAttribute;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 530
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 531
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->a()Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Map;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    .line 533
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->a()Ljava/util/Map;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpDetailedAddress;
+
+    .line 535
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDetailedAddress;->c()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 536
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpDetailedAddress;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 545
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 540
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->o:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 541
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 542
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 543
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_0
+.end method
+
+.method private h()V
+    .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
+
+    .prologue
+    .line 551
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
     const-string/jumbo v1, "tag_request_fragment"
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -608,24 +843,24 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->u:Lcom/yelp/android/ui/util/BackgroundTaskFragment;
 
-    .line 476
+    .line 554
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->u:Lcom/yelp/android/ui/util/BackgroundTaskFragment;
 
     if-nez v0, :cond_0
 
-    .line 478
-    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/c;
+    .line 556
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/c;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$2;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->u:Lcom/yelp/android/ui/util/BackgroundTaskFragment;
 
-    .line 553
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 657
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
@@ -633,143 +868,32 @@
 
     const-string/jumbo v2, "tag_request_fragment"
 
-    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/FragmentTransaction;->add(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/o;->a(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 556
+    .line 663
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->u:Lcom/yelp/android/ui/util/BackgroundTaskFragment;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->a(Landroid/support/v4/app/Fragment;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->a(Lcom/yelp/android/ui/util/d$a;)V
 
-    .line 557
+    .line 664
     return-void
 .end method
 
 
 # virtual methods
-.method protected a()Landroid/location/Address;
-    .locals 3
+.method public a()Lcom/yelp/android/analytics/iris/ViewIri;
+    .locals 1
 
     .prologue
-    .line 311
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
+    .line 306
+    sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddress:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Landroid/os/Bundle;)Landroid/location/Address;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 312
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Landroid/os/Bundle;)Landroid/location/Address;
-
-    move-result-object v0
-
-    .line 321
-    :goto_0
     return-object v0
-
-    .line 314
-    :cond_0
-    new-instance v0, Landroid/location/Address;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    invoke-direct {v0, v1}, Landroid/location/Address;-><init>(Ljava/util/Locale;)V
-
-    .line 315
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/location/Address;->setAddressLine(ILjava/lang/String;)V
-
-    .line 316
-    const/4 v1, 0x1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/location/Address;->setAddressLine(ILjava/lang/String;)V
-
-    .line 317
-    const/4 v1, 0x2
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/location/Address;->setAddressLine(ILjava/lang/String;)V
-
-    .line 318
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/location/Address;->setLocality(Ljava/lang/String;)V
-
-    .line 319
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/location/Address;->setCountryCode(Ljava/lang/String;)V
-
-    .line 320
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    invoke-virtual {v1, v2}, Ljava/util/Locale;->getDisplayCountry(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/location/Address;->setCountryName(Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method public bridge synthetic a(Ljava/lang/Object;)V
@@ -785,7 +909,7 @@
 .end method
 
 .method public a(Ljava/util/List;)V
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -797,156 +921,231 @@
     .end annotation
 
     .prologue
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    .line 565
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j()V
+    .line 311
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->l()V
 
-    .line 567
+    .line 313
     if-eqz p1, :cond_0
 
-    invoke-interface {p1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    .line 568
+    .line 314
     :cond_0
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
-
-    .line 569
-    const v0, 0x7f07062a
+    const v0, 0x7f070616
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    invoke-static {v0, v5}, Lcom/yelp/android/ui/util/cr;->a(Ljava/lang/CharSequence;I)V
+    invoke-static {v0, v6}, Lcom/yelp/android/ui/util/as;->a(Ljava/lang/CharSequence;I)V
 
-    .line 603
+    .line 371
     :goto_0
     return-void
 
-    .line 573
+    .line 318
     :cond_1
-    invoke-interface {p1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/location/Address;
 
-    .line 574
+    .line 319
+    invoke-virtual {v0}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 320
+    invoke-virtual {v0}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    .line 323
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f()V
+
+    .line 325
+    :cond_2
     const-string/jumbo v1, ""
 
-    .line 575
+    .line 326
     const-string/jumbo v2, ""
 
-    .line 576
+    .line 327
     invoke-virtual {v0}, Landroid/location/Address;->getLocality()Ljava/lang/String;
 
     move-result-object v3
 
-    .line 577
+    .line 328
     invoke-virtual {v0}, Landroid/location/Address;->getMaxAddressLineIndex()I
 
     move-result v4
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_3
 
-    .line 578
-    invoke-virtual {v0, v5}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
+    .line 329
+    invoke-virtual {v0, v6}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 579
+    .line 330
     invoke-static {v1, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    .line 580
-    const-string/jumbo v1, ""
-
-    .line 584
-    :cond_2
-    invoke-virtual {v0}, Landroid/location/Address;->getMaxAddressLineIndex()I
-
-    move-result v4
-
-    if-lt v4, v6, :cond_3
-
-    .line 585
-    invoke-virtual {v0, v6}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 586
-    invoke-static {v2, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v4
 
     if-eqz v4, :cond_3
 
-    .line 587
-    const-string/jumbo v2, ""
+    .line 331
+    const-string/jumbo v1, ""
 
-    .line 591
+    .line 335
     :cond_3
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+    invoke-virtual {v0}, Landroid/location/Address;->getMaxAddressLineIndex()I
 
-    invoke-virtual {v4, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result v4
 
-    .line 592
+    if-lt v4, v7, :cond_7
+
+    .line 336
+    invoke-virtual {v0, v7}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 337
+    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    .line 338
+    const-string/jumbo v0, ""
+
+    .line 341
+    :cond_4
+    :goto_1
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 342
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 593
+    .line 344
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->b(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    .line 346
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    const v1, 0x7f0706c4
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
+
+    .line 351
+    :goto_2
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    if-le v1, v6, :cond_4
+    if-le v0, v7, :cond_5
 
-    .line 594
-    invoke-interface {p1, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    .line 352
+    invoke-interface {p1, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/location/Address;
+    check-cast v0, Landroid/location/Address;
 
-    .line 595
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
+    .line 353
+    new-instance v1, Lcom/yelp/android/serializable/YelpDetailedAddress;
 
-    invoke-virtual {v1, v5}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
+    invoke-virtual {v0, v6}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v7}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string/jumbo v5, ""
+
+    invoke-direct {v1, v2, v4, v5}, Lcom/yelp/android/serializable/YelpDetailedAddress;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 358
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v6}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 596
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
+    .line 359
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v6}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
+    invoke-virtual {v0, v7}, Landroid/location/Address;->getAddressLine(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v4
 
-    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 598
-    :cond_4
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+    .line 360
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->a()Ljava/util/Map;
 
-    .line 599
-    invoke-virtual {v0}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
+    move-result-object v2
+
+    sget-object v4, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v2, v4, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 366
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    invoke-virtual {v0}, Landroid/location/Address;->getLocality()Ljava/lang/String;
 
     move-result-object v1
 
@@ -956,76 +1155,219 @@
 
     if-nez v1, :cond_5
 
-    .line 600
-    invoke-virtual {v0}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
+    .line 367
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/location/Address;->getLocality()Ljava/lang/String;
 
-    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/lang/String;)V
+    move-result-object v0
 
-    .line 602
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 370
     :cond_5
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c()Landroid/location/Address;
+
+    move-result-object v0
+
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
 
-    goto :goto_0
+    goto/16 :goto_0
+
+    .line 348
+    :cond_6
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_2
+
+    :cond_7
+    move-object v0, v2
+
+    goto/16 :goto_1
 .end method
 
 .method public a(Z)V
     .locals 1
 
     .prologue
-    .line 457
+    .line 294
     if-eqz p1, :cond_0
 
-    .line 458
+    .line 295
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->requestFocus()Z
 
-    .line 460
+    .line 297
     :cond_0
     return-void
 .end method
 
-.method public afterTextChanged(Landroid/text/Editable;)V
+.method public b()V
     .locals 1
 
     .prologue
-    .line 623
-    const/4 v0, 0x1
+    .line 301
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->l:Landroid/view/View;
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
+    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
 
-    .line 624
+    .line 302
     return-void
 .end method
 
-.method public b(Lcom/yelp/android/appdata/webrequests/YelpException;)V
-    .locals 0
+.method protected c()Landroid/location/Address;
+    .locals 4
 
     .prologue
-    .line 608
-    return-void
+    .line 396
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "address"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 397
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "address"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/location/Address;
+
+    .line 411
+    :goto_0
+    return-object v0
+
+    .line 400
+    :cond_0
+    new-instance v1, Ljava/util/Locale;
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    invoke-direct {v1, v0, v2}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 404
+    new-instance v0, Landroid/location/Address;
+
+    invoke-direct {v0, v1}, Landroid/location/Address;-><init>(Ljava/util/Locale;)V
+
+    .line 405
+    const/4 v2, 0x0
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/location/Address;->setAddressLine(ILjava/lang/String;)V
+
+    .line 406
+    const/4 v2, 0x1
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/location/Address;->setAddressLine(ILjava/lang/String;)V
+
+    .line 407
+    const/4 v2, 0x2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/location/Address;->setAddressLine(ILjava/lang/String;)V
+
+    .line 408
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/location/Address;->setLocality(Ljava/lang/String;)V
+
+    .line 409
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Landroid/location/Address;->setCountryCode(Ljava/lang/String;)V
+
+    .line 410
+    invoke-virtual {v1, v1}, Ljava/util/Locale;->getDisplayCountry(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/location/Address;->setCountryName(Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-
-    .prologue
-    .line 613
-    return-void
-.end method
-
-.method protected c()Lcom/yelp/android/serializable/YelpBusinessAddresses;
+.method protected e()Lcom/yelp/android/serializable/YelpBusinessAddresses;
     .locals 6
 
     .prologue
-    .line 332
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
+    .line 420
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    .line 333
+    .line 421
     new-instance v1, Lcom/yelp/android/serializable/YelpDetailedAddress;
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
@@ -1052,28 +1394,15 @@
 
     invoke-direct {v1, v0, v2, v3}, Lcom/yelp/android/serializable/YelpDetailedAddress;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 335
+    .line 426
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    .line 337
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Landroid/location/Address;
-
-    invoke-virtual {v0}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->d(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 338
+    .line 428
     new-instance v0, Lcom/yelp/android/serializable/YelpDetailedAddress;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f:Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
@@ -1083,7 +1412,7 @@
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
 
     invoke-virtual {v4}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
@@ -1097,7 +1426,7 @@
 
     invoke-direct {v0, v3, v4, v5}, Lcom/yelp/android/serializable/YelpDetailedAddress;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 340
+    .line 433
     sget-object v3, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
     invoke-virtual {v3}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
@@ -1106,13 +1435,12 @@
 
     invoke-virtual {v2, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 342
-    :cond_0
+    .line 434
     new-instance v0, Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
     iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->getLanguage()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->d()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1128,11 +1456,11 @@
 
     invoke-direct {v0, v3, v4, v1, v2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/YelpDetailedAddress;Ljava/util/Map;)V
 
-    .line 345
+    .line 440
     :goto_0
     return-object v0
 
-    :cond_1
+    :cond_0
     new-instance v0, Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
     invoke-direct {v0}, Lcom/yelp/android/serializable/YelpBusinessAddresses;-><init>()V
@@ -1140,115 +1468,89 @@
     goto :goto_0
 .end method
 
-.method protected d()Landroid/location/Address;
-    .locals 1
-
-    .prologue
-    .line 349
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
-
-    return-object v0
-.end method
-
-.method public e()V
+.method protected f()V
     .locals 3
 
     .prologue
-    .line 381
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    .line 444
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->H_()V
 
-    if-nez v0, :cond_0
+    .line 445
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
 
-    .line 382
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
+    if-eqz v0, :cond_0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a(Ljava/util/Locale;)Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/v;
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->v:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 383
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/v;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->v:Lcom/yelp/android/ui/dialogs/ar;
+    :goto_0
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->s:Lcom/yelp/android/appdata/webrequests/w;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a(Lcom/yelp/android/ui/dialogs/ar;)V
+    .line 451
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->s:Lcom/yelp/android/appdata/webrequests/w;
 
-    .line 386
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    const/4 v1, 0x0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getChildFragmentManager()Landroid/support/v4/app/FragmentManager;
+    new-array v1, v1, [Ljava/lang/Void;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/w;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
-
-    .line 387
+    .line 452
     return-void
+
+    .line 445
+    :cond_0
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/u;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->v:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/u;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    goto :goto_0
 .end method
 
-.method public f()Lcom/yelp/android/analytics/iris/ViewIri;
-    .locals 1
-
-    .prologue
-    .line 469
-    sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditAddress:Lcom/yelp/android/analytics/iris/ViewIri;
-
-    return-object v0
-.end method
-
-.method public synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
     .line 66
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f()Lcom/yelp/android/analytics/iris/ViewIri;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public k_()V
-    .locals 1
-
-    .prologue
-    .line 464
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->l:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->performClick()Z
-
-    .line 465
-    return-void
 .end method
 
 .method public onAttach(Landroid/app/Activity;)V
     .locals 2
 
     .prologue
-    .line 165
+    .line 147
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 167
+    .line 149
     :try_start_0
-    check-cast p1, Lcom/yelp/android/ui/activities/mutatebiz/e;
+    check-cast p1, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$a;
 
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->t:Lcom/yelp/android/ui/activities/mutatebiz/e;
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->t:Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$a;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 172
+    .line 154
     return-void
 
-    .line 168
+    .line 150
     :catch_0
     move-exception v0
 
-    .line 169
+    .line 151
     new-instance v0, Ljava/lang/ClassCastException;
 
     const-string/jumbo v1, "AddAddress Fragments must be attached to an AddressFragmentListener"
@@ -1262,53 +1564,27 @@
     .locals 2
 
     .prologue
-    .line 176
+    .line 158
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 177
+    .line 159
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
 
-    .line 178
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    .line 180
+    .line 161
     if-eqz p1, :cond_0
 
-    .line 181
+    .line 162
     const-string/jumbo v0, "dirty"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
 
-    .line 182
-    const-string/jumbo v0, "locale"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Locale;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    .line 183
+    .line 163
     const-string/jumbo v0, "business"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1319,59 +1595,99 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 188
+    .line 168
     :goto_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Landroid/os/Bundle;)Landroid/location/Address;
+    const-string/jumbo v1, "address"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Landroid/location/Address;
+    check-cast v0, Landroid/location/Address;
 
-    .line 189
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
+
+    .line 169
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d(Landroid/os/Bundle;)Z
+    const-string/jumbo v1, "business_addresses"
 
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
-
-    .line 190
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b(Landroid/os/Bundle;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
-
-    move-result-object v0
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    .line 191
-    invoke-static {}, Lcom/yelp/android/ui/dialogs/ao;->b()Ljava/util/ArrayList;
+    .line 170
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->s:Ljava/util/ArrayList;
+    const-string/jumbo v1, "business_attributes"
 
-    .line 192
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/BusinessAttributes;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    .line 171
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "business_country"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Ljava/lang/String;
+
+    .line 172
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "is_address_edit"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
+
+    .line 175
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->r:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessAttributes;->a()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Z
+
+    .line 176
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->setHasOptionsMenu(Z)V
 
-    .line 197
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g()V
+    .line 181
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h()V
 
-    .line 198
+    .line 182
     return-void
 
-    .line 185
+    .line 165
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
 
@@ -1394,99 +1710,47 @@
     .locals 1
 
     .prologue
-    .line 364
+    .line 274
     invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 365
-    const v0, 0x7f100018
+    .line 275
+    const v0, 0x7f10001c
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 366
+    .line 276
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 5
+    .locals 3
 
     .prologue
-    const v4, 0x7f0c04b0
-
-    const v3, 0x7f0c04ac
-
-    const v2, 0x7f0c04ab
-
-    .line 202
+    .line 187
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    .line 203
-    const v1, 0x7f030180
+    .line 188
+    const v1, 0x7f0301fb
 
     invoke-virtual {p1, v1, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 204
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 190
+    const v1, 0x7f0f05b8
 
-    if-nez v1, :cond_4
-
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/LocaleSettings;->h()Ljava/util/Locale;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 207
-    :goto_0
-    invoke-static {v1}, Lcom/yelp/android/appdata/LocaleSettings;->f(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    .line 208
-    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/widget/TextView;
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->f:Landroid/widget/TextView;
 
-    .line 209
-    invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    .line 210
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    .line 217
-    :goto_1
-    const v1, 0x7f0c04ae
+    .line 191
+    const v1, 0x7f0f05b9
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1496,19 +1760,8 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
 
-    .line 218
-    const v1, 0x7f0c04af
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
-
-    .line 219
-    const v1, 0x7f0c04aa
+    .line 192
+    const v1, 0x7f0f05b2
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1518,8 +1771,8 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->i:Landroid/widget/TextView;
 
-    .line 220
-    const v1, 0x7f0c04ad
+    .line 193
+    const v1, 0x7f0f05b6
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1529,29 +1782,8 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->j:Landroid/widget/TextView;
 
-    .line 222
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    const v2, 0x7f0700a5
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 223
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    const v2, 0x7f0700a6
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 224
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    const v2, 0x7f070344
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 226
-    const v1, 0x7f0c04a9
+    .line 194
+    const v1, 0x7f0f05b1
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1559,33 +1791,25 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->l:Landroid/view/View;
 
-    .line 228
-    const v1, 0x7f0c049c
+    .line 195
+    const v1, 0x7f0f05b7
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/ImageButton;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->o:Landroid/view/View;
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->o:Landroid/widget/ImageButton;
+    .line 197
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c(Landroid/view/View;)V
 
-    .line 230
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->o:Landroid/widget/ImageButton;
+    .line 198
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/a;
+    if-eqz v1, :cond_0
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/mutatebiz/a;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 238
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Landroid/location/Address;
-
-    if-eqz v1, :cond_6
-
-    .line 239
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Landroid/location/Address;
+    .line 199
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
 
     invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
@@ -1593,202 +1817,54 @@
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/util/List;)V
 
-    .line 240
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->getAlternateAddresses()Ljava/util/Map;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Map;->size()I
-
-    move-result v1
-
-    if-lez v1, :cond_0
-
-    .line 241
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->q:Lcom/yelp/android/serializable/YelpBusinessAddresses;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->getAlternateAddresses()Ljava/util/Map;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Map;->values()Ljava/util/Collection;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/serializable/YelpDetailedAddress;
-
-    .line 243
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpDetailedAddress;->getAddress1()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 244
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->h:Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpDetailedAddress;->getAddress2()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 246
+    .line 202
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getArguments()Landroid/os/Bundle;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c(Landroid/os/Bundle;)Landroid/location/Address;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
-
-    .line 253
-    :goto_2
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    invoke-virtual {v1, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 254
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    invoke-virtual {v1, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 255
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v1, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
-
-    .line 257
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->l:Landroid/view/View;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/b;
+    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$1;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/mutatebiz/b;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$1;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 273
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Landroid/location/Address;
+    .line 222
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->m:Landroid/location/Address;
 
     if-eqz v1, :cond_1
 
-    .line 274
+    .line 223
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    const v2, 0x7f070222
+    const v2, 0x7f070271
 
     invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentActivity;->setTitle(I)V
 
-    .line 279
+    .line 228
     :cond_1
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Z
 
-    if-eqz v1, :cond_2
+    if-nez v1, :cond_2
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->n:Landroid/location/Address;
-
-    invoke-virtual {v1}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/yelp/android/appdata/LocaleSettings;->d(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    .line 280
-    :cond_2
+    .line 229
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->requestFocus()Z
 
-    .line 283
-    :cond_3
+    .line 232
+    :cond_2
     return-object v0
-
-    .line 204
-    :cond_4
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c:Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getCountry()Ljava/lang/String;
-
-    move-result-object v1
-
-    goto/16 :goto_0
-
-    .line 212
-    :cond_5
-    invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
-
-    .line 213
-    invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
-
-    .line 214
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/TextView;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
-
-    goto/16 :goto_1
-
-    .line 248
-    :cond_6
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/lang/String;)V
-
-    goto :goto_2
 .end method
 
 .method public onDetach()V
     .locals 0
 
     .prologue
-    .line 296
+    .line 265
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onDetach()V
 
-    .line 301
+    .line 270
     return-void
 .end method
 
@@ -1796,17 +1872,17 @@
     .locals 3
 
     .prologue
-    .line 370
+    .line 280
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    const v1, 0x7f0c04fd
+    const v1, 0x7f0f0607
 
     if-ne v0, v1, :cond_1
 
-    .line 373
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->t:Lcom/yelp/android/ui/activities/mutatebiz/e;
+    .line 283
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->t:Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$a;
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c:Lcom/yelp/android/serializable/YelpBusiness;
 
@@ -1823,26 +1899,26 @@
     move-result-object v0
 
     :goto_0
-    invoke-interface {v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/e;->a(Ljava/lang/String;)V
+    invoke-interface {v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment$a;->a(Ljava/lang/String;)V
 
-    .line 375
+    .line 287
     const/4 v0, 0x1
 
-    .line 377
+    .line 289
     :goto_1
     return v0
 
-    .line 373
+    .line 283
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aq()Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 377
+    .line 289
     :cond_1
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
@@ -1851,42 +1927,92 @@
     goto :goto_1
 .end method
 
+.method public onPause()V
+    .locals 2
+
+    .prologue
+    .line 252
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onPause()V
+
+    .line 253
+    const-string/jumbo v0, "business_attributes"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->s:Lcom/yelp/android/appdata/webrequests/w;
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 254
+    return-void
+.end method
+
+.method public onResume()V
+    .locals 3
+
+    .prologue
+    .line 237
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onResume()V
+
+    .line 240
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->d:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->w:Landroid/text/TextWatcher;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 241
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->e:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->w:Landroid/text/TextWatcher;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 242
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->k:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->w:Landroid/text/TextWatcher;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 243
+    const-string/jumbo v0, "business_attributes"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->s:Lcom/yelp/android/appdata/webrequests/w;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->v:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/w;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->s:Lcom/yelp/android/appdata/webrequests/w;
+
+    .line 248
+    return-void
+.end method
+
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 2
 
     .prologue
-    .line 288
+    .line 258
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 289
+    .line 259
     const-string/jumbo v0, "dirty"
 
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->b:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 290
-    const-string/jumbo v0, "locale"
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->p:Ljava/util/Locale;
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
-
-    .line 291
+    .line 260
     const-string/jumbo v0, "business"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->c:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 292
-    return-void
-.end method
-
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-
-    .prologue
-    .line 618
+    .line 261
     return-void
 .end method

@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->connect()V
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->connect()V
 
     .line 94
     return-void
@@ -81,7 +81,7 @@
 
     invoke-direct {v0, v1}, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;-><init>(Landroid/content/Context;)V
 
-    sget-object v1, Lcom/google/android/gms/location/ActivityRecognition;->API:Lcom/google/android/gms/common/api/Api;
+    sget-object v1, Lcom/google/android/gms/location/a;->a:Lcom/google/android/gms/common/api/Api;
 
     invoke-virtual {v0, v1}, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;->addApi(Lcom/google/android/gms/common/api/Api;)Lcom/google/android/gms/common/api/GoogleApiClient$Builder;
 
@@ -117,7 +117,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->disconnect()V
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->disconnect()V
 
     .line 122
     const/4 v0, 0x0
@@ -133,18 +133,18 @@
 
     .prologue
     .line 155
-    sget-object v0, Lcom/google/android/gms/location/ActivityRecognition;->ActivityRecognitionApi:Lcom/google/android/gms/location/ActivityRecognitionApi;
+    sget-object v0, Lcom/google/android/gms/location/a;->b:Lcom/google/android/gms/location/b;
 
     iget-object v1, p0, Lcom/kahuna/sdk/location/a;->b:Lcom/google/android/gms/common/api/GoogleApiClient;
 
     iget-object v2, p0, Lcom/kahuna/sdk/location/a;->c:Landroid/app/PendingIntent;
 
-    invoke-interface {v0, v1, v2}, Lcom/google/android/gms/location/ActivityRecognitionApi;->removeActivityUpdates(Lcom/google/android/gms/common/api/GoogleApiClient;Landroid/app/PendingIntent;)Lcom/google/android/gms/common/api/PendingResult;
+    invoke-interface {v0, v1, v2}, Lcom/google/android/gms/location/b;->a(Lcom/google/android/gms/common/api/GoogleApiClient;Landroid/app/PendingIntent;)Lcom/google/android/gms/common/api/PendingResult;
 
     move-result-object v0
 
     .line 156
-    invoke-interface {v0, p0}, Lcom/google/android/gms/common/api/PendingResult;->setResultCallback(Lcom/google/android/gms/common/api/ResultCallback;)V
+    invoke-virtual {v0, p0}, Lcom/google/android/gms/common/api/PendingResult;->setResultCallback(Lcom/google/android/gms/common/api/ResultCallback;)V
 
     .line 157
     return-void
@@ -188,14 +188,14 @@
     if-nez v0, :cond_0
 
     .line 181
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 182
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -237,14 +237,14 @@
     move-exception v0
 
     .line 190
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 191
-    const-string/jumbo v1, "KahunaEngine"
+    const-string/jumbo v1, "Kahuna"
 
     const-string/jumbo v2, "caught exception processing remove activity result: "
 
@@ -261,14 +261,14 @@
 
     .prologue
     .line 133
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 134
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "Activity Recognition Remover Play Services Connected"
 
@@ -291,14 +291,14 @@
     move-exception v0
 
     .line 142
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 143
-    const-string/jumbo v1, "KahunaEngine"
+    const-string/jumbo v1, "Kahuna"
 
     const-string/jumbo v2, "caught exception attempting to remove activity updates: "
 
@@ -315,14 +315,14 @@
 
     .prologue
     .line 166
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 167
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 

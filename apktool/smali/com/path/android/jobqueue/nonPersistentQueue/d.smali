@@ -11,16 +11,16 @@
             "(I",
             "Ljava/util/Comparator",
             "<",
-            "Lcom/path/android/jobqueue/b;",
+            "Lcom/path/android/jobqueue/a;",
             ">;)V"
         }
     .end annotation
 
     .prologue
     .line 20
-    new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/h;
+    new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/g;
 
-    invoke-direct {v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/h;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/g;-><init>(Ljava/util/Comparator;)V
 
     invoke-direct {p0, p1, p2, v0}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;-><init>(ILjava/util/Comparator;Ljava/util/Comparator;)V
 
@@ -30,7 +30,7 @@
 
 
 # virtual methods
-.method public a(ZLjava/util/Collection;)Lcom/path/android/jobqueue/b;
+.method public a(ZLjava/util/Collection;)Lcom/path/android/jobqueue/a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -39,7 +39,7 @@
             "<",
             "Ljava/lang/String;",
             ">;)",
-            "Lcom/path/android/jobqueue/b;"
+            "Lcom/path/android/jobqueue/a;"
         }
     .end annotation
 
@@ -48,7 +48,7 @@
     if-eqz p1, :cond_0
 
     .line 31
-    invoke-super {p0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+    invoke-super {p0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a(Ljava/util/Collection;)Lcom/path/android/jobqueue/a;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
     :cond_0
     sget-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S1:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
 
-    invoke-super {p0, v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+    invoke-super {p0, v0, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;->a(Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;Ljava/util/Collection;)Lcom/path/android/jobqueue/a;
 
     move-result-object v0
 
@@ -99,7 +99,7 @@
             "I",
             "Ljava/util/Comparator",
             "<",
-            "Lcom/path/android/jobqueue/b;",
+            "Lcom/path/android/jobqueue/a;",
             ">;)",
             "Lcom/path/android/jobqueue/nonPersistentQueue/c;"
         }
@@ -107,9 +107,9 @@
 
     .prologue
     .line 65
-    new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/i;
+    new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/h;
 
-    invoke-direct {v0, p2, p3}, Lcom/path/android/jobqueue/nonPersistentQueue/i;-><init>(ILjava/util/Comparator;)V
+    invoke-direct {v0, p2, p3}, Lcom/path/android/jobqueue/nonPersistentQueue/h;-><init>(ILjava/util/Comparator;)V
 
     return-object v0
 .end method
@@ -191,12 +191,12 @@
     goto :goto_0
 .end method
 
-.method protected c(Lcom/path/android/jobqueue/b;)Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
+.method protected c(Lcom/path/android/jobqueue/a;)Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
     .locals 1
 
     .prologue
     .line 53
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->b()Z
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->b()Z
 
     move-result v0
 

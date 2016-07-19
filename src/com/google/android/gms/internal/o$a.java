@@ -1,13 +1,36 @@
 package com.google.android.gms.internal;
 
+import android.view.View;
+import com.google.android.gms.ads.internal.formats.h;
+import java.lang.ref.WeakReference;
+
 public class o$a
-  extends Exception
+  implements w
 {
-  public o$a(o paramo) {}
+  private WeakReference<h> a;
   
-  public o$a(o paramo, Throwable paramThrowable)
+  public o$a(h paramh)
   {
-    super(paramThrowable);
+    a = new WeakReference(paramh);
+  }
+  
+  public View a()
+  {
+    h localh = (h)a.get();
+    if (localh != null) {
+      return localh.e();
+    }
+    return null;
+  }
+  
+  public boolean b()
+  {
+    return a.get() == null;
+  }
+  
+  public w c()
+  {
+    return new o.b((h)a.get());
   }
 }
 

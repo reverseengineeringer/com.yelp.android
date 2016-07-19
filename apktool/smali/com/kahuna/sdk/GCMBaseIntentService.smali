@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private final a:Lcom/kahuna/sdk/af;
+.field private final a:Lcom/kahuna/sdk/r;
 
 .field private final d:[Ljava/lang/String;
 
@@ -62,7 +62,7 @@
     invoke-direct {p0, p1}, Landroid/app/IntentService;-><init>(Ljava/lang/String;)V
 
     .line 48
-    new-instance v0, Lcom/kahuna/sdk/af;
+    new-instance v0, Lcom/kahuna/sdk/r;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -96,15 +96,15 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/kahuna/sdk/af;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/kahuna/sdk/r;-><init>(Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iput-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     .line 84
     iput-object p2, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->d:[Ljava/lang/String;
 
     .line 85
-    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v1, 0x2
 
@@ -118,7 +118,7 @@
 
     aput-object p1, v3, v4
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     .line 86
     return-void
@@ -275,12 +275,12 @@
     move-exception v0
 
     .line 288
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
+    sget-boolean v0, Lcom/kahuna/sdk/l;->a:Z
 
     if-eqz v0, :cond_1
 
     .line 289
-    const-string/jumbo v0, "KahunaAnalytics"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "App does not have WAKE_LOCK permission"
 
@@ -320,7 +320,7 @@
     move-result-object v2
 
     .line 300
-    iget-object v3, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v3, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const-string/jumbo v4, "handleRegistration: registrationId = %s, error = %s, unregistered = %s"
 
@@ -338,7 +338,7 @@
 
     aput-object v2, v5, v6
 
-    invoke-virtual {v3, v7, v4, v5}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v3, v7, v4, v5}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     .line 305
     if-eqz v0, :cond_0
@@ -384,7 +384,7 @@
     if-eqz v0, :cond_2
 
     .line 325
-    invoke-static {}, Lcom/kahuna/sdk/f;->c()V
+    invoke-static {}, Lcom/kahuna/sdk/f;->e()V
 
     goto :goto_0
 
@@ -457,7 +457,7 @@
     move-result-object v1
 
     .line 177
-    invoke-static {}, Lcom/kahuna/sdk/f;->b()Z
+    invoke-static {}, Lcom/kahuna/sdk/f;->c()Z
 
     move-result v2
 
@@ -469,12 +469,12 @@
     move-result-object v1
 
     .line 179
-    invoke-static {p0}, Lcom/google/android/gms/gcm/GoogleCloudMessaging;->getInstance(Landroid/content/Context;)Lcom/google/android/gms/gcm/GoogleCloudMessaging;
+    invoke-static {p0}, Lcom/google/android/gms/gcm/a;->a(Landroid/content/Context;)Lcom/google/android/gms/gcm/a;
 
     move-result-object v2
 
     .line 182
-    invoke-virtual {v2, p1}, Lcom/google/android/gms/gcm/GoogleCloudMessaging;->getMessageType(Landroid/content/Intent;)Ljava/lang/String;
+    invoke-virtual {v2, p1}, Lcom/google/android/gms/gcm/a;->a(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -564,12 +564,12 @@
 
     .line 243
     :try_start_3
-    sget-boolean v1, Lcom/kahuna/sdk/h;->a:Z
+    sget-boolean v1, Lcom/kahuna/sdk/l;->a:Z
 
     if-eqz v1, :cond_2
 
     .line 244
-    const-string/jumbo v1, "KahunaAnalytics"
+    const-string/jumbo v1, "Kahuna"
 
     const-string/jumbo v2, "Caught exception in GCM onHandleIntent, SDK might not be initialized correctly."
 
@@ -670,7 +670,7 @@
     move-result v2
 
     .line 210
-    iget-object v3, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v3, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v4, 0x2
 
@@ -688,7 +688,7 @@
 
     aput-object v8, v6, v7
 
-    invoke-virtual {v3, v4, v5, v6}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v3, v4, v5, v6}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     .line 213
     invoke-virtual {p0, v0, v2}, Lcom/kahuna/sdk/GCMBaseIntentService;->a(Landroid/content/Context;I)V
@@ -705,7 +705,7 @@
 
     .line 215
     :try_start_7
-    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v2, 0x6
 
@@ -719,7 +719,7 @@
 
     aput-object v1, v4, v5
 
-    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
     :try_end_7
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
@@ -764,7 +764,7 @@
     .line 220
     :cond_4
     :try_start_9
-    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v2, 0x6
 
@@ -778,7 +778,7 @@
 
     aput-object v1, v4, v5
 
-    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_0
 
@@ -822,7 +822,7 @@
 
     .line 228
     :cond_7
-    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v2, 0x6
 
@@ -836,7 +836,7 @@
 
     aput-object v1, v4, v5
 
-    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
     :try_end_9
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_0
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
@@ -883,7 +883,7 @@
     .line 261
     :cond_8
     :try_start_b
-    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v2, 0x6
 
@@ -893,7 +893,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_2
 
@@ -929,7 +929,7 @@
     .line 261
     :cond_b
     :try_start_d
-    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v2, 0x6
 
@@ -939,7 +939,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_1
 
@@ -956,7 +956,7 @@
     .line 261
     :cond_c
     :try_start_e
-    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v0, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v2, 0x6
 
@@ -966,7 +966,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v0, v2, v3, v4}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
     :try_end_e
     .catchall {:try_start_e .. :try_end_e} :catchall_0
 
@@ -974,7 +974,7 @@
 
     :cond_d
     :try_start_f
-    iget-object v2, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/af;
+    iget-object v2, p0, Lcom/kahuna/sdk/GCMBaseIntentService;->a:Lcom/kahuna/sdk/r;
 
     const/4 v3, 0x6
 
@@ -984,7 +984,7 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    invoke-virtual {v2, v3, v4, v5}, Lcom/kahuna/sdk/af;->a(ILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v2, v3, v4, v5}, Lcom/kahuna/sdk/r;->a(ILjava/lang/String;[Ljava/lang/Object;)V
 
     goto/16 :goto_4
 

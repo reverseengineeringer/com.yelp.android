@@ -1,17 +1,18 @@
 package com.yelp.android.ui.activities.talk;
 
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.bv.c.b;
 
-class c
-  implements DialogInterface.OnClickListener
+public abstract interface c
 {
-  c(ActivityTalk paramActivityTalk) {}
+  public abstract com.yelp.android.bv.c a(String paramString, int paramInt, ApiRequest.b<c.b> paramb);
   
-  public void onClick(DialogInterface paramDialogInterface, int paramInt)
-  {
-    ActivityTalk.h(a);
-  }
+  public abstract void a(YelpException paramYelpException);
+  
+  public abstract void a(boolean paramBoolean);
+  
+  public abstract void disableLoading();
 }
 
 /* Location:

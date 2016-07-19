@@ -12,7 +12,7 @@ import com.yelp.android.appdata.webrequests.YelpException;
 import com.yelp.android.services.ShareService;
 import com.yelp.android.services.ShareService.ShareObjectType;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.util.f;
+import com.yelp.android.util.d;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -25,17 +25,44 @@ import java.util.Set;
 public abstract class ActivityRetryShare
   extends YelpActivity
 {
-  public static final dw g = new dw(2131166565, 2131166566, 2131165774);
-  public static final dw h = new dw(2131166565, 2131166566, 2131165775);
-  public static final dw i = new dw(2131166565, 2131166566, 2131165771);
-  public static final dw j = new dw(2131166565, 2131166566, 2131165770);
+  public static final a i = new a(2131166565, 2131166566, 2131165862);
+  public static final a j = new a(2131166565, 2131166566, 2131165863);
+  public static final a k = new a(2131166565, 2131166566, 2131165857);
+  public static final a l = new a(2131166565, 2131166566, 2131165856);
+  public static final a m = new a(2131166565, 2131166566, 2131165861);
   protected Queue<ShareRequest.ShareType> a;
   protected Queue<YelpException> b;
-  protected FacebookConnectManager<ActivityRetryShare> c;
-  protected Set<ShareRequest.ShareType> d;
-  Handler e;
-  dw f;
-  protected final fg k = new du(this);
+  protected ArrayList<ShareRequest.ShareType> c;
+  protected FacebookConnectManager<ActivityRetryShare> d;
+  protected Set<ShareRequest.ShareType> e;
+  protected Set<ShareRequest.ShareType> f;
+  Handler g;
+  a h;
+  protected final FacebookConnectManager.a n = new FacebookConnectManager.a()
+  {
+    public void a(FacebookConnectManager paramAnonymousFacebookConnectManager)
+    {
+      e.add(ShareRequest.ShareType.FACEBOOK);
+      if (c.contains(ShareRequest.ShareType.FACEBOOK)) {
+        f.add(ShareRequest.ShareType.FACEBOOK);
+      }
+      a.poll();
+      b.poll();
+      c();
+    }
+    
+    public void a(FacebookConnectManager paramAnonymousFacebookConnectManager, Throwable paramAnonymousThrowable)
+    {
+      ActivityRetryShare.a(ActivityRetryShare.this, 2131165391);
+    }
+    
+    public void b(FacebookConnectManager paramAnonymousFacebookConnectManager)
+    {
+      ActivityRetryShare.a(ActivityRetryShare.this, 2131165584);
+    }
+    
+    public void c(FacebookConnectManager paramAnonymousFacebookConnectManager) {}
+  };
   
   public static Intent a(Context paramContext, Collection<ShareRequest.ShareType> paramCollection1, Collection<ShareRequest.ShareType> paramCollection2)
   {
@@ -48,8 +75,8 @@ public abstract class ActivityRetryShare
       localArrayList2.add(null);
     }
     paramContext = new Intent(paramContext, ActivityRetryShare.class);
-    paramContext.putExtra("types", f.a(localArrayList1));
-    paramContext.putExtra("yelp:retry_shares", f.a(paramCollection2));
+    paramContext.putExtra("content_share_types", d.a(localArrayList1));
+    paramContext.putExtra("retry_shares", d.a(paramCollection2));
     paramContext.putExtra("exceptions", localArrayList2);
     return paramContext;
   }
@@ -62,10 +89,10 @@ public abstract class ActivityRetryShare
     while ((ShareRequest.ShareType)a.peek() != ShareRequest.ShareType.FACEBOOK) {
       return;
     }
-    showYesNoDialog(paramInt, 2131166752, 17039360, 1);
+    showYesNoDialog(paramInt, 2131166732, 17039360, 1);
   }
   
-  protected static Intent b(Context paramContext, String paramString, List<Pair<ShareRequest.ShareType, ? extends YelpException>> paramList)
+  protected static Intent b(Context paramContext, String paramString, List<Pair<ShareRequest.ShareType, ? extends YelpException>> paramList, Collection<ShareRequest.ShareType> paramCollection)
   {
     ArrayList localArrayList1 = new ArrayList(paramList.size());
     ArrayList localArrayList2 = new ArrayList(paramList.size());
@@ -77,32 +104,36 @@ public abstract class ActivityRetryShare
       localArrayList2.add(second);
     }
     paramContext = new Intent(paramContext, ActivityRetryBusinessPhotoShare.class);
-    paramContext.putExtra("types", f.a(localArrayList1));
+    paramContext.putExtra("content_share_types", d.a(localArrayList1));
+    paramContext.putExtra("award_share_types", d.a(paramCollection));
     paramContext.putExtra("exceptions", localArrayList2);
     paramContext.putExtra("yelp:object_id", paramString);
     return paramContext;
   }
   
-  public Intent a(Collection<ShareRequest.ShareType> paramCollection)
+  private Intent d()
   {
-    paramCollection = getIntent().getStringExtra("yelp:object_id");
-    if (!TextUtils.isEmpty(paramCollection)) {
-      return ShareService.a(this, b(), paramCollection, d, true);
+    String str = getIntent().getStringExtra("yelp:object_id");
+    if (!TextUtils.isEmpty(str)) {
+      return ShareService.a(this, b(), str, f, e, true);
     }
     return null;
   }
   
-  public dw a()
+  public a a()
   {
-    return g;
+    return i;
   }
   
   public void a(ShareRequest.ShareType paramShareType)
   {
-    switch (dv.a[paramShareType.ordinal()])
+    switch (4.a[paramShareType.ordinal()])
     {
     default: 
-      d.add(paramShareType);
+      e.add(paramShareType);
+      if (c.contains(paramShareType)) {
+        f.add(paramShareType);
+      }
       a.poll();
       b.poll();
       c();
@@ -110,8 +141,8 @@ public abstract class ActivityRetryShare
       do
       {
         return;
-      } while (c.f());
-      c.e();
+      } while (d.f());
+      d.e();
       return;
     }
     startActivityIfNeeded(ActivityTwitterSignIn.a(this), 1042);
@@ -135,17 +166,17 @@ public abstract class ActivityRetryShare
     }
     if (ShareService.a(localYelpException))
     {
-      showYesNoDialog(getString(f.a, new Object[] { getText(localShareType.getNameStringResource()) }), 2131166030, 17039360, 0);
+      showYesNoDialog(getString(h.a, new Object[] { getText(localShareType.getNameStringResource()) }), 2131166090, 17039360, 0);
       return;
     }
-    showYesNoDialog(getString(f.b, new Object[] { getText(localShareType.getNameStringResource()) }), 2131166464, 17039360, 0);
+    showYesNoDialog(getString(h.b, new Object[] { getText(localShareType.getNameStringResource()) }), 2131166469, 17039360, 0);
   }
   
   public void finish()
   {
     Intent localIntent = null;
-    if (!d.isEmpty()) {
-      localIntent = a(d);
+    if (!e.isEmpty()) {
+      localIntent = d();
     }
     if (localIntent != null) {
       startService(localIntent);
@@ -155,7 +186,7 @@ public abstract class ActivityRetryShare
       super.finish();
       return;
       localIntent = new Intent();
-      localIntent.putExtra("yelp:retry_shares", f.a(d));
+      localIntent.putExtra("retry_shares", d.a(e));
       setResult(-1, localIntent);
     }
   }
@@ -168,56 +199,51 @@ public abstract class ActivityRetryShare
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    c.a(paramInt1, paramInt2, paramIntent);
-    if (paramInt1 == 1042)
-    {
-      if (paramInt2 != 0) {
-        d.add(ShareRequest.ShareType.TWITTER);
-      }
-      a.poll();
-      b.poll();
-      c();
-    }
+    d.a(paramInt1, paramInt2, paramIntent);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    f = a();
-    e = new Handler();
-    c = new FacebookConnectManager(this, 2131166497, k, FacebookConnectManager.FbPermissionSet.DEFAULT_READ_PUBLISH, 2);
+    h = a();
+    g = new Handler();
+    d = new FacebookConnectManager(this, 2131166492, n, FacebookConnectManager.FbPermissionSet.DEFAULT_READ_PUBLISH);
     if (paramBundle != null)
     {
-      a = new LinkedList(f.a(paramBundle, "types", ShareRequest.ShareType.values()));
+      a = new LinkedList(d.a(paramBundle, "content_share_types", ShareRequest.ShareType.values()));
       b = new LinkedList(paramBundle.getParcelableArrayList("exceptions"));
-      d = new HashSet(f.a(paramBundle, "yelp:retry_shares", ShareRequest.ShareType.values()));
+      e = new HashSet(d.a(paramBundle, "retry_shares", ShareRequest.ShareType.values()));
       return;
     }
     paramBundle = getIntent();
-    a = new LinkedList(f.a(paramBundle.getIntArrayExtra("types"), ShareRequest.ShareType.values()));
+    a = new LinkedList(d.a(paramBundle.getIntArrayExtra("content_share_types"), ShareRequest.ShareType.values()));
+    c = d.a(paramBundle.getIntArrayExtra("award_share_types"), ShareRequest.ShareType.values());
     b = new LinkedList(paramBundle.getParcelableArrayListExtra("exceptions"));
-    if (paramBundle.hasExtra("yelp:retry_shares"))
+    if (paramBundle.hasExtra("retry_shares")) {}
+    for (e = new HashSet(d.a(paramBundle.getIntArrayExtra("retry_shares"), ShareRequest.ShareType.values()));; e = new HashSet())
     {
-      d = new HashSet(f.a(paramBundle.getIntArrayExtra("yelp:retry_shares"), ShareRequest.ShareType.values()));
+      f = new HashSet();
       return;
     }
-    d = new HashSet();
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    f.a(paramBundle, "types", a);
+    d.a(paramBundle, "content_share_types", a);
     paramBundle.putParcelableArrayList("exceptions", new ArrayList(b));
-    f.a(paramBundle, "yelp:retry_shares", d);
+    d.a(paramBundle, "retry_shares", e);
   }
   
   protected void onStart()
   {
     super.onStart();
-    if ((!a.isEmpty()) || (!d.isEmpty())) {
+    if (!a.isEmpty())
+    {
       c();
+      return;
     }
+    finish();
   }
   
   public void onYesNoDialogSelection(boolean paramBoolean, int paramInt)
@@ -236,9 +262,18 @@ public abstract class ActivityRetryShare
           a(localShareType);
           return;
         }
-        d.add(localShareType);
+        e.add(localShareType);
+        if (c.contains(localShareType)) {
+          f.add(localShareType);
+        }
       }
-      e.post(new ds(this));
+      g.post(new Runnable()
+      {
+        public void run()
+        {
+          c();
+        }
+      });
       return;
     }
     if (paramBoolean)
@@ -246,7 +281,27 @@ public abstract class ActivityRetryShare
       a(localShareType);
       return;
     }
-    e.post(new dt(this));
+    g.post(new Runnable()
+    {
+      public void run()
+      {
+        c();
+      }
+    });
+  }
+  
+  public static final class a
+  {
+    public final int a;
+    public final int b;
+    public final int c;
+    
+    public a(int paramInt1, int paramInt2, int paramInt3)
+    {
+      a = paramInt1;
+      b = paramInt2;
+      c = paramInt3;
+    }
   }
 }
 

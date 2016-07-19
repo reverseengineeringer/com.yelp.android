@@ -16,6 +16,11 @@
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;Ljava/io/FileOutputStream;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
 
     .prologue
     const/16 v1, 0x1000
@@ -65,6 +70,11 @@
 # virtual methods
 .method public close()V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 77
@@ -109,6 +119,11 @@
 
 .method public read()I
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 68
@@ -131,6 +146,11 @@
 
 .method public read([B)I
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 63
@@ -147,6 +167,11 @@
 
 .method public read([BII)I
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 54
@@ -169,6 +194,11 @@
 
 .method public declared-synchronized reset()V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 96

@@ -1,14 +1,44 @@
-.class public final Lcom/google/android/gms/ads/a;
+.class public abstract Lcom/google/android/gms/ads/a;
 .super Ljava/lang/Object;
 
 
 # direct methods
-.method public static a(IILjava/lang/String;)Lcom/google/android/gms/ads/AdSize;
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
-    new-instance v0, Lcom/google/android/gms/ads/AdSize;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/google/android/gms/ads/AdSize;-><init>(IILjava/lang/String;)V
+    return-void
+.end method
 
-    return-object v0
+
+# virtual methods
+.method public a()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public a(I)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public b()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public c()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public d()V
+    .locals 0
+
+    return-void
 .end method

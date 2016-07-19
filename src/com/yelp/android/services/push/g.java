@@ -1,88 +1,70 @@
 package com.yelp.android.services.push;
 
-import android.app.Notification;
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.support.v4.app.NotificationCompat.Action;
-import android.support.v4.app.NotificationCompat.InboxStyle;
-import android.support.v4.app.NotificationCompat.Style;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.RemoteConfigPreferences;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.ui.activities.ActivityLogin;
-import com.yelp.android.ui.activities.support.YelpActivity;
-import java.util.ArrayList;
-import java.util.List;
+import android.os.Bundle;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 public class g
-  extends DefaultPushNotificationHandler
 {
-  public g(Context paramContext, Uri paramUri)
-  {
-    super(paramContext, Notifier.NotificationType.Messages, paramContext.getString(2131166915), paramUri);
-  }
+  private final String a;
+  private final String b;
+  private final String c;
+  private final Uri d;
+  private final Map<String, String> e;
   
-  private Intent a(Uri paramUri, boolean paramBoolean)
+  public g(Bundle paramBundle)
   {
-    Intent localIntent = a(paramUri, a);
-    localIntent.putExtra("conversation_id", a(paramUri));
-    localIntent.putExtra("show_keyboard", paramBoolean);
-    localIntent.setFlags(536870912);
-    return a(localIntent);
-  }
-  
-  private String a(Uri paramUri)
-  {
-    return (String)paramUri.getPathSegments().get(2);
-  }
-  
-  protected int a()
-  {
-    return a(a(b));
-  }
-  
-  public Notification a(m paramm)
-  {
-    int i = paramm.a(c());
-    Object localObject = AppData.b().m().h();
-    if ((i < 2) || ((localObject != null) && (((RemoteConfigPreferences)localObject).e().booleanValue()))) {
-      return super.a(paramm);
+    a = paramBundle.getString("message");
+    b = paramBundle.getString("sender");
+    c = paramBundle.getString("device_id");
+    d = Uri.parse(paramBundle.getString("url"));
+    e = new HashMap();
+    Iterator localIterator = paramBundle.keySet().iterator();
+    while (localIterator.hasNext())
+    {
+      String str = (String)localIterator.next();
+      Object localObject = paramBundle.get(str);
+      if ((localObject instanceof String)) {
+        e.put(str, (String)localObject);
+      }
     }
-    localObject = new NotificationCompat.InboxStyle();
-    ((NotificationCompat.InboxStyle)localObject).addLine((CharSequence)paramm.c(c()).get(0));
-    String str = a(i);
-    ((NotificationCompat.InboxStyle)localObject).setSummaryText(str);
-    List localList = a(DefaultPushNotificationHandler.NotificationViewType.BIG, null);
-    return a(str, paramm.c(), i, (NotificationCompat.Style)localObject, localList, bflags);
   }
   
-  protected Intent a(Intent paramIntent)
+  protected g(g paramg)
   {
-    paramIntent = ActivityLogin.a(AppData.b(), 2131166785, 2131166042, paramIntent);
-    paramIntent.addFlags(268435456);
-    return paramIntent;
+    a = paramg.c();
+    b = paramg.d();
+    c = paramg.g();
+    d = paramg.f();
+    e = paramg.e();
   }
   
-  public Intent a(Intent paramIntent, Uri paramUri, Notifier.NotificationType paramNotificationType, int paramInt)
+  public String c()
   {
-    super.a(paramIntent, paramUri, paramNotificationType, paramInt);
-    return a(paramUri, true);
+    return a;
   }
   
-  public Intent a(Uri paramUri, Notifier.NotificationType paramNotificationType, boolean paramBoolean)
+  public String d()
   {
-    paramUri = a(paramUri, false);
-    YelpActivity.setIntentAsFromPushNotification(paramUri);
-    return paramUri;
+    return b;
   }
   
-  protected List<NotificationCompat.Action> a(DefaultPushNotificationHandler.NotificationViewType paramNotificationViewType, String paramString)
+  public Map<String, String> e()
   {
-    paramNotificationViewType = m.a(c(), "action.REPLY_BUTTON_CLEAR_NOTIFICATIONS", a(), a, b.toString(), paramString);
-    paramString = new ArrayList();
-    paramString.add(new NotificationCompat.Action(2130838104, c().getString(2131166445), paramNotificationViewType));
-    return paramString;
+    return e;
+  }
+  
+  public Uri f()
+  {
+    return d;
+  }
+  
+  public String g()
+  {
+    return c;
   }
 }
 

@@ -1,48 +1,25 @@
 package com.yelp.android.ai;
 
-public class e
+import com.bumptech.glide.load.engine.i;
+
+public class e<Z>
+  implements c<Z, Z>
 {
-  private Class<?> a;
-  private Class<?> b;
+  private static final e<?> a = new e();
   
-  public e() {}
-  
-  public e(Class<?> paramClass1, Class<?> paramClass2)
+  public static <Z> c<Z, Z> b()
   {
-    a(paramClass1, paramClass2);
+    return a;
   }
   
-  public void a(Class<?> paramClass1, Class<?> paramClass2)
+  public i<Z> a(i<Z> parami)
   {
-    a = paramClass1;
-    b = paramClass2;
+    return parami;
   }
   
-  public boolean equals(Object paramObject)
+  public String a()
   {
-    if (this == paramObject) {}
-    do
-    {
-      return true;
-      if ((paramObject == null) || (getClass() != paramObject.getClass())) {
-        return false;
-      }
-      paramObject = (e)paramObject;
-      if (!a.equals(a)) {
-        return false;
-      }
-    } while (b.equals(b));
-    return false;
-  }
-  
-  public int hashCode()
-  {
-    return a.hashCode() * 31 + b.hashCode();
-  }
-  
-  public String toString()
-  {
-    return "MultiClassKey{first=" + a + ", second=" + b + '}';
+    return "";
   }
 }
 

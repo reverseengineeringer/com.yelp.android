@@ -1,37 +1,23 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.Event;
-import java.util.List;
-import org.json.JSONArray;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.ui.activities.reviews.ReviewState;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ds
-  extends h<Void, Void, List<Event>>
+  extends b<Void, Void, ReviewState>
 {
-  public ds(j<List<Event>> paramj)
+  public ds(String paramString, ApiRequest.b<ReviewState> paramb)
   {
-    super(ApiRequest.RequestType.GET, "events/nearby", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
-    addUrlParam("offset", 0);
-    addUrlParam("limit", 5);
+    super(ApiRequest.RequestType.POST, "reviews/draft/delete", paramb);
+    b("business_id", paramString);
   }
   
-  public List<Event> a(JSONObject paramJSONObject)
+  public ReviewState a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    try
-    {
-      JSONArray localJSONArray1 = paramJSONObject.getJSONArray("businesses");
-      JSONArray localJSONArray2 = paramJSONObject.getJSONArray("users");
-      paramJSONObject = Event.buildEventsFromJSONResponse(paramJSONObject.getJSONArray("events"), localJSONArray2, localJSONArray1);
-      return paramJSONObject;
-    }
-    catch (JSONException paramJSONObject)
-    {
-      throw new YelpException(YelpException.YPErrorInvalidData);
-    }
+    return ReviewState.fromDescription(paramJSONObject.getString("user_review_activity"));
   }
 }
 

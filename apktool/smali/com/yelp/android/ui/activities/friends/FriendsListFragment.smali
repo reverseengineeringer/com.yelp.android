@@ -4,28 +4,28 @@
 
 
 # instance fields
-.field private a:Lcom/yelp/android/util/u;
+.field private a:Lcom/yelp/android/util/m;
 
-.field private b:Lcom/yelp/android/ui/util/cj;
+.field private b:Lcom/yelp/android/ui/util/ap;
 
-.field private c:Lcom/yelp/android/appdata/webrequests/gp;
+.field private c:Lcom/yelp/android/appdata/webrequests/fh;
 
 .field private d:Lcom/yelp/android/serializable/User;
 
 .field private e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
-.field private final g:Lcom/yelp/android/appdata/webrequests/m;
+.field private final f:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/gq;",
+            "Lcom/yelp/android/appdata/webrequests/fh$a;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final h:Lcom/yelp/android/ui/panels/aa;
+.field private final g:Lcom/yelp/android/ui/panels/PanelError$a;
 
 
 # direct methods
@@ -36,21 +36,21 @@
     .line 49
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;-><init>()V
 
-    .line 194
-    new-instance v0, Lcom/yelp/android/ui/activities/friends/r;
+    .line 193
+    new-instance v0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/friends/r;-><init>(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment$2;-><init>(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->g:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->f:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 215
-    new-instance v0, Lcom/yelp/android/ui/activities/friends/s;
+    .line 214
+    new-instance v0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment$3;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/friends/s;-><init>(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment$3;-><init>(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->h:Lcom/yelp/android/ui/panels/aa;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->g:Lcom/yelp/android/ui/panels/PanelError$a;
 
-    .line 50
+    .line 49
     return-void
 .end method
 
@@ -80,12 +80,12 @@
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)Lcom/yelp/android/ui/util/cj;
+.method static synthetic a(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)Lcom/yelp/android/ui/util/ap;
     .locals 1
 
     .prologue
     .line 31
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
 
     return-object v0
 .end method
@@ -95,7 +95,7 @@
 
     .prologue
     .line 31
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->f()V
 
     return-void
 .end method
@@ -110,51 +110,51 @@
     return-object v0
 .end method
 
-.method private e()V
+.method private f()V
     .locals 2
 
     .prologue
-    .line 161
+    .line 159
     sget-object v0, Lcom/yelp/android/util/ErrorType;->NO_FRIENDS:Lcom/yelp/android/util/ErrorType;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->h:Lcom/yelp/android/ui/panels/aa;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->g:Lcom/yelp/android/ui/panels/PanelError$a;
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/PanelError$a;)V
 
-    .line 162
+    .line 160
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/EditTextAndClearButton;->setVisibility(I)V
 
-    .line 163
+    .line 161
     return-void
 .end method
 
-.method private f()V
+.method private g()V
     .locals 2
 
     .prologue
-    .line 167
+    .line 165
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a:Lcom/yelp/android/util/u;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a:Lcom/yelp/android/util/m;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 169
+    .line 167
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/friends/q;
+    new-instance v1, Lcom/yelp/android/ui/activities/friends/FriendsListFragment$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/friends/q;-><init>(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment$1;-><init>(Lcom/yelp/android/ui/activities/friends/FriendsListFragment;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/EditTextAndClearButton;->a(Landroid/text/TextWatcher;)V
 
-    .line 192
+    .line 191
     return-void
 .end method
 
@@ -164,27 +164,27 @@
     .locals 2
 
     .prologue
-    .line 147
+    .line 145
     invoke-super/range {p0 .. p5}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->a(Landroid/widget/ListView;Landroid/view/View;IJ)V
 
-    .line 148
+    .line 146
     invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 149
+    .line 147
     instance-of v1, v0, Lcom/yelp/android/serializable/User;
 
     if-eqz v1, :cond_0
 
-    .line 150
+    .line 148
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v0
 
@@ -194,32 +194,16 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 153
+    .line 151
     :cond_0
     return-void
 .end method
 
-.method public a_()V
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 141
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/cj;->clear()V
-
-    .line 142
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->a_()V
-
-    .line 143
-    return-void
-.end method
-
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
-    .locals 1
-
-    .prologue
-    .line 157
+    .line 155
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Friends:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
@@ -229,15 +213,15 @@
     .locals 3
 
     .prologue
-    .line 84
+    .line 83
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 85
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
+    .line 84
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a(Landroid/widget/ListAdapter;)V
 
-    .line 86
+    .line 85
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -246,50 +230,50 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setFastScrollEnabled(Z)V
 
-    .line 90
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
+    .line 89
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/cj;->isEmpty()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ap;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->s()Z
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->r()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 91
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/gp;
+    .line 90
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/fh;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->d:Lcom/yelp/android/serializable/User;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->g:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->f:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/gp;-><init>(Lcom/yelp/android/serializable/User;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/fh;-><init>(Lcom/yelp/android/serializable/User;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/gp;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/fh;
 
-    .line 92
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/gp;
+    .line 91
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/fh;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gp;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fh;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/gp;
+    .line 92
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/fh;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 102
+    .line 101
     :cond_0
     :goto_0
-    new-instance v0, Lcom/yelp/android/util/u;
+    new-instance v0, Lcom/yelp/android/util/m;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
@@ -297,28 +281,28 @@
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/util/u;-><init>(Lcom/yelp/android/ui/widgets/EditTextAndClearButton;Landroid/view/View;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/util/m;-><init>(Lcom/yelp/android/ui/widgets/EditTextAndClearButton;Landroid/view/View;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a:Lcom/yelp/android/util/u;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a:Lcom/yelp/android/util/m;
 
-    .line 105
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->f()V
+    .line 103
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->g()V
 
-    .line 106
+    .line 104
     return-void
 
-    .line 94
+    .line 93
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/cj;->isEmpty()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ap;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 97
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e()V
+    .line 96
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->f()V
 
     goto :goto_0
 .end method
@@ -329,17 +313,17 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 54
+    .line 53
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 55
+    .line 54
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 56
+    .line 55
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -354,53 +338,53 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->d:Lcom/yelp/android/serializable/User;
 
-    .line 58
+    .line 57
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->d:Lcom/yelp/android/serializable/User;
 
     if-nez v0, :cond_1
 
-    .line 59
+    .line 58
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->s()Lcom/yelp/android/serializable/User;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->d:Lcom/yelp/android/serializable/User;
 
-    .line 65
+    .line 64
     :cond_1
-    invoke-static {p1}, Lcom/yelp/android/ui/util/cj;->a(Landroid/os/Bundle;)Lcom/yelp/android/ui/util/cj;
+    invoke-static {p1}, Lcom/yelp/android/ui/util/ap;->a(Landroid/os/Bundle;)Lcom/yelp/android/ui/util/ap;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
+
+    .line 65
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/ap;->a(Z)V
 
     .line 66
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/cj;->a(Z)V
-
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/cj;->getCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ap;->getCount()I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b(I)V
 
-    .line 68
+    .line 67
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->setHasOptionsMenu(Z)V
 
-    .line 69
+    .line 68
     return-void
 .end method
 
@@ -408,18 +392,16 @@
     .locals 3
 
     .prologue
-    const/4 v2, 0x0
-
-    .line 126
+    .line 124
     invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 127
-    const v0, 0x7f100011
+    .line 125
+    const v0, 0x7f100014
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 128
-    const v0, 0x7f0c0505
+    .line 126
+    const v0, 0x7f0f060e
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -429,13 +411,15 @@
 
     move-result-object v1
 
-    invoke-static {v1, v2, v2}, Lcom/yelp/android/ui/activities/friends/ActivityFindFriends;->a(Landroid/content/Context;ZZ)Landroid/content/Intent;
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/activities/friends/ActivityFindFriends;->a(Landroid/content/Context;Z)Landroid/content/Intent;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
 
-    .line 130
+    .line 128
     return-void
 .end method
 
@@ -445,8 +429,8 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 74
-    const v0, 0x7f0300b6
+    .line 73
+    const v0, 0x7f0300d0
 
     const/4 v1, 0x0
 
@@ -454,8 +438,8 @@
 
     move-result-object v1
 
-    .line 75
-    const v0, 0x7f0c016a
+    .line 74
+    const v0, 0x7f0f0589
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -465,24 +449,24 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
-    .line 76
+    .line 75
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
-    const v2, 0x7f070527
+    const v2, 0x7f070524
 
     invoke-virtual {v0, v2}, Lcom/yelp/android/ui/widgets/EditTextAndClearButton;->setHint(I)V
 
-    .line 77
+    .line 76
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/widgets/EditTextAndClearButton;->setFocusable(Z)V
 
-    .line 78
+    .line 77
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->e:Lcom/yelp/android/ui/widgets/EditTextAndClearButton;
 
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/widgets/EditTextAndClearButton;->setFocusableInTouchMode(Z)V
 
-    .line 79
+    .line 78
     return-object v1
 .end method
 
@@ -490,15 +474,15 @@
     .locals 1
 
     .prologue
-    .line 116
+    .line 114
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onDetach()V
 
-    .line 121
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/gp;
+    .line 119
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c:Lcom/yelp/android/appdata/webrequests/fh;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 122
+    .line 120
     return-void
 .end method
 
@@ -506,26 +490,26 @@
     .locals 2
 
     .prologue
-    .line 134
+    .line 132
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
-    .line 135
+    .line 133
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->d:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dc;->a(Lcom/yelp/android/serializable/User;)Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/co;->a(Lcom/yelp/android/serializable/User;)Z
 
     move-result v0
 
-    .line 136
-    const v1, 0x7f0c0505
+    .line 134
+    const v1, 0x7f0f060e
 
     invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -533,7 +517,7 @@
 
     invoke-interface {v1, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 137
+    .line 135
     return-void
 .end method
 
@@ -541,14 +525,30 @@
     .locals 1
 
     .prologue
-    .line 110
+    .line 108
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 111
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/cj;
+    .line 109
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/cj;->b(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/ap;->b(Landroid/os/Bundle;)V
 
-    .line 112
+    .line 110
+    return-void
+.end method
+
+.method public p_()V
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->b:Lcom/yelp/android/ui/util/ap;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ap;->clear()V
+
+    .line 140
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->p_()V
+
+    .line 141
     return-void
 .end method

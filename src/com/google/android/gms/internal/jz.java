@@ -1,100 +1,67 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Typeface;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.widget.Button;
-import com.google.android.gms.R.color;
-import com.google.android.gms.R.drawable;
-import com.google.android.gms.R.string;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URLDecoder;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.regex.Pattern;
 
-public final class jz
-  extends Button
+public class jz
 {
-  public jz(Context paramContext)
-  {
-    this(paramContext, null);
-  }
+  private static final Pattern a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+  private static final Pattern b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
+  private static final Pattern c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
   
-  public jz(Context paramContext, AttributeSet paramAttributeSet)
+  private static String a(String paramString1, String paramString2)
   {
-    super(paramContext, paramAttributeSet, 16842824);
-  }
-  
-  private int b(int paramInt1, int paramInt2, int paramInt3)
-  {
-    switch (paramInt1)
+    if (paramString2 != null) {}
+    for (;;)
     {
-    default: 
-      throw new IllegalStateException("Unknown color scheme: " + paramInt1);
-    case 1: 
-      paramInt2 = paramInt3;
+      try
+      {
+        return URLDecoder.decode(paramString1, paramString2);
+      }
+      catch (UnsupportedEncodingException paramString1)
+      {
+        throw new IllegalArgumentException(paramString1);
+      }
+      paramString2 = "ISO-8859-1";
     }
-    return paramInt2;
   }
   
-  private void b(Resources paramResources, int paramInt1, int paramInt2)
+  public static Map<String, String> a(URI paramURI, String paramString)
   {
-    switch (paramInt1)
+    Object localObject1 = Collections.emptyMap();
+    Object localObject2 = paramURI.getRawQuery();
+    paramURI = (URI)localObject1;
+    if (localObject2 != null)
     {
-    default: 
-      throw new IllegalStateException("Unknown button size: " + paramInt1);
-    }
-    for (paramInt1 = b(paramInt2, R.drawable.common_signin_btn_text_dark, R.drawable.common_signin_btn_text_light); paramInt1 == -1; paramInt1 = b(paramInt2, R.drawable.common_signin_btn_icon_dark, R.drawable.common_signin_btn_icon_light)) {
-      throw new IllegalStateException("Could not find background resource!");
-    }
-    setBackgroundDrawable(paramResources.getDrawable(paramInt1));
-  }
-  
-  private void c(Resources paramResources)
-  {
-    setTypeface(Typeface.DEFAULT_BOLD);
-    setTextSize(14.0F);
-    float f = getDisplayMetricsdensity;
-    setMinHeight((int)(f * 48.0F + 0.5F));
-    setMinWidth((int)(f * 48.0F + 0.5F));
-  }
-  
-  private void c(Resources paramResources, int paramInt1, int paramInt2)
-  {
-    setTextColor(paramResources.getColorStateList(b(paramInt2, R.color.common_signin_btn_text_dark, R.color.common_signin_btn_text_light)));
-    switch (paramInt1)
-    {
-    default: 
-      throw new IllegalStateException("Unknown button size: " + paramInt1);
-    case 0: 
-      setText(paramResources.getString(R.string.common_signin_button_text));
-      return;
-    case 1: 
-      setText(paramResources.getString(R.string.common_signin_button_text_long));
-      return;
-    }
-    setText(null);
-  }
-  
-  public void a(Resources paramResources, int paramInt1, int paramInt2)
-  {
-    if ((paramInt1 >= 0) && (paramInt1 < 3))
-    {
-      bool = true;
-      jx.a(bool, "Unknown button size %d", new Object[] { Integer.valueOf(paramInt1) });
-      if ((paramInt2 < 0) || (paramInt2 >= 2)) {
-        break label86;
+      paramURI = (URI)localObject1;
+      if (((String)localObject2).length() > 0)
+      {
+        localObject1 = new HashMap();
+        localObject2 = new Scanner((String)localObject2);
+        ((Scanner)localObject2).useDelimiter("&");
+        while (((Scanner)localObject2).hasNext())
+        {
+          String[] arrayOfString = ((Scanner)localObject2).next().split("=");
+          if ((arrayOfString.length == 0) || (arrayOfString.length > 2)) {
+            throw new IllegalArgumentException("bad parameter");
+          }
+          String str = a(arrayOfString[0], paramString);
+          paramURI = null;
+          if (arrayOfString.length == 2) {
+            paramURI = a(arrayOfString[1], paramString);
+          }
+          ((Map)localObject1).put(str, paramURI);
+        }
+        paramURI = (URI)localObject1;
       }
     }
-    label86:
-    for (boolean bool = true;; bool = false)
-    {
-      jx.a(bool, "Unknown color scheme %s", new Object[] { Integer.valueOf(paramInt2) });
-      c(paramResources);
-      b(paramResources, paramInt1, paramInt2);
-      c(paramResources, paramInt1, paramInt2);
-      return;
-      bool = false;
-      break;
-    }
+    return paramURI;
   }
 }
 

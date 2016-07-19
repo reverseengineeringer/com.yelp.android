@@ -2,35 +2,87 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _PrivacyPolicy
   implements Parcelable
 {
-  protected String mShareBasicInfoSource;
-  protected String mShareBasicInfoStory;
-  protected String mShareBasicInfoTime;
-  protected String mShareDemographicsSource;
-  protected String mShareDemographicsStory;
-  protected String mShareDemographicsTime;
-  protected String mShareProfileSource;
-  protected String mShareProfileStory;
-  protected String mShareProfileTime;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
   
-  protected _PrivacyPolicy() {}
-  
-  protected _PrivacyPolicy(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, String paramString9)
+  public String a()
   {
-    this();
-    mShareProfileStory = paramString1;
-    mShareProfileSource = paramString2;
-    mShareProfileTime = paramString3;
-    mShareDemographicsStory = paramString4;
-    mShareDemographicsSource = paramString5;
-    mShareDemographicsTime = paramString6;
-    mShareBasicInfoStory = paramString7;
-    mShareBasicInfoSource = paramString8;
-    mShareBasicInfoTime = paramString9;
+    return i;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("share_user_story_title")) {
+      a = paramJSONObject.optString("share_user_story_title");
+    }
+    if (!paramJSONObject.isNull("share_user_source_title")) {
+      b = paramJSONObject.optString("share_user_source_title");
+    }
+    if (!paramJSONObject.isNull("share_user_time_title")) {
+      c = paramJSONObject.optString("share_user_time_title");
+    }
+    if (!paramJSONObject.isNull("share_demo_story_title")) {
+      d = paramJSONObject.optString("share_demo_story_title");
+    }
+    if (!paramJSONObject.isNull("share_demo_source_title")) {
+      e = paramJSONObject.optString("share_demo_source_title");
+    }
+    if (!paramJSONObject.isNull("share_demo_time_title")) {
+      f = paramJSONObject.optString("share_demo_time_title");
+    }
+    if (!paramJSONObject.isNull("share_nothing_story_title")) {
+      g = paramJSONObject.optString("share_nothing_story_title");
+    }
+    if (!paramJSONObject.isNull("share_nothing_source_title")) {
+      h = paramJSONObject.optString("share_nothing_source_title");
+    }
+    if (!paramJSONObject.isNull("share_nothing_time_title")) {
+      i = paramJSONObject.optString("share_nothing_time_title");
+    }
+  }
+  
+  public String b()
+  {
+    return h;
+  }
+  
+  public String c()
+  {
+    return g;
+  }
+  
+  public String d()
+  {
+    return f;
   }
   
   public int describeContents()
@@ -38,106 +90,61 @@ abstract class _PrivacyPolicy
     return 0;
   }
   
-  public String getShareBasicInfoSource()
+  public String e()
   {
-    return mShareBasicInfoSource;
+    return e;
   }
   
-  public String getShareBasicInfoStory()
+  public boolean equals(Object paramObject)
   {
-    return mShareBasicInfoStory;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_PrivacyPolicy)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a();
   }
   
-  public String getShareBasicInfoTime()
+  public String f()
   {
-    return mShareBasicInfoTime;
+    return d;
   }
   
-  public String getShareDemographicsSource()
+  public String g()
   {
-    return mShareDemographicsSource;
+    return c;
   }
   
-  public String getShareDemographicsStory()
+  public String h()
   {
-    return mShareDemographicsStory;
+    return b;
   }
   
-  public String getShareDemographicsTime()
+  public int hashCode()
   {
-    return mShareDemographicsTime;
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a();
   }
   
-  public String getShareProfileSource()
+  public String i()
   {
-    return mShareProfileSource;
-  }
-  
-  public String getShareProfileStory()
-  {
-    return mShareProfileStory;
-  }
-  
-  public String getShareProfileTime()
-  {
-    return mShareProfileTime;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("share_user_story_title")) {
-      mShareProfileStory = paramJSONObject.optString("share_user_story_title");
-    }
-    if (!paramJSONObject.isNull("share_user_source_title")) {
-      mShareProfileSource = paramJSONObject.optString("share_user_source_title");
-    }
-    if (!paramJSONObject.isNull("share_user_time_title")) {
-      mShareProfileTime = paramJSONObject.optString("share_user_time_title");
-    }
-    if (!paramJSONObject.isNull("share_demo_story_title")) {
-      mShareDemographicsStory = paramJSONObject.optString("share_demo_story_title");
-    }
-    if (!paramJSONObject.isNull("share_demo_source_title")) {
-      mShareDemographicsSource = paramJSONObject.optString("share_demo_source_title");
-    }
-    if (!paramJSONObject.isNull("share_demo_time_title")) {
-      mShareDemographicsTime = paramJSONObject.optString("share_demo_time_title");
-    }
-    if (!paramJSONObject.isNull("share_nothing_story_title")) {
-      mShareBasicInfoStory = paramJSONObject.optString("share_nothing_story_title");
-    }
-    if (!paramJSONObject.isNull("share_nothing_source_title")) {
-      mShareBasicInfoSource = paramJSONObject.optString("share_nothing_source_title");
-    }
-    if (!paramJSONObject.isNull("share_nothing_time_title")) {
-      mShareBasicInfoTime = paramJSONObject.optString("share_nothing_time_title");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mShareProfileStory = paramParcel.readString();
-    mShareProfileSource = paramParcel.readString();
-    mShareProfileTime = paramParcel.readString();
-    mShareDemographicsStory = paramParcel.readString();
-    mShareDemographicsSource = paramParcel.readString();
-    mShareDemographicsTime = paramParcel.readString();
-    mShareBasicInfoStory = paramParcel.readString();
-    mShareBasicInfoSource = paramParcel.readString();
-    mShareBasicInfoTime = paramParcel.readString();
+    return a;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mShareProfileStory);
-    paramParcel.writeString(mShareProfileSource);
-    paramParcel.writeString(mShareProfileTime);
-    paramParcel.writeString(mShareDemographicsStory);
-    paramParcel.writeString(mShareDemographicsSource);
-    paramParcel.writeString(mShareDemographicsTime);
-    paramParcel.writeString(mShareBasicInfoStory);
-    paramParcel.writeString(mShareBasicInfoSource);
-    paramParcel.writeString(mShareBasicInfoTime);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeValue(g);
+    paramParcel.writeValue(h);
+    paramParcel.writeValue(i);
   }
 }
 

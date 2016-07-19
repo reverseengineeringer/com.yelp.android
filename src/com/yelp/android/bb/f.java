@@ -1,28 +1,66 @@
 package com.yelp.android.bb;
 
-import android.content.Context;
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.yelp.android.serializable.Conversation;
-import com.yelp.android.serializable.ConversationMessage;
-import com.yelp.android.serializable.bg;
-import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
-import com.yelp.android.ui.activities.profile.ActivityUserProfile;
+import com.google.android.gms.internal.fv;
+import com.yelp.android.be.b;
 
-class f
-  implements View.OnClickListener
+@fv
+public class f
+  extends c.a
 {
-  f(d paramd, ConversationMessage paramConversationMessage, bg parambg) {}
+  private final b a;
   
-  public void onClick(View paramView)
+  public f(b paramb)
   {
-    paramView = paramView.getContext();
-    if (a.getBizUser() == null)
-    {
-      paramView.startActivity(ActivityUserProfile.a(paramView, b.getId()));
-      return;
+    a = paramb;
+  }
+  
+  public void a()
+  {
+    if (a != null) {
+      a.a();
     }
-    paramView.startActivity(ActivityBusinessPage.a(paramView, d.a(c).getBusinessId()));
+  }
+  
+  public void a(int paramInt)
+  {
+    if (a != null) {
+      a.a(paramInt);
+    }
+  }
+  
+  public void a(a parama)
+  {
+    if (a != null) {
+      a.a(new d(parama));
+    }
+  }
+  
+  public void b()
+  {
+    if (a != null) {
+      a.b();
+    }
+  }
+  
+  public void c()
+  {
+    if (a != null) {
+      a.c();
+    }
+  }
+  
+  public void d()
+  {
+    if (a != null) {
+      a.d();
+    }
+  }
+  
+  public void e()
+  {
+    if (a != null) {
+      a.e();
+    }
   }
 }
 

@@ -3,33 +3,42 @@
 .source "MapMaker.java"
 
 # interfaces
-.implements Lcom/yelp/common/collect/g;
+.implements Lcom/yelp/common/collect/MapMaker$b;
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/MapMaker$StrategyImpl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "FutureValueReference"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/yelp/common/collect/g",
+        "Lcom/yelp/common/collect/MapMaker$b",
         "<TK;TV;>;"
     }
 .end annotation
 
 
 # instance fields
-.field final newEntry:Lcom/yelp/common/collect/f;
+.field final newEntry:Lcom/yelp/common/collect/MapMaker$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;"
         }
     .end annotation
 .end field
 
-.field final original:Lcom/yelp/common/collect/f;
+.field final original:Lcom/yelp/common/collect/MapMaker$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;"
         }
     .end annotation
@@ -39,14 +48,14 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/common/collect/MapMaker$StrategyImpl;Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/f;)V
+.method constructor <init>(Lcom/yelp/common/collect/MapMaker$StrategyImpl;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$a;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)V"
         }
     .end annotation
@@ -58,10 +67,10 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 626
-    iput-object p2, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/f;
+    iput-object p2, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/MapMaker$a;
 
     .line 627
-    iput-object p3, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->newEntry:Lcom/yelp/common/collect/f;
+    iput-object p3, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->newEntry:Lcom/yelp/common/collect/MapMaker$a;
 
     .line 628
     return-void
@@ -69,14 +78,14 @@
 
 
 # virtual methods
-.method public copyFor(Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/g;
+.method public copyFor(Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$b;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)",
-            "Lcom/yelp/common/collect/g",
+            "Lcom/yelp/common/collect/MapMaker$b",
             "<TK;TV;>;"
         }
     .end annotation
@@ -87,9 +96,9 @@
 
     iget-object v1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->this$0:Lcom/yelp/common/collect/MapMaker$StrategyImpl;
 
-    iget-object v2, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/f;
+    iget-object v2, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-direct {v0, v1, v2, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;-><init>(Lcom/yelp/common/collect/MapMaker$StrategyImpl;Lcom/yelp/common/collect/f;Lcom/yelp/common/collect/f;)V
+    invoke-direct {v0, v1, v2, p1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;-><init>(Lcom/yelp/common/collect/MapMaker$StrategyImpl;Lcom/yelp/common/collect/MapMaker$a;Lcom/yelp/common/collect/MapMaker$a;)V
 
     return-object v0
 .end method
@@ -106,13 +115,13 @@
     .line 631
     .line 633
     :try_start_0
-    iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/f;
+    iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-interface {v0}, Lcom/yelp/common/collect/f;->getValueReference()Lcom/yelp/common/collect/g;
+    invoke-interface {v0}, Lcom/yelp/common/collect/MapMaker$a;->getValueReference()Lcom/yelp/common/collect/MapMaker$b;
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/yelp/common/collect/g;->get()Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/yelp/common/collect/MapMaker$b;->get()Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -138,11 +147,11 @@
     .line 667
     iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->this$0:Lcom/yelp/common/collect/MapMaker$StrategyImpl;
 
-    iget-object v0, v0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/c;
+    iget-object v0, v0, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->internals:Lcom/yelp/common/collect/CustomConcurrentHashMap$b;
 
-    iget-object v1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->newEntry:Lcom/yelp/common/collect/f;
+    iget-object v1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->newEntry:Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-interface {v0, v1}, Lcom/yelp/common/collect/c;->removeEntry(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$b;->removeEntry(Ljava/lang/Object;)Z
 
     .line 668
     return-void
@@ -156,15 +165,21 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/InterruptedException;
+        }
+    .end annotation
+
     .prologue
     .line 648
     .line 651
     :try_start_0
     iget-object v0, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->this$0:Lcom/yelp/common/collect/MapMaker$StrategyImpl;
 
-    iget-object v1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/f;
+    iget-object v1, p0, Lcom/yelp/common/collect/MapMaker$StrategyImpl$FutureValueReference;->original:Lcom/yelp/common/collect/MapMaker$a;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->waitForValue(Lcom/yelp/common/collect/f;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/yelp/common/collect/MapMaker$StrategyImpl;->waitForValue(Lcom/yelp/common/collect/MapMaker$a;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

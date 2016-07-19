@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/debug/Debug;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "MockLocation"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -33,6 +42,8 @@
 
 .field public static final enum Hamburg:Lcom/yelp/android/debug/Debug$MockLocation;
 
+.field public static final enum HongKong:Lcom/yelp/android/debug/Debug$MockLocation;
+
 .field public static final enum Limerick:Lcom/yelp/android/debug/Debug$MockLocation;
 
 .field public static final enum London:Lcom/yelp/android/debug/Debug$MockLocation;
@@ -59,6 +70,8 @@
 
 .field public static final enum SuburbiaVA:Lcom/yelp/android/debug/Debug$MockLocation;
 
+.field public static final enum Tokyo:Lcom/yelp/android/debug/Debug$MockLocation;
+
 .field public static final enum Toronto:Lcom/yelp/android/debug/Debug$MockLocation;
 
 .field public static final enum VirginIslands:Lcom/yelp/android/debug/Debug$MockLocation;
@@ -81,7 +94,7 @@
     .locals 9
 
     .prologue
-    .line 63
+    .line 71
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "SF"
@@ -98,7 +111,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->SF:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 64
+    .line 72
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Berkeley"
@@ -115,7 +128,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Berkeley:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 65
+    .line 73
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "WashingtonDC"
@@ -132,7 +145,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->WashingtonDC:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 66
+    .line 74
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "SuburbiaVA"
@@ -149,7 +162,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->SuburbiaVA:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 67
+    .line 75
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Bakersfield"
@@ -166,7 +179,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Bakersfield:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 68
+    .line 76
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Bludenz"
@@ -183,7 +196,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Bludenz:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 69
+    .line 77
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Toronto"
@@ -200,7 +213,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Toronto:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 70
+    .line 78
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "NewYork"
@@ -217,7 +230,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->NewYork:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 71
+    .line 79
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "WhiteSands"
@@ -234,7 +247,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->WhiteSands:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 72
+    .line 80
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Portland"
@@ -251,7 +264,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Portland:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 73
+    .line 81
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Rolla"
@@ -268,7 +281,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Rolla:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 74
+    .line 82
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Emeryville"
@@ -285,7 +298,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Emeryville:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 75
+    .line 83
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "SantaMonica"
@@ -302,7 +315,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->SantaMonica:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 76
+    .line 84
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "NobHill"
@@ -319,7 +332,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->NobHill:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 77
+    .line 85
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Austin"
@@ -336,7 +349,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Austin:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 80
+    .line 88
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "VirginIslands"
@@ -353,7 +366,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->VirginIslands:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 81
+    .line 89
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "PuertoRico"
@@ -370,7 +383,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->PuertoRico:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 82
+    .line 90
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Guam"
@@ -387,7 +400,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Guam:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 85
+    .line 93
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Hamburg"
@@ -404,7 +417,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Hamburg:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 88
+    .line 96
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "London"
@@ -421,7 +434,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->London:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 89
+    .line 97
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "SouthManchester"
@@ -438,7 +451,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->SouthManchester:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 92
+    .line 100
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Dublin"
@@ -455,7 +468,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Dublin:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 93
+    .line 101
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Limerick"
@@ -472,7 +485,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Limerick:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 96
+    .line 104
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "Paris"
@@ -489,7 +502,7 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Paris:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 99
+    .line 107
     new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
 
     const-string/jumbo v2, "MexicoCity"
@@ -506,8 +519,42 @@
 
     sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->MexicoCity:Lcom/yelp/android/debug/Debug$MockLocation;
 
-    .line 62
-    const/16 v0, 0x19
+    .line 110
+    new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
+
+    const-string/jumbo v2, "Tokyo"
+
+    const/16 v3, 0x19
+
+    const-wide v4, 0x4041d870196d8f50L    # 35.690921
+
+    const-wide v6, 0x4061766883771865L    # 139.700258
+
+    const/high16 v8, 0x42480000    # 50.0f
+
+    invoke-direct/range {v1 .. v8}, Lcom/yelp/android/debug/Debug$MockLocation;-><init>(Ljava/lang/String;IDDF)V
+
+    sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->Tokyo:Lcom/yelp/android/debug/Debug$MockLocation;
+
+    .line 113
+    new-instance v1, Lcom/yelp/android/debug/Debug$MockLocation;
+
+    const-string/jumbo v2, "HongKong"
+
+    const/16 v3, 0x1a
+
+    const-wide v4, 0x40364819008205ffL    # 22.2816315
+
+    const-wide v6, 0x405c8a32243f7a69L    # 114.1593104
+
+    const/high16 v8, 0x42480000    # 50.0f
+
+    invoke-direct/range {v1 .. v8}, Lcom/yelp/android/debug/Debug$MockLocation;-><init>(Ljava/lang/String;IDDF)V
+
+    sput-object v1, Lcom/yelp/android/debug/Debug$MockLocation;->HongKong:Lcom/yelp/android/debug/Debug$MockLocation;
+
+    .line 70
+    const/16 v0, 0x1b
 
     new-array v0, v0, [Lcom/yelp/android/debug/Debug$MockLocation;
 
@@ -661,6 +708,18 @@
 
     aput-object v2, v0, v1
 
+    const/16 v1, 0x19
+
+    sget-object v2, Lcom/yelp/android/debug/Debug$MockLocation;->Tokyo:Lcom/yelp/android/debug/Debug$MockLocation;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x1a
+
+    sget-object v2, Lcom/yelp/android/debug/Debug$MockLocation;->HongKong:Lcom/yelp/android/debug/Debug$MockLocation;
+
+    aput-object v2, v0, v1
+
     sput-object v0, Lcom/yelp/android/debug/Debug$MockLocation;->$VALUES:[Lcom/yelp/android/debug/Debug$MockLocation;
 
     return-void
@@ -675,19 +734,19 @@
     .end annotation
 
     .prologue
-    .line 104
+    .line 117
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 105
+    .line 118
     iput-wide p3, p0, Lcom/yelp/android/debug/Debug$MockLocation;->lat:D
 
-    .line 106
+    .line 119
     iput-wide p5, p0, Lcom/yelp/android/debug/Debug$MockLocation;->lon:D
 
-    .line 107
+    .line 120
     iput p7, p0, Lcom/yelp/android/debug/Debug$MockLocation;->acc:F
 
-    .line 108
+    .line 121
     return-void
 .end method
 
@@ -695,7 +754,7 @@
     .locals 1
 
     .prologue
-    .line 62
+    .line 70
     const-class v0, Lcom/yelp/android/debug/Debug$MockLocation;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -711,7 +770,7 @@
     .locals 1
 
     .prologue
-    .line 62
+    .line 70
     sget-object v0, Lcom/yelp/android/debug/Debug$MockLocation;->$VALUES:[Lcom/yelp/android/debug/Debug$MockLocation;
 
     invoke-virtual {v0}, [Lcom/yelp/android/debug/Debug$MockLocation;->clone()Ljava/lang/Object;
@@ -734,45 +793,45 @@
     .end annotation
 
     .prologue
-    .line 112
+    .line 125
     new-instance v0, Landroid/location/Location;
 
     const-string/jumbo v1, "Mock"
 
     invoke-direct {v0, v1}, Landroid/location/Location;-><init>(Ljava/lang/String;)V
 
-    .line 113
+    .line 126
     iget-wide v2, p0, Lcom/yelp/android/debug/Debug$MockLocation;->lat:D
 
     invoke-virtual {v0, v2, v3}, Landroid/location/Location;->setLatitude(D)V
 
-    .line 114
+    .line 127
     iget-wide v2, p0, Lcom/yelp/android/debug/Debug$MockLocation;->lon:D
 
     invoke-virtual {v0, v2, v3}, Landroid/location/Location;->setLongitude(D)V
 
-    .line 115
+    .line 128
     iget v1, p0, Lcom/yelp/android/debug/Debug$MockLocation;->acc:F
 
     invoke-virtual {v0, v1}, Landroid/location/Location;->setAccuracy(F)V
 
-    .line 118
+    .line 131
     const/16 v1, 0x11
 
-    invoke-static {v1}, Lcom/yelp/android/appdata/n;->a(I)Z
+    invoke-static {v1}, Lcom/yelp/android/appdata/f;->a(I)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 119
+    .line 132
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     invoke-virtual {v0, v2, v3}, Landroid/location/Location;->setElapsedRealtimeNanos(J)V
 
-    .line 121
+    .line 134
     :cond_0
     return-object v0
 .end method

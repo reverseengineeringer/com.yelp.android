@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 public class c
-  extends com.yelp.android.al.b
+  extends com.yelp.android.ar.b
 {
   protected c(com.comscore.analytics.a parama, EventType paramEventType, String paramString)
   {
@@ -23,7 +23,7 @@ public class c
   protected c(com.comscore.analytics.a parama, EventType paramEventType, String paramString, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3)
   {
     super(parama);
-    parama.s(paramBoolean3);
+    parama.t(paramBoolean3);
     if (paramBoolean3)
     {
       i = parama.c(paramBoolean2);
@@ -41,73 +41,73 @@ public class c
       int k = parama.n(paramBoolean2);
       int m = parama.o(paramBoolean2);
       int n = parama.p(paramBoolean2);
-      b(new com.yelp.android.al.a("ns_ap_fg", String.valueOf(i), Boolean.valueOf(false)));
-      b(new com.yelp.android.al.a("ns_ap_ft", String.valueOf(l1), Boolean.valueOf(false)));
-      b(new com.yelp.android.al.a("ns_ap_dft", String.valueOf(l2), Boolean.valueOf(false)));
-      b(new com.yelp.android.al.a("ns_ap_bt", String.valueOf(l3), Boolean.valueOf(false)));
-      b(new com.yelp.android.al.a("ns_ap_dbt", String.valueOf(l4), Boolean.valueOf(false)));
-      b(new com.yelp.android.al.a("ns_ap_it", String.valueOf(l5), Boolean.valueOf(false)));
-      b(new com.yelp.android.al.a("ns_ap_dit", String.valueOf(l6), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_fg", String.valueOf(i), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_ft", String.valueOf(l1), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_dft", String.valueOf(l2), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_bt", String.valueOf(l3), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_dbt", String.valueOf(l4), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_it", String.valueOf(l5), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_dit", String.valueOf(l6), Boolean.valueOf(false)));
       if (l10 >= 60000L) {
-        b(new com.yelp.android.al.a("ns_ap_ut", String.valueOf(l10), Boolean.valueOf(false)));
+        b(new com.yelp.android.ar.a("ns_ap_ut", String.valueOf(l10), Boolean.valueOf(false)));
       }
-      b(new com.yelp.android.al.a("ns_ap_as", String.valueOf(j), Boolean.valueOf(false)));
-      b(new com.yelp.android.al.a("ns_ap_das", String.valueOf(l7), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_as", String.valueOf(j), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_das", String.valueOf(l7), Boolean.valueOf(false)));
       if (k >= 0)
       {
-        b(new com.yelp.android.al.a("ns_ap_aus", String.valueOf(k), Boolean.valueOf(false)));
-        b(new com.yelp.android.al.a("ns_ap_daus", String.valueOf(l8), Boolean.valueOf(false)));
-        b(new com.yelp.android.al.a("ns_ap_uc", String.valueOf(n), Boolean.valueOf(false)));
+        b(new com.yelp.android.ar.a("ns_ap_aus", String.valueOf(k), Boolean.valueOf(false)));
+        b(new com.yelp.android.ar.a("ns_ap_daus", String.valueOf(l8), Boolean.valueOf(false)));
+        b(new com.yelp.android.ar.a("ns_ap_uc", String.valueOf(n), Boolean.valueOf(false)));
       }
       if (m >= 0)
       {
-        b(new com.yelp.android.al.a("ns_ap_us", String.valueOf(m), Boolean.valueOf(false)));
-        b(new com.yelp.android.al.a("ns_ap_dus", String.valueOf(l9), Boolean.valueOf(false)));
+        b(new com.yelp.android.ar.a("ns_ap_us", String.valueOf(m), Boolean.valueOf(false)));
+        b(new com.yelp.android.ar.a("ns_ap_dus", String.valueOf(l9), Boolean.valueOf(false)));
       }
-      b(new com.yelp.android.al.a("ns_ap_usage", Long.toString(c - parama.X()), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ap_usage", Long.toString(c - parama.X()), Boolean.valueOf(false)));
     }
     if (paramString != null) {
       b(paramString);
     }
-    b(new com.yelp.android.al.a("c1", "19", Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_an", parama.V(), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_pn", "android", Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("c12", parama.S(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("c1", "19", Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_an", parama.V(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_pn", "android", Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("c12", parama.S(), Boolean.valueOf(false)));
     if (parama.R() != null)
     {
-      b(new com.yelp.android.al.a("ns_ak", parama.R(), Boolean.valueOf(false)));
+      b(new com.yelp.android.ar.a("ns_ak", parama.R(), Boolean.valueOf(false)));
       if (parama.T().a()) {
-        b(new com.yelp.android.al.a("ns_ap_ni", "1", Boolean.valueOf(false)));
+        b(new com.yelp.android.ar.a("ns_ap_ni", "1", Boolean.valueOf(false)));
       }
     }
     if (parama.T().g() != null) {
       a("ns_ap_i3", parama.T().g());
     }
-    b(new com.yelp.android.al.a("ns_ap_device", Build.DEVICE, Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_type", a(paramEventType).toString(), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ts", Long.toString(c), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_nc", "1", Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_pfv", Build.VERSION.RELEASE, Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_pv", Build.VERSION.RELEASE, Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_pfm", "android", Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_ar", System.getProperty("os.arch"), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_ev", paramEventType.toString(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_device", Build.DEVICE, Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_type", a(paramEventType).toString(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ts", Long.toString(c), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_nc", "1", Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_pfv", Build.VERSION.RELEASE, Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_pv", Build.VERSION.RELEASE, Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_pfm", "android", Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_ar", System.getProperty("os.arch"), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_ev", paramEventType.toString(), Boolean.valueOf(false)));
     paramString = parama.N();
-    b(new com.yelp.android.al.a("ns_ap_ver", parama.K(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_ver", parama.K(), Boolean.valueOf(false)));
     paramString = a(paramString);
     int i = x;
     int j = y;
-    b(new com.yelp.android.al.a("ns_ap_res", Integer.toString(i) + "x" + Integer.toString(j), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_lang", Locale.getDefault().getLanguage(), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_sv", parama.W(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_res", Integer.toString(i) + "x" + Integer.toString(j), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_lang", Locale.getDefault().getLanguage(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_sv", parama.W(), Boolean.valueOf(false)));
     if (paramEventType.equals(EventType.KEEPALIVE)) {
       a("ns_ap_oc", String.valueOf(parama.p().c()));
     }
     long l1 = parama.I();
     i = parama.J();
-    b(new com.yelp.android.al.a("ns_ap_id", String.valueOf(l1), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_cs", String.valueOf(i), Boolean.valueOf(false)));
-    b(new com.yelp.android.al.a("ns_ap_bi", parama.N().getPackageName(), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_id", String.valueOf(l1), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_cs", String.valueOf(i), Boolean.valueOf(false)));
+    b(new com.yelp.android.ar.a("ns_ap_bi", parama.N().getPackageName(), Boolean.valueOf(false)));
   }
   
   @SuppressLint({"NewApi"})

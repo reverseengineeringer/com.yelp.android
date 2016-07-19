@@ -3,6 +3,17 @@
 .source "LinearLayoutCompat.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v7/widget/LinearLayoutCompat;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "LayoutParams"
+.end annotation
+
+
 # instance fields
 .field public g:F
 
@@ -44,14 +55,14 @@
     iput v3, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->h:I
 
     .line 1778
-    sget-object v0, Lcom/yelp/android/g/l;->LinearLayoutCompat_Layout:[I
+    sget-object v0, Lcom/yelp/android/j/a$k;->LinearLayoutCompat_Layout:[I
 
     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
     .line 1781
-    sget v1, Lcom/yelp/android/g/l;->LinearLayoutCompat_Layout_android_layout_weight:I
+    sget v1, Lcom/yelp/android/j/a$k;->LinearLayoutCompat_Layout_android_layout_weight:I
 
     const/4 v2, 0x0
 
@@ -62,7 +73,7 @@
     iput v1, p0, Landroid/support/v7/widget/LinearLayoutCompat$LayoutParams;->g:F
 
     .line 1782
-    sget v1, Lcom/yelp/android/g/l;->LinearLayoutCompat_Layout_android_layout_gravity:I
+    sget v1, Lcom/yelp/android/j/a$k;->LinearLayoutCompat_Layout_android_layout_gravity:I
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getInt(II)I
 

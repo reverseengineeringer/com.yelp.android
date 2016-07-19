@@ -1,12 +1,14 @@
 package com.bumptech.glide.request;
 
-import com.yelp.android.ag.j;
-
-public abstract interface c<T, R>
+public abstract interface c
 {
-  public abstract boolean onException(Exception paramException, T paramT, j<R> paramj, boolean paramBoolean);
+  public abstract boolean a(b paramb);
   
-  public abstract boolean onResourceReady(R paramR, T paramT, j<R> paramj, boolean paramBoolean1, boolean paramBoolean2);
+  public abstract boolean b(b paramb);
+  
+  public abstract void c(b paramb);
+  
+  public abstract boolean c();
 }
 
 /* Location:

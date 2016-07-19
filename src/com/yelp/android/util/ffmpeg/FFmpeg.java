@@ -1,11 +1,11 @@
 package com.yelp.android.util.ffmpeg;
 
 import android.content.Context;
-import android.util.Log;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.n;
-import com.yelp.android.util.aj;
-import com.yelp.android.util.l;
+import com.yelp.android.appdata.f;
+import com.yelp.android.util.YelpLog;
+import com.yelp.android.util.e;
+import com.yelp.android.util.t;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -27,7 +27,7 @@ public class FFmpeg
     }
     catch (IOException paramContext)
     {
-      Log.e("FFmpeg", "FFmpeg not loaded or cannot be executed!", paramContext);
+      YelpLog.remoteError("FFmpeg", "FFmpeg not loaded or cannot be executed!", paramContext);
     }
     return null;
   }
@@ -35,22 +35,17 @@ public class FFmpeg
   private static String a()
   {
     String str = null;
-    if (n.a(16)) {
-      if (com.yelp.android.util.b.a()) {
-        str = "arm/pie/ffmpeg";
-      }
+    if (com.yelp.android.util.b.a()) {
+      str = "arm/pie/ffmpeg";
     }
-    do
+    while (!com.yelp.android.util.b.b()) {
+      return str;
+    }
+    if (f.a(21))
     {
-      do
-      {
-        return str;
-      } while (!com.yelp.android.util.b.b());
+      YelpLog.remoteError("FFmpeg", "There was an x86 device with API 21+");
       return null;
-      if (com.yelp.android.util.b.a()) {
-        return "arm/ffmpeg";
-      }
-    } while (!com.yelp.android.util.b.b());
+    }
     return "x86/ffmpeg";
   }
   
@@ -66,14 +61,14 @@ public class FFmpeg
     String str = a();
     if (str == null)
     {
-      AppData.a("FFmpeg", "CPU not supported.", new Object[0]);
+      YelpLog.remoteError("FFmpeg", "CPU not supported.");
       a = Boolean.valueOf(false);
       return false;
     }
     AppData.a("FFmpeg", "Copying FFmpeg from asset '" + str + "'.", new Object[0]);
-    if (!l.a(str, "ffmpeg"))
+    if (!e.a(str, "ffmpeg"))
     {
-      AppData.a("FFmpeg", "Couldn't copy FFmpeg.", new Object[0]);
+      YelpLog.remoteError("FFmpeg", "Couldn't copy FFmpeg.");
       a = Boolean.valueOf(false);
       return false;
     }
@@ -83,13 +78,13 @@ public class FFmpeg
   public static boolean a(File paramFile)
   {
     AppData.a("FFmpeg", "Verifying file is supported: " + paramFile.getAbsolutePath(), new Object[0]);
-    if (!aj.a(paramFile)) {
+    if (!t.a(paramFile)) {
       return false;
     }
     File localFile = new File(AppData.b().getFilesDir(), "test.webm");
     AtomicBoolean localAtomicBoolean = new AtomicBoolean(false);
     paramFile = new b(paramFile, 0, 10, 320, 320, 0, null, localFile);
-    paramFile.a(new c(localAtomicBoolean));
+    paramFile.a(new FFmpeg.1(localAtomicBoolean));
     paramFile.run();
     return localAtomicBoolean.get();
   }
@@ -107,7 +102,7 @@ public class FFmpeg
     a = Boolean.valueOf(false);
     File localFile = b(paramContext);
     if (!localFile.exists()) {
-      AppData.a("FFmpeg", "ffmpeg doesn't exist.", new Object[0]);
+      YelpLog.remoteError("FFmpeg", "ffmpeg doesn't exist.");
     }
     for (;;)
     {
@@ -119,24 +114,24 @@ public class FFmpeg
       else
       {
         AppData.a("FFmpeg", "ffmpeg is executable, testing -version.", new Object[0]);
-        paramContext = new d().a("-version", new Object[0]).a(paramContext);
+        paramContext = new c().a("-version", new Object[0]).a(paramContext);
         if (paramContext != null)
         {
           try
           {
             if (paramContext.waitFor() != 0) {
-              break label144;
+              break label133;
             }
             a = Boolean.valueOf(true);
           }
           catch (InterruptedException paramContext)
           {
-            AppData.a("FFmpeg", "'ffmpeg -version' can't be executed.", new Object[] { paramContext });
+            YelpLog.remoteError("FFmpeg", "'ffmpeg -version' can't be executed.", paramContext);
           }
         }
         else
         {
-          label144:
+          label133:
           AppData.a("FFmpeg", "'ffmpeg -version' failed!", new Object[0]);
           AppData.a("FFmpeg", paramContext);
         }

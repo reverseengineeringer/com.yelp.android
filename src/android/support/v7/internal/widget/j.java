@@ -1,20 +1,127 @@
 package android.support.v7.internal.widget;
 
-import android.support.v4.view.ce;
-import android.support.v4.view.eh;
-
-class j
-  implements Runnable
+public class j
 {
-  j(ActionBarOverlayLayout paramActionBarOverlayLayout) {}
+  private int a = 0;
+  private int b = 0;
+  private int c = Integer.MIN_VALUE;
+  private int d = Integer.MIN_VALUE;
+  private int e = 0;
+  private int f = 0;
+  private boolean g = false;
+  private boolean h = false;
   
-  public void run()
+  public int a()
   {
-    ActionBarOverlayLayout.a(a);
-    ActionBarOverlayLayout.a(a, ce.q(ActionBarOverlayLayout.c(a)).c(0.0F).a(ActionBarOverlayLayout.b(a)));
-    if ((ActionBarOverlayLayout.d(a) != null) && (ActionBarOverlayLayout.d(a).getVisibility() != 8)) {
-      ActionBarOverlayLayout.b(a, ce.q(ActionBarOverlayLayout.d(a)).c(0.0F).a(ActionBarOverlayLayout.e(a)));
+    return a;
+  }
+  
+  public void a(int paramInt1, int paramInt2)
+  {
+    c = paramInt1;
+    d = paramInt2;
+    h = true;
+    if (g)
+    {
+      if (paramInt2 != Integer.MIN_VALUE) {
+        a = paramInt2;
+      }
+      if (paramInt1 != Integer.MIN_VALUE) {
+        b = paramInt1;
+      }
     }
+    do
+    {
+      return;
+      if (paramInt1 != Integer.MIN_VALUE) {
+        a = paramInt1;
+      }
+    } while (paramInt2 == Integer.MIN_VALUE);
+    b = paramInt2;
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    if (paramBoolean == g) {
+      return;
+    }
+    g = paramBoolean;
+    if (h)
+    {
+      if (paramBoolean)
+      {
+        if (d != Integer.MIN_VALUE)
+        {
+          i = d;
+          a = i;
+          if (c == Integer.MIN_VALUE) {
+            break label72;
+          }
+        }
+        label72:
+        for (i = c;; i = f)
+        {
+          b = i;
+          return;
+          i = e;
+          break;
+        }
+      }
+      if (c != Integer.MIN_VALUE)
+      {
+        i = c;
+        a = i;
+        if (d == Integer.MIN_VALUE) {
+          break label127;
+        }
+      }
+      label127:
+      for (int i = d;; i = f)
+      {
+        b = i;
+        return;
+        i = e;
+        break;
+      }
+    }
+    a = e;
+    b = f;
+  }
+  
+  public int b()
+  {
+    return b;
+  }
+  
+  public void b(int paramInt1, int paramInt2)
+  {
+    h = false;
+    if (paramInt1 != Integer.MIN_VALUE)
+    {
+      e = paramInt1;
+      a = paramInt1;
+    }
+    if (paramInt2 != Integer.MIN_VALUE)
+    {
+      f = paramInt2;
+      b = paramInt2;
+    }
+  }
+  
+  public int c()
+  {
+    if (g) {
+      return b;
+    }
+    return a;
+  }
+  
+  public int d()
+  {
+    if (g) {
+      return a;
+    }
+    return b;
   }
 }
 

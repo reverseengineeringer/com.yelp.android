@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:background="@android:color/white" android:paddingLeft="?leftGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<LinearLayout android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout android:id="@id/businesspage_button" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:attr/buttonStyle">
-        <TextView android:textAppearance="@style/LargeDarkText" android:gravity="center" android:id="@id/businesspage_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:drawablePadding="?baseGapSize" android:layout_centerInParent="true" />
+        <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:gravity="center" android:id="@id/businesspage_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:drawablePadding="@dimen/default_base_gap_size" android:layout_centerInParent="true" />
     </RelativeLayout>
 </LinearLayout>

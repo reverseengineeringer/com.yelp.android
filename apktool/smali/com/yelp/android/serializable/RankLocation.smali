@@ -18,10 +18,10 @@
     .end annotation
 .end field
 
-.field public static final LAZY_CREATOR:Lcom/yelp/android/serializable/az;
+.field public static final a:Lcom/yelp/android/serializable/c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/az",
+            "Lcom/yelp/android/serializable/c",
             "<",
             "Lcom/yelp/android/serializable/RankLocation;",
             ">;"
@@ -31,15 +31,15 @@
 
 
 # instance fields
-.field private final mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+.field private final b:Ljava/lang/String;
 
-.field private final mId:Ljava/lang/String;
+.field private final c:Ljava/lang/String;
 
-.field private final mName:Ljava/lang/String;
+.field private final d:I
 
-.field private final mRank:Lcom/yelp/android/serializable/RankTitle$Rank;
+.field private final e:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-.field private final mTopUserCount:I
+.field private final f:Lcom/yelp/android/serializable/YelpBusiness;
 
 
 # direct methods
@@ -47,17 +47,17 @@
     .locals 1
 
     .prologue
-    .line 26
-    new-instance v0, Lcom/yelp/android/serializable/cd;
+    .line 27
+    new-instance v0, Lcom/yelp/android/serializable/RankLocation$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/cd;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/RankLocation$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/RankLocation;->LAZY_CREATOR:Lcom/yelp/android/serializable/az;
+    sput-object v0, Lcom/yelp/android/serializable/RankLocation;->a:Lcom/yelp/android/serializable/c;
 
-    .line 50
-    new-instance v0, Lcom/yelp/android/serializable/ce;
+    .line 53
+    new-instance v0, Lcom/yelp/android/serializable/RankLocation$2;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/ce;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/RankLocation$2;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/RankLocation;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -68,86 +68,76 @@
     .locals 0
 
     .prologue
-    .line 18
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 19
-    iput-object p1, p0, Lcom/yelp/android/serializable/RankLocation;->mId:Ljava/lang/String;
-
     .line 20
-    iput-object p2, p0, Lcom/yelp/android/serializable/RankLocation;->mName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/yelp/android/serializable/RankLocation;->b:Ljava/lang/String;
 
     .line 21
-    iput-object p4, p0, Lcom/yelp/android/serializable/RankLocation;->mRank:Lcom/yelp/android/serializable/RankTitle$Rank;
+    iput-object p2, p0, Lcom/yelp/android/serializable/RankLocation;->c:Ljava/lang/String;
 
     .line 22
-    iput p3, p0, Lcom/yelp/android/serializable/RankLocation;->mTopUserCount:I
+    iput-object p4, p0, Lcom/yelp/android/serializable/RankLocation;->e:Lcom/yelp/android/serializable/RankTitle$Rank;
 
     .line 23
-    iput-object p5, p0, Lcom/yelp/android/serializable/RankLocation;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iput p3, p0, Lcom/yelp/android/serializable/RankLocation;->d:I
 
     .line 24
+    iput-object p5, p0, Lcom/yelp/android/serializable/RankLocation;->f:Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 25
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 77
-    const/4 v0, 0x0
+    .line 88
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 92
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c()I
+    .locals 1
+
+    .prologue
+    .line 96
+    iget v0, p0, Lcom/yelp/android/serializable/RankLocation;->d:I
 
     return v0
 .end method
 
-.method public getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+.method public d()Lcom/yelp/android/serializable/YelpBusiness;
     .locals 1
 
     .prologue
-    .line 97
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 104
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->f:Lcom/yelp/android/serializable/YelpBusiness;
 
     return-object v0
 .end method
 
-.method public getId()Ljava/lang/String;
+.method public describeContents()I
     .locals 1
 
     .prologue
-    .line 81
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 85
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getRank()Lcom/yelp/android/serializable/RankTitle$Rank;
-    .locals 1
-
-    .prologue
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mRank:Lcom/yelp/android/serializable/RankTitle$Rank;
-
-    return-object v0
-.end method
-
-.method public getTopUserCount()I
-    .locals 1
-
-    .prologue
-    .line 89
-    iget v0, p0, Lcom/yelp/android/serializable/RankLocation;->mTopUserCount:I
+    .line 84
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -156,23 +146,23 @@
     .locals 2
 
     .prologue
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mId:Ljava/lang/String;
+    .line 75
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->b:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mName:Ljava/lang/String;
+    .line 76
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->c:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 70
-    iget v0, p0, Lcom/yelp/android/serializable/RankLocation;->mTopUserCount:I
+    .line 77
+    iget v0, p0, Lcom/yelp/android/serializable/RankLocation;->d:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 71
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mRank:Lcom/yelp/android/serializable/RankTitle$Rank;
+    .line 78
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->e:Lcom/yelp/android/serializable/RankTitle$Rank;
 
     if-nez v0, :cond_0
 
@@ -181,19 +171,19 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 79
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->f:Lcom/yelp/android/serializable/YelpBusiness;
 
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 73
+    .line 80
     return-void
 
-    .line 71
+    .line 78
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->mRank:Lcom/yelp/android/serializable/RankTitle$Rank;
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankLocation;->e:Lcom/yelp/android/serializable/RankTitle$Rank;
 
     invoke-virtual {v0}, Lcom/yelp/android/serializable/RankTitle$Rank;->name()Ljava/lang/String;
 

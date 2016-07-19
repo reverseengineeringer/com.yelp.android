@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/search_icon" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/icon_border" android:layout_width="@dimen/starburst_width" android:layout_height="@dimen/starburst_height" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.9" />
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/dino_confirmed" android:contentDescription="@null" />
+    </FrameLayout>
+    <TextView android:textAppearance="@style/HeadlineText" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/account_confirmed" />
+    <TextView android:textAppearance="@style/DeprecatedStandardText" android:paddingLeft="@dimen/default_large_gap_size" android:paddingTop="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/thats_it_ready_to_resume" />
+    <View android:background="@drawable/divider_line" android:paddingTop="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <Button android:id="@id/ok_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_large_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:text="@string/ok_got_it" />
+</LinearLayout>

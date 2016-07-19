@@ -1,18 +1,29 @@
 package com.yelp.android.ui.activities.mutatebiz;
 
-import com.yelp.android.ui.dialogs.ap;
-import com.yelp.android.ui.dialogs.ar;
+import android.net.Uri;
+import android.os.Parcelable;
+import android.view.View.OnClickListener;
+import java.util.ArrayList;
 
-class d
-  implements ar
+public abstract interface d
 {
-  d(AddAddressFragment paramAddAddressFragment) {}
+  public abstract void a(Uri paramUri);
   
-  public void a(ap paramap)
-  {
-    a.a = true;
-    AddAddressFragment.a(a, paramap.b(), paramap.a());
-  }
+  public abstract void a(CharSequence paramCharSequence1, CharSequence paramCharSequence2);
+  
+  public abstract void a(CharSequence paramCharSequence, ArrayList<? extends Parcelable> paramArrayList);
+  
+  public abstract void a(CharSequence paramCharSequence, Parcelable... paramVarArgs);
+  
+  public abstract Uri getAttachment();
+  
+  public abstract CharSequence getCharSequenceData();
+  
+  public abstract Parcelable[] getParcelableArrayData();
+  
+  public abstract <T extends Parcelable> ArrayList<T> getParcelableArrayListData();
+  
+  public abstract void setOnClickListener(View.OnClickListener paramOnClickListener);
 }
 
 /* Location:

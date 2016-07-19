@@ -11,7 +11,7 @@ public final class StateBroadcastReceiver
   extends BroadcastReceiver
 {
   public static final IntentFilter a = new IntentFilter();
-  final WeakReference<ar> b;
+  final WeakReference<a> b;
   
   static
   {
@@ -20,24 +20,24 @@ public final class StateBroadcastReceiver
     a.addCategory("com.yelp.android.action.CATEGORY_STATE");
   }
   
-  public StateBroadcastReceiver(ar paramar)
+  public StateBroadcastReceiver(a parama)
   {
-    b = new WeakReference(paramar);
+    b = new WeakReference(parama);
   }
   
-  public static StateBroadcastReceiver a(Context paramContext, ar paramar)
+  public static StateBroadcastReceiver a(Context paramContext, a parama)
   {
     paramContext = paramContext.getApplicationContext();
-    StateBroadcastReceiver localStateBroadcastReceiver = new StateBroadcastReceiver(paramar);
-    YelpLog.i(paramar, "Registering for state updates");
+    StateBroadcastReceiver localStateBroadcastReceiver = new StateBroadcastReceiver(parama);
+    YelpLog.i(parama, "Registering for state updates");
     paramContext.registerReceiver(localStateBroadcastReceiver, a);
     return localStateBroadcastReceiver;
   }
   
   public void onReceive(Context paramContext, Intent paramIntent)
   {
-    ar localar = (ar)b.get();
-    if (localar == null)
+    a locala = (a)b.get();
+    if (locala == null)
     {
       YelpLog.i(this, "Unregistering listener");
       paramContext.unregisterReceiver(this);
@@ -48,13 +48,20 @@ public final class StateBroadcastReceiver
       paramIntent = paramIntent.getAction();
       if ("com.yelp.android.action.ON_BACKGROUNDING".equals(paramIntent))
       {
-        YelpLog.w(localar, "Background application state");
-        localar.b(paramContext);
+        YelpLog.w(locala, "Background application state");
+        locala.b(paramContext);
         return;
       }
     } while (!"com.yelp.android.action.ON_WAKE".equals(paramIntent));
-    YelpLog.w(localar, "Waking up application state");
-    localar.a(paramContext);
+    YelpLog.w(locala, "Waking up application state");
+    locala.a(paramContext);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(Context paramContext);
+    
+    public abstract void b(Context paramContext);
   }
 }
 

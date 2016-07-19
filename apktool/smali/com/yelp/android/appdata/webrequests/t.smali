@@ -1,108 +1,164 @@
 .class public Lcom/yelp/android/appdata/webrequests/t;
-.super Lcom/yelp/android/av/g;
-.source "BizAttributeVoteRequest.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/yelp/android/av/g",
-        "<",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        "Ljava/util/ArrayList",
-        "<",
-        "Ljava/lang/String;",
-        ">;>;"
-    }
-.end annotation
+.super Lcom/yelp/android/appdata/webrequests/y;
+.source "BusinessAddRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/util/ArrayList;Lcom/yelp/android/appdata/webrequests/m;)V
-    .locals 2
+.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Ljava/lang/CharSequence;Landroid/location/Address;Z)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/lang/String;",
-            "Ljava/util/ArrayList",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Landroid/util/Pair",
             "<",
             "Ljava/lang/String;",
-            ">;",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/String;",
-            ">;>;)V"
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            ">;>;",
+            "Ljava/lang/CharSequence;",
+            "Landroid/location/Address;",
+            "Z)V"
         }
     .end annotation
 
     .prologue
-    .line 15
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+    .line 19
+    const-string/jumbo v0, "business/add"
 
-    const-string/jumbo v1, "/business/survey/vote"
+    invoke-direct {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/y;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    invoke-direct {p0, v0, v1, p3}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    .line 20
+    invoke-virtual {p0, p2}, Lcom/yelp/android/appdata/webrequests/t;->d(Ljava/lang/CharSequence;)V
 
-    .line 16
-    const-string/jumbo v0, "business_id"
+    .line 21
+    invoke-virtual {p0, p3, p4}, Lcom/yelp/android/appdata/webrequests/t;->a(Landroid/location/Address;Z)V
 
-    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/t;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 17
-    const-string/jumbo v0, "answer_identifiers"
-
-    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/t;->addUrlParam(Ljava/lang/String;Ljava/lang/Iterable;)V
-
-    .line 18
+    .line 22
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lorg/json/JSONObject;)Ljava/util/ArrayList;
-    .locals 2
+.method public a(Ljava/lang/CharSequence;)V
+    .locals 1
+
+    .prologue
+    .line 58
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 59
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/y;->a(Ljava/lang/CharSequence;)V
+
+    .line 61
+    :cond_0
+    return-void
+.end method
+
+.method protected a(Ljava/lang/String;)V
+    .locals 1
+
+    .prologue
+    .line 32
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 33
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/y;->a(Ljava/lang/String;)V
+
+    .line 35
+    :cond_0
+    return-void
+.end method
+
+.method public a(Ljava/util/Collection;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lorg/json/JSONObject;",
-            ")",
-            "Ljava/util/ArrayList",
+            "Ljava/util/Collection",
             "<",
-            "Ljava/lang/String;",
-            ">;"
+            "Lcom/yelp/android/serializable/Category;",
+            ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 22
-    new-instance v0, Ljava/util/ArrayList;
+    .line 97
+    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
 
-    const-string/jumbo v1, "failed_votes"
+    move-result v0
 
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    if-nez v0, :cond_0
 
-    move-result-object v1
+    .line 98
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/y;->a(Ljava/util/Collection;)V
 
-    invoke-static {v1}, Lcom/yelp/parcelgen/JsonUtil;->getStringList(Lorg/json/JSONArray;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    return-object v0
+    .line 100
+    :cond_0
+    return-void
 .end method
 
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
+.method public b(Ljava/lang/CharSequence;)V
     .locals 1
 
     .prologue
-    .line 11
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/t;->a(Lorg/json/JSONObject;)Ljava/util/ArrayList;
+    .line 71
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
+    if-nez v0, :cond_0
+
+    .line 72
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/y;->b(Ljava/lang/CharSequence;)V
+
+    .line 74
+    :cond_0
+    return-void
+.end method
+
+.method protected b(Ljava/lang/String;)V
+    .locals 1
+
+    .prologue
+    .line 45
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 46
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/y;->b(Ljava/lang/String;)V
+
+    .line 48
+    :cond_0
+    return-void
+.end method
+
+.method public c(Ljava/lang/CharSequence;)V
+    .locals 1
+
+    .prologue
+    .line 84
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 85
+    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/y;->c(Ljava/lang/CharSequence;)V
+
+    .line 87
+    :cond_0
+    return-void
 .end method

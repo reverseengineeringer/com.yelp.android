@@ -55,7 +55,7 @@ public class a
   
   public static String a(String paramString)
   {
-    return new String(a(paramString.getBytes()));
+    return new String(b(paramString));
   }
   
   public static byte[] a(char[] paramArrayOfChar)
@@ -209,12 +209,7 @@ public class a
     return arrayOfChar;
   }
   
-  public static String b(String paramString)
-  {
-    return new String(c(paramString));
-  }
-  
-  public static byte[] c(String paramString)
+  public static byte[] b(String paramString)
   {
     return a(paramString.toCharArray());
   }

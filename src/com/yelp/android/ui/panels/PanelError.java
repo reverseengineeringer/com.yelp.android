@@ -3,6 +3,8 @@ package com.yelp.android.ui.panels;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
@@ -13,11 +15,12 @@ import com.yelp.android.util.ErrorType;
 public class PanelError
   extends ScrollView
 {
-  private aa a;
+  private a a;
   private TextView b;
   private Button c;
   private ImageView d;
   private LayoutInflater e;
+  private ErrorType f;
   
   public PanelError(Context paramContext)
   {
@@ -41,16 +44,24 @@ public class PanelError
     e = LayoutInflater.from(paramContext);
   }
   
-  public void a(aa paramaa)
+  public void a(a parama)
   {
-    e.inflate(2130903297, this);
-    a = paramaa;
+    e.inflate(2130903393, this);
+    a = parama;
     setFillViewport(true);
     setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-    d = ((ImageView)findViewById(2131493809));
-    b = ((TextView)findViewById(2131493810));
-    c = ((Button)findViewById(2131493811));
-    c.setOnClickListener(new z(this));
+    d = ((ImageView)findViewById(2131690646));
+    b = ((TextView)findViewById(2131690647));
+    c = ((Button)findViewById(2131690648));
+    c.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        if (PanelError.a(PanelError.this) != null) {
+          PanelError.a(PanelError.this).q_();
+        }
+      }
+    });
     if (a == null) {
       c.setVisibility(8);
     }
@@ -61,35 +72,36 @@ public class PanelError
     a(paramErrorType, a);
   }
   
-  public void a(ErrorType paramErrorType, aa paramaa)
+  public void a(ErrorType paramErrorType, a parama)
   {
+    f = paramErrorType;
     int i = paramErrorType.getImageId();
     if (i == 0)
     {
       d.setVisibility(8);
       TextView localTextView = b;
       if (paramErrorType.getTextId() != 0) {
-        break label108;
+        break label113;
       }
-      i = 2131166600;
-      label34:
+      i = 2131166609;
+      label39:
       localTextView.setText(i);
-      a = paramaa;
+      a = parama;
       if (c != null)
       {
-        paramaa = c;
+        parama = c;
         if (paramErrorType.getButtonTextId() != 0) {
-          break label116;
+          break label121;
         }
       }
     }
-    label108:
-    label116:
-    for (i = 2131166464;; i = paramErrorType.getButtonTextId())
+    label113:
+    label121:
+    for (i = 2131166469;; i = paramErrorType.getButtonTextId())
     {
-      paramaa.setText(i);
+      parama.setText(i);
       if (a != null) {
-        break label124;
+        break label129;
       }
       c.setVisibility(8);
       return;
@@ -97,9 +109,9 @@ public class PanelError
       d.setVisibility(0);
       break;
       i = paramErrorType.getTextId();
-      break label34;
+      break label39;
     }
-    label124:
+    label129:
     c.setVisibility(0);
   }
   
@@ -108,9 +120,24 @@ public class PanelError
     c.setVisibility(8);
   }
   
+  public void c()
+  {
+    d.setVisibility(8);
+  }
+  
+  public ErrorType getErrorType()
+  {
+    return f;
+  }
+  
   public void setText(int paramInt)
   {
     b.setText(paramInt);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void q_();
   }
 }
 

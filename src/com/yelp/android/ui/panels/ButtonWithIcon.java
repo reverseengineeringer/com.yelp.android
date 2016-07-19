@@ -5,9 +5,9 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.SparseIntArray;
 import android.widget.TextView;
-import com.yelp.android.b;
+import com.yelp.android.b.a;
 import com.yelp.android.ui.util.SlightlyLessBrokenLinearLayout;
-import com.yelp.android.ui.util.dj;
+import com.yelp.android.ui.util.ay;
 import com.yelp.android.ui.widgets.WebImageView;
 
 public class ButtonWithIcon
@@ -23,21 +23,21 @@ public class ButtonWithIcon
   
   public ButtonWithIcon(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 2130772336);
+    this(paramContext, paramAttributeSet, 2130772446);
   }
   
   public ButtonWithIcon(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
     Object localObject = new SparseIntArray();
-    ((SparseIntArray)localObject).append(4, 2130903294);
-    dj.a(this, paramContext, paramAttributeSet, paramInt, (SparseIntArray)localObject);
-    a = ((WebImageView)findViewById(2131492992));
-    b = ((TextView)findViewById(2131493145));
-    localObject = paramContext.obtainStyledAttributes(paramAttributeSet, b.PanelLabelValue, paramInt, paramInt);
+    ((SparseIntArray)localObject).append(4, 2130903388);
+    ay.a(this, paramContext, paramAttributeSet, paramInt, (SparseIntArray)localObject);
+    a = ((WebImageView)findViewById(2131689637));
+    b = ((TextView)findViewById(2131689711));
+    localObject = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.PanelLabelValue, paramInt, paramInt);
     b.setText(((TypedArray)localObject).getText(0));
     ((TypedArray)localObject).recycle();
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.WebImageView, paramInt, paramInt);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.WebImageView, paramInt, paramInt);
     a.applyTypedArray(paramContext);
     paramContext.recycle();
   }

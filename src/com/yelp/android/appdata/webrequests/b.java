@@ -1,20 +1,21 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class b
-  extends g<String, Void, Boolean>
+  extends c
 {
-  public b(String paramString, m paramm)
+  public b(String paramString, c.a parama)
   {
-    super(ApiRequest.RequestType.GET, "account/info/confirmed", paramm);
-    addUrlParam("user_id", paramString);
+    this(paramString, true, parama);
   }
   
-  public Boolean a(JSONObject paramJSONObject)
+  public b(String paramString, boolean paramBoolean, c.a parama)
   {
-    return Boolean.valueOf(paramJSONObject.optBoolean("is_account_confirmed"));
+    super(ApiRequest.RequestType.POST, "account/confirm", parama);
+    b("email_id", paramString);
+    b("send_welcome_email", paramBoolean);
   }
 }
 

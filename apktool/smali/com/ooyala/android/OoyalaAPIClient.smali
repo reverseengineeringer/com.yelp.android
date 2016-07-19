@@ -3,6 +3,14 @@
 .source "OoyalaAPIClient.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/OoyalaAPIClient$ObjectFromBacklotAPITask;
+    }
+.end annotation
+
+
 # instance fields
 .field private _playerAPI:Lcom/ooyala/android/PlayerAPIClient;
 
@@ -121,6 +129,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
+
     .prologue
     .line 75
     iget-object v0, p0, Lcom/ooyala/android/OoyalaAPIClient;->_playerAPI:Lcom/ooyala/android/PlayerAPIClient;
@@ -168,6 +182,12 @@
             "Ljava/lang/String;",
             ">;)",
             "Lcom/ooyala/android/ContentItem;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 
@@ -248,6 +268,12 @@
             "Ljava/lang/String;",
             ")",
             "Lcom/ooyala/android/ContentItem;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 

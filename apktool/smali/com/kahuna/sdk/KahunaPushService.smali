@@ -15,7 +15,7 @@
 
     const/4 v1, 0x0
 
-    sget-object v2, Lcom/kahuna/sdk/h;->c:Ljava/lang/String;
+    sget-object v2, Lcom/kahuna/sdk/l;->c:Ljava/lang/String;
 
     aput-object v2, v0, v1
 
@@ -31,45 +31,49 @@
     .locals 2
 
     .prologue
-    .line 59
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
+    .line 58
+    sget-boolean v0, Lcom/kahuna/sdk/l;->a:Z
 
     if-eqz v0, :cond_0
 
-    .line 60
-    const-string/jumbo v0, "KahunaAnalytics"
+    .line 59
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "onMessage recieved a push event."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 62
+    .line 61
     :cond_0
-    invoke-static {}, Lcom/kahuna/sdk/h;->h()Z
+    invoke-static {}, Lcom/kahuna/sdk/j;->i()Lcom/kahuna/sdk/h;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/kahuna/sdk/h;->f()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 63
-    const-string/jumbo v0, "KahunaAnalytics"
+    .line 62
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "Received Kahuna push, but Push is not enabled. Aborting the notification!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 69
+    .line 68
     :goto_0
     return-void
 
-    .line 67
+    .line 66
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v0
 
-    .line 68
-    invoke-static {p1, v0}, Lcom/kahuna/sdk/ak;->a(Landroid/content/Context;Landroid/os/Bundle;)V
+    .line 67
+    invoke-static {p1, v0}, Lcom/kahuna/sdk/y;->a(Landroid/content/Context;Landroid/os/Bundle;)V
 
     goto :goto_0
 .end method
@@ -78,13 +82,13 @@
     .locals 3
 
     .prologue
-    .line 73
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
+    .line 72
+    sget-boolean v0, Lcom/kahuna/sdk/l;->a:Z
 
     if-eqz v0, :cond_0
 
-    .line 74
-    const-string/jumbo v0, "KahunaAnalytics"
+    .line 73
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -106,7 +110,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 75
+    .line 74
     :cond_0
     return-void
 .end method
@@ -116,12 +120,12 @@
 
     .prologue
     .line 38
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
+    sget-boolean v0, Lcom/kahuna/sdk/l;->a:Z
 
     if-eqz v0, :cond_0
 
     .line 39
-    const-string/jumbo v0, "KahunaAnalytics"
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -145,12 +149,9 @@
 
     .line 43
     :cond_0
-    invoke-static {p2}, Lcom/kahuna/sdk/h;->c(Ljava/lang/String;)V
+    invoke-static {p2}, Lcom/kahuna/sdk/f;->b(Ljava/lang/String;)V
 
     .line 44
-    invoke-static {}, Lcom/kahuna/sdk/h;->f()V
-
-    .line 45
     return-void
 .end method
 
@@ -158,13 +159,13 @@
     .locals 3
 
     .prologue
-    .line 50
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
+    .line 49
+    sget-boolean v0, Lcom/kahuna/sdk/l;->a:Z
 
     if-eqz v0, :cond_0
 
-    .line 51
-    const-string/jumbo v0, "KahunaAnalytics"
+    .line 50
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -186,10 +187,10 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 53
+    .line 52
     :cond_0
-    invoke-static {}, Lcom/kahuna/sdk/h;->g()V
+    invoke-static {}, Lcom/kahuna/sdk/f;->d()V
 
-    .line 54
+    .line 53
     return-void
 .end method

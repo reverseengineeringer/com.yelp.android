@@ -4,10 +4,17 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;,
+        Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
-        "Lcom/yelp/android/serializable/by;",
+        "Lcom/yelp/android/serializable/f;",
         ">",
         "Lcom/yelp/android/ui/activities/support/YelpListFragment;"
     }
@@ -17,19 +24,19 @@
 # instance fields
 .field a:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
-.field private b:Lcom/yelp/android/ui/activities/nearby/i;
+.field private b:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ui/activities/nearby/i",
+            "Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b",
             "<TT;>;"
         }
     .end annotation
 .end field
 
-.field private c:Lcom/yelp/android/ui/activities/nearby/h;
+.field private c:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ui/activities/nearby/h",
+            "Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a",
             "<TT;>;"
         }
     .end annotation
@@ -39,9 +46,9 @@
 
 .field private e:Landroid/view/View;
 
-.field private g:Landroid/view/View;
+.field private f:Landroid/view/View;
 
-.field private h:Landroid/widget/RelativeLayout;
+.field private g:Landroid/widget/RelativeLayout;
 
 .field private i:Landroid/view/View;
 
@@ -68,10 +75,10 @@
     .line 44
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->k:Z
 
-    .line 242
-    new-instance v0, Lcom/yelp/android/ui/activities/nearby/g;
+    .line 245
+    new-instance v0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/nearby/g;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment$1;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
@@ -79,12 +86,22 @@
     return-void
 .end method
 
+.method static synthetic a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
+    .locals 1
+
+    .prologue
+    .line 31
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
+
+    return-object v0
+.end method
+
 .method public static a(IZ)Lcom/yelp/android/ui/activities/nearby/ComboListFragment;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
-            "Lcom/yelp/android/serializable/by;",
+            "Lcom/yelp/android/serializable/f;",
             ">(IZ)",
             "Lcom/yelp/android/ui/activities/nearby/ComboListFragment",
             "<TE;>;"
@@ -119,31 +136,21 @@
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)Lcom/yelp/android/ui/activities/nearby/h;
-    .locals 1
-
-    .prologue
-    .line 32
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/h;
-
-    return-object v0
-.end method
-
 .method static synthetic b(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)Landroid/view/View;
     .locals 1
 
     .prologue
-    .line 32
+    .line 31
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->i:Landroid/view/View;
 
     return-object v0
 .end method
 
-.method private e(Landroid/view/View;)Z
+.method private f(Landroid/view/View;)Z
     .locals 1
 
     .prologue
-    .line 149
+    .line 152
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
     if-ne p1, v0, :cond_0
@@ -165,83 +172,83 @@
     .locals 2
 
     .prologue
-    .line 181
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/i;
+    .line 184
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
 
     if-nez v0, :cond_1
 
-    .line 191
+    .line 194
     :cond_0
     :goto_0
     return-void
 
-    .line 185
+    .line 188
     :cond_1
     invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 186
-    invoke-direct {p0, p2}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->e(Landroid/view/View;)Z
+    .line 189
+    invoke-direct {p0, p2}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->f(Landroid/view/View;)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 187
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/i;
+    .line 190
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
 
-    invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/nearby/i;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)V
+    invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)V
 
     goto :goto_0
 
-    .line 188
+    .line 191
     :cond_2
     instance-of v1, v0, Landroid/os/Parcelable;
 
     if-eqz v1, :cond_0
 
-    .line 189
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/i;
+    .line 192
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
 
-    invoke-interface {v1, p0, v0}, Lcom/yelp/android/ui/activities/nearby/i;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;Ljava/lang/Object;)V
+    invoke-interface {v1, p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;Ljava/lang/Object;)V
 
     goto :goto_0
 .end method
 
-.method public a(Lcom/yelp/android/ui/activities/nearby/h;)V
+.method public a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/ui/activities/nearby/h",
+            "Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a",
             "<TT;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 198
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/h;
+    .line 201
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
 
-    .line 199
+    .line 202
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/ui/activities/nearby/i;)V
+.method public a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/ui/activities/nearby/i",
+            "Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b",
             "<TT;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 194
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/i;
+    .line 197
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
 
-    .line 195
+    .line 198
     return-void
 .end method
 
@@ -249,10 +256,10 @@
     .locals 2
 
     .prologue
-    .line 202
+    .line 205
     iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->d:Ljava/lang/Runnable;
 
-    .line 204
+    .line 207
     :try_start_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -264,11 +271,11 @@
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 212
+    .line 215
     :goto_0
     return-void
 
-    .line 205
+    .line 208
     :catch_0
     move-exception v0
 
@@ -279,15 +286,15 @@
     .locals 2
 
     .prologue
-    .line 215
+    .line 218
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
     if-eqz v0, :cond_0
 
-    .line 216
+    .line 219
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0c0084
+    const v1, 0x7f0f00a9
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -297,26 +304,26 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 218
+    .line 221
     :cond_0
     return-void
 .end method
 
-.method public d()I
+.method public e()I
     .locals 1
 
     .prologue
-    .line 131
+    .line 134
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->j:I
 
     return v0
 .end method
 
-.method public e()I
+.method public f()I
     .locals 3
 
     .prologue
-    .line 136
+    .line 139
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -339,7 +346,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->measure(II)V
 
-    .line 137
+    .line 140
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
@@ -349,18 +356,18 @@
     return v0
 .end method
 
-.method public f()I
+.method public g()I
     .locals 2
 
     .prologue
-    .line 141
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h:Landroid/widget/RelativeLayout;
+    .line 144
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0}, Landroid/widget/RelativeLayout;->getMeasuredHeight()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/view/View;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->f:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -371,18 +378,18 @@
     return v0
 .end method
 
-.method public g()I
+.method public h()I
     .locals 2
 
     .prologue
-    .line 145
+    .line 148
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->e:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/view/View;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->f:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -393,25 +400,25 @@
     return v0
 .end method
 
-.method public h()V
+.method public i()V
     .locals 4
 
     .prologue
-    .line 155
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h:Landroid/widget/RelativeLayout;
+    .line 158
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/widget/RelativeLayout;
 
     if-nez v0, :cond_1
 
-    .line 164
+    .line 167
     :cond_0
     :goto_0
     return-void
 
-    .line 159
+    .line 162
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h:Landroid/widget/RelativeLayout;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f0c0238
+    const v1, 0x7f0f027f
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -419,7 +426,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 160
+    .line 163
     invoke-virtual {v0}, Landroid/widget/ImageView;->getVisibility()I
 
     move-result v1
@@ -428,14 +435,14 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 161
-    sget v1, Lcom/yelp/android/ui/util/cw;->e:I
+    .line 164
+    sget v1, Lcom/yelp/android/ui/util/av;->e:I
 
     int-to-long v2, v1
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/av;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
 
-    .line 162
+    .line 165
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->k:Z
@@ -443,25 +450,25 @@
     goto :goto_0
 .end method
 
-.method public i()V
+.method public j()V
     .locals 4
 
     .prologue
-    .line 168
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h:Landroid/widget/RelativeLayout;
+    .line 171
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/widget/RelativeLayout;
 
     if-nez v0, :cond_1
 
-    .line 177
+    .line 180
     :cond_0
     :goto_0
     return-void
 
-    .line 172
+    .line 175
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h:Landroid/widget/RelativeLayout;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f0c0238
+    const v1, 0x7f0f027f
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -469,21 +476,21 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 173
+    .line 176
     invoke-virtual {v0}, Landroid/widget/ImageView;->getVisibility()I
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 174
-    sget v1, Lcom/yelp/android/ui/util/cw;->e:I
+    .line 177
+    sget v1, Lcom/yelp/android/ui/util/av;->e:I
 
     int-to-long v2, v1
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->b(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/av;->b(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
 
-    .line 175
+    .line 178
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->k:Z
@@ -491,11 +498,11 @@
     goto :goto_0
 .end method
 
-.method public l_()V
+.method public k()V
     .locals 1
 
     .prologue
-    .line 225
+    .line 228
     :try_start_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
@@ -503,11 +510,11 @@
     :try_end_0
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 235
+    .line 238
     :goto_0
     return-void
 
-    .line 226
+    .line 229
     :catch_0
     move-exception v0
 
@@ -526,7 +533,7 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     .line 80
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/i;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
 
     if-eqz v0, :cond_0
 
@@ -535,9 +542,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/i;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->b:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnPullDownCallback(Lcom/yelp/android/ui/util/bp;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnPullDownCallback(Lcom/yelp/android/ui/util/ScrollToLoadListView$d;)V
 
     .line 84
     :cond_0
@@ -578,7 +585,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030086
+    const v1, 0x7f03008f
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -592,10 +599,10 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
-    .line 93
+    .line 96
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0c0235
+    const v1, 0x7f0f027c
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -603,21 +610,21 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->e:Landroid/view/View;
 
-    .line 95
+    .line 98
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0c0236
+    const v1, 0x7f0f027d
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->f:Landroid/view/View;
 
-    .line 96
+    .line 99
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0c0237
+    const v1, 0x7f0f027e
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -625,17 +632,17 @@
 
     check-cast v0, Landroid/widget/RelativeLayout;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h:Landroid/widget/RelativeLayout;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g:Landroid/widget/RelativeLayout;
 
-    .line 97
+    .line 100
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->k:Z
 
     if-eqz v0, :cond_2
 
-    .line 98
+    .line 101
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->l:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0c0238
+    const v1, 0x7f0f027f
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -643,7 +650,7 @@
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 101
+    .line 104
     :cond_2
     new-instance v0, Landroid/view/View;
 
@@ -655,14 +662,14 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->i:Landroid/view/View;
 
-    .line 102
+    .line 105
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->i:Landroid/view/View;
 
     const v1, 0x106000b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
-    .line 103
+    .line 106
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->i:Landroid/view/View;
 
     new-instance v1, Landroid/widget/AbsListView$LayoutParams;
@@ -673,7 +680,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 106
+    .line 109
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -684,7 +691,7 @@
 
     invoke-virtual {v0, v1, v4, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 107
+    .line 110
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -693,14 +700,14 @@
 
     invoke-virtual {v0, v1, v4, v3}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addFooterView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 108
+    .line 111
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0, v4}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 109
+    .line 112
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -709,26 +716,26 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setSelector(I)V
 
-    .line 111
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/h;
+    .line 114
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
 
     if-eqz v0, :cond_3
 
-    .line 112
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/h;
+    .line 115
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
 
-    invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/nearby/h;->c(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)Landroid/widget/ListAdapter;
+    invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;->c(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)Landroid/widget/ListAdapter;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a(Landroid/widget/ListAdapter;)V
 
-    .line 113
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/h;
+    .line 116
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->c:Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
 
-    invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/nearby/h;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)V
+    invoke-interface {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment;)V
 
-    .line 115
+    .line 118
     :cond_3
     return-void
 .end method
@@ -811,19 +818,19 @@
     .locals 2
 
     .prologue
-    .line 119
+    .line 122
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onDestroyView()V
 
-    .line 120
+    .line 123
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/cp;->a(Landroid/view/View;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/ar;->a(Landroid/view/View;Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 121
+    .line 124
     return-void
 .end method
 
@@ -831,23 +838,23 @@
     .locals 2
 
     .prologue
-    .line 125
+    .line 128
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 126
+    .line 129
     const-string/jumbo v0, "position"
 
     iget v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->j:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 127
+    .line 130
     const-string/jumbo v0, "show_handle_image"
 
     iget-boolean v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->k:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 128
+    .line 131
     return-void
 .end method

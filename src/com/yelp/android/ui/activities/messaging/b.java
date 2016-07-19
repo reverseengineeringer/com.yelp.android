@@ -1,34 +1,77 @@
 package com.yelp.android.ui.activities.messaging;
 
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.gq;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.ui.util.cr;
-import java.util.ArrayList;
+import android.content.Context;
+import android.text.Html;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import com.yelp.android.serializable.MessageTheBusiness;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.android.ui.panels.businesssearch.BusinessAdapter;
+import com.yelp.android.ui.panels.businesssearch.BusinessAdapter.DisplayFeature;
+import java.util.HashSet;
+import java.util.Set;
 
-class b
-  implements m<gq>
+public class b
+  extends BusinessAdapter<YelpBusiness>
 {
-  b(ComposeMessageFragment paramComposeMessageFragment) {}
+  private HashSet<String> c;
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, gq paramgq)
+  public b(Context paramContext, Set<String> paramSet)
   {
-    ComposeMessageFragment.a(a, true);
-    ComposeMessageFragment.e(a).addAll(paramgq.a());
-    if (!a.isResumed())
-    {
-      ComposeMessageFragment.b(a, true);
-      return;
-    }
-    ComposeMessageFragment.f(a);
+    super(paramContext);
+    c = new HashSet(paramSet);
+    a(new BusinessAdapter.DisplayFeature[] { BusinessAdapter.DisplayFeature.RATING });
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  private void a(View paramView, int paramInt)
   {
-    a.j();
-    ComposeMessageFragment.d(a);
-    cr.a(paramYelpException.getMessage(a.getActivity()), 1);
+    paramView = (CheckBox)paramView.findViewById(2131689653);
+    String str = a(paramInt).aD();
+    paramView.setOnCheckedChangeListener(new b.1(this, str));
+    paramView.setChecked(c.contains(str));
+  }
+  
+  private void a(View paramView, YelpBusiness paramYelpBusiness)
+  {
+    paramView = (TextView)paramView.findViewById(2131690590);
+    paramYelpBusiness = paramYelpBusiness.aK();
+    if ((paramYelpBusiness != null) && (paramYelpBusiness.c() != null))
+    {
+      paramView.setText(Html.fromHtml(paramYelpBusiness.c()));
+      paramView.setVisibility(0);
+    }
+  }
+  
+  public void b()
+  {
+    c.clear();
+    int i = 0;
+    while (i < getCount())
+    {
+      c.add(a(i).aD());
+      i += 1;
+    }
+    notifyDataSetChanged();
+  }
+  
+  public Set<String> c()
+  {
+    return c;
+  }
+  
+  protected int d()
+  {
+    return 2130903286;
+  }
+  
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    paramView = super.getView(paramInt, paramView, paramViewGroup);
+    a(paramView, (YelpBusiness)getItem(paramInt));
+    a(paramView, paramInt);
+    return paramView;
   }
 }
 

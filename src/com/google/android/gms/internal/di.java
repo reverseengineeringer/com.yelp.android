@@ -1,170 +1,95 @@
 package com.google.android.gms.internal;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import com.google.android.gms.ads.AdSize;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.google.android.gms.ads.internal.s;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-@ey
-public class di
+@fv
+public final class di
 {
-  static final Set<String> rk = new HashSet(Arrays.asList(new String[] { "top-left", "top-right", "top-center", "center", "bottom-left", "bottom-right", "bottom-center" }));
-  private int li = -1;
-  private int lj = -1;
-  private final Context mContext;
-  private final gu mo;
-  private final Map<String, String> rd;
-  private int rl = 0;
-  private int rm = 0;
-  private boolean rn = true;
-  private String ro = "top-right";
+  public final String a;
+  public final String b;
+  public final List<String> c;
+  public final String d;
+  public final String e;
+  public final List<String> f;
+  public final List<String> g;
+  public final String h;
+  public final List<String> i;
+  public final List<String> j;
+  public final String k;
+  public final String l;
+  public final String m;
+  public final List<String> n;
+  public final String o;
   
-  public di(gu paramgu, Map<String, String> paramMap)
+  public di(JSONObject paramJSONObject)
+    throws JSONException
   {
-    mo = paramgu;
-    rd = paramMap;
-    mContext = paramgu.dI();
-  }
-  
-  private void bQ()
-  {
-    Object localObject = gi.t(mContext);
-    int i;
-    if (!TextUtils.isEmpty((CharSequence)rd.get("width")))
+    b = paramJSONObject.getString("id");
+    Object localObject1 = paramJSONObject.getJSONArray("adapters");
+    Object localObject3 = new ArrayList(((JSONArray)localObject1).length());
+    int i1 = 0;
+    while (i1 < ((JSONArray)localObject1).length())
     {
-      i = gi.M((String)rd.get("width"));
-      if (b(i, localObject[0])) {
-        li = i;
+      ((List)localObject3).add(((JSONArray)localObject1).getString(i1));
+      i1 += 1;
+    }
+    c = Collections.unmodifiableList((List)localObject3);
+    d = paramJSONObject.optString("allocation_id", null);
+    f = s.r().a(paramJSONObject, "clickurl");
+    g = s.r().a(paramJSONObject, "imp_urls");
+    i = s.r().a(paramJSONObject, "video_start_urls");
+    j = s.r().a(paramJSONObject, "video_complete_urls");
+    localObject1 = paramJSONObject.optJSONObject("ad");
+    if (localObject1 != null)
+    {
+      localObject1 = ((JSONObject)localObject1).toString();
+      a = ((String)localObject1);
+      localObject3 = paramJSONObject.optJSONObject("data");
+      if (localObject3 == null) {
+        break label288;
+      }
+      localObject1 = ((JSONObject)localObject3).toString();
+      label179:
+      h = ((String)localObject1);
+      if (localObject3 == null) {
+        break label293;
+      }
+      localObject1 = ((JSONObject)localObject3).optString("class_name");
+      label197:
+      e = ((String)localObject1);
+      k = paramJSONObject.optString("html_template", null);
+      l = paramJSONObject.optString("ad_base_url", null);
+      localObject1 = paramJSONObject.optJSONObject("assets");
+      if (localObject1 == null) {
+        break label298;
       }
     }
-    if (!TextUtils.isEmpty((CharSequence)rd.get("height")))
+    label288:
+    label293:
+    label298:
+    for (localObject1 = ((JSONObject)localObject1).toString();; localObject1 = null)
     {
-      i = gi.M((String)rd.get("height"));
-      if (c(i, localObject[1])) {
-        lj = i;
+      m = ((String)localObject1);
+      n = s.r().a(paramJSONObject, "template_ids");
+      localObject1 = paramJSONObject.optJSONObject("ad_loader_options");
+      paramJSONObject = (JSONObject)localObject2;
+      if (localObject1 != null) {
+        paramJSONObject = ((JSONObject)localObject1).toString();
       }
-    }
-    if (!TextUtils.isEmpty((CharSequence)rd.get("offsetX"))) {
-      rl = gi.M((String)rd.get("offsetX"));
-    }
-    if (!TextUtils.isEmpty((CharSequence)rd.get("offsetY"))) {
-      rm = gi.M((String)rd.get("offsetY"));
-    }
-    if (!TextUtils.isEmpty((CharSequence)rd.get("allowOffscreen"))) {
-      rn = Boolean.parseBoolean((String)rd.get("allowOffscreen"));
-    }
-    localObject = (String)rd.get("customClosePosition");
-    if ((!TextUtils.isEmpty((CharSequence)localObject)) && (rk.contains(localObject))) {
-      ro = ((String)localObject);
-    }
-  }
-  
-  boolean b(int paramInt1, int paramInt2)
-  {
-    return (paramInt1 >= 50) && (paramInt1 < paramInt2);
-  }
-  
-  boolean bR()
-  {
-    return (li > -1) && (lj > -1);
-  }
-  
-  void bS()
-  {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject().put("x", rl).put("y", rm).put("width", li).put("height", lj);
-      mo.b("onSizeChanged", localJSONObject);
+      o = paramJSONObject;
       return;
-    }
-    catch (JSONException localJSONException)
-    {
-      gr.b("Error occured while dispatching size change.", localJSONException);
-    }
-  }
-  
-  void bT()
-  {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject().put("state", "resized");
-      mo.b("onStateChanged", localJSONObject);
-      return;
-    }
-    catch (JSONException localJSONException)
-    {
-      gr.b("Error occured while dispatching state change.", localJSONException);
-    }
-  }
-  
-  boolean c(int paramInt1, int paramInt2)
-  {
-    return (paramInt1 >= 50) && (paramInt1 < paramInt2);
-  }
-  
-  public void execute()
-  {
-    gr.U("PLEASE IMPLEMENT mraid.resize()");
-    if (mContext == null)
-    {
-      gr.W("Not an activity context. Cannot resize.");
-      return;
-    }
-    if (mo.ac().oq)
-    {
-      gr.W("Is interstitial. Cannot resize an interstitial.");
-      return;
-    }
-    if (mo.dH())
-    {
-      gr.W("Is expanded. Cannot resize an expanded banner.");
-      return;
-    }
-    bQ();
-    if (!bR())
-    {
-      gr.W("Invalid width and height options. Cannot resize.");
-      return;
-    }
-    Object localObject1 = (WindowManager)mContext.getSystemService("window");
-    Object localObject2 = new DisplayMetrics();
-    ((WindowManager)localObject1).getDefaultDisplay().getMetrics((DisplayMetrics)localObject2);
-    int i = gq.a((DisplayMetrics)localObject2, li);
-    int j = gq.a((DisplayMetrics)localObject2, lj);
-    localObject1 = mo.getParent();
-    if ((localObject1 != null) && ((localObject1 instanceof ViewGroup))) {
-      ((ViewGroup)localObject1).removeView(mo);
-    }
-    localObject1 = new LinearLayout(mContext);
-    ((LinearLayout)localObject1).setBackgroundColor(0);
-    localObject2 = new PopupWindow(mContext);
-    ((PopupWindow)localObject2).setHeight(j + 16);
-    ((PopupWindow)localObject2).setWidth(i + 16);
-    if (!rn) {}
-    for (boolean bool = true;; bool = false)
-    {
-      ((PopupWindow)localObject2).setClippingEnabled(bool);
-      ((PopupWindow)localObject2).setContentView((View)localObject1);
-      ((LinearLayout)localObject1).addView(mo, -1, -1);
-      ((PopupWindow)localObject2).showAtLocation(((Activity)mContext).getWindow().getDecorView(), 0, rl, rm);
-      mo.a(new ay(mContext, new AdSize(li, lj)));
-      bS();
-      bT();
-      return;
+      localObject1 = null;
+      break;
+      localObject1 = null;
+      break label179;
+      localObject1 = null;
+      break label197;
     }
   }
 }

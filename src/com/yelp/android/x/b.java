@@ -1,24 +1,29 @@
 package com.yelp.android.x;
 
-import android.content.Context;
-import com.yelp.android.v.c;
-import com.yelp.android.v.e;
-import com.yelp.android.v.j;
-import com.yelp.android.v.m;
-import com.yelp.android.v.n;
-import java.io.InputStream;
+import java.util.Queue;
 
-public class b
-  implements n<e, InputStream>
+abstract class b<T extends h>
 {
-  private final j<e, e> a = new j(500);
+  private final Queue<T> a = com.yelp.android.ao.h.a(20);
   
-  public m<e, InputStream> a(Context paramContext, c paramc)
+  public void a(T paramT)
   {
-    return new a(a);
+    if (a.size() < 20) {
+      a.offer(paramT);
+    }
   }
   
-  public void a() {}
+  protected abstract T b();
+  
+  protected T c()
+  {
+    h localh2 = (h)a.poll();
+    h localh1 = localh2;
+    if (localh2 == null) {
+      localh1 = b();
+    }
+    return localh1;
+  }
 }
 
 /* Location:

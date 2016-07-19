@@ -3,6 +3,15 @@
 .source "StarsView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/reviews/StarsView$1;,
+        Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
+    }
+.end annotation
+
+
 # static fields
 .field protected static final a:[I
 
@@ -10,15 +19,21 @@
 
 .field protected static final c:[I
 
+.field protected static final d:[I
+
+.field protected static final e:[I
+
+.field protected static final f:[I
+
 
 # instance fields
-.field private d:I
+.field private g:I
 
-.field private e:Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;
+.field private h:Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
 
-.field private f:Ljava/lang/Runnable;
+.field private i:Ljava/lang/Runnable;
 
-.field private g:Ljava/lang/Runnable;
+.field private j:Ljava/lang/Runnable;
 
 
 # direct methods
@@ -28,62 +43,114 @@
     .prologue
     const/4 v1, 0x6
 
-    .line 28
+    .line 27
     new-array v0, v1, [I
 
     fill-array-data v0, :array_0
 
     sput-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->a:[I
 
-    .line 34
+    .line 36
     new-array v0, v1, [I
 
     fill-array-data v0, :array_1
 
     sput-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->b:[I
 
-    .line 39
+    .line 45
     new-array v0, v1, [I
 
     fill-array-data v0, :array_2
 
     sput-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->c:[I
 
+    .line 54
+    new-array v0, v1, [I
+
+    fill-array-data v0, :array_3
+
+    sput-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:[I
+
+    .line 63
+    new-array v0, v1, [I
+
+    fill-array-data v0, :array_4
+
+    sput-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->e:[I
+
+    .line 72
+    new-array v0, v1, [I
+
+    fill-array-data v0, :array_5
+
+    sput-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->f:[I
+
     return-void
 
-    .line 28
-    nop
-
+    .line 27
     :array_0
     .array-data 4
-        0x7f020335
-        0x7f020336
-        0x7f020337
-        0x7f020338
-        0x7f020339
-        0x7f02033a
+        0x7f020476
+        0x7f020477
+        0x7f020478
+        0x7f020479
+        0x7f02047a
+        0x7f02047b
     .end array-data
 
-    .line 34
+    .line 36
     :array_1
     .array-data 4
-        0x7f0203c1
-        0x7f0203c2
-        0x7f0203c3
-        0x7f0203c4
-        0x7f0203c5
-        0x7f0203c6
+        0x7f02053d
+        0x7f02053e
+        0x7f02053f
+        0x7f020540
+        0x7f020541
+        0x7f020542
     .end array-data
 
-    .line 39
+    .line 45
     :array_2
     .array-data 4
-        0x7f020325
-        0x7f020326
-        0x7f020327
-        0x7f020328
-        0x7f020329
-        0x7f02032a
+        0x7f020466
+        0x7f020467
+        0x7f020468
+        0x7f020469
+        0x7f02046a
+        0x7f02046b
+    .end array-data
+
+    .line 54
+    :array_3
+    .array-data 4
+        0x7f020543
+        0x7f020544
+        0x7f020545
+        0x7f020546
+        0x7f020547
+        0x7f020548
+    .end array-data
+
+    .line 63
+    :array_4
+    .array-data 4
+        0x7f02052d
+        0x7f02052e
+        0x7f02052f
+        0x7f020530
+        0x7f020531
+        0x7f020532
+    .end array-data
+
+    .line 72
+    :array_5
+    .array-data 4
+        0x7f02051d
+        0x7f02051e
+        0x7f02051f
+        0x7f020520
+        0x7f020521
+        0x7f020522
     .end array-data
 .end method
 
@@ -91,15 +158,15 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 85
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .line 50
-    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;->LARGE:Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;
+    .line 86
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;->LARGE:Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setStarSize(Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setStarStyle(Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;)V
 
-    .line 51
+    .line 87
     return-void
 .end method
 
@@ -107,15 +174,15 @@
     .locals 1
 
     .prologue
-    .line 54
+    .line 90
     invoke-direct {p0, p1, p2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 55
-    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;->LARGE:Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;
+    .line 91
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;->LARGE:Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setStarSize(Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setStarStyle(Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;)V
 
-    .line 56
+    .line 92
     return-void
 .end method
 
@@ -123,7 +190,7 @@
     .locals 3
 
     .prologue
-    .line 100
+    .line 137
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->getWidth()I
 
     move-result v0
@@ -132,7 +199,7 @@
 
     int-to-float v0, v0
 
-    .line 101
+    .line 138
     div-float v0, p1, v0
 
     float-to-double v0, v0
@@ -143,7 +210,7 @@
 
     double-to-int v0, v0
 
-    .line 111
+    .line 148
     const/4 v1, 0x5
 
     const/4 v2, 0x1
@@ -156,7 +223,7 @@
 
     move-result v0
 
-    .line 114
+    .line 153
     return v0
 .end method
 
@@ -164,12 +231,12 @@
     .locals 2
 
     .prologue
-    .line 131
-    sget-object v0, Lcom/yelp/android/ui/activities/reviews/bh;->a:[I
+    .line 170
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView$1;->a:[I
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->e:Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->h:Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;->ordinal()I
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;->ordinal()I
 
     move-result v1
 
@@ -177,24 +244,24 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 139
+    .line 187
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->c:[I
 
-    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:I
+    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
 
     aget v0, v0, v1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setImageResource(I)V
 
-    .line 142
+    .line 190
     :goto_0
     return-void
 
-    .line 133
+    .line 172
     :pswitch_0
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->a:[I
 
-    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:I
+    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
 
     aget v0, v0, v1
 
@@ -202,11 +269,11 @@
 
     goto :goto_0
 
-    .line 136
+    .line 175
     :pswitch_1
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->b:[I
 
-    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:I
+    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
 
     aget v0, v0, v1
 
@@ -214,13 +281,52 @@
 
     goto :goto_0
 
-    .line 131
+    .line 178
+    :pswitch_2
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:[I
+
+    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
+
+    aget v0, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setImageResource(I)V
+
+    goto :goto_0
+
+    .line 181
+    :pswitch_3
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->e:[I
+
+    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
+
+    aget v0, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setImageResource(I)V
+
+    goto :goto_0
+
+    .line 184
+    :pswitch_4
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/StarsView;->f:[I
+
+    iget v1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
+
+    aget v0, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setImageResource(I)V
+
+    goto :goto_0
+
+    .line 170
     nop
 
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
         :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
     .end packed-switch
 .end method
 
@@ -230,28 +336,23 @@
     .locals 1
 
     .prologue
-    .line 160
-    iget v0, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:I
+    .line 206
+    iget v0, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
 
     return v0
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 7
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x10
-    .end annotation
 
     .prologue
-    const v6, 0x7f0e0031
-
-    const/16 v3, 0x10
+    const v6, 0x7f080036
 
     const/4 v1, 0x0
 
     const/4 v0, 0x1
 
-    .line 61
+    .line 96
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
@@ -262,24 +363,24 @@
     :goto_0
     move v0, v1
 
-    .line 96
+    .line 133
     :goto_1
     return v0
 
-    .line 64
+    .line 99
     :pswitch_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->f:Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->i:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    .line 65
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->f:Ljava/lang/Runnable;
+    .line 100
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->i:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     goto :goto_0
 
-    .line 69
+    .line 104
     :pswitch_1
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -289,18 +390,12 @@
 
     move-result v2
 
-    .line 72
-    invoke-static {v3}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    iget v3, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:I
+    .line 107
+    iget v3, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
 
     if-eq v2, v3, :cond_1
 
-    .line 74
+    .line 108
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -317,27 +412,27 @@
 
     move-result-object v1
 
-    .line 76
+    .line 112
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/reviews/StarsView;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
-    .line 78
+    .line 114
     :cond_1
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setNumStars(I)V
 
     goto :goto_1
 
-    .line 81
+    .line 117
     :pswitch_2
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:Ljava/lang/Runnable;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->j:Ljava/lang/Runnable;
 
     if-eqz v2, :cond_2
 
-    .line 82
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:Ljava/lang/Runnable;
+    .line 118
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->j:Ljava/lang/Runnable;
 
     invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
-    .line 84
+    .line 120
     :cond_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -347,18 +442,12 @@
 
     move-result v2
 
-    .line 87
-    invoke-static {v3}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    iget v3, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:I
+    .line 123
+    iget v3, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
 
     if-eq v2, v3, :cond_3
 
-    .line 89
+    .line 124
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -375,16 +464,16 @@
 
     move-result-object v1
 
-    .line 91
+    .line 128
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/reviews/StarsView;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
-    .line 93
+    .line 130
     :cond_3
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setNumStars(I)V
 
     goto :goto_1
 
-    .line 61
+    .line 96
     nop
 
     :pswitch_data_0
@@ -400,13 +489,13 @@
     .locals 0
 
     .prologue
-    .line 155
-    iput p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->d:I
+    .line 201
+    iput p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:I
 
-    .line 156
+    .line 202
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->a()V
 
-    .line 157
+    .line 203
     return-void
 .end method
 
@@ -414,10 +503,10 @@
     .locals 0
 
     .prologue
-    .line 122
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->g:Ljava/lang/Runnable;
+    .line 161
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->j:Ljava/lang/Runnable;
 
-    .line 123
+    .line 162
     return-void
 .end method
 
@@ -425,23 +514,23 @@
     .locals 0
 
     .prologue
-    .line 118
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->f:Ljava/lang/Runnable;
+    .line 157
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->i:Ljava/lang/Runnable;
 
-    .line 119
+    .line 158
     return-void
 .end method
 
-.method public setStarSize(Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;)V
+.method public setStarStyle(Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;)V
     .locals 0
 
     .prologue
-    .line 126
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->e:Lcom/yelp/android/ui/activities/reviews/StarsView$StarSize;
+    .line 165
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/StarsView;->h:Lcom/yelp/android/ui/activities/reviews/StarsView$StarStyle;
 
-    .line 127
+    .line 166
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/StarsView;->a()V
 
-    .line 128
+    .line 167
     return-void
 .end method

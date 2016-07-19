@@ -1,222 +1,97 @@
 .class public Lcom/yelp/android/appdata/webrequests/n;
-.super Lcom/yelp/android/av/g;
-.source "ApplicationConfigRequest.java"
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "BackgroundLocationRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/av/g",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
-        "Lcom/yelp/android/appdata/webrequests/o;",
+        "Lcom/yelp/android/serializable/BackgroundLocationResponse;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/m;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/o;",
-            ">;)V"
-        }
-    .end annotation
+.method public constructor <init>(DDFZ)V
+    .locals 5
 
     .prologue
-    .line 21
+    .line 19
     sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    const-string/jumbo v1, "version/android"
+    const-string/jumbo v1, "/location/update"
 
-    invoke-direct {p0, v0, v1, p1}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    const/4 v2, 0x0
+
+    invoke-direct {p0, v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 20
+    const-string/jumbo v0, "latitude"
+
+    invoke-virtual {p0, v0, p1, p2}, Lcom/yelp/android/appdata/webrequests/n;->a(Ljava/lang/String;D)V
+
+    .line 21
+    const-string/jumbo v0, "longitude"
+
+    invoke-virtual {p0, v0, p3, p4}, Lcom/yelp/android/appdata/webrequests/n;->a(Ljava/lang/String;D)V
 
     .line 22
-    const-string/jumbo v0, "android_api"
+    const-string/jumbo v0, "accuracy"
 
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+    float-to-double v2, p5
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/n;->addUrlParam(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2, v3}, Lcom/yelp/android/appdata/webrequests/n;->a(Ljava/lang/String;D)V
 
     .line 23
+    const-string/jumbo v0, "is_stationary"
+
+    invoke-virtual {p0, v0, p6}, Lcom/yelp/android/appdata/webrequests/n;->a(Ljava/lang/String;Z)V
+
+    .line 24
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/o;
-    .locals 7
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/BackgroundLocationResponse;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 29
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+    sget-object v0, Lcom/yelp/android/serializable/BackgroundLocationResponse;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 30
-    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
+    check-cast v0, Lcom/yelp/android/serializable/BackgroundLocationResponse;
 
-    move-result-object v2
-
-    .line 31
-    new-instance v3, Lcom/yelp/android/serializable/UpdatePrompt;
-
-    invoke-direct {v3}, Lcom/yelp/android/serializable/UpdatePrompt;-><init>()V
-
-    .line 33
-    const-string/jumbo v1, "experiments"
-
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 34
-    const-string/jumbo v0, "experiments"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v4
-
-    .line 35
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    .line 36
-    invoke-virtual {v4}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 37
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    .line 38
-    invoke-virtual {v4, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-interface {v1, v0, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_0
-
-    :cond_0
-    move-object v1, v0
-
-    .line 42
-    :cond_1
-    const-string/jumbo v0, "features"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 43
-    const-string/jumbo v0, "features"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v4
-
-    .line 44
-    new-instance v2, Ljava/util/HashMap;
-
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
-
-    .line 45
-    invoke-virtual {v4}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_1
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 46
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    .line 47
-    invoke-virtual {v4, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-interface {v2, v0, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_1
-
-    .line 51
-    :cond_2
-    const-string/jumbo v0, "available_version"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    .line 52
-    const-string/jumbo v0, "available_version"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    .line 53
-    sget-object v3, Lcom/yelp/android/serializable/UpdatePrompt;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
-
-    invoke-virtual {v3, v0}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/UpdatePrompt;
-
-    .line 55
-    :goto_2
-    new-instance v3, Lcom/yelp/android/appdata/webrequests/o;
-
-    invoke-direct {v3, v2, v1, v0}, Lcom/yelp/android/appdata/webrequests/o;-><init>(Ljava/util/Map;Ljava/util/Map;Lcom/yelp/android/serializable/UpdatePrompt;)V
-
-    return-object v3
-
-    :cond_3
-    move-object v0, v3
-
-    goto :goto_2
+    return-object v0
 .end method
 
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 17
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/n;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/o;
+    .line 14
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/n;->a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/BackgroundLocationResponse;
 
     move-result-object v0
 

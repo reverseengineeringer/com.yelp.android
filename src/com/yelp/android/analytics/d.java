@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.av.a;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
 import java.util.Collections;
 import java.util.Map;
 

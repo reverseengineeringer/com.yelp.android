@@ -1,348 +1,308 @@
 package com.google.android.gms.internal;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Bundle;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
+import com.google.android.gms.ads.internal.request.AdResponseParcel;
+import com.google.android.gms.ads.internal.reward.mediation.client.RewardItemParcel;
+import com.google.android.gms.ads.internal.s;
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.List;
+import java.util.Map;
 
-@ey
-public class ga
-  implements ck.b
+@fv
+public final class ga
 {
-  private static final ga vX = new ga();
-  public static final String vY = vXvZ;
-  private Context mContext;
-  private final Object mH = new Object();
-  private am nE = null;
-  private al nF = null;
-  private ex nG = null;
-  private gs qJ;
-  private boolean uV = true;
-  private boolean uW = true;
-  public final String vZ = gi.dx();
-  private final gb wa = new gb(vZ);
-  private ld wb;
-  private BigInteger wc = BigInteger.ONE;
-  private final HashSet<fz> wd = new HashSet();
-  private final HashMap<String, gd> we = new HashMap();
-  private boolean wf = false;
-  private boolean wg = false;
-  private an wh = null;
-  private LinkedList<Thread> wi = new LinkedList();
-  private boolean wj = false;
-  private Bundle wk = bn.by();
-  private String wl;
+  private String a;
+  private String b;
+  private String c;
+  private List<String> d;
+  private String e;
+  private String f;
+  private List<String> g;
+  private long h = -1L;
+  private boolean i = false;
+  private final long j = -1L;
+  private List<String> k;
+  private long l = -1L;
+  private int m = -1;
+  private boolean n = false;
+  private boolean o = false;
+  private boolean p = false;
+  private boolean q = true;
+  private int r = 0;
+  private String s = "";
+  private boolean t = false;
+  private boolean u = false;
+  private RewardItemParcel v;
+  private List<String> w;
+  private List<String> x;
+  private boolean y = false;
+  private final AdRequestInfoParcel z;
   
-  public static Bundle a(Context paramContext, gc paramgc, String paramString)
+  public ga(AdRequestInfoParcel paramAdRequestInfoParcel)
   {
-    return vX.b(paramContext, paramgc, paramString);
+    z = paramAdRequestInfoParcel;
   }
   
-  public static void a(Context paramContext, gs paramgs)
+  static String a(Map<String, List<String>> paramMap, String paramString)
   {
-    vX.b(paramContext, paramgs);
+    paramMap = (List)paramMap.get(paramString);
+    if ((paramMap != null) && (!paramMap.isEmpty())) {
+      return (String)paramMap.get(0);
+    }
+    return null;
   }
   
-  public static void a(Context paramContext, boolean paramBoolean)
+  static long b(Map<String, List<String>> paramMap, String paramString)
   {
-    vX.b(paramContext, paramBoolean);
-  }
-  
-  public static void b(HashSet<fz> paramHashSet)
-  {
-    vX.c(paramHashSet);
-  }
-  
-  public static Bundle bN()
-  {
-    return vX.dp();
-  }
-  
-  public static String c(int paramInt, String paramString)
-  {
-    return vX.d(paramInt, paramString);
-  }
-  
-  public static ga dc()
-  {
-    return vX;
-  }
-  
-  public static String df()
-  {
-    return vX.dg();
-  }
-  
-  public static gb dh()
-  {
-    return vX.di();
-  }
-  
-  public static boolean dj()
-  {
-    return vX.dk();
-  }
-  
-  public static boolean dl()
-  {
-    return vX.dm();
-  }
-  
-  public static String dn()
-  {
-    return vX.jdMethod_do();
-  }
-  
-  public static void e(Throwable paramThrowable)
-  {
-    vX.f(paramThrowable);
-  }
-  
-  public void a(Bundle paramBundle)
-  {
-    synchronized (mH)
+    paramMap = (List)paramMap.get(paramString);
+    if ((paramMap != null) && (!paramMap.isEmpty()))
     {
-      wj = true;
-      wk = paramBundle;
-      if (!wi.isEmpty()) {
-        ex.a(mContext, (Thread)wi.remove(0), qJ);
+      paramMap = (String)paramMap.get(0);
+      try
+      {
+        float f1 = Float.parseFloat(paramMap);
+        return (f1 * 1000.0F);
+      }
+      catch (NumberFormatException localNumberFormatException)
+      {
+        gz.d("Could not parse float from " + paramString + " header: " + paramMap);
       }
     }
+    return -1L;
   }
   
-  public void a(fz paramfz)
+  private void b(Map<String, List<String>> paramMap)
   {
-    synchronized (mH)
+    a = a(paramMap, "X-Afma-Ad-Size");
+  }
+  
+  static List<String> c(Map<String, List<String>> paramMap, String paramString)
+  {
+    paramMap = (List)paramMap.get(paramString);
+    if ((paramMap != null) && (!paramMap.isEmpty()))
     {
-      wd.add(paramfz);
-      return;
+      paramMap = (String)paramMap.get(0);
+      if (paramMap != null) {
+        return Arrays.asList(paramMap.trim().split("\\s+"));
+      }
+    }
+    return null;
+  }
+  
+  private void c(Map<String, List<String>> paramMap)
+  {
+    paramMap = c(paramMap, "X-Afma-Click-Tracking-Urls");
+    if (paramMap != null) {
+      d = paramMap;
     }
   }
   
-  public void a(String paramString, gd paramgd)
+  private void d(Map<String, List<String>> paramMap)
   {
-    synchronized (mH)
-    {
-      we.put(paramString, paramgd);
-      return;
+    paramMap = (List)paramMap.get("X-Afma-Debug-Dialog");
+    if ((paramMap != null) && (!paramMap.isEmpty())) {
+      e = ((String)paramMap.get(0));
     }
   }
   
-  public void a(Thread paramThread)
+  private boolean d(Map<String, List<String>> paramMap, String paramString)
   {
-    synchronized (mH)
+    paramMap = (List)paramMap.get(paramString);
+    return (paramMap != null) && (!paramMap.isEmpty()) && (Boolean.valueOf((String)paramMap.get(0)).booleanValue());
+  }
+  
+  private void e(Map<String, List<String>> paramMap)
+  {
+    paramMap = c(paramMap, "X-Afma-Tracking-Urls");
+    if (paramMap != null) {
+      g = paramMap;
+    }
+  }
+  
+  private void f(Map<String, List<String>> paramMap)
+  {
+    long l1 = b(paramMap, "X-Afma-Interstitial-Timeout");
+    if (l1 != -1L) {
+      h = l1;
+    }
+  }
+  
+  private void g(Map<String, List<String>> paramMap)
+  {
+    f = a(paramMap, "X-Afma-ActiveView");
+  }
+  
+  private void h(Map<String, List<String>> paramMap)
+  {
+    o = "native".equals(a(paramMap, "X-Afma-Ad-Format"));
+  }
+  
+  private void i(Map<String, List<String>> paramMap)
+  {
+    n |= d(paramMap, "X-Afma-Custom-Rendering-Allowed");
+  }
+  
+  private void j(Map<String, List<String>> paramMap)
+  {
+    i |= d(paramMap, "X-Afma-Mediation");
+  }
+  
+  private void k(Map<String, List<String>> paramMap)
+  {
+    paramMap = c(paramMap, "X-Afma-Manual-Tracking-Urls");
+    if (paramMap != null) {
+      k = paramMap;
+    }
+  }
+  
+  private void l(Map<String, List<String>> paramMap)
+  {
+    long l1 = b(paramMap, "X-Afma-Refresh-Rate");
+    if (l1 != -1L) {
+      l = l1;
+    }
+  }
+  
+  private void m(Map<String, List<String>> paramMap)
+  {
+    paramMap = (List)paramMap.get("X-Afma-Orientation");
+    if ((paramMap != null) && (!paramMap.isEmpty()))
     {
-      if (wj)
+      paramMap = (String)paramMap.get(0);
+      if (!"portrait".equalsIgnoreCase(paramMap)) {
+        break label56;
+      }
+      m = s.g().b();
+    }
+    label56:
+    while (!"landscape".equalsIgnoreCase(paramMap)) {
+      return;
+    }
+    m = s.g().a();
+  }
+  
+  private void n(Map<String, List<String>> paramMap)
+  {
+    paramMap = (List)paramMap.get("X-Afma-Use-HTTPS");
+    if ((paramMap != null) && (!paramMap.isEmpty())) {
+      p = Boolean.valueOf((String)paramMap.get(0)).booleanValue();
+    }
+  }
+  
+  private void o(Map<String, List<String>> paramMap)
+  {
+    paramMap = (List)paramMap.get("X-Afma-Content-Url-Opted-Out");
+    if ((paramMap != null) && (!paramMap.isEmpty())) {
+      q = Boolean.valueOf((String)paramMap.get(0)).booleanValue();
+    }
+  }
+  
+  private void p(Map<String, List<String>> paramMap)
+  {
+    paramMap = c(paramMap, "X-Afma-OAuth-Token-Status");
+    r = 0;
+    if (paramMap == null) {}
+    String str;
+    do
+    {
+      return;
+      while (!paramMap.hasNext()) {
+        paramMap = paramMap.iterator();
+      }
+      str = (String)paramMap.next();
+      if ("Clear".equalsIgnoreCase(str))
       {
-        ex.a(mContext, paramThread, qJ);
+        r = 1;
         return;
       }
-      wi.add(paramThread);
+    } while (!"No-Op".equalsIgnoreCase(str));
+    r = 0;
+  }
+  
+  private void q(Map<String, List<String>> paramMap)
+  {
+    paramMap = (List)paramMap.get("X-Afma-Gws-Query-Id");
+    if ((paramMap != null) && (!paramMap.isEmpty())) {
+      s = ((String)paramMap.get(0));
     }
   }
   
-  public Bundle b(Context paramContext, gc paramgc, String paramString)
+  private void r(Map<String, List<String>> paramMap)
   {
-    Bundle localBundle;
-    synchronized (mH)
-    {
-      localBundle = new Bundle();
-      localBundle.putBundle("app", wa.b(paramContext, paramString));
-      paramContext = new Bundle();
-      paramString = we.keySet().iterator();
-      if (paramString.hasNext())
-      {
-        String str = (String)paramString.next();
-        paramContext.putBundle(str, ((gd)we.get(str)).toBundle());
-      }
+    paramMap = a(paramMap, "X-Afma-Fluid");
+    if ((paramMap != null) && (paramMap.equals("height"))) {
+      t = true;
     }
-    localBundle.putBundle("slots", paramContext);
-    paramContext = new ArrayList();
-    paramString = wd.iterator();
-    while (paramString.hasNext()) {
-      paramContext.add(((fz)paramString.next()).toBundle());
-    }
-    localBundle.putParcelableArrayList("ads", paramContext);
-    paramgc.a(wd);
-    wd.clear();
-    return localBundle;
   }
   
-  public void b(Context paramContext, gs paramgs)
+  private void s(Map<String, List<String>> paramMap)
   {
-    synchronized (mH)
-    {
-      if (!wg)
-      {
-        mContext = paramContext.getApplicationContext();
-        qJ = paramgs;
-        uV = gg.o(paramContext);
-        iy.H(paramContext);
-        ck.a(paramContext, this);
-        a(Thread.currentThread());
-        wl = gi.c(paramContext, wS);
-        wb = new lf();
-        wg = true;
-      }
+    u = "native_express".equals(a(paramMap, "X-Afma-Ad-Format"));
+  }
+  
+  private void t(Map<String, List<String>> paramMap)
+  {
+    v = RewardItemParcel.a(a(paramMap, "X-Afma-Rewards"));
+  }
+  
+  private void u(Map<String, List<String>> paramMap)
+  {
+    if (w != null) {
       return;
     }
+    w = c(paramMap, "X-Afma-Reward-Video-Start-Urls");
   }
   
-  public void b(Context paramContext, boolean paramBoolean)
+  private void v(Map<String, List<String>> paramMap)
   {
-    synchronized (mH)
-    {
-      if (paramBoolean != uV)
-      {
-        uV = paramBoolean;
-        gg.a(paramContext, paramBoolean);
-      }
+    if (x != null) {
       return;
     }
+    x = c(paramMap, "X-Afma-Reward-Video-Complete-Urls");
   }
   
-  public void c(HashSet<fz> paramHashSet)
+  private void w(Map<String, List<String>> paramMap)
   {
-    synchronized (mH)
-    {
-      wd.addAll(paramHashSet);
-      return;
-    }
+    y |= d(paramMap, "X-Afma-Use-Displayed-Impression");
   }
   
-  public String d(int paramInt, String paramString)
+  public AdResponseParcel a(long paramLong)
   {
-    if (qJ.wV) {}
-    for (Resources localResources = mContext.getResources(); localResources == null; localResources = GooglePlayServicesUtil.getRemoteResource(mContext)) {
-      return paramString;
-    }
-    return localResources.getString(paramInt);
+    return new AdResponseParcel(z, b, c, d, g, h, i, -1L, k, l, m, a, paramLong, e, f, n, o, p, q, false, r, s, t, u, v, w, x, y);
   }
   
-  public ld dd()
+  public void a(String paramString1, Map<String, List<String>> paramMap, String paramString2)
   {
-    synchronized (mH)
-    {
-      ld localld = wb;
-      return localld;
-    }
+    b = paramString1;
+    c = paramString2;
+    a(paramMap);
   }
   
-  public boolean de()
+  public void a(Map<String, List<String>> paramMap)
   {
-    synchronized (mH)
-    {
-      boolean bool = uW;
-      return bool;
-    }
-  }
-  
-  public String dg()
-  {
-    synchronized (mH)
-    {
-      String str = wc.toString();
-      wc = wc.add(BigInteger.ONE);
-      return str;
-    }
-  }
-  
-  public gb di()
-  {
-    synchronized (mH)
-    {
-      gb localgb = wa;
-      return localgb;
-    }
-  }
-  
-  public boolean dk()
-  {
-    synchronized (mH)
-    {
-      boolean bool = wf;
-      wf = true;
-      return bool;
-    }
-  }
-  
-  public boolean dm()
-  {
-    synchronized (mH)
-    {
-      boolean bool = uV;
-      return bool;
-    }
-  }
-  
-  public String jdMethod_do()
-  {
-    synchronized (mH)
-    {
-      String str = wl;
-      return str;
-    }
-  }
-  
-  public Bundle dp()
-  {
-    synchronized (mH)
-    {
-      Bundle localBundle = wk;
-      return localBundle;
-    }
-  }
-  
-  public void f(Throwable paramThrowable)
-  {
-    if (wg) {
-      new ex(mContext, qJ, null, null).b(paramThrowable);
-    }
-  }
-  
-  public an l(Context paramContext)
-  {
-    if ((!bN().getBoolean(bn.pp.getKey(), false)) || (!ll.ij()) || (de())) {
-      return null;
-    }
-    synchronized (mH)
-    {
-      if (nE != null) {
-        break label83;
-      }
-      if (!(paramContext instanceof Activity)) {
-        return null;
-      }
-    }
-    nE = new am((Application)paramContext.getApplicationContext(), (Activity)paramContext);
-    label83:
-    if (nF == null) {
-      nF = new al();
-    }
-    if (wh == null) {
-      wh = new an(nE, nF, wk, new ex(mContext, qJ, null, null));
-    }
-    wh.ba();
-    paramContext = wh;
-    return paramContext;
-  }
-  
-  public void x(boolean paramBoolean)
-  {
-    synchronized (mH)
-    {
-      uW = paramBoolean;
-      return;
-    }
+    b(paramMap);
+    c(paramMap);
+    d(paramMap);
+    e(paramMap);
+    f(paramMap);
+    j(paramMap);
+    k(paramMap);
+    l(paramMap);
+    m(paramMap);
+    g(paramMap);
+    n(paramMap);
+    i(paramMap);
+    h(paramMap);
+    o(paramMap);
+    p(paramMap);
+    q(paramMap);
+    r(paramMap);
+    s(paramMap);
+    t(paramMap);
+    u(paramMap);
+    v(paramMap);
+    w(paramMap);
   }
 }
 

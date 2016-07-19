@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "SortType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -27,88 +36,100 @@
 # instance fields
 .field public final description:I
 
+.field public final descriptionPastParticiple:I
+
 .field final query:Ljava/lang/String;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 11
 
     .prologue
-    const/4 v6, 0x2
+    const/4 v10, 0x2
 
-    const/4 v5, 0x1
+    const/4 v9, 0x1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    .line 25
+    .line 24
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
     const-string/jumbo v1, "DISTANCE"
 
-    const-string/jumbo v2, "distance"
+    const-string/jumbo v3, "distance"
 
-    const v3, 0x7f07058d
+    const v4, 0x7f070599
 
-    invoke-direct {v0, v1, v4, v2, v3}, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;-><init>(Ljava/lang/String;ILjava/lang/String;I)V
+    const v5, 0x7f07059c
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->DISTANCE:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
+    .line 25
+    new-instance v3, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
+
+    const-string/jumbo v4, "ALPHABETICAL"
+
+    const-string/jumbo v6, "alpha"
+
+    const v7, 0x7f070597
+
+    const v8, 0x7f07059a
+
+    move v5, v9
+
+    invoke-direct/range {v3 .. v8}, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
+
+    sput-object v3, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->ALPHABETICAL:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
+
     .line 26
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
+    new-instance v3, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
-    const-string/jumbo v1, "ALPHABETICAL"
+    const-string/jumbo v4, "CHRONOLOGICAL"
 
-    const-string/jumbo v2, "alpha"
+    const-string/jumbo v6, "date"
 
-    const v3, 0x7f07058b
+    const v7, 0x7f070598
 
-    invoke-direct {v0, v1, v5, v2, v3}, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;-><init>(Ljava/lang/String;ILjava/lang/String;I)V
+    const v8, 0x7f07059b
 
-    sput-object v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->ALPHABETICAL:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
+    move v5, v10
 
-    .line 27
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
+    invoke-direct/range {v3 .. v8}, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;-><init>(Ljava/lang/String;ILjava/lang/String;II)V
 
-    const-string/jumbo v1, "CHRONOLOGICAL"
+    sput-object v3, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->CHRONOLOGICAL:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
-    const-string/jumbo v2, "date"
-
-    const v3, 0x7f07058c
-
-    invoke-direct {v0, v1, v6, v2, v3}, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;-><init>(Ljava/lang/String;ILjava/lang/String;I)V
-
-    sput-object v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->CHRONOLOGICAL:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
-
-    .line 24
+    .line 23
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
     sget-object v1, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->DISTANCE:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v2
 
     sget-object v1, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->ALPHABETICAL:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v9
 
     sget-object v1, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->CHRONOLOGICAL:Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v10
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->$VALUES:[Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;ILjava/lang/String;I)V
+.method private constructor <init>(Ljava/lang/String;ILjava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "I)V"
+            "II)V"
         }
     .end annotation
 
@@ -123,6 +144,9 @@
     iput p4, p0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->description:I
 
     .line 35
+    iput p5, p0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->descriptionPastParticiple:I
+
+    .line 36
     return-void
 .end method
 
@@ -130,7 +154,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 23
     const-class v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -146,7 +170,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 23
     sget-object v0, Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->$VALUES:[Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/webrequests/ListBookmarksRequest$SortType;->clone()Ljava/lang/Object;

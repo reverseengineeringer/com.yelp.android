@@ -1,23 +1,24 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Compliment;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.ContinueLastOrderAvailability;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-public abstract class av
-  extends g<Void, Void, Compliment>
+public class av
+  extends b<Void, Void, ContinueLastOrderAvailability>
 {
-  protected Compliment a;
-  
-  public av(m<Compliment> paramm, String paramString, Compliment paramCompliment)
+  public av(String paramString, ApiRequest.b<ContinueLastOrderAvailability> paramb)
   {
-    super(ApiRequest.RequestType.POST, paramString, paramm);
-    a = paramCompliment;
+    super(ApiRequest.RequestType.GET, "continue_last_order/check_availability", paramb);
+    a("business_id", paramString);
   }
   
-  public Compliment a(JSONObject paramJSONObject)
+  public ContinueLastOrderAvailability a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return a;
+    return (ContinueLastOrderAvailability)ContinueLastOrderAvailability.CREATOR.parse(paramJSONObject);
   }
 }
 

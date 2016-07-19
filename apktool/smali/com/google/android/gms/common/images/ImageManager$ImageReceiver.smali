@@ -2,28 +2,42 @@
 .super Landroid/os/ResultReceiver;
 
 
+# annotations
+.annotation build Lcom/google/android/gms/common/annotation/KeepName;
+.end annotation
+
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/gms/common/images/ImageManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x12
+    name = "ImageReceiver"
+.end annotation
+
+
 # instance fields
-.field private final LE:Ljava/util/ArrayList;
+.field private final mUri:Landroid/net/Uri;
+
+.field private final zzajJ:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/google/android/gms/common/images/a;",
+            "Lcom/google/android/gms/common/images/zza;",
             ">;"
         }
     .end annotation
 .end field
 
-.field final synthetic LF:Lcom/google/android/gms/common/images/ImageManager;
-
-.field private final mUri:Landroid/net/Uri;
+.field final synthetic zzajK:Lcom/google/android/gms/common/images/ImageManager;
 
 
 # direct methods
 .method constructor <init>(Lcom/google/android/gms/common/images/ImageManager;Landroid/net/Uri;)V
     .locals 2
 
-    iput-object p1, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LF:Lcom/google/android/gms/common/images/ImageManager;
+    iput-object p1, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajK:Lcom/google/android/gms/common/images/ImageManager;
 
     new-instance v0, Landroid/os/Handler;
 
@@ -41,50 +55,80 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LE:Ljava/util/ArrayList;
+    iput-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajJ:Ljava/util/ArrayList;
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;)Ljava/util/ArrayList;
+.method static synthetic zza(Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;)Ljava/util/ArrayList;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LE:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajJ:Ljava/util/ArrayList;
 
     return-object v0
 .end method
 
 
 # virtual methods
-.method public b(Lcom/google/android/gms/common/images/a;)V
+.method public onReceiveResult(ILandroid/os/Bundle;)V
+    .locals 5
+
+    const-string/jumbo v0, "com.google.android.gms.extra.fileDescriptor"
+
+    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/ParcelFileDescriptor;
+
+    iget-object v1, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajK:Lcom/google/android/gms/common/images/ImageManager;
+
+    invoke-static {v1}, Lcom/google/android/gms/common/images/ImageManager;->zzf(Lcom/google/android/gms/common/images/ImageManager;)Ljava/util/concurrent/ExecutorService;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/google/android/gms/common/images/ImageManager$zzc;
+
+    iget-object v3, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajK:Lcom/google/android/gms/common/images/ImageManager;
+
+    iget-object v4, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->mUri:Landroid/net/Uri;
+
+    invoke-direct {v2, v3, v4, v0}, Lcom/google/android/gms/common/images/ImageManager$zzc;-><init>(Lcom/google/android/gms/common/images/ImageManager;Landroid/net/Uri;Landroid/os/ParcelFileDescriptor;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public zzb(Lcom/google/android/gms/common/images/zza;)V
     .locals 1
 
     const-string/jumbo v0, "ImageReceiver.addImageRequest() must be called in the main thread"
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/je;->aU(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/common/internal/zzb;->zzcD(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LE:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajJ:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public c(Lcom/google/android/gms/common/images/a;)V
+.method public zzc(Lcom/google/android/gms/common/images/zza;)V
     .locals 1
 
     const-string/jumbo v0, "ImageReceiver.removeImageRequest() must be called in the main thread"
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/je;->aU(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/common/internal/zzb;->zzcD(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LE:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajJ:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public hg()V
+.method public zzqm()V
     .locals 3
 
     new-instance v0, Landroid/content/Intent;
@@ -109,43 +153,13 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LF:Lcom/google/android/gms/common/images/ImageManager;
+    iget-object v1, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->zzajK:Lcom/google/android/gms/common/images/ImageManager;
 
-    invoke-static {v1}, Lcom/google/android/gms/common/images/ImageManager;->b(Lcom/google/android/gms/common/images/ImageManager;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/google/android/gms/common/images/ImageManager;->zzb(Lcom/google/android/gms/common/images/ImageManager;)Landroid/content/Context;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    return-void
-.end method
-
-.method public onReceiveResult(ILandroid/os/Bundle;)V
-    .locals 5
-
-    const-string/jumbo v0, "com.google.android.gms.extra.fileDescriptor"
-
-    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/ParcelFileDescriptor;
-
-    iget-object v1, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LF:Lcom/google/android/gms/common/images/ImageManager;
-
-    invoke-static {v1}, Lcom/google/android/gms/common/images/ImageManager;->f(Lcom/google/android/gms/common/images/ImageManager;)Ljava/util/concurrent/ExecutorService;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/google/android/gms/common/images/ImageManager$c;
-
-    iget-object v3, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->LF:Lcom/google/android/gms/common/images/ImageManager;
-
-    iget-object v4, p0, Lcom/google/android/gms/common/images/ImageManager$ImageReceiver;->mUri:Landroid/net/Uri;
-
-    invoke-direct {v2, v3, v4, v0}, Lcom/google/android/gms/common/images/ImageManager$c;-><init>(Lcom/google/android/gms/common/images/ImageManager;Landroid/net/Uri;Landroid/os/ParcelFileDescriptor;)V
-
-    invoke-interface {v1, v2}, Ljava/util/concurrent/ExecutorService;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method

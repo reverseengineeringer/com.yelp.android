@@ -7,70 +7,27 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.util.StringUtils;
 import com.yelp.parcelgen.JsonParser.DualCreator;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Tip
   extends _Tip
-  implements Complimentable, ay, m
+  implements Complimentable, SingleFeedEntry, b
 {
-  public static final JsonParser.DualCreator<Tip> CREATOR = new dg();
-  private Bitmap mEditedBitmap;
-  private Feedback mFeedback = new Feedback();
-  protected String mTempId = "";
+  public static final JsonParser.DualCreator<Tip> CREATOR = new Tip.1();
+  protected String a = "";
+  private Bitmap q;
+  private Feedback r = new Feedback();
   
-  protected Tip() {}
-  
-  public Tip(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, Date paramDate, int paramInt, ArrayList<String> paramArrayList)
+  public CharSequence a(Context paramContext)
   {
-    this();
-    mId = paramString1;
-    mUserName = paramString2;
-    mUserId = paramString3;
-    mUserPhotoUrl = paramString4;
-    mText = paramString5;
-    mTime = paramDate;
-    mPositiveFeedback = paramInt;
-    mPrivateFeedback = new ArrayList(paramArrayList);
-  }
-  
-  public boolean equalsId(ay paramay)
-  {
-    if ((paramay == null) || (!(paramay instanceof Tip))) {}
-    label85:
-    label88:
-    for (;;)
-    {
-      return false;
-      paramay = (Tip)paramay;
-      int i;
-      if ((!TextUtils.isEmpty(paramay.getId())) && (paramay.getId().equals(mId)))
-      {
-        i = 1;
-        if ((TextUtils.isEmpty(paramay.getTempId())) || (!paramay.getTempId().equals(mTempId))) {
-          break label85;
-        }
-      }
-      for (int j = 1;; j = 0)
-      {
-        if ((i == 0) && (j == 0)) {
-          break label88;
-        }
-        return true;
-        i = 0;
-        break;
-      }
-    }
-  }
-  
-  public CharSequence getCountsText(Context paramContext)
-  {
-    int i = getComplimentCount();
-    int j = getFeedback().getPositiveFeedbackCount();
+    int i = k();
+    int j = g().d();
     String str = "";
     if (i <= 0)
     {
@@ -80,18 +37,18 @@ public class Tip
     else
     {
       if (j > 0) {
-        str = StringUtils.a(paramContext, 2131624003, j, new Object[] { Boolean.valueOf(true) });
+        str = StringUtils.a(paramContext, 2131230793, j, new Object[] { Boolean.valueOf(true) });
       }
       if (i <= 0) {
         break label202;
       }
-      str = StringUtils.a(paramContext, 2131623988, i, new Object[] { Boolean.valueOf(true) });
+      str = StringUtils.a(paramContext, 2131230778, i, new Object[] { Boolean.valueOf(true) });
     }
     label202:
     for (Object localObject = str;; localObject = null)
     {
       if ((i > 0) && (j > 0)) {
-        localObject = TextUtils.join(" ● ", new CharSequence[] { localObject, StringUtils.a(paramContext, 2131623995, j, new Object[] { Boolean.valueOf(true) }) });
+        localObject = TextUtils.join(" ● ", new CharSequence[] { localObject, StringUtils.a(paramContext, 2131230785, j, new Object[] { Boolean.valueOf(true) }) });
       }
       for (;;)
       {
@@ -103,145 +60,166 @@ public class Tip
         if (j == 1)
         {
           localObject = str;
-          if (getFeedback().isLikedByUser()) {
-            localObject = paramContext.getText(2131166917);
+          if (g().c()) {
+            localObject = paramContext.getText(2131166868);
           }
         }
       }
     }
   }
   
-  public Bitmap getEditedBitmap()
+  public void a(Bitmap paramBitmap)
   {
-    return mEditedBitmap;
+    q = paramBitmap;
   }
   
-  public Feedback getFeedback()
+  public void a(Parcel paramParcel)
   {
-    return mFeedback;
+    super.a(paramParcel);
+    r = ((Feedback)paramParcel.readParcelable(Feedback.class.getClassLoader()));
+    q = ((Bitmap)paramParcel.readParcelable(Bitmap.class.getClassLoader()));
+    a = paramParcel.readString();
   }
   
-  public String getTempId()
+  public void a(Photo paramPhoto)
   {
-    return mTempId;
+    e = paramPhoto;
   }
   
-  public String getTipOfTheDayDateFormat(Context paramContext, boolean paramBoolean)
-  {
-    if (mTipOfTheDayTime == null) {
-      return null;
-    }
-    if (paramBoolean) {
-      return android.text.format.DateFormat.getLongDateFormat(paramContext).format(mTipOfTheDayTime);
-    }
-    return android.text.format.DateFormat.getDateFormat(paramContext).format(mTipOfTheDayTime);
-  }
-  
-  public Compliment.ComplimentableItemType getType()
-  {
-    return Compliment.ComplimentableItemType.QUICK_TIP;
-  }
-  
-  public String getUserId()
-  {
-    if (mUserId == null) {
-      mUserId = AppData.b().m().b();
-    }
-    return mUserId;
-  }
-  
-  public String getUserName()
-  {
-    if (mUserName == null)
-    {
-      dc localdc = AppData.b().m();
-      if (getUserId().equals(localdc.b())) {
-        mUserName = localdc.t();
-      }
-    }
-    return mUserName;
-  }
-  
-  public boolean isTipTemporary()
-  {
-    return TextUtils.isEmpty(mId);
-  }
-  
-  public void makeFirstToTip()
-  {
-    mIsFirstTip = true;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    super.readFromJson(paramJSONObject);
-    mFeedback = new Feedback(getPrivateFeedback(), getPositiveFeedback());
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    super.readFromParcel(paramParcel);
-    mFeedback = ((Feedback)paramParcel.readParcelable(Feedback.class.getClassLoader()));
-    mEditedBitmap = ((Bitmap)paramParcel.readParcelable(Bitmap.class.getClassLoader()));
-    mTempId = paramParcel.readString();
-  }
-  
-  public void setBusinessId(String paramString)
-  {
-    mBusinessId = paramString;
-  }
-  
-  public void setBusinessName(String paramString)
-  {
-    mBusinessName = paramString;
-  }
-  
-  public void setDateModified(Date paramDate)
-  {
-    mTime = paramDate;
-  }
-  
-  public void setEditedBitmap(Bitmap paramBitmap)
-  {
-    mEditedBitmap = paramBitmap;
-  }
-  
-  public void setId(String paramString)
-  {
-    mId = paramString;
-  }
-  
-  public void setPhoto(Photo paramPhoto)
-  {
-    mPhoto = paramPhoto;
-  }
-  
-  public void setTempId(String paramString)
-  {
-    mTempId = paramString;
-  }
-  
-  public void setText(String paramString)
-  {
-    mText = paramString;
-  }
-  
-  public void setUser(User paramUser)
+  public void a(User paramUser)
   {
     if (paramUser == null) {
       return;
     }
-    mUserName = paramUser.getUserName();
-    mUserPhotoUrl = paramUser.getUserPhotoUrl();
-    mUserId = paramUser.getId();
+    g = paramUser.a();
+    m = paramUser.c();
+    h = paramUser.ae();
+  }
+  
+  public void a(String paramString)
+  {
+    i = paramString;
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    super.a(paramJSONObject);
+    r = new Feedback(s(), l());
+  }
+  
+  public boolean a(b paramb)
+  {
+    if (!(paramb instanceof Tip)) {}
+    label81:
+    label84:
+    for (;;)
+    {
+      return false;
+      paramb = (Tip)paramb;
+      int i;
+      if ((!TextUtils.isEmpty(paramb.a())) && (paramb.a().equals(f)))
+      {
+        i = 1;
+        if ((TextUtils.isEmpty(paramb.i())) || (!paramb.i().equals(a))) {
+          break label81;
+        }
+      }
+      for (int j = 1;; j = 0)
+      {
+        if ((i == 0) && (j == 0)) {
+          break label84;
+        }
+        return true;
+        i = 0;
+        break;
+      }
+    }
+  }
+  
+  public String b()
+  {
+    if (h == null) {
+      h = AppData.b().q().a();
+    }
+    return h;
+  }
+  
+  public void b(String paramString)
+  {
+    l = paramString;
+  }
+  
+  public Compliment.ComplimentableItemType c()
+  {
+    return Compliment.ComplimentableItemType.QUICK_TIP;
+  }
+  
+  public void c(String paramString)
+  {
+    a = paramString;
+  }
+  
+  public Date d()
+  {
+    return b;
+  }
+  
+  public void d(String paramString)
+  {
+    f = paramString;
+  }
+  
+  public Bitmap f()
+  {
+    return q;
+  }
+  
+  public Feedback g()
+  {
+    return r;
+  }
+  
+  public String h()
+  {
+    if (g == null)
+    {
+      co localco = AppData.b().q();
+      if (b().equals(localco.a())) {
+        g = localco.q();
+      }
+    }
+    return g;
+  }
+  
+  public String i()
+  {
+    return a;
+  }
+  
+  public boolean j()
+  {
+    return TextUtils.isEmpty(f);
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeParcelable(mFeedback, paramInt);
-    paramParcel.writeParcelable(mEditedBitmap, paramInt);
-    paramParcel.writeString(mTempId);
+    paramParcel.writeParcelable(r, paramInt);
+    paramParcel.writeParcelable(q, paramInt);
+    paramParcel.writeString(a);
+  }
+  
+  public static class TempTip
+    extends Tip
+  {
+    public TempTip()
+    {
+      f = "";
+      a = UUID.randomUUID().toString();
+      i = "";
+      b = new Date();
+    }
   }
 }
 

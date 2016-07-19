@@ -1,5 +1,5 @@
 .class public Lcom/comscore/applications/c;
-.super Lcom/yelp/android/al/b;
+.super Lcom/yelp/android/ar/b;
 
 
 # direct methods
@@ -28,13 +28,13 @@
 .method protected constructor <init>(Lcom/comscore/analytics/a;Lcom/comscore/applications/EventType;Ljava/lang/String;ZZZ)V
     .locals 32
 
-    invoke-direct/range {p0 .. p1}, Lcom/yelp/android/al/b;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct/range {p0 .. p1}, Lcom/yelp/android/ar/b;-><init>(Lcom/comscore/analytics/a;)V
 
     move-object/from16 v0, p1
 
     move/from16 v1, p6
 
-    invoke-virtual {v0, v1}, Lcom/comscore/analytics/a;->s(Z)V
+    invoke-virtual {v0, v1}, Lcom/comscore/analytics/a;->t(Z)V
 
     if-eqz p6, :cond_3
 
@@ -154,7 +154,7 @@
 
     move-result v28
 
-    new-instance v29, Lcom/yelp/android/al/a;
+    new-instance v29, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v30, "ns_ap_fg"
 
@@ -174,15 +174,15 @@
 
     move-object/from16 v2, v31
 
-    invoke-direct {v0, v1, v4, v2}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v0, v1, v4, v2}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v29
 
-    invoke-virtual {v0, v1}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v1}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v29, "ns_ap_ft"
 
@@ -198,13 +198,13 @@
 
     move-object/from16 v0, v29
 
-    invoke-direct {v4, v0, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v0, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_dft"
 
@@ -218,13 +218,13 @@
 
     move-result-object v8
 
-    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_bt"
 
@@ -238,13 +238,13 @@
 
     move-result-object v8
 
-    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_dbt"
 
@@ -258,13 +258,13 @@
 
     move-result-object v8
 
-    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_it"
 
@@ -278,13 +278,13 @@
 
     move-result-object v8
 
-    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_dit"
 
@@ -298,11 +298,11 @@
 
     move-result-object v8
 
-    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     const-wide/32 v6, 0xea60
 
@@ -310,7 +310,7 @@
 
     if-ltz v4, :cond_0
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_ut"
 
@@ -324,14 +324,14 @@
 
     move-result-object v8
 
-    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v6, v7, v8}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     :cond_0
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_as"
 
@@ -345,13 +345,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v6, v5, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v6, v5, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_das"
 
@@ -365,15 +365,15 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     if-ltz v26, :cond_1
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_aus"
 
@@ -387,13 +387,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_daus"
 
@@ -407,13 +407,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_uc"
 
@@ -427,16 +427,16 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     :cond_1
     if-ltz v27, :cond_2
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_us"
 
@@ -450,13 +450,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_dus"
 
@@ -470,14 +470,14 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     :cond_2
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_usage"
 
@@ -501,11 +501,11 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     :cond_3
     if-eqz p3, :cond_4
@@ -517,7 +517,7 @@
     invoke-virtual {v0, v1}, Lcom/comscore/applications/c;->b(Ljava/lang/String;)V
 
     :cond_4
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "c1"
 
@@ -529,13 +529,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_an"
 
@@ -549,13 +549,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_pn"
 
@@ -567,13 +567,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "c12"
 
@@ -587,11 +587,11 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->R()Ljava/lang/String;
 
@@ -599,7 +599,7 @@
 
     if-eqz v4, :cond_5
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ak"
 
@@ -613,23 +613,23 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->T()Lcom/yelp/android/am/a;
+    invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->T()Lcom/yelp/android/as/b;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/yelp/android/am/a;->a()Z
+    invoke-virtual {v4}, Lcom/yelp/android/as/b;->a()Z
 
     move-result v4
 
     if-eqz v4, :cond_5
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_ni"
 
@@ -641,18 +641,18 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     :cond_5
-    invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->T()Lcom/yelp/android/am/a;
+    invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->T()Lcom/yelp/android/as/b;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/yelp/android/am/a;->g()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/yelp/android/as/b;->g()Ljava/lang/String;
 
     move-result-object v4
 
@@ -660,11 +660,11 @@
 
     const-string/jumbo v4, "ns_ap_i3"
 
-    invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->T()Lcom/yelp/android/am/a;
+    invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->T()Lcom/yelp/android/as/b;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/yelp/android/am/a;->g()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/yelp/android/as/b;->g()Ljava/lang/String;
 
     move-result-object v5
 
@@ -673,7 +673,7 @@
     invoke-virtual {v0, v4, v5}, Lcom/comscore/applications/c;->a(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_6
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_device"
 
@@ -685,13 +685,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_type"
 
@@ -709,13 +709,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ts"
 
@@ -733,13 +733,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_nc"
 
@@ -751,13 +751,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_pfv"
 
@@ -769,13 +769,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_pv"
 
@@ -787,13 +787,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_pfm"
 
@@ -805,13 +805,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_ar"
 
@@ -827,13 +827,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_ev"
 
@@ -847,17 +847,17 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     invoke-virtual/range {p1 .. p1}, Lcom/comscore/analytics/a;->N()Landroid/content/Context;
 
     move-result-object v4
 
-    new-instance v5, Lcom/yelp/android/al/a;
+    new-instance v5, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_ver"
 
@@ -871,11 +871,11 @@
 
     move-result-object v8
 
-    invoke-direct {v5, v6, v7, v8}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v5, v6, v7, v8}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v5}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     move-object/from16 v0, p0
 
@@ -917,7 +917,7 @@
 
     move-result-object v4
 
-    new-instance v5, Lcom/yelp/android/al/a;
+    new-instance v5, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v6, "ns_ap_res"
 
@@ -927,13 +927,13 @@
 
     move-result-object v7
 
-    invoke-direct {v5, v6, v4, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v5, v6, v4, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v5}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_lang"
 
@@ -951,13 +951,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_sv"
 
@@ -971,11 +971,11 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     sget-object v4, Lcom/comscore/applications/EventType;->KEEPALIVE:Lcom/comscore/applications/EventType;
 
@@ -1014,7 +1014,7 @@
 
     move-result v6
 
-    new-instance v7, Lcom/yelp/android/al/a;
+    new-instance v7, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v8, "ns_ap_id"
 
@@ -1028,13 +1028,13 @@
 
     move-result-object v5
 
-    invoke-direct {v7, v8, v4, v5}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v7, v8, v4, v5}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v7}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v7}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_cs"
 
@@ -1048,13 +1048,13 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
-    new-instance v4, Lcom/yelp/android/al/a;
+    new-instance v4, Lcom/yelp/android/ar/a;
 
     const-string/jumbo v5, "ns_ap_bi"
 
@@ -1072,11 +1072,11 @@
 
     move-result-object v7
 
-    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-direct {v4, v5, v6, v7}, Lcom/yelp/android/ar/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {v0, v4}, Lcom/comscore/applications/c;->b(Lcom/yelp/android/ar/a;)V
 
     return-void
 .end method

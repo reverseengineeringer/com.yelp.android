@@ -7,6 +7,18 @@
 .implements Ljava/util/Observer;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/OoyalaPlayer$11;,
+        Lcom/ooyala/android/OoyalaPlayer$Environment;,
+        Lcom/ooyala/android/OoyalaPlayer$SeekStyle;,
+        Lcom/ooyala/android/OoyalaPlayer$State;,
+        Lcom/ooyala/android/OoyalaPlayer$ActionAtEnd;
+    }
+.end annotation
+
+
 # static fields
 .field public static final AD_COMPLETED_NOTIFICATION:Ljava/lang/String; = "adCompleted"
 

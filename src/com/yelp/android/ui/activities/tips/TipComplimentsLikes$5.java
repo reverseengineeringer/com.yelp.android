@@ -1,0 +1,26 @@
+package com.yelp.android.ui.activities.tips;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import com.yelp.android.serializable.Tip;
+import com.yelp.android.util.ObjectDirtyEvent;
+
+class TipComplimentsLikes$5
+  extends BroadcastReceiver
+{
+  TipComplimentsLikes$5(TipComplimentsLikes paramTipComplimentsLikes) {}
+  
+  public void onReceive(Context paramContext, Intent paramIntent)
+  {
+    TipComplimentsLikes.a(a, (Tip)ObjectDirtyEvent.a(paramIntent));
+    TipComplimentsLikes.a(a, TipComplimentsLikes.a(a).a());
+    TipComplimentsLikes.d(a);
+  }
+}
+
+/* Location:
+ * Qualified Name:     com.yelp.android.ui.activities.tips.TipComplimentsLikes.5
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

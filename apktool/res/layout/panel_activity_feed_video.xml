@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include layout="@layout/panel_activity_feed_user_profile_header" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/feed_description" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <RelativeLayout android:id="@id/business_layout" android:background="@drawable/selector_rounded_cell" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size">
+        <include layout="@layout/panel_activity_feed_business_segment" />
+    </RelativeLayout>
+    <com.yelp.android.ui.widgets.HotNewBusinessAwardBanner android:id="@id/feed_video_hot_new_business_banner" android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AwardBannerHotNewBusiness" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/video_thumbnail" android:layout_width="fill_parent" android:layout_height="@dimen/single_photo_height" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:scaleType="centerCrop" android:contentDescription="@null" />
+        <com.yelp.android.ui.activities.photoviewer.PhotoChrome android:id="@id/video_photo_chrome" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" />
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/default_large_gap_size" android:src="@drawable/video_play_large" android:contentDescription="@null" />
+    </FrameLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_toLeftOf="@id/video_like_button" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <TextView android:ellipsize="end" android:id="@id/video_likes_count" android:background="@drawable/selector_rounded_cell" android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+        <com.yelp.android.ui.widgets.AnimatedToggleButton android:id="@id/video_like_button" android:background="@drawable/selector_rounded_cell" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:drawableLeft="@drawable/button_like_gray" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/default_base_gap_size" />
+</LinearLayout>

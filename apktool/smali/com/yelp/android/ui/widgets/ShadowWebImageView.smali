@@ -130,7 +130,7 @@
 
     move-result-object v0
 
-    sget v5, Lcom/yelp/android/bf/e;->shadow_radius:I
+    sget v5, Lcom/yelp/android/co/a$d;->shadow_radius:I
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -138,12 +138,12 @@
 
     float-to-int v5, v0
 
-    .line 47
+    .line 46
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/ShadowWebImageView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v6, Lcom/yelp/android/bf/f;->shadow_black:I
+    sget v6, Lcom/yelp/android/co/a$e;->shadow_black:I
 
     invoke-virtual {v0, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -151,7 +151,7 @@
 
     check-cast v0, Landroid/graphics/drawable/NinePatchDrawable;
 
-    .line 49
+    .line 48
     iget-object v6, p0, Lcom/yelp/android/ui/widgets/ShadowWebImageView;->a:Landroid/graphics/Rect;
 
     sub-int v7, v3, v5
@@ -168,18 +168,18 @@
 
     invoke-virtual {v6, v7, v8, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 51
+    .line 53
     iget-object v1, p0, Lcom/yelp/android/ui/widgets/ShadowWebImageView;->a:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/NinePatchDrawable;->setBounds(Landroid/graphics/Rect;)V
 
-    .line 52
+    .line 54
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/NinePatchDrawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 54
+    .line 56
     :cond_0
     invoke-super {p0, p1}, Lcom/yelp/android/webimageview/WebImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 55
+    .line 57
     return-void
 .end method

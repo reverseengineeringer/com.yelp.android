@@ -3,6 +3,14 @@
 .source "SourceAwareMetadataObject.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/model/SourceAwareMetadataObject$Fields;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>(Ljava/util/Map;)V
     .locals 0

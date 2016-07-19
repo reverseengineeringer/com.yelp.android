@@ -7,7 +7,7 @@ class i
   
   public void run()
   {
-    a.a(b, a);
+    b.b(a);
   }
 }
 

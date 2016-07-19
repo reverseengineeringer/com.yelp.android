@@ -12,19 +12,19 @@ import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.e;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.appdata.webrequests.i;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.activities.support.h;
-import com.yelp.android.ui.util.cn;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.activities.support.b;
+import com.yelp.android.ui.util.ap.b;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.util.StringUtils;
 
 public class SendFriendRequestForm
   extends YelpActivity
-  implements i
+  implements c.a
 {
   public static Intent a(Context paramContext, User paramUser)
   {
@@ -42,7 +42,7 @@ public class SendFriendRequestForm
   {
     Intent localIntent = getIntent();
     User localUser = (User)localIntent.getParcelableExtra("extra.user");
-    localUser.setFriendRequestPending(true);
+    localUser.b(true);
     localIntent.putExtra("extra.user", localUser);
     setResult(-1, localIntent);
   }
@@ -50,7 +50,7 @@ public class SendFriendRequestForm
   public void a(ApiRequest<?, ?, ?> paramApiRequest, Void paramVoid)
   {
     hideLoadingDialog();
-    cr.a(2131166456, 0);
+    as.a(2131166460, 0);
     a();
     finish();
   }
@@ -63,18 +63,18 @@ public class SendFriendRequestForm
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903113);
+    setContentView(2130903124);
     paramBundle = (User)getIntent().getParcelableExtra("extra.user");
-    View localView = findViewById(2131493199);
-    new cn(localView, false).a(localView.getContext(), paramBundle.getName(), paramBundle.getFriendCount(), paramBundle.getReviewCount(), paramBundle.getPhotoCount(), paramBundle.getVideoCount(), paramBundle.getMediaCount(), paramBundle.getUserPhotoUrl(), paramBundle.isEliteUser());
-    ((TextView)findViewById(2131493200)).setText(StringUtils.a(this, 2131165863, new Object[] { paramBundle.getFirstName() }));
-    ((TextView)findViewById(2131493201)).setText(StringUtils.a(this, 2131165865, new Object[] { getAppData().m().q() }));
+    View localView = findViewById(2131689867);
+    new ap.b(localView, false).a(localView.getContext(), paramBundle.ad(), paramBundle.k_(), paramBundle.j_(), paramBundle.l_(), paramBundle.m_(), paramBundle.n_(), paramBundle.c(), paramBundle.h());
+    ((TextView)findViewById(2131689868)).setText(StringUtils.a(this, 2131165940, new Object[] { paramBundle.Z() }));
+    ((TextView)findViewById(2131689869)).setText(StringUtils.a(this, 2131165942, new Object[] { getAppData().q().l() }));
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755019, paramMenu);
+    getMenuInflater().inflate(2131755021, paramMenu);
     return true;
   }
   
@@ -82,13 +82,13 @@ public class SendFriendRequestForm
   {
     getHelper().h();
     hideLoadingDialog();
-    cr.a(paramYelpException.getMessageResource(), 0);
+    as.a(paramYelpException.getMessageResource(), 0);
     switch (paramYelpException.getMessageResource())
     {
     default: 
       return;
-    case 2131165203: 
-    case 2131165217: 
+    case 2131165339: 
+    case 2131165353: 
       a();
     }
     finish();
@@ -96,10 +96,10 @@ public class SendFriendRequestForm
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494141)
+    if (paramMenuItem.getItemId() == 2131691015)
     {
-      paramMenuItem = new e(this, (User)getIntent().getParcelableExtra("extra.user"), ((TextView)findViewById(2131493033)).getText().toString().trim());
-      paramMenuItem.execute(new Void[0]);
+      paramMenuItem = new i(this, (User)getIntent().getParcelableExtra("extra.user"), ((TextView)findViewById(2131689696)).getText().toString().trim());
+      paramMenuItem.f(new Void[0]);
       getHelper().a(paramMenuItem);
       showLoadingDialog(paramMenuItem, 2131166547);
       return true;
@@ -110,7 +110,7 @@ public class SendFriendRequestForm
   public boolean onPrepareOptionsMenu(Menu paramMenu)
   {
     super.onPrepareOptionsMenu(paramMenu);
-    paramMenu.findItem(2131494141).setTitle(2131166542);
+    paramMenu.findItem(2131691015).setTitle(2131166542);
     return true;
   }
 }

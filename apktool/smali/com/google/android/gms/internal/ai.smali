@@ -1,9 +1,12 @@
 .class public Lcom/google/android/gms/internal/ai;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Lcom/google/android/gms/internal/aj;
+
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
@@ -18,69 +21,33 @@
 
 
 # virtual methods
-.method protected a(Landroid/content/Context;Lcom/google/android/gms/internal/gs;Lcom/google/android/gms/internal/gj;)Lcom/google/android/gms/internal/ah;
-    .locals 2
+.method public a(Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;)Ljava/util/List;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/content/Context;",
-            "Lcom/google/android/gms/internal/gs;",
-            "Lcom/google/android/gms/internal/gj",
-            "<",
-            "Lcom/google/android/gms/internal/ah;",
-            ">;)",
-            "Lcom/google/android/gms/internal/ah;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/google/android/gms/internal/aj;
-
-    invoke-direct {v0, p1, p2}, Lcom/google/android/gms/internal/aj;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/gs;)V
-
-    new-instance v1, Lcom/google/android/gms/internal/ai$2;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/google/android/gms/internal/ai$2;-><init>(Lcom/google/android/gms/internal/ai;Lcom/google/android/gms/internal/gj;Lcom/google/android/gms/internal/ah;)V
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/ah;->a(Lcom/google/android/gms/internal/ah$a;)V
-
-    return-object v0
-.end method
-
-.method public a(Landroid/content/Context;Lcom/google/android/gms/internal/gs;Ljava/lang/String;)Ljava/util/concurrent/Future;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/google/android/gms/internal/gs;",
-            "Ljava/lang/String;",
+            "Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;",
             ")",
-            "Ljava/util/concurrent/Future",
+            "Ljava/util/List",
             "<",
-            "Lcom/google/android/gms/internal/ah;",
+            "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 
-    new-instance v4, Lcom/google/android/gms/internal/gj;
+    iget-object v0, p1, Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;->x:Ljava/util/List;
 
-    invoke-direct {v4}, Lcom/google/android/gms/internal/gj;-><init>()V
+    if-nez v0, :cond_0
 
-    sget-object v6, Lcom/google/android/gms/internal/gq;->wR:Landroid/os/Handler;
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    new-instance v0, Lcom/google/android/gms/internal/ai$1;
+    move-result-object v0
 
-    move-object v1, p0
+    :goto_0
+    return-object v0
 
-    move-object v2, p1
+    :cond_0
+    iget-object v0, p1, Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;->x:Ljava/util/List;
 
-    move-object v3, p2
-
-    move-object v5, p3
-
-    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/internal/ai$1;-><init>(Lcom/google/android/gms/internal/ai;Landroid/content/Context;Lcom/google/android/gms/internal/gs;Lcom/google/android/gms/internal/gj;Ljava/lang/String;)V
-
-    invoke-virtual {v6, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-object v4
+    goto :goto_0
 .end method

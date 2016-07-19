@@ -6,6 +6,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/gms/location/DetectedActivity;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = null
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -31,7 +40,7 @@
 .method public a(Lcom/google/android/gms/location/DetectedActivity;Lcom/google/android/gms/location/DetectedActivity;)I
     .locals 2
 
-    invoke-virtual {p2}, Lcom/google/android/gms/location/DetectedActivity;->getConfidence()I
+    invoke-virtual {p2}, Lcom/google/android/gms/location/DetectedActivity;->b()I
 
     move-result v0
 
@@ -39,7 +48,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p1}, Lcom/google/android/gms/location/DetectedActivity;->getConfidence()I
+    invoke-virtual {p1}, Lcom/google/android/gms/location/DetectedActivity;->b()I
 
     move-result v1
 
@@ -53,7 +62,7 @@
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p1}, Lcom/google/android/gms/location/DetectedActivity;->getType()I
+    invoke-virtual {p1}, Lcom/google/android/gms/location/DetectedActivity;->a()I
 
     move-result v0
 
@@ -61,7 +70,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p2}, Lcom/google/android/gms/location/DetectedActivity;->getType()I
+    invoke-virtual {p2}, Lcom/google/android/gms/location/DetectedActivity;->a()I
 
     move-result v1
 

@@ -4,75 +4,66 @@ import android.app.Activity;
 import android.os.RemoteException;
 import android.support.v4.app.Fragment;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.dynamic.a;
-import com.google.android.gms.dynamic.e;
-import com.google.android.gms.dynamic.f;
-import com.google.android.gms.maps.internal.IMapFragmentDelegate;
-import com.google.android.gms.maps.internal.c;
-import com.google.android.gms.maps.internal.x;
+import com.google.android.gms.dynamic.b;
 import com.google.android.gms.maps.model.RuntimeRemoteException;
+import com.yelp.android.bj.q;
+import com.yelp.android.bj.s;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 class SupportMapFragment$b
-  extends a<SupportMapFragment.a>
+  extends b<SupportMapFragment.a>
 {
-  private final Fragment Mx;
-  protected f<SupportMapFragment.a> akW;
-  private final List<OnMapReadyCallback> akX = new ArrayList();
-  private Activity nB;
+  protected com.google.android.gms.dynamic.e<SupportMapFragment.a> a;
+  private final Fragment b;
+  private Activity c;
+  private final List<e> d = new ArrayList();
   
   SupportMapFragment$b(Fragment paramFragment)
   {
-    Mx = paramFragment;
+    b = paramFragment;
   }
   
-  private void setActivity(Activity paramActivity)
+  private void a(Activity paramActivity)
   {
-    nB = paramActivity;
-    nO();
+    c = paramActivity;
+    g();
   }
   
-  protected void a(f<SupportMapFragment.a> paramf)
+  protected void a(com.google.android.gms.dynamic.e<SupportMapFragment.a> parame)
   {
-    akW = paramf;
-    nO();
+    a = parame;
+    g();
   }
   
-  public void getMapAsync(OnMapReadyCallback paramOnMapReadyCallback)
+  public void g()
   {
-    if (je() != null)
-    {
-      ((SupportMapFragment.a)je()).getMapAsync(paramOnMapReadyCallback);
-      return;
-    }
-    akX.add(paramOnMapReadyCallback);
-  }
-  
-  public void nO()
-  {
-    if ((nB != null) && (akW != null) && (je() == null)) {}
-    try
-    {
-      MapsInitializer.initialize(nB);
-      Object localObject = x.S(nB).j(e.k(nB));
-      akW.a(new SupportMapFragment.a(Mx, (IMapFragmentDelegate)localObject));
-      localObject = akX.iterator();
-      while (((Iterator)localObject).hasNext())
+    if ((c != null) && (a != null) && (a() == null)) {
+      try
       {
-        OnMapReadyCallback localOnMapReadyCallback = (OnMapReadyCallback)((Iterator)localObject).next();
-        ((SupportMapFragment.a)je()).getMapAsync(localOnMapReadyCallback);
+        d.a(c);
+        Object localObject = q.a(c).b(com.google.android.gms.dynamic.d.a(c));
+        if (localObject == null) {
+          return;
+        }
+        a.a(new SupportMapFragment.a(b, (com.yelp.android.bj.d)localObject));
+        localObject = d.iterator();
+        while (((Iterator)localObject).hasNext())
+        {
+          e locale = (e)((Iterator)localObject).next();
+          ((SupportMapFragment.a)a()).a(locale);
+        }
+        return;
       }
-      return;
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+        d.clear();
+        return;
+      }
+      catch (GooglePlayServicesNotAvailableException localGooglePlayServicesNotAvailableException) {}
     }
-    catch (RemoteException localRemoteException)
-    {
-      throw new RuntimeRemoteException(localRemoteException);
-      akX.clear();
-      return;
-    }
-    catch (GooglePlayServicesNotAvailableException localGooglePlayServicesNotAvailableException) {}
   }
 }
 

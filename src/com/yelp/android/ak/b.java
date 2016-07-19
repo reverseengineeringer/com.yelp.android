@@ -1,34 +1,19 @@
 package com.yelp.android.ak;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.os.Build.VERSION;
+import com.bumptech.glide.load.a;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.e;
+import java.io.File;
 
-@SuppressLint({"NewApi"})
-public class b
+public abstract interface b<T, Z>
 {
-  public static String a(Context paramContext)
-  {
-    if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 9)
-    {
-      paramContext = Build.SERIAL;
-      if (paramContext != null) {
-        try
-        {
-          if ((paramContext.length() > 0) && (!paramContext.equals("unknown")) && (paramContext.length() > 3) && (!paramContext.substring(0, 3).equals("***")))
-          {
-            boolean bool = paramContext.substring(0, 3).equals("000");
-            if (!bool) {
-              return paramContext;
-            }
-          }
-        }
-        catch (Exception paramContext) {}
-      }
-    }
-    return null;
-  }
+  public abstract d<File, Z> a();
+  
+  public abstract d<T, Z> b();
+  
+  public abstract a<T> c();
+  
+  public abstract e<Z> d();
 }
 
 /* Location:

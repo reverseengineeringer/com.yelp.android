@@ -1,6 +1,11 @@
 package com.brightcove.player.event;
 
+import android.util.Log;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class EventLogger
 {
@@ -52,7 +57,41 @@ public class EventLogger
   public void start()
   {
     stop();
-    genericListener = new EventLogger.1(this);
+    genericListener = new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        if (excludeList.contains(paramAnonymousEvent.getType())) {}
+        do
+        {
+          return;
+          StringBuffer localStringBuffer = new StringBuffer(paramAnonymousEvent.getType());
+          Object localObject = properties.get("emitter");
+          if (localObject != null)
+          {
+            localStringBuffer.append(" (");
+            localStringBuffer.append(localObject);
+            localStringBuffer.append(')');
+          }
+          if (verbose)
+          {
+            localStringBuffer.append(" { ");
+            localObject = properties.entrySet().iterator();
+            while (((Iterator)localObject).hasNext())
+            {
+              Map.Entry localEntry = (Map.Entry)((Iterator)localObject).next();
+              localStringBuffer.append((String)localEntry.getKey());
+              localStringBuffer.append(": ");
+              localStringBuffer.append(localEntry.getValue());
+              localStringBuffer.append(' ');
+            }
+            localStringBuffer.append('}');
+          }
+          Log.d(tag, localStringBuffer.toString());
+        } while ((!"error".equals(paramAnonymousEvent.getType())) || (!properties.containsKey("error")));
+        Log.e("EventLogger", "Unhandled error event", (Throwable)properties.get("error"));
+      }
+    };
     currentListenerToken = emitter.on("*", genericListener);
   }
   

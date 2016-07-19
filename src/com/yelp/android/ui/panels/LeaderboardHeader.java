@@ -21,13 +21,13 @@ public class LeaderboardHeader
   
   public LeaderboardHeader(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 2130772334);
+    this(paramContext, paramAttributeSet, 2130772444);
   }
   
   public LeaderboardHeader(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    a.setText(2131166000);
+    a.setText(2131166055);
   }
   
   public void a(int paramInt1, int paramInt2, int paramInt3)
@@ -46,7 +46,7 @@ public class LeaderboardHeader
       }
     }
     label101:
-    for (Object localObject = StringUtils.a(getContext(), 2131166001, new Object[] { localObject, str });; localObject = StringUtils.a(getContext(), 2131166384, new Object[] { localObject }))
+    for (Object localObject = StringUtils.a(getContext(), 2131166056, new Object[] { localObject, str });; localObject = StringUtils.a(getContext(), 2131166410, new Object[] { localObject }))
     {
       b.setText((CharSequence)localObject);
       b.setVisibility(0);

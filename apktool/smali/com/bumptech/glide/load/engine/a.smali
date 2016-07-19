@@ -4,6 +4,14 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/bumptech/glide/load/engine/a$b;,
+        Lcom/bumptech/glide/load/engine/a$a;,
+        Lcom/bumptech/glide/load/engine/a$c;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<A:",
@@ -19,29 +27,29 @@
 
 
 # static fields
-.field private static final a:Lcom/bumptech/glide/load/engine/b;
+.field private static final a:Lcom/bumptech/glide/load/engine/a$b;
 
 
 # instance fields
-.field private final b:Lcom/bumptech/glide/load/engine/n;
+.field private final b:Lcom/bumptech/glide/load/engine/e;
 
 .field private final c:I
 
 .field private final d:I
 
-.field private final e:Lcom/yelp/android/r/c;
+.field private final e:Lcom/yelp/android/w/c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/r/c",
+            "Lcom/yelp/android/w/c",
             "<TA;>;"
         }
     .end annotation
 .end field
 
-.field private final f:Lcom/yelp/android/ae/b;
+.field private final f:Lcom/yelp/android/ak/b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ae/b",
+            "Lcom/yelp/android/ak/b",
             "<TA;TT;>;"
         }
     .end annotation
@@ -56,22 +64,22 @@
     .end annotation
 .end field
 
-.field private final h:Lcom/yelp/android/ad/c;
+.field private final h:Lcom/yelp/android/ai/c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ad/c",
+            "Lcom/yelp/android/ai/c",
             "<TT;TZ;>;"
         }
     .end annotation
 .end field
 
-.field private final i:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+.field private final i:Lcom/bumptech/glide/load/engine/a$a;
 
-.field private final j:Lcom/yelp/android/s/a;
+.field private final j:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
 .field private final k:Lcom/bumptech/glide/Priority;
 
-.field private final l:Lcom/bumptech/glide/load/engine/b;
+.field private final l:Lcom/bumptech/glide/load/engine/a$b;
 
 .field private volatile m:Z
 
@@ -82,31 +90,31 @@
 
     .prologue
     .line 32
-    new-instance v0, Lcom/bumptech/glide/load/engine/b;
+    new-instance v0, Lcom/bumptech/glide/load/engine/a$b;
 
-    invoke-direct {v0}, Lcom/bumptech/glide/load/engine/b;-><init>()V
+    invoke-direct {v0}, Lcom/bumptech/glide/load/engine/a$b;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/engine/a;->a:Lcom/bumptech/glide/load/engine/b;
+    sput-object v0, Lcom/bumptech/glide/load/engine/a;->a:Lcom/bumptech/glide/load/engine/a$b;
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/bumptech/glide/load/engine/n;IILcom/yelp/android/r/c;Lcom/yelp/android/ae/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ad/c;Lcom/yelp/android/s/a;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;)V
+.method public constructor <init>(Lcom/bumptech/glide/load/engine/e;IILcom/yelp/android/w/c;Lcom/yelp/android/ak/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ai/c;Lcom/bumptech/glide/load/engine/a$a;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;)V
     .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/n;",
+            "Lcom/bumptech/glide/load/engine/e;",
             "II",
-            "Lcom/yelp/android/r/c",
+            "Lcom/yelp/android/w/c",
             "<TA;>;",
-            "Lcom/yelp/android/ae/b",
+            "Lcom/yelp/android/ak/b",
             "<TA;TT;>;",
             "Lcom/bumptech/glide/load/f",
             "<TT;>;",
-            "Lcom/yelp/android/ad/c",
+            "Lcom/yelp/android/ai/c",
             "<TT;TZ;>;",
-            "Lcom/yelp/android/s/a;",
+            "Lcom/bumptech/glide/load/engine/a$a;",
             "Lcom/bumptech/glide/load/engine/DiskCacheStrategy;",
             "Lcom/bumptech/glide/Priority;",
             ")V"
@@ -115,7 +123,7 @@
 
     .prologue
     .line 51
-    sget-object v11, Lcom/bumptech/glide/load/engine/a;->a:Lcom/bumptech/glide/load/engine/b;
+    sget-object v11, Lcom/bumptech/glide/load/engine/a;->a:Lcom/bumptech/glide/load/engine/a$b;
 
     move-object v0, p0
 
@@ -139,122 +147,132 @@
 
     move-object/from16 v10, p10
 
-    invoke-direct/range {v0 .. v11}, Lcom/bumptech/glide/load/engine/a;-><init>(Lcom/bumptech/glide/load/engine/n;IILcom/yelp/android/r/c;Lcom/yelp/android/ae/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ad/c;Lcom/yelp/android/s/a;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/engine/b;)V
+    invoke-direct/range {v0 .. v11}, Lcom/bumptech/glide/load/engine/a;-><init>(Lcom/bumptech/glide/load/engine/e;IILcom/yelp/android/w/c;Lcom/yelp/android/ak/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ai/c;Lcom/bumptech/glide/load/engine/a$a;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/engine/a$b;)V
 
     .line 53
     return-void
 .end method
 
-.method constructor <init>(Lcom/bumptech/glide/load/engine/n;IILcom/yelp/android/r/c;Lcom/yelp/android/ae/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ad/c;Lcom/yelp/android/s/a;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/engine/b;)V
+.method constructor <init>(Lcom/bumptech/glide/load/engine/e;IILcom/yelp/android/w/c;Lcom/yelp/android/ak/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ai/c;Lcom/bumptech/glide/load/engine/a$a;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/engine/a$b;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/n;",
+            "Lcom/bumptech/glide/load/engine/e;",
             "II",
-            "Lcom/yelp/android/r/c",
+            "Lcom/yelp/android/w/c",
             "<TA;>;",
-            "Lcom/yelp/android/ae/b",
+            "Lcom/yelp/android/ak/b",
             "<TA;TT;>;",
             "Lcom/bumptech/glide/load/f",
             "<TT;>;",
-            "Lcom/yelp/android/ad/c",
+            "Lcom/yelp/android/ai/c",
             "<TT;TZ;>;",
-            "Lcom/yelp/android/s/a;",
+            "Lcom/bumptech/glide/load/engine/a$a;",
             "Lcom/bumptech/glide/load/engine/DiskCacheStrategy;",
             "Lcom/bumptech/glide/Priority;",
-            "Lcom/bumptech/glide/load/engine/b;",
+            "Lcom/bumptech/glide/load/engine/a$b;",
             ")V"
         }
     .end annotation
 
     .prologue
-    .line 58
+    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 59
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/n;
-
     .line 60
-    iput p2, p0, Lcom/bumptech/glide/load/engine/a;->c:I
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/e;
 
     .line 61
-    iput p3, p0, Lcom/bumptech/glide/load/engine/a;->d:I
+    iput p2, p0, Lcom/bumptech/glide/load/engine/a;->c:I
 
     .line 62
-    iput-object p4, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/r/c;
+    iput p3, p0, Lcom/bumptech/glide/load/engine/a;->d:I
 
     .line 63
-    iput-object p5, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ae/b;
+    iput-object p4, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/w/c;
 
     .line 64
-    iput-object p6, p0, Lcom/bumptech/glide/load/engine/a;->g:Lcom/bumptech/glide/load/f;
+    iput-object p5, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ak/b;
 
     .line 65
-    iput-object p7, p0, Lcom/bumptech/glide/load/engine/a;->h:Lcom/yelp/android/ad/c;
+    iput-object p6, p0, Lcom/bumptech/glide/load/engine/a;->g:Lcom/bumptech/glide/load/f;
 
     .line 66
-    iput-object p9, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+    iput-object p7, p0, Lcom/bumptech/glide/load/engine/a;->h:Lcom/yelp/android/ai/c;
 
     .line 67
-    iput-object p8, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/yelp/android/s/a;
+    iput-object p8, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/a$a;
 
     .line 68
-    iput-object p10, p0, Lcom/bumptech/glide/load/engine/a;->k:Lcom/bumptech/glide/Priority;
+    iput-object p9, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
     .line 69
-    iput-object p11, p0, Lcom/bumptech/glide/load/engine/a;->l:Lcom/bumptech/glide/load/engine/b;
+    iput-object p10, p0, Lcom/bumptech/glide/load/engine/a;->k:Lcom/bumptech/glide/Priority;
 
     .line 70
+    iput-object p11, p0, Lcom/bumptech/glide/load/engine/a;->l:Lcom/bumptech/glide/load/engine/a$b;
+
+    .line 71
     return-void
 .end method
 
-.method static synthetic a(Lcom/bumptech/glide/load/engine/a;)Lcom/bumptech/glide/load/engine/b;
+.method static synthetic a(Lcom/bumptech/glide/load/engine/a;)Lcom/bumptech/glide/load/engine/a$b;
     .locals 1
 
     .prologue
     .line 30
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->l:Lcom/bumptech/glide/load/engine/b;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->l:Lcom/bumptech/glide/load/engine/a$b;
 
     return-object v0
 .end method
 
-.method private a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/t;
+.method private a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/i;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/bumptech/glide/load/b;",
             ")",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
         }
     .end annotation
 
     .prologue
     const/4 v0, 0x0
 
-    .line 214
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/yelp/android/s/a;
+    .line 215
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/a$a;
 
-    invoke-interface {v1, p1}, Lcom/yelp/android/s/a;->a(Lcom/bumptech/glide/load/b;)Ljava/io/File;
+    invoke-interface {v1}, Lcom/bumptech/glide/load/engine/a$a;->a()Lcom/yelp/android/y/a;
 
     move-result-object v1
 
-    .line 215
+    invoke-interface {v1, p1}, Lcom/yelp/android/y/a;->a(Lcom/bumptech/glide/load/b;)Ljava/io/File;
+
+    move-result-object v1
+
+    .line 216
     if-nez v1, :cond_1
 
-    .line 227
+    .line 228
     :cond_0
     :goto_0
     return-object v0
 
-    .line 221
+    .line 222
     :cond_1
     :try_start_0
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ae/b;
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ak/b;
 
-    invoke-interface {v2}, Lcom/yelp/android/ae/b;->a()Lcom/bumptech/glide/load/d;
+    invoke-interface {v2}, Lcom/yelp/android/ak/b;->a()Lcom/bumptech/glide/load/d;
 
     move-result-object v2
 
@@ -262,45 +280,53 @@
 
     iget v4, p0, Lcom/bumptech/glide/load/engine/a;->d:I
 
-    invoke-interface {v2, v1, v3, v4}, Lcom/bumptech/glide/load/d;->a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/t;
+    invoke-interface {v2, v1, v3, v4}, Lcom/bumptech/glide/load/d;->a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/i;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v0
 
-    .line 223
+    .line 224
     if-nez v0, :cond_0
 
-    .line 224
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/yelp/android/s/a;
+    .line 225
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/a$a;
 
-    invoke-interface {v1, p1}, Lcom/yelp/android/s/a;->b(Lcom/bumptech/glide/load/b;)V
+    invoke-interface {v1}, Lcom/bumptech/glide/load/engine/a$a;->a()Lcom/yelp/android/y/a;
+
+    move-result-object v1
+
+    invoke-interface {v1, p1}, Lcom/yelp/android/y/a;->b(Lcom/bumptech/glide/load/b;)V
 
     goto :goto_0
 
-    .line 223
+    .line 224
     :catchall_0
     move-exception v1
 
     if-nez v0, :cond_2
 
-    .line 224
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/yelp/android/s/a;
+    .line 225
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/a$a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/s/a;->b(Lcom/bumptech/glide/load/b;)V
+    invoke-interface {v0}, Lcom/bumptech/glide/load/engine/a$a;->a()Lcom/yelp/android/y/a;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/y/a;->b(Lcom/bumptech/glide/load/b;)V
 
     :cond_2
     throw v1
 .end method
 
-.method private a(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+.method private a(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TZ;>;"
         }
     .end annotation
@@ -308,17 +334,17 @@
     .prologue
     const/4 v4, 0x2
 
-    .line 137
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    .line 138
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 138
-    invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/a;->c(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+    .line 139
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/a;->c(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v2
 
-    .line 139
+    .line 140
     const-string/jumbo v3, "DecodeJob"
 
     invoke-static {v3, v4}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -327,26 +353,26 @@
 
     if-eqz v3, :cond_0
 
-    .line 140
+    .line 141
     const-string/jumbo v3, "Transformed resource from source"
 
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
 
-    .line 143
+    .line 144
     :cond_0
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->b(Lcom/bumptech/glide/load/engine/t;)V
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->b(Lcom/bumptech/glide/load/engine/i;)V
 
-    .line 145
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    .line 146
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 146
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->d(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+    .line 147
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->d(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v2
 
-    .line 147
+    .line 148
     const-string/jumbo v3, "DecodeJob"
 
     invoke-static {v3, v4}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -355,29 +381,35 @@
 
     if-eqz v3, :cond_1
 
-    .line 148
+    .line 149
     const-string/jumbo v3, "Transcoded transformed from source"
 
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
 
-    .line 150
+    .line 151
     :cond_1
     return-object v2
 .end method
 
-.method private a(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/t;
+.method private a(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/i;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;"
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
     .prologue
-    .line 185
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+    .line 186
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource()Z
 
@@ -385,26 +417,26 @@
 
     if-eqz v0, :cond_1
 
-    .line 186
-    invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/a;->b(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/t;
+    .line 187
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/a;->b(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
-    .line 194
+    .line 195
     :cond_0
     :goto_0
     return-object v0
 
-    .line 188
+    .line 189
     :cond_1
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v2
 
-    .line 189
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ae/b;
+    .line 190
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ak/b;
 
-    invoke-interface {v0}, Lcom/yelp/android/ae/b;->b()Lcom/bumptech/glide/load/d;
+    invoke-interface {v0}, Lcom/yelp/android/ak/b;->b()Lcom/bumptech/glide/load/d;
 
     move-result-object v0
 
@@ -412,11 +444,11 @@
 
     iget v4, p0, Lcom/bumptech/glide/load/engine/a;->d:I
 
-    invoke-interface {v0, p1, v1, v4}, Lcom/bumptech/glide/load/d;->a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/t;
+    invoke-interface {v0, p1, v1, v4}, Lcom/bumptech/glide/load/d;->a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
-    .line 190
+    .line 191
     const-string/jumbo v1, "DecodeJob"
 
     const/4 v4, 0x2
@@ -427,7 +459,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 191
+    .line 192
     const-string/jumbo v1, "Decoded from source"
 
     invoke-direct {p0, v1, v2, v3}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
@@ -439,7 +471,7 @@
     .locals 4
 
     .prologue
-    .line 250
+    .line 251
     const-string/jumbo v0, "DecodeJob"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -456,7 +488,7 @@
 
     move-result-object v1
 
-    invoke-static {p2, p3}, Lcom/yelp/android/ai/c;->a(J)D
+    invoke-static {p2, p3}, Lcom/yelp/android/ao/d;->a(J)D
 
     move-result-wide v2
 
@@ -464,7 +496,13 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/n;
+    const-string/jumbo v2, ", key: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/e;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -476,51 +514,61 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 251
+    .line 252
     return-void
 .end method
 
-.method private b(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/t;
+.method private b(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/i;
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
         }
     .end annotation
 
     .prologue
     const/4 v5, 0x2
 
-    .line 198
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    .line 199
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 199
-    new-instance v2, Lcom/bumptech/glide/load/engine/c;
+    .line 200
+    new-instance v2, Lcom/bumptech/glide/load/engine/a$c;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ae/b;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ak/b;
 
-    invoke-interface {v3}, Lcom/yelp/android/ae/b;->c()Lcom/bumptech/glide/load/a;
+    invoke-interface {v3}, Lcom/yelp/android/ak/b;->c()Lcom/bumptech/glide/load/a;
 
     move-result-object v3
 
-    invoke-direct {v2, p0, v3, p1}, Lcom/bumptech/glide/load/engine/c;-><init>(Lcom/bumptech/glide/load/engine/a;Lcom/bumptech/glide/load/a;Ljava/lang/Object;)V
+    invoke-direct {v2, p0, v3, p1}, Lcom/bumptech/glide/load/engine/a$c;-><init>(Lcom/bumptech/glide/load/engine/a;Lcom/bumptech/glide/load/a;Ljava/lang/Object;)V
 
-    .line 200
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/yelp/android/s/a;
+    .line 201
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/a$a;
 
-    iget-object v4, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/n;
+    invoke-interface {v3}, Lcom/bumptech/glide/load/engine/a$a;->a()Lcom/yelp/android/y/a;
 
-    invoke-virtual {v4}, Lcom/bumptech/glide/load/engine/n;->a()Lcom/bumptech/glide/load/b;
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/e;
+
+    invoke-virtual {v4}, Lcom/bumptech/glide/load/engine/e;->a()Lcom/bumptech/glide/load/b;
 
     move-result-object v4
 
-    invoke-interface {v3, v4, v2}, Lcom/yelp/android/s/a;->a(Lcom/bumptech/glide/load/b;Lcom/yelp/android/s/b;)V
+    invoke-interface {v3, v4, v2}, Lcom/yelp/android/y/a;->a(Lcom/bumptech/glide/load/b;Lcom/yelp/android/y/a$b;)V
 
-    .line 201
+    .line 202
     const-string/jumbo v2, "DecodeJob"
 
     invoke-static {v2, v5}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -529,29 +577,29 @@
 
     if-eqz v2, :cond_0
 
-    .line 202
+    .line 203
     const-string/jumbo v2, "Wrote source to cache"
 
     invoke-direct {p0, v2, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
 
-    .line 205
+    .line 206
     :cond_0
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 206
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/n;
-
-    invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/n;->a()Lcom/bumptech/glide/load/b;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/t;
-
-    move-result-object v2
-
     .line 207
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/e;
+
+    invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/e;->a()Lcom/bumptech/glide/load/b;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/i;
+
+    move-result-object v2
+
+    .line 208
     const-string/jumbo v3, "DecodeJob"
 
     invoke-static {v3, v5}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -562,31 +610,31 @@
 
     if-eqz v2, :cond_1
 
-    .line 208
+    .line 209
     const-string/jumbo v3, "Decoded source from cache"
 
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
 
-    .line 210
+    .line 211
     :cond_1
     return-object v2
 .end method
 
-.method private b(Lcom/bumptech/glide/load/engine/t;)V
+.method private b(Lcom/bumptech/glide/load/engine/i;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 154
+    .line 155
     if-eqz p1, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
 
@@ -594,36 +642,40 @@
 
     if-nez v0, :cond_1
 
-    .line 163
+    .line 164
     :cond_0
     :goto_0
     return-void
 
-    .line 157
+    .line 158
     :cond_1
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 158
-    new-instance v2, Lcom/bumptech/glide/load/engine/c;
+    .line 159
+    new-instance v2, Lcom/bumptech/glide/load/engine/a$c;
 
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ae/b;
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->f:Lcom/yelp/android/ak/b;
 
-    invoke-interface {v3}, Lcom/yelp/android/ae/b;->d()Lcom/bumptech/glide/load/e;
+    invoke-interface {v3}, Lcom/yelp/android/ak/b;->d()Lcom/bumptech/glide/load/e;
 
     move-result-object v3
 
-    invoke-direct {v2, p0, v3, p1}, Lcom/bumptech/glide/load/engine/c;-><init>(Lcom/bumptech/glide/load/engine/a;Lcom/bumptech/glide/load/a;Ljava/lang/Object;)V
-
-    .line 159
-    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/yelp/android/s/a;
-
-    iget-object v4, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/n;
-
-    invoke-interface {v3, v4, v2}, Lcom/yelp/android/s/a;->a(Lcom/bumptech/glide/load/b;Lcom/yelp/android/s/b;)V
+    invoke-direct {v2, p0, v3, p1}, Lcom/bumptech/glide/load/engine/a$c;-><init>(Lcom/bumptech/glide/load/engine/a;Lcom/bumptech/glide/load/a;Ljava/lang/Object;)V
 
     .line 160
+    iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/a$a;
+
+    invoke-interface {v3}, Lcom/bumptech/glide/load/engine/a$a;->a()Lcom/yelp/android/y/a;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/e;
+
+    invoke-interface {v3, v4, v2}, Lcom/yelp/android/y/a;->a(Lcom/bumptech/glide/load/b;Lcom/yelp/android/y/a$b;)V
+
+    .line 161
     const-string/jumbo v2, "DecodeJob"
 
     const/4 v3, 0x2
@@ -634,7 +686,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 161
+    .line 162
     const-string/jumbo v2, "Wrote transformed from source to cache"
 
     invoke-direct {p0, v2, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
@@ -642,31 +694,31 @@
     goto :goto_0
 .end method
 
-.method private c(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+.method private c(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;"
         }
     .end annotation
 
     .prologue
-    .line 231
+    .line 232
     if-nez p1, :cond_1
 
-    .line 232
+    .line 233
     const/4 v0, 0x0
 
-    .line 239
+    .line 240
     :cond_0
     :goto_0
     return-object v0
 
-    .line 235
+    .line 236
     :cond_1
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->g:Lcom/bumptech/glide/load/f;
 
@@ -674,84 +726,90 @@
 
     iget v2, p0, Lcom/bumptech/glide/load/engine/a;->d:I
 
-    invoke-interface {v0, p1, v1, v2}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/engine/t;II)Lcom/bumptech/glide/load/engine/t;
+    invoke-interface {v0, p1, v1, v2}, Lcom/bumptech/glide/load/f;->a(Lcom/bumptech/glide/load/engine/i;II)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
-    .line 236
+    .line 237
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 237
-    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/t;->d()V
+    .line 238
+    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/i;->d()V
 
     goto :goto_0
 .end method
 
-.method private d(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+.method private d(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;)",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TZ;>;"
         }
     .end annotation
 
     .prologue
-    .line 243
+    .line 244
     if-nez p1, :cond_0
 
-    .line 244
+    .line 245
     const/4 v0, 0x0
 
-    .line 246
+    .line 247
     :goto_0
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->h:Lcom/yelp/android/ad/c;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->h:Lcom/yelp/android/ai/c;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/ad/c;->a(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+    invoke-interface {v0, p1}, Lcom/yelp/android/ai/c;->a(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method private e()Lcom/bumptech/glide/load/engine/t;
+.method private e()Lcom/bumptech/glide/load/engine/i;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TT;>;"
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
     .prologue
-    .line 166
-    .line 168
+    .line 167
+    .line 169
     :try_start_0
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 169
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/r/c;
+    .line 170
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/w/c;
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/a;->k:Lcom/bumptech/glide/Priority;
 
-    invoke-interface {v2, v3}, Lcom/yelp/android/r/c;->a(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
+    invoke-interface {v2, v3}, Lcom/yelp/android/w/c;->a(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
 
     move-result-object v2
 
-    .line 170
+    .line 171
     const-string/jumbo v3, "DecodeJob"
 
     const/4 v4, 0x2
@@ -762,12 +820,12 @@
 
     if-eqz v3, :cond_0
 
-    .line 171
+    .line 172
     const-string/jumbo v3, "Fetched data"
 
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
 
-    .line 173
+    .line 174
     :cond_0
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/a;->m:Z
     :try_end_0
@@ -775,61 +833,67 @@
 
     if-eqz v0, :cond_1
 
-    .line 174
+    .line 175
     const/4 v0, 0x0
 
-    .line 178
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/r/c;
+    .line 179
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/w/c;
 
-    invoke-interface {v1}, Lcom/yelp/android/r/c;->a()V
+    invoke-interface {v1}, Lcom/yelp/android/w/c;->a()V
 
-    .line 180
+    .line 181
     :goto_0
     return-object v0
 
-    .line 176
+    .line 177
     :cond_1
     :try_start_1
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/t;
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/i;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-result-object v0
 
-    .line 178
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/r/c;
+    .line 179
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/w/c;
 
-    invoke-interface {v1}, Lcom/yelp/android/r/c;->a()V
+    invoke-interface {v1}, Lcom/yelp/android/w/c;->a()V
 
     goto :goto_0
 
     :catchall_0
     move-exception v0
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/r/c;
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/w/c;
 
-    invoke-interface {v1}, Lcom/yelp/android/r/c;->a()V
+    invoke-interface {v1}, Lcom/yelp/android/w/c;->a()V
 
     throw v0
 .end method
 
 
 # virtual methods
-.method public a()Lcom/bumptech/glide/load/engine/t;
+.method public a()Lcom/bumptech/glide/load/engine/i;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TZ;>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
         }
     .end annotation
 
     .prologue
     const/4 v6, 0x2
 
-    .line 79
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+    .line 80
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
 
@@ -837,28 +901,28 @@
 
     if-nez v0, :cond_1
 
-    .line 80
+    .line 81
     const/4 v0, 0x0
 
-    .line 93
+    .line 94
     :cond_0
     :goto_0
     return-object v0
 
-    .line 83
+    .line 84
     :cond_1
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 84
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/n;
+    .line 85
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/e;
 
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/t;
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v2
 
-    .line 85
+    .line 86
     const-string/jumbo v3, "DecodeJob"
 
     invoke-static {v3, v6}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -867,23 +931,23 @@
 
     if-eqz v3, :cond_2
 
-    .line 86
+    .line 87
     const-string/jumbo v3, "Decoded transformed from cache"
 
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
 
-    .line 88
+    .line 89
     :cond_2
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v4
 
-    .line 89
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->d(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+    .line 90
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->d(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
-    .line 90
+    .line 91
     const-string/jumbo v1, "DecodeJob"
 
     invoke-static {v1, v6}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -892,7 +956,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 91
+    .line 92
     const-string/jumbo v1, "Transcoded transformed from cache"
 
     invoke-direct {p0, v1, v4, v5}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
@@ -900,19 +964,25 @@
     goto :goto_0
 .end method
 
-.method public b()Lcom/bumptech/glide/load/engine/t;
+.method public b()Lcom/bumptech/glide/load/engine/i;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TZ;>;"
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
     .prologue
-    .line 103
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->i:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+    .line 104
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->j:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource()Z
 
@@ -920,31 +990,31 @@
 
     if-nez v0, :cond_0
 
-    .line 104
+    .line 105
     const/4 v0, 0x0
 
-    .line 112
+    .line 113
     :goto_0
     return-object v0
 
-    .line 107
+    .line 108
     :cond_0
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    .line 108
-    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/n;
-
-    invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/n;->a()Lcom/bumptech/glide/load/b;
-
-    move-result-object v2
-
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/t;
-
-    move-result-object v2
-
     .line 109
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/a;->b:Lcom/bumptech/glide/load/engine/e;
+
+    invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/e;->a()Lcom/bumptech/glide/load/b;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/load/engine/i;
+
+    move-result-object v2
+
+    .line 110
     const-string/jumbo v3, "DecodeJob"
 
     const/4 v4, 0x2
@@ -955,38 +1025,44 @@
 
     if-eqz v3, :cond_1
 
-    .line 110
+    .line 111
     const-string/jumbo v3, "Decoded source from cache"
 
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/a;->a(Ljava/lang/String;J)V
 
-    .line 112
+    .line 113
     :cond_1
-    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+    invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method public c()Lcom/bumptech/glide/load/engine/t;
+.method public c()Lcom/bumptech/glide/load/engine/i;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<TZ;>;"
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
     .prologue
-    .line 127
-    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/a;->e()Lcom/bumptech/glide/load/engine/t;
+    .line 128
+    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/a;->e()Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
-    .line 128
-    invoke-direct {p0, v0}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/engine/t;)Lcom/bumptech/glide/load/engine/t;
+    .line 129
+    invoke-direct {p0, v0}, Lcom/bumptech/glide/load/engine/a;->a(Lcom/bumptech/glide/load/engine/i;)Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
@@ -997,16 +1073,16 @@
     .locals 1
 
     .prologue
-    .line 132
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/r/c;
-
-    invoke-interface {v0}, Lcom/yelp/android/r/c;->c()V
-
     .line 133
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/bumptech/glide/load/engine/a;->m:Z
 
     .line 134
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/a;->e:Lcom/yelp/android/w/c;
+
+    invoke-interface {v0}, Lcom/yelp/android/w/c;->c()V
+
+    .line 135
     return-void
 .end method

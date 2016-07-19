@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v4.content.WakefulBroadcastReceiver;
 import android.text.TextUtils;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.au.a;
 
 public class GcmReceiver
   extends WakefulBroadcastReceiver
@@ -30,11 +31,11 @@ public class GcmReceiver
         return;
         i = 0;
         break;
-      } while ((!"com.google.android.c2dm.intent.REGISTRATION".equals(paramIntent.getAction())) || (!TextUtils.isEmpty(d.b().g())));
+      } while ((!"com.google.android.c2dm.intent.REGISTRATION".equals(paramIntent.getAction())) || (!TextUtils.isEmpty(b.b().g())));
       paramContext = paramIntent.getStringExtra("registration_id");
     } while (TextUtils.isEmpty(paramContext));
-    com.crashlytics.android.d.a(new IllegalStateException(AppData.b().getString(2131165807)));
-    d.b().a(paramContext);
+    a.a(new IllegalStateException(AppData.b().getString(2131166951)));
+    b.b().a(paramContext);
   }
 }
 

@@ -1,113 +1,213 @@
 package com.bumptech.glide.load.engine;
 
-import com.bumptech.glide.load.a;
-import com.yelp.android.s.b;
+import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Looper;
+import android.os.Message;
+import com.bumptech.glide.load.b;
+import com.bumptech.glide.request.f;
+import com.yelp.android.ao.h;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 
-class c<DataType>
-  implements b
+class c
+  implements EngineRunnable.a
 {
-  private final a<DataType> b;
-  private final DataType c;
+  private static final a a = new a();
+  private static final Handler b = new Handler(Looper.getMainLooper(), new b(null));
+  private final List<f> c = new ArrayList();
+  private final a d;
+  private final d e;
+  private final b f;
+  private final ExecutorService g;
+  private final ExecutorService h;
+  private final boolean i;
+  private boolean j;
+  private i<?> k;
+  private boolean l;
+  private Exception m;
+  private boolean n;
+  private Set<f> o;
+  private EngineRunnable p;
+  private g<?> q;
+  private volatile Future<?> r;
   
-  public c(a<DataType> parama, DataType paramDataType)
+  public c(b paramb, ExecutorService paramExecutorService1, ExecutorService paramExecutorService2, boolean paramBoolean, d paramd)
   {
-    b = paramDataType;
-    Object localObject;
-    c = localObject;
+    this(paramb, paramExecutorService1, paramExecutorService2, paramBoolean, paramd, a);
   }
   
-  /* Error */
-  public boolean a(java.io.File paramFile)
+  public c(b paramb, ExecutorService paramExecutorService1, ExecutorService paramExecutorService2, boolean paramBoolean, d paramd, a parama)
   {
-    // Byte code:
-    //   0: iconst_0
-    //   1: istore_3
-    //   2: aconst_null
-    //   3: astore 5
-    //   5: aconst_null
-    //   6: astore 4
-    //   8: aload_0
-    //   9: getfield 19	com/bumptech/glide/load/engine/c:a	Lcom/bumptech/glide/load/engine/a;
-    //   12: invokestatic 39	com/bumptech/glide/load/engine/a:a	(Lcom/bumptech/glide/load/engine/a;)Lcom/bumptech/glide/load/engine/b;
-    //   15: aload_1
-    //   16: invokevirtual 44	com/bumptech/glide/load/engine/b:a	(Ljava/io/File;)Ljava/io/OutputStream;
-    //   19: astore_1
-    //   20: aload_1
-    //   21: astore 4
-    //   23: aload_1
-    //   24: astore 5
-    //   26: aload_0
-    //   27: getfield 24	com/bumptech/glide/load/engine/c:b	Lcom/bumptech/glide/load/a;
-    //   30: aload_0
-    //   31: getfield 26	com/bumptech/glide/load/engine/c:c	Ljava/lang/Object;
-    //   34: aload_1
-    //   35: invokeinterface 49 3 0
-    //   40: istore_2
-    //   41: iload_2
-    //   42: istore_3
-    //   43: aload_1
-    //   44: ifnull +9 -> 53
-    //   47: aload_1
-    //   48: invokevirtual 54	java/io/OutputStream:close	()V
-    //   51: iload_2
-    //   52: istore_3
-    //   53: iload_3
-    //   54: ireturn
-    //   55: astore_1
-    //   56: aload 4
-    //   58: astore 5
-    //   60: ldc 56
-    //   62: iconst_3
-    //   63: invokestatic 62	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
-    //   66: ifeq +16 -> 82
-    //   69: aload 4
-    //   71: astore 5
-    //   73: ldc 56
-    //   75: ldc 64
-    //   77: aload_1
-    //   78: invokestatic 68	android/util/Log:d	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    //   81: pop
-    //   82: aload 4
-    //   84: ifnull -31 -> 53
-    //   87: aload 4
-    //   89: invokevirtual 54	java/io/OutputStream:close	()V
-    //   92: iconst_0
-    //   93: ireturn
-    //   94: astore_1
-    //   95: iconst_0
-    //   96: ireturn
-    //   97: astore_1
-    //   98: aload 5
-    //   100: ifnull +8 -> 108
-    //   103: aload 5
-    //   105: invokevirtual 54	java/io/OutputStream:close	()V
-    //   108: aload_1
-    //   109: athrow
-    //   110: astore_1
-    //   111: iload_2
-    //   112: ireturn
-    //   113: astore 4
-    //   115: goto -7 -> 108
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	118	0	this	c
-    //   0	118	1	paramFile	java.io.File
-    //   40	72	2	bool1	boolean
-    //   1	53	3	bool2	boolean
-    //   6	82	4	localFile	java.io.File
-    //   113	1	4	localIOException	java.io.IOException
-    //   3	101	5	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   8	20	55	java/io/FileNotFoundException
-    //   26	41	55	java/io/FileNotFoundException
-    //   87	92	94	java/io/IOException
-    //   8	20	97	finally
-    //   26	41	97	finally
-    //   60	69	97	finally
-    //   73	82	97	finally
-    //   47	51	110	java/io/IOException
-    //   103	108	113	java/io/IOException
+    f = paramb;
+    g = paramExecutorService1;
+    h = paramExecutorService2;
+    i = paramBoolean;
+    e = paramd;
+    d = parama;
+  }
+  
+  private void b()
+  {
+    if (j)
+    {
+      k.d();
+      return;
+    }
+    if (c.isEmpty()) {
+      throw new IllegalStateException("Received a resource without any callbacks to notify");
+    }
+    q = d.a(k, i);
+    l = true;
+    q.e();
+    e.a(f, q);
+    Iterator localIterator = c.iterator();
+    while (localIterator.hasNext())
+    {
+      f localf = (f)localIterator.next();
+      if (!d(localf))
+      {
+        q.e();
+        localf.a(q);
+      }
+    }
+    q.f();
+  }
+  
+  private void c()
+  {
+    if (j) {}
+    for (;;)
+    {
+      return;
+      if (c.isEmpty()) {
+        throw new IllegalStateException("Received an exception without any callbacks to notify");
+      }
+      n = true;
+      e.a(f, null);
+      Iterator localIterator = c.iterator();
+      while (localIterator.hasNext())
+      {
+        f localf = (f)localIterator.next();
+        if (!d(localf)) {
+          localf.a(m);
+        }
+      }
+    }
+  }
+  
+  private void c(f paramf)
+  {
+    if (o == null) {
+      o = new HashSet();
+    }
+    o.add(paramf);
+  }
+  
+  private boolean d(f paramf)
+  {
+    return (o != null) && (o.contains(paramf));
+  }
+  
+  void a()
+  {
+    if ((n) || (l) || (j)) {
+      return;
+    }
+    p.a();
+    Future localFuture = r;
+    if (localFuture != null) {
+      localFuture.cancel(true);
+    }
+    j = true;
+    e.a(this, f);
+  }
+  
+  public void a(EngineRunnable paramEngineRunnable)
+  {
+    p = paramEngineRunnable;
+    r = g.submit(paramEngineRunnable);
+  }
+  
+  public void a(i<?> parami)
+  {
+    k = parami;
+    b.obtainMessage(1, this).sendToTarget();
+  }
+  
+  public void a(f paramf)
+  {
+    
+    if (l)
+    {
+      paramf.a(q);
+      return;
+    }
+    if (n)
+    {
+      paramf.a(m);
+      return;
+    }
+    c.add(paramf);
+  }
+  
+  public void a(Exception paramException)
+  {
+    m = paramException;
+    b.obtainMessage(2, this).sendToTarget();
+  }
+  
+  public void b(EngineRunnable paramEngineRunnable)
+  {
+    r = h.submit(paramEngineRunnable);
+  }
+  
+  public void b(f paramf)
+  {
+    
+    if ((l) || (n)) {
+      c(paramf);
+    }
+    do
+    {
+      return;
+      c.remove(paramf);
+    } while (!c.isEmpty());
+    a();
+  }
+  
+  static class a
+  {
+    public <R> g<R> a(i<R> parami, boolean paramBoolean)
+    {
+      return new g(parami, paramBoolean);
+    }
+  }
+  
+  private static class b
+    implements Handler.Callback
+  {
+    public boolean handleMessage(Message paramMessage)
+    {
+      if ((1 == what) || (2 == what))
+      {
+        c localc = (c)obj;
+        if (1 == what) {
+          c.a(localc);
+        }
+        for (;;)
+        {
+          return true;
+          c.b(localc);
+        }
+      }
+      return false;
+    }
   }
 }
 

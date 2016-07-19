@@ -1,21 +1,14 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.RemoteConfigPreferences;
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.az;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
 
 public class a
-  extends g<Void, Void, RemoteConfigPreferences>
+  extends c
 {
-  protected a(m<RemoteConfigPreferences> paramm)
+  public a(String paramString)
   {
-    super(ApiRequest.RequestType.GET, "account/config", paramm);
-  }
-  
-  public RemoteConfigPreferences a(JSONObject paramJSONObject)
-  {
-    return (RemoteConfigPreferences)RemoteConfigPreferences.a.parse(paramJSONObject);
+    super(ApiRequest.RequestType.POST, "account/claim_token", null);
+    b("claim_nonce", paramString);
   }
 }
 

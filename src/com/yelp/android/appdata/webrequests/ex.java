@@ -1,25 +1,23 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.MenuItem;
-import com.yelp.android.serializable.MoreInfoAction;
-import com.yelp.android.serializable.YelpBusinessReview;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class ex
+  extends c
 {
-  public final List<YelpBusinessReview> a;
-  public final int b;
-  public final MenuItem c;
-  public final MoreInfoAction d;
-  public final String e;
+  private final String a;
   
-  public ex(List<YelpBusinessReview> paramList, int paramInt, MenuItem paramMenuItem, MoreInfoAction paramMoreInfoAction, String paramString)
+  public ex(String paramString, c.a parama)
   {
-    a = paramList;
-    b = paramInt;
-    c = paramMenuItem;
-    d = paramMoreInfoAction;
-    e = paramString;
+    super(ApiRequest.RequestType.POST, "account/update_primary_email", parama);
+    b("email", paramString);
+    a = paramString;
+  }
+  
+  public String b()
+  {
+    return a;
   }
 }
 

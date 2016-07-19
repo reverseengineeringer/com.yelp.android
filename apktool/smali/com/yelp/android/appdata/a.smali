@@ -22,7 +22,6 @@
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 49
     return-void
 .end method
 
@@ -79,7 +78,7 @@
     .locals 0
 
     .prologue
-    .line 54
+    .line 53
     return-void
 .end method
 
@@ -87,7 +86,7 @@
     .locals 0
 
     .prologue
-    .line 106
+    .line 105
     return-void
 .end method
 
@@ -95,7 +94,7 @@
     .locals 0
 
     .prologue
-    .line 80
+    .line 79
     return-void
 .end method
 
@@ -103,7 +102,7 @@
     .locals 0
 
     .prologue
-    .line 75
+    .line 74
     return-void
 .end method
 
@@ -111,7 +110,7 @@
     .locals 0
 
     .prologue
-    .line 85
+    .line 84
     return-void
 .end method
 
@@ -119,12 +118,12 @@
     .locals 6
 
     .prologue
-    .line 63
+    .line 62
     invoke-static {}, Lcom/yelp/android/appdata/a;->b()Z
 
     move-result v0
 
-    .line 64
+    .line 63
     sget-wide v2, Lcom/yelp/android/appdata/a;->b:J
 
     const-wide/16 v4, 0x1
@@ -133,7 +132,7 @@
 
     sput-wide v2, Lcom/yelp/android/appdata/a;->b:J
 
-    .line 65
+    .line 64
     if-nez v0, :cond_0
 
     invoke-static {}, Lcom/yelp/android/appdata/a;->b()Z
@@ -142,26 +141,26 @@
 
     if-eqz v0, :cond_0
 
-    .line 66
+    .line 65
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "com.yelp.android.action.ON_WAKE"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 67
+    .line 66
     const-string/jumbo v1, "com.yelp.android.action.CATEGORY_STATE"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 68
+    .line 67
     invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 70
+    .line 69
     :cond_0
     return-void
 .end method
@@ -170,12 +169,12 @@
     .locals 6
 
     .prologue
-    .line 94
+    .line 93
     invoke-static {}, Lcom/yelp/android/appdata/a;->b()Z
 
     move-result v0
 
-    .line 95
+    .line 94
     sget-wide v2, Lcom/yelp/android/appdata/a;->c:J
 
     const-wide/16 v4, 0x1
@@ -184,7 +183,7 @@
 
     sput-wide v2, Lcom/yelp/android/appdata/a;->c:J
 
-    .line 96
+    .line 95
     if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/yelp/android/appdata/a;->b()Z
@@ -193,26 +192,26 @@
 
     if-nez v0, :cond_0
 
-    .line 97
+    .line 96
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "com.yelp.android.action.ON_BACKGROUNDING"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 98
+    .line 97
     const-string/jumbo v1, "com.yelp.android.action.CATEGORY_STATE"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 99
+    .line 98
     invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 101
+    .line 100
     :cond_0
     return-void
 .end method

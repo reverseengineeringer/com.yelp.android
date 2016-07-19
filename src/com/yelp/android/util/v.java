@@ -1,17 +1,27 @@
 package com.yelp.android.util;
 
-import android.view.animation.Animation;
-import com.yelp.android.ui.util.dd;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.net.Uri;
 
-class v
-  extends dd
+public class v
 {
-  v(u paramu) {}
-  
-  public void onAnimationEnd(Animation paramAnimation)
+  public static Uri a()
   {
-    u.a(a, false);
-    u.b(a, true);
+    return Uri.parse("content://com.yelp.android.services.YelpDataContentProvider");
+  }
+  
+  public static void a(ContentResolver paramContentResolver, String paramString)
+  {
+    Uri localUri = Uri.withAppendedPath(a(), "ydid");
+    ContentValues localContentValues = new ContentValues(1);
+    localContentValues.put("ydid", paramString);
+    paramContentResolver.insert(localUri, localContentValues);
+  }
+  
+  public static boolean a(Uri paramUri, String paramString)
+  {
+    return (paramUri.getHost().equals(a().getHost())) && (paramUri.getLastPathSegment().equals(paramString));
   }
 }
 

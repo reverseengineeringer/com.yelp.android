@@ -5,7 +5,7 @@
         <TextView android:background="@null" android:text="@string/read_before_reporting" style="?minorListSeparatorTextViewStyle" />
         <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/read_before_flagging" android:background="@drawable/selector_white_rect_inactive_default_states" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="?sublistCell" />
         <TextView android:background="@null" android:text="@string/whats_the_problem" style="?minorListSeparatorTextViewStyle" />
-        <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_false_information" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_contains_false_information" style="@style/Sublist.FullBleed.SpannedTextView" />
             <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_affiliated" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_was_posted_by_someone_affiliated" style="@style/Sublist.FullBleed.SpannedTextView" />
             <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/reason_competitor" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/it_was_posted_by_competitor" style="@style/Sublist.FullBleed.SpannedTextView" />

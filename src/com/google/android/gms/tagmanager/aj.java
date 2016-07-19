@@ -1,47 +1,10 @@
 package com.google.android.gms.tagmanager;
 
-import com.google.android.gms.internal.d.a;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-abstract class aj
+abstract interface aj<K, V>
 {
-  private final Set<String> art;
-  private final String aru;
+  public abstract V a(K paramK);
   
-  public aj(String paramString, String... paramVarArgs)
-  {
-    aru = paramString;
-    art = new HashSet(paramVarArgs.length);
-    int j = paramVarArgs.length;
-    int i = 0;
-    while (i < j)
-    {
-      paramString = paramVarArgs[i];
-      art.add(paramString);
-      i += 1;
-    }
-  }
-  
-  public abstract d.a B(Map<String, d.a> paramMap);
-  
-  boolean a(Set<String> paramSet)
-  {
-    return paramSet.containsAll(art);
-  }
-  
-  public String pI()
-  {
-    return aru;
-  }
-  
-  public Set<String> pJ()
-  {
-    return art;
-  }
-  
-  public abstract boolean pe();
+  public abstract void a(K paramK, V paramV);
 }
 
 /* Location:

@@ -4,14 +4,23 @@
 
 # interfaces
 .implements Lcom/yelp/android/serializable/Complimentable;
-.implements Lcom/yelp/android/serializable/m;
+.implements Lcom/yelp/android/serializable/SingleFeedEntry;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;,
+        Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    }
+.end annotation
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/YelpBusinessReview;",
             ">;"
@@ -21,7 +30,21 @@
 
 
 # instance fields
-.field private mAttachedMedia:Ljava/util/List;
+.field private H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+
+.field private I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+
+.field private J:Lcom/yelp/android/serializable/FeatureSet;
+
+.field private K:Ljava/util/Locale;
+
+.field private L:Z
+
+.field private M:Z
+
+.field private N:Z
+
+.field private O:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -32,95 +55,420 @@
     .end annotation
 .end field
 
-.field private mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
-
-.field private mDisplayTranslatedText:Z
-
-.field private mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
-
-.field private mIsUserElite:Z
-
-.field private mLocale:Ljava/util/Locale;
-
-.field private mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
-
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 403
-    new-instance v0, Lcom/yelp/android/serializable/ea;
+    .line 479
+    new-instance v0, Lcom/yelp/android/serializable/YelpBusinessReview$2;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/ea;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/YelpBusinessReview$2;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/YelpBusinessReview;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/YelpBusinessReview;->CREATOR:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
 
-.method protected constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     .prologue
     const/4 v1, 0x0
 
-    .line 35
+    .line 92
     invoke-direct {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;-><init>()V
 
-    .line 36
+    .line 93
     new-instance v0, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
     invoke-direct {v0, v1, v1, v1}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;-><init>(III)V
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
-    .line 37
+    .line 94
     new-instance v0, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
     invoke-direct {v0, v1, v1, v1}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;-><init>(ZZZ)V
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
-    .line 38
+    .line 95
     new-instance v0, Lcom/yelp/android/serializable/FeatureSet;
 
     invoke-direct {v0}, Lcom/yelp/android/serializable/FeatureSet;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->J:Lcom/yelp/android/serializable/FeatureSet;
 
-    .line 39
+    .line 96
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mLocale:Ljava/util/Locale;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->K:Ljava/util/Locale;
 
-    .line 40
-    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisplayTranslatedText:Z
+    .line 97
+    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->L:Z
 
-    .line 41
-    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mIsUserElite:Z
+    .line 98
+    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
 
-    .line 42
+    .line 99
+    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->N:Z
+
+    .line 100
     return-void
 .end method
 
-.method public static readLocaleFromParcel(Landroid/os/Parcel;)Ljava/util/Locale;
+.method private Y()Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/IdentifiableMedia;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 137
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->O:Ljava/util/List;
+
+    .line 138
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->O:Ljava/util/List;
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->d:Ljava/util/List;
+
+    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->O:Ljava/util/List;
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->h:Ljava/util/List;
+
+    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    .line 140
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->O:Ljava/util/List;
+
+    new-instance v1, Lcom/yelp/android/serializable/YelpBusinessReview$1;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/serializable/YelpBusinessReview$1;-><init>(Lcom/yelp/android/serializable/YelpBusinessReview;)V
+
+    invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
+    .line 148
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->O:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public static a(Lcom/yelp/android/serializable/YelpBusinessReview;Lcom/yelp/android/serializable/PreviousReview;)Lcom/yelp/android/serializable/YelpBusinessReview;
+    .locals 3
+
+    .prologue
+    .line 43
+    new-instance v0, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    invoke-direct {v0}, Lcom/yelp/android/serializable/YelpBusinessReview;-><init>()V
+
+    .line 46
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->Q()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->k:Ljava/lang/String;
+
+    .line 47
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->M()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->p:Ljava/lang/String;
+
+    .line 48
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->L()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->q:Ljava/lang/String;
+
+    .line 49
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->D()Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->y:Z
+
+    .line 50
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->I()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->t:Ljava/lang/String;
+
+    .line 51
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->V()Ljava/util/Date;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->c:Ljava/util/Date;
+
+    .line 52
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->H()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->u:Ljava/lang/String;
+
+    .line 53
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->z()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->C:I
+
+    .line 54
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->S()Ljava/util/List;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->f:Ljava/util/List;
+
+    .line 55
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->w()[I
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->F:[I
+
+    .line 56
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->A()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->B:I
+
+    .line 57
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->E()Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->x:Z
+
+    .line 58
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->F()Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->w:Z
+
+    .line 59
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->O()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->n:Ljava/lang/String;
+
+    .line 60
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->b()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->j:Ljava/lang/String;
+
+    .line 61
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->K()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->r:Ljava/lang/String;
+
+    .line 62
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->y()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->D:I
+
+    .line 63
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->x()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->E:I
+
+    .line 64
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->N()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->o:Ljava/lang/String;
+
+    .line 65
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->r()Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
+
+    .line 66
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->B()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->A:I
+
+    .line 67
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->y()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->D:I
+
+    .line 68
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->x()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->E:I
+
+    .line 71
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->i()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->i:Ljava/lang/String;
+
+    .line 72
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->l()Ljava/util/Date;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->b:Ljava/util/Date;
+
+    .line 73
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->h()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->l:Ljava/lang/String;
+
+    .line 74
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->e()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->z:I
+
+    .line 75
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->g()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->m:Ljava/lang/String;
+
+    .line 76
+    iget-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->d()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;->a(I)V
+
+    .line 77
+    iget-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->b()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;->c(I)V
+
+    .line 78
+    iget-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->c()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;->b(I)V
+
+    .line 79
+    iget-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->f()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;->a(Z)V
+
+    .line 80
+    iget-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/PreviousReview;->i:Z
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;->b(Z)V
+
+    .line 81
+    iget-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/PreviousReview;->j:Z
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;->c(Z)V
+
+    .line 82
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->k()Ljava/util/List;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->d:Ljava/util/List;
+
+    .line 83
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->j()Ljava/util/List;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->h:Ljava/util/List;
+
+    .line 84
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PreviousReview;->m()Lcom/yelp/android/serializable/BusinessOwnerReply;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->a:Lcom/yelp/android/serializable/BusinessOwnerReply;
+
+    .line 85
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Lcom/yelp/android/serializable/YelpBusinessReview;->N:Z
+
+    .line 87
+    return-object v0
+.end method
+
+.method public static a(Landroid/os/Parcel;)Ljava/util/Locale;
     .locals 4
 
     .prologue
-    .line 217
+    .line 293
     invoke-virtual {p0}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 218
+    .line 294
     if-nez v1, :cond_0
 
-    .line 219
+    .line 295
     const/4 v0, 0x0
 
-    .line 221
+    .line 297
     :goto_0
     return-object v0
 
@@ -140,72 +488,23 @@
     goto :goto_0
 .end method
 
-.method private setupAttachedMediaSorted()Ljava/util/List;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/IdentifiableMedia;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 75
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mAttachedMedia:Ljava/util/List;
-
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mAttachedMedia:Ljava/util/List;
-
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mPhotos:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    .line 77
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mAttachedMedia:Ljava/util/List;
-
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mVideos:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    .line 78
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mAttachedMedia:Ljava/util/List;
-
-    new-instance v1, Lcom/yelp/android/serializable/dz;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/serializable/dz;-><init>(Lcom/yelp/android/serializable/YelpBusinessReview;)V
-
-    invoke-static {v0, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mAttachedMedia:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method public static writeLocaleToParcel(Landroid/os/Parcel;Ljava/util/Locale;)V
+.method public static a(Landroid/os/Parcel;Ljava/util/Locale;)V
     .locals 1
 
     .prologue
-    .line 207
+    .line 283
     if-nez p1, :cond_0
 
-    .line 208
+    .line 284
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 214
+    .line 290
     :goto_0
     return-void
 
-    .line 210
+    .line 286
     :cond_0
     invoke-virtual {p1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
@@ -213,14 +512,14 @@
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 211
+    .line 287
     invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 212
+    .line 288
     invoke-virtual {p1}, Ljava/util/Locale;->getVariant()Ljava/lang/String;
 
     move-result-object v0
@@ -232,802 +531,478 @@
 
 
 # virtual methods
-.method public arePhotosPopulated()Z
+.method public bridge synthetic A()I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->A()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic B()I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->B()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic C()I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->C()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic D()Z
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->D()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic E()Z
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->E()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic F()Z
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->F()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic G()Lcom/yelp/android/serializable/TranslatedReview;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->G()Lcom/yelp/android/serializable/TranslatedReview;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic H()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->H()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic I()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->I()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic J()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->J()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic K()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->K()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic L()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->L()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic M()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->M()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic N()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->N()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic O()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->O()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic P()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->P()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic Q()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->Q()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic R()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->R()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic S()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->S()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic T()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->T()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic U()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->U()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic V()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->V()Ljava/util/Date;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic W()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->W()Ljava/util/Date;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic X()Lcom/yelp/android/serializable/BusinessOwnerReply;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->X()Lcom/yelp/android/serializable/BusinessOwnerReply;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public a(I)V
+    .locals 0
+
+    .prologue
+    .line 189
+    iput p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->z:I
+
+    .line 190
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/serializable/Photo;)V
     .locals 2
 
     .prologue
-    .line 460
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->getPhotos()Ljava/util/List;
-
-    move-result-object v0
-
-    sget-object v1, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
-
-    if-eq v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public bridge synthetic describeContents()I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->describeContents()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
-    .locals 4
-
-    .prologue
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    .line 436
-    if-ne p0, p1, :cond_1
-
-    .line 448
-    :cond_0
-    :goto_0
-    return v0
-
-    .line 438
-    :cond_1
-    if-nez p1, :cond_2
-
-    move v0, v1
-
-    .line 439
-    goto :goto_0
-
-    .line 440
-    :cond_2
-    instance-of v2, p1, Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    if-nez v2, :cond_3
-
-    move v0, v1
-
-    .line 441
-    goto :goto_0
-
-    .line 442
-    :cond_3
-    check-cast p1, Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    .line 443
-    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mId:Ljava/lang/String;
-
-    if-nez v2, :cond_4
-
-    .line 444
-    iget-object v2, p1, Lcom/yelp/android/serializable/YelpBusinessReview;->mId:Ljava/lang/String;
-
-    if-eqz v2, :cond_0
-
-    move v0, v1
-
-    .line 445
-    goto :goto_0
-
-    .line 446
-    :cond_4
-    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mId:Ljava/lang/String;
-
-    iget-object v3, p1, Lcom/yelp/android/serializable/YelpBusinessReview;->mId:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    move v0, v1
-
-    .line 447
-    goto :goto_0
-.end method
-
-.method public getAttachedMediaCount()I
-    .locals 2
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mPhotos:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mVideos:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    return v0
-.end method
-
-.method public getAttachedMediaSorted()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/IdentifiableMedia;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 65
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mAttachedMedia:Ljava/util/List;
-
-    if-nez v0, :cond_0
-
-    .line 66
-    invoke-direct {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->setupAttachedMediaSorted()Ljava/util/List;
-
-    .line 68
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mAttachedMedia:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method public getAttachedPhotoCount()I
-    .locals 1
-
-    .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mPhotos:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getAttachedVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 53
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mVideos:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getBusinessId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getBusinessId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getBusinessName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getBusinessName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getBusinessOwnerReply()Lcom/yelp/android/serializable/BusinessOwnerReply;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getBusinessOwnerReply()Lcom/yelp/android/serializable/BusinessOwnerReply;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getBusinessPhotoUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getBusinessPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getDateModified()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getDateModified()Ljava/util/Date;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getFeedback()Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
-    .locals 1
-
-    .prologue
-    .line 87
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getLanguage()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getLanguage()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getLocale()Ljava/util/Locale;
-    .locals 1
-
-    .prologue
-    .line 100
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mLocale:Ljava/util/Locale;
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getPhotos()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getPhotos()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getPreviousReviews()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getPreviousReviews()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getRating()I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getRating()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getText()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTextAttributed()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getTextAttributed()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTextExcerpt()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getTextExcerpt()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTranslatedText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getTranslatedText()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getType()Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
-    .locals 1
-
-    .prologue
-    .line 453
-    sget-object v0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->REVIEW:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUpdatableAfter()J
-    .locals 2
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUpdatableAfter()J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
-.method public bridge synthetic getUserCheckInCount()I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserCheckInCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserDisabledFeatures()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserDisabledFeatures()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserEliteYears()[I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserEliteYears()[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserFeedback()Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
-    .locals 1
-
-    .prologue
-    .line 91
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserFriendCount()I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserFriendCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserLocationRank()Lcom/yelp/android/serializable/RankTitle$Rank;
-    .locals 1
-
-    .prologue
-    .line 95
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserRankTitleText()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/serializable/RankTitle$Rank;->rankForString(Ljava/lang/String;)Lcom/yelp/android/serializable/RankTitle$Rank;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserMediaCount()I
-    .locals 2
-
-    .prologue
-    .line 45
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserVideoCount()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserPhotoCount()I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserPhotoCount()I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserPhotoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserPhotoUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserRankTitleText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserRankTitleText()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserReviewCount()I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserReviewCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getUserVideoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getVideos()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->getVideos()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public hashCode()I
-    .locals 1
-
-    .prologue
-    .line 427
-    .line 429
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mId:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    add-int/lit8 v0, v0, 0x1f
-
-    .line 431
-    return v0
-
-    .line 429
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mId:Ljava/lang/String;
-
-    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
-
-    goto :goto_0
-.end method
-
-.method public isFeatureDisabled(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
-    .locals 1
-
-    .prologue
-    .line 124
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/serializable/FeatureSet;->contains(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic isFirstReview()Z
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->isFirstReview()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isUpdatableByCurrentUser()Z
-    .locals 4
-
-    .prologue
-    .line 145
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserId:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dc;->a(Ljava/lang/String;)Z
+    .line 545
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->t()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUpdatableAfter()J
+    .line 546
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->d:Ljava/util/List;
 
-    move-result-wide v0
+    invoke-static {v0, p1}, Lcom/yelp/android/ui/util/as;->a(Ljava/util/List;Lcom/yelp/android/serializable/b;)I
 
-    long-to-double v0, v0
+    move-result v0
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    .line 547
+    if-ltz v0, :cond_0
 
-    move-result-wide v2
+    .line 548
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->d:Ljava/util/List;
 
-    long-to-double v2, v2
+    invoke-interface {v1, v0, p1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v2, v3}, Lcom/yelp/android/util/o;->f(D)D
-
-    move-result-wide v2
-
-    cmpg-double v0, v0, v2
-
-    if-gez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
+    .line 551
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public isUserElite()Z
-    .locals 1
-
-    .prologue
-    .line 164
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mIsUserElite:Z
-
-    return v0
-.end method
-
-.method public bridge synthetic isUserFollowed()Z
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->isUserFollowed()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic isUserFriend()Z
-    .locals 1
-
-    .prologue
-    .line 24
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->isUserFriend()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public populateDataFromUser(Lcom/yelp/android/serializable/User;)V
-    .locals 1
-
-    .prologue
-    .line 155
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->getFriendCount()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFriendCount:I
-
-    .line 156
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->getReviewCount()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserReviewCount:I
-
-    .line 157
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->isEliteUser()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mIsUserElite:Z
-
-    .line 158
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserId:Ljava/lang/String;
-
-    .line 159
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserName:Ljava/lang/String;
-
-    .line 160
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->getUserPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserPhotoUrl:Ljava/lang/String;
-
-    .line 161
     return-void
 .end method
 
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lcom/yelp/android/serializable/TranslatedReview;)V
+    .locals 0
+
+    .prologue
+    .line 197
+    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->v:Lcom/yelp/android/serializable/TranslatedReview;
+
+    .line 198
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/serializable/User;)V
+    .locals 1
+
+    .prologue
+    .line 225
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->k_()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->B:I
+
+    .line 226
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->j_()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->A:I
+
+    .line 227
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->h()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
+
+    .line 228
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->j:Ljava/lang/String;
+
+    .line 229
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->ad()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->n:Ljava/lang/String;
+
+    .line 230
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->o:Ljava/lang/String;
+
+    .line 231
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;)V
+    .locals 0
+
+    .prologue
+    .line 185
+    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+
+    .line 186
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;)V
+    .locals 0
+
+    .prologue
+    .line 181
+    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+
+    .line 182
+    return-void
+.end method
+
+.method public a(Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 177
+    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->l:Ljava/lang/String;
+
+    .line 178
+    return-void
+.end method
+
+.method public a(Ljava/util/Locale;)V
+    .locals 0
+
+    .prologue
+    .line 173
+    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->K:Ljava/util/Locale;
+
+    .line 174
+    return-void
+.end method
+
+.method public a(Lorg/json/JSONObject;)V
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const/4 v5, 0x0
 
-    .line 169
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpBusinessReview;->readFromJson(Lorg/json/JSONObject;)V
+    .line 239
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpBusinessReview;->a(Lorg/json/JSONObject;)V
 
-    .line 171
+    .line 241
     const-string/jumbo v0, "feedback"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v0
 
-    .line 173
+    .line 243
     if-eqz v0, :cond_0
 
-    .line 174
+    .line 244
     new-instance v1, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
     const-string/jumbo v2, "useful"
@@ -1062,9 +1037,9 @@
 
     invoke-direct {v1, v2, v3, v0}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;-><init>(III)V
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    iput-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
-    .line 180
+    .line 251
     :cond_0
     const-string/jumbo v0, "user_feedback"
 
@@ -1072,10 +1047,10 @@
 
     move-result-object v0
 
-    .line 182
+    .line 253
     if-eqz v0, :cond_1
 
-    .line 183
+    .line 254
     new-instance v1, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
     const-string/jumbo v2, "useful"
@@ -1098,39 +1073,90 @@
 
     invoke-direct {v1, v2, v3, v0}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;-><init>(ZZZ)V
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+    iput-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
-    .line 188
+    .line 260
     :cond_1
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserEliteYears()[I
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->w()[I
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/services/r;->a([I)Z
+    if-eqz v0, :cond_2
+
+    .line 261
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->w()[I
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/serializable/User;->a([I)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mIsUserElite:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
 
-    .line 189
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+    .line 265
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->J:Lcom/yelp/android/serializable/FeatureSet;
 
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserDisabledFeatures:Ljava/util/List;
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->f:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/FeatureSet;->setFeatures(Ljava/util/List;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/FeatureSet;->a(Ljava/util/List;)V
 
-    .line 190
+    .line 266
+    return-void
+
+    .line 263
+    :cond_2
+    iput-boolean v5, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
+
+    goto :goto_0
+.end method
+
+.method public a(Z)V
+    .locals 0
+
+    .prologue
+    .line 201
+    iput-boolean p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->L:Z
+
+    .line 202
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public a(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
+    .locals 1
+
+    .prologue
+    .line 193
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->J:Lcom/yelp/android/serializable/FeatureSet;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/serializable/FeatureSet;->a(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public b(Landroid/os/Parcel;)V
     .locals 2
 
     .prologue
-    .line 226
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpBusinessReview;->readFromParcel(Landroid/os/Parcel;)V
+    .line 302
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpBusinessReview;->b(Landroid/os/Parcel;)V
 
-    .line 227
+    .line 303
     sget-object v0, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1139,9 +1165,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
-    .line 228
+    .line 304
     sget-object v0, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v0, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -1150,9 +1176,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
-    .line 229
+    .line 305
     const-class v0, Lcom/yelp/android/serializable/FeatureSet;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -1165,211 +1191,542 @@
 
     check-cast v0, Lcom/yelp/android/serializable/FeatureSet;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->J:Lcom/yelp/android/serializable/FeatureSet;
 
-    .line 230
-    invoke-static {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->readLocaleFromParcel(Landroid/os/Parcel;)Ljava/util/Locale;
+    .line 306
+    invoke-static {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->a(Landroid/os/Parcel;)Ljava/util/Locale;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mLocale:Ljava/util/Locale;
+    iput-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->K:Ljava/util/Locale;
 
-    .line 231
+    .line 307
     invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
 
     move-result-object v0
 
-    .line 232
+    .line 308
     const/4 v1, 0x0
 
     aget-boolean v1, v0, v1
 
-    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisplayTranslatedText:Z
+    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->L:Z
 
-    .line 233
+    .line 309
     const/4 v1, 0x1
+
+    aget-boolean v1, v0, v1
+
+    iput-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->N:Z
+
+    .line 310
+    const/4 v1, 0x2
 
     aget-boolean v0, v0, v1
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mIsUserElite:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
 
-    .line 234
+    .line 311
     return-void
 .end method
 
-.method public setDateModified(Ljava/util/Date;)V
-    .locals 0
-
-    .prologue
-    .line 104
-    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDateModified:Ljava/util/Date;
-
-    .line 105
-    return-void
-.end method
-
-.method public setDisplayTranslatedText(Z)V
-    .locals 0
-
-    .prologue
-    .line 132
-    iput-boolean p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisplayTranslatedText:Z
-
-    .line 133
-    return-void
-.end method
-
-.method public setFeedback(Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;)V
-    .locals 0
-
-    .prologue
-    .line 120
-    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
-
-    .line 121
-    return-void
-.end method
-
-.method public setFirstToReview(Z)V
-    .locals 0
-
-    .prologue
-    .line 136
-    iput-boolean p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mIsFirstReview:Z
-
-    .line 137
-    return-void
-.end method
-
-.method public setLocale(Ljava/util/Locale;)V
-    .locals 0
-
-    .prologue
-    .line 108
-    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mLocale:Ljava/util/Locale;
-
-    .line 109
-    return-void
-.end method
-
-.method public setText(Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 112
-    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mText:Ljava/lang/String;
-
-    .line 113
-    return-void
-.end method
-
-.method public setTranslatedText(Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 128
-    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mTranslatedText:Ljava/lang/String;
-
-    .line 129
-    return-void
-.end method
-
-.method public setUserFeedback(Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;)V
-    .locals 0
-
-    .prologue
-    .line 116
-    iput-object p1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
-
-    .line 117
-    return-void
-.end method
-
-.method public shouldDisplayTranslation()Z
+.method public c()Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
     .locals 1
 
     .prologue
-    .line 140
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisplayTranslatedText:Z
+    .line 534
+    sget-object v0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->REVIEW:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 326
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->b:Ljava/util/Date;
+
+    return-object v0
+.end method
+
+.method public bridge synthetic describeContents()I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->describeContents()I
+
+    move-result v0
 
     return v0
 .end method
 
-.method public updatePhoto(Lcom/yelp/android/serializable/Photo;)V
+.method public bridge synthetic e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->e()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 4
+
+    .prologue
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    .line 512
+    if-ne p0, p1, :cond_1
+
+    .line 529
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 515
+    :cond_1
+    if-nez p1, :cond_2
+
+    move v0, v1
+
+    .line 516
+    goto :goto_0
+
+    .line 518
+    :cond_2
+    instance-of v2, p1, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    if-nez v2, :cond_3
+
+    move v0, v1
+
+    .line 519
+    goto :goto_0
+
+    .line 521
+    :cond_3
+    check-cast p1, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    .line 522
+    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->i:Ljava/lang/String;
+
+    if-nez v2, :cond_4
+
+    .line 523
+    iget-object v2, p1, Lcom/yelp/android/serializable/YelpBusinessReview;->i:Ljava/lang/String;
+
+    if-eqz v2, :cond_0
+
+    move v0, v1
+
+    .line 524
+    goto :goto_0
+
+    .line 526
+    :cond_4
+    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->i:Ljava/lang/String;
+
+    iget-object v3, p1, Lcom/yelp/android/serializable/YelpBusinessReview;->i:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    move v0, v1
+
+    .line 527
+    goto :goto_0
+.end method
+
+.method public f()Z
+    .locals 1
+
+    .prologue
+    .line 103
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->N:Z
+
+    return v0
+.end method
+
+.method public g()I
     .locals 2
 
     .prologue
-    .line 464
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->arePhotosPopulated()Z
+    .line 107
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->x()I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->y()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public h()I
+    .locals 1
+
+    .prologue
+    .line 111
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->d:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public hashCode()I
+    .locals 1
+
+    .prologue
+    .line 504
+    .line 506
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->i:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    add-int/lit8 v0, v0, 0x1f
+
+    .line 507
+    return v0
+
+    .line 506
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->i:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public i()I
+    .locals 1
+
+    .prologue
+    .line 115
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->h:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public j()I
+    .locals 2
+
+    .prologue
+    .line 119
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->d:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->h:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public k()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/IdentifiableMedia;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 127
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->O:Ljava/util/List;
+
+    if-nez v0, :cond_0
+
+    .line 128
+    invoke-direct {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->Y()Ljava/util/List;
+
+    .line 130
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->O:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public l()Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    .locals 1
+
+    .prologue
+    .line 152
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+
+    return-object v0
+.end method
+
+.method public m()Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+    .locals 1
+
+    .prologue
+    .line 156
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+
+    return-object v0
+.end method
+
+.method public n()Lcom/yelp/android/serializable/RankTitle$Rank;
+    .locals 1
+
+    .prologue
+    .line 160
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->K()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/serializable/RankTitle$Rank;->rankForString(Ljava/lang/String;)Lcom/yelp/android/serializable/RankTitle$Rank;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public o()Ljava/util/Locale;
+    .locals 1
+
+    .prologue
+    .line 165
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->K:Ljava/util/Locale;
+
+    return-object v0
+.end method
+
+.method public p()Z
+    .locals 1
+
+    .prologue
+    .line 209
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->L:Z
+
+    return v0
+.end method
+
+.method public q()Z
+    .locals 4
+
+    .prologue
+    .line 214
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/co;->a(Ljava/lang/String;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 465
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mPhotos:Ljava/util/List;
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->v()J
 
-    invoke-static {v0, p1}, Lcom/yelp/android/ui/util/cr;->a(Ljava/util/List;Lcom/yelp/android/serializable/ay;)I
+    move-result-wide v0
 
-    move-result v0
+    long-to-double v0, v0
 
-    .line 466
-    if-ltz v0, :cond_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    .line 467
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mPhotos:Ljava/util/List;
+    move-result-wide v2
 
-    invoke-interface {v1, v0, p1}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    long-to-double v2, v2
 
-    .line 470
+    invoke-static {v2, v3}, Lcom/yelp/android/util/i;->f(D)D
+
+    move-result-wide v2
+
+    cmpg-double v0, v0, v2
+
+    if-gez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
     :cond_0
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
-    .locals 3
+.method public r()Z
+    .locals 1
 
     .prologue
-    .line 194
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->writeJSON()Lorg/json/JSONObject;
+    .line 234
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
+
+    return v0
+.end method
+
+.method public s()Lorg/json/JSONObject;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 270
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->s()Lorg/json/JSONObject;
 
     move-result-object v0
 
-    .line 195
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+    .line 271
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
     if-eqz v1, :cond_0
 
-    .line 196
+    .line 272
     const-string/jumbo v1, "user_feedback"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;->writeJSON()Lorg/json/JSONObject;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;->d()Lorg/json/JSONObject;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 198
+    .line 274
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    iget-object v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
     if-eqz v1, :cond_1
 
-    .line 199
+    .line 275
     const-string/jumbo v1, "feedback"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    iget-object v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;->writeJSON()Lorg/json/JSONObject;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;->e()Lorg/json/JSONObject;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 201
+    .line 277
     :cond_1
+    return-object v0
+.end method
+
+.method public t()Z
+    .locals 2
+
+    .prologue
+    .line 541
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusinessReview;->U()Ljava/util/List;
+
+    move-result-object v0
+
+    sget-object v1, Ljava/util/Collections;->EMPTY_LIST:Ljava/util/List;
+
+    if-eq v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public u()Z
+    .locals 2
+
+    .prologue
+    .line 554
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->g:Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->g:Ljava/util/List;
+
+    const-string/jumbo v1, "100millionth"
+
+    invoke-interface {v0, v1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public bridge synthetic v()J
+    .locals 2
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->v()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method public bridge synthetic w()[I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->w()[I
+
+    move-result-object v0
+
     return-object v0
 .end method
 
@@ -1379,46 +1736,88 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 238
+    .line 315
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/_YelpBusinessReview;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 239
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
+    .line 316
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->H:Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;
 
     invoke-virtual {v0, p1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$ReviewFeedback;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 240
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mUserFeedback:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
+    .line 317
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->I:Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;
 
     invoke-virtual {v0, p1, v2}, Lcom/yelp/android/serializable/YelpBusinessReview$UserFeedback;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 241
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+    .line 318
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->J:Lcom/yelp/android/serializable/FeatureSet;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 242
-    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mLocale:Ljava/util/Locale;
+    .line 319
+    iget-object v0, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->K:Ljava/util/Locale;
 
-    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->writeLocaleToParcel(Landroid/os/Parcel;Ljava/util/Locale;)V
+    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->a(Landroid/os/Parcel;Ljava/util/Locale;)V
 
-    .line 243
-    const/4 v0, 0x2
+    .line 320
+    const/4 v0, 0x3
 
     new-array v0, v0, [Z
 
-    iget-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mDisplayTranslatedText:Z
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->L:Z
 
     aput-boolean v1, v0, v2
 
     const/4 v1, 0x1
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->mIsUserElite:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->N:Z
+
+    aput-boolean v2, v0, v1
+
+    const/4 v1, 0x2
+
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/YelpBusinessReview;->M:Z
 
     aput-boolean v2, v0, v1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 247
+    .line 322
     return-void
+.end method
+
+.method public bridge synthetic x()I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->x()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic y()I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->y()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic z()I
+    .locals 1
+
+    .prologue
+    .line 24
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpBusinessReview;->z()I
+
+    move-result v0
+
+    return v0
 .end method

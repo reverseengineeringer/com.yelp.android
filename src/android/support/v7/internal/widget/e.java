@@ -1,44 +1,32 @@
 package android.support.v7.internal.widget;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
+import android.support.v7.internal.view.menu.l.a;
+import android.view.Menu;
+import android.view.Window.Callback;
 
-class e
-  extends Drawable
+public abstract interface e
 {
-  final ActionBarContainer a;
+  public abstract void a(int paramInt);
   
-  public e(ActionBarContainer paramActionBarContainer)
-  {
-    a = paramActionBarContainer;
-  }
+  public abstract void a(Menu paramMenu, l.a parama);
   
-  public void draw(Canvas paramCanvas)
-  {
-    if (a.d) {
-      if (a.c != null) {
-        a.c.draw(paramCanvas);
-      }
-    }
-    do
-    {
-      return;
-      if (a.a != null) {
-        a.a.draw(paramCanvas);
-      }
-    } while ((a.b == null) || (!a.e));
-    a.b.draw(paramCanvas);
-  }
+  public abstract boolean d();
   
-  public int getOpacity()
-  {
-    return 0;
-  }
+  public abstract boolean e();
   
-  public void setAlpha(int paramInt) {}
+  public abstract boolean f();
   
-  public void setColorFilter(ColorFilter paramColorFilter) {}
+  public abstract boolean g();
+  
+  public abstract boolean h();
+  
+  public abstract void i();
+  
+  public abstract void j();
+  
+  public abstract void setWindowCallback(Window.Callback paramCallback);
+  
+  public abstract void setWindowTitle(CharSequence paramCharSequence);
 }
 
 /* Location:

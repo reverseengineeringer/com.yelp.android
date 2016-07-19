@@ -2,23 +2,54 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _YelpBusinessAddresses
   implements Parcelable
 {
-  protected YelpDetailedAddress mAddress;
-  protected String mLanguage;
-  protected String mLocality;
+  protected String a;
+  protected String b;
+  protected YelpDetailedAddress c;
   
   protected _YelpBusinessAddresses() {}
   
   protected _YelpBusinessAddresses(String paramString1, String paramString2, YelpDetailedAddress paramYelpDetailedAddress)
   {
     this();
-    mLanguage = paramString1;
-    mLocality = paramString2;
-    mAddress = paramYelpDetailedAddress;
+    a = paramString1;
+    b = paramString2;
+    c = paramYelpDetailedAddress;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((YelpDetailedAddress)paramParcel.readParcelable(YelpDetailedAddress.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("language")) {
+      a = paramJSONObject.optString("language");
+    }
+    if (!paramJSONObject.isNull("locality")) {
+      b = paramJSONObject.optString("locality");
+    }
+  }
+  
+  public YelpDetailedAddress c()
+  {
+    return c;
+  }
+  
+  public String d()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -26,43 +57,30 @@ abstract class _YelpBusinessAddresses
     return 0;
   }
   
-  public YelpDetailedAddress getAddress()
+  public boolean equals(Object paramObject)
   {
-    return mAddress;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpBusinessAddresses)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a();
   }
   
-  public String getLanguage()
+  public int hashCode()
   {
-    return mLanguage;
-  }
-  
-  public String getLocality()
-  {
-    return mLocality;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("language")) {
-      mLanguage = paramJSONObject.optString("language");
-    }
-    if (!paramJSONObject.isNull("locality")) {
-      mLocality = paramJSONObject.optString("locality");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mLanguage = paramParcel.readString();
-    mLocality = paramParcel.readString();
-    mAddress = ((YelpDetailedAddress)paramParcel.readParcelable(YelpDetailedAddress.class.getClassLoader()));
+    return new c().a(a).a(b).a(c).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mLanguage);
-    paramParcel.writeString(mLocality);
-    paramParcel.writeParcelable(mAddress, 0);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeParcelable(c, 0);
   }
 }
 

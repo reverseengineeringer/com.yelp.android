@@ -42,6 +42,13 @@ public class KeyboardAwareLinearLayout
   {
     b = parama;
   }
+  
+  public static abstract interface a
+  {
+    public abstract void a();
+    
+    public abstract void b();
+  }
 }
 
 /* Location:

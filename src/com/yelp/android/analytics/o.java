@@ -1,41 +1,35 @@
 package com.yelp.android.analytics;
 
-import android.net.Uri;
-import com.yelp.android.util.StringUtils;
+import com.yelp.android.analytics.iris.AnalyticCategory;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class o
   extends b
 {
-  private final Uri a;
+  private final String a;
+  private final String b;
   
-  public o(Uri paramUri)
+  public o(String paramString1, String paramString2)
   {
-    if (paramUri == null) {
-      throw new IllegalArgumentException("Url cannot be null.");
-    }
-    a = Uri.parse(StringUtils.b(paramUri.toString()));
+    a = paramString1;
+    b = paramString2;
+    a(AnalyticCategory.REQUEST);
   }
   
   public JSONObject c()
+    throws JSONException
   {
-    JSONObject localJSONObject1 = super.c();
-    JSONObject localJSONObject2 = new JSONObject();
-    localJSONObject2.put("url", String.valueOf(a));
-    localJSONObject1.put("launch", localJSONObject2);
-    return localJSONObject1;
+    JSONObject localJSONObject = super.c();
+    localJSONObject.put("time", a());
+    localJSONObject.put("request_id", b);
+    localJSONObject.put("path", a);
+    return localJSONObject;
   }
   
   public String toString()
   {
-    StringBuilder localStringBuilder = new StringBuilder(300);
-    localStringBuilder.append("[LaunchAnalytic:");
-    localStringBuilder.append("index=").append(b());
-    localStringBuilder.append(", ");
-    localStringBuilder.append("start=").append(a());
-    localStringBuilder.append("url=").append(a);
-    localStringBuilder.append("]");
-    return localStringBuilder.toString();
+    return String.format("[MetricsWebRequest:index=%s, path=%s, request_id=%s]", new Object[] { Integer.valueOf(b()), a, b });
   }
 }
 

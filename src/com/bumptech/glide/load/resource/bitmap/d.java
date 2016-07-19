@@ -1,31 +1,46 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.bumptech.glide.load.engine.t;
+import com.bumptech.glide.g;
+import com.bumptech.glide.load.engine.i;
 import com.bumptech.glide.load.f;
+import com.yelp.android.ao.h;
 
 public abstract class d
   implements f<Bitmap>
 {
-  private e a;
+  private com.yelp.android.x.c a;
   
-  public d(e parame)
+  public d(Context paramContext)
   {
-    a = parame;
+    this(g.a(paramContext).a());
   }
   
-  protected abstract Bitmap a(e parame, Bitmap paramBitmap, int paramInt1, int paramInt2);
-  
-  public final t<Bitmap> a(t<Bitmap> paramt, int paramInt1, int paramInt2)
+  public d(com.yelp.android.x.c paramc)
   {
-    if ((paramInt1 <= 0) || (paramInt2 <= 0)) {
-      throw new IllegalArgumentException("Cannot apply transformation on width: " + paramInt1 + " or height: " + paramInt2 + " less than or equal to zero");
+    a = paramc;
+  }
+  
+  protected abstract Bitmap a(com.yelp.android.x.c paramc, Bitmap paramBitmap, int paramInt1, int paramInt2);
+  
+  public final i<Bitmap> a(i<Bitmap> parami, int paramInt1, int paramInt2)
+  {
+    if (!h.a(paramInt1, paramInt2)) {
+      throw new IllegalArgumentException("Cannot apply transformation on width: " + paramInt1 + " or height: " + paramInt2 + " less than or equal to zero and not Target.SIZE_ORIGINAL");
     }
-    Bitmap localBitmap1 = (Bitmap)paramt.b();
-    Bitmap localBitmap2 = a(a, localBitmap1, paramInt1, paramInt2);
+    Bitmap localBitmap1 = (Bitmap)parami.b();
+    int i = paramInt1;
+    if (paramInt1 == Integer.MIN_VALUE) {
+      i = localBitmap1.getWidth();
+    }
+    paramInt1 = paramInt2;
+    if (paramInt2 == Integer.MIN_VALUE) {
+      paramInt1 = localBitmap1.getHeight();
+    }
+    Bitmap localBitmap2 = a(a, localBitmap1, i, paramInt1);
     if (localBitmap1.equals(localBitmap2)) {
-      return paramt;
+      return parami;
     }
     return c.a(localBitmap2, a);
   }

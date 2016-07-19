@@ -21,10 +21,10 @@
     .locals 1
 
     .prologue
-    .line 13
-    new-instance v0, Lcom/yelp/android/serializable/el;
+    .line 12
+    new-instance v0, Lcom/yelp/android/serializable/YelpDetailedAddress$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/el;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/YelpDetailedAddress$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/YelpDetailedAddress;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -55,11 +55,72 @@
 
 
 # virtual methods
+.method public bridge synthetic a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
     .prologue
-    .line 11
+    .line 10
     invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->describeContents()I
 
     move-result v0
@@ -67,67 +128,35 @@
     return v0
 .end method
 
-.method public bridge synthetic getAddress1()Ljava/lang/String;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->getAddress1()Ljava/lang/String;
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
+    return v0
 .end method
 
-.method public bridge synthetic getAddress2()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->getAddress2()Ljava/lang/String;
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
-.end method
-
-.method public bridge synthetic getAddress3()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->getAddress3()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 11
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 11
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
 
     .prologue
-    .line 11
+    .line 10
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/_YelpDetailedAddress;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void

@@ -215,7 +215,7 @@
     move-result-object v3
 
     .line 52
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->c(Ljava/lang/String;Ljava/lang/String;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->c(Ljava/lang/String;Ljava/lang/String;)Landroid/support/v7/app/d$a;
 
     move-result-object v0
 
@@ -225,7 +225,7 @@
     .line 55
     iget-object v1, p0, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->b:Landroid/content/DialogInterface$OnClickListener;
 
-    invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v2, v1}, Landroid/support/v7/app/d$a;->b(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/d$a;
 
     .line 57
     :cond_0
@@ -234,11 +234,11 @@
     .line 58
     iget-object v1, p0, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->c:Landroid/content/DialogInterface$OnClickListener;
 
-    invoke-virtual {v0, v3, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v3, v1}, Landroid/support/v7/app/d$a;->a(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/d$a;
 
     .line 61
     :cond_1
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/support/v7/app/d$a;->b()Landroid/support/v7/app/d;
 
     move-result-object v0
 

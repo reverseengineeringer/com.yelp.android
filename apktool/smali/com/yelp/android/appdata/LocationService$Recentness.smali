@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/LocationService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Recentness"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -43,7 +52,7 @@
 
     const/4 v4, 0x0
 
-    .line 42
+    .line 49
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Recentness;
 
     const-string/jumbo v1, "MINUTE"
@@ -54,6 +63,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Recentness;->MINUTE:Lcom/yelp/android/appdata/LocationService$Recentness;
 
+    .line 50
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Recentness;
 
     const-string/jumbo v1, "MINUTE_15"
@@ -64,6 +74,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Recentness;->MINUTE_15:Lcom/yelp/android/appdata/LocationService$Recentness;
 
+    .line 51
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Recentness;
 
     const-string/jumbo v1, "HOUR"
@@ -74,6 +85,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Recentness;->HOUR:Lcom/yelp/android/appdata/LocationService$Recentness;
 
+    .line 52
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Recentness;
 
     const-string/jumbo v1, "DAY"
@@ -84,7 +96,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Recentness;->DAY:Lcom/yelp/android/appdata/LocationService$Recentness;
 
-    .line 41
+    .line 48
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/yelp/android/appdata/LocationService$Recentness;
@@ -119,13 +131,13 @@
     .end annotation
 
     .prologue
-    .line 44
+    .line 54
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 45
+    .line 55
     iput-wide p3, p0, Lcom/yelp/android/appdata/LocationService$Recentness;->secs:J
 
-    .line 46
+    .line 56
     return-void
 .end method
 
@@ -133,7 +145,7 @@
     .locals 2
 
     .prologue
-    .line 61
+    .line 72
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -147,7 +159,7 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 48
     const-class v0, Lcom/yelp/android/appdata/LocationService$Recentness;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -163,7 +175,7 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 48
     sget-object v0, Lcom/yelp/android/appdata/LocationService$Recentness;->$VALUES:[Lcom/yelp/android/appdata/LocationService$Recentness;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/LocationService$Recentness;->clone()Ljava/lang/Object;
@@ -181,7 +193,7 @@
     .locals 4
 
     .prologue
-    .line 51
+    .line 61
     iget-wide v0, p0, Lcom/yelp/android/appdata/LocationService$Recentness;->secs:J
 
     const-wide/16 v2, 0x3e8
@@ -197,10 +209,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 55
+    .line 65
     if-nez p1, :cond_1
 
-    .line 57
+    .line 68
     :cond_0
     :goto_0
     return v0

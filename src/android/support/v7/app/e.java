@@ -1,45 +1,15 @@
 package android.support.v7.app;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.support.v4.app.ActionBarDrawerToggle.Delegate;
-import android.support.v7.internal.widget.bg;
+import com.yelp.android.r.a;
+import com.yelp.android.r.a.a;
 
-class e
-  implements ActionBarDrawerToggle.Delegate, r
+public abstract interface e
 {
-  private e(c paramc) {}
+  public abstract void onSupportActionModeFinished(a parama);
   
-  public Context a()
-  {
-    return a.m();
-  }
+  public abstract void onSupportActionModeStarted(a parama);
   
-  public Drawable getThemeUpIndicator()
-  {
-    bg localbg = bg.a(a(), null, new int[] { a.k() });
-    Drawable localDrawable = localbg.a(0);
-    localbg.b();
-    return localDrawable;
-  }
-  
-  public void setActionBarDescription(int paramInt)
-  {
-    ActionBar localActionBar = a.b();
-    if (localActionBar != null) {
-      localActionBar.c(paramInt);
-    }
-  }
-  
-  public void setActionBarUpIndicator(Drawable paramDrawable, int paramInt)
-  {
-    ActionBar localActionBar = a.b();
-    if (localActionBar != null)
-    {
-      localActionBar.b(paramDrawable);
-      localActionBar.c(paramInt);
-    }
-  }
+  public abstract a onWindowStartingSupportActionMode(a.a parama);
 }
 
 /* Location:

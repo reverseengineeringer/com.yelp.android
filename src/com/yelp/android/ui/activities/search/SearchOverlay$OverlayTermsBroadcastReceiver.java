@@ -4,25 +4,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import com.yelp.android.util.BasicBroadcastReceiver;
-import java.util.Collections;
 
 public class SearchOverlay$OverlayTermsBroadcastReceiver
   extends BasicBroadcastReceiver
 {
   private final CharSequence a;
   private final CharSequence b;
-  private final at c;
+  private final SearchOverlay.OverlayTermsBroadcastReceiver.a c;
   private CharSequence d;
   private CharSequence e;
   
-  public SearchOverlay$OverlayTermsBroadcastReceiver(at paramat, CharSequence paramCharSequence1, CharSequence paramCharSequence2)
+  public SearchOverlay$OverlayTermsBroadcastReceiver(SearchOverlay.OverlayTermsBroadcastReceiver.a parama, CharSequence paramCharSequence1, CharSequence paramCharSequence2)
   {
-    super(Collections.singleton(new IntentFilter("com.yelp.android.search_text_changed")));
+    super(new IntentFilter[] { new IntentFilter("com.yelp.android.search_text_changed") });
     e = paramCharSequence1;
     a = paramCharSequence1;
     d = paramCharSequence2;
     b = paramCharSequence2;
-    c = paramat;
+    c = parama;
   }
   
   public CharSequence a()

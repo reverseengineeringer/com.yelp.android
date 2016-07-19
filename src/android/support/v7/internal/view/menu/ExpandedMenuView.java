@@ -1,7 +1,7 @@
 package android.support.v7.internal.view.menu;
 
 import android.content.Context;
-import android.support.v7.internal.widget.bg;
+import android.support.v7.internal.widget.p;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,10 +11,10 @@ import android.widget.ListView;
 
 public final class ExpandedMenuView
   extends ListView
-  implements k, z, AdapterView.OnItemClickListener
+  implements f.b, m, AdapterView.OnItemClickListener
 {
   private static final int[] a = { 16842964, 16843049 };
-  private i b;
+  private f b;
   private int c;
   
   public ExpandedMenuView(Context paramContext, AttributeSet paramAttributeSet)
@@ -26,24 +26,24 @@ public final class ExpandedMenuView
   {
     super(paramContext, paramAttributeSet);
     setOnItemClickListener(this);
-    paramContext = bg.a(paramContext, paramAttributeSet, a, paramInt, 0);
-    if (paramContext.d(0)) {
+    paramContext = p.a(paramContext, paramAttributeSet, a, paramInt, 0);
+    if (paramContext.e(0)) {
       setBackgroundDrawable(paramContext.a(0));
     }
-    if (paramContext.d(1)) {
+    if (paramContext.e(1)) {
       setDivider(paramContext.a(1));
     }
     paramContext.b();
   }
   
-  public void a(i parami)
+  public void a(f paramf)
   {
-    b = parami;
+    b = paramf;
   }
   
-  public boolean a(m paramm)
+  public boolean a(h paramh)
   {
-    return b.a(paramm, 0);
+    return b.a(paramh, 0);
   }
   
   public int getWindowAnimations()
@@ -59,7 +59,7 @@ public final class ExpandedMenuView
   
   public void onItemClick(AdapterView paramAdapterView, View paramView, int paramInt, long paramLong)
   {
-    a((m)getAdapter().getItem(paramInt));
+    a((h)getAdapter().getItem(paramInt));
   }
 }
 

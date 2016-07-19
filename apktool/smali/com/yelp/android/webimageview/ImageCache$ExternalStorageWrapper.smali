@@ -8,6 +8,15 @@
     value = 0x8
 .end annotation
 
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/webimageview/ImageCache;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "ExternalStorageWrapper"
+.end annotation
+
 
 # direct methods
 .method public constructor <init>()V

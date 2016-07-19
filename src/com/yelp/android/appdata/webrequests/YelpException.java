@@ -5,14 +5,30 @@ import android.content.res.Resources;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
-import com.yelp.android.bf.k;
+import com.yelp.android.co.a.j;
 
 public class YelpException
   extends Exception
   implements Parcelable
 {
-  private static final String ANDROID_CLIENT_ERROR = "ANDROID_CLIENT_ERROR";
-  public static final Parcelable.Creator<YelpException> CREATOR = new hg();
+  public static final Parcelable.Creator<YelpException> CREATOR = new Parcelable.Creator()
+  {
+    public YelpException a(Parcel paramAnonymousParcel)
+    {
+      YelpException localYelpException = new YelpException(paramAnonymousParcel.readInt());
+      if (paramAnonymousParcel.readByte() != 0) {}
+      for (boolean bool = true;; bool = false)
+      {
+        localYelpException.setIsRecoverable(bool);
+        return localYelpException;
+      }
+    }
+    
+    public YelpException[] a(int paramAnonymousInt)
+    {
+      return new YelpException[paramAnonymousInt];
+    }
+  };
   public static final int YPErrorCannotConnectToHost;
   public static final int YPErrorCheckInNoLocation;
   public static final int YPErrorCountryNotSupported;
@@ -24,24 +40,24 @@ public class YelpException
   public static final int YPErrorServerMaintenance;
   public static final int YPErrorServerResourceNotFound;
   public static final int YPErrorServerResponse;
-  public static final int YPErrorUnknown = k.YPErrorUnknown;
+  public static final int YPErrorUnknown = a.j.YPErrorUnknown;
   private static final long serialVersionUID = 1L;
   private boolean mIsRecoverable = false;
   private int mMessageResource;
   
   static
   {
-    YPErrorServerResourceNotFound = k.YPErrorServerResourceNotFound;
-    YPErrorServerMaintenance = k.YPErrorServerMaintenance;
-    YPErrorServerResponse = k.YPErrorServerResponse;
-    YPErrorCannotConnectToHost = k.YPErrorCannotConnectToHost;
-    YPErrorNotConnectedToInternet = k.YPErrorNotConnectedToInternet;
-    YPErrorInvalidMIMEType = k.YPErrorInvalidMIMEType;
-    YPErrorInvalidData = k.YPErrorUnknown;
-    YPErrorFacebookConnect = k.YPErrorFacebookConnect;
-    YPErrorLocationServicesDisabled = k.YPErrorLocationServicesDisabled;
-    YPErrorCountryNotSupported = k.YPErrorCountryNotSupported;
-    YPErrorCheckInNoLocation = k.YPErrorCheckInNoLocation;
+    YPErrorServerResourceNotFound = a.j.YPErrorServerResourceNotFound;
+    YPErrorServerMaintenance = a.j.YPErrorServerMaintenance;
+    YPErrorServerResponse = a.j.YPErrorServerResponse;
+    YPErrorCannotConnectToHost = a.j.YPErrorCannotConnectToHost;
+    YPErrorNotConnectedToInternet = a.j.YPErrorNotConnectedToInternet;
+    YPErrorInvalidMIMEType = a.j.YPErrorInvalidMIMEType;
+    YPErrorInvalidData = a.j.YPErrorUnknown;
+    YPErrorFacebookConnect = a.j.YPErrorFacebookConnect;
+    YPErrorLocationServicesDisabled = a.j.YPErrorLocationServicesDisabled;
+    YPErrorCountryNotSupported = a.j.YPErrorCountryNotSupported;
+    YPErrorCheckInNoLocation = a.j.YPErrorCheckInNoLocation;
   }
   
   public YelpException(int paramInt)
@@ -67,7 +83,7 @@ public class YelpException
   
   public String getMessage(Context paramContext)
   {
-    return paramContext.getResources().getString(mMessageResource, new Object[] { paramContext.getText(k.site_name) });
+    return paramContext.getResources().getString(mMessageResource, new Object[] { paramContext.getText(a.j.site_name) });
   }
   
   public int getMessageResource()

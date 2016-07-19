@@ -1,26 +1,53 @@
 package com.google.android.gms.internal;
 
-import com.google.android.gms.ads.purchase.PlayStorePurchaseListener;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import org.json.JSONObject;
 
-@ey
-public final class ew
-  extends er.a
+@fv
+public class ew
+  extends Handler
 {
-  private final PlayStorePurchaseListener oN;
+  private final eu a;
   
-  public ew(PlayStorePurchaseListener paramPlayStorePurchaseListener)
+  public ew(Context paramContext)
   {
-    oN = paramPlayStorePurchaseListener;
+    this(new ex(localContext));
   }
   
-  public void a(eq parameq)
+  public ew(eu parameu)
   {
-    oN.onInAppPurchaseFinished(new eu(parameq));
+    a = parameu;
   }
   
-  public boolean isValidPurchase(String paramString)
+  private void a(JSONObject paramJSONObject)
   {
-    return oN.isValidPurchase(paramString);
+    try
+    {
+      a.a(paramJSONObject.getString("request_id"), paramJSONObject.getString("base_url"), paramJSONObject.getString("html"));
+      return;
+    }
+    catch (Exception paramJSONObject) {}
+  }
+  
+  public void handleMessage(Message paramMessage)
+  {
+    try
+    {
+      paramMessage = paramMessage.getData();
+      if (paramMessage == null) {
+        return;
+      }
+      paramMessage = new JSONObject(paramMessage.getString("data"));
+      if ("fetch_html".equals(paramMessage.getString("message_name")))
+      {
+        a(paramMessage);
+        return;
+      }
+    }
+    catch (Exception paramMessage) {}
   }
 }
 

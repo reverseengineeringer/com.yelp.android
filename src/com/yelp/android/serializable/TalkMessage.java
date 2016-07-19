@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class TalkMessage
   extends _TalkMessage
 {
-  public static final JsonParser.DualCreator<TalkMessage> CREATOR = new de();
+  public static final JsonParser.DualCreator<TalkMessage> CREATOR = new TalkMessage.1();
 }
 
 /* Location:

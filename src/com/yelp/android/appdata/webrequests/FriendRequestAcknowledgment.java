@@ -1,31 +1,43 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 import com.yelp.android.serializable.User;
 
 public class FriendRequestAcknowledgment
-  extends h
+  extends c
 {
-  public final FriendRequestAcknowledgment.Acknowledgment a;
-  public final User b;
+  public final Acknowledgment a;
+  public final User g;
   
-  public FriendRequestAcknowledgment(i parami, FriendRequestAcknowledgment.Acknowledgment paramAcknowledgment, User paramUser)
+  public FriendRequestAcknowledgment(c.a parama, Acknowledgment paramAcknowledgment, User paramUser)
   {
-    super(url, parami);
-    addPostParam("user_id", paramUser.getId());
-    b = paramUser;
+    super(url, parama);
+    b("user_id", paramUser.ae());
+    g = paramUser;
     a = paramAcknowledgment;
   }
   
-  public FriendRequestAcknowledgment.Acknowledgment a()
+  public Acknowledgment b()
   {
     return a;
   }
   
-  public User b()
+  public User d()
   {
-    return b;
+    return g;
+  }
+  
+  public static enum Acknowledgment
+  {
+    APPROVE("user/accept_friend"),  IGNORE("user/ignore_friend");
+    
+    final String url;
+    
+    private Acknowledgment(String paramString)
+    {
+      url = paramString;
+    }
   }
 }
 

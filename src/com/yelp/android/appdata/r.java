@@ -1,8 +1,12 @@
 package com.yelp.android.appdata;
 
+import android.content.Context;
+
 public abstract interface r
 {
-  public abstract void a(boolean paramBoolean);
+  public abstract String a();
+  
+  public abstract void a(Context paramContext);
 }
 
 /* Location:

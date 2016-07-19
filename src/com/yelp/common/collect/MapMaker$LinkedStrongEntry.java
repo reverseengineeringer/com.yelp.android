@@ -3,15 +3,15 @@ package com.yelp.common.collect;
 class MapMaker$LinkedStrongEntry<K, V>
   extends MapMaker.StrongEntry<K, V>
 {
-  final f<K, V> next;
+  final MapMaker.a<K, V> next;
   
-  MapMaker$LinkedStrongEntry(c<K, V, f<K, V>> paramc, K paramK, int paramInt, f<K, V> paramf)
+  MapMaker$LinkedStrongEntry(CustomConcurrentHashMap.b<K, V, MapMaker.a<K, V>> paramb, K paramK, int paramInt, MapMaker.a<K, V> parama)
   {
-    super(paramc, paramK, paramInt);
-    next = paramf;
+    super(paramb, paramK, paramInt);
+    next = parama;
   }
   
-  public f<K, V> getNext()
+  public MapMaker.a<K, V> getNext()
   {
     return next;
   }

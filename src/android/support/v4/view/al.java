@@ -1,17 +1,12 @@
 package android.support.v4.view;
 
-import android.view.LayoutInflater;
+import android.view.View;
 
 class al
 {
-  static void a(LayoutInflater paramLayoutInflater, am paramam)
+  public static int a(View paramView)
   {
-    if (paramam != null) {}
-    for (paramam = new ak(paramam);; paramam = null)
-    {
-      paramLayoutInflater.setFactory2(paramam);
-      return;
-    }
+    return paramView.getOverScrollMode();
   }
 }
 

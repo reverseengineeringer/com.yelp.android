@@ -1,34 +1,35 @@
 package com.yelp.android.ui.activities.reviews;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
-import com.yelp.android.appdata.n;
 
 public class StarsView
   extends ImageView
 {
-  protected static final int[] a = { 2130838325, 2130838326, 2130838327, 2130838328, 2130838329, 2130838330 };
-  protected static final int[] b = { 2130838465, 2130838466, 2130838467, 2130838468, 2130838469, 2130838470 };
-  protected static final int[] c = { 2130838309, 2130838310, 2130838311, 2130838312, 2130838313, 2130838314 };
-  private int d;
-  private StarsView.StarSize e;
-  private Runnable f;
-  private Runnable g;
+  protected static final int[] a = { 2130838646, 2130838647, 2130838648, 2130838649, 2130838650, 2130838651 };
+  protected static final int[] b = { 2130838845, 2130838846, 2130838847, 2130838848, 2130838849, 2130838850 };
+  protected static final int[] c = { 2130838630, 2130838631, 2130838632, 2130838633, 2130838634, 2130838635 };
+  protected static final int[] d = { 2130838851, 2130838852, 2130838853, 2130838854, 2130838855, 2130838856 };
+  protected static final int[] e = { 2130838829, 2130838830, 2130838831, 2130838832, 2130838833, 2130838834 };
+  protected static final int[] f = { 2130838813, 2130838814, 2130838815, 2130838816, 2130838817, 2130838818 };
+  private int g;
+  private StarsView.StarStyle h;
+  private Runnable i;
+  private Runnable j;
   
   public StarsView(Context paramContext)
   {
     super(paramContext);
-    setStarSize(StarsView.StarSize.LARGE);
+    setStarStyle(StarsView.StarStyle.LARGE);
   }
   
   public StarsView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    setStarSize(StarsView.StarSize.LARGE);
+    setStarStyle(StarsView.StarStyle.LARGE);
   }
   
   private int a(float paramFloat)
@@ -38,24 +39,32 @@ public class StarsView
   
   private void a()
   {
-    switch (bh.a[e.ordinal()])
+    switch (StarsView.1.a[h.ordinal()])
     {
     default: 
-      setImageResource(c[d]);
+      setImageResource(c[g]);
       return;
     case 1: 
-      setImageResource(a[d]);
+      setImageResource(a[g]);
+      return;
+    case 2: 
+      setImageResource(b[g]);
+      return;
+    case 3: 
+      setImageResource(d[g]);
+      return;
+    case 4: 
+      setImageResource(e[g]);
       return;
     }
-    setImageResource(b[d]);
+    setImageResource(f[g]);
   }
   
   public int getNumStars()
   {
-    return d;
+    return g;
   }
   
-  @TargetApi(16)
   public boolean onTouchEvent(MotionEvent paramMotionEvent)
   {
     switch (paramMotionEvent.getAction())
@@ -66,48 +75,48 @@ public class StarsView
       for (;;)
       {
         return false;
-        if (f != null) {
-          f.run();
+        if (i != null) {
+          i.run();
         }
       }
     case 2: 
-      i = a(paramMotionEvent.getX());
-      if ((n.a(16)) && (i != d)) {
-        announceForAccessibility(getResources().getQuantityString(2131623985, i, new Object[] { Integer.valueOf(i) }));
+      k = a(paramMotionEvent.getX());
+      if (k != g) {
+        announceForAccessibility(getResources().getQuantityString(2131230774, k, new Object[] { Integer.valueOf(k) }));
       }
-      setNumStars(i);
+      setNumStars(k);
       return true;
     }
-    if (g != null) {
-      g.run();
+    if (j != null) {
+      j.run();
     }
-    int i = a(paramMotionEvent.getX());
-    if ((n.a(16)) && (i != d)) {
-      announceForAccessibility(getResources().getQuantityString(2131623985, i, new Object[] { Integer.valueOf(i) }));
+    int k = a(paramMotionEvent.getX());
+    if (k != g) {
+      announceForAccessibility(getResources().getQuantityString(2131230774, k, new Object[] { Integer.valueOf(k) }));
     }
-    setNumStars(i);
+    setNumStars(k);
     return true;
   }
   
   public void setNumStars(int paramInt)
   {
-    d = paramInt;
+    g = paramInt;
     a();
   }
   
   public void setOnActionDown(Runnable paramRunnable)
   {
-    g = paramRunnable;
+    j = paramRunnable;
   }
   
   public void setOnStarsClicked(Runnable paramRunnable)
   {
-    f = paramRunnable;
+    i = paramRunnable;
   }
   
-  public void setStarSize(StarsView.StarSize paramStarSize)
+  public void setStarStyle(StarsView.StarStyle paramStarStyle)
   {
-    e = paramStarSize;
+    h = paramStarStyle;
     a();
   }
 }

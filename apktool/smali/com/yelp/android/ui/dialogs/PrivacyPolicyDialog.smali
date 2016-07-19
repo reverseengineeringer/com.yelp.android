@@ -3,6 +3,14 @@
 .source "PrivacyPolicyDialog.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$SelectPrivacyLevelDialog;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:I
 
@@ -18,9 +26,9 @@
 
 .field private g:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;
 
-.field private final h:Lcom/yelp/android/ui/dialogs/be;
+.field private final h:Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$SelectPrivacyLevelDialog$a;
 
-.field private final i:Lcom/yelp/android/av/i;
+.field private final i:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
 
 # direct methods
@@ -32,25 +40,25 @@
     invoke-direct {p0}, Landroid/support/v4/app/DialogFragment;-><init>()V
 
     .line 39
-    const v0, 0x7f0c025f
+    const v0, 0x7f0f02a8
 
     iput v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->a:I
 
-    .line 221
-    new-instance v0, Lcom/yelp/android/ui/dialogs/az;
+    .line 241
+    new-instance v0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$5;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/az;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$5;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->h:Lcom/yelp/android/ui/dialogs/be;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->h:Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$SelectPrivacyLevelDialog$a;
 
-    .line 250
-    new-instance v0, Lcom/yelp/android/ui/dialogs/bc;
+    .line 276
+    new-instance v0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$8;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/bc;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$8;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->i:Lcom/yelp/android/av/i;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->i:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
-    .line 266
+    .line 295
     return-void
 .end method
 
@@ -70,54 +78,54 @@
     .prologue
     const/16 v5, 0x21
 
-    .line 134
-    const v0, 0x7f07049b
+    .line 139
+    const v0, 0x7f0704b5
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 135
-    const v1, 0x7f07049c
+    .line 140
+    const v1, 0x7f0704b6
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 136
+    .line 141
     const-string/jumbo v2, "%1$s"
 
-    .line 138
+    .line 143
     invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v3
 
-    .line 139
+    .line 144
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
     move-result v4
 
     add-int/2addr v4, v3
 
-    .line 141
+    .line 146
     invoke-virtual {v0, v2, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 142
+    .line 147
     new-instance v1, Landroid/text/SpannableString;
 
     invoke-direct {v1, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 144
-    new-instance v0, Lcom/yelp/android/ui/dialogs/ay;
+    .line 149
+    new-instance v0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$4;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/ay;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$4;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
-    .line 160
+    .line 168
     invoke-virtual {v1, v0, v3, v4, v5}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 162
+    .line 170
     new-instance v0, Landroid/text/style/StyleSpan;
 
     const/4 v2, 0x1
@@ -126,7 +134,7 @@
 
     invoke-virtual {v1, v0, v3, v4, v5}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
-    .line 164
+    .line 175
     return-object v1
 .end method
 
@@ -160,7 +168,7 @@
     .locals 6
 
     .prologue
-    const v5, 0x7f070597
+    const v5, 0x7f0705a5
 
     const/4 v2, 0x2
 
@@ -168,148 +176,44 @@
 
     const/4 v3, 0x0
 
-    .line 168
+    .line 179
     packed-switch p1, :pswitch_data_0
 
-    .line 190
+    .line 210
     :goto_0
     return-void
 
-    .line 170
+    .line 181
     :pswitch_0
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->c:Landroid/widget/TextView;
 
-    const v1, 0x7f0703ca
+    const v1, 0x7f0703fd
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 171
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->d:Landroid/widget/TextView;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareProfileStory()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 172
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->e:Landroid/widget/TextView;
-
-    new-array v1, v2, [Ljava/lang/Object;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareProfileTime()Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v1, v3
-
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareProfileSource()Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v5, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    .line 176
-    :pswitch_1
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->c:Landroid/widget/TextView;
-
-    const v1, 0x7f0701fe
-
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 177
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->d:Landroid/widget/TextView;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareDemographicsStory()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 178
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->e:Landroid/widget/TextView;
-
-    new-array v1, v2, [Ljava/lang/Object;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareDemographicsTime()Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v1, v3
-
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareDemographicsSource()Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v1, v4
-
-    invoke-virtual {p0, v5, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
 
     .line 182
-    :pswitch_2
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->c:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->d:Landroid/widget/TextView;
 
-    const v1, 0x7f0700d1
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
 
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/PrivacyPolicy;->i()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 183
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->d:Landroid/widget/TextView;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
-
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareBasicInfoStory()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 184
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->e:Landroid/widget/TextView;
 
     new-array v1, v2, [Ljava/lang/Object;
 
     iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareBasicInfoTime()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->g()Ljava/lang/String;
 
     move-result-object v2
 
@@ -317,7 +221,111 @@
 
     iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->getShareBasicInfoSource()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->h()Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v4
+
+    invoke-virtual {p0, v5, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 190
+    :pswitch_1
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->c:Landroid/widget/TextView;
+
+    const v1, 0x7f07024c
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 191
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->d:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/PrivacyPolicy;->f()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 192
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->e:Landroid/widget/TextView;
+
+    new-array v1, v2, [Ljava/lang/Object;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->d()Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v3
+
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->e()Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v4
+
+    invoke-virtual {p0, v5, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    .line 199
+    :pswitch_2
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->c:Landroid/widget/TextView;
+
+    const v1, 0x7f070158
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 200
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->d:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/PrivacyPolicy;->c()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 201
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->e:Landroid/widget/TextView;
+
+    new-array v1, v2, [Ljava/lang/Object;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->a()Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v3
+
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/PrivacyPolicy;->b()Ljava/lang/String;
 
     move-result-object v2
 
@@ -331,9 +339,9 @@
 
     goto/16 :goto_0
 
-    .line 168
+    .line 179
     :pswitch_data_0
-    .packed-switch 0x7f0c025e
+    .packed-switch 0x7f0f02a7
         :pswitch_0
         :pswitch_1
         :pswitch_2
@@ -364,68 +372,68 @@
     .locals 3
 
     .prologue
-    .line 194
+    .line 214
     iget v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->a:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 205
+    .line 225
     sget-object v0, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;->DEMOGRAPHICS:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;
 
-    .line 209
+    .line 228
     :goto_0
     new-instance v1, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->i:Lcom/yelp/android/av/i;
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->i:Lcom/yelp/android/appdata/webrequests/core/c$a;
 
-    invoke-direct {v1, v2, v0}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;-><init>(Lcom/yelp/android/av/i;Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;)V
+    invoke-direct {v1, v2, v0}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;-><init>(Lcom/yelp/android/appdata/webrequests/core/c$a;Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;)V
 
     iput-object v1, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->g:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;
 
-    .line 210
+    .line 230
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->g:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 211
+    .line 231
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->f:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
 
-    .line 212
+    .line 232
     return-void
 
-    .line 196
+    .line 216
     :pswitch_0
     sget-object v0, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;->NAME_AND_PROFILE:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;
 
     goto :goto_0
 
-    .line 199
+    .line 219
     :pswitch_1
     sget-object v0, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;->DEMOGRAPHICS:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;
 
     goto :goto_0
 
-    .line 202
+    .line 222
     :pswitch_2
     sget-object v0, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;->BASIC_INFO:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest$PrivacyLevel;
 
     goto :goto_0
 
-    .line 194
+    .line 214
     :pswitch_data_0
-    .packed-switch 0x7f0c025e
+    .packed-switch 0x7f0f02a7
         :pswitch_0
         :pswitch_1
         :pswitch_2
@@ -442,12 +450,12 @@
     return-void
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)Lcom/yelp/android/ui/dialogs/be;
+.method static synthetic c(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$SelectPrivacyLevelDialog$a;
     .locals 1
 
     .prologue
     .line 35
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->h:Lcom/yelp/android/ui/dialogs/be;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->h:Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$SelectPrivacyLevelDialog$a;
 
     return-object v0
 .end method
@@ -456,26 +464,26 @@
     .locals 2
 
     .prologue
-    .line 215
+    .line 235
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->g:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;
 
     if-eqz v0, :cond_0
 
-    .line 216
+    .line 236
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->g:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;->cancel(Z)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;->a(Z)V
 
-    .line 217
+    .line 237
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->g:Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/PrivacyPolicySaveRequest;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 219
+    .line 239
     :cond_0
     return-void
 .end method
@@ -484,41 +492,41 @@
     .locals 3
 
     .prologue
-    .line 231
-    const v0, 0x7f070588
+    .line 252
+    const v0, 0x7f070591
 
-    const v1, 0x7f070111
+    const v1, 0x7f07018f
 
-    const v2, 0x7f070620
+    const v2, 0x7f07060c
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->a(III)Lcom/yelp/android/ui/dialogs/TwoButtonDialog;
 
     move-result-object v0
 
-    .line 233
-    new-instance v1, Lcom/yelp/android/ui/dialogs/ba;
+    .line 257
+    new-instance v1, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$6;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/ba;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$6;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->a(Landroid/content/DialogInterface$OnClickListener;)V
 
-    .line 240
-    new-instance v1, Lcom/yelp/android/ui/dialogs/bb;
+    .line 265
+    new-instance v1, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$7;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/bb;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$7;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->b(Landroid/content/DialogInterface$OnClickListener;)V
 
-    .line 247
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 273
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/TwoButtonDialog;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
 
-    .line 248
+    .line 274
     return-void
 .end method
 
@@ -573,18 +581,18 @@
     .line 59
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->f:Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;
 
-    new-instance v1, Lcom/yelp/android/ui/dialogs/av;
+    new-instance v1, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/av;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$1;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/YelpProgressDialogFragment;->a(Landroid/content/DialogInterface$OnCancelListener;)V
 
-    .line 66
+    .line 67
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->setRetainInstance(Z)V
 
-    .line 67
+    .line 68
     return-void
 .end method
 
@@ -592,7 +600,7 @@
     .locals 5
 
     .prologue
-    .line 90
+    .line 91
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -607,7 +615,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->b:Lcom/yelp/android/serializable/PrivacyPolicy;
 
-    .line 92
+    .line 93
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -616,7 +624,7 @@
 
     invoke-direct {v2, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 97
+    .line 98
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -625,7 +633,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030094
+    const v1, 0x7f0300ab
 
     const/4 v3, 0x0
 
@@ -633,8 +641,8 @@
 
     move-result-object v3
 
-    .line 100
-    const v0, 0x7f0c0258
+    .line 101
+    const v0, 0x7f0f02a1
 
     invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -644,8 +652,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->c:Landroid/widget/TextView;
 
-    .line 101
-    const v0, 0x7f0c0259
+    .line 102
+    const v0, 0x7f0f02a2
 
     invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -655,8 +663,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->d:Landroid/widget/TextView;
 
-    .line 102
-    const v0, 0x7f0c025a
+    .line 103
+    const v0, 0x7f0f02a3
 
     invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -666,8 +674,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->e:Landroid/widget/TextView;
 
-    .line 103
-    const v0, 0x7f0c0256
+    .line 104
+    const v0, 0x7f0f029f
 
     invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -675,7 +683,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 104
+    .line 105
     const v1, 0x1020016
 
     invoke-virtual {v3, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -684,60 +692,60 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 106
+    .line 107
     iget v4, p0, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->a:I
 
     invoke-direct {p0, v4}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->a(I)V
 
-    .line 107
+    .line 108
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object v4
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    .line 108
+    .line 109
     invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->a()Landroid/text/SpannableString;
 
     move-result-object v4
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 109
-    const v0, 0x7f07049f
+    .line 110
+    const v0, 0x7f0704b9
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(I)V
 
-    .line 111
-    const v0, 0x7f0c025b
+    .line 112
+    const v0, 0x7f0f02a4
 
     invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/ui/dialogs/aw;
+    new-instance v1, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/aw;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$2;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 121
-    const v0, 0x7f0c025c
+    .line 124
+    const v0, 0x7f0f02a5
 
     invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/ui/dialogs/ax;
+    new-instance v1, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$3;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/ax;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog$3;-><init>(Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 128
+    .line 133
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    .line 129
+    .line 134
     invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
@@ -749,13 +757,13 @@
     .locals 0
 
     .prologue
-    .line 84
+    .line 85
     invoke-super {p0}, Landroid/support/v4/app/DialogFragment;->onDestroy()V
 
-    .line 85
+    .line 86
     invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->c()V
 
-    .line 86
+    .line 87
     return-void
 .end method
 
@@ -763,7 +771,7 @@
     .locals 2
 
     .prologue
-    .line 76
+    .line 77
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
@@ -776,7 +784,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 77
+    .line 78
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/PrivacyPolicyDialog;->getDialog()Landroid/app/Dialog;
 
     move-result-object v0
@@ -785,10 +793,10 @@
 
     invoke-virtual {v0, v1}, Landroid/app/Dialog;->setDismissMessage(Landroid/os/Message;)V
 
-    .line 79
+    .line 80
     :cond_0
     invoke-super {p0}, Landroid/support/v4/app/DialogFragment;->onDestroyView()V
 
-    .line 80
+    .line 81
     return-void
 .end method

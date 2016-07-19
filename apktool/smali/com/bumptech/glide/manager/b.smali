@@ -3,7 +3,7 @@
 .source "ApplicationLifecycle.java"
 
 # interfaces
-.implements Lcom/bumptech/glide/manager/h;
+.implements Lcom/bumptech/glide/manager/g;
 
 
 # direct methods
@@ -19,12 +19,12 @@
 
 
 # virtual methods
-.method public a(Lcom/bumptech/glide/manager/i;)V
+.method public a(Lcom/bumptech/glide/manager/h;)V
     .locals 0
 
     .prologue
     .line 15
-    invoke-interface {p1}, Lcom/bumptech/glide/manager/i;->c()V
+    invoke-interface {p1}, Lcom/bumptech/glide/manager/h;->d()V
 
     .line 16
     return-void

@@ -22,9 +22,9 @@
 
     .prologue
     .line 21
-    new-instance v0, Lcom/yelp/android/serializable/ck;
+    new-instance v0, Lcom/yelp/android/serializable/ReservationChangeEvent$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/ck;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/ReservationChangeEvent$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/ReservationChangeEvent;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -50,10 +50,10 @@
     invoke-direct {p0}, Lcom/yelp/android/serializable/_ReservationChangeEvent;-><init>()V
 
     .line 17
-    iput-object p1, p0, Lcom/yelp/android/serializable/ReservationChangeEvent;->mReservation:Lcom/yelp/android/serializable/Reservation;
+    iput-object p1, p0, Lcom/yelp/android/serializable/ReservationChangeEvent;->a:Lcom/yelp/android/serializable/Reservation;
 
     .line 18
-    iput-object p2, p0, Lcom/yelp/android/serializable/ReservationChangeEvent;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iput-object p2, p0, Lcom/yelp/android/serializable/ReservationChangeEvent;->b:Lcom/yelp/android/serializable/YelpBusiness;
 
     .line 19
     return-void
@@ -61,6 +61,55 @@
 
 
 # virtual methods
+.method public bridge synthetic a()Lcom/yelp/android/serializable/YelpBusiness;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a()Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Lcom/yelp/android/serializable/Reservation;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->b()Lcom/yelp/android/serializable/Reservation;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -73,48 +122,28 @@
     return v0
 .end method
 
-.method public bridge synthetic getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
+    return v0
 .end method
 
-.method public bridge synthetic getReservation()Lcom/yelp/android/serializable/Reservation;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->getReservation()Lcom/yelp/android/serializable/Reservation;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReservationChangeEvent;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

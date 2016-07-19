@@ -7,25 +7,25 @@
 
 
 # instance fields
-.field protected mBusinessId:Ljava/lang/String;
+.field protected a:Lcom/yelp/android/serializable/Photo;
 
-.field protected mCustomCreativeText:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mIsRatingDisabled:Z
+.field protected c:Ljava/lang/String;
 
-.field protected mPhoto:Lcom/yelp/android/serializable/Photo;
+.field protected d:Ljava/lang/String;
 
-.field protected mPlacement:Ljava/lang/String;
+.field protected e:Ljava/lang/String;
 
-.field protected mRequestId:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mReview:Lcom/yelp/android/serializable/YelpBusinessReview;
+.field protected g:Ljava/lang/String;
 
-.field protected mSlot:I
+.field protected h:Lcom/yelp/android/serializable/YelpBusinessReview;
 
-.field protected mSpecialty:Ljava/lang/String;
+.field protected i:Z
 
-.field protected mType:Ljava/lang/String;
+.field protected j:I
 
 
 # direct methods
@@ -33,171 +33,172 @@
     .locals 0
 
     .prologue
-    .line 41
+    .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 42
-    return-void
-.end method
-
-.method protected constructor <init>(Lcom/yelp/android/serializable/Photo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/YelpBusinessReview;ZI)V
-    .locals 0
-
-    .prologue
-    .line 27
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_LocalAd;-><init>()V
-
-    .line 28
-    iput-object p1, p0, Lcom/yelp/android/serializable/_LocalAd;->mPhoto:Lcom/yelp/android/serializable/Photo;
-
-    .line 29
-    iput-object p2, p0, Lcom/yelp/android/serializable/_LocalAd;->mBusinessId:Ljava/lang/String;
-
-    .line 30
-    iput-object p3, p0, Lcom/yelp/android/serializable/_LocalAd;->mRequestId:Ljava/lang/String;
-
-    .line 31
-    iput-object p4, p0, Lcom/yelp/android/serializable/_LocalAd;->mType:Ljava/lang/String;
-
-    .line 32
-    iput-object p5, p0, Lcom/yelp/android/serializable/_LocalAd;->mSpecialty:Ljava/lang/String;
-
-    .line 33
-    iput-object p6, p0, Lcom/yelp/android/serializable/_LocalAd;->mCustomCreativeText:Ljava/lang/String;
-
-    .line 34
-    iput-object p7, p0, Lcom/yelp/android/serializable/_LocalAd;->mPlacement:Ljava/lang/String;
-
-    .line 35
-    iput-object p8, p0, Lcom/yelp/android/serializable/_LocalAd;->mReview:Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    .line 36
-    iput-boolean p9, p0, Lcom/yelp/android/serializable/_LocalAd;->mIsRatingDisabled:Z
-
-    .line 37
-    iput p10, p0, Lcom/yelp/android/serializable/_LocalAd;->mSlot:I
-
-    .line 38
+    .line 53
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
-
-    .prologue
-    .line 77
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getBusinessId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mBusinessId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getCustomCreativeText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 60
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mCustomCreativeText:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPhoto()Lcom/yelp/android/serializable/Photo;
-    .locals 1
-
-    .prologue
-    .line 45
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPhoto:Lcom/yelp/android/serializable/Photo;
-
-    return-object v0
-.end method
-
-.method public getPlacement()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 63
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPlacement:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getRequestId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mRequestId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getReview()Lcom/yelp/android/serializable/YelpBusinessReview;
-    .locals 1
-
-    .prologue
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mReview:Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    return-object v0
-.end method
-
-.method public getSlot()I
-    .locals 1
-
-    .prologue
-    .line 72
-    iget v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSlot:I
-
-    return v0
-.end method
-
-.method public getSpecialty()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSpecialty:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getType()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mType:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public isRatingDisabled()Z
-    .locals 1
-
-    .prologue
-    .line 69
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mIsRatingDisabled:Z
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Landroid/os/Parcel;)V
     .locals 2
 
     .prologue
-    .line 108
+    .line 159
+    const-class v0, Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Photo;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->a:Lcom/yelp/android/serializable/Photo;
+
+    .line 160
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->b:Ljava/lang/String;
+
+    .line 161
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->c:Ljava/lang/String;
+
+    .line 162
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->d:Ljava/lang/String;
+
+    .line 163
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->e:Ljava/lang/String;
+
+    .line 164
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->f:Ljava/lang/String;
+
+    .line 165
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->g:Ljava/lang/String;
+
+    .line 166
+    const-class v0, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->h:Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    .line 167
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+
+    move-result-object v0
+
+    .line 168
+    const/4 v1, 0x0
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_LocalAd;->i:Z
+
+    .line 169
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_LocalAd;->j:I
+
+    .line 170
+    return-void
+.end method
+
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 173
     const-string/jumbo v0, "photo"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -206,7 +207,7 @@
 
     if-nez v0, :cond_0
 
-    .line 109
+    .line 174
     sget-object v0, Lcom/yelp/android/serializable/Photo;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     const-string/jumbo v1, "photo"
@@ -221,9 +222,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Photo;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPhoto:Lcom/yelp/android/serializable/Photo;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->a:Lcom/yelp/android/serializable/Photo;
 
-    .line 111
+    .line 176
     :cond_0
     const-string/jumbo v0, "business_id"
 
@@ -233,16 +234,16 @@
 
     if-nez v0, :cond_1
 
-    .line 112
+    .line 177
     const-string/jumbo v0, "business_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mBusinessId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->b:Ljava/lang/String;
 
-    .line 114
+    .line 179
     :cond_1
     const-string/jumbo v0, "request_id"
 
@@ -252,16 +253,16 @@
 
     if-nez v0, :cond_2
 
-    .line 115
+    .line 180
     const-string/jumbo v0, "request_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mRequestId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->c:Ljava/lang/String;
 
-    .line 117
+    .line 182
     :cond_2
     const-string/jumbo v0, "type"
 
@@ -271,16 +272,16 @@
 
     if-nez v0, :cond_3
 
-    .line 118
+    .line 183
     const-string/jumbo v0, "type"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mType:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->d:Ljava/lang/String;
 
-    .line 120
+    .line 185
     :cond_3
     const-string/jumbo v0, "specialty"
 
@@ -290,16 +291,16 @@
 
     if-nez v0, :cond_4
 
-    .line 121
+    .line 186
     const-string/jumbo v0, "specialty"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSpecialty:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->e:Ljava/lang/String;
 
-    .line 123
+    .line 188
     :cond_4
     const-string/jumbo v0, "custom_creative_text"
 
@@ -309,16 +310,16 @@
 
     if-nez v0, :cond_5
 
-    .line 124
+    .line 189
     const-string/jumbo v0, "custom_creative_text"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mCustomCreativeText:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->f:Ljava/lang/String;
 
-    .line 126
+    .line 191
     :cond_5
     const-string/jumbo v0, "placement"
 
@@ -328,16 +329,16 @@
 
     if-nez v0, :cond_6
 
-    .line 127
+    .line 192
     const-string/jumbo v0, "placement"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPlacement:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->g:Ljava/lang/String;
 
-    .line 129
+    .line 194
     :cond_6
     const-string/jumbo v0, "review"
 
@@ -347,8 +348,8 @@
 
     if-nez v0, :cond_7
 
-    .line 130
-    sget-object v0, Lcom/yelp/android/serializable/YelpBusinessReview;->CREATOR:Lcom/yelp/android/serializable/ah;
+    .line 195
+    sget-object v0, Lcom/yelp/android/serializable/YelpBusinessReview;->CREATOR:Lcom/yelp/android/serializable/a;
 
     const-string/jumbo v1, "review"
 
@@ -356,15 +357,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ah;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/a;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusinessReview;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mReview:Lcom/yelp/android/serializable/YelpBusinessReview;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->h:Lcom/yelp/android/serializable/YelpBusinessReview;
 
-    .line 132
+    .line 197
     :cond_7
     const-string/jumbo v0, "is_rating_disabled"
 
@@ -372,118 +373,335 @@
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mIsRatingDisabled:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_LocalAd;->i:Z
 
-    .line 133
+    .line 198
     const-string/jumbo v0, "slot"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSlot:I
+    iput v0, p0, Lcom/yelp/android/serializable/_LocalAd;->j:I
 
-    .line 134
+    .line 199
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 2
+.method public d()I
+    .locals 1
 
     .prologue
-    .line 94
-    const-class v0, Lcom/yelp/android/serializable/Photo;
+    .line 138
+    iget v0, p0, Lcom/yelp/android/serializable/_LocalAd;->j:I
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    return v0
+.end method
 
-    move-result-object v0
+.method public describeContents()I
+    .locals 1
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    .prologue
+    .line 142
+    const/4 v0, 0x0
 
-    move-result-object v0
+    return v0
+.end method
 
-    check-cast v0, Lcom/yelp/android/serializable/Photo;
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPhoto:Lcom/yelp/android/serializable/Photo;
+    .prologue
+    const/4 v0, 0x0
 
-    .line 95
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 57
+    if-nez p1, :cond_1
 
-    move-result-object v0
+    .line 71
+    :cond_0
+    :goto_0
+    return v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mBusinessId:Ljava/lang/String;
+    .line 61
+    :cond_1
+    if-ne p1, p0, :cond_2
 
-    .line 96
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 62
+    const/4 v0, 0x1
 
-    move-result-object v0
+    goto :goto_0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mRequestId:Ljava/lang/String;
+    .line 65
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    .line 97
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mType:Ljava/lang/String;
+    move-result-object v2
 
-    .line 98
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    if-ne v1, v2, :cond_0
 
-    move-result-object v0
+    .line 69
+    check-cast p1, Lcom/yelp/android/serializable/_LocalAd;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSpecialty:Ljava/lang/String;
+    .line 71
+    new-instance v0, Lcom/yelp/android/dc/b;
 
-    .line 99
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->a:Lcom/yelp/android/serializable/Photo;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mCustomCreativeText:Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->a:Lcom/yelp/android/serializable/Photo;
 
-    .line 100
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPlacement:Ljava/lang/String;
-
-    .line 101
-    const-class v0, Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mReview:Lcom/yelp/android/serializable/YelpBusinessReview;
-
-    .line 102
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    .line 103
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->b:Ljava/lang/String;
 
-    aget-boolean v0, v0, v1
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->b:Ljava/lang/String;
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mIsRatingDisabled:Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    .line 104
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->g:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->h:Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_LocalAd;->h:Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_LocalAd;->i:Z
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/_LocalAd;->i:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(ZZ)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_LocalAd;->j:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_LocalAd;->j:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSlot:I
+    goto :goto_0
+.end method
 
-    .line 105
-    return-void
+.method public f()Z
+    .locals 1
+
+    .prologue
+    .line 134
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/_LocalAd;->i:Z
+
+    return v0
+.end method
+
+.method public g()Lcom/yelp/android/serializable/YelpBusinessReview;
+    .locals 1
+
+    .prologue
+    .line 130
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->h:Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    return-object v0
+.end method
+
+.method public h()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 126
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->g:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 87
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->a:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_LocalAd;->h:Lcom/yelp/android/serializable/YelpBusinessReview;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_LocalAd;->i:Z
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Z)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_LocalAd;->j:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->f:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public j()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 118
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public k()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 114
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public l()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 110
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public m()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 106
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public n()Lcom/yelp/android/serializable/Photo;
+    .locals 1
+
+    .prologue
+    .line 102
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->a:Lcom/yelp/android/serializable/Photo;
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -492,62 +710,62 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 81
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPhoto:Lcom/yelp/android/serializable/Photo;
+    .line 146
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->a:Lcom/yelp/android/serializable/Photo;
 
     invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 82
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mBusinessId:Ljava/lang/String;
+    .line 147
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mRequestId:Ljava/lang/String;
+    .line 148
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mType:Ljava/lang/String;
+    .line 149
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 85
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSpecialty:Ljava/lang/String;
+    .line 150
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 86
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mCustomCreativeText:Ljava/lang/String;
+    .line 151
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 87
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mPlacement:Ljava/lang/String;
+    .line 152
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->g:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 88
-    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mReview:Lcom/yelp/android/serializable/YelpBusinessReview;
+    .line 153
+    iget-object v0, p0, Lcom/yelp/android/serializable/_LocalAd;->h:Lcom/yelp/android/serializable/YelpBusinessReview;
 
     invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 89
+    .line 154
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
-    iget-boolean v1, p0, Lcom/yelp/android/serializable/_LocalAd;->mIsRatingDisabled:Z
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_LocalAd;->i:Z
 
     aput-boolean v1, v0, v2
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 90
-    iget v0, p0, Lcom/yelp/android/serializable/_LocalAd;->mSlot:I
+    .line 155
+    iget v0, p0, Lcom/yelp/android/serializable/_LocalAd;->j:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 91
+    .line 156
     return-void
 .end method

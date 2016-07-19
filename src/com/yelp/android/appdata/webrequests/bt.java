@@ -1,21 +1,22 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import java.util.concurrent.TimeUnit;
 
 public class bt
-  extends g<Void, Void, String>
+  extends c
 {
-  public bt(String paramString1, String paramString2, m<String> paramm)
+  public bt(String paramString1, String paramString2, String paramString3, String paramString4, TimeUnit paramTimeUnit, long paramLong, c.a parama)
   {
-    super(ApiRequest.RequestType.POST, "event/flag", paramm);
-    addPostParam("event_id", paramString1);
-    addPostParam("message", paramString2);
-  }
-  
-  public String a(JSONObject paramJSONObject)
-  {
-    return paramJSONObject.getString("success_title");
+    super("account/facebook/save", parama);
+    if (paramLong > 0L) {
+      b("access_token_expiry", TimeUnit.SECONDS.convert(paramLong, paramTimeUnit));
+    }
+    b("permissions", paramString1);
+    b("api_key", paramString2);
+    b("access_token", paramString4);
+    b("fbuid", paramString3);
   }
 }
 

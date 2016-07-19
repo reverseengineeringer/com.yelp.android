@@ -1,26 +1,33 @@
 package com.google.android.gms.internal;
 
-import org.json.JSONObject;
+import android.text.TextUtils;
 
-public abstract interface ah
+@fv
+public final class ah
 {
-  public abstract void a(ah.a parama);
+  private String a;
   
-  public abstract void a(t paramt, ds paramds, cb paramcb, dv paramdv, boolean paramBoolean, ce paramce);
+  public ah()
+  {
+    this((String)ao.b.b());
+  }
   
-  public abstract void a(String paramString, cd paramcd);
+  public ah(String paramString)
+  {
+    if (TextUtils.isEmpty(paramString)) {
+      paramString = (String)ao.b.b();
+    }
+    for (;;)
+    {
+      a = paramString;
+      return;
+    }
+  }
   
-  public abstract void a(String paramString, JSONObject paramJSONObject);
-  
-  public abstract void destroy();
-  
-  public abstract void f(String paramString);
-  
-  public abstract void g(String paramString);
-  
-  public abstract void pause();
-  
-  public abstract void resume();
+  public String a()
+  {
+    return a;
+  }
 }
 
 /* Location:

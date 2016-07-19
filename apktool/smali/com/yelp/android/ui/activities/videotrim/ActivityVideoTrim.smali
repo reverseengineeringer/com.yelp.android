@@ -3,13 +3,7 @@
 .source "ActivityVideoTrim.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/videotrim/j;
-
-
-# annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0xe
-.end annotation
+.implements Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer$b;
 
 
 # instance fields
@@ -33,13 +27,13 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 31
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 187
-    new-instance v0, Lcom/yelp/android/ui/activities/videotrim/c;
+    .line 192
+    new-instance v0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim$3;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/videotrim/c;-><init>(Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim$3;-><init>(Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->g:Landroid/view/TextureView$SurfaceTextureListener;
 
@@ -50,24 +44,24 @@
     .locals 2
 
     .prologue
-    .line 50
+    .line 47
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 51
+    .line 48
     const-string/jumbo v1, "extra.video_file_path"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 52
+    .line 49
     const-string/jumbo v1, "extra.business_id"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 53
+    .line 50
     return-object v0
 .end method
 
@@ -75,7 +69,7 @@
     .locals 3
 
     .prologue
-    .line 136
+    .line 138
     if-nez p1, :cond_1
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->getIntent()Landroid/content/Intent;
@@ -88,7 +82,7 @@
 
     move-result-object v0
 
-    .line 143
+    .line 146
     :goto_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->getIntent()Landroid/content/Intent;
 
@@ -100,22 +94,22 @@
 
     move-result-object v1
 
-    .line 144
-    invoke-static {v0, v1}, Lcom/yelp/android/serializable/LocalVideo;->fromFile(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/serializable/LocalVideo;
+    .line 147
+    invoke-static {v0, v1}, Lcom/yelp/android/serializable/LocalVideo;->a(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/serializable/LocalVideo;
 
     move-result-object v0
 
-    .line 145
+    .line 148
     if-nez v0, :cond_0
 
-    .line 146
+    .line 149
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->finish()V
 
-    .line 148
+    .line 151
     :cond_0
     return-object v0
 
-    .line 136
+    .line 138
     :cond_1
     const-string/jumbo v0, "extra.video_file_path"
 
@@ -130,7 +124,7 @@
     .locals 0
 
     .prologue
-    .line 34
+    .line 31
     iput-object p1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     return-object p1
@@ -140,7 +134,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 31
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->f:Lcom/yelp/android/ui/panels/PanelLoading;
 
     return-object v0
@@ -150,7 +144,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 31
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
     return-object v0
@@ -160,7 +154,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 31
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     return-object v0
@@ -170,7 +164,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 31
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->d:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
     return-object v0
@@ -180,7 +174,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 31
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->e:Landroid/widget/ImageView;
 
     return-object v0
@@ -190,7 +184,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 31
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->c:Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;
 
     return-object v0
@@ -202,7 +196,7 @@
     .locals 2
 
     .prologue
-    .line 153
+    .line 156
     sget-object v0, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer$PlayerState;->FROZEN_AND_WAITING:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer$PlayerState;
 
     invoke-virtual {v0, p2}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer$PlayerState;->equals(Ljava/lang/Object;)Z
@@ -211,7 +205,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 155
+    .line 158
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->getCurrentPosition()I
@@ -226,7 +220,7 @@
 
     sub-int/2addr v0, v1
 
-    .line 159
+    .line 162
     iget-object v1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->f:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {v1}, Lcom/yelp/android/ui/panels/PanelLoading;->getVisibility()I
@@ -235,25 +229,25 @@
 
     if-eqz v1, :cond_0
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    sget v1, Lcom/yelp/android/ui/util/av;->a:I
 
     if-lt v0, v1, :cond_0
 
-    .line 161
+    .line 164
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->f:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/videotrim/a;
+    new-instance v1, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/videotrim/a;-><init>(Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim$1;-><init>(Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->post(Ljava/lang/Runnable;)Z
 
-    .line 180
+    .line 185
     :cond_0
     :goto_0
     return-void
 
-    .line 169
+    .line 173
     :cond_1
     sget-object v0, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer$PlayerState;->NORMAL:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer$PlayerState;
 
@@ -263,7 +257,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 170
+    .line 174
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->f:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/PanelLoading;->getVisibility()I
@@ -274,12 +268,12 @@
 
     if-eq v0, v1, :cond_0
 
-    .line 171
+    .line 175
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->f:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/videotrim/b;
+    new-instance v1, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/videotrim/b;-><init>(Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim$2;-><init>(Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->post(Ljava/lang/Runnable;)Z
 
@@ -290,17 +284,17 @@
     .locals 1
 
     .prologue
-    .line 184
+    .line 189
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoTrim:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 33
+    .line 31
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -312,33 +306,33 @@
     .locals 3
 
     .prologue
-    .line 58
+    .line 55
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 59
+    .line 56
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a(Landroid/os/Bundle;)Lcom/yelp/android/serializable/LocalVideo;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
-    .line 60
+    .line 57
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
     if-nez v0, :cond_0
 
-    .line 76
+    .line 73
     :goto_0
     return-void
 
-    .line 64
+    .line 61
     :cond_0
-    const v0, 0x7f03004d
+    const v0, 0x7f030056
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->setContentView(I)V
 
-    .line 66
-    const v0, 0x7f0c01ba
+    .line 63
+    const v0, 0x7f0f01ea
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->findViewById(I)Landroid/view/View;
 
@@ -348,15 +342,15 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->c:Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;
 
-    .line 67
+    .line 64
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->c:Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;->setLocalVideo(Lcom/yelp/android/serializable/LocalVideo;)V
 
-    .line 69
-    const v0, 0x7f0c01bb
+    .line 66
+    const v0, 0x7f0f01eb
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->findViewById(I)Landroid/view/View;
 
@@ -366,32 +360,32 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->d:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
-    .line 70
+    .line 67
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->d:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalVideo;->getWidth()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalVideo;->b()I
 
     move-result v1
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/LocalVideo;->getHeight()I
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/LocalVideo;->a()I
 
     move-result v2
 
     invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/widgets/SquareTextureView;->a(II)V
 
-    .line 71
+    .line 68
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->d:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->g:Landroid/view/TextureView$SurfaceTextureListener;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/SquareTextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    .line 73
-    const v0, 0x7f0c01bc
+    .line 70
+    const v0, 0x7f0f01ec
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->findViewById(I)Landroid/view/View;
 
@@ -401,8 +395,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->e:Landroid/widget/ImageView;
 
-    .line 74
-    const v0, 0x7f0c01bd
+    .line 71
+    const v0, 0x7f0f01ed
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->findViewById(I)Landroid/view/View;
 
@@ -412,12 +406,12 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->f:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 75
+    .line 72
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->f:Lcom/yelp/android/ui/panels/PanelLoading;
 
     sget-object v1, Lcom/yelp/android/ui/panels/CommonLoadingSpinner;->DEFAULT:Lcom/yelp/android/ui/panels/CommonLoadingSpinner;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setSpinner(Lcom/yelp/android/ui/panels/y;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setSpinner(Lcom/yelp/android/ui/panels/c;)V
 
     goto :goto_0
 .end method
@@ -426,19 +420,19 @@
     .locals 2
 
     .prologue
-    .line 114
+    .line 111
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 115
+    .line 112
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f100018
+    const v1, 0x7f100022
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 116
+    .line 113
     const/4 v0, 0x1
 
     return v0
@@ -448,25 +442,25 @@
     .locals 1
 
     .prologue
-    .line 105
+    .line 102
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onDestroy()V
 
-    .line 106
+    .line 103
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 107
+    .line 104
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->stop()V
 
-    .line 108
+    .line 105
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->release()V
 
-    .line 110
+    .line 107
     :cond_0
     return-void
 .end method
@@ -477,35 +471,35 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 121
+    .line 118
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 130
+    .line 132
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
-    .line 132
+    .line 134
     :goto_0
     return v0
 
-    .line 123
+    .line 120
     :pswitch_0
     new-instance v1, Ljava/io/File;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/LocalVideo;->getFilePath()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/LocalVideo;->e()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 124
+    .line 121
     sget-object v2, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->GALLERY:Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
 
     iget-object v3, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->c:Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;
@@ -524,19 +518,19 @@
 
     move-result-object v1
 
-    .line 126
+    .line 128
     const/4 v2, -0x1
 
     invoke-virtual {p0, v2, v1}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->setResult(ILandroid/content/Intent;)V
 
-    .line 127
+    .line 129
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->finish()V
 
     goto :goto_0
 
-    .line 121
+    .line 118
     :pswitch_data_0
-    .packed-switch 0x7f0c04fd
+    .packed-switch 0x7f0f0607
         :pswitch_0
     .end packed-switch
 .end method
@@ -545,25 +539,25 @@
     .locals 1
 
     .prologue
-    .line 89
+    .line 86
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
 
-    .line 90
+    .line 87
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 91
+    .line 88
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->pause()V
 
-    .line 92
+    .line 89
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->c:Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;->a()V
 
-    .line 94
+    .line 91
     :cond_0
     return-void
 .end method
@@ -572,27 +566,27 @@
     .locals 2
 
     .prologue
-    .line 80
+    .line 77
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
 
-    .line 81
+    .line 78
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 82
+    .line 79
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->start()V
 
-    .line 83
+    .line 80
     iget-object v0, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->c:Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/videotrim/VideoTrimTimelineView;->a(Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;)V
 
-    .line 85
+    .line 82
     :cond_0
     return-void
 .end method
@@ -601,31 +595,31 @@
     .locals 2
 
     .prologue
-    .line 98
+    .line 95
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 99
+    .line 96
     const-string/jumbo v0, "extra.video_file_path"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalVideo;->getFilePath()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalVideo;->e()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 100
+    .line 97
     const-string/jumbo v0, "extra.business_id"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/videotrim/ActivityVideoTrim;->b:Lcom/yelp/android/serializable/LocalVideo;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalVideo;->getBusinessId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalVideo;->d()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 101
+    .line 98
     return-void
 .end method

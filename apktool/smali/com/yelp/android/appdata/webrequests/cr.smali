@@ -1,134 +1,30 @@
 .class public Lcom/yelp/android/appdata/webrequests/cr;
-.super Lcom/yelp/android/appdata/webrequests/h;
-.source "KahunaAttributesRequest.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/yelp/android/appdata/webrequests/h",
-        "<",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        "Ljava/util/Map",
-        "<",
-        "Ljava/lang/String;",
-        "Ljava/lang/String;",
-        ">;>;"
-    }
-.end annotation
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "LogoutWebSessionRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/j;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/j",
-            "<",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;>;)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
 
     .prologue
-    .line 17
-    sget-object v1, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+    .line 13
+    const-string/jumbo v0, "account/logout/web_session"
 
-    const-string/jumbo v2, "client/big_kahuna"
+    const/4 v1, 0x0
 
-    sget-object v3, Lcom/yelp/android/appdata/LocationService$Accuracies;->MEDIUM:Lcom/yelp/android/appdata/LocationService$Accuracies;
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    sget-object v4, Lcom/yelp/android/appdata/LocationService$Recentness;->HOUR:Lcom/yelp/android/appdata/LocationService$Recentness;
-
-    sget-object v6, Lcom/yelp/android/appdata/LocationService$AccuracyUnit;->MILES:Lcom/yelp/android/appdata/LocationService$AccuracyUnit;
-
-    move-object v0, p0
-
-    move-object v5, p1
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/h;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/webrequests/j;Lcom/yelp/android/appdata/LocationService$AccuracyUnit;)V
-
-    .line 19
-    return-void
-.end method
-
-
-# virtual methods
-.method public a(Lorg/json/JSONObject;)Ljava/util/Map;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lorg/json/JSONObject;",
-            ")",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 23
-    const-string/jumbo v0, "kahuna_attributes"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    .line 24
-    new-instance v2, Ljava/util/HashMap;
-
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
-
-    .line 25
-    invoke-virtual {v1}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    .line 26
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 27
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    .line 28
-    invoke-virtual {v1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-interface {v2, v0, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_0
-
-    .line 30
-    :cond_0
-    return-object v2
-.end method
-
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
     .line 14
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/cr;->a(Lorg/json/JSONObject;)Ljava/util/Map;
+    const-string/jumbo v0, "public_session_token"
 
-    move-result-object v0
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/cr;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object v0
+    .line 15
+    const-string/jumbo v0, "private_session_token"
+
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/cr;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 16
+    return-void
 .end method

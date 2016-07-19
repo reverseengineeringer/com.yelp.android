@@ -1,20 +1,22 @@
 package com.yelp.common.collect;
 
+import com.yelp.common.base.c;
+
 class MapMaker$WeakValueReference<K, V>
-  extends com.yelp.common.base.f<V>
-  implements g<K, V>
+  extends c<V>
+  implements MapMaker.b<K, V>
 {
-  final f<K, V> entry;
+  final MapMaker.a<K, V> entry;
   
-  MapMaker$WeakValueReference(V paramV, f<K, V> paramf)
+  MapMaker$WeakValueReference(V paramV, MapMaker.a<K, V> parama)
   {
     super(paramV, MapMaker.QueueHolder.queue);
-    entry = paramf;
+    entry = parama;
   }
   
-  public g<K, V> copyFor(f<K, V> paramf)
+  public MapMaker.b<K, V> copyFor(MapMaker.a<K, V> parama)
   {
-    return new WeakValueReference(get(), paramf);
+    return new WeakValueReference(get(), parama);
   }
   
   public void finalizeReferent()

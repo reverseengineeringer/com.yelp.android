@@ -1,17 +1,19 @@
 package com.yelp.android.ui.activities.reviews;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.serializable.YelpBusinessReview;
 import com.yelp.android.ui.activities.reviewpage.FlagReviewExplanationFragment;
+import com.yelp.android.ui.activities.reviewpage.FlagReviewExplanationFragment.a;
 import com.yelp.android.ui.activities.reviewpage.FlagReviewReasonsFragment;
 import com.yelp.android.ui.activities.reviewpage.FlagReviewReasonsFragment.FlagType;
-import com.yelp.android.ui.activities.reviewpage.aa;
-import com.yelp.android.ui.activities.reviewpage.y;
+import com.yelp.android.ui.activities.reviewpage.FlagReviewReasonsFragment.a;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.dialogs.AlertDialogFragment;
 import com.yelp.android.ui.fragments.SimpleLayoutFragment;
@@ -19,7 +21,7 @@ import java.util.Locale;
 
 public class ActivityFlagReview
   extends YelpActivity
-  implements aa, y
+  implements FlagReviewExplanationFragment.a, FlagReviewReasonsFragment.a
 {
   private YelpBusinessReview a;
   private String b;
@@ -42,17 +44,23 @@ public class ActivityFlagReview
     if ((b == null) || (b.equalsIgnoreCase(Locale.US.getCountry()))) {}
     for (int i = 1; (paramFlagType == FlagReviewReasonsFragment.FlagType.FalseInformation) && (i != 0); i = 0)
     {
-      getSupportFragmentManager().beginTransaction().replace(2131493332, SimpleLayoutFragment.a(2130903220)).addToBackStack(null).commit();
+      getSupportFragmentManager().a().b(2131689997, SimpleLayoutFragment.a(2130903246)).a(null).a();
       return;
     }
-    getSupportFragmentManager().beginTransaction().replace(2131493332, FlagReviewExplanationFragment.a(paramFlagType, a)).addToBackStack(null).commit();
+    getSupportFragmentManager().a().b(2131689997, FlagReviewExplanationFragment.a(paramFlagType, a)).a(null).a();
   }
   
   public void a(String paramString)
   {
     hideLoadingDialog();
     paramString = AlertDialogFragment.a(null, paramString);
-    paramString.a(new b(this));
+    paramString.a(new DialogInterface.OnDismissListener()
+    {
+      public void onDismiss(DialogInterface paramAnonymousDialogInterface)
+      {
+        finish();
+      }
+    });
     paramString.show(getSupportFragmentManager(), null);
   }
   
@@ -66,10 +74,10 @@ public class ActivityFlagReview
     super.onCreate(paramBundle);
     a = ((YelpBusinessReview)getIntent().getParcelableExtra("extra.review"));
     b = getIntent().getStringExtra("extra.business_country");
-    if (getSupportFragmentManager().findFragmentById(2131493332) == null) {
-      getSupportFragmentManager().beginTransaction().replace(2131493332, new FlagReviewReasonsFragment()).commit();
+    if (getSupportFragmentManager().a(2131689997) == null) {
+      getSupportFragmentManager().a().b(2131689997, new FlagReviewReasonsFragment()).a();
     }
-    setTitle(2131166454);
+    setTitle(2131166456);
   }
 }
 

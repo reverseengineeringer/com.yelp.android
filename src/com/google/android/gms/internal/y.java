@@ -1,39 +1,96 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
-@ey
-public final class y
-  implements SafeParcelable
+@fv
+public class y
 {
-  public static final z CREATOR = new z();
-  public final boolean mi;
-  public final boolean ms;
-  public final int versionCode;
+  private final Object a = new Object();
+  private int b;
+  private List<x> c = new LinkedList();
   
-  y(int paramInt, boolean paramBoolean1, boolean paramBoolean2)
+  public x a()
   {
-    versionCode = paramInt;
-    mi = paramBoolean1;
-    ms = paramBoolean2;
+    Object localObject1 = null;
+    label146:
+    label149:
+    for (;;)
+    {
+      synchronized (a)
+      {
+        if (c.size() == 0)
+        {
+          gz.a("Queue empty");
+          return null;
+        }
+        if (c.size() >= 2)
+        {
+          int i = Integer.MIN_VALUE;
+          Iterator localIterator = c.iterator();
+          if (localIterator.hasNext())
+          {
+            x localx2 = (x)localIterator.next();
+            int j = localx2.h();
+            if (j <= i) {
+              break label146;
+            }
+            localObject1 = localx2;
+            i = j;
+            break label149;
+          }
+          c.remove(localObject1);
+          return (x)localObject1;
+        }
+      }
+      x localx1 = (x)c.get(0);
+      localx1.d();
+      return localx1;
+    }
   }
   
-  public y(boolean paramBoolean1, boolean paramBoolean2)
+  public boolean a(x paramx)
   {
-    versionCode = 1;
-    mi = paramBoolean1;
-    ms = paramBoolean2;
+    synchronized (a)
+    {
+      return c.contains(paramx);
+    }
   }
   
-  public int describeContents()
+  public boolean b(x paramx)
   {
-    return 0;
+    synchronized (a)
+    {
+      Iterator localIterator = c.iterator();
+      while (localIterator.hasNext())
+      {
+        x localx = (x)localIterator.next();
+        if ((paramx != localx) && (localx.b().equals(paramx.b())))
+        {
+          localIterator.remove();
+          return true;
+        }
+      }
+      return false;
+    }
   }
   
-  public void writeToParcel(Parcel paramParcel, int paramInt)
+  public void c(x paramx)
   {
-    z.a(this, paramParcel, paramInt);
+    synchronized (a)
+    {
+      if (c.size() >= 10)
+      {
+        gz.a("Queue is full, current size = " + c.size());
+        c.remove(0);
+      }
+      int i = b;
+      b = (i + 1);
+      paramx.a(i);
+      c.add(paramx);
+      return;
+    }
   }
 }
 

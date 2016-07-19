@@ -1,23 +1,11 @@
 package com.bumptech.glide.request;
 
-public abstract interface a
-{
-  public abstract void a();
-  
-  public abstract void b();
-  
-  public abstract void d();
-  
-  public abstract void e();
-  
-  public abstract boolean f();
-  
-  public abstract boolean g();
-  
-  public abstract boolean h();
-  
-  public abstract boolean i();
-}
+import com.yelp.android.am.j;
+import java.util.concurrent.Future;
+
+public abstract interface a<R>
+  extends j<R>, Future<R>
+{}
 
 /* Location:
  * Qualified Name:     com.bumptech.glide.request.a

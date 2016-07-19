@@ -7,18 +7,18 @@ import android.util.AttributeSet;
 import android.util.SparseIntArray;
 import android.widget.Checkable;
 import android.widget.TextView;
-import com.yelp.android.b;
+import com.yelp.android.b.a;
 import com.yelp.android.ui.util.SlightlyLessBrokenLinearLayout;
-import com.yelp.android.ui.util.dj;
+import com.yelp.android.ui.util.ay;
 
 public class TwoTierButton
   extends SlightlyLessBrokenLinearLayout
   implements Checkable, SpannableWidget
 {
   private final SpannableWidget.SpannableWidgetUtil a;
-  private final TextView g;
-  private final TextView h;
-  private ap i;
+  private final TextView b;
+  private final TextView c;
+  private TwoTierButton.a i;
   
   public TwoTierButton(Context paramContext)
   {
@@ -27,24 +27,24 @@ public class TwoTierButton
   
   public TwoTierButton(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 2130772321);
+    this(paramContext, paramAttributeSet, 2130772431);
   }
   
   public TwoTierButton(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
     Object localObject = new SparseIntArray();
-    ((SparseIntArray)localObject).put(4, 2130903379);
-    dj.a(this, paramContext, paramAttributeSet, paramInt, (SparseIntArray)localObject);
-    localObject = paramContext.obtainStyledAttributes(paramAttributeSet, b.PanelLabelValue, paramInt, paramInt);
+    ((SparseIntArray)localObject).put(4, 2130903481);
+    ay.a(this, paramContext, paramAttributeSet, paramInt, (SparseIntArray)localObject);
+    localObject = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.PanelLabelValue, paramInt, paramInt);
     a = new SpannableWidget.SpannableWidgetUtil(paramContext, paramAttributeSet, paramInt);
-    g = ((TextView)findViewById(2131493868));
-    h = ((TextView)findViewById(2131493869));
+    b = ((TextView)findViewById(2131690705));
+    c = ((TextView)findViewById(2131690706));
     setLabel(((TypedArray)localObject).getText(0));
     setValue(((TypedArray)localObject).getText(1));
-    h.setCompoundDrawablesWithIntrinsicBounds(((TypedArray)localObject).getResourceId(2, 0), 0, 0, 0);
+    c.setCompoundDrawablesWithIntrinsicBounds(((TypedArray)localObject).getResourceId(2, 0), 0, 0, 0);
     if (((TypedArray)localObject).getBoolean(3, false)) {
-      h.setCompoundDrawablePadding(0);
+      c.setCompoundDrawablePadding(0);
     }
     ((TypedArray)localObject).recycle();
   }
@@ -54,7 +54,7 @@ public class TwoTierButton
     if (i != null) {
       i.a(this, getDrawableState());
     }
-    Drawable[] arrayOfDrawable = h.getCompoundDrawables();
+    Drawable[] arrayOfDrawable = c.getCompoundDrawables();
     if (arrayOfDrawable != null)
     {
       int k = arrayOfDrawable.length;
@@ -75,12 +75,12 @@ public class TwoTierButton
   
   public TextView getLabel()
   {
-    return g;
+    return b;
   }
   
   public TextView getValue()
   {
-    return h;
+    return c;
   }
   
   public boolean isChecked()
@@ -99,9 +99,9 @@ public class TwoTierButton
     return arrayOfInt2;
   }
   
-  public void setButtonStateChangedListener(ap paramap)
+  public void setButtonStateChangedListener(TwoTierButton.a parama)
   {
-    i = paramap;
+    i = parama;
   }
   
   public void setChecked(boolean paramBoolean)
@@ -120,12 +120,12 @@ public class TwoTierButton
   
   public void setDrawable(int paramInt)
   {
-    h.setCompoundDrawablesWithIntrinsicBounds(paramInt, 0, 0, 0);
+    c.setCompoundDrawablesWithIntrinsicBounds(paramInt, 0, 0, 0);
   }
   
   public void setLabel(CharSequence paramCharSequence)
   {
-    g.setText(paramCharSequence);
+    b.setText(paramCharSequence);
   }
   
   public void setLeft(boolean paramBoolean)
@@ -138,9 +138,9 @@ public class TwoTierButton
     a.setMiddle(paramBoolean);
   }
   
-  public void setOnCheckedChangeListener(j paramj)
+  public void setOnCheckedChangeListener(c paramc)
   {
-    a.setOnCheckedChangeListener(paramj);
+    a.a(paramc);
     refreshDrawableState();
   }
   
@@ -151,7 +151,7 @@ public class TwoTierButton
   
   public void setValue(CharSequence paramCharSequence)
   {
-    h.setText(paramCharSequence);
+    c.setText(paramCharSequence);
   }
   
   public void toggle()

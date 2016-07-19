@@ -27,7 +27,7 @@
     .locals 1
 
     .prologue
-    .line 20
+    .line 21
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
@@ -80,7 +80,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
@@ -88,7 +88,7 @@
 
     iget-object v2, p0, Lcom/yelp/android/analytics/d;->b:Ljava/util/Map;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
     .line 32
     invoke-virtual {p0, p1}, Lcom/yelp/android/analytics/d;->a(Landroid/view/View;)V

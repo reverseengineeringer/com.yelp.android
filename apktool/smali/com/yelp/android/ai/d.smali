@@ -1,326 +1,201 @@
 .class public Lcom/yelp/android/ai/d;
 .super Ljava/lang/Object;
-.source "LruCache.java"
+.source "TranscoderRegistry.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        "Y:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
+# static fields
+.field private static final a:Lcom/yelp/android/ao/g;
 
 
 # instance fields
-.field private final a:Ljava/util/LinkedHashMap;
+.field private final b:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/LinkedHashMap",
-            "<TT;TY;>;"
+            "Ljava/util/Map",
+            "<",
+            "Lcom/yelp/android/ao/g;",
+            "Lcom/yelp/android/ai/c",
+            "<**>;>;"
         }
     .end annotation
 .end field
 
-.field private b:I
-
-.field private final c:I
-
-.field private d:I
-
 
 # direct methods
-.method public constructor <init>(I)V
-    .locals 4
-
-    .prologue
-    .line 24
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 14
-    new-instance v0, Ljava/util/LinkedHashMap;
-
-    const/16 v1, 0x64
-
-    const/high16 v2, 0x3f400000    # 0.75f
-
-    const/4 v3, 0x1
-
-    invoke-direct {v0, v1, v2, v3}, Ljava/util/LinkedHashMap;-><init>(IFZ)V
-
-    iput-object v0, p0, Lcom/yelp/android/ai/d;->a:Ljava/util/LinkedHashMap;
-
-    .line 17
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/yelp/android/ai/d;->d:I
-
-    .line 25
-    iput p1, p0, Lcom/yelp/android/ai/d;->c:I
-
-    .line 26
-    iput p1, p0, Lcom/yelp/android/ai/d;->b:I
-
-    .line 27
-    return-void
-.end method
-
-.method private c()V
+.method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 167
-    iget v0, p0, Lcom/yelp/android/ai/d;->b:I
+    .line 13
+    new-instance v0, Lcom/yelp/android/ao/g;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ai/d;->b(I)V
+    invoke-direct {v0}, Lcom/yelp/android/ao/g;-><init>()V
 
-    .line 168
+    sput-object v0, Lcom/yelp/android/ai/d;->a:Lcom/yelp/android/ao/g;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
+
+    .prologue
+    .line 12
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 15
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ai/d;->b:Ljava/util/Map;
+
     return-void
 .end method
 
 
 # virtual methods
-.method protected a(Ljava/lang/Object;)I
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TY;)I"
-        }
-    .end annotation
-
-    .prologue
-    .line 51
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method public a()V
-    .locals 1
-
-    .prologue
-    .line 146
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ai/d;->b(I)V
-
-    .line 147
-    return-void
-.end method
-
-.method protected a(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;TY;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 62
-    return-void
-.end method
-
-.method public b()I
-    .locals 1
-
-    .prologue
-    .line 75
-    iget v0, p0, Lcom/yelp/android/ai/d;->d:I
-
-    return v0
-.end method
-
-.method public b(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)TY;"
-        }
-    .end annotation
-
-    .prologue
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ai/d;->a:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public a(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/ai/c;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TT;TY;)TY;"
+            "<Z:",
+            "Ljava/lang/Object;",
+            "R:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Class",
+            "<TZ;>;",
+            "Ljava/lang/Class",
+            "<TR;>;)",
+            "Lcom/yelp/android/ai/c",
+            "<TZ;TR;>;"
         }
     .end annotation
 
     .prologue
-    .line 110
-    invoke-virtual {p0, p2}, Lcom/yelp/android/ai/d;->a(Ljava/lang/Object;)I
+    .line 43
+    invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    .line 111
-    iget v1, p0, Lcom/yelp/android/ai/d;->b:I
+    if-eqz v0, :cond_1
 
-    if-lt v0, v1, :cond_0
+    .line 45
+    invoke-static {}, Lcom/yelp/android/ai/e;->b()Lcom/yelp/android/ai/c;
 
-    .line 112
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ai/d;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    move-result-object v0
 
-    .line 113
-    const/4 v0, 0x0
-
-    .line 126
-    :goto_0
+    .line 56
+    :cond_0
     return-object v0
 
-    .line 116
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ai/d;->a:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0, p1, p2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    .line 117
-    if-eqz p2, :cond_1
-
-    .line 118
-    iget v1, p0, Lcom/yelp/android/ai/d;->d:I
-
-    invoke-virtual {p0, p2}, Lcom/yelp/android/ai/d;->a(Ljava/lang/Object;)I
-
-    move-result v2
-
-    add-int/2addr v1, v2
-
-    iput v1, p0, Lcom/yelp/android/ai/d;->d:I
-
-    .line 120
+    .line 48
     :cond_1
-    if-eqz v0, :cond_2
+    sget-object v1, Lcom/yelp/android/ai/d;->a:Lcom/yelp/android/ao/g;
 
-    .line 122
-    iget v1, p0, Lcom/yelp/android/ai/d;->d:I
+    monitor-enter v1
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ai/d;->a(Ljava/lang/Object;)I
+    .line 49
+    :try_start_0
+    sget-object v0, Lcom/yelp/android/ai/d;->a:Lcom/yelp/android/ao/g;
 
-    move-result v2
+    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/ao/g;->a(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    sub-int/2addr v1, v2
+    .line 50
+    iget-object v0, p0, Lcom/yelp/android/ai/d;->b:Ljava/util/Map;
 
-    iput v1, p0, Lcom/yelp/android/ai/d;->d:I
+    sget-object v2, Lcom/yelp/android/ai/d;->a:Lcom/yelp/android/ao/g;
 
-    .line 124
-    :cond_2
-    invoke-direct {p0}, Lcom/yelp/android/ai/d;->c()V
-
-    goto :goto_0
-.end method
-
-.method protected b(I)V
-    .locals 4
-
-    .prologue
-    .line 156
-    :goto_0
-    iget v0, p0, Lcom/yelp/android/ai/d;->d:I
-
-    if-le v0, p1, :cond_0
-
-    .line 157
-    iget-object v0, p0, Lcom/yelp/android/ai/d;->a:Ljava/util/LinkedHashMap;
-
-    invoke-virtual {v0}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
+    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    check-cast v0, Lcom/yelp/android/ai/c;
 
-    move-result-object v0
+    .line 51
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    .line 52
+    if-nez v0, :cond_0
 
-    move-result-object v0
+    .line 53
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    check-cast v0, Ljava/util/Map$Entry;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    .line 158
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "No transcoder registered for "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    .line 159
-    iget v2, p0, Lcom/yelp/android/ai/d;->d:I
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ai/d;->a(Ljava/lang/Object;)I
+    move-result-object v1
 
-    move-result v3
+    const-string/jumbo v2, " and "
 
-    sub-int/2addr v2, v3
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iput v2, p0, Lcom/yelp/android/ai/d;->d:I
+    move-result-object v1
 
-    .line 160
-    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 161
-    iget-object v2, p0, Lcom/yelp/android/ai/d;->a:Ljava/util/LinkedHashMap;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v0}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v1
 
-    .line 162
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ai/d;->a(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    goto :goto_0
+    throw v0
 
-    .line 164
-    :cond_0
-    return-void
+    .line 51
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
 .end method
 
-.method public c(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 3
+.method public a(Ljava/lang/Class;Ljava/lang/Class;Lcom/yelp/android/ai/c;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TT;)TY;"
+            "<Z:",
+            "Ljava/lang/Object;",
+            "R:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/Class",
+            "<TZ;>;",
+            "Ljava/lang/Class",
+            "<TR;>;",
+            "Lcom/yelp/android/ai/c",
+            "<TZ;TR;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 135
-    iget-object v0, p0, Lcom/yelp/android/ai/d;->a:Ljava/util/LinkedHashMap;
+    .line 29
+    iget-object v0, p0, Lcom/yelp/android/ai/d;->b:Ljava/util/Map;
 
-    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v1, Lcom/yelp/android/ao/g;
 
-    move-result-object v0
+    invoke-direct {v1, p1, p2}, Lcom/yelp/android/ao/g;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
 
-    .line 136
-    if-eqz v0, :cond_0
+    invoke-interface {v0, v1, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 137
-    iget v1, p0, Lcom/yelp/android/ai/d;->d:I
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ai/d;->a(Ljava/lang/Object;)I
-
-    move-result v2
-
-    sub-int/2addr v1, v2
-
-    iput v1, p0, Lcom/yelp/android/ai/d;->d:I
-
-    .line 139
-    :cond_0
-    return-object v0
+    .line 30
+    return-void
 .end method

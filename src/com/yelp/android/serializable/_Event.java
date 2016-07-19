@@ -2,82 +2,231 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Event
   implements Parcelable
 {
-  protected String mAddress;
-  protected String mAlias;
-  protected YelpBusiness mBusiness;
-  protected String mBusinessId;
-  protected String mCategoryName;
-  protected double mCost;
-  protected double mCostMax;
-  protected String mCurrencyCode;
-  protected String mDescription;
-  protected String mEventPhotoUrl;
-  protected String mEventUrl;
-  protected String mId;
-  protected boolean mIsYelpCommunity;
-  protected double mLatitude;
-  protected String mLocationName;
-  protected double mLocationRating;
-  protected double mLongitude;
-  protected String mMapAddress;
-  protected String mName;
-  protected Photo mPhoto;
-  protected boolean mReminderNotification;
-  protected EventRsvp mRsvp;
-  protected String mSubscriptionStatus;
-  protected String mTalkTopicId;
-  protected int mTalkTopicUserCount;
-  protected String mTicketsUrl;
-  protected long mTimeEnd;
-  protected long mTimeStart;
-  protected String mTimezone;
-  protected Event.EventType mType;
-  protected User mUser;
-  protected String mUserId;
+  protected double A;
+  protected double B;
+  protected double C;
+  protected double D;
+  protected int E;
+  protected long F;
+  protected long G;
+  protected EventRsvp a;
+  protected Event.EventType b;
+  protected Photo c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected String k;
+  protected String l;
+  protected String m;
+  protected String n;
+  protected String o;
+  protected String p;
+  protected String q;
+  protected String r;
+  protected String s;
+  protected String t;
+  protected String u;
+  protected User v;
+  protected YelpBusiness w;
+  protected boolean x;
+  protected boolean y;
+  protected double z;
   
-  protected _Event() {}
-  
-  protected _Event(EventRsvp paramEventRsvp, Event.EventType paramEventType, Photo paramPhoto, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, String paramString9, String paramString10, String paramString11, String paramString12, String paramString13, String paramString14, String paramString15, String paramString16, String paramString17, User paramUser, YelpBusiness paramYelpBusiness, boolean paramBoolean1, boolean paramBoolean2, double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4, double paramDouble5, int paramInt, long paramLong1, long paramLong2)
+  public String A()
   {
-    this();
-    mRsvp = paramEventRsvp;
-    mType = paramEventType;
-    mPhoto = paramPhoto;
-    mId = paramString1;
-    mAlias = paramString2;
-    mName = paramString3;
-    mEventUrl = paramString4;
-    mTicketsUrl = paramString5;
-    mCategoryName = paramString6;
-    mDescription = paramString7;
-    mAddress = paramString8;
-    mMapAddress = paramString9;
-    mLocationName = paramString10;
-    mTimezone = paramString11;
-    mEventPhotoUrl = paramString12;
-    mBusinessId = paramString13;
-    mUserId = paramString14;
-    mCurrencyCode = paramString15;
-    mSubscriptionStatus = paramString16;
-    mTalkTopicId = paramString17;
-    mUser = paramUser;
-    mBusiness = paramYelpBusiness;
-    mIsYelpCommunity = paramBoolean1;
-    mReminderNotification = paramBoolean2;
-    mCost = paramDouble1;
-    mCostMax = paramDouble2;
-    mLatitude = paramDouble3;
-    mLongitude = paramDouble4;
-    mLocationRating = paramDouble5;
-    mTalkTopicUserCount = paramInt;
-    mTimeStart = paramLong1;
-    mTimeEnd = paramLong2;
+    return l;
+  }
+  
+  public String B()
+  {
+    return k;
+  }
+  
+  public String C()
+  {
+    return j;
+  }
+  
+  public String D()
+  {
+    return i;
+  }
+  
+  public String E()
+  {
+    return h;
+  }
+  
+  public String F()
+  {
+    return g;
+  }
+  
+  public String G()
+  {
+    return f;
+  }
+  
+  public String H()
+  {
+    return e;
+  }
+  
+  public String I()
+  {
+    return d;
+  }
+  
+  public Photo J()
+  {
+    return c;
+  }
+  
+  public Event.EventType K()
+  {
+    return b;
+  }
+  
+  public EventRsvp L()
+  {
+    return a;
+  }
+  
+  public String a()
+  {
+    return p;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((EventRsvp)paramParcel.readParcelable(EventRsvp.class.getClassLoader()));
+    b = ((Event.EventType)paramParcel.readSerializable());
+    c = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    l = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    m = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    n = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    o = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    p = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    q = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    r = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    s = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    t = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    u = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    v = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+    w = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+    boolean[] arrayOfBoolean = paramParcel.createBooleanArray();
+    x = arrayOfBoolean[0];
+    y = arrayOfBoolean[1];
+    z = paramParcel.readDouble();
+    A = paramParcel.readDouble();
+    B = paramParcel.readDouble();
+    C = paramParcel.readDouble();
+    D = paramParcel.readDouble();
+    E = paramParcel.readInt();
+    F = paramParcel.readLong();
+    G = paramParcel.readLong();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("rsvp")) {
+      a = ((EventRsvp)EventRsvp.CREATOR.parse(paramJSONObject.getJSONObject("rsvp")));
+    }
+    if (!paramJSONObject.isNull("photo")) {
+      c = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
+    }
+    if (!paramJSONObject.isNull("id")) {
+      d = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("alias")) {
+      e = paramJSONObject.optString("alias");
+    }
+    if (!paramJSONObject.isNull("name")) {
+      f = paramJSONObject.optString("name");
+    }
+    if (!paramJSONObject.isNull("event_url")) {
+      g = paramJSONObject.optString("event_url");
+    }
+    if (!paramJSONObject.isNull("share_url")) {
+      h = paramJSONObject.optString("share_url");
+    }
+    if (!paramJSONObject.isNull("tickets_url")) {
+      i = paramJSONObject.optString("tickets_url");
+    }
+    if (!paramJSONObject.isNull("category_name")) {
+      j = paramJSONObject.optString("category_name");
+    }
+    if (!paramJSONObject.isNull("description")) {
+      k = paramJSONObject.optString("description");
+    }
+    if (!paramJSONObject.isNull("address")) {
+      l = paramJSONObject.optString("address");
+    }
+    if (!paramJSONObject.isNull("map_address")) {
+      m = paramJSONObject.optString("map_address");
+    }
+    if (!paramJSONObject.isNull("location_name")) {
+      n = paramJSONObject.optString("location_name");
+    }
+    if (!paramJSONObject.isNull("timezone")) {
+      o = paramJSONObject.optString("timezone");
+    }
+    if (!paramJSONObject.isNull("event_photo_url")) {
+      p = paramJSONObject.optString("event_photo_url");
+    }
+    if (!paramJSONObject.isNull("business_id")) {
+      q = paramJSONObject.optString("business_id");
+    }
+    if (!paramJSONObject.isNull("user_id")) {
+      r = paramJSONObject.optString("user_id");
+    }
+    if (!paramJSONObject.isNull("currency_code")) {
+      s = paramJSONObject.optString("currency_code");
+    }
+    if (!paramJSONObject.isNull("subscription_status")) {
+      t = paramJSONObject.optString("subscription_status");
+    }
+    if (!paramJSONObject.isNull("talk_topic_id")) {
+      u = paramJSONObject.optString("talk_topic_id");
+    }
+    if (!paramJSONObject.isNull("user")) {
+      v = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
+    }
+    if (!paramJSONObject.isNull("business")) {
+      w = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
+    }
+    x = paramJSONObject.optBoolean("is_yelp_community");
+    y = paramJSONObject.optBoolean("reminder_notification");
+    z = paramJSONObject.optDouble("cost");
+    A = paramJSONObject.optDouble("cost_max");
+    B = paramJSONObject.optDouble("latitude");
+    C = paramJSONObject.optDouble("longitude");
+    D = paramJSONObject.optDouble("location_rating");
+    E = paramJSONObject.optInt("talk_topic_user_count");
+    F = paramJSONObject.optLong("time_start");
+    G = paramJSONObject.optLong("time_end");
   }
   
   public int describeContents()
@@ -85,313 +234,139 @@ abstract class _Event
     return 0;
   }
   
-  public String getAddress()
+  public boolean equals(Object paramObject)
   {
-    return mAddress;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Event)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a(n, n).a(o, o).a(p, p).a(q, q).a(r, r).a(s, s).a(t, t).a(u, u).a(v, v).a(w, w).a(x, x).a(y, y).a(z, z).a(A, A).a(B, B).a(C, C).a(D, D).a(E, E).a(F, F).a(G, G).a();
   }
   
-  public String getAlias()
+  public int hashCode()
   {
-    return mAlias;
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a(n).a(o).a(p).a(q).a(r).a(s).a(t).a(u).a(v).a(w).a(x).a(y).a(z).a(A).a(B).a(C).a(D).a(E).a(F).a(G).a();
   }
   
-  public YelpBusiness getBusiness()
+  public long k()
   {
-    return mBusiness;
+    return G;
   }
   
-  public String getBusinessId()
+  public long l()
   {
-    return mBusinessId;
+    return F;
   }
   
-  public String getCategoryName()
+  public int m()
   {
-    return mCategoryName;
+    return E;
   }
   
-  public double getCost()
+  public double n()
   {
-    return mCost;
+    return C;
   }
   
-  public double getCostMax()
+  public double o()
   {
-    return mCostMax;
+    return B;
   }
   
-  public String getCurrencyCode()
+  public double p()
   {
-    return mCurrencyCode;
+    return A;
   }
   
-  public String getDescription()
+  public double q()
   {
-    return mDescription;
+    return z;
   }
   
-  public String getEventPhotoUrl()
+  public boolean r()
   {
-    return mEventPhotoUrl;
+    return y;
   }
   
-  public String getEventUrl()
+  public boolean s()
   {
-    return mEventUrl;
+    return x;
   }
   
-  public String getId()
+  public YelpBusiness t()
   {
-    return mId;
+    return w;
   }
   
-  public double getLatitude()
+  public User u()
   {
-    return mLatitude;
+    return v;
   }
   
-  public String getLocationName()
+  public String v()
   {
-    return mLocationName;
+    return u;
   }
   
-  public double getLocationRating()
+  public String w()
   {
-    return mLocationRating;
-  }
-  
-  public double getLongitude()
-  {
-    return mLongitude;
-  }
-  
-  public String getMapAddress()
-  {
-    return mMapAddress;
-  }
-  
-  public String getName()
-  {
-    return mName;
-  }
-  
-  public Photo getPhoto()
-  {
-    return mPhoto;
-  }
-  
-  public boolean getReminderNotification()
-  {
-    return mReminderNotification;
-  }
-  
-  public EventRsvp getRsvp()
-  {
-    return mRsvp;
-  }
-  
-  public String getSubscriptionStatus()
-  {
-    return mSubscriptionStatus;
-  }
-  
-  public String getTalkTopicId()
-  {
-    return mTalkTopicId;
-  }
-  
-  public int getTalkTopicUserCount()
-  {
-    return mTalkTopicUserCount;
-  }
-  
-  public String getTicketsUrl()
-  {
-    return mTicketsUrl;
-  }
-  
-  public long getTimeEnd()
-  {
-    return mTimeEnd;
-  }
-  
-  public long getTimeStart()
-  {
-    return mTimeStart;
-  }
-  
-  public String getTimezone()
-  {
-    return mTimezone;
-  }
-  
-  public Event.EventType getType()
-  {
-    return mType;
-  }
-  
-  public User getUser()
-  {
-    return mUser;
-  }
-  
-  public String getUserId()
-  {
-    return mUserId;
-  }
-  
-  public boolean isYelpCommunity()
-  {
-    return mIsYelpCommunity;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("rsvp")) {
-      mRsvp = ((EventRsvp)EventRsvp.CREATOR.parse(paramJSONObject.getJSONObject("rsvp")));
-    }
-    if (!paramJSONObject.isNull("photo")) {
-      mPhoto = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("alias")) {
-      mAlias = paramJSONObject.optString("alias");
-    }
-    if (!paramJSONObject.isNull("name")) {
-      mName = paramJSONObject.optString("name");
-    }
-    if (!paramJSONObject.isNull("event_url")) {
-      mEventUrl = paramJSONObject.optString("event_url");
-    }
-    if (!paramJSONObject.isNull("tickets_url")) {
-      mTicketsUrl = paramJSONObject.optString("tickets_url");
-    }
-    if (!paramJSONObject.isNull("category_name")) {
-      mCategoryName = paramJSONObject.optString("category_name");
-    }
-    if (!paramJSONObject.isNull("description")) {
-      mDescription = paramJSONObject.optString("description");
-    }
-    if (!paramJSONObject.isNull("address")) {
-      mAddress = paramJSONObject.optString("address");
-    }
-    if (!paramJSONObject.isNull("map_address")) {
-      mMapAddress = paramJSONObject.optString("map_address");
-    }
-    if (!paramJSONObject.isNull("location_name")) {
-      mLocationName = paramJSONObject.optString("location_name");
-    }
-    if (!paramJSONObject.isNull("timezone")) {
-      mTimezone = paramJSONObject.optString("timezone");
-    }
-    if (!paramJSONObject.isNull("event_photo_url")) {
-      mEventPhotoUrl = paramJSONObject.optString("event_photo_url");
-    }
-    if (!paramJSONObject.isNull("business_id")) {
-      mBusinessId = paramJSONObject.optString("business_id");
-    }
-    if (!paramJSONObject.isNull("user_id")) {
-      mUserId = paramJSONObject.optString("user_id");
-    }
-    if (!paramJSONObject.isNull("currency_code")) {
-      mCurrencyCode = paramJSONObject.optString("currency_code");
-    }
-    if (!paramJSONObject.isNull("subscription_status")) {
-      mSubscriptionStatus = paramJSONObject.optString("subscription_status");
-    }
-    if (!paramJSONObject.isNull("talk_topic_id")) {
-      mTalkTopicId = paramJSONObject.optString("talk_topic_id");
-    }
-    if (!paramJSONObject.isNull("user")) {
-      mUser = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
-    }
-    if (!paramJSONObject.isNull("business")) {
-      mBusiness = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
-    }
-    mIsYelpCommunity = paramJSONObject.optBoolean("is_yelp_community");
-    mReminderNotification = paramJSONObject.optBoolean("reminder_notification");
-    mCost = paramJSONObject.optDouble("cost");
-    mCostMax = paramJSONObject.optDouble("cost_max");
-    mLatitude = paramJSONObject.optDouble("latitude");
-    mLongitude = paramJSONObject.optDouble("longitude");
-    mLocationRating = paramJSONObject.optDouble("location_rating");
-    mTalkTopicUserCount = paramJSONObject.optInt("talk_topic_user_count");
-    mTimeStart = paramJSONObject.optLong("time_start");
-    mTimeEnd = paramJSONObject.optLong("time_end");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mRsvp = ((EventRsvp)paramParcel.readParcelable(EventRsvp.class.getClassLoader()));
-    mType = ((Event.EventType)paramParcel.readSerializable());
-    mPhoto = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
-    mId = paramParcel.readString();
-    mAlias = paramParcel.readString();
-    mName = paramParcel.readString();
-    mEventUrl = paramParcel.readString();
-    mTicketsUrl = paramParcel.readString();
-    mCategoryName = paramParcel.readString();
-    mDescription = paramParcel.readString();
-    mAddress = paramParcel.readString();
-    mMapAddress = paramParcel.readString();
-    mLocationName = paramParcel.readString();
-    mTimezone = paramParcel.readString();
-    mEventPhotoUrl = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mUserId = paramParcel.readString();
-    mCurrencyCode = paramParcel.readString();
-    mSubscriptionStatus = paramParcel.readString();
-    mTalkTopicId = paramParcel.readString();
-    mUser = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
-    mBusiness = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
-    boolean[] arrayOfBoolean = paramParcel.createBooleanArray();
-    mIsYelpCommunity = arrayOfBoolean[0];
-    mReminderNotification = arrayOfBoolean[1];
-    mCost = paramParcel.readDouble();
-    mCostMax = paramParcel.readDouble();
-    mLatitude = paramParcel.readDouble();
-    mLongitude = paramParcel.readDouble();
-    mLocationRating = paramParcel.readDouble();
-    mTalkTopicUserCount = paramParcel.readInt();
-    mTimeStart = paramParcel.readLong();
-    mTimeEnd = paramParcel.readLong();
+    return t;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeParcelable(mRsvp, 0);
-    paramParcel.writeSerializable(mType);
-    paramParcel.writeParcelable(mPhoto, 0);
-    paramParcel.writeString(mId);
-    paramParcel.writeString(mAlias);
-    paramParcel.writeString(mName);
-    paramParcel.writeString(mEventUrl);
-    paramParcel.writeString(mTicketsUrl);
-    paramParcel.writeString(mCategoryName);
-    paramParcel.writeString(mDescription);
-    paramParcel.writeString(mAddress);
-    paramParcel.writeString(mMapAddress);
-    paramParcel.writeString(mLocationName);
-    paramParcel.writeString(mTimezone);
-    paramParcel.writeString(mEventPhotoUrl);
-    paramParcel.writeString(mBusinessId);
-    paramParcel.writeString(mUserId);
-    paramParcel.writeString(mCurrencyCode);
-    paramParcel.writeString(mSubscriptionStatus);
-    paramParcel.writeString(mTalkTopicId);
-    paramParcel.writeParcelable(mUser, 0);
-    paramParcel.writeParcelable(mBusiness, 0);
-    paramParcel.writeBooleanArray(new boolean[] { mIsYelpCommunity, mReminderNotification });
-    paramParcel.writeDouble(mCost);
-    paramParcel.writeDouble(mCostMax);
-    paramParcel.writeDouble(mLatitude);
-    paramParcel.writeDouble(mLongitude);
-    paramParcel.writeDouble(mLocationRating);
-    paramParcel.writeInt(mTalkTopicUserCount);
-    paramParcel.writeLong(mTimeStart);
-    paramParcel.writeLong(mTimeEnd);
+    paramParcel.writeParcelable(a, 0);
+    paramParcel.writeSerializable(b);
+    paramParcel.writeParcelable(c, 0);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeValue(g);
+    paramParcel.writeValue(h);
+    paramParcel.writeValue(i);
+    paramParcel.writeValue(j);
+    paramParcel.writeValue(k);
+    paramParcel.writeValue(l);
+    paramParcel.writeValue(m);
+    paramParcel.writeValue(n);
+    paramParcel.writeValue(o);
+    paramParcel.writeValue(p);
+    paramParcel.writeValue(q);
+    paramParcel.writeValue(r);
+    paramParcel.writeValue(s);
+    paramParcel.writeValue(t);
+    paramParcel.writeValue(u);
+    paramParcel.writeParcelable(v, 0);
+    paramParcel.writeParcelable(w, 0);
+    paramParcel.writeBooleanArray(new boolean[] { x, y });
+    paramParcel.writeDouble(z);
+    paramParcel.writeDouble(A);
+    paramParcel.writeDouble(B);
+    paramParcel.writeDouble(C);
+    paramParcel.writeDouble(D);
+    paramParcel.writeInt(E);
+    paramParcel.writeLong(F);
+    paramParcel.writeLong(G);
+  }
+  
+  public String x()
+  {
+    return o;
+  }
+  
+  public String y()
+  {
+    return n;
+  }
+  
+  public String z()
+  {
+    return m;
   }
 }
 

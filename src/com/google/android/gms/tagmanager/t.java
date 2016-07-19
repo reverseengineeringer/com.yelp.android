@@ -1,10 +1,17 @@
 package com.google.android.gms.tagmanager;
 
-abstract interface t
+import com.google.android.gms.internal.zzrs.a;
+import java.util.Set;
+
+class t
+  implements aa
 {
-  public abstract ck px();
+  public z a()
+  {
+    return new s();
+  }
   
-  public abstract cs py();
+  public void a(Set<zzrs.a> paramSet) {}
 }
 
 /* Location:

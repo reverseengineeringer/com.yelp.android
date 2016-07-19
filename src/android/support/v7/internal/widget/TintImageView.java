@@ -8,7 +8,7 @@ public class TintImageView
   extends ImageView
 {
   private static final int[] a = { 16842964, 16843033 };
-  private final bd b;
+  private final o b;
   
   public TintImageView(Context paramContext)
   {
@@ -23,13 +23,13 @@ public class TintImageView
   public TintImageView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = bg.a(paramContext, paramAttributeSet, a, paramInt, 0);
+    paramContext = p.a(getContext(), paramAttributeSet, a, paramInt, 0);
     if (paramContext.a() > 0)
     {
-      if (paramContext.d(0)) {
+      if (paramContext.e(0)) {
         setBackgroundDrawable(paramContext.a(0));
       }
-      if (paramContext.d(1)) {
+      if (paramContext.e(1)) {
         setImageDrawable(paramContext.a(1));
       }
     }

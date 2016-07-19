@@ -3,6 +3,17 @@
 .source "AuthHeartbeat.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/AuthHeartbeat;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = "AuthHeartbeatTimerTask"
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/ooyala/android/AuthHeartbeat;
 

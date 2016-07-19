@@ -3,7 +3,7 @@ package com.google.android.gms.internal;
 import android.util.Base64;
 
 class e
-  implements m
+  implements k
 {
   public String a(byte[] paramArrayOfByte, boolean paramBoolean)
   {
@@ -14,6 +14,7 @@ class e
   }
   
   public byte[] a(String paramString, boolean paramBoolean)
+    throws IllegalArgumentException
   {
     if (paramBoolean) {}
     for (int i = 11;; i = 2) {

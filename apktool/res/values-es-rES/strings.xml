@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="messenger_send_button_text">Enviar</string>
     <string name="mobile_host">m.yelp.es</string>
     <string name="site_name">Yelp.es</string>
     <string name="www_host">www.yelp.es</string>

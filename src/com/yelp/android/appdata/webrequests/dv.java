@@ -1,32 +1,24 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.NearbyRow;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.b;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class dv
-  extends h<Void, Void, List<NearbyRow>>
+  extends b<Void, Void, String>
 {
-  public dv(j<List<NearbyRow>> paramj)
+  public dv(String paramString1, String paramString2, String paramString3, ApiRequest.b<String> paramb)
   {
-    super(ApiRequest.RequestType.GET, "nearby/suggest", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
+    super(ApiRequest.RequestType.POST, "/review/flag", paramb);
+    b("review_id", paramString1);
+    b("reason", paramString2);
+    b("message", paramString3);
   }
   
-  public List<NearbyRow> a(JSONObject paramJSONObject)
+  public String a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    try
-    {
-      paramJSONObject = NearbyRow.rowsFromNearbySuggestResponse(paramJSONObject, getRequestId());
-      return paramJSONObject;
-    }
-    catch (JSONException paramJSONObject)
-    {
-      throw new YelpException(YelpException.YPErrorInvalidData);
-    }
+    return paramJSONObject.optString("success_title");
   }
 }
 

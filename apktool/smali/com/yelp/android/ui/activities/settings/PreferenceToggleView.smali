@@ -22,7 +22,7 @@
 
     .prologue
     .line 21
-    const v0, 0x7f010099
+    const v0, 0x7f0100cf
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/activities/settings/PreferenceToggleView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -38,14 +38,14 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/settings/PreferenceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 14
-    sget-object v0, Lcom/yelp/android/b;->PreferenceView:[I
+    sget-object v0, Lcom/yelp/android/b$a;->PreferenceView:[I
 
     invoke-virtual {p1, p2, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
     .line 16
-    const/16 v1, 0xc
+    const/16 v1, 0xa
 
     const/4 v2, 0x1
 
@@ -72,7 +72,7 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/settings/PreferenceView;->setChecked(Z)V
 
     .line 35
-    const v0, 0x7f0c0083
+    const v0, 0x7f0f00a8
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/settings/PreferenceToggleView;->findViewById(I)Landroid/view/View;
 

@@ -1,10 +1,10 @@
 package com.google.android.gms.internal;
 
-import java.util.Map;
-
 public abstract interface cd
 {
-  public abstract void a(gu paramgu, Map<String, String> paramMap);
+  public abstract void a(boolean paramBoolean, float paramFloat);
+  
+  public abstract void b(boolean paramBoolean);
 }
 
 /* Location:

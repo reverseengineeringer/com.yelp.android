@@ -2,26 +2,50 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _OfferSummary
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected int mCount;
-  protected List<String> mNames;
+  protected List<String> a;
+  protected String b;
+  protected int c;
   
-  protected _OfferSummary() {}
-  
-  protected _OfferSummary(List<String> paramList, String paramString, int paramInt)
+  public int a()
   {
-    this();
-    mNames = paramList;
-    mBusinessId = paramString;
-    mCount = paramInt;
+    return c;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = paramParcel.createStringArrayList();
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("names")) {}
+    for (a = JsonUtil.getStringList(paramJSONObject.optJSONArray("names"));; a = Collections.emptyList())
+    {
+      if (!paramJSONObject.isNull("business_id")) {
+        b = paramJSONObject.optString("business_id");
+      }
+      c = paramJSONObject.optInt("count");
+      return;
+    }
+  }
+  
+  public List<String> b()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -29,46 +53,30 @@ abstract class _OfferSummary
     return 0;
   }
   
-  public String getBusinessId()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessId;
-  }
-  
-  public int getCount()
-  {
-    return mCount;
-  }
-  
-  public List<String> getNames()
-  {
-    return mNames;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("names")) {}
-    for (mNames = JsonUtil.getStringList(paramJSONObject.optJSONArray("names"));; mNames = Collections.emptyList())
+    if (paramObject == null) {}
+    do
     {
-      if (!paramJSONObject.isNull("business_id")) {
-        mBusinessId = paramJSONObject.optString("business_id");
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      mCount = paramJSONObject.optInt("count");
-      return;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_OfferSummary)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int hashCode()
   {
-    mNames = paramParcel.createStringArrayList();
-    mBusinessId = paramParcel.readString();
-    mCount = paramParcel.readInt();
+    return new c().a(a).a(b).a(c).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeStringList(mNames);
-    paramParcel.writeString(mBusinessId);
-    paramParcel.writeInt(mCount);
+    paramParcel.writeStringList(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeInt(c);
   }
 }
 

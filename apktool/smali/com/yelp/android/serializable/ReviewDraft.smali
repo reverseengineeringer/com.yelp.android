@@ -2,9 +2,6 @@
 .super Lcom/yelp/android/serializable/_ReviewDraft;
 .source "ReviewDraft.java"
 
-# interfaces
-.implements Lcom/yelp/android/serializable/m;
-
 
 # static fields
 .field public static final CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
@@ -25,9 +22,9 @@
 
     .prologue
     .line 16
-    new-instance v0, Lcom/yelp/android/serializable/cp;
+    new-instance v0, Lcom/yelp/android/serializable/ReviewDraft$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/cp;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/ReviewDraft$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/ReviewDraft;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -46,6 +43,101 @@
 
 
 # virtual methods
+.method public a()I
+    .locals 1
+
+    .prologue
+    .line 13
+    iget v0, p0, Lcom/yelp/android/serializable/ReviewDraft;->h:I
+
+    div-int/lit8 v0, v0, 0x2
+
+    return v0
+.end method
+
+.method public a(I)V
+    .locals 0
+
+    .prologue
+    .line 38
+    iput p1, p0, Lcom/yelp/android/serializable/ReviewDraft;->h:I
+
+    .line 39
+    return-void
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewDraft;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public a(Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 42
+    iput-object p1, p0, Lcom/yelp/android/serializable/ReviewDraft;->f:Ljava/lang/String;
+
+    .line 43
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewDraft;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()I
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->b()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -58,154 +150,76 @@
     return v0
 .end method
 
-.method public bridge synthetic getBusinessId()Ljava/lang/String;
+.method public bridge synthetic e()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getBusinessId()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->e()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getBusinessName()Ljava/lang/String;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getBusinessName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getBusinessPhotoUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getBusinessPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getDateCreated()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getDateCreated()Ljava/util/Date;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getDateModified()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getDateModified()Ljava/util/Date;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getNumHalfstars()I
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getNumHalfstars()I
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewDraft;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public getRating()I
-    .locals 1
-
-    .prologue
-    .line 13
-    iget v0, p0, Lcom/yelp/android/serializable/ReviewDraft;->mNumHalfstars:I
-
-    div-int/lit8 v0, v0, 0x2
-
-    return v0
-.end method
-
-.method public bridge synthetic getText()Ljava/lang/String;
+.method public bridge synthetic f()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->getText()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->f()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
+.method public bridge synthetic g()Ljava/lang/String;
+    .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewDraft;->readFromJson(Lorg/json/JSONObject;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->g()Ljava/lang/String;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
+.method public bridge synthetic h()Ljava/util/Date;
+    .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewDraft;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->h()Ljava/util/Date;
 
-    return-void
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public setHalfStars(I)V
-    .locals 0
+.method public bridge synthetic hashCode()I
+    .locals 1
 
     .prologue
-    .line 37
-    iput p1, p0, Lcom/yelp/android/serializable/ReviewDraft;->mNumHalfstars:I
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewDraft;->hashCode()I
 
-    .line 38
-    return-void
-.end method
+    move-result v0
 
-.method public setText(Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 41
-    iput-object p1, p0, Lcom/yelp/android/serializable/ReviewDraft;->mText:Ljava/lang/String;
-
-    .line 42
-    return-void
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

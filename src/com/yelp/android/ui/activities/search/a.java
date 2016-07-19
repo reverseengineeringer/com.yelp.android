@@ -10,13 +10,14 @@ import com.yelp.android.serializable.Photo;
 import com.yelp.android.serializable.RichSearchSuggestion;
 import com.yelp.android.serializable.RichSearchSuggestion.RichSearchSuggestionType;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.ui.util.au;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.w;
 import com.yelp.android.ui.widgets.WebImageView;
 import java.util.HashSet;
 import java.util.List;
 
 public class a
-  extends au<RichSearchSuggestion>
+  extends w<RichSearchSuggestion>
 {
   private final HashSet<CharSequence> a = new HashSet();
   
@@ -25,26 +26,26 @@ public class a
     a.addAll(paramList);
   }
   
-  private void a(View paramView, b paramb, RichSearchSuggestion paramRichSearchSuggestion)
+  private void a(View paramView, a.a parama, RichSearchSuggestion paramRichSearchSuggestion)
   {
-    int i = WebImageView.getResourceForName(paramView.getContext(), paramRichSearchSuggestion.getImagePath());
+    int i = ar.a(paramView.getContext(), paramRichSearchSuggestion.k());
     if (i != 0)
     {
-      b.b(paramb).setImageResource(i);
+      a.a.b(parama).setImageResource(i);
       return;
     }
-    b.b(paramb).setImageUrl(paramRichSearchSuggestion.getImageUrl());
+    a.a.b(parama).setImageUrl(paramRichSearchSuggestion.j());
   }
   
   public int getItemViewType(int paramInt)
   {
-    return ((RichSearchSuggestion)getItem(paramInt)).getRichSearchSuggestionType().ordinal();
+    return ((RichSearchSuggestion)getItem(paramInt)).a().ordinal();
   }
   
   public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
   {
     RichSearchSuggestion localRichSearchSuggestion = (RichSearchSuggestion)getItem(paramInt);
-    RichSearchSuggestion.RichSearchSuggestionType localRichSearchSuggestionType = localRichSearchSuggestion.getRichSearchSuggestionType();
+    RichSearchSuggestion.RichSearchSuggestionType localRichSearchSuggestionType = localRichSearchSuggestion.a();
     if (paramView == null) {
       if ((getItemViewType(paramInt) == RichSearchSuggestion.RichSearchSuggestionType.BUSINESS.ordinal()) || (getItemViewType(paramInt) == RichSearchSuggestion.RichSearchSuggestionType.CHAIN.ordinal()))
       {
@@ -53,64 +54,64 @@ public class a
         if (paramInt == 0) {
           break label222;
         }
-        paramInt = 2130903366;
+        paramInt = 2130903465;
         label66:
         paramView = paramView.inflate(paramInt, paramViewGroup, false);
-        paramViewGroup = new b(paramView);
+        paramViewGroup = new a.a(paramView);
         paramView.setTag(paramViewGroup);
         label88:
-        if ((localRichSearchSuggestion.getBusiness() == null) || (localRichSearchSuggestion.getBusiness().getPrimaryPhoto() == null)) {
+        if ((localRichSearchSuggestion.g() == null) || (localRichSearchSuggestion.g().aI() == null)) {
           break label358;
         }
       }
     }
     label222:
     label358:
-    for (String str = localRichSearchSuggestion.getBusiness().getPrimaryPhoto().getThumbnailUrl();; str = null)
+    for (String str = localRichSearchSuggestion.g().aI().f();; str = null)
     {
       if (localRichSearchSuggestionType == RichSearchSuggestion.RichSearchSuggestionType.BUSINESS)
       {
-        b.a(paramViewGroup).setText(localRichSearchSuggestion.getBusiness().getAddressForBusinessSearchResult());
-        b.b(paramViewGroup).setImageUrl(str, 2130837648);
-        b.c(paramViewGroup).setText(localRichSearchSuggestion.getBusiness().getName());
+        a.a.a(paramViewGroup).setText(localRichSearchSuggestion.g().h());
+        a.a.b(paramViewGroup).setImageUrl(str, 2130837691);
+        a.a.c(paramViewGroup).setText(localRichSearchSuggestion.g().aq());
       }
       for (;;)
       {
-        if ((a.contains(localRichSearchSuggestion.getTerm())) && (localRichSearchSuggestionType != RichSearchSuggestion.RichSearchSuggestionType.BUSINESS))
+        if ((a.contains(localRichSearchSuggestion.m())) && (localRichSearchSuggestionType != RichSearchSuggestion.RichSearchSuggestionType.BUSINESS))
         {
-          b.d(paramViewGroup).setVisibility(0);
-          b.d(paramViewGroup).setText(AppData.b().getString(2131166395));
+          a.a.d(paramViewGroup).setVisibility(0);
+          a.a.d(paramViewGroup).setText(AppData.b().getString(2131166422));
           return paramView;
           paramInt = 0;
           break;
-          paramInt = 2130903367;
+          paramInt = 2130903466;
           break label66;
-          paramViewGroup = (b)paramView.getTag();
+          paramViewGroup = (a.a)paramView.getTag();
           break label88;
           if (localRichSearchSuggestionType == RichSearchSuggestion.RichSearchSuggestionType.CHAIN)
           {
-            b.a(paramViewGroup).setText(localRichSearchSuggestion.getDescription());
-            b.b(paramViewGroup).setImageUrl(str, 2130837648);
-            b.c(paramViewGroup).setText(localRichSearchSuggestion.getTerm());
+            a.a.a(paramViewGroup).setText(localRichSearchSuggestion.l());
+            a.a.b(paramViewGroup).setImageUrl(str, 2130837691);
+            a.a.c(paramViewGroup).setText(localRichSearchSuggestion.m());
           }
           else
           {
-            if (!TextUtils.isEmpty(localRichSearchSuggestion.getImagePath()))
+            if (!TextUtils.isEmpty(localRichSearchSuggestion.k()))
             {
-              b.b(paramViewGroup).setVisibility(0);
+              a.a.b(paramViewGroup).setVisibility(0);
               a(paramView, paramViewGroup, localRichSearchSuggestion);
             }
             for (;;)
             {
-              b.c(paramViewGroup).setText(localRichSearchSuggestion.getStyledTerm());
+              a.a.c(paramViewGroup).setText(localRichSearchSuggestion.d());
               break;
-              b.b(paramViewGroup).setVisibility(8);
+              a.a.b(paramViewGroup).setVisibility(8);
             }
           }
         }
       }
-      b.d(paramViewGroup).setVisibility(8);
-      b.d(paramViewGroup).setText(null);
+      a.a.d(paramViewGroup).setVisibility(8);
+      a.a.d(paramViewGroup).setText(null);
       return paramView;
     }
   }

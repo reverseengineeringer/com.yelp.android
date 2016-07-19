@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/message_other_biz" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <TextView android:textAppearance="@style/BodyText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" android:text="@string/request_a_quote_from_other_similar_providers" />
+    <com.yelp.android.ui.widgets.LeftDrawableButton android:textAppearance="@style/ButtonText" android:textColor="@color/GreyText" android:id="@id/start_button" android:background="@drawable/button_flat_design" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:src="@drawable/talk_icon" android:text="@string/start_quote_request" android:includeFontPadding="false" android:drawablePadding="@dimen/default_small_gap_size" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

@@ -1,65 +1,44 @@
 .class public Lcom/yelp/android/appdata/webrequests/ex;
-.super Ljava/lang/Object;
-.source "ReviewListFilteredRequest.java"
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "UpdatePrimaryEmailRequest.java"
 
 
 # instance fields
-.field public final a:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusinessReview;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public final b:I
-
-.field public final c:Lcom/yelp/android/serializable/MenuItem;
-
-.field public final d:Lcom/yelp/android/serializable/MoreInfoAction;
-
-.field public final e:Ljava/lang/String;
+.field private final a:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/List;ILcom/yelp/android/serializable/MenuItem;Lcom/yelp/android/serializable/MoreInfoAction;Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusinessReview;",
-            ">;I",
-            "Lcom/yelp/android/serializable/MenuItem;",
-            "Lcom/yelp/android/serializable/MoreInfoAction;",
-            "Ljava/lang/String;",
-            ")V"
-        }
-    .end annotation
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 2
 
     .prologue
-    .line 62
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 13
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    .line 63
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/ex;->a:Ljava/util/List;
+    const-string/jumbo v1, "account/update_primary_email"
 
-    .line 64
-    iput p2, p0, Lcom/yelp/android/appdata/webrequests/ex;->b:I
+    invoke-direct {p0, v0, v1, p2}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 65
-    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/ex;->c:Lcom/yelp/android/serializable/MenuItem;
+    .line 14
+    const-string/jumbo v0, "email"
 
-    .line 66
-    iput-object p4, p0, Lcom/yelp/android/appdata/webrequests/ex;->d:Lcom/yelp/android/serializable/MoreInfoAction;
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/ex;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 67
-    iput-object p5, p0, Lcom/yelp/android/appdata/webrequests/ex;->e:Ljava/lang/String;
+    .line 15
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/ex;->a:Ljava/lang/String;
 
-    .line 68
+    .line 16
     return-void
+.end method
+
+
+# virtual methods
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 19
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ex;->a:Ljava/lang/String;
+
+    return-object v0
 .end method

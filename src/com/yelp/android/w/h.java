@@ -1,30 +1,61 @@
 package com.yelp.android.w;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
-import android.os.ParcelFileDescriptor;
-import com.yelp.android.r.d;
-import com.yelp.android.v.m;
-import com.yelp.android.v.r;
+import android.util.Log;
+import com.bumptech.glide.Priority;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
-public class h
-  extends r<ParcelFileDescriptor>
-  implements c<Uri>
+public abstract class h<T>
+  implements c<T>
 {
-  public h(Context paramContext, m<com.yelp.android.v.e, ParcelFileDescriptor> paramm)
+  private final Uri a;
+  private final Context b;
+  private T c;
+  
+  public h(Context paramContext, Uri paramUri)
   {
-    super(paramContext, paramm);
+    b = paramContext.getApplicationContext();
+    a = paramUri;
   }
   
-  protected com.yelp.android.r.c<ParcelFileDescriptor> a(Context paramContext, Uri paramUri)
+  public final T a(Priority paramPriority)
+    throws Exception
   {
-    return new com.yelp.android.r.e(paramContext, paramUri);
+    paramPriority = b.getContentResolver();
+    c = b(a, paramPriority);
+    return (T)c;
   }
   
-  protected com.yelp.android.r.c<ParcelFileDescriptor> a(Context paramContext, String paramString)
+  public void a()
   {
-    return new d(paramContext.getApplicationContext().getAssets(), paramString);
+    if (c != null) {}
+    try
+    {
+      a(c);
+      return;
+    }
+    catch (IOException localIOException)
+    {
+      while (!Log.isLoggable("LocalUriFetcher", 2)) {}
+      Log.v("LocalUriFetcher", "failed to close data", localIOException);
+    }
   }
+  
+  protected abstract void a(T paramT)
+    throws IOException;
+  
+  protected abstract T b(Uri paramUri, ContentResolver paramContentResolver)
+    throws FileNotFoundException;
+  
+  public String b()
+  {
+    return a.toString();
+  }
+  
+  public void c() {}
 }
 
 /* Location:

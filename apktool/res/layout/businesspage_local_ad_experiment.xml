@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/content" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?sublistCell">
+        <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/businesspage_ad_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_base_gap_size" />
+        <TextView android:id="@id/businesspage_ad_flag" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:layout_marginRight="@dimen/default_small_gap_size" android:layout_toRightOf="@id/businesspage_ad_image" android:layout_alignTop="@id/businesspage_ad_title" style="@style/AdPill" />
+        <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:id="@id/businesspage_ad_distance" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_small_gap_size" android:maxLines="1" android:singleLine="true" android:layout_alignParentRight="true" />
+        <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:ellipsize="end" android:gravity="left" android:id="@id/businesspage_ad_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:includeFontPadding="false" android:layout_toLeftOf="@id/businesspage_ad_price" android:layout_toRightOf="@id/businesspage_ad_flag" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/businesspage_ad_rating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/businesspage_ad_title" android:layout_alignLeft="@id/businesspage_ad_flag">
+            <TextView android:layout_gravity="center|left" android:id="@id/businesspage_ad_rating_stars" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_small_gap_size" android:drawableLeft="@drawable/business_stars" />
+            <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:layout_gravity="left" android:id="@id/businesspage_ad_info_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" />
+        </LinearLayout>
+        <TextView android:textAppearance="@style/DeprecatedStandardText" android:ellipsize="end" android:id="@id/businesspage_ad_details" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_toRightOf="@id/businesspage_ad_image" android:layout_below="@id/businesspage_ad_rating" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+</LinearLayout>

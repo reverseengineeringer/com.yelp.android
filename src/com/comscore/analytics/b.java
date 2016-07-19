@@ -7,19 +7,13 @@ public class b
   
   public void run()
   {
-    synchronized (a)
-    {
-      if (!a.a(a)) {
-        return;
-      }
-      if (a.X != null)
-      {
-        a.f.b(a.X);
-        a.X = null;
-        a.x();
-      }
+    if (!a.a(a)) {}
+    while (a.X == null) {
       return;
     }
+    a.f.b(a.X);
+    a.X = null;
+    a.x();
   }
 }
 

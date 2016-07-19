@@ -7,18 +7,23 @@
 .field private static a:I
 
 
+# instance fields
+.field private b:Landroid/graphics/Path;
+
+.field private c:Landroid/graphics/RectF;
+
+
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 50
-    invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    .line 25
+    const/4 v0, 0x0
 
-    .line 51
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->a()V
+    invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/widgets/RoundedImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 52
+    .line 26
     return-void
 .end method
 
@@ -26,15 +31,12 @@
     .locals 1
 
     .prologue
-    .line 55
+    .line 29
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/widgets/RoundedImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 56
-    invoke-direct {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->a()V
-
-    .line 57
+    .line 30
     return-void
 .end method
 
@@ -42,102 +44,75 @@
     .locals 0
 
     .prologue
-    .line 60
+    .line 33
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 61
+    .line 34
     invoke-direct {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->a()V
 
-    .line 62
+    .line 35
     return-void
 .end method
 
-.method private static a(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
-    .locals 5
+.method private a()V
+    .locals 4
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const/4 v2, -0x1
+    .line 57
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .line 28
-    instance-of v0, p0, Landroid/graphics/drawable/BitmapDrawable;
+    const/16 v1, 0x12
 
-    if-eqz v0, :cond_0
+    if-ge v0, v1, :cond_0
 
-    .line 29
-    check-cast p0, Landroid/graphics/drawable/BitmapDrawable;
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+    const/16 v1, 0xb
 
-    move-result-object v0
+    if-lt v0, v1, :cond_0
 
-    .line 46
-    :goto_0
-    return-object v0
+    .line 59
+    const/4 v0, 0x1
 
-    .line 33
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/widgets/RoundedImageView;->setLayerType(ILandroid/graphics/Paint;)V
+
+    .line 61
     :cond_0
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    new-instance v0, Landroid/graphics/Path;
 
-    move-result v0
+    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
 
-    .line 34
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedImageView;->b:Landroid/graphics/Path;
+
+    .line 62
+    new-instance v0, Landroid/graphics/RectF;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->getWidth()I
 
     move-result v1
 
-    .line 37
-    if-eq v0, v2, :cond_1
+    int-to-float v1, v1
 
-    if-ne v1, v2, :cond_2
-
-    .line 38
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    .line 41
-    :cond_2
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    .line 42
-    new-instance v1, Landroid/graphics/Canvas;
-
-    invoke-direct {v1, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    .line 43
-    invoke-virtual {v1}, Landroid/graphics/Canvas;->getWidth()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->getHeight()I
 
     move-result v2
 
-    invoke-virtual {v1}, Landroid/graphics/Canvas;->getHeight()I
+    int-to-float v2, v2
 
-    move-result v3
+    invoke-direct {v0, v3, v3, v1, v2}, Landroid/graphics/RectF;-><init>(FFFF)V
 
-    invoke-virtual {p0, v4, v4, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    iput-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedImageView;->c:Landroid/graphics/RectF;
 
-    .line 44
-    invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    goto :goto_0
-.end method
-
-.method private a()V
-    .locals 2
-
-    .prologue
-    .line 65
+    .line 63
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v1, Lcom/yelp/android/bf/e;->corner_radius:I
+    sget v1, Lcom/yelp/android/co/a$d;->corner_radius:I
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -147,126 +122,74 @@
 
     sput v0, Lcom/yelp/android/ui/widgets/RoundedImageView;->a:I
 
-    .line 66
+    .line 64
     return-void
 .end method
 
 
 # virtual methods
-.method public setImageBitmap(Landroid/graphics/Bitmap;)V
-    .locals 2
-
-    .prologue
-    .line 85
-    if-nez p1, :cond_0
-
-    .line 86
-    const/4 v0, 0x0
-
-    invoke-super {p0, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    .line 90
-    :goto_0
-    return-void
-
-    .line 88
-    :cond_0
-    new-instance v0, Lcom/yelp/android/ui/widgets/ai;
-
-    sget v1, Lcom/yelp/android/ui/widgets/RoundedImageView;->a:I
-
-    invoke-direct {v0, p1, v1}, Lcom/yelp/android/ui/widgets/ai;-><init>(Landroid/graphics/Bitmap;I)V
-
-    invoke-super {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
-.end method
-
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
-
-    .prologue
-    .line 70
-    if-nez p1, :cond_0
-
-    .line 71
-    const/4 v0, 0x0
-
-    invoke-super {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    .line 81
-    :goto_0
-    return-void
-
-    .line 75
-    :cond_0
-    invoke-static {p1}, Lcom/yelp/android/ui/widgets/RoundedImageView;->a(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    .line 76
-    if-nez v0, :cond_1
-
-    .line 77
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
-
-    .line 79
-    :cond_1
-    new-instance v1, Lcom/yelp/android/ui/widgets/ai;
-
-    sget v2, Lcom/yelp/android/ui/widgets/RoundedImageView;->a:I
-
-    invoke-direct {v1, v0, v2}, Lcom/yelp/android/ui/widgets/ai;-><init>(Landroid/graphics/Bitmap;I)V
-
-    invoke-super {p0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
-.end method
-
-.method public setImageResource(I)V
+.method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 1
 
     .prologue
-    .line 94
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->getResources()Landroid/content/res/Resources;
+    .line 48
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    move-result-object v0
+    .line 49
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedImageView;->b:Landroid/graphics/Path;
 
-    invoke-static {v0, p1}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
+    invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipPath(Landroid/graphics/Path;)Z
 
-    move-result-object v0
+    .line 50
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 95
-    if-nez v0, :cond_0
+    .line 51
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    .line 97
-    invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->a(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    .line 98
-    if-nez v0, :cond_0
-
-    .line 100
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    .line 105
-    :goto_0
+    .line 52
     return-void
+.end method
 
-    .line 104
-    :cond_0
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/RoundedImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+.method protected onSizeChanged(IIII)V
+    .locals 5
 
-    goto :goto_0
+    .prologue
+    const/4 v3, 0x0
+
+    .line 40
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/ImageView;->onSizeChanged(IIII)V
+
+    .line 41
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedImageView;->c:Landroid/graphics/RectF;
+
+    int-to-float v1, p1
+
+    int-to-float v2, p2
+
+    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/RectF;->set(FFFF)V
+
+    .line 42
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedImageView;->b:Landroid/graphics/Path;
+
+    invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
+
+    .line 43
+    iget-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedImageView;->b:Landroid/graphics/Path;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/RoundedImageView;->c:Landroid/graphics/RectF;
+
+    sget v2, Lcom/yelp/android/ui/widgets/RoundedImageView;->a:I
+
+    int-to-float v2, v2
+
+    sget v3, Lcom/yelp/android/ui/widgets/RoundedImageView;->a:I
+
+    int-to-float v3, v3
+
+    sget-object v4, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Path;->addRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Path$Direction;)V
+
+    .line 44
+    return-void
 .end method

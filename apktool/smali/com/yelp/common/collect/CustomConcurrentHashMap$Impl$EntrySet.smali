@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x10
+    name = "EntrySet"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/util/AbstractSet",
@@ -86,13 +95,13 @@
 
     iget-object v2, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$EntrySet;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v2, v2, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v2, v2, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-interface {v2, v1, v3}, Lcom/yelp/common/collect/d;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v2, v1, v3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 

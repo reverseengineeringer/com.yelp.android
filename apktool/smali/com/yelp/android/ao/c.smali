@@ -1,99 +1,406 @@
-.class Lcom/yelp/android/ao/c;
-.super Ljava/lang/Object;
-.source "AsyncHttpClient.java"
+.class public Lcom/yelp/android/ao/c;
+.super Ljava/io/InputStream;
+.source "ExceptionCatchingInputStream.java"
 
-# interfaces
-.implements Lorg/apache/http/HttpResponseInterceptor;
+
+# static fields
+.field private static final a:Ljava/util/Queue;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Queue",
+            "<",
+            "Lcom/yelp/android/ao/c;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/ao/a;
+.field private b:Ljava/io/InputStream;
+
+.field private c:Ljava/io/IOException;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ao/a;)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
     .prologue
-    .line 149
-    iput-object p1, p0, Lcom/yelp/android/ao/c;->a:Lcom/yelp/android/ao/a;
+    .line 16
+    const/4 v0, 0x0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(I)Ljava/util/Queue;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/ao/c;->a:Ljava/util/Queue;
 
     return-void
 .end method
 
-
-# virtual methods
-.method public process(Lorg/apache/http/HttpResponse;Lorg/apache/http/protocol/HttpContext;)V
-    .locals 5
+.method constructor <init>()V
+    .locals 0
 
     .prologue
-    .line 152
-    invoke-interface {p1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+    .line 40
+    invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
-    move-result-object v0
-
-    .line 153
-    if-nez v0, :cond_1
-
-    .line 165
-    :cond_0
-    :goto_0
+    .line 42
     return-void
+.end method
 
-    .line 156
-    :cond_1
-    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContentEncoding()Lorg/apache/http/Header;
+.method public static a(Ljava/io/InputStream;)Lcom/yelp/android/ao/c;
+    .locals 2
+
+    .prologue
+    .line 23
+    sget-object v1, Lcom/yelp/android/ao/c;->a:Ljava/util/Queue;
+
+    monitor-enter v1
+
+    .line 24
+    :try_start_0
+    sget-object v0, Lcom/yelp/android/ao/c;->a:Ljava/util/Queue;
+
+    invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 157
-    if-eqz v0, :cond_0
+    check-cast v0, Lcom/yelp/android/ao/c;
 
-    .line 158
-    invoke-interface {v0}, Lorg/apache/http/Header;->getElements()[Lorg/apache/http/HeaderElement;
+    .line 25
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v1
+    .line 26
+    if-nez v0, :cond_0
 
-    array-length v2, v1
+    .line 27
+    new-instance v0, Lcom/yelp/android/ao/c;
 
+    invoke-direct {v0}, Lcom/yelp/android/ao/c;-><init>()V
+
+    .line 29
+    :cond_0
+    invoke-virtual {v0, p0}, Lcom/yelp/android/ao/c;->b(Ljava/io/InputStream;)V
+
+    .line 30
+    return-object v0
+
+    .line 25
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+.end method
+
+
+# virtual methods
+.method public a()Ljava/io/IOException;
+    .locals 1
+
+    .prologue
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->c:Ljava/io/IOException;
+
+    return-object v0
+.end method
+
+.method public available()I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 50
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->available()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public b()V
+    .locals 2
+
+    .prologue
     const/4 v0, 0x0
 
-    :goto_1
-    if-ge v0, v2, :cond_0
+    .line 126
+    iput-object v0, p0, Lcom/yelp/android/ao/c;->c:Ljava/io/IOException;
 
-    aget-object v3, v1, v0
+    .line 127
+    iput-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
 
-    .line 159
-    invoke-interface {v3}, Lorg/apache/http/HeaderElement;->getName()Ljava/lang/String;
+    .line 128
+    sget-object v1, Lcom/yelp/android/ao/c;->a:Ljava/util/Queue;
 
-    move-result-object v3
+    monitor-enter v1
 
-    const-string/jumbo v4, "gzip"
+    .line 129
+    :try_start_0
+    sget-object v0, Lcom/yelp/android/ao/c;->a:Ljava/util/Queue;
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-interface {v0, p0}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    move-result v3
+    .line 130
+    monitor-exit v1
 
-    if-eqz v3, :cond_2
+    .line 131
+    return-void
 
-    .line 160
-    new-instance v0, Lcom/yelp/android/ao/d;
+    .line 130
+    :catchall_0
+    move-exception v0
 
-    invoke-interface {p1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v1
+    throw v0
+.end method
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ao/d;-><init>(Lorg/apache/http/HttpEntity;)V
+.method b(Ljava/io/InputStream;)V
+    .locals 0
 
-    invoke-interface {p1, v0}, Lorg/apache/http/HttpResponse;->setEntity(Lorg/apache/http/HttpEntity;)V
+    .prologue
+    .line 45
+    iput-object p1, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    .line 46
+    return-void
+.end method
+
+.method public close()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 55
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+
+    .line 56
+    return-void
+.end method
+
+.method public mark(I)V
+    .locals 1
+
+    .prologue
+    .line 60
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1}, Ljava/io/InputStream;->mark(I)V
+
+    .line 61
+    return-void
+.end method
+
+.method public markSupported()Z
+    .locals 1
+
+    .prologue
+    .line 65
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->markSupported()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public read()I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 113
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    .line 118
+    :goto_0
+    return v0
+
+    .line 114
+    :catch_0
+    move-exception v0
+
+    .line 115
+    iput-object v0, p0, Lcom/yelp/android/ao/c;->c:Ljava/io/IOException;
+
+    .line 116
+    const/4 v0, -0x1
 
     goto :goto_0
+.end method
 
-    .line 158
-    :cond_2
-    add-int/lit8 v0, v0, 0x1
+.method public read([B)I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
-    goto :goto_1
+    .prologue
+    .line 72
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1}, Ljava/io/InputStream;->read([B)I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    .line 77
+    :goto_0
+    return v0
+
+    .line 73
+    :catch_0
+    move-exception v0
+
+    .line 74
+    iput-object v0, p0, Lcom/yelp/android/ao/c;->c:Ljava/io/IOException;
+
+    .line 75
+    const/4 v0, -0x1
+
+    goto :goto_0
+.end method
+
+.method public read([BII)I
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 84
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    .line 89
+    :goto_0
+    return v0
+
+    .line 85
+    :catch_0
+    move-exception v0
+
+    .line 86
+    iput-object v0, p0, Lcom/yelp/android/ao/c;->c:Ljava/io/IOException;
+
+    .line 87
+    const/4 v0, -0x1
+
+    goto :goto_0
+.end method
+
+.method public declared-synchronized reset()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 94
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 95
+    monitor-exit p0
+
+    return-void
+
+    .line 94
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public skip(J)J
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 101
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ao/c;->b:Ljava/io/InputStream;
+
+    invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v0
+
+    .line 106
+    :goto_0
+    return-wide v0
+
+    .line 102
+    :catch_0
+    move-exception v0
+
+    .line 103
+    iput-object v0, p0, Lcom/yelp/android/ao/c;->c:Ljava/io/IOException;
+
+    .line 104
+    const-wide/16 v0, 0x0
+
+    goto :goto_0
 .end method

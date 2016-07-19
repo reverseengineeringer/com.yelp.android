@@ -13,7 +13,7 @@
         ">",
         "Lcom/bumptech/glide/e",
         "<TModelType;",
-        "Lcom/yelp/android/v/h;",
+        "Lcom/yelp/android/aa/g;",
         "Landroid/graphics/Bitmap;",
         "TTranscodeType;>;"
     }
@@ -21,7 +21,7 @@
 
 
 # instance fields
-.field private final g:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+.field private final g:Lcom/yelp/android/x/c;
 
 .field private h:Lcom/bumptech/glide/load/resource/bitmap/f;
 
@@ -53,14 +53,14 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ae/f;Ljava/lang/Class;Lcom/bumptech/glide/e;)V
+.method constructor <init>(Lcom/yelp/android/ak/f;Ljava/lang/Class;Lcom/bumptech/glide/e;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/ae/f",
+            "Lcom/yelp/android/ak/f",
             "<TModelType;",
-            "Lcom/yelp/android/v/h;",
+            "Lcom/yelp/android/aa/g;",
             "Landroid/graphics/Bitmap;",
             "TTranscodeType;>;",
             "Ljava/lang/Class",
@@ -72,7 +72,7 @@
 
     .prologue
     .line 57
-    invoke-direct {p0, p1, p2, p3}, Lcom/bumptech/glide/e;-><init>(Lcom/yelp/android/ae/f;Ljava/lang/Class;Lcom/bumptech/glide/e;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/bumptech/glide/e;-><init>(Lcom/yelp/android/ak/f;Ljava/lang/Class;Lcom/bumptech/glide/e;)V
 
     .line 50
     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/f;->a:Lcom/bumptech/glide/load/resource/bitmap/f;
@@ -80,42 +80,42 @@
     iput-object v0, p0, Lcom/bumptech/glide/a;->h:Lcom/bumptech/glide/load/resource/bitmap/f;
 
     .line 58
-    iget-object v0, p3, Lcom/bumptech/glide/e;->c:Lcom/bumptech/glide/h;
+    iget-object v0, p3, Lcom/bumptech/glide/e;->c:Lcom/bumptech/glide/g;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/h;->a()Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    invoke-virtual {v0}, Lcom/bumptech/glide/g;->a()Lcom/yelp/android/x/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/a;->g:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    iput-object v0, p0, Lcom/bumptech/glide/a;->g:Lcom/yelp/android/x/c;
 
     .line 59
-    iget-object v0, p3, Lcom/bumptech/glide/e;->c:Lcom/bumptech/glide/h;
+    iget-object v0, p3, Lcom/bumptech/glide/e;->c:Lcom/bumptech/glide/g;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/h;->g()Lcom/bumptech/glide/load/DecodeFormat;
+    invoke-virtual {v0}, Lcom/bumptech/glide/g;->h()Lcom/bumptech/glide/load/DecodeFormat;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/bumptech/glide/a;->i:Lcom/bumptech/glide/load/DecodeFormat;
 
     .line 61
-    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/u;
+    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/o;
 
-    iget-object v1, p0, Lcom/bumptech/glide/a;->g:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    iget-object v1, p0, Lcom/bumptech/glide/a;->g:Lcom/yelp/android/x/c;
 
     iget-object v2, p0, Lcom/bumptech/glide/a;->i:Lcom/bumptech/glide/load/DecodeFormat;
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/resource/bitmap/u;-><init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;Lcom/bumptech/glide/load/DecodeFormat;)V
+    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/resource/bitmap/o;-><init>(Lcom/yelp/android/x/c;Lcom/bumptech/glide/load/DecodeFormat;)V
 
     iput-object v0, p0, Lcom/bumptech/glide/a;->j:Lcom/bumptech/glide/load/d;
 
     .line 62
-    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/k;
+    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/h;
 
-    iget-object v1, p0, Lcom/bumptech/glide/a;->g:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+    iget-object v1, p0, Lcom/bumptech/glide/a;->g:Lcom/yelp/android/x/c;
 
     iget-object v2, p0, Lcom/bumptech/glide/a;->i:Lcom/bumptech/glide/load/DecodeFormat;
 
-    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/resource/bitmap/k;-><init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;Lcom/bumptech/glide/load/DecodeFormat;)V
+    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/load/resource/bitmap/h;-><init>(Lcom/yelp/android/x/c;Lcom/bumptech/glide/load/DecodeFormat;)V
 
     iput-object v0, p0, Lcom/bumptech/glide/a;->k:Lcom/bumptech/glide/load/d;
 
@@ -143,9 +143,9 @@
 
     const/4 v1, 0x0
 
-    iget-object v2, p0, Lcom/bumptech/glide/a;->c:Lcom/bumptech/glide/h;
+    iget-object v2, p0, Lcom/bumptech/glide/a;->c:Lcom/bumptech/glide/g;
 
-    invoke-virtual {v2}, Lcom/bumptech/glide/h;->c()Lcom/bumptech/glide/load/resource/bitmap/e;
+    invoke-virtual {v2}, Lcom/bumptech/glide/g;->c()Lcom/bumptech/glide/load/resource/bitmap/e;
 
     move-result-object v2
 
@@ -187,10 +187,30 @@
     .end annotation
 
     .prologue
-    .line 423
+    .line 435
     invoke-super {p0, p1, p2}, Lcom/bumptech/glide/e;->b(II)Lcom/bumptech/glide/e;
 
-    .line 424
+    .line 436
+    return-object p0
+.end method
+
+.method public a(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/a;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/bumptech/glide/Priority;",
+            ")",
+            "Lcom/bumptech/glide/a",
+            "<TModelType;TTranscodeType;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 249
+    invoke-super {p0, p1}, Lcom/bumptech/glide/e;->b(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/e;
+
+    .line 250
     return-object p0
 .end method
 
@@ -201,7 +221,7 @@
             "(",
             "Lcom/bumptech/glide/load/a",
             "<",
-            "Lcom/yelp/android/v/h;",
+            "Lcom/yelp/android/aa/g;",
             ">;)",
             "Lcom/bumptech/glide/a",
             "<TModelType;TTranscodeType;>;"
@@ -209,10 +229,10 @@
     .end annotation
 
     .prologue
-    .line 442
+    .line 454
     invoke-super {p0, p1}, Lcom/bumptech/glide/e;->b(Lcom/bumptech/glide/load/a;)Lcom/bumptech/glide/e;
 
-    .line 443
+    .line 455
     return-object p0
 .end method
 
@@ -229,10 +249,10 @@
     .end annotation
 
     .prologue
-    .line 457
+    .line 469
     invoke-super {p0, p1}, Lcom/bumptech/glide/e;->b(Lcom/bumptech/glide/load/b;)Lcom/bumptech/glide/e;
 
-    .line 458
+    .line 470
     return-object p0
 .end method
 
@@ -243,7 +263,7 @@
             "(",
             "Lcom/bumptech/glide/load/d",
             "<",
-            "Lcom/yelp/android/v/h;",
+            "Lcom/yelp/android/aa/g;",
             "Landroid/graphics/Bitmap;",
             ">;)",
             "Lcom/bumptech/glide/a",
@@ -272,30 +292,10 @@
     .end annotation
 
     .prologue
-    .line 414
+    .line 426
     invoke-super {p0, p1}, Lcom/bumptech/glide/e;->b(Lcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/e;
 
-    .line 415
-    return-object p0
-.end method
-
-.method public a(Lcom/bumptech/glide/request/c;)Lcom/bumptech/glide/a;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/bumptech/glide/request/c",
-            "<-TModelType;TTranscodeType;>;)",
-            "Lcom/bumptech/glide/a",
-            "<TModelType;TTranscodeType;>;"
-        }
-    .end annotation
-
-    .prologue
-    .line 396
-    invoke-super {p0, p1}, Lcom/bumptech/glide/e;->b(Lcom/bumptech/glide/request/c;)Lcom/bumptech/glide/e;
-
-    .line 397
+    .line 427
     return-object p0
 .end method
 
@@ -310,10 +310,10 @@
     .end annotation
 
     .prologue
-    .line 463
+    .line 475
     invoke-super {p0, p1}, Lcom/bumptech/glide/e;->b(Ljava/lang/Object;)Lcom/bumptech/glide/e;
 
-    .line 464
+    .line 476
     return-object p0
 .end method
 
@@ -328,10 +328,10 @@
     .end annotation
 
     .prologue
-    .line 405
+    .line 417
     invoke-super {p0, p1}, Lcom/bumptech/glide/e;->b(Z)Lcom/bumptech/glide/e;
 
-    .line 406
+    .line 418
     return-object p0
 .end method
 
@@ -377,21 +377,21 @@
     return-object p0
 .end method
 
-.method public a(Landroid/widget/ImageView;)Lcom/yelp/android/ag/j;
+.method public a(Landroid/widget/ImageView;)Lcom/yelp/android/am/j;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/widget/ImageView;",
             ")",
-            "Lcom/yelp/android/ag/j",
+            "Lcom/yelp/android/am/j",
             "<TTranscodeType;>;"
         }
     .end annotation
 
     .prologue
-    .line 486
-    invoke-super {p0, p1}, Lcom/bumptech/glide/e;->a(Landroid/widget/ImageView;)Lcom/yelp/android/ag/j;
+    .line 498
+    invoke-super {p0, p1}, Lcom/bumptech/glide/e;->a(Landroid/widget/ImageView;)Lcom/yelp/android/am/j;
 
     move-result-object v0
 
@@ -416,9 +416,9 @@
 
     const/4 v1, 0x0
 
-    iget-object v2, p0, Lcom/bumptech/glide/a;->c:Lcom/bumptech/glide/h;
+    iget-object v2, p0, Lcom/bumptech/glide/a;->c:Lcom/bumptech/glide/g;
 
-    invoke-virtual {v2}, Lcom/bumptech/glide/h;->d()Lcom/bumptech/glide/load/resource/bitmap/l;
+    invoke-virtual {v2}, Lcom/bumptech/glide/g;->d()Lcom/bumptech/glide/load/resource/bitmap/i;
 
     move-result-object v2
 
@@ -442,10 +442,10 @@
     .end annotation
 
     .prologue
-    .line 377
+    .line 389
     invoke-super {p0, p1}, Lcom/bumptech/glide/e;->c(I)Lcom/bumptech/glide/e;
 
-    .line 378
+    .line 390
     return-object p0
 .end method
 
@@ -455,6 +455,18 @@
     .prologue
     .line 46
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/a;->a(II)Lcom/bumptech/glide/a;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic b(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/e;
+    .locals 1
+
+    .prologue
+    .line 46
+    invoke-virtual {p0, p1}, Lcom/bumptech/glide/a;->a(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/a;
 
     move-result-object v0
 
@@ -509,18 +521,6 @@
     return-object v0
 .end method
 
-.method public synthetic b(Lcom/bumptech/glide/request/c;)Lcom/bumptech/glide/e;
-    .locals 1
-
-    .prologue
-    .line 46
-    invoke-virtual {p0, p1}, Lcom/bumptech/glide/a;->a(Lcom/bumptech/glide/request/c;)Lcom/bumptech/glide/a;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method public synthetic b(Ljava/lang/Object;)Lcom/bumptech/glide/e;
     .locals 1
 
@@ -558,7 +558,7 @@
 .end method
 
 .method public c()Lcom/bumptech/glide/a;
-    .locals 0
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -568,11 +568,14 @@
     .end annotation
 
     .prologue
-    .line 451
-    invoke-super {p0}, Lcom/bumptech/glide/e;->h()Lcom/bumptech/glide/e;
+    .line 481
+    invoke-super {p0}, Lcom/bumptech/glide/e;->f()Lcom/bumptech/glide/e;
 
-    .line 452
-    return-object p0
+    move-result-object v0
+
+    check-cast v0, Lcom/bumptech/glide/a;
+
+    return-object v0
 .end method
 
 .method public synthetic c(I)Lcom/bumptech/glide/e;
@@ -589,33 +592,17 @@
 
 .method public synthetic clone()Ljava/lang/Object;
     .locals 1
-
-    .prologue
-    .line 46
-    invoke-virtual {p0}, Lcom/bumptech/glide/a;->d()Lcom/bumptech/glide/a;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public d()Lcom/bumptech/glide/a;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Lcom/bumptech/glide/a",
-            "<TModelType;TTranscodeType;>;"
+            Ljava/lang/CloneNotSupportedException;
         }
     .end annotation
 
     .prologue
-    .line 469
-    invoke-super {p0}, Lcom/bumptech/glide/e;->g()Lcom/bumptech/glide/e;
+    .line 46
+    invoke-virtual {p0}, Lcom/bumptech/glide/a;->c()Lcom/bumptech/glide/a;
 
     move-result-object v0
-
-    check-cast v0, Lcom/bumptech/glide/a;
 
     return-object v0
 .end method
@@ -632,41 +619,29 @@
     return-object v0
 .end method
 
+.method d()V
+    .locals 0
+
+    .prologue
+    .line 503
+    invoke-virtual {p0}, Lcom/bumptech/glide/a;->b()Lcom/bumptech/glide/a;
+
+    .line 504
+    return-void
+.end method
+
 .method e()V
     .locals 0
 
     .prologue
-    .line 491
-    invoke-virtual {p0}, Lcom/bumptech/glide/a;->b()Lcom/bumptech/glide/a;
-
-    .line 492
-    return-void
-.end method
-
-.method f()V
-    .locals 0
-
-    .prologue
-    .line 496
+    .line 508
     invoke-virtual {p0}, Lcom/bumptech/glide/a;->a()Lcom/bumptech/glide/a;
 
-    .line 497
+    .line 509
     return-void
 .end method
 
-.method public synthetic g()Lcom/bumptech/glide/e;
-    .locals 1
-
-    .prologue
-    .line 46
-    invoke-virtual {p0}, Lcom/bumptech/glide/a;->d()Lcom/bumptech/glide/a;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public synthetic h()Lcom/bumptech/glide/e;
+.method public synthetic f()Lcom/bumptech/glide/e;
     .locals 1
 
     .prologue

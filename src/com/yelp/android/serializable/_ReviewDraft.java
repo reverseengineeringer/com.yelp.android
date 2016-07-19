@@ -2,35 +2,83 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _ReviewDraft
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected String mBusinessName;
-  protected String mBusinessPhotoUrl;
-  protected Date mDateCreated;
-  protected Date mDateModified;
-  protected String mId;
-  protected int mNumHalfstars;
-  protected String mText;
+  protected Date a;
+  protected Date b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected int h;
   
-  protected _ReviewDraft() {}
-  
-  protected _ReviewDraft(Date paramDate1, Date paramDate2, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, int paramInt)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mDateCreated = paramDate1;
-    mDateModified = paramDate2;
-    mBusinessId = paramString1;
-    mBusinessName = paramString2;
-    mBusinessPhotoUrl = paramString3;
-    mText = paramString4;
-    mId = paramString5;
-    mNumHalfstars = paramInt;
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      a = new Date(l);
+    }
+    l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      b = new Date(l);
+    }
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("time_modified")) {
+      b = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
+    }
+    if (!paramJSONObject.isNull("business_id")) {
+      c = paramJSONObject.optString("business_id");
+    }
+    if (!paramJSONObject.isNull("business_name")) {
+      d = paramJSONObject.optString("business_name");
+    }
+    if (!paramJSONObject.isNull("business_photo_url")) {
+      e = paramJSONObject.optString("business_photo_url");
+    }
+    if (!paramJSONObject.isNull("text")) {
+      f = paramJSONObject.optString("text");
+    }
+    if (!paramJSONObject.isNull("id")) {
+      g = paramJSONObject.optString("id");
+    }
+    h = paramJSONObject.optInt("num_halfstars");
+  }
+  
+  public int b()
+  {
+    return h;
+  }
+  
+  public String c()
+  {
+    return g;
+  }
+  
+  public String d()
+  {
+    return f;
   }
   
   public int describeContents()
@@ -38,113 +86,68 @@ abstract class _ReviewDraft
     return 0;
   }
   
-  public String getBusinessId()
+  public String e()
   {
-    return mBusinessId;
+    return e;
   }
   
-  public String getBusinessName()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessName;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_ReviewDraft)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a();
   }
   
-  public String getBusinessPhotoUrl()
+  public String f()
   {
-    return mBusinessPhotoUrl;
+    return d;
   }
   
-  public Date getDateCreated()
+  public String g()
   {
-    return mDateCreated;
+    return c;
   }
   
-  public Date getDateModified()
+  public Date h()
   {
-    return mDateModified;
+    return b;
   }
   
-  public String getId()
+  public int hashCode()
   {
-    return mId;
-  }
-  
-  public int getNumHalfstars()
-  {
-    return mNumHalfstars;
-  }
-  
-  public String getText()
-  {
-    return mText;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_created")) {
-      mDateCreated = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("time_modified")) {
-      mDateModified = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
-    }
-    if (!paramJSONObject.isNull("business_id")) {
-      mBusinessId = paramJSONObject.optString("business_id");
-    }
-    if (!paramJSONObject.isNull("business_name")) {
-      mBusinessName = paramJSONObject.optString("business_name");
-    }
-    if (!paramJSONObject.isNull("business_photo_url")) {
-      mBusinessPhotoUrl = paramJSONObject.optString("business_photo_url");
-    }
-    if (!paramJSONObject.isNull("text")) {
-      mText = paramJSONObject.optString("text");
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    mNumHalfstars = paramJSONObject.optInt("num_halfstars");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateCreated = new Date(l);
-    }
-    l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateModified = new Date(l);
-    }
-    mBusinessId = paramParcel.readString();
-    mBusinessName = paramParcel.readString();
-    mBusinessPhotoUrl = paramParcel.readString();
-    mText = paramParcel.readString();
-    mId = paramParcel.readString();
-    mNumHalfstars = paramParcel.readInt();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     long l2 = -2147483648L;
-    if (mDateCreated == null)
+    if (a == null)
     {
       l1 = -2147483648L;
       paramParcel.writeLong(l1);
-      if (mDateModified != null) {
+      if (b != null) {
         break label96;
       }
     }
     label96:
-    for (long l1 = l2;; l1 = mDateModified.getTime())
+    for (long l1 = l2;; l1 = b.getTime())
     {
       paramParcel.writeLong(l1);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeString(mBusinessName);
-      paramParcel.writeString(mBusinessPhotoUrl);
-      paramParcel.writeString(mText);
-      paramParcel.writeString(mId);
-      paramParcel.writeInt(mNumHalfstars);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeInt(h);
       return;
-      l1 = mDateCreated.getTime();
+      l1 = a.getTime();
       break;
     }
   }

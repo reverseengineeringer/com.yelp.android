@@ -2,55 +2,60 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import com.google.android.gms.common.internal.safeparcel.zza;
+import com.google.android.gms.common.internal.safeparcel.zza.zza;
+import com.google.android.gms.common.internal.safeparcel.zzb;
 
 public class r
-  implements Parcelable.Creator<StreetViewPanoramaLink>
+  implements Parcelable.Creator<Tile>
 {
-  static void a(StreetViewPanoramaLink paramStreetViewPanoramaLink, Parcel paramParcel, int paramInt)
+  static void a(Tile paramTile, Parcel paramParcel, int paramInt)
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, paramStreetViewPanoramaLink.getVersionCode());
-    b.a(paramParcel, 2, panoId, false);
-    b.a(paramParcel, 3, bearing);
-    b.H(paramParcel, paramInt);
+    paramInt = zzb.zzav(paramParcel);
+    zzb.zzc(paramParcel, 1, paramTile.a());
+    zzb.zzc(paramParcel, 2, a);
+    zzb.zzc(paramParcel, 3, b);
+    zzb.zza(paramParcel, 4, c, false);
+    zzb.zzI(paramParcel, paramInt);
   }
   
-  public StreetViewPanoramaLink dj(Parcel paramParcel)
+  public Tile a(Parcel paramParcel)
   {
-    int j = a.G(paramParcel);
+    int k = 0;
+    int m = zza.zzau(paramParcel);
+    byte[] arrayOfByte = null;
+    int j = 0;
     int i = 0;
-    String str = null;
-    float f = 0.0F;
-    while (paramParcel.dataPosition() < j)
+    while (paramParcel.dataPosition() < m)
     {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
+      int n = zza.zzat(paramParcel);
+      switch (zza.zzca(n))
       {
       default: 
-        a.b(paramParcel, k);
+        zza.zzb(paramParcel, n);
         break;
       case 1: 
-        i = a.g(paramParcel, k);
+        i = zza.zzg(paramParcel, n);
         break;
       case 2: 
-        str = a.o(paramParcel, k);
+        j = zza.zzg(paramParcel, n);
         break;
       case 3: 
-        f = a.l(paramParcel, k);
+        k = zza.zzg(paramParcel, n);
+        break;
+      case 4: 
+        arrayOfByte = zza.zzs(paramParcel, n);
       }
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+    if (paramParcel.dataPosition() != m) {
+      throw new zza.zza("Overread allowed size end=" + m, paramParcel);
     }
-    return new StreetViewPanoramaLink(i, str, f);
+    return new Tile(i, j, k, arrayOfByte);
   }
   
-  public StreetViewPanoramaLink[] ff(int paramInt)
+  public Tile[] a(int paramInt)
   {
-    return new StreetViewPanoramaLink[paramInt];
+    return new Tile[paramInt];
   }
 }
 

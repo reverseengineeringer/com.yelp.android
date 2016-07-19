@@ -1,34 +1,33 @@
 package com.yelp.android.ui.util;
 
-import android.os.AsyncTask;
-import android.util.SparseArray;
-import com.yelp.android.appdata.BaseYelpApplication;
+import android.content.Context;
+import android.location.Location;
+import com.yelp.android.analytics.iris.EventIri;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.cn;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
+import com.yelp.android.appdata.webrequests.ep;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-class y
-  extends AsyncTask<List<From>, Void, Void>
+public class y<T>
+  extends SuggestionFilter<T>
 {
-  y(x paramx) {}
-  
-  protected Void a(List<From>... paramVarArgs)
+  public y(List<CharSequence> paramList, ArrayList<CharSequence> paramArrayList1, ArrayList<CharSequence> paramArrayList2, boolean paramBoolean, SuggestionFilter.SuggestionType paramSuggestionType, SuggestionFilter.b<T> paramb)
   {
-    int i = 0;
-    paramVarArgs = paramVarArgs[0];
-    x.a(a, new SparseArray(paramVarArgs.size()));
-    BaseYelpApplication localBaseYelpApplication = BaseYelpApplication.z();
-    while (i < paramVarArgs.size())
-    {
-      Object localObject = a.a(localBaseYelpApplication, paramVarArgs.get(i));
-      x.a(a).append(i, localObject);
-      i += 1;
-    }
-    return null;
+    super(paramList, paramArrayList1, paramArrayList2, paramBoolean, false, paramSuggestionType, paramb);
   }
   
-  protected void a(Void paramVoid)
+  protected ep a(String paramString1, ApiRequest.b<List<T>> paramb, Location paramLocation, String paramString2)
   {
-    super.onPostExecute(paramVoid);
-    x.a(a, true);
+    return new cn(paramString1, paramLocation, paramb);
+  }
+  
+  protected void a(Context paramContext, HashMap<String, Object> paramHashMap)
+  {
+    AppData.b().k().a(EventIri.SearchBarSuggestLocation, paramHashMap);
   }
 }
 

@@ -1,178 +1,100 @@
 package com.google.android.gms.internal;
 
-import android.os.Bundle;
-import android.os.SystemClock;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.Map;
+import java.util.concurrent.Future;
 
-@ey
-public class fz
+@fv
+public final class fz
 {
-  private final Object mH = new Object();
-  private boolean uQ = false;
-  private final ga vL;
-  private final LinkedList<fz.a> vM;
-  private final String vN;
-  private final String vO;
-  private long vP = -1L;
-  private long vQ = -1L;
-  private long vR = -1L;
-  private long vS = 0L;
-  private long vT = -1L;
-  private long vU = -1L;
-  
-  public fz(ga paramga, String paramString1, String paramString2)
+  ib a;
+  db.d b;
+  public final bz c = new bz()
   {
-    vL = paramga;
-    vN = paramString1;
-    vO = paramString2;
-    vM = new LinkedList();
-  }
+    public void a(ib arg1, Map<String, String> paramAnonymousMap)
+    {
+      synchronized (fz.a(fz.this))
+      {
+        if (fz.b(fz.this).isDone()) {
+          return;
+        }
+        if (!fz.c(fz.this).equals(paramAnonymousMap.get("request_id"))) {
+          return;
+        }
+      }
+      paramAnonymousMap = new gc(1, paramAnonymousMap);
+      gz.d("Invalid " + paramAnonymousMap.e() + " request error: " + paramAnonymousMap.b());
+      fz.b(fz.this).b(paramAnonymousMap);
+    }
+  };
+  public final bz d = new bz()
+  {
+    public void a(ib paramAnonymousib, Map<String, String> paramAnonymousMap)
+    {
+      gc localgc;
+      synchronized (fz.a(fz.this))
+      {
+        if (fz.b(fz.this).isDone()) {
+          return;
+        }
+        localgc = new gc(-2, paramAnonymousMap);
+        if (!fz.c(fz.this).equals(localgc.g()))
+        {
+          gz.d(localgc.g() + " ==== " + fz.c(fz.this));
+          return;
+        }
+      }
+      String str = localgc.d();
+      if (str == null)
+      {
+        gz.d("URL missing in loadAdUrl GMSG.");
+        return;
+      }
+      if (str.contains("%40mediation_adapters%40"))
+      {
+        paramAnonymousib = str.replaceAll("%40mediation_adapters%40", gx.a(paramAnonymousib.getContext(), (String)paramAnonymousMap.get("check_adapters"), fz.d(fz.this)));
+        localgc.a(paramAnonymousib);
+        gz.e("Ad request URL modified to " + paramAnonymousib);
+      }
+      fz.b(fz.this).b(localgc);
+    }
+  };
+  private final Object e = new Object();
+  private String f;
+  private String g;
+  private hp<gc> h = new hp();
   
   public fz(String paramString1, String paramString2)
   {
-    this(ga.dc(), paramString1, paramString2);
+    g = paramString2;
+    f = paramString1;
   }
   
-  public void cW()
+  public db.d a()
   {
-    synchronized (mH)
-    {
-      if ((vU != -1L) && (vQ == -1L))
-      {
-        vQ = SystemClock.elapsedRealtime();
-        vL.a(this);
-      }
-      ga localga = vL;
-      ga.dh().cW();
-      return;
-    }
+    return b;
   }
   
-  public void cX()
+  public void a(db.d paramd)
   {
-    synchronized (mH)
-    {
-      if (vU != -1L)
-      {
-        Object localObject2 = new fz.a();
-        ((fz.a)localObject2).db();
-        vM.add(localObject2);
-        vS += 1L;
-        localObject2 = vL;
-        ga.dh().cX();
-        vL.a(this);
-      }
-      return;
-    }
+    b = paramd;
   }
   
-  public void cY()
+  public void a(ib paramib)
   {
-    synchronized (mH)
-    {
-      if ((vU != -1L) && (!vM.isEmpty()))
-      {
-        fz.a locala = (fz.a)vM.getLast();
-        if (locala.cZ() == -1L)
-        {
-          locala.da();
-          vL.a(this);
-        }
-      }
-      return;
-    }
+    a = paramib;
   }
   
-  public void e(av paramav)
+  public Future<gc> b()
   {
-    synchronized (mH)
-    {
-      vT = SystemClock.elapsedRealtime();
-      ga localga = vL;
-      ga.dh().b(paramav, vT);
-      return;
-    }
+    return h;
   }
   
-  public void j(long paramLong)
+  public void c()
   {
-    synchronized (mH)
+    if (a != null)
     {
-      vU = paramLong;
-      if (vU != -1L) {
-        vL.a(this);
-      }
-      return;
-    }
-  }
-  
-  public void k(long paramLong)
-  {
-    synchronized (mH)
-    {
-      if (vU != -1L)
-      {
-        vP = paramLong;
-        vL.a(this);
-      }
-      return;
-    }
-  }
-  
-  public Bundle toBundle()
-  {
-    ArrayList localArrayList;
-    synchronized (mH)
-    {
-      Bundle localBundle1 = new Bundle();
-      localBundle1.putString("seq_num", vN);
-      localBundle1.putString("slotid", vO);
-      localBundle1.putBoolean("ismediation", uQ);
-      localBundle1.putLong("treq", vT);
-      localBundle1.putLong("tresponse", vU);
-      localBundle1.putLong("timp", vQ);
-      localBundle1.putLong("tload", vR);
-      localBundle1.putLong("pcc", vS);
-      localBundle1.putLong("tfetch", vP);
-      localArrayList = new ArrayList();
-      Iterator localIterator = vM.iterator();
-      if (localIterator.hasNext()) {
-        localArrayList.add(((fz.a)localIterator.next()).toBundle());
-      }
-    }
-    localBundle2.putParcelableArrayList("tclick", localArrayList);
-    return localBundle2;
-  }
-  
-  public void v(boolean paramBoolean)
-  {
-    synchronized (mH)
-    {
-      if (vU != -1L)
-      {
-        vR = SystemClock.elapsedRealtime();
-        if (!paramBoolean)
-        {
-          vQ = vR;
-          vL.a(this);
-        }
-      }
-      return;
-    }
-  }
-  
-  public void w(boolean paramBoolean)
-  {
-    synchronized (mH)
-    {
-      if (vU != -1L)
-      {
-        uQ = paramBoolean;
-        vL.a(this);
-      }
-      return;
+      a.destroy();
+      a = null;
     }
   }
 }

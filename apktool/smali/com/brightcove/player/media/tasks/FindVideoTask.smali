@@ -45,6 +45,12 @@
 # virtual methods
 .method public findVideoById(Ljava/lang/String;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/URISyntaxException;,
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
 
     .prologue
     .line 51
@@ -60,6 +66,12 @@
 
 .method public findVideoByReferenceId(Ljava/lang/String;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/URISyntaxException;,
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
 
     .prologue
     .line 55

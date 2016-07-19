@@ -1,25 +1,75 @@
 package com.yelp.android.debug;
 
-import android.widget.TextView;
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.m;
+import android.text.TextUtils;
 
-class d
-  implements m<Result>
+public class d
 {
-  d(c paramc) {}
+  private final String a;
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public d(String paramString)
   {
-    c.b(a).setText(c.a(a) + " failed");
-    c.a(a, null);
+    if ((TextUtils.isEmpty(paramString)) || (TextUtils.equals(paramString, "yelp")))
+    {
+      a = "yelp.com";
+      return;
+    }
+    if (paramString.contains("."))
+    {
+      a = paramString;
+      return;
+    }
+    if (TextUtils.equals(paramString, "stagea"))
+    {
+      a = "stagea.yelp.com";
+      return;
+    }
+    if (TextUtils.equals(paramString, "stageb"))
+    {
+      a = "stageb.yelp.com";
+      return;
+    }
+    if (TextUtils.equals(paramString, "stagef"))
+    {
+      a = "stagef.yelp.com";
+      return;
+    }
+    a = (paramString + ".dev.yelp.com");
   }
   
-  public void onSuccess(ApiRequest<?, ?, ?> paramApiRequest, Result paramResult)
+  public String a()
   {
-    c.b(a).setText(c.a(a) + " completed");
-    c.a(a, null);
+    return a;
+  }
+  
+  public String a(String paramString)
+  {
+    if (c()) {
+      return paramString;
+    }
+    if ((d()) || (e())) {
+      return "stage-" + paramString;
+    }
+    return a.replace(".dev.yelp.com", "") + "-" + paramString;
+  }
+  
+  public String b()
+  {
+    return "m." + a;
+  }
+  
+  public boolean c()
+  {
+    return "yelp.com".equals(a);
+  }
+  
+  public boolean d()
+  {
+    return "stagea.yelp.com".equals(a);
+  }
+  
+  public boolean e()
+  {
+    return "stageb.yelp.com".equals(a);
   }
 }
 

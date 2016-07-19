@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:paddingLeft="?smallGapSize" android:paddingTop="?smallGapSize" android:paddingRight="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <View android:layout_gravity="center_vertical" android:id="@id/footer_line" android:background="@color/gray_mid_light" android:layout_width="0.0dip" android:layout_height="1.0px" android:layout_weight="1.0" />
-    <Button android:textAppearance="@style/StandardDarkText" android:layout_gravity="center_vertical" android:id="@id/footer_small_button" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="100.0dip" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:includeFontPadding="false" />
-    <Button android:textAppearance="@style/LargeDarkText" android:layout_gravity="center_vertical" android:id="@id/footer_large_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?smallGapSize" android:layout_marginRight="?smallGapSize" android:maxWidth="200.0dip" android:minWidth="175.0dip" android:includeFontPadding="false" android:drawableRight="@drawable/arrow_graphic" android:drawablePadding="?baseGapSize" android:layout_weight="1.0" style="@style/Widget.Button.BusinessPage" />
-</LinearLayout>
+<FrameLayout android:paddingTop="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/content" android:paddingTop="@dimen/default_large_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size" yelp:position="bottom|left" style="?sublistCell">
+        <ImageView android:id="@id/arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_small_gap_size" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        <TextView android:textAppearance="@style/SectionText" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_large_gap_size" android:layout_toLeftOf="@id/arrow" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+</FrameLayout>

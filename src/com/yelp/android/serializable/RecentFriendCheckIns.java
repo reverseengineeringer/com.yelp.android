@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class RecentFriendCheckIns
   extends _RecentFriendCheckIns
 {
-  public static final JsonParser.DualCreator<RecentFriendCheckIns> CREATOR = new ci();
+  public static final JsonParser.DualCreator<RecentFriendCheckIns> CREATOR = new RecentFriendCheckIns.1();
 }
 
 /* Location:

@@ -3,7 +3,7 @@
 .source "CalculatedPriceView.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/widgets/s;
+.implements Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
 
 
 # instance fields
@@ -35,7 +35,7 @@
 
     .prologue
     .line 38
-    const v0, 0x7f010033
+    const v0, 0x7f01003f
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -51,16 +51,16 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 43
-    sget-object v0, Lcom/yelp/android/b;->DealQuantityBaseView:[I
+    sget-object v0, Lcom/yelp/android/b$a;->DealQuantityBaseView:[I
 
     invoke-virtual {p1, p2, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 45
+    .line 46
     const/4 v1, 0x0
 
-    const v2, 0x7f0704ae
+    const v2, 0x7f0704c8
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -68,10 +68,10 @@
 
     iput v1, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->b:I
 
-    .line 47
+    .line 49
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 48
+    .line 50
     return-void
 .end method
 
@@ -79,7 +79,7 @@
     .locals 6
 
     .prologue
-    .line 56
+    .line 58
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->d:Ljava/math/BigDecimal;
 
     new-instance v1, Ljava/math/BigDecimal;
@@ -92,7 +92,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->e:Ljava/math/BigDecimal;
 
-    .line 57
+    .line 59
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -131,12 +131,12 @@
 
     move-result-object v0
 
-    .line 59
+    .line 66
     iget-object v1, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->a:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 60
+    .line 67
     return-void
 .end method
 
@@ -146,7 +146,7 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 54
     invoke-virtual {p2}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getQuantity()Ljava/lang/Integer;
 
     move-result-object v0
@@ -157,7 +157,7 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->a(I)V
 
-    .line 53
+    .line 55
     return-void
 .end method
 
@@ -165,22 +165,22 @@
     .locals 2
 
     .prologue
-    .line 69
+    .line 76
     iput-object p1, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->d:Ljava/math/BigDecimal;
 
-    .line 70
+    .line 77
     invoke-static {}, Ljava/text/NumberFormat;->getCurrencyInstance()Ljava/text/NumberFormat;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->c:Ljava/text/NumberFormat;
 
-    .line 71
+    .line 78
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->c:Ljava/text/NumberFormat;
 
     invoke-virtual {v0, p2}, Ljava/text/NumberFormat;->setCurrency(Ljava/util/Currency;)V
 
-    .line 72
+    .line 79
     iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->c:Ljava/text/NumberFormat;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->d:Ljava/math/BigDecimal;
@@ -191,7 +191,7 @@
 
     invoke-virtual {v0, v1}, Ljava/text/NumberFormat;->setMinimumFractionDigits(I)V
 
-    .line 73
+    .line 80
     return-void
 .end method
 
@@ -199,10 +199,10 @@
     .locals 2
 
     .prologue
-    .line 86
+    .line 93
     check-cast p1, Landroid/os/Bundle;
 
-    .line 87
+    .line 94
     const-string/jumbo v0, "super"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -211,7 +211,7 @@
 
     invoke-super {p0, v0}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
-    .line 88
+    .line 95
     new-instance v0, Ljava/math/BigDecimal;
 
     const-string/jumbo v1, "quantity"
@@ -224,7 +224,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->e:Ljava/math/BigDecimal;
 
-    .line 89
+    .line 96
     new-instance v0, Ljava/math/BigDecimal;
 
     const-string/jumbo v1, "price"
@@ -237,7 +237,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->d:Ljava/math/BigDecimal;
 
-    .line 90
+    .line 97
     return-void
 .end method
 
@@ -245,12 +245,12 @@
     .locals 3
 
     .prologue
-    .line 77
+    .line 84
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 78
+    .line 85
     const-string/jumbo v1, "super"
 
     invoke-super {p0}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -259,7 +259,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 79
+    .line 86
     const-string/jumbo v1, "quantity"
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->e:Ljava/math/BigDecimal;
@@ -270,7 +270,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 80
+    .line 87
     const-string/jumbo v1, "price"
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/deals/CalculatedPriceView;->d:Ljava/math/BigDecimal;
@@ -281,6 +281,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 81
+    .line 88
     return-object v0
 .end method

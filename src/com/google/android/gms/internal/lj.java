@@ -1,41 +1,50 @@
 package com.google.android.gms.internal;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-
 public class lj
 {
-  public static void a(StringBuilder paramStringBuilder, HashMap<String, String> paramHashMap)
+  private final byte[] a = new byte['Ā'];
+  private int b;
+  private int c;
+  
+  public lj(byte[] paramArrayOfByte)
   {
-    paramStringBuilder.append("{");
-    Iterator localIterator = paramHashMap.keySet().iterator();
-    int i = 1;
-    if (localIterator.hasNext())
+    int j = 0;
+    while (j < 256)
     {
-      String str1 = (String)localIterator.next();
-      label50:
-      String str2;
-      if (i == 0)
-      {
-        paramStringBuilder.append(",");
-        str2 = (String)paramHashMap.get(str1);
-        paramStringBuilder.append("\"").append(str1).append("\":");
-        if (str2 != null) {
-          break label98;
-        }
-        paramStringBuilder.append("null");
-      }
-      for (;;)
-      {
-        break;
-        i = 0;
-        break label50;
-        label98:
-        paramStringBuilder.append("\"").append(str2).append("\"");
-      }
+      a[j] = ((byte)j);
+      j += 1;
     }
-    paramStringBuilder.append("}");
+    int k = 0;
+    j = 0;
+    while (j < 256)
+    {
+      k = k + a[j] + paramArrayOfByte[(j % paramArrayOfByte.length)] & 0xFF;
+      int i = a[j];
+      a[j] = a[k];
+      a[k] = i;
+      j += 1;
+    }
+    b = 0;
+    c = 0;
+  }
+  
+  public void a(byte[] paramArrayOfByte)
+  {
+    int m = b;
+    int k = c;
+    int j = 0;
+    while (j < paramArrayOfByte.length)
+    {
+      m = m + 1 & 0xFF;
+      k = k + a[m] & 0xFF;
+      int i = a[m];
+      a[m] = a[k];
+      a[k] = i;
+      paramArrayOfByte[j] = ((byte)(paramArrayOfByte[j] ^ a[(a[m] + a[k] & 0xFF)]));
+      j += 1;
+    }
+    b = m;
+    c = k;
   }
 }
 

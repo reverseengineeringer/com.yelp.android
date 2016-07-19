@@ -3,8 +3,11 @@ package com.ooyala.android;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
+import android.webkit.ConsoleMessage;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -54,8 +57,41 @@ public class Analytics
     _jsAnalytics.getSettings().setUserAgentString(_defaultUserAgent);
     _jsAnalytics.getSettings().setJavaScriptEnabled(true);
     setAllowUniversalAccessFromFileURLs(_jsAnalytics.getSettings());
-    _jsAnalytics.setWebViewClient(new Analytics.1(this));
-    _jsAnalytics.setWebChromeClient(new Analytics.2(this));
+    _jsAnalytics.setWebViewClient(new WebViewClient()
+    {
+      public void onPageFinished(WebView paramAnonymousWebView, String paramAnonymousString)
+      {
+        if ((!_ready) && (!_failed))
+        {
+          Analytics.access$002(Analytics.this, true);
+          Log.d(getClass().getName(), "Initialized Analytics.");
+          Analytics.this.performQueuedActions();
+        }
+      }
+      
+      public void onReceivedError(WebView paramAnonymousWebView, int paramAnonymousInt, String paramAnonymousString1, String paramAnonymousString2)
+      {
+        if (!_failed)
+        {
+          Analytics.access$002(Analytics.this, false);
+          Analytics.access$102(Analytics.this, true);
+          Log.e(getClass().getName(), "ERROR: Failed to load js Analytics!");
+        }
+      }
+    });
+    _jsAnalytics.setWebChromeClient(new WebChromeClient()
+    {
+      public void onConsoleMessage(String paramAnonymousString1, int paramAnonymousInt, String paramAnonymousString2)
+      {
+        Log.v("Analytics", "javascript: " + paramAnonymousString2 + "@" + paramAnonymousInt + ": " + paramAnonymousString1);
+      }
+      
+      public boolean onConsoleMessage(ConsoleMessage paramAnonymousConsoleMessage)
+      {
+        onConsoleMessage(paramAnonymousConsoleMessage.message(), paramAnonymousConsoleMessage.lineNumber(), paramAnonymousConsoleMessage.sourceId());
+        return true;
+      }
+    });
     bootHtml(paramContext, paramString2, paramString1);
     Log.d("Analytics", "Initialized Analytics with user agent: " + _jsAnalytics.getSettings().getUserAgentString());
   }

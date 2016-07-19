@@ -3,6 +3,14 @@
 .source "ApiException.java"
 
 
+# annotations
+.annotation build Landroid/annotation/SuppressLint;
+    value = {
+        "ParcelCreator"
+    }
+.end annotation
+
+
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -14,8 +22,6 @@
         }
     .end annotation
 .end field
-
-.field private static final RECOVERABLE:[I
 
 .field public static final YPAPICodeAccountUnconfirmed:I = 0xb
 
@@ -56,6 +62,8 @@
 .field public static final YPAPICodeEmailAlreadyConfirmed:I = 0x192
 
 .field public static final YPAPICodeEmailAlreadyExists:I = 0x191
+
+.field public static final YPAPICodeEmailForDifferentUser:I = 0x194
 
 .field public static final YPAPICodeEmailNoAccount:I = 0x190
 
@@ -131,6 +139,8 @@
 
 .field public static final YPAPIEventRsvpCannotModify:I = 0x6a4
 
+.field private static final a:[I
+
 .field private static final serialVersionUID:J = 0x1L
 
 
@@ -145,14 +155,14 @@
     .locals 3
 
     .prologue
-    .line 82
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/g;
+    .line 85
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/ApiException$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/g;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/ApiException$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ApiException;->CREATOR:Landroid/os/Parcelable$Creator;
 
-    .line 302
+    .line 305
     const/4 v0, 0x1
 
     new-array v0, v0, [I
@@ -163,14 +173,14 @@
 
     aput v2, v0, v1
 
-    sput-object v0, Lcom/yelp/android/appdata/webrequests/ApiException;->RECOVERABLE:[I
+    sput-object v0, Lcom/yelp/android/appdata/webrequests/ApiException;->a:[I
 
-    .line 308
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiException;->RECOVERABLE:[I
+    .line 309
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiException;->a:[I
 
     invoke-static {v0}, Ljava/util/Arrays;->sort([I)V
 
-    .line 309
+    .line 310
     return-void
 .end method
 
@@ -178,309 +188,281 @@
     .locals 1
 
     .prologue
-    .line 38
-    invoke-static {p1}, Lcom/yelp/android/appdata/webrequests/ApiException;->getResourceForCode(I)I
+    .line 41
+    invoke-static {p1}, Lcom/yelp/android/appdata/webrequests/ApiException;->a(I)I
 
     move-result v0
 
     invoke-direct {p0, v0}, Lcom/yelp/android/appdata/webrequests/YelpException;-><init>(I)V
 
-    .line 39
+    .line 42
     iput p1, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mResultCode:I
 
-    .line 40
+    .line 43
     iput-object p2, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 
-    .line 41
+    .line 44
     return-void
 .end method
 
-.method synthetic constructor <init>(ILorg/json/JSONObject;Lcom/yelp/android/appdata/webrequests/g;)V
+.method synthetic constructor <init>(ILorg/json/JSONObject;Lcom/yelp/android/appdata/webrequests/ApiException$1;)V
     .locals 0
 
     .prologue
-    .line 23
+    .line 26
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/appdata/webrequests/ApiException;-><init>(ILorg/json/JSONObject;)V
 
     return-void
 .end method
 
-.method public static final getExceptionForCode(ILorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/ApiException;
-    .locals 2
-
-    .prologue
-    .line 204
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ApiException;
-
-    invoke-direct {v0, p0, p1}, Lcom/yelp/android/appdata/webrequests/ApiException;-><init>(ILorg/json/JSONObject;)V
-
-    .line 205
-    sget-object v1, Lcom/yelp/android/appdata/webrequests/ApiException;->RECOVERABLE:[I
-
-    invoke-static {v1, p0}, Ljava/util/Arrays;->binarySearch([II)I
-
-    move-result v1
-
-    if-ltz v1, :cond_0
-
-    .line 206
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiException;->setIsRecoverable(Z)V
-
-    .line 208
-    :cond_0
-    return-object v0
-.end method
-
-.method private static getResourceForCode(I)I
+.method private static a(I)I
     .locals 1
 
     .prologue
-    .line 110
+    .line 114
     sparse-switch p0, :sswitch_data_0
 
-    .line 191
-    const v0, 0x7f070037
+    .line 194
+    const v0, 0x7f0700bf
 
     :goto_0
     return v0
 
-    .line 112
-    :sswitch_0
-    const v0, 0x7f070029
-
-    goto :goto_0
-
-    .line 114
-    :sswitch_1
-    const v0, 0x7f070018
-
-    goto :goto_0
-
     .line 116
-    :sswitch_2
-    const v0, 0x7f070014
+    :sswitch_0
+    const v0, 0x7f0700b1
 
     goto :goto_0
 
     .line 118
-    :sswitch_3
-    const v0, 0x7f070019
+    :sswitch_1
+    const v0, 0x7f0700a0
 
     goto :goto_0
 
     .line 120
-    :sswitch_4
-    const v0, 0x7f070016
+    :sswitch_2
+    const v0, 0x7f07009c
 
     goto :goto_0
 
     .line 122
-    :sswitch_5
-    const v0, 0x7f070038
+    :sswitch_3
+    const v0, 0x7f0700a1
 
     goto :goto_0
 
     .line 124
-    :sswitch_6
-    const v0, 0x7f070017
+    :sswitch_4
+    const v0, 0x7f07009e
 
     goto :goto_0
 
     .line 126
-    :sswitch_7
-    const v0, 0x7f070015
+    :sswitch_5
+    const v0, 0x7f0700c0
 
     goto :goto_0
 
     .line 128
-    :sswitch_8
-    const v0, 0x7f070028
+    :sswitch_6
+    const v0, 0x7f07009f
 
     goto :goto_0
 
     .line 130
-    :sswitch_9
-    const v0, 0x7f070039
+    :sswitch_7
+    const v0, 0x7f07009d
 
     goto :goto_0
 
     .line 132
-    :sswitch_a
-    const v0, 0x7f070026
+    :sswitch_8
+    const v0, 0x7f0700b0
 
     goto :goto_0
 
     .line 134
-    :sswitch_b
-    const v0, 0x7f070024
+    :sswitch_9
+    const v0, 0x7f0700c1
 
     goto :goto_0
 
     .line 136
-    :sswitch_c
-    const v0, 0x7f070012
+    :sswitch_a
+    const v0, 0x7f0700ae
 
     goto :goto_0
 
     .line 138
-    :sswitch_d
-    const v0, 0x7f07002d
+    :sswitch_b
+    const v0, 0x7f0700ac
 
     goto :goto_0
 
     .line 140
-    :sswitch_e
-    const v0, 0x7f070020
+    :sswitch_c
+    const v0, 0x7f07009a
 
     goto :goto_0
 
     .line 142
-    :sswitch_f
-    const v0, 0x7f07001f
+    :sswitch_d
+    const v0, 0x7f0700b5
 
     goto :goto_0
 
     .line 144
-    :sswitch_10
-    const v0, 0x7f07002a
+    :sswitch_e
+    const v0, 0x7f0700a8
 
     goto :goto_0
 
     .line 146
-    :sswitch_11
-    const v0, 0x7f070030
+    :sswitch_f
+    const v0, 0x7f0700a7
 
     goto :goto_0
 
     .line 148
-    :sswitch_12
-    const v0, 0x7f070031
+    :sswitch_10
+    const v0, 0x7f0700b2
 
     goto :goto_0
 
     .line 150
-    :sswitch_13
-    const v0, 0x7f070034
+    :sswitch_11
+    const v0, 0x7f0700b8
 
     goto :goto_0
 
     .line 152
-    :sswitch_14
-    const v0, 0x7f070032
+    :sswitch_12
+    const v0, 0x7f0700b9
 
     goto :goto_0
 
     .line 154
-    :sswitch_15
-    const v0, 0x7f070033
+    :sswitch_13
+    const v0, 0x7f0700bc
 
     goto :goto_0
 
     .line 156
-    :sswitch_16
-    const v0, 0x7f070035
+    :sswitch_14
+    const v0, 0x7f0700ba
 
     goto :goto_0
 
     .line 158
-    :sswitch_17
-    const v0, 0x7f070022
+    :sswitch_15
+    const v0, 0x7f0700bb
 
     goto :goto_0
 
     .line 160
-    :sswitch_18
-    const v0, 0x7f07001a
+    :sswitch_16
+    const v0, 0x7f0700bd
 
     goto :goto_0
 
     .line 162
-    :sswitch_19
-    const v0, 0x7f07001c
+    :sswitch_17
+    const v0, 0x7f0700aa
 
     goto :goto_0
 
     .line 164
-    :sswitch_1a
-    const v0, 0x7f07001b
+    :sswitch_18
+    const v0, 0x7f0700a2
 
     goto :goto_0
 
     .line 166
-    :sswitch_1b
-    const v0, 0x7f070025
+    :sswitch_19
+    const v0, 0x7f0700a4
 
     goto :goto_0
 
     .line 168
-    :sswitch_1c
-    const v0, 0x7f070027
+    :sswitch_1a
+    const v0, 0x7f0700a3
 
     goto :goto_0
 
     .line 170
-    :sswitch_1d
-    const v0, 0x7f07002f
+    :sswitch_1b
+    const v0, 0x7f0700ad
 
     goto :goto_0
 
     .line 172
-    :sswitch_1e
-    const v0, 0x7f07002c
+    :sswitch_1c
+    const v0, 0x7f0700af
 
     goto :goto_0
 
     .line 174
-    :sswitch_1f
-    const v0, 0x7f07003b
+    :sswitch_1d
+    const v0, 0x7f0700b7
 
     goto :goto_0
 
     .line 176
-    :sswitch_20
-    const v0, 0x7f070013
+    :sswitch_1e
+    const v0, 0x7f0700b4
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .line 178
-    :sswitch_21
-    const v0, 0x7f07002e
+    :sswitch_1f
+    const v0, 0x7f0700c3
 
-    goto/16 :goto_0
+    goto :goto_0
 
     .line 180
-    :sswitch_22
-    const v0, 0x7f070021
+    :sswitch_20
+    const v0, 0x7f07009b
 
     goto/16 :goto_0
 
     .line 182
-    :sswitch_23
-    const v0, 0x7f07002b
+    :sswitch_21
+    const v0, 0x7f0700b6
 
     goto/16 :goto_0
 
     .line 184
-    :sswitch_24
-    const v0, 0x7f07001d
+    :sswitch_22
+    const v0, 0x7f0700a9
 
     goto/16 :goto_0
 
     .line 186
-    :sswitch_25
-    const v0, 0x7f07003a
+    :sswitch_23
+    const v0, 0x7f0700b3
 
     goto/16 :goto_0
 
     .line 188
-    :sswitch_26
-    const v0, 0x7f070046
+    :sswitch_24
+    const v0, 0x7f0700a5
 
     goto/16 :goto_0
 
-    .line 110
+    .line 190
+    :sswitch_25
+    const v0, 0x7f0700c2
+
+    goto/16 :goto_0
+
+    .line 192
+    :sswitch_26
+    const v0, 0x7f0700ce
+
+    goto/16 :goto_0
+
+    .line 114
     :sswitch_data_0
     .sparse-switch
         0x5 -> :sswitch_0
@@ -525,21 +507,49 @@
     .end sparse-switch
 .end method
 
+.method public static final getExceptionForCode(ILorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/ApiException;
+    .locals 2
+
+    .prologue
+    .line 206
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/ApiException;
+
+    invoke-direct {v0, p0, p1}, Lcom/yelp/android/appdata/webrequests/ApiException;-><init>(ILorg/json/JSONObject;)V
+
+    .line 207
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/ApiException;->a:[I
+
+    invoke-static {v1, p0}, Ljava/util/Arrays;->binarySearch([II)I
+
+    move-result v1
+
+    if-ltz v1, :cond_0
+
+    .line 208
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiException;->setIsRecoverable(Z)V
+
+    .line 210
+    :cond_0
+    return-object v0
+.end method
+
 .method public static isUserBlocked(Lcom/yelp/android/appdata/webrequests/YelpException;)Z
     .locals 3
 
     .prologue
     const/4 v0, 0x0
 
-    .line 30
+    .line 33
     instance-of v1, p0, Lcom/yelp/android/appdata/webrequests/ApiException;
 
     if-eqz v1, :cond_0
 
-    .line 31
+    .line 34
     check-cast p0, Lcom/yelp/android/appdata/webrequests/ApiException;
 
-    .line 32
+    .line 35
     invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/ApiException;->getResultCode()I
 
     move-result v1
@@ -550,7 +560,7 @@
 
     const/4 v0, 0x1
 
-    .line 34
+    .line 37
     :cond_0
     return v0
 .end method
@@ -561,7 +571,7 @@
     .locals 4
 
     .prologue
-    .line 57
+    .line 60
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 
     if-eqz v0, :cond_0
@@ -576,7 +586,7 @@
 
     if-nez v0, :cond_0
 
-    .line 58
+    .line 61
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 
     const-string/jumbo v1, "localized_description"
@@ -585,17 +595,17 @@
 
     move-result-object v0
 
-    .line 73
+    .line 76
     :goto_0
     return-object v0
 
-    .line 61
+    .line 64
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 
     if-eqz v0, :cond_1
 
-    .line 68
+    .line 71
     :cond_1
     iget v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mResultCode:I
 
@@ -613,7 +623,7 @@
 
     if-nez v0, :cond_2
 
-    .line 69
+    .line 72
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 
     const-string/jumbo v1, "char"
@@ -622,8 +632,8 @@
 
     move-result-object v0
 
-    .line 70
-    const v1, 0x7f070023
+    .line 73
+    const v1, 0x7f0700ab
 
     const/4 v2, 0x1
 
@@ -639,7 +649,7 @@
 
     goto :goto_0
 
-    .line 73
+    .line 76
     :cond_2
     invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/YelpException;->getMessage(Landroid/content/Context;)Ljava/lang/String;
 
@@ -652,7 +662,7 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 47
     iget v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mResultCode:I
 
     return v0
@@ -662,7 +672,7 @@
     .locals 1
 
     .prologue
-    .line 52
+    .line 55
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 
     return-object v0
@@ -672,12 +682,12 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 81
     iget v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mResultCode:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 79
+    .line 82
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 
     if-nez v0, :cond_0
@@ -687,10 +697,10 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 80
+    .line 83
     return-void
 
-    .line 79
+    .line 82
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiException;->mMessage:Lorg/json/JSONObject;
 

@@ -2,81 +2,83 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.services.r;
+import com.yelp.android.services.f;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Ranking
   extends _Ranking
   implements DisplayableAsUserBadge
 {
-  public static final JsonParser.DualCreator<Ranking> CREATOR = new cg();
-  private boolean mIsEliteUser;
-  private String mRankString;
-  private String mRankStringVerbose;
+  public static final JsonParser.DualCreator<Ranking> CREATOR = new Ranking.1();
+  private String m;
+  private String n;
+  private boolean o;
   
-  public int getFriendCount()
+  public void a(Parcel paramParcel)
   {
-    return mUserFriendCount;
+    super.a(paramParcel);
+    m = paramParcel.readString();
+    o = paramParcel.createBooleanArray()[0];
   }
   
-  public int getMediaCount()
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    return mUserPhotoCount + mUserVideoCount;
-  }
-  
-  public int getPhotoCount()
-  {
-    return mUserPhotoCount;
-  }
-  
-  public String getRankString()
-  {
-    return mRankString;
-  }
-  
-  public String getRankStringVerbose()
-  {
-    return mRankStringVerbose;
-  }
-  
-  public int getReviewCount()
-  {
-    return mUserReviewCount;
-  }
-  
-  public int getVideoCount()
-  {
-    return mUserVideoCount;
-  }
-  
-  public boolean isEliteUser()
-  {
-    return mIsEliteUser;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    super.readFromJson(paramJSONObject);
+    super.a(paramJSONObject);
     paramJSONObject = AppData.b();
-    int i = getRank();
-    mRankString = paramJSONObject.getString(2131165490, new Object[] { Integer.valueOf(i) });
-    mRankStringVerbose = paramJSONObject.getString(2131165491, new Object[] { Integer.valueOf(i) });
-    mIsEliteUser = r.a(getUserEliteYears());
+    int i = n();
+    m = paramJSONObject.getString(2131165618, new Object[] { Integer.valueOf(i) });
+    n = paramJSONObject.getString(2131165619, new Object[] { Integer.valueOf(i) });
+    o = f.a(l());
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public boolean h()
   {
-    super.readFromParcel(paramParcel);
-    mRankString = paramParcel.readString();
-    mIsEliteUser = paramParcel.createBooleanArray()[0];
+    return o;
+  }
+  
+  public String j()
+  {
+    return m;
+  }
+  
+  public int j_()
+  {
+    return g;
+  }
+  
+  public String k()
+  {
+    return n;
+  }
+  
+  public int k_()
+  {
+    return f;
+  }
+  
+  public int l_()
+  {
+    return i;
+  }
+  
+  public int m_()
+  {
+    return h;
+  }
+  
+  public int n_()
+  {
+    return i + h;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeString(mRankString);
-    paramParcel.writeBooleanArray(new boolean[] { mIsEliteUser });
+    paramParcel.writeString(m);
+    paramParcel.writeBooleanArray(new boolean[] { o });
   }
 }
 

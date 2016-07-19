@@ -1,13 +1,11 @@
 package com.yelp.android.ui.widgets;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View.MeasureSpec;
 
-@TargetApi(14)
 public class SquareTextureView
   extends TextureView
 {

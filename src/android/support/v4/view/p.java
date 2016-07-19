@@ -1,8 +1,18 @@
 package android.support.v4.view;
 
-public abstract interface p
+import android.view.ViewGroup.MarginLayoutParams;
+
+class p
 {
-  public abstract void a(boolean paramBoolean);
+  public static int a(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+  {
+    return paramMarginLayoutParams.getMarginStart();
+  }
+  
+  public static int b(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+  {
+    return paramMarginLayoutParams.getMarginEnd();
+  }
 }
 
 /* Location:

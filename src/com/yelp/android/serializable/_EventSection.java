@@ -2,86 +2,47 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _EventSection
   implements Parcelable
 {
-  protected String mAlias;
-  protected List<YelpBusiness> mBusinesses;
-  protected List<Event> mEvents;
-  protected String mHeader;
-  protected int[] mItemsToShow;
-  protected int mTotal;
-  protected List<User> mUsers;
+  protected List<Event> a;
+  protected List<User> b;
+  protected List<YelpBusiness> c;
+  protected String d;
+  protected String e;
+  protected int f;
+  protected int[] g;
   
-  protected _EventSection() {}
-  
-  protected _EventSection(List<Event> paramList, List<User> paramList1, List<YelpBusiness> paramList2, String paramString1, String paramString2, int paramInt, int[] paramArrayOfInt)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mEvents = paramList;
-    mUsers = paramList1;
-    mBusinesses = paramList2;
-    mAlias = paramString1;
-    mHeader = paramString2;
-    mTotal = paramInt;
-    mItemsToShow = paramArrayOfInt;
+    a = paramParcel.readArrayList(Event.class.getClassLoader());
+    b = paramParcel.readArrayList(User.class.getClassLoader());
+    c = paramParcel.readArrayList(YelpBusiness.class.getClassLoader());
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = paramParcel.readInt();
+    g = paramParcel.createIntArray();
   }
   
-  public int describeContents()
-  {
-    return 0;
-  }
-  
-  public String getAlias()
-  {
-    return mAlias;
-  }
-  
-  public List<YelpBusiness> getBusinesses()
-  {
-    return mBusinesses;
-  }
-  
-  public List<Event> getEvents()
-  {
-    return mEvents;
-  }
-  
-  public String getHeader()
-  {
-    return mHeader;
-  }
-  
-  public int[] getItemsToShow()
-  {
-    return mItemsToShow;
-  }
-  
-  public int getTotal()
-  {
-    return mTotal;
-  }
-  
-  public List<User> getUsers()
-  {
-    return mUsers;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
     if (!paramJSONObject.isNull("events"))
     {
-      mEvents = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("events"), Event.CREATOR);
+      a = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("events"), Event.CREATOR);
       if (paramJSONObject.isNull("users")) {
         break label186;
       }
-      mUsers = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("users"), User.CREATOR);
+      b = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("users"), User.CREATOR);
       label50:
       if (paramJSONObject.isNull("businesses")) {
         break label196;
@@ -89,54 +50,92 @@ abstract class _EventSection
     }
     label186:
     label196:
-    for (mBusinesses = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("businesses"), YelpBusiness.CREATOR);; mBusinesses = Collections.emptyList())
+    for (c = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("businesses"), YelpBusiness.CREATOR);; c = Collections.emptyList())
     {
       if (!paramJSONObject.isNull("alias")) {
-        mAlias = paramJSONObject.optString("alias");
+        d = paramJSONObject.optString("alias");
       }
       if (!paramJSONObject.isNull("header")) {
-        mHeader = paramJSONObject.optString("header");
+        e = paramJSONObject.optString("header");
       }
-      mTotal = paramJSONObject.optInt("total");
+      f = paramJSONObject.optInt("total");
       if (paramJSONObject.isNull("items_to_show")) {
         return;
       }
       paramJSONObject = paramJSONObject.getJSONArray("items_to_show");
       int j = paramJSONObject.length();
-      mItemsToShow = new int[j];
+      g = new int[j];
       int i = 0;
       while (i < j)
       {
-        mItemsToShow[i] = paramJSONObject.getInt(i);
+        g[i] = paramJSONObject.getInt(i);
         i += 1;
       }
-      mEvents = Collections.emptyList();
+      a = Collections.emptyList();
       break;
-      mUsers = Collections.emptyList();
+      b = Collections.emptyList();
       break label50;
     }
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int[] a()
   {
-    mEvents = paramParcel.createTypedArrayList(Event.CREATOR);
-    mUsers = paramParcel.createTypedArrayList(User.CREATOR);
-    mBusinesses = paramParcel.createTypedArrayList(YelpBusiness.CREATOR);
-    mAlias = paramParcel.readString();
-    mHeader = paramParcel.readString();
-    mTotal = paramParcel.readInt();
-    mItemsToShow = paramParcel.createIntArray();
+    return g;
+  }
+  
+  public int b()
+  {
+    return f;
+  }
+  
+  public String c()
+  {
+    return e;
+  }
+  
+  public String d()
+  {
+    return d;
+  }
+  
+  public int describeContents()
+  {
+    return 0;
+  }
+  
+  public List<Event> e()
+  {
+    return a;
+  }
+  
+  public boolean equals(Object paramObject)
+  {
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_EventSection)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a();
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeTypedList(mEvents);
-    paramParcel.writeTypedList(mUsers);
-    paramParcel.writeTypedList(mBusinesses);
-    paramParcel.writeString(mAlias);
-    paramParcel.writeString(mHeader);
-    paramParcel.writeInt(mTotal);
-    paramParcel.writeIntArray(mItemsToShow);
+    paramParcel.writeList(a);
+    paramParcel.writeList(b);
+    paramParcel.writeList(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeInt(f);
+    paramParcel.writeIntArray(g);
   }
 }
 

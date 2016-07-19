@@ -1,254 +1,130 @@
 package com.google.android.gms.internal;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Drawable.Callback;
-import android.graphics.drawable.Drawable.ConstantState;
-import android.os.SystemClock;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import android.os.RemoteException;
+import com.google.android.gms.common.api.Status;
 
-public final class iz
-  extends Drawable
-  implements Drawable.Callback
+public abstract interface iz
+  extends IInterface
 {
-  private boolean LO = true;
-  private int LV = 0;
-  private long LW;
-  private int LX;
-  private int LY = 255;
-  private int LZ;
-  private int Ma = 0;
-  private boolean Mb;
-  private iz.b Mc;
-  private Drawable Md;
-  private Drawable Me;
-  private boolean Mf;
-  private boolean Mg;
-  private boolean Mh;
-  private int Mi;
-  private int mFrom;
+  public abstract void a(Status paramStatus)
+    throws RemoteException;
   
-  public iz(Drawable paramDrawable1, Drawable paramDrawable2)
+  public static abstract class a
+    extends Binder
+    implements iz
   {
-    this(null);
-    Object localObject = paramDrawable1;
-    if (paramDrawable1 == null) {
-      localObject = iz.a.hi();
+    public a()
+    {
+      attachInterface(this, "com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
     }
-    Md = ((Drawable)localObject);
-    ((Drawable)localObject).setCallback(this);
-    paramDrawable1 = Mc;
-    Mm |= ((Drawable)localObject).getChangingConfigurations();
-    paramDrawable1 = paramDrawable2;
-    if (paramDrawable2 == null) {
-      paramDrawable1 = iz.a.hi();
-    }
-    Me = paramDrawable1;
-    paramDrawable1.setCallback(this);
-    paramDrawable2 = Mc;
-    Mm |= paramDrawable1.getChangingConfigurations();
-  }
-  
-  iz(iz.b paramb)
-  {
-    Mc = new iz.b(paramb);
-  }
-  
-  public boolean canConstantState()
-  {
-    if (!Mf) {
-      if ((Md.getConstantState() == null) || (Me.getConstantState() == null)) {
-        break label44;
+    
+    public static iz a(IBinder paramIBinder)
+    {
+      if (paramIBinder == null) {
+        return null;
       }
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
+      if ((localIInterface != null) && ((localIInterface instanceof iz))) {
+        return (iz)localIInterface;
+      }
+      return new a(paramIBinder);
     }
-    label44:
-    for (boolean bool = true;; bool = false)
+    
+    public IBinder asBinder()
     {
-      Mg = bool;
-      Mf = true;
-      return Mg;
+      return this;
     }
-  }
-  
-  public void draw(Canvas paramCanvas)
-  {
-    int j = 1;
-    int i = 1;
-    int k = 0;
-    switch (LV)
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
     {
-    }
-    boolean bool;
-    Drawable localDrawable1;
-    Drawable localDrawable2;
-    do
-    {
-      for (;;)
+      switch (paramInt1)
       {
-        j = Ma;
-        bool = LO;
-        localDrawable1 = Md;
-        localDrawable2 = Me;
-        if (i == 0) {
-          break;
-        }
-        if ((!bool) || (j == 0)) {
-          localDrawable1.draw(paramCanvas);
-        }
-        if (j == LY)
-        {
-          localDrawable2.setAlpha(LY);
-          localDrawable2.draw(paramCanvas);
-        }
-        return;
-        LW = SystemClock.uptimeMillis();
-        LV = 2;
-        i = k;
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
+        return true;
       }
-    } while (LW < 0L);
-    float f1 = (float)(SystemClock.uptimeMillis() - LW) / LZ;
-    if (f1 >= 1.0F) {}
-    for (i = j;; i = 0)
-    {
-      if (i != 0) {
-        LV = 0;
-      }
-      f1 = Math.min(f1, 1.0F);
-      float f2 = mFrom;
-      Ma = ((int)(f1 * (LX - mFrom) + f2));
-      break;
-    }
-    if (bool) {
-      localDrawable1.setAlpha(LY - j);
-    }
-    localDrawable1.draw(paramCanvas);
-    if (bool) {
-      localDrawable1.setAlpha(LY);
-    }
-    if (j > 0)
-    {
-      localDrawable2.setAlpha(j);
-      localDrawable2.draw(paramCanvas);
-      localDrawable2.setAlpha(LY);
-    }
-    invalidateSelf();
-  }
-  
-  public int getChangingConfigurations()
-  {
-    return super.getChangingConfigurations() | Mc.Ml | Mc.Mm;
-  }
-  
-  public Drawable.ConstantState getConstantState()
-  {
-    if (canConstantState())
-    {
-      Mc.Ml = getChangingConfigurations();
-      return Mc;
-    }
-    return null;
-  }
-  
-  public int getIntrinsicHeight()
-  {
-    return Math.max(Md.getIntrinsicHeight(), Me.getIntrinsicHeight());
-  }
-  
-  public int getIntrinsicWidth()
-  {
-    return Math.max(Md.getIntrinsicWidth(), Me.getIntrinsicWidth());
-  }
-  
-  public int getOpacity()
-  {
-    if (!Mh)
-    {
-      Mi = Drawable.resolveOpacity(Md.getOpacity(), Me.getOpacity());
-      Mh = true;
-    }
-    return Mi;
-  }
-  
-  public Drawable hh()
-  {
-    return Me;
-  }
-  
-  public void invalidateDrawable(Drawable paramDrawable)
-  {
-    if (ll.ig())
-    {
-      paramDrawable = getCallback();
-      if (paramDrawable != null) {
-        paramDrawable.invalidateDrawable(this);
+      paramParcel1.enforceInterface("com.google.android.gms.clearcut.internal.IClearcutLoggerCallbacks");
+      if (paramParcel1.readInt() != 0) {}
+      for (paramParcel1 = (Status)Status.CREATOR.createFromParcel(paramParcel1);; paramParcel1 = null)
+      {
+        a(paramParcel1);
+        return true;
       }
     }
-  }
-  
-  public Drawable mutate()
-  {
-    if ((!Mb) && (super.mutate() == this))
+    
+    private static class a
+      implements iz
     {
-      if (!canConstantState()) {
-        throw new IllegalStateException("One or more children of this LayerDrawable does not have constant state; this drawable cannot be mutated.");
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
+      {
+        a = paramIBinder;
       }
-      Md.mutate();
-      Me.mutate();
-      Mb = true;
-    }
-    return this;
-  }
-  
-  protected void onBoundsChange(Rect paramRect)
-  {
-    Md.setBounds(paramRect);
-    Me.setBounds(paramRect);
-  }
-  
-  public void scheduleDrawable(Drawable paramDrawable, Runnable paramRunnable, long paramLong)
-  {
-    if (ll.ig())
-    {
-      paramDrawable = getCallback();
-      if (paramDrawable != null) {
-        paramDrawable.scheduleDrawable(this, paramRunnable, paramLong);
+      
+      /* Error */
+      public void a(Status paramStatus)
+        throws RemoteException
+      {
+        // Byte code:
+        //   0: invokestatic 27	android/os/Parcel:obtain	()Landroid/os/Parcel;
+        //   3: astore_2
+        //   4: aload_2
+        //   5: ldc 29
+        //   7: invokevirtual 33	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+        //   10: aload_1
+        //   11: ifnull +33 -> 44
+        //   14: aload_2
+        //   15: iconst_1
+        //   16: invokevirtual 37	android/os/Parcel:writeInt	(I)V
+        //   19: aload_1
+        //   20: aload_2
+        //   21: iconst_0
+        //   22: invokevirtual 43	com/google/android/gms/common/api/Status:writeToParcel	(Landroid/os/Parcel;I)V
+        //   25: aload_0
+        //   26: getfield 17	com/google/android/gms/internal/iz$a$a:a	Landroid/os/IBinder;
+        //   29: iconst_1
+        //   30: aload_2
+        //   31: aconst_null
+        //   32: iconst_1
+        //   33: invokeinterface 49 5 0
+        //   38: pop
+        //   39: aload_2
+        //   40: invokevirtual 52	android/os/Parcel:recycle	()V
+        //   43: return
+        //   44: aload_2
+        //   45: iconst_0
+        //   46: invokevirtual 37	android/os/Parcel:writeInt	(I)V
+        //   49: goto -24 -> 25
+        //   52: astore_1
+        //   53: aload_2
+        //   54: invokevirtual 52	android/os/Parcel:recycle	()V
+        //   57: aload_1
+        //   58: athrow
+        // Local variable table:
+        //   start	length	slot	name	signature
+        //   0	59	0	this	a
+        //   0	59	1	paramStatus	Status
+        //   3	51	2	localParcel	Parcel
+        // Exception table:
+        //   from	to	target	type
+        //   4	10	52	finally
+        //   14	25	52	finally
+        //   25	39	52	finally
+        //   44	49	52	finally
       }
-    }
-  }
-  
-  public void setAlpha(int paramInt)
-  {
-    if (Ma == LY) {
-      Ma = paramInt;
-    }
-    LY = paramInt;
-    invalidateSelf();
-  }
-  
-  public void setColorFilter(ColorFilter paramColorFilter)
-  {
-    Md.setColorFilter(paramColorFilter);
-    Me.setColorFilter(paramColorFilter);
-  }
-  
-  public void startTransition(int paramInt)
-  {
-    mFrom = 0;
-    LX = LY;
-    Ma = 0;
-    LZ = paramInt;
-    LV = 1;
-    invalidateSelf();
-  }
-  
-  public void unscheduleDrawable(Drawable paramDrawable, Runnable paramRunnable)
-  {
-    if (ll.ig())
-    {
-      paramDrawable = getCallback();
-      if (paramDrawable != null) {
-        paramDrawable.unscheduleDrawable(this, paramRunnable);
+      
+      public IBinder asBinder()
+      {
+        return a;
       }
     }
   }

@@ -1,37 +1,26 @@
 package com.yelp.android.ad;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.bumptech.glide.load.engine.i;
+import com.bumptech.glide.load.f;
 
-public class d
+public class d<T>
+  implements f<T>
 {
-  private static final com.yelp.android.ai.e a = new com.yelp.android.ai.e();
-  private final Map<com.yelp.android.ai.e, c<?, ?>> b = new HashMap();
+  private static final f<?> a = new d();
   
-  public <Z, R> c<Z, R> a(Class<Z> paramClass, Class<R> paramClass1)
+  public static <T> d<T> b()
   {
-    if (paramClass.equals(paramClass1)) {
-      ??? = e.b();
-    }
-    for (;;)
-    {
-      return (c<Z, R>)???;
-      synchronized (a)
-      {
-        a.a(paramClass, paramClass1);
-        c localc = (c)b.get(a);
-        ??? = localc;
-        if (localc != null) {
-          continue;
-        }
-        throw new IllegalArgumentException("No transcoder registered for " + paramClass + " and " + paramClass1);
-      }
-    }
+    return (d)a;
   }
   
-  public <Z, R> void a(Class<Z> paramClass, Class<R> paramClass1, c<Z, R> paramc)
+  public i<T> a(i<T> parami, int paramInt1, int paramInt2)
   {
-    b.put(new com.yelp.android.ai.e(paramClass, paramClass1), paramc);
+    return parami;
+  }
+  
+  public String a()
+  {
+    return "";
   }
 }
 

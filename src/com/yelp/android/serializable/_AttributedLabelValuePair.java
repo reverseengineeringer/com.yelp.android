@@ -2,21 +2,55 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _AttributedLabelValuePair
   implements Parcelable
 {
-  protected String mLabel;
-  protected String mValue;
+  protected String a;
+  protected String b;
   
-  protected _AttributedLabelValuePair() {}
-  
-  protected _AttributedLabelValuePair(String paramString1, String paramString2)
+  public JSONObject a()
+    throws JSONException
   {
-    this();
-    mLabel = paramString1;
-    mValue = paramString2;
+    JSONObject localJSONObject = new JSONObject();
+    if (a != null) {
+      localJSONObject.put("label", a);
+    }
+    if (b != null) {
+      localJSONObject.put("value", b);
+    }
+    return localJSONObject;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("label")) {
+      a = paramJSONObject.optString("label");
+    }
+    if (!paramJSONObject.isNull("value")) {
+      b = paramJSONObject.optString("value");
+    }
+  }
+  
+  public String b()
+  {
+    return b;
+  }
+  
+  public String c()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -24,48 +58,29 @@ abstract class _AttributedLabelValuePair
     return 0;
   }
   
-  public String getLabel()
+  public boolean equals(Object paramObject)
   {
-    return mLabel;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_AttributedLabelValuePair)paramObject;
+    return new b().a(a, a).a(b, b).a();
   }
   
-  public String getValue()
+  public int hashCode()
   {
-    return mValue;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("label")) {
-      mLabel = paramJSONObject.optString("label");
-    }
-    if (!paramJSONObject.isNull("value")) {
-      mValue = paramJSONObject.optString("value");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mLabel = paramParcel.readString();
-    mValue = paramParcel.readString();
-  }
-  
-  public JSONObject writeJSON()
-  {
-    JSONObject localJSONObject = new JSONObject();
-    if (mLabel != null) {
-      localJSONObject.put("label", mLabel);
-    }
-    if (mValue != null) {
-      localJSONObject.put("value", mValue);
-    }
-    return localJSONObject;
+    return new c().a(a).a(b).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mLabel);
-    paramParcel.writeString(mValue);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
   }
 }
 

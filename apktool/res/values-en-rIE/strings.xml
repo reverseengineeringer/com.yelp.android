@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ad_choices_url">https://m.yelp.ie/static?p=privacy#third-parties</string>
-    <string name="advertiser_faq_url">https://m.yelp.ie/advertiser_faq</string>
-    <string name="category_banks">Banks &amp; Financial Institutions</string>
+    <string name="category_banks">Bank &amp; Building Societies</string>
     <string name="category_bars">Bars</string>
-    <string name="category_coffee">Coffee &amp; Tea</string>
+    <string name="category_coffee">Coffee &amp; Tea Shops</string>
     <string name="category_drugstores">Pharmacy/Chemist</string>
     <string name="category_nightlife">Nightlife</string>
     <string name="category_restaurants">Restaurants</string>
@@ -16,7 +14,7 @@
     <string name="compliment_desc_funny">"Drink, feck, arse, Yelp! You're gas!"</string>
     <string name="compliment_desc_hot">"You could put the heat in an Irish summer, you're seriously scorching"</string>
     <string name="compliment_desc_list">Let me list the ways I like your lists.</string>
-    <string name="compliment_desc_more">"I know you must have a lot of other commitments and social activities that take away time from your Yelp reviews but I can't take it anymore...you have to write another review. It's like coffee in the morning and I've started getting headaches from your absence so please get your priorities right."</string>
+    <string name="compliment_desc_more">"I know you must have a lot of other commitments and social activities that take away time from your Yelp reviews but I can't take it anymore…you have to write another review. It's like coffee in the morning and I've started getting headaches from your absence so please get your priorities right."</string>
     <string name="compliment_desc_note" />
     <string name="compliment_desc_photos">Nice photos, keep shooting!</string>
     <string name="compliment_desc_plain">Your reviews are the rashers in my sandwich, the milk in my tea and the first pint of the night. Keep up the good work!</string>
@@ -31,13 +29,6 @@
     <string name="compliment_plain">Thank You</string>
     <string name="compliment_profile">Like Your Profile</string>
     <string name="compliment_writer">Well Put!</string>
-    <string name="content_guidelines_url">https://m.yelp.ie/guidelines</string>
-    <string name="elite_url">https://m.yelp.ie/elite</string>
-    <string name="locality_string">City, County</string>
-    <string name="mobile_host">m.yelp.ie</string>
-    <string name="not_recommended_reviews_url">https://m.yelp.ie/not_recommended_reviews/%1$s</string>
-    <string name="privacy_policy_url">https://m.yelp.ie/static?p=privacy</string>
-    <string name="privacy_settings_url">https://m.yelp.ie/profile_privacy</string>
     <string name="remove_reason_member_request">"This Yelper's account has been closed."</string>
     <string name="remove_reason_post_by_admin">This post was removed by a Yelp admin.</string>
     <string name="remove_reason_post_by_admin_tos">This post violated the Yelp &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Terms of Service&lt;/a> and has been removed.</string>
@@ -57,12 +48,15 @@
     <string name="remove_reason_topic_tos_multiple">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_spammer">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_threat">This conversation was removed because the Yelper who started it no longer has an account.</string>
+    <string name="remove_reason_tos_bizowner">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_content">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_deals">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_general">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_multiple">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_paidreviewer">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_solicitation">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_spammer">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_threat">"This Yelper's account has been closed."</string>
-    <string name="site_name">Yelp.ie</string>
     <string name="talk_category_0">Other</string>
     <string name="talk_category_1">Local Questions &amp; Answers</string>
     <string name="talk_category_10">Food</string>
@@ -93,6 +87,16 @@
     <string name="talk_category_travel">Travel</string>
     <string name="talk_category_uncategorized">Other</string>
     <string name="talk_category_yelper_shout_outs">Yelper Shout-Outs</string>
+    <string name="ad_choices_url">https://m.yelp.ie/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.ie/advertiser_faq</string>
+    <string name="content_guidelines_url">https://m.yelp.ie/guidelines</string>
+    <string name="elite_url">https://m.yelp.ie/elite</string>
+    <string name="locality_string">City, County</string>
+    <string name="mobile_host">m.yelp.ie</string>
+    <string name="not_recommended_reviews_url">https://m.yelp.ie/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://m.yelp.ie/static?p=privacy</string>
+    <string name="privacy_settings_url">https://m.yelp.ie/profile_privacy</string>
+    <string name="site_name">Yelp.ie</string>
     <string name="terms_of_service_url">https://m.yelp.ie/static?p=tos</string>
     <string name="www_host">www.yelp.ie</string>
 </resources>

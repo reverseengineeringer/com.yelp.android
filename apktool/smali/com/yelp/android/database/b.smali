@@ -1,513 +1,1058 @@
 .class public Lcom/yelp/android/database/b;
 .super Ljava/lang/Object;
-.source "AdapterNearbyFilters.java"
+.source "AdapterRecentlyViewedBusinesses.java"
+
+# interfaces
+.implements Lcom/yelp/android/database/g$c;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/database/b$c;,
+        Lcom/yelp/android/database/b$b;,
+        Lcom/yelp/android/database/b$a;,
+        Lcom/yelp/android/database/b$d;
+    }
+.end annotation
+
+
+# static fields
+.field public static final a:Lcom/yelp/android/database/m;
 
 
 # instance fields
-.field public a:Lcom/yelp/android/serializable/Filter;
+.field private final b:Landroid/os/AsyncTask;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/os/AsyncTask",
+            "<**",
+            "Landroid/database/sqlite/SQLiteDatabase;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field public b:Ljava/lang/String;
+.field private c:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field public c:I
+.field private d:Landroid/database/sqlite/SQLiteStatement;
 
 
 # direct methods
-.method public constructor <init>(ILjava/lang/String;Lcom/yelp/android/serializable/Filter;)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 5
 
     .prologue
-    .line 270
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 40
+    new-instance v0, Lcom/yelp/android/database/n;
 
-    .line 271
-    iput p1, p0, Lcom/yelp/android/database/b;->c:I
+    const-string/jumbo v1, "recently_viewed_businesses"
 
-    .line 272
-    iput-object p3, p0, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/serializable/Filter;
+    invoke-direct {v0, v1}, Lcom/yelp/android/database/n;-><init>(Ljava/lang/String;)V
 
-    .line 273
-    iput-object p2, p0, Lcom/yelp/android/database/b;->b:Ljava/lang/String;
+    new-instance v1, Lcom/yelp/android/database/f;
 
-    .line 274
-    return-void
-.end method
-
-.method public static a(Landroid/content/Context;Landroid/database/Cursor;)Lcom/yelp/android/database/b;
-    .locals 17
-
-    .prologue
-    .line 285
     const-string/jumbo v2, "_id"
 
-    move-object/from16 v0, p1
+    sget-object v3, Lcom/yelp/android/database/ColumnType;->INTEGER:Lcom/yelp/android/database/ColumnType;
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    sget-object v4, Lcom/yelp/android/database/ColumnModifier;->PRIMARY_KEY_AUTOINCREMENT:Lcom/yelp/android/database/ColumnModifier;
 
-    move-result v2
+    invoke-direct {v1, v2, v3, v4}, Lcom/yelp/android/database/f;-><init>(Ljava/lang/String;Lcom/yelp/android/database/ColumnType;Lcom/yelp/android/database/ColumnModifier;)V
 
-    move-object/from16 v0, p1
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/n;->a(Lcom/yelp/android/database/f;)Lcom/yelp/android/database/n;
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getInt(I)I
+    move-result-object v0
 
-    move-result v8
+    new-instance v1, Lcom/yelp/android/database/f;
 
-    .line 286
-    const-string/jumbo v2, "term"
+    const-string/jumbo v2, "business_id"
 
-    move-object/from16 v0, p1
+    sget-object v3, Lcom/yelp/android/database/ColumnType;->TEXT:Lcom/yelp/android/database/ColumnType;
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    sget-object v4, Lcom/yelp/android/database/ColumnModifier;->NOT_NULL:Lcom/yelp/android/database/ColumnModifier;
 
-    move-result v2
+    invoke-direct {v1, v2, v3, v4}, Lcom/yelp/android/database/f;-><init>(Ljava/lang/String;Lcom/yelp/android/database/ColumnType;Lcom/yelp/android/database/ColumnModifier;)V
 
-    move-object/from16 v0, p1
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/n;->a(Lcom/yelp/android/database/f;)Lcom/yelp/android/database/n;
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v9
+    new-instance v1, Lcom/yelp/android/database/f;
 
-    .line 287
-    const-string/jumbo v2, "filter_exists"
+    const-string/jumbo v2, "business_json"
 
-    move-object/from16 v0, p1
+    sget-object v3, Lcom/yelp/android/database/ColumnType;->TEXT:Lcom/yelp/android/database/ColumnType;
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    sget-object v4, Lcom/yelp/android/database/ColumnModifier;->NOT_NULL:Lcom/yelp/android/database/ColumnModifier;
 
-    move-result v2
+    invoke-direct {v1, v2, v3, v4}, Lcom/yelp/android/database/f;-><init>(Ljava/lang/String;Lcom/yelp/android/database/ColumnType;Lcom/yelp/android/database/ColumnModifier;)V
 
-    move-object/from16 v0, p1
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/n;->a(Lcom/yelp/android/database/f;)Lcom/yelp/android/database/n;
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getInt(I)I
+    move-result-object v0
 
-    move-result v2
+    new-instance v1, Lcom/yelp/android/database/f;
 
-    if-nez v2, :cond_0
+    const-string/jumbo v2, "yelp_request_id"
 
-    .line 288
-    new-instance v2, Lcom/yelp/android/database/b;
+    sget-object v3, Lcom/yelp/android/database/ColumnType;->TEXT:Lcom/yelp/android/database/ColumnType;
+
+    sget-object v4, Lcom/yelp/android/database/ColumnModifier;->NOT_NULL:Lcom/yelp/android/database/ColumnModifier;
+
+    invoke-direct {v1, v2, v3, v4}, Lcom/yelp/android/database/f;-><init>(Ljava/lang/String;Lcom/yelp/android/database/ColumnType;Lcom/yelp/android/database/ColumnModifier;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/n;->a(Lcom/yelp/android/database/f;)Lcom/yelp/android/database/n;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/yelp/android/database/f;
+
+    const-string/jumbo v2, "path_business_image"
+
+    sget-object v3, Lcom/yelp/android/database/ColumnType;->TEXT:Lcom/yelp/android/database/ColumnType;
+
+    sget-object v4, Lcom/yelp/android/database/ColumnModifier;->NOT_NULL:Lcom/yelp/android/database/ColumnModifier;
+
+    invoke-direct {v1, v2, v3, v4}, Lcom/yelp/android/database/f;-><init>(Ljava/lang/String;Lcom/yelp/android/database/ColumnType;Lcom/yelp/android/database/ColumnModifier;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/n;->a(Lcom/yelp/android/database/f;)Lcom/yelp/android/database/n;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "business_id_idx"
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/String;
 
     const/4 v3, 0x0
 
-    invoke-direct {v2, v8, v9, v3}, Lcom/yelp/android/database/b;-><init>(ILjava/lang/String;Lcom/yelp/android/serializable/Filter;)V
+    const-string/jumbo v4, "business_id"
 
-    .line 341
-    :goto_0
-    return-object v2
+    aput-object v4, v2, v3
 
-    .line 291
-    :cond_0
-    const-class v2, Lcom/yelp/android/serializable/Filter$BusinessState;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/database/n;->a(Ljava/lang/String;[Ljava/lang/String;)Lcom/yelp/android/database/n;
 
-    invoke-static {v2}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/database/n;->a()Lcom/yelp/android/database/m;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/database/m;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/os/AsyncTask;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/AsyncTask",
+            "<**",
+            "Landroid/database/sqlite/SQLiteDatabase;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 66
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 67
+    iput-object p1, p0, Lcom/yelp/android/database/b;->b:Landroid/os/AsyncTask;
+
+    .line 68
+    return-void
+.end method
+
+.method static synthetic a(Landroid/database/sqlite/SQLiteStatement;)J
+    .locals 2
+
+    .prologue
+    .line 28
+    invoke-static {p0}, Lcom/yelp/android/database/b;->b(Landroid/database/sqlite/SQLiteStatement;)J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
+.method private a(Landroid/database/Cursor;)Lcom/yelp/android/serializable/YelpBusiness;
+    .locals 7
+
+    .prologue
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    .line 393
+    const/4 v1, 0x0
+
+    .line 395
+    :try_start_0
+    sget-object v0, Lcom/yelp/android/serializable/YelpBusiness;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
+
+    new-instance v2, Lorg/json/JSONObject;
+
+    const/4 v3, 0x0
+
+    invoke-interface {p1, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 293
-    const-string/jumbo v2, "prices"
+    invoke-direct {v2, v3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v0, p1
+    invoke-virtual {v0, v2}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    move-result-object v0
 
-    move-result v2
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object/from16 v0, p1
+    .line 396
+    const/4 v1, 0x1
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getInt(I)I
+    :try_start_1
+    invoke-interface {p1, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result v5
+    move-result-object v1
 
-    .line 294
-    sget-object v2, Lcom/yelp/android/serializable/Filter$BusinessState;->$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpBusiness;->a(Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    sget-object v4, Lcom/yelp/android/serializable/Filter$BusinessState;->$$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    .line 402
+    :goto_0
+    return-object v0
 
-    sget-object v6, Lcom/yelp/android/serializable/Filter$BusinessState;->$$$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    .line 397
+    :catch_0
+    move-exception v0
 
-    sget-object v7, Lcom/yelp/android/serializable/Filter$BusinessState;->$$$$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    move-object v6, v0
 
-    invoke-static {v2, v4, v6, v7}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;
+    move-object v0, v1
 
-    move-result-object v2
+    move-object v1, v6
 
-    invoke-virtual {v2}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    .line 300
-    const/4 v2, 0x1
-
-    move v4, v2
-
+    .line 398
     :goto_1
-    const/16 v2, 0x9
+    const-string/jumbo v2, "AdapterRecentlyViewedBusinesses"
 
-    if-ge v4, v2, :cond_2
+    const-string/jumbo v3, "Error deserializing last viewed business from recents table."
 
-    .line 301
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    move-result-object v2
+    aput-object v1, v4, v5
 
-    check-cast v2, Lcom/yelp/android/serializable/Filter$BusinessState;
+    invoke-static {v2, v3, v4}, Lcom/yelp/android/appdata/BaseYelpApplication;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 302
-    and-int v7, v4, v5
+    goto :goto_0
 
-    if-lez v7, :cond_1
-
-    .line 303
-    invoke-virtual {v3, v2}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
-
-    .line 300
-    :cond_1
-    shl-int/lit8 v2, v4, 0x1
-
-    move v4, v2
+    .line 397
+    :catch_1
+    move-exception v1
 
     goto :goto_1
+.end method
 
-    .line 307
-    :cond_2
-    const-string/jumbo v2, "open"
+.method static a(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;)Ljava/lang/String;
+    .locals 9
 
-    move-object/from16 v0, p1
+    .prologue
+    const/4 v4, 0x1
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    const/4 v6, 0x0
 
-    move-result v2
+    const/4 v5, 0x0
 
-    move-object/from16 v0, p1
+    .line 178
+    const-string/jumbo v1, "recently_viewed_businesses"
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getInt(I)I
+    new-array v2, v4, [Ljava/lang/String;
 
-    move-result v2
+    const-string/jumbo v0, "_id"
 
-    if-lez v2, :cond_3
+    aput-object v0, v2, v6
 
-    .line 308
-    sget-object v2, Lcom/yelp/android/serializable/Filter$BusinessState;->OPEN:Lcom/yelp/android/serializable/Filter$BusinessState;
+    const-string/jumbo v3, "business_id = ?"
 
-    invoke-virtual {v3, v2}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
+    new-array v4, v4, [Ljava/lang/String;
 
-    .line 311
-    :cond_3
-    const-string/jumbo v2, "radius"
+    aput-object p1, v4, v6
 
-    move-object/from16 v0, p1
+    const-string/jumbo v8, "1"
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    move-object v0, p0
 
-    move-result v2
+    move-object v6, v5
 
-    move-object/from16 v0, p1
+    move-object v7, v5
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v0 .. v8}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+    .line 189
+    if-eqz v1, :cond_1
 
-    move-result-wide v10
+    .line 190
+    :try_start_0
+    invoke-interface {v1}, Landroid/database/Cursor;->getCount()I
 
-    .line 313
-    const-string/jumbo v2, "radius_label"
+    move-result v0
 
-    move-object/from16 v0, p1
+    if-lez v0, :cond_1
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
-    move-result v2
+    move-result v0
 
-    move-object/from16 v0, p1
+    if-eqz v0, :cond_1
 
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    .line 191
+    const/4 v0, 0x0
 
-    move-result-object v4
-
-    .line 317
-    invoke-static {}, Lcom/yelp/android/serializable/Filter$Sort;->values()[Lcom/yelp/android/serializable/Filter$Sort;
-
-    move-result-object v2
-
-    const-string/jumbo v5, "sort_ordinal"
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v5}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v5
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v5}, Landroid/database/Cursor;->getInt(I)I
-
-    move-result v5
-
-    aget-object v6, v2, v5
-
-    .line 319
-    new-instance v12, Ljava/util/ArrayList;
-
-    invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
-
-    .line 324
-    const-string/jumbo v2, "attributes"
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v2
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string/jumbo v5, ","
-
-    invoke-virtual {v2, v5}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v5
 
-    array-length v7, v5
+    .line 200
+    if-eqz v1, :cond_0
 
-    const/4 v2, 0x0
+    .line 201
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    :goto_2
-    if-ge v2, v7, :cond_5
+    :cond_0
+    :goto_0
+    return-object v5
 
-    aget-object v13, v5, v2
+    .line 200
+    :cond_1
+    if-eqz v1, :cond_0
 
-    .line 325
-    invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .line 201
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    move-result v14
+    goto :goto_0
 
-    if-nez v14, :cond_4
+    .line 195
+    :catch_0
+    move-exception v0
 
-    .line 328
-    invoke-static {v13}, Lcom/yelp/android/database/AdapterNearbyFilters$OldAttributeFilter;->valueOf(Ljava/lang/String;)Lcom/yelp/android/database/AdapterNearbyFilters$OldAttributeFilter;
+    .line 196
+    :try_start_1
+    const-string/jumbo v2, "AdapterRecentlyViewedBusinesses"
 
-    move-result-object v13
+    const-string/jumbo v3, "Error deleting existing business entry from recents."
 
-    .line 333
-    new-instance v14, Lcom/yelp/android/serializable/AttributeFilter;
+    const/4 v4, 0x1
 
-    iget-object v15, v13, Lcom/yelp/android/database/AdapterNearbyFilters$OldAttributeFilter;->mTokenName:Ljava/lang/String;
+    new-array v4, v4, [Ljava/lang/Object;
 
-    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const/4 v6, 0x0
 
-    move-result-object v16
+    aput-object v0, v4, v6
 
-    iget v13, v13, Lcom/yelp/android/database/AdapterNearbyFilters$OldAttributeFilter;->mDisplayRes:I
+    invoke-static {v2, v3, v4}, Lcom/yelp/android/appdata/BaseYelpApplication;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    move-object/from16 v0, v16
+    .line 200
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    .line 201
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    move-result-object v13
+    goto :goto_0
 
-    invoke-direct {v14, v15, v13}, Lcom/yelp/android/serializable/AttributeFilter;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    .line 200
+    :catchall_0
+    move-exception v0
 
-    invoke-interface {v12, v14}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    if-eqz v1, :cond_2
+
+    .line 201
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    throw v0
+.end method
+
+.method private static b(Landroid/database/sqlite/SQLiteStatement;)J
+    .locals 5
+
+    .prologue
+    .line 322
+    :try_start_0
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteStatement;->simpleQueryForLong()J
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-wide v0
+
+    .line 326
+    :goto_0
+    return-wide v0
+
+    .line 323
+    :catch_0
+    move-exception v0
 
     .line 324
-    :cond_4
-    add-int/lit8 v2, v2, 0x1
+    const-string/jumbo v1, "AdapterRecentlyViewedBusinesses"
 
-    goto :goto_2
+    const-string/jumbo v2, "Error executing query for recents table."
 
-    .line 338
-    :cond_5
-    new-instance v5, Lcom/yelp/android/serializable/at;
+    const/4 v3, 0x1
 
-    invoke-direct {v5, v4, v10, v11}, Lcom/yelp/android/serializable/at;-><init>(Ljava/lang/String;D)V
-
-    .line 339
-    new-instance v2, Lcom/yelp/android/serializable/Filter;
+    new-array v3, v3, [Ljava/lang/Object;
 
     const/4 v4, 0x0
 
-    new-instance v7, Lcom/yelp/android/serializable/AttributeFilters;
+    aput-object v0, v3, v4
 
-    invoke-direct {v7, v12}, Lcom/yelp/android/serializable/AttributeFilters;-><init>(Ljava/util/List;)V
+    invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/BaseYelpApplication;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-direct/range {v2 .. v7}, Lcom/yelp/android/serializable/Filter;-><init>(Ljava/util/EnumSet;Ljava/util/Calendar;Lcom/yelp/android/serializable/at;Lcom/yelp/android/serializable/Filter$Sort;Lcom/yelp/android/serializable/AttributeFilters;)V
+    .line 326
+    const-wide/16 v0, 0x0
 
-    .line 341
-    new-instance v3, Lcom/yelp/android/database/b;
+    goto :goto_0
+.end method
 
-    invoke-direct {v3, v8, v9, v2}, Lcom/yelp/android/database/b;-><init>(ILjava/lang/String;Lcom/yelp/android/serializable/Filter;)V
+.method static b(Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/ContentValues;
+    .locals 3
 
-    move-object v2, v3
+    .prologue
+    .line 207
+    new-instance v1, Landroid/content/ContentValues;
 
-    goto/16 :goto_0
+    invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
+
+    .line 208
+    const-string/jumbo v0, "business_id"
+
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 209
+    const-string/jumbo v0, "business_json"
+
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusiness;->c()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 211
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpBusiness;->n()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 212
+    if-nez v0, :cond_0
+
+    .line 213
+    const-string/jumbo v0, ""
+
+    .line 215
+    :cond_0
+    const-string/jumbo v2, "yelp_request_id"
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 216
+    const-string/jumbo v0, "path_business_image"
+
+    const-string/jumbo v2, "path.to.image"
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 217
+    return-object v1
+.end method
+
+.method private declared-synchronized b(Landroid/database/sqlite/SQLiteDatabase;)V
+    .locals 9
+
+    .prologue
+    .line 83
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/yelp/android/database/b;->b()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 116
+    :goto_0
+    monitor-exit p0
+
+    return-void
+
+    .line 86
+    :cond_0
+    :try_start_1
+    const-string/jumbo v0, "SELECT COUNT(*) FROM recently_viewed_businesses"
+
+    invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/database/b;->d:Landroid/database/sqlite/SQLiteStatement;
+
+    .line 89
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    .line 91
+    const-string/jumbo v1, "recently_viewed_businesses"
+
+    const/4 v0, 0x2
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    const-string/jumbo v3, "business_json"
+
+    aput-object v3, v2, v0
+
+    const/4 v0, 0x1
+
+    const-string/jumbo v3, "yelp_request_id"
+
+    aput-object v3, v2, v0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const-string/jumbo v7, "_id DESC"
+
+    move-object v0, p1
+
+    invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .line 100
+    if-eqz v0, :cond_3
+
+    .line 101
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 102
+    invoke-direct {p0, v0}, Lcom/yelp/android/database/b;->a(Landroid/database/Cursor;)Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v1
+
+    .line 103
+    if-eqz v1, :cond_1
+
+    .line 104
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 106
+    :cond_1
+    :goto_1
+    invoke-interface {v0}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 107
+    invoke-direct {p0, v0}, Lcom/yelp/android/database/b;->a(Landroid/database/Cursor;)Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v1
+
+    .line 108
+    if-eqz v1, :cond_1
+
+    .line 109
+    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_1
+
+    .line 83
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+
+    .line 113
+    :cond_2
+    :try_start_2
+    invoke-interface {v0}, Landroid/database/Cursor;->close()V
+
+    .line 115
+    :cond_3
+    iput-object v8, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    goto :goto_0
+.end method
+
+.method public static d()Lcom/yelp/android/database/i;
+    .locals 1
+
+    .prologue
+    .line 406
+    new-instance v0, Lcom/yelp/android/database/b$1;
+
+    invoke-direct {v0}, Lcom/yelp/android/database/b$1;-><init>()V
+
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
-    .locals 4
-
-    .prologue
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    .line 410
-    if-ne p0, p1, :cond_1
-
-    .line 427
-    :cond_0
-    :goto_0
-    return v0
-
-    .line 412
-    :cond_1
-    if-nez p1, :cond_2
-
-    move v0, v1
-
-    .line 413
-    goto :goto_0
-
-    .line 414
-    :cond_2
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
-
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v3
-
-    if-eq v2, v3, :cond_3
-
-    move v0, v1
-
-    .line 415
-    goto :goto_0
-
-    .line 416
-    :cond_3
-    check-cast p1, Lcom/yelp/android/database/b;
-
-    .line 417
-    iget-object v2, p0, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/serializable/Filter;
-
-    if-nez v2, :cond_4
-
-    .line 418
-    iget-object v2, p1, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/serializable/Filter;
-
-    if-eqz v2, :cond_5
-
-    move v0, v1
-
-    .line 419
-    goto :goto_0
-
-    .line 420
-    :cond_4
-    iget-object v2, p0, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/serializable/Filter;
-
-    iget-object v3, p1, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/serializable/Filter;
-
-    invoke-virtual {v2, v3}, Lcom/yelp/android/serializable/Filter;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    move v0, v1
-
-    .line 421
-    goto :goto_0
-
-    .line 422
-    :cond_5
-    iget-object v2, p0, Lcom/yelp/android/database/b;->b:Ljava/lang/String;
-
-    if-nez v2, :cond_6
-
-    .line 423
-    iget-object v2, p1, Lcom/yelp/android/database/b;->b:Ljava/lang/String;
-
-    if-eqz v2, :cond_0
-
-    move v0, v1
-
-    .line 424
-    goto :goto_0
-
-    .line 425
-    :cond_6
-    iget-object v2, p0, Lcom/yelp/android/database/b;->b:Ljava/lang/String;
-
-    iget-object v3, p1, Lcom/yelp/android/database/b;->b:Ljava/lang/String;
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    move v0, v1
-
-    .line 426
-    goto :goto_0
-.end method
-
-.method public hashCode()I
+.method public a(Ljava/lang/String;)Landroid/os/AsyncTask;
     .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            ")",
+            "Landroid/os/AsyncTask",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/Void;",
+            "Ljava/lang/Void;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    const/4 v1, 0x0
+    .line 431
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
 
-    .line 399
-    .line 401
-    iget-object v0, p0, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/serializable/Filter;
+    if-eqz v0, :cond_1
 
-    if-nez v0, :cond_0
+    .line 432
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
 
-    move v0, v1
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    :goto_0
-    add-int/lit8 v0, v0, 0x1f
+    move-result-object v1
 
-    .line 403
-    mul-int/lit8 v0, v0, 0x1f
-
-    iget-object v2, p0, Lcom/yelp/android/database/b;->b:Ljava/lang/String;
-
-    if-nez v2, :cond_1
-
-    :goto_1
-    add-int/2addr v0, v1
-
-    .line 405
-    return v0
-
-    .line 401
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/database/b;->a:Lcom/yelp/android/serializable/Filter;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Filter;->hashCode()I
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
+    if-eqz v0, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 433
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 434
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/serializable/YelpBusiness;->a(Lcom/yelp/android/serializable/Offer;)V
+
     goto :goto_0
 
-    .line 403
+    .line 439
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/database/b;->b:Ljava/lang/String;
+    new-instance v0, Lcom/yelp/android/database/b$c;
 
-    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+    iget-object v1, p0, Lcom/yelp/android/database/b;->b:Landroid/os/AsyncTask;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/database/b$c;-><init>(Landroid/os/AsyncTask;)V
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    aput-object p1, v1, v2
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/b$c;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public a()Ljava/util/ArrayList;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 71
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    if-nez v0, :cond_0
+
+    .line 73
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/database/b;->b:Landroid/os/AsyncTask;
+
+    invoke-virtual {v0}, Landroid/os/AsyncTask;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/database/sqlite/SQLiteDatabase;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/database/b;->b(Landroid/database/sqlite/SQLiteDatabase;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 79
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    :goto_0
+    return-object v0
+
+    .line 74
+    :catch_0
+    move-exception v0
+
+    .line 75
+    const-string/jumbo v1, "AdapterRecentlyViewedBusinesses"
+
+    const-string/jumbo v2, "There were issues getting the database open"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 76
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    goto :goto_0
+.end method
+
+.method public a(Landroid/database/sqlite/SQLiteDatabase;)V
+    .locals 0
+
+    .prologue
+    .line 427
+    invoke-direct {p0, p1}, Lcom/yelp/android/database/b;->b(Landroid/database/sqlite/SQLiteDatabase;)V
+
+    .line 428
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/serializable/YelpBusiness;)V
+    .locals 5
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 131
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 132
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    if-eqz v0, :cond_1
+
+    .line 133
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v4, :cond_1
+
+    .line 134
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 135
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1, p1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+    .line 133
+    :cond_0
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_0
+
+    .line 139
+    :cond_1
+    new-instance v0, Lcom/yelp/android/database/b$d;
+
+    iget-object v1, p0, Lcom/yelp/android/database/b;->b:Landroid/os/AsyncTask;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/database/b$d;-><init>(Landroid/os/AsyncTask;)V
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Lcom/yelp/android/serializable/YelpBusiness;
+
+    aput-object p1, v1, v2
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/b$d;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    .line 140
+    return-void
+.end method
+
+.method public b()Z
+    .locals 1
+
+    .prologue
+    .line 119
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public c(Lcom/yelp/android/serializable/YelpBusiness;)Landroid/os/AsyncTask;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            ")",
+            "Landroid/os/AsyncTask",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            "Ljava/lang/Void;",
+            "Ljava/lang/Void;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 227
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 228
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    if-eqz v0, :cond_2
+
+    .line 230
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    move v1, v2
+
+    :goto_0
+    if-ge v1, v4, :cond_0
+
+    .line 231
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 232
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    .line 237
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    const/16 v1, 0x19
+
+    if-lt v0, v1, :cond_1
+
+    .line 238
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    goto :goto_1
+    add-int/lit8 v1, v1, -0x1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+
+    .line 241
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v2, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    .line 244
+    :cond_2
+    new-instance v0, Lcom/yelp/android/database/b$a;
+
+    iget-object v1, p0, Lcom/yelp/android/database/b;->b:Landroid/os/AsyncTask;
+
+    iget-object v3, p0, Lcom/yelp/android/database/b;->d:Landroid/database/sqlite/SQLiteStatement;
+
+    invoke-direct {v0, v1, v3}, Lcom/yelp/android/database/b$a;-><init>(Landroid/os/AsyncTask;Landroid/database/sqlite/SQLiteStatement;)V
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Lcom/yelp/android/serializable/YelpBusiness;
+
+    aput-object p1, v1, v2
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/b$a;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 230
+    :cond_3
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_0
+.end method
+
+.method public c()V
+    .locals 2
+
+    .prologue
+    .line 330
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    if-eqz v0, :cond_0
+
+    .line 331
+    iget-object v0, p0, Lcom/yelp/android/database/b;->c:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    .line 334
+    :cond_0
+    new-instance v0, Lcom/yelp/android/database/b$b;
+
+    iget-object v1, p0, Lcom/yelp/android/database/b;->b:Landroid/os/AsyncTask;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/database/b$b;-><init>(Landroid/os/AsyncTask;)V
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/b$b;->b([Ljava/lang/Object;)Lcom/yelp/android/util/q;
+
+    .line 335
+    return-void
 .end method

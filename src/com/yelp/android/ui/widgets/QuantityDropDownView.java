@@ -4,15 +4,20 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AbsListView.LayoutParams;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import com.yelp.android.bf.c;
-import com.yelp.android.bf.m;
+import com.yelp.android.co.a.b;
+import com.yelp.android.co.a.l;
 
 public class QuantityDropDownView
   extends TextView
@@ -25,7 +30,7 @@ public class QuantityDropDownView
   private int f;
   private int g;
   private int h;
-  private s i;
+  private a i;
   
   public QuantityDropDownView(Context paramContext)
   {
@@ -34,19 +39,19 @@ public class QuantityDropDownView
   
   public QuantityDropDownView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, c.quantityDropDownViewStyle);
+    this(paramContext, paramAttributeSet, a.b.quantityDropDownViewStyle);
   }
   
   public QuantityDropDownView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, m.QuantityDropDownView, paramInt, paramInt);
-    e = paramContext.getResourceId(3, getId());
-    f = paramContext.getResourceId(4, getId());
-    h = paramContext.getResourceId(5, 17367049);
-    g = paramContext.getResourceId(6, 16842870);
-    c = paramContext.getInt(1, 0);
-    d = paramContext.getInt(2, 1073741823);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.l.QuantityDropDownView, paramInt, paramInt);
+    e = paramContext.getResourceId(a.l.QuantityDropDownView_alignRight, getId());
+    f = paramContext.getResourceId(a.l.QuantityDropDownView_alignLeft, getId());
+    h = paramContext.getResourceId(a.l.QuantityDropDownView_dropDownItemLayout, 17367049);
+    g = paramContext.getResourceId(a.l.QuantityDropDownView_popupViewStyle, 16842870);
+    c = paramContext.getInt(a.l.QuantityDropDownView_startRange, 0);
+    d = paramContext.getInt(a.l.QuantityDropDownView_endRange, 1073741823);
     b = c;
     super.setText(String.valueOf(b));
     paramContext.recycle();
@@ -60,7 +65,21 @@ public class QuantityDropDownView
   
   private void a()
   {
-    setOnClickListener(new r(this));
+    setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        if (a == null) {
+          a = QuantityDropDownView.a(QuantityDropDownView.this);
+        }
+        if (a.isShowing())
+        {
+          a.dismiss();
+          return;
+        }
+        a.showAsDropDown(paramAnonymousView);
+      }
+    });
   }
   
   private PopupWindow b()
@@ -70,9 +89,9 @@ public class QuantityDropDownView
     View localView2 = getRootView().findViewById(e);
     ListView localListView = new ListView(getContext(), null, g);
     localListView.setLayoutParams(new AbsListView.LayoutParams(getWidth(), -2));
-    localListView.setAdapter(new t(h, Pair.create(Integer.valueOf(c), Integer.valueOf(d))));
+    localListView.setAdapter(new b(h, Pair.create(Integer.valueOf(c), Integer.valueOf(d))));
     localListView.setDivider(null);
-    Object localObject = new u(this);
+    Object localObject = new c(this);
     localListView.setOnItemSelectedListener((AdapterView.OnItemSelectedListener)localObject);
     localListView.setOnItemClickListener((AdapterView.OnItemClickListener)localObject);
     localListView.measure(getWidth(), getHeight() * 3);
@@ -129,14 +148,95 @@ public class QuantityDropDownView
     }
   }
   
-  public void setQuantityChangeListener(s params)
+  public void setQuantityChangeListener(a parama)
   {
-    i = params;
+    i = parama;
   }
   
   public void setStartRange(int paramInt)
   {
     c = paramInt;
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(int paramInt, QuantityDropDownView paramQuantityDropDownView);
+  }
+  
+  private static final class b
+    extends BaseAdapter
+  {
+    private final int a;
+    private final int b;
+    private final int c;
+    
+    public b(int paramInt, Pair<Integer, Integer> paramPair)
+    {
+      a = ((Integer)first).intValue();
+      b = ((Integer)second).intValue();
+      c = paramInt;
+    }
+    
+    public Integer a(int paramInt)
+    {
+      return Integer.valueOf(a + paramInt);
+    }
+    
+    public int getCount()
+    {
+      return b - a + 1;
+    }
+    
+    public long getItemId(int paramInt)
+    {
+      return a + paramInt;
+    }
+    
+    public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+    {
+      if (paramView == null) {
+        paramView = LayoutInflater.from(paramViewGroup.getContext()).inflate(c, paramViewGroup, false);
+      }
+      for (;;)
+      {
+        TextView localTextView = (TextView)paramView.getTag();
+        paramViewGroup = localTextView;
+        if (localTextView == null) {
+          paramViewGroup = (TextView)paramView;
+        }
+        paramViewGroup.setText(String.valueOf(a(paramInt)));
+        return paramView;
+      }
+    }
+  }
+  
+  private static final class c
+    implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener
+  {
+    private QuantityDropDownView a;
+    
+    public c(QuantityDropDownView paramQuantityDropDownView)
+    {
+      a = paramQuantityDropDownView;
+    }
+    
+    public void onItemClick(AdapterView<?> paramAdapterView, View paramView, int paramInt, long paramLong)
+    {
+      a.setQuantity((int)paramLong);
+      a.a.dismiss();
+      a.requestFocus();
+    }
+    
+    public void onItemSelected(AdapterView<?> paramAdapterView, View paramView, int paramInt, long paramLong)
+    {
+      a.setQuantity((int)paramLong);
+    }
+    
+    public void onNothingSelected(AdapterView<?> paramAdapterView)
+    {
+      a.a.dismiss();
+      a.requestFocus();
+    }
   }
 }
 

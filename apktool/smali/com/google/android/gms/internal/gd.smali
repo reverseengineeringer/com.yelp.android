@@ -1,123 +1,151 @@
-.class public Lcom/google/android/gms/internal/gd;
+.class public final Lcom/google/android/gms/internal/gd;
 .super Ljava/lang/Object;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/gd$a;
+    }
 .end annotation
 
 
 # instance fields
-.field private final mH:Ljava/lang/Object;
+.field public final a:I
 
-.field private final vL:Lcom/google/android/gms/internal/ga;
+.field public final b:Z
 
-.field private final vO:Ljava/lang/String;
+.field public final c:Z
 
-.field private wr:I
+.field public final d:Ljava/lang/String;
 
-.field private ws:I
+.field public final e:Ljava/lang/String;
+
+.field public final f:Z
+
+.field public final g:Z
+
+.field public final h:Z
+
+.field public final i:Z
+
+.field public final j:Ljava/lang/String;
+
+.field public final k:Ljava/lang/String;
+
+.field public final l:I
+
+.field public final m:I
+
+.field public final n:I
+
+.field public final o:I
+
+.field public final p:I
+
+.field public final q:I
+
+.field public final r:F
+
+.field public final s:I
+
+.field public final t:I
+
+.field public final u:D
+
+.field public final v:Z
+
+.field public final w:Z
+
+.field public final x:I
+
+.field public final y:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/gms/internal/ga;Ljava/lang/String;)V
-    .locals 1
+.method constructor <init>(IZZLjava/lang/String;Ljava/lang/String;ZZZZLjava/lang/String;Ljava/lang/String;IIIIIIFIIDZZILjava/lang/String;)V
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/Object;
+    iput p1, p0, Lcom/google/android/gms/internal/gd;->a:I
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    iput-boolean p2, p0, Lcom/google/android/gms/internal/gd;->b:Z
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/gd;->mH:Ljava/lang/Object;
+    iput-boolean p3, p0, Lcom/google/android/gms/internal/gd;->c:Z
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/gd;->vL:Lcom/google/android/gms/internal/ga;
+    iput-object p4, p0, Lcom/google/android/gms/internal/gd;->d:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/google/android/gms/internal/gd;->vO:Ljava/lang/String;
+    iput-object p5, p0, Lcom/google/android/gms/internal/gd;->e:Ljava/lang/String;
+
+    iput-boolean p6, p0, Lcom/google/android/gms/internal/gd;->f:Z
+
+    iput-boolean p7, p0, Lcom/google/android/gms/internal/gd;->g:Z
+
+    iput-boolean p8, p0, Lcom/google/android/gms/internal/gd;->h:Z
+
+    iput-boolean p9, p0, Lcom/google/android/gms/internal/gd;->i:Z
+
+    iput-object p10, p0, Lcom/google/android/gms/internal/gd;->j:Ljava/lang/String;
+
+    iput-object p11, p0, Lcom/google/android/gms/internal/gd;->k:Ljava/lang/String;
+
+    iput p12, p0, Lcom/google/android/gms/internal/gd;->l:I
+
+    move/from16 v0, p13
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->m:I
+
+    move/from16 v0, p14
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->n:I
+
+    move/from16 v0, p15
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->o:I
+
+    move/from16 v0, p16
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->p:I
+
+    move/from16 v0, p17
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->q:I
+
+    move/from16 v0, p18
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->r:F
+
+    move/from16 v0, p19
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->s:I
+
+    move/from16 v0, p20
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->t:I
+
+    move-wide/from16 v0, p21
+
+    iput-wide v0, p0, Lcom/google/android/gms/internal/gd;->u:D
+
+    move/from16 v0, p23
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/gd;->v:Z
+
+    move/from16 v0, p24
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/gd;->w:Z
+
+    move/from16 v0, p25
+
+    iput v0, p0, Lcom/google/android/gms/internal/gd;->x:I
+
+    move-object/from16 v0, p26
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/gd;->y:Ljava/lang/String;
 
     return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/internal/ga;->dc()Lcom/google/android/gms/internal/ga;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0, p1}, Lcom/google/android/gms/internal/gd;-><init>(Lcom/google/android/gms/internal/ga;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public d(II)V
-    .locals 3
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/gd;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iput p1, p0, Lcom/google/android/gms/internal/gd;->wr:I
-
-    iput p2, p0, Lcom/google/android/gms/internal/gd;->ws:I
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/gd;->vL:Lcom/google/android/gms/internal/ga;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/gd;->vO:Ljava/lang/String;
-
-    invoke-virtual {v0, v2, p0}, Lcom/google/android/gms/internal/ga;->a(Ljava/lang/String;Lcom/google/android/gms/internal/gd;)V
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public toBundle()Landroid/os/Bundle;
-    .locals 4
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/gd;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    const-string/jumbo v2, "pmnli"
-
-    iget v3, p0, Lcom/google/android/gms/internal/gd;->wr:I
-
-    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    const-string/jumbo v2, "pmnll"
-
-    iget v3, p0, Lcom/google/android/gms/internal/gd;->ws:I
-
-    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method

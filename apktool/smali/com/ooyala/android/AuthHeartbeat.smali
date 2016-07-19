@@ -3,6 +3,15 @@
 .source "AuthHeartbeat.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/AuthHeartbeat$OnAuthHeartbeatErrorListener;,
+        Lcom/ooyala/android/AuthHeartbeat$AuthHeartbeatTimerTask;
+    }
+.end annotation
+
+
 # instance fields
 .field private _apiClient:Lcom/ooyala/android/PlayerAPIClient;
 

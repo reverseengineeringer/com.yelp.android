@@ -1,29 +1,72 @@
 package com.yelp.android.ui.util;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
+import android.content.res.Resources.Theme;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.util.AttributeSet;
+import android.util.SparseIntArray;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import com.yelp.android.analytics.iris.EventIri;
-import com.yelp.android.analytics.iris.IriSource;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.ui.activities.ActivityLogin;
-import com.yelp.android.ui.activities.addphoto.PhotoTeaser;
-import java.util.Map;
+import android.view.ViewGroup;
+import com.yelp.android.co.a.l;
+import com.yelp.android.util.YelpLog;
 
-class ay
-  implements View.OnClickListener
+public class ay
 {
-  ay(ax paramax) {}
-  
-  public void onClick(View paramView)
+  private static void a(View paramView, TypedArray paramTypedArray)
   {
-    Object localObject = IriSource.Carousel.getMapWithParameter();
-    ((Map)localObject).put("business_id", ax.a(a).getId());
-    AppData.a(EventIri.BusinessAddPhoto, (Map)localObject);
-    localObject = PhotoTeaser.a(paramView.getContext(), ax.a(a));
-    ((Activity)paramView.getContext()).startActivityForResult(ActivityLogin.a(paramView.getContext(), 300, 2131166034, (Intent)localObject), 1037);
+    Object localObject = paramView.getBackground();
+    String str = paramTypedArray.getString(a.l.YelpView_backgroundDrawableClass);
+    if ((localObject == null) && (!TextUtils.isEmpty(str))) {}
+    try
+    {
+      localObject = (Drawable)Drawable.class.cast(Class.forName(str).newInstance());
+      if (localObject != null) {
+        paramView.setBackgroundDrawable((Drawable)localObject);
+      }
+    }
+    catch (IllegalAccessException localIllegalAccessException)
+    {
+      for (;;)
+      {
+        int i;
+        YelpLog.e("YelpViewMaker", "We got an access violation looking up the drawable Class", localIllegalAccessException);
+      }
+    }
+    catch (InstantiationException localInstantiationException)
+    {
+      for (;;)
+      {
+        YelpLog.e("YelpViewMaker", "Could not instaniate Drawable Class", localInstantiationException);
+      }
+    }
+    catch (ClassNotFoundException localClassNotFoundException)
+    {
+      for (;;)
+      {
+        YelpLog.e("YelpViewMaker", "Could not find Drawable Class", localClassNotFoundException);
+      }
+    }
+    localObject = new TypedValue();
+    if (paramTypedArray.getValue(a.l.YelpView_backgroundColorFilter_color, (TypedValue)localObject))
+    {
+      i = paramTypedArray.getColor(a.l.YelpView_backgroundColorFilter_color, 0);
+      paramTypedArray = android.graphics.PorterDuff.Mode.values()[paramTypedArray.getInt(a.l.YelpView_backgroundColorFilter_mode, 0)];
+      paramView.getBackground().setColorFilter(i, paramTypedArray);
+    }
+  }
+  
+  public static void a(ViewGroup paramViewGroup, Context paramContext, AttributeSet paramAttributeSet, int paramInt, SparseIntArray paramSparseIntArray)
+  {
+    paramAttributeSet = paramContext.getTheme().obtainStyledAttributes(paramAttributeSet, a.l.YelpView, paramInt, paramInt);
+    paramInt = a.l.YelpView_yelpLayout;
+    paramInt = paramAttributeSet.getResourceId(paramInt, paramSparseIntArray.get(paramInt));
+    LayoutInflater.from(paramContext).inflate(paramInt, paramViewGroup);
+    a(paramViewGroup, paramAttributeSet);
+    paramAttributeSet.recycle();
   }
 }
 

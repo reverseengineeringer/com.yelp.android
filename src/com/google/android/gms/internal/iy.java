@@ -1,50 +1,42 @@
 package com.google.android.gms.internal;
 
 import android.content.Context;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.RemoteException;
+import com.google.android.gms.clearcut.LogEventParcelable;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.common.internal.zzf;
+import com.google.android.gms.common.internal.zzj;
 
-public abstract class iy<T>
+public class iy
+  extends zzj<ja>
 {
-  private static iy.a KO = null;
-  private static final Object mH = new Object();
-  protected final String KP;
-  protected final T KQ;
-  private T KR = null;
-  
-  protected iy(String paramString, T paramT)
+  public iy(Context paramContext, Looper paramLooper, zzf paramzzf, GoogleApiClient.ConnectionCallbacks paramConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener paramOnConnectionFailedListener)
   {
-    KP = paramString;
-    KQ = paramT;
+    super(paramContext, paramLooper, 40, paramzzf, paramConnectionCallbacks, paramOnConnectionFailedListener);
   }
   
-  public static void H(Context paramContext)
+  protected ja a(IBinder paramIBinder)
   {
-    synchronized (mH)
-    {
-      if (KO == null) {
-        KO = new iy.b(paramContext.getContentResolver());
-      }
-      return;
-    }
+    return ja.a.a(paramIBinder);
   }
   
-  public static iy<Integer> a(String paramString, Integer paramInteger)
+  public void a(iz paramiz, LogEventParcelable paramLogEventParcelable)
+    throws RemoteException
   {
-    return new iy.2(paramString, paramInteger);
+    ((ja)zzqJ()).a(paramiz, paramLogEventParcelable);
   }
   
-  public static iy<Boolean> h(String paramString, boolean paramBoolean)
+  protected String zzgu()
   {
-    return new iy.1(paramString, Boolean.valueOf(paramBoolean));
+    return "com.google.android.gms.clearcut.service.START";
   }
   
-  public static iy<String> l(String paramString1, String paramString2)
+  protected String zzgv()
   {
-    return new iy.3(paramString1, paramString2);
-  }
-  
-  public String getKey()
-  {
-    return KP;
+    return "com.google.android.gms.clearcut.internal.IClearcutLoggerService";
   }
 }
 

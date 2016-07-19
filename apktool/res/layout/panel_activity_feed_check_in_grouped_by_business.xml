@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include android:id="@id/fullcontent_business_layout" layout="@layout/panel_activity_feed_business_item" />
+        <TextView android:textAppearance="@style/CaptionGreyText" android:ellipsize="end" android:id="@id/time_ago" android:padding="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip" android:layout_marginBottom="1.0dip" android:lines="1" android:includeFontPadding="false" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/feed_description" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <include android:id="@id/user_list" layout="@layout/panel_activity_feed_user_list" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

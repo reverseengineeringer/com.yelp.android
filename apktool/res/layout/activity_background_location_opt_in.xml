@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/container" android:padding="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/yelp_logo" android:layout_width="@dimen/logo_for_splash_one_third_width" android:layout_height="@dimen/logo_for_splash_one_third_height" android:src="@drawable/logo_for_splash" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/buttons" android:layout_below="@id/yelp_logo">
+        <ImageView android:layout_gravity="center" android:id="@id/image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_small_gap_size" android:src="@drawable/bg_location_opt_in_icon_2" android:contentDescription="@null" />
+        <TextView android:textAppearance="@style/SectionText" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_base_gap_size" android:text="@string/enable_background_location" />
+        <TextView android:textAppearance="@style/BodyText" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/description" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/background_opt_in_copy_b" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/buttons" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <Button android:gravity="center" android:id="@id/deny_button" android:background="@drawable/button_flat_transparent_black_border" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:text="@string/no_not_now" android:layout_weight="1.0" style="@style/Widget.Button.Flat.Transparent" />
+        <Button android:gravity="center" android:id="@id/accept_button" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:layout_marginLeft="@dimen/default_base_gap_size" android:text="@string/yes_turn_it_on" android:layout_weight="1.0" style="@style/Widget.Button.Flat.Green" />
+    </LinearLayout>
+</RelativeLayout>

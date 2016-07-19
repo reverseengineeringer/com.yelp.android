@@ -2,6 +2,8 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
@@ -10,69 +12,164 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _YelpCheckIn
   implements Parcelable
 {
-  protected YelpBusiness mBusiness;
-  protected String mBusinessId;
-  protected String mBusinessName;
-  protected int mCommentsCount;
-  protected String mContributionTypeString;
-  protected Date mDateCreated;
-  protected int mFriendActiveCount;
-  protected int mFriendRank;
-  protected String mId;
-  protected int mInterval;
-  protected boolean mIsCommentable;
-  protected String mLocation;
-  protected int mLocationRank;
-  protected List<Badge> mNewBadges;
-  protected int mPositiveFeedback;
-  protected Comment mPrimaryComment;
-  protected List<String> mPrivateFeedback;
-  protected int mRegularRank;
-  protected ArrayList<SurveyQuestion> mSurveyQuestions;
-  protected String mTip;
-  protected int mTotalCount;
-  protected int mTotalSurveyQuestions;
-  protected User mUser;
-  protected int mUserCount;
-  protected String mUserId;
-  protected int mWeekCount;
+  protected ArrayList<SurveyQuestion> a;
+  protected Comment b;
+  protected Date c;
+  protected List<Badge> d;
+  protected List<String> e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected String k;
+  protected String l;
+  protected User m;
+  protected YelpBusiness n;
+  protected boolean o;
+  protected int p;
+  protected int q;
+  protected int r;
+  protected int s;
+  protected int t;
+  protected int u;
+  protected int v;
+  protected int w;
+  protected int x;
+  protected int y;
+  protected int z;
   
-  protected _YelpCheckIn() {}
-  
-  protected _YelpCheckIn(ArrayList<SurveyQuestion> paramArrayList, Comment paramComment, Date paramDate, List<Badge> paramList, List<String> paramList1, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, User paramUser, YelpBusiness paramYelpBusiness, boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10, int paramInt11)
+  public Comment A()
   {
-    this();
-    mSurveyQuestions = paramArrayList;
-    mPrimaryComment = paramComment;
-    mDateCreated = paramDate;
-    mNewBadges = paramList;
-    mPrivateFeedback = paramList1;
-    mId = paramString1;
-    mBusinessId = paramString2;
-    mUserId = paramString3;
-    mTip = paramString4;
-    mLocation = paramString5;
-    mBusinessName = paramString6;
-    mContributionTypeString = paramString7;
-    mUser = paramUser;
-    mBusiness = paramYelpBusiness;
-    mIsCommentable = paramBoolean;
-    mInterval = paramInt1;
-    mTotalCount = paramInt2;
-    mWeekCount = paramInt3;
-    mUserCount = paramInt4;
-    mLocationRank = paramInt5;
-    mFriendRank = paramInt6;
-    mFriendActiveCount = paramInt7;
-    mRegularRank = paramInt8;
-    mCommentsCount = paramInt9;
-    mPositiveFeedback = paramInt10;
-    mTotalSurveyQuestions = paramInt11;
+    return b;
+  }
+  
+  public ArrayList<SurveyQuestion> B()
+  {
+    return a;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = paramParcel.readArrayList(SurveyQuestion.class.getClassLoader());
+    b = ((Comment)paramParcel.readParcelable(Comment.class.getClassLoader()));
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      c = new Date(l1);
+    }
+    d = paramParcel.readArrayList(Badge.class.getClassLoader());
+    e = paramParcel.createStringArrayList();
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    l = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    m = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+    n = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+    o = paramParcel.createBooleanArray()[0];
+    p = paramParcel.readInt();
+    q = paramParcel.readInt();
+    r = paramParcel.readInt();
+    s = paramParcel.readInt();
+    t = paramParcel.readInt();
+    u = paramParcel.readInt();
+    v = paramParcel.readInt();
+    w = paramParcel.readInt();
+    x = paramParcel.readInt();
+    y = paramParcel.readInt();
+    z = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("survey_questions"))
+    {
+      a = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("survey_questions"), SurveyQuestion.CREATOR);
+      if (!paramJSONObject.isNull("primary_comment")) {
+        b = ((Comment)Comment.CREATOR.parse(paramJSONObject.getJSONObject("primary_comment")));
+      }
+      if (!paramJSONObject.isNull("time_created")) {
+        c = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+      }
+      if (paramJSONObject.isNull("new_badges")) {
+        break label462;
+      }
+      d = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("new_badges"), Badge.CREATOR);
+      label97:
+      if (paramJSONObject.isNull("feedback")) {
+        break label472;
+      }
+      e = JsonUtil.getStringList(paramJSONObject.optJSONArray("feedback"));
+      label119:
+      if (!paramJSONObject.isNull("id")) {
+        f = paramJSONObject.optString("id");
+      }
+      if (!paramJSONObject.isNull("business_id")) {
+        g = paramJSONObject.optString("business_id");
+      }
+      if (!paramJSONObject.isNull("user_id")) {
+        h = paramJSONObject.optString("user_id");
+      }
+      if (!paramJSONObject.isNull("quicktip_text")) {
+        i = paramJSONObject.optString("quicktip_text");
+      }
+      if (!paramJSONObject.isNull("location")) {
+        j = paramJSONObject.optString("location");
+      }
+      if (!paramJSONObject.isNull("business_name")) {
+        k = paramJSONObject.optString("business_name");
+      }
+      if (!paramJSONObject.isNull("contribution_type")) {
+        l = paramJSONObject.optString("contribution_type");
+      }
+      if (!paramJSONObject.isNull("user")) {
+        m = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
+      }
+      if (!paramJSONObject.isNull("business")) {
+        n = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
+      }
+      if (paramJSONObject.isNull("is_commentable")) {
+        break label482;
+      }
+    }
+    label462:
+    label472:
+    label482:
+    for (o = paramJSONObject.optBoolean("is_commentable");; o = true)
+    {
+      p = paramJSONObject.optInt("interval");
+      q = paramJSONObject.optInt("check_in_count");
+      r = paramJSONObject.optInt("week_count");
+      s = paramJSONObject.optInt("user_count");
+      t = paramJSONObject.optInt("location_rank");
+      u = paramJSONObject.optInt("friend_rank");
+      v = paramJSONObject.optInt("friend_active_count");
+      w = paramJSONObject.optInt("regular_rank");
+      x = paramJSONObject.optInt("comments_count");
+      y = paramJSONObject.optInt("feedback_positive_count");
+      z = paramJSONObject.optInt("total_survey_questions");
+      return;
+      a = new ArrayList();
+      break;
+      d = Collections.emptyList();
+      break label97;
+      e = Collections.emptyList();
+      break label119;
+    }
+  }
+  
+  public YelpBusiness d()
+  {
+    return n;
   }
   
   public int describeContents()
@@ -80,360 +177,199 @@ abstract class _YelpCheckIn
     return 0;
   }
   
-  public YelpBusiness getBusiness()
+  public Date e()
   {
-    return mBusiness;
+    return c;
   }
   
-  public String getBusinessId()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessId;
-  }
-  
-  public String getBusinessName()
-  {
-    return mBusinessName;
-  }
-  
-  public int getCommentsCount()
-  {
-    return mCommentsCount;
-  }
-  
-  public String getContributionTypeString()
-  {
-    return mContributionTypeString;
-  }
-  
-  public Date getDateCreated()
-  {
-    return mDateCreated;
-  }
-  
-  public int getFriendActiveCount()
-  {
-    return mFriendActiveCount;
-  }
-  
-  public int getFriendRank()
-  {
-    return mFriendRank;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public int getInterval()
-  {
-    return mInterval;
-  }
-  
-  public String getLocation()
-  {
-    return mLocation;
-  }
-  
-  public int getLocationRank()
-  {
-    return mLocationRank;
-  }
-  
-  public List<Badge> getNewBadges()
-  {
-    return mNewBadges;
-  }
-  
-  public int getPositiveFeedback()
-  {
-    return mPositiveFeedback;
-  }
-  
-  public Comment getPrimaryComment()
-  {
-    return mPrimaryComment;
-  }
-  
-  public List<String> getPrivateFeedback()
-  {
-    return mPrivateFeedback;
-  }
-  
-  public int getRegularRank()
-  {
-    return mRegularRank;
-  }
-  
-  public ArrayList<SurveyQuestion> getSurveyQuestions()
-  {
-    return mSurveyQuestions;
-  }
-  
-  public String getTip()
-  {
-    return mTip;
-  }
-  
-  public int getTotalCount()
-  {
-    return mTotalCount;
-  }
-  
-  public int getTotalSurveyQuestions()
-  {
-    return mTotalSurveyQuestions;
-  }
-  
-  public User getUser()
-  {
-    return mUser;
-  }
-  
-  public int getUserCount()
-  {
-    return mUserCount;
-  }
-  
-  public String getUserId()
-  {
-    return mUserId;
-  }
-  
-  public int getWeekCount()
-  {
-    return mWeekCount;
-  }
-  
-  public boolean isCommentable()
-  {
-    return mIsCommentable;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("survey_questions"))
+    if (paramObject == null) {}
+    do
     {
-      mSurveyQuestions = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("survey_questions"), SurveyQuestion.CREATOR);
-      if (!paramJSONObject.isNull("primary_comment")) {
-        mPrimaryComment = ((Comment)Comment.CREATOR.parse(paramJSONObject.getJSONObject("primary_comment")));
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      if (!paramJSONObject.isNull("time_created")) {
-        mDateCreated = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-      }
-      if (paramJSONObject.isNull("new_badges")) {
-        break label458;
-      }
-      mNewBadges = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("new_badges"), Badge.CREATOR);
-      label97:
-      if (paramJSONObject.isNull("feedback")) {
-        break label468;
-      }
-      mPrivateFeedback = JsonUtil.getStringList(paramJSONObject.optJSONArray("feedback"));
-      label119:
-      if (!paramJSONObject.isNull("id")) {
-        mId = paramJSONObject.optString("id");
-      }
-      if (!paramJSONObject.isNull("business_id")) {
-        mBusinessId = paramJSONObject.optString("business_id");
-      }
-      if (!paramJSONObject.isNull("user_id")) {
-        mUserId = paramJSONObject.optString("user_id");
-      }
-      if (!paramJSONObject.isNull("quicktip_text")) {
-        mTip = paramJSONObject.optString("quicktip_text");
-      }
-      if (!paramJSONObject.isNull("location")) {
-        mLocation = paramJSONObject.optString("location");
-      }
-      if (!paramJSONObject.isNull("business_name")) {
-        mBusinessName = paramJSONObject.optString("business_name");
-      }
-      if (!paramJSONObject.isNull("contribution_type")) {
-        mContributionTypeString = paramJSONObject.optString("contribution_type");
-      }
-      if (!paramJSONObject.isNull("user")) {
-        mUser = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
-      }
-      if (!paramJSONObject.isNull("business")) {
-        mBusiness = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
-      }
-      if (paramJSONObject.isNull("is_commentable")) {
-        break label478;
-      }
-    }
-    label458:
-    label468:
-    label478:
-    for (mIsCommentable = paramJSONObject.optBoolean("is_commentable");; mIsCommentable = true)
-    {
-      mInterval = paramJSONObject.optInt("interval");
-      mTotalCount = paramJSONObject.optInt("check_in_count");
-      mWeekCount = paramJSONObject.optInt("week_count");
-      mUserCount = paramJSONObject.optInt("user_count");
-      mLocationRank = paramJSONObject.optInt("location_rank");
-      mFriendRank = paramJSONObject.optInt("friend_rank");
-      mFriendActiveCount = paramJSONObject.optInt("friend_active_count");
-      mRegularRank = paramJSONObject.optInt("regular_rank");
-      mCommentsCount = paramJSONObject.optInt("comments_count");
-      mPositiveFeedback = paramJSONObject.optInt("feedback_positive_count");
-      mTotalSurveyQuestions = paramJSONObject.optInt("total_survey_questions");
-      return;
-      mSurveyQuestions = new ArrayList();
-      break;
-      mNewBadges = Collections.emptyList();
-      break label97;
-      mPrivateFeedback = Collections.emptyList();
-      break label119;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpCheckIn)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a(n, n).a(o, o).a(p, p).a(q, q).a(r, r).a(s, s).a(t, t).a(u, u).a(v, v).a(w, w).a(x, x).a(y, y).a(z, z).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public String g()
   {
-    mSurveyQuestions = paramParcel.createTypedArrayList(SurveyQuestion.CREATOR);
-    mPrimaryComment = ((Comment)paramParcel.readParcelable(Comment.class.getClassLoader()));
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateCreated = new Date(l);
-    }
-    mNewBadges = paramParcel.createTypedArrayList(Badge.CREATOR);
-    mPrivateFeedback = paramParcel.createStringArrayList();
-    mId = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mUserId = paramParcel.readString();
-    mTip = paramParcel.readString();
-    mLocation = paramParcel.readString();
-    mBusinessName = paramParcel.readString();
-    mContributionTypeString = paramParcel.readString();
-    mUser = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
-    mBusiness = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
-    mIsCommentable = paramParcel.createBooleanArray()[0];
-    mInterval = paramParcel.readInt();
-    mTotalCount = paramParcel.readInt();
-    mWeekCount = paramParcel.readInt();
-    mUserCount = paramParcel.readInt();
-    mLocationRank = paramParcel.readInt();
-    mFriendRank = paramParcel.readInt();
-    mFriendActiveCount = paramParcel.readInt();
-    mRegularRank = paramParcel.readInt();
-    mCommentsCount = paramParcel.readInt();
-    mPositiveFeedback = paramParcel.readInt();
-    mTotalSurveyQuestions = paramParcel.readInt();
+    return j;
   }
   
-  public JSONObject writeJSON()
+  public int hashCode()
+  {
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a(n).a(o).a(p).a(q).a(r).a(s).a(t).a(u).a(v).a(w).a(x).a(y).a(z).a();
+  }
+  
+  public String i()
+  {
+    return h;
+  }
+  
+  public String k()
+  {
+    return g;
+  }
+  
+  public String m()
+  {
+    return k;
+  }
+  
+  public String r()
+  {
+    return l;
+  }
+  
+  public JSONObject t()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
     JSONArray localJSONArray;
     Iterator localIterator;
-    if (mSurveyQuestions != null)
+    if (a != null)
     {
       localJSONArray = new JSONArray();
-      localIterator = mSurveyQuestions.iterator();
+      localIterator = a.iterator();
       while (localIterator.hasNext()) {
-        localJSONArray.put(((SurveyQuestion)localIterator.next()).writeJSON());
+        localJSONArray.put(((SurveyQuestion)localIterator.next()).a());
       }
       localJSONObject.put("survey_questions", localJSONArray);
     }
-    if (mPrimaryComment != null) {
-      localJSONObject.put("primary_comment", mPrimaryComment.writeJSON());
+    if (b != null) {
+      localJSONObject.put("primary_comment", b.a());
     }
-    if (mDateCreated != null) {
-      localJSONObject.put("time_created", mDateCreated.getTime() / 1000L);
+    if (c != null) {
+      localJSONObject.put("time_created", c.getTime() / 1000L);
     }
-    if (mNewBadges != null)
+    if (d != null)
     {
       localJSONArray = new JSONArray();
-      localIterator = mNewBadges.iterator();
+      localIterator = d.iterator();
       while (localIterator.hasNext()) {
-        localJSONArray.put(((Badge)localIterator.next()).writeJSON());
+        localJSONArray.put(((Badge)localIterator.next()).b());
       }
       localJSONObject.put("new_badges", localJSONArray);
     }
-    if (mPrivateFeedback != null)
+    if (e != null)
     {
       localJSONArray = new JSONArray();
-      localIterator = mPrivateFeedback.iterator();
+      localIterator = e.iterator();
       while (localIterator.hasNext()) {
         localJSONArray.put((String)localIterator.next());
       }
       localJSONObject.put("feedback", localJSONArray);
     }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
+    if (f != null) {
+      localJSONObject.put("id", f);
     }
-    if (mBusinessId != null) {
-      localJSONObject.put("business_id", mBusinessId);
+    if (g != null) {
+      localJSONObject.put("business_id", g);
     }
-    if (mUserId != null) {
-      localJSONObject.put("user_id", mUserId);
+    if (h != null) {
+      localJSONObject.put("user_id", h);
     }
-    if (mTip != null) {
-      localJSONObject.put("quicktip_text", mTip);
+    if (i != null) {
+      localJSONObject.put("quicktip_text", i);
     }
-    if (mLocation != null) {
-      localJSONObject.put("location", mLocation);
+    if (j != null) {
+      localJSONObject.put("location", j);
     }
-    if (mBusinessName != null) {
-      localJSONObject.put("business_name", mBusinessName);
+    if (k != null) {
+      localJSONObject.put("business_name", k);
     }
-    if (mContributionTypeString != null) {
-      localJSONObject.put("contribution_type", mContributionTypeString);
+    if (l != null) {
+      localJSONObject.put("contribution_type", l);
     }
-    if (mUser != null) {
-      localJSONObject.put("user", mUser.writeJSON());
+    if (m != null) {
+      localJSONObject.put("user", m.A());
     }
-    if (mBusiness != null) {
-      localJSONObject.put("business", mBusiness.writeJSON());
+    if (n != null) {
+      localJSONObject.put("business", n.E());
     }
-    localJSONObject.put("is_commentable", mIsCommentable);
-    localJSONObject.put("interval", mInterval);
-    localJSONObject.put("check_in_count", mTotalCount);
-    localJSONObject.put("week_count", mWeekCount);
-    localJSONObject.put("user_count", mUserCount);
-    localJSONObject.put("location_rank", mLocationRank);
-    localJSONObject.put("friend_rank", mFriendRank);
-    localJSONObject.put("friend_active_count", mFriendActiveCount);
-    localJSONObject.put("regular_rank", mRegularRank);
-    localJSONObject.put("comments_count", mCommentsCount);
-    localJSONObject.put("feedback_positive_count", mPositiveFeedback);
-    localJSONObject.put("total_survey_questions", mTotalSurveyQuestions);
+    localJSONObject.put("is_commentable", o);
+    localJSONObject.put("interval", p);
+    localJSONObject.put("check_in_count", q);
+    localJSONObject.put("week_count", r);
+    localJSONObject.put("user_count", s);
+    localJSONObject.put("location_rank", t);
+    localJSONObject.put("friend_rank", u);
+    localJSONObject.put("friend_active_count", v);
+    localJSONObject.put("regular_rank", w);
+    localJSONObject.put("comments_count", x);
+    localJSONObject.put("feedback_positive_count", y);
+    localJSONObject.put("total_survey_questions", z);
     return localJSONObject;
+  }
+  
+  public int u()
+  {
+    return x;
+  }
+  
+  public int v()
+  {
+    return w;
+  }
+  
+  public int w()
+  {
+    return q;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeTypedList(mSurveyQuestions);
-    paramParcel.writeParcelable(mPrimaryComment, 0);
-    if (mDateCreated == null) {}
-    for (long l = -2147483648L;; l = mDateCreated.getTime())
+    paramParcel.writeList(a);
+    paramParcel.writeParcelable(b, 0);
+    if (c == null) {}
+    for (long l1 = -2147483648L;; l1 = c.getTime())
     {
-      paramParcel.writeLong(l);
-      paramParcel.writeTypedList(mNewBadges);
-      paramParcel.writeStringList(mPrivateFeedback);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeString(mUserId);
-      paramParcel.writeString(mTip);
-      paramParcel.writeString(mLocation);
-      paramParcel.writeString(mBusinessName);
-      paramParcel.writeString(mContributionTypeString);
-      paramParcel.writeParcelable(mUser, 0);
-      paramParcel.writeParcelable(mBusiness, 0);
-      paramParcel.writeBooleanArray(new boolean[] { mIsCommentable });
-      paramParcel.writeInt(mInterval);
-      paramParcel.writeInt(mTotalCount);
-      paramParcel.writeInt(mWeekCount);
-      paramParcel.writeInt(mUserCount);
-      paramParcel.writeInt(mLocationRank);
-      paramParcel.writeInt(mFriendRank);
-      paramParcel.writeInt(mFriendActiveCount);
-      paramParcel.writeInt(mRegularRank);
-      paramParcel.writeInt(mCommentsCount);
-      paramParcel.writeInt(mPositiveFeedback);
-      paramParcel.writeInt(mTotalSurveyQuestions);
+      paramParcel.writeLong(l1);
+      paramParcel.writeList(d);
+      paramParcel.writeStringList(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeValue(j);
+      paramParcel.writeValue(k);
+      paramParcel.writeValue(l);
+      paramParcel.writeParcelable(m, 0);
+      paramParcel.writeParcelable(n, 0);
+      paramParcel.writeBooleanArray(new boolean[] { o });
+      paramParcel.writeInt(p);
+      paramParcel.writeInt(q);
+      paramParcel.writeInt(r);
+      paramParcel.writeInt(s);
+      paramParcel.writeInt(t);
+      paramParcel.writeInt(u);
+      paramParcel.writeInt(v);
+      paramParcel.writeInt(w);
+      paramParcel.writeInt(x);
+      paramParcel.writeInt(y);
+      paramParcel.writeInt(z);
       return;
     }
+  }
+  
+  public boolean x()
+  {
+    return o;
+  }
+  
+  public User y()
+  {
+    return m;
+  }
+  
+  public String z()
+  {
+    return f;
   }
 }
 

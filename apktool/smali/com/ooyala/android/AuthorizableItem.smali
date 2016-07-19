@@ -3,6 +3,14 @@
 .source "AuthorizableItem.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/AuthorizableItem$AuthCode;
+    }
+.end annotation
+
+
 # static fields
 .field public static final authCodeDescription:[Ljava/lang/String;
 

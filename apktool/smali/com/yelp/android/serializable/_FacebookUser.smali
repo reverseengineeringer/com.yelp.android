@@ -7,19 +7,19 @@
 
 
 # instance fields
-.field protected mBirthday:Ljava/lang/String;
+.field protected a:Ljava/lang/String;
 
-.field protected mEmail:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mFirstName:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mGender:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
-.field protected mId:Ljava/lang/String;
+.field protected e:Ljava/lang/String;
 
-.field protected mLastName:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mVerified:Z
+.field protected g:Z
 
 
 # direct methods
@@ -27,132 +27,145 @@
     .locals 0
 
     .prologue
-    .line 35
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-    .locals 0
-
-    .prologue
-    .line 24
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_FacebookUser;-><init>()V
-
-    .line 25
-    iput-object p1, p0, Lcom/yelp/android/serializable/_FacebookUser;->mFirstName:Ljava/lang/String;
-
-    .line 26
-    iput-object p2, p0, Lcom/yelp/android/serializable/_FacebookUser;->mLastName:Ljava/lang/String;
-
-    .line 27
-    iput-object p3, p0, Lcom/yelp/android/serializable/_FacebookUser;->mBirthday:Ljava/lang/String;
-
-    .line 28
-    iput-object p4, p0, Lcom/yelp/android/serializable/_FacebookUser;->mGender:Ljava/lang/String;
-
-    .line 29
-    iput-object p5, p0, Lcom/yelp/android/serializable/_FacebookUser;->mId:Ljava/lang/String;
-
-    .line 30
-    iput-object p6, p0, Lcom/yelp/android/serializable/_FacebookUser;->mEmail:Ljava/lang/String;
-
-    .line 31
-    iput-boolean p7, p0, Lcom/yelp/android/serializable/_FacebookUser;->mVerified:Z
-
-    .line 32
+    .line 44
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 62
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getBirthday()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 45
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mBirthday:Ljava/lang/String;
+    .line 107
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->f:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getEmail()Ljava/lang/String;
-    .locals 1
+.method public a(Landroid/os/Parcel;)V
+    .locals 2
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mEmail:Ljava/lang/String;
+    .line 129
+    const-class v0, Ljava/lang/String;
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->a:Ljava/lang/String;
+
+    .line 130
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->b:Ljava/lang/String;
+
+    .line 131
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->c:Ljava/lang/String;
+
+    .line 132
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->d:Ljava/lang/String;
+
+    .line 133
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->e:Ljava/lang/String;
+
+    .line 134
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->f:Ljava/lang/String;
+
+    .line 135
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+
+    move-result-object v0
+
+    .line 136
+    const/4 v1, 0x0
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->g:Z
+
+    .line 137
+    return-void
 .end method
 
-.method public getFirstName()Ljava/lang/String;
+.method public a(Lorg/json/JSONObject;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mFirstName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getGender()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mGender:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getLastName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 42
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mLastName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getVerified()Z
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mVerified:Z
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 1
-
-    .prologue
-    .line 87
+    .line 140
     const-string/jumbo v0, "first_name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -161,16 +174,16 @@
 
     if-nez v0, :cond_0
 
-    .line 88
+    .line 141
     const-string/jumbo v0, "first_name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mFirstName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->a:Ljava/lang/String;
 
-    .line 90
+    .line 143
     :cond_0
     const-string/jumbo v0, "last_name"
 
@@ -180,16 +193,16 @@
 
     if-nez v0, :cond_1
 
-    .line 91
+    .line 144
     const-string/jumbo v0, "last_name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mLastName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->b:Ljava/lang/String;
 
-    .line 93
+    .line 146
     :cond_1
     const-string/jumbo v0, "birthday"
 
@@ -199,16 +212,16 @@
 
     if-nez v0, :cond_2
 
-    .line 94
+    .line 147
     const-string/jumbo v0, "birthday"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mBirthday:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->c:Ljava/lang/String;
 
-    .line 96
+    .line 149
     :cond_2
     const-string/jumbo v0, "gender"
 
@@ -218,16 +231,16 @@
 
     if-nez v0, :cond_3
 
-    .line 97
+    .line 150
     const-string/jumbo v0, "gender"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mGender:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->d:Ljava/lang/String;
 
-    .line 99
+    .line 152
     :cond_3
     const-string/jumbo v0, "id"
 
@@ -237,16 +250,16 @@
 
     if-nez v0, :cond_4
 
-    .line 100
+    .line 153
     const-string/jumbo v0, "id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->e:Ljava/lang/String;
 
-    .line 102
+    .line 155
     :cond_4
     const-string/jumbo v0, "email"
 
@@ -256,16 +269,16 @@
 
     if-nez v0, :cond_5
 
-    .line 103
+    .line 156
     const-string/jumbo v0, "email"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mEmail:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->f:Ljava/lang/String;
 
-    .line 105
+    .line 158
     :cond_5
     const-string/jumbo v0, "verified"
 
@@ -273,121 +286,283 @@
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mVerified:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->g:Z
 
-    .line 106
+    .line 159
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 103
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 99
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 115
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 91
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 48
+    if-nez p1, :cond_1
+
+    .line 62
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 52
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 53
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 56
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 60
+    check-cast p1, Lcom/yelp/android/serializable/_FacebookUser;
+
+    .line 62
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->a:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FacebookUser;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->b:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FacebookUser;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FacebookUser;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FacebookUser;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FacebookUser;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FacebookUser;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->g:Z
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/_FacebookUser;->g:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(ZZ)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 87
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
     .locals 2
 
     .prologue
-    .line 76
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 75
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mFirstName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->b:Ljava/lang/String;
 
-    .line 77
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mLastName:Ljava/lang/String;
-
-    .line 78
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mBirthday:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->c:Ljava/lang/String;
 
-    .line 79
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mGender:Ljava/lang/String;
-
-    .line 80
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->d:Ljava/lang/String;
 
-    .line 81
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mEmail:Ljava/lang/String;
-
-    .line 82
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    .line 83
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->e:Ljava/lang/String;
 
-    aget-boolean v0, v0, v1
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mVerified:Z
+    move-result-object v0
 
-    .line 84
-    return-void
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_FacebookUser;->g:Z
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Z)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
 
     .prologue
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mFirstName:Ljava/lang/String;
+    .line 119
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->a:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mLastName:Ljava/lang/String;
+    .line 120
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mBirthday:Ljava/lang/String;
+    .line 121
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mGender:Ljava/lang/String;
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 70
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mId:Ljava/lang/String;
+    .line 123
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 71
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->mEmail:Ljava/lang/String;
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FacebookUser;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 72
+    .line 125
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
     const/4 v1, 0x0
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_FacebookUser;->mVerified:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_FacebookUser;->g:Z
 
     aput-boolean v2, v0, v1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 73
+    .line 126
     return-void
 .end method

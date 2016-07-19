@@ -22,7 +22,7 @@ public final class e
   {
     if ((paramVarArgs == null) || (paramVarArgs.length == 0) || (paramVarArgs[0] == null))
     {
-      Log.w("KahunaAnalytics", "App is configured for Push, but you need to call onAppCreate() in your Application to prevent strange behavior!");
+      Log.w("Kahuna", "App is configured for Push, but you need to call onAppCreate() in your Application to prevent strange behavior!");
       return "";
     }
     StringBuilder localStringBuilder = new StringBuilder(paramVarArgs[0]);

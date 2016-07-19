@@ -3,6 +3,17 @@
 .source "CommentOnCheckIn.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "ConnectivityReceiver"
+.end annotation
+
+
 # static fields
 .field public static final a:Landroid/content/IntentFilter;
 
@@ -18,7 +29,7 @@
     .locals 2
 
     .prologue
-    .line 611
+    .line 631
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string/jumbo v1, "android.net.conn.CONNECTIVITY_CHANGE"
@@ -34,7 +45,7 @@
     .locals 0
 
     .prologue
-    .line 609
+    .line 629
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
@@ -46,27 +57,27 @@
     .locals 1
 
     .prologue
-    .line 634
+    .line 654
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
     if-eqz v0, :cond_0
 
-    .line 635
+    .line 655
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
     invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 636
+    .line 656
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
-    .line 637
+    .line 657
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->c:Z
 
-    .line 639
+    .line 659
     :cond_0
     return-void
 .end method
@@ -75,22 +86,22 @@
     .locals 2
 
     .prologue
-    .line 623
+    .line 643
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
     if-eq v0, p1, :cond_0
 
-    .line 624
+    .line 644
     iput-object p1, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
-    .line 625
+    .line 645
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
     sget-object v1, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->a:Landroid/content/IntentFilter;
 
     invoke-virtual {v0, p0, v1}, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 627
+    .line 647
     :cond_0
     return-void
 .end method
@@ -101,12 +112,12 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 643
+    .line 663
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
     if-eqz v0, :cond_0
 
-    .line 644
+    .line 664
     const-string/jumbo v0, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -119,7 +130,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 645
+    .line 665
     const-string/jumbo v0, "noConnectivity"
 
     invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -132,31 +143,31 @@
 
     if-eqz v0, :cond_1
 
-    .line 647
+    .line 667
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;->c()V
 
-    .line 648
+    .line 668
     iput-boolean v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->c:Z
 
-    .line 655
+    .line 675
     :cond_0
     :goto_0
     return-void
 
-    .line 649
+    .line 669
     :cond_1
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->c:Z
 
     if-nez v0, :cond_0
 
-    .line 650
+    .line 670
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->c:Z
 
-    .line 651
+    .line 671
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn$ConnectivityReceiver;->b:Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/friendcheckins/CommentOnCheckIn;->b()V

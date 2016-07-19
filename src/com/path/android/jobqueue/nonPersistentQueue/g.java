@@ -1,25 +1,64 @@
 package com.path.android.jobqueue.nonPersistentQueue;
 
-import com.path.android.jobqueue.b;
+import com.path.android.jobqueue.a;
 import java.util.Comparator;
 
-class g
-  implements Comparator<b>
+public class g
+  implements Comparator<a>
 {
-  g(f paramf) {}
+  final Comparator<a> a;
   
-  public int a(b paramb1, b paramb2)
+  public g(Comparator<a> paramComparator)
   {
-    int i = f.a(paramb1.c(), paramb2.c());
-    if (i != 0) {}
-    int j;
+    a = paramComparator;
+  }
+  
+  public int a(a parama1, a parama2)
+  {
+    int j = 0;
+    int k = 1;
+    long l = System.nanoTime();
+    int i;
+    if (parama1.g() <= l)
+    {
+      i = 1;
+      if (parama2.g() <= l) {
+        j = 1;
+      }
+      if (i == 0) {
+        break label73;
+      }
+      if (j == 0) {
+        break label68;
+      }
+      i = a.compare(parama1, parama2);
+      label57:
+      j = i;
+    }
+    label68:
+    label73:
+    label98:
     do
     {
-      return i;
-      j = -f.a(paramb1.e(), paramb2.e());
-      i = j;
-    } while (j != 0);
-    return -f.a(paramb1.a().longValue(), paramb2.a().longValue());
+      do
+      {
+        return j;
+        i = 0;
+        break;
+        i = -1;
+        break label57;
+        if (j == 0) {
+          break label98;
+        }
+        j = k;
+      } while (i == 0);
+      return a.compare(parama1, parama2);
+      if (parama1.g() < parama2.g()) {
+        return -1;
+      }
+      j = k;
+    } while (parama1.g() > parama2.g());
+    return a.compare(parama1, parama2);
   }
 }
 

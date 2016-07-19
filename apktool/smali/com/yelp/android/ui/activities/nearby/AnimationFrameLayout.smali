@@ -3,8 +3,16 @@
 .source "AnimationFrameLayout.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;
+    }
+.end annotation
+
+
 # instance fields
-.field private a:Lcom/yelp/android/ui/activities/nearby/f;
+.field private a:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;
 
 .field private b:I
 
@@ -22,16 +30,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 54
+    .line 48
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 50
+    .line 44
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d:Z
 
-    .line 51
+    .line 45
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e:Z
 
-    .line 55
+    .line 49
     return-void
 .end method
 
@@ -41,16 +49,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 58
+    .line 52
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 50
+    .line 44
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d:Z
 
-    .line 51
+    .line 45
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e:Z
 
-    .line 59
+    .line 53
     return-void
 .end method
 
@@ -60,16 +68,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 62
+    .line 56
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 50
+    .line 44
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d:Z
 
-    .line 51
+    .line 45
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e:Z
 
-    .line 63
+    .line 57
     return-void
 .end method
 
@@ -82,40 +90,38 @@
     .end annotation
 
     .prologue
-    const/4 v3, 0x0
-
-    .line 144
+    .line 125
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->getTranslation()I
 
     move-result v0
 
     sub-int v1, v0, p1
 
-    .line 145
+    .line 126
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
     move-result v0
 
-    .line 146
+    .line 127
     const/high16 v2, 0x44480000    # 800.0f
 
     cmpg-float v2, v0, v2
 
     if-gez v2, :cond_0
 
-    .line 147
+    .line 128
     const v0, 0x459c4000    # 5000.0f
 
-    .line 151
+    .line 132
     :cond_0
     const/high16 v2, 0x447a0000    # 1000.0f
 
     div-float/2addr v0, v2
 
-    .line 152
-    int-to-float v2, v1
+    .line 133
+    int-to-float v1, v1
 
-    div-float v0, v2, v0
+    div-float v0, v1, v0
 
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
@@ -123,16 +129,7 @@
 
     float-to-int v0, v0
 
-    .line 154
-    const/16 v2, 0xc
-
-    invoke-static {v2}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    .line 155
+    .line 135
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
@@ -149,40 +146,21 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/ui/activities/nearby/e;
+    new-instance v1, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/e;-><init>(Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$1;-><init>(Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
-    .line 181
-    :goto_0
+    .line 160
     return-void
-
-    .line 177
-    :cond_1
-    new-instance v2, Landroid/view/animation/TranslateAnimation;
-
-    int-to-float v1, v1
-
-    invoke-direct {v2, v3, v3, v1, v3}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
-
-    .line 178
-    int-to-long v0, v0
-
-    invoke-virtual {v2, v0, v1}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
-
-    .line 179
-    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->startAnimation(Landroid/view/animation/Animation;)V
-
-    goto :goto_0
 .end method
 
 .method static synthetic a(Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;)V
     .locals 0
 
     .prologue
-    .line 38
+    .line 32
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e()V
 
     return-void
@@ -192,17 +170,17 @@
     .locals 1
 
     .prologue
-    .line 107
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/f;
+    .line 88
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;
 
     if-eqz v0, :cond_0
 
-    .line 108
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/f;
+    .line 89
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/nearby/f;->b()V
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;->b()V
 
-    .line 110
+    .line 91
     :cond_0
     return-void
 .end method
@@ -211,17 +189,17 @@
     .locals 1
 
     .prologue
-    .line 113
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/f;
+    .line 94
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;
 
     if-eqz v0, :cond_0
 
-    .line 114
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/f;
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/nearby/f;->a()V
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;->a()V
 
-    .line 116
+    .line 97
     :cond_0
     return-void
 .end method
@@ -232,32 +210,32 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 184
+    .line 163
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e:Z
 
     if-eqz v0, :cond_1
 
-    .line 185
+    .line 164
     iput-boolean v1, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e:Z
 
-    .line 186
+    .line 165
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d()V
 
-    .line 191
+    .line 170
     :cond_0
     :goto_0
     return-void
 
-    .line 187
+    .line 166
     :cond_1
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d:Z
 
     if-eqz v0, :cond_0
 
-    .line 188
+    .line 167
     iput-boolean v1, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d:Z
 
-    .line 189
+    .line 168
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->c()V
 
     goto :goto_0
@@ -269,15 +247,15 @@
     .locals 1
 
     .prologue
-    .line 121
+    .line 102
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->c:I
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setTranslation(I)V
 
-    .line 122
+    .line 103
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d()V
 
-    .line 123
+    .line 104
     return-void
 .end method
 
@@ -285,17 +263,17 @@
     .locals 1
 
     .prologue
-    .line 132
+    .line 113
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e:Z
 
-    .line 133
+    .line 114
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->c:I
 
     invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a(IF)V
 
-    .line 134
+    .line 115
     return-void
 .end method
 
@@ -303,15 +281,15 @@
     .locals 1
 
     .prologue
-    .line 126
+    .line 107
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->b:I
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setTranslation(I)V
 
-    .line 127
+    .line 108
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->c()V
 
-    .line 128
+    .line 109
     return-void
 .end method
 
@@ -319,17 +297,17 @@
     .locals 1
 
     .prologue
-    .line 137
+    .line 118
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d:Z
 
-    .line 138
+    .line 119
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->b:I
 
     invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a(IF)V
 
-    .line 139
+    .line 120
     return-void
 .end method
 
@@ -337,7 +315,7 @@
     .locals 1
 
     .prologue
-    .line 103
+    .line 84
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->c:I
 
     return v0
@@ -347,7 +325,7 @@
     .locals 1
 
     .prologue
-    .line 95
+    .line 76
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->b:I
 
     return v0
@@ -355,56 +333,29 @@
 
 .method public getTranslation()I
     .locals 1
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
 
     .prologue
-    .line 79
-    const/16 v0, 0xc
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 80
+    .line 64
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->getTranslationY()F
 
     move-result v0
 
     float-to-int v0, v0
 
-    .line 82
-    :goto_0
     return v0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
-
-    iget v0, v0, Landroid/widget/RelativeLayout$LayoutParams;->topMargin:I
-
-    goto :goto_0
 .end method
 
 .method protected onAnimationEnd()V
     .locals 0
 
     .prologue
-    .line 207
+    .line 186
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAnimationEnd()V
 
-    .line 208
+    .line 187
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e()V
 
-    .line 209
+    .line 188
     return-void
 .end method
 
@@ -412,31 +363,31 @@
     .locals 1
 
     .prologue
-    .line 196
+    .line 175
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAnimationStart()V
 
-    .line 197
+    .line 176
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->d:Z
 
     if-eqz v0, :cond_1
 
-    .line 198
+    .line 177
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->b:I
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setTranslation(I)V
 
-    .line 202
+    .line 181
     :cond_0
     :goto_0
     return-void
 
-    .line 199
+    .line 178
     :cond_1
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->e:Z
 
     if-eqz v0, :cond_0
 
-    .line 200
+    .line 179
     iget v0, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->c:I
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setTranslation(I)V
@@ -448,21 +399,21 @@
     .locals 0
 
     .prologue
-    .line 99
+    .line 80
     iput p1, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->c:I
 
-    .line 100
+    .line 81
     return-void
 .end method
 
-.method public setSlideFrameCallback(Lcom/yelp/android/ui/activities/nearby/f;)V
+.method public setSlideFrameCallback(Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;)V
     .locals 0
 
     .prologue
-    .line 87
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/f;
+    .line 68
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;
 
-    .line 88
+    .line 69
     return-void
 .end method
 
@@ -470,59 +421,22 @@
     .locals 0
 
     .prologue
-    .line 91
+    .line 72
     iput p1, p0, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->b:I
 
-    .line 92
+    .line 73
     return-void
 .end method
 
 .method public setTranslation(I)V
-    .locals 2
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
+    .locals 1
 
     .prologue
-    .line 67
-    const/16 v0, 0xc
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 68
+    .line 60
     int-to-float v0, p1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setTranslationY(F)V
 
-    .line 75
-    :goto_0
+    .line 61
     return-void
-
-    .line 70
-    :cond_0
-    new-instance v0, Landroid/view/ViewGroup$MarginLayoutParams;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 72
-    iput p1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
-
-    .line 73
-    new-instance v1, Landroid/widget/RelativeLayout$LayoutParams;
-
-    invoke-direct {v1, v0}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    goto :goto_0
 .end method

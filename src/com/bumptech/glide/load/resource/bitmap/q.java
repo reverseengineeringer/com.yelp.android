@@ -1,39 +1,55 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import java.io.InputStream;
+import android.graphics.Bitmap;
+import android.media.MediaMetadataRetriever;
+import android.os.ParcelFileDescriptor;
+import com.bumptech.glide.load.DecodeFormat;
+import com.yelp.android.x.c;
+import java.io.IOException;
 
-class q
+public class q
+  implements a<ParcelFileDescriptor>
 {
-  private final InputStream a;
+  private static final a a = new a();
+  private a b;
+  private int c;
   
-  public q(InputStream paramInputStream)
+  public q()
   {
-    a = paramInputStream;
+    this(a, -1);
   }
   
-  public int a()
+  q(a parama, int paramInt)
   {
-    return a.read() << 8 & 0xFF00 | a.read() & 0xFF;
+    b = parama;
+    c = paramInt;
   }
   
-  public int a(byte[] paramArrayOfByte)
+  public Bitmap a(ParcelFileDescriptor paramParcelFileDescriptor, c paramc, int paramInt1, int paramInt2, DecodeFormat paramDecodeFormat)
+    throws IOException
   {
-    return a.read(paramArrayOfByte);
+    paramDecodeFormat = b.a();
+    paramDecodeFormat.setDataSource(paramParcelFileDescriptor.getFileDescriptor());
+    if (c >= 0) {}
+    for (paramc = paramDecodeFormat.getFrameAtTime(c);; paramc = paramDecodeFormat.getFrameAtTime())
+    {
+      paramDecodeFormat.release();
+      paramParcelFileDescriptor.close();
+      return paramc;
+    }
   }
   
-  public long a(long paramLong)
+  public String a()
   {
-    return a.skip(paramLong);
+    return "VideoBitmapDecoder.com.bumptech.glide.load.resource.bitmap";
   }
   
-  public short b()
+  static class a
   {
-    return (short)(a.read() & 0xFF);
-  }
-  
-  public int c()
-  {
-    return a.read();
+    public MediaMetadataRetriever a()
+    {
+      return new MediaMetadataRetriever();
+    }
   }
 }
 

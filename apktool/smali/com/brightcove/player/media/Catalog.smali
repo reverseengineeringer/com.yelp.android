@@ -20,6 +20,13 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/media/Catalog$OnFindPlaylistListener;,
+        Lcom/brightcove/player/media/Catalog$OnFindVideoListener;
+    }
+.end annotation
+
 
 # static fields
 .field public static final PLAYLIST_ID:Ljava/lang/String; = "playlistID"

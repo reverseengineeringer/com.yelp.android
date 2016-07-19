@@ -9,7 +9,9 @@ import com.brightcove.player.media.VideoFields;
 import com.brightcove.player.util.ErrorUtil;
 import com.brightcove.player.util.StringUtil;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
@@ -53,6 +55,7 @@ public class FindMediaTask
   }
   
   public URI buildURI(String paramString1, String paramString2, String paramString3)
+    throws URISyntaxException, UnsupportedEncodingException
   {
     HashMap localHashMap = new HashMap(options);
     localHashMap.put("command", paramString1);
@@ -106,6 +109,7 @@ public class FindMediaTask
   }
   
   public void executeWithCommand(String paramString1, String paramString2, String paramString3)
+    throws URISyntaxException, UnsupportedEncodingException
   {
     if ((paramString1 == null) || (paramString1.trim().isEmpty())) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("mediaAPICommandRequired"));

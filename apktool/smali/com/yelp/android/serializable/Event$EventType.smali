@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/serializable/Event;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "EventType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -35,7 +44,7 @@
 
     const/4 v3, 0x0
 
-    .line 78
+    .line 79
     new-instance v0, Lcom/yelp/android/serializable/Event$EventType;
 
     const-string/jumbo v1, "REGULAR"
@@ -46,7 +55,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/Event$EventType;->REGULAR:Lcom/yelp/android/serializable/Event$EventType;
 
-    .line 79
+    .line 80
     new-instance v0, Lcom/yelp/android/serializable/Event$EventType;
 
     const-string/jumbo v1, "ELITE"
@@ -57,7 +66,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/Event$EventType;->ELITE:Lcom/yelp/android/serializable/Event$EventType;
 
-    .line 77
+    .line 78
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/yelp/android/serializable/Event$EventType;
@@ -86,13 +95,13 @@
     .end annotation
 
     .prologue
-    .line 83
+    .line 84
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 84
+    .line 85
     iput-object p3, p0, Lcom/yelp/android/serializable/Event$EventType;->mType:Ljava/lang/String;
 
-    .line 85
+    .line 86
     return-void
 .end method
 
@@ -100,7 +109,7 @@
     .locals 5
 
     .prologue
-    .line 88
+    .line 89
     invoke-static {}, Lcom/yelp/android/serializable/Event$EventType;->values()[Lcom/yelp/android/serializable/Event$EventType;
 
     move-result-object v2
@@ -116,7 +125,7 @@
 
     aget-object v0, v2, v1
 
-    .line 89
+    .line 90
     iget-object v4, v0, Lcom/yelp/android/serializable/Event$EventType;->mType:Ljava/lang/String;
 
     invoke-virtual {v4, p0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -125,11 +134,11 @@
 
     if-eqz v4, :cond_0
 
-    .line 93
+    .line 94
     :goto_1
     return-object v0
 
-    .line 88
+    .line 89
     :cond_0
     add-int/lit8 v0, v1, 0x1
 
@@ -137,7 +146,7 @@
 
     goto :goto_0
 
-    .line 93
+    .line 94
     :cond_1
     sget-object v0, Lcom/yelp/android/serializable/Event$EventType;->REGULAR:Lcom/yelp/android/serializable/Event$EventType;
 
@@ -148,30 +157,51 @@
     .locals 3
 
     .prologue
-    .line 103
+    .line 104
     invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
     move-result-object v1
 
-    .line 105
-    invoke-virtual {p0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+    .line 113
+    invoke-virtual {p0}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 107
-    const-string/jumbo v2, "yelp"
+    sget-object v2, Lcom/yelp/android/serializable/Event$EventType;->ELITE:Lcom/yelp/android/serializable/Event$EventType;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Event$EventType;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 114
+    const/4 v0, 0x0
+
+    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    sget-object v2, Lcom/yelp/android/serializable/Event$EventType;->ELITE:Lcom/yelp/android/serializable/Event$EventType;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Event$EventType;->toString()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    .line 112
     const/4 v0, 0x1
 
-    .line 120
-    :goto_0
     invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
@@ -190,31 +220,25 @@
 
     if-eqz v0, :cond_1
 
-    .line 121
+    .line 116
+    :cond_0
     sget-object v0, Lcom/yelp/android/serializable/Event$EventType;->ELITE:Lcom/yelp/android/serializable/Event$EventType;
 
-    .line 123
-    :goto_1
+    .line 119
+    :goto_0
     return-object v0
 
-    .line 118
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    .line 123
     :cond_1
     sget-object v0, Lcom/yelp/android/serializable/Event$EventType;->REGULAR:Lcom/yelp/android/serializable/Event$EventType;
 
-    goto :goto_1
+    goto :goto_0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/yelp/android/serializable/Event$EventType;
     .locals 1
 
     .prologue
-    .line 77
+    .line 78
     const-class v0, Lcom/yelp/android/serializable/Event$EventType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -230,7 +254,7 @@
     .locals 1
 
     .prologue
-    .line 77
+    .line 78
     sget-object v0, Lcom/yelp/android/serializable/Event$EventType;->$VALUES:[Lcom/yelp/android/serializable/Event$EventType;
 
     invoke-virtual {v0}, [Lcom/yelp/android/serializable/Event$EventType;->clone()Ljava/lang/Object;
@@ -248,7 +272,7 @@
     .locals 1
 
     .prologue
-    .line 128
+    .line 124
     iget-object v0, p0, Lcom/yelp/android/serializable/Event$EventType;->mType:Ljava/lang/String;
 
     return-object v0

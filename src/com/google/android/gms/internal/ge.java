@@ -1,62 +1,39 @@
 package com.google.android.gms.internal;
 
 import android.content.Context;
-import android.text.TextUtils;
-import java.math.BigInteger;
-import java.util.Locale;
+import com.google.android.gms.ads.internal.s;
+import java.util.WeakHashMap;
 
-@ey
+@fv
 public final class ge
 {
-  private static final Object ut = new Object();
-  private static String wt;
+  private WeakHashMap<Context, a> a = new WeakHashMap();
   
-  public static String a(Context paramContext, String paramString1, String paramString2)
+  public gd a(Context paramContext)
   {
-    synchronized (ut)
+    Object localObject = (a)a.get(paramContext);
+    if ((localObject != null) && (!((a)localObject).a()) && (((Boolean)ao.al.c()).booleanValue())) {}
+    for (localObject = new gd.a(paramContext, b).a();; localObject = new gd.a(paramContext).a())
     {
-      if ((wt == null) && (!TextUtils.isEmpty(paramString1))) {
-        b(paramContext, paramString1, paramString2);
-      }
-      paramContext = wt;
-      return paramContext;
+      a.put(paramContext, new a((gd)localObject));
+      return (gd)localObject;
     }
   }
   
-  private static void b(Context paramContext, String paramString1, String paramString2)
+  private class a
   {
-    try
+    public final long a = s.i().a();
+    public final gd b;
+    
+    public a(gd paramgd)
     {
-      paramString2 = paramContext.createPackageContext(paramString2, 3).getClassLoader();
-      Class localClass = Class.forName("com.google.ads.mediation.MediationAdapter", false, paramString2);
-      paramContext = new BigInteger(new byte[1]);
-      String[] arrayOfString = paramString1.split(",");
-      int i = 0;
-      while (i < arrayOfString.length)
-      {
-        paramString1 = paramContext;
-        if (gi.a(paramString2, localClass, arrayOfString[i])) {
-          paramString1 = paramContext.setBit(i);
-        }
-        i += 1;
-        paramContext = paramString1;
-      }
+      b = paramgd;
     }
-    catch (Throwable paramContext)
+    
+    public boolean a()
     {
-      wt = "err";
-      return;
-    }
-    tmp93_90[0] = paramContext;
-    wt = String.format(Locale.US, "%X", tmp93_90);
-  }
-  
-  public static String dr()
-  {
-    synchronized (ut)
-    {
-      String str = wt;
-      return str;
+      long l = a;
+      return ((Long)ao.am.c()).longValue() + l < s.i().a();
     }
   }
 }

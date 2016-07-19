@@ -1,116 +1,150 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import android.os.IBinder;
+import android.os.RemoteException;
+import com.google.android.gms.ads.formats.a.a;
+import com.google.android.gms.ads.formats.d;
+import com.google.android.gms.ads.internal.util.client.b;
+import com.google.android.gms.dynamic.c;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+@fv
 public class bk
-  implements Parcelable.Creator<bj>
+  extends d
 {
-  static void a(bj parambj, Parcel paramParcel, int paramInt)
-  {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, versionCode);
-    b.c(paramParcel, 2, oQ);
-    b.c(paramParcel, 3, backgroundColor);
-    b.c(paramParcel, 4, oR);
-    b.c(paramParcel, 5, oS);
-    b.c(paramParcel, 6, oT);
-    b.c(paramParcel, 7, oU);
-    b.c(paramParcel, 8, oV);
-    b.c(paramParcel, 9, oW);
-    b.a(paramParcel, 10, oX, false);
-    b.c(paramParcel, 11, oY);
-    b.a(paramParcel, 12, oZ, false);
-    b.c(paramParcel, 13, pa);
-    b.c(paramParcel, 14, pb);
-    b.a(paramParcel, 15, pc, false);
-    b.H(paramParcel, paramInt);
-  }
+  private final bj a;
+  private final List<a.a> b = new ArrayList();
+  private final be c;
   
-  public bj d(Parcel paramParcel)
+  public bk(bj parambj)
   {
-    int i8 = a.G(paramParcel);
-    int i7 = 0;
-    int i6 = 0;
-    int i5 = 0;
-    int i4 = 0;
-    int i3 = 0;
-    int i2 = 0;
-    int i1 = 0;
-    int n = 0;
-    int m = 0;
-    String str3 = null;
-    int k = 0;
-    String str2 = null;
-    int j = 0;
-    int i = 0;
-    String str1 = null;
-    while (paramParcel.dataPosition() < i8)
+    a = parambj;
+    try
     {
-      int i9 = a.F(paramParcel);
-      switch (a.aH(i9))
+      parambj = a.b();
+      if (parambj != null)
       {
-      default: 
-        a.b(paramParcel, i9);
-        break;
-      case 1: 
-        i7 = a.g(paramParcel, i9);
-        break;
-      case 2: 
-        i6 = a.g(paramParcel, i9);
-        break;
-      case 3: 
-        i5 = a.g(paramParcel, i9);
-        break;
-      case 4: 
-        i4 = a.g(paramParcel, i9);
-        break;
-      case 5: 
-        i3 = a.g(paramParcel, i9);
-        break;
-      case 6: 
-        i2 = a.g(paramParcel, i9);
-        break;
-      case 7: 
-        i1 = a.g(paramParcel, i9);
-        break;
-      case 8: 
-        n = a.g(paramParcel, i9);
-        break;
-      case 9: 
-        m = a.g(paramParcel, i9);
-        break;
-      case 10: 
-        str3 = a.o(paramParcel, i9);
-        break;
-      case 11: 
-        k = a.g(paramParcel, i9);
-        break;
-      case 12: 
-        str2 = a.o(paramParcel, i9);
-        break;
-      case 13: 
-        j = a.g(paramParcel, i9);
-        break;
-      case 14: 
-        i = a.g(paramParcel, i9);
-        break;
-      case 15: 
-        str1 = a.o(paramParcel, i9);
+        parambj = parambj.iterator();
+        while (parambj.hasNext())
+        {
+          bd localbd = a(parambj.next());
+          if (localbd != null) {
+            b.add(new be(localbd));
+          }
+        }
+      }
+      try
+      {
+        parambj = a.d();
+        if (parambj == null) {
+          break label129;
+        }
+        parambj = new be(parambj);
+      }
+      catch (RemoteException parambj)
+      {
+        for (;;)
+        {
+          b.b("Failed to get icon.", parambj);
+          parambj = null;
+        }
       }
     }
-    if (paramParcel.dataPosition() != i8) {
-      throw new a.a("Overread allowed size end=" + i8, paramParcel);
+    catch (RemoteException parambj)
+    {
+      b.b("Failed to get image.", parambj);
     }
-    return new bj(i7, i6, i5, i4, i3, i2, i1, n, m, str3, k, str2, j, i, str1);
+    c = parambj;
   }
   
-  public bj[] i(int paramInt)
+  bd a(Object paramObject)
   {
-    return new bj[paramInt];
+    if ((paramObject instanceof IBinder)) {
+      return bd.a.a((IBinder)paramObject);
+    }
+    return null;
+  }
+  
+  public CharSequence b()
+  {
+    try
+    {
+      String str = a.a();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get headline.", localRemoteException);
+    }
+    return null;
+  }
+  
+  public List<a.a> c()
+  {
+    return b;
+  }
+  
+  public CharSequence d()
+  {
+    try
+    {
+      String str = a.c();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get body.", localRemoteException);
+    }
+    return null;
+  }
+  
+  public a.a e()
+  {
+    return c;
+  }
+  
+  public CharSequence f()
+  {
+    try
+    {
+      String str = a.e();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get call to action.", localRemoteException);
+    }
+    return null;
+  }
+  
+  public CharSequence g()
+  {
+    try
+    {
+      String str = a.f();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get attribution.", localRemoteException);
+    }
+    return null;
+  }
+  
+  protected c h()
+  {
+    try
+    {
+      c localc = a.g();
+      return localc;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to retrieve native ad engine.", localRemoteException);
+    }
+    return null;
   }
 }
 

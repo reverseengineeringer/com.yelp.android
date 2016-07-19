@@ -1,38 +1,29 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.n;
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.en;
-import com.yelp.android.serializable.eq;
-import com.yelp.android.services.a;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.YelpBusinessTiny;
+import java.util.Collections;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class dj
-  extends g<Void, Void, eq>
+  extends b<Void, Void, List<YelpBusinessTiny>>
 {
-  private final String a;
-  private final String b;
-  
-  protected dj(String paramString1, String paramString2, String paramString3, m<eq> paramm)
+  public dj(String paramString, ApiRequest.b<List<YelpBusinessTiny>> paramb)
   {
-    super(ApiRequest.RequestType.POST, "account/login_secure", paramm);
-    a = paramString1;
-    b = paramString2;
-    addPostParam("email", paramString1);
-    addPostParam("password", paramString2);
-    if (n.b(8)) {
-      addPostParam("device_token", a.a(paramString3));
+    super(ApiRequest.RequestType.GET, "business/related_businesses", paramb);
+    a("business_id", paramString);
+  }
+  
+  public List<YelpBusinessTiny> a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    Object localObject = Collections.emptyList();
+    if (!paramJSONObject.isNull("related_businesses")) {
+      localObject = YelpBusinessTiny.a(paramJSONObject.getJSONArray("related_businesses"));
     }
-  }
-  
-  public eq a(JSONObject paramJSONObject)
-  {
-    return en.a(paramJSONObject);
-  }
-  
-  public String a()
-  {
-    return a;
+    return (List<YelpBusinessTiny>)localObject;
   }
 }
 

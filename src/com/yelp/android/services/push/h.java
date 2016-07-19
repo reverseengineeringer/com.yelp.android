@@ -1,31 +1,18 @@
 package com.yelp.android.services.push;
 
+import android.app.Notification;
+import android.content.Intent;
 import android.net.Uri;
-import java.util.List;
 
-public class h
-  extends p
+public abstract interface h
 {
-  private final String a;
-  private final String b;
+  public abstract Notification a(Notifier.a parama);
   
-  public h(p paramp)
-  {
-    super(paramp);
-    paramp = f().getPathSegments();
-    b = ((String)paramp.get(1));
-    a = ((String)paramp.get(2));
-  }
+  public abstract Intent a(Intent paramIntent, Uri paramUri, Notifier.NotificationType paramNotificationType, int paramInt);
   
-  public String a()
-  {
-    return a;
-  }
+  public abstract Intent a(Uri paramUri, Notifier.NotificationType paramNotificationType, boolean paramBoolean);
   
-  public String b()
-  {
-    return b;
-  }
+  public abstract void a(g paramg, Notifier.b paramb);
 }
 
 /* Location:

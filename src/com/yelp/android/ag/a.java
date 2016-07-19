@@ -1,32 +1,30 @@
 package com.yelp.android.ag;
 
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import com.yelp.android.u.a.a;
+import com.yelp.android.x.c;
 
-public abstract class a<Z>
-  implements j<Z>
+class a
+  implements a.a
 {
-  private com.bumptech.glide.request.a a;
+  private final c a;
   
-  public void a(Drawable paramDrawable) {}
-  
-  public void a(com.bumptech.glide.request.a parama)
+  public a(c paramc)
   {
-    a = parama;
+    a = paramc;
   }
   
-  public void a(Exception paramException, Drawable paramDrawable) {}
-  
-  public void c() {}
-  
-  public void c(Drawable paramDrawable) {}
-  
-  public void d() {}
-  
-  public void e() {}
-  
-  public com.bumptech.glide.request.a f()
+  public Bitmap a(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
   {
-    return a;
+    return a.b(paramInt1, paramInt2, paramConfig);
+  }
+  
+  public void a(Bitmap paramBitmap)
+  {
+    if (!a.a(paramBitmap)) {
+      paramBitmap.recycle();
+    }
   }
 }
 

@@ -1,42 +1,409 @@
-.class Lcom/yelp/android/ui/util/v;
-.super Landroid/support/v7/widget/bk;
-.source "DynamicImageView.java"
+.class public Lcom/yelp/android/ui/util/v;
+.super Ljava/lang/Object;
+.source "LazyLoadedAnimation.java"
+
+
+# annotations
+.annotation build Landroid/annotation/SuppressLint;
+    value = {
+        "NewApi"
+    }
+.end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/ui/util/DynamicImageView;
+.field private a:[I
+
+.field private b:I
+
+.field private c:Z
+
+.field private d:Z
+
+.field private e:Ljava/lang/ref/SoftReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/SoftReference",
+            "<",
+            "Landroid/widget/ImageView;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private f:Landroid/os/Handler;
+
+.field private g:I
+
+.field private h:Landroid/graphics/Bitmap;
+
+.field private i:Landroid/graphics/BitmapFactory$Options;
+
+.field private j:Landroid/content/Context;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/util/DynamicImageView;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/widget/ImageView;[II)V
+    .locals 4
+
+    .prologue
+    const/4 v3, 0x1
+
+    const/4 v1, 0x0
+
+    .line 42
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 38
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/util/v;->h:Landroid/graphics/Bitmap;
+
+    .line 43
+    iput-object p1, p0, Lcom/yelp/android/ui/util/v;->j:Landroid/content/Context;
+
+    .line 44
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/util/v;->f:Landroid/os/Handler;
+
+    .line 45
+    iput-object p3, p0, Lcom/yelp/android/ui/util/v;->a:[I
+
+    .line 46
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/yelp/android/ui/util/v;->b:I
+
+    .line 47
+    new-instance v0, Ljava/lang/ref/SoftReference;
+
+    invoke-direct {v0, p2}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/util/v;->e:Ljava/lang/ref/SoftReference;
+
+    .line 48
+    iput-boolean v1, p0, Lcom/yelp/android/ui/util/v;->c:Z
+
+    .line 49
+    iput-boolean v1, p0, Lcom/yelp/android/ui/util/v;->d:Z
+
+    .line 50
+    const/16 v0, 0x3e8
+
+    div-int/2addr v0, p4
+
+    iput v0, p0, Lcom/yelp/android/ui/util/v;->g:I
+
+    .line 52
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->a:[I
+
+    aget v0, v0, v1
+
+    invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    .line 56
+    invoke-virtual {p2}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    .line 57
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v1
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+
+    move-result-object v0
+
+    invoke-static {v1, v2, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/util/v;->h:Landroid/graphics/Bitmap;
+
+    .line 58
+    new-instance v0, Landroid/graphics/BitmapFactory$Options;
+
+    invoke-direct {v0}, Landroid/graphics/BitmapFactory$Options;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/util/v;->i:Landroid/graphics/BitmapFactory$Options;
+
+    .line 60
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->i:Landroid/graphics/BitmapFactory$Options;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/util/v;->h:Landroid/graphics/Bitmap;
+
+    iput-object v1, v0, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
+
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->i:Landroid/graphics/BitmapFactory$Options;
+
+    iput-boolean v3, v0, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
+
+    .line 62
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->i:Landroid/graphics/BitmapFactory$Options;
+
+    iput v3, v0, Landroid/graphics/BitmapFactory$Options;->inSampleSize:I
+
+    .line 63
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/util/v;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 0
 
     .prologue
-    .line 107
-    iput-object p1, p0, Lcom/yelp/android/ui/util/v;->a:Lcom/yelp/android/ui/util/DynamicImageView;
+    .line 26
+    iput-object p1, p0, Lcom/yelp/android/ui/util/v;->h:Landroid/graphics/Bitmap;
 
-    invoke-direct {p0}, Landroid/support/v7/widget/bk;-><init>()V
+    return-object p1
+.end method
 
-    return-void
+.method static synthetic a(Lcom/yelp/android/ui/util/v;)Ljava/lang/ref/SoftReference;
+    .locals 1
+
+    .prologue
+    .line 26
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->e:Ljava/lang/ref/SoftReference;
+
+    return-object v0
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/util/v;Z)Z
+    .locals 0
+
+    .prologue
+    .line 26
+    iput-boolean p1, p0, Lcom/yelp/android/ui/util/v;->d:Z
+
+    return p1
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/util/v;)Z
+    .locals 1
+
+    .prologue
+    .line 26
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/v;->c:Z
+
+    return v0
+.end method
+
+.method private c()I
+    .locals 2
+
+    .prologue
+    .line 66
+    iget v0, p0, Lcom/yelp/android/ui/util/v;->b:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/yelp/android/ui/util/v;->b:I
+
+    .line 67
+    iget v0, p0, Lcom/yelp/android/ui/util/v;->b:I
+
+    iget-object v1, p0, Lcom/yelp/android/ui/util/v;->a:[I
+
+    array-length v1, v1
+
+    if-lt v0, v1, :cond_0
+
+    .line 68
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/yelp/android/ui/util/v;->b:I
+
+    .line 70
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->a:[I
+
+    iget v1, p0, Lcom/yelp/android/ui/util/v;->b:I
+
+    aget v0, v0, v1
+
+    return v0
+.end method
+
+.method static synthetic c(Lcom/yelp/android/ui/util/v;)I
+    .locals 1
+
+    .prologue
+    .line 26
+    invoke-direct {p0}, Lcom/yelp/android/ui/util/v;->c()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic d(Lcom/yelp/android/ui/util/v;)Landroid/graphics/Bitmap;
+    .locals 1
+
+    .prologue
+    .line 26
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->h:Landroid/graphics/Bitmap;
+
+    return-object v0
+.end method
+
+.method static synthetic e(Lcom/yelp/android/ui/util/v;)Landroid/graphics/BitmapFactory$Options;
+    .locals 1
+
+    .prologue
+    .line 26
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->i:Landroid/graphics/BitmapFactory$Options;
+
+    return-object v0
+.end method
+
+.method static synthetic f(Lcom/yelp/android/ui/util/v;)Landroid/content/Context;
+    .locals 1
+
+    .prologue
+    .line 26
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->j:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic g(Lcom/yelp/android/ui/util/v;)I
+    .locals 1
+
+    .prologue
+    .line 26
+    iget v0, p0, Lcom/yelp/android/ui/util/v;->g:I
+
+    return v0
+.end method
+
+.method static synthetic h(Lcom/yelp/android/ui/util/v;)Landroid/os/Handler;
+    .locals 1
+
+    .prologue
+    .line 26
+    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->f:Landroid/os/Handler;
+
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public a()V
+.method public declared-synchronized a()V
     .locals 2
 
     .prologue
-    .line 116
-    iget-object v0, p0, Lcom/yelp/android/ui/util/v;->a:Lcom/yelp/android/ui/util/DynamicImageView;
+    .line 77
+    monitor-enter p0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/util/v;->a:Lcom/yelp/android/ui/util/DynamicImageView;
+    const/4 v0, 0x1
 
-    invoke-static {v1}, Lcom/yelp/android/ui/util/DynamicImageView;->b(Lcom/yelp/android/ui/util/DynamicImageView;)Ljava/lang/Runnable;
+    :try_start_0
+    iput-boolean v0, p0, Lcom/yelp/android/ui/util/v;->c:Z
 
-    move-result-object v1
+    .line 78
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/v;->d:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/DynamicImageView;->post(Ljava/lang/Runnable;)Z
+    if-eqz v0, :cond_0
 
-    .line 117
+    .line 132
+    :goto_0
+    monitor-exit p0
+
     return-void
+
+    .line 82
+    :cond_0
+    :try_start_1
+    new-instance v0, Lcom/yelp/android/ui/util/v$1;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/util/v$1;-><init>(Lcom/yelp/android/ui/util/v;)V
+
+    .line 129
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/yelp/android/ui/util/v;->d:Z
+
+    .line 131
+    iget-object v1, p0, Lcom/yelp/android/ui/util/v;->f:Landroid/os/Handler;
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    .line 77
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method public a(I)V
+    .locals 1
+
+    .prologue
+    .line 150
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/v;->c:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/v;->d:Z
+
+    if-nez v0, :cond_0
+
+    if-nez p1, :cond_0
+
+    .line 151
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/v;->a()V
+
+    .line 156
+    :cond_0
+    return-void
+.end method
+
+.method public declared-synchronized b()V
+    .locals 1
+
+    .prologue
+    .line 138
+    monitor-enter p0
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    iput-boolean v0, p0, Lcom/yelp/android/ui/util/v;->c:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 139
+    monitor-exit p0
+
+    return-void
+
+    .line 138
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method

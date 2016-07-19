@@ -1,20 +1,50 @@
 package com.google.android.gms.internal;
 
-import android.view.View;
-import android.webkit.WebChromeClient.CustomViewCallback;
+import java.util.concurrent.Future;
 
-@ey
-public final class gy
-  extends gw
+@fv
+public abstract class gy
+  implements hf<Future>
 {
-  public gy(gu paramgu)
+  private final Runnable a = new Runnable()
   {
-    super(paramgu);
+    public final void run()
+    {
+      gy.a(gy.this, Thread.currentThread());
+      a();
+    }
+  };
+  private volatile Thread b;
+  private boolean c;
+  
+  public gy()
+  {
+    c = false;
   }
   
-  public void onShowCustomView(View paramView, int paramInt, WebChromeClient.CustomViewCallback paramCustomViewCallback)
+  public gy(boolean paramBoolean)
   {
-    a(paramView, paramInt, paramCustomViewCallback);
+    c = paramBoolean;
+  }
+  
+  public abstract void a();
+  
+  public abstract void b();
+  
+  public final void d()
+  {
+    b();
+    if (b != null) {
+      b.interrupt();
+    }
+  }
+  
+  public final Future g()
+  {
+    if (c) {
+      return hc.a(1, a);
+    }
+    return hc.a(a);
   }
 }
 

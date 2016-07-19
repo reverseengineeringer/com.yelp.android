@@ -1,6 +1,5 @@
 package com.yelp.android.ui.activities.camera;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.os.Bundle;
@@ -13,35 +12,34 @@ import android.view.TextureView.SurfaceTextureListener;
 import android.view.View;
 import android.view.ViewGroup;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.activities.videotrim.BetterMediaPlayer;
 import com.yelp.android.ui.widgets.SquareTextureView;
-import com.yelp.android.util.aj;
+import com.yelp.android.util.t;
 import java.util.Collections;
 import java.util.Map;
 
-@TargetApi(14)
 public class VideoPreviewFragment
   extends YelpFragment
 {
   private BetterMediaPlayer a;
-  private ab b;
+  private a b;
   private SquareTextureView c;
   private String d;
   private String e;
+  private int f;
   private int g;
-  private int h;
   private int i;
   private int j;
   private int k;
-  private final TextureView.SurfaceTextureListener l = new y(this);
-  private final MediaPlayer.OnPreparedListener m = new z(this);
+  private final TextureView.SurfaceTextureListener l = new VideoPreviewFragment.1(this);
+  private final MediaPlayer.OnPreparedListener m = new VideoPreviewFragment.2(this);
   
   public static VideoPreviewFragment a(String paramString1, String paramString2)
   {
-    return a(paramString1, paramString2, 0, aj.a(paramString1));
+    return a(paramString1, paramString2, 0, t.a(paramString1));
   }
   
   public static VideoPreviewFragment a(String paramString1, String paramString2, int paramInt1, int paramInt2)
@@ -58,11 +56,11 @@ public class VideoPreviewFragment
   
   private void a()
   {
-    aj localaj = new aj(d);
-    int n = localaj.d();
-    int i1 = localaj.c();
-    boolean bool = localaj.e();
-    localaj.release();
+    t localt = new t(d);
+    int n = localt.d();
+    int i1 = localt.c();
+    boolean bool = localt.e();
+    localt.release();
     int i2;
     int i3;
     if (((bool) && (i1 > n)) || ((!bool) && (n > i1)))
@@ -92,12 +90,12 @@ public class VideoPreviewFragment
     }
   }
   
-  public b getIri()
+  public a getIri()
   {
     return ViewIri.BusinessVideoPreview;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
     return Collections.singletonMap("id", e);
   }
@@ -106,25 +104,25 @@ public class VideoPreviewFragment
   {
     super.onActivityCreated(paramBundle);
     paramBundle = (YelpActivity)getActivity();
-    paramBundle.setTitle(2131166360);
+    paramBundle.setTitle(2131166385);
     paramBundle.getSupportActionBar().d();
   }
   
   public void onAttach(Activity paramActivity)
   {
     super.onAttach(paramActivity);
-    b = ((ab)paramActivity);
+    b = ((a)paramActivity);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     d = getArguments().getString("video_file_path");
-    g = getArguments().getInt("video_start_time_ms");
-    h = getArguments().getInt("video_end_time_ms");
+    f = getArguments().getInt("video_start_time_ms");
+    g = getArguments().getInt("video_end_time_ms");
     e = getArguments().getString("business_id");
     if (paramBundle == null) {}
-    for (i = g;; i = paramBundle.getInt("play_position"))
+    for (i = f;; i = paramBundle.getInt("play_position"))
     {
       a();
       setHasOptionsMenu(true);
@@ -135,13 +133,13 @@ public class VideoPreviewFragment
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-    paramMenuInflater.inflate(2131755045, paramMenu);
+    paramMenuInflater.inflate(2131755049, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903232, paramViewGroup, false);
-    c = ((SquareTextureView)paramLayoutInflater.findViewById(2131493307));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903260, paramViewGroup, false);
+    c = ((SquareTextureView)paramLayoutInflater.findViewById(2131689963));
     c.a(j, k);
     c.setSurfaceTextureListener(l);
     return paramLayoutInflater;
@@ -160,7 +158,7 @@ public class VideoPreviewFragment
     default: 
       return false;
     }
-    b.b();
+    b.c();
     return true;
   }
   
@@ -175,7 +173,7 @@ public class VideoPreviewFragment
       a = null;
     }
     if (isRemoving()) {
-      b.c();
+      b.d();
     }
   }
   
@@ -188,6 +186,13 @@ public class VideoPreviewFragment
       paramBundle.putInt("play_position", n);
       return;
     }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void c();
+    
+    public abstract void d();
   }
 }
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:background="@color/white_cream" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textAppearance="@style/SectionText" android:layout_gravity="center_horizontal" android:id="@id/heading" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" />
+        <TextView android:layout_gravity="center_horizontal" android:id="@id/sub_heading" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" />
+        <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center" android:id="@id/icon_border" android:layout_width="@dimen/starburst_width" android:layout_height="@dimen/starburst_height" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.1" />
+            <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/android_food" android:contentDescription="@null" />
+        </FrameLayout>
+        <TextView android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/image_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginRight="@dimen/default_large_gap_size">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                <com.yelp.android.ui.widgets.FloatLabelLayout android:id="@id/first_name_floating_label" android:visibility="gone" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+                    <EditText android:id="@id/first_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/first_name" android:inputType="textCapSentences|textNoSuggestions" android:imeOptions="actionNext|flagNoExtractUi" android:nextFocusForward="@id/last_name" />
+                </com.yelp.android.ui.widgets.FloatLabelLayout>
+                <com.yelp.android.ui.widgets.FloatLabelLayout android:id="@id/last_name_floating_label" android:visibility="gone" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+                    <EditText android:id="@id/last_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/last_name" android:inputType="textCapSentences|textNoSuggestions" android:imeOptions="actionNext|flagNoExtractUi" />
+                </com.yelp.android.ui.widgets.FloatLabelLayout>
+            </LinearLayout>
+            <com.yelp.android.ui.widgets.FloatLabelLayout android:id="@id/zip_floating_label" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+                <EditText android:id="@id/zip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/zip" android:layout_weight="1.0" android:inputType="textPostalAddress|textNoSuggestions" android:imeOptions="actionNext|flagNoExtractUi" />
+            </com.yelp.android.ui.widgets.FloatLabelLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:baselineAligned="false">
+                <com.yelp.android.ui.widgets.FloatLabelLayout android:id="@id/email_floating_label" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+                    <EditText android:id="@id/email" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/opentable_email" android:inputType="textEmailAddress" android:imeOptions="actionNext|flagNoExtractUi" />
+                </com.yelp.android.ui.widgets.FloatLabelLayout>
+                <com.yelp.android.ui.widgets.FloatLabelLayout android:id="@id/password_floating_label" android:layout_width="0.0px" android:layout_height="wrap_content" android:layout_weight="1.0" app:floatLabelTextAppearance="@style/CaptionGreyText" app:floatLabelPaddingLeft="@dimen/default_small_gap_size">
+                    <EditText android:typeface="normal" android:id="@id/password" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="@string/password" android:inputType="textPassword" android:imeOptions="actionDone|flagNoExtractUi" />
+                </com.yelp.android.ui.widgets.FloatLabelLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:textAppearance="@style/BodyGreyText" android:gravity="center" android:id="@id/terms_of_service" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" />
+        <Button android:textAppearance="@style/ButtonText" android:textColor="@color/WhiteText" android:id="@id/create_account_btn" android:background="@drawable/button_flat_green" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" />
+    </LinearLayout>
+</ScrollView>

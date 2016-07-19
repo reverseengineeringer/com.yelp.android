@@ -4,95 +4,115 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTabHost;
-import android.view.LayoutInflater;
-import android.widget.Button;
-import android.widget.TabHost.OnTabChangeListener;
-import android.widget.TabHost.TabSpec;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
+import android.view.View;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.serializable.BusinessAttributes;
 import com.yelp.android.serializable.YelpBusinessAddresses;
-import com.yelp.android.ui.activities.support.YelpTabActivity;
+import com.yelp.android.ui.activities.support.YelpActivity;
+import com.yelp.android.ui.util.as;
 
 public class EditExistingAddress
-  extends YelpTabActivity
-  implements TabHost.OnTabChangeListener, ad, e
+  extends YelpActivity
+  implements AddAddressFragment.a, MoveBusinessPlacementFragment.a
 {
   String a;
-  Address b;
-  YelpBusinessAddresses c;
+  String b;
+  Address c;
+  YelpBusinessAddresses d;
+  BusinessAttributes e;
   
-  public static Intent a(Context paramContext, String paramString, Address paramAddress, YelpBusinessAddresses paramYelpBusinessAddresses, boolean paramBoolean)
+  public static Intent a(Context paramContext, String paramString1, Address paramAddress, YelpBusinessAddresses paramYelpBusinessAddresses, BusinessAttributes paramBusinessAttributes, String paramString2, boolean paramBoolean)
+  {
+    return a(paramContext, paramString1, paramAddress, paramYelpBusinessAddresses, paramBusinessAttributes, paramString2, paramBoolean, "Form");
+  }
+  
+  private static Intent a(Context paramContext, String paramString1, Address paramAddress, YelpBusinessAddresses paramYelpBusinessAddresses, BusinessAttributes paramBusinessAttributes, String paramString2, boolean paramBoolean, String paramString3)
   {
     paramContext = new Intent(paramContext, EditExistingAddress.class);
-    paramContext.putExtra("ADDRESS", paramAddress);
-    paramContext.putExtra("BUSINESS_ADDRESSES", paramYelpBusinessAddresses);
-    paramContext.putExtra("BUSINESS_NAME", paramString);
-    paramContext.putExtra("IS_ADDRESS_EDIT", paramBoolean);
+    paramContext.putExtra("extra.address", paramAddress);
+    paramContext.putExtra("extra.business_addresses", paramYelpBusinessAddresses);
+    paramContext.putExtra("extra.business_name", paramString1);
+    paramContext.putExtra("extra.business_attributes", paramBusinessAttributes);
+    paramContext.putExtra("extra.business_country", paramString2);
+    paramContext.putExtra("extra.is_address_edit", paramBoolean);
+    paramContext.putExtra("FRAGMENT_TAB", paramString3);
     return paramContext;
   }
   
   public static Address a(Intent paramIntent)
   {
-    return (Address)paramIntent.getParcelableExtra("ADDRESS");
+    return (Address)paramIntent.getParcelableExtra("extra.address");
   }
   
-  public static Address b(Intent paramIntent)
+  public static Intent b(Context paramContext, String paramString1, Address paramAddress, YelpBusinessAddresses paramYelpBusinessAddresses, BusinessAttributes paramBusinessAttributes, String paramString2, boolean paramBoolean)
   {
-    return (Address)paramIntent.getParcelableExtra("GEOCODED");
+    return a(paramContext, paramString1, paramAddress, paramYelpBusinessAddresses, paramBusinessAttributes, paramString2, paramBoolean, "Map");
   }
   
-  public static YelpBusinessAddresses c(Intent paramIntent)
+  public static YelpBusinessAddresses b(Intent paramIntent)
   {
-    return (YelpBusinessAddresses)paramIntent.getParcelableExtra("BUSINESS_ADDRESSES");
+    return (YelpBusinessAddresses)paramIntent.getParcelableExtra("extra.business_addresses");
   }
   
-  private AddAddressFragment d()
+  private AddAddressFragment f()
   {
-    return (AddAddressFragment)getSupportFragmentManager().findFragmentByTag("Form");
-  }
-  
-  private MoveBusinessPlacementFragment e()
-  {
-    return (MoveBusinessPlacementFragment)getSupportFragmentManager().findFragmentByTag("Map");
+    return (AddAddressFragment)getSupportFragmentManager().a("Form");
   }
   
   void a()
   {
-    AddAddressFragment localAddAddressFragment = d();
-    Address localAddress = localAddAddressFragment.a();
-    YelpBusinessAddresses localYelpBusinessAddresses = localAddAddressFragment.c();
-    Object localObject = e();
-    if ((localObject != null) && (((MoveBusinessPlacementFragment)localObject).c()))
+    Object localObject = ((MoveBusinessPlacementFragment)getSupportFragmentManager().a("Map")).b();
+    if ((localObject != null) && (a.a((Address)localObject, c)))
     {
-      localObject = ((MoveBusinessPlacementFragment)localObject).b();
-      if (f.a((Address)localObject, localAddress))
-      {
-        localAddress.setLatitude(((Address)localObject).getLatitude());
-        localAddress.setLongitude(((Address)localObject).getLongitude());
-      }
+      c.setLatitude(((Address)localObject).getLatitude());
+      c.setLongitude(((Address)localObject).getLongitude());
     }
     localObject = getIntent();
-    ((Intent)localObject).putExtra("ADDRESS", localAddress);
-    ((Intent)localObject).putExtra("GEOCODED", localAddAddressFragment.d());
-    ((Intent)localObject).putExtra("BUSINESS_ADDRESSES", localYelpBusinessAddresses);
+    ((Intent)localObject).putExtra("extra.address", c);
+    ((Intent)localObject).putExtra("extra.business_addresses", d);
     setResult(-1, (Intent)localObject);
     finish();
   }
   
-  public void a(Address paramAddress)
+  public void a(String paramString)
+  {
+    c = f().c();
+    d = f().e();
+    e();
+  }
+  
+  public void b()
   {
     a();
   }
   
-  public void a(String paramString)
+  public Address c()
   {
-    c().setCurrentTab(1);
+    return c;
   }
   
-  public Address b()
+  public void d()
   {
-    return b;
+    boolean bool = getIntent().getBooleanExtra("extra.is_address_edit", false);
+    AddAddressFragment localAddAddressFragment = AddAddressFragment.a(c, a, d, e, b, bool);
+    getSupportFragmentManager().a().a(2131689997, localAddAddressFragment, "Form").a();
+  }
+  
+  public void e()
+  {
+    Object localObject = getSupportFragmentManager().a();
+    if (f() != null) {
+      ((o)localObject).a(null);
+    }
+    ((o)localObject).b(2131689997, MoveBusinessPlacementFragment.a(c, a), "Map").a();
+    localObject = getCurrentFocus();
+    if (localObject != null) {
+      as.b((View)localObject);
+    }
   }
   
   public ViewIri getIri()
@@ -103,25 +123,42 @@ public class EditExistingAddress
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    b = ((Address)getIntent().getParcelableExtra("ADDRESS"));
-    a = getIntent().getStringExtra("BUSINESS_NAME");
-    c = ((YelpBusinessAddresses)getIntent().getParcelableExtra("BUSINESS_ADDRESSES"));
-    boolean bool = getIntent().getBooleanExtra("IS_ADDRESS_EDIT", false);
-    paramBundle = c();
-    Button localButton = (Button)getLayoutInflater().inflate(2130903443, paramBundle.getTabWidget(), false);
-    localButton.setText(2131165730);
-    paramBundle.addTab(paramBundle.newTabSpec("Form").setIndicator(localButton), AddAddressFragment.class, AddAddressFragment.a(b, a, c, bool));
-    localButton = (Button)getLayoutInflater().inflate(2130903443, paramBundle.getTabWidget(), false);
-    localButton.setText(2131165354);
-    paramBundle.addTab(paramBundle.newTabSpec("Map").setIndicator(localButton), MoveBusinessPlacementFragment.class, MoveBusinessPlacementFragment.a(b, a));
-    paramBundle.setOnTabChangedListener(this);
+    c = ((Address)getIntent().getParcelableExtra("extra.address"));
+    a = getIntent().getStringExtra("extra.business_name");
+    d = ((YelpBusinessAddresses)getIntent().getParcelableExtra("extra.business_addresses"));
+    e = ((BusinessAttributes)getIntent().getParcelableExtra("extra.business_attributes"));
+    b = getIntent().getStringExtra("extra.business_country");
+    paramBundle = getIntent().getStringExtra("FRAGMENT_TAB");
+    getSupportActionBar().a(true);
+    int i = -1;
+    switch (paramBundle.hashCode())
+    {
+    }
+    for (;;)
+    {
+      switch (i)
+      {
+      default: 
+        d();
+        return;
+        if (paramBundle.equals("Map")) {
+          i = 0;
+        }
+        break;
+      }
+    }
+    e();
   }
   
-  public void onTabChanged(String paramString)
+  public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if ("Map".equals(paramString)) {
-      b = d().a();
+    switch (paramMenuItem.getItemId())
+    {
+    default: 
+      return super.onOptionsItemSelected(paramMenuItem);
     }
+    onBackPressed();
+    return true;
   }
 }
 

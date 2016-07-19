@@ -6,19 +6,26 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class BusinessRepresentative
   extends _BusinessRepresentative
 {
-  public static final JsonParser.DualCreator<BusinessRepresentative> CREATOR = new p();
+  public static final JsonParser.DualCreator<BusinessRepresentative> CREATOR = new BusinessRepresentative.1();
   
-  public BusinessRepresentative.Role getRole()
+  public Role a()
   {
-    if (TextUtils.equals(super.getRoleString(), "business_owner")) {
-      return BusinessRepresentative.Role.BUSINESS_OWNER;
+    if (TextUtils.equals(super.b(), "business_owner")) {
+      return Role.BUSINESS_OWNER;
     }
-    return BusinessRepresentative.Role.MANAGER;
+    return Role.MANAGER;
   }
   
-  public final String getRoleString()
+  public final String b()
   {
     throw new UnsupportedOperationException("Don't parse these strings yourself, use getRole() instead.");
+  }
+  
+  public static enum Role
+  {
+    BUSINESS_OWNER,  MANAGER;
+    
+    private Role() {}
   }
 }
 

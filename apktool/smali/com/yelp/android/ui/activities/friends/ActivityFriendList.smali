@@ -18,12 +18,12 @@
     .locals 1
 
     .prologue
-    .line 15
+    .line 16
     const-string/jumbo v0, "User"
 
     sput-object v0, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->a:Ljava/lang/String;
 
-    .line 17
+    .line 18
     const-string/jumbo v0, "FRIENDS_LIST_FRAGMENT"
 
     sput-object v0, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->b:Ljava/lang/String;
@@ -35,7 +35,7 @@
     .locals 0
 
     .prologue
-    .line 13
+    .line 14
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
     return-void
@@ -45,19 +45,19 @@
     .locals 2
 
     .prologue
-    .line 22
+    .line 23
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 23
+    .line 24
     sget-object v1, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->a:Ljava/lang/String;
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 24
+    .line 25
     return-object v0
 .end method
 
@@ -67,12 +67,12 @@
     .locals 3
 
     .prologue
-    .line 52
+    .line 58
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v1
 
@@ -88,7 +88,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/dc;->a(Lcom/yelp/android/serializable/User;)Z
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/co;->a(Lcom/yelp/android/serializable/User;)Z
 
     move-result v0
 
@@ -99,17 +99,17 @@
     .locals 1
 
     .prologue
-    .line 48
+    .line 54
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 13
+    .line 14
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -119,12 +119,17 @@
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 5
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
 
     .prologue
-    .line 29
+    .line 32
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 30
+    .line 33
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -137,35 +142,35 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    .line 31
+    .line 34
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/dc;->a(Lcom/yelp/android/serializable/User;)Z
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/co;->a(Lcom/yelp/android/serializable/User;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 32
-    const v1, 0x7f0702af
+    .line 35
+    const v1, 0x7f0702fc
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->setTitle(I)V
 
-    .line 37
+    .line 40
     :goto_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
     sget-object v2, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->b:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v1, v2}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v1
 
@@ -173,47 +178,47 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->c:Lcom/yelp/android/ui/activities/friends/FriendsListFragment;
 
-    .line 38
+    .line 43
     iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->c:Lcom/yelp/android/ui/activities/friends/FriendsListFragment;
 
     if-nez v1, :cond_0
 
-    .line 39
+    .line 44
     invoke-static {v0}, Lcom/yelp/android/ui/activities/friends/FriendsListFragment;->a(Lcom/yelp/android/serializable/User;)Lcom/yelp/android/ui/activities/friends/FriendsListFragment;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->c:Lcom/yelp/android/ui/activities/friends/FriendsListFragment;
 
-    .line 40
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 45
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    .line 41
-    const v1, 0x7f0c01d4
+    .line 46
+    const v1, 0x7f0f020d
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->c:Lcom/yelp/android/ui/activities/friends/FriendsListFragment;
 
     sget-object v3, Lcom/yelp/android/ui/activities/friends/ActivityFriendList;->b:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/o;->a(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 43
+    .line 49
     :cond_0
     return-void
 
-    .line 34
+    .line 37
     :cond_1
-    const v1, 0x7f070658
+    const v1, 0x7f070636
 
     const/4 v2, 0x1
 
@@ -221,7 +226,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getFirstName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->Z()Ljava/lang/String;
 
     move-result-object v4
 

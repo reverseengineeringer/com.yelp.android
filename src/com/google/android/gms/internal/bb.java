@@ -1,154 +1,133 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import com.google.android.gms.R.styleable;
-import com.google.android.gms.ads.AdSize;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 
-@ey
-public final class bb
+public abstract interface bb
+  extends IInterface
 {
-  private final AdSize[] ot;
-  private final String ou;
+  public abstract void a(ba paramba)
+    throws RemoteException;
   
-  public bb(Context paramContext, AttributeSet paramAttributeSet)
+  public static abstract class a
+    extends Binder
+    implements bb
   {
-    paramContext = paramContext.getResources().obtainAttributes(paramAttributeSet, R.styleable.AdsAttrs);
-    paramAttributeSet = paramContext.getString(R.styleable.AdsAttrs_adSize);
-    String str = paramContext.getString(R.styleable.AdsAttrs_adSizes);
-    int i;
-    if (!TextUtils.isEmpty(paramAttributeSet))
+    public a()
     {
-      i = 1;
-      if (TextUtils.isEmpty(str)) {
-        break label106;
-      }
-      label53:
-      if ((i == 0) || (j != 0)) {
-        break label112;
-      }
+      attachInterface(this, "com.google.android.gms.ads.internal.customrenderedad.client.IOnCustomRenderedAdLoadedListener");
     }
-    for (ot = q(paramAttributeSet);; ot = q(str))
+    
+    public static bb a(IBinder paramIBinder)
     {
-      ou = paramContext.getString(R.styleable.AdsAttrs_adUnitId);
-      if (!TextUtils.isEmpty(ou)) {
-        return;
+      if (paramIBinder == null) {
+        return null;
       }
-      throw new IllegalArgumentException("Required XML attribute \"adUnitId\" was missing.");
-      i = 0;
-      break;
-      label106:
-      j = 0;
-      break label53;
-      label112:
-      if ((i != 0) || (j == 0)) {
-        break label133;
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.customrenderedad.client.IOnCustomRenderedAdLoadedListener");
+      if ((localIInterface != null) && ((localIInterface instanceof bb))) {
+        return (bb)localIInterface;
       }
+      return new a(paramIBinder);
     }
-    label133:
-    if ((i != 0) && (j != 0)) {
-      throw new IllegalArgumentException("Either XML attribute \"adSize\" or XML attribute \"supportedAdSizes\" should be specified, but not both.");
-    }
-    throw new IllegalArgumentException("Required XML attribute \"adSize\" was missing.");
-  }
-  
-  private static AdSize[] q(String paramString)
-  {
-    String[] arrayOfString1 = paramString.split("\\s*,\\s*");
-    AdSize[] arrayOfAdSize = new AdSize[arrayOfString1.length];
-    int i = 0;
-    if (i < arrayOfString1.length)
+    
+    public IBinder asBinder()
     {
-      String str = arrayOfString1[i].trim();
-      String[] arrayOfString2;
-      if (str.matches("^(\\d+|FULL_WIDTH)\\s*[xX]\\s*(\\d+|AUTO_HEIGHT)$"))
+      return this;
+    }
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
+    {
+      switch (paramInt1)
       {
-        arrayOfString2 = str.split("[xX]");
-        arrayOfString2[0] = arrayOfString2[0].trim();
-        arrayOfString2[1] = arrayOfString2[1].trim();
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.ads.internal.customrenderedad.client.IOnCustomRenderedAdLoadedListener");
+        return true;
       }
-      for (;;)
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.customrenderedad.client.IOnCustomRenderedAdLoadedListener");
+      a(ba.a.a(paramParcel1.readStrongBinder()));
+      paramParcel2.writeNoException();
+      return true;
+    }
+    
+    private static class a
+      implements bb
+    {
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
       {
-        try
-        {
-          if ("FULL_WIDTH".equals(arrayOfString2[0]))
-          {
-            j = -1;
-            boolean bool = "AUTO_HEIGHT".equals(arrayOfString2[1]);
-            if (!bool) {
-              continue;
-            }
-            k = -2;
-            arrayOfAdSize[i] = new AdSize(j, k);
-            i += 1;
-            break;
-          }
-          int j = Integer.parseInt(arrayOfString2[0]);
-          continue;
-          int k = Integer.parseInt(arrayOfString2[1]);
-          continue;
-          if (!"BANNER".equals(str)) {
-            break label199;
-          }
-        }
-        catch (NumberFormatException paramString)
-        {
-          throw new IllegalArgumentException("Could not parse XML attribute \"adSize\": " + str);
-        }
-        arrayOfAdSize[i] = AdSize.BANNER;
-        continue;
-        label199:
-        if ("LARGE_BANNER".equals(str))
-        {
-          arrayOfAdSize[i] = AdSize.LARGE_BANNER;
-        }
-        else if ("FULL_BANNER".equals(str))
-        {
-          arrayOfAdSize[i] = AdSize.FULL_BANNER;
-        }
-        else if ("LEADERBOARD".equals(str))
-        {
-          arrayOfAdSize[i] = AdSize.LEADERBOARD;
-        }
-        else if ("MEDIUM_RECTANGLE".equals(str))
-        {
-          arrayOfAdSize[i] = AdSize.MEDIUM_RECTANGLE;
-        }
-        else if ("SMART_BANNER".equals(str))
-        {
-          arrayOfAdSize[i] = AdSize.SMART_BANNER;
-        }
-        else
-        {
-          if (!"WIDE_SKYSCRAPER".equals(str)) {
-            break label319;
-          }
-          arrayOfAdSize[i] = AdSize.WIDE_SKYSCRAPER;
-        }
+        a = paramIBinder;
       }
-      label319:
-      throw new IllegalArgumentException("Could not parse XML attribute \"adSize\": " + str);
+      
+      /* Error */
+      public void a(ba paramba)
+        throws RemoteException
+      {
+        // Byte code:
+        //   0: invokestatic 27	android/os/Parcel:obtain	()Landroid/os/Parcel;
+        //   3: astore_2
+        //   4: invokestatic 27	android/os/Parcel:obtain	()Landroid/os/Parcel;
+        //   7: astore_3
+        //   8: aload_2
+        //   9: ldc 29
+        //   11: invokevirtual 33	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+        //   14: aload_1
+        //   15: ifnull +42 -> 57
+        //   18: aload_1
+        //   19: invokeinterface 39 1 0
+        //   24: astore_1
+        //   25: aload_2
+        //   26: aload_1
+        //   27: invokevirtual 42	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+        //   30: aload_0
+        //   31: getfield 17	com/google/android/gms/internal/bb$a$a:a	Landroid/os/IBinder;
+        //   34: iconst_1
+        //   35: aload_2
+        //   36: aload_3
+        //   37: iconst_0
+        //   38: invokeinterface 48 5 0
+        //   43: pop
+        //   44: aload_3
+        //   45: invokevirtual 51	android/os/Parcel:readException	()V
+        //   48: aload_3
+        //   49: invokevirtual 54	android/os/Parcel:recycle	()V
+        //   52: aload_2
+        //   53: invokevirtual 54	android/os/Parcel:recycle	()V
+        //   56: return
+        //   57: aconst_null
+        //   58: astore_1
+        //   59: goto -34 -> 25
+        //   62: astore_1
+        //   63: aload_3
+        //   64: invokevirtual 54	android/os/Parcel:recycle	()V
+        //   67: aload_2
+        //   68: invokevirtual 54	android/os/Parcel:recycle	()V
+        //   71: aload_1
+        //   72: athrow
+        // Local variable table:
+        //   start	length	slot	name	signature
+        //   0	73	0	this	a
+        //   0	73	1	paramba	ba
+        //   3	65	2	localParcel1	Parcel
+        //   7	57	3	localParcel2	Parcel
+        // Exception table:
+        //   from	to	target	type
+        //   8	14	62	finally
+        //   18	25	62	finally
+        //   25	48	62	finally
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
     }
-    if (arrayOfAdSize.length == 0) {
-      throw new IllegalArgumentException("Could not parse XML attribute \"adSize\": " + paramString);
-    }
-    return arrayOfAdSize;
-  }
-  
-  public String getAdUnitId()
-  {
-    return ou;
-  }
-  
-  public AdSize[] h(boolean paramBoolean)
-  {
-    if ((!paramBoolean) && (ot.length != 1)) {
-      throw new IllegalArgumentException("The adSizes XML attribute is only allowed on PublisherAdViews.");
-    }
-    return ot;
   }
 }
 

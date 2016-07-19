@@ -2,7 +2,7 @@ package com.yelp.android.ui.activities.gallery;
 
 public enum ContributionButtonAdapter$ContributionButton
 {
-  TAKE_PHOTO(2131166632, 2130837727),  TAKE_VIDEO(2131166633, 2130838536);
+  TAKE_PHOTO(2131166641, 2130837798),  TAKE_VIDEO(2131166642, 2130838955);
   
   int mPictureId;
   int mTextId;

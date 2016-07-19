@@ -1,21 +1,21 @@
 package com.yelp.common.collect;
 
 class MapMaker$StrategyImpl$FutureValueReference
-  implements g<K, V>
+  implements MapMaker.b<K, V>
 {
-  final f<K, V> newEntry;
-  final f<K, V> original;
+  final MapMaker.a<K, V> newEntry;
+  final MapMaker.a<K, V> original;
   
-  MapMaker$StrategyImpl$FutureValueReference(f<K, V> paramf1, f<K, V> paramf2)
+  MapMaker$StrategyImpl$FutureValueReference(MapMaker.a<K, V> parama1, MapMaker.a<K, V> parama2)
   {
-    original = paramf2;
-    f localf;
-    newEntry = localf;
+    original = parama2;
+    MapMaker.a locala;
+    newEntry = locala;
   }
   
-  public g<K, V> copyFor(f<K, V> paramf)
+  public MapMaker.b<K, V> copyFor(MapMaker.a<K, V> parama)
   {
-    return new FutureValueReference(this$0, original, paramf);
+    return new FutureValueReference(this$0, original, parama);
   }
   
   public V get()
@@ -37,6 +37,7 @@ class MapMaker$StrategyImpl$FutureValueReference
   }
   
   public V waitForValue()
+    throws InterruptedException
   {
     try
     {

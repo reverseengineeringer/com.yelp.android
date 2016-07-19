@@ -6,12 +6,23 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/util/ContactsFetcher;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "Contact"
+.end annotation
+
+
 # instance fields
-.field protected mBitmap:Landroid/graphics/Bitmap;
+.field protected a:Ljava/lang/String;
 
-.field protected mEmail:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mName:Ljava/lang/String;
+.field protected c:Landroid/graphics/Bitmap;
 
 
 # direct methods
@@ -27,103 +38,48 @@
 
 
 # virtual methods
-.method public getEmail(Landroid/content/Context;)Ljava/lang/String;
+.method public a(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mEmail:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    .line 50
-    invoke-virtual {p0, p1}, Lcom/yelp/android/util/ContactsFetcher$Contact;->loadEmail(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mEmail:Ljava/lang/String;
-
-    .line 52
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mEmail:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getName(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 34
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mName:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
     .line 35
-    invoke-virtual {p0, p1}, Lcom/yelp/android/util/ContactsFetcher$Contact;->loadName(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mName:Ljava/lang/String;
-
-    .line 37
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPhoto(Landroid/content/Context;)Landroid/graphics/Bitmap;
-    .locals 1
-
-    .prologue
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->a:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
-    .line 65
-    invoke-virtual {p0, p1}, Lcom/yelp/android/util/ContactsFetcher$Contact;->loadPhoto(Landroid/content/Context;)Landroid/graphics/Bitmap;
+    .line 36
+    invoke-virtual {p0, p1}, Lcom/yelp/android/util/ContactsFetcher$Contact;->b(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mBitmap:Landroid/graphics/Bitmap;
+    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->a:Ljava/lang/String;
 
-    .line 67
+    .line 38
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->a:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method protected abstract loadEmail(Landroid/content/Context;)Ljava/lang/String;
-.end method
-
-.method protected abstract loadName(Landroid/content/Context;)Ljava/lang/String;
-.end method
-
-.method protected abstract loadPhoto(Landroid/content/Context;)Landroid/graphics/Bitmap;
-.end method
-
-.method protected readFromParcel(Landroid/os/Parcel;)V
+.method protected a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 86
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mEmail:Ljava/lang/String;
-
     .line 87
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->b:Ljava/lang/String;
 
     .line 88
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->a:Ljava/lang/String;
+
+    .line 89
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -138,31 +94,86 @@
 
     check-cast v0, Landroid/graphics/Bitmap;
 
-    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mBitmap:Landroid/graphics/Bitmap;
+    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->c:Landroid/graphics/Bitmap;
 
-    .line 89
+    .line 90
     return-void
+.end method
+
+.method protected abstract b(Landroid/content/Context;)Ljava/lang/String;
+.end method
+
+.method public c(Landroid/content/Context;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 50
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->b:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    .line 51
+    invoke-virtual {p0, p1}, Lcom/yelp/android/util/ContactsFetcher$Contact;->d(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->b:Ljava/lang/String;
+
+    .line 53
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method protected abstract d(Landroid/content/Context;)Ljava/lang/String;
+.end method
+
+.method public e(Landroid/content/Context;)Landroid/graphics/Bitmap;
+    .locals 1
+
+    .prologue
+    .line 65
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->c:Landroid/graphics/Bitmap;
+
+    if-nez v0, :cond_0
+
+    .line 66
+    invoke-virtual {p0, p1}, Lcom/yelp/android/util/ContactsFetcher$Contact;->f(Landroid/content/Context;)Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->c:Landroid/graphics/Bitmap;
+
+    .line 68
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->c:Landroid/graphics/Bitmap;
+
+    return-object v0
+.end method
+
+.method protected abstract f(Landroid/content/Context;)Landroid/graphics/Bitmap;
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 80
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mEmail:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
     .line 81
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mName:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->b:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 82
-    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->a:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 83
+    iget-object v0, p0, Lcom/yelp/android/util/ContactsFetcher$Contact;->c:Landroid/graphics/Bitmap;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 83
+    .line 84
     return-void
 .end method

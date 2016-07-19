@@ -3,6 +3,25 @@
 
 
 # static fields
+.field public static final API_NOT_AVAILABLE:I = 0x11
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field public static final API_NOT_CONNECTED:I = 0x11
+
+.field public static final AUTH_API_ACCESS_FORBIDDEN:I = 0xbb9
+
+.field public static final AUTH_API_CLIENT_ERROR:I = 0xbba
+
+.field public static final AUTH_API_INVALID_CREDENTIALS:I = 0xbb8
+
+.field public static final AUTH_API_SERVER_ERROR:I = 0xbbb
+
+.field public static final AUTH_TOKEN_ERROR:I = 0xbbc
+
+.field public static final AUTH_URL_RESOLUTION:I = 0xbbd
+
 .field public static final CANCELED:I = 0x10
 
 .field public static final DEVELOPER_ERROR:I = 0xa
@@ -16,18 +35,33 @@
 .field public static final INVALID_ACCOUNT:I = 0x5
 
 .field public static final LICENSE_CHECK_FAILED:I = 0xb
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final NETWORK_ERROR:I = 0x7
 
 .field public static final RESOLUTION_REQUIRED:I = 0x6
 
 .field public static final SERVICE_DISABLED:I = 0x3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SERVICE_INVALID:I = 0x9
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SERVICE_MISSING:I = 0x1
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SERVICE_VERSION_UPDATE_REQUIRED:I = 0x2
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
 
 .field public static final SIGN_IN_REQUIRED:I = 0x4
 
@@ -139,7 +173,7 @@
     goto :goto_0
 
     :sswitch_d
-    const-string/jumbo v0, "ERROR_OPERATION_FAILED"
+    const-string/jumbo v0, "ERROR"
 
     goto :goto_0
 
@@ -159,31 +193,36 @@
     goto :goto_0
 
     :sswitch_11
-    const-string/jumbo v0, "AUTH_API_INVALID_CREDENTIALS"
+    const-string/jumbo v0, "API_NOT_CONNECTED"
 
     goto :goto_0
 
     :sswitch_12
-    const-string/jumbo v0, "AUTH_API_ACCESS_FORBIDDEN"
+    const-string/jumbo v0, "AUTH_API_INVALID_CREDENTIALS"
 
     goto :goto_0
 
     :sswitch_13
-    const-string/jumbo v0, "AUTH_API_CLIENT_ERROR"
+    const-string/jumbo v0, "AUTH_API_ACCESS_FORBIDDEN"
 
     goto :goto_0
 
     :sswitch_14
-    const-string/jumbo v0, "AUTH_API_SERVER_ERROR"
+    const-string/jumbo v0, "AUTH_API_CLIENT_ERROR"
 
     goto :goto_0
 
     :sswitch_15
-    const-string/jumbo v0, "AUTH_TOKEN_ERROR"
+    const-string/jumbo v0, "AUTH_API_SERVER_ERROR"
 
     goto :goto_0
 
     :sswitch_16
+    const-string/jumbo v0, "AUTH_TOKEN_ERROR"
+
+    goto :goto_0
+
+    :sswitch_17
     const-string/jumbo v0, "AUTH_URL_RESOLUTION"
 
     goto :goto_0
@@ -207,11 +246,12 @@
         0xe -> :sswitch_e
         0xf -> :sswitch_f
         0x10 -> :sswitch_10
-        0xbb8 -> :sswitch_11
-        0xbb9 -> :sswitch_12
-        0xbba -> :sswitch_13
-        0xbbb -> :sswitch_14
-        0xbbc -> :sswitch_15
-        0xbbd -> :sswitch_16
+        0x11 -> :sswitch_11
+        0xbb8 -> :sswitch_12
+        0xbb9 -> :sswitch_13
+        0xbba -> :sswitch_14
+        0xbbb -> :sswitch_15
+        0xbbc -> :sswitch_16
+        0xbbd -> :sswitch_17
     .end sparse-switch
 .end method

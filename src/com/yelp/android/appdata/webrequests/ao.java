@@ -1,18 +1,14 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Comment;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class ao
-  extends am
+  extends c
 {
-  public ao(m<an> paramm, String paramString, Comment paramComment)
+  public ao(c.a parama)
   {
-    super(ApiRequest.RequestType.GET, "check_in/list_comments", paramm);
-    addUrlParam("check_in_id", paramString);
-    if (paramComment != null) {
-      addUrlParam("revision", paramComment.getId());
-    }
-    addUrlParam("limit", 20);
+    super("account/logout/twitter", parama);
   }
 }
 

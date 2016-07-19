@@ -26,7 +26,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 66
-    invoke-static {p1}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;)Z
+    invoke-static {p1}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -304,26 +304,26 @@
     return-wide v0
 .end method
 
-.method protected f()Lcom/google/android/gms/location/Geofence;
+.method protected f()Lcom/google/android/gms/location/f;
     .locals 7
 
     .prologue
     .line 161
-    new-instance v0, Lcom/google/android/gms/location/Geofence$Builder;
+    new-instance v0, Lcom/google/android/gms/location/f$a;
 
-    invoke-direct {v0}, Lcom/google/android/gms/location/Geofence$Builder;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/location/f$a;-><init>()V
 
     invoke-virtual {p0}, Lcom/kahuna/sdk/location/d;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/location/Geofence$Builder;->setRequestId(Ljava/lang/String;)Lcom/google/android/gms/location/Geofence$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/location/f$a;->a(Ljava/lang/String;)Lcom/google/android/gms/location/f$a;
 
     move-result-object v0
 
     iget v1, p0, Lcom/kahuna/sdk/location/d;->f:I
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/location/Geofence$Builder;->setTransitionTypes(I)Lcom/google/android/gms/location/Geofence$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/location/f$a;->a(I)Lcom/google/android/gms/location/f$a;
 
     move-result-object v1
 
@@ -339,17 +339,17 @@
 
     move-result v6
 
-    invoke-virtual/range {v1 .. v6}, Lcom/google/android/gms/location/Geofence$Builder;->setCircularRegion(DDF)Lcom/google/android/gms/location/Geofence$Builder;
+    invoke-virtual/range {v1 .. v6}, Lcom/google/android/gms/location/f$a;->a(DDF)Lcom/google/android/gms/location/f$a;
 
     move-result-object v0
 
     iget-wide v2, p0, Lcom/kahuna/sdk/location/d;->e:J
 
-    invoke-virtual {v0, v2, v3}, Lcom/google/android/gms/location/Geofence$Builder;->setExpirationDuration(J)Lcom/google/android/gms/location/Geofence$Builder;
+    invoke-virtual {v0, v2, v3}, Lcom/google/android/gms/location/f$a;->a(J)Lcom/google/android/gms/location/f$a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/location/Geofence$Builder;->build()Lcom/google/android/gms/location/Geofence;
+    invoke-virtual {v0}, Lcom/google/android/gms/location/f$a;->a()Lcom/google/android/gms/location/f;
 
     move-result-object v0
 

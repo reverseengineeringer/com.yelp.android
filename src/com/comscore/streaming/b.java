@@ -207,7 +207,7 @@ public class b
     return l1;
   }
   
-  protected long f()
+  public long f()
   {
     return g;
   }

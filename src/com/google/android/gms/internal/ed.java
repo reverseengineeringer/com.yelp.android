@@ -1,135 +1,99 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.SystemClock;
-import java.lang.reflect.Method;
+import android.os.Bundle;
+import android.view.View;
+import com.google.android.gms.ads.formats.a.a;
+import com.google.android.gms.dynamic.d;
+import com.yelp.android.bc.k;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 
-@ey
-public final class ed
-  extends em.a
+@fv
+public class ed
+  extends dy.a
 {
-  private Context mContext;
-  private String mG;
-  private String sM;
-  private ArrayList<String> sN;
+  private final k a;
   
-  public ed(String paramString1, ArrayList<String> paramArrayList, Context paramContext, String paramString2)
+  public ed(k paramk)
   {
-    sM = paramString1;
-    sN = paramArrayList;
-    mG = paramString2;
-    mContext = paramContext;
+    a = paramk;
   }
   
-  private void cz()
+  public String a()
   {
-    try
-    {
-      mContext.getClassLoader().loadClass("com.google.ads.conversiontracking.IAPConversionReporter").getDeclaredMethod("reportWithProductId", new Class[] { Context.class, String.class, String.class, Boolean.TYPE }).invoke(null, new Object[] { mContext, sM, "", Boolean.valueOf(true) });
-      return;
-    }
-    catch (ClassNotFoundException localClassNotFoundException)
-    {
-      gr.W("Google Conversion Tracking SDK 1.2.0 or above is required to report a conversion.");
-      return;
-    }
-    catch (NoSuchMethodException localNoSuchMethodException)
-    {
-      gr.W("Google Conversion Tracking SDK 1.2.0 or above is required to report a conversion.");
-      return;
-    }
-    catch (Exception localException)
-    {
-      gr.d("Fail to report a conversion.", localException);
-    }
+    return a.e();
   }
   
-  protected String a(String paramString, HashMap<String, String> paramHashMap)
+  public void a(com.google.android.gms.dynamic.c paramc)
   {
-    String str3 = mContext.getPackageName();
-    long l1;
-    long l2;
-    String str2;
-    try
+    a.b((View)d.a(paramc));
+  }
+  
+  public List b()
+  {
+    Object localObject = a.f();
+    if (localObject != null)
     {
-      String str1 = mContext.getPackageManager().getPackageInfo(str3, 0).versionName;
-      l1 = SystemClock.elapsedRealtime();
-      l2 = ga.dh().dq();
-      Iterator localIterator = paramHashMap.keySet().iterator();
-      while (localIterator.hasNext())
+      ArrayList localArrayList = new ArrayList();
+      localObject = ((List)localObject).iterator();
+      while (((Iterator)localObject).hasNext())
       {
-        String str4 = (String)localIterator.next();
-        paramString = paramString.replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", new Object[] { str4 }), String.format("$1%s$2", new Object[] { paramHashMap.get(str4) }));
+        a.a locala = (a.a)((Iterator)localObject).next();
+        localArrayList.add(new com.google.android.gms.ads.internal.formats.c(locala.a(), locala.b(), locala.c()));
       }
+      return localArrayList;
     }
-    catch (PackageManager.NameNotFoundException localNameNotFoundException)
-    {
-      for (;;)
-      {
-        gr.d("Error to retrieve app version", localNameNotFoundException);
-        str2 = "";
-      }
-    }
-    return paramString.replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", tmp135_132), String.format("$1%s$2", tmp149_146)).replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", tmp167_164), String.format("$1%s$2", tmp181_178)).replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", tmp198_195), String.format("$1%s$2", tmp212_209)).replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", tmp233_230), String.format("$1%s$2", tmp247_244)).replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", tmp266_263), String.format("$1%s$2", tmp280_277)).replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", tmp297_294), String.format("$1%s$2", tmp311_308)).replaceAll(String.format("(?<!@)((?:@@)*)@%s(?<!@)((?:@@)*)@", tmp333_330), String.format("$1%s$2", tmp347_344)).replaceAll("@@", "@");
+    return null;
   }
   
-  public String getProductId()
+  public void b(com.google.android.gms.dynamic.c paramc)
   {
-    return sM;
+    a.a((View)d.a(paramc));
   }
   
-  protected int p(int paramInt)
+  public String c()
   {
-    if (paramInt == 0) {
-      return 1;
-    }
-    if (paramInt == 1) {
-      return 2;
-    }
-    if (paramInt == 4) {
-      return 3;
-    }
-    return 0;
+    return a.g();
   }
   
-  public void recordPlayBillingResolution(int paramInt)
+  public bd d()
   {
-    if (paramInt == 0) {
-      cz();
+    a.a locala = a.h();
+    if (locala != null) {
+      return new com.google.android.gms.ads.internal.formats.c(locala.a(), locala.b(), locala.c());
     }
-    HashMap localHashMap = new HashMap();
-    localHashMap.put("google_play_status", String.valueOf(paramInt));
-    localHashMap.put("sku", sM);
-    localHashMap.put("status", String.valueOf(p(paramInt)));
-    Iterator localIterator = sN.iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      new gp(mContext, mG, a(str, localHashMap)).start();
-    }
+    return null;
   }
   
-  public void recordResolution(int paramInt)
+  public String e()
   {
-    if (paramInt == 1) {
-      cz();
-    }
-    HashMap localHashMap = new HashMap();
-    localHashMap.put("status", String.valueOf(paramInt));
-    localHashMap.put("sku", sM);
-    Iterator localIterator = sN.iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      new gp(mContext, mG, a(str, localHashMap)).start();
-    }
+    return a.i();
+  }
+  
+  public String f()
+  {
+    return a.j();
+  }
+  
+  public void g()
+  {
+    a.d();
+  }
+  
+  public boolean h()
+  {
+    return a.a();
+  }
+  
+  public boolean i()
+  {
+    return a.b();
+  }
+  
+  public Bundle j()
+  {
+    return a.c();
   }
 }
 

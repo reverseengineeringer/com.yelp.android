@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/border" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" />
+    <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:gravity="center_vertical" android:id="@id/more_button" android:background="@drawable/selector_white_rect" android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:drawableRight="@drawable/arrow_graphic" />
+</LinearLayout>

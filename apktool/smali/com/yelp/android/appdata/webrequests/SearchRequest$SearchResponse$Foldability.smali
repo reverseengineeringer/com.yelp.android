@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Foldability"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -35,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 90
+    .line 81
     new-instance v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
     const-string/jumbo v1, "FOLDED"
@@ -44,7 +53,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;->FOLDED:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
-    .line 94
+    .line 85
     new-instance v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
     const-string/jumbo v1, "UNFOLDED"
@@ -53,7 +62,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;->UNFOLDED:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
-    .line 99
+    .line 90
     new-instance v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
     const-string/jumbo v1, "UNFOLDABLE"
@@ -62,7 +71,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;->UNFOLDABLE:Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
-    .line 86
+    .line 77
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
@@ -93,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 86
+    .line 77
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,7 +112,7 @@
     .locals 1
 
     .prologue
-    .line 86
+    .line 77
     const-class v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -119,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 86
+    .line 77
     sget-object v0, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;->$VALUES:[Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;->clone()Ljava/lang/Object;

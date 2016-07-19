@@ -1,5 +1,6 @@
 package com.yelp.android.ui.widgets;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -13,19 +14,20 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
-import com.yelp.android.appdata.ao;
-import com.yelp.android.bf.f;
-import com.yelp.android.bf.m;
+import android.util.SparseArray;
+import com.yelp.android.appdata.n;
+import com.yelp.android.co.a.e;
+import com.yelp.android.co.a.l;
 import com.yelp.android.webimageview.WebImageView;
 
 public class RoundedWebImageView
   extends WebImageView
 {
   private static Drawable b;
-  private static final float c = ao.m;
+  private static final float c = n.m;
   private static final RectF d = new RectF();
   private static final PorterDuffXfermode e = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
-  private RoundedWebImageView.RoundingMode a;
+  private RoundingMode a;
   
   public RoundedWebImageView(Context paramContext)
   {
@@ -35,23 +37,25 @@ public class RoundedWebImageView
   public RoundedWebImageView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, m.RoundedWebImageView);
+    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, a.l.RoundedWebImageView);
     if (paramAttributeSet != null)
     {
-      a = RoundedWebImageView.RoundingMode.modeForValue(paramAttributeSet.getInt(0, 0));
+      a = RoundingMode.modeForValue(paramAttributeSet.getInt(a.l.RoundedWebImageView_forceRoundingMode, 0));
       paramAttributeSet.recycle();
     }
     setup(paramContext);
   }
   
-  private void a(Drawable paramDrawable, Canvas paramCanvas)
+  @SuppressLint({"WrongCall"})
+  private void a(Canvas paramCanvas)
   {
     super.onDraw(paramCanvas);
     b.setBounds(0, 0, getWidth(), getHeight());
     b.draw(paramCanvas);
   }
   
-  private void b(Drawable paramDrawable, Canvas paramCanvas)
+  @SuppressLint({"WrongCall"})
+  private void a(Drawable paramDrawable, Canvas paramCanvas)
   {
     Paint localPaint = ((BitmapDrawable)paramDrawable).getPaint();
     paramDrawable = paramDrawable.getBounds();
@@ -72,7 +76,7 @@ public class RoundedWebImageView
   private void setup(Context paramContext)
   {
     if (b == null) {
-      b = paramContext.getResources().getDrawable(f.corners);
+      b = paramContext.getResources().getDrawable(a.e.corners);
     }
   }
   
@@ -84,7 +88,7 @@ public class RoundedWebImageView
   
   protected void onDraw(Canvas paramCanvas)
   {
-    if (a == RoundedWebImageView.RoundingMode.NONE)
+    if (a == RoundingMode.NONE)
     {
       super.onDraw(paramCanvas);
       return;
@@ -97,34 +101,69 @@ public class RoundedWebImageView
     }
     if (((localDrawable instanceof BitmapDrawable)) && (c > 0.0F))
     {
-      switch (aj.a[a.ordinal()])
+      switch (1.a[a.ordinal()])
       {
       default: 
         if ((isEnabled()) && ((isSelected()) || (isPressed()) || (isFocused())))
         {
-          b(localDrawable, paramCanvas);
+          a(localDrawable, paramCanvas);
           return;
         }
         break;
       case 1: 
-        a(localDrawable, paramCanvas);
+        a(paramCanvas);
         return;
       case 2: 
-        b(localDrawable, paramCanvas);
+        a(localDrawable, paramCanvas);
         return;
       }
-      a(localDrawable, paramCanvas);
+      a(paramCanvas);
       return;
     }
     super.onDraw(paramCanvas);
   }
   
-  public void setForceMode(RoundedWebImageView.RoundingMode paramRoundingMode)
+  public void setForceMode(RoundingMode paramRoundingMode)
   {
     if (paramRoundingMode != a) {
       invalidate();
     }
     a = paramRoundingMode;
+  }
+  
+  public static enum RoundingMode
+  {
+    private static SparseArray<RoundingMode> modes;
+    protected final int attrEnumValue;
+    
+    static
+    {
+      int i = 0;
+      DEFAULT = new RoundingMode("DEFAULT", 0, 0);
+      CLIP = new RoundingMode("CLIP", 1, 1);
+      OVERLAY = new RoundingMode("OVERLAY", 2, 2);
+      NONE = new RoundingMode("NONE", 3, 3);
+      $VALUES = new RoundingMode[] { DEFAULT, CLIP, OVERLAY, NONE };
+      modes = new SparseArray();
+      RoundingMode[] arrayOfRoundingMode = values();
+      int j = arrayOfRoundingMode.length;
+      while (i < j)
+      {
+        RoundingMode localRoundingMode = arrayOfRoundingMode[i];
+        modes.append(attrEnumValue, localRoundingMode);
+        i += 1;
+      }
+    }
+    
+    private RoundingMode(int paramInt)
+    {
+      attrEnumValue = paramInt;
+    }
+    
+    public static RoundingMode modeForValue(int paramInt)
+    {
+      return (RoundingMode)modes.get(paramInt);
+    }
   }
 }
 

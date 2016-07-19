@@ -1,32 +1,21 @@
 package com.yelp.android.ui.activities.videotrim;
 
 import android.graphics.SurfaceTexture;
-import com.yelp.android.serializable.LocalVideo;
-import com.yelp.android.util.YelpLog;
-import java.io.IOException;
+import android.view.TextureView.SurfaceTextureListener;
 
-class c
-  extends q
+public class c
+  implements TextureView.SurfaceTextureListener
 {
-  c(ActivityVideoTrim paramActivityVideoTrim) {}
+  public void onSurfaceTextureAvailable(SurfaceTexture paramSurfaceTexture, int paramInt1, int paramInt2) {}
   
-  public void onSurfaceTextureAvailable(SurfaceTexture paramSurfaceTexture, int paramInt1, int paramInt2)
+  public boolean onSurfaceTextureDestroyed(SurfaceTexture paramSurfaceTexture)
   {
-    try
-    {
-      ActivityVideoTrim.a(a, new BetterMediaPlayer());
-      ActivityVideoTrim.c(a).setDataSource(ActivityVideoTrim.b(a).getFilePath());
-      ActivityVideoTrim.c(a).a(ActivityVideoTrim.d(a), ActivityVideoTrim.e(a));
-      ActivityVideoTrim.c(a).a(a);
-      ActivityVideoTrim.c(a).prepareAsync();
-      ActivityVideoTrim.c(a).setOnPreparedListener(new d(this));
-      return;
-    }
-    catch (IOException paramSurfaceTexture)
-    {
-      YelpLog.e("ActivityVideoTrim", "Media player cannot open " + ActivityVideoTrim.b(a).getFilePath(), paramSurfaceTexture);
-    }
+    return true;
   }
+  
+  public void onSurfaceTextureSizeChanged(SurfaceTexture paramSurfaceTexture, int paramInt1, int paramInt2) {}
+  
+  public void onSurfaceTextureUpdated(SurfaceTexture paramSurfaceTexture) {}
 }
 
 /* Location:

@@ -1,20 +1,22 @@
 package com.yelp.android.bf;
 
-public final class b
+public abstract interface b
 {
-  public static final int activity_expand_in = 2130968584;
-  public static final int activity_shrink_out = 2130968586;
-  public static final int activity_slide_in_right = 2130968587;
-  public static final int activity_slide_out_right = 2130968588;
-  public static final int fade_in_fast = 2130968593;
-  public static final int slide_in_bottom = 2130968601;
-  public static final int slide_in_bottom_fade = 2130968602;
-  public static final int slide_in_left = 2130968603;
-  public static final int slide_in_top_fade = 2130968605;
-  public static final int slide_out_bottom_fade = 2130968607;
-  public static final int slide_out_left = 2130968608;
-  public static final int slide_out_right = 2130968609;
-  public static final int slide_out_top_fade = 2130968611;
+  public abstract void a(a parama);
+  
+  public abstract void a(a parama, int paramInt);
+  
+  public abstract void a(a parama, com.yelp.android.be.a parama1);
+  
+  public abstract void b(a parama);
+  
+  public abstract void c(a parama);
+  
+  public abstract void d(a parama);
+  
+  public abstract void e(a parama);
+  
+  public abstract void f(a parama);
 }
 
 /* Location:

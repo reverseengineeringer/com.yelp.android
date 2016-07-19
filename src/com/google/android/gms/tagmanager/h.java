@@ -1,41 +1,36 @@
 package com.google.android.gms.tagmanager;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import com.google.android.gms.internal.a;
-import com.google.android.gms.internal.d.a;
-import java.util.Map;
+import android.annotation.TargetApi;
+import android.os.Build.VERSION;
+import java.io.File;
 
 class h
-  extends aj
 {
-  private static final String ID = a.y.toString();
-  private final Context mContext;
-  
-  public h(Context paramContext)
-  {
-    super(ID, new String[0]);
-    mContext = paramContext;
-  }
-  
-  public d.a B(Map<String, d.a> paramMap)
+  public static int a()
   {
     try
     {
-      paramMap = di.u(Integer.valueOf(mContext.getPackageManager().getPackageInfo(mContext.getPackageName(), 0).versionCode));
-      return paramMap;
+      int i = Integer.parseInt(Build.VERSION.SDK);
+      return i;
     }
-    catch (PackageManager.NameNotFoundException paramMap)
+    catch (NumberFormatException localNumberFormatException)
     {
-      bh.T("Package name " + mContext.getPackageName() + " not found. " + paramMap.getMessage());
+      m.a("Invalid version number: " + Build.VERSION.SDK);
     }
-    return di.rb();
+    return 0;
   }
   
-  public boolean pe()
+  @TargetApi(9)
+  static boolean a(String paramString)
   {
+    if (a() < 9) {
+      return false;
+    }
+    paramString = new File(paramString);
+    paramString.setReadable(false, false);
+    paramString.setWritable(false, false);
+    paramString.setReadable(true, true);
+    paramString.setWritable(true, true);
     return true;
   }
 }

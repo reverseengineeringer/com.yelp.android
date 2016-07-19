@@ -1,23 +1,25 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.webrequests.core.b;
 import com.yelp.android.serializable.YelpBusinessAddresses;
 import com.yelp.android.serializable.YelpDetailedAddress;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.HashMap;
 import java.util.Iterator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ag
-  extends g<Void, Void, YelpBusinessAddresses>
+  extends b<Void, Void, YelpBusinessAddresses>
 {
-  public ag(String paramString, m<YelpBusinessAddresses> paramm)
+  public ag(String paramString, ApiRequest.b<YelpBusinessAddresses> paramb)
   {
-    super(ApiRequest.RequestType.GET, "business/update/details", paramm);
-    addUrlParam("business_id", paramString);
+    super(ApiRequest.RequestType.GET, "business/update/details", paramb);
+    a("business_id", paramString);
   }
   
   public YelpBusinessAddresses a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
     YelpBusinessAddresses localYelpBusinessAddresses = (YelpBusinessAddresses)YelpBusinessAddresses.CREATOR.parse(paramJSONObject);
     JSONObject localJSONObject1 = paramJSONObject.getJSONObject("alternate_addresses");
@@ -29,8 +31,8 @@ public class ag
       JSONObject localJSONObject2 = localJSONObject1.getJSONObject(str);
       localHashMap.put(str, (YelpDetailedAddress)YelpDetailedAddress.CREATOR.parse(localJSONObject2));
     }
-    localYelpBusinessAddresses.setAlternateAddresses(localHashMap);
-    localYelpBusinessAddresses.setAddress((YelpDetailedAddress)YelpDetailedAddress.CREATOR.parse(paramJSONObject));
+    localYelpBusinessAddresses.a(localHashMap);
+    localYelpBusinessAddresses.a((YelpDetailedAddress)YelpDetailedAddress.CREATOR.parse(paramJSONObject));
     return localYelpBusinessAddresses;
   }
 }

@@ -1,16 +1,10 @@
 package com.yelp.android.aw;
 
-import com.yelp.android.appdata.webrequests.ApiRequest.RequestType;
-import com.yelp.android.av.h;
+import com.yelp.android.ax.d;
 
-public class a
-  extends h
+public abstract interface a
 {
-  public a(String paramString)
-  {
-    super(ApiRequest.RequestType.POST, "client/unregister", null);
-    addPostParam("ydid", paramString);
-  }
+  public abstract d a();
 }
 
 /* Location:

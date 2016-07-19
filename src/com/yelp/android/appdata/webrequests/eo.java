@@ -1,30 +1,68 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.Category;
+import com.yelp.android.serializable.Filter;
 
-public abstract class eo<Progress, Result>
-  extends h<Void, Progress, Result>
+public class eo
 {
-  protected eo(ApiRequest.RequestType paramRequestType, String paramString, LocationService.Accuracies paramAccuracies, LocationService.Recentness paramRecentness, LocationService.AccuracyUnit paramAccuracyUnit, ep<Progress, Result> paramep)
+  private BusinessSearchRequest a = new BusinessSearchRequest();
+  
+  public eo()
   {
-    super(paramRequestType, paramString, paramAccuracies, paramRecentness, paramep, paramAccuracyUnit);
+    a.a(new Filter());
   }
   
-  protected void onProgressUpdate(Progress... paramVarArgs)
+  public BusinessSearchRequest a()
   {
-    ep localep = (ep)getCallback();
-    if ((localep != null) && (paramVarArgs != null) && (paramVarArgs.length > 0)) {
-      localep.a(paramVarArgs[0]);
-    }
+    return a;
   }
   
-  protected void onSuccess(Result paramResult)
+  public eo a(BusinessSearchRequest.FormatMode paramFormatMode)
   {
-    if (getCallback() != null) {
-      getCallback().onSuccess(this, paramResult);
-    }
+    a.a(paramFormatMode);
+    return this;
+  }
+  
+  public eo a(BusinessSearchRequest.SearchMode paramSearchMode)
+  {
+    a.a(paramSearchMode);
+    return this;
+  }
+  
+  public eo a(Category paramCategory)
+  {
+    a.a(paramCategory);
+    return this;
+  }
+  
+  public eo a(Filter paramFilter)
+  {
+    a.a(paramFilter);
+    return this;
+  }
+  
+  public eo a(String paramString)
+  {
+    a.e(paramString);
+    return this;
+  }
+  
+  public eo a(boolean paramBoolean)
+  {
+    a.b(paramBoolean);
+    return this;
+  }
+  
+  public eo a(double[] paramArrayOfDouble)
+  {
+    a.a(paramArrayOfDouble);
+    return this;
+  }
+  
+  public eo b(String paramString)
+  {
+    a.g(paramString);
+    return this;
   }
 }
 

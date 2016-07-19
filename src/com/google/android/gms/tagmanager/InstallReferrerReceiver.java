@@ -1,22 +1,19 @@
 package com.google.android.gms.tagmanager;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.google.android.gms.analytics.CampaignTrackingReceiver;
+import com.google.android.gms.analytics.CampaignTrackingService;
 
 public final class InstallReferrerReceiver
-  extends BroadcastReceiver
+  extends CampaignTrackingReceiver
 {
-  public void onReceive(Context paramContext, Intent paramIntent)
+  protected Class<? extends CampaignTrackingService> a()
   {
-    String str = paramIntent.getStringExtra("referrer");
-    if ((!"com.android.vending.INSTALL_REFERRER".equals(paramIntent.getAction())) || (str == null)) {
-      return;
-    }
-    ay.cH(str);
-    paramIntent = new Intent(paramContext, InstallReferrerService.class);
-    paramIntent.putExtra("referrer", str);
-    paramContext.startService(paramIntent);
+    return InstallReferrerService.class;
+  }
+  
+  protected void a(String paramString)
+  {
+    l.a(paramString);
   }
 }
 

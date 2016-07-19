@@ -2,42 +2,62 @@ package com.google.android.gms.maps;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.a;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
+import com.yelp.android.bj.m;
 
 public final class StreetViewPanoramaOptions
   implements SafeParcelable
 {
-  public static final c CREATOR = new c();
-  private final int CK;
-  private Boolean akG;
-  private Boolean akM = Boolean.valueOf(true);
-  private StreetViewPanoramaCamera alr;
-  private String als;
-  private LatLng alt;
-  private Integer alu;
-  private Boolean alv = Boolean.valueOf(true);
-  private Boolean alw = Boolean.valueOf(true);
-  private Boolean alx = Boolean.valueOf(true);
+  public static final k CREATOR = new k();
+  private final int a;
+  private StreetViewPanoramaCamera b;
+  private String c;
+  private LatLng d;
+  private Integer e;
+  private Boolean f = Boolean.valueOf(true);
+  private Boolean g = Boolean.valueOf(true);
+  private Boolean h = Boolean.valueOf(true);
+  private Boolean i = Boolean.valueOf(true);
+  private Boolean j;
   
   public StreetViewPanoramaOptions()
   {
-    CK = 1;
+    a = 1;
   }
   
   StreetViewPanoramaOptions(int paramInt, StreetViewPanoramaCamera paramStreetViewPanoramaCamera, String paramString, LatLng paramLatLng, Integer paramInteger, byte paramByte1, byte paramByte2, byte paramByte3, byte paramByte4, byte paramByte5)
   {
-    CK = paramInt;
-    alr = paramStreetViewPanoramaCamera;
-    alt = paramLatLng;
-    alu = paramInteger;
-    als = paramString;
-    alv = a.a(paramByte1);
-    akM = a.a(paramByte2);
-    alw = a.a(paramByte3);
-    alx = a.a(paramByte4);
-    akG = a.a(paramByte5);
+    a = paramInt;
+    b = paramStreetViewPanoramaCamera;
+    d = paramLatLng;
+    e = paramInteger;
+    c = paramString;
+    f = m.a(paramByte1);
+    g = m.a(paramByte2);
+    h = m.a(paramByte3);
+    i = m.a(paramByte4);
+    j = m.a(paramByte5);
+  }
+  
+  int a()
+  {
+    return a;
+  }
+  
+  byte b()
+  {
+    return m.a(f);
+  }
+  
+  byte c()
+  {
+    return m.a(g);
+  }
+  
+  byte d()
+  {
+    return m.a(h);
   }
   
   public int describeContents()
@@ -45,139 +65,39 @@ public final class StreetViewPanoramaOptions
     return 0;
   }
   
-  public Boolean getPanningGesturesEnabled()
+  byte e()
   {
-    return alw;
+    return m.a(i);
   }
   
-  public String getPanoramaId()
+  byte f()
   {
-    return als;
+    return m.a(j);
   }
   
-  public LatLng getPosition()
+  public StreetViewPanoramaCamera g()
   {
-    return alt;
+    return b;
   }
   
-  public Integer getRadius()
+  public LatLng h()
   {
-    return alu;
+    return d;
   }
   
-  public Boolean getStreetNamesEnabled()
+  public Integer i()
   {
-    return alx;
+    return e;
   }
   
-  public StreetViewPanoramaCamera getStreetViewPanoramaCamera()
+  public String j()
   {
-    return alr;
-  }
-  
-  public Boolean getUseViewLifecycleInFragment()
-  {
-    return akG;
-  }
-  
-  public Boolean getUserNavigationEnabled()
-  {
-    return alv;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
-  }
-  
-  public Boolean getZoomGesturesEnabled()
-  {
-    return akM;
-  }
-  
-  byte nE()
-  {
-    return a.c(akG);
-  }
-  
-  byte nI()
-  {
-    return a.c(akM);
-  }
-  
-  byte nS()
-  {
-    return a.c(alv);
-  }
-  
-  byte nT()
-  {
-    return a.c(alw);
-  }
-  
-  byte nU()
-  {
-    return a.c(alx);
-  }
-  
-  public StreetViewPanoramaOptions panningGesturesEnabled(boolean paramBoolean)
-  {
-    alw = Boolean.valueOf(paramBoolean);
-    return this;
-  }
-  
-  public StreetViewPanoramaOptions panoramaCamera(StreetViewPanoramaCamera paramStreetViewPanoramaCamera)
-  {
-    alr = paramStreetViewPanoramaCamera;
-    return this;
-  }
-  
-  public StreetViewPanoramaOptions panoramaId(String paramString)
-  {
-    als = paramString;
-    return this;
-  }
-  
-  public StreetViewPanoramaOptions position(LatLng paramLatLng)
-  {
-    alt = paramLatLng;
-    return this;
-  }
-  
-  public StreetViewPanoramaOptions position(LatLng paramLatLng, Integer paramInteger)
-  {
-    alt = paramLatLng;
-    alu = paramInteger;
-    return this;
-  }
-  
-  public StreetViewPanoramaOptions streetNamesEnabled(boolean paramBoolean)
-  {
-    alx = Boolean.valueOf(paramBoolean);
-    return this;
-  }
-  
-  public StreetViewPanoramaOptions useViewLifecycleInFragment(boolean paramBoolean)
-  {
-    akG = Boolean.valueOf(paramBoolean);
-    return this;
-  }
-  
-  public StreetViewPanoramaOptions userNavigationEnabled(boolean paramBoolean)
-  {
-    alv = Boolean.valueOf(paramBoolean);
-    return this;
+    return c;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    c.a(this, paramParcel, paramInt);
-  }
-  
-  public StreetViewPanoramaOptions zoomGesturesEnabled(boolean paramBoolean)
-  {
-    akM = Boolean.valueOf(paramBoolean);
-    return this;
+    k.a(this, paramParcel, paramInt);
   }
 }
 

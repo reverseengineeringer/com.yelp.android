@@ -15,7 +15,7 @@
     .line 15
     const/16 v0, 0x1c
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/ao;->a(I)I
+    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)I
 
     move-result v0
 
@@ -59,7 +59,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/yelp/android/bf/l;->LargeLightText:I
+    sget v1, Lcom/yelp/android/co/a$k;->DeprecatedLargeLightText:I
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/widgets/YelpToggleButton;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -88,7 +88,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/yelp/android/bf/l;->LargeBoldWhiteText:I
+    sget v1, Lcom/yelp/android/co/a$k;->LargeBoldWhiteText:I
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/widgets/YelpToggleButton;->setTextAppearance(Landroid/content/Context;I)V
 

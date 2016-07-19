@@ -1,27 +1,16 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.PaymentMethod;
-import java.util.ArrayList;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import org.apache.http.client.HttpClient;
 
 public class cq
+  extends c
 {
-  final String a;
-  final ArrayList<PaymentMethod> b;
-  
-  public cq(String paramString, ArrayList<PaymentMethod> paramArrayList)
+  public cq(HttpClient paramHttpClient, c.a parama)
   {
-    a = paramString;
-    b = paramArrayList;
-  }
-  
-  public String a()
-  {
-    return a;
-  }
-  
-  public ArrayList<PaymentMethod> b()
-  {
-    return b;
+    super("account/logout", parama);
+    a(paramHttpClient);
   }
 }
 

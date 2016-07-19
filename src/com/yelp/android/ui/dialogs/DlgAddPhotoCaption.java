@@ -7,15 +7,13 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.l;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
-import com.yelp.android.appdata.n;
-import com.yelp.android.appdata.webrequests.gw;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.fk.a;
 import com.yelp.android.ui.activities.camera.TakePhoto;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import java.io.File;
@@ -36,12 +34,12 @@ public class DlgAddPhotoCaption
     return localDlgAddPhotoCaption;
   }
   
-  public static void a(Intent paramIntent, YelpActivity paramYelpActivity, m<gw> paramm, FragmentManager paramFragmentManager, String paramString)
+  public static void a(Intent paramIntent, YelpActivity paramYelpActivity, ApiRequest.b<fk.a> paramb, l paraml, String paramString)
   {
     paramIntent = a(paramIntent);
-    paramIntent.a(paramm, paramYelpActivity, false);
+    paramIntent.a(paramb, paramYelpActivity, false);
     paramIntent.a();
-    paramIntent.show(paramFragmentManager.beginTransaction(), paramString);
+    paramIntent.show(paraml.a(), paramString);
   }
   
   public void a()
@@ -49,9 +47,9 @@ public class DlgAddPhotoCaption
     d = true;
   }
   
-  public void a(m<gw> paramm, YelpActivity paramYelpActivity, boolean paramBoolean)
+  public void a(ApiRequest.b<fk.a> paramb, YelpActivity paramYelpActivity, boolean paramBoolean)
   {
-    c = new u(this, paramBoolean, paramm, paramYelpActivity);
+    c = new DlgAddPhotoCaption.2(this, paramBoolean, paramb, paramYelpActivity);
   }
   
   public String b()
@@ -71,30 +69,25 @@ public class DlgAddPhotoCaption
   public Dialog onCreateDialog(Bundle paramBundle)
   {
     AlertDialog.Builder localBuilder = new AlertDialog.Builder(getActivity());
-    localBuilder.setTitle(2131165715);
-    View localView1 = LayoutInflater.from(getActivity()).inflate(2130903191, null);
-    b = ((CheckBox)localView1.findViewById(2131492998));
-    View localView2 = localView1.findViewById(2131493475);
+    localBuilder.setTitle(2131165791);
+    View localView1 = LayoutInflater.from(getActivity()).inflate(2130903214, null);
+    b = ((CheckBox)localView1.findViewById(2131689653));
+    View localView2 = localView1.findViewById(2131690156);
     if (d) {}
     for (int i = 0;; i = 8)
     {
       b.setVisibility(i);
       localView2.setVisibility(i);
-      a = ((EditText)localView1.findViewById(2131493474));
+      a = ((EditText)localView1.findViewById(2131690155));
       a.setSelectAllOnFocus(true);
-      if (!n.a(11))
-      {
-        ((TextView)localView1.findViewById(2131493476)).setTextColor(-1);
-        a.setTextColor(-1);
-      }
       if ((paramBundle != null) && (paramBundle.containsKey("photo_file_path"))) {
         e = new File(paramBundle.getString("photo_file_path"));
       }
       if ((e != null) && (e.exists())) {
-        new t(this, localView1).execute(new File[] { e });
+        new DlgAddPhotoCaption.1(this, localView1).execute(new File[] { e });
       }
       localBuilder.setView(localView1);
-      localBuilder.setPositiveButton(2131166237, c);
+      localBuilder.setPositiveButton(2131166290, c);
       localBuilder.setNegativeButton(17039360, null);
       return localBuilder.create();
     }

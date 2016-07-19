@@ -11,16 +11,18 @@ import android.view.MenuItem;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.ey;
-import com.yelp.android.appdata.webrequests.ez;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.dy;
+import com.yelp.android.appdata.webrequests.dy.a;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpBusinessReview;
 import com.yelp.android.ui.activities.reviews.ActivityReviewWrite;
 import com.yelp.android.ui.activities.reviews.ReviewSource;
 import com.yelp.android.ui.activities.reviews.ReviewState;
-import com.yelp.android.ui.util.bs;
+import com.yelp.android.ui.util.aj;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -35,9 +37,9 @@ import java.util.TreeMap;
 public class ActivityBusinessReviewsPage
   extends ActivityAbstractReviewPage
 {
-  protected ak k;
-  protected ak l;
-  protected ak m;
+  protected c k;
+  protected c l;
+  protected c m;
   protected HashSet<String> n;
   protected Locale o;
   
@@ -57,11 +59,11 @@ public class ActivityBusinessReviewsPage
       Locale localLocale = (Locale)paramCollection.next();
       if (!b.containsKey(localLocale))
       {
-        bi localbi = new bi();
+        e locale = new e();
         if (n.contains(localLocale.getLanguage())) {
-          localbi.a(PanelReviewTranslate.TranslateState.TRANSLATED);
+          locale.a(PanelReviewTranslate.TranslateState.TRANSLATED);
         }
-        b.put(localLocale, localbi);
+        b.put(localLocale, locale);
         f.add(localLocale);
       }
     }
@@ -72,19 +74,19 @@ public class ActivityBusinessReviewsPage
     Iterator localIterator = f.iterator();
     int i = 0;
     Locale localLocale;
-    bi localbi;
+    e locale;
     if (localIterator.hasNext())
     {
       localLocale = (Locale)localIterator.next();
-      localbi = (bi)b.get(localLocale);
+      locale = (e)b.get(localLocale);
       if ((paramCollection.size() <= 1) || (paramLocale == localLocale)) {
         break label107;
       }
     }
     label107:
-    for (int j = 2131166521;; j = 2131166523)
+    for (int j = 2131166520;; j = 2131166522)
     {
-      a.a(i, getString(j, new Object[] { localLocale.getDisplayLanguage(d) }), localbi);
+      a.a(i, getString(j, new Object[] { localLocale.getDisplayLanguage(d) }), locale);
       i += 1;
       break;
       return;
@@ -94,9 +96,9 @@ public class ActivityBusinessReviewsPage
   protected Intent a(YelpBusinessReview paramYelpBusinessReview, ArrayList<YelpBusinessReview> paramArrayList)
   {
     if (k()) {
-      return ActivitySearchedReviewsPager.a(this, paramArrayList, paramYelpBusinessReview, e.getDisplayName(), e.getId(), e.getCountry(), m(), l());
+      return ActivitySearchedReviewsPager.a(this, paramArrayList, paramYelpBusinessReview, e.z(), e.aD(), e.aw(), m(), l());
     }
-    return ActivityReviewPager.a(this, e.getId(), e.getDisplayName(), e.getCountry(), paramArrayList, paramArrayList.indexOf(paramYelpBusinessReview), h, i, true);
+    return ActivityReviewPager.a(this, e.aD(), e.z(), e.aw(), paramArrayList, paramArrayList.indexOf(paramYelpBusinessReview), h, i, true);
   }
   
   protected void a(Bundle paramBundle)
@@ -107,16 +109,16 @@ public class ActivityBusinessReviewsPage
     l.a(localArrayList);
     paramBundle = (YelpBusinessReview)paramBundle.getParcelable("YOUR REVIEW");
     if (paramBundle != null) {
-      m.c(paramBundle);
+      m.d(paramBundle);
     }
   }
   
-  protected void a(SparseArray<ApiRequest<?, ?, ?>> paramSparseArray)
+  protected void a(SparseArray<ApiRequest<Void, ?, ?>> paramSparseArray)
   {
     c = ((ApiRequest)paramSparseArray.get(0));
   }
   
-  protected void a(ey paramey, YelpException paramYelpException)
+  protected void a(dy paramdy, YelpException paramYelpException)
   {
     if (!m.isEmpty()) {
       m.a(paramYelpException);
@@ -131,18 +133,43 @@ public class ActivityBusinessReviewsPage
   
   protected void a(YelpBusinessReview paramYelpBusinessReview)
   {
-    k.a(paramYelpBusinessReview);
-    l.a(paramYelpBusinessReview);
-    m.a(paramYelpBusinessReview);
+    k.b(paramYelpBusinessReview);
+    l.b(paramYelpBusinessReview);
+    m.b(paramYelpBusinessReview);
   }
   
   protected void a(Locale paramLocale, Collection<Locale> paramCollection)
   {
-    a.a(2131166527, getString(2131166527), m);
-    a.a(2131492915, getString(2131166516), k);
-    a.a(2131492916, getString(2131166517), l);
+    a.a(2131166524, getString(2131166524), m);
+    a.a(2131689531, getString(2131166515), k);
+    a.a(2131689532, getString(2131166516), l);
     a(paramCollection);
     c(paramLocale, paramCollection);
+  }
+  
+  protected ApiRequest<Void, ?, ?> b()
+  {
+    Locale localLocale = d;
+    if (!f.isEmpty()) {
+      localLocale = (Locale)f.iterator().next();
+    }
+    Object localObject = (e)b.get(localLocale);
+    int i = m.getCount() + k.getCount() + l.getCount();
+    if (localObject != null)
+    {
+      i += ((e)localObject).getCount();
+      if (((e)localObject).b()) {
+        localObject = d.getLanguage();
+      }
+    }
+    for (;;)
+    {
+      int j = Math.min(a.getCount() / 10 * 10 + 10, 50);
+      return new dy(e.aD(), i, j, localLocale, (String)localObject, new a(this));
+      localObject = null;
+      continue;
+      localObject = null;
+    }
   }
   
   protected void b(Bundle paramBundle)
@@ -157,15 +184,15 @@ public class ActivityBusinessReviewsPage
     }
   }
   
-  public void b(ez paramez)
+  public void b(dy.a parama)
   {
     ArrayList localArrayList1 = new ArrayList(a);
     Object localObject = localArrayList1.iterator();
     while (((Iterator)localObject).hasNext()) {
-      ((YelpBusinessReview)((Iterator)localObject).next()).setLocale(c);
+      ((YelpBusinessReview)((Iterator)localObject).next()).a(c);
     }
-    if (a.a(2131166527) == null) {
-      a(paramez);
+    if (a.a(2131166524) == null) {
+      a(parama);
     }
     i = new ArrayList(d);
     ArrayList localArrayList2 = new ArrayList();
@@ -178,7 +205,7 @@ public class ActivityBusinessReviewsPage
     {
       if (!localArrayList1.isEmpty())
       {
-        if (getAppData().m().a(((YelpBusinessReview)localArrayList1.get(0)).getUserId())) {
+        if (getAppData().q().a(((YelpBusinessReview)localArrayList1.get(0)).b())) {
           localObject = (YelpBusinessReview)localArrayList1.remove(0);
         }
         for (;;)
@@ -188,13 +215,13 @@ public class ActivityBusinessReviewsPage
           }
           o = c;
           break;
-          if (((YelpBusinessReview)localArrayList1.get(0)).isUserFollowed())
+          if (((YelpBusinessReview)localArrayList1.get(0)).E())
           {
             localArrayList2.add(localArrayList1.remove(0));
           }
           else
           {
-            if (!((YelpBusinessReview)localArrayList1.get(0)).isUserFriend()) {
+            if (!((YelpBusinessReview)localArrayList1.get(0)).F()) {
               break label235;
             }
             localArrayList3.add(localArrayList1.remove(0));
@@ -203,7 +230,7 @@ public class ActivityBusinessReviewsPage
       }
       if (localObject != null)
       {
-        m.c(localObject);
+        m.d(localObject);
         m.notifyDataSetChanged();
       }
       if (!localArrayList2.isEmpty())
@@ -224,43 +251,18 @@ public class ActivityBusinessReviewsPage
     }
   }
   
-  protected ApiRequest<?, ?, ?> c()
-  {
-    Locale localLocale = d;
-    if (!f.isEmpty()) {
-      localLocale = (Locale)f.iterator().next();
-    }
-    Object localObject = (bi)b.get(localLocale);
-    int i = m.getCount() + k.getCount() + l.getCount();
-    if (localObject != null)
-    {
-      i += ((bi)localObject).getCount();
-      if (((bi)localObject).b()) {
-        localObject = d.getLanguage();
-      }
-    }
-    for (;;)
-    {
-      int j = Math.min(a.getCount() / 10 * 10 + 10, 50);
-      return new ey(e.getId(), i, j, localLocale, (String)localObject, new g(this));
-      localObject = null;
-      continue;
-      localObject = null;
-    }
-  }
-  
   protected void f()
   {
-    k = new ak();
-    l = new ak();
-    m = new ak();
+    k = new c();
+    l = new c();
+    m = new c();
   }
   
-  protected void h()
+  protected void i()
   {
-    super.h();
-    if ((c instanceof ey)) {
-      ((ey)c).setCallback(new g(this));
+    super.i();
+    if ((c instanceof dy)) {
+      ((dy)c).a(new a(this));
     }
   }
   
@@ -278,13 +280,13 @@ public class ActivityBusinessReviewsPage
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131493354)
+    if (paramMenuItem.getItemId() == 2131690026)
     {
       paramMenuItem = new HashMap(2);
-      paramMenuItem.put("id", e.getId());
+      paramMenuItem.put("id", e.aD());
       paramMenuItem.put("source", "reviews_list");
       AppData.a(EventIri.BusinessReviewWrite, paramMenuItem);
-      paramMenuItem = e.getReviewState();
+      paramMenuItem = e.w();
       if (ReviewState.FINISHED_RECENTLY.equals(paramMenuItem)) {
         paramMenuItem = ReviewSource.XMoreReviewsEdit;
       }
@@ -305,15 +307,42 @@ public class ActivityBusinessReviewsPage
   public boolean onPrepareOptionsMenu(Menu paramMenu)
   {
     super.onPrepareOptionsMenu(paramMenu);
-    paramMenu = paramMenu.findItem(2131493354);
+    paramMenu = paramMenu.findItem(2131690026);
     if (TextUtils.isEmpty(j))
     {
       paramMenu.setVisible(true);
-      paramMenu.setTitle(e.getReviewState().getTextResourceForState());
+      paramMenu.setTitle(e.w().getTextResourceForState());
       return true;
     }
     paramMenu.setVisible(false);
     return true;
+  }
+  
+  private static class a
+    implements ApiRequest.b<dy.a>
+  {
+    private final WeakReference<ActivityBusinessReviewsPage> a;
+    
+    public a(ActivityBusinessReviewsPage paramActivityBusinessReviewsPage)
+    {
+      a = new WeakReference(paramActivityBusinessReviewsPage);
+    }
+    
+    public void a(ApiRequest<?, ?, ?> paramApiRequest, dy.a parama)
+    {
+      paramApiRequest = (ActivityBusinessReviewsPage)a.get();
+      if (paramApiRequest != null) {
+        paramApiRequest.b(parama);
+      }
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+    {
+      ActivityBusinessReviewsPage localActivityBusinessReviewsPage = (ActivityBusinessReviewsPage)a.get();
+      if (localActivityBusinessReviewsPage != null) {
+        localActivityBusinessReviewsPage.onError(paramApiRequest, paramYelpException);
+      }
+    }
   }
 }
 

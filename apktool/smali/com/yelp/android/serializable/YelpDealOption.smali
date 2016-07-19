@@ -15,7 +15,7 @@
     .end annotation
 .end field
 
-.field private static final ONE_HUNDRED:Ljava/math/BigDecimal;
+.field private static final h:Ljava/math/BigDecimal;
 
 
 # direct methods
@@ -30,12 +30,12 @@
 
     invoke-direct {v0, v2, v3}, Ljava/math/BigDecimal;-><init>(D)V
 
-    sput-object v0, Lcom/yelp/android/serializable/YelpDealOption;->ONE_HUNDRED:Ljava/math/BigDecimal;
+    sput-object v0, Lcom/yelp/android/serializable/YelpDealOption;->h:Ljava/math/BigDecimal;
 
-    .line 40
-    new-instance v0, Lcom/yelp/android/serializable/ek;
+    .line 43
+    new-instance v0, Lcom/yelp/android/serializable/YelpDealOption$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/ek;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/YelpDealOption$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/YelpDealOption;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -52,7 +52,7 @@
     return-void
 .end method
 
-.method private static getPriceAsBigDec(Ljava/util/Currency;Ljava/lang/String;)Ljava/math/BigDecimal;
+.method private static a(Ljava/util/Currency;Ljava/lang/String;)Ljava/math/BigDecimal;
     .locals 2
 
     .prologue
@@ -61,7 +61,7 @@
 
     invoke-direct {v0, p1}, Ljava/math/BigDecimal;-><init>(Ljava/lang/String;)V
 
-    sget-object v1, Lcom/yelp/android/serializable/YelpDealOption;->ONE_HUNDRED:Ljava/math/BigDecimal;
+    sget-object v1, Lcom/yelp/android/serializable/YelpDealOption;->h:Ljava/math/BigDecimal;
 
     invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->divide(Ljava/math/BigDecimal;)Ljava/math/BigDecimal;
 
@@ -79,26 +79,26 @@
 
     move-result-object v0
 
-    .line 20
+    .line 23
     invoke-virtual {v0}, Ljava/math/BigDecimal;->scale()I
 
     move-result v1
 
     if-gez v1, :cond_1
 
-    .line 24
+    .line 27
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/math/BigDecimal;->setScale(I)Ljava/math/BigDecimal;
 
     move-result-object v0
 
-    .line 29
+    .line 32
     :cond_0
     :goto_0
     return-object v0
 
-    .line 25
+    .line 28
     :cond_1
     invoke-virtual {v0}, Ljava/math/BigDecimal;->scale()I
 
@@ -106,7 +106,7 @@
 
     if-lez v1, :cond_0
 
-    .line 27
+    .line 30
     invoke-virtual {p0}, Ljava/util/Currency;->getDefaultFractionDigits()I
 
     move-result v1
@@ -120,6 +120,116 @@
 
 
 # virtual methods
+.method public a(Ljava/util/Currency;)Ljava/math/BigDecimal;
+    .locals 1
+
+    .prologue
+    .line 36
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpDealOption;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpDealOption;->a(Ljava/util/Currency;Ljava/lang/String;)Ljava/math/BigDecimal;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a()Lorg/json/JSONObject;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->a()Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 13
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDealOption;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 13
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDealOption;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()I
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->b()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public b(Ljava/util/Currency;)Ljava/math/BigDecimal;
+    .locals 1
+
+    .prologue
+    .line 40
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpDealOption;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpDealOption;->a(Ljava/util/Currency;Ljava/lang/String;)Ljava/math/BigDecimal;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -132,152 +242,64 @@
     return v0
 .end method
 
-.method public bridge synthetic getAvailableCount()I
+.method public bridge synthetic e()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->getAvailableCount()I
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->e()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDealOption;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public getDecimalOriginalPrice(Ljava/util/Currency;)Ljava/math/BigDecimal;
-    .locals 1
-
-    .prologue
-    .line 37
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpDealOption;->getOriginalPrice()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpDealOption;->getPriceAsBigDec(Ljava/util/Currency;Ljava/lang/String;)Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getDecimalPrice(Ljava/util/Currency;)Ljava/math/BigDecimal;
-    .locals 1
-
-    .prologue
-    .line 33
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/YelpDealOption;->getPrice()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpDealOption;->getPriceAsBigDec(Ljava/util/Currency;Ljava/lang/String;)Ljava/math/BigDecimal;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getDescription()Ljava/lang/String;
+.method public bridge synthetic f()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->getDescription()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->f()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getId()Ljava/lang/String;
+.method public bridge synthetic g()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->getId()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->g()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getOriginalPrice()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->getOriginalPrice()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getPrice()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->getPrice()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getPurchasedCount()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->getPurchasedCount()I
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->hashCode()I
 
     move-result v0
 
     return v0
-.end method
-
-.method public bridge synthetic getTitle()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->getTitle()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 13
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDealOption;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 13
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpDealOption;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic writeJSON()Lorg/json/JSONObject;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpDealOption;->writeJSON()Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

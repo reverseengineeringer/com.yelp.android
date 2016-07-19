@@ -4,10 +4,10 @@ import android.content.Intent;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 class WebViewActivity$ForceDirtySessionCallback
-  implements i
+  implements c.a
 {
   Intent mIntent;
   

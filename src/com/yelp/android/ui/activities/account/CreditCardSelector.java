@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri.Builder;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Pair;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -11,7 +12,12 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AbsListView.LayoutParams;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
@@ -19,19 +25,21 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.appdata.webrequests.bl;
+import com.yelp.android.appdata.webrequests.bc;
 import com.yelp.android.serializable.PaymentMethod;
-import com.yelp.android.services.x;
+import com.yelp.android.services.i;
 import com.yelp.android.ui.activities.support.WebViewActivity;
+import com.yelp.android.ui.activities.support.WebViewActivity.BackBehavior;
 import com.yelp.android.ui.activities.support.WebViewActivity.Feature;
-import com.yelp.android.ui.dialogs.ChoiceDialog;
 import com.yelp.android.ui.dialogs.ListDialogFragment;
+import com.yelp.android.ui.dialogs.ListDialogFragment.a;
 import com.yelp.android.ui.dialogs.SingleChoiceListDialogFragment;
 import com.yelp.android.ui.panels.ButtonWithIcon;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.w;
 import com.yelp.android.ui.widgets.WebImageView;
-import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -40,7 +48,7 @@ public class CreditCardSelector
   extends YelpListActivity
 {
   private ArrayList<PaymentMethod> a;
-  private e b;
+  private a b;
   private boolean c;
   
   public static Intent a(Context paramContext)
@@ -69,7 +77,7 @@ public class CreditCardSelector
   
   private void a(int paramInt)
   {
-    new bl((PaymentMethod)a.remove(paramInt)).execute(new Void[0]);
+    new bc((PaymentMethod)a.remove(paramInt)).f(new Void[0]);
     if (a.isEmpty())
     {
       setResult(-1);
@@ -87,6 +95,11 @@ public class CreditCardSelector
     f();
   }
   
+  private void b()
+  {
+    startActivityForResult(WebViewActivity.getWebIntent(this, new Uri.Builder().scheme("https").authority(i.a(this)).path("user_credit_card/add").appendQueryParameter("webview_flow", "add_cc").build(), getString(2131165451), ViewIri.AccountAddCreditCard, EnumSet.of(WebViewActivity.Feature.LOGIN, WebViewActivity.Feature.EVENTS), WebViewActivity.BackBehavior.NONE), 1036);
+  }
+  
   public static boolean b(Intent paramIntent)
   {
     boolean bool = false;
@@ -94,17 +107,6 @@ public class CreditCardSelector
       bool = paramIntent.getBooleanExtra("extra.card_added", false);
     }
     return bool;
-  }
-  
-  private void c()
-  {
-    if (WebViewActivity.isEventsFeatureSupported())
-    {
-      startActivityForResult(WebViewActivity.getWebIntent(this, new Uri.Builder().scheme("https").authority(x.a(this)).path("user_credit_card/add").appendQueryParameter("webview_flow", "add_cc").build(), getString(2131165326), ViewIri.AccountAddCreditCard, EnumSet.of(WebViewActivity.Feature.LOGIN, WebViewActivity.Feature.EVENTS)), 1032);
-      return;
-    }
-    q().setVisibility(8);
-    populateError(ErrorType.ADD_CREDIT_CARD_NOT_SUPPORTED, new b(this));
   }
   
   private void f()
@@ -120,18 +122,24 @@ public class CreditCardSelector
   
   private void g()
   {
-    ArrayList localArrayList = new ArrayList();
+    final ArrayList localArrayList = new ArrayList();
     int i = 0;
     while (i < a.size())
     {
       localObject = (PaymentMethod)a.get(i);
-      localArrayList.add(new Pair(((PaymentMethod)localObject).getDescription(), localObject));
+      localArrayList.add(new Pair(((PaymentMethod)localObject).c(), localObject));
       i += 1;
     }
-    new SingleChoiceListDialogFragment();
-    Object localObject = SingleChoiceListDialogFragment.b(2131165687, localArrayList);
-    ((ListDialogFragment)localObject).a(getString(2131166344));
-    ((ListDialogFragment)localObject).a(new d(this, localArrayList));
+    Object localObject = SingleChoiceListDialogFragment.b(2131165761, localArrayList);
+    ((ListDialogFragment)localObject).a(getString(2131166365));
+    ((ListDialogFragment)localObject).a(new ListDialogFragment.a()
+    {
+      public void a(String paramAnonymousString, Parcelable paramAnonymousParcelable)
+      {
+        paramAnonymousString = new Pair(paramAnonymousString, paramAnonymousParcelable);
+        CreditCardSelector.a(CreditCardSelector.this, localArrayList.indexOf(paramAnonymousString));
+      }
+    });
     ((ListDialogFragment)localObject).show(getSupportFragmentManager(), "dialog");
   }
   
@@ -156,46 +164,49 @@ public class CreditCardSelector
     for (;;)
     {
       super.onActivityResult(paramInt1, paramInt2, paramIntent);
-      do
+      return;
+      if (paramInt2 == 0)
       {
-        return;
-        if (paramInt2 == 0)
-        {
-          if (!a.isEmpty()) {
-            break;
-          }
+        if (a.isEmpty()) {
           f();
-          break;
         }
+      }
+      else
+      {
         c = true;
         f();
-        break;
-      } while (paramInt2 == 0);
-      a(ChoiceDialog.a(paramIntent));
+      }
     }
   }
   
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    ButtonWithIcon localButtonWithIcon = e.a(q());
-    localButtonWithIcon.getTextView().setText(2131165336);
-    localButtonWithIcon.getImageView().setImageResource(2130838118);
-    localButtonWithIcon.setOnClickListener(new a(this));
+    getWindow().setFlags(8192, 8192);
+    ButtonWithIcon localButtonWithIcon = a.a(r());
+    localButtonWithIcon.getTextView().setText(2131165462);
+    localButtonWithIcon.getImageView().setImageResource(2130838323);
+    localButtonWithIcon.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        CreditCardSelector.a(CreditCardSelector.this);
+      }
+    });
     c = false;
-    q().addFooterView(localButtonWithIcon, null, true);
+    r().addFooterView(localButtonWithIcon, null, true);
     if (paramBundle == null) {}
     for (a = getIntent().getParcelableArrayListExtra("extra.cards");; a = paramBundle.getParcelableArrayList("extra.cards"))
     {
       if (a == null) {
         a = new ArrayList();
       }
-      b = new e(a);
-      q().setAdapter(b);
-      registerForContextMenu(q());
-      q().f();
+      b = new a(a);
+      r().setAdapter(b);
+      registerForContextMenu(r());
+      r().f();
       if (a.isEmpty()) {
-        c();
+        b();
       }
       return;
     }
@@ -203,20 +214,27 @@ public class CreditCardSelector
   
   public void onCreateContextMenu(ContextMenu paramContextMenu, View paramView, ContextMenu.ContextMenuInfo paramContextMenuInfo)
   {
-    int i = position;
+    final int i = position;
     PaymentMethod localPaymentMethod = (PaymentMethod)((AdapterView)paramView).getAdapter().getItem(i);
     if (localPaymentMethod != null)
     {
-      paramContextMenu.setHeaderTitle(localPaymentMethod.getDescription());
+      paramContextMenu.setHeaderTitle(localPaymentMethod.c());
       paramContextMenu.setHeaderIcon(17301543);
-      paramContextMenu.add(0, 2131494140, 0, 2131165686).setOnMenuItemClickListener(new c(this, i));
+      paramContextMenu.add(0, 2131691014, 0, 2131165760).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+      {
+        public boolean onMenuItemClick(MenuItem paramAnonymousMenuItem)
+        {
+          CreditCardSelector.a(CreditCardSelector.this, i);
+          return true;
+        }
+      });
     }
     super.onCreateContextMenu(paramContextMenu, paramView, paramContextMenuInfo);
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
-    getMenuInflater().inflate(2131755018, paramMenu);
+    getMenuInflater().inflate(2131755020, paramMenu);
     return true;
   }
   
@@ -239,8 +257,8 @@ public class CreditCardSelector
     case 16908332: 
       f();
       return true;
-    case 2131494139: 
-      c();
+    case 2131691013: 
+      b();
       return true;
     }
     g();
@@ -256,6 +274,41 @@ public class CreditCardSelector
   {
     super.onSaveInstanceState(paramBundle);
     paramBundle.putParcelableArrayList("extra.cards", a);
+  }
+  
+  public static final class a
+    extends w<PaymentMethod>
+  {
+    private static final AbsListView.LayoutParams a = new AbsListView.LayoutParams(-1, -2);
+    
+    public a(ArrayList<PaymentMethod> paramArrayList)
+    {
+      a(paramArrayList);
+    }
+    
+    public static final ButtonWithIcon a(ViewGroup paramViewGroup)
+    {
+      paramViewGroup = new ButtonWithIcon(paramViewGroup.getContext());
+      paramViewGroup.setLayoutParams(a);
+      return paramViewGroup;
+    }
+    
+    public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+    {
+      if (paramView == null) {
+        paramView = a(paramViewGroup);
+      }
+      for (;;)
+      {
+        paramViewGroup = (ButtonWithIcon)paramView;
+        PaymentMethod localPaymentMethod = (PaymentMethod)getItem(paramInt);
+        if (!ar.a(paramView.getContext(), paramViewGroup.getImageView(), localPaymentMethod.a())) {
+          paramViewGroup.getImageView().setImageUrl(localPaymentMethod.b(), 2130837813);
+        }
+        paramViewGroup.getTextView().setText(localPaymentMethod.c());
+        return paramViewGroup;
+      }
+    }
   }
 }
 

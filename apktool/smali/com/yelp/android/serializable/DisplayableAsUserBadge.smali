@@ -6,30 +6,38 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/serializable/DisplayableAsUserBadge$DisplayableAsUserBadgeWithTimeAgo;
+    }
+.end annotation
+
+
 # virtual methods
-.method public abstract getFriendCount()I
+.method public abstract a()Ljava/lang/String;
 .end method
 
-.method public abstract getMediaCount()I
+.method public abstract c()Ljava/lang/String;
 .end method
 
-.method public abstract getPhotoCount()I
+.method public abstract h()Z
 .end method
 
-.method public abstract getReviewCount()I
+.method public abstract i()Ljava/lang/String;
 .end method
 
-.method public abstract getUserId()Ljava/lang/String;
+.method public abstract j_()I
 .end method
 
-.method public abstract getUserName()Ljava/lang/String;
+.method public abstract k_()I
 .end method
 
-.method public abstract getUserPhotoUrl()Ljava/lang/String;
+.method public abstract l_()I
 .end method
 
-.method public abstract getVideoCount()I
+.method public abstract m_()I
 .end method
 
-.method public abstract isEliteUser()Z
+.method public abstract n_()I
 .end method

@@ -20,9 +20,9 @@ import com.yelp.android.serializable.Feedback;
 import com.yelp.android.serializable.RankTitle.Rank;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpCheckIn;
-import com.yelp.android.ui.util.au;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.util.j;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.g;
+import com.yelp.android.ui.util.w;
 import com.yelp.android.ui.widgets.SpannedImageButton;
 import com.yelp.android.ui.widgets.WebImageView;
 import com.yelp.android.util.StringUtils;
@@ -30,8 +30,8 @@ import com.yelp.android.util.StringUtils.Format;
 import java.util.List;
 
 public class a
-  extends au<CheckIn>
-  implements j
+  extends w<CheckIn>
+  implements g
 {
   private final SparseArray<String> a;
   private final SparseArray<CharSequence> b;
@@ -40,9 +40,9 @@ public class a
   private final SparseArray<CharSequence> e;
   private final boolean f;
   private final boolean g;
-  private r h;
-  private r i;
-  private r j;
+  private c h;
+  private c i;
+  private c j;
   private Location k;
   
   public a(boolean paramBoolean1, boolean paramBoolean2)
@@ -56,35 +56,35 @@ public class a
     e = new SparseArray();
   }
   
-  private void a(int paramInt, YelpCheckIn paramYelpCheckIn, b paramb, ViewGroup paramViewGroup)
+  private void a(int paramInt, YelpCheckIn paramYelpCheckIn, a.a parama, ViewGroup paramViewGroup)
   {
     Context localContext = paramViewGroup.getContext();
-    int m = paramYelpCheckIn.getTotalCount();
+    int m = paramYelpCheckIn.w();
     CharSequence localCharSequence = (CharSequence)b.get(paramInt);
     paramViewGroup = localCharSequence;
     if (localCharSequence == null)
     {
-      paramViewGroup = StringUtils.a(localContext, 2131623942, m, new String[0]);
+      paramViewGroup = StringUtils.a(localContext, 2131230726, m, new String[0]);
       b.put(paramInt, paramViewGroup);
     }
     l.setOnCheckedChangeListener(null);
-    l.setChecked(paramYelpCheckIn.getFeedback().isLikedByUser());
+    l.setChecked(paramYelpCheckIn.n().c());
     l.setOnCheckedChangeListener(h);
     l.setTag(paramYelpCheckIn);
     m.setTag(paramYelpCheckIn);
     k.setTag(paramYelpCheckIn);
-    if (paramYelpCheckIn.getLocationRankTitle().greaterThan(RankTitle.Rank.USER))
+    if (paramYelpCheckIn.l().greaterThan(RankTitle.Rank.USER))
     {
       h.setText(paramViewGroup);
-      h.setCompoundDrawablesWithIntrinsicBounds(paramYelpCheckIn.getLocationRankTitle().getRankIcon(), 0, 0, 0);
+      h.setCompoundDrawablesWithIntrinsicBounds(paramYelpCheckIn.l().getRankIcon(), 0, 0, 0);
     }
-    if (paramYelpCheckIn.getPrimaryComment() != null) {
-      i.setText(paramYelpCheckIn.getPrimaryComment().getText());
+    if (paramYelpCheckIn.A() != null) {
+      i.setText(paramYelpCheckIn.A().c());
     }
     paramViewGroup = (CharSequence)e.get(paramInt);
     if (TextUtils.isEmpty(paramViewGroup))
     {
-      paramYelpCheckIn = paramYelpCheckIn.getCommentCountLikeCountText(localContext);
+      paramYelpCheckIn = paramYelpCheckIn.b(localContext);
       if (!TextUtils.isEmpty(paramYelpCheckIn))
       {
         paramViewGroup = new StyleSpan(1);
@@ -114,7 +114,7 @@ public class a
   
   public void a(PendingIntent paramPendingIntent)
   {
-    h = new r(paramPendingIntent, "extra.data", "extra.checked");
+    h = new c(paramPendingIntent, "extra.data", "extra.checked");
   }
   
   public List<CheckIn> b()
@@ -124,12 +124,12 @@ public class a
   
   public void b(PendingIntent paramPendingIntent)
   {
-    i = new r(paramPendingIntent, "extra.data", "extra.checked");
+    i = new c(paramPendingIntent, "extra.data", "extra.checked");
   }
   
   public void c(PendingIntent paramPendingIntent)
   {
-    j = new r(paramPendingIntent, "extra.data", "extra.checked");
+    j = new c(paramPendingIntent, "extra.data", "extra.checked");
   }
   
   public int getItemViewType(int paramInt)
@@ -142,9 +142,9 @@ public class a
     if ((localCheckIn instanceof ExternalCheckIn)) {
       return 0;
     }
-    boolean bool = ((YelpCheckIn)localCheckIn).getLocationRankTitle().greaterThan(RankTitle.Rank.USER);
+    boolean bool = ((YelpCheckIn)localCheckIn).l().greaterThan(RankTitle.Rank.USER);
     paramInt = m;
-    if (((YelpCheckIn)localCheckIn).getPrimaryComment() != null) {
+    if (((YelpCheckIn)localCheckIn).A() != null) {
       paramInt = 1;
     }
     if ((bool) && (paramInt == 0)) {
@@ -166,12 +166,12 @@ public class a
     Object localObject;
     if (paramView == null)
     {
-      int m = 2130903384;
+      int m = 2130903487;
       if (getItemViewType(paramInt) == 0) {
-        m = 2130903312;
+        m = 2130903409;
       }
       paramView = LayoutInflater.from(localContext).inflate(m, paramViewGroup, false);
-      localObject = new b(getItemViewType(paramInt), paramView);
+      localObject = new a.a(getItemViewType(paramInt), paramView);
       paramView.setTag(localObject);
       localView = paramView;
       if (getItemViewType(paramInt) != 0)
@@ -181,35 +181,35 @@ public class a
         localView = paramView;
       }
     }
-    b localb;
+    a.a locala;
     CheckIn localCheckIn;
     if (k == null)
     {
-      paramView = AppData.b().n().c();
+      paramView = AppData.b().r().c();
       k = paramView;
-      localb = (b)localView.getTag();
+      locala = (a.a)localView.getTag();
       localCheckIn = (CheckIn)getItem(paramInt);
       localObject = (CharSequence)c.get(paramInt);
       paramView = (View)localObject;
       if (TextUtils.isEmpty((CharSequence)localObject))
       {
-        paramView = StringUtils.a(localContext, 2131623970, localCheckIn.getBusiness().getReviewCount(), new String[0]);
+        paramView = StringUtils.a(localContext, 2131230757, localCheckIn.d().N(), new String[0]);
         c.put(paramInt, paramView);
       }
       b.setText(paramView);
-      cp.a(b, localCheckIn.getBusiness().getAvgRating());
-      a.setImageUrl(localCheckIn.getUserPhotoUrl(), 2130837659);
+      ar.a(b, localCheckIn.d().P());
+      a.setImageUrl(localCheckIn.c(), 2130837702);
       if (!g) {
         break label464;
       }
-      c.setText(localContext.getString(2131166224, new Object[] { Integer.valueOf(paramInt + 1), localCheckIn.getUserName() }));
+      c.setText(localContext.getString(2131166279, new Object[] { Integer.valueOf(paramInt + 1), localCheckIn.a() }));
       label290:
-      paramView = localCheckIn.getBusiness();
-      d.setText(paramView.getDisplayName());
+      paramView = localCheckIn.d();
+      d.setText(paramView.z());
       if (!f) {
         break label482;
       }
-      e.setText(localCheckIn.getLocation());
+      e.setText(localCheckIn.g());
     }
     for (;;)
     {
@@ -217,21 +217,21 @@ public class a
       paramView = (View)localObject;
       if (TextUtils.isEmpty((CharSequence)localObject))
       {
-        paramView = StringUtils.a(paramViewGroup.getContext(), StringUtils.Format.LONG, localCheckIn.getDateCreated());
+        paramView = StringUtils.a(paramViewGroup.getContext(), StringUtils.Format.LONG, localCheckIn.e());
         d.put(paramInt, paramView);
       }
       f.setText(paramView);
-      if (localCheckIn.getAppName() != null) {
-        g.setText(localContext.getString(2131166813, new Object[] { localCheckIn.getAppName() }));
+      if (localCheckIn.f() != null) {
+        g.setText(localContext.getString(2131166777, new Object[] { localCheckIn.f() }));
       }
       if ((localCheckIn instanceof YelpCheckIn)) {
-        a(paramInt, (YelpCheckIn)localCheckIn, localb, paramViewGroup);
+        a(paramInt, (YelpCheckIn)localCheckIn, locala, paramViewGroup);
       }
       return localView;
       paramView = k;
       break;
       label464:
-      c.setText(localCheckIn.getUserName());
+      c.setText(localCheckIn.a());
       break label290;
       label482:
       if (a != null)
@@ -239,7 +239,7 @@ public class a
         paramView = (String)a.get(paramInt);
         if (a.indexOfKey(paramInt) < 0)
         {
-          paramView = localCheckIn.getBusiness().getDistanceFormatted(k, localContext, StringUtils.Format.ABBREVIATED);
+          paramView = localCheckIn.d().a(k, localContext, StringUtils.Format.ABBREVIATED);
           a.append(paramInt, paramView);
         }
         e.setText(paramView);

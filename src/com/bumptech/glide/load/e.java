@@ -1,9 +1,9 @@
 package com.bumptech.glide.load;
 
-import com.bumptech.glide.load.engine.t;
+import com.bumptech.glide.load.engine.i;
 
 public abstract interface e<T>
-  extends a<t<T>>
+  extends a<i<T>>
 {}
 
 /* Location:

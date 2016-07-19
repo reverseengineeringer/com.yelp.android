@@ -1,20 +1,20 @@
 package com.yelp.common.collect;
 
-import com.yelp.common.base.g;
+import com.yelp.common.base.d;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 
 class CustomConcurrentHashMap$ComputingImpl<K, V, E>
   extends CustomConcurrentHashMap.Impl<K, V, E>
 {
   static final long serialVersionUID = 0L;
-  final g<? super K, ? extends V> computer;
-  final b<K, V, E> computingStrategy;
+  final d<? super K, ? extends V> computer;
+  final CustomConcurrentHashMap.a<K, V, E> computingStrategy;
   
-  CustomConcurrentHashMap$ComputingImpl(b<K, V, E> paramb, CustomConcurrentHashMap.Builder paramBuilder, g<? super K, ? extends V> paramg)
+  CustomConcurrentHashMap$ComputingImpl(CustomConcurrentHashMap.a<K, V, E> parama, CustomConcurrentHashMap.Builder paramBuilder, d<? super K, ? extends V> paramd)
   {
-    super(paramb, paramBuilder);
-    computingStrategy = paramb;
-    computer = paramg;
+    super(parama, paramBuilder);
+    computingStrategy = parama;
+    computer = paramd;
   }
   
   public V get(Object paramObject)

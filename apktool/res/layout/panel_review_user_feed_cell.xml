@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/default_base_gap_size" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.AwardBanner android:id="@id/rotd_banner" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AwardBannerRotd" />
+    <com.yelp.android.ui.widgets.AwardBanner android:id="@id/hundred_millionth_review_banner" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AwardBannerHundredMillionthReview" />
+    <com.yelp.android.ui.widgets.AwardBanner android:id="@id/first_to_review_banner" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AwardBannerFirstToReview" />
+    <include android:id="@id/feed_header" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/feed_entry_header" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size">
+        <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/business_photo" android:layout_width="@dimen/feed_thumbsize" android:layout_height="@dimen/feed_thumbsize" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_small_gap_size">
+            <TextView android:textAppearance="@style/TitleText" android:id="@id/business_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/rating_holder" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginBottom="@dimen/default_small_gap_size">
+                <ImageView android:id="@id/rating_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/business_stars" android:contentDescription="@null" />
+                <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:gravity="center_vertical" android:id="@id/review_media_count" android:paddingTop="1.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_small_gap_size" android:singleLine="true" android:includeFontPadding="false" android:drawableLeft="@drawable/deprecated_camera_icon" android:drawablePadding="2.0dip" />
+            </LinearLayout>
+            <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:ellipsize="end" android:id="@id/content_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

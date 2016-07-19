@@ -1,38 +1,25 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.parcelgen.JsonParser;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.FeedItem;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-public class p<Result>
-  extends g<Void, Void, Result>
+public class p
+  extends b<Void, Void, List<FeedItem>>
 {
-  private JsonParser<Result> a;
-  
-  public p(ApiRequest.RequestType paramRequestType, String paramString, Map<String, String> paramMap, m<Result> paramm, JsonParser<Result> paramJsonParser)
+  public p(String paramString, ApiRequest.b<List<FeedItem>> paramb)
   {
-    super(paramRequestType, paramString, paramm);
-    a = paramJsonParser;
-    paramRequestType = paramMap.entrySet().iterator();
-    while (paramRequestType.hasNext())
-    {
-      paramString = (Map.Entry)paramRequestType.next();
-      addUrlParam((String)paramString.getKey(), (String)paramString.getValue());
-    }
+    super(ApiRequest.RequestType.GET, "badge/feed/v2", paramb);
+    a("badge_id", paramString);
   }
   
-  public p(String paramString, Map<String, String> paramMap, m<Result> paramm, JsonParser<Result> paramJsonParser)
+  public List<FeedItem> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    this(ApiRequest.RequestType.GET, paramString, paramMap, paramm, paramJsonParser);
-  }
-  
-  public Result process(JSONObject paramJSONObject)
-  {
-    return (Result)a.parse(paramJSONObject);
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("items"), FeedItem.CREATOR);
   }
 }
 

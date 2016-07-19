@@ -3,6 +3,7 @@ package com.yelp.android.analytics;
 import android.content.Context;
 import com.yelp.android.analytics.iris.AnalyticCategory;
 import com.yelp.android.appdata.BaseYelpApplication;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 class f
@@ -19,6 +20,7 @@ class f
   }
   
   public JSONObject c()
+    throws JSONException
   {
     JSONObject localJSONObject = super.c();
     localJSONObject.put("type", "bundle_image_not_found");

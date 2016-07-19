@@ -4,7 +4,17 @@ public class FriendRequest
   extends _FriendRequest
   implements DisplayableAsUserBadge
 {
-  public static final ah<FriendRequest> CREATOR = new au();
+  public static final a<FriendRequest> CREATOR = new FriendRequest.1();
+  
+  public String a()
+  {
+    return j().ad();
+  }
+  
+  public String c()
+  {
+    return j().c();
+  }
   
   public boolean equals(Object paramObject)
   {
@@ -21,66 +31,56 @@ public class FriendRequest
           return false;
         }
         paramObject = (FriendRequest)paramObject;
-        if (mSender != null) {
+        if (c != null) {
           break;
         }
-      } while (mSender == null);
+      } while (c == null);
       return false;
-    } while (mSender.equals(mSender));
+    } while (c.equals(c));
     return false;
   }
   
-  public int getFriendCount()
+  public boolean h()
   {
-    return getSender().getFriendCount();
-  }
-  
-  public int getMediaCount()
-  {
-    return getSender().getMediaCount();
-  }
-  
-  public int getPhotoCount()
-  {
-    return getSender().getLocalPhotoCount();
-  }
-  
-  public int getReviewCount()
-  {
-    return getSender().getReviewCount();
-  }
-  
-  public String getUserId()
-  {
-    return getSender().getUserId();
-  }
-  
-  public String getUserName()
-  {
-    return getSender().getName();
-  }
-  
-  public String getUserPhotoUrl()
-  {
-    return getSender().getUserPhotoUrl();
-  }
-  
-  public int getVideoCount()
-  {
-    return getSender().getVideoCount();
+    return j().h();
   }
   
   public int hashCode()
   {
-    if (mSender == null) {}
-    for (int i = 0;; i = mSender.hashCode()) {
+    if (c == null) {}
+    for (int i = 0;; i = c.hashCode()) {
       return i + 31;
     }
   }
   
-  public boolean isEliteUser()
+  public String i()
   {
-    return getSender().isEliteUser();
+    return j().i();
+  }
+  
+  public int j_()
+  {
+    return j().j_();
+  }
+  
+  public int k_()
+  {
+    return j().k_();
+  }
+  
+  public int l_()
+  {
+    return j().M();
+  }
+  
+  public int m_()
+  {
+    return j().m_();
+  }
+  
+  public int n_()
+  {
+    return j().n_();
   }
 }
 

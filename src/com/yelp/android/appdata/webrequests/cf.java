@@ -1,47 +1,53 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Reservation;
-import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.PaymentMethod;
+import com.yelp.android.serializable.YelpDeal;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class cf
-  extends g<Void, Void, cg>
+  extends b<Void, Void, a>
 {
-  private final int a;
-  private final Date b;
-  
-  public cf(m<cg> paramm, YelpBusiness paramYelpBusiness, Calendar paramCalendar, int paramInt)
+  public cf(YelpDeal paramYelpDeal, ApiRequest.b<a> paramb)
   {
-    super(ApiRequest.RequestType.GET, "reservation/search", paramm);
-    a = paramInt;
-    b = paramCalendar.getTime();
-    addUrlParam("timestamp", TimeUnit.SECONDS.convert(paramCalendar.getTimeInMillis(), TimeUnit.MILLISECONDS));
-    addUrlParam("business_id", paramYelpBusiness.getId());
-    addUrlParam("size", a);
-    addUrlParam("reservation_provider", paramYelpBusiness.getReservationProviderString());
+    super(ApiRequest.RequestType.POST, "deal/prepare_purchase", paramb);
+    b("deal_id", paramYelpDeal.x());
+    paramYelpDeal = paramYelpDeal.B();
+    if (paramYelpDeal != null) {
+      b("deal_time_updated", paramYelpDeal.getTime() / 1000L);
+    }
   }
   
-  public cg a(JSONObject paramJSONObject)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    String str = paramJSONObject.getString("query_id");
-    paramJSONObject = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("times"), Reservation.CREATOR);
-    Iterator localIterator = paramJSONObject.iterator();
-    while (localIterator.hasNext())
+    return new a(paramJSONObject.getString("purchase_nonce"), JsonUtil.parseJsonList(paramJSONObject.getJSONArray("payment_methods"), PaymentMethod.CREATOR));
+  }
+  
+  public static class a
+  {
+    final String a;
+    final ArrayList<PaymentMethod> b;
+    
+    public a(String paramString, ArrayList<PaymentMethod> paramArrayList)
     {
-      Reservation localReservation = (Reservation)localIterator.next();
-      localReservation.setQueryId(str);
-      localReservation.setPartySize(a);
+      a = paramString;
+      b = paramArrayList;
     }
-    Collections.sort(paramJSONObject);
-    return new cg(b, paramJSONObject);
+    
+    public String a()
+    {
+      return a;
+    }
+    
+    public ArrayList<PaymentMethod> b()
+    {
+      return b;
+    }
   }
 }
 

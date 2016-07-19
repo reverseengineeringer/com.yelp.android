@@ -6,18 +6,18 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/comscore/utils/TransmissionMode;
+.field final synthetic a:Ljava/lang/String;
 
 .field final synthetic b:Lcom/comscore/analytics/a;
 
 
 # direct methods
-.method constructor <init>(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
+.method constructor <init>(Lcom/comscore/analytics/a;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/comscore/analytics/l;->b:Lcom/comscore/analytics/a;
 
-    iput-object p2, p0, Lcom/comscore/analytics/l;->a:Lcom/comscore/utils/TransmissionMode;
+    iput-object p2, p0, Lcom/comscore/analytics/l;->a:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -31,9 +31,9 @@
 
     iget-object v0, p0, Lcom/comscore/analytics/l;->b:Lcom/comscore/analytics/a;
 
-    iget-object v1, p0, Lcom/comscore/analytics/l;->a:Lcom/comscore/utils/TransmissionMode;
+    iget-object v1, p0, Lcom/comscore/analytics/l;->a:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/comscore/analytics/a;->b(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
+    invoke-static {v0, v1}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;Ljava/lang/String;)V
 
     return-void
 .end method

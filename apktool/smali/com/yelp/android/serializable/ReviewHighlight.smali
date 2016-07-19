@@ -3,6 +3,14 @@
 .source "ReviewHighlight.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
+    }
+.end annotation
+
+
 # static fields
 .field public static final CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
     .annotation system Ldalvik/annotation/Signature;
@@ -17,7 +25,7 @@
 
 
 # instance fields
-.field private mReviewHighlightType:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
+.field private h:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
 
 
 # direct methods
@@ -26,9 +34,9 @@
 
     .prologue
     .line 54
-    new-instance v0, Lcom/yelp/android/serializable/cs;
+    new-instance v0, Lcom/yelp/android/serializable/ReviewHighlight$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/cs;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/ReviewHighlight$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/ReviewHighlight;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -48,31 +56,7 @@
 
 
 # virtual methods
-.method public bridge synthetic describeContents()I
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->describeContents()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getIdentifier()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->getIdentifier()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getMarkedUpSentence(Landroid/content/Context;)Landroid/text/Spanned;
+.method public a(Landroid/content/Context;)Landroid/text/Spanned;
     .locals 5
 
     .prologue
@@ -81,7 +65,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0704af
+    const v1, 0x7f0704c9
 
     const/4 v2, 0x1
 
@@ -89,7 +73,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/ReviewHighlight;->getSentence()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/ReviewHighlight;->e()Ljava/lang/String;
 
     move-result-object v4
 
@@ -106,41 +90,17 @@
     return-object v0
 .end method
 
-.method public bridge synthetic getPhotoUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->getPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getReviewCount()I
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->getReviewCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getReviewHighlightType()Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
+.method public a()Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
     .locals 2
 
     .prologue
     .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/ReviewHighlight;->mReviewHighlightType:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
+    iget-object v0, p0, Lcom/yelp/android/serializable/ReviewHighlight;->h:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
 
     if-nez v0, :cond_0
 
     .line 49
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/ReviewHighlight;->getType()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/ReviewHighlight;->g()Ljava/lang/String;
 
     move-result-object v0
 
@@ -154,81 +114,146 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/ReviewHighlight;->mReviewHighlightType:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
+    iput-object v0, p0, Lcom/yelp/android/serializable/ReviewHighlight;->h:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
 
     .line 51
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/ReviewHighlight;->mReviewHighlightType:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
+    iget-object v0, p0, Lcom/yelp/android/serializable/ReviewHighlight;->h:Lcom/yelp/android/serializable/ReviewHighlight$ReviewHighlightType;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getReviewId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->getReviewId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getSentence()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->getSentence()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTitle()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->getTitle()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getType()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 16
-    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->getType()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
+.method public bridge synthetic a(Landroid/os/Parcel;)V
     .locals 0
 
     .prologue
     .line 16
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewHighlight;->readFromJson(Lorg/json/JSONObject;)V
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewHighlight;->a(Landroid/os/Parcel;)V
 
     return-void
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 16
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewHighlight;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewHighlight;->a(Lorg/json/JSONObject;)V
 
     return-void
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic describeContents()I
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->describeContents()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->e()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_ReviewHighlight;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->f()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic g()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->g()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic hashCode()I
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-super {p0}, Lcom/yelp/android/serializable/_ReviewHighlight;->hashCode()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

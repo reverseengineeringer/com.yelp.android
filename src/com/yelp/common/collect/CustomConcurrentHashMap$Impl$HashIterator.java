@@ -45,9 +45,9 @@ abstract class CustomConcurrentHashMap$Impl$HashIterator
   
   boolean advanceTo(E paramE)
   {
-    d locald = this$0.strategy;
-    Object localObject = locald.getKey(paramE);
-    paramE = locald.getValue(paramE);
+    CustomConcurrentHashMap.c localc = this$0.strategy;
+    Object localObject = localc.getKey(paramE);
+    paramE = localc.getValue(paramE);
     if ((localObject != null) && (paramE != null))
     {
       nextExternal = new CustomConcurrentHashMap.Impl.WriteThroughEntry(this$0, localObject, paramE);
@@ -78,9 +78,9 @@ abstract class CustomConcurrentHashMap$Impl$HashIterator
   
   boolean nextInChain()
   {
-    d locald = this$0.strategy;
+    CustomConcurrentHashMap.c localc = this$0.strategy;
     if (nextEntry != null) {
-      for (nextEntry = locald.getNext(nextEntry); nextEntry != null; nextEntry = locald.getNext(nextEntry)) {
+      for (nextEntry = localc.getNext(nextEntry); nextEntry != null; nextEntry = localc.getNext(nextEntry)) {
         if (advanceTo(nextEntry)) {
           return true;
         }

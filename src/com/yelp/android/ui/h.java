@@ -1,169 +1,141 @@
 package com.yelp.android.ui;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Paint;
-import android.util.Pair;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.AbsListView.OnScrollListener;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
-import com.yelp.android.DinoListView;
+import android.app.Dialog;
+import android.graphics.Bitmap;
+import android.location.Location;
+import android.util.Log;
+import android.view.SurfaceView;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.ao;
-import com.yelp.android.bc.a;
-import com.yelp.android.bc.c;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.util.j;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.BusinessSearchRequest;
+import com.yelp.android.appdata.webrequests.BusinessSearchRequest.SearchMode;
+import com.yelp.android.appdata.webrequests.SearchRequest.SearchResponse;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.serializable.BusinessSearchResult;
+import com.yelp.android.serializable.Category;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.android.ui.panels.d;
+import com.yelp.android.util.StringUtils.Format;
+import java.nio.ByteBuffer;
+import java.util.List;
 
-public class h
-  extends BaseAdapter
-  implements j
+class h
+  extends k.b<SearchRequest.SearchResponse>
 {
-  private static final int a = ao.a(97);
-  private static final int[] b = { 2130837889, 2130837899, 2130837900, 2130837901, 2130837902, 2130837903, 2130837904, 2130837905, 2130837906, 2130837890, 2130837891, 2130837892, 2130837893, 2130837894, 2130837895, 2130837896, 2130837897, 2130837898 };
-  private DinoListView c;
-  private int[] d;
-  private Context e;
-  private boolean f;
-  private boolean g;
-  private Paint h;
+  public static BusinessSearchRequest a;
+  private final ActivityMonocle b;
+  private final MonocleEngine c;
+  private final g d;
+  private final SurfaceView e;
+  private Category f = null;
   
-  public h(Context paramContext, DinoListView paramDinoListView)
+  public h(ActivityMonocle paramActivityMonocle, MonocleEngine paramMonocleEngine, g paramg, SurfaceView paramSurfaceView)
   {
-    e = paramContext;
-    Resources localResources = AppData.b().getResources();
-    c = paramDinoListView;
-    f = true;
-    g = true;
-    d = new int[b.length];
-    d[0] = ((Integer)ab0second).intValue();
-    while (i < b.length)
-    {
-      d[i] = (((Integer)absecond).intValue() + d[(i - 1)]);
-      i += 1;
+    b = paramActivityMonocle;
+    c = paramMonocleEngine;
+    d = paramg;
+    e = paramSurfaceView;
+  }
+  
+  public void a(Location paramLocation)
+  {
+    Log.i("SEARCH", "Starting HTTP Request");
+  }
+  
+  public void a(ApiRequest<?, ?, ?> paramApiRequest, SearchRequest.SearchResponse paramSearchResponse)
+  {
+    if (!(paramApiRequest instanceof BusinessSearchRequest)) {
+      throw new IllegalStateException("Cannot use this request object");
     }
-    h = new Paint();
-    h.setColor(paramContext.getResources().getColor(2131361804));
-    h.setStrokeWidth(a);
+    paramApiRequest = (BusinessSearchRequest)paramApiRequest;
+    paramSearchResponse = BusinessSearchResult.b(paramSearchResponse.b());
+    Log.i("SEARCH", "done");
+    e.setVisibility(0);
+    m.b(e, 1004);
+    c.SetLocation((float)paramApiRequest.f().getLatitude(), (float)paramApiRequest.f().getLongitude());
+    d locald = new d(b);
+    locald.a();
+    c.ClearObjects();
+    paramApiRequest = null;
+    c localc = new c(b);
+    int i = 0;
+    YelpBusiness localYelpBusiness;
+    Bitmap localBitmap;
+    if (i < paramSearchResponse.size())
+    {
+      localYelpBusiness = (YelpBusiness)paramSearchResponse.get(i);
+      locald.a(localYelpBusiness);
+      locald.setDistance(localYelpBusiness.a(b, StringUtils.Format.ABBREVIATED));
+      locald.setVisibility(0);
+      localBitmap = localc.a(locald);
+      int j = localBitmap.getHeight() * localBitmap.getRowBytes();
+      if ((paramApiRequest != null) && (paramApiRequest.array().length >= j)) {
+        break label324;
+      }
+      paramApiRequest = ByteBuffer.allocate(j);
+    }
+    label324:
+    for (;;)
+    {
+      paramApiRequest.rewind();
+      localBitmap.copyPixelsToBuffer(paramApiRequest);
+      c.AddObject(paramApiRequest.array(), localBitmap.getWidth(), localBitmap.getHeight(), (float)localYelpBusiness.R(), (float)localYelpBusiness.Q(), new i(b, localYelpBusiness));
+      i += 1;
+      break;
+      d.a = true;
+      if (ActivityMonocle.a != null) {
+        ActivityMonocle.a.hide();
+      }
+      b.d = b.b.a();
+      a = null;
+      return;
+    }
   }
   
-  public int a()
+  public void a(Category paramCategory)
   {
-    return d[8];
+    f = paramCategory;
   }
   
-  public Integer a(int paramInt)
+  public boolean a()
   {
-    return Integer.valueOf(b[paramInt]);
-  }
-  
-  public int b(int paramInt)
-  {
-    return d[paramInt];
+    b.a();
+    Log.i("SEARCH", "No location provider for search");
+    return false;
   }
   
   public void b()
   {
-    g = false;
-  }
-  
-  public boolean c()
-  {
-    return g;
-  }
-  
-  public void clear() {}
-  
-  public void d()
-  {
-    f = false;
-    notifyDataSetChanged();
-  }
-  
-  public void e()
-  {
-    f = true;
-    notifyDataSetChanged();
-  }
-  
-  public boolean f()
-  {
-    return f;
-  }
-  
-  public int getCount()
-  {
-    if ((g) && (!f)) {
-      return b.length;
+    a = new BusinessSearchRequest(AppData.b().i().e(), this);
+    a.a(BusinessSearchRequest.SearchMode.MONOCLE);
+    if (f != null) {
+      a.a(f);
     }
-    return 0;
+    a.y();
+    if (ActivityMonocle.a != null) {
+      ActivityMonocle.a.show();
+    }
   }
   
-  public long getItemId(int paramInt)
+  public void c()
   {
-    return b[paramInt];
-  }
-  
-  public int getItemViewType(int paramInt)
-  {
-    int i = 2;
-    if (paramInt == 2) {
-      i = 3;
-    }
-    while (paramInt == 5) {
-      return i;
-    }
-    if (paramInt < 8) {
-      return 1;
-    }
-    return 0;
-  }
-  
-  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
-  {
-    if ((paramView == null) && (getItemViewType(paramInt) == 1))
+    if (a != null)
     {
-      paramView = new i(e, h);
-      paramView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+      a.a(null);
+      a.a(true);
     }
-    for (;;)
-    {
-      paramView = (ImageView)paramView;
-      paramView.setImageDrawable(AppData.b().getResources().getDrawable(b[paramInt]));
-      paramView.setScaleType(ImageView.ScaleType.FIT_XY);
-      paramInt = c.getLastVisiblePosition();
-      int i = c.getFirstVisiblePosition();
-      c.getOnScrollListener().onScroll(c, c.getFirstVisiblePosition(), paramInt - i + 1, c.getCount());
-      return paramView;
-      if ((paramView == null) && (getItemViewType(paramInt) == 2))
-      {
-        paramView = new c(e, h);
-        ((c)paramView).a();
-      }
-      else if ((paramView == null) && (getItemViewType(paramInt) == 3))
-      {
-        paramView = new a(e, h);
-        ((a)paramView).a();
-      }
-      else if ((paramView == null) && (getItemViewType(paramInt) == 0))
-      {
-        paramView = new ImageView(e);
-      }
-    }
+    b.b.a(b.d);
   }
   
-  public int getViewTypeCount()
+  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
   {
-    return 4;
-  }
-  
-  public boolean isEnabled(int paramInt)
-  {
-    return false;
+    Log.i("SEARCH", "Error" + paramYelpException.getMessage());
+    a = null;
+    if (ActivityMonocle.a != null) {
+      ActivityMonocle.a.hide();
+    }
+    b();
   }
 }
 

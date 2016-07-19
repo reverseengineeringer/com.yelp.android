@@ -3,7 +3,18 @@
 .source "FinalizableReferenceQueue.java"
 
 # interfaces
-.implements Lcom/yelp/common/base/c;
+.implements Lcom/yelp/common/base/FinalizableReferenceQueue$b;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/base/FinalizableReferenceQueue;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "DecoupledLoader"
+.end annotation
 
 
 # static fields
@@ -25,6 +36,11 @@
 # virtual methods
 .method getBaseUrl()Ljava/net/URL;
     .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 270

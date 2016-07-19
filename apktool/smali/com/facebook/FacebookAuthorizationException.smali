@@ -12,10 +12,10 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 34
     invoke-direct {p0}, Lcom/facebook/FacebookException;-><init>()V
 
-    .line 31
+    .line 35
     return-void
 .end method
 
@@ -23,10 +23,10 @@
     .locals 0
 
     .prologue
-    .line 40
+    .line 44
     invoke-direct {p0, p1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V
 
-    .line 41
+    .line 45
     return-void
 .end method
 
@@ -34,10 +34,10 @@
     .locals 0
 
     .prologue
-    .line 53
+    .line 57
     invoke-direct {p0, p1, p2}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 54
+    .line 58
     return-void
 .end method
 
@@ -45,9 +45,9 @@
     .locals 0
 
     .prologue
-    .line 63
+    .line 67
     invoke-direct {p0, p1}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/Throwable;)V
 
-    .line 64
+    .line 68
     return-void
 .end method

@@ -1,115 +1,593 @@
-.class public final Lcom/yelp/android/g/f;
+.class abstract Lcom/yelp/android/g/f;
 .super Ljava/lang/Object;
-.source "R.java"
+.source "MapCollections.java"
 
 
-# static fields
-.field public static final abc_ab_share_pack_mtrl_alpha:I = 0x7f020001
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/g/f$e;,
+        Lcom/yelp/android/g/f$c;,
+        Lcom/yelp/android/g/f$b;,
+        Lcom/yelp/android/g/f$d;,
+        Lcom/yelp/android/g/f$a;
+    }
+.end annotation
 
-.field public static final abc_btn_check_material:I = 0x7f020002
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<K:",
+        "Ljava/lang/Object;",
+        "V:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
 
-.field public static final abc_btn_check_to_on_mtrl_000:I = 0x7f020003
 
-.field public static final abc_btn_check_to_on_mtrl_015:I = 0x7f020004
+# instance fields
+.field b:Lcom/yelp/android/g/f$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/g/f",
+            "<TK;TV;>.b;"
+        }
+    .end annotation
+.end field
 
-.field public static final abc_btn_default_mtrl_shape:I = 0x7f020005
+.field c:Lcom/yelp/android/g/f$c;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/g/f",
+            "<TK;TV;>.c;"
+        }
+    .end annotation
+.end field
 
-.field public static final abc_btn_radio_material:I = 0x7f020006
+.field d:Lcom/yelp/android/g/f$e;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/g/f",
+            "<TK;TV;>.e;"
+        }
+    .end annotation
+.end field
 
-.field public static final abc_btn_radio_to_on_mtrl_000:I = 0x7f020007
 
-.field public static final abc_btn_radio_to_on_mtrl_015:I = 0x7f020008
+# direct methods
+.method constructor <init>()V
+    .locals 0
 
-.field public static final abc_btn_rating_star_off_mtrl_alpha:I = 0x7f020009
+    .prologue
+    .line 30
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-.field public static final abc_btn_rating_star_on_mtrl_alpha:I = 0x7f02000a
+    .line 353
+    return-void
+.end method
 
-.field public static final abc_btn_switch_to_on_mtrl_00001:I = 0x7f02000b
+.method public static a(Ljava/util/Map;Ljava/util/Collection;)Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/Map",
+            "<TK;TV;>;",
+            "Ljava/util/Collection",
+            "<*>;)Z"
+        }
+    .end annotation
 
-.field public static final abc_btn_switch_to_on_mtrl_00012:I = 0x7f02000c
+    .prologue
+    .line 455
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-.field public static final abc_cab_background_internal_bg:I = 0x7f02000d
+    move-result-object v0
 
-.field public static final abc_cab_background_top_material:I = 0x7f02000e
+    .line 456
+    :cond_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-.field public static final abc_cab_background_top_mtrl_alpha:I = 0x7f02000f
+    move-result v1
 
-.field public static final abc_edit_text_material:I = 0x7f020010
+    if-eqz v1, :cond_1
 
-.field public static final abc_ic_ab_back_mtrl_am_alpha:I = 0x7f020011
+    .line 457
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-.field public static final abc_ic_clear_mtrl_alpha:I = 0x7f020012
+    move-result-object v1
 
-.field public static final abc_ic_commit_search_api_mtrl_alpha:I = 0x7f020013
+    invoke-interface {p0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-.field public static final abc_ic_go_search_api_mtrl_alpha:I = 0x7f020014
+    move-result v1
 
-.field public static final abc_ic_menu_copy_mtrl_am_alpha:I = 0x7f020015
+    if-nez v1, :cond_0
 
-.field public static final abc_ic_menu_cut_mtrl_alpha:I = 0x7f020016
+    .line 458
+    const/4 v0, 0x0
 
-.field public static final abc_ic_menu_moreoverflow_mtrl_alpha:I = 0x7f020017
+    .line 461
+    :goto_0
+    return v0
 
-.field public static final abc_ic_menu_paste_mtrl_am_alpha:I = 0x7f020018
+    :cond_1
+    const/4 v0, 0x1
 
-.field public static final abc_ic_menu_selectall_mtrl_alpha:I = 0x7f020019
+    goto :goto_0
+.end method
 
-.field public static final abc_ic_menu_share_mtrl_alpha:I = 0x7f02001a
+.method public static a(Ljava/util/Set;Ljava/lang/Object;)Z
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/Set",
+            "<TT;>;",
+            "Ljava/lang/Object;",
+            ")Z"
+        }
+    .end annotation
 
-.field public static final abc_ic_search_api_mtrl_alpha:I = 0x7f02001b
+    .prologue
+    const/4 v0, 0x1
 
-.field public static final abc_ic_voice_search_api_mtrl_alpha:I = 0x7f02001c
+    const/4 v1, 0x0
 
-.field public static final abc_item_background_holo_dark:I = 0x7f02001d
+    .line 511
+    if-ne p0, p1, :cond_1
 
-.field public static final abc_item_background_holo_light:I = 0x7f02001e
+    move v1, v0
 
-.field public static final abc_list_divider_mtrl_alpha:I = 0x7f02001f
+    .line 525
+    :cond_0
+    :goto_0
+    return v1
 
-.field public static final abc_list_focused_holo:I = 0x7f020020
+    .line 514
+    :cond_1
+    instance-of v2, p1, Ljava/util/Set;
 
-.field public static final abc_list_longpressed_holo:I = 0x7f020021
+    if-eqz v2, :cond_0
 
-.field public static final abc_list_pressed_holo_dark:I = 0x7f020022
+    .line 515
+    check-cast p1, Ljava/util/Set;
 
-.field public static final abc_list_pressed_holo_light:I = 0x7f020023
+    .line 518
+    :try_start_0
+    invoke-interface {p0}, Ljava/util/Set;->size()I
 
-.field public static final abc_list_selector_background_transition_holo_dark:I = 0x7f020024
+    move-result v2
 
-.field public static final abc_list_selector_background_transition_holo_light:I = 0x7f020025
+    invoke-interface {p1}, Ljava/util/Set;->size()I
 
-.field public static final abc_list_selector_disabled_holo_dark:I = 0x7f020026
+    move-result v3
 
-.field public static final abc_list_selector_disabled_holo_light:I = 0x7f020027
+    if-ne v2, v3, :cond_2
 
-.field public static final abc_list_selector_holo_dark:I = 0x7f020028
+    invoke-interface {p0, p1}, Ljava/util/Set;->containsAll(Ljava/util/Collection;)Z
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-.field public static final abc_list_selector_holo_light:I = 0x7f020029
+    move-result v2
 
-.field public static final abc_menu_hardkey_panel_mtrl_mult:I = 0x7f02002a
+    if-eqz v2, :cond_2
 
-.field public static final abc_popup_background_mtrl_mult:I = 0x7f02002b
+    :goto_1
+    move v1, v0
 
-.field public static final abc_ratingbar_full_material:I = 0x7f02002c
+    goto :goto_0
 
-.field public static final abc_spinner_mtrl_am_alpha:I = 0x7f02002d
+    :cond_2
+    move v0, v1
 
-.field public static final abc_spinner_textfield_background_material:I = 0x7f02002e
+    goto :goto_1
 
-.field public static final abc_switch_thumb_material:I = 0x7f02002f
+    .line 521
+    :catch_0
+    move-exception v0
 
-.field public static final abc_switch_track_mtrl_alpha:I = 0x7f020030
+    goto :goto_0
 
-.field public static final abc_tab_indicator_material:I = 0x7f020031
+    .line 519
+    :catch_1
+    move-exception v0
 
-.field public static final abc_tab_indicator_mtrl_alpha:I = 0x7f020032
+    goto :goto_0
+.end method
 
-.field public static final abc_textfield_activated_mtrl_alpha:I = 0x7f020033
+.method public static b(Ljava/util/Map;Ljava/util/Collection;)Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/Map",
+            "<TK;TV;>;",
+            "Ljava/util/Collection",
+            "<*>;)Z"
+        }
+    .end annotation
 
-.field public static final abc_textfield_default_mtrl_alpha:I = 0x7f020034
+    .prologue
+    .line 465
+    invoke-interface {p0}, Ljava/util/Map;->size()I
 
-.field public static final abc_textfield_search_activated_mtrl_alpha:I = 0x7f020035
+    move-result v0
 
-.field public static final abc_textfield_search_default_mtrl_alpha:I = 0x7f020036
+    .line 466
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-.field public static final abc_textfield_search_material:I = 0x7f020037
+    move-result-object v1
+
+    .line 467
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 468
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-interface {p0, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+
+    .line 470
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Map;->size()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+.end method
+
+.method public static c(Ljava/util/Map;Ljava/util/Collection;)Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<K:",
+            "Ljava/lang/Object;",
+            "V:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/util/Map",
+            "<TK;TV;>;",
+            "Ljava/util/Collection",
+            "<*>;)Z"
+        }
+    .end annotation
+
+    .prologue
+    .line 474
+    invoke-interface {p0}, Ljava/util/Map;->size()I
+
+    move-result v0
+
+    .line 475
+    invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    .line 476
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 477
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-interface {p1, v2}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 478
+    invoke-interface {v1}, Ljava/util/Iterator;->remove()V
+
+    goto :goto_0
+
+    .line 481
+    :cond_1
+    invoke-interface {p0}, Ljava/util/Map;->size()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_2
+
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
+.end method
+
+
+# virtual methods
+.method protected abstract a()I
+.end method
+
+.method protected abstract a(Ljava/lang/Object;)I
+.end method
+
+.method protected abstract a(II)Ljava/lang/Object;
+.end method
+
+.method protected abstract a(ILjava/lang/Object;)Ljava/lang/Object;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(ITV;)TV;"
+        }
+    .end annotation
+.end method
+
+.method protected abstract a(I)V
+.end method
+
+.method protected abstract a(Ljava/lang/Object;Ljava/lang/Object;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TK;TV;)V"
+        }
+    .end annotation
+.end method
+
+.method public a([Ljava/lang/Object;I)[Ljava/lang/Object;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">([TT;I)[TT;"
+        }
+    .end annotation
+
+    .prologue
+    .line 495
+    invoke-virtual {p0}, Lcom/yelp/android/g/f;->a()I
+
+    move-result v2
+
+    .line 496
+    array-length v0, p1
+
+    if-ge v0, v2, :cond_2
+
+    .line 497
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getComponentType()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-static {v0, v2}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Ljava/lang/Object;
+
+    check-cast v0, [Ljava/lang/Object;
+
+    .line 501
+    :goto_0
+    const/4 v1, 0x0
+
+    :goto_1
+    if-ge v1, v2, :cond_0
+
+    .line 502
+    invoke-virtual {p0, v1, p2}, Lcom/yelp/android/g/f;->a(II)Ljava/lang/Object;
+
+    move-result-object v3
+
+    aput-object v3, v0, v1
+
+    .line 501
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    .line 504
+    :cond_0
+    array-length v1, v0
+
+    if-le v1, v2, :cond_1
+
+    .line 505
+    const/4 v1, 0x0
+
+    aput-object v1, v0, v2
+
+    .line 507
+    :cond_1
+    return-object v0
+
+    :cond_2
+    move-object v0, p1
+
+    goto :goto_0
+.end method
+
+.method protected abstract b(Ljava/lang/Object;)I
+.end method
+
+.method protected abstract b()Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map",
+            "<TK;TV;>;"
+        }
+    .end annotation
+.end method
+
+.method public b(I)[Ljava/lang/Object;
+    .locals 4
+
+    .prologue
+    .line 486
+    invoke-virtual {p0}, Lcom/yelp/android/g/f;->a()I
+
+    move-result v1
+
+    .line 487
+    new-array v2, v1, [Ljava/lang/Object;
+
+    .line 488
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v1, :cond_0
+
+    .line 489
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/g/f;->a(II)Ljava/lang/Object;
+
+    move-result-object v3
+
+    aput-object v3, v2, v0
+
+    .line 488
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 491
+    :cond_0
+    return-object v2
+.end method
+
+.method protected abstract c()V
+.end method
+
+.method public d()Ljava/util/Set;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/util/Map$Entry",
+            "<TK;TV;>;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 529
+    iget-object v0, p0, Lcom/yelp/android/g/f;->b:Lcom/yelp/android/g/f$b;
+
+    if-nez v0, :cond_0
+
+    .line 530
+    new-instance v0, Lcom/yelp/android/g/f$b;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/g/f$b;-><init>(Lcom/yelp/android/g/f;)V
+
+    iput-object v0, p0, Lcom/yelp/android/g/f;->b:Lcom/yelp/android/g/f$b;
+
+    .line 532
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/g/f;->b:Lcom/yelp/android/g/f$b;
+
+    return-object v0
+.end method
+
+.method public e()Ljava/util/Set;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Set",
+            "<TK;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 536
+    iget-object v0, p0, Lcom/yelp/android/g/f;->c:Lcom/yelp/android/g/f$c;
+
+    if-nez v0, :cond_0
+
+    .line 537
+    new-instance v0, Lcom/yelp/android/g/f$c;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/g/f$c;-><init>(Lcom/yelp/android/g/f;)V
+
+    iput-object v0, p0, Lcom/yelp/android/g/f;->c:Lcom/yelp/android/g/f$c;
+
+    .line 539
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/g/f;->c:Lcom/yelp/android/g/f$c;
+
+    return-object v0
+.end method
+
+.method public f()Ljava/util/Collection;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Collection",
+            "<TV;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 543
+    iget-object v0, p0, Lcom/yelp/android/g/f;->d:Lcom/yelp/android/g/f$e;
+
+    if-nez v0, :cond_0
+
+    .line 544
+    new-instance v0, Lcom/yelp/android/g/f$e;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/g/f$e;-><init>(Lcom/yelp/android/g/f;)V
+
+    iput-object v0, p0, Lcom/yelp/android/g/f;->d:Lcom/yelp/android/g/f$e;
+
+    .line 546
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/g/f;->d:Lcom/yelp/android/g/f$e;
+
+    return-object v0
+.end method

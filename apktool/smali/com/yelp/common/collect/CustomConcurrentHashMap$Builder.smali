@@ -3,6 +3,17 @@
 .source "CustomConcurrentHashMap.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x18
+    name = "Builder"
+.end annotation
+
+
 # static fields
 .field private static final DEFAULT_CONCURRENCY_LEVEL:I = 0x10
 
@@ -40,7 +51,7 @@
 
 
 # virtual methods
-.method public buildComputingMap(Lcom/yelp/common/collect/b;Lcom/yelp/common/base/g;)Ljava/util/concurrent/ConcurrentMap;
+.method public buildComputingMap(Lcom/yelp/common/collect/CustomConcurrentHashMap$a;Lcom/yelp/common/base/d;)Ljava/util/concurrent/ConcurrentMap;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -51,9 +62,9 @@
             "E:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/yelp/common/collect/b",
+            "Lcom/yelp/common/collect/CustomConcurrentHashMap$a",
             "<TK;TV;TE;>;",
-            "Lcom/yelp/common/base/g",
+            "Lcom/yelp/common/base/d",
             "<-TK;+TV;>;)",
             "Ljava/util/concurrent/ConcurrentMap",
             "<TK;TV;>;"
@@ -90,12 +101,12 @@
     :cond_1
     new-instance v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$ComputingImpl;
 
-    invoke-direct {v0, p1, p0, p2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$ComputingImpl;-><init>(Lcom/yelp/common/collect/b;Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;Lcom/yelp/common/base/g;)V
+    invoke-direct {v0, p1, p0, p2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$ComputingImpl;-><init>(Lcom/yelp/common/collect/CustomConcurrentHashMap$a;Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;Lcom/yelp/common/base/d;)V
 
     return-object v0
 .end method
 
-.method public buildMap(Lcom/yelp/common/collect/d;)Ljava/util/concurrent/ConcurrentMap;
+.method public buildMap(Lcom/yelp/common/collect/CustomConcurrentHashMap$c;)Ljava/util/concurrent/ConcurrentMap;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -106,7 +117,7 @@
             "E:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/yelp/common/collect/d",
+            "Lcom/yelp/common/collect/CustomConcurrentHashMap$c",
             "<TK;TV;TE;>;)",
             "Ljava/util/concurrent/ConcurrentMap",
             "<TK;TV;>;"
@@ -130,7 +141,7 @@
     :cond_0
     new-instance v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    invoke-direct {v0, p1, p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;-><init>(Lcom/yelp/common/collect/d;Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;)V
+    invoke-direct {v0, p1, p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;-><init>(Lcom/yelp/common/collect/CustomConcurrentHashMap$c;Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;)V
 
     return-object v0
 .end method

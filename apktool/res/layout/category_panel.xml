@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="vertical" android:id="@id/displayable_category_container" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@id/category_name" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+<com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="horizontal" android:id="@id/displayable_category_container" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="@style/YelpFullBleedCell"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <TextView android:textAppearance="@style/DeprecatedSubtitleText" android:id="@id/category_name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_weight="1.0" />
+    <ImageView android:id="@id/close_button" android:paddingLeft="@dimen/corner_radius" android:paddingRight="@dimen/corner_radius" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="@dimen/default_large_gap_size" android:src="@drawable/closed_button_selector" android:contentDescription="@null" />
 </com.yelp.android.ui.widgets.SpannableLinearLayout>

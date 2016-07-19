@@ -3,6 +3,14 @@
 .source "RecyclableBufferedInputStream.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream$InvalidMarkException;
+    }
+.end annotation
+
+
 # instance fields
 .field private volatile a:[B
 
@@ -55,6 +63,11 @@
 
 .method private a(Ljava/io/InputStream;[B)I
     .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     const/4 v2, -0x1
@@ -251,6 +264,11 @@
 
 .method private static b()Ljava/io/IOException;
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 97
@@ -297,6 +315,11 @@
 
 .method public declared-synchronized available()I
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 89
@@ -354,6 +377,11 @@
 
 .method public close()V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     const/4 v1, 0x0
@@ -427,6 +455,11 @@
 
 .method public declared-synchronized read()I
     .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     const/4 v0, -0x1
@@ -535,6 +568,11 @@
 
 .method public declared-synchronized read([BII)I
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     const/4 v0, -0x1
@@ -795,6 +833,11 @@
 
 .method public declared-synchronized reset()V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 346
@@ -858,6 +901,11 @@
 
 .method public declared-synchronized skip(J)J
     .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     const/4 v6, -0x1

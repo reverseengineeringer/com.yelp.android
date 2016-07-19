@@ -1,157 +1,99 @@
 package com.yelp.android.ao;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import java.io.FilterInputStream;
 import java.io.IOException;
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpResponseException;
-import org.apache.http.entity.BufferedHttpEntity;
-import org.apache.http.util.EntityUtils;
+import java.io.InputStream;
 
 public class f
+  extends FilterInputStream
 {
-  private Handler a;
+  private int a = Integer.MIN_VALUE;
   
-  public f()
+  public f(InputStream paramInputStream)
   {
-    if (Looper.myLooper() != null) {
-      a = new g(this);
+    super(paramInputStream);
+  }
+  
+  private long a(long paramLong)
+  {
+    long l;
+    if (a == 0) {
+      l = -1L;
     }
-  }
-  
-  protected Message a(int paramInt, Object paramObject)
-  {
-    if (a != null) {
-      return a.obtainMessage(paramInt, paramObject);
-    }
-    Message localMessage = Message.obtain();
-    what = paramInt;
-    obj = paramObject;
-    return localMessage;
-  }
-  
-  public void a() {}
-  
-  public void a(int paramInt, String paramString)
-  {
-    a(paramString);
-  }
-  
-  public void a(int paramInt, Header[] paramArrayOfHeader, String paramString)
-  {
-    a(paramInt, paramString);
-  }
-  
-  protected void a(Message paramMessage)
-  {
-    switch (what)
+    do
     {
-    default: 
-      return;
-    case 0: 
-      paramMessage = (Object[])obj;
-      c(((Integer)paramMessage[0]).intValue(), (Header[])paramMessage[1], (String)paramMessage[2]);
-      return;
-    case 1: 
-      paramMessage = (Object[])obj;
-      c((Throwable)paramMessage[0], (String)paramMessage[1]);
-      return;
-    case 2: 
-      a();
-      return;
-    }
-    b();
-  }
-  
-  public void a(String paramString) {}
-  
-  @Deprecated
-  public void a(Throwable paramThrowable) {}
-  
-  public void a(Throwable paramThrowable, String paramString)
-  {
-    a(paramThrowable);
-  }
-  
-  protected void a(Throwable paramThrowable, byte[] paramArrayOfByte)
-  {
-    b(a(1, new Object[] { paramThrowable, paramArrayOfByte }));
-  }
-  
-  void a(HttpResponse paramHttpResponse)
-  {
-    Object localObject3 = null;
-    StatusLine localStatusLine = paramHttpResponse.getStatusLine();
-    try
-    {
-      HttpEntity localHttpEntity = paramHttpResponse.getEntity();
-      localObject1 = localObject3;
-      if (localHttpEntity != null) {
-        localObject1 = EntityUtils.toString(new BufferedHttpEntity(localHttpEntity), "UTF-8");
-      }
-    }
-    catch (IOException localIOException)
-    {
-      Object localObject2;
-      for (;;)
+      do
       {
-        Object localObject1;
-        b(localIOException, (String)null);
-        localObject2 = localObject3;
-      }
-      b(localStatusLine.getStatusCode(), paramHttpResponse.getAllHeaders(), (String)localObject2);
+        return l;
+        l = paramLong;
+      } while (a == Integer.MIN_VALUE);
+      l = paramLong;
+    } while (paramLong <= a);
+    return a;
+  }
+  
+  private void b(long paramLong)
+  {
+    if ((a != Integer.MIN_VALUE) && (paramLong != -1L)) {
+      a = ((int)(a - paramLong));
     }
-    if (localStatusLine.getStatusCode() >= 300)
-    {
-      b(new HttpResponseException(localStatusLine.getStatusCode(), localStatusLine.getReasonPhrase()), (String)localObject1);
-      return;
+  }
+  
+  public int available()
+    throws IOException
+  {
+    if (a == Integer.MIN_VALUE) {
+      return super.available();
     }
+    return Math.min(a, super.available());
   }
   
-  public void b() {}
-  
-  protected void b(int paramInt, Header[] paramArrayOfHeader, String paramString)
+  public void mark(int paramInt)
   {
-    b(a(0, new Object[] { new Integer(paramInt), paramArrayOfHeader, paramString }));
+    super.mark(paramInt);
+    a = paramInt;
   }
   
-  protected void b(Message paramMessage)
+  public int read()
+    throws IOException
   {
-    if (a != null)
-    {
-      a.sendMessage(paramMessage);
-      return;
+    if (a(1L) == -1L) {
+      return -1;
     }
-    a(paramMessage);
+    int i = super.read();
+    b(1L);
+    return i;
   }
   
-  protected void b(Throwable paramThrowable, String paramString)
+  public int read(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+    throws IOException
   {
-    b(a(1, new Object[] { paramThrowable, paramString }));
+    paramInt2 = (int)a(paramInt2);
+    if (paramInt2 == -1) {
+      return -1;
+    }
+    paramInt1 = super.read(paramArrayOfByte, paramInt1, paramInt2);
+    b(paramInt1);
+    return paramInt1;
   }
   
-  protected void c()
+  public void reset()
+    throws IOException
   {
-    b(a(2, null));
+    super.reset();
+    a = Integer.MIN_VALUE;
   }
   
-  protected void c(int paramInt, Header[] paramArrayOfHeader, String paramString)
+  public long skip(long paramLong)
+    throws IOException
   {
-    a(paramInt, paramArrayOfHeader, paramString);
-  }
-  
-  protected void c(Throwable paramThrowable, String paramString)
-  {
-    a(paramThrowable, paramString);
-  }
-  
-  protected void d()
-  {
-    b(a(3, null));
+    paramLong = a(paramLong);
+    if (paramLong == -1L) {
+      return -1L;
+    }
+    paramLong = super.skip(paramLong);
+    b(paramLong);
+    return paramLong;
   }
 }
 

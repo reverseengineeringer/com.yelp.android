@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class AttributedLabelValuePair
   extends _AttributedLabelValuePair
 {
-  public static final JsonParser.DualCreator<AttributedLabelValuePair> CREATOR = new g();
+  public static final JsonParser.DualCreator<AttributedLabelValuePair> CREATOR = new AttributedLabelValuePair.1();
 }
 
 /* Location:

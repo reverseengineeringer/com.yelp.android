@@ -1,24 +1,42 @@
 package android.support.v4.view;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.LayoutInflater.Factory;
 import android.view.View;
-import android.view.View.AccessibilityDelegate;
 
 class k
 {
-  public static Object a(m paramm)
+  static void a(LayoutInflater paramLayoutInflater, n paramn)
   {
-    return new l(paramm);
+    if (paramn != null) {}
+    for (paramn = new a(paramn);; paramn = null)
+    {
+      paramLayoutInflater.setFactory(paramn);
+      return;
+    }
   }
   
-  public static Object a(Object paramObject, View paramView)
+  static class a
+    implements LayoutInflater.Factory
   {
-    return ((View.AccessibilityDelegate)paramObject).getAccessibilityNodeProvider(paramView);
-  }
-  
-  public static boolean a(Object paramObject, View paramView, int paramInt, Bundle paramBundle)
-  {
-    return ((View.AccessibilityDelegate)paramObject).performAccessibilityAction(paramView, paramInt, paramBundle);
+    final n a;
+    
+    a(n paramn)
+    {
+      a = paramn;
+    }
+    
+    public View onCreateView(String paramString, Context paramContext, AttributeSet paramAttributeSet)
+    {
+      return a.a(null, paramString, paramContext, paramAttributeSet);
+    }
+    
+    public String toString()
+    {
+      return getClass().getName() + "{" + a + "}";
+    }
   }
 }
 

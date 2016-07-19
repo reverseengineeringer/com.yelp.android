@@ -7,21 +7,21 @@
 
 
 # instance fields
-.field protected mBusinessId:Ljava/lang/String;
+.field protected a:Ljava/util/Date;
 
-.field protected mBusinessName:Ljava/lang/String;
+.field protected b:Lcom/yelp/android/serializable/Photo;
 
-.field protected mComplimentableId:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mDateModified:Ljava/util/Date;
+.field protected d:Ljava/lang/String;
 
-.field protected mId:Ljava/lang/String;
+.field protected e:Ljava/lang/String;
 
-.field protected mMessage:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mPhoto:Lcom/yelp/android/serializable/Photo;
+.field protected g:Ljava/lang/String;
 
-.field protected mSender:Lcom/yelp/android/serializable/User;
+.field protected h:Lcom/yelp/android/serializable/User;
 
 
 # direct methods
@@ -29,145 +29,158 @@
     .locals 0
 
     .prologue
-    .line 39
+    .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Lcom/yelp/android/serializable/Photo;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/User;)V
-    .locals 0
-
-    .prologue
-    .line 27
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_Compliment;-><init>()V
-
-    .line 28
-    iput-object p1, p0, Lcom/yelp/android/serializable/_Compliment;->mDateModified:Ljava/util/Date;
-
-    .line 29
-    iput-object p2, p0, Lcom/yelp/android/serializable/_Compliment;->mPhoto:Lcom/yelp/android/serializable/Photo;
-
-    .line 30
-    iput-object p3, p0, Lcom/yelp/android/serializable/_Compliment;->mId:Ljava/lang/String;
-
-    .line 31
-    iput-object p4, p0, Lcom/yelp/android/serializable/_Compliment;->mMessage:Ljava/lang/String;
-
-    .line 32
-    iput-object p5, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessName:Ljava/lang/String;
-
-    .line 33
-    iput-object p6, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessId:Ljava/lang/String;
-
-    .line 34
-    iput-object p7, p0, Lcom/yelp/android/serializable/_Compliment;->mComplimentableId:Ljava/lang/String;
-
-    .line 35
-    iput-object p8, p0, Lcom/yelp/android/serializable/_Compliment;->mSender:Lcom/yelp/android/serializable/User;
-
-    .line 36
+    .line 49
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a(Landroid/os/Parcel;)V
+    .locals 4
 
     .prologue
-    .line 69
-    const/4 v0, 0x0
+    .line 141
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    return v0
+    move-result-wide v0
+
+    .line 142
+    const-wide/32 v2, -0x80000000
+
+    cmp-long v2, v0, v2
+
+    if-eqz v2, :cond_0
+
+    .line 143
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
+
+    .line 145
+    :cond_0
+    const-class v0, Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Photo;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->b:Lcom/yelp/android/serializable/Photo;
+
+    .line 146
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->c:Ljava/lang/String;
+
+    .line 147
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->d:Ljava/lang/String;
+
+    .line 148
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->e:Ljava/lang/String;
+
+    .line 149
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->f:Ljava/lang/String;
+
+    .line 150
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->g:Ljava/lang/String;
+
+    .line 151
+    const-class v0, Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/User;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->h:Lcom/yelp/android/serializable/User;
+
+    .line 152
+    return-void
 .end method
 
-.method public getBusinessId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getBusinessName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 55
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getComplimentableId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mComplimentableId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getDateModified()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 43
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mDateModified:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getMessage()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mMessage:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPhoto()Lcom/yelp/android/serializable/Photo;
-    .locals 1
-
-    .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mPhoto:Lcom/yelp/android/serializable/Photo;
-
-    return-object v0
-.end method
-
-.method public getSender()Lcom/yelp/android/serializable/User;
-    .locals 1
-
-    .prologue
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mSender:Lcom/yelp/android/serializable/User;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 98
+    .line 155
     const-string/jumbo v0, "time_created"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -176,16 +189,16 @@
 
     if-nez v0, :cond_0
 
-    .line 99
+    .line 156
     const-string/jumbo v0, "time_created"
 
     invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mDateModified:Ljava/util/Date;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
 
-    .line 101
+    .line 158
     :cond_0
     const-string/jumbo v0, "photo"
 
@@ -195,7 +208,7 @@
 
     if-nez v0, :cond_1
 
-    .line 102
+    .line 159
     sget-object v0, Lcom/yelp/android/serializable/Photo;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     const-string/jumbo v1, "photo"
@@ -210,9 +223,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Photo;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mPhoto:Lcom/yelp/android/serializable/Photo;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->b:Lcom/yelp/android/serializable/Photo;
 
-    .line 104
+    .line 161
     :cond_1
     const-string/jumbo v0, "id"
 
@@ -222,16 +235,16 @@
 
     if-nez v0, :cond_2
 
-    .line 105
+    .line 162
     const-string/jumbo v0, "id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->c:Ljava/lang/String;
 
-    .line 107
+    .line 164
     :cond_2
     const-string/jumbo v0, "message"
 
@@ -241,16 +254,16 @@
 
     if-nez v0, :cond_3
 
-    .line 108
+    .line 165
     const-string/jumbo v0, "message"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mMessage:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->d:Ljava/lang/String;
 
-    .line 110
+    .line 167
     :cond_3
     const-string/jumbo v0, "business_name"
 
@@ -260,16 +273,16 @@
 
     if-nez v0, :cond_4
 
-    .line 111
+    .line 168
     const-string/jumbo v0, "business_name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->e:Ljava/lang/String;
 
-    .line 113
+    .line 170
     :cond_4
     const-string/jumbo v0, "business_id"
 
@@ -279,16 +292,16 @@
 
     if-nez v0, :cond_5
 
-    .line 114
+    .line 171
     const-string/jumbo v0, "business_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->f:Ljava/lang/String;
 
-    .line 116
+    .line 173
     :cond_5
     const-string/jumbo v0, "complimentable_id"
 
@@ -298,16 +311,16 @@
 
     if-nez v0, :cond_6
 
-    .line 117
+    .line 174
     const-string/jumbo v0, "complimentable_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mComplimentableId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->g:Ljava/lang/String;
 
-    .line 119
+    .line 176
     :cond_6
     const-string/jumbo v0, "user"
 
@@ -317,8 +330,8 @@
 
     if-nez v0, :cond_7
 
-    .line 120
-    sget-object v0, Lcom/yelp/android/serializable/User;->CREATOR:Lcom/yelp/android/serializable/ah;
+    .line 177
+    sget-object v0, Lcom/yelp/android/serializable/User;->CREATOR:Lcom/yelp/android/serializable/a;
 
     const-string/jumbo v1, "user"
 
@@ -326,110 +339,285 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ah;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/a;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mSender:Lcom/yelp/android/serializable/User;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->h:Lcom/yelp/android/serializable/User;
 
-    .line 122
+    .line 179
     :cond_7
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 4
+.method public describeContents()I
+    .locals 1
 
     .prologue
-    .line 84
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+    .line 126
+    const/4 v0, 0x0
 
-    move-result-wide v0
+    return v0
+.end method
 
-    .line 85
-    const-wide/32 v2, -0x80000000
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
 
-    cmp-long v2, v0, v2
+    .prologue
+    const/4 v0, 0x0
 
-    if-eqz v2, :cond_0
+    .line 53
+    if-nez p1, :cond_1
 
-    .line 86
-    new-instance v2, Ljava/util/Date;
-
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
-
-    iput-object v2, p0, Lcom/yelp/android/serializable/_Compliment;->mDateModified:Ljava/util/Date;
-
-    .line 88
+    .line 67
     :cond_0
-    const-class v0, Lcom/yelp/android/serializable/Photo;
+    :goto_0
+    return v0
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    .line 57
+    :cond_1
+    if-ne p1, p0, :cond_2
 
-    move-result-object v0
+    .line 58
+    const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    goto :goto_0
 
-    move-result-object v0
+    .line 61
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    check-cast v0, Lcom/yelp/android/serializable/Photo;
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mPhoto:Lcom/yelp/android/serializable/Photo;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    .line 89
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v0
+    if-ne v1, v2, :cond_0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mId:Ljava/lang/String;
+    .line 65
+    check-cast p1, Lcom/yelp/android/serializable/_Compliment;
 
-    .line 90
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 67
+    new-instance v0, Lcom/yelp/android/dc/b;
 
-    move-result-object v0
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mMessage:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
 
-    .line 91
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessName:Ljava/lang/String;
-
-    .line 92
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessId:Ljava/lang/String;
-
-    .line 93
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mComplimentableId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->b:Lcom/yelp/android/serializable/Photo;
 
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->g:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->h:Lcom/yelp/android/serializable/User;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Compliment;->h:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 81
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Compliment;->h:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public m()Lcom/yelp/android/serializable/User;
+    .locals 1
+
+    .prologue
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->h:Lcom/yelp/android/serializable/User;
+
+    return-object v0
+.end method
+
+.method public n()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 118
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->g:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public o()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 114
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->f:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public p()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 110
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public q()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 106
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public r()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 102
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public s()Lcom/yelp/android/serializable/Photo;
+    .locals 1
+
+    .prologue
+    .line 98
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->b:Lcom/yelp/android/serializable/Photo;
+
+    return-object v0
+.end method
+
+.method public t()Ljava/util/Date;
+    .locals 1
+
+    .prologue
     .line 94
-    const-class v0, Lcom/yelp/android/serializable/User;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/User;
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mSender:Lcom/yelp/android/serializable/User;
-
-    .line 95
-    return-void
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -438,8 +626,8 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 73
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mDateModified:Ljava/util/Date;
+    .line 130
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -448,47 +636,47 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 74
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mPhoto:Lcom/yelp/android/serializable/Photo;
+    .line 131
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->b:Lcom/yelp/android/serializable/Photo;
 
     invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 75
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mId:Ljava/lang/String;
+    .line 132
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mMessage:Ljava/lang/String;
+    .line 133
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 77
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessName:Ljava/lang/String;
+    .line 134
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 78
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mBusinessId:Ljava/lang/String;
+    .line 135
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mComplimentableId:Ljava/lang/String;
+    .line 136
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->g:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 80
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mSender:Lcom/yelp/android/serializable/User;
+    .line 137
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->h:Lcom/yelp/android/serializable/User;
 
     invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 81
+    .line 138
     return-void
 
-    .line 73
+    .line 130
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->mDateModified:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Compliment;->a:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

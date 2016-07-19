@@ -1,106 +1,55 @@
 package com.yelp.android.ui.map;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Handler;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.text.TextPaint;
+import com.google.android.gms.maps.model.b;
+import com.yelp.android.appdata.n;
+import com.yelp.android.serializable.f;
 
-public class g
+public abstract class g<T extends f>
+  implements a<T>
 {
-  private MapView a;
-  private boolean b;
-  private final Context c;
-  private final Handler d;
-  private final i e;
-  private final Runnable f = new h(this);
+  private final Bitmap a;
+  private final TextPaint b;
   
-  public g(Context paramContext, i parami)
+  public g(Context paramContext)
   {
-    e = parami;
-    c = paramContext.getApplicationContext();
-    d = new Handler();
-    f();
+    TextPaint localTextPaint = new TextPaint();
+    localTextPaint.setAntiAlias(true);
+    localTextPaint.setFakeBoldText(true);
+    localTextPaint.setColor(-1);
+    localTextPaint.setTextSize(n.a(14));
+    a = BitmapFactory.decodeResource(paramContext.getResources(), 2130838385);
+    b = localTextPaint;
   }
   
-  public static boolean a(Activity paramActivity, int paramInt)
+  public Bitmap a()
   {
-    int i = GooglePlayServicesUtil.isGooglePlayServicesAvailable(paramActivity);
-    if (i != 0)
-    {
-      GooglePlayServicesUtil.getErrorDialog(i, paramActivity, paramInt).show();
-      return false;
+    return a;
+  }
+  
+  public com.google.android.gms.maps.model.a a(T paramT)
+  {
+    Object localObject2 = a.getConfig();
+    Object localObject1 = localObject2;
+    if (localObject2 == null) {
+      localObject1 = Bitmap.Config.ARGB_8888;
     }
-    return true;
+    localObject1 = a.copy((Bitmap.Config)localObject1, true);
+    int i = ((Bitmap)localObject1).getWidth() / 2;
+    int j = (int)Math.floor(((Bitmap)localObject1).getHeight() / 1.8D);
+    localObject2 = new Canvas((Bitmap)localObject1);
+    paramT = String.valueOf(b(paramT));
+    float f = b.measureText(paramT) / 2.0F;
+    ((Canvas)localObject2).drawText(paramT, i - f, j, b);
+    return b.a((Bitmap)localObject1);
   }
   
-  private void f()
-  {
-    MapsInitializer.initialize(c);
-    b = true;
-    d.post(f);
-  }
-  
-  private void g()
-  {
-    if (a != null) {
-      a.setVisibility(0);
-    }
-  }
-  
-  public void a()
-  {
-    if (!b) {
-      f();
-    }
-    if (a != null) {
-      a.onResume();
-    }
-  }
-  
-  public void a(Bundle paramBundle)
-  {
-    if (a != null)
-    {
-      Bundle localBundle = new Bundle();
-      a.onSaveInstanceState(localBundle);
-      paramBundle.putParcelable("extra.map_view", localBundle);
-    }
-  }
-  
-  public void a(MapView paramMapView)
-  {
-    a = paramMapView;
-  }
-  
-  public void b()
-  {
-    if (a != null) {
-      a.onPause();
-    }
-  }
-  
-  public void c()
-  {
-    if (a != null) {
-      a.onDestroy();
-    }
-  }
-  
-  public void d()
-  {
-    if (a != null) {
-      a.onLowMemory();
-    }
-  }
-  
-  public final boolean e()
-  {
-    return b;
-  }
+  protected abstract int b(T paramT);
 }
 
 /* Location:

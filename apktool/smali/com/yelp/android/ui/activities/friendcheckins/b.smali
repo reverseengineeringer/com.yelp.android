@@ -1,292 +1,309 @@
-.class public final Lcom/yelp/android/ui/activities/friendcheckins/b;
-.super Ljava/lang/Object;
-.source "CheckInsNearbyAdapter.java"
+.class public Lcom/yelp/android/ui/activities/friendcheckins/b;
+.super Lcom/yelp/android/ui/util/w;
+.source "CommentAdapter.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/friendcheckins/b$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/yelp/android/ui/util/w",
+        "<",
+        "Lcom/yelp/android/serializable/Comment;",
+        ">;"
+    }
+.end annotation
+
+
+# static fields
+.field private static a:Ljava/lang/String;
 
 
 # instance fields
-.field public final a:Lcom/yelp/android/ui/widgets/WebImageView;
-
-.field public final b:Landroid/widget/TextView;
-
-.field public final c:Landroid/widget/TextView;
-
-.field public final d:Landroid/widget/TextView;
-
-.field public final e:Landroid/widget/TextView;
-
-.field public final f:Landroid/widget/TextView;
-
-.field public final g:Landroid/widget/TextView;
-
-.field public final h:Landroid/widget/TextView;
-
-.field public final i:Landroid/widget/TextView;
-
-.field public final j:Landroid/widget/ImageView;
-
-.field public final k:Landroid/widget/TextView;
-
-.field public final l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
-
-.field public final m:Landroid/view/View;
+.field private b:Landroid/view/animation/Animation;
 
 
 # direct methods
-.method public constructor <init>(ILandroid/view/View;)V
+.method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 242
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 31
+    const-string/jumbo v0, "key.state"
 
-    .line 243
-    const v0, 0x7f0c032d
+    sput-object v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->a:Ljava/lang/String;
 
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    return-void
+.end method
 
-    move-result-object v0
+.method public constructor <init>()V
+    .locals 0
 
-    check-cast v0, Landroid/widget/TextView;
+    .prologue
+    .line 27
+    invoke-direct {p0}, Lcom/yelp/android/ui/util/w;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/widget/TextView;
-
-    .line 244
-    const v0, 0x7f0c038a
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/widgets/WebImageView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->a:Lcom/yelp/android/ui/widgets/WebImageView;
-
-    .line 245
-    const v0, 0x7f0c038b
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->c:Landroid/widget/TextView;
-
-    .line 246
-    const v0, 0x7f0c038e
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->d:Landroid/widget/TextView;
-
-    .line 247
-    const v0, 0x7f0c038d
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->e:Landroid/widget/TextView;
-
-    .line 248
-    const v0, 0x7f0c038c
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->f:Landroid/widget/TextView;
-
-    .line 249
-    const v0, 0x7f0c03dd
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->g:Landroid/widget/TextView;
-
-    .line 250
-    const v0, 0x7f0c0390
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->h:Landroid/widget/TextView;
-
-    .line 251
-    const v0, 0x7f0c0391
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->i:Landroid/widget/TextView;
-
-    .line 252
-    const v0, 0x7f0c038f
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->j:Landroid/widget/ImageView;
-
-    .line 253
-    const v0, 0x7f0c0392
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->k:Landroid/widget/TextView;
-
-    .line 254
-    const v0, 0x7f0c0339
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/widgets/SpannedImageButton;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
-
-    .line 255
-    const v0, 0x7f0c0393
-
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->m:Landroid/view/View;
-
-    .line 256
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/friendcheckins/b;->a(I)V
-
-    .line 257
+    .line 68
     return-void
 .end method
 
 
 # virtual methods
-.method a(I)V
-    .locals 5
+.method public a(Landroid/content/Context;)V
+    .locals 4
 
     .prologue
-    const/4 v4, 0x0
+    .line 88
+    const/high16 v0, 0x10a0000
 
-    const/4 v3, 0x3
-
-    const/4 v2, 0x2
-
-    .line 261
-    const/4 v0, 0x4
-
-    if-eq p1, v0, :cond_0
-
-    if-ne p1, v2, :cond_1
-
-    .line 263
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/view/animation/Animation;
 
-    .line 265
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->i:Landroid/widget/TextView;
+    .line 89
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/view/animation/Animation;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getId()I
+    const-wide/16 v2, 0x3e8
 
-    move-result v1
+    invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setDuration(J)V
 
-    invoke-virtual {v0, v3, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    .line 266
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 267
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->i:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 268
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->j:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    .line 271
-    :cond_1
-    const/4 v0, 0x1
-
-    if-eq p1, v0, :cond_2
-
-    if-ne p1, v2, :cond_3
-
-    .line 272
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->h:Landroid/widget/TextView;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 273
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->k:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
-
-    .line 275
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Landroid/widget/TextView;->getId()I
-
-    move-result v1
-
-    invoke-virtual {v0, v3, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    .line 276
-    if-ne p1, v2, :cond_3
-
-    .line 277
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->i:Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Landroid/widget/TextView;->getId()I
-
-    move-result v1
-
-    invoke-virtual {v0, v3, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
-
-    .line 280
-    :cond_3
+    .line 90
     return-void
+.end method
+
+.method public a(Landroid/os/Bundle;)V
+    .locals 1
+
+    .prologue
+    .line 93
+    sget-object v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->a:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    .line 94
+    if-eqz v0, :cond_0
+
+    .line 95
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friendcheckins/b;->a(Ljava/util/List;)V
+
+    .line 97
+    :cond_0
+    return-void
+.end method
+
+.method public b(Landroid/os/Bundle;)V
+    .locals 3
+
+    .prologue
+    .line 100
+    sget-object v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->a:Ljava/lang/String;
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-super {p0}, Lcom/yelp/android/ui/util/w;->a()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    .line 101
+    return-void
+.end method
+
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 10
+
+    .prologue
+    const/4 v2, 0x0
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
+
+    .line 36
+    invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    .line 37
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/friendcheckins/b;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Comment;
+
+    .line 38
+    if-nez p2, :cond_0
+
+    .line 39
+    const v1, 0x7f030152
+
+    .line 40
+    invoke-static {v3}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object p2
+
+    .line 41
+    new-instance v1, Lcom/yelp/android/ui/activities/friendcheckins/b$a;
+
+    invoke-direct {v1, p2}, Lcom/yelp/android/ui/activities/friendcheckins/b$a;-><init>(Landroid/view/View;)V
+
+    invoke-virtual {p2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    .line 44
+    :cond_0
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/ui/activities/friendcheckins/b$a;
+
+    .line 45
+    iget-object v4, v1, Lcom/yelp/android/ui/activities/friendcheckins/b$a;->c:Landroid/widget/TextView;
+
+    sget-object v5, Lcom/yelp/android/util/StringUtils$Format;->LONG:Lcom/yelp/android/util/StringUtils$Format;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Comment;->e()Ljava/util/Date;
+
+    move-result-object v6
+
+    invoke-static {v3, v5, v6}, Lcom/yelp/android/util/StringUtils;->a(Landroid/content/Context;Lcom/yelp/android/util/StringUtils$Format;Ljava/util/Date;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 47
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Comment;->b()Lcom/yelp/android/serializable/User;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/User;->ac()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;
+
+    move-result-object v4
+
+    .line 48
+    new-instance v5, Landroid/text/style/StyleSpan;
+
+    invoke-direct {v5, v9}, Landroid/text/style/StyleSpan;-><init>(I)V
+
+    invoke-virtual {v4}, Landroid/text/SpannableString;->length()I
+
+    move-result v6
+
+    const/16 v7, 0x12
+
+    invoke-virtual {v4, v5, v8, v6, v7}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
+
+    .line 50
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Comment;->c()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;
+
+    move-result-object v5
+
+    .line 51
+    const v6, 0x7f07059e
+
+    invoke-virtual {v3, v6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    const/4 v6, 0x2
+
+    new-array v6, v6, [Ljava/lang/CharSequence;
+
+    aput-object v4, v6, v8
+
+    aput-object v5, v6, v9
+
+    invoke-static {v3, v6}, Landroid/text/TextUtils;->expandTemplate(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    .line 55
+    iget-object v4, v1, Lcom/yelp/android/ui/activities/friendcheckins/b$a;->b:Landroid/widget/TextView;
+
+    invoke-virtual {v4, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 56
+    iget-object v1, v1, Lcom/yelp/android/ui/activities/friendcheckins/b$a;->a:Lcom/yelp/android/ui/widgets/WebImageView;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Comment;->b()Lcom/yelp/android/serializable/User;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
+
+    move-result-object v3
+
+    const v4, 0x7f0200c7
+
+    invoke-virtual {v1, v3, v4}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;I)V
+
+    .line 59
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/b;->getCount()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    if-ne p1, v1, :cond_1
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Comment;->b()Lcom/yelp/android/serializable/User;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/co;->a(Lcom/yelp/android/serializable/User;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/view/animation/Animation;
+
+    .line 62
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/view/animation/Animation;
+
+    .line 64
+    :goto_0
+    invoke-virtual {p2, v0}, Landroid/view/View;->setAnimation(Landroid/view/animation/Animation;)V
+
+    .line 65
+    return-object p2
+
+    :cond_1
+    move-object v0, v2
+
+    goto :goto_0
 .end method

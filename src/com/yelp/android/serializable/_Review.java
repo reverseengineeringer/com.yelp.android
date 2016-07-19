@@ -2,23 +2,50 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Review
   implements Parcelable
 {
-  protected String mId;
-  protected int mRating;
-  protected String mText;
+  protected String a;
+  protected String b;
+  protected int c;
   
-  protected _Review() {}
-  
-  protected _Review(String paramString1, String paramString2, int paramInt)
+  public int a()
   {
-    this();
-    mId = paramString1;
-    mText = paramString2;
-    mRating = paramInt;
+    return c;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("id")) {
+      a = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("text")) {
+      b = paramJSONObject.optString("text");
+    }
+    c = paramJSONObject.optInt("rating");
+  }
+  
+  public String b()
+  {
+    return b;
+  }
+  
+  public String c()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -26,44 +53,30 @@ abstract class _Review
     return 0;
   }
   
-  public String getId()
+  public boolean equals(Object paramObject)
   {
-    return mId;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Review)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a();
   }
   
-  public int getRating()
+  public int hashCode()
   {
-    return mRating;
-  }
-  
-  public String getText()
-  {
-    return mText;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("text")) {
-      mText = paramJSONObject.optString("text");
-    }
-    mRating = paramJSONObject.optInt("rating");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mId = paramParcel.readString();
-    mText = paramParcel.readString();
-    mRating = paramParcel.readInt();
+    return new c().a(a).a(b).a(c).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mId);
-    paramParcel.writeString(mText);
-    paramParcel.writeInt(mRating);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeInt(c);
   }
 }
 

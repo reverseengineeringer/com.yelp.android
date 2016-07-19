@@ -3,84 +3,69 @@ package com.yelp.android.ui.activities;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
-import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
-import com.yelp.android.appdata.RemoteConfigPreferences;
+import com.yelp.android.analytics.iris.a;
+import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ShareRequest.ShareType;
 import com.yelp.android.appdata.webrequests.ak;
-import com.yelp.android.appdata.webrequests.j;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpCheckIn;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.activities.support.o;
-import com.yelp.android.ui.dialogs.TwoButtonDialog;
+import com.yelp.android.ui.activities.support.b.e;
 import com.yelp.android.ui.dialogs.YelpBaseDialogFragment;
-import com.yelp.android.ui.widgets.WebImageView;
-import com.yelp.android.util.f;
-import com.yelp.android.util.z;
+import com.yelp.android.ui.util.al;
+import com.yelp.android.ui.util.t;
+import com.yelp.android.ui.util.u.a;
+import com.yelp.android.ui.widgets.RoundedImageView;
+import com.yelp.android.util.d;
+import com.yelp.android.util.p;
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 public class CheckInDialog
   extends YelpBaseDialogFragment
 {
-  private YelpBusiness a;
-  private ak b;
-  private LinkedList<ShareRequest.ShareType> c;
-  private YelpCheckIn d;
-  private CompoundButton e;
-  private CompoundButton f;
+  private String a;
+  private YelpBusiness b;
+  private ak c;
+  private ArrayList<ShareRequest.ShareType> d;
+  private YelpCheckIn e;
+  private boolean f;
   private CompoundButton g;
-  private Button h;
-  private EditText i;
-  private TextView j;
-  private ew k;
-  private DialogInterface.OnDismissListener l;
-  private final View.OnClickListener m = new es(this);
-  private final View.OnClickListener n = new et(this);
-  private j<YelpCheckIn> o = new eu(this);
-  private o p = new ev(this);
-  private final DialogInterface.OnClickListener q = new el(this);
-  private final DialogInterface.OnClickListener r = new em(this);
-  private final DialogInterface.OnCancelListener s = new en(this);
+  private CompoundButton h;
+  private CompoundButton i;
+  private EditText j;
+  private TextView k;
+  private a l;
+  private DialogInterface.OnDismissListener m;
+  private final View.OnClickListener n = new CheckInDialog.7(this);
+  private k.b<YelpCheckIn> o = new CheckInDialog.8(this);
+  private b.e p = new CheckInDialog.9(this);
   
-  public static CheckInDialog a(YelpBusiness paramYelpBusiness)
+  public static CheckInDialog a(YelpBusiness paramYelpBusiness, String paramString)
   {
     CheckInDialog localCheckInDialog = new CheckInDialog();
     Bundle localBundle = new Bundle();
     localBundle.putParcelable("business", paramYelpBusiness);
+    localBundle.putString("comment_text", paramString);
     localCheckInDialog.setArguments(localBundle);
     return localCheckInDialog;
-  }
-  
-  private boolean a(RemoteConfigPreferences paramRemoteConfigPreferences, List<ShareRequest.ShareType> paramList)
-  {
-    paramRemoteConfigPreferences = z.a(getActivity(), paramRemoteConfigPreferences, paramList, ActivityRetryCheckInShare.class);
-    if (paramRemoteConfigPreferences != null)
-    {
-      startActivityForResult(paramRemoteConfigPreferences, 1002);
-      return true;
-    }
-    return false;
   }
   
   public ViewIri a()
@@ -90,55 +75,48 @@ public class CheckInDialog
   
   public void a(DialogInterface.OnDismissListener paramOnDismissListener)
   {
-    l = paramOnDismissListener;
+    m = paramOnDismissListener;
   }
   
-  public void a(ew paramew)
+  public void a(a parama)
   {
-    k = paramew;
+    l = parama;
   }
   
-  public void b()
+  public String b()
   {
-    Editable localEditable = i.getText();
+    return a;
+  }
+  
+  public void c()
+  {
+    Editable localEditable = j.getText();
     String str = null;
     if (!TextUtils.isEmpty(localEditable)) {
       str = localEditable.toString();
     }
-    b = new ak(a.getId(), str, o);
-    b.executeWithLocation(new String[0]);
-    c().showLoadingDialog(2131165503);
+    c = new ak(b.aD(), str, o);
+    c.a(new String[0]);
+    d().showLoadingDialog(2131165633);
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    return Collections.singletonMap("business_id", a.getId());
+    return Collections.singletonMap("business_id", b.aD());
   }
   
-  public String getRequestIdForIri(b paramb)
+  public String getRequestIdForIri(a parama)
   {
-    return a.getYelpRequestId();
+    return b.n();
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    if ((paramInt1 == 1002) && (paramInt2 == -1))
+    if ((paramInt1 == 1005) && (paramInt2 == -1))
     {
-      c = new LinkedList(f.a(paramIntent.getIntArrayExtra("yelp:retry_shares"), ShareRequest.ShareType.values()));
-      b();
-    }
-  }
-  
-  public void onCreate(Bundle paramBundle)
-  {
-    super.onCreate(paramBundle);
-    paramBundle = (TwoButtonDialog)getChildFragmentManager().findFragmentByTag("get_notifications");
-    if (paramBundle != null)
-    {
-      paramBundle.b(r);
-      paramBundle.a(q);
-      paramBundle.a(s);
+      d = new ArrayList(d.a(paramIntent.getIntArrayExtra("retry_shares"), ShareRequest.ShareType.values()));
+      c();
     }
   }
   
@@ -146,68 +124,85 @@ public class CheckInDialog
   public Dialog onCreateDialog(Bundle paramBundle)
   {
     super.onCreateDialog(paramBundle);
-    View localView = LayoutInflater.from(getActivity()).inflate(2130903069, null);
-    j = ((TextView)localView.findViewById(2131493067));
-    h = ((Button)localView.findViewById(2131493065));
-    e = ((CompoundButton)localView.findViewById(2131493068));
-    f = ((CompoundButton)localView.findViewById(2131493070));
-    g = ((CompoundButton)localView.findViewById(2131493069));
-    i = ((EditText)localView.findViewById(2131493066));
-    h.setOnClickListener(n);
-    i.setOnEditorActionListener(new ek(this));
-    eo localeo = new eo(this, j, getResources().getInteger(2131558415), 0, 2131361808, 2131361970);
-    i.addTextChangedListener(localeo);
-    g.setOnCheckedChangeListener(new ep(this, localeo));
-    f.setOnCheckedChangeListener(new eq(this));
-    e.setOnCheckedChangeListener(new er(this));
+    View localView = LayoutInflater.from(getActivity()).inflate(2130903077, null);
+    k = ((TextView)localView.findViewById(2131689751));
+    g = ((CompoundButton)localView.findViewById(2131689752));
+    h = ((CompoundButton)localView.findViewById(2131689754));
+    i = ((CompoundButton)localView.findViewById(2131689753));
+    j = ((EditText)localView.findViewById(2131689750));
+    String str = getArguments().getString("comment_text", "");
+    Object localObject = str;
+    if (str == null) {
+      localObject = "";
+    }
+    a = ((String)localObject);
+    j.setText(a);
+    j.setOnEditorActionListener(new CheckInDialog.1(this));
+    localObject = new CheckInDialog.2(this, k, getResources().getInteger(2131492887), 0, 2131623980, 2131624190);
+    j.addTextChangedListener((TextWatcher)localObject);
+    j.setOnClickListener(new CheckInDialog.3(this));
+    j.setSelection(a.length());
+    i.setOnCheckedChangeListener(new CheckInDialog.4(this, (al)localObject));
+    h.setOnCheckedChangeListener(new CheckInDialog.5(this));
+    g.setOnCheckedChangeListener(new CheckInDialog.6(this));
     if (paramBundle != null)
     {
-      i.setText(paramBundle.getCharSequence("comment_text"));
-      d = ((YelpCheckIn)paramBundle.getParcelable("check_in"));
+      a = paramBundle.getString("comment_text", "");
+      j.setText(a);
+      e = ((YelpCheckIn)paramBundle.getParcelable("check_in"));
+      d = new ArrayList(d.a(paramBundle, "share_types", ShareRequest.ShareType.values()));
+      f = paramBundle.getBoolean("have_sent_expanded_iri", false);
     }
-    for (c = new LinkedList(f.a(paramBundle, "share_types", ShareRequest.ShareType.values()));; c = new LinkedList())
+    for (;;)
     {
-      a = ((YelpBusiness)getArguments().getParcelable("business"));
-      ((WebImageView)localView.findViewById(2131493062)).setImageUrl(a.getPhotoUrl());
-      ((TextView)localView.findViewById(2131493063)).setText(a.getDisplayName());
-      ((TextView)localView.findViewById(2131493064)).setText(a.getAddressForBusinessSearchResult());
-      paramBundle = localView.findViewById(2131493071);
-      paramBundle.setOnClickListener(m);
+      b = ((YelpBusiness)getArguments().getParcelable("business"));
+      t.a(getContext()).a(b.au()).a(2130837691).a((RoundedImageView)localView.findViewById(2131689747));
+      ((TextView)localView.findViewById(2131689748)).setText(b.z());
+      ((TextView)localView.findViewById(2131689749)).setText(b.h());
+      paramBundle = localView.findViewById(2131689755);
+      paramBundle.setOnClickListener(n);
       paramBundle.requestFocus();
-      z.a(null, getActivity().getPreferences(0), e, f, g);
+      p.a(getActivity(), AppData.b().q().p(), false, g, h, i);
       paramBundle = new Dialog(getActivity());
       paramBundle.requestWindowFeature(1);
       paramBundle.setContentView(localView);
       return paramBundle;
+      d = new ArrayList();
     }
   }
   
   public void onDismiss(DialogInterface paramDialogInterface)
   {
     super.onDismiss(paramDialogInterface);
-    if (l != null) {
-      l.onDismiss(paramDialogInterface);
+    if (m != null) {
+      m.onDismiss(paramDialogInterface);
     }
   }
   
   public void onPause()
   {
     super.onPause();
-    a("check_in", b);
+    a("check_in", c);
   }
   
   public void onResume()
   {
     super.onResume();
-    b = ((ak)a("check_in", b, o));
+    c = ((ak)a("check_in", c, o));
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putCharSequence("comment_text", i.getText());
-    paramBundle.putParcelable("check_in", d);
-    f.a(paramBundle, "share_types", c);
+    paramBundle.putCharSequence("comment_text", a);
+    paramBundle.putParcelable("check_in", e);
+    paramBundle.putBoolean("have_sent_expanded_iri", f);
+    d.a(paramBundle, "share_types", d);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(YelpCheckIn paramYelpCheckIn);
   }
 }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:id="@id/buy_bar" android:background="@drawable/yellowish_background" android:padding="?baseGapSize" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <Button android:textAppearance="@style/SubtitleBoldWhiteText" android:id="@id/buy" android:paddingLeft="?baseGapSize" android:paddingRight="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/buy_now" android:layout_alignParentRight="true" style="?submitButtonStyle" />
-        <TextView android:textAppearance="@style/HugeText" android:id="@id/timer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/buy" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:id="@id/buy_bar" android:background="@drawable/yellowish_background" android:padding="@dimen/default_base_gap_size" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textAppearance="@style/DeprecatedSubtitleBoldWhiteText" android:id="@id/buy" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/buy_now" android:layout_alignParentRight="true" style="?submitButtonStyle" />
+        <TextView android:textAppearance="@style/DeprecatedHugeText" android:id="@id/timer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/buy" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
     </RelativeLayout>
     <ListView android:id="@id/deal_list" android:nextFocusUp="@id/buy_bar" android:layout_width="fill_parent" android:layout_height="fill_parent" android:transcriptMode="disabled" android:dividerHeight="0.0dip" android:choiceMode="none" />
 </LinearLayout>

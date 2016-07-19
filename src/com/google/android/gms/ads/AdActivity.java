@@ -5,49 +5,71 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import com.google.android.gms.internal.dw;
-import com.google.android.gms.internal.dx;
-import com.google.android.gms.internal.gr;
+import com.google.android.gms.ads.internal.util.client.b;
+import com.google.android.gms.internal.eq;
+import com.google.android.gms.internal.zzfu;
 
-public final class AdActivity
+public class AdActivity
   extends Activity
 {
-  public static final String CLASS_NAME = "com.google.android.gms.ads.AdActivity";
-  public static final String SIMPLE_CLASS_NAME = "AdActivity";
-  private dx lf;
+  private eq a;
   
-  private void X()
+  private void a()
   {
-    if (lf != null) {}
+    if (a != null) {}
     try
     {
-      lf.X();
+      a.l();
       return;
     }
     catch (RemoteException localRemoteException)
     {
-      gr.d("Could not forward setContentViewSet to ad overlay:", localRemoteException);
+      b.d("Could not forward setContentViewSet to ad overlay:", localRemoteException);
+    }
+  }
+  
+  public void onBackPressed()
+  {
+    boolean bool2 = true;
+    boolean bool1 = bool2;
+    try
+    {
+      if (a != null) {
+        bool1 = a.e();
+      }
+      if (bool1) {
+        super.onBackPressed();
+      }
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      for (;;)
+      {
+        b.d("Could not forward onBackPressed to ad overlay:", localRemoteException);
+        bool1 = bool2;
+      }
     }
   }
   
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    lf = dw.b(this);
-    if (lf == null)
+    a = zzfu.a(this);
+    if (a == null)
     {
-      gr.W("Could not create ad overlay.");
+      b.d("Could not create ad overlay.");
       finish();
       return;
     }
     try
     {
-      lf.onCreate(paramBundle);
+      a.a(paramBundle);
       return;
     }
     catch (RemoteException paramBundle)
     {
-      gr.d("Could not forward onCreate to ad overlay:", paramBundle);
+      b.d("Could not forward onCreate to ad overlay:", paramBundle);
       finish();
     }
   }
@@ -56,8 +78,8 @@ public final class AdActivity
   {
     try
     {
-      if (lf != null) {
-        lf.onDestroy();
+      if (a != null) {
+        a.k();
       }
       super.onDestroy();
       return;
@@ -66,7 +88,7 @@ public final class AdActivity
     {
       for (;;)
       {
-        gr.d("Could not forward onDestroy to ad overlay:", localRemoteException);
+        b.d("Could not forward onDestroy to ad overlay:", localRemoteException);
       }
     }
   }
@@ -75,8 +97,8 @@ public final class AdActivity
   {
     try
     {
-      if (lf != null) {
-        lf.onPause();
+      if (a != null) {
+        a.i();
       }
       super.onPause();
       return;
@@ -85,7 +107,7 @@ public final class AdActivity
     {
       for (;;)
       {
-        gr.d("Could not forward onPause to ad overlay:", localRemoteException);
+        b.d("Could not forward onPause to ad overlay:", localRemoteException);
         finish();
       }
     }
@@ -96,14 +118,14 @@ public final class AdActivity
     super.onRestart();
     try
     {
-      if (lf != null) {
-        lf.onRestart();
+      if (a != null) {
+        a.f();
       }
       return;
     }
     catch (RemoteException localRemoteException)
     {
-      gr.d("Could not forward onRestart to ad overlay:", localRemoteException);
+      b.d("Could not forward onRestart to ad overlay:", localRemoteException);
       finish();
     }
   }
@@ -113,14 +135,14 @@ public final class AdActivity
     super.onResume();
     try
     {
-      if (lf != null) {
-        lf.onResume();
+      if (a != null) {
+        a.h();
       }
       return;
     }
     catch (RemoteException localRemoteException)
     {
-      gr.d("Could not forward onResume to ad overlay:", localRemoteException);
+      b.d("Could not forward onResume to ad overlay:", localRemoteException);
       finish();
     }
   }
@@ -129,8 +151,8 @@ public final class AdActivity
   {
     try
     {
-      if (lf != null) {
-        lf.onSaveInstanceState(paramBundle);
+      if (a != null) {
+        a.b(paramBundle);
       }
       super.onSaveInstanceState(paramBundle);
       return;
@@ -139,7 +161,7 @@ public final class AdActivity
     {
       for (;;)
       {
-        gr.d("Could not forward onSaveInstanceState to ad overlay:", localRemoteException);
+        b.d("Could not forward onSaveInstanceState to ad overlay:", localRemoteException);
         finish();
       }
     }
@@ -150,14 +172,14 @@ public final class AdActivity
     super.onStart();
     try
     {
-      if (lf != null) {
-        lf.onStart();
+      if (a != null) {
+        a.g();
       }
       return;
     }
     catch (RemoteException localRemoteException)
     {
-      gr.d("Could not forward onStart to ad overlay:", localRemoteException);
+      b.d("Could not forward onStart to ad overlay:", localRemoteException);
       finish();
     }
   }
@@ -166,8 +188,8 @@ public final class AdActivity
   {
     try
     {
-      if (lf != null) {
-        lf.onStop();
+      if (a != null) {
+        a.j();
       }
       super.onStop();
       return;
@@ -176,7 +198,7 @@ public final class AdActivity
     {
       for (;;)
       {
-        gr.d("Could not forward onStop to ad overlay:", localRemoteException);
+        b.d("Could not forward onStop to ad overlay:", localRemoteException);
         finish();
       }
     }
@@ -185,19 +207,19 @@ public final class AdActivity
   public void setContentView(int paramInt)
   {
     super.setContentView(paramInt);
-    X();
+    a();
   }
   
   public void setContentView(View paramView)
   {
     super.setContentView(paramView);
-    X();
+    a();
   }
   
   public void setContentView(View paramView, ViewGroup.LayoutParams paramLayoutParams)
   {
     super.setContentView(paramView, paramLayoutParams);
-    X();
+    a();
   }
 }
 

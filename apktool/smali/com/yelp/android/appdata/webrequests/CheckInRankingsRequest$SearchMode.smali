@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "SearchMode"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -35,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 19
+    .line 20
     new-instance v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
     const-string/jumbo v1, "WEEK"
@@ -44,6 +53,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;->WEEK:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
+    .line 21
     new-instance v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
     const-string/jumbo v1, "ALL"
@@ -52,6 +62,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;->ALL:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
+    .line 22
     new-instance v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
     const-string/jumbo v1, "FRIENDS"
@@ -60,7 +71,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;->FRIENDS:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
-    .line 18
+    .line 19
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
@@ -91,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 18
+    .line 19
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -101,7 +112,7 @@
     .locals 1
 
     .prologue
-    .line 18
+    .line 19
     const-class v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -117,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 18
+    .line 19
     sget-object v0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;->$VALUES:[Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;->clone()Ljava/lang/Object;

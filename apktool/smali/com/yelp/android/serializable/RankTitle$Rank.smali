@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/serializable/RankTitle;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Rank"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -51,126 +60,126 @@
     .locals 11
 
     .prologue
-    .line 18
+    .line 17
     new-instance v0, Lcom/yelp/android/serializable/RankTitle$Rank;
 
     const-string/jumbo v1, "TOP_CITY_USER"
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0203eb
+    const v3, 0x7f02057e
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0a0100
+    const v5, 0x7f0e0151
 
-    const v6, 0x7f020342
+    const v6, 0x7f02048d
 
-    const v7, 0x7f0a00ff
+    const v7, 0x7f0e0150
 
-    const v8, 0x7f070611
+    const v8, 0x7f0705fe
 
-    const v9, 0x7f070610
+    const v9, 0x7f0705fd
 
-    const v10, 0x7f0700ca
+    const v10, 0x7f07014d
 
     invoke-direct/range {v0 .. v10}, Lcom/yelp/android/serializable/RankTitle$Rank;-><init>(Ljava/lang/String;IIIIIIIII)V
 
     sput-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->TOP_CITY_USER:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    .line 22
+    .line 26
     new-instance v0, Lcom/yelp/android/serializable/RankTitle$Rank;
 
     const-string/jumbo v1, "TOP_HOOD_USER"
 
     const/4 v2, 0x1
 
-    const v3, 0x7f0203ec
+    const v3, 0x7f02057f
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0a0071
+    const v5, 0x7f0e00aa
 
-    const v6, 0x7f020340
+    const v6, 0x7f02048b
 
-    const v7, 0x7f0a0011
+    const v7, 0x7f0e002d
 
-    const v8, 0x7f070613
+    const v8, 0x7f070600
 
-    const v9, 0x7f070612
+    const v9, 0x7f0705ff
 
-    const v10, 0x7f0700c8
+    const v10, 0x7f07014b
 
     invoke-direct/range {v0 .. v10}, Lcom/yelp/android/serializable/RankTitle$Rank;-><init>(Ljava/lang/String;IIIIIIIII)V
 
     sput-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->TOP_HOOD_USER:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    .line 26
+    .line 35
     new-instance v0, Lcom/yelp/android/serializable/RankTitle$Rank;
 
     const-string/jumbo v1, "TOP_USER"
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0203ee
+    const v3, 0x7f020581
 
-    const v4, 0x7f02016d
+    const v4, 0x7f0201e7
 
-    const v5, 0x7f0a0102
+    const v5, 0x7f0e0153
 
-    const v6, 0x7f020341
+    const v6, 0x7f02048c
 
-    const v7, 0x7f0a00a0
+    const v7, 0x7f0e00e6
 
-    const v8, 0x7f070615
+    const v8, 0x7f070602
 
-    const v9, 0x7f070614
+    const v9, 0x7f070601
 
-    const v10, 0x7f0700c9
+    const v10, 0x7f07014c
 
     invoke-direct/range {v0 .. v10}, Lcom/yelp/android/serializable/RankTitle$Rank;-><init>(Ljava/lang/String;IIIIIIIII)V
 
     sput-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->TOP_USER:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    .line 30
+    .line 44
     new-instance v0, Lcom/yelp/android/serializable/RankTitle$Rank;
 
     const-string/jumbo v1, "REGULAR"
 
     const/4 v2, 0x3
 
-    const v3, 0x7f020316
+    const v3, 0x7f02044c
 
-    const v4, 0x7f0200f1
+    const v4, 0x7f020147
 
-    const v5, 0x7f0a0100
+    const v5, 0x7f0e0151
 
-    const v6, 0x7f020343
+    const v6, 0x7f02048e
 
-    const v7, 0x7f0a00a0
+    const v7, 0x7f0e00e6
 
-    const v8, 0x7f0704cc
+    const v8, 0x7f0704e5
 
-    const v9, 0x7f0704cc
+    const v9, 0x7f0704e5
 
-    const v10, 0x7f0700cb
+    const v10, 0x7f07014e
 
     invoke-direct/range {v0 .. v10}, Lcom/yelp/android/serializable/RankTitle$Rank;-><init>(Ljava/lang/String;IIIIIIIII)V
 
     sput-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->REGULAR:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    .line 34
+    .line 53
     new-instance v0, Lcom/yelp/android/serializable/RankTitle$Rank;
 
     const-string/jumbo v1, "USER"
 
     const/4 v2, 0x4
 
-    const v3, 0x7f020401
+    const v3, 0x7f0205a1
 
-    const v4, 0x7f0200f1
+    const v4, 0x7f020147
 
-    const v5, 0x7f0a0019
+    const v5, 0x7f0e0035
 
     const/4 v6, 0x0
 
@@ -186,7 +195,7 @@
 
     sput-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->USER:Lcom/yelp/android/serializable/RankTitle$Rank;
 
-    .line 17
+    .line 16
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/yelp/android/serializable/RankTitle$Rank;
@@ -235,34 +244,34 @@
     .end annotation
 
     .prologue
-    .line 47
+    .line 80
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 48
+    .line 81
     iput p3, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mRankIcon:I
 
-    .line 49
+    .line 82
     iput p4, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mRankIconBordered:I
 
-    .line 50
+    .line 83
     iput p5, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mRankColor:I
 
-    .line 51
+    .line 84
     iput p6, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mAwardDrawable:I
 
-    .line 52
+    .line 85
     iput p7, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mAwardBackgroundColor:I
 
-    .line 53
+    .line 86
     iput p8, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mMaleWord:I
 
-    .line 54
+    .line 87
     iput p9, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mFemaleWord:I
 
-    .line 55
+    .line 88
     iput p10, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mDetailText:I
 
-    .line 56
+    .line 89
     return-void
 .end method
 
@@ -272,10 +281,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 102
+    .line 135
     if-eqz p0, :cond_0
 
-    .line 104
+    .line 137
     :try_start_0
     sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
@@ -289,12 +298,12 @@
 
     move-result-object v0
 
-    .line 109
+    .line 142
     :cond_0
     :goto_0
     return-object v0
 
-    .line 105
+    .line 138
     :catch_0
     move-exception v1
 
@@ -305,7 +314,7 @@
     .locals 1
 
     .prologue
-    .line 17
+    .line 16
     const-class v0, Lcom/yelp/android/serializable/RankTitle$Rank;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -321,7 +330,7 @@
     .locals 1
 
     .prologue
-    .line 17
+    .line 16
     sget-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->$VALUES:[Lcom/yelp/android/serializable/RankTitle$Rank;
 
     invoke-virtual {v0}, [Lcom/yelp/android/serializable/RankTitle$Rank;->clone()Ljava/lang/Object;
@@ -343,15 +352,15 @@
 
     const/4 v3, 0x0
 
-    .line 117
+    .line 150
     sget-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->REGULAR:Lcom/yelp/android/serializable/RankTitle$Rank;
 
     if-ne p0, v0, :cond_1
 
-    .line 118
+    .line 151
     if-eqz p3, :cond_0
 
-    const v0, 0x7f0706d5
+    const v0, 0x7f0706a6
 
     :goto_0
     new-array v1, v4, [Ljava/lang/Object;
@@ -362,21 +371,21 @@
 
     move-result-object v0
 
-    .line 121
+    .line 157
     :goto_1
     return-object v0
 
-    .line 118
+    .line 151
     :cond_0
-    const v0, 0x7f0706d4
+    const v0, 0x7f0706a5
 
     goto :goto_0
 
-    .line 121
+    .line 157
     :cond_1
     if-eqz p3, :cond_2
 
-    const v0, 0x7f0706db
+    const v0, 0x7f0706b1
 
     :goto_2
     const/4 v1, 0x2
@@ -406,7 +415,7 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f0706d7
+    const v0, 0x7f0706ac
 
     goto :goto_2
 .end method
@@ -415,7 +424,7 @@
     .locals 1
 
     .prologue
-    .line 82
+    .line 115
     iget v0, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mAwardBackgroundColor:I
 
     return v0
@@ -425,7 +434,7 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 111
     iget v0, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mAwardDrawable:I
 
     return v0
@@ -435,7 +444,7 @@
     .locals 5
 
     .prologue
-    .line 89
+    .line 122
     iget v0, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mDetailText:I
 
     const/4 v1, 0x2
@@ -475,7 +484,7 @@
     .locals 1
 
     .prologue
-    .line 74
+    .line 107
     iget v0, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mRankColor:I
 
     return v0
@@ -485,7 +494,7 @@
     .locals 1
 
     .prologue
-    .line 59
+    .line 92
     iget v0, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mRankIcon:I
 
     return v0
@@ -495,7 +504,7 @@
     .locals 1
 
     .prologue
-    .line 67
+    .line 100
     iget v0, p0, Lcom/yelp/android/serializable/RankTitle$Rank;->mRankIconBordered:I
 
     return v0
@@ -505,7 +514,7 @@
     .locals 1
 
     .prologue
-    .line 113
+    .line 146
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
@@ -531,15 +540,15 @@
 
     const/4 v3, 0x0
 
-    .line 128
+    .line 167
     sget-object v0, Lcom/yelp/android/serializable/RankTitle$Rank;->REGULAR:Lcom/yelp/android/serializable/RankTitle$Rank;
 
     if-ne p0, v0, :cond_1
 
-    .line 129
+    .line 168
     if-eqz p3, :cond_0
 
-    const v0, 0x7f0706d5
+    const v0, 0x7f0706a6
 
     :goto_0
     new-array v1, v4, [Ljava/lang/Object;
@@ -550,21 +559,21 @@
 
     move-result-object v0
 
-    .line 132
+    .line 174
     :goto_1
     return-object v0
 
-    .line 129
+    .line 168
     :cond_0
-    const v0, 0x7f0706d4
+    const v0, 0x7f0706a5
 
     goto :goto_0
 
-    .line 132
+    .line 174
     :cond_1
     if-eqz p3, :cond_2
 
-    const v0, 0x7f0706da
+    const v0, 0x7f0706b0
 
     :goto_2
     const/4 v1, 0x2
@@ -594,7 +603,7 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f0706d6
+    const v0, 0x7f0706ab
 
     goto :goto_2
 .end method
@@ -603,7 +612,7 @@
     .locals 2
 
     .prologue
-    .line 98
+    .line 131
     invoke-virtual {p0}, Lcom/yelp/android/serializable/RankTitle$Rank;->ordinal()I
 
     move-result v0
@@ -629,7 +638,7 @@
     .locals 2
 
     .prologue
-    .line 94
+    .line 127
     invoke-virtual {p0}, Lcom/yelp/android/serializable/RankTitle$Rank;->ordinal()I
 
     move-result v0

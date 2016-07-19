@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class e
@@ -35,7 +36,7 @@ public class e
   
   public static e a(Throwable paramThrowable, Map<String, String> paramMap)
   {
-    BaseYelpApplication localBaseYelpApplication = BaseYelpApplication.z();
+    BaseYelpApplication localBaseYelpApplication = BaseYelpApplication.K();
     StackTraceElement[] arrayOfStackTraceElement = paramThrowable.getStackTrace();
     ArrayList localArrayList = new ArrayList(arrayOfStackTraceElement.length);
     int j = arrayOfStackTraceElement.length;
@@ -49,6 +50,7 @@ public class e
   }
   
   public JSONObject c()
+    throws JSONException
   {
     JSONObject localJSONObject = super.c();
     localJSONObject.put("type", a);

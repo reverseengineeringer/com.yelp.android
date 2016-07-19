@@ -3,7 +3,7 @@
 .source "BusinessBasicInfo.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/businesspage/o;
+.implements Lcom/yelp/android/ui/activities/businesspage/b;
 
 
 # annotations
@@ -13,7 +13,7 @@
         "<",
         "Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;",
         ">;",
-        "Lcom/yelp/android/ui/activities/businesspage/o;"
+        "Lcom/yelp/android/ui/activities/businesspage/b;"
     }
 .end annotation
 
@@ -24,6 +24,8 @@
 .field public static final enum CALL:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
 .field public static final enum DIRECTIONS:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
+
+.field private static HIGHLIGHTED_TINT_COLOR:I
 
 .field public static final enum MAKE_RESERVATION:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
@@ -57,51 +59,49 @@
 
     const/4 v4, 0x0
 
-    .line 27
+    .line 26
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$1;
 
     const-string/jumbo v1, "DIRECTIONS"
 
-    const v2, 0x7f02017d
+    const v2, 0x7f02022a
 
     invoke-direct {v0, v1, v4, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$1;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->DIRECTIONS:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 45
+    .line 42
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$2;
 
     const-string/jumbo v1, "CALL"
 
-    const v2, 0x7f0200de
+    const v2, 0x7f020125
 
     invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$2;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->CALL:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 70
+    .line 68
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$3;
 
     const-string/jumbo v1, "MAKE_RESERVATION"
 
-    const v2, 0x7f02031e
+    const v2, 0x7f020458
 
     invoke-direct {v0, v1, v6, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$3;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MAKE_RESERVATION:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 89
+    .line 91
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$4;
 
     const-string/jumbo v1, "MESSAGE_THE_BUSINESS"
 
-    const v2, 0x7f0202da
-
-    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$4;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0, v1, v7, v4}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$4;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MESSAGE_THE_BUSINESS:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 109
+    .line 119
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$5;
 
     const-string/jumbo v1, "MENU"
@@ -110,7 +110,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MENU:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 132
+    .line 140
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$6;
 
     const-string/jumbo v1, "ORDER"
@@ -121,20 +121,20 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->ORDER:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 160
+    .line 171
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$7;
 
     const-string/jumbo v1, "MOVIES"
 
     const/4 v2, 0x6
 
-    const v3, 0x7f020268
+    const v3, 0x7f020334
 
     invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$7;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->MOVIES:Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
-    .line 197
+    .line 212
     new-instance v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo$8;
 
     const-string/jumbo v1, "MORE_INFO"
@@ -190,6 +190,17 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->$VALUES:[Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
 
+    .line 260
+    const/16 v0, 0x97
+
+    const/16 v1, 0xec
+
+    invoke-static {v4, v0, v1}, Landroid/graphics/Color;->rgb(III)I
+
+    move-result v0
+
+    sput v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->HIGHLIGHTED_TINT_COLOR:I
+
     return-void
 .end method
 
@@ -202,13 +213,13 @@
     .end annotation
 
     .prologue
-    .line 248
+    .line 264
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 249
+    .line 265
     iput p3, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->icon:I
 
-    .line 250
+    .line 266
     return-void
 .end method
 
@@ -220,6 +231,16 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;-><init>(Ljava/lang/String;II)V
 
     return-void
+.end method
+
+.method static synthetic access$100()I
+    .locals 1
+
+    .prologue
+    .line 25
+    sget v0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->HIGHLIGHTED_TINT_COLOR:I
+
+    return v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;
@@ -260,7 +281,7 @@
     .locals 1
 
     .prologue
-    .line 254
+    .line 270
     iget v0, p0, Lcom/yelp/android/ui/activities/businesspage/BusinessBasicInfo;->icon:I
 
     return v0
@@ -270,17 +291,27 @@
     .locals 1
 
     .prologue
-    .line 259
+    .line 275
     const/4 v0, 0x0
 
     return-object v0
+.end method
+
+.method public getSubtitleColor(Lcom/yelp/android/serializable/YelpBusiness;)I
+    .locals 1
+
+    .prologue
+    .line 284
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public getTintColor()I
     .locals 1
 
     .prologue
-    .line 269
+    .line 289
     const/4 v0, 0x0
 
     return v0
@@ -290,7 +321,7 @@
     .locals 1
 
     .prologue
-    .line 264
+    .line 280
     const/4 v0, 0x0
 
     return v0
@@ -300,7 +331,7 @@
     .locals 1
 
     .prologue
-    .line 274
+    .line 294
     const/4 v0, 0x0
 
     return v0
@@ -310,7 +341,7 @@
     .locals 1
 
     .prologue
-    .line 279
+    .line 299
     const/4 v0, 0x0
 
     return v0

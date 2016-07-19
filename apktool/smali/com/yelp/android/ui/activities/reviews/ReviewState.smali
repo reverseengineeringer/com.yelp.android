@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/reviews/ReviewState$1;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -52,7 +58,7 @@
 
     const-string/jumbo v2, "not_started"
 
-    const v3, 0x7f070681
+    const v3, 0x7f070662
 
     invoke-direct {v0, v1, v4, v2, v3}, Lcom/yelp/android/ui/activities/reviews/ReviewState;-><init>(Ljava/lang/String;ILjava/lang/String;I)V
 
@@ -65,7 +71,7 @@
 
     const-string/jumbo v2, "drafted"
 
-    const v3, 0x7f070282
+    const v3, 0x7f0702d4
 
     invoke-direct {v0, v1, v5, v2, v3}, Lcom/yelp/android/ui/activities/reviews/ReviewState;-><init>(Ljava/lang/String;ILjava/lang/String;I)V
 
@@ -78,7 +84,7 @@
 
     const-string/jumbo v2, "finished_recently"
 
-    const v3, 0x7f07022d
+    const v3, 0x7f07027e
 
     invoke-direct {v0, v1, v6, v2, v3}, Lcom/yelp/android/ui/activities/reviews/ReviewState;-><init>(Ljava/lang/String;ILjava/lang/String;I)V
 
@@ -91,7 +97,7 @@
 
     const-string/jumbo v2, "finished_not_recently"
 
-    const v3, 0x7f070648
+    const v3, 0x7f070624
 
     invoke-direct {v0, v1, v7, v2, v3}, Lcom/yelp/android/ui/activities/reviews/ReviewState;-><init>(Ljava/lang/String;ILjava/lang/String;I)V
 
@@ -278,7 +284,7 @@
 
     .prologue
     .line 38
-    sget-object v0, Lcom/yelp/android/ui/activities/reviews/az;->a:[I
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/ReviewState$1;->a:[I
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->ordinal()I
 
@@ -345,7 +351,7 @@
 
     .prologue
     .line 52
-    sget-object v0, Lcom/yelp/android/ui/activities/reviews/az;->a:[I
+    sget-object v0, Lcom/yelp/android/ui/activities/reviews/ReviewState$1;->a:[I
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewState;->ordinal()I
 

@@ -6,6 +6,17 @@
 .implements Ljava/io/FileFilter;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/ooyala/android/TemporaryInternalStorageFileManager;->cleanup(Landroid/content/Context;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/ooyala/android/TemporaryInternalStorageFileManager;
 

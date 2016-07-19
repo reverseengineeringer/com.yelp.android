@@ -2,38 +2,74 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _LocalAd
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected String mCustomCreativeText;
-  protected boolean mIsRatingDisabled;
-  protected Photo mPhoto;
-  protected String mPlacement;
-  protected String mRequestId;
-  protected YelpBusinessReview mReview;
-  protected int mSlot;
-  protected String mSpecialty;
-  protected String mType;
+  protected Photo a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected YelpBusinessReview h;
+  protected boolean i;
+  protected int j;
   
-  protected _LocalAd() {}
-  
-  protected _LocalAd(Photo paramPhoto, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, YelpBusinessReview paramYelpBusinessReview, boolean paramBoolean, int paramInt)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mPhoto = paramPhoto;
-    mBusinessId = paramString1;
-    mRequestId = paramString2;
-    mType = paramString3;
-    mSpecialty = paramString4;
-    mCustomCreativeText = paramString5;
-    mPlacement = paramString6;
-    mReview = paramYelpBusinessReview;
-    mIsRatingDisabled = paramBoolean;
-    mSlot = paramInt;
+    a = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((YelpBusinessReview)paramParcel.readParcelable(YelpBusinessReview.class.getClassLoader()));
+    i = paramParcel.createBooleanArray()[0];
+    j = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("photo")) {
+      a = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
+    }
+    if (!paramJSONObject.isNull("business_id")) {
+      b = paramJSONObject.optString("business_id");
+    }
+    if (!paramJSONObject.isNull("request_id")) {
+      c = paramJSONObject.optString("request_id");
+    }
+    if (!paramJSONObject.isNull("type")) {
+      d = paramJSONObject.optString("type");
+    }
+    if (!paramJSONObject.isNull("specialty")) {
+      e = paramJSONObject.optString("specialty");
+    }
+    if (!paramJSONObject.isNull("custom_creative_text")) {
+      f = paramJSONObject.optString("custom_creative_text");
+    }
+    if (!paramJSONObject.isNull("placement")) {
+      g = paramJSONObject.optString("placement");
+    }
+    if (!paramJSONObject.isNull("review")) {
+      h = ((YelpBusinessReview)YelpBusinessReview.CREATOR.parse(paramJSONObject.getJSONObject("review")));
+    }
+    i = paramJSONObject.optBoolean("is_rating_disabled");
+    j = paramJSONObject.optInt("slot");
+  }
+  
+  public int d()
+  {
+    return j;
   }
   
   public int describeContents()
@@ -41,112 +77,82 @@ abstract class _LocalAd
     return 0;
   }
   
-  public String getBusinessId()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessId;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_LocalAd)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a();
   }
   
-  public String getCustomCreativeText()
+  public boolean f()
   {
-    return mCustomCreativeText;
+    return i;
   }
   
-  public Photo getPhoto()
+  public YelpBusinessReview g()
   {
-    return mPhoto;
+    return h;
   }
   
-  public String getPlacement()
+  public String h()
   {
-    return mPlacement;
+    return g;
   }
   
-  public String getRequestId()
+  public int hashCode()
   {
-    return mRequestId;
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a();
   }
   
-  public YelpBusinessReview getReview()
+  public String i()
   {
-    return mReview;
+    return f;
   }
   
-  public int getSlot()
+  public String j()
   {
-    return mSlot;
+    return e;
   }
   
-  public String getSpecialty()
+  public String k()
   {
-    return mSpecialty;
+    return d;
   }
   
-  public String getType()
+  public String l()
   {
-    return mType;
+    return c;
   }
   
-  public boolean isRatingDisabled()
+  public String m()
   {
-    return mIsRatingDisabled;
+    return b;
   }
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public Photo n()
   {
-    if (!paramJSONObject.isNull("photo")) {
-      mPhoto = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")));
-    }
-    if (!paramJSONObject.isNull("business_id")) {
-      mBusinessId = paramJSONObject.optString("business_id");
-    }
-    if (!paramJSONObject.isNull("request_id")) {
-      mRequestId = paramJSONObject.optString("request_id");
-    }
-    if (!paramJSONObject.isNull("type")) {
-      mType = paramJSONObject.optString("type");
-    }
-    if (!paramJSONObject.isNull("specialty")) {
-      mSpecialty = paramJSONObject.optString("specialty");
-    }
-    if (!paramJSONObject.isNull("custom_creative_text")) {
-      mCustomCreativeText = paramJSONObject.optString("custom_creative_text");
-    }
-    if (!paramJSONObject.isNull("placement")) {
-      mPlacement = paramJSONObject.optString("placement");
-    }
-    if (!paramJSONObject.isNull("review")) {
-      mReview = ((YelpBusinessReview)YelpBusinessReview.CREATOR.parse(paramJSONObject.getJSONObject("review")));
-    }
-    mIsRatingDisabled = paramJSONObject.optBoolean("is_rating_disabled");
-    mSlot = paramJSONObject.optInt("slot");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mPhoto = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
-    mBusinessId = paramParcel.readString();
-    mRequestId = paramParcel.readString();
-    mType = paramParcel.readString();
-    mSpecialty = paramParcel.readString();
-    mCustomCreativeText = paramParcel.readString();
-    mPlacement = paramParcel.readString();
-    mReview = ((YelpBusinessReview)paramParcel.readParcelable(YelpBusinessReview.class.getClassLoader()));
-    mIsRatingDisabled = paramParcel.createBooleanArray()[0];
-    mSlot = paramParcel.readInt();
+    return a;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeParcelable(mPhoto, 0);
-    paramParcel.writeString(mBusinessId);
-    paramParcel.writeString(mRequestId);
-    paramParcel.writeString(mType);
-    paramParcel.writeString(mSpecialty);
-    paramParcel.writeString(mCustomCreativeText);
-    paramParcel.writeString(mPlacement);
-    paramParcel.writeParcelable(mReview, 0);
-    paramParcel.writeBooleanArray(new boolean[] { mIsRatingDisabled });
-    paramParcel.writeInt(mSlot);
+    paramParcel.writeParcelable(a, 0);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeValue(g);
+    paramParcel.writeParcelable(h, 0);
+    paramParcel.writeBooleanArray(new boolean[] { i });
+    paramParcel.writeInt(j);
   }
 }
 

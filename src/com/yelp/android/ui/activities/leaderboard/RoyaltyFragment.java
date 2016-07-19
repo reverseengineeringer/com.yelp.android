@@ -3,16 +3,17 @@ package com.yelp.android.ui.activities.leaderboard;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import com.yelp.android.appdata.webrequests.ed;
+import com.yelp.android.appdata.webrequests.dg;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.RankTitle.Rank;
 import com.yelp.android.serializable.Royal;
 import com.yelp.android.serializable.RoyaltySet;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.activities.support.YelpListFragment;
-import com.yelp.android.ui.activities.support.o;
-import com.yelp.android.ui.util.au;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bw;
+import com.yelp.android.ui.activities.support.b.e;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.c;
+import com.yelp.android.ui.util.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -20,55 +21,55 @@ public class RoyaltyFragment
   extends YelpListFragment
 {
   private ArrayList<RoyaltySet> a;
-  private ed b;
-  private bs c;
-  private final com.yelp.android.appdata.webrequests.j<ArrayList<RoyaltySet>> d = new i(this);
-  private final o e = new j(this);
+  private dg b;
+  private aj c;
+  private final k.b<ArrayList<RoyaltySet>> d = new RoyaltyFragment.1(this);
+  private final b.e e = new RoyaltyFragment.2(this);
   
-  private bs a(ArrayList<RoyaltySet> paramArrayList)
+  private aj a(ArrayList<RoyaltySet> paramArrayList)
   {
-    bs localbs = new bs();
-    g localg1 = new g();
-    g localg2 = new g();
-    g localg3 = new g();
+    aj localaj = new aj();
+    a locala1 = new a();
+    a locala2 = new a();
+    a locala3 = new a();
     RoyaltySet localRoyaltySet = null;
     Iterator localIterator = paramArrayList.iterator();
     paramArrayList = localRoyaltySet;
     while (localIterator.hasNext())
     {
       localRoyaltySet = (RoyaltySet)localIterator.next();
-      ArrayList localArrayList = localRoyaltySet.getRoyalty();
+      ArrayList localArrayList = localRoyaltySet.a();
       if ((localArrayList != null) && (!localArrayList.isEmpty()))
       {
-        RankTitle.Rank localRank = RankTitle.Rank.rankForString(((Royal)localArrayList.get(0)).getTitle());
+        RankTitle.Rank localRank = RankTitle.Rank.rankForString(((Royal)localArrayList.get(0)).d());
         if (localRank != null)
         {
-          switch (l.a[localRank.ordinal()])
+          switch (RoyaltyFragment.3.a[localRank.ordinal()])
           {
           }
           for (;;)
           {
             int i = localRank.getRankIcon();
             paramArrayList.a(localArrayList);
-            localbs.a(i, bw.a(localRoyaltySet.getDescription(), paramArrayList).c(i).a());
+            localaj.a(i, aj.c.a(localRoyaltySet.b(), paramArrayList).c(i).b());
             break;
-            paramArrayList = localg1;
+            paramArrayList = locala1;
             continue;
-            paramArrayList = localg2;
+            paramArrayList = locala2;
             continue;
-            paramArrayList = localg3;
+            paramArrayList = locala3;
           }
         }
       }
     }
-    return localbs;
+    return localaj;
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     super.a(paramListView, paramView, paramInt, paramLong);
     paramListView = (Royal)c.getItem(paramInt);
-    startActivity(ActivityUserProfile.a(getActivity(), paramListView.getUserId()));
+    startActivity(ActivityUserProfile.a(getActivity(), paramListView.e()));
   }
   
   protected void b()
@@ -76,9 +77,9 @@ public class RoyaltyFragment
     super.b();
     if (b == null)
     {
-      b = new ed(d);
-      b.executeWithLocation(new Void[0]);
-      i_();
+      b = new dg(d);
+      b.a(new Void[0]);
+      H_();
     }
   }
   
@@ -104,13 +105,13 @@ public class RoyaltyFragment
   public void onDetach()
   {
     super.onDetach();
-    a("royalty", b, false);
+    a("royalty", b);
   }
   
   public void onResume()
   {
     super.onResume();
-    b = ((ed)a("royalty", b, d));
+    b = ((dg)a("royalty", b, d));
   }
   
   public void onSaveInstanceState(Bundle paramBundle)

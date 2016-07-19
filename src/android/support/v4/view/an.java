@@ -1,29 +1,28 @@
 package android.support.v4.view;
 
-import android.os.Build.VERSION;
-import android.view.ViewGroup.MarginLayoutParams;
+import android.view.View;
+import android.view.View.AccessibilityDelegate;
 
-public class an
+class an
 {
-  static final ao a = new ap();
-  
-  static
+  public static void a(View paramView, Object paramObject)
   {
-    if (Build.VERSION.SDK_INT >= 17)
-    {
-      a = new aq();
-      return;
-    }
+    paramView.setAccessibilityDelegate((View.AccessibilityDelegate)paramObject);
   }
   
-  public static int a(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+  public static void a(View paramView, boolean paramBoolean)
   {
-    return a.a(paramMarginLayoutParams);
+    paramView.setFitsSystemWindows(paramBoolean);
   }
   
-  public static int b(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+  public static boolean a(View paramView, int paramInt)
   {
-    return a.b(paramMarginLayoutParams);
+    return paramView.canScrollHorizontally(paramInt);
+  }
+  
+  public static boolean b(View paramView, int paramInt)
+  {
+    return paramView.canScrollVertically(paramInt);
   }
 }
 

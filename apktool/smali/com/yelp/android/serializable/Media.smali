@@ -6,36 +6,47 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/serializable/Media$MediaType;
+    }
+.end annotation
+
+
 # virtual methods
-.method public abstract getBusinessId()Ljava/lang/String;
+.method public abstract a()Ljava/lang/String;
 .end method
 
-.method public abstract getCaption()Ljava/lang/String;
+.method public abstract a(Lcom/yelp/android/serializable/Media$MediaType;)Z
 .end method
 
-.method public abstract getFeedback()Lcom/yelp/android/serializable/Feedback;
+.method public abstract b()Ljava/lang/String;
 .end method
 
-.method public abstract getFeedbackPositiveCount()I
+.method public abstract d()I
 .end method
 
-.method public abstract getId()Ljava/lang/String;
+.method public abstract e()I
 .end method
 
-.method public abstract getIndex()I
+.method public abstract f()Ljava/lang/String;
 .end method
 
-.method public abstract getThumbnailUrl()Ljava/lang/String;
+.method public abstract g()Ljava/lang/String;
 .end method
 
-.method public abstract getTimeCreated()Ljava/util/Date;
+.method public abstract h()Ljava/util/Date;
 .end method
 
-.method public abstract getUserId()Ljava/lang/String;
+.method public abstract i()Lcom/yelp/android/serializable/Passport;
 .end method
 
-.method public abstract getUserPassport()Lcom/yelp/android/serializable/Passport;
+.method public abstract j()Lcom/yelp/android/serializable/Feedback;
 .end method
 
-.method public abstract isMediaType(Lcom/yelp/android/serializable/Media$MediaType;)Z
+.method public abstract k()Ljava/lang/String;
+.end method
+
+.method public abstract l()Ljava/lang/String;
 .end method

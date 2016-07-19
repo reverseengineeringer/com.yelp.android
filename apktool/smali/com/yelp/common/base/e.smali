@@ -1,44 +1,32 @@
-.class public abstract Lcom/yelp/common/base/e;
-.super Ljava/lang/ref/SoftReference;
-.source "FinalizableSoftReference.java"
-
-# interfaces
-.implements Lcom/yelp/common/base/a;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/ref/SoftReference",
-        "<TT;>;",
-        "Lcom/yelp/common/base/a;"
-    }
-.end annotation
+.class public final Lcom/yelp/common/base/e;
+.super Ljava/lang/Object;
+.source "Objects.java"
 
 
 # direct methods
-.method protected constructor <init>(Ljava/lang/Object;Lcom/yelp/common/base/FinalizableReferenceQueue;)V
+.method public static a(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;",
-            "Lcom/yelp/common/base/FinalizableReferenceQueue;",
-            ")V"
-        }
-    .end annotation
 
     .prologue
-    .line 39
-    iget-object v0, p2, Lcom/yelp/common/base/FinalizableReferenceQueue;->queue:Ljava/lang/ref/ReferenceQueue;
+    .line 38
+    if-eq p0, p1, :cond_0
 
-    invoke-direct {p0, p1, v0}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+    if-eqz p0, :cond_1
 
-    .line 40
-    invoke-virtual {p2}, Lcom/yelp/common/base/FinalizableReferenceQueue;->cleanUp()V
+    invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    .line 41
-    return-void
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

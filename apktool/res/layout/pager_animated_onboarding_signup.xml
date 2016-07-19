@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/container" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/button_container" android:paddingTop="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <Button android:id="@id/fb_sign_up_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="@dimen/logo_for_splash_one_third_height" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginRight="@dimen/default_large_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:text="@string/continue_with_facebook" android:drawableLeft="@drawable/facebook_icon_white" android:drawableRight="@drawable/chevron_white_small" style="@style/Widget.Button.Flat.Blue" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/signup_login_button_container" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/fb_sign_up_button">
+            <Button android:id="@id/login_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:text="@string/login" android:layout_weight="1.0" style="@style/Widget.Button.Flat.Coral" />
+            <Button android:id="@id/sign_up_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:layout_marginLeft="@dimen/default_base_gap_size" android:text="@string/im_new" android:layout_weight="1.0" style="@style/Widget.Button.Flat.Green" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

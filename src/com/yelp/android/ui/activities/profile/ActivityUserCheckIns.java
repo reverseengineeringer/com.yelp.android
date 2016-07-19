@@ -13,11 +13,11 @@ import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.dp;
-import com.yelp.android.appdata.webrequests.dq;
-import com.yelp.android.appdata.webrequests.fo;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.cu;
+import com.yelp.android.appdata.webrequests.cu.a;
+import com.yelp.android.appdata.webrequests.ek;
 import com.yelp.android.serializable.Feedback;
 import com.yelp.android.serializable.OfferSummary;
 import com.yelp.android.serializable.User;
@@ -38,19 +38,19 @@ import java.util.Map;
 
 public class ActivityUserCheckIns
   extends YelpListActivity
-  implements m<dq>
+  implements ApiRequest.b<cu.a>
 {
   private User a;
-  private t b;
+  private f b;
   private OfferSummary c;
   private int[] d;
-  private dp e;
+  private cu e;
   
   public static Intent a(Context paramContext, User paramUser)
   {
     paramContext = new Intent(paramContext, ActivityUserCheckIns.class);
     paramContext.putExtra("user.xtra", paramUser);
-    if ((paramUser != null) && (paramUser.getCheckInCount() == 0)) {}
+    if ((paramUser != null) && (paramUser.P() == 0)) {}
     for (boolean bool = true;; bool = false)
     {
       paramContext.putExtra("known empty", bool);
@@ -72,9 +72,9 @@ public class ActivityUserCheckIns
     AbsListView.LayoutParams localLayoutParams = new AbsListView.LayoutParams(-1, -2);
     TitleWithSubTitleView localTitleWithSubTitleView = new TitleWithSubTitleView(this);
     localTitleWithSubTitleView.setLayoutParams(localLayoutParams);
-    localTitleWithSubTitleView.getTitle().setText(2131166135);
-    int i = paramOfferSummary.getCount();
-    paramOfferSummary = StringUtils.a(this, paramOfferSummary.getNames(), 2, i - paramOfferSummary.getNames().size(), ", ");
+    localTitleWithSubTitleView.getTitle().setText(2131166189);
+    int i = paramOfferSummary.a();
+    paramOfferSummary = StringUtils.a(this, paramOfferSummary.b(), 2, i - paramOfferSummary.b().size(), ", ");
     localTitleWithSubTitleView.getSubTitle().setText(paramOfferSummary);
     localTitleWithSubTitleView.getSubTitle().setVisibility(0);
     return localTitleWithSubTitleView;
@@ -83,13 +83,13 @@ public class ActivityUserCheckIns
   private void f()
   {
     LeaderboardHeader localLeaderboardHeader = a(d[0], d[1], d[2]);
-    ScrollToLoadListView localScrollToLoadListView = q();
+    ScrollToLoadListView localScrollToLoadListView = r();
     if (localLeaderboardHeader.getFriendsActiveCount() == 0) {}
     for (ActivityLeaderboard.LeaderboardType localLeaderboardType = ActivityLeaderboard.LeaderboardType.WEEK;; localLeaderboardType = ActivityLeaderboard.LeaderboardType.FRIENDS)
     {
       localScrollToLoadListView.addHeaderView(localLeaderboardHeader, localLeaderboardType, true);
-      if ((c != null) && (c.getCount() > 0)) {
-        q().addHeaderView(a(c), c, true);
+      if ((c != null) && (c.a() > 0)) {
+        r().addHeaderView(a(c), c, true);
       }
       return;
     }
@@ -99,7 +99,7 @@ public class ActivityUserCheckIns
   {
     paramListView = paramListView.getItemAtPosition(paramInt);
     if ((paramListView instanceof YelpCheckIn)) {
-      startActivity(ActivityBusinessPage.b(this, ((YelpCheckIn)paramListView).getBusiness()));
+      startActivity(ActivityBusinessPage.b(this, ((YelpCheckIn)paramListView).d()));
     }
     do
     {
@@ -113,15 +113,15 @@ public class ActivityUserCheckIns
     startActivity(ActivityLeaderboard.a(this, (ActivityLeaderboard.LeaderboardType)paramListView));
   }
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, dq paramdq)
+  public void a(ApiRequest<?, ?, ?> paramApiRequest, cu.a parama)
   {
     disableLoading();
     c = d;
     d = new int[] { a, b, c };
     if (e.isEmpty())
     {
-      q().setEmptyView(a(q(), i()));
-      q().f();
+      r().setEmptyView(a(r(), h()));
+      r().f();
     }
     for (;;)
     {
@@ -129,55 +129,55 @@ public class ActivityUserCheckIns
       c(b.getCount());
       b.notifyDataSetChanged();
       return;
-      if (q().getHeaderViewsCount() == 0)
+      if (r().getHeaderViewsCount() == 0)
       {
         f();
-        q().setAdapter(b);
+        r().setAdapter(b);
       }
     }
   }
   
   void a(YelpCheckIn paramYelpCheckIn, boolean paramBoolean)
   {
-    String str = paramYelpCheckIn.getId();
-    Object localObject = paramYelpCheckIn.getFeedback();
+    String str = paramYelpCheckIn.z();
+    Object localObject = paramYelpCheckIn.n();
     if (paramBoolean) {
-      ((Feedback)localObject).addPositiveFeedback();
+      ((Feedback)localObject).a();
     }
     for (;;)
     {
       localObject = new HashMap();
-      ((Map)localObject).put("business_id", paramYelpCheckIn.getBusinessId());
+      ((Map)localObject).put("business_id", paramYelpCheckIn.k());
       ((Map)localObject).put("check_in_id", str);
       ((Map)localObject).put("is_positive", Boolean.valueOf(paramBoolean));
       ((Map)localObject).put("source", "users_check_ins");
       AppData.a(EventIri.CheckInFeedback, (Map)localObject);
-      new fo(str, paramBoolean).execute(new Void[0]);
-      b.a(paramYelpCheckIn);
+      new ek(str, paramBoolean).f(new Void[0]);
+      b.b(paramYelpCheckIn);
       return;
-      ((Feedback)localObject).removePositiveFeedback();
+      ((Feedback)localObject).b();
     }
   }
   
-  public dp c()
+  public cu b()
   {
-    return (dp)super.getLastCustomNonConfigurationInstance();
+    return (cu)super.getLastCustomNonConfigurationInstance();
   }
   
-  protected void d()
+  protected void c()
   {
-    if ((a != null) && (a.getCheckInCount() == 0)) {
-      q().f();
+    if ((a != null) && (a.P() == 0)) {
+      r().f();
     }
     do
     {
       return;
-      if ((e == null) || (e.is(AsyncTask.Status.FINISHED)))
+      if ((e == null) || (e.a(AsyncTask.Status.FINISHED)))
       {
-        e = new dp(this, r());
-        e.execute(new Void[0]);
+        e = new cu(this, s());
+        e.f(new Void[0]);
       }
-    } while ((b.getCount() != 0) || (!e.is(AsyncTask.Status.RUNNING)));
+    } while ((b.getCount() != 0) || (!e.a(AsyncTask.Status.RUNNING)));
     enableLoading(e);
   }
   
@@ -186,9 +186,9 @@ public class ActivityUserCheckIns
     return ViewIri.ProfileCheckIns;
   }
   
-  public int i()
+  public int h()
   {
-    return 2131166137;
+    return 2131166191;
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -218,8 +218,8 @@ public class ActivityUserCheckIns
       } while (paramInt2 != -1);
       AppData.a(EventIri.CheckInCommentBubble);
       paramIntent = (YelpCheckIn)paramIntent.getParcelableExtra("key.data");
-      paramInt1 = paramIntent.getFeedback().getPositiveFeedbackCount();
-      paramInt2 = paramIntent.getCommentsCount();
+      paramInt1 = paramIntent.n().d();
+      paramInt2 = paramIntent.u();
       if ((paramInt1 == 0) && (paramInt2 == 0)) {}
       for (;;)
       {
@@ -229,18 +229,18 @@ public class ActivityUserCheckIns
       }
     } while (paramInt2 != -1);
     paramIntent = CommentOnCheckIn.a(paramIntent);
-    b.a(paramIntent);
+    b.b(paramIntent);
   }
   
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setTitle(2131166136);
+    setTitle(2131166190);
     a = ((User)getIntent().getParcelableExtra("user.xtra"));
-    PendingIntent localPendingIntent1 = createPendingResult(103, new Intent("like"), 0);
-    PendingIntent localPendingIntent2 = createPendingResult(102, new Intent("comment"), 0);
-    PendingIntent localPendingIntent3 = createPendingResult(104, new Intent("comment_or_like"), 0);
-    b = new t(a, localPendingIntent1, localPendingIntent2, localPendingIntent3);
+    PendingIntent localPendingIntent1 = createPendingResult(103, new Intent("like", null, this, ActivityUserCheckIns.class), 0);
+    PendingIntent localPendingIntent2 = createPendingResult(102, new Intent("comment", null, this, ActivityUserCheckIns.class), 0);
+    PendingIntent localPendingIntent3 = createPendingResult(104, new Intent("comment_or_like", null, this, ActivityUserCheckIns.class), 0);
+    b = new f(a, localPendingIntent1, localPendingIntent2, localPendingIntent3);
     if (paramBundle != null)
     {
       b.b(paramBundle);
@@ -250,15 +250,15 @@ public class ActivityUserCheckIns
     if ((b.getCount() != 0) && (d != null))
     {
       f();
-      q().setAdapter(b);
+      r().setAdapter(b);
     }
-    e = c();
-    d();
+    e = b();
+    c();
   }
   
   public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
   {
-    a(q(), paramYelpException.getMessageResource());
+    a(r(), paramYelpException.getMessageResource());
   }
   
   public Object onRetainCustomNonConfigurationInstance()

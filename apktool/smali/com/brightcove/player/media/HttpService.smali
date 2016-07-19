@@ -3,6 +3,14 @@
 .source "HttpService.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/media/HttpService$Method;
+    }
+.end annotation
+
+
 # static fields
 .field public static final DEFAULT_CONNECT_TIMEOUT:I = 0x2710
 
@@ -90,6 +98,13 @@
             "Ljava/lang/Object;",
             ">;)",
             "Ljava/net/URI;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/URISyntaxException;,
+            Ljava/io/UnsupportedEncodingException;
         }
     .end annotation
 
@@ -429,6 +444,11 @@
 
 .method private static decodeSampledBitmap(Ljava/io/InputStream;II)Landroid/graphics/Bitmap;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     const/4 v2, 0x0
@@ -487,6 +507,13 @@
             "Ljava/lang/String;",
             ">;)",
             "Lorg/json/JSONObject;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/json/JSONException;
         }
     .end annotation
 
@@ -580,6 +607,12 @@
             "Ljava/lang/String;",
             ">;)",
             "Ljava/lang/String;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
         }
     .end annotation
 
@@ -925,6 +958,11 @@
 
 .method public static inputStreamToString(Ljava/io/InputStream;)Ljava/lang/String;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 416
@@ -941,6 +979,11 @@
 
 .method public static parseToJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 453
@@ -1047,6 +1090,11 @@
 
 .method public static readerToString(Ljava/io/Reader;)Ljava/lang/String;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 426
@@ -1099,6 +1147,11 @@
 # virtual methods
 .method public doGetRequest(Ljava/net/URI;)Ljava/lang/String;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 147
@@ -1129,6 +1182,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
     .prologue
     .line 158
     sget-object v0, Lcom/brightcove/player/media/HttpService$Method;->GET:Lcom/brightcove/player/media/HttpService$Method;
@@ -1142,6 +1201,11 @@
 
 .method public doImageGetRequest(Ljava/net/URI;)Landroid/graphics/Bitmap;
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 239
@@ -1266,6 +1330,11 @@
 
 .method public doImageGetRequest(Ljava/net/URI;II)Landroid/graphics/Bitmap;
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 268
@@ -1394,6 +1463,12 @@
 
 .method public doJSONGetRequest(Ljava/net/URI;)Lorg/json/JSONObject;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 350
@@ -1424,6 +1499,13 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
     .line 365
     sget-object v0, Lcom/brightcove/player/media/HttpService$Method;->GET:Lcom/brightcove/player/media/HttpService$Method;
@@ -1437,6 +1519,12 @@
 
 .method public doJSONPostRequest(Ljava/net/URI;)Lorg/json/JSONObject;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 377
@@ -1467,6 +1555,13 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
     .line 392
     sget-object v0, Lcom/brightcove/player/media/HttpService$Method;->POST:Lcom/brightcove/player/media/HttpService$Method;
@@ -1480,6 +1575,11 @@
 
 .method public doPostRequest(Ljava/net/URI;)Ljava/lang/String;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 168
@@ -1507,6 +1607,12 @@
             "Ljava/lang/String;",
             ">;)",
             "Ljava/lang/String;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
         }
     .end annotation
 

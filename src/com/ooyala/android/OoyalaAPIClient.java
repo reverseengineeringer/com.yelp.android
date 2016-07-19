@@ -1,5 +1,6 @@
 package com.ooyala.android;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,7 @@ public class OoyalaAPIClient
   }
   
   public ContentItem contentTree(List<String> paramList)
+    throws OoyalaException
   {
     return _playerAPI.contentTree(paramList);
   }
@@ -52,6 +54,7 @@ public class OoyalaAPIClient
   }
   
   public ContentItem contentTreeByExternalIds(List<String> paramList)
+    throws OoyalaException
   {
     return _playerAPI.contentTreeByExternalIds(paramList);
   }
@@ -72,6 +75,7 @@ public class OoyalaAPIClient
   }
   
   public ContentItem contentTreeWithAdSet(List<String> paramList, String paramString)
+    throws OoyalaException
   {
     return _playerAPI.contentTreeWithAdSet(paramList, paramString);
   }
@@ -98,7 +102,7 @@ public class OoyalaAPIClient
   
   public Object objectFromBacklotAPI(String paramString, Map<String, String> paramMap, ObjectFromBacklotAPICallback paramObjectFromBacklotAPICallback)
   {
-    paramObjectFromBacklotAPICallback = new OoyalaAPIClient.ObjectFromBacklotAPITask(this, paramObjectFromBacklotAPICallback);
+    paramObjectFromBacklotAPICallback = new ObjectFromBacklotAPITask(paramObjectFromBacklotAPICallback);
     paramObjectFromBacklotAPICallback.execute(new Object[] { paramString, paramMap });
     return paramObjectFromBacklotAPICallback;
   }
@@ -111,6 +115,32 @@ public class OoyalaAPIClient
       return null;
     }
     return OoyalaAPIHelper.objectForAPI(_secureUrlGenerator.secureURL(Constants.BACKLOT_HOST, "/v2" + paramString, paramMap));
+  }
+  
+  private class ObjectFromBacklotAPITask
+    extends AsyncTask<Object, Integer, JSONObject>
+  {
+    protected ObjectFromBacklotAPICallback _callback = null;
+    
+    public ObjectFromBacklotAPITask(ObjectFromBacklotAPICallback paramObjectFromBacklotAPICallback)
+    {
+      _callback = paramObjectFromBacklotAPICallback;
+    }
+    
+    protected JSONObject doInBackground(Object... paramVarArgs)
+    {
+      if ((paramVarArgs == null) || (paramVarArgs.length < 2) || (!(paramVarArgs[0] instanceof String)) || (!(paramVarArgs[0] instanceof Map))) {
+        return null;
+      }
+      String str = (String)paramVarArgs[0];
+      paramVarArgs = (Map)paramVarArgs[1];
+      return objectFromBacklotAPI(str, paramVarArgs);
+    }
+    
+    protected void onPostExecute(JSONObject paramJSONObject)
+    {
+      _callback.callback(paramJSONObject);
+    }
   }
 }
 

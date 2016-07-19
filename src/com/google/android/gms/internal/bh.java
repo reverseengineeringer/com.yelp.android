@@ -1,406 +1,444 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 import android.os.RemoteException;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.doubleclick.AppEventListener;
-import com.google.android.gms.ads.doubleclick.b;
-import com.google.android.gms.ads.purchase.InAppPurchaseListener;
-import com.google.android.gms.ads.purchase.PlayStorePurchaseListener;
-import com.google.android.gms.dynamic.d;
-import com.google.android.gms.dynamic.e;
+import com.google.android.gms.dynamic.c;
+import com.google.android.gms.dynamic.c.a;
+import java.util.ArrayList;
+import java.util.List;
 
-public final class bh
+public abstract interface bh
+  extends IInterface
 {
-  private final cx oH = new cx();
-  private final ax oI;
-  private bd oJ;
-  private String oK;
-  private ViewGroup oL;
-  private InAppPurchaseListener oM;
-  private PlayStorePurchaseListener oN;
-  private b oO;
-  private AdListener ob;
-  private AppEventListener os;
-  private AdSize[] ot;
-  private String ou;
+  public abstract String a()
+    throws RemoteException;
   
-  public bh(ViewGroup paramViewGroup)
-  {
-    this(paramViewGroup, null, false, ax.bg());
-  }
+  public abstract List b()
+    throws RemoteException;
   
-  public bh(ViewGroup paramViewGroup, AttributeSet paramAttributeSet, boolean paramBoolean)
-  {
-    this(paramViewGroup, paramAttributeSet, paramBoolean, ax.bg());
-  }
+  public abstract String c()
+    throws RemoteException;
   
-  bh(ViewGroup paramViewGroup, AttributeSet paramAttributeSet, boolean paramBoolean, ax paramax)
-  {
-    this(paramViewGroup, paramAttributeSet, paramBoolean, paramax, null);
-  }
+  public abstract bd d()
+    throws RemoteException;
   
-  bh(ViewGroup paramViewGroup, AttributeSet paramAttributeSet, boolean paramBoolean, ax paramax, bd parambd)
+  public abstract String e()
+    throws RemoteException;
+  
+  public abstract double f()
+    throws RemoteException;
+  
+  public abstract String g()
+    throws RemoteException;
+  
+  public abstract String h()
+    throws RemoteException;
+  
+  public abstract c i()
+    throws RemoteException;
+  
+  public abstract Bundle m()
+    throws RemoteException;
+  
+  public abstract void n()
+    throws RemoteException;
+  
+  public static abstract class a
+    extends Binder
+    implements bh
   {
-    oL = paramViewGroup;
-    oI = paramax;
-    if (paramAttributeSet != null)
+    public a()
     {
-      paramax = paramViewGroup.getContext();
-      try
+      attachInterface(this, "com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+    }
+    
+    public static bh a(IBinder paramIBinder)
+    {
+      if (paramIBinder == null) {
+        return null;
+      }
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+      if ((localIInterface != null) && ((localIInterface instanceof bh))) {
+        return (bh)localIInterface;
+      }
+      return new a(paramIBinder);
+    }
+    
+    public IBinder asBinder()
+    {
+      return this;
+    }
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
+    {
+      c localc = null;
+      bd localbd = null;
+      switch (paramInt1)
       {
-        paramAttributeSet = new bb(paramax, paramAttributeSet);
-        ot = paramAttributeSet.h(paramBoolean);
-        ou = paramAttributeSet.getAdUnitId();
-        if (paramViewGroup.isInEditMode())
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        return true;
+      case 2: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        localc = i();
+        paramParcel2.writeNoException();
+        paramParcel1 = localbd;
+        if (localc != null) {
+          paramParcel1 = localc.asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      case 3: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        paramParcel1 = a();
+        paramParcel2.writeNoException();
+        paramParcel2.writeString(paramParcel1);
+        return true;
+      case 4: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        paramParcel1 = b();
+        paramParcel2.writeNoException();
+        paramParcel2.writeList(paramParcel1);
+        return true;
+      case 5: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        paramParcel1 = c();
+        paramParcel2.writeNoException();
+        paramParcel2.writeString(paramParcel1);
+        return true;
+      case 6: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        localbd = d();
+        paramParcel2.writeNoException();
+        paramParcel1 = localc;
+        if (localbd != null) {
+          paramParcel1 = localbd.asBinder();
+        }
+        paramParcel2.writeStrongBinder(paramParcel1);
+        return true;
+      case 7: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        paramParcel1 = e();
+        paramParcel2.writeNoException();
+        paramParcel2.writeString(paramParcel1);
+        return true;
+      case 8: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        double d = f();
+        paramParcel2.writeNoException();
+        paramParcel2.writeDouble(d);
+        return true;
+      case 9: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        paramParcel1 = g();
+        paramParcel2.writeNoException();
+        paramParcel2.writeString(paramParcel1);
+        return true;
+      case 10: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        paramParcel1 = h();
+        paramParcel2.writeNoException();
+        paramParcel2.writeString(paramParcel1);
+        return true;
+      case 11: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+        paramParcel1 = m();
+        paramParcel2.writeNoException();
+        if (paramParcel1 != null)
         {
-          gq.a(paramViewGroup, new ay(paramax, ot[0]), "Ads by Google");
+          paramParcel2.writeInt(1);
+          paramParcel1.writeToParcel(paramParcel2, 1);
+        }
+        for (;;)
+        {
+          return true;
+          paramParcel2.writeInt(0);
+        }
+      }
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+      n();
+      paramParcel2.writeNoException();
+      return true;
+    }
+    
+    private static class a
+      implements bh
+    {
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
+      {
+        a = paramIBinder;
+      }
+      
+      public String a()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(3, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          String str = localParcel2.readString();
+          return str;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
+      
+      public List b()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(4, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          ArrayList localArrayList = localParcel2.readArrayList(getClass().getClassLoader());
+          return localArrayList;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public String c()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(5, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          String str = localParcel2.readString();
+          return str;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public bd d()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(6, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          bd localbd = bd.a.a(localParcel2.readStrongBinder());
+          return localbd;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public String e()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(7, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          String str = localParcel2.readString();
+          return str;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public double f()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(8, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          double d = localParcel2.readDouble();
+          return d;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public String g()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(9, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          String str = localParcel2.readString();
+          return str;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public String h()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(10, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          String str = localParcel2.readString();
+          return str;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public c i()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(2, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          c localc = c.a.a(localParcel2.readStrongBinder());
+          return localc;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      /* Error */
+      public Bundle m()
+        throws RemoteException
+      {
+        // Byte code:
+        //   0: invokestatic 27	android/os/Parcel:obtain	()Landroid/os/Parcel;
+        //   3: astore_2
+        //   4: invokestatic 27	android/os/Parcel:obtain	()Landroid/os/Parcel;
+        //   7: astore_3
+        //   8: aload_2
+        //   9: ldc 29
+        //   11: invokevirtual 33	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+        //   14: aload_0
+        //   15: getfield 17	com/google/android/gms/internal/bh$a$a:a	Landroid/os/IBinder;
+        //   18: bipush 11
+        //   20: aload_2
+        //   21: aload_3
+        //   22: iconst_0
+        //   23: invokeinterface 39 5 0
+        //   28: pop
+        //   29: aload_3
+        //   30: invokevirtual 42	android/os/Parcel:readException	()V
+        //   33: aload_3
+        //   34: invokevirtual 99	android/os/Parcel:readInt	()I
+        //   37: ifeq +26 -> 63
+        //   40: getstatic 105	android/os/Bundle:CREATOR	Landroid/os/Parcelable$Creator;
+        //   43: aload_3
+        //   44: invokeinterface 111 2 0
+        //   49: checkcast 101	android/os/Bundle
+        //   52: astore_1
+        //   53: aload_3
+        //   54: invokevirtual 48	android/os/Parcel:recycle	()V
+        //   57: aload_2
+        //   58: invokevirtual 48	android/os/Parcel:recycle	()V
+        //   61: aload_1
+        //   62: areturn
+        //   63: aconst_null
+        //   64: astore_1
+        //   65: goto -12 -> 53
+        //   68: astore_1
+        //   69: aload_3
+        //   70: invokevirtual 48	android/os/Parcel:recycle	()V
+        //   73: aload_2
+        //   74: invokevirtual 48	android/os/Parcel:recycle	()V
+        //   77: aload_1
+        //   78: athrow
+        // Local variable table:
+        //   start	length	slot	name	signature
+        //   0	79	0	this	a
+        //   52	13	1	localBundle	Bundle
+        //   68	10	1	localObject	Object
+        //   3	71	2	localParcel1	Parcel
+        //   7	63	3	localParcel2	Parcel
+        // Exception table:
+        //   from	to	target	type
+        //   8	53	68	finally
+      }
+      
+      public void n()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeAppInstallAd");
+          a.transact(12, localParcel1, localParcel2, 0);
+          localParcel2.readException();
           return;
         }
-      }
-      catch (IllegalArgumentException paramAttributeSet)
-      {
-        gq.a(paramViewGroup, new ay(paramax, AdSize.BANNER), paramAttributeSet.getMessage(), paramAttributeSet.getMessage());
-        return;
-      }
-    }
-    oJ = parambd;
-  }
-  
-  private void bm()
-  {
-    try
-    {
-      d locald = oJ.ab();
-      if (locald == null) {
-        return;
-      }
-      oL.addView((View)e.f(locald));
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      gr.d("Failed to get an ad frame.", localRemoteException);
-    }
-  }
-  
-  private void bn()
-  {
-    if (((ot == null) || (ou == null)) && (oJ == null)) {
-      throw new IllegalStateException("The ad size and ad unit ID must be set before loadAd is called.");
-    }
-    Context localContext = oL.getContext();
-    oJ = au.a(localContext, new ay(localContext, ot), ou, oH);
-    if (ob != null) {
-      oJ.a(new at(ob));
-    }
-    if (os != null) {
-      oJ.a(new ba(os));
-    }
-    if (oM != null) {
-      oJ.a(new es(oM));
-    }
-    if (oN != null) {
-      oJ.a(new ew(oN), oK);
-    }
-    if (oO != null) {
-      oJ.a(new bs(oO));
-    }
-    bm();
-  }
-  
-  public void a(bg parambg)
-  {
-    try
-    {
-      if (oJ == null) {
-        bn();
-      }
-      if (oJ.a(oI.a(oL.getContext(), parambg))) {
-        oH.d(parambg.bj());
-      }
-      return;
-    }
-    catch (RemoteException parambg)
-    {
-      gr.d("Failed to load ad.", parambg);
-    }
-  }
-  
-  public void a(AdSize... paramVarArgs)
-  {
-    ot = paramVarArgs;
-    try
-    {
-      if (oJ != null) {
-        oJ.a(new ay(oL.getContext(), ot));
-      }
-      oL.requestLayout();
-      return;
-    }
-    catch (RemoteException paramVarArgs)
-    {
-      for (;;)
-      {
-        gr.d("Failed to set the ad size.", paramVarArgs);
-      }
-    }
-  }
-  
-  public void destroy()
-  {
-    try
-    {
-      if (oJ != null) {
-        oJ.destroy();
-      }
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      gr.d("Failed to destroy AdView.", localRemoteException);
-    }
-  }
-  
-  public AdListener getAdListener()
-  {
-    return ob;
-  }
-  
-  public AdSize getAdSize()
-  {
-    try
-    {
-      if (oJ != null)
-      {
-        AdSize localAdSize = oJ.ac().bh();
-        return localAdSize;
-      }
-    }
-    catch (RemoteException localRemoteException)
-    {
-      gr.d("Failed to get the current AdSize.", localRemoteException);
-      if (ot != null) {
-        return ot[0];
-      }
-    }
-    return null;
-  }
-  
-  public AdSize[] getAdSizes()
-  {
-    return ot;
-  }
-  
-  public String getAdUnitId()
-  {
-    return ou;
-  }
-  
-  public AppEventListener getAppEventListener()
-  {
-    return os;
-  }
-  
-  public InAppPurchaseListener getInAppPurchaseListener()
-  {
-    return oM;
-  }
-  
-  public String getMediationAdapterClassName()
-  {
-    try
-    {
-      if (oJ != null)
-      {
-        String str = oJ.getMediationAdapterClassName();
-        return str;
-      }
-    }
-    catch (RemoteException localRemoteException)
-    {
-      gr.d("Failed to get the mediation adapter class name.", localRemoteException);
-    }
-    return null;
-  }
-  
-  public void pause()
-  {
-    try
-    {
-      if (oJ != null) {
-        oJ.pause();
-      }
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      gr.d("Failed to call pause.", localRemoteException);
-    }
-  }
-  
-  public void recordManualImpression()
-  {
-    try
-    {
-      if (oJ != null) {
-        oJ.an();
-      }
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      gr.d("Failed to record impression.", localRemoteException);
-    }
-  }
-  
-  public void resume()
-  {
-    try
-    {
-      if (oJ != null) {
-        oJ.resume();
-      }
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      gr.d("Failed to call resume.", localRemoteException);
-    }
-  }
-  
-  public void setAdListener(AdListener paramAdListener)
-  {
-    try
-    {
-      ob = paramAdListener;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramAdListener == null) {
-          break label38;
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
         }
       }
-      label38:
-      for (paramAdListener = new at(paramAdListener);; paramAdListener = null)
-      {
-        localbd.a(paramAdListener);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramAdListener)
-    {
-      gr.d("Failed to set the AdListener.", paramAdListener);
-    }
-  }
-  
-  public void setAdSizes(AdSize... paramVarArgs)
-  {
-    if (ot != null) {
-      throw new IllegalStateException("The ad size can only be set once on AdView.");
-    }
-    a(paramVarArgs);
-  }
-  
-  public void setAdUnitId(String paramString)
-  {
-    if (ou != null) {
-      throw new IllegalStateException("The ad unit ID can only be set once on AdView.");
-    }
-    ou = paramString;
-  }
-  
-  public void setAppEventListener(AppEventListener paramAppEventListener)
-  {
-    try
-    {
-      os = paramAppEventListener;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramAppEventListener == null) {
-          break label38;
-        }
-      }
-      label38:
-      for (paramAppEventListener = new ba(paramAppEventListener);; paramAppEventListener = null)
-      {
-        localbd.a(paramAppEventListener);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramAppEventListener)
-    {
-      gr.d("Failed to set the AppEventListener.", paramAppEventListener);
-    }
-  }
-  
-  public void setInAppPurchaseListener(InAppPurchaseListener paramInAppPurchaseListener)
-  {
-    if (oN != null) {
-      throw new IllegalStateException("Play store purchase parameter has already been set.");
-    }
-    try
-    {
-      oM = paramInAppPurchaseListener;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramInAppPurchaseListener == null) {
-          break label56;
-        }
-      }
-      label56:
-      for (paramInAppPurchaseListener = new es(paramInAppPurchaseListener);; paramInAppPurchaseListener = null)
-      {
-        localbd.a(paramInAppPurchaseListener);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramInAppPurchaseListener)
-    {
-      gr.d("Failed to set the InAppPurchaseListener.", paramInAppPurchaseListener);
-    }
-  }
-  
-  public void setPlayStorePurchaseParams(PlayStorePurchaseListener paramPlayStorePurchaseListener, String paramString)
-  {
-    if (oM != null) {
-      throw new IllegalStateException("InAppPurchaseListener has already been set.");
-    }
-    try
-    {
-      oN = paramPlayStorePurchaseListener;
-      oK = paramString;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramPlayStorePurchaseListener == null) {
-          break label62;
-        }
-      }
-      label62:
-      for (paramPlayStorePurchaseListener = new ew(paramPlayStorePurchaseListener);; paramPlayStorePurchaseListener = null)
-      {
-        localbd.a(paramPlayStorePurchaseListener, paramString);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramPlayStorePurchaseListener)
-    {
-      gr.d("Failed to set the play store purchase parameter.", paramPlayStorePurchaseListener);
     }
   }
 }

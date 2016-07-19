@@ -1,57 +1,67 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.google.android.gms.measurement.f;
+import java.util.HashMap;
+import java.util.Map;
 
-public class kw
-  implements Parcelable.Creator<kv>
+public final class kw
+  extends f<kw>
 {
-  static void a(kv paramkv, Parcel paramParcel, int paramInt)
+  public String a;
+  public String b;
+  public String c;
+  
+  public String a()
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, paramkv.getVersionCode());
-    b.c(paramParcel, 2, paramkv.hZ(), false);
-    b.a(paramParcel, 3, paramkv.ia(), false);
-    b.H(paramParcel, paramInt);
+    return a;
   }
   
-  public kv O(Parcel paramParcel)
+  public void a(kw paramkw)
   {
-    String str = null;
-    int j = a.G(paramParcel);
-    int i = 0;
-    ArrayList localArrayList = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
-      {
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 2: 
-        localArrayList = a.c(paramParcel, k, kv.a.CREATOR);
-        break;
-      case 3: 
-        str = a.o(paramParcel, k);
-      }
+    if (!TextUtils.isEmpty(a)) {
+      paramkw.a(a);
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+    if (!TextUtils.isEmpty(b)) {
+      paramkw.b(b);
     }
-    return new kv(i, localArrayList, str);
+    if (!TextUtils.isEmpty(c)) {
+      paramkw.c(c);
+    }
   }
   
-  public kv[] aP(int paramInt)
+  public void a(String paramString)
   {
-    return new kv[paramInt];
+    a = paramString;
+  }
+  
+  public String b()
+  {
+    return b;
+  }
+  
+  public void b(String paramString)
+  {
+    b = paramString;
+  }
+  
+  public String c()
+  {
+    return c;
+  }
+  
+  public void c(String paramString)
+  {
+    c = paramString;
+  }
+  
+  public String toString()
+  {
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("network", a);
+    localHashMap.put("action", b);
+    localHashMap.put("target", c);
+    return a(localHashMap);
   }
 }
 

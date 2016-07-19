@@ -1,19 +1,15 @@
 package com.yelp.android.ae;
 
-import com.bumptech.glide.load.a;
-import com.bumptech.glide.load.d;
-import com.bumptech.glide.load.e;
-import java.io.File;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 
-public abstract interface b<T, Z>
+public abstract class b
+  extends Drawable
+  implements Animatable
 {
-  public abstract d<File, Z> a();
+  public abstract void a(int paramInt);
   
-  public abstract d<T, Z> b();
-  
-  public abstract a<T> c();
-  
-  public abstract e<Z> d();
+  public abstract boolean a();
 }
 
 /* Location:

@@ -1,77 +1,28 @@
 .class public Lcom/yelp/android/appdata/webrequests/ev;
-.super Ljava/lang/Object;
-.source "ReviewHighlightListRequest.java"
-
-
-# instance fields
-.field a:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/ReviewHighlight;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field b:I
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "TwitterOAuthSaveTokenRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/ArrayList;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/ReviewHighlight;",
-            ">;I)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 1
 
     .prologue
-    .line 52
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 9
+    const-string/jumbo v0, "account/twitter/save_request_token"
 
-    .line 53
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/ev;->a:Ljava/util/ArrayList;
+    invoke-direct {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 54
-    iput p2, p0, Lcom/yelp/android/appdata/webrequests/ev;->b:I
+    .line 10
+    const-string/jumbo v0, "oauth_token"
 
-    .line 55
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/ev;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 11
+    const-string/jumbo v0, "oauth_verifier"
+
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/ev;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 12
     return-void
-.end method
-
-
-# virtual methods
-.method public a()Ljava/util/ArrayList;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/ReviewHighlight;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ev;->a:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method public b()I
-    .locals 1
-
-    .prologue
-    .line 62
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/ev;->b:I
-
-    return v0
 .end method

@@ -8,8 +8,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
-import com.yelp.android.ui.k;
-import com.yelp.android.ui.panels.aa;
+import com.yelp.android.services.ShareFormatter;
+import com.yelp.android.ui.f;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.util.AndroidListFragment;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.util.ErrorType;
@@ -23,19 +24,28 @@ public abstract class YelpListFragment
 {
   private View a;
   private List<View> b;
-  private boolean c = false;
-  private int d;
+  private List<View> c;
+  private boolean d = false;
   private int e;
+  private int f;
   private ListAdapter g;
   
-  private void e()
+  private void f()
   {
-    if (c)
+    if (d)
     {
       m().f();
       return;
     }
-    m().setOnLoadNeeded(new q(this));
+    m().setOnLoadNeeded(new YelpListFragment.1(this));
+  }
+  
+  public void H_()
+  {
+    super.H_();
+    if (getView() != null) {
+      c(C());
+    }
   }
   
   public void a(ListAdapter paramListAdapter)
@@ -49,41 +59,40 @@ public abstract class YelpListFragment
     catch (IllegalStateException paramListAdapter) {}
   }
   
-  public void a(ErrorType paramErrorType, aa paramaa)
+  protected void a(ShareFormatter paramShareFormatter)
   {
-    super.a(paramErrorType, paramaa);
+    ((YelpActivity)getActivity()).showShareSheet(paramShareFormatter);
+  }
+  
+  public void a(ErrorType paramErrorType, PanelError.a parama)
+  {
+    super.a(paramErrorType, parama);
     if (getView() != null) {
-      c(y());
+      c(A());
     }
-  }
-  
-  public void a(boolean paramBoolean)
-  {
-    c = paramBoolean;
-    try
-    {
-      e();
-      return;
-    }
-    catch (IllegalStateException localIllegalStateException) {}
-  }
-  
-  public void a_()
-  {
-    b(0);
-    b();
   }
   
   protected void b() {}
   
   public void b(int paramInt)
   {
-    d = paramInt;
+    e = paramInt;
+  }
+  
+  public void b(boolean paramBoolean)
+  {
+    d = paramBoolean;
+    try
+    {
+      f();
+      return;
+    }
+    catch (IllegalStateException localIllegalStateException) {}
   }
   
   public void c(int paramInt)
   {
-    d += paramInt;
+    e += paramInt;
   }
   
   protected void c(View paramView)
@@ -114,33 +123,32 @@ public abstract class YelpListFragment
     }
   }
   
-  public void i_()
+  protected void e(View paramView)
   {
-    super.i_();
-    if (getView() != null) {
-      c(B());
+    try
+    {
+      m().addFooterView(paramView);
+      return;
     }
-  }
-  
-  protected void j_()
-  {
-    m().setDividerHeight(0);
-    m().setOnItemClickListener(this);
+    catch (IllegalStateException localIllegalStateException)
+    {
+      c.add(paramView);
+    }
   }
   
   public ScrollToLoadListView m()
   {
-    return (ScrollToLoadListView)super.t();
+    return (ScrollToLoadListView)super.s();
   }
   
   public void n()
   {
-    a(true);
+    b(true);
   }
   
   public void o()
   {
-    a(false);
+    b(false);
   }
   
   public void onActivityCreated(Bundle paramBundle)
@@ -148,22 +156,30 @@ public abstract class YelpListFragment
     super.onActivityCreated(paramBundle);
     if (paramBundle != null)
     {
-      e = paramBundle.getInt("limit", 0);
-      d = paramBundle.getInt("offset", 0);
+      f = paramBundle.getInt("limit", 0);
+      e = paramBundle.getInt("offset", 0);
     }
-    e();
+    f();
     c(a);
     paramBundle = b.iterator();
+    View localView;
     while (paramBundle.hasNext())
     {
-      View localView = (View)paramBundle.next();
+      localView = (View)paramBundle.next();
       m().addHeaderView(localView);
+    }
+    paramBundle = c.iterator();
+    while (paramBundle.hasNext())
+    {
+      localView = (View)paramBundle.next();
+      m().addFooterView(localView);
     }
     m().setOnItemClickListener(this);
     if (g != null) {
       a(g);
     }
     b.clear();
+    c.clear();
   }
   
   public void onCreate(Bundle paramBundle)
@@ -171,22 +187,23 @@ public abstract class YelpListFragment
     super.onCreate(paramBundle);
     if (paramBundle != null)
     {
-      e = paramBundle.getInt("limit", 20);
-      d = paramBundle.getInt("offset", 0);
-      c = paramBundle.getBoolean("completed", false);
+      f = paramBundle.getInt("limit", 20);
+      e = paramBundle.getInt("offset", 0);
+      d = paramBundle.getBoolean("completed", false);
     }
     for (;;)
     {
       b = new ArrayList();
+      c = new ArrayList();
       return;
-      e = 20;
-      d = 0;
+      f = 20;
+      e = 0;
     }
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    return paramLayoutInflater.inflate(2130903223, paramViewGroup, false);
+    return paramLayoutInflater.inflate(2130903249, paramViewGroup, false);
   }
   
   public void onItemClick(AdapterView<?> paramAdapterView, View paramView, int paramInt, long paramLong)
@@ -196,36 +213,43 @@ public abstract class YelpListFragment
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    k.a(getActivity(), paramMenuItem);
+    f.a(getActivity(), paramMenuItem);
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putInt("limit", e);
-    paramBundle.putInt("offset", d);
-    paramBundle.putBoolean("completed", c);
+    paramBundle.putInt("limit", f);
+    paramBundle.putInt("offset", e);
+    paramBundle.putBoolean("completed", d);
   }
   
   public int p()
   {
-    return d;
-  }
-  
-  public int q()
-  {
     return e;
   }
   
-  public ListAdapter r()
+  public void p_()
+  {
+    b(0);
+    b();
+  }
+  
+  public ListAdapter q()
   {
     return g;
   }
   
-  protected boolean s()
+  protected boolean r()
   {
-    return c;
+    return d;
+  }
+  
+  protected void u_()
+  {
+    m().setDividerHeight(0);
+    m().setOnItemClickListener(this);
   }
 }
 

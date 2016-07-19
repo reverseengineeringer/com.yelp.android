@@ -7,69 +7,32 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.gms.dynamic.e;
-import com.google.android.gms.internal.jx;
-import com.google.android.gms.maps.internal.IStreetViewPanoramaFragmentDelegate;
-import com.google.android.gms.maps.internal.StreetViewLifecycleDelegate;
-import com.google.android.gms.maps.internal.w;
+import com.google.android.gms.common.internal.zzx;
+import com.google.android.gms.dynamic.d;
 import com.google.android.gms.maps.model.RuntimeRemoteException;
+import com.yelp.android.bj.g;
+import com.yelp.android.bj.l;
+import com.yelp.android.bj.n.a;
+import com.yelp.android.bj.p;
 
 class SupportStreetViewPanoramaFragment$a
-  implements StreetViewLifecycleDelegate
+  implements l
 {
-  private final Fragment Mx;
-  private final IStreetViewPanoramaFragmentDelegate aln;
+  private final Fragment a;
+  private final com.yelp.android.bj.h b;
   
-  public SupportStreetViewPanoramaFragment$a(Fragment paramFragment, IStreetViewPanoramaFragmentDelegate paramIStreetViewPanoramaFragmentDelegate)
+  public SupportStreetViewPanoramaFragment$a(Fragment paramFragment, com.yelp.android.bj.h paramh)
   {
-    aln = ((IStreetViewPanoramaFragmentDelegate)jx.i(paramIStreetViewPanoramaFragmentDelegate));
-    Mx = ((Fragment)jx.i(paramFragment));
+    b = ((com.yelp.android.bj.h)zzx.zzz(paramh));
+    a = ((Fragment)zzx.zzz(paramFragment));
   }
   
-  public void getStreetViewPanoramaAsync(OnStreetViewPanoramaReadyCallback paramOnStreetViewPanoramaReadyCallback)
+  public View a(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     try
     {
-      aln.getStreetViewPanoramaAsync(new SupportStreetViewPanoramaFragment.a.1(this, paramOnStreetViewPanoramaReadyCallback));
-      return;
-    }
-    catch (RemoteException paramOnStreetViewPanoramaReadyCallback)
-    {
-      throw new RuntimeRemoteException(paramOnStreetViewPanoramaReadyCallback);
-    }
-  }
-  
-  public IStreetViewPanoramaFragmentDelegate nR()
-  {
-    return aln;
-  }
-  
-  public void onCreate(Bundle paramBundle)
-  {
-    Bundle localBundle = paramBundle;
-    if (paramBundle == null) {}
-    try
-    {
-      localBundle = new Bundle();
-      paramBundle = Mx.getArguments();
-      if ((paramBundle != null) && (paramBundle.containsKey("StreetViewPanoramaOptions"))) {
-        w.a(localBundle, "StreetViewPanoramaOptions", paramBundle.getParcelable("StreetViewPanoramaOptions"));
-      }
-      aln.onCreate(localBundle);
-      return;
-    }
-    catch (RemoteException paramBundle)
-    {
-      throw new RuntimeRemoteException(paramBundle);
-    }
-  }
-  
-  public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
-  {
-    try
-    {
-      paramLayoutInflater = aln.onCreateView(e.k(paramLayoutInflater), e.k(paramViewGroup), paramBundle);
-      return (View)e.f(paramLayoutInflater);
+      paramLayoutInflater = b.a(d.a(paramLayoutInflater), d.a(paramViewGroup), paramBundle);
+      return (View)d.a(paramLayoutInflater);
     }
     catch (RemoteException paramLayoutInflater)
     {
@@ -77,11 +40,11 @@ class SupportStreetViewPanoramaFragment$a
     }
   }
   
-  public void onDestroy()
+  public void a()
   {
     try
     {
-      aln.onDestroy();
+      b.b();
       return;
     }
     catch (RemoteException localRemoteException)
@@ -90,24 +53,11 @@ class SupportStreetViewPanoramaFragment$a
     }
   }
   
-  public void onDestroyView()
+  public void a(Activity paramActivity, Bundle paramBundle1, Bundle paramBundle2)
   {
     try
     {
-      aln.onDestroyView();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new RuntimeRemoteException(localRemoteException);
-    }
-  }
-  
-  public void onInflate(Activity paramActivity, Bundle paramBundle1, Bundle paramBundle2)
-  {
-    try
-    {
-      aln.onInflate(e.k(paramActivity), null, paramBundle2);
+      b.a(d.a(paramActivity), null, paramBundle2);
       return;
     }
     catch (RemoteException paramActivity)
@@ -116,50 +66,18 @@ class SupportStreetViewPanoramaFragment$a
     }
   }
   
-  public void onLowMemory()
+  public void a(Bundle paramBundle)
   {
+    Bundle localBundle = paramBundle;
+    if (paramBundle == null) {}
     try
     {
-      aln.onLowMemory();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new RuntimeRemoteException(localRemoteException);
-    }
-  }
-  
-  public void onPause()
-  {
-    try
-    {
-      aln.onPause();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new RuntimeRemoteException(localRemoteException);
-    }
-  }
-  
-  public void onResume()
-  {
-    try
-    {
-      aln.onResume();
-      return;
-    }
-    catch (RemoteException localRemoteException)
-    {
-      throw new RuntimeRemoteException(localRemoteException);
-    }
-  }
-  
-  public void onSaveInstanceState(Bundle paramBundle)
-  {
-    try
-    {
-      aln.onSaveInstanceState(paramBundle);
+      localBundle = new Bundle();
+      paramBundle = a.getArguments();
+      if ((paramBundle != null) && (paramBundle.containsKey("StreetViewPanoramaOptions"))) {
+        p.a(localBundle, "StreetViewPanoramaOptions", paramBundle.getParcelable("StreetViewPanoramaOptions"));
+      }
+      b.a(localBundle);
       return;
     }
     catch (RemoteException paramBundle)
@@ -168,9 +86,90 @@ class SupportStreetViewPanoramaFragment$a
     }
   }
   
-  public void onStart() {}
+  public void a(final f paramf)
+  {
+    try
+    {
+      b.a(new n.a()
+      {
+        public void a(g paramAnonymousg)
+          throws RemoteException
+        {
+          paramf.a(new h(paramAnonymousg));
+        }
+      });
+      return;
+    }
+    catch (RemoteException paramf)
+    {
+      throw new RuntimeRemoteException(paramf);
+    }
+  }
   
-  public void onStop() {}
+  public void b()
+  {
+    try
+    {
+      b.c();
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new RuntimeRemoteException(localRemoteException);
+    }
+  }
+  
+  public void b(Bundle paramBundle)
+  {
+    try
+    {
+      b.b(paramBundle);
+      return;
+    }
+    catch (RemoteException paramBundle)
+    {
+      throw new RuntimeRemoteException(paramBundle);
+    }
+  }
+  
+  public void c()
+  {
+    try
+    {
+      b.d();
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new RuntimeRemoteException(localRemoteException);
+    }
+  }
+  
+  public void d()
+  {
+    try
+    {
+      b.e();
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new RuntimeRemoteException(localRemoteException);
+    }
+  }
+  
+  public void e()
+  {
+    try
+    {
+      b.f();
+      return;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      throw new RuntimeRemoteException(localRemoteException);
+    }
+  }
 }
 
 /* Location:

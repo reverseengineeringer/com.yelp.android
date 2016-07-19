@@ -1,34 +1,35 @@
 package com.yelp.android.ui.activities.support;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import com.yelp.android.analytics.iris.b;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.n;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpApiWorkerFragment;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.h;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.ui.k;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
+import com.yelp.android.appdata.webrequests.k;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.ui.f;
 import com.yelp.android.ui.panels.PanelError;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.panels.PanelLoading;
-import com.yelp.android.ui.panels.aa;
 import com.yelp.android.util.ErrorType;
 import com.yelp.android.util.ObjectDirtyEvent;
+import com.yelp.android.util.YelpLog;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -44,34 +45,46 @@ public abstract class YelpFragment
   private final List<BroadcastReceiver> b = new ArrayList();
   private PanelLoading c;
   private PanelError d;
-  private long e;
-  protected ErrorType f;
+  private com.yelp.android.bx.a e;
+  private long f;
+  protected ErrorType h;
   
-  protected PanelLoading A()
+  protected PanelError A()
   {
-    PanelLoading localPanelLoading = new PanelLoading(getActivity(), null);
-    localPanelLoading.a(getResources().getColor(17170443));
-    a(localPanelLoading);
-    localPanelLoading.setVisibility(8);
-    return localPanelLoading;
+    if (d == null) {
+      d = B();
+    }
+    return d;
   }
   
-  protected PanelLoading B()
+  protected PanelError B()
+  {
+    return a(null);
+  }
+  
+  protected PanelLoading C()
   {
     if (c == null) {
-      c = A();
+      c = y_();
     }
     return c;
   }
   
-  protected void C()
+  protected void D()
+  {
+    if (getActivity() != null) {
+      ((YelpActivity)getActivity()).showLoadingDialog();
+    }
+  }
+  
+  protected void E()
   {
     if (getActivity() != null) {
       ((YelpActivity)getActivity()).hideLoadingDialog();
     }
   }
   
-  protected void D()
+  protected void F()
   {
     if (b != null)
     {
@@ -85,34 +98,39 @@ public abstract class YelpFragment
     }
   }
   
-  protected void E()
+  protected void G()
   {
-    com.yelp.android.av.a.a(this, AppData.b());
+    MetricsManager.a(this, AppData.b());
   }
   
-  public <Request extends ApiRequest<?, ?, Result>, Result> Request a(String paramString, Request paramRequest, m<Result> paramm)
+  public void H_()
   {
-    paramString = a.a(paramString, paramm);
+    a(null);
+  }
+  
+  public <Request extends ApiRequest<?, ?, Result>, Result> Request a(String paramString, Request paramRequest, ApiRequest.b<Result> paramb)
+  {
+    paramString = a.a(paramString, paramb);
     if (paramString != null) {
       paramRequest = paramString;
     }
     return paramRequest;
   }
   
-  public <Request extends h<?, ?, Result>, Result> Request a(String paramString, Request paramRequest, j<Result> paramj)
+  public <Request extends k<?, ?, Result>, Result> Request a(String paramString, Request paramRequest, k.b<Result> paramb)
   {
-    paramString = a.a(paramString, paramj);
+    paramString = a.a(paramString, paramb);
     if (paramString != null) {
       paramRequest = paramString;
     }
     return paramRequest;
   }
   
-  protected PanelError a(aa paramaa)
+  protected PanelError a(PanelError.a parama)
   {
     PanelError localPanelError = new PanelError(getActivity());
-    if (paramaa != null) {
-      localPanelError.a(paramaa);
+    if (parama != null) {
+      localPanelError.a(parama);
     }
     for (;;)
     {
@@ -133,19 +151,19 @@ public abstract class YelpFragment
   
   protected void a(View paramView)
   {
-    ((ViewGroup)getView().findViewById(2131493551)).addView(paramView);
+    ((ViewGroup)getView().findViewById(2131690241)).addView(paramView);
   }
   
   public void a(ApiRequest<?, ?, ?> paramApiRequest)
   {
-    a(paramApiRequest, 2131166015);
+    a(paramApiRequest, 2131166073);
   }
   
   public void a(ApiRequest<?, ?, ?> paramApiRequest, int paramInt)
   {
-    x();
-    paramApiRequest = B();
-    paramApiRequest.b(paramInt);
+    z();
+    paramApiRequest = C();
+    paramApiRequest.a(paramInt);
     paramApiRequest.setVisibility(0);
   }
   
@@ -154,9 +172,9 @@ public abstract class YelpFragment
     a(ErrorType.getTypeFromException(paramYelpException));
   }
   
-  public void a(YelpException paramYelpException, aa paramaa)
+  public void a(YelpException paramYelpException, PanelError.a parama)
   {
-    a(ErrorType.getTypeFromException(paramYelpException), paramaa);
+    a(ErrorType.getTypeFromException(paramYelpException), parama);
   }
   
   public void a(ErrorType paramErrorType)
@@ -164,14 +182,14 @@ public abstract class YelpFragment
     a(paramErrorType, null);
   }
   
-  public void a(ErrorType paramErrorType, aa paramaa)
+  public void a(ErrorType paramErrorType, PanelError.a parama)
   {
-    j();
-    x();
+    l();
+    z();
     if (getView() != null)
     {
-      PanelError localPanelError = y();
-      localPanelError.a(paramErrorType, paramaa);
+      PanelError localPanelError = A();
+      localPanelError.a(paramErrorType, parama);
       localPanelError.setVisibility(0);
     }
   }
@@ -186,27 +204,33 @@ public abstract class YelpFragment
     a.a(paramString, paramRequest);
   }
   
-  public <Request extends h<?, ?, Result>, Result> void a(String paramString, Request paramRequest)
+  public <Request extends k<?, ?, Result>, Result> void a(String paramString, Request paramRequest)
   {
-    a(paramString, paramRequest, true);
-  }
-  
-  public <Request extends h<?, ?, Result>, Result> void a(String paramString, Request paramRequest, boolean paramBoolean)
-  {
-    a.a(paramString, paramRequest, paramBoolean);
+    a.a(paramString, paramRequest);
   }
   
   protected void b(View paramView)
   {
-    ((ViewGroup)getView().findViewById(2131493551)).removeView(paramView);
+    View localView = getView();
+    if (localView != null)
+    {
+      ((ViewGroup)localView.findViewById(2131690241)).removeView(paramView);
+      return;
+    }
+    YelpLog.remoteError(this, "Trying to remove a view while the rootView is null.");
   }
   
   protected void b(ApiRequest<?, ?, ?> paramApiRequest)
   {
-    if (paramApiRequest != null)
-    {
-      paramApiRequest.cancel(true);
-      paramApiRequest.setCallback(null);
+    if (getActivity() != null) {
+      ((YelpActivity)getActivity()).showLoadingDialog(paramApiRequest);
+    }
+  }
+  
+  protected void b(ApiRequest<?, ?, ?> paramApiRequest, int paramInt)
+  {
+    if (getActivity() != null) {
+      ((YelpActivity)getActivity()).showLoadingDialog(paramApiRequest, paramInt);
     }
   }
   
@@ -215,32 +239,36 @@ public abstract class YelpFragment
     a(ObjectDirtyEvent.a(paramString), paramBroadcastReceiver);
   }
   
-  public long getComponentId()
+  protected void c(ApiRequest<?, ?, ?> paramApiRequest)
   {
-    return e;
+    if (paramApiRequest != null)
+    {
+      paramApiRequest.a(true);
+      paramApiRequest.a(null);
+    }
   }
   
-  public b getIri()
+  public long getComponentId()
+  {
+    return f;
+  }
+  
+  public com.yelp.android.analytics.iris.a getIri()
   {
     return null;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.a parama)
   {
     return Collections.emptyMap();
   }
   
-  public String getRequestIdForIri(b paramb)
+  public String getRequestIdForIri(com.yelp.android.analytics.iris.a parama)
   {
     return null;
   }
   
-  public void i_()
-  {
-    a(null);
-  }
-  
-  public void j()
+  public void l()
   {
     if (c != null)
     {
@@ -253,95 +281,103 @@ public abstract class YelpFragment
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    if (f != null) {
-      a(f);
+    if (h != null) {
+      a(h);
     }
   }
   
+  @SuppressLint({"CommitTransaction"})
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = ((YelpApiWorkerFragment)getFragmentManager().findFragmentByTag("API_WORKER_FRAGMENT"));
+    a = ((YelpApiWorkerFragment)getFragmentManager().a("API_WORKER_FRAGMENT"));
     if (a == null)
     {
       a = new YelpApiWorkerFragment();
-      getFragmentManager().beginTransaction().add(a, "API_WORKER_FRAGMENT").commit();
+      getFragmentManager().a().a(a, "API_WORKER_FRAGMENT").a();
     }
     if (paramBundle == null)
     {
-      e = new Random(System.currentTimeMillis()).nextLong();
+      f = new Random(System.currentTimeMillis()).nextLong();
       return;
     }
-    e = paramBundle.getLong("id");
+    f = paramBundle.getLong("id");
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    return paramLayoutInflater.inflate(2130903441, paramViewGroup, false);
+    return paramLayoutInflater.inflate(2130903566, paramViewGroup, false);
   }
   
   public void onDetach()
   {
     super.onDetach();
-    D();
+    F();
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    boolean bool = k.a(getActivity(), paramMenuItem);
+    boolean bool = f.a(getActivity(), paramMenuItem);
     if (bool) {
       return bool;
     }
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
+  public void onPause()
+  {
+    super.onPause();
+    if (e != null) {
+      e.c();
+    }
+  }
+  
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
     super.onPrepareOptionsMenu(paramMenu);
-    k.a(this, paramMenu);
+    f.a(this, paramMenu);
   }
   
   public void onResume()
   {
     super.onResume();
-    if (n.b(11)) {
-      w();
+    G();
+    if (e != null) {
+      e.b();
     }
-    E();
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putLong("id", e);
+    paramBundle.putLong("id", f);
+    if (e != null) {
+      e.a(paramBundle);
+    }
   }
   
-  protected void w()
+  protected void y()
   {
     ((ActionBarActivity)getActivity()).supportInvalidateOptionsMenu();
   }
   
-  public void x()
+  protected PanelLoading y_()
   {
-    f = null;
+    PanelLoading localPanelLoading = new PanelLoading(getActivity(), null);
+    localPanelLoading.setBackgroundColor(getResources().getColor(17170443));
+    a(localPanelLoading);
+    localPanelLoading.setVisibility(8);
+    return localPanelLoading;
+  }
+  
+  public void z()
+  {
+    h = null;
     if (d != null)
     {
       b(d);
       d = null;
     }
-  }
-  
-  protected PanelError y()
-  {
-    if (d == null) {
-      d = z();
-    }
-    return d;
-  }
-  
-  protected PanelError z()
-  {
-    return a(null);
   }
 }
 

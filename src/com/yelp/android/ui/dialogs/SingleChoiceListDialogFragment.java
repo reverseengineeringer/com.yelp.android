@@ -41,9 +41,9 @@ public class SingleChoiceListDialogFragment
       d[i] = ((Parcelable)localEntry.getValue());
       i += 1;
     }
-    paramBuilder.setSingleChoiceItems(c, -1, new bg(this));
+    paramBuilder.setSingleChoiceItems(c, -1, new SingleChoiceListDialogFragment.1(this));
     paramBuilder.setPositiveButton(17039379, null);
-    paramBuilder.setNegativeButton(17039360, new bh(this));
+    paramBuilder.setNegativeButton(17039360, new SingleChoiceListDialogFragment.2(this));
     return paramBuilder;
   }
   
@@ -57,7 +57,7 @@ public class SingleChoiceListDialogFragment
     super.onStart();
     AlertDialog localAlertDialog = (AlertDialog)getDialog();
     if (localAlertDialog != null) {
-      localAlertDialog.getButton(-1).setOnClickListener(new bi(this));
+      localAlertDialog.getButton(-1).setOnClickListener(new SingleChoiceListDialogFragment.3(this));
     }
   }
 }

@@ -1,20 +1,16 @@
 package com.yelp.android.analytics.iris;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
+import com.yelp.android.bs.b;
 
-final class a
-  implements Parcelable.Creator<EventIri>
+public abstract interface a
 {
-  public EventIri a(Parcel paramParcel)
-  {
-    return EventIri.values()[paramParcel.readInt()];
-  }
+  public abstract AnalyticCategory getCategory();
   
-  public EventIri[] a(int paramInt)
-  {
-    return new EventIri[paramInt];
-  }
+  public abstract b getGoogleAnalyticMetric();
+  
+  public abstract String getIriName();
+  
+  public abstract boolean isExcludedFromGoogleAnalytics();
 }
 
 /* Location:

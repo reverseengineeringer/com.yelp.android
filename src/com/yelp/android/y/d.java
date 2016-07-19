@@ -1,26 +1,32 @@
 package com.yelp.android.y;
 
-import com.bumptech.glide.load.engine.t;
-import com.bumptech.glide.load.f;
+import java.io.File;
 
-public class d<T>
-  implements f<T>
+public class d
+  implements a.a
 {
-  private static final f<?> a = new d();
+  private final int a;
+  private final a b;
   
-  public static <T> d<T> b()
+  public d(a parama, int paramInt)
   {
-    return (d)a;
+    a = paramInt;
+    b = parama;
   }
   
-  public t<T> a(t<T> paramt, int paramInt1, int paramInt2)
+  public a a()
   {
-    return paramt;
+    File localFile = b.a();
+    if (localFile == null) {}
+    while ((!localFile.mkdirs()) && ((!localFile.exists()) || (!localFile.isDirectory()))) {
+      return null;
+    }
+    return e.a(localFile, a);
   }
   
-  public String a()
+  public static abstract interface a
   {
-    return "";
+    public abstract File a();
   }
 }
 

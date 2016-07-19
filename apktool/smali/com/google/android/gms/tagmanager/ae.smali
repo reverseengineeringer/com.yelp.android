@@ -1,56 +1,57 @@
 .class Lcom/google/android/gms/tagmanager/ae;
-.super Lcom/google/android/gms/tagmanager/dd;
-
-
-# static fields
-.field private static final ID:Ljava/lang/String;
+.super Ljava/lang/Object;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method static a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/a;->at:Lcom/google/android/gms/internal/a;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/a;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/google/android/gms/tagmanager/ae;->ID:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/tagmanager/ae;->ID:Ljava/lang/String;
-
-    invoke-direct {p0, v0}, Lcom/google/android/gms/tagmanager/dd;-><init>(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method protected a(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation build Landroid/annotation/SuppressLint;
         value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Lcom/google/android/gms/internal/d$a;",
-            ">;)Z"
+            "CommitPrefEdits"
         }
     .end annotation
 
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/4 v0, 0x0
 
-    move-result v0
+    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    return v0
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0, p2, p3}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/ae;->a(Landroid/content/SharedPreferences$Editor;)V
+
+    return-void
+.end method
+
+.method static a(Landroid/content/SharedPreferences$Editor;)V
+    .locals 2
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x9
+
+    if-lt v0, v1, :cond_0
+
+    invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/Thread;
+
+    new-instance v1, Lcom/google/android/gms/tagmanager/ae$1;
+
+    invoke-direct {v1, p0}, Lcom/google/android/gms/tagmanager/ae$1;-><init>(Landroid/content/SharedPreferences$Editor;)V
+
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+
+    goto :goto_0
 .end method

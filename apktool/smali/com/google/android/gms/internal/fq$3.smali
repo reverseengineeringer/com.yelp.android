@@ -1,19 +1,34 @@
-.class final Lcom/google/android/gms/internal/fq$3;
+.class Lcom/google/android/gms/internal/fq$3;
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/gms/internal/gv$a;
+.implements Lcom/google/android/gms/internal/bz;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/google/android/gms/internal/fq;->a(Lcom/google/android/gms/ads/internal/formats/h$a;Lcom/google/android/gms/internal/cy;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
 
 
 # instance fields
-.field final synthetic uC:Ljava/lang/String;
+.field final synthetic a:Lcom/google/android/gms/ads/internal/formats/f;
+
+.field final synthetic b:Lcom/google/android/gms/internal/fq;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method constructor <init>(Lcom/google/android/gms/internal/fq;Lcom/google/android/gms/ads/internal/formats/f;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/fq$3;->uC:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/gms/internal/fq$3;->b:Lcom/google/android/gms/internal/fq;
+
+    iput-object p2, p0, Lcom/google/android/gms/internal/fq$3;->a:Lcom/google/android/gms/ads/internal/formats/f;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -22,52 +37,33 @@
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/internal/gu;)V
-    .locals 4
+.method public a(Lcom/google/android/gms/internal/ib;Ljava/util/Map;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/internal/ib;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
-    const-string/jumbo v0, "javascript:%s(%s);"
+    const-string/jumbo v0, "asset"
 
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    const-string/jumbo v3, "AFMA_buildAdURL"
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x1
-
-    iget-object v3, p0, Lcom/google/android/gms/internal/fq$3;->uC:Ljava/lang/String;
-
-    aput-object v3, v1, v2
-
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    check-cast v0, Ljava/lang/String;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v1, p0, Lcom/google/android/gms/internal/fq$3;->b:Lcom/google/android/gms/internal/fq;
 
-    const-string/jumbo v2, "About to execute: "
+    iget-object v2, p0, Lcom/google/android/gms/internal/fq$3;->a:Lcom/google/android/gms/ads/internal/formats/f;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/android/gms/internal/gr;->V(Ljava/lang/String;)V
-
-    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/gu;->loadUrl(Ljava/lang/String;)V
+    invoke-static {v1, v2, v0}, Lcom/google/android/gms/internal/fq;->a(Lcom/google/android/gms/internal/fq;Lcom/google/android/gms/internal/bl;Ljava/lang/String;)V
 
     return-void
 .end method

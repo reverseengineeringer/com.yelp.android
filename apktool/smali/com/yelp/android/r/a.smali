@@ -1,169 +1,120 @@
 .class public abstract Lcom/yelp/android/r/a;
 .super Ljava/lang/Object;
-.source "AssetPathFetcher.java"
-
-# interfaces
-.implements Lcom/yelp/android/r/c;
+.source "ActionMode.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/Signature;
+.annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/r/c",
-        "<TT;>;"
+        Lcom/yelp/android/r/a$a;
     }
 .end annotation
 
 
 # instance fields
-.field private final a:Ljava/lang/String;
+.field private a:Ljava/lang/Object;
 
-.field private final b:Landroid/content/res/AssetManager;
-
-.field private c:Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "TT;"
-        }
-    .end annotation
-.end field
+.field private b:Z
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
+.method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 21
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 22
-    iput-object p1, p0, Lcom/yelp/android/r/a;->b:Landroid/content/res/AssetManager;
-
-    .line 23
-    iput-object p2, p0, Lcom/yelp/android/r/a;->a:Ljava/lang/String;
-
-    .line 24
+    .line 240
     return-void
 .end method
 
 
 # virtual methods
-.method protected abstract a(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/res/AssetManager;",
-            "Ljava/lang/String;",
-            ")TT;"
-        }
-    .end annotation
+.method public abstract a()Landroid/view/MenuInflater;
 .end method
 
-.method public a(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/bumptech/glide/Priority;",
-            ")TT;"
-        }
-    .end annotation
-
-    .prologue
-    .line 28
-    iget-object v0, p0, Lcom/yelp/android/r/a;->b:Landroid/content/res/AssetManager;
-
-    iget-object v1, p0, Lcom/yelp/android/r/a;->a:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/r/a;->a(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/r/a;->c:Ljava/lang/Object;
-
-    .line 29
-    iget-object v0, p0, Lcom/yelp/android/r/a;->c:Ljava/lang/Object;
-
-    return-object v0
+.method public abstract a(I)V
 .end method
 
-.method public a()V
-    .locals 3
-
-    .prologue
-    .line 34
-    iget-object v0, p0, Lcom/yelp/android/r/a;->c:Ljava/lang/Object;
-
-    if-nez v0, :cond_1
-
-    .line 45
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 38
-    :cond_1
-    :try_start_0
-    iget-object v0, p0, Lcom/yelp/android/r/a;->c:Ljava/lang/Object;
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/r/a;->a(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 39
-    :catch_0
-    move-exception v0
-
-    .line 40
-    const-string/jumbo v1, "AssetUriFetcher"
-
-    const/4 v2, 0x2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 41
-    const-string/jumbo v1, "AssetUriFetcher"
-
-    const-string/jumbo v2, "Failed to close data"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
+.method public abstract a(Landroid/view/View;)V
 .end method
 
-.method protected abstract a(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
+.method public abstract a(Ljava/lang/CharSequence;)V
 .end method
 
-.method public b()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/r/a;->a:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public c()V
+.method public a(Ljava/lang/Object;)V
     .locals 0
 
     .prologue
-    .line 55
+    .line 53
+    iput-object p1, p0, Lcom/yelp/android/r/a;->a:Ljava/lang/Object;
+
+    .line 54
     return-void
+.end method
+
+.method public a(Z)V
+    .locals 0
+
+    .prologue
+    .line 130
+    iput-boolean p1, p0, Lcom/yelp/android/r/a;->b:Z
+
+    .line 131
+    return-void
+.end method
+
+.method public abstract b()Landroid/view/Menu;
+.end method
+
+.method public abstract b(I)V
+.end method
+
+.method public abstract b(Ljava/lang/CharSequence;)V
+.end method
+
+.method public abstract c()V
+.end method
+
+.method public abstract d()V
+.end method
+
+.method public abstract f()Ljava/lang/CharSequence;
+.end method
+
+.method public abstract g()Ljava/lang/CharSequence;
+.end method
+
+.method public h()Z
+    .locals 1
+
+    .prologue
+    .line 149
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public abstract i()Landroid/view/View;
+.end method
+
+.method public j()Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 67
+    iget-object v0, p0, Lcom/yelp/android/r/a;->a:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method public k()Z
+    .locals 1
+
+    .prologue
+    .line 141
+    iget-boolean v0, p0, Lcom/yelp/android/r/a;->b:Z
+
+    return v0
 .end method

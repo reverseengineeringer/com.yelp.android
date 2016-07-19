@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/ShareRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "ShareType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -39,7 +48,7 @@
 
     const/4 v3, 0x0
 
-    .line 11
+    .line 9
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
     const-string/jumbo v1, "YELP"
@@ -50,6 +59,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->YELP:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
+    .line 10
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
     const-string/jumbo v1, "FACEBOOK"
@@ -60,6 +70,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->FACEBOOK:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
+    .line 11
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
     const-string/jumbo v1, "TWITTER"
@@ -70,7 +81,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->TWITTER:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
-    .line 10
+    .line 8
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
@@ -117,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 10
+    .line 8
     const-class v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -133,7 +144,7 @@
     .locals 1
 
     .prologue
-    .line 10
+    .line 8
     sget-object v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->$VALUES:[Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->clone()Ljava/lang/Object;
@@ -152,7 +163,7 @@
 
     .prologue
     .line 24
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/fx;->a:[I
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$1;->a:[I
 
     invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->ordinal()I
 
@@ -163,20 +174,20 @@
     packed-switch v0, :pswitch_data_0
 
     .line 31
-    const v0, 0x7f0704ac
+    const v0, 0x7f0704c5
 
     :goto_0
     return v0
 
     .line 26
     :pswitch_0
-    const v0, 0x7f07026a
+    const v0, 0x7f0702c1
 
     goto :goto_0
 
     .line 28
     :pswitch_1
-    const v0, 0x7f070621
+    const v0, 0x7f07060d
 
     goto :goto_0
 

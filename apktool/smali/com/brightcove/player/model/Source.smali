@@ -3,6 +3,14 @@
 .source "Source.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/model/Source$Fields;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 1

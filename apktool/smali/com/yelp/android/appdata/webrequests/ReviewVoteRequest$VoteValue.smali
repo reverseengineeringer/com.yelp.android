@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "VoteValue"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -44,6 +53,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest$VoteValue;->USEFUL:Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest$VoteValue;
 
+    .line 43
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest$VoteValue;
 
     const-string/jumbo v1, "FUNNY"
@@ -52,6 +62,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest$VoteValue;->FUNNY:Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest$VoteValue;
 
+    .line 44
     new-instance v0, Lcom/yelp/android/appdata/webrequests/ReviewVoteRequest$VoteValue;
 
     const-string/jumbo v1, "COOL"

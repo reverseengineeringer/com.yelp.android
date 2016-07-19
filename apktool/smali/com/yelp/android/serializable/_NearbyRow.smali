@@ -7,13 +7,7 @@
 
 
 # instance fields
-.field protected mEndAction:Ljava/lang/String;
-
-.field protected mEndActionString:Ljava/lang/String;
-
-.field protected mHeader:Ljava/lang/String;
-
-.field protected mResults:Ljava/util/List;
+.field protected a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -24,11 +18,17 @@
     .end annotation
 .end field
 
-.field protected mRowId:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mTag:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mTopResultCount:I
+.field protected d:Ljava/lang/String;
+
+.field protected e:Ljava/lang/String;
+
+.field protected f:Ljava/lang/String;
+
+.field protected g:I
 
 
 # direct methods
@@ -36,156 +36,128 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 38
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/NearbyResult;",
-            ">;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "I)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 26
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_NearbyRow;-><init>()V
-
-    .line 27
-    iput-object p1, p0, Lcom/yelp/android/serializable/_NearbyRow;->mResults:Ljava/util/List;
-
-    .line 28
-    iput-object p2, p0, Lcom/yelp/android/serializable/_NearbyRow;->mHeader:Ljava/lang/String;
-
-    .line 29
-    iput-object p3, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndAction:Ljava/lang/String;
-
-    .line 30
-    iput-object p4, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndActionString:Ljava/lang/String;
-
-    .line 31
-    iput-object p5, p0, Lcom/yelp/android/serializable/_NearbyRow;->mRowId:Ljava/lang/String;
-
-    .line 32
-    iput-object p6, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTag:Ljava/lang/String;
-
-    .line 33
-    iput p7, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTopResultCount:I
-
-    .line 34
+    .line 47
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 64
-    const/4 v0, 0x0
+    .line 132
+    const-class v0, Lcom/yelp/android/serializable/NearbyResult;
 
-    return v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readArrayList(Ljava/lang/ClassLoader;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
+
+    .line 133
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->b:Ljava/lang/String;
+
+    .line 134
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->c:Ljava/lang/String;
+
+    .line 135
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->d:Ljava/lang/String;
+
+    .line 136
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->e:Ljava/lang/String;
+
+    .line 137
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->f:Ljava/lang/String;
+
+    .line 138
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->g:I
+
+    .line 139
+    return-void
 .end method
 
-.method public getEndAction()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndAction:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getEndActionString()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 50
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndActionString:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getHeader()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 44
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mHeader:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getResults()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/NearbyResult;",
-            ">;"
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 41
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mResults:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method public getRowId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 53
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mRowId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTag()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 56
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTag:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTopResultCount()I
-    .locals 1
-
-    .prologue
-    .line 59
-    iget v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTopResultCount:I
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 2
-
-    .prologue
-    .line 88
+    .line 142
     const-string/jumbo v0, "results"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -194,7 +166,7 @@
 
     if-nez v0, :cond_5
 
-    .line 89
+    .line 143
     const-string/jumbo v0, "results"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -207,9 +179,9 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mResults:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
 
-    .line 93
+    .line 147
     :goto_0
     const-string/jumbo v0, "header"
 
@@ -219,16 +191,16 @@
 
     if-nez v0, :cond_0
 
-    .line 94
+    .line 148
     const-string/jumbo v0, "header"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mHeader:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->b:Ljava/lang/String;
 
-    .line 96
+    .line 150
     :cond_0
     const-string/jumbo v0, "end_action"
 
@@ -238,16 +210,16 @@
 
     if-nez v0, :cond_1
 
-    .line 97
+    .line 151
     const-string/jumbo v0, "end_action"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndAction:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->c:Ljava/lang/String;
 
-    .line 99
+    .line 153
     :cond_1
     const-string/jumbo v0, "end_action_string"
 
@@ -257,16 +229,16 @@
 
     if-nez v0, :cond_2
 
-    .line 100
+    .line 154
     const-string/jumbo v0, "end_action_string"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndActionString:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->d:Ljava/lang/String;
 
-    .line 102
+    .line 156
     :cond_2
     const-string/jumbo v0, "row_id"
 
@@ -276,16 +248,16 @@
 
     if-nez v0, :cond_3
 
-    .line 103
+    .line 157
     const-string/jumbo v0, "row_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mRowId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->e:Ljava/lang/String;
 
-    .line 105
+    .line 159
     :cond_3
     const-string/jumbo v0, "tag"
 
@@ -295,16 +267,16 @@
 
     if-nez v0, :cond_4
 
-    .line 106
+    .line 160
     const-string/jumbo v0, "tag"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTag:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->f:Ljava/lang/String;
 
-    .line 108
+    .line 162
     :cond_4
     const-string/jumbo v0, "top_result_count"
 
@@ -312,120 +284,284 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTopResultCount:I
+    iput v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->g:I
 
-    .line 109
+    .line 163
     return-void
 
-    .line 91
+    .line 145
     :cond_5
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mResults:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
 
     goto :goto_0
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()I
     .locals 1
 
     .prologue
-    .line 78
-    sget-object v0, Lcom/yelp/android/serializable/NearbyResult;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
+    .line 114
+    iget v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->g:I
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+    return v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 106
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 94
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 118
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/NearbyResult;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 90
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 51
+    if-nez p1, :cond_1
+
+    .line 65
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 55
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 56
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 59
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 63
+    check-cast p1, Lcom/yelp/android/serializable/_NearbyRow;
+
+    .line 65
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mResults:Ljava/util/List;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->b:Ljava/lang/String;
 
-    .line 79
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_NearbyRow;->b:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mHeader:Ljava/lang/String;
-
-    .line 80
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndAction:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->c:Ljava/lang/String;
 
-    .line 81
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_NearbyRow;->c:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndActionString:Ljava/lang/String;
-
-    .line 82
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mRowId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->d:Ljava/lang/String;
 
-    .line 83
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_NearbyRow;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTag:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->e:Ljava/lang/String;
 
-    .line 84
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    iget-object v2, p1, Lcom/yelp/android/serializable/_NearbyRow;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_NearbyRow;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->g:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_NearbyRow;->g:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTopResultCount:I
+    goto :goto_0
+.end method
 
-    .line 85
-    return-void
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 78
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_NearbyRow;->g:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mResults:Ljava/util/List;
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->a:Ljava/util/List;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mHeader:Ljava/lang/String;
+    .line 123
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 70
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndAction:Ljava/lang/String;
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 71
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mEndActionString:Ljava/lang/String;
+    .line 125
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mRowId:Ljava/lang/String;
+    .line 126
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 73
-    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTag:Ljava/lang/String;
+    .line 127
+    iget-object v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 74
-    iget v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->mTopResultCount:I
+    .line 128
+    iget v0, p0, Lcom/yelp/android/serializable/_NearbyRow;->g:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 75
+    .line 129
     return-void
 .end method

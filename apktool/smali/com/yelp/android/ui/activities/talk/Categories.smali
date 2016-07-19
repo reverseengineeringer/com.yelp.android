@@ -74,7 +74,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0705ac
+    const v3, 0x7f07006c
 
     invoke-direct {v0, v1, v2, v3, v5}, Lcom/yelp/android/ui/activities/talk/Categories;-><init>(Ljava/lang/String;III)V
 
@@ -85,7 +85,7 @@
 
     const-string/jumbo v1, "EVENTS"
 
-    const v2, 0x7f0705b2
+    const v2, 0x7f070072
 
     invoke-direct {v0, v1, v5, v2, v6}, Lcom/yelp/android/ui/activities/talk/Categories;-><init>(Ljava/lang/String;III)V
 
@@ -96,7 +96,7 @@
 
     const-string/jumbo v1, "HUMOR_OFFBEAT"
 
-    const v2, 0x7f0705b3
+    const v2, 0x7f070073
 
     invoke-direct {v0, v1, v6, v2, v7}, Lcom/yelp/android/ui/activities/talk/Categories;-><init>(Ljava/lang/String;III)V
 
@@ -107,7 +107,7 @@
 
     const-string/jumbo v1, "ENTERTAINMENT_POP_CULTURE"
 
-    const v2, 0x7f0705b4
+    const v2, 0x7f070074
 
     invoke-direct {v0, v1, v7, v2, v8}, Lcom/yelp/android/ui/activities/talk/Categories;-><init>(Ljava/lang/String;III)V
 
@@ -118,7 +118,7 @@
 
     const-string/jumbo v1, "SPORTS"
 
-    const v2, 0x7f0705b5
+    const v2, 0x7f070075
 
     invoke-direct {v0, v1, v8, v2, v9}, Lcom/yelp/android/ui/activities/talk/Categories;-><init>(Ljava/lang/String;III)V
 
@@ -129,7 +129,7 @@
 
     const-string/jumbo v1, "NEWS_POLITICS"
 
-    const v2, 0x7f0705b6
+    const v2, 0x7f070076
 
     const/4 v3, 0x6
 
@@ -144,7 +144,7 @@
 
     const/4 v2, 0x6
 
-    const v3, 0x7f0705b7
+    const v3, 0x7f070077
 
     const/4 v4, 0x7
 
@@ -159,7 +159,7 @@
 
     const/4 v2, 0x7
 
-    const v3, 0x7f0705b8
+    const v3, 0x7f070078
 
     const/16 v4, 0x8
 
@@ -174,7 +174,7 @@
 
     const/16 v2, 0x8
 
-    const v3, 0x7f0705b9
+    const v3, 0x7f070079
 
     const/16 v4, 0x9
 
@@ -189,7 +189,7 @@
 
     const/16 v2, 0x9
 
-    const v3, 0x7f0705ad
+    const v3, 0x7f07006d
 
     const/16 v4, 0xa
 
@@ -204,7 +204,7 @@
 
     const/16 v2, 0xa
 
-    const v3, 0x7f0705ae
+    const v3, 0x7f07006e
 
     const/16 v4, 0xb
 
@@ -219,7 +219,7 @@
 
     const/16 v2, 0xb
 
-    const v3, 0x7f0705af
+    const v3, 0x7f07006f
 
     const/16 v4, 0xc
 
@@ -234,7 +234,7 @@
 
     const/16 v2, 0xc
 
-    const v3, 0x7f0705b0
+    const v3, 0x7f070070
 
     const/16 v4, 0xd
 
@@ -249,7 +249,7 @@
 
     const/16 v2, 0xd
 
-    const v3, 0x7f0705b1
+    const v3, 0x7f070071
 
     const/16 v4, 0xe
 

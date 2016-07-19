@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/LocationService;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Accuracies"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -47,7 +56,7 @@
 
     const/4 v3, 0x0
 
-    .line 20
+    .line 21
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     const-string/jumbo v1, "FINE"
@@ -58,6 +67,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Accuracies;->FINE:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
+    .line 22
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     const-string/jumbo v1, "MEDIUM"
@@ -68,6 +78,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Accuracies;->MEDIUM:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
+    .line 23
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     const-string/jumbo v1, "MEDIUM_KM"
@@ -78,6 +89,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Accuracies;->MEDIUM_KM:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
+    .line 24
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     const-string/jumbo v1, "COARSE"
@@ -88,6 +100,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Accuracies;->COARSE:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
+    .line 25
     new-instance v0, Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     const-string/jumbo v1, "UNKNOWN"
@@ -98,7 +111,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/LocationService$Accuracies;->UNKNOWN:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
-    .line 19
+    .line 20
     const/4 v0, 0x5
 
     new-array v0, v0, [Lcom/yelp/android/appdata/LocationService$Accuracies;
@@ -137,13 +150,13 @@
     .end annotation
 
     .prologue
-    .line 22
+    .line 27
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 23
+    .line 28
     iput p3, p0, Lcom/yelp/android/appdata/LocationService$Accuracies;->meters:I
 
-    .line 24
+    .line 29
     return-void
 .end method
 
@@ -151,7 +164,7 @@
     .locals 1
 
     .prologue
-    .line 19
+    .line 20
     const-class v0, Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -167,7 +180,7 @@
     .locals 1
 
     .prologue
-    .line 19
+    .line 20
     sget-object v0, Lcom/yelp/android/appdata/LocationService$Accuracies;->$VALUES:[Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/LocationService$Accuracies;->clone()Ljava/lang/Object;
@@ -185,7 +198,7 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 34
     iget v0, p0, Lcom/yelp/android/appdata/LocationService$Accuracies;->meters:I
 
     return v0
@@ -199,7 +212,7 @@
 
     const/4 v1, 0x0
 
-    .line 33
+    .line 38
     sget-object v2, Lcom/yelp/android/appdata/LocationService$Accuracies;->UNKNOWN:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
     invoke-virtual {p0, v2}, Lcom/yelp/android/appdata/LocationService$Accuracies;->equals(Ljava/lang/Object;)Z
@@ -208,12 +221,12 @@
 
     if-eqz v2, :cond_1
 
-    .line 37
+    .line 44
     :cond_0
     :goto_0
     return v0
 
-    .line 35
+    .line 41
     :cond_1
     if-eqz p1, :cond_2
 
@@ -226,10 +239,10 @@
     :cond_2
     move v0, v1
 
-    .line 36
+    .line 42
     goto :goto_0
 
-    .line 37
+    .line 44
     :cond_3
     invoke-virtual {p0}, Lcom/yelp/android/appdata/LocationService$Accuracies;->getMeters()I
 
@@ -243,7 +256,7 @@
 
     cmpl-float v2, v2, v3
 
-    if-gtz v2, :cond_0
+    if-gez v2, :cond_0
 
     move v0, v1
 

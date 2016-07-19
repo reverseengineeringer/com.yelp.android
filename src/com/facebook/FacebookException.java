@@ -17,9 +17,19 @@ public class FacebookException
     super(paramString, paramThrowable);
   }
   
+  public FacebookException(String paramString, Object... paramVarArgs)
+  {
+    this(String.format(paramString, paramVarArgs));
+  }
+  
   public FacebookException(Throwable paramThrowable)
   {
     super(paramThrowable);
+  }
+  
+  public String toString()
+  {
+    return getMessage();
   }
 }
 

@@ -1,90 +1,134 @@
-.class Lcom/yelp/android/bb/f;
-.super Ljava/lang/Object;
-.source "ConversationMessagesAdapter.java"
+.class public Lcom/yelp/android/bb/f;
+.super Lcom/yelp/android/bb/c$a;
 
-# interfaces
-.implements Landroid/view/View$OnClickListener;
+
+# annotations
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/serializable/ConversationMessage;
-
-.field final synthetic b:Lcom/yelp/android/serializable/bg;
-
-.field final synthetic c:Lcom/yelp/android/bb/d;
+.field private final a:Lcom/yelp/android/be/b;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/bb/d;Lcom/yelp/android/serializable/ConversationMessage;Lcom/yelp/android/serializable/bg;)V
+.method public constructor <init>(Lcom/yelp/android/be/b;)V
     .locals 0
 
-    .prologue
-    .line 80
-    iput-object p1, p0, Lcom/yelp/android/bb/f;->c:Lcom/yelp/android/bb/d;
+    invoke-direct {p0}, Lcom/yelp/android/bb/c$a;-><init>()V
 
-    iput-object p2, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/serializable/ConversationMessage;
-
-    iput-object p3, p0, Lcom/yelp/android/bb/f;->b:Lcom/yelp/android/serializable/bg;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput-object p1, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public a()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    invoke-interface {v0}, Lcom/yelp/android/be/b;->a()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public a(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/be/b;->a(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/bb/a;)V
     .locals 2
 
-    .prologue
-    .line 84
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
 
-    move-result-object v0
+    if-eqz v0, :cond_0
 
-    .line 85
-    iget-object v1, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/serializable/ConversationMessage;
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/ConversationMessage;->getBizUser()Lcom/yelp/android/serializable/BusinessUser;
+    new-instance v1, Lcom/yelp/android/bb/d;
 
-    move-result-object v1
+    invoke-direct {v1, p1}, Lcom/yelp/android/bb/d;-><init>(Lcom/yelp/android/bb/a;)V
 
-    if-nez v1, :cond_0
+    invoke-interface {v0, v1}, Lcom/yelp/android/be/b;->a(Lcom/yelp/android/be/a;)V
 
-    .line 86
-    iget-object v1, p0, Lcom/yelp/android/bb/f;->b:Lcom/yelp/android/serializable/bg;
-
-    invoke-interface {v1}, Lcom/yelp/android/serializable/bg;->getId()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/profile/ActivityUserProfile;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    .line 92
-    :goto_0
-    return-void
-
-    .line 89
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/bb/f;->c:Lcom/yelp/android/bb/d;
+    return-void
+.end method
 
-    invoke-static {v1}, Lcom/yelp/android/bb/d;->a(Lcom/yelp/android/bb/d;)Lcom/yelp/android/serializable/Conversation;
+.method public b()V
+    .locals 1
 
-    move-result-object v1
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Conversation;->getBusinessId()Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    move-result-object v1
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-interface {v0}, Lcom/yelp/android/be/b;->b()V
 
-    move-result-object v1
+    :cond_0
+    return-void
+.end method
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+.method public c()V
+    .locals 1
 
-    goto :goto_0
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    invoke-interface {v0}, Lcom/yelp/android/be/b;->c()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public d()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    invoke-interface {v0}, Lcom/yelp/android/be/b;->d()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public e()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/bb/f;->a:Lcom/yelp/android/be/b;
+
+    invoke-interface {v0}, Lcom/yelp/android/be/b;->e()V
+
+    :cond_0
+    return-void
 .end method

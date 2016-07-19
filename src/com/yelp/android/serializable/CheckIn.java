@@ -6,22 +6,17 @@ import java.util.Date;
 public abstract interface CheckIn
   extends Parcelable
 {
-  public static final String EXTRA_CHECK_IN = "extra.check_in";
-  public static final String EXTRA_MULTIPLE_CHECK_INS = "extra.multiple";
+  public abstract String a();
   
-  public abstract String getAppName();
+  public abstract String c();
   
-  public abstract YelpBusiness getBusiness();
+  public abstract YelpBusiness d();
   
-  public abstract String getBusinessId();
+  public abstract Date e();
   
-  public abstract Date getDateCreated();
+  public abstract String f();
   
-  public abstract String getLocation();
-  
-  public abstract String getUserName();
-  
-  public abstract String getUserPhotoUrl();
+  public abstract String g();
 }
 
 /* Location:

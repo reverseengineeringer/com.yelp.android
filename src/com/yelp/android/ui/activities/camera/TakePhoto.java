@@ -1,36 +1,49 @@
 package com.yelp.android.ui.activities.camera;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Camera;
+import android.location.Location;
+import android.media.ExifInterface;
 import android.os.AsyncTask.Status;
 import android.os.Bundle;
-import android.view.SurfaceView;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.Features;
+import com.yelp.android.appdata.LocationService;
+import com.yelp.android.appdata.PermissionGroup;
+import com.yelp.android.appdata.f;
+import com.yelp.android.appdata.k;
 import com.yelp.android.ui.activities.gallery.ActivityChooseFromGallery;
 import com.yelp.android.ui.activities.media.ActivityMediaContributionDelegate;
-import com.yelp.android.ui.activities.media.d;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.util.ImageInputHelper.ImageSource;
 import com.yelp.android.ui.util.MediaStoreUtil.MediaType;
-import com.yelp.android.util.f;
+import com.yelp.android.ui.util.as;
+import com.yelp.android.util.YelpLog;
+import com.yelp.android.util.d;
 import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.EnumSet;
+import java.util.Map;
 
 public class TakePhoto
   extends YelpActivity
 {
   private String a;
-  private SurfaceView b;
+  private YelpSurfaceView b;
   private View c;
   private CameraWrangler d;
   private boolean e;
-  private d f;
+  private com.yelp.android.ui.activities.media.b f;
+  private File g;
+  private int h;
   
   public static Intent a(Context paramContext)
   {
@@ -65,7 +78,7 @@ public class TakePhoto
   public static Intent a(Intent paramIntent, File paramFile, ImageInputHelper.ImageSource paramImageSource, boolean paramBoolean)
   {
     paramIntent.putExtra("extra_file_path", paramFile.getAbsolutePath());
-    f.a(paramIntent, "extra_media_source", paramImageSource);
+    d.a(paramIntent, "extra_media_source", paramImageSource);
     paramIntent.putExtra("extra_is_video", paramBoolean);
     return paramIntent;
   }
@@ -85,19 +98,23 @@ public class TakePhoto
   
   public static File a(Intent paramIntent)
   {
-    return new File(paramIntent.getStringExtra("extra_file_path"));
+    paramIntent = paramIntent.getStringExtra("extra_file_path");
+    if (paramIntent == null) {
+      return null;
+    }
+    return new File(paramIntent);
   }
   
   public static ImageInputHelper.ImageSource b(Intent paramIntent)
   {
-    return (ImageInputHelper.ImageSource)f.a(paramIntent, "extra_media_source", ImageInputHelper.ImageSource.class);
+    return (ImageInputHelper.ImageSource)d.a(paramIntent, "extra_media_source", ImageInputHelper.ImageSource.class);
   }
   
   private void c()
   {
     d.a(b);
-    d.a(b, new q(this, null));
-    d.a(b, (ViewTakePhotoOverlay)findViewById(2131493300));
+    d.a(b, new a(null));
+    d.a(b, (ViewTakePhotoOverlay)findViewById(2131689956));
   }
   
   public static boolean c(Intent paramIntent)
@@ -107,9 +124,31 @@ public class TakePhoto
   
   private void d()
   {
-    View localView = findViewById(2131493305);
+    View localView = findViewById(2131689961);
     localView.setVisibility(8);
-    localView.setOnClickListener(new n(this));
+    localView.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        EnumSet localEnumSet = TakePhoto.a(TakePhoto.this).e();
+        localEnumSet.remove(CameraWrangler.FlashMode.TORCH);
+        CameraWrangler.FlashMode localFlashMode = TakePhoto.a(TakePhoto.this).g();
+        CameraWrangler.FlashMode[] arrayOfFlashMode = CameraWrangler.FlashMode.values();
+        for (int i = localFlashMode.ordinal() + 1 % arrayOfFlashMode.length;; i = (i + 1) % arrayOfFlashMode.length) {
+          if (i != localFlashMode.ordinal())
+          {
+            if (localEnumSet.contains(arrayOfFlashMode[i]))
+            {
+              TakePhoto.a(TakePhoto.this).f().a(arrayOfFlashMode[i]).a();
+              ((ImageView)paramAnonymousView).setImageLevel(arrayOfFlashMode[i].ordinal());
+            }
+          }
+          else {
+            return;
+          }
+        }
+      }
+    });
   }
   
   public static boolean d(Intent paramIntent)
@@ -124,9 +163,15 @@ public class TakePhoto
   
   private void e()
   {
-    ImageView localImageView = (ImageView)findViewById(2131493303);
-    localImageView.setOnClickListener(new o(this));
-    f = new d(this, localImageView, MediaStoreUtil.MediaType.PHOTO);
+    ImageView localImageView = (ImageView)findViewById(2131689959);
+    localImageView.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        TakePhoto.c(TakePhoto.this);
+      }
+    });
+    f = new com.yelp.android.ui.activities.media.b(this, localImageView, MediaStoreUtil.MediaType.PHOTO);
     f.execute(new Void[0]);
   }
   
@@ -142,7 +187,7 @@ public class TakePhoto
       finish();
       return;
     }
-    startActivityForResult(ActivityChooseFromGallery.a(this, MediaStoreUtil.MediaType.PHOTO, true, false, a), 1029);
+    startActivityForResult(ActivityChooseFromGallery.a(this, MediaStoreUtil.MediaType.PHOTO, true, false, a), 1032);
   }
   
   public CameraWrangler a()
@@ -150,14 +195,29 @@ public class TakePhoto
     return d;
   }
   
-  @TargetApi(9)
   void a(View paramView)
   {
     if (Camera.getNumberOfCameras() > 1) {}
     for (int i = 0;; i = 8)
     {
       paramView.setVisibility(i);
-      paramView.setOnClickListener(new p(this));
+      paramView.setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          try
+          {
+            TakePhoto.a(TakePhoto.this).a((TakePhoto.a(TakePhoto.this).a() + 1) % Camera.getNumberOfCameras(), TakePhoto.d(TakePhoto.this).getHolder());
+            TakePhoto.d(TakePhoto.this).requestLayout();
+            return;
+          }
+          catch (IOException paramAnonymousView)
+          {
+            YelpLog.e(TakePhoto.this, "Could not open camera", paramAnonymousView);
+            finish();
+          }
+        }
+      });
       return;
     }
   }
@@ -191,6 +251,7 @@ public class TakePhoto
         setResult(paramInt2, paramIntent);
         finish();
         continue;
+        setIntent(a(getIntent(), g, ImageInputHelper.ImageSource.CAMERA, false));
         if (paramInt2 == -1)
         {
           setResult(-1, getIntent());
@@ -215,15 +276,20 @@ public class TakePhoto
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
+    k.a(this, 250, new PermissionGroup[] { PermissionGroup.CAMERA, PermissionGroup.STORAGE });
     Intent localIntent = getIntent();
     if (paramBundle == null) {}
     for (int i = localIntent.getIntExtra("CameraId", 0);; i = paramBundle.getInt("CameraId"))
     {
+      h = i;
       a = localIntent.getStringExtra("extra_business_id");
       e = localIntent.getBooleanExtra("extra_started_from_gallery", false);
-      d = b();
-      if (d == null) {
-        d = new CameraWrangler(i, getWindowManager().getDefaultDisplay());
+      if (k.a(this, PermissionGroup.CAMERA))
+      {
+        d = b();
+        if (d == null) {
+          d = new CameraWrangler(h, getWindowManager().getDefaultDisplay());
+        }
       }
       if (getAppData().h().a()) {
         break;
@@ -231,13 +297,15 @@ public class TakePhoto
       f();
       return;
     }
-    setContentView(2130903116);
+    setContentView(2130903125);
   }
   
   protected void onDestroy()
   {
     super.onDestroy();
-    d.c();
+    if (d != null) {
+      d.c();
+    }
   }
   
   protected void onPause()
@@ -251,34 +319,83 @@ public class TakePhoto
     }
   }
   
+  public void onRequestPermissionsResult(int paramInt, String[] paramArrayOfString, int[] paramArrayOfInt)
+  {
+    if (250 == paramInt)
+    {
+      paramArrayOfString = k.a(paramArrayOfString, paramArrayOfInt);
+      if ((paramArrayOfString.containsKey(PermissionGroup.CAMERA)) && (!((Boolean)paramArrayOfString.get(PermissionGroup.CAMERA)).booleanValue()))
+      {
+        as.a(2131166342, 0);
+        setResult(0);
+        finish();
+      }
+      do
+      {
+        return;
+        if ((paramArrayOfString.containsKey(PermissionGroup.STORAGE)) && (!((Boolean)paramArrayOfString.get(PermissionGroup.STORAGE)).booleanValue()))
+        {
+          as.a(2131166342, 0);
+          setResult(0);
+          finish();
+          return;
+        }
+      } while (paramArrayOfString.size() <= 0);
+      recreate();
+      return;
+    }
+    super.onRequestPermissionsResult(paramInt, paramArrayOfString, paramArrayOfInt);
+  }
+  
+  protected void onRestoreInstanceState(Bundle paramBundle)
+  {
+    super.onRestoreInstanceState(paramBundle);
+    g = ((File)paramBundle.getSerializable("saved_file"));
+  }
+  
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putInt("CameraId", d.a());
+    if (d != null) {
+      paramBundle.putInt("CameraId", d.a());
+    }
+    paramBundle.putSerializable("saved_file", g);
   }
   
   public void onSupportContentChanged()
   {
     super.onSupportContentChanged();
     View localView;
-    if (findViewById(2131493299) != null)
+    if ((k.a(this, new PermissionGroup[] { PermissionGroup.CAMERA, PermissionGroup.STORAGE })) && (findViewById(2131689955) != null))
     {
-      b = ((SurfaceView)findViewById(2131493299));
-      c = findViewById(2131493302);
-      c.setOnClickListener(new l(this));
-      localView = findViewById(2131493304);
+      b = ((YelpSurfaceView)findViewById(2131689955));
+      b.setCameraWrangler(d);
+      c = findViewById(2131689958);
+      c.setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          TakePhoto.a(TakePhoto.this).d();
+        }
+      });
+      localView = findViewById(2131689960);
       localView.setVisibility(8);
-      if (com.yelp.android.appdata.n.a(9)) {
-        a(localView);
-      }
+      a(localView);
       c();
       d();
       e();
-      localView = findViewById(2131493301);
+      localView = findViewById(2131689957);
       if ((ActivityMediaContributionDelegate.a(getIntent())) && (Features.video_capture.isEnabled()))
       {
         localView.setVisibility(0);
-        localView.setOnClickListener(new m(this));
+        localView.setOnClickListener(new View.OnClickListener()
+        {
+          public void onClick(View paramAnonymousView)
+          {
+            TakePhoto.a(TakePhoto.this).c();
+            startActivityForResult(ActivityVideoCapture.a(TakePhoto.this, TakePhoto.b(TakePhoto.this)), 1063);
+          }
+        });
       }
     }
     else
@@ -286,6 +403,88 @@ public class TakePhoto
       return;
     }
     localView.setVisibility(8);
+  }
+  
+  private class a
+    implements a
+  {
+    private a() {}
+    
+    public void a(CameraWrangler paramCameraWrangler)
+    {
+      TakePhoto.e(TakePhoto.this).setEnabled(true);
+      EnumSet localEnumSet = paramCameraWrangler.e();
+      ImageView localImageView = (ImageView)findViewById(2131689961);
+      localImageView.setImageLevel(paramCameraWrangler.g().ordinal());
+      if (localEnumSet.size() > 1) {}
+      for (int i = 0;; i = 8)
+      {
+        localImageView.setVisibility(i);
+        findViewById(2131689914).setVisibility(0);
+        findViewById(2131689961).setVisibility(0);
+        findViewById(2131689960).setVisibility(0);
+        return;
+      }
+    }
+    
+    public void a(CameraWrangler paramCameraWrangler, File paramFile)
+    {
+      if (paramFile == null)
+      {
+        setResult(4, getIntent());
+        finish();
+        return;
+      }
+      paramCameraWrangler = getAppData().r().c();
+      if (paramCameraWrangler != null) {}
+      for (;;)
+      {
+        try
+        {
+          ExifInterface localExifInterface = new ExifInterface(paramFile.getAbsolutePath());
+          double d1 = paramCameraWrangler.getLatitude();
+          double d2 = paramCameraWrangler.getLongitude();
+          if (d1 <= 0.0D) {
+            continue;
+          }
+          paramCameraWrangler = "N";
+          localExifInterface.setAttribute("GPSLatitudeRef", paramCameraWrangler);
+          localExifInterface.setAttribute("GPSLatitude", Location.convert(Math.abs(d1), 2));
+          if (d1 <= 0.0D) {
+            continue;
+          }
+          paramCameraWrangler = "E";
+          localExifInterface.setAttribute("GPSLatitudeRef", paramCameraWrangler);
+          localExifInterface.setAttribute("GPSLatitude", Location.convert(Math.abs(d2), 2));
+          localExifInterface.saveAttributes();
+        }
+        catch (IOException paramCameraWrangler)
+        {
+          Log.e("EXIF", "There was an issue with the Exif Tags ", paramCameraWrangler);
+          continue;
+        }
+        TakePhoto.a(TakePhoto.this, paramFile);
+        startActivityForResult(PreviewPhoto.a(getApplicationContext(), paramFile, true, getText(2131166468), getText(2131166763)), 1045);
+        return;
+        paramCameraWrangler = "S";
+        continue;
+        paramCameraWrangler = "W";
+      }
+    }
+    
+    public void b(CameraWrangler paramCameraWrangler)
+    {
+      TakePhoto.e(TakePhoto.this).setEnabled(false);
+    }
+    
+    public void c(CameraWrangler paramCameraWrangler)
+    {
+      findViewById(2131689914).setVisibility(8);
+      findViewById(2131689961).setVisibility(8);
+      findViewById(2131689960).setVisibility(8);
+    }
+    
+    public void d(CameraWrangler paramCameraWrangler) {}
   }
 }
 

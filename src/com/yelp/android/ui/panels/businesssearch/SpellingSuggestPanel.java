@@ -35,7 +35,7 @@ public class SpellingSuggestPanel
     SpannableStringBuilder localSpannableStringBuilder = null;
     if (!TextUtils.isEmpty(paramString))
     {
-      localSpannableStringBuilder = new SpannableStringBuilder(Html.fromHtml(String.valueOf(paramContext.getResources().getText(2131166513))));
+      localSpannableStringBuilder = new SpannableStringBuilder(Html.fromHtml(String.valueOf(paramContext.getResources().getText(2131166510))));
       int i = localSpannableStringBuilder.nextSpanTransition(0, localSpannableStringBuilder.length(), StyleSpan.class);
       localSpannableStringBuilder.replace(i, localSpannableStringBuilder.nextSpanTransition(i, localSpannableStringBuilder.length(), StyleSpan.class), paramString);
       int j = paramString.length();
@@ -46,8 +46,8 @@ public class SpellingSuggestPanel
   
   private void a()
   {
-    LayoutInflater.from(getContext()).inflate(2130903360, this);
-    a = ((TextView)findViewById(2131492996));
+    LayoutInflater.from(getContext()).inflate(2130903459, this);
+    a = ((TextView)findViewById(2131689641));
   }
   
   public String getSuggestion()

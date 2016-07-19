@@ -5,45 +5,45 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Checkable;
-import com.yelp.android.bf.c;
-import com.yelp.android.bf.m;
+import com.yelp.android.co.a.b;
+import com.yelp.android.co.a.l;
 
 public final class SpannableWidget$SpannableWidgetUtil
   implements SpannableWidget
 {
   private int a;
-  private boolean g;
-  private final boolean h;
-  private j i;
+  private boolean b;
+  private final boolean c;
+  private c i;
   
   public SpannableWidget$SpannableWidgetUtil(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, m.SpannableWidget, paramInt, paramInt);
-    h = paramContext.getBoolean(7, false);
-    a = paramContext.getInt(6, 1);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.l.SpannableWidget, paramInt, paramInt);
+    c = paramContext.getBoolean(a.l.SpannableWidget_checkable, false);
+    a = paramContext.getInt(a.l.SpannableWidget_position, 1);
     paramContext.recycle();
-    g = false;
+    b = false;
   }
   
   private int[] b()
   {
-    int[] arrayOfInt1 = new int[b.length + c.length + d.length];
+    int[] arrayOfInt1 = new int[d.length + e.length + f.length];
     if ((a & 0x4) == 4) {
-      System.arraycopy(b, 0, arrayOfInt1, 0, b.length);
+      System.arraycopy(d, 0, arrayOfInt1, 0, d.length);
     }
-    for (int k = b.length + 0;; k = 0)
+    for (int k = d.length + 0;; k = 0)
     {
       int j = k;
       if ((a & 0x2) == 2)
       {
-        System.arraycopy(c, 0, arrayOfInt1, k, c.length);
-        j = k + c.length;
+        System.arraycopy(e, 0, arrayOfInt1, k, e.length);
+        j = k + e.length;
       }
       k = j;
       if ((a & 0x1) == 1)
       {
-        System.arraycopy(d, 0, arrayOfInt1, j, d.length);
-        k = j + d.length;
+        System.arraycopy(f, 0, arrayOfInt1, j, f.length);
+        k = j + f.length;
       }
       if (k != arrayOfInt1.length)
       {
@@ -64,10 +64,10 @@ public final class SpannableWidget$SpannableWidgetUtil
   
   public <Instance extends View,  extends Checkable> void a(Instance paramInstance, boolean paramBoolean)
   {
-    if (paramBoolean != g) {}
+    if (paramBoolean != b) {}
     for (int j = 1;; j = 0)
     {
-      g = paramBoolean;
+      b = paramBoolean;
       if (j != 0)
       {
         paramInstance.refreshDrawableState();
@@ -77,9 +77,14 @@ public final class SpannableWidget$SpannableWidgetUtil
     }
   }
   
+  public void a(c paramc)
+  {
+    i = paramc;
+  }
+  
   public boolean a()
   {
-    return g;
+    return b;
   }
   
   public int[] a(View paramView)
@@ -87,10 +92,10 @@ public final class SpannableWidget$SpannableWidgetUtil
     int[] arrayOfInt1 = b();
     int k = arrayOfInt1.length;
     int j = k;
-    if (h)
+    if (c)
     {
       j = k;
-      if (g) {
+      if (b) {
         j = k + 1;
       }
     }
@@ -101,7 +106,7 @@ public final class SpannableWidget$SpannableWidgetUtil
     int[] arrayOfInt2 = new int[k];
     System.arraycopy(arrayOfInt1, 0, arrayOfInt2, 0, arrayOfInt1.length);
     j = arrayOfInt1.length;
-    if ((h) && (g))
+    if ((c) && (b))
     {
       k = j + 1;
       arrayOfInt2[j] = 16842912;
@@ -110,7 +115,7 @@ public final class SpannableWidget$SpannableWidgetUtil
     for (;;)
     {
       if (paramView.isClickable()) {
-        arrayOfInt2[j] = c.state_clickable;
+        arrayOfInt2[j] = a.b.state_clickable;
       }
       return arrayOfInt2;
     }
@@ -118,24 +123,19 @@ public final class SpannableWidget$SpannableWidgetUtil
   
   public <Instance extends View,  extends Checkable> void b(Instance paramInstance)
   {
-    if (h) {
+    if (c) {
       c(paramInstance);
     }
   }
   
   public <Instance extends View,  extends Checkable> void c(Instance paramInstance)
   {
-    if (!g) {}
+    if (!b) {}
     for (boolean bool = true;; bool = false)
     {
       a(paramInstance, bool);
       return;
     }
-  }
-  
-  public void setChecked(boolean paramBoolean)
-  {
-    throw new UnsupportedOperationException("Call setChecked(view, checked) instead");
   }
   
   public void setLeft(boolean paramBoolean)
@@ -156,11 +156,6 @@ public final class SpannableWidget$SpannableWidgetUtil
       a = j;
       return;
     }
-  }
-  
-  public void setOnCheckedChangeListener(j paramj)
-  {
-    i = paramj;
   }
   
   public void setRight(boolean paramBoolean)

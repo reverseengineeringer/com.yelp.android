@@ -20,7 +20,7 @@ class VideoDisplayComponent$OnPlayListener
     VideoDisplayComponent.access$1002(this$0, false);
     if (this$0.currentSource != null)
     {
-      int i;
+      final int i;
       if (properties.containsKey("playheadPosition")) {
         i = paramEvent.getIntegerProperty("playheadPosition");
       }
@@ -44,19 +44,40 @@ class VideoDisplayComponent$OnPlayListener
           else
           {
             Log.v(VideoDisplayComponent.access$1200(), "OnPlayListener: Surface is not available yet.");
-            VideoDisplayComponent.access$1800(this$0).once("readyToPlay", new VideoDisplayComponent.OnPlayListener.1(this, i));
+            VideoDisplayComponent.access$1800(this$0).once("readyToPlay", new EventListener()
+            {
+              @Default
+              public void processEvent(Event paramAnonymousEvent)
+              {
+                VideoDisplayComponent.access$1700(this$0, i);
+              }
+            });
           }
         }
         else
         {
           Log.v(VideoDisplayComponent.access$1200(), "OnPlayListener: MediaPlayer has not been prepared yet.");
-          VideoDisplayComponent.access$1900(this$0).once("didSetSource", new VideoDisplayComponent.OnPlayListener.2(this, i));
+          VideoDisplayComponent.access$1900(this$0).once("didSetSource", new EventListener()
+          {
+            @Default
+            public void processEvent(Event paramAnonymousEvent)
+            {
+              VideoDisplayComponent.access$1700(this$0, i);
+            }
+          });
           return;
         }
       }
       this$0.playheadPosition = 0;
       Log.v(VideoDisplayComponent.access$1200(), "OnPlayListener: MediaPlayer was null - creating a new one.");
-      VideoDisplayComponent.access$2000(this$0).once("didSetSource", new VideoDisplayComponent.OnPlayListener.3(this, i));
+      VideoDisplayComponent.access$2000(this$0).once("didSetSource", new EventListener()
+      {
+        @Default
+        public void processEvent(Event paramAnonymousEvent)
+        {
+          VideoDisplayComponent.access$1700(this$0, i);
+        }
+      });
       this$0.openVideo(this$0.currentVideo, this$0.currentSource);
       return;
     }

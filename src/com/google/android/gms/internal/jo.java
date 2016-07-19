@@ -1,41 +1,85 @@
 package com.google.android.gms.internal;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.net.Uri.Builder;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 
-public class jo
+public abstract interface jo
+  extends IInterface
 {
-  private static final Uri No = Uri.parse("http://plus.google.com/");
-  private static final Uri Np = No.buildUpon().appendPath("circles").appendPath("find").build();
+  public abstract void a(jn paramjn)
+    throws RemoteException;
   
-  public static Intent aY(String paramString)
+  public static abstract class a
+    extends Binder
+    implements jo
   {
-    paramString = Uri.fromParts("package", paramString, null);
-    Intent localIntent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-    localIntent.setData(paramString);
-    return localIntent;
-  }
-  
-  private static Uri aZ(String paramString)
-  {
-    return Uri.parse("market://details").buildUpon().appendQueryParameter("id", paramString).build();
-  }
-  
-  public static Intent ba(String paramString)
-  {
-    Intent localIntent = new Intent("android.intent.action.VIEW");
-    localIntent.setData(aZ(paramString));
-    localIntent.setPackage("com.android.vending");
-    localIntent.addFlags(524288);
-    return localIntent;
-  }
-  
-  public static Intent hE()
-  {
-    Intent localIntent = new Intent("com.google.android.clockwork.home.UPDATE_ANDROID_WEAR_ACTION");
-    localIntent.setPackage("com.google.android.wearable.app");
-    return localIntent;
+    public static jo a(IBinder paramIBinder)
+    {
+      if (paramIBinder == null) {
+        return null;
+      }
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.common.internal.service.ICommonService");
+      if ((localIInterface != null) && ((localIInterface instanceof jo))) {
+        return (jo)localIInterface;
+      }
+      return new a(paramIBinder);
+    }
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
+    {
+      switch (paramInt1)
+      {
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.common.internal.service.ICommonService");
+        return true;
+      }
+      paramParcel1.enforceInterface("com.google.android.gms.common.internal.service.ICommonService");
+      a(jn.a.a(paramParcel1.readStrongBinder()));
+      return true;
+    }
+    
+    private static class a
+      implements jo
+    {
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
+      {
+        a = paramIBinder;
+      }
+      
+      public void a(jn paramjn)
+        throws RemoteException
+      {
+        IBinder localIBinder = null;
+        Parcel localParcel = Parcel.obtain();
+        try
+        {
+          localParcel.writeInterfaceToken("com.google.android.gms.common.internal.service.ICommonService");
+          if (paramjn != null) {
+            localIBinder = paramjn.asBinder();
+          }
+          localParcel.writeStrongBinder(localIBinder);
+          a.transact(1, localParcel, null, 1);
+          return;
+        }
+        finally
+        {
+          localParcel.recycle();
+        }
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
+    }
   }
 }
 

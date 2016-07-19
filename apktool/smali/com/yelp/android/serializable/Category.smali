@@ -3,14 +3,23 @@
 .source "Category.java"
 
 # interfaces
-.implements Landroid/os/Parcelable;
+.implements Lcom/yelp/android/serializable/BizCategory;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/serializable/Category$b;,
+        Lcom/yelp/android/serializable/Category$a;
+    }
+.end annotation
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/Category;",
             ">;"
@@ -20,15 +29,15 @@
 
 
 # instance fields
-.field private mAlias:Ljava/lang/String;
+.field private a:Ljava/lang/String;
 
-.field private mDatabaseId:I
+.field private b:Ljava/lang/String;
 
-.field private mName:Ljava/lang/String;
+.field private c:Ljava/lang/String;
 
-.field private mNumChildren:I
+.field private d:I
 
-.field private mParent:Ljava/lang/String;
+.field private e:I
 
 
 # direct methods
@@ -36,12 +45,12 @@
     .locals 1
 
     .prologue
-    .line 62
-    new-instance v0, Lcom/yelp/android/serializable/u;
+    .line 92
+    new-instance v0, Lcom/yelp/android/serializable/Category$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/u;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/Category$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/Category;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/Category;->CREATOR:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
@@ -50,26 +59,26 @@
     .locals 4
 
     .prologue
-    .line 21
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->getName()Ljava/lang/String;
+    .line 24
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->a()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->getAlias()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->d()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->getParent()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->c()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->getDatabaseId()I
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Category;->e()I
 
     move-result v3
 
     invoke-direct {p0, v0, v1, v2, v3}, Lcom/yelp/android/serializable/Category;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
-    .line 22
+    .line 29
     return-void
 .end method
 
@@ -77,24 +86,24 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
-    iput-object p1, p0, Lcom/yelp/android/serializable/Category;->mName:Ljava/lang/String;
+    .line 32
+    iput-object p1, p0, Lcom/yelp/android/serializable/Category;->a:Ljava/lang/String;
 
-    .line 26
-    iput-object p2, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    .line 33
+    iput-object p2, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
-    .line 27
-    iput p3, p0, Lcom/yelp/android/serializable/Category;->mDatabaseId:I
+    .line 34
+    iput p3, p0, Lcom/yelp/android/serializable/Category;->d:I
 
-    .line 28
+    .line 35
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/yelp/android/serializable/Category;->mNumChildren:I
+    iput v0, p0, Lcom/yelp/android/serializable/Category;->e:I
 
-    .line 29
+    .line 36
     return-void
 .end method
 
@@ -102,71 +111,152 @@
     .locals 0
 
     .prologue
-    .line 32
+    .line 39
     invoke-direct {p0, p1, p2, p4}, Lcom/yelp/android/serializable/Category;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
 
-    .line 33
-    iput-object p3, p0, Lcom/yelp/android/serializable/Category;->mParent:Ljava/lang/String;
+    .line 40
+    iput-object p3, p0, Lcom/yelp/android/serializable/Category;->c:Ljava/lang/String;
 
-    .line 34
+    .line 41
     return-void
 .end method
 
 
 # virtual methods
+.method public a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 45
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public a(I)V
+    .locals 0
+
+    .prologue
+    .line 71
+    iput p1, p0, Lcom/yelp/android/serializable/Category;->e:I
+
+    .line 72
+    return-void
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 50
+    iget v0, p0, Lcom/yelp/android/serializable/Category;->d:I
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 59
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 54
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public describeContents()I
     .locals 1
 
     .prologue
-    .line 121
+    .line 156
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method public equals(Ljava/lang/Object;)Z
-    .locals 2
+.method public e()I
+    .locals 1
 
     .prologue
-    const/4 v0, 0x0
+    .line 63
+    iget v0, p0, Lcom/yelp/android/serializable/Category;->d:I
 
-    .line 142
-    if-ne p0, p1, :cond_1
+    return v0
+.end method
 
-    .line 143
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
     const/4 v0, 0x1
 
-    .line 155
+    const/4 v1, 0x0
+
+    .line 177
+    if-ne p0, p1, :cond_1
+
+    .line 190
     :cond_0
     :goto_0
     return v0
 
-    .line 145
+    .line 180
     :cond_1
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_2
 
-    .line 148
-    instance-of v1, p1, Lcom/yelp/android/serializable/Category;
+    move v0, v1
 
-    if-eqz v1, :cond_0
+    .line 181
+    goto :goto_0
 
-    .line 151
+    .line 183
+    :cond_2
+    instance-of v2, p1, Lcom/yelp/android/serializable/Category;
+
+    if-nez v2, :cond_3
+
+    move v0, v1
+
+    .line 184
+    goto :goto_0
+
+    .line 186
+    :cond_3
     check-cast p1, Lcom/yelp/android/serializable/Category;
 
-    .line 152
-    iget-object v1, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    .line 187
+    iget-object v2, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_4
 
-    iget-object v1, p1, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    .line 188
+    iget-object v2, p1, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-eqz v2, :cond_0
 
-    .line 155
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    move v0, v1
 
-    iget-object v1, p1, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    goto :goto_0
+
+    .line 190
+    :cond_4
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
+
+    iget-object v1, p1, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -175,53 +265,57 @@
     goto :goto_0
 .end method
 
-.method public getAlias()Ljava/lang/String;
+.method public f()I
     .locals 1
 
     .prologue
-    .line 41
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getDatabaseId()I
-    .locals 1
-
-    .prologue
-    .line 49
-    iget v0, p0, Lcom/yelp/android/serializable/Category;->mDatabaseId:I
+    .line 67
+    iget v0, p0, Lcom/yelp/android/serializable/Category;->e:I
 
     return v0
 .end method
 
-.method public getName()Ljava/lang/String;
-    .locals 1
+.method public g()Lorg/json/JSONObject;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 37
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mName:Ljava/lang/String;
+    .line 144
+    new-instance v0, Lorg/json/JSONObject;
 
-    return-object v0
-.end method
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-.method public getNumChildren()I
-    .locals 1
+    .line 145
+    iget-object v1, p0, Lcom/yelp/android/serializable/Category;->a:Ljava/lang/String;
 
-    .prologue
-    .line 53
-    iget v0, p0, Lcom/yelp/android/serializable/Category;->mNumChildren:I
+    if-eqz v1, :cond_0
 
-    return v0
-.end method
+    .line 146
+    const-string/jumbo v1, "name"
 
-.method public getParent()Ljava/lang/String;
-    .locals 1
+    iget-object v2, p0, Lcom/yelp/android/serializable/Category;->a:Ljava/lang/String;
 
-    .prologue
-    .line 45
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mParent:Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
+    .line 148
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
+
+    if-eqz v1, :cond_1
+
+    .line 149
+    const-string/jumbo v1, "category_filter"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 151
+    :cond_1
     return-object v0
 .end method
 
@@ -229,9 +323,9 @@
     .locals 1
 
     .prologue
-    .line 130
-    .line 132
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    .line 165
+    .line 167
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
@@ -240,12 +334,12 @@
     :goto_0
     add-int/lit8 v0, v0, 0x1f
 
-    .line 133
+    .line 168
     return v0
 
-    .line 132
+    .line 167
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
@@ -254,63 +348,13 @@
     goto :goto_0
 .end method
 
-.method public setNumChildren(I)V
-    .locals 0
-
-    .prologue
-    .line 57
-    iput p1, p0, Lcom/yelp/android/serializable/Category;->mNumChildren:I
-
-    .line 58
-    return-void
-.end method
-
 .method public toString()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 160
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    .line 195
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
-    return-object v0
-.end method
-
-.method public writeJSON()Lorg/json/JSONObject;
-    .locals 3
-
-    .prologue
-    .line 109
-    new-instance v0, Lorg/json/JSONObject;
-
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
-
-    .line 110
-    iget-object v1, p0, Lcom/yelp/android/serializable/Category;->mName:Ljava/lang/String;
-
-    if-eqz v1, :cond_0
-
-    .line 111
-    const-string/jumbo v1, "name"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/Category;->mName:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 113
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
-
-    if-eqz v1, :cond_1
-
-    .line 114
-    const-string/jumbo v1, "category_filter"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 116
-    :cond_1
     return-object v0
 .end method
 
@@ -318,31 +362,31 @@
     .locals 1
 
     .prologue
-    .line 101
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mName:Ljava/lang/String;
+    .line 136
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->a:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 102
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mAlias:Ljava/lang/String;
+    .line 137
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->b:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 103
-    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->mParent:Ljava/lang/String;
+    .line 138
+    iget-object v0, p0, Lcom/yelp/android/serializable/Category;->c:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 104
-    iget v0, p0, Lcom/yelp/android/serializable/Category;->mDatabaseId:I
+    .line 139
+    iget v0, p0, Lcom/yelp/android/serializable/Category;->d:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 105
-    iget v0, p0, Lcom/yelp/android/serializable/Category;->mNumChildren:I
+    .line 140
+    iget v0, p0, Lcom/yelp/android/serializable/Category;->e:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 106
+    .line 141
     return-void
 .end method

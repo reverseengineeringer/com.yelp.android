@@ -1,11 +1,6 @@
 package com.google.android.gms.tagmanager;
 
-abstract interface k<K, V>
-{
-  public abstract void e(K paramK, V paramV);
-  
-  public abstract V get(K paramK);
-}
+abstract interface k {}
 
 /* Location:
  * Qualified Name:     com.google.android.gms.tagmanager.k

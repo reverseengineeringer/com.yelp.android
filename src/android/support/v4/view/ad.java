@@ -1,10 +1,39 @@
 package android.support.v4.view;
 
-import android.view.LayoutInflater;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.text.method.SingleLineTransformationMethod;
+import android.view.View;
+import android.widget.TextView;
+import java.util.Locale;
 
-abstract interface ad
+class ad
 {
-  public abstract void a(LayoutInflater paramLayoutInflater, am paramam);
+  public static void a(TextView paramTextView)
+  {
+    paramTextView.setTransformationMethod(new a(paramTextView.getContext()));
+  }
+  
+  private static class a
+    extends SingleLineTransformationMethod
+  {
+    private Locale a;
+    
+    public a(Context paramContext)
+    {
+      a = getResourcesgetConfigurationlocale;
+    }
+    
+    public CharSequence getTransformation(CharSequence paramCharSequence, View paramView)
+    {
+      paramCharSequence = super.getTransformation(paramCharSequence, paramView);
+      if (paramCharSequence != null) {
+        return paramCharSequence.toString().toUpperCase(a);
+      }
+      return null;
+    }
+  }
 }
 
 /* Location:

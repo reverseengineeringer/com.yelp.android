@@ -2,23 +2,22 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.aa;
 
 public final class Tile
   implements SafeParcelable
 {
-  public static final u CREATOR = new u();
-  private final int CK;
-  public final byte[] data;
-  public final int height;
-  public final int width;
+  public static final r CREATOR = new r();
+  public final int a;
+  public final int b;
+  public final byte[] c;
+  private final int d;
   
   Tile(int paramInt1, int paramInt2, int paramInt3, byte[] paramArrayOfByte)
   {
-    CK = paramInt1;
-    width = paramInt2;
-    height = paramInt3;
-    data = paramArrayOfByte;
+    d = paramInt1;
+    a = paramInt2;
+    b = paramInt3;
+    c = paramArrayOfByte;
   }
   
   public Tile(int paramInt1, int paramInt2, byte[] paramArrayOfByte)
@@ -26,24 +25,19 @@ public final class Tile
     this(1, paramInt1, paramInt2, paramArrayOfByte);
   }
   
+  int a()
+  {
+    return d;
+  }
+  
   public int describeContents()
   {
     return 0;
   }
   
-  int getVersionCode()
-  {
-    return CK;
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      v.a(this, paramParcel, paramInt);
-      return;
-    }
-    u.a(this, paramParcel, paramInt);
+    r.a(this, paramParcel, paramInt);
   }
 }
 

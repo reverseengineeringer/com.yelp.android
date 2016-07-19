@@ -6,12 +6,12 @@ import android.os.Parcelable.Creator;
 final class Fragment$SavedState$1
   implements Parcelable.Creator<Fragment.SavedState>
 {
-  public Fragment.SavedState createFromParcel(Parcel paramParcel)
+  public Fragment.SavedState a(Parcel paramParcel)
   {
     return new Fragment.SavedState(paramParcel, null);
   }
   
-  public Fragment.SavedState[] newArray(int paramInt)
+  public Fragment.SavedState[] a(int paramInt)
   {
     return new Fragment.SavedState[paramInt];
   }

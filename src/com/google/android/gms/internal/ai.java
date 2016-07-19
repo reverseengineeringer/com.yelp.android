@@ -1,24 +1,19 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.os.Handler;
-import java.util.concurrent.Future;
+import com.google.android.gms.ads.internal.request.AdRequestInfoParcel;
+import java.util.Collections;
+import java.util.List;
 
-@ey
+@fv
 public class ai
+  implements aj
 {
-  protected ah a(Context paramContext, gs paramgs, gj<ah> paramgj)
+  public List<String> a(AdRequestInfoParcel paramAdRequestInfoParcel)
   {
-    paramContext = new aj(paramContext, paramgs);
-    paramContext.a(new ai.2(this, paramgj, paramContext));
-    return paramContext;
-  }
-  
-  public Future<ah> a(Context paramContext, gs paramgs, String paramString)
-  {
-    gj localgj = new gj();
-    gq.wR.post(new ai.1(this, paramContext, paramgs, localgj, paramString));
-    return localgj;
+    if (x == null) {
+      return Collections.emptyList();
+    }
+    return x;
   }
 }
 

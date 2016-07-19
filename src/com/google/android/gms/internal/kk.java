@@ -1,31 +1,23 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import android.os.Process;
 
-public class kk
-  implements SafeParcelable
+class kk
+  implements Runnable
 {
-  public static final kl CREATOR = new kl();
-  final int CK;
-  public final String ND;
-  public final int NE;
+  private final Runnable a;
+  private final int b;
   
-  public kk(int paramInt1, String paramString, int paramInt2)
+  public kk(Runnable paramRunnable, int paramInt)
   {
-    CK = paramInt1;
-    ND = paramString;
-    NE = paramInt2;
+    a = paramRunnable;
+    b = paramInt;
   }
   
-  public int describeContents()
+  public void run()
   {
-    return 0;
-  }
-  
-  public void writeToParcel(Parcel paramParcel, int paramInt)
-  {
-    kl.a(this, paramParcel, paramInt);
+    Process.setThreadPriority(b);
+    a.run();
   }
 }
 

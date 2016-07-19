@@ -1,32 +1,40 @@
 package android.support.v4.view;
 
-import android.view.MotionEvent;
-
-class bg
+public class bg
 {
-  public static int a(MotionEvent paramMotionEvent)
+  public int a()
   {
-    return paramMotionEvent.getPointerCount();
+    return 0;
   }
   
-  public static int a(MotionEvent paramMotionEvent, int paramInt)
+  public bg a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    return paramMotionEvent.findPointerIndex(paramInt);
+    return this;
   }
   
-  public static int b(MotionEvent paramMotionEvent, int paramInt)
+  public int b()
   {
-    return paramMotionEvent.getPointerId(paramInt);
+    return 0;
   }
   
-  public static float c(MotionEvent paramMotionEvent, int paramInt)
+  public int c()
   {
-    return paramMotionEvent.getX(paramInt);
+    return 0;
   }
   
-  public static float d(MotionEvent paramMotionEvent, int paramInt)
+  public int d()
   {
-    return paramMotionEvent.getY(paramInt);
+    return 0;
+  }
+  
+  public boolean e()
+  {
+    return false;
+  }
+  
+  public bg f()
+  {
+    return this;
   }
 }
 

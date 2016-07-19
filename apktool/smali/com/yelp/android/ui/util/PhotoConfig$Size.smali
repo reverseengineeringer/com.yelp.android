@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/util/PhotoConfig;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Size"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -24,6 +33,8 @@
 .field public static final enum Original:Lcom/yelp/android/ui/util/PhotoConfig$Size;
 
 .field public static final enum Px_120:Lcom/yelp/android/ui/util/PhotoConfig$Size;
+
+.field public static final enum Px_180:Lcom/yelp/android/ui/util/PhotoConfig$Size;
 
 .field public static final enum Px_30:Lcom/yelp/android/ui/util/PhotoConfig$Size;
 
@@ -152,9 +163,22 @@
     .line 17
     new-instance v0, Lcom/yelp/android/ui/util/PhotoConfig$Size;
 
-    const-string/jumbo v1, "Px_348"
+    const-string/jumbo v1, "Px_180"
 
     const/16 v2, 0x8
+
+    const-string/jumbo v3, "180"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/ui/util/PhotoConfig$Size;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/ui/util/PhotoConfig$Size;->Px_180:Lcom/yelp/android/ui/util/PhotoConfig$Size;
+
+    .line 18
+    new-instance v0, Lcom/yelp/android/ui/util/PhotoConfig$Size;
+
+    const-string/jumbo v1, "Px_348"
+
+    const/16 v2, 0x9
 
     const-string/jumbo v3, "348"
 
@@ -163,7 +187,7 @@
     sput-object v0, Lcom/yelp/android/ui/util/PhotoConfig$Size;->Px_348:Lcom/yelp/android/ui/util/PhotoConfig$Size;
 
     .line 8
-    const/16 v0, 0x9
+    const/16 v0, 0xa
 
     new-array v0, v0, [Lcom/yelp/android/ui/util/PhotoConfig$Size;
 
@@ -207,6 +231,12 @@
 
     const/16 v1, 0x8
 
+    sget-object v2, Lcom/yelp/android/ui/util/PhotoConfig$Size;->Px_180:Lcom/yelp/android/ui/util/PhotoConfig$Size;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x9
+
     sget-object v2, Lcom/yelp/android/ui/util/PhotoConfig$Size;->Px_348:Lcom/yelp/android/ui/util/PhotoConfig$Size;
 
     aput-object v2, v0, v1
@@ -227,13 +257,13 @@
     .end annotation
 
     .prologue
-    .line 21
+    .line 22
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 22
+    .line 23
     iput-object p3, p0, Lcom/yelp/android/ui/util/PhotoConfig$Size;->type:Ljava/lang/String;
 
-    .line 23
+    .line 24
     return-void
 .end method
 

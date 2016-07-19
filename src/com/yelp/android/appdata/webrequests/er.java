@@ -1,16 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Location;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
-public final class er
+public class er
+  extends ShareRequest
 {
-  public final Location a;
-  public final boolean b;
-  
-  public er(Location paramLocation, boolean paramBoolean)
+  public er(String paramString, ShareRequest.ShareType paramShareType, boolean paramBoolean, c.a parama)
   {
-    a = paramLocation;
-    b = paramBoolean;
+    super("quicktips/share/", parama, paramShareType);
+    b("quicktip_id", paramString);
+    b("with_award", paramBoolean);
   }
 }
 

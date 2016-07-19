@@ -1,16 +1,18 @@
 package com.google.android.gms.maps;
 
-import com.google.android.gms.maps.internal.IGoogleMapDelegate;
-import com.google.android.gms.maps.internal.m.a;
+import android.os.RemoteException;
+import com.yelp.android.bj.ae.a;
+import com.yelp.android.bj.b;
 
 class MapView$a$1
-  extends m.a
+  extends ae.a
 {
-  MapView$a$1(MapView.a parama, OnMapReadyCallback paramOnMapReadyCallback) {}
+  MapView$a$1(MapView.a parama, e parame) {}
   
-  public void a(IGoogleMapDelegate paramIGoogleMapDelegate)
+  public void a(b paramb)
+    throws RemoteException
   {
-    akU.onMapReady(new GoogleMap(paramIGoogleMapDelegate));
+    a.a(new c(paramb));
   }
 }
 

@@ -27,11 +27,36 @@
 
     iget-object v0, p0, Lcom/comscore/analytics/f;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->b()V
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->an()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/comscore/analytics/f;->a:Lcom/comscore/analytics/a;
+
+    iget-object v0, v0, Lcom/comscore/analytics/a;->y:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
 
     iget-object v0, p0, Lcom/comscore/analytics/f;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->o()V
+    iget-object v0, v0, Lcom/comscore/analytics/a;->y:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    return-void
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndDecrement()I
+
+    iget-object v0, p0, Lcom/comscore/analytics/f;->a:Lcom/comscore/analytics/a;
+
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->x()V
+
+    goto :goto_0
 .end method

@@ -2,25 +2,42 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _FriendRequest
   implements Parcelable
 {
-  protected Date mDateModified;
-  protected String mMessage;
-  protected User mSender;
+  protected Date a;
+  protected String b;
+  protected User c;
   
-  protected _FriendRequest() {}
-  
-  protected _FriendRequest(Date paramDate, String paramString, User paramUser)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mDateModified = paramDate;
-    mMessage = paramString;
-    mSender = paramUser;
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      a = new Date(l);
+    }
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("message")) {
+      b = paramJSONObject.optString("message");
+    }
+    if (!paramJSONObject.isNull("user")) {
+      c = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
+    }
   }
   
   public int describeContents()
@@ -28,52 +45,43 @@ abstract class _FriendRequest
     return 0;
   }
   
-  public Date getDateModified()
+  public boolean equals(Object paramObject)
   {
-    return mDateModified;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_FriendRequest)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a();
   }
   
-  public String getMessage()
+  public int hashCode()
   {
-    return mMessage;
+    return new c().a(a).a(b).a(c).a();
   }
   
-  public User getSender()
+  public User j()
   {
-    return mSender;
+    return c;
   }
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public String k()
   {
-    if (!paramJSONObject.isNull("time_created")) {
-      mDateModified = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("message")) {
-      mMessage = paramJSONObject.optString("message");
-    }
-    if (!paramJSONObject.isNull("user")) {
-      mSender = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("user")));
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateModified = new Date(l);
-    }
-    mMessage = paramParcel.readString();
-    mSender = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+    return b;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mDateModified == null) {}
-    for (long l = -2147483648L;; l = mDateModified.getTime())
+    if (a == null) {}
+    for (long l = -2147483648L;; l = a.getTime())
     {
       paramParcel.writeLong(l);
-      paramParcel.writeString(mMessage);
-      paramParcel.writeParcelable(mSender, 0);
+      paramParcel.writeValue(b);
+      paramParcel.writeParcelable(c, 0);
       return;
     }
   }

@@ -12,6 +12,7 @@
     <item type="id" name="businesspage_confirmations" />
     <item type="id" name="businesspage_deals_offers" />
     <item type="id" name="businesspage_dfp_ad" />
+    <item type="id" name="businesspage_health_data" />
     <item type="id" name="businesspage_highlighted_basic_info" />
     <item type="id" name="businesspage_insights_highlights" />
     <item type="id" name="businesspage_map" />
@@ -21,6 +22,7 @@
     <item type="id" name="businesspage_not_recommended_reviews" />
     <item type="id" name="businesspage_notifications" />
     <item type="id" name="businesspage_photos" />
+    <item type="id" name="businesspage_prominent_claim_button" />
     <item type="id" name="businesspage_regulars_error" />
     <item type="id" name="businesspage_review_section_0" />
     <item type="id" name="businesspage_review_section_1" />
@@ -32,18 +34,23 @@
     <item type="id" name="content" />
     <item type="id" name="custom_textview_image" />
     <item type="id" name="custom_textview_text" />
+    <item type="id" name="delivery_reservation_adapter" />
     <item type="id" name="dialog_policy_update" />
     <item type="id" name="edit_button" />
     <item type="id" name="empty_text" />
     <item type="id" name="error_panel" />
     <item type="id" name="first_to_review_banner" />
     <item type="id" name="home" />
+    <item type="id" name="inline_notification" />
     <item type="id" name="item" />
+    <item type="id" name="item_touch_helper_previous_elevation" />
     <item type="id" name="list_container" />
     <item type="id" name="loading_panel" />
     <item type="id" name="login_activity_requestcode" />
     <item type="id" name="media_index" />
     <item type="id" name="media_list" />
+    <item type="id" name="most_popular_section_header" />
+    <item type="id" name="nearby_local_issue" />
     <item type="id" name="nearbypage_ad" />
     <item type="id" name="photo_index" />
     <item type="id" name="photo_list" />
@@ -51,20 +58,23 @@
     <item type="id" name="progress_circular" />
     <item type="id" name="progress_container" />
     <item type="id" name="progress_horizontal" />
+    <item type="id" name="related_businesses_panel" />
     <item type="id" name="reviews_following_section" />
     <item type="id" name="reviews_friends_section" />
     <item type="id" name="reviews_highlighted_section" />
     <item type="id" name="reviews_search_section" />
     <item type="id" name="search_ads_divider_bottom" />
     <item type="id" name="search_ads_divider_top" />
-    <item type="id" name="search_filter_text" />
+    <item type="id" name="search_filter" />
     <item type="id" name="search_list_ads_bottom" />
     <item type="id" name="search_list_ads_top" />
     <item type="id" name="search_list_results" />
     <item type="id" name="search_promoted_filter" />
     <item type="id" name="split_action_bar" />
     <item type="id" name="tip_return_from_edit" />
+    <item type="id" name="trending_searches" />
     <item type="id" name="up" />
+    <item type="id" name="view_offset_helper" />
     <item type="id" name="yelping_since" />
     <item type="id" name="action_bar_title">false</item>
     <item type="id" name="action_bar_subtitle">false</item>
@@ -76,6 +86,16 @@
     <item type="id" name="list_item">false</item>
     <item type="id" name="icon">false</item>
     <item type="id" name="title">false</item>
+    <item type="id" name="parentPanel">false</item>
+    <item type="id" name="topPanel">false</item>
+    <item type="id" name="title_template">false</item>
+    <item type="id" name="alertTitle">false</item>
+    <item type="id" name="contentPanel">false</item>
+    <item type="id" name="scrollView">false</item>
+    <item type="id" name="textSpacerNoButtons">false</item>
+    <item type="id" name="customPanel">false</item>
+    <item type="id" name="custom">false</item>
+    <item type="id" name="buttonPanel">false</item>
     <item type="id" name="expanded_menu">false</item>
     <item type="id" name="checkbox">false</item>
     <item type="id" name="shortcut">false</item>
@@ -99,8 +119,16 @@
     <item type="id" name="submit_area">false</item>
     <item type="id" name="search_go_btn">false</item>
     <item type="id" name="search_voice_btn">false</item>
+    <item type="id" name="select_dialog_listview">false</item>
+    <item type="id" name="search_icon">false</item>
+    <item type="id" name="icon_border">false</item>
+    <item type="id" name="ok_button">false</item>
+    <item type="id" name="banner">false</item>
+    <item type="id" name="change_business_view">false</item>
+    <item type="id" name="flag_selector_span">false</item>
+    <item type="id" name="flag_selector">false</item>
+    <item type="id" name="country">false</item>
     <item type="id" name="business_name">false</item>
-    <item type="id" name="business_address">false</item>
     <item type="id" name="business_categories">false</item>
     <item type="id" name="business_open_hours">false</item>
     <item type="id" name="business_phone_number">false</item>
@@ -115,10 +143,32 @@
     <item type="id" name="message">false</item>
     <item type="id" name="submit_button">false</item>
     <item type="id" name="delete_button">false</item>
+    <item type="id" name="gif_view">false</item>
+    <item type="id" name="anchor">false</item>
+    <item type="id" name="progress_dots_container">false</item>
+    <item type="id" name="first_dot">false</item>
+    <item type="id" name="second_dot">false</item>
+    <item type="id" name="third_dot">false</item>
+    <item type="id" name="fourth_dot">false</item>
+    <item type="id" name="viewpager">false</item>
+    <item type="id" name="next_arrow_button">false</item>
+    <item type="id" name="container">false</item>
+    <item type="id" name="yelp_logo">false</item>
+    <item type="id" name="buttons">false</item>
+    <item type="id" name="description">false</item>
+    <item type="id" name="deny_button">false</item>
+    <item type="id" name="accept_button">false</item>
     <item type="id" name="badge_title">false</item>
     <item type="id" name="yeah_button">false</item>
+    <item type="id" name="share_buttons">false</item>
+    <item type="id" name="share_twitter_toggle">false</item>
+    <item type="id" name="share_facebook_toggle">false</item>
+    <item type="id" name="divider">false</item>
     <item type="id" name="badge_feed">false</item>
     <item type="id" name="badge_grid">false</item>
+    <item type="id" name="find_friends">false</item>
+    <item type="id" name="bookmarks_header">false</item>
+    <item type="id" name="bookmark_frame">false</item>
     <item type="id" name="review_fragment_background">false</item>
     <item type="id" name="panel_business_review_base">false</item>
     <item type="id" name="panel_business_review_owner_reply">false</item>
@@ -129,7 +179,6 @@
     <item type="id" name="previous_reviews">false</item>
     <item type="id" name="previous_reviews_count">false</item>
     <item type="id" name="ufc_section">false</item>
-    <item type="id" name="divider">false</item>
     <item type="id" name="ufc_title">false</item>
     <item type="id" name="ufc_is_author_content">false</item>
     <item type="id" name="ufc_buttons_layout">false</item>
@@ -141,10 +190,10 @@
     <item type="id" name="businesspage_fragment">false</item>
     <item type="id" name="stub_checkin_overlay">false</item>
     <item type="id" name="checkin_overlay">false</item>
+    <item type="id" name="email_address">false</item>
     <item type="id" name="photo">false</item>
     <item type="id" name="panel_contribution_business_name">false</item>
     <item type="id" name="panel_contribution_address">false</item>
-    <item type="id" name="add_comment_button">false</item>
     <item type="id" name="add_comment_textbox">false</item>
     <item type="id" name="character_counter">false</item>
     <item type="id" name="share_push_checkbox">false</item>
@@ -171,52 +220,40 @@
     <item type="id" name="informational_text">false</item>
     <item type="id" name="choices">false</item>
     <item type="id" name="attribution">false</item>
-    <item type="id" name="activity_config_main">false</item>
-    <item type="id" name="activity_config_scroll">false</item>
-    <item type="id" name="activity_config_scrollContent">false</item>
-    <item type="id" name="activity_config_host_label">false</item>
-    <item type="id" name="activity_config_yelp_host">false</item>
-    <item type="id" name="activity_config_yelp_host_clear">false</item>
-    <item type="id" name="activity_config_cbUseMyOverlayForMaps">false</item>
-    <item type="id" name="activity_config_cbSubmitAnalytics">false</item>
-    <item type="id" name="activity_config_cbSimulateBusinessKill">false</item>
-    <item type="id" name="activity_config_cbForceBizReviewsFail">false</item>
-    <item type="id" name="activity_config_cbForceBizDetailsFail">false</item>
-    <item type="id" name="activity_config_cbNotifyCacheHits">false</item>
-    <item type="id" name="activity_config_activities_button">false</item>
-    <item type="id" name="activity_config_btnDumpCachBizSearch">false</item>
-    <item type="id" name="activity_config_btnSysInfo">false</item>
-    <item type="id" name="activity_config_btnImageCache">false</item>
-    <item type="id" name="activity_config_btnImageRequests">false</item>
-    <item type="id" name="activity_config_btnMockLoc">false</item>
-    <item type="id" name="activity_config_text_styles">false</item>
-    <item type="id" name="activity_config_gap_sizes">false</item>
-    <item type="id" name="activity_config_colors">false</item>
-    <item type="id" name="activity_config_holiday_themes">false</item>
-    <item type="id" name="activity_config_btnPushTest">false</item>
-    <item type="id" name="activity_config_btnNetRequests">false</item>
-    <item type="id" name="activity_config_select_endpoint">false</item>
-    <item type="id" name="activity_config_startup_intent">false</item>
-    <item type="id" name="activity_platform_qualifier">false</item>
-    <item type="id" name="twitter">false</item>
-    <item type="id" name="schemes">false</item>
-    <item type="id" name="activity_config_gzip">false</item>
-    <item type="id" name="activity_config_search_cache">false</item>
-    <item type="id" name="activity_config_dfp">false</item>
-    <item type="id" name="show_yelplog_toasts">false</item>
-    <item type="id" name="use_fake_session">false</item>
-    <item type="id" name="fake_session_token">false</item>
-    <item type="id" name="activity_config_editMaxReviewsOnPage">false</item>
-    <item type="id" name="activity_config_btnMaxReviewsOnPageUp">false</item>
-    <item type="id" name="activity_config_btnMaxReviewsOnPageDown">false</item>
-    <item type="id" name="activity_config_btnOk">false</item>
-    <item type="id" name="activity_config_btnCancel">false</item>
+    <item type="id" name="heading">false</item>
+    <item type="id" name="sub_heading">false</item>
+    <item type="id" name="image_subtitle">false</item>
+    <item type="id" name="first_name_floating_label">false</item>
     <item type="id" name="first_name">false</item>
     <item type="id" name="last_name">false</item>
-    <item type="id" name="phone">false</item>
+    <item type="id" name="last_name_floating_label">false</item>
+    <item type="id" name="zip_floating_label">false</item>
+    <item type="id" name="zip">false</item>
+    <item type="id" name="email_floating_label">false</item>
     <item type="id" name="email">false</item>
+    <item type="id" name="password_floating_label">false</item>
+    <item type="id" name="password">false</item>
+    <item type="id" name="terms_of_service">false</item>
+    <item type="id" name="create_account_btn">false</item>
+    <item type="id" name="confirm_scroll_view">false</item>
+    <item type="id" name="tagline">false</item>
+    <item type="id" name="confirmed_email_required">false</item>
+    <item type="id" name="check_for_confirmation_email">false</item>
+    <item type="id" name="tip_check_your_spam">false</item>
+    <item type="id" name="send_email_flipper">false</item>
+    <item type="id" name="resend_confirmation_button">false</item>
+    <item type="id" name="email_sent_button">false</item>
+    <item type="id" name="wrong_email_change_it">false</item>
+    <item type="id" name="phone">false</item>
     <item type="id" name="special">false</item>
     <item type="id" name="legal">false</item>
+    <item type="id" name="contextual_image_view">false</item>
+    <item type="id" name="contextual_button_layout">false</item>
+    <item type="id" name="contextual_image">false</item>
+    <item type="id" name="contextual_tagline">false</item>
+    <item type="id" name="facebook_log_in_button">false</item>
+    <item type="id" name="contextual_login_button">false</item>
+    <item type="id" name="contextual_sign_up_button">false</item>
     <item type="id" name="activity_scrollview">false</item>
     <item type="id" name="full_form">false</item>
     <item type="id" name="buy_bar">false</item>
@@ -224,7 +261,6 @@
     <item type="id" name="timer">false</item>
     <item type="id" name="deal_list">false</item>
     <item type="id" name="business_image">false</item>
-    <item type="id" name="description">false</item>
     <item type="id" name="price">false</item>
     <item type="id" name="reg_price">false</item>
     <item type="id" name="discount">false</item>
@@ -243,20 +279,18 @@
     <item type="id" name="activity_debuginfo_main">false</item>
     <item type="id" name="activity_debuginfo_contentInner">false</item>
     <item type="id" name="activity_debuginfo_btnCopy">false</item>
-    <item type="id" name="edit_business_view">false</item>
     <item type="id" name="closed_business_cell">false</item>
     <item type="id" name="closed_check">false</item>
     <item type="id" name="closed_title_text">false</item>
+    <item type="id" name="duplicate_business_cell">false</item>
+    <item type="id" name="is_duplicate_check">false</item>
+    <item type="id" name="is_duplicate_title_text">false</item>
     <item type="id" name="removable_panel">false</item>
+    <item type="id" name="business_menu_url_title">false</item>
     <item type="id" name="instructions">false</item>
     <item type="id" name="text">false</item>
+    <item type="id" name="business_name_layout">false</item>
     <item type="id" name="business_name_title">false</item>
-    <item type="id" name="yomi_name_title">false</item>
-    <item type="id" name="yomi_name">false</item>
-    <item type="id" name="english_name_title">false</item>
-    <item type="id" name="english_name">false</item>
-    <item type="id" name="romaji_name_title">false</item>
-    <item type="id" name="romaji_name">false</item>
     <item type="id" name="yelp_hours">false</item>
     <item type="id" name="current_yelp_hours">false</item>
     <item type="id" name="elite_prompt_background">false</item>
@@ -269,27 +303,25 @@
     <item type="id" name="activity_errorscrolling_tv">false</item>
     <item type="id" name="activity_errorscrolling_btnCopyText">false</item>
     <item type="id" name="activity_errorscrolling_btnClose">false</item>
+    <item type="id" name="user_panel">false</item>
+    <item type="id" name="user_badge_cell">false</item>
+    <item type="id" name="list_info">false</item>
     <item type="id" name="time_selection">false</item>
     <item type="id" name="date_selection">false</item>
     <item type="id" name="party_size">false</item>
     <item type="id" name="party_size_spinner">false</item>
-    <item type="id" name="find_friends">false</item>
     <item type="id" name="find_friends_bottom">false</item>
-    <item type="id" name="find_friends_prompt">false</item>
-    <item type="id" name="config_list">false</item>
-    <item type="id" name="find_friends_dont_worry">false</item>
     <item type="id" name="user_badge">false</item>
     <item type="id" name="greeting">false</item>
     <item type="id" name="salutation">false</item>
-    <item type="id" name="buttons">false</item>
     <item type="id" name="ignore_button">false</item>
-    <item type="id" name="accept_button">false</item>
     <item type="id" name="full_screen_award_layout">false</item>
-    <item type="id" name="oh_yeah_button_layout">false</item>
     <item type="id" name="full_screen_award_title">false</item>
+    <item type="id" name="full_screen_award_starburst_background">false</item>
     <item type="id" name="full_screen_award_icon">false</item>
     <item type="id" name="full_screen_award_subtitle">false</item>
     <item type="id" name="full_screen_award_text">false</item>
+    <item type="id" name="oh_yeah_button_layout">false</item>
     <item type="id" name="oh_yeah_button">false</item>
     <item type="id" name="activity_login_initialfocusdummy">false</item>
     <item type="id" name="activity_login_scroll">false</item>
@@ -297,25 +329,17 @@
     <item type="id" name="activity_login_reason">false</item>
     <item type="id" name="activity_login_editUsername">false</item>
     <item type="id" name="activity_login_editPassword">false</item>
+    <item type="id" name="activity_login_check_unmask">false</item>
     <item type="id" name="activity_login_btnLogin">false</item>
     <item type="id" name="activity_login_llCreateAccount">false</item>
     <item type="id" name="activity_login_btnSignUp">false</item>
     <item type="id" name="mapview">false</item>
-    <item type="id" name="activity_member_search_layout">false</item>
-    <item type="id" name="instructions_view">false</item>
-    <item type="id" name="nonefound_view">false</item>
-    <item type="id" name="member_list_view">false</item>
-    <item type="id" name="search_text">false</item>
+    <item type="id" name="scroll_wrapper">false</item>
+    <item type="id" name="web_view">false</item>
+    <item type="id" name="web_view_button_overlay">false</item>
+    <item type="id" name="web_view_button_overlay_button">false</item>
     <item type="id" name="conversations_center_fragment_container">false</item>
     <item type="id" name="single_conversation_fragment_container">false</item>
-    <item type="id" name="yelp_logo">false</item>
-    <item type="id" name="categories">false</item>
-    <item type="id" name="search_icon">false</item>
-    <item type="id" name="icon_border">false</item>
-    <item type="id" name="tagline">false</item>
-    <item type="id" name="restaurant_search_item">false</item>
-    <item type="id" name="bars_search_item">false</item>
-    <item type="id" name="coffee_search_item">false</item>
     <item type="id" name="background_layout">false</item>
     <item type="id" name="background">false</item>
     <item type="id" name="content_layout">false</item>
@@ -323,7 +347,6 @@
     <item type="id" name="view_pager">false</item>
     <item type="id" name="photo_chrome">false</item>
     <item type="id" name="who_liked_fragment_container">false</item>
-    <item type="id" name="gridview">false</item>
     <item type="id" name="border">false</item>
     <item type="id" name="content_stub">false</item>
     <item type="id" name="notification_content">false</item>
@@ -331,7 +354,6 @@
     <item type="id" name="dlg_draw">false</item>
     <item type="id" name="popup_notification">false</item>
     <item type="id" name="loading_view">false</item>
-    <item type="id" name="scroll_wrapper">false</item>
     <item type="id" name="post_title_text">false</item>
     <item type="id" name="post_message_text">false</item>
     <item type="id" name="select_category">false</item>
@@ -370,14 +392,13 @@
     <item type="id" name="your_photos">false</item>
     <item type="id" name="activity_businesslistresultsmap_content_area">false</item>
     <item type="id" name="filter_bar">false</item>
+    <item type="id" name="redo_button_map_holder">false</item>
+    <item type="id" name="map_wrapper">false</item>
+    <item type="id" name="redo_search_button_frame">false</item>
+    <item type="id" name="redo_search">false</item>
     <item type="id" name="search_overlay_root">false</item>
     <item type="id" name="compliment_buttons">false</item>
     <item type="id" name="focusdummy">false</item>
-    <item type="id" name="sign_dude">false</item>
-    <item type="id" name="sign_title">false</item>
-    <item type="id" name="sign_body">false</item>
-    <item type="id" name="alright_button">false</item>
-    <item type="id" name="feed">false</item>
     <item type="id" name="camera_canvas">false</item>
     <item type="id" name="camera_overlay">false</item>
     <item type="id" name="video_toggle">false</item>
@@ -404,19 +425,30 @@
     <item type="id" name="edit_text">false</item>
     <item type="id" name="list_banner">false</item>
     <item type="id" name="list_background">false</item>
+    <item type="id" name="i_am_customer_button">false</item>
+    <item type="id" name="i_am_owner_button">false</item>
     <item type="id" name="add_media_cell_button">false</item>
+    <item type="id" name="chevron">false</item>
+    <item type="id" name="address_view">false</item>
+    <item type="id" name="logo_button">false</item>
+    <item type="id" name="restaurants_button">false</item>
+    <item type="id" name="coffee_button">false</item>
+    <item type="id" name="bars_button">false</item>
+    <item type="id" name="appwidget_search_button">false</item>
     <item type="id" name="award_banner_background">false</item>
     <item type="id" name="award_banner_left_text">false</item>
     <item type="id" name="award_banner_right_text">false</item>
     <item type="id" name="award_banner_icon">false</item>
     <item type="id" name="badge_image">false</item>
-    <item type="id" name="badge_status_image">false</item>
+    <item type="id" name="bottomsheet">false</item>
     <item type="id" name="content_frame">false</item>
     <item type="id" name="check_in_review_start_stars_wrapper">false</item>
     <item type="id" name="check_in_review_start_stars">false</item>
     <item type="id" name="biz_attributes_question_wrapper">false</item>
     <item type="id" name="question_text">false</item>
     <item type="id" name="question_answer">false</item>
+    <item type="id" name="bookmark_sort_frame">false</item>
+    <item type="id" name="sort_type">false</item>
     <item type="id" name="business_category_suggest_container">false</item>
     <item type="id" name="business_category_suggest">false</item>
     <item type="id" name="list_title">false</item>
@@ -425,7 +457,11 @@
     <item type="id" name="details_cell_text">false</item>
     <item type="id" name="list_row">false</item>
     <item type="id" name="disclosure">false</item>
+    <item type="id" name="action_text">false</item>
     <item type="id" name="list_content">false</item>
+    <item type="id" name="map_divider">false</item>
+    <item type="id" name="map_cell">false</item>
+    <item type="id" name="business_address">false</item>
     <item type="id" name="businesspage_attribution">false</item>
     <item type="id" name="button_bar">false</item>
     <item type="id" name="photos_and_videos">false</item>
@@ -433,24 +469,34 @@
     <item type="id" name="check_in">false</item>
     <item type="id" name="second_divider">false</item>
     <item type="id" name="bookmark">false</item>
+    <item type="id" name="war_status_quo_layout">false</item>
     <item type="id" name="write_review">false</item>
+    <item type="id" name="war_enabled_layout">false</item>
+    <item type="id" name="war_stars_view">false</item>
+    <item type="id" name="war_text">false</item>
     <item type="id" name="close">false</item>
     <item type="id" name="from_this_biz_image">false</item>
     <item type="id" name="from_this_biz_disclosure">false</item>
     <item type="id" name="from_this_biz_text">false</item>
+    <item type="id" name="data_type_icon">false</item>
+    <item type="id" name="data_type_title">false</item>
+    <item type="id" name="data_type_value">false</item>
+    <item type="id" name="action_content_organizer">false</item>
+    <item type="id" name="action_content">false</item>
     <item type="id" name="list_button_icon">false</item>
     <item type="id" name="list_button_title">false</item>
     <item type="id" name="list_button_subtitle">false</item>
+    <item type="id" name="search_actions">false</item>
     <item type="id" name="businesspage_ad_image">false</item>
     <item type="id" name="businesspage_ad_flag">false</item>
     <item type="id" name="businesspage_ad_title">false</item>
     <item type="id" name="businesspage_ad_price">false</item>
     <item type="id" name="businesspage_ad_rating">false</item>
     <item type="id" name="businesspage_ad_rating_stars">false</item>
-    <item type="id" name="businesspage_ad_rating_text">false</item>
+    <item type="id" name="businesspage_ad_info_text">false</item>
     <item type="id" name="businesspage_ad_details_image">false</item>
     <item type="id" name="businesspage_ad_details">false</item>
-    <item type="id" name="map_cell">false</item>
+    <item type="id" name="businesspage_ad_distance">false</item>
     <item type="id" name="address">false</item>
     <item type="id" name="mapIcon">false</item>
     <item type="id" name="addressExact">false</item>
@@ -458,13 +504,24 @@
     <item type="id" name="emptyMapIcon">false</item>
     <item type="id" name="businesspage_request_error_text">false</item>
     <item type="id" name="businesspage_retry_button">false</item>
-    <item type="id" name="footer_line">false</item>
-    <item type="id" name="footer_small_button">false</item>
-    <item type="id" name="footer_large_button">false</item>
+    <item type="id" name="businesspage_review_header">false</item>
+    <item type="id" name="header_title">false</item>
+    <item type="id" name="review_entrypoint">false</item>
+    <item type="id" name="user_panel_divider">false</item>
+    <item type="id" name="user_friend_count">false</item>
+    <item type="id" name="copy_view">false</item>
+    <item type="id" name="arrow">false</item>
     <item type="id" name="yellowpages_attribution">false</item>
     <item type="id" name="businesspage_button">false</item>
     <item type="id" name="businesspage_button_text">false</item>
     <item type="id" name="businesspage_text">false</item>
+    <item type="id" name="businesspage_tip_header">false</item>
+    <item type="id" name="tip_entrypoint">false</item>
+    <item type="id" name="tip_photo_wrapper">false</item>
+    <item type="id" name="user_photo">false</item>
+    <item type="id" name="tip_icon">false</item>
+    <item type="id" name="user_name">false</item>
+    <item type="id" name="text_content">false</item>
     <item type="id" name="add_media_button">false</item>
     <item type="id" name="add_tip_button">false</item>
     <item type="id" name="price_1">false</item>
@@ -473,41 +530,28 @@
     <item type="id" name="price_4">false</item>
     <item type="id" name="displayable_category_container">false</item>
     <item type="id" name="category_name">false</item>
+    <item type="id" name="close_button">false</item>
     <item type="id" name="header_text">false</item>
     <item type="id" name="search_for_category">false</item>
+    <item type="id" name="search_loading_spinner">false</item>
     <item type="id" name="categories_suggest_fragment">false</item>
+    <item type="id" name="error">false</item>
     <item type="id" name="add_category">false</item>
     <item type="id" name="category_content">false</item>
     <item type="id" name="image_disclosure">false</item>
     <item type="id" name="checkin_result_content">false</item>
     <item type="id" name="alert_box">false</item>
-    <item type="id" name="close_button">false</item>
-    <item type="id" name="com_facebook_picker_list_view">false</item>
-    <item type="id" name="com_facebook_picker_activity_circle">false</item>
+    <item type="id" name="claim_your_business_container">false</item>
+    <item type="id" name="claim_your_business">false</item>
+    <item type="id" name="cohort_picker_header_text">false</item>
+    <item type="id" name="cohort_picker_selectable_text">false</item>
+    <item type="id" name="com_facebook_fragment_container">false</item>
     <item type="id" name="com_facebook_login_activity_progress_bar">false</item>
-    <item type="id" name="com_facebook_picker_row_activity_circle">false</item>
-    <item type="id" name="com_facebook_picker_checkbox">false</item>
-    <item type="id" name="com_facebook_picker_image">false</item>
-    <item type="id" name="com_facebook_picker_profile_pic_stub">false</item>
-    <item type="id" name="com_facebook_picker_title">false</item>
-    <item type="id" name="com_facebook_picker_checkbox_stub">false</item>
-    <item type="id" name="com_facebook_picker_list_section_header">false</item>
-    <item type="id" name="com_facebook_picker_top_bar">false</item>
-    <item type="id" name="com_facebook_picker_done_button">false</item>
-    <item type="id" name="com_facebook_picker_divider">false</item>
-    <item type="id" name="com_facebook_picker_title_bar_stub">false</item>
-    <item type="id" name="com_facebook_picker_title_bar">false</item>
-    <item type="id" name="picker_subtitle">false</item>
-    <item type="id" name="com_facebook_search_bar_view">false</item>
-    <item type="id" name="com_facebook_picker_search_text">false</item>
     <item type="id" name="com_facebook_body_frame">false</item>
     <item type="id" name="com_facebook_tooltip_bubble_view_top_pointer">false</item>
     <item type="id" name="com_facebook_button_xout">false</item>
     <item type="id" name="com_facebook_tooltip_bubble_view_text_body">false</item>
     <item type="id" name="com_facebook_tooltip_bubble_view_bottom_pointer">false</item>
-    <item type="id" name="com_facebook_usersettingsfragment_logo_image">false</item>
-    <item type="id" name="com_facebook_usersettingsfragment_profile_name">false</item>
-    <item type="id" name="com_facebook_usersettingsfragment_login_button">false</item>
     <item type="id" name="transparent_header">false</item>
     <item type="id" name="shadow_header">false</item>
     <item type="id" name="title_layout">false</item>
@@ -525,7 +569,6 @@
     <item type="id" name="answer">false</item>
     <item type="id" name="cell">false</item>
     <item type="id" name="approval_button">false</item>
-    <item type="id" name="user_photo">false</item>
     <item type="id" name="time_created">false</item>
     <item type="id" name="compliment_photo">false</item>
     <item type="id" name="compliment_icon">false</item>
@@ -539,8 +582,11 @@
     <item type="id" name="friends_fragment_container">false</item>
     <item type="id" name="quantity">false</item>
     <item type="id" name="formula">false</item>
-    <item type="id" name="ad_view">false</item>
-    <item type="id" name="feedback">false</item>
+    <item type="id" name="delivery_attributes">false</item>
+    <item type="id" name="delivery_filter">false</item>
+    <item type="id" name="reservation_filter">false</item>
+    <item type="id" name="snackbar_text">false</item>
+    <item type="id" name="snackbar_action">false</item>
     <item type="id" name="top_text">false</item>
     <item type="id" name="top_image">false</item>
     <item type="id" name="privacy_level">false</item>
@@ -559,30 +605,44 @@
     <item type="id" name="dino_list">false</item>
     <item type="id" name="falling_dino">false</item>
     <item type="id" name="take_me_back_button">false</item>
+    <item type="id" name="nav_linear_layout">false</item>
     <item type="id" name="nav_add_review">false</item>
     <item type="id" name="nav_add_media">false</item>
     <item type="id" name="nav_check_in">false</item>
     <item type="id" name="nav_nearby">false</item>
     <item type="id" name="nav_search">false</item>
     <item type="id" name="nav_activity_feed">false</item>
-    <item type="id" name="nav_notifications_wrapper">false</item>
-    <item type="id" name="nav_notifications_badge">false</item>
     <item type="id" name="nav_notifications">false</item>
     <item type="id" name="nav_bookmarks">false</item>
     <item type="id" name="nav_recents">false</item>
     <item type="id" name="nav_events">false</item>
-    <item type="id" name="nav_messages_wrapper">false</item>
-    <item type="id" name="nav_messages_badge">false</item>
+    <item type="id" name="nav_food_orders">false</item>
     <item type="id" name="nav_messages">false</item>
     <item type="id" name="nav_checkins">false</item>
     <item type="id" name="nav_talk">false</item>
     <item type="id" name="nav_aboutme">false</item>
-    <item type="id" name="nav_weekly">false</item>
+    <item type="id" name="nav_local_issue">false</item>
     <item type="id" name="nav_monocle">false</item>
     <item type="id" name="nav_add_friends">false</item>
     <item type="id" name="nav_add_business">false</item>
     <item type="id" name="nav_settings">false</item>
     <item type="id" name="nav_bug_report">false</item>
+    <item type="id" name="nav_support_center">false</item>
+    <item type="id" name="envelope_frame">false</item>
+    <item type="id" name="bottom_of_envelope">false</item>
+    <item type="id" name="star_small">false</item>
+    <item type="id" name="star_medium">false</item>
+    <item type="id" name="star_big">false</item>
+    <item type="id" name="envelope_back">false</item>
+    <item type="id" name="invitation_card">false</item>
+    <item type="id" name="envelope">false</item>
+    <item type="id" name="envelope_shadow">false</item>
+    <item type="id" name="envelope_cover">false</item>
+    <item type="id" name="bottom_background">false</item>
+    <item type="id" name="message_title">false</item>
+    <item type="id" name="message_body">false</item>
+    <item type="id" name="continue_button">false</item>
+    <item type="id" name="skip_button">false</item>
     <item type="id" name="website">false</item>
     <item type="id" name="tickets_website">false</item>
     <item type="id" name="guests_container">false</item>
@@ -592,26 +652,23 @@
     <item type="id" name="message_container">false</item>
     <item type="id" name="your_name_on_the_guestlist_container">false</item>
     <item type="id" name="your_name_on_the_guestlist">false</item>
-    <item type="id" name="subtitle_container">false</item>
-    <item type="id" name="feed_header">false</item>
-    <item type="id" name="disclosure_triangle">false</item>
-    <item type="id" name="subtitle">false</item>
-    <item type="id" name="bottom_separator">false</item>
-    <item type="id" name="image_container">false</item>
-    <item type="id" name="biz_photo">false</item>
-    <item type="id" name="photos_list">false</item>
+    <item type="id" name="business_photo">false</item>
+    <item type="id" name="business_info">false</item>
+    <item type="id" name="business_stars">false</item>
+    <item type="id" name="business_review_count">false</item>
+    <item type="id" name="separator">false</item>
+    <item type="id" name="review_stars">false</item>
+    <item type="id" name="check_in_count">false</item>
+    <item type="id" name="review_text">false</item>
     <item type="id" name="right_info_text">false</item>
     <item type="id" name="header_icon">false</item>
     <item type="id" name="action_title_text">false</item>
-    <item type="id" name="attributes_container">false</item>
-    <item type="id" name="stars_view">false</item>
-    <item type="id" name="business_review_check_in_count">false</item>
-    <item type="id" name="business_review_photo_count">false</item>
-    <item type="id" name="review_text">false</item>
-    <item type="id" name="notifications">false</item>
-    <item type="id" name="notifications_badge">false</item>
-    <item type="id" name="messages">false</item>
-    <item type="id" name="feed_label">false</item>
+    <item type="id" name="inline_notifications_header">false</item>
+    <item type="id" name="inline_notification_item_1">false</item>
+    <item type="id" name="inline_notification_item_2">false</item>
+    <item type="id" name="all_notifications_button">false</item>
+    <item type="id" name="feed_header">false</item>
+    <item type="id" name="feed_tabs">false</item>
     <item type="id" name="feed_button_icon">false</item>
     <item type="id" name="button_title">false</item>
     <item type="id" name="thumb_image">false</item>
@@ -620,18 +677,30 @@
     <item type="id" name="feedback_user_2">false</item>
     <item type="id" name="feedback_user_3">false</item>
     <item type="id" name="feedback_user_4">false</item>
+    <item type="id" name="dropdown">false</item>
     <item type="id" name="dropdown_option">false</item>
-    <item type="id" name="container">false</item>
+    <item type="id" name="filter_toggle_section">false</item>
     <item type="id" name="filter_toggle">false</item>
     <item type="id" name="filter_name">false</item>
-    <item type="id" name="time_picker">false</item>
+    <item type="id" name="filter_picker_stub">false</item>
+    <item type="id" name="filter_picker_section">false</item>
     <item type="id" name="dialog_flag_content">false</item>
-    <item type="id" name="video_icon">false</item>
+    <item type="id" name="yelp_fragment_container">false</item>
+    <item type="id" name="feed_fragment_wrapper">false</item>
     <item type="id" name="caption_edit_text">false</item>
+    <item type="id" name="thumbnail">false</item>
+    <item type="id" name="video_icon">false</item>
+    <item type="id" name="twitter_row">false</item>
+    <item type="id" name="facebook_row">false</item>
+    <item type="id" name="last_row">false</item>
+    <item type="id" name="last_row_arrow">false</item>
+    <item type="id" name="last_row_text">false</item>
+    <item type="id" name="last_row_subtext">false</item>
     <item type="id" name="listContainer">false</item>
     <item type="id" name="single_conversation_fragment_list">false</item>
-    <item type="id" name="yelp_fragment_container">false</item>
     <item type="id" name="find_friends_list_header">false</item>
+    <item type="id" name="empty_view_invites_sent">false</item>
+    <item type="id" name="empty_view_fb">false</item>
     <item type="id" name="friend_request_sent_background">false</item>
     <item type="id" name="auto_friend_fb_view_with_separators">false</item>
     <item type="id" name="separator_top">false</item>
@@ -644,6 +713,7 @@
     <item type="id" name="no_results_view">false</item>
     <item type="id" name="find_friends_on_facebook">false</item>
     <item type="id" name="find_friends_in_contacts">false</item>
+    <item type="id" name="find_friends_dont_worry">false</item>
     <item type="id" name="flag_review_explanation_text">false</item>
     <item type="id" name="no_taking_sides_title">false</item>
     <item type="id" name="read_before_flagging">false</item>
@@ -655,6 +725,11 @@
     <item type="id" name="reason_privacy_standards">false</item>
     <item type="id" name="reason_promotional_material">false</item>
     <item type="id" name="reason_wrong_business">false</item>
+    <item type="id" name="media_content">false</item>
+    <item type="id" name="media_tabs">false</item>
+    <item type="id" name="tab_container">false</item>
+    <item type="id" name="media_grid">false</item>
+    <item type="id" name="shadow">false</item>
     <item type="id" name="blur_image">false</item>
     <item type="id" name="low_res_photo">false</item>
     <item type="id" name="review_compose_stars_wrapper">false</item>
@@ -676,6 +751,7 @@
     <item type="id" name="review_overview_share_wrapper">false</item>
     <item type="id" name="review_overview_twitter_share_button">false</item>
     <item type="id" name="review_overview_facebook_share_button">false</item>
+    <item type="id" name="tint">false</item>
     <item type="id" name="pie_progress">false</item>
     <item type="id" name="record">false</item>
     <item type="id" name="photo_toggle">false</item>
@@ -683,27 +759,60 @@
     <item type="id" name="video_player">false</item>
     <item type="id" name="play_icon">false</item>
     <item type="id" name="loading_placeholder">false</item>
-    <item type="id" name="user_panel">false</item>
-    <item type="id" name="user_badge_cell">false</item>
-    <item type="id" name="separator">false</item>
+    <item type="id" name="buttonsLayout">false</item>
+    <item type="id" name="leftButton">false</item>
+    <item type="id" name="rightButton">false</item>
+    <item type="id" name="image2">false</item>
     <item type="id" name="action_item_contanier">false</item>
     <item type="id" name="action_item_text">false</item>
+    <item type="id" name="gif_reverse">false</item>
+    <item type="id" name="gif">false</item>
+    <item type="id" name="grid">false</item>
     <item type="id" name="quantity_view">false</item>
+    <item type="id" name="bar">false</item>
+    <item type="id" name="close_details">false</item>
+    <item type="id" name="image_type">false</item>
+    <item type="id" name="name">false</item>
+    <item type="id" name="photo_container">false</item>
+    <item type="id" name="subTitle">false</item>
+    <item type="id" name="header_details_stub">false</item>
+    <item type="id" name="header_details">false</item>
     <item type="id" name="likes_text">false</item>
-    <item type="id" name="time_ago">false</item>
+    <item type="id" name="information_box">false</item>
     <item type="id" name="text_wrapper">false</item>
+    <item type="id" name="time_ago">false</item>
     <item type="id" name="alert_photo_frame">false</item>
     <item type="id" name="alert_photo">false</item>
-    <item type="id" name="action_button">false</item>
+    <item type="id" name="action_button_grey">false</item>
+    <item type="id" name="action_button_green">false</item>
+    <item type="id" name="local_yelp">false</item>
+    <item type="id" name="local_issue_date">false</item>
+    <item type="id" name="local_issue_location">false</item>
+    <item type="id" name="local_issue_summary">false</item>
+    <item type="id" name="sponsor_content">false</item>
+    <item type="id" name="headline_text">false</item>
+    <item type="id" name="subtitle">false</item>
+    <item type="id" name="RelativeLayout">false</item>
+    <item type="id" name="trackEvent">false</item>
     <item type="id" name="map_frame">false</item>
     <item type="id" name="map">false</item>
     <item type="id" name="map_border">false</item>
     <item type="id" name="map_white_corners">false</item>
+    <item type="id" name="media_selected">false</item>
+    <item type="id" name="media_selected_check_box">false</item>
+    <item type="id" name="media_selected_border">false</item>
     <item type="id" name="padding">false</item>
-    <item type="id" name="arrow">false</item>
     <item type="id" name="title_pane">false</item>
+    <item type="id" name="message_other_biz">false</item>
+    <item type="id" name="start_button">false</item>
+    <item type="id" name="notification">false</item>
+    <item type="id" name="info_text">false</item>
+    <item type="id" name="select_button">false</item>
+    <item type="id" name="message_business_list">false</item>
     <item type="id" name="response_time">false</item>
     <item type="id" name="message_content">false</item>
+    <item type="id" name="search_inner_layout">false</item>
+    <item type="id" name="messenger_send_button">false</item>
     <item type="id" name="rating">false</item>
     <item type="id" name="runtime">false</item>
     <item type="id" name="showtimes">false</item>
@@ -715,19 +824,16 @@
     <item type="id" name="hot_button_feed">false</item>
     <item type="id" name="toolbar">false</item>
     <item type="id" name="nav_drawer">false</item>
-    <item type="id" name="nav_logged_out">false</item>
-    <item type="id" name="nav_logged_out_button">false</item>
     <item type="id" name="nav_user_passport">false</item>
     <item type="id" name="nav_logged_in">false</item>
     <item type="id" name="nav_user_photo_name">false</item>
     <item type="id" name="nav_user_photo">false</item>
-    <item type="id" name="chevron">false</item>
     <item type="id" name="nav_user_name">false</item>
     <item type="id" name="nav_friends">false</item>
     <item type="id" name="nav_reviews">false</item>
     <item type="id" name="nav_media">false</item>
-    <item type="id" name="nav_user_info_experiment">false</item>
-    <item type="id" name="business_photo">false</item>
+    <item type="id" name="nav_sign_up_log_in">false</item>
+    <item type="id" name="nav_sign_up_log_in_button">false</item>
     <item type="id" name="event_photo">false</item>
     <item type="id" name="event_name">false</item>
     <item type="id" name="event_arrow">false</item>
@@ -748,34 +854,117 @@
     <item type="id" name="suggestion_rating">false</item>
     <item type="id" name="suggestion_category">false</item>
     <item type="id" name="footer_text">false</item>
-    <item type="id" name="button_layout">false</item>
+    <item type="id" name="action0">false</item>
+    <item type="id" name="cancel_action">false</item>
+    <item type="id" name="status_bar_latest_event_content">false</item>
+    <item type="id" name="media_actions">false</item>
+    <item type="id" name="action_divider">false</item>
+    <item type="id" name="line1">false</item>
+    <item type="id" name="time">false</item>
+    <item type="id" name="chronometer">false</item>
+    <item type="id" name="text2">false</item>
+    <item type="id" name="line3">false</item>
+    <item type="id" name="info">false</item>
+    <item type="id" name="end_padder">false</item>
+    <item type="id" name="dialog_number_picker">false</item>
+    <item type="id" name="splash_container">false</item>
+    <item type="id" name="splash_icon_layout">false</item>
+    <item type="id" name="splash_icon">false</item>
+    <item type="id" name="anchor_text">false</item>
+    <item type="id" name="pager">false</item>
+    <item type="id" name="button_container">false</item>
+    <item type="id" name="fb_sign_up_button">false</item>
+    <item type="id" name="signup_login_button_container">false</item>
     <item type="id" name="login_button">false</item>
     <item type="id" name="sign_up_button">false</item>
+    <item type="id" name="next_splash_arrow_button">false</item>
+    <item type="id" name="opennow_date_picker">false</item>
+    <item type="id" name="opennow_time_picker">false</item>
     <item type="id" name="inner_button">false</item>
-    <item type="id" name="panel_actionsendrow_button">false</item>
+    <item type="id" name="feed_description">false</item>
+    <item type="id" name="hot_new_business_banner">false</item>
     <item type="id" name="fullcontent_business_layout">false</item>
     <item type="id" name="business_title">false</item>
+    <item type="id" name="bookmark_button">false</item>
     <item type="id" name="business_rating">false</item>
     <item type="id" name="review_count">false</item>
-    <item type="id" name="category">false</item>
-    <item type="id" name="biz_photo_1">false</item>
-    <item type="id" name="biz_photo_2">false</item>
-    <item type="id" name="business_layout">false</item>
-    <item type="id" name="rating_holder">false</item>
-    <item type="id" name="user_review_layout">false</item>
+    <item type="id" name="neighborhood_and_city">false</item>
+    <item type="id" name="top_line">false</item>
+    <item type="id" name="bottom_line">false</item>
     <item type="id" name="star_rating">false</item>
-    <item type="id" name="checkin_icon">false</item>
-    <item type="id" name="photo_icon">false</item>
-    <item type="id" name="user_tip_layout">false</item>
-    <item type="id" name="tip_text">false</item>
+    <item type="id" name="business_list">false</item>
+    <item type="id" name="business_item_1">false</item>
+    <item type="id" name="business_item_2">false</item>
+    <item type="id" name="business_item_3">false</item>
+    <item type="id" name="more_button_layout">false</item>
+    <item type="id" name="business_layout">false</item>
+    <item type="id" name="popular_bookmark_banner">false</item>
+    <item type="id" name="rating_holder">false</item>
+    <item type="id" name="business_review_photo_count">false</item>
+    <item type="id" name="user_list">false</item>
+    <item type="id" name="comment_divider">false</item>
+    <item type="id" name="primary_comment">false</item>
+    <item type="id" name="comment_button">false</item>
+    <item type="id" name="likes_comments_count">false</item>
     <item type="id" name="like_button">false</item>
-    <item type="id" name="likes_count">false</item>
+    <item type="id" name="event_layout">false</item>
+    <item type="id" name="event_list">false</item>
+    <item type="id" name="event_item_1">false</item>
+    <item type="id" name="event_item_2">false</item>
+    <item type="id" name="event_item_3">false</item>
+    <item type="id" name="call_to_action">false</item>
+    <item type="id" name="local_issue_layout">false</item>
+    <item type="id" name="local_issue_title">false</item>
+    <item type="id" name="more_button">false</item>
+    <item type="id" name="image_container">false</item>
+    <item type="id" name="uploaded_photo">false</item>
+    <item type="id" name="uploaded_photo_1">false</item>
+    <item type="id" name="uploaded_photo_2">false</item>
+    <item type="id" name="photos_list">false</item>
+    <item type="id" name="photo_likes_view">false</item>
+    <item type="id" name="photo_like_button">false</item>
+    <item type="id" name="photo_likes_count">false</item>
+    <item type="id" name="business_action_text">false</item>
+    <item type="id" name="more_reservations_action_button">false</item>
+    <item type="id" name="user_review_draft_layout">false</item>
+    <item type="id" name="review_draft_text">false</item>
+    <item type="id" name="user_review_layout">false</item>
+    <item type="id" name="rotd_banner">false</item>
+    <item type="id" name="hundred_millionth_review_banner">false</item>
+    <item type="id" name="checkin_icon">false</item>
+    <item type="id" name="business_review_check_in_count">false</item>
+    <item type="id" name="photo_icon">false</item>
+    <item type="id" name="talk_post">false</item>
+    <item type="id" name="talk_post_list">false</item>
+    <item type="id" name="talk_topic">false</item>
+    <item type="id" name="talk_message">false</item>
+    <item type="id" name="talk_post_1">false</item>
+    <item type="id" name="talk_post_2">false</item>
+    <item type="id" name="talk_post_3">false</item>
+    <item type="id" name="user_tip_layout">false</item>
+    <item type="id" name="first_to_tip_banner">false</item>
+    <item type="id" name="tip_text">false</item>
     <item type="id" name="like_button_icon">false</item>
+    <item type="id" name="likes_count">false</item>
     <item type="id" name="user_profile_layout">false</item>
-    <item type="id" name="user_profile_view">false</item>
-    <item type="id" name="feed_description_view">false</item>
-    <item type="id" name="feed_description">false</item>
+    <item type="id" name="user_item_1">false</item>
+    <item type="id" name="user_item_2">false</item>
+    <item type="id" name="user_item_3">false</item>
+    <item type="id" name="feed_video_hot_new_business_banner">false</item>
+    <item type="id" name="video_thumbnail">false</item>
+    <item type="id" name="video_photo_chrome">false</item>
+    <item type="id" name="video_like_button">false</item>
+    <item type="id" name="video_likes_count">false</item>
+    <item type="id" name="ynra_title">false</item>
+    <item type="id" name="ynra_business_photo">false</item>
+    <item type="id" name="ynra_business_name">false</item>
+    <item type="id" name="ynra_reason_text">false</item>
+    <item type="id" name="ynra_stars_view_container">false</item>
+    <item type="id" name="ynra_stars_view">false</item>
     <item type="id" name="add_business">false</item>
+    <item type="id" name="add_address_button">false</item>
+    <item type="id" name="alternate_name_title">false</item>
+    <item type="id" name="alternate_name">false</item>
     <item type="id" name="badge_holder">false</item>
     <item type="id" name="big_badge">false</item>
     <item type="id" name="progress">false</item>
@@ -784,6 +973,7 @@
     <item type="id" name="feed_banners">false</item>
     <item type="id" name="item_image">false</item>
     <item type="id" name="location_title">false</item>
+    <item type="id" name="action_button">false</item>
     <item type="id" name="rating_image">false</item>
     <item type="id" name="business_review_media_count">false</item>
     <item type="id" name="content_box">false</item>
@@ -795,30 +985,35 @@
     <item type="id" name="business_header_content">false</item>
     <item type="id" name="biz_alerts_pager">false</item>
     <item type="id" name="name_distance">false</item>
-    <item type="id" name="name">false</item>
     <item type="id" name="distance">false</item>
     <item type="id" name="names_rating_price">false</item>
     <item type="id" name="other_names">false</item>
+    <item type="id" name="categories">false</item>
     <item type="id" name="schedule_section">false</item>
     <item type="id" name="hours">false</item>
     <item type="id" name="open_closed">false</item>
     <item type="id" name="paging_panel">false</item>
     <item type="id" name="folded_text">false</item>
-    <item type="id" name="save_search">false</item>
     <item type="id" name="attribution_text">false</item>
     <item type="id" name="business_review_panel">false</item>
     <item type="id" name="business_review_first_to_review_banner">false</item>
+    <item type="id" name="business_review_rotd_banner">false</item>
+    <item type="id" name="business_review_hundred_millionth_banner">false</item>
     <item type="id" name="business_icons">false</item>
     <item type="id" name="user_elite">false</item>
     <item type="id" name="business_review_star_rating">false</item>
     <item type="id" name="business_review_updated_review">false</item>
     <item type="id" name="business_review_review_content">false</item>
     <item type="id" name="business_review_review_date">false</item>
-    <item type="id" name="review_divider">false</item>
+    <item type="id" name="business_review_excerpt">false</item>
+    <item type="id" name="review_excerpt_divider">false</item>
+    <item type="id" name="passport_short">false</item>
+    <item type="id" name="passport_review_content">false</item>
     <item type="id" name="user_link">false</item>
     <item type="id" name="business_review_basic_info">false</item>
     <item type="id" name="business_review_divider">false</item>
     <item type="id" name="panel_review_translate">false</item>
+    <item type="id" name="review_translate_attribution">false</item>
     <item type="id" name="business_review_panel_compose_review">false</item>
     <item type="id" name="user_photo_tiny">false</item>
     <item type="id" name="user_name_tiny">false</item>
@@ -827,7 +1022,7 @@
     <item type="id" name="business_review_tiny_passport_line">false</item>
     <item type="id" name="business_review_tiny_passport_review_content">false</item>
     <item type="id" name="business_review_tiny_passport_more">false</item>
-    <item type="id" name="search_inner_layout">false</item>
+    <item type="id" name="full_width_search_extras">false</item>
     <item type="id" name="search_image">false</item>
     <item type="id" name="top_callout">false</item>
     <item type="id" name="bookmark_flag">false</item>
@@ -841,11 +1036,10 @@
     <item type="id" name="search_address1_textview">false</item>
     <item type="id" name="search_category_textview">false</item>
     <item type="id" name="search_closes_in">false</item>
-    <item type="id" name="social_search_stub">false</item>
     <item type="id" name="social_search_callout">false</item>
-    <item type="id" name="search_extras_stub">false</item>
+    <item type="id" name="search_annotations">false</item>
     <item type="id" name="search_extras">false</item>
-    <item type="id" name="bookmark_button">false</item>
+    <item type="id" name="review_with_passport">false</item>
     <item type="id" name="review_content">false</item>
     <item type="id" name="review_date">false</item>
     <item type="id" name="carrier_message">false</item>
@@ -858,13 +1052,15 @@
     <item type="id" name="checkin_count_text">false</item>
     <item type="id" name="comment_text">false</item>
     <item type="id" name="comment_box">false</item>
-    <item type="id" name="comment_button">false</item>
     <item type="id" name="top_cell_parent">false</item>
     <item type="id" name="picture_name_wrapper">false</item>
     <item type="id" name="intro_text">false</item>
     <item type="id" name="like_button_wrapper">false</item>
     <item type="id" name="comment_bubble_arrow">false</item>
     <item type="id" name="likes_box">false</item>
+    <item type="id" name="claim_business_container">false</item>
+    <item type="id" name="claim_business_image_bg">false</item>
+    <item type="id" name="claim_business_button">false</item>
     <item type="id" name="username_and_comment">false</item>
     <item type="id" name="compliment_column1">false</item>
     <item type="id" name="compliment_column2">false</item>
@@ -884,14 +1080,19 @@
     <item type="id" name="conversation_last_received_message">false</item>
     <item type="id" name="detail_number">false</item>
     <item type="id" name="detail_type">false</item>
+    <item type="id" name="content_text">false</item>
     <item type="id" name="ad_text">false</item>
     <item type="id" name="elite_nomination_button">false</item>
     <item type="id" name="badge">false</item>
     <item type="id" name="elite_text">false</item>
+    <item type="id" name="address_floating_label">false</item>
+    <item type="id" name="address_field">false</item>
+    <item type="id" name="apt_field">false</item>
+    <item type="id" name="zip_field">false</item>
+    <item type="id" name="reverse_geolocate_button">false</item>
     <item type="id" name="error_image">false</item>
     <item type="id" name="error_text">false</item>
     <item type="id" name="error_button">false</item>
-    <item type="id" name="event_layout">false</item>
     <item type="id" name="user_rsvp">false</item>
     <item type="id" name="directions">false</item>
     <item type="id" name="add_to_calendar">false</item>
@@ -920,6 +1121,9 @@
     <item type="id" name="rsvp">false</item>
     <item type="id" name="are_you_interested">false</item>
     <item type="id" name="content_container">false</item>
+    <item type="id" name="event_image">false</item>
+    <item type="id" name="event_holder">false</item>
+    <item type="id" name="event_title">false</item>
     <item type="id" name="subscription_options">false</item>
     <item type="id" name="subscription_options_center_marker">false</item>
     <item type="id" name="subscription_im_in">false</item>
@@ -940,13 +1144,11 @@
     <item type="id" name="add_friend_button">false</item>
     <item type="id" name="leaderboard_header">false</item>
     <item type="id" name="my_checkins_header">false</item>
-    <item type="id" name="header_title">false</item>
     <item type="id" name="header_subtext">false</item>
-    <item type="id" name="image_1">false</item>
-    <item type="id" name="image_2">false</item>
-    <item type="id" name="image_3">false</item>
     <item type="id" name="text_entry">false</item>
     <item type="id" name="send_button">false</item>
+    <item type="id" name="invite_friends_text">false</item>
+    <item type="id" name="invite_friends_button">false</item>
     <item type="id" name="label">false</item>
     <item type="id" name="value">false</item>
     <item type="id" name="field">false</item>
@@ -958,8 +1160,9 @@
     <item type="id" name="leaderboard_dukedom_stat">false</item>
     <item type="id" name="sub_title">false</item>
     <item type="id" name="detail_text">false</item>
-    <item type="id" name="loading_spinner">false</item>
+    <item type="id" name="loading_spinner_holder">false</item>
     <item type="id" name="loading_text">false</item>
+    <item type="id" name="panel">false</item>
     <item type="id" name="panel_mapcallout_ad_flag">false</item>
     <item type="id" name="panel_mapcallout_title">false</item>
     <item type="id" name="panel_mapcallout_rating">false</item>
@@ -980,33 +1183,34 @@
     <item type="id" name="reviews">false</item>
     <item type="id" name="previous_button">false</item>
     <item type="id" name="next_button">false</item>
-    <item type="id" name="term">false</item>
+    <item type="id" name="new_tag">false</item>
+    <item type="id" name="local_issue_image">false</item>
     <item type="id" name="section_title">false</item>
     <item type="id" name="filler">false</item>
     <item type="id" name="filler_top">false</item>
     <item type="id" name="filler_bottom">false</item>
     <item type="id" name="overlay_content">false</item>
-    <item type="id" name="user_name">false</item>
-    <item type="id" name="user_friend_count">false</item>
     <item type="id" name="user_review_count">false</item>
     <item type="id" name="user_media_count">false</item>
     <item type="id" name="location">false</item>
     <item type="id" name="user_media_count_overflow">false</item>
-    <item type="id" name="photo_like_text">false</item>
     <item type="id" name="photoView1">false</item>
     <item type="id" name="spacer">false</item>
     <item type="id" name="photoView2">false</item>
     <item type="id" name="cancel">false</item>
     <item type="id" name="photo_frame">false</item>
     <item type="id" name="done">false</item>
+    <item type="id" name="main_control">false</item>
     <item type="id" name="stub">false</item>
     <item type="id" name="title_text">false</item>
+    <item type="id" name="placeholder_stub">false</item>
+    <item type="id" name="placeholder">false</item>
     <item type="id" name="subtitle_text">false</item>
     <item type="id" name="notification_switch">false</item>
+    <item type="id" name="promoted_filter_holder">false</item>
     <item type="id" name="filter_text">false</item>
     <item type="id" name="redemption_title">false</item>
     <item type="id" name="customer">false</item>
-    <item type="id" name="redo_search">false</item>
     <item type="id" name="review_highlight_panel">false</item>
     <item type="id" name="profile_image">false</item>
     <item type="id" name="review_highlight_contents">false</item>
@@ -1014,6 +1218,7 @@
     <item type="id" name="review_translate_header">false</item>
     <item type="id" name="translate_review_button">false</item>
     <item type="id" name="translate_review_button_bottom_divider">false</item>
+    <item type="id" name="review_media_count">false</item>
     <item type="id" name="attribute_photo">false</item>
     <item type="id" name="attribute_text">false</item>
     <item type="id" name="social_search_checkin_callout">false</item>
@@ -1025,6 +1230,7 @@
     <item type="id" name="splash_bottom_button_prompt">false</item>
     <item type="id" name="splash_button_bottom">false</item>
     <item type="id" name="splash_extra_message">false</item>
+    <item type="id" name="term">false</item>
     <item type="id" name="biz_description">false</item>
     <item type="id" name="type">false</item>
     <item type="id" name="term_description">false</item>
@@ -1033,6 +1239,7 @@
     <item type="id" name="last_modified">false</item>
     <item type="id" name="topic_text">false</item>
     <item type="id" name="reply_count">false</item>
+    <item type="id" name="category">false</item>
     <item type="id" name="terms_view">false</item>
     <item type="id" name="compliment_box">false</item>
     <item type="id" name="award_banners">false</item>
@@ -1040,18 +1247,34 @@
     <item type="id" name="tip_header">false</item>
     <item type="id" name="tip_date">false</item>
     <item type="id" name="photo_content">false</item>
-    <item type="id" name="text_content">false</item>
     <item type="id" name="tip_of_the_day_content_date">false</item>
     <item type="id" name="tip_of_the_day_content_photo">false</item>
     <item type="id" name="tip_of_the_day_content_text">false</item>
+    <item type="id" name="bubble_buttons">false</item>
     <item type="id" name="tip_view_panel">false</item>
-    <item type="id" name="tip_divider">false</item>
+    <item type="id" name="to_text">false</item>
+    <item type="id" name="trending_search_content">false</item>
+    <item type="id" name="trending_search">false</item>
     <item type="id" name="timeago">false</item>
     <item type="id" name="contribution_text">false</item>
     <item type="id" name="contribution_badge">false</item>
+    <item type="id" name="personal_stats">false</item>
+    <item type="id" name="personal_stats_days_ago">false</item>
+    <item type="id" name="review_views_count">false</item>
+    <item type="id" name="photo_views_count">false</item>
+    <item type="id" name="profile_views_count">false</item>
     <item type="id" name="yelp_elite_event">false</item>
     <item type="id" name="ynra_content">false</item>
     <item type="id" name="see_more_button">false</item>
+    <item type="id" name="accept_permission_button">false</item>
+    <item type="id" name="permission_image">false</item>
+    <item type="id" name="consider_text">false</item>
+    <item type="id" name="ad_body">false</item>
+    <item type="id" name="ad_photo">false</item>
+    <item type="id" name="ad_snippet">false</item>
+    <item type="id" name="thumbnail_photo">false</item>
+    <item type="id" name="button_go_to_business">false</item>
+    <item type="id" name="ad_photo_holder">false</item>
     <item type="id" name="chrome_top">false</item>
     <item type="id" name="overflow_menu_icon">false</item>
     <item type="id" name="chrome_bottom">false</item>
@@ -1065,17 +1288,30 @@
     <item type="id" name="background_gridview">false</item>
     <item type="id" name="photo_page_add_media_text">false</item>
     <item type="id" name="photo_page_add_media_button">false</item>
+    <item type="id" name="place_autocomplete_search_button">false</item>
+    <item type="id" name="place_autocomplete_search_input">false</item>
+    <item type="id" name="place_autocomplete_clear_button">false</item>
+    <item type="id" name="place_autocomplete_separator">false</item>
+    <item type="id" name="place_autocomplete_powered_by_google">false</item>
+    <item type="id" name="place_autocomplete_progress">false</item>
+    <item type="id" name="place_autocomplete_prediction_primary_text">false</item>
+    <item type="id" name="place_autocomplete_prediction_secondary_text">false</item>
+    <item type="id" name="address_city_state">false</item>
     <item type="id" name="preference_content">false</item>
-    <item type="id" name="friend_notification_schedule_switch">false</item>
-    <item type="id" name="friend_notification_location_switch">false</item>
-    <item type="id" name="announcements_switch">false</item>
-    <item type="id" name="talk_location">false</item>
+    <item type="id" name="push_settings">false</item>
+    <item type="id" name="email_settings">false</item>
+    <item type="id" name="settings_location">false</item>
     <item type="id" name="clear_history">false</item>
     <item type="id" name="distance_units">false</item>
     <item type="id" name="privacy_settings">false</item>
     <item type="id" name="login_logout">false</item>
     <item type="id" name="sign_up">false</item>
+    <item type="id" name="facebook_status">false</item>
+    <item type="id" name="twitter_status">false</item>
+    <item type="id" name="line_sharing_toggle">false</item>
+    <item type="id" name="primary_location_setting">false</item>
     <item type="id" name="talk_location_setting">false</item>
+    <item type="id" name="background_location">false</item>
     <item type="id" name="toggle">false</item>
     <item type="id" name="friends">false</item>
     <item type="id" name="compose_message_recipient_picture">false</item>
@@ -1084,47 +1320,46 @@
     <item type="id" name="purchaser">false</item>
     <item type="id" name="expiration">false</item>
     <item type="id" name="what_you_get">false</item>
-    <item type="id" name="entity_name">false</item>
-    <item type="id" name="progress_bar">false</item>
     <item type="id" name="email_address_label">false</item>
-    <item type="id" name="email_address">false</item>
     <item type="id" name="bug_report">false</item>
+    <item type="id" name="reservation_party_picker">false</item>
+    <item type="id" name="reservation_date_picker">false</item>
+    <item type="id" name="reservation_time_picker">false</item>
     <item type="id" name="review_list_empty_view_search_panel">false</item>
-    <item type="id" name="pager">false</item>
     <item type="id" name="gesture_overlay">false</item>
     <item type="id" name="left_arrow">false</item>
     <item type="id" name="right_arrow">false</item>
+    <item type="id" name="search_action_attributes">false</item>
     <item type="id" name="search_holder">false</item>
     <item type="id" name="search_text_wrapper">false</item>
     <item type="id" name="search_text_icon">false</item>
-    <item type="id" name="search_annotations">false</item>
-    <item type="id" name="search_actions">false</item>
+    <item type="id" name="search_text">false</item>
+    <item type="id" name="delivery_attributes_container">false</item>
     <item type="id" name="main_searchboxes">false</item>
     <item type="id" name="search_controls_wrapper">false</item>
     <item type="id" name="searchbar">false</item>
     <item type="id" name="search_suggest">false</item>
     <item type="id" name="locationbar">false</item>
     <item type="id" name="search_suggest_layout">false</item>
-    <item type="id" name="tint">false</item>
     <item type="id" name="tos_phrase">false</item>
     <item type="id" name="copyright">false</item>
     <item type="id" name="trademark">false</item>
     <item type="id" name="this_software_uses_ffmpeg">false</item>
     <item type="id" name="version">false</item>
-    <item type="id" name="invisible">false</item>
+    <item type="id" name="thumb">false</item>
     <item type="id" name="top_signup_item">false</item>
     <item type="id" name="sign_up_options">false</item>
     <item type="id" name="gplus_sign_up">false</item>
     <item type="id" name="fb_sign_up">false</item>
+    <item type="id" name="line_sign_up">false</item>
     <item type="id" name="we_wont_share">false</item>
     <item type="id" name="sign_up_or">false</item>
     <item type="id" name="user_photo_container">false</item>
-    <item type="id" name="bottom_items">false</item>
     <item type="id" name="shown_signup_fields">false</item>
-    <item type="id" name="password">false</item>
+    <item type="id" name="signup_name_fields">false</item>
     <item type="id" name="hidden_signup_fields">false</item>
-    <item type="id" name="flag_selector">false</item>
     <item type="id" name="zip_code_edittext">false</item>
+    <item type="id" name="flag_selector_dropdown">false</item>
     <item type="id" name="zip_code_text">false</item>
     <item type="id" name="gender_button">false</item>
     <item type="id" name="gender_spinner">false</item>
@@ -1132,21 +1367,24 @@
     <item type="id" name="birthdate_button">false</item>
     <item type="id" name="birthdate_optional">false</item>
     <item type="id" name="signup_button">false</item>
-    <item type="id" name="terms_of_service">false</item>
+    <item type="id" name="sliderLayout">false</item>
+    <item type="id" name="closeTextView">false</item>
     <item type="id" name="splash_info_container">false</item>
     <item type="id" name="logo">false</item>
     <item type="id" name="logo_image">false</item>
+    <item type="id" name="edit_address">false</item>
     <item type="id" name="reverse_geocode_button">false</item>
     <item type="id" name="business_address_title">false</item>
     <item type="id" name="top_address">false</item>
     <item type="id" name="middle_address">false</item>
+    <item type="id" name="bottom_address">false</item>
     <item type="id" name="business_address_alternate_title">false</item>
+    <item type="id" name="alternate_address_span">false</item>
     <item type="id" name="top_address_alternate">false</item>
     <item type="id" name="middle_address_alternate">false</item>
-    <item type="id" name="bottom_address">false</item>
+    <item type="id" name="locality_bottom">false</item>
+    <item type="id" name="bottom_locality_separate">false</item>
     <item type="id" name="business_text">false</item>
-    <item type="id" name="tip_of_the_day_banner">false</item>
-    <item type="id" name="tip_of_the_day_banner_text">false</item>
     <item type="id" name="tip_award_banners_first_to_tip">false</item>
     <item type="id" name="tip_info">false</item>
     <item type="id" name="feedback_panel">false</item>
@@ -1154,15 +1392,13 @@
     <item type="id" name="like_tip">false</item>
     <item type="id" name="photo_box">false</item>
     <item type="id" name="photo_bar">false</item>
-    <item type="id" name="list_cell_icon">false</item>
-    <item type="id" name="list_cell_title">false</item>
-    <item type="id" name="list_cell_toggle">false</item>
     <item type="id" name="toolbar_search">false</item>
     <item type="id" name="toolbar_search_text">false</item>
     <item type="id" name="toolbar_search_filter">false</item>
     <item type="id" name="edit_name">false</item>
     <item type="id" name="update_message">false</item>
     <item type="id" name="remind_me_later_button">false</item>
+    <item type="id" name="user_address">false</item>
     <item type="id" name="profile_top_section_background">false</item>
     <item type="id" name="button_overlay">false</item>
     <item type="id" name="elite_banner">false</item>
@@ -1171,19 +1407,19 @@
     <item type="id" name="user_image_view">false</item>
     <item type="id" name="profile_add_photo_text">false</item>
     <item type="id" name="username">false</item>
-    <item type="id" name="headline_text">false</item>
     <item type="id" name="user_stats">false</item>
     <item type="id" name="community_interaction_buttons">false</item>
     <item type="id" name="send_message">false</item>
+    <item type="id" name="follow_button">false</item>
     <item type="id" name="video_play_icon">false</item>
-    <item type="id" name="photo_container">false</item>
-    <item type="id" name="weekly_title">false</item>
-    <item type="id" name="weekly_header">false</item>
-    <item type="id" name="weekly_yelp">false</item>
-    <item type="id" name="weekly_date">false</item>
-    <item type="id" name="weekly_location">false</item>
-    <item type="id" name="weekly_summary">false</item>
+    <item type="id" name="tab_name">false</item>
+    <item type="id" name="delivery_pickup_toggle">false</item>
+    <item type="id" name="delivery_toggle_button">false</item>
+    <item type="id" name="pickup_toggle_button">false</item>
+    <item type="id" name="width_placeholder">false</item>
+    <item type="id" name="delivery_content">false</item>
     <item type="id" name="actionbar_title">false</item>
+    <item type="id" name="dialog">false</item>
     <item type="id" name="message_scroll">false</item>
     <item type="id" name="button_top_border">false</item>
     <item type="id" name="negative">false</item>
@@ -1191,11 +1427,14 @@
     <item type="id" name="positive">false</item>
     <item type="id" name="ynra_stripe_wrapper">false</item>
     <item type="id" name="ynra_item">false</item>
+    <item type="id" name="ynra_be_the_first">false</item>
     <item type="id" name="reason_text_icon">false</item>
     <item type="id" name="reason_text">false</item>
     <item type="id" name="stars_view_container">false</item>
+    <item type="id" name="stars_view">false</item>
     <item type="id" name="finish_review_text">false</item>
     <item type="id" name="ynra_transparent_margin">false</item>
+    <item type="id" name="selected_bar">false</item>
     <item type="id" name="listview_background_shape">false</item>
     <item type="id" name="add_review_next">false</item>
     <item type="id" name="sort">false</item>
@@ -1224,9 +1463,8 @@
     <item type="id" name="cancel_rsvp">false</item>
     <item type="id" name="flag">false</item>
     <item type="id" name="save_to_gallery">false</item>
+    <item type="id" name="invite_fb_friends">false</item>
     <item type="id" name="send_flag_message">false</item>
-    <item type="id" name="member_search">false</item>
-    <item type="id" name="add">false</item>
     <item type="id" name="skip">false</item>
     <item type="id" name="friend_finder">false</item>
     <item type="id" name="refreshable">false</item>
@@ -1240,13 +1478,17 @@
     <item type="id" name="find_table">false</item>
     <item type="id" name="review_complete_edit">false</item>
     <item type="id" name="review_complete_close">false</item>
-    <item type="id" name="edit_review_from_review_page">false</item>
-    <item type="id" name="update_review_from_review_page">false</item>
-    <item type="id" name="flag_review_from_review_page">false</item>
+    <item type="id" name="share_review">false</item>
+    <item type="id" name="edit_review">false</item>
+    <item type="id" name="delete_review">false</item>
+    <item type="id" name="update_review">false</item>
+    <item type="id" name="flag_review">false</item>
     <item type="id" name="talk_new_conversation">false</item>
     <item type="id" name="talk_settings">false</item>
     <item type="id" name="edit_tip">false</item>
-    <item type="id" name="add_account_photo">false</item>
     <item type="id" name="invite_friend">false</item>
     <item type="id" name="send_compliment">false</item>
+    <item type="id" name="follow_user">false</item>
+    <item type="id" name="share_user_profile">false</item>
+    <item type="id" name="add_photo_or_video">false</item>
 </resources>

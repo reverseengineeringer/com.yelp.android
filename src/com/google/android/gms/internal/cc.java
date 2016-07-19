@@ -1,18 +1,41 @@
 package com.google.android.gms.internal;
 
-@ey
-public final class cc
+import java.util.Map;
+
+@fv
+public class cc
+  implements bz
 {
-  public static final cd pQ = new cc.1();
-  public static final cd pR = new cc.2();
-  public static final cd pS = new cc.3();
-  public static final cd pT = new cc.4();
-  public static final cd pU = new cc.5();
-  public static final cd pV = new cc.6();
-  public static final cd pW = new cc.7();
-  public static final cd pX = new cc.8();
-  public static final cd pY = new cc.9();
-  public static final cd pZ = new cj();
+  private final cd a;
+  
+  public cc(cd paramcd)
+  {
+    a = paramcd;
+  }
+  
+  public void a(ib paramib, Map<String, String> paramMap)
+  {
+    boolean bool1 = "1".equals(paramMap.get("transparentBackground"));
+    boolean bool2 = "1".equals(paramMap.get("blur"));
+    try
+    {
+      if (paramMap.get("blurRadius") != null)
+      {
+        f = Float.parseFloat((String)paramMap.get("blurRadius"));
+        a.b(bool1);
+        a.a(bool2, f);
+        return;
+      }
+    }
+    catch (NumberFormatException paramib)
+    {
+      for (;;)
+      {
+        gz.b("Fail to parse float", paramib);
+        float f = 0.0F;
+      }
+    }
+  }
 }
 
 /* Location:

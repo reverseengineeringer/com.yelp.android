@@ -20,11 +20,11 @@
 
 
 # instance fields
-.field private mIsEliteUser:Z
+.field private m:Ljava/lang/String;
 
-.field private mRankString:Ljava/lang/String;
+.field private n:Ljava/lang/String;
 
-.field private mRankStringVerbose:Ljava/lang/String;
+.field private o:Z
 
 
 # direct methods
@@ -33,9 +33,9 @@
 
     .prologue
     .line 19
-    new-instance v0, Lcom/yelp/android/serializable/cg;
+    new-instance v0, Lcom/yelp/android/serializable/Ranking$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/cg;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/Ranking$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/Ranking;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -54,269 +54,76 @@
 
 
 # virtual methods
-.method public bridge synthetic describeContents()I
+.method public bridge synthetic a()Ljava/lang/String;
     .locals 1
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->describeContents()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getBusinessName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getBusinessName()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->a()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getCount()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getDateCreated()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getDateCreated()Ljava/util/Date;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getFriendCount()I
-    .locals 1
-
-    .prologue
-    .line 48
-    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->mUserFriendCount:I
-
-    return v0
-.end method
-
-.method public getMediaCount()I
+.method public a(Landroid/os/Parcel;)V
     .locals 2
 
     .prologue
-    .line 63
-    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->mUserPhotoCount:I
+    .line 89
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Ranking;->a(Landroid/os/Parcel;)V
 
-    iget v1, p0, Lcom/yelp/android/serializable/Ranking;->mUserVideoCount:I
-
-    add-int/2addr v0, v1
-
-    return v0
-.end method
-
-.method public getPhotoCount()I
-    .locals 1
-
-    .prologue
-    .line 53
-    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->mUserPhotoCount:I
-
-    return v0
-.end method
-
-.method public bridge synthetic getRank()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getRank()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getRankString()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/serializable/Ranking;->mRankString:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getRankStringVerbose()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/serializable/Ranking;->mRankStringVerbose:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getReviewCount()I
-    .locals 1
-
-    .prologue
-    .line 43
-    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->mUserReviewCount:I
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserEliteYears()[I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserEliteYears()[I
+    .line 90
+    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    iput-object v0, p0, Lcom/yelp/android/serializable/Ranking;->m:Ljava/lang/String;
 
-.method public bridge synthetic getUserFriendCount()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserFriendCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserId()Ljava/lang/String;
+    .line 91
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
 
     move-result-object v0
 
-    return-object v0
+    .line 92
+    const/4 v1, 0x0
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/Ranking;->o:Z
+
+    .line 93
+    return-void
 .end method
 
-.method public bridge synthetic getUserName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserPhotoCount()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserPhotoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserPhotoUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserReviewCount()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserReviewCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->getUserVideoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 58
-    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->mUserVideoCount:I
-
-    return v0
-.end method
-
-.method public isEliteUser()Z
-    .locals 1
-
-    .prologue
-    .line 68
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/Ranking;->mIsEliteUser:Z
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
-    .line 96
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Ranking;->readFromJson(Lorg/json/JSONObject;)V
-
     .line 97
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Ranking;->a(Lorg/json/JSONObject;)V
+
+    .line 98
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    .line 98
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Ranking;->getRank()I
+    .line 99
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Ranking;->n()I
 
     move-result v1
 
-    .line 99
-    const v2, 0x7f070132
+    .line 100
+    const v2, 0x7f0701b2
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -330,10 +137,10 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/yelp/android/serializable/Ranking;->mRankString:Ljava/lang/String;
+    iput-object v2, p0, Lcom/yelp/android/serializable/Ranking;->m:Ljava/lang/String;
 
-    .line 100
-    const v2, 0x7f070133
+    .line 101
+    const v2, 0x7f0701b3
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -347,78 +154,228 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Ranking;->mRankStringVerbose:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/Ranking;->n:Ljava/lang/String;
 
     .line 102
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Ranking;->getUserEliteYears()[I
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Ranking;->l()[I
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/services/r;->a([I)Z
+    invoke-static {v0}, Lcom/yelp/android/services/f;->a([I)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/Ranking;->mIsEliteUser:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/Ranking;->o:Z
 
     .line 103
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic describeContents()I
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->describeContents()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Ranking;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public h()Z
+    .locals 1
+
+    .prologue
+    .line 69
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/Ranking;->o:Z
+
+    return v0
+.end method
+
+.method public bridge synthetic hashCode()I
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->hashCode()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->i()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public j()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 73
+    iget-object v0, p0, Lcom/yelp/android/serializable/Ranking;->m:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public j_()I
+    .locals 1
+
+    .prologue
+    .line 44
+    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->g:I
+
+    return v0
+.end method
+
+.method public k()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 77
+    iget-object v0, p0, Lcom/yelp/android/serializable/Ranking;->n:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public k_()I
+    .locals 1
+
+    .prologue
+    .line 49
+    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->f:I
+
+    return v0
+.end method
+
+.method public bridge synthetic l()[I
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->l()[I
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public l_()I
+    .locals 1
+
+    .prologue
+    .line 54
+    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->i:I
+
+    return v0
+.end method
+
+.method public bridge synthetic m()I
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->m()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public m_()I
+    .locals 1
+
+    .prologue
+    .line 59
+    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->h:I
+
+    return v0
+.end method
+
+.method public bridge synthetic n()I
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Ranking;->n()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public n_()I
     .locals 2
 
     .prologue
-    .line 88
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Ranking;->readFromParcel(Landroid/os/Parcel;)V
+    .line 64
+    iget v0, p0, Lcom/yelp/android/serializable/Ranking;->i:I
 
-    .line 89
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget v1, p0, Lcom/yelp/android/serializable/Ranking;->h:I
 
-    move-result-object v0
+    add-int/2addr v0, v1
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Ranking;->mRankString:Ljava/lang/String;
-
-    .line 90
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
-
-    move-result-object v0
-
-    .line 91
-    const/4 v1, 0x0
-
-    aget-boolean v0, v0, v1
-
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/Ranking;->mIsEliteUser:Z
-
-    .line 92
-    return-void
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
 
     .prologue
-    .line 81
+    .line 82
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/_Ranking;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 82
-    iget-object v0, p0, Lcom/yelp/android/serializable/Ranking;->mRankString:Ljava/lang/String;
+    .line 83
+    iget-object v0, p0, Lcom/yelp/android/serializable/Ranking;->m:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 83
+    .line 84
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
     const/4 v1, 0x0
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/Ranking;->mIsEliteUser:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/Ranking;->o:Z
 
     aput-boolean v2, v0, v1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 84
+    .line 85
     return-void
 .end method

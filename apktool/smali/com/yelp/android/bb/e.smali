@@ -1,69 +1,50 @@
-.class Lcom/yelp/android/bb/e;
-.super Ljava/lang/Object;
-.source "ConversationMessagesAdapter.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
+.class public Lcom/yelp/android/bb/e;
+.super Lcom/google/android/gms/dynamic/zzg;
 
 
-# instance fields
-.field final synthetic a:Landroid/content/Context;
+# annotations
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
 
-.field final synthetic b:Lcom/yelp/android/bb/d;
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/android/gms/dynamic/zzg",
+        "<",
+        "Lcom/yelp/android/bb/b;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/bb/d;Landroid/content/Context;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    .prologue
-    .line 59
-    iput-object p1, p0, Lcom/yelp/android/bb/e;->b:Lcom/yelp/android/bb/d;
+    const-string/jumbo v0, "com.google.android.gms.ads.reward.RewardedVideoAdCreatorImpl"
 
-    iput-object p2, p0, Lcom/yelp/android/bb/e;->a:Landroid/content/Context;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, v0}, Lcom/google/android/gms/dynamic/zzg;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 4
+.method protected a(Landroid/os/IBinder;)Lcom/yelp/android/bb/b;
+    .locals 1
 
-    .prologue
-    .line 63
-    iget-object v0, p0, Lcom/yelp/android/bb/e;->a:Landroid/content/Context;
+    invoke-static {p1}, Lcom/yelp/android/bb/b$a;->a(Landroid/os/IBinder;)Lcom/yelp/android/bb/b;
 
-    iget-object v1, p0, Lcom/yelp/android/bb/e;->a:Landroid/content/Context;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/yelp/android/bb/e;->b:Lcom/yelp/android/bb/d;
+    return-object v0
+.end method
 
-    invoke-static {v2}, Lcom/yelp/android/bb/d;->a(Lcom/yelp/android/bb/d;)Lcom/yelp/android/serializable/Conversation;
+.method protected synthetic zzd(Landroid/os/IBinder;)Ljava/lang/Object;
+    .locals 1
 
-    move-result-object v2
+    invoke-virtual {p0, p1}, Lcom/yelp/android/bb/e;->a(Landroid/os/IBinder;)Lcom/yelp/android/bb/b;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Conversation;->getReviewId()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/yelp/android/bb/e;->b:Lcom/yelp/android/bb/d;
-
-    invoke-static {v3}, Lcom/yelp/android/bb/d;->a(Lcom/yelp/android/bb/d;)Lcom/yelp/android/serializable/Conversation;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/Conversation;->getBusinessId()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v1, v2, v3}, Lcom/yelp/android/ui/activities/reviewpage/ActivityReviewPager;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    .line 65
-    return-void
+    return-object v0
 .end method

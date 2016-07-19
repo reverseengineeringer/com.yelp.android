@@ -3,6 +3,16 @@
 .source "QuantityDropDownView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/widgets/QuantityDropDownView$c;,
+        Lcom/yelp/android/ui/widgets/QuantityDropDownView$b;,
+        Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
+    }
+.end annotation
+
+
 # instance fields
 .field protected a:Landroid/widget/PopupWindow;
 
@@ -20,7 +30,7 @@
 
 .field private h:I
 
-.field private i:Lcom/yelp/android/ui/widgets/s;
+.field private i:Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
 
 
 # direct methods
@@ -28,12 +38,12 @@
     .locals 1
 
     .prologue
-    .line 54
+    .line 55
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 55
+    .line 56
     return-void
 .end method
 
@@ -41,37 +51,33 @@
     .locals 1
 
     .prologue
-    .line 50
-    sget v0, Lcom/yelp/android/bf/c;->quantityDropDownViewStyle:I
+    .line 51
+    sget v0, Lcom/yelp/android/co/a$b;->quantityDropDownViewStyle:I
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 51
+    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 6
+    .locals 5
 
     .prologue
-    const/4 v3, 0x2
-
-    const/4 v5, 0x1
-
     const/4 v4, 0x0
 
-    .line 68
+    .line 69
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 69
-    sget-object v0, Lcom/yelp/android/bf/m;->QuantityDropDownView:[I
+    .line 70
+    sget-object v0, Lcom/yelp/android/co/a$l;->QuantityDropDownView:[I
 
     invoke-virtual {p1, p2, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 71
-    const/4 v1, 0x3
+    .line 73
+    sget v1, Lcom/yelp/android/co/a$l;->QuantityDropDownView_alignRight:I
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getId()I
 
@@ -83,8 +89,8 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->e:I
 
-    .line 72
-    const/4 v1, 0x4
+    .line 74
+    sget v1, Lcom/yelp/android/co/a$l;->QuantityDropDownView_alignLeft:I
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getId()I
 
@@ -96,8 +102,8 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->f:I
 
-    .line 73
-    const/4 v1, 0x5
+    .line 75
+    sget v1, Lcom/yelp/android/co/a$l;->QuantityDropDownView_dropDownItemLayout:I
 
     const v2, 0x1090009
 
@@ -107,8 +113,8 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->h:I
 
-    .line 75
-    const/4 v1, 0x6
+    .line 79
+    sget v1, Lcom/yelp/android/co/a$l;->QuantityDropDownView_popupViewStyle:I
 
     const v2, 0x1010076
 
@@ -118,28 +124,32 @@
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->g:I
 
-    .line 77
-    invoke-virtual {v0, v5, v4}, Landroid/content/res/TypedArray;->getInt(II)I
+    .line 83
+    sget v1, Lcom/yelp/android/co/a$l;->QuantityDropDownView_startRange:I
+
+    invoke-virtual {v0, v1, v4}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->c:I
 
-    .line 78
-    const v1, 0x3fffffff    # 1.9999999f
+    .line 84
+    sget v1, Lcom/yelp/android/co/a$l;->QuantityDropDownView_endRange:I
 
-    invoke-virtual {v0, v3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    const v2, 0x3fffffff    # 1.9999999f
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->d:I
 
-    .line 79
+    .line 85
     iget v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->c:I
 
     iput v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->b:I
 
-    .line 80
+    .line 86
     iget v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->b:I
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -148,22 +158,24 @@
 
     invoke-super {p0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 81
+    .line 87
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 83
+    .line 89
     iget v0, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->c:I
 
     iget v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->d:I
 
     if-le v0, v1, :cond_0
 
-    .line 84
+    .line 90
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "StartRange[%d] is greater than EndRange[%d]"
 
-    new-array v2, v3, [Ljava/lang/Object;
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
 
     iget v3, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->c:I
 
@@ -173,13 +185,15 @@
 
     aput-object v3, v2, v4
 
-    iget v3, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->d:I
+    const/4 v3, 0x1
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget v4, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->d:I
 
-    move-result-object v3
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v3, v2, v5
+    move-result-object v4
+
+    aput-object v4, v2, v3
 
     invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -189,7 +203,7 @@
 
     throw v0
 
-    .line 87
+    .line 94
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->isEnabled()Z
 
@@ -197,10 +211,10 @@
 
     if-eqz v0, :cond_1
 
-    .line 88
+    .line 95
     invoke-direct {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->a()V
 
-    .line 90
+    .line 97
     :cond_1
     return-void
 .end method
@@ -221,14 +235,14 @@
     .locals 1
 
     .prologue
-    .line 114
-    new-instance v0, Lcom/yelp/android/ui/widgets/r;
+    .line 121
+    new-instance v0, Lcom/yelp/android/ui/widgets/QuantityDropDownView$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/r;-><init>(Lcom/yelp/android/ui/widgets/QuantityDropDownView;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView$1;-><init>(Lcom/yelp/android/ui/widgets/QuantityDropDownView;)V
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 128
+    .line 136
     return-void
 .end method
 
@@ -240,7 +254,7 @@
 
     const/4 v0, 0x0
 
-    .line 135
+    .line 143
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getRootView()Landroid/view/View;
 
     move-result-object v1
@@ -251,7 +265,7 @@
 
     move-result-object v1
 
-    .line 136
+    .line 144
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getRootView()Landroid/view/View;
 
     move-result-object v2
@@ -262,7 +276,7 @@
 
     move-result-object v2
 
-    .line 138
+    .line 146
     new-instance v3, Landroid/widget/ListView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getContext()Landroid/content/Context;
@@ -273,7 +287,7 @@
 
     invoke-direct {v3, v4, v8, v5}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 139
+    .line 147
     new-instance v4, Landroid/widget/AbsListView$LayoutParams;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getWidth()I
@@ -286,8 +300,8 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/ListView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 140
-    new-instance v4, Lcom/yelp/android/ui/widgets/t;
+    .line 148
+    new-instance v4, Lcom/yelp/android/ui/widgets/QuantityDropDownView$b;
 
     iget v5, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->h:I
 
@@ -307,26 +321,26 @@
 
     move-result-object v6
 
-    invoke-direct {v4, v5, v6}, Lcom/yelp/android/ui/widgets/t;-><init>(ILandroid/util/Pair;)V
+    invoke-direct {v4, v5, v6}, Lcom/yelp/android/ui/widgets/QuantityDropDownView$b;-><init>(ILandroid/util/Pair;)V
 
-    .line 142
+    .line 150
     invoke-virtual {v3, v4}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 143
+    .line 151
     invoke-virtual {v3, v8}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    .line 144
-    new-instance v4, Lcom/yelp/android/ui/widgets/u;
+    .line 152
+    new-instance v4, Lcom/yelp/android/ui/widgets/QuantityDropDownView$c;
 
-    invoke-direct {v4, p0}, Lcom/yelp/android/ui/widgets/u;-><init>(Lcom/yelp/android/ui/widgets/QuantityDropDownView;)V
+    invoke-direct {v4, p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView$c;-><init>(Lcom/yelp/android/ui/widgets/QuantityDropDownView;)V
 
-    .line 145
+    .line 153
     invoke-virtual {v3, v4}, Landroid/widget/ListView;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 146
+    .line 154
     invoke-virtual {v3, v4}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 147
+    .line 155
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getWidth()I
 
     move-result v4
@@ -339,7 +353,7 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/widget/ListView;->measure(II)V
 
-    .line 148
+    .line 156
     new-instance v4, Landroid/widget/PopupWindow;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getContext()Landroid/content/Context;
@@ -350,13 +364,13 @@
 
     invoke-direct {v4, v5, v8, v6}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 149
+    .line 157
     invoke-virtual {v4, v3}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
 
-    .line 150
+    .line 158
     invoke-virtual {v4, v0, v0}, Landroid/widget/PopupWindow;->setWindowLayoutMode(II)V
 
-    .line 151
+    .line 159
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getWidth()I
 
     move-result v5
@@ -379,7 +393,7 @@
 
     invoke-virtual {v4, v1}, Landroid/widget/PopupWindow;->setWidth(I)V
 
-    .line 152
+    .line 160
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getHeight()I
 
     move-result v1
@@ -388,12 +402,12 @@
 
     invoke-virtual {v4, v1}, Landroid/widget/PopupWindow;->setHeight(I)V
 
-    .line 153
+    .line 161
     const/4 v1, 0x1
 
     invoke-virtual {v4, v1}, Landroid/widget/PopupWindow;->setFocusable(Z)V
 
-    .line 156
+    .line 164
     :try_start_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->getText()Ljava/lang/CharSequence;
 
@@ -413,16 +427,16 @@
 
     move-result v0
 
-    .line 159
+    .line 168
     :goto_0
     const/4 v1, 0x2
 
     invoke-virtual {v3, v0, v1}, Landroid/widget/ListView;->setSelectionFromTop(II)V
 
-    .line 160
+    .line 169
     return-object v4
 
-    .line 157
+    .line 165
     :catch_0
     move-exception v1
 
@@ -435,7 +449,7 @@
     .locals 1
 
     .prologue
-    .line 203
+    .line 211
     iget v0, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->b:I
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -451,32 +465,32 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 102
+    .line 109
     if-eqz p1, :cond_1
 
-    .line 103
+    .line 110
     invoke-direct {p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->a()V
 
-    .line 111
+    .line 118
     :cond_0
     :goto_0
     return-void
 
-    .line 105
+    .line 112
     :cond_1
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 106
+    .line 113
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->a:Landroid/widget/PopupWindow;
 
     if-eqz v0, :cond_0
 
-    .line 107
+    .line 114
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->a:Landroid/widget/PopupWindow;
 
     invoke-virtual {v0}, Landroid/widget/PopupWindow;->dismiss()V
 
-    .line 108
+    .line 115
     iput-object v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->a:Landroid/widget/PopupWindow;
 
     goto :goto_0
@@ -486,10 +500,10 @@
     .locals 0
 
     .prologue
-    .line 97
+    .line 104
     iput p1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->d:I
 
-    .line 98
+    .line 105
     return-void
 .end method
 
@@ -497,42 +511,42 @@
     .locals 2
 
     .prologue
-    .line 58
+    .line 59
     iget v0, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->b:I
 
-    .line 60
+    .line 61
     iput p1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->b:I
 
-    .line 61
+    .line 62
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-super {p0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 62
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->i:Lcom/yelp/android/ui/widgets/s;
+    .line 63
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->i:Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
 
     if-eqz v1, :cond_0
 
-    .line 63
-    iget-object v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->i:Lcom/yelp/android/ui/widgets/s;
+    .line 64
+    iget-object v1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->i:Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
 
-    invoke-interface {v1, v0, p0}, Lcom/yelp/android/ui/widgets/s;->a(ILcom/yelp/android/ui/widgets/QuantityDropDownView;)V
+    invoke-interface {v1, v0, p0}, Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;->a(ILcom/yelp/android/ui/widgets/QuantityDropDownView;)V
 
-    .line 65
+    .line 66
     :cond_0
     return-void
 .end method
 
-.method public setQuantityChangeListener(Lcom/yelp/android/ui/widgets/s;)V
+.method public setQuantityChangeListener(Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;)V
     .locals 0
 
     .prologue
-    .line 131
-    iput-object p1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->i:Lcom/yelp/android/ui/widgets/s;
+    .line 139
+    iput-object p1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->i:Lcom/yelp/android/ui/widgets/QuantityDropDownView$a;
 
-    .line 132
+    .line 140
     return-void
 .end method
 
@@ -540,9 +554,9 @@
     .locals 0
 
     .prologue
-    .line 93
+    .line 100
     iput p1, p0, Lcom/yelp/android/ui/widgets/QuantityDropDownView;->c:I
 
-    .line 94
+    .line 101
     return-void
 .end method

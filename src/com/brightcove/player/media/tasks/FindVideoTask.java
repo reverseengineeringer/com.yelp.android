@@ -7,6 +7,8 @@ import com.brightcove.player.event.EventEmitter;
 import com.brightcove.player.event.ListensFor;
 import com.brightcove.player.media.MediaService;
 import com.brightcove.player.util.ErrorUtil;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
@@ -24,11 +26,13 @@ public class FindVideoTask
   }
   
   public void findVideoById(String paramString)
+    throws URISyntaxException, UnsupportedEncodingException
   {
     executeWithCommand("find_video_by_id", "video_id", paramString);
   }
   
   public void findVideoByReferenceId(String paramString)
+    throws URISyntaxException, UnsupportedEncodingException
   {
     executeWithCommand("find_video_by_reference_id", "reference_id", paramString);
   }

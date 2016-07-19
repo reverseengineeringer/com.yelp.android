@@ -1,13 +1,34 @@
 package com.google.android.gms.internal;
 
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.IInterface;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Process;
+import com.google.android.gms.common.internal.zzd;
 
-public abstract interface js
-  extends IInterface
+public class js
 {
-  public abstract void b(int paramInt, IBinder paramIBinder, Bundle paramBundle);
+  public static boolean a()
+  {
+    return (zzd.zzakE) && (jb.b()) && (jb.a() == Process.myUid());
+  }
+  
+  public static boolean a(Context paramContext, String paramString)
+  {
+    boolean bool = false;
+    paramContext = paramContext.getPackageManager();
+    try
+    {
+      int i = getApplicationInfo0flags;
+      if ((i & 0x200000) != 0) {
+        bool = true;
+      }
+      return bool;
+    }
+    catch (PackageManager.NameNotFoundException paramContext) {}
+    return false;
+  }
 }
 
 /* Location:

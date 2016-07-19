@@ -2,268 +2,162 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _YelpDeal
   implements Parcelable
 {
-  protected String mBusinessName;
-  protected String mCanonicalBusinessId;
-  protected String mCurrencyCode;
-  protected List<String> mDescription;
-  protected String mId;
-  protected String mImageUrl;
-  protected String mLocation;
-  protected int mMaxGiftQuantity;
-  protected int mMaxQuantity;
-  protected int mMaxUserQuantity;
-  protected List<YelpDealOption> mOptions;
-  protected int mPurchasedCount;
-  protected List<DealPurchase> mPurchases;
-  protected int mRemainingCount;
-  protected String mShareUrl;
-  protected long mSystemClockExpiration;
-  protected String mTerms;
-  protected long mTimeEnd;
-  protected long mTimeReference;
-  protected long mTimeStart;
-  protected Date mTimeUpdated;
-  protected String mTitle;
-  protected String mTosUrl;
+  protected Date d;
+  protected List<DealPurchase> e;
+  protected List<String> f;
+  protected List<YelpDealOption> g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected String k;
+  protected String l;
+  protected String m;
+  protected String n;
+  protected String o;
+  protected String p;
+  protected String q;
+  protected int r;
+  protected int s;
+  protected int t;
+  protected int u;
+  protected int v;
+  protected long w;
+  protected long x;
+  protected long y;
+  protected long z;
   
-  protected _YelpDeal() {}
-  
-  protected _YelpDeal(Date paramDate, List<DealPurchase> paramList, List<String> paramList1, List<YelpDealOption> paramList2, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, String paramString9, String paramString10, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, long paramLong1, long paramLong2, long paramLong3, long paramLong4)
+  public List<DealPurchase> A()
   {
-    this();
-    mTimeUpdated = paramDate;
-    mPurchases = paramList;
-    mDescription = paramList1;
-    mOptions = paramList2;
-    mId = paramString1;
-    mTitle = paramString2;
-    mImageUrl = paramString3;
-    mLocation = paramString4;
-    mCurrencyCode = paramString5;
-    mBusinessName = paramString6;
-    mTerms = paramString7;
-    mTosUrl = paramString8;
-    mShareUrl = paramString9;
-    mCanonicalBusinessId = paramString10;
-    mMaxUserQuantity = paramInt1;
-    mMaxGiftQuantity = paramInt2;
-    mMaxQuantity = paramInt3;
-    mPurchasedCount = paramInt4;
-    mRemainingCount = paramInt5;
-    mTimeStart = paramLong1;
-    mTimeEnd = paramLong2;
-    mTimeReference = paramLong3;
-    mSystemClockExpiration = paramLong4;
+    return e;
   }
   
-  public int describeContents()
+  public Date B()
   {
-    return 0;
+    return d;
   }
   
-  public String getBusinessName()
+  public void a(Parcel paramParcel)
   {
-    return mBusinessName;
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      d = new Date(l1);
+    }
+    e = paramParcel.readArrayList(DealPurchase.class.getClassLoader());
+    f = paramParcel.createStringArrayList();
+    g = paramParcel.readArrayList(YelpDealOption.class.getClassLoader());
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    l = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    m = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    n = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    o = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    p = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    q = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    r = paramParcel.readInt();
+    s = paramParcel.readInt();
+    t = paramParcel.readInt();
+    u = paramParcel.readInt();
+    v = paramParcel.readInt();
+    w = paramParcel.readLong();
+    x = paramParcel.readLong();
+    y = paramParcel.readLong();
+    z = paramParcel.readLong();
   }
   
-  public String getCanonicalBusinessId()
-  {
-    return mCanonicalBusinessId;
-  }
-  
-  public String getCurrencyCode()
-  {
-    return mCurrencyCode;
-  }
-  
-  public List<String> getDescription()
-  {
-    return mDescription;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public String getImageUrl()
-  {
-    return mImageUrl;
-  }
-  
-  public String getLocation()
-  {
-    return mLocation;
-  }
-  
-  public int getMaxGiftQuantity()
-  {
-    return mMaxGiftQuantity;
-  }
-  
-  public int getMaxQuantity()
-  {
-    return mMaxQuantity;
-  }
-  
-  public int getMaxUserQuantity()
-  {
-    return mMaxUserQuantity;
-  }
-  
-  public List<YelpDealOption> getOptions()
-  {
-    return mOptions;
-  }
-  
-  public int getPurchasedCount()
-  {
-    return mPurchasedCount;
-  }
-  
-  public List<DealPurchase> getPurchases()
-  {
-    return mPurchases;
-  }
-  
-  public int getRemainingCount()
-  {
-    return mRemainingCount;
-  }
-  
-  public String getShareUrl()
-  {
-    return mShareUrl;
-  }
-  
-  public long getSystemClockExpiration()
-  {
-    return mSystemClockExpiration;
-  }
-  
-  public String getTerms()
-  {
-    return mTerms;
-  }
-  
-  public long getTimeEnd()
-  {
-    return mTimeEnd;
-  }
-  
-  public long getTimeReference()
-  {
-    return mTimeReference;
-  }
-  
-  public long getTimeStart()
-  {
-    return mTimeStart;
-  }
-  
-  public Date getTimeUpdated()
-  {
-    return mTimeUpdated;
-  }
-  
-  public String getTitle()
-  {
-    return mTitle;
-  }
-  
-  public String getTosUrl()
-  {
-    return mTosUrl;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
     if (!paramJSONObject.isNull("time_updated")) {
-      mTimeUpdated = JsonUtil.parseTimestamp(paramJSONObject, "time_updated");
+      d = JsonUtil.parseTimestamp(paramJSONObject, "time_updated");
     }
     if (!paramJSONObject.isNull("purchases"))
     {
-      mPurchases = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("purchases"), DealPurchase.CREATOR);
+      e = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("purchases"), DealPurchase.CREATOR);
       if (paramJSONObject.isNull("description")) {
         break label444;
       }
-      mDescription = JsonUtil.getStringList(paramJSONObject.optJSONArray("description"));
+      f = JsonUtil.getStringList(paramJSONObject.optJSONArray("description"));
       label66:
       if (paramJSONObject.isNull("options")) {
         break label454;
       }
-      mOptions = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("options"), YelpDealOption.CREATOR);
+      g = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("options"), YelpDealOption.CREATOR);
       label91:
       if (!paramJSONObject.isNull("id")) {
-        mId = paramJSONObject.optString("id");
+        h = paramJSONObject.optString("id");
       }
       if (!paramJSONObject.isNull("title")) {
-        mTitle = paramJSONObject.optString("title");
+        i = paramJSONObject.optString("title");
       }
       if (!paramJSONObject.isNull("image_url")) {
-        mImageUrl = paramJSONObject.optString("image_url");
+        j = paramJSONObject.optString("image_url");
       }
       if (!paramJSONObject.isNull("location")) {
-        mLocation = paramJSONObject.optString("location");
+        k = paramJSONObject.optString("location");
       }
       if (!paramJSONObject.isNull("currency_code")) {
-        mCurrencyCode = paramJSONObject.optString("currency_code");
+        l = paramJSONObject.optString("currency_code");
       }
       if (!paramJSONObject.isNull("business_name")) {
-        mBusinessName = paramJSONObject.optString("business_name");
+        m = paramJSONObject.optString("business_name");
       }
       if (!paramJSONObject.isNull("terms")) {
-        mTerms = paramJSONObject.optString("terms");
+        n = paramJSONObject.optString("terms");
       }
       if (!paramJSONObject.isNull("tos_url")) {
-        mTosUrl = paramJSONObject.optString("tos_url");
+        o = paramJSONObject.optString("tos_url");
       }
       if (!paramJSONObject.isNull("share_url")) {
-        mShareUrl = paramJSONObject.optString("share_url");
+        p = paramJSONObject.optString("share_url");
       }
       if (!paramJSONObject.isNull("canonical_business_id")) {
-        mCanonicalBusinessId = paramJSONObject.optString("canonical_business_id");
+        q = paramJSONObject.optString("canonical_business_id");
       }
       if (paramJSONObject.isNull("max_user_quantity")) {
         break label464;
       }
-      mMaxUserQuantity = paramJSONObject.optInt("max_user_quantity");
+      r = paramJSONObject.optInt("max_user_quantity");
       label300:
       if (paramJSONObject.isNull("max_gift_quantity")) {
         break label472;
       }
-      mMaxGiftQuantity = paramJSONObject.optInt("max_gift_quantity");
+      s = paramJSONObject.optInt("max_gift_quantity");
       label319:
       if (paramJSONObject.isNull("max_quantity")) {
         break label480;
       }
-      mMaxQuantity = paramJSONObject.optInt("max_quantity");
+      t = paramJSONObject.optInt("max_quantity");
       label338:
       if (paramJSONObject.isNull("purchased_count")) {
         break label488;
       }
-      mPurchasedCount = paramJSONObject.optInt("purchased_count");
+      u = paramJSONObject.optInt("purchased_count");
       label357:
       if (paramJSONObject.isNull("remaining_count")) {
         break label496;
       }
-      mRemainingCount = paramJSONObject.optInt("remaining_count");
+      v = paramJSONObject.optInt("remaining_count");
       label376:
       if (paramJSONObject.isNull("time_start")) {
         break label504;
       }
-      mTimeStart = paramJSONObject.optLong("time_start");
+      w = paramJSONObject.optLong("time_start");
       label395:
       if (paramJSONObject.isNull("time_end")) {
         break label514;
@@ -278,172 +172,242 @@ abstract class _YelpDeal
     label496:
     label504:
     label514:
-    for (mTimeEnd = paramJSONObject.optLong("time_end");; mTimeEnd = -1L)
+    for (x = paramJSONObject.optLong("time_end");; x = -1L)
     {
       if (paramJSONObject.isNull("time_reference")) {
         break label524;
       }
-      mTimeReference = paramJSONObject.optLong("time_reference");
+      y = paramJSONObject.optLong("time_reference");
       return;
-      mPurchases = Collections.emptyList();
+      e = Collections.emptyList();
       break;
-      mDescription = Collections.emptyList();
+      f = Collections.emptyList();
       break label66;
-      mOptions = Collections.emptyList();
+      g = Collections.emptyList();
       break label91;
-      mMaxUserQuantity = -1;
+      r = -1;
       break label300;
-      mMaxGiftQuantity = -1;
+      s = -1;
       break label319;
-      mMaxQuantity = -1;
+      t = -1;
       break label338;
-      mPurchasedCount = -1;
+      u = -1;
       break label357;
-      mRemainingCount = -1;
+      v = -1;
       break label376;
-      mTimeStart = -1L;
+      w = -1L;
       break label395;
     }
     label524:
-    mTimeReference = -1L;
+    y = -1L;
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int describeContents()
   {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mTimeUpdated = new Date(l);
-    }
-    mPurchases = paramParcel.createTypedArrayList(DealPurchase.CREATOR);
-    mDescription = paramParcel.createStringArrayList();
-    mOptions = paramParcel.createTypedArrayList(YelpDealOption.CREATOR);
-    mId = paramParcel.readString();
-    mTitle = paramParcel.readString();
-    mImageUrl = paramParcel.readString();
-    mLocation = paramParcel.readString();
-    mCurrencyCode = paramParcel.readString();
-    mBusinessName = paramParcel.readString();
-    mTerms = paramParcel.readString();
-    mTosUrl = paramParcel.readString();
-    mShareUrl = paramParcel.readString();
-    mCanonicalBusinessId = paramParcel.readString();
-    mMaxUserQuantity = paramParcel.readInt();
-    mMaxGiftQuantity = paramParcel.readInt();
-    mMaxQuantity = paramParcel.readInt();
-    mPurchasedCount = paramParcel.readInt();
-    mRemainingCount = paramParcel.readInt();
-    mTimeStart = paramParcel.readLong();
-    mTimeEnd = paramParcel.readLong();
-    mTimeReference = paramParcel.readLong();
-    mSystemClockExpiration = paramParcel.readLong();
+    return 0;
   }
   
-  public JSONObject writeJSON()
+  public boolean equals(Object paramObject)
+  {
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpDeal)paramObject;
+    return new b().a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a(n, n).a(o, o).a(p, p).a(q, q).a(r, r).a(s, s).a(t, t).a(u, u).a(v, v).a(w, w).a(x, x).a(y, y).a(z, z).a();
+  }
+  
+  public long f()
+  {
+    return z;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a(n).a(o).a(p).a(q).a(r).a(s).a(t).a(u).a(v).a(w).a(x).a(y).a(z).a();
+  }
+  
+  public int l()
+  {
+    return s;
+  }
+  
+  public int m()
+  {
+    return t;
+  }
+  
+  public int n()
+  {
+    return r;
+  }
+  
+  public JSONObject o()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
-    if (mTimeUpdated != null) {
-      localJSONObject.put("time_updated", mTimeUpdated.getTime() / 1000L);
+    if (d != null) {
+      localJSONObject.put("time_updated", d.getTime() / 1000L);
     }
     JSONArray localJSONArray;
     Iterator localIterator;
-    if (mPurchases != null)
+    if (e != null)
     {
       localJSONArray = new JSONArray();
-      localIterator = mPurchases.iterator();
+      localIterator = e.iterator();
       while (localIterator.hasNext()) {
-        localJSONArray.put(((DealPurchase)localIterator.next()).writeJSON());
+        localJSONArray.put(((DealPurchase)localIterator.next()).g());
       }
       localJSONObject.put("purchases", localJSONArray);
     }
-    if (mDescription != null)
+    if (f != null)
     {
       localJSONArray = new JSONArray();
-      localIterator = mDescription.iterator();
+      localIterator = f.iterator();
       while (localIterator.hasNext()) {
         localJSONArray.put((String)localIterator.next());
       }
       localJSONObject.put("description", localJSONArray);
     }
-    if (mOptions != null)
+    if (g != null)
     {
       localJSONArray = new JSONArray();
-      localIterator = mOptions.iterator();
+      localIterator = g.iterator();
       while (localIterator.hasNext()) {
-        localJSONArray.put(((YelpDealOption)localIterator.next()).writeJSON());
+        localJSONArray.put(((YelpDealOption)localIterator.next()).a());
       }
       localJSONObject.put("options", localJSONArray);
     }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
+    if (h != null) {
+      localJSONObject.put("id", h);
     }
-    if (mTitle != null) {
-      localJSONObject.put("title", mTitle);
+    if (i != null) {
+      localJSONObject.put("title", i);
     }
-    if (mImageUrl != null) {
-      localJSONObject.put("image_url", mImageUrl);
+    if (j != null) {
+      localJSONObject.put("image_url", j);
     }
-    if (mLocation != null) {
-      localJSONObject.put("location", mLocation);
+    if (k != null) {
+      localJSONObject.put("location", k);
     }
-    if (mCurrencyCode != null) {
-      localJSONObject.put("currency_code", mCurrencyCode);
+    if (l != null) {
+      localJSONObject.put("currency_code", l);
     }
-    if (mBusinessName != null) {
-      localJSONObject.put("business_name", mBusinessName);
+    if (m != null) {
+      localJSONObject.put("business_name", m);
     }
-    if (mTerms != null) {
-      localJSONObject.put("terms", mTerms);
+    if (n != null) {
+      localJSONObject.put("terms", n);
     }
-    if (mTosUrl != null) {
-      localJSONObject.put("tos_url", mTosUrl);
+    if (o != null) {
+      localJSONObject.put("tos_url", o);
     }
-    if (mShareUrl != null) {
-      localJSONObject.put("share_url", mShareUrl);
+    if (p != null) {
+      localJSONObject.put("share_url", p);
     }
-    if (mCanonicalBusinessId != null) {
-      localJSONObject.put("canonical_business_id", mCanonicalBusinessId);
+    if (q != null) {
+      localJSONObject.put("canonical_business_id", q);
     }
-    localJSONObject.put("max_user_quantity", mMaxUserQuantity);
-    localJSONObject.put("max_gift_quantity", mMaxGiftQuantity);
-    localJSONObject.put("max_quantity", mMaxQuantity);
-    localJSONObject.put("purchased_count", mPurchasedCount);
-    localJSONObject.put("remaining_count", mRemainingCount);
-    localJSONObject.put("time_start", mTimeStart);
-    localJSONObject.put("time_end", mTimeEnd);
-    localJSONObject.put("time_reference", mTimeReference);
+    localJSONObject.put("max_user_quantity", r);
+    localJSONObject.put("max_gift_quantity", s);
+    localJSONObject.put("max_quantity", t);
+    localJSONObject.put("purchased_count", u);
+    localJSONObject.put("remaining_count", v);
+    localJSONObject.put("time_start", w);
+    localJSONObject.put("time_end", x);
+    localJSONObject.put("time_reference", y);
     return localJSONObject;
+  }
+  
+  public int p()
+  {
+    return v;
+  }
+  
+  public int q()
+  {
+    return u;
+  }
+  
+  public String r()
+  {
+    return q;
+  }
+  
+  public String s()
+  {
+    return o;
+  }
+  
+  public String t()
+  {
+    return n;
+  }
+  
+  public String u()
+  {
+    return m;
+  }
+  
+  public String v()
+  {
+    return j;
+  }
+  
+  public String w()
+  {
+    return i;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mTimeUpdated == null) {}
-    for (long l = -2147483648L;; l = mTimeUpdated.getTime())
+    if (d == null) {}
+    for (long l1 = -2147483648L;; l1 = d.getTime())
     {
-      paramParcel.writeLong(l);
-      paramParcel.writeTypedList(mPurchases);
-      paramParcel.writeStringList(mDescription);
-      paramParcel.writeTypedList(mOptions);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mTitle);
-      paramParcel.writeString(mImageUrl);
-      paramParcel.writeString(mLocation);
-      paramParcel.writeString(mCurrencyCode);
-      paramParcel.writeString(mBusinessName);
-      paramParcel.writeString(mTerms);
-      paramParcel.writeString(mTosUrl);
-      paramParcel.writeString(mShareUrl);
-      paramParcel.writeString(mCanonicalBusinessId);
-      paramParcel.writeInt(mMaxUserQuantity);
-      paramParcel.writeInt(mMaxGiftQuantity);
-      paramParcel.writeInt(mMaxQuantity);
-      paramParcel.writeInt(mPurchasedCount);
-      paramParcel.writeInt(mRemainingCount);
-      paramParcel.writeLong(mTimeStart);
-      paramParcel.writeLong(mTimeEnd);
-      paramParcel.writeLong(mTimeReference);
-      paramParcel.writeLong(mSystemClockExpiration);
+      paramParcel.writeLong(l1);
+      paramParcel.writeList(e);
+      paramParcel.writeStringList(f);
+      paramParcel.writeList(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeValue(j);
+      paramParcel.writeValue(k);
+      paramParcel.writeValue(l);
+      paramParcel.writeValue(m);
+      paramParcel.writeValue(n);
+      paramParcel.writeValue(o);
+      paramParcel.writeValue(p);
+      paramParcel.writeValue(q);
+      paramParcel.writeInt(r);
+      paramParcel.writeInt(s);
+      paramParcel.writeInt(t);
+      paramParcel.writeInt(u);
+      paramParcel.writeInt(v);
+      paramParcel.writeLong(w);
+      paramParcel.writeLong(x);
+      paramParcel.writeLong(y);
+      paramParcel.writeLong(z);
       return;
     }
+  }
+  
+  public String x()
+  {
+    return h;
+  }
+  
+  public List<YelpDealOption> y()
+  {
+    return g;
+  }
+  
+  public List<String> z()
+  {
+    return f;
   }
 }
 

@@ -3,24 +3,30 @@
 .source "FiltersDialog.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/dialogs/FiltersDialog$a;
+    }
+.end annotation
+
+
 # instance fields
 .field final a:Ljava/lang/Runnable;
 
 .field private final b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
 
-.field private c:Lcom/yelp/android/ui/util/bs;
+.field private c:Lcom/yelp/android/ui/util/aj;
 
 .field private d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-.field private e:Lcom/yelp/android/serializable/Filter;
+.field private e:Lcom/yelp/android/ui/dialogs/c;
 
-.field private f:Lcom/yelp/android/serializable/AttributeFilters;
+.field private f:Lcom/yelp/android/ui/dialogs/c;
 
-.field private g:Lcom/yelp/android/ui/dialogs/y;
+.field private g:Lcom/yelp/android/ui/dialogs/a;
 
-.field private h:Lcom/yelp/android/ui/dialogs/y;
-
-.field private i:Ljava/util/HashSet;
+.field private h:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet",
@@ -31,11 +37,11 @@
     .end annotation
 .end field
 
+.field private i:Ljava/lang/String;
+
 .field private j:Ljava/lang/String;
 
-.field private k:Ljava/lang/String;
-
-.field private l:Ljava/util/HashMap;
+.field private k:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap",
@@ -47,26 +53,34 @@
     .end annotation
 .end field
 
-.field private m:Landroid/app/Activity;
+.field private l:Landroid/app/Activity;
 
-.field private n:Ljava/util/Calendar;
+.field private m:Ljava/util/Calendar;
+
+.field private n:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
 .field private o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
-.field private p:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
-
-.field private q:Ljava/util/HashSet;
+.field private p:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashSet",
+            "Ljava/util/ArrayList",
             "<",
-            "Ljava/lang/Integer;",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private r:Z
+.field private q:Z
+
+.field private r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+.field private s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+.field private t:Z
+
+.field private final u:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController$a;
 
 
 # direct methods
@@ -74,60 +88,68 @@
     .locals 1
 
     .prologue
-    .line 48
+    .line 76
     invoke-direct {p0}, Landroid/support/v4/app/DialogFragment;-><init>()V
 
-    .line 65
+    .line 94
     const/4 v0, 0x4
 
     new-array v0, v0, [Lcom/yelp/android/ui/widgets/TwoTierButton;
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
 
-    .line 155
-    new-instance v0, Lcom/yelp/android/ui/dialogs/ad;
+    .line 946
+    new-instance v0, Lcom/yelp/android/ui/dialogs/FiltersDialog$6;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/ad;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog$6;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a:Ljava/lang/Runnable;
+
+    .line 955
+    new-instance v0, Lcom/yelp/android/ui/dialogs/FiltersDialog$7;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog$7;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->u:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController$a;
 
     return-void
 .end method
 
-.method public static a(Lcom/yelp/android/serializable/Filter;Lcom/yelp/android/serializable/AttributeFilters;Z)Lcom/yelp/android/ui/dialogs/FiltersDialog;
-    .locals 3
+.method public static a(Lcom/yelp/android/serializable/Filter;ZLjava/util/List;Ljava/util/List;Lcom/yelp/android/serializable/SearchLocation;)Lcom/yelp/android/ui/dialogs/FiltersDialog;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/serializable/Filter;",
+            "Z",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            ">;",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            ">;",
+            "Lcom/yelp/android/serializable/SearchLocation;",
+            ")",
+            "Lcom/yelp/android/ui/dialogs/FiltersDialog;"
+        }
+    .end annotation
 
     .prologue
-    .line 92
+    .line 131
     new-instance v0, Lcom/yelp/android/ui/dialogs/FiltersDialog;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;-><init>()V
 
-    .line 93
-    invoke-static {p0, p1, p2}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b(Lcom/yelp/android/serializable/Filter;Lcom/yelp/android/serializable/AttributeFilters;Z)Landroid/os/Bundle;
+    .line 132
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b(Lcom/yelp/android/serializable/Filter;ZLjava/util/List;Ljava/util/List;Lcom/yelp/android/serializable/SearchLocation;)Landroid/os/Bundle;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->setArguments(Landroid/os/Bundle;)V
 
-    .line 94
-    const/4 v1, 0x1
-
-    const v2, 0x7f0f0159
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->setStyle(II)V
-
-    .line 95
-    return-object v0
-.end method
-
-.method static synthetic a(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Lcom/yelp/android/ui/util/ScrollToLoadListView;
-    .locals 1
-
-    .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
+    .line 139
     return-object v0
 .end method
 
@@ -135,37 +157,483 @@
     .locals 0
 
     .prologue
-    .line 48
-    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/lang/String;
+    .line 76
+    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
 
     return-object p1
 .end method
 
-.method private a()V
-    .locals 2
+.method static synthetic a(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Ljava/util/ArrayList;
+    .locals 1
 
     .prologue
-    .line 166
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
+    .line 76
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
 
-    const v1, 0x7f0c0028
+    return-object v0
+.end method
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
+.method private a()V
+    .locals 4
+
+    .prologue
+    .line 353
+    new-instance v0, Lcom/yelp/android/ui/util/e;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Landroid/view/View;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    .line 354
+    new-instance v1, Landroid/widget/Space;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Landroid/widget/Space;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    .line 355
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
+
+    const v2, 0x7f0f0031
+
+    const v3, 0x7f0703e5
+
+    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3, v0}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v0
 
-    .line 167
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 359
+    return-void
+.end method
+
+.method private a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;)V
+    .locals 2
+
+    .prologue
+    .line 840
+    if-eqz p1, :cond_1
+
+    .line 842
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->i()Lcom/yelp/android/serializable/DisplayGenericSearchFilterParameters;
+
+    move-result-object v0
+
     if-eqz v0, :cond_0
 
-    .line 168
-    iget-object v0, v0, Lcom/yelp/android/ui/util/bv;->a:Landroid/widget/BaseAdapter;
+    .line 843
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
 
-    check-cast v0, Lcom/yelp/android/ui/util/j;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->i()Lcom/yelp/android/serializable/DisplayGenericSearchFilterParameters;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/util/j;->clear()V
+    move-result-object v1
 
-    .line 170
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/DisplayGenericSearchFilterParameters;->e()Lcom/yelp/android/serializable/PlatformDisambiguatedAddress;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;->a(Lcom/yelp/android/serializable/PlatformDisambiguatedAddress;)V
+
+    .line 849
     :cond_0
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;->f()Lcom/yelp/android/serializable/PlatformFilter;
+
+    move-result-object v0
+
+    .line 853
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v1, "delivery_current_location"
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/PlatformFilter;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 856
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;->a(Z)V
+
+    .line 859
+    :cond_1
+    return-void
+.end method
+
+.method private a(Lcom/yelp/android/serializable/PlatformFilter;Ljava/lang/String;)V
+    .locals 10
+
+    .prologue
+    const/4 v4, 0x0
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    .line 872
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
+
+    check-cast v0, Lcom/yelp/android/ui/dialogs/FiltersDialog$a;
+    :try_end_0
+    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 877
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c()Lcom/yelp/android/serializable/Filter;
+
+    move-result-object v5
+
+    .line 878
+    if-eqz p1, :cond_0
+
+    .line 879
+    new-instance v1, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;
+
+    invoke-direct {v1, p1, v2}, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;-><init>(Lcom/yelp/android/serializable/PlatformFilter;Z)V
+
+    invoke-virtual {v5, v1}, Lcom/yelp/android/serializable/Filter;->a(Lcom/yelp/android/serializable/GenericSearchFilter;)V
+
+    .line 884
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/d;->a(Ljava/util/List;)Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    move-result-object v6
+
+    .line 885
+    if-eqz v6, :cond_2
+
+    .line 888
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/Filter;->c()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :cond_1
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    .line 889
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/GenericSearchFilter;->e()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v6}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/GenericSearchFilter;->c()Z
+
+    move-result v1
+
+    invoke-virtual {v6}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->d()Z
+
+    move-result v8
+
+    if-eq v1, v8, :cond_1
+
+    .line 891
+    new-instance v7, Lcom/yelp/android/g/a;
+
+    invoke-direct {v7}, Lcom/yelp/android/g/a;-><init>()V
+
+    .line 892
+    const-string/jumbo v1, "alias"
+
+    invoke-virtual {v6}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-interface {v7, v1, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 893
+    const-string/jumbo v8, "toggle_on"
+
+    invoke-virtual {v6}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->d()Z
+
+    move-result v1
+
+    if-nez v1, :cond_6
+
+    move v1, v2
+
+    :goto_0
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    invoke-interface {v7, v8, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 894
+    const-string/jumbo v1, "requestId"
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/dialogs/FiltersDialog$a;->k()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v7, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 895
+    const-string/jumbo v1, "from_toggle"
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-interface {v7, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 896
+    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->SearchPromotedFilterToggle:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v1, v7}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
+
+    .line 904
+    :cond_2
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    sget-object v2, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Reservation:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/activities/search/d;->a(Ljava/util/List;Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;)Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    move-result-object v1
+
+    .line 906
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->d()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 907
+    sget-object v1, Lcom/yelp/android/analytics/GADimensions;->MOBILE_VERTICAL_SEARCH_ENTRY:Lcom/yelp/android/analytics/GADimensions;
+
+    const-string/jumbo v2, "filters_menu"
+
+    iput-object v2, v1, Lcom/yelp/android/analytics/GADimensions;->value:Ljava/lang/String;
+
+    .line 908
+    sget-object v1, Lcom/yelp/android/analytics/GADimensions;->MOBILE_VERTICAL_SEARCH_TYPE:Lcom/yelp/android/analytics/GADimensions;
+
+    const-string/jumbo v2, "reservation"
+
+    iput-object v2, v1, Lcom/yelp/android/analytics/GADimensions;->value:Ljava/lang/String;
+
+    .line 911
+    :cond_3
+    if-eqz p1, :cond_4
+
+    .line 912
+    sget-object v1, Lcom/yelp/android/analytics/GADimensions;->MOBILE_VERTICAL_SEARCH_ENTRY:Lcom/yelp/android/analytics/GADimensions;
+
+    const-string/jumbo v2, "filters_menu"
+
+    iput-object v2, v1, Lcom/yelp/android/analytics/GADimensions;->value:Ljava/lang/String;
+
+    .line 913
+    sget-object v2, Lcom/yelp/android/analytics/GADimensions;->MOBILE_VERTICAL_SEARCH_TYPE:Lcom/yelp/android/analytics/GADimensions;
+
+    const-string/jumbo v1, "pickup"
+
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/PlatformFilter;->a()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const-string/jumbo v1, "pickup"
+
+    :goto_1
+    iput-object v1, v2, Lcom/yelp/android/analytics/GADimensions;->value:Ljava/lang/String;
+
+    .line 920
+    :cond_4
+    if-nez p2, :cond_8
+
+    move-object v2, v4
+
+    .line 922
+    :goto_2
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/Filter;->c()Ljava/util/List;
+
+    move-result-object v1
+
+    sget-object v3, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Platform:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    invoke-static {v1, v3}, Lcom/yelp/android/ui/activities/search/d;->b(Ljava/util/List;Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;)Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v1
+
+    .line 925
+    if-eqz v1, :cond_5
+
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/dialogs/c;->b()Ljava/util/HashSet;
+
+    move-result-object v3
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/GenericSearchFilter;->e()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    .line 929
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/GenericSearchFilter;->c()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    .line 930
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "SEARCH_LOCATION"
+
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/SearchLocation;
+
+    invoke-virtual {p1, v1}, Lcom/yelp/android/serializable/PlatformFilter;->a(Lcom/yelp/android/serializable/SearchLocation;)V
+
+    .line 942
+    :cond_5
+    :goto_3
+    invoke-interface {v0, v5, v2}, Lcom/yelp/android/ui/dialogs/FiltersDialog$a;->a(Lcom/yelp/android/serializable/Filter;Lcom/yelp/android/serializable/SearchLocation;)V
+
+    .line 943
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->dismiss()V
+
+    .line 944
+    return-void
+
+    .line 873
+    :catch_0
+    move-exception v0
+
+    .line 874
+    new-instance v0, Ljava/lang/ClassCastException;
+
+    const-string/jumbo v1, "Activity should implement the FiltersDialogListener interface"
+
+    invoke-direct {v0, v1}, Ljava/lang/ClassCastException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_6
+    move v1, v3
+
+    .line 893
+    goto/16 :goto_0
+
+    .line 913
+    :cond_7
+    const-string/jumbo v1, "delivery"
+
+    goto :goto_1
+
+    .line 920
+    :cond_8
+    new-instance v1, Lcom/yelp/android/serializable/SearchLocation;
+
+    invoke-direct {v1, p2}, Lcom/yelp/android/serializable/SearchLocation;-><init>(Ljava/lang/String;)V
+
+    move-object v2, v1
+
+    goto :goto_2
+
+    .line 933
+    :cond_9
+    check-cast v1, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;->f()Lcom/yelp/android/serializable/PlatformFilter;
+
+    move-result-object v1
+
+    .line 936
+    if-nez v1, :cond_a
+
+    :goto_4
+    move-object v2, v4
+
+    goto :goto_3
+
+    :cond_a
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/PlatformFilter;->e()Lcom/yelp/android/serializable/SearchLocation;
+
+    move-result-object v4
+
+    goto :goto_4
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/dialogs/FiltersDialog;Lcom/yelp/android/serializable/PlatformFilter;Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 76
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/PlatformFilter;Ljava/lang/String;)V
+
     return-void
 .end method
 
@@ -173,7 +641,7 @@
     .locals 0
 
     .prologue
-    .line 48
+    .line 76
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/ui/widgets/TwoTierButton;Z)V
 
     return-void
@@ -183,15 +651,15 @@
     .locals 3
 
     .prologue
-    .line 576
+    .line 770
     invoke-virtual {p1, p2}, Lcom/yelp/android/ui/widgets/TwoTierButton;->setChecked(Z)V
 
-    .line 577
+    .line 771
     invoke-virtual {p1}, Lcom/yelp/android/ui/widgets/TwoTierButton;->getLabel()Landroid/widget/TextView;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
     invoke-virtual {p1}, Lcom/yelp/android/ui/widgets/TwoTierButton;->isChecked()Z
 
@@ -199,77 +667,708 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0f008f
+    const v0, 0x7f09010e
 
     :goto_0
     invoke-virtual {v1, v2, v0}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    .line 580
+    .line 778
     return-void
 
-    .line 577
+    .line 771
     :cond_0
-    const v0, 0x7f0f0090
+    const v0, 0x7f0900e7
 
     goto :goto_0
 .end method
 
-.method private static b(Lcom/yelp/android/serializable/Filter;Lcom/yelp/android/serializable/AttributeFilters;Z)Landroid/os/Bundle;
-    .locals 4
+.method private a(Ljava/util/HashSet;)V
+    .locals 12
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/HashSet",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 100
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    .line 703
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 767
+    :goto_0
+    return-void
+
+    .line 706
+    :cond_0
+    new-instance v3, Lcom/yelp/android/ui/util/e;
+
+    new-array v0, v1, [Landroid/view/View;
+
+    invoke-direct {v3, v0}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
+
+    .line 707
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
+
+    const v4, 0x7f070360
+
+    invoke-static {v3}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v4, v5}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 710
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v4, 0x7f03007e
+
+    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    invoke-virtual {v0, v4, v5, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v4
+
+    .line 715
+    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    const v0, 0x7f0f0260
+
+    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    aput-object v0, v5, v1
+
+    .line 716
+    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    const v0, 0x7f0f0261
+
+    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    aput-object v0, v5, v2
+
+    .line 717
+    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    const/4 v6, 0x2
+
+    const v0, 0x7f0f0262
+
+    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    aput-object v0, v5, v6
+
+    .line 718
+    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    const/4 v6, 0x3
+
+    const v0, 0x7f0f0263
+
+    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    aput-object v0, v5, v6
+
+    .line 721
+    const/4 v0, 0x4
+
+    new-array v5, v0, [Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    .line 722
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_1
+    :goto_1
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    .line 723
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "RestaurantsPriceRange2."
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    .line 725
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "RestaurantsPriceRange2."
+
+    invoke-virtual {v8}, Ljava/lang/String;->length()I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v7
+
+    .line 731
+    add-int/lit8 v7, v7, -0x1
+
+    aput-object v0, v5, v7
+
+    .line 732
+    iget-object v7, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Ljava/util/HashSet;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v7, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    .line 737
+    :cond_2
+    iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+
+    array-length v7, v6
+
+    move v0, v1
+
+    move v1, v2
+
+    :goto_2
+    if-ge v0, v7, :cond_4
+
+    aget-object v2, v6, v0
+
+    .line 740
+    invoke-virtual {v2}, Lcom/yelp/android/ui/widgets/TwoTierButton;->getValue()Landroid/widget/TextView;
+
+    move-result-object v8
+
+    const/16 v9, 0x8
+
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 741
+    invoke-virtual {v2}, Lcom/yelp/android/ui/widgets/TwoTierButton;->getLabel()Landroid/widget/TextView;
+
+    move-result-object v8
+
+    const/16 v9, 0x11
+
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setGravity(I)V
+
+    .line 744
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Lcom/yelp/android/appdata/LocaleSettings;->a(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 746
+    invoke-virtual {v2}, Lcom/yelp/android/ui/widgets/TwoTierButton;->getLabel()Landroid/widget/TextView;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
+
+    const v11, 0x7f0900e7
+
+    invoke-virtual {v9, v10, v11}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
+
+    .line 747
+    invoke-virtual {v2, v8}, Lcom/yelp/android/ui/widgets/TwoTierButton;->setLabel(Ljava/lang/CharSequence;)V
+
+    .line 749
+    add-int/lit8 v8, v1, -0x1
+
+    aget-object v8, v5, v8
+
+    .line 750
+    if-eqz v8, :cond_3
+
+    .line 751
+    invoke-static {v8, p1}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;Ljava/util/Set;)Z
+
+    move-result v9
+
+    invoke-direct {p0, v2, v9}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/ui/widgets/TwoTierButton;Z)V
+
+    .line 753
+    :cond_3
+    new-instance v9, Lcom/yelp/android/ui/dialogs/FiltersDialog$5;
+
+    invoke-direct {v9, p0, v8, p1, v2}, Lcom/yelp/android/ui/dialogs/FiltersDialog$5;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;Lcom/yelp/android/serializable/DisplayGenericSearchFilter;Ljava/util/HashSet;Lcom/yelp/android/ui/widgets/TwoTierButton;)V
+
+    invoke-virtual {v2, v9}, Lcom/yelp/android/ui/widgets/TwoTierButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 764
+    add-int/lit8 v1, v1, 0x1
+
+    .line 737
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    .line 766
+    :cond_4
+    invoke-virtual {v3, v4}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
+
+    goto/16 :goto_0
+.end method
+
+.method private a(Ljava/util/HashSet;Landroid/os/Bundle;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/HashSet",
+            "<",
+            "Ljava/lang/String;",
+            ">;",
+            "Landroid/os/Bundle;",
+            ")V"
+        }
+    .end annotation
+
+    .prologue
+    .line 315
+    new-instance v0, Lcom/yelp/android/ui/util/aj;
+
+    invoke-direct {v0}, Lcom/yelp/android/ui/util/aj;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
+
+    .line 316
+    new-instance v0, Ljava/util/HashSet;
+
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Ljava/util/HashSet;
+
+    .line 318
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Ljava/util/Set;Landroid/os/Bundle;)V
+
+    .line 319
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a()V
+
+    .line 320
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Ljava/util/HashSet;)V
+
+    .line 321
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f()V
+
+    .line 322
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e()V
+
+    .line 323
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d()V
+
+    .line 324
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g()V
+
+    .line 328
+    sget-object v0, Lcom/yelp/android/ui/dialogs/a;->a:Ljava/util/List;
+
+    invoke-virtual {p1, v0}, Ljava/util/HashSet;->removeAll(Ljava/util/Collection;)Z
+
+    .line 329
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/dialogs/c;->a(Ljava/util/HashSet;)V
+
+    .line 330
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
+
+    if-eqz v0, :cond_0
+
+    .line 331
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/dialogs/c;->a(Ljava/util/HashSet;)V
+
+    .line 335
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Ljava/util/Calendar;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/c;->a(Ljava/util/Calendar;)V
+
+    .line 337
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
+
+    .line 339
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_1
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    .line 340
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/GenericSearchFilter;->e()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "OnlineMessageThisBusiness"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 343
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->SearchFilterRequestAQuoteShown:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
+
+    goto :goto_0
+
+    .line 346
+    :cond_2
+    return-void
+.end method
+
+.method private a(Ljava/util/Set;Landroid/os/Bundle;)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;",
+            "Landroid/os/Bundle;",
+            ")V"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v3, 0x1
+
+    .line 661
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    .line 664
+    if-eqz p2, :cond_3
+
+    const-string/jumbo v0, "RESERVATION_FILTER_SET"
+
+    invoke-virtual {p2, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    move v1, v3
+
+    .line 668
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_0
+    :goto_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    .line 669
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->c()Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    move-result-object v5
+
+    .line 670
+    sget-object v6, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Reservation:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    if-eq v5, v6, :cond_1
+
+    sget-object v6, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Platform:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    if-ne v5, v6, :cond_2
+
+    .line 671
+    :cond_1
+    iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Ljava/util/HashSet;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/GenericSearchFilter;->e()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    .line 673
+    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 678
+    :cond_2
+    sget-object v6, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Reservation:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    if-ne v5, v6, :cond_0
+
+    if-nez v1, :cond_0
+
+    .line 679
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/ReservationGenericSearchFilter;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/ReservationGenericSearchFilter;->f()Lcom/yelp/android/serializable/ReservationFilter;
+
+    move-result-object v0
+
+    .line 683
+    if-eqz v0, :cond_0
+
+    .line 684
+    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    invoke-virtual {v5, v0}, Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;->a(Lcom/yelp/android/serializable/ReservationFilter;)V
+
+    .line 685
+    iput-boolean v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->q:Z
+
+    goto :goto_1
+
+    .line 664
+    :cond_3
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    goto :goto_0
+
+    .line 690
+    :cond_4
+    new-instance v0, Lcom/yelp/android/ui/dialogs/a;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    move-object v3, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/dialogs/a;-><init>(Landroid/content/Context;Ljava/util/Collection;Ljava/util/Set;Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/a;
+
+    .line 697
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f0022
+
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/a;
+
+    invoke-static {v2}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 700
+    return-void
+.end method
+
+.method public static a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;Ljava/util/Set;)Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;)Z"
+        }
+    .end annotation
+
+    .prologue
+    .line 148
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/GenericSearchFilter;->c()Z
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {p1, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    xor-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method private static b(Lcom/yelp/android/serializable/Filter;ZLjava/util/List;Ljava/util/List;Lcom/yelp/android/serializable/SearchLocation;)Landroid/os/Bundle;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/serializable/Filter;",
+            "Z",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            ">;",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            ">;",
+            "Lcom/yelp/android/serializable/SearchLocation;",
+            ")",
+            "Landroid/os/Bundle;"
+        }
+    .end annotation
+
+    .prologue
+    .line 158
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 104
+    .line 162
     if-nez p0, :cond_0
 
-    .line 105
+    .line 163
     new-instance p0, Lcom/yelp/android/serializable/Filter;
 
-    new-instance v0, Lcom/yelp/android/serializable/AttributeFilters;
+    invoke-direct {p0}, Lcom/yelp/android/serializable/Filter;-><init>()V
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/AttributeFilters;-><init>()V
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/serializable/Filter;-><init>(Lcom/yelp/android/serializable/AttributeFilters;)V
-
-    .line 108
+    .line 166
     :cond_0
-    const-string/jumbo v0, "SEARCH FILTER"
-
-    invoke-virtual {v1, v0, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 109
-    const-string/jumbo v0, "SUGGESTED FILTERS"
-
-    invoke-virtual {v1, v0, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 110
-    const-string/jumbo v0, "TIME"
-
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Filter;->getOpenTime()Ljava/util/Calendar;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
-
-    .line 111
     const-string/jumbo v0, "DISTANCE"
 
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Filter;->getDistance()Lcom/yelp/android/serializable/at;
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Filter;->d()Lcom/yelp/android/serializable/Distance;
 
     move-result-object v2
 
-    iget-object v2, v2, Lcom/yelp/android/serializable/at;->a:Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Distance;->c()Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 112
+    .line 167
     const-string/jumbo v0, "SORT"
 
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Filter;->getSort()Lcom/yelp/android/serializable/Filter$Sort;
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Filter;->b()Lcom/yelp/android/serializable/Sort;
 
     move-result-object v2
 
@@ -277,7 +1376,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lcom/yelp/android/serializable/Filter$Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
+    invoke-virtual {v2, v3}, Lcom/yelp/android/serializable/Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -287,49 +1386,22 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 113
+    .line 168
     const-string/jumbo v0, "SEARCHING"
 
-    invoke-virtual {v1, v0, p2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v1, v0, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 116
+    .line 171
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 118
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Filter;->getBusinessState()Ljava/util/EnumSet;
-
-    move-result-object v0
-
-    .line 119
-    sget-object v3, Lcom/yelp/android/serializable/Filter$BusinessState;->OPEN:Lcom/yelp/android/serializable/Filter$BusinessState;
-
-    invoke-virtual {v0, v3}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 120
-    const-string/jumbo v0, "OPEN_NOW"
-
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 123
-    :cond_1
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Filter;->getAttributes()Lcom/yelp/android/serializable/AttributeFilters;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilters;->getSuggestedFilters()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    .line 172
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    :cond_1
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -341,26 +1413,35 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/AttributeFilter;
+    check-cast v0, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
 
-    .line 124
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilter;->getAlias()Ljava/lang/String;
+    .line 173
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->d()Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    .line 174
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 127
+    .line 178
     :cond_2
-    const-string/jumbo v3, "CHECKED"
+    const-string/jumbo v3, "CHANGED_IDS"
 
-    const/4 v0, 0x0
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
 
     new-array v0, v0, [Ljava/lang/String;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -368,116 +1449,118 @@
 
     invoke-virtual {v1, v3, v0}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 129
+    .line 181
+    const-string/jumbo v0, "FILTER"
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2, p3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    .line 184
+    const-string/jumbo v0, "SEARCH_LOCATION"
+
+    invoke-virtual {v1, v0, p4}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
+
+    .line 185
     return-object v1
 .end method
 
-.method private b()Lcom/yelp/android/serializable/Filter;
-    .locals 10
+.method static synthetic b(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Lcom/yelp/android/ui/dialogs/a;
+    .locals 1
 
     .prologue
-    .line 284
-    new-instance v6, Ljava/util/ArrayList;
+    .line 76
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/a;
 
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+    return-object v0
+.end method
 
-    .line 285
-    const-class v0, Lcom/yelp/android/serializable/Filter$BusinessState;
+.method static synthetic b(Lcom/yelp/android/ui/dialogs/FiltersDialog;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
 
-    invoke-static {v0}, Ljava/util/EnumSet;->noneOf(Ljava/lang/Class;)Ljava/util/EnumSet;
+    .prologue
+    .line 76
+    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/lang/String;
 
-    move-result-object v1
+    return-object p1
+.end method
 
-    .line 286
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
+.method private b()V
+    .locals 2
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/y;->b()Ljava/util/HashSet;
+    .prologue
+    .line 362
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
+
+    const v1, 0x7f0f002d
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v0
 
-    .line 288
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Lcom/yelp/android/ui/dialogs/y;
+    .line 363
+    if-eqz v0, :cond_0
 
-    if-eqz v2, :cond_0
+    .line 364
+    iget-object v0, v0, Lcom/yelp/android/ui/util/aj$b;->a:Landroid/widget/BaseAdapter;
 
-    .line 289
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Lcom/yelp/android/ui/dialogs/y;
+    check-cast v0, Lcom/yelp/android/ui/util/g;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/dialogs/y;->b()Ljava/util/HashSet;
+    invoke-interface {v0}, Lcom/yelp/android/ui/util/g;->clear()V
 
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
-
-    .line 292
+    .line 366
     :cond_0
-    invoke-virtual {v0}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
+    return-void
+.end method
 
-    move-result-object v2
+.method private c()Lcom/yelp/android/serializable/Filter;
+    .locals 7
 
-    :cond_1
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    .prologue
+    .line 392
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
 
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    .line 295
-    const-string/jumbo v3, "OPEN_NOW"
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    .line 296
-    sget-object v0, Lcom/yelp/android/serializable/Filter$BusinessState;->OPEN:Lcom/yelp/android/serializable/Filter$BusinessState;
-
-    invoke-virtual {v1, v0}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    .line 297
-    :cond_2
-    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    invoke-virtual {v3, v0}, Lcom/yelp/android/serializable/AttributeFilters;->getAttribute(Ljava/lang/String;)Lcom/yelp/android/serializable/AttributeFilter;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/c;->b()Ljava/util/HashSet;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    .line 394
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
 
-    .line 301
-    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v3, v0}, Lcom/yelp/android/serializable/AttributeFilters;->getAttribute(Ljava/lang/String;)Lcom/yelp/android/serializable/AttributeFilter;
+    .line 395
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/c;->b()Ljava/util/HashSet;
 
     move-result-object v0
 
-    invoke-interface {v6, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
 
-    goto :goto_0
+    .line 397
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/a;
 
-    .line 305
-    :cond_3
-    sget-object v4, Lcom/yelp/android/serializable/Filter$Sort;->Default:Lcom/yelp/android/serializable/Filter$Sort;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/a;->a()Ljava/util/Set;
 
-    .line 306
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/lang/String;
+    move-result-object v0
 
-    sget-object v2, Lcom/yelp/android/serializable/Filter$Sort;->Distance:Lcom/yelp/android/serializable/Filter$Sort;
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
 
-    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    .line 399
+    sget-object v0, Lcom/yelp/android/serializable/Sort;->Default:Lcom/yelp/android/serializable/Sort;
 
-    invoke-virtual {v2, v3}, Lcom/yelp/android/serializable/Filter$Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
+    .line 400
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
+
+    sget-object v2, Lcom/yelp/android/serializable/Sort;->Distance:Lcom/yelp/android/serializable/Sort;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
+
+    invoke-virtual {v2, v4}, Lcom/yelp/android/serializable/Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -485,101 +1568,137 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_6
+    if-eqz v1, :cond_2
 
-    .line 307
-    sget-object v4, Lcom/yelp/android/serializable/Filter$Sort;->Distance:Lcom/yelp/android/serializable/Filter$Sort;
+    .line 401
+    sget-object v0, Lcom/yelp/android/serializable/Sort;->Distance:Lcom/yelp/android/serializable/Sort;
 
-    .line 313
-    :cond_4
-    :goto_1
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
+    move-object v1, v0
+
+    .line 407
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_3
 
-    .line 314
-    new-instance v3, Lcom/yelp/android/serializable/at;
+    .line 408
+    new-instance v0, Lcom/yelp/android/serializable/Distance;
 
-    const-string/jumbo v0, ""
+    const-string/jumbo v2, ""
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v4, 0x0
 
-    invoke-direct {v3, v0, v8, v9}, Lcom/yelp/android/serializable/at;-><init>(Ljava/lang/String;D)V
+    invoke-direct {v0, v2, v4, v5}, Lcom/yelp/android/serializable/Distance;-><init>(Ljava/lang/String;D)V
 
-    .line 320
-    :goto_2
-    sget-object v0, Lcom/yelp/android/serializable/Filter$BusinessState;->$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    .line 414
+    :goto_1
+    new-instance v4, Lcom/yelp/android/serializable/Filter;
 
-    sget-object v2, Lcom/yelp/android/serializable/Filter$BusinessState;->$$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    new-instance v2, Ljava/util/ArrayList;
 
-    sget-object v5, Lcom/yelp/android/serializable/Filter$BusinessState;->$$$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    sget-object v7, Lcom/yelp/android/serializable/Filter$BusinessState;->$$$$:Lcom/yelp/android/serializable/Filter$BusinessState;
+    invoke-direct {v4, v0, v1, v2}, Lcom/yelp/android/serializable/Filter;-><init>(Lcom/yelp/android/serializable/Distance;Lcom/yelp/android/serializable/Sort;Ljava/util/List;)V
 
-    invoke-static {v0, v2, v5, v7}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;
+    .line 418
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/EnumSet;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    .line 323
-    iget-object v7, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+    :cond_1
+    :goto_2
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    array-length v8, v7
+    move-result v0
 
-    const/4 v0, 0x0
+    if-eqz v0, :cond_9
 
-    move v2, v0
-
-    :goto_3
-    if-ge v2, v8, :cond_8
-
-    aget-object v9, v7, v2
-
-    .line 324
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/Filter$BusinessState;
+    check-cast v0, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
 
-    .line 325
-    invoke-virtual {v9}, Lcom/yelp/android/ui/widgets/TwoTierButton;->isChecked()Z
+    .line 419
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
 
-    move-result v9
+    move-result-object v1
 
-    if-eqz v9, :cond_5
+    .line 423
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->c()Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
 
-    .line 326
-    invoke-virtual {v1, v0}, Ljava/util/EnumSet;->add(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    .line 323
-    :cond_5
-    add-int/lit8 v0, v2, 0x1
+    sget-object v6, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->OpenNow:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
 
-    move v2, v0
+    if-ne v2, v6, :cond_5
 
-    goto :goto_3
+    invoke-static {v0, v3}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;Ljava/util/Set;)Z
 
-    .line 308
-    :cond_6
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/lang/String;
+    move-result v2
 
-    sget-object v2, Lcom/yelp/android/serializable/Filter$Sort;->Rating:Lcom/yelp/android/serializable/Filter$Sort;
+    if-eqz v2, :cond_5
 
-    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    .line 425
+    const/4 v1, 0x0
 
-    invoke-virtual {v2, v3}, Lcom/yelp/android/serializable/Filter$Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
+    .line 426
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/dialogs/c;->c()Ljava/util/Calendar;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_4
+
+    .line 427
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/dialogs/c;->c()Ljava/util/Calendar;
+
+    move-result-object v1
+
+    move-object v2, v1
+
+    .line 431
+    :goto_3
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/OpenNowGenericSearchFilter;
+
+    invoke-static {v0, v3}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;Ljava/util/Set;)Z
+
+    move-result v0
+
+    invoke-static {v1, v2, v0}, Lcom/yelp/android/serializable/OpenNowGenericSearchFilter;->a(Lcom/yelp/android/serializable/OpenNowGenericSearchFilter;Ljava/util/Calendar;Z)Lcom/yelp/android/serializable/OpenNowGenericSearchFilter;
+
+    move-result-object v0
+
+    invoke-virtual {v4, v0}, Lcom/yelp/android/serializable/Filter;->a(Lcom/yelp/android/serializable/GenericSearchFilter;)V
+
+    goto :goto_2
+
+    .line 402
+    :cond_2
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
+
+    sget-object v2, Lcom/yelp/android/serializable/Sort;->Rating:Lcom/yelp/android/serializable/Sort;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
+
+    invoke-virtual {v2, v4}, Lcom/yelp/android/serializable/Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v2
 
@@ -587,22 +1706,24 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_b
 
-    .line 309
-    sget-object v4, Lcom/yelp/android/serializable/Filter$Sort;->Rating:Lcom/yelp/android/serializable/Filter$Sort;
+    .line 403
+    sget-object v0, Lcom/yelp/android/serializable/Sort;->Rating:Lcom/yelp/android/serializable/Sort;
 
-    goto :goto_1
+    move-object v1, v0
 
-    .line 316
-    :cond_7
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Ljava/util/HashMap;
+    goto :goto_0
 
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
+    .line 410
+    :cond_3
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/util/HashMap;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -614,88 +1735,191 @@
 
     move-result v0
 
-    int-to-double v2, v0
+    int-to-double v4, v0
 
-    invoke-static {v2, v3}, Lcom/yelp/android/util/o;->d(D)D
+    invoke-static {v4, v5}, Lcom/yelp/android/util/i;->d(D)D
 
-    move-result-wide v8
+    move-result-wide v4
 
-    .line 317
-    new-instance v3, Lcom/yelp/android/serializable/at;
+    .line 411
+    new-instance v0, Lcom/yelp/android/serializable/Distance;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/lang/String;
 
-    invoke-direct {v3, v0, v8, v9}, Lcom/yelp/android/serializable/at;-><init>(Ljava/lang/String;D)V
+    invoke-direct {v0, v2, v4, v5}, Lcom/yelp/android/serializable/Distance;-><init>(Ljava/lang/String;D)V
 
-    goto :goto_2
+    goto/16 :goto_1
 
-    .line 330
-    :cond_8
-    new-instance v0, Lcom/yelp/android/serializable/Filter;
+    .line 428
+    :cond_4
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
-
-    invoke-virtual {v2}, Lcom/yelp/android/ui/dialogs/y;->c()Ljava/util/Calendar;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/dialogs/c;->c()Ljava/util/Calendar;
 
     move-result-object v2
 
-    new-instance v5, Lcom/yelp/android/serializable/AttributeFilters;
+    if-eqz v2, :cond_a
 
-    invoke-direct {v5, v6}, Lcom/yelp/android/serializable/AttributeFilters;-><init>(Ljava/util/List;)V
+    .line 429
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/serializable/Filter;-><init>(Ljava/util/EnumSet;Ljava/util/Calendar;Lcom/yelp/android/serializable/at;Lcom/yelp/android/serializable/Filter$Sort;Lcom/yelp/android/serializable/AttributeFilters;)V
+    invoke-virtual {v1}, Lcom/yelp/android/ui/dialogs/c;->c()Ljava/util/Calendar;
 
-    return-object v0
+    move-result-object v1
+
+    move-object v2, v1
+
+    goto :goto_3
+
+    .line 436
+    :cond_5
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->c()Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    move-result-object v2
+
+    sget-object v6, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Reservation:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    if-ne v2, v6, :cond_6
+
+    invoke-static {v0, v3}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;Ljava/util/Set;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    .line 438
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;->f()Lcom/yelp/android/serializable/ReservationFilter;
+
+    move-result-object v2
+
+    .line 439
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;->c()V
+
+    .line 440
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/serializable/ReservationGenericSearchFilter;
+
+    .line 442
+    invoke-static {v0, v3}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;Ljava/util/Set;)Z
+
+    move-result v0
+
+    invoke-static {v1, v2, v0}, Lcom/yelp/android/serializable/ReservationGenericSearchFilter;->a(Lcom/yelp/android/serializable/ReservationGenericSearchFilter;Lcom/yelp/android/serializable/ReservationFilter;Z)Lcom/yelp/android/serializable/ReservationGenericSearchFilter;
+
+    move-result-object v0
+
+    invoke-virtual {v4, v0}, Lcom/yelp/android/serializable/Filter;->a(Lcom/yelp/android/serializable/GenericSearchFilter;)V
+
+    goto/16 :goto_2
+
+    .line 447
+    :cond_6
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/GenericSearchFilter;->e()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    .line 448
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/GenericSearchFilter;->c()Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    const/4 v0, 0x1
+
+    :goto_4
+    invoke-static {v1, v0}, Lcom/yelp/android/serializable/GenericSearchFilter;->a(Lcom/yelp/android/serializable/GenericSearchFilter;Z)Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v0
+
+    invoke-virtual {v4, v0}, Lcom/yelp/android/serializable/Filter;->a(Lcom/yelp/android/serializable/GenericSearchFilter;)V
+
+    goto/16 :goto_2
+
+    :cond_7
+    const/4 v0, 0x0
+
+    goto :goto_4
+
+    .line 451
+    :cond_8
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/GenericSearchFilter;->c()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 452
+    invoke-virtual {v4, v1}, Lcom/yelp/android/serializable/Filter;->a(Lcom/yelp/android/serializable/GenericSearchFilter;)V
+
+    goto/16 :goto_2
+
+    .line 456
+    :cond_9
+    return-object v4
+
+    :cond_a
+    move-object v2, v1
+
+    goto/16 :goto_3
+
+    :cond_b
+    move-object v1, v0
+
+    goto/16 :goto_0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/dialogs/FiltersDialog;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    .prologue
-    .line 48
-    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic b(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
-    .locals 0
-
-    .prologue
-    .line 48
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a()V
-
-    return-void
-.end method
-
-.method static synthetic c(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Landroid/app/Activity;
+.method static synthetic c(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
     .locals 1
 
     .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    .line 76
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
 
     return-object v0
 .end method
 
-.method private c()V
+.method static synthetic d(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .locals 1
+
+    .prologue
+    .line 76
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    return-object v0
+.end method
+
+.method private d()V
     .locals 8
 
     .prologue
-    const v7, 0x7f07032c
+    const v7, 0x7f070362
 
     const/4 v1, 0x0
 
-    .line 335
+    .line 460
     const/4 v0, 0x3
 
     new-array v2, v0, [Ljava/lang/String;
 
-    sget-object v0, Lcom/yelp/android/serializable/Filter$Sort;->Default:Lcom/yelp/android/serializable/Filter$Sort;
+    sget-object v0, Lcom/yelp/android/serializable/Sort;->Default:Lcom/yelp/android/serializable/Sort;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    invoke-virtual {v0, v3}, Lcom/yelp/android/serializable/Filter$Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v3}, Lcom/yelp/android/serializable/Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -707,11 +1931,11 @@
 
     const/4 v0, 0x1
 
-    sget-object v3, Lcom/yelp/android/serializable/Filter$Sort;->Rating:Lcom/yelp/android/serializable/Filter$Sort;
+    sget-object v3, Lcom/yelp/android/serializable/Sort;->Rating:Lcom/yelp/android/serializable/Sort;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iget-object v4, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    invoke-virtual {v3, v4}, Lcom/yelp/android/serializable/Filter$Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4}, Lcom/yelp/android/serializable/Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
@@ -723,11 +1947,11 @@
 
     const/4 v0, 0x2
 
-    sget-object v3, Lcom/yelp/android/serializable/Filter$Sort;->Distance:Lcom/yelp/android/serializable/Filter$Sort;
+    sget-object v3, Lcom/yelp/android/serializable/Sort;->Distance:Lcom/yelp/android/serializable/Sort;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iget-object v4, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    invoke-virtual {v3, v4}, Lcom/yelp/android/serializable/Filter$Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
+    invoke-virtual {v3, v4}, Lcom/yelp/android/serializable/Sort;->getLabel(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v3
 
@@ -737,32 +1961,32 @@
 
     aput-object v3, v2, v0
 
-    .line 340
+    .line 465
     new-instance v3, Landroid/widget/ArrayAdapter;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    const v4, 0x7f0300a8
+    const v4, 0x7f0300c0
 
-    const v5, 0x7f0c02a5
+    const v5, 0x7f0f02fa
 
     invoke-direct {v3, v0, v4, v5, v2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
 
-    .line 344
-    new-instance v4, Lcom/yelp/android/ui/util/h;
+    .line 472
+    new-instance v4, Lcom/yelp/android/ui/util/e;
 
     new-array v0, v1, [Landroid/view/View;
 
-    invoke-direct {v4, v0}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-direct {v4, v0}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    .line 346
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    .line 474
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v5, 0x7f0300a7
+    const v5, 0x7f0300bf
 
     iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -770,8 +1994,8 @@
 
     move-result-object v5
 
-    .line 349
-    const v0, 0x7f0c0063
+    .line 479
+    const v0, 0x7f0f02f9
 
     invoke-virtual {v5, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -779,34 +2003,34 @@
 
     check-cast v0, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
-    .line 350
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    .line 480
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
-    new-instance v6, Lcom/yelp/android/ui/dialogs/ag;
+    new-instance v6, Lcom/yelp/android/ui/dialogs/FiltersDialog$3;
 
-    invoke-direct {v6, p0}, Lcom/yelp/android/ui/dialogs/ag;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+    invoke-direct {v6, p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog$3;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
 
     invoke-virtual {v0, v6}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 365
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    .line 496
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
     move v0, v1
 
-    .line 367
+    .line 498
     :goto_0
     array-length v3, v2
 
     if-ge v0, v3, :cond_1
 
-    .line 368
+    .line 499
     aget-object v3, v2, v0
 
-    iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/lang/String;
+    iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
 
     invoke-virtual {v3, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -814,36 +2038,36 @@
 
     if-eqz v3, :cond_0
 
-    .line 374
+    .line 505
     :goto_1
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->setSelection(I)V
 
-    .line 376
-    invoke-virtual {v4, v5}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    .line 507
+    invoke-virtual {v4, v5}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
-    .line 378
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
+    .line 509
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
 
     invoke-virtual {p0, v7}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v1, v4}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v1, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v1
 
-    invoke-virtual {v0, v7, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v0, v7, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    .line 382
+    .line 512
     return-void
 
-    .line 367
+    .line 498
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
@@ -855,36 +2079,24 @@
     goto :goto_1
 .end method
 
-.method static synthetic d(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Lcom/yelp/android/serializable/Filter;
-    .locals 1
-
-    .prologue
-    .line 48
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b()Lcom/yelp/android/serializable/Filter;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private d()V
+.method private e()V
     .locals 10
 
     .prologue
-    const v9, 0x7f070329
+    const v9, 0x7f07035f
 
-    const v7, 0x7f070328
+    const v7, 0x7f07035e
 
     const/4 v2, 0x0
 
-    .line 385
+    .line 515
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Ljava/util/HashMap;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/util/HashMap;
 
-    .line 389
+    .line 519
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
@@ -893,30 +2105,30 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/LocaleSettings;->a(Landroid/content/Context;)Z
 
     move-result v3
 
-    .line 390
+    .line 520
     if-eqz v3, :cond_1
 
-    const v1, 0x7f08000e
+    const v1, 0x7f0d000e
 
-    .line 392
+    .line 524
     :goto_0
     if-eqz v3, :cond_2
 
-    const v0, 0x7f08000a
+    const v0, 0x7f0d000a
 
-    .line 395
+    .line 529
     :goto_1
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/yelp/android/appdata/AppData;->n()Lcom/yelp/android/appdata/LocationService;
+    invoke-virtual {v4}, Lcom/yelp/android/appdata/AppData;->r()Lcom/yelp/android/appdata/LocationService;
 
     move-result-object v4
 
@@ -928,21 +2140,21 @@
 
     move-result v4
 
-    .line 397
+    .line 531
     if-eqz v4, :cond_0
 
-    .line 398
+    .line 532
     if-eqz v3, :cond_3
 
-    const v1, 0x7f08000d
+    const v1, 0x7f0d000d
 
-    .line 400
+    .line 536
     :goto_2
     if-eqz v3, :cond_4
 
-    const v0, 0x7f080009
+    const v0, 0x7f0d0009
 
-    .line 404
+    .line 542
     :cond_0
     :goto_3
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getResources()Landroid/content/res/Resources;
@@ -953,12 +2165,12 @@
 
     move-result-object v3
 
-    .line 405
+    .line 543
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    .line 406
+    .line 544
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -969,7 +2181,7 @@
 
     invoke-virtual {v4, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 407
+    .line 545
     array-length v5, v3
 
     move v0, v2
@@ -979,39 +2191,39 @@
 
     aget-object v6, v3, v0
 
-    .line 408
+    .line 546
     invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 407
+    .line 545
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_4
 
-    .line 390
+    .line 520
     :cond_1
-    const v1, 0x7f08000c
+    const v1, 0x7f0d000c
 
     goto :goto_0
 
-    .line 392
+    .line 524
     :cond_2
-    const v0, 0x7f080008
+    const v0, 0x7f0d0008
 
     goto :goto_1
 
-    .line 398
+    .line 532
     :cond_3
-    const v1, 0x7f08000b
+    const v1, 0x7f0d000b
 
     goto :goto_2
 
-    .line 400
+    .line 536
     :cond_4
-    const v0, 0x7f080007
+    const v0, 0x7f0d0007
 
     goto :goto_3
 
-    .line 411
+    .line 549
     :cond_5
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getResources()Landroid/content/res/Resources;
 
@@ -1021,8 +2233,8 @@
 
     move-result-object v5
 
-    .line 416
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Ljava/util/HashMap;
+    .line 554
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/util/HashMap;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getResources()Landroid/content/res/Resources;
 
@@ -1042,16 +2254,16 @@
 
     move v1, v2
 
-    .line 417
+    .line 555
     :goto_5
     array-length v6, v3
 
     if-ge v0, v6, :cond_7
 
-    .line 418
+    .line 556
     aget-object v6, v3, v0
 
-    iget-object v7, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
+    iget-object v7, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1059,12 +2271,12 @@
 
     if-eqz v6, :cond_6
 
-    .line 419
+    .line 557
     add-int/lit8 v1, v0, 0x1
 
-    .line 421
+    .line 559
     :cond_6
-    iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Ljava/util/HashMap;
+    iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/util/HashMap;
 
     aget-object v7, v3, v0
 
@@ -1076,38 +2288,38 @@
 
     invoke-virtual {v6, v7, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 417
+    .line 555
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_5
 
-    .line 424
+    .line 562
     :cond_7
     new-instance v3, Landroid/widget/ArrayAdapter;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    const v5, 0x7f0300a8
+    const v5, 0x7f0300c0
 
-    const v6, 0x7f0c02a5
+    const v6, 0x7f0f02fa
 
     invoke-direct {v3, v0, v5, v6, v4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;IILjava/util/List;)V
 
-    .line 428
-    new-instance v4, Lcom/yelp/android/ui/util/h;
+    .line 569
+    new-instance v4, Lcom/yelp/android/ui/util/e;
 
     new-array v0, v2, [Landroid/view/View;
 
-    invoke-direct {v4, v0}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    invoke-direct {v4, v0}, Lcom/yelp/android/ui/util/e;-><init>([Landroid/view/View;)V
 
-    .line 430
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    .line 571
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
     invoke-virtual {v0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v5, 0x7f0300a7
+    const v5, 0x7f0300bf
 
     iget-object v6, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -1115,8 +2327,8 @@
 
     move-result-object v2
 
-    .line 433
-    const v0, 0x7f0c0063
+    .line 576
+    const v0, 0x7f0f02f9
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1124,225 +2336,186 @@
 
     check-cast v0, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->n:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
-    .line 434
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    .line 577
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->n:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
-    new-instance v5, Lcom/yelp/android/ui/dialogs/ah;
+    new-instance v5, Lcom/yelp/android/ui/dialogs/FiltersDialog$4;
 
-    invoke-direct {v5, p0}, Lcom/yelp/android/ui/dialogs/ah;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+    invoke-direct {v5, p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog$4;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
 
     invoke-virtual {v0, v5}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
-    .line 448
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    .line 592
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->n:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
-    .line 449
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+    .line 593
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->n:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->setSelection(I)V
 
-    .line 451
-    invoke-virtual {v4, v2}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    .line 595
+    invoke-virtual {v4, v2}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
-    .line 453
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
+    .line 597
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
 
     invoke-virtual {p0, v9}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v1, v4}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v1, v4}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v1
 
-    invoke-virtual {v0, v9, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v0, v9, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    .line 456
+    .line 601
     return-void
 .end method
 
-.method static synthetic e(Lcom/yelp/android/ui/dialogs/FiltersDialog;)Ljava/util/HashSet;
-    .locals 1
+.method static synthetic e(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+    .locals 0
 
     .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->q:Ljava/util/HashSet;
+    .line 76
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b()V
 
-    return-object v0
+    return-void
 .end method
 
-.method private e()V
-    .locals 6
+.method private f()V
+    .locals 5
 
     .prologue
-    const v5, 0x7f0703af
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    .line 604
+    new-instance v2, Lcom/yelp/android/ui/dialogs/c;
 
-    .line 459
-    new-instance v0, Lcom/yelp/android/ui/dialogs/y;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/y;-><init>()V
+    check-cast v0, Landroid/support/v4/app/FragmentActivity;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
-
-    .line 460
-    new-instance v0, Ljava/util/HashSet;
-
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/util/HashSet;
-
-    .line 464
-    new-instance v0, Lcom/yelp/android/serializable/AttributeFilter;
-
-    const-string/jumbo v1, "OPEN_NOW"
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f070278
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v0, v1, v3}, Lcom/yelp/android/serializable/AttributeFilter;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 466
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/dialogs/y;->c(Ljava/lang/Object;)V
-
-    .line 469
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilters;->getSuggestedFilters()Ljava/util/List;
-
-    move-result-object v3
-
-    .line 470
-    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    move v1, v2
-
-    .line 472
-    :goto_0
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    if-ge v1, v0, :cond_1
-
-    .line 473
-    invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/AttributeFilter;
+    invoke-direct {v2, v0}, Lcom/yelp/android/ui/dialogs/c;-><init>(Landroid/support/v4/app/l;)V
 
-    .line 474
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilter;->isPopular()Z
+    iput-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
 
-    move-result v4
+    .line 608
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
 
-    if-eqz v4, :cond_0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
-    .line 475
-    invoke-interface {v3, v1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    move-result v0
 
-    .line 476
-    invoke-interface {v3, v2, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
+    if-nez v0, :cond_0
 
-    .line 472
-    :cond_0
+    .line 610
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-static {v0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    move v2, v1
+
+    .line 615
+    :goto_0
+    const/4 v0, 0x4
+
+    if-ge v1, v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ge v2, v0, :cond_0
+
+    .line 616
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    .line 617
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Ljava/util/HashSet;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    .line 618
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/dialogs/c;->d(Ljava/lang/Object;)V
+
+    .line 619
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Ljava/util/HashSet;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    .line 620
     add-int/lit8 v0, v1, 0x1
+
+    .line 623
+    :goto_1
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
 
     move v1, v0
 
+    .line 624
     goto :goto_0
 
-    .line 481
-    :cond_1
-    :goto_1
-    const/4 v0, 0x3
+    .line 627
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
 
-    if-ge v2, v0, :cond_2
+    const v1, 0x7f0703e5
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
 
-    move-result v0
+    invoke-static {v2}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
-    if-ge v2, v0, :cond_2
+    move-result-object v2
 
-    .line 482
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/y;->c(Ljava/lang/Object;)V
+    .line 633
+    iget-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->t:Z
 
-    .line 483
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/util/HashSet;
+    if-eqz v0, :cond_1
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/AttributeFilter;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilter;->getAlias()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    .line 481
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    .line 487
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
-
-    invoke-virtual {p0, v5}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
-
-    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v5, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 494
-    iget-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Z
-
-    if-eqz v0, :cond_3
-
-    .line 495
+    .line 634
     new-instance v0, Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -1351,60 +2524,69 @@
 
     invoke-direct {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;-><init>(Landroid/content/Context;)V
 
-    .line 496
+    .line 635
     sget-object v1, Lcom/yelp/android/ui/panels/CommonLoadingSpinner;->SMALL:Lcom/yelp/android/ui/panels/CommonLoadingSpinner;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setSpinner(Lcom/yelp/android/ui/panels/y;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setSpinner(Lcom/yelp/android/ui/panels/c;)V
 
-    .line 497
-    new-instance v1, Lcom/yelp/android/ui/util/av;
+    .line 636
+    new-instance v1, Lcom/yelp/android/ui/util/x;
 
-    invoke-direct {v1}, Lcom/yelp/android/ui/util/av;-><init>()V
+    invoke-direct {v1}, Lcom/yelp/android/ui/util/x;-><init>()V
 
-    .line 498
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    .line 637
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/util/e;->b(Landroid/view/View;)V
 
-    .line 499
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
+    .line 638
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
 
-    const v2, 0x7f0c0028
+    const v2, 0x7f0f002d
 
-    invoke-static {v1}, Lcom/yelp/android/ui/util/bw;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-static {v1}, Lcom/yelp/android/ui/util/aj$c;->a(Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v1
 
-    invoke-virtual {v0, v2, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 502
-    :cond_3
+    move-result-object v1
+
+    invoke-virtual {v0, v2, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 641
+    :cond_1
     return-void
+
+    :cond_2
+    move v0, v1
+
+    goto :goto_1
 .end method
 
-.method private f()V
+.method private g()V
     .locals 5
 
     .prologue
-    const v4, 0x7f0702ba
+    const v4, 0x7f070306
 
-    .line 507
-    new-instance v0, Lcom/yelp/android/ui/dialogs/y;
+    .line 646
+    new-instance v1, Lcom/yelp/android/ui/dialogs/c;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/y;-><init>()V
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Lcom/yelp/android/ui/dialogs/y;
+    check-cast v0, Landroid/support/v4/app/FragmentActivity;
 
-    .line 508
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilters;->getSuggestedFilters()Ljava/util/List;
+    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-direct {v1, v0}, Lcom/yelp/android/ui/dialogs/c;-><init>(Landroid/support/v4/app/l;)V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
+
+    .line 648
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -1420,12 +2602,16 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/AttributeFilter;
+    check-cast v0, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
 
-    .line 509
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/util/HashSet;
+    .line 649
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Ljava/util/HashSet;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilter;->getAlias()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/GenericSearchFilter;->e()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1435,524 +2621,487 @@
 
     if-nez v2, :cond_0
 
-    .line 510
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Lcom/yelp/android/ui/dialogs/y;
+    .line 650
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
 
-    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/dialogs/y;->c(Ljava/lang/Object;)V
+    invoke-virtual {v2, v0}, Lcom/yelp/android/ui/dialogs/c;->d(Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 513
+    .line 653
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/aj;
 
     invoke-virtual {p0, v4}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Lcom/yelp/android/ui/dialogs/y;
+    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/ui/dialogs/c;
 
-    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-static {v1, v2}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v1
 
-    invoke-virtual {v0, v4, v1}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v1}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
-    .line 518
+    move-result-object v1
+
+    invoke-virtual {v0, v4, v1}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
+
+    .line 658
     return-void
 .end method
 
-.method private g()V
-    .locals 12
+.method private h()V
+    .locals 5
 
     .prologue
-    const v5, 0x7f07032a
-
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
-    .line 521
-    new-instance v3, Lcom/yelp/android/ui/util/h;
+    .line 781
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getFragmentManager()Landroid/support/v4/app/l;
 
-    new-array v0, v1, [Landroid/view/View;
+    move-result-object v0
 
-    invoke-direct {v3, v0}, Lcom/yelp/android/ui/util/h;-><init>([Landroid/view/View;)V
+    const-string/jumbo v3, "RESERVATION_VIEW_CONTROLLER"
 
-    .line 522
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
+    invoke-virtual {v0, v3}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
-    invoke-virtual {p0, v5}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getString(I)Ljava/lang/String;
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    .line 784
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    if-nez v0, :cond_0
+
+    .line 785
+    invoke-static {}, Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;->a()Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    .line 786
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    const-string/jumbo v4, "RESERVATION_VIEW_CONTROLLER"
+
+    invoke-virtual {v0, v3, v4}, Landroid/support/v4/app/o;->a(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
+
+    .line 792
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "DELIVERY_PICKUP_VIEW_CONTROLLER"
+
+    invoke-virtual {v0, v3}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    .line 795
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    if-nez v0, :cond_1
+
+    .line 799
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    sget-object v3, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Platform:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    invoke-static {v0, v3}, Lcom/yelp/android/ui/activities/search/d;->a(Ljava/util/List;Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;)Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
 
     move-result-object v4
 
-    invoke-static {v4, v3}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    .line 801
+    if-eqz v4, :cond_4
 
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v5, v4}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
-
-    .line 526
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getLayoutInflater()Landroid/view/LayoutInflater;
+    .line 802
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->h()Lcom/yelp/android/serializable/GenericSearchFilter;
 
     move-result-object v0
 
-    const v4, 0x7f03006c
+    check-cast v0, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;
 
-    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/PlatformGenericSearchFilter;->f()Lcom/yelp/android/serializable/PlatformFilter;
 
-    invoke-virtual {v0, v4, v5, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    move-result-object v3
 
-    move-result-object v4
-
-    .line 529
-    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
-
-    const v0, 0x7f0c020c
-
-    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 806
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->i()Lcom/yelp/android/serializable/DisplayGenericSearchFilterParameters;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
+    if-eqz v0, :cond_3
 
-    aput-object v0, v5, v1
-
-    .line 530
-    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
-
-    const v0, 0x7f0c020d
-
-    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    .line 807
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/DisplayGenericSearchFilter;->i()Lcom/yelp/android/serializable/DisplayGenericSearchFilterParameters;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
-
-    aput-object v0, v5, v2
-
-    .line 531
-    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
-
-    const/4 v6, 0x2
-
-    const v0, 0x7f0c020e
-
-    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/DisplayGenericSearchFilterParameters;->e()Lcom/yelp/android/serializable/PlatformDisambiguatedAddress;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
+    move-object v2, v0
 
-    aput-object v0, v5, v6
+    move-object v0, v3
 
-    .line 532
-    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+    .line 813
+    :goto_0
+    if-eqz v0, :cond_2
 
-    const/4 v6, 0x3
+    const-string/jumbo v3, "pickup"
 
-    const v0, 0x7f0c020f
-
-    invoke-virtual {v4, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/PlatformFilter;->a()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/widgets/TwoTierButton;
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    aput-object v0, v5, v6
+    move-result v0
 
-    .line 535
-    iget-object v5, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b:[Lcom/yelp/android/ui/widgets/TwoTierButton;
+    if-eqz v0, :cond_2
 
-    array-length v6, v5
+    .line 816
+    const/4 v0, 0x1
 
+    .line 821
+    :goto_1
+    const-string/jumbo v3, "filter"
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-static {v3, v2, v1, v0}, Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;->a(Ljava/lang/String;Lcom/yelp/android/serializable/PlatformDisambiguatedAddress;ZLjava/lang/Integer;)Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    .line 828
+    invoke-direct {p0, v4}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;)V
+
+    .line 830
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    const-string/jumbo v2, "DELIVERY_PICKUP_VIEW_CONTROLLER"
+
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/o;->a(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
+
+    .line 835
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->u:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController$a;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;->a(Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController$a;)V
+
+    .line 836
+    return-void
+
+    :cond_2
     move v0, v1
 
-    move v1, v2
+    .line 818
+    goto :goto_1
 
-    :goto_0
-    if-ge v0, v6, :cond_1
-
-    aget-object v7, v5, v0
-
-    .line 538
-    invoke-virtual {v7}, Lcom/yelp/android/ui/widgets/TwoTierButton;->getValue()Landroid/widget/TextView;
-
-    move-result-object v8
-
-    const/16 v9, 0x8
-
-    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 539
-    invoke-virtual {v7}, Lcom/yelp/android/ui/widgets/TwoTierButton;->getLabel()Landroid/widget/TextView;
-
-    move-result-object v8
-
-    const/16 v9, 0x11
-
-    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setGravity(I)V
-
-    .line 542
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Lcom/yelp/android/appdata/LocaleSettings;->a(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    .line 545
-    invoke-virtual {v7}, Lcom/yelp/android/ui/widgets/TwoTierButton;->getLabel()Landroid/widget/TextView;
-
-    move-result-object v9
-
-    iget-object v10, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
-
-    const v11, 0x7f0f0090
-
-    invoke-virtual {v9, v10, v11}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
-
-    .line 547
-    invoke-virtual {v7, v8}, Lcom/yelp/android/ui/widgets/TwoTierButton;->setLabel(Ljava/lang/CharSequence;)V
-
-    .line 550
-    new-instance v8, Lcom/yelp/android/ui/dialogs/ai;
-
-    invoke-direct {v8, p0, v7, v1}, Lcom/yelp/android/ui/dialogs/ai;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;Lcom/yelp/android/ui/widgets/TwoTierButton;I)V
-
-    invoke-virtual {v7, v8}, Lcom/yelp/android/ui/widgets/TwoTierButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 567
-    iget-object v8, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->q:Ljava/util/HashSet;
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    invoke-virtual {v8, v9}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
-    .line 568
-    invoke-direct {p0, v7, v2}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/ui/widgets/TwoTierButton;Z)V
-
-    .line 570
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    .line 535
-    add-int/lit8 v0, v0, 0x1
+    :cond_3
+    move-object v0, v3
 
     goto :goto_0
 
-    .line 572
-    :cond_1
-    invoke-virtual {v3, v4}, Lcom/yelp/android/ui/util/h;->b(Landroid/view/View;)V
+    :cond_4
+    move-object v0, v2
 
-    .line 573
-    return-void
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/serializable/AttributeFilters;)V
-    .locals 1
-
-    .prologue
-    .line 269
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Z
-
-    .line 270
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/AttributeFilters;->getSuggestedFilters()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 271
-    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    .line 276
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/y;->b()Ljava/util/HashSet;
-
-    move-result-object v0
-
-    .line 277
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Ljava/util/HashSet;)V
-
-    .line 278
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
-
-    .line 279
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a()V
-
-    .line 281
-    :cond_0
-    return-void
-.end method
-
-.method public a(Ljava/util/HashSet;)V
+.method public a(Ljava/util/List;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/HashSet",
+            "Ljava/util/List",
             "<",
-            "Ljava/lang/String;",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
             ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 133
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
+    .line 369
+    const/4 v0, 0x0
 
-    if-nez v0, :cond_0
+    iput-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->t:Z
 
-    .line 134
-    new-instance v0, Lcom/yelp/android/serializable/AttributeFilters;
-
-    invoke-direct {v0}, Lcom/yelp/android/serializable/AttributeFilters;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    .line 136
-    :cond_0
-    new-instance v0, Lcom/yelp/android/ui/util/bs;
-
-    invoke-direct {v0}, Lcom/yelp/android/ui/util/bs;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
-
-    .line 138
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g()V
-
-    .line 139
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e()V
-
-    .line 140
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d()V
-
-    .line 141
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c()V
-
-    .line 142
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f()V
-
-    .line 144
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/dialogs/y;->a(Ljava/util/HashSet;)V
-
-    .line 145
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Lcom/yelp/android/ui/dialogs/y;
+    .line 370
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_1
 
-    .line 146
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h:Lcom/yelp/android/ui/dialogs/y;
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/dialogs/y;->a(Ljava/util/HashSet;)V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
-    .line 150
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
+    move-result v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->n:Ljava/util/Calendar;
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/y;->a(Ljava/util/Calendar;)V
+    .line 371
+    if-eqz p1, :cond_0
 
-    .line 152
+    .line 372
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    .line 375
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    sget-object v1, Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;->Platform:Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/search/d;->a(Ljava/util/List;Lcom/yelp/android/serializable/GenericSearchFilter$FilterType;)Lcom/yelp/android/serializable/DisplayGenericSearchFilter;
+
+    move-result-object v0
+
+    .line 377
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Lcom/yelp/android/serializable/DisplayGenericSearchFilter;)V
+
+    .line 382
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/c;->b()Ljava/util/HashSet;
+
+    move-result-object v0
+
+    .line 383
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/a;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/dialogs/a;->a()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
+
+    .line 384
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Ljava/util/HashSet;Landroid/os/Bundle;)V
+
+    .line 385
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->c:Lcom/yelp/android/ui/util/bs;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
+    .line 386
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b()V
 
-    .line 153
+    .line 388
+    :cond_1
+    return-void
+.end method
+
+.method public dismiss()V
+    .locals 2
+
+    .prologue
+    .line 304
+    invoke-super {p0}, Landroid/support/v4/app/DialogFragment;->dismiss()V
+
+    .line 305
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;->isAdded()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 306
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->s:Lcom/yelp/android/ui/activities/search/vertical/DeliveryPickupViewController;
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/o;->a(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
+
+    .line 309
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;->isAdded()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 310
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getFragmentManager()Landroid/support/v4/app/l;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Lcom/yelp/android/ui/activities/search/vertical/ReservationSearchController;
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/o;->a(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
+
+    .line 312
+    :cond_1
     return-void
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 6
+    .locals 7
 
     .prologue
-    .line 174
+    const/4 v6, 0x0
+
+    .line 190
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    .line 177
+    .line 193
     if-eqz p1, :cond_1
 
-    .line 178
+    move-object v1, p1
+
+    .line 194
     :goto_0
-    const-string/jumbo v0, "SEARCH FILTER"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/Filter;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/serializable/Filter;
-
-    .line 179
-    const-string/jumbo v0, "SUGGESTED FILTERS"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/AttributeFilters;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    .line 180
     const-string/jumbo v0, "TIME"
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/Calendar;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->n:Ljava/util/Calendar;
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Ljava/util/Calendar;
 
-    .line 181
+    .line 195
     const-string/jumbo v0, "DISTANCE"
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/lang/String;
+
+    .line 196
+    const-string/jumbo v0, "SORT"
+
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
 
-    .line 182
-    const-string/jumbo v0, "SORT"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/lang/String;
-
-    .line 183
+    .line 197
     const-string/jumbo v0, "SEARCHING"
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Z
-
-    .line 186
-    new-instance v0, Ljava/util/HashSet;
-
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->q:Ljava/util/HashSet;
-
-    .line 187
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/serializable/Filter;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Filter;->getPrices()[Z
-
-    move-result-object v1
-
-    .line 189
-    const/4 v0, 0x0
-
-    :goto_1
-    array-length v2, v1
-
-    if-ge v0, v2, :cond_2
-
-    .line 190
-    aget-boolean v2, v1, v0
-
-    if-eqz v2, :cond_0
-
-    .line 191
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->q:Ljava/util/HashSet;
-
-    add-int/lit8 v3, v0, 0x1
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    .line 189
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1
-
-    .line 177
-    :cond_1
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getArguments()Landroid/os/Bundle;
-
-    move-result-object p1
-
-    goto :goto_0
+    iput-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->t:Z
 
     .line 198
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
+    const-string/jumbo v0, "FILTER"
+
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    .line 200
+    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->h()V
+
+    .line 206
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
     invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    const v1, 0x7f030093
+    const v2, 0x7f0300aa
 
-    const/4 v2, 0x0
+    invoke-virtual {v0, v2, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    move-result-object v2
 
-    move-result-object v1
+    .line 207
+    const v0, 0x7f0f012b
 
-    .line 199
-    const v0, 0x7f0c00df
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -1960,102 +3109,108 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-    .line 205
-    iget-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Z
+    .line 213
+    iget-boolean v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->t:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_0
 
-    .line 206
+    .line 214
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    .line 207
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 215
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e()V
+    invoke-virtual {v3}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e()V
 
-    .line 208
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a:Ljava/lang/Runnable;
+    .line 216
+    iget-object v3, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a:Ljava/lang/Runnable;
 
     const-wide/16 v4, 0x1388
 
-    invoke-virtual {v0, v2, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    .line 214
-    :cond_3
-    const-string/jumbo v0, "CHECKED"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/util/f;->a([Ljava/lang/String;)Ljava/util/HashSet;
-
-    move-result-object v0
-
-    .line 217
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Ljava/util/HashSet;)V
-
-    .line 219
-    new-instance v0, Lcom/yelp/android/ui/dialogs/bl;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->m:Landroid/app/Activity;
-
-    invoke-direct {v0, v2}, Lcom/yelp/android/ui/dialogs/bl;-><init>(Landroid/content/Context;)V
-
-    .line 220
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/bl;->a(Landroid/view/View;)V
-
-    .line 221
-    const v1, 0x7f07027a
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/bl;->a(I)V
+    invoke-virtual {v0, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 222
-    const v1, 0x7f070524
+    :cond_0
+    const-string/jumbo v0, "CHANGED_IDS"
 
-    new-instance v2, Lcom/yelp/android/ui/dialogs/ae;
+    invoke-virtual {v1, v0}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/dialogs/ae;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/bl;->a(ILandroid/view/View$OnClickListener;)V
+    invoke-static {v0}, Lcom/yelp/android/util/d;->a([Ljava/lang/String;)Ljava/util/HashSet;
 
-    .line 239
-    const v1, 0x7f070110
+    move-result-object v0
 
-    new-instance v2, Lcom/yelp/android/ui/dialogs/af;
+    .line 225
+    invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->a(Ljava/util/HashSet;Landroid/os/Bundle;)V
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/dialogs/af;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+    .line 227
+    new-instance v0, Lcom/yelp/android/ui/dialogs/d;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/bl;->b(ILandroid/view/View$OnClickListener;)V
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->l:Landroid/app/Activity;
 
-    .line 248
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/bl;->a()Landroid/app/Dialog;
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/dialogs/d;-><init>(Landroid/content/Context;)V
+
+    .line 228
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/dialogs/d;->a(Landroid/view/View;)Lcom/yelp/android/ui/dialogs/d;
+
+    .line 229
+    const v1, 0x7f0702cc
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/d;->a(I)Lcom/yelp/android/ui/dialogs/d;
+
+    .line 230
+    const v1, 0x7f070520
+
+    invoke-virtual {v0, v1, v6}, Lcom/yelp/android/ui/dialogs/d;->a(ILandroid/content/DialogInterface$OnClickListener;)Lcom/yelp/android/ui/dialogs/d;
+
+    .line 231
+    const v1, 0x7f0706cd
+
+    new-instance v2, Lcom/yelp/android/ui/dialogs/FiltersDialog$1;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog$1;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/d;->b(ILandroid/content/DialogInterface$OnClickListener;)Lcom/yelp/android/ui/dialogs/d;
+
+    .line 241
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/d;->a()Landroid/app/Dialog;
 
     move-result-object v0
 
     return-object v0
+
+    .line 193
+    :cond_1
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    move-object v1, v0
+
+    goto/16 :goto_0
 .end method
 
 .method public onPause()V
     .locals 1
 
     .prologue
-    .line 588
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->onDetachedFromWindow()V
-
-    .line 589
+    .line 277
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->o:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->onDetachedFromWindow()V
 
-    .line 590
+    .line 278
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->n:Lcom/yelp/android/ui/widgets/YelpHoloSpinner;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/YelpHoloSpinner;->onDetachedFromWindow()V
+
+    .line 279
     invoke-super {p0}, Landroid/support/v4/app/DialogFragment;->onPause()V
 
-    .line 591
+    .line 280
     return-void
 .end method
 
@@ -2063,68 +3218,83 @@
     .locals 3
 
     .prologue
-    .line 253
+    .line 284
     invoke-super {p0, p1}, Landroid/support/v4/app/DialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 254
-    const-string/jumbo v0, "SEARCH FILTER"
-
-    invoke-direct {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->b()Lcom/yelp/android/serializable/Filter;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 255
-    const-string/jumbo v0, "SUGGESTED FILTERS"
-
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->f:Lcom/yelp/android/serializable/AttributeFilters;
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 256
+    .line 285
     const-string/jumbo v0, "TIME"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/dialogs/y;->c()Ljava/util/Calendar;
+    invoke-virtual {v1}, Lcom/yelp/android/ui/dialogs/c;->c()Ljava/util/Calendar;
 
     move-result-object v1
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    .line 257
+    .line 286
     const-string/jumbo v0, "DISTANCE"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->i:Ljava/lang/String;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 287
+    const-string/jumbo v0, "SORT"
 
     iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->j:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 258
-    const-string/jumbo v0, "SORT"
-
-    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->k:Ljava/lang/String;
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 259
+    .line 288
     const-string/jumbo v0, "SEARCHING"
 
-    iget-boolean v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->r:Z
+    iget-boolean v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->t:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 263
-    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/y;
+    .line 289
+    const-string/jumbo v0, "FILTER"
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/y;->b()Ljava/util/HashSet;
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->p:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    .line 290
+    const-string/jumbo v0, "RESERVATION_FILTER_SET"
+
+    iget-boolean v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->q:Z
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    .line 294
+    iget-object v0, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->e:Lcom/yelp/android/ui/dialogs/c;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/c;->b()Ljava/util/HashSet;
 
     move-result-object v0
 
-    .line 264
-    const-string/jumbo v1, "CHECKED"
+    .line 295
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/a;
 
-    const/4 v2, 0x0
+    if-eqz v1, :cond_0
+
+    .line 296
+    iget-object v1, p0, Lcom/yelp/android/ui/dialogs/FiltersDialog;->g:Lcom/yelp/android/ui/dialogs/a;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/dialogs/a;->a()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
+
+    .line 298
+    :cond_0
+    const-string/jumbo v1, "CHANGED_IDS"
+
+    invoke-virtual {v0}, Ljava/util/HashSet;->size()I
+
+    move-result v2
 
     new-array v2, v2, [Ljava/lang/String;
 
@@ -2136,6 +3306,43 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
 
-    .line 266
+    .line 300
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 2
+
+    .prologue
+    .line 246
+    invoke-super {p0}, Landroid/support/v4/app/DialogFragment;->onStart()V
+
+    .line 249
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getDialog()Landroid/app/Dialog;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v7/app/d;
+
+    const/4 v1, -0x1
+
+    invoke-virtual {v0, v1}, Landroid/support/v7/app/d;->a(I)Landroid/widget/Button;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/yelp/android/ui/dialogs/FiltersDialog$2;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog$2;-><init>(Lcom/yelp/android/ui/dialogs/FiltersDialog;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 268
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/FiltersDialog;->getDialog()Landroid/app/Dialog;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/ui/util/ar;->a(Landroid/app/Dialog;)V
+
+    .line 269
     return-void
 .end method

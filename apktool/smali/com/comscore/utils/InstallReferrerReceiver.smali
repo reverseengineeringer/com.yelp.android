@@ -50,7 +50,7 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/comscore/analytics/h;->d()Ljava/lang/String;
+    invoke-static {}, Lcom/comscore/analytics/k;->c()Ljava/lang/String;
 
     move-result-object v2
 
@@ -344,7 +344,7 @@
 
     if-eq v0, v1, :cond_1
 
-    invoke-static {}, Lcom/comscore/analytics/h;->e()Lcom/comscore/analytics/a;
+    invoke-static {}, Lcom/comscore/analytics/k;->d()Lcom/comscore/analytics/a;
 
     move-result-object v1
 

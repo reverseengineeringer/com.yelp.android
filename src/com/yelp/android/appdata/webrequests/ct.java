@@ -1,25 +1,40 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.CheckInFeedback;
-import com.yelp.android.serializable.YelpCheckIn;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.User;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ct
-  extends g<Void, Void, List<CheckInFeedback>>
+  extends b<Void, Void, User>
 {
-  public ct(YelpCheckIn paramYelpCheckIn, m<List<CheckInFeedback>> paramm, int paramInt)
+  private final User a;
+  private final boolean g;
+  
+  public ct(ApiRequest.b<User> paramb, User paramUser, boolean paramBoolean)
   {
-    super(ApiRequest.RequestType.GET, "check_in/list_feedbacks", paramm);
-    addUrlParam("check_in_id", paramYelpCheckIn.getId());
-    addUrlParam("offset", paramInt);
+    super(ApiRequest.RequestType.POST, "account/user/save", paramb);
+    b("user_id", paramUser.ae());
+    if (!paramBoolean) {}
+    for (boolean bool = true;; bool = false)
+    {
+      b("alert", bool);
+      a = paramUser;
+      g = paramBoolean;
+      return;
+    }
   }
   
-  public List<CheckInFeedback> a(JSONObject paramJSONObject)
+  public User a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("feedbacks"), CheckInFeedback.CREATOR);
+    paramJSONObject = a;
+    if (!g) {}
+    for (boolean bool = true;; bool = false)
+    {
+      paramJSONObject.a(bool);
+      return a;
+    }
   }
 }
 

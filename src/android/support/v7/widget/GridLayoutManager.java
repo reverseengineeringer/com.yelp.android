@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
-import com.yelp.android.f.g;
-import com.yelp.android.f.q;
+import com.yelp.android.h.c;
+import com.yelp.android.h.c.l;
 import java.util.Arrays;
 
 public class GridLayoutManager
@@ -23,22 +23,22 @@ public class GridLayoutManager
   View[] e;
   final SparseIntArray f;
   final SparseIntArray g;
-  ag h;
+  a h;
   final Rect i;
   
-  private void A()
+  private void B()
   {
     f.clear();
     g.clear();
   }
   
-  private void B()
+  private void C()
   {
-    int k = q();
+    int k = r();
     int j = 0;
     while (j < k)
     {
-      GridLayoutManager.LayoutParams localLayoutParams = (GridLayoutManager.LayoutParams)e(j).getLayoutParams();
+      LayoutParams localLayoutParams = (LayoutParams)f(j).getLayoutParams();
       int m = localLayoutParams.e();
       f.put(m, localLayoutParams.b());
       g.put(m, localLayoutParams.a());
@@ -46,22 +46,34 @@ public class GridLayoutManager
     }
   }
   
-  private void C()
+  private void D()
   {
     if (f() == 1) {}
-    for (int j = r() - v() - t();; j = s() - w() - u())
+    for (int j = s() - w() - u();; j = t() - x() - v())
     {
-      i(j);
+      j(j);
       return;
     }
   }
   
-  private int a(bv parambv, cb paramcb, int paramInt)
+  private int a(int paramInt1, int paramInt2, int paramInt3)
   {
-    if (!paramcb.a()) {
+    if ((paramInt2 == 0) && (paramInt3 == 0)) {}
+    int j;
+    do
+    {
+      return paramInt1;
+      j = View.MeasureSpec.getMode(paramInt1);
+    } while ((j != Integer.MIN_VALUE) && (j != 1073741824));
+    return View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(paramInt1) - paramInt2 - paramInt3, j);
+  }
+  
+  private int a(RecyclerView.n paramn, RecyclerView.r paramr, int paramInt)
+  {
+    if (!paramr.a()) {
       return h.c(paramInt, c);
     }
-    int j = parambv.b(paramInt);
+    int j = paramn.b(paramInt);
     if (j == -1)
     {
       Log.w("GridLayoutManager", "Cannot find span size for pre layout position. " + paramInt);
@@ -70,20 +82,13 @@ public class GridLayoutManager
     return h.c(j, c);
   }
   
-  private void a(ai paramai)
-  {
-    for (int j = h.a(a, c); (j > 0) && (a > 0); j = h.a(a, c)) {
-      a -= 1;
-    }
-  }
-  
-  private void a(bv parambv, cb paramcb, int paramInt1, int paramInt2, boolean paramBoolean)
+  private void a(RecyclerView.n paramn, RecyclerView.r paramr, int paramInt1, int paramInt2, boolean paramBoolean)
   {
     int j;
     int k;
     int m;
     label43:
-    GridLayoutManager.LayoutParams localLayoutParams;
+    LayoutParams localLayoutParams;
     if (paramBoolean)
     {
       j = 1;
@@ -99,16 +104,16 @@ public class GridLayoutManager
         return;
       }
       View localView = e[paramInt1];
-      localLayoutParams = (GridLayoutManager.LayoutParams)localView.getLayoutParams();
-      GridLayoutManager.LayoutParams.a(localLayoutParams, c(parambv, paramcb, d(localView)));
-      if ((m != -1) || (GridLayoutManager.LayoutParams.b(localLayoutParams) <= 1)) {
+      localLayoutParams = (LayoutParams)localView.getLayoutParams();
+      LayoutParams.a(localLayoutParams, c(paramn, paramr, d(localView)));
+      if ((m != -1) || (LayoutParams.b(localLayoutParams) <= 1)) {
         break label159;
       }
-      GridLayoutManager.LayoutParams.b(localLayoutParams, paramInt2 - (GridLayoutManager.LayoutParams.b(localLayoutParams) - 1));
+      LayoutParams.b(localLayoutParams, paramInt2 - (LayoutParams.b(localLayoutParams) - 1));
     }
     for (;;)
     {
-      paramInt2 += GridLayoutManager.LayoutParams.b(localLayoutParams) * m;
+      paramInt2 += LayoutParams.b(localLayoutParams) * m;
       paramInt1 += j;
       break label43;
       paramInt1 -= 1;
@@ -120,25 +125,39 @@ public class GridLayoutManager
       m = 1;
       break label43;
       label159:
-      GridLayoutManager.LayoutParams.b(localLayoutParams, paramInt2);
+      LayoutParams.b(localLayoutParams, paramInt2);
     }
   }
   
-  private int b(int paramInt1, int paramInt2, int paramInt3)
+  private void a(View paramView, int paramInt1, int paramInt2, boolean paramBoolean)
   {
-    if ((paramInt2 == 0) && (paramInt3 == 0)) {}
+    a(paramView, i);
+    RecyclerView.LayoutParams localLayoutParams = (RecyclerView.LayoutParams)paramView.getLayoutParams();
     int j;
-    do
+    if (!paramBoolean)
     {
-      return paramInt1;
-      j = View.MeasureSpec.getMode(paramInt1);
-    } while ((j != Integer.MIN_VALUE) && (j != 1073741824));
-    return View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(paramInt1) - paramInt2 - paramInt3, j);
+      j = paramInt1;
+      if (this.j != 1) {}
+    }
+    else
+    {
+      j = a(paramInt1, leftMargin + i.left, rightMargin + i.right);
+    }
+    if (!paramBoolean)
+    {
+      paramInt1 = paramInt2;
+      if (this.j != 0) {}
+    }
+    else
+    {
+      paramInt1 = a(paramInt2, topMargin + i.top, bottomMargin + i.bottom);
+    }
+    paramView.measure(j, paramInt1);
   }
   
-  private int b(bv parambv, cb paramcb, int paramInt)
+  private int b(RecyclerView.n paramn, RecyclerView.r paramr, int paramInt)
   {
-    if (!paramcb.a()) {
+    if (!paramr.a()) {
       j = h.a(paramInt, c);
     }
     int k;
@@ -148,7 +167,7 @@ public class GridLayoutManager
       k = g.get(paramInt, -1);
       j = k;
     } while (k != -1);
-    int j = parambv.b(paramInt);
+    int j = paramn.b(paramInt);
     if (j == -1)
     {
       Log.w("GridLayoutManager", "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + paramInt);
@@ -157,16 +176,16 @@ public class GridLayoutManager
     return h.a(j, c);
   }
   
-  private void b(View paramView, int paramInt1, int paramInt2)
+  private void b(RecyclerView.n paramn, RecyclerView.r paramr, LinearLayoutManager.a parama)
   {
-    a(paramView, i);
-    RecyclerView.LayoutParams localLayoutParams = (RecyclerView.LayoutParams)paramView.getLayoutParams();
-    paramView.measure(b(paramInt1, leftMargin + i.left, rightMargin + i.right), b(paramInt2, topMargin + i.top, bottomMargin + i.bottom));
+    for (int j = b(paramn, paramr, a); (j > 0) && (a > 0); j = b(paramn, paramr, a)) {
+      a -= 1;
+    }
   }
   
-  private int c(bv parambv, cb paramcb, int paramInt)
+  private int c(RecyclerView.n paramn, RecyclerView.r paramr, int paramInt)
   {
-    if (!paramcb.a()) {
+    if (!paramr.a()) {
       j = h.a(paramInt);
     }
     int k;
@@ -176,7 +195,7 @@ public class GridLayoutManager
       k = f.get(paramInt, -1);
       j = k;
     } while (k != -1);
-    int j = parambv.b(paramInt);
+    int j = paramn.b(paramInt);
     if (j == -1)
     {
       Log.w("GridLayoutManager", "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + paramInt);
@@ -185,7 +204,7 @@ public class GridLayoutManager
     return h.a(j);
   }
   
-  private void i(int paramInt)
+  private void j(int paramInt)
   {
     int k = 0;
     if ((d == null) || (d.length != c + 1) || (d[(d.length - 1)] != paramInt)) {
@@ -217,7 +236,7 @@ public class GridLayoutManager
     }
   }
   
-  private int j(int paramInt)
+  private int k(int paramInt)
   {
     if (paramInt < 0) {
       return a;
@@ -225,36 +244,36 @@ public class GridLayoutManager
     return View.MeasureSpec.makeMeasureSpec(paramInt, 1073741824);
   }
   
-  public int a(bv parambv, cb paramcb)
+  public int a(RecyclerView.n paramn, RecyclerView.r paramr)
   {
     if (j == 0) {
       return c;
     }
-    if (paramcb.e() < 1) {
+    if (paramr.e() < 1) {
       return 0;
     }
-    return a(parambv, paramcb, paramcb.e() - 1);
+    return a(paramn, paramr, paramr.e() - 1);
   }
   
   public RecyclerView.LayoutParams a()
   {
-    return new GridLayoutManager.LayoutParams(-2, -2);
+    return new LayoutParams(-2, -2);
   }
   
   public RecyclerView.LayoutParams a(Context paramContext, AttributeSet paramAttributeSet)
   {
-    return new GridLayoutManager.LayoutParams(paramContext, paramAttributeSet);
+    return new LayoutParams(paramContext, paramAttributeSet);
   }
   
   public RecyclerView.LayoutParams a(ViewGroup.LayoutParams paramLayoutParams)
   {
     if ((paramLayoutParams instanceof ViewGroup.MarginLayoutParams)) {
-      return new GridLayoutManager.LayoutParams((ViewGroup.MarginLayoutParams)paramLayoutParams);
+      return new LayoutParams((ViewGroup.MarginLayoutParams)paramLayoutParams);
     }
-    return new GridLayoutManager.LayoutParams(paramLayoutParams);
+    return new LayoutParams(paramLayoutParams);
   }
   
-  View a(int paramInt1, int paramInt2, int paramInt3)
+  View a(RecyclerView.n paramn, RecyclerView.r paramr, int paramInt1, int paramInt2, int paramInt3)
   {
     Object localObject2 = null;
     h();
@@ -262,22 +281,22 @@ public class GridLayoutManager
     int m = this.k.d();
     int j;
     Object localObject1;
-    label36:
+    label37:
     Object localObject3;
     if (paramInt2 > paramInt1)
     {
       j = 1;
       localObject1 = null;
       if (paramInt1 == paramInt2) {
-        break label199;
+        break label197;
       }
-      localObject3 = e(paramInt1);
+      localObject3 = f(paramInt1);
       int n = d((View)localObject3);
       if ((n < 0) || (n >= paramInt3)) {
-        break label218;
+        break label216;
       }
-      if (h.a(n, c) == 0) {
-        break label121;
+      if (b(paramn, paramr, n) == 0) {
+        break label119;
       }
       localObject3 = localObject2;
       localObject2 = localObject1;
@@ -289,10 +308,10 @@ public class GridLayoutManager
       localObject3 = localObject2;
       localObject2 = localObject1;
       localObject1 = localObject3;
-      break label36;
+      break label37;
       j = -1;
       break;
-      label121:
+      label119:
       if (((RecyclerView.LayoutParams)((View)localObject3).getLayoutParams()).c())
       {
         if (localObject1 == null)
@@ -312,47 +331,44 @@ public class GridLayoutManager
         else
         {
           if (localObject2 != null) {
-            break label218;
+            break label216;
           }
           localObject2 = localObject1;
           localObject1 = localObject3;
           continue;
-          label199:
+          label197:
           if (localObject2 == null) {
-            break label211;
+            break label209;
           }
         }
         for (;;)
         {
           localObject4 = localObject2;
           return (View)localObject4;
-          label211:
+          label209:
           localObject2 = localObject1;
         }
       }
-      label218:
+      label216:
       localObject3 = localObject1;
       localObject1 = localObject2;
       localObject2 = localObject3;
     }
   }
   
-  public void a(RecyclerView paramRecyclerView)
+  void a(RecyclerView.n paramn, RecyclerView.r paramr, LinearLayoutManager.a parama)
   {
-    h.a();
+    super.a(paramn, paramr, parama);
+    D();
+    if ((paramr.e() > 0) && (!paramr.a())) {
+      b(paramn, paramr, parama);
+    }
+    if ((e == null) || (e.length != c)) {
+      e = new View[c];
+    }
   }
   
-  public void a(RecyclerView paramRecyclerView, int paramInt1, int paramInt2)
-  {
-    h.a();
-  }
-  
-  public void a(RecyclerView paramRecyclerView, int paramInt1, int paramInt2, int paramInt3)
-  {
-    h.a();
-  }
-  
-  void a(bv parambv, cb paramcb, ak paramak, aj paramaj)
+  void a(RecyclerView.n paramn, RecyclerView.r paramr, LinearLayoutManager.c paramc, LinearLayoutManager.b paramb)
   {
     boolean bool;
     int m;
@@ -368,17 +384,17 @@ public class GridLayoutManager
       k = n;
       if (!bool)
       {
-        j = b(parambv, paramcb, d) + c(parambv, paramcb, d);
+        j = b(paramn, paramr, d) + c(paramn, paramr, d);
         k = n;
         i1 = m;
       }
     }
     for (;;)
     {
-      if ((i1 < c) && (paramak.a(paramcb)) && (j > 0))
+      if ((i1 < c) && (paramc.a(paramr)) && (j > 0))
       {
         n = d;
-        m = c(parambv, paramcb, n);
+        m = c(paramn, paramr, n);
         if (m > c)
         {
           throw new IllegalArgumentException("Item at position " + n + " requires " + m + " spans but GridLayoutManager has only " + c + " spans.");
@@ -399,78 +415,78 @@ public class GridLayoutManager
         }
         b = true;
         return;
-        localView = paramak.a(parambv);
+        localView = paramc.a(paramn);
       } while (localView == null);
       k += m;
       e[i1] = localView;
       i1 += 1;
     }
-    a(parambv, paramcb, i1, k, bool);
+    a(paramn, paramr, i1, k, bool);
     int k = 0;
     int j = 0;
     if (k < i1)
     {
-      parambv = e[k];
+      paramn = e[k];
       if (k == null) {
         if (bool)
         {
-          b(parambv);
+          b(paramn);
           label290:
-          paramcb = (GridLayoutManager.LayoutParams)parambv.getLayoutParams();
-          m = View.MeasureSpec.makeMeasureSpec(d[(GridLayoutManager.LayoutParams.a(paramcb) + GridLayoutManager.LayoutParams.b(paramcb))] - d[GridLayoutManager.LayoutParams.a(paramcb)], 1073741824);
+          paramr = (LayoutParams)paramn.getLayoutParams();
+          m = View.MeasureSpec.makeMeasureSpec(d[(LayoutParams.a(paramr) + LayoutParams.b(paramr))] - d[LayoutParams.a(paramr)], 1073741824);
           if (this.j != 1) {
-            break label413;
+            break label414;
           }
-          b(parambv, m, j(height));
-          label352:
-          m = this.k.c(parambv);
+          a(paramn, m, k(height), false);
+          label353:
+          m = this.k.c(paramn);
           if (m <= j) {
-            break label877;
+            break label881;
           }
           j = m;
         }
       }
     }
-    label413:
-    label535:
-    label615:
-    label832:
-    label868:
-    label877:
+    label414:
+    label538:
+    label619:
+    label836:
+    label872:
+    label881:
     for (;;)
     {
       k += 1;
       break;
-      b(parambv, 0);
+      b(paramn, 0);
       break label290;
       if (bool)
       {
-        a(parambv);
+        a(paramn);
         break label290;
       }
-      a(parambv, 0);
+      a(paramn, 0);
       break label290;
-      b(parambv, j(width), m);
-      break label352;
-      m = j(j);
+      a(paramn, k(width), m, false);
+      break label353;
+      m = k(j);
       k = 0;
       if (k < i1)
       {
-        parambv = e[k];
-        if (this.k.c(parambv) != j)
+        paramn = e[k];
+        if (this.k.c(paramn) != j)
         {
-          paramcb = (GridLayoutManager.LayoutParams)parambv.getLayoutParams();
-          n = View.MeasureSpec.makeMeasureSpec(d[(GridLayoutManager.LayoutParams.a(paramcb) + GridLayoutManager.LayoutParams.b(paramcb))] - d[GridLayoutManager.LayoutParams.a(paramcb)], 1073741824);
+          paramr = (LayoutParams)paramn.getLayoutParams();
+          n = View.MeasureSpec.makeMeasureSpec(d[(LayoutParams.a(paramr) + LayoutParams.b(paramr))] - d[LayoutParams.a(paramr)], 1073741824);
           if (this.j != 1) {
-            break label535;
+            break label538;
           }
-          b(parambv, n, m);
+          a(paramn, n, m, true);
         }
         for (;;)
         {
           k += 1;
           break;
-          b(parambv, m, n);
+          a(paramn, m, n, true);
         }
       }
       a = j;
@@ -490,27 +506,27 @@ public class GridLayoutManager
           j = i2;
           i2 = i3;
           if (m >= i1) {
-            break label868;
+            break label872;
           }
-          parambv = e[m];
-          paramcb = (GridLayoutManager.LayoutParams)parambv.getLayoutParams();
+          paramn = e[m];
+          paramr = (LayoutParams)paramn.getLayoutParams();
           if (this.j != 1) {
-            break label832;
+            break label836;
           }
-          j = t();
-          j = d[GridLayoutManager.LayoutParams.a(paramcb)] + j;
-          k = this.k.d(parambv) + j;
+          j = u();
+          j = d[LayoutParams.a(paramr)] + j;
+          k = this.k.d(paramn) + j;
         }
       }
       for (;;)
       {
-        a(parambv, j + leftMargin, i2 + topMargin, k - rightMargin, n - bottomMargin);
-        if ((paramcb.c()) || (paramcb.d())) {
+        a(paramn, j + leftMargin, i2 + topMargin, k - rightMargin, n - bottomMargin);
+        if ((paramr.c()) || (paramr.d())) {
           c = true;
         }
-        d |= parambv.isFocusable();
+        d |= paramn.isFocusable();
         m += 1;
-        break label615;
+        break label619;
         k = b;
         n = k + j;
         j = k;
@@ -529,25 +545,25 @@ public class GridLayoutManager
         k = j + m;
         j = 0;
         break;
-        n = u();
-        i2 = d[GridLayoutManager.LayoutParams.a(paramcb)] + n;
-        n = this.k.d(parambv) + i2;
+        n = v();
+        i2 = d[LayoutParams.a(paramr)] + n;
+        n = this.k.d(paramn) + i2;
       }
       Arrays.fill(e, null);
       return;
     }
   }
   
-  public void a(bv parambv, cb paramcb, View paramView, g paramg)
+  public void a(RecyclerView.n paramn, RecyclerView.r paramr, View paramView, c paramc)
   {
     ViewGroup.LayoutParams localLayoutParams = paramView.getLayoutParams();
-    if (!(localLayoutParams instanceof GridLayoutManager.LayoutParams))
+    if (!(localLayoutParams instanceof LayoutParams))
     {
-      super.a(paramView, paramg);
+      super.a(paramView, paramc);
       return;
     }
-    paramView = (GridLayoutManager.LayoutParams)localLayoutParams;
-    int j = a(parambv, paramcb, paramView.e());
+    paramView = (LayoutParams)localLayoutParams;
+    int j = a(paramn, paramr, paramView.e());
     if (this.j == 0)
     {
       k = paramView.a();
@@ -555,7 +571,7 @@ public class GridLayoutManager
       if ((c > 1) && (paramView.b() == c)) {}
       for (bool = true;; bool = false)
       {
-        paramg.c(q.a(k, m, j, 1, bool, false));
+        paramc.c(c.l.a(k, m, j, 1, bool, false));
         return;
       }
     }
@@ -564,37 +580,45 @@ public class GridLayoutManager
     if ((c > 1) && (paramView.b() == c)) {}
     for (boolean bool = true;; bool = false)
     {
-      paramg.c(q.a(j, 1, k, m, bool, false));
+      paramc.c(c.l.a(j, 1, k, m, bool, false));
       return;
     }
   }
   
-  void a(cb paramcb, ai paramai)
+  public void a(RecyclerView paramRecyclerView)
   {
-    super.a(paramcb, paramai);
-    C();
-    if ((paramcb.e() > 0) && (!paramcb.a())) {
-      a(paramai);
-    }
-    if ((e == null) || (e.length != c)) {
-      e = new View[c];
-    }
+    h.a();
+  }
+  
+  public void a(RecyclerView paramRecyclerView, int paramInt1, int paramInt2)
+  {
+    h.a();
+  }
+  
+  public void a(RecyclerView paramRecyclerView, int paramInt1, int paramInt2, int paramInt3)
+  {
+    h.a();
+  }
+  
+  public void a(RecyclerView paramRecyclerView, int paramInt1, int paramInt2, Object paramObject)
+  {
+    h.a();
   }
   
   public boolean a(RecyclerView.LayoutParams paramLayoutParams)
   {
-    return paramLayoutParams instanceof GridLayoutManager.LayoutParams;
+    return paramLayoutParams instanceof LayoutParams;
   }
   
-  public int b(bv parambv, cb paramcb)
+  public int b(RecyclerView.n paramn, RecyclerView.r paramr)
   {
     if (j == 1) {
       return c;
     }
-    if (paramcb.e() < 1) {
+    if (paramr.e() < 1) {
       return 0;
     }
-    return a(parambv, paramcb, paramcb.e() - 1);
+    return a(paramn, paramr, paramr.e() - 1);
   }
   
   public void b(RecyclerView paramRecyclerView, int paramInt1, int paramInt2)
@@ -607,20 +631,193 @@ public class GridLayoutManager
     return (o == null) && (!b);
   }
   
-  public void c(RecyclerView paramRecyclerView, int paramInt1, int paramInt2)
+  public void c(RecyclerView.n paramn, RecyclerView.r paramr)
   {
-    h.a();
+    if (paramr.a()) {
+      C();
+    }
+    super.c(paramn, paramr);
+    B();
+    if (!paramr.a()) {
+      b = false;
+    }
   }
   
-  public void c(bv parambv, cb paramcb)
+  public static class LayoutParams
+    extends RecyclerView.LayoutParams
   {
-    if (paramcb.a()) {
-      B();
+    private int e = -1;
+    private int f = 0;
+    
+    public LayoutParams(int paramInt1, int paramInt2)
+    {
+      super(paramInt2);
     }
-    super.c(parambv, paramcb);
-    A();
-    if (!paramcb.a()) {
-      b = false;
+    
+    public LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
+    {
+      super(paramAttributeSet);
+    }
+    
+    public LayoutParams(ViewGroup.LayoutParams paramLayoutParams)
+    {
+      super();
+    }
+    
+    public LayoutParams(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+    {
+      super();
+    }
+    
+    public int a()
+    {
+      return e;
+    }
+    
+    public int b()
+    {
+      return f;
+    }
+  }
+  
+  public static abstract class a
+  {
+    final SparseIntArray a;
+    private boolean b;
+    
+    public abstract int a(int paramInt);
+    
+    int a(int paramInt1, int paramInt2)
+    {
+      int i;
+      if (!b) {
+        i = b(paramInt1, paramInt2);
+      }
+      int j;
+      do
+      {
+        return i;
+        j = a.get(paramInt1, -1);
+        i = j;
+      } while (j != -1);
+      paramInt2 = b(paramInt1, paramInt2);
+      a.put(paramInt1, paramInt2);
+      return paramInt2;
+    }
+    
+    public void a()
+    {
+      a.clear();
+    }
+    
+    int b(int paramInt)
+    {
+      int i = 0;
+      int j = a.size() - 1;
+      while (i <= j)
+      {
+        int k = i + j >>> 1;
+        if (a.keyAt(k) < paramInt) {
+          i = k + 1;
+        } else {
+          j = k - 1;
+        }
+      }
+      paramInt = i - 1;
+      if ((paramInt >= 0) && (paramInt < a.size())) {
+        return a.keyAt(paramInt);
+      }
+      return -1;
+    }
+    
+    public int b(int paramInt1, int paramInt2)
+    {
+      int n = a(paramInt1);
+      if (n == paramInt2) {
+        return 0;
+      }
+      int j;
+      int i;
+      if ((b) && (a.size() > 0))
+      {
+        j = b(paramInt1);
+        if (j >= 0)
+        {
+          i = a.get(j) + a(j);
+          j += 1;
+        }
+      }
+      for (;;)
+      {
+        if (j < paramInt1)
+        {
+          int k = a(j);
+          int m = i + k;
+          if (m == paramInt2) {
+            i = 0;
+          }
+          for (;;)
+          {
+            j += 1;
+            break;
+            i = k;
+            if (m <= paramInt2) {
+              i = m;
+            }
+          }
+        }
+        if (i + n > paramInt2) {
+          break;
+        }
+        return i;
+        j = 0;
+        i = 0;
+      }
+    }
+    
+    public int c(int paramInt1, int paramInt2)
+    {
+      int n = a(paramInt1);
+      int k = 0;
+      int i = 0;
+      int j = 0;
+      int m;
+      if (k < paramInt1)
+      {
+        m = a(k);
+        j += m;
+        if (j == paramInt2)
+        {
+          j = i + 1;
+          i = 0;
+        }
+      }
+      for (;;)
+      {
+        m = k + 1;
+        k = i;
+        i = j;
+        j = k;
+        k = m;
+        break;
+        if (j > paramInt2)
+        {
+          j = i + 1;
+          i = m;
+          continue;
+          paramInt1 = i;
+          if (j + n > paramInt2) {
+            paramInt1 = i + 1;
+          }
+          return paramInt1;
+        }
+        else
+        {
+          m = j;
+          j = i;
+          i = m;
+        }
+      }
     }
   }
 }

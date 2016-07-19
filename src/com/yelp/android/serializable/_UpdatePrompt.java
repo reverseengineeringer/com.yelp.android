@@ -2,21 +2,40 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _UpdatePrompt
   implements Parcelable
 {
-  protected int mAppLaunchesBetweenUpdatePrompts;
-  protected String mMessage;
+  protected String a;
+  protected int b;
   
-  protected _UpdatePrompt() {}
-  
-  protected _UpdatePrompt(String paramString, int paramInt)
+  public int a()
   {
-    this();
-    mMessage = paramString;
-    mAppLaunchesBetweenUpdatePrompts = paramInt;
+    return b;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("message")) {
+      a = paramJSONObject.optString("message");
+    }
+    b = paramJSONObject.optInt("app_launches_between_update_prompts");
+  }
+  
+  public String b()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -24,34 +43,29 @@ abstract class _UpdatePrompt
     return 0;
   }
   
-  public int getAppLaunchesBetweenUpdatePrompts()
+  public boolean equals(Object paramObject)
   {
-    return mAppLaunchesBetweenUpdatePrompts;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_UpdatePrompt)paramObject;
+    return new b().a(a, a).a(b, b).a();
   }
   
-  public String getMessage()
+  public int hashCode()
   {
-    return mMessage;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("message")) {
-      mMessage = paramJSONObject.optString("message");
-    }
-    mAppLaunchesBetweenUpdatePrompts = paramJSONObject.optInt("app_launches_between_update_prompts");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mMessage = paramParcel.readString();
-    mAppLaunchesBetweenUpdatePrompts = paramParcel.readInt();
+    return new c().a(a).a(b).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mMessage);
-    paramParcel.writeInt(mAppLaunchesBetweenUpdatePrompts);
+    paramParcel.writeValue(a);
+    paramParcel.writeInt(b);
   }
 }
 

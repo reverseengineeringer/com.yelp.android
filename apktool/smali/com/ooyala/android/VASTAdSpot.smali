@@ -3,6 +3,15 @@
 .source "VASTAdSpot.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/VASTAdSpot$1;,
+        Lcom/ooyala/android/VASTAdSpot$FetchPlaybackInfoTask;
+    }
+.end annotation
+
+
 # static fields
 .field static final URL_STRINGS_TO_REPLACE:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;

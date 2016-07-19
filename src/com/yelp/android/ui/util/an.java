@@ -1,45 +1,65 @@
 package com.yelp.android.ui.util;
 
-import android.app.Activity;
-import android.app.PendingIntent;
-import android.app.PendingIntent.CanceledException;
-import android.os.Parcelable;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.ui.dialogs.as;
-import com.yelp.android.util.YelpLog;
-import java.lang.ref.WeakReference;
+import android.content.Context;
+import android.os.CountDownTimer;
+import android.text.TextUtils;
+import android.widget.TextView;
 
 public class an
-  implements as
+  extends CountDownTimer
 {
-  WeakReference<Activity> a;
+  private TextView a;
+  private final int b;
+  private final CharSequence c;
+  private a d;
   
-  public an(ImageInputHelper paramImageInputHelper, Activity paramActivity)
+  public an(long paramLong, TextView paramTextView)
   {
-    a = new WeakReference(paramActivity);
+    this(paramLong, paramTextView, null);
   }
   
-  public void a(String paramString, Parcelable paramParcelable)
+  public an(long paramLong, TextView paramTextView, CharSequence paramCharSequence)
   {
-    if ((paramParcelable instanceof PendingIntent)) {}
-    do
+    this(paramLong, paramTextView, paramCharSequence, 2131166686);
+  }
+  
+  public an(long paramLong, TextView paramTextView, CharSequence paramCharSequence, int paramInt)
+  {
+    super(paramLong, 250L);
+    a = paramTextView;
+    b = paramInt;
+    c = paramCharSequence;
+  }
+  
+  public void a(a parama)
+  {
+    d = parama;
+  }
+  
+  public void onFinish()
+  {
+    a.setText(a.getContext().getString(b, new Object[] { Integer.valueOf(0), Integer.valueOf(0), Integer.valueOf(0) }));
+    if (d != null)
     {
-      try
-      {
-        ((PendingIntent)paramParcelable).send(-1);
-        return;
-      }
-      catch (PendingIntent.CanceledException paramString)
-      {
-        YelpLog.w("ImageInputHelper", "Couldn't send PendingIntent in ImageInputHelper because " + paramString.getMessage());
-        return;
-      }
-      paramString = (ImageInputHelper.SourceIriPair)paramParcelable;
-    } while (a.get() == null);
-    if (ImageInputHelper.SourceIriPair.access$200(paramString) != null) {
-      AppData.a(ImageInputHelper.SourceIriPair.access$200(paramString));
+      d.a();
+      d = null;
     }
-    b.a((Activity)a.get(), ImageInputHelper.SourceIriPair.access$300(paramString));
+  }
+  
+  public void onTick(long paramLong)
+  {
+    int i = (int)paramLong / 1000;
+    String str = a.getContext().getString(b, new Object[] { Integer.valueOf(i / 3600), Integer.valueOf(i % 3600 / 60), Integer.valueOf(i % 60) });
+    Object localObject = str;
+    if (!TextUtils.isEmpty(c)) {
+      localObject = TextUtils.expandTemplate(c, new CharSequence[] { str });
+    }
+    a.setText((CharSequence)localObject);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a();
   }
 }
 

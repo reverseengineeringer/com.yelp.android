@@ -32,7 +32,7 @@
     .locals 1
 
     .prologue
-    .line 26
+    .line 27
     const/4 v0, 0x0
 
     invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/ui/dialogs/AlertDialogFragment;
@@ -46,29 +46,29 @@
     .locals 3
 
     .prologue
-    .line 40
+    .line 41
     new-instance v0, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;-><init>()V
 
-    .line 41
+    .line 42
     invoke-static {p0, p1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->b(Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    .line 43
+    .line 44
     if-eqz p2, :cond_0
 
-    .line 44
+    .line 45
     const-string/jumbo v2, "button_message"
 
     invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 46
+    .line 47
     :cond_0
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 47
+    .line 48
     return-object v0
 .end method
 
@@ -78,10 +78,10 @@
     .locals 0
 
     .prologue
-    .line 89
+    .line 94
     iput-object p1, p0, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->b:Landroid/content/DialogInterface$OnClickListener;
 
-    .line 90
+    .line 95
     return-void
 .end method
 
@@ -91,30 +91,30 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 54
-    .line 57
+    .line 55
+    .line 58
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v3
 
-    .line 58
+    .line 59
     if-eqz v3, :cond_1
 
-    .line 59
+    .line 60
     const-string/jumbo v0, "title"
 
     invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 60
+    .line 61
     const-string/jumbo v0, "message"
 
     invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 61
+    .line 62
     const-string/jumbo v0, "button_message"
 
     invoke-virtual {v3, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -129,27 +129,27 @@
 
     move-result-object v0
 
-    .line 66
+    .line 68
     :goto_0
-    invoke-virtual {p0, v2, v1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->c(Ljava/lang/String;Ljava/lang/String;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p0, v2, v1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->c(Ljava/lang/String;Ljava/lang/String;)Landroid/support/v7/app/d$a;
 
     move-result-object v1
 
-    new-instance v2, Lcom/yelp/android/ui/dialogs/a;
+    new-instance v2, Lcom/yelp/android/ui/dialogs/AlertDialogFragment$1;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/dialogs/a;-><init>(Lcom/yelp/android/ui/dialogs/AlertDialogFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment$1;-><init>(Lcom/yelp/android/ui/dialogs/AlertDialogFragment;)V
 
-    invoke-virtual {v1, v0, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v1, v0, v2}, Landroid/support/v7/app/d$a;->a(Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/support/v7/app/d$a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v0}, Landroid/support/v7/app/d$a;->b()Landroid/support/v7/app/d;
 
     move-result-object v0
 
     return-object v0
 
-    .line 61
+    .line 62
     :cond_0
     const-string/jumbo v0, "button_message"
 

@@ -11,7 +11,7 @@ import com.yelp.android.appdata.webrequests.ApiRequest;
   
   void addParameter(ApiRequest<Void, Void, ?> paramApiRequest, String paramString)
   {
-    paramApiRequest.addUrlParam("newer_than", paramString);
+    paramApiRequest.a("newer_than", paramString);
   }
 }
 

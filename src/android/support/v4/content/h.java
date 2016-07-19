@@ -1,23 +1,14 @@
 package android.support.v4.content;
 
 import android.content.Context;
-import java.io.File;
+import android.content.Intent;
+import android.os.Bundle;
 
 class h
 {
-  public static File[] a(Context paramContext)
+  public static void a(Context paramContext, Intent[] paramArrayOfIntent, Bundle paramBundle)
   {
-    return paramContext.getExternalCacheDirs();
-  }
-  
-  public static File[] a(Context paramContext, String paramString)
-  {
-    return paramContext.getExternalFilesDirs(paramString);
-  }
-  
-  public static File[] b(Context paramContext)
-  {
-    return paramContext.getObbDirs();
+    paramContext.startActivities(paramArrayOfIntent, paramBundle);
   }
 }
 

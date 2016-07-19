@@ -7,6 +7,17 @@
 .implements Lorg/apache/http/cookie/Cookie;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/services/PersistingCookieStore;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "SerializableCookie"
+.end annotation
+
+
 # static fields
 .field private static final serialVersionUID:J = 0x1L
 
@@ -38,10 +49,10 @@
     .locals 0
 
     .prologue
-    .line 196
+    .line 190
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 198
+    .line 192
     return-void
 .end method
 
@@ -49,40 +60,40 @@
     .locals 0
 
     .prologue
-    .line 216
+    .line 218
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 217
+    .line 219
     iput-object p1, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mName:Ljava/lang/String;
 
-    .line 218
+    .line 220
     iput-object p2, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mComment:Ljava/lang/String;
 
-    .line 219
+    .line 221
     iput-object p3, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mPorts:[I
 
-    .line 220
+    .line 222
     iput-object p4, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mDomain:Ljava/lang/String;
 
-    .line 221
+    .line 223
     iput-boolean p5, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mSecure:Z
 
-    .line 222
+    .line 224
     iput-object p6, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mPath:Ljava/lang/String;
 
-    .line 223
+    .line 225
     iput-object p7, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mExpiryDate:Ljava/util/Date;
 
-    .line 224
+    .line 226
     iput-object p8, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mValue:Ljava/lang/String;
 
-    .line 225
+    .line 227
     iput p9, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mVersion:I
 
-    .line 226
+    .line 228
     iput-object p10, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mCommentUrl:Ljava/lang/String;
 
-    .line 227
+    .line 229
     return-void
 .end method
 
@@ -90,7 +101,7 @@
     .locals 11
 
     .prologue
-    .line 201
+    .line 195
     invoke-interface {p1}, Lorg/apache/http/cookie/Cookie;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -135,7 +146,7 @@
 
     invoke-direct/range {v0 .. v10}, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;-><init>(Ljava/lang/String;Ljava/lang/String;[ILjava/lang/String;ZLjava/lang/String;Ljava/util/Date;Ljava/lang/String;ILjava/lang/String;)V
 
-    .line 211
+    .line 206
     return-void
 .end method
 
@@ -145,7 +156,7 @@
     .locals 1
 
     .prologue
-    .line 231
+    .line 233
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mComment:Ljava/lang/String;
 
     return-object v0
@@ -155,7 +166,7 @@
     .locals 1
 
     .prologue
-    .line 236
+    .line 238
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mCommentUrl:Ljava/lang/String;
 
     return-object v0
@@ -165,7 +176,7 @@
     .locals 1
 
     .prologue
-    .line 241
+    .line 243
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mDomain:Ljava/lang/String;
 
     return-object v0
@@ -175,7 +186,7 @@
     .locals 1
 
     .prologue
-    .line 246
+    .line 248
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mExpiryDate:Ljava/util/Date;
 
     return-object v0
@@ -185,7 +196,7 @@
     .locals 1
 
     .prologue
-    .line 251
+    .line 253
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mName:Ljava/lang/String;
 
     return-object v0
@@ -195,7 +206,7 @@
     .locals 1
 
     .prologue
-    .line 256
+    .line 258
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mPath:Ljava/lang/String;
 
     return-object v0
@@ -205,7 +216,7 @@
     .locals 1
 
     .prologue
-    .line 261
+    .line 263
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mPorts:[I
 
     return-object v0
@@ -215,7 +226,7 @@
     .locals 1
 
     .prologue
-    .line 266
+    .line 268
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mValue:Ljava/lang/String;
 
     return-object v0
@@ -225,7 +236,7 @@
     .locals 1
 
     .prologue
-    .line 271
+    .line 273
     iget v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mVersion:I
 
     return v0
@@ -235,7 +246,7 @@
     .locals 1
 
     .prologue
-    .line 276
+    .line 278
     iget-object v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mExpiryDate:Ljava/util/Date;
 
     invoke-virtual {p1, v0}, Ljava/util/Date;->after(Ljava/util/Date;)Z
@@ -249,7 +260,7 @@
     .locals 1
 
     .prologue
-    .line 281
+    .line 283
     const/4 v0, 0x1
 
     return v0
@@ -259,7 +270,7 @@
     .locals 1
 
     .prologue
-    .line 286
+    .line 288
     iget-boolean v0, p0, Lcom/yelp/android/services/PersistingCookieStore$SerializableCookie;->mSecure:Z
 
     return v0

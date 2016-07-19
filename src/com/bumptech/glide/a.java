@@ -6,28 +6,28 @@ import android.widget.ImageView;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.b;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.bitmap.k;
-import com.bumptech.glide.load.resource.bitmap.u;
-import com.bumptech.glide.request.c;
-import com.yelp.android.ag.j;
+import com.bumptech.glide.load.resource.bitmap.h;
+import com.bumptech.glide.load.resource.bitmap.o;
+import com.yelp.android.am.j;
+import com.yelp.android.x.c;
 import java.io.InputStream;
 
 public class a<ModelType, TranscodeType>
-  extends e<ModelType, com.yelp.android.v.h, Bitmap, TranscodeType>
+  extends e<ModelType, com.yelp.android.aa.g, Bitmap, TranscodeType>
 {
-  private final com.bumptech.glide.load.engine.bitmap_recycle.e g;
+  private final c g;
   private com.bumptech.glide.load.resource.bitmap.f h = com.bumptech.glide.load.resource.bitmap.f.a;
   private DecodeFormat i;
   private com.bumptech.glide.load.d<InputStream, Bitmap> j;
   private com.bumptech.glide.load.d<ParcelFileDescriptor, Bitmap> k;
   
-  a(com.yelp.android.ae.f<ModelType, com.yelp.android.v.h, Bitmap, TranscodeType> paramf, Class<TranscodeType> paramClass, e<ModelType, ?, ?, ?> parame)
+  a(com.yelp.android.ak.f<ModelType, com.yelp.android.aa.g, Bitmap, TranscodeType> paramf, Class<TranscodeType> paramClass, e<ModelType, ?, ?, ?> parame)
   {
     super(paramf, paramClass, parame);
     g = c.a();
-    i = c.g();
-    j = new u(g, i);
-    k = new k(g, i);
+    i = c.h();
+    j = new o(g, i);
+    k = new h(g, i);
   }
   
   public a<ModelType, TranscodeType> a()
@@ -47,7 +47,13 @@ public class a<ModelType, TranscodeType>
     return this;
   }
   
-  public a<ModelType, TranscodeType> a(com.bumptech.glide.load.a<com.yelp.android.v.h> parama)
+  public a<ModelType, TranscodeType> a(Priority paramPriority)
+  {
+    super.b(paramPriority);
+    return this;
+  }
+  
+  public a<ModelType, TranscodeType> a(com.bumptech.glide.load.a<com.yelp.android.aa.g> parama)
   {
     super.b(parama);
     return this;
@@ -59,7 +65,7 @@ public class a<ModelType, TranscodeType>
     return this;
   }
   
-  public a<ModelType, TranscodeType> a(com.bumptech.glide.load.d<com.yelp.android.v.h, Bitmap> paramd)
+  public a<ModelType, TranscodeType> a(com.bumptech.glide.load.d<com.yelp.android.aa.g, Bitmap> paramd)
   {
     super.b(paramd);
     return this;
@@ -68,12 +74,6 @@ public class a<ModelType, TranscodeType>
   public a<ModelType, TranscodeType> a(DiskCacheStrategy paramDiskCacheStrategy)
   {
     super.b(paramDiskCacheStrategy);
-    return this;
-  }
-  
-  public a<ModelType, TranscodeType> a(c<? super ModelType, TranscodeType> paramc)
-  {
-    super.b(paramc);
     return this;
   }
   
@@ -119,21 +119,15 @@ public class a<ModelType, TranscodeType>
   
   public a<ModelType, TranscodeType> c()
   {
-    super.h();
-    return this;
+    return (a)super.f();
   }
   
-  public a<ModelType, TranscodeType> d()
-  {
-    return (a)super.g();
-  }
-  
-  void e()
+  void d()
   {
     b();
   }
   
-  void f()
+  void e()
   {
     a();
   }

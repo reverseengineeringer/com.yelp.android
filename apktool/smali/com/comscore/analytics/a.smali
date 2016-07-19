@@ -99,7 +99,7 @@
 
 .field ak:[Ljava/lang/String;
 
-.field private al:Lcom/yelp/android/am/a;
+.field private al:Lcom/yelp/android/as/b;
 
 .field private am:Z
 
@@ -116,9 +116,9 @@
     .end annotation
 .end field
 
-.field f:Lcom/yelp/android/an/a;
+.field f:Lcom/yelp/android/at/a;
 
-.field g:Lcom/yelp/android/al/c;
+.field g:Lcom/yelp/android/ar/c;
 
 .field h:Lcom/comscore/utils/ConnectivityChangeReceiver;
 
@@ -306,7 +306,7 @@
 .method static synthetic a(Lcom/comscore/analytics/a;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/comscore/analytics/a;->d(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Lcom/comscore/analytics/a;->c(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -399,6 +399,14 @@
     return-void
 .end method
 
+.method static synthetic b(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/comscore/analytics/a;->d(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method private b(Lcom/comscore/utils/TransmissionMode;)V
     .locals 1
 
@@ -415,39 +423,22 @@
     goto :goto_0
 .end method
 
-.method private declared-synchronized b(Ljava/lang/String;Ljava/lang/String;)V
+.method private b(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_0
 
     :goto_0
-    monitor-exit p0
-
     return-void
 
     :cond_0
-    :try_start_1
     iget-object v0, p0, Lcom/comscore/analytics/a;->ab:Ljava/util/HashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method static synthetic b(Lcom/comscore/analytics/a;)Z
@@ -466,6 +457,14 @@
     return p1
 .end method
 
+.method static synthetic c(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/comscore/analytics/a;->e(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method private c(Ljava/lang/String;)V
     .locals 1
 
@@ -478,17 +477,17 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/am/a;->a(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/as/b;->a(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/am/a;->f()V
+    invoke-virtual {v0}, Lcom/yelp/android/as/b;->f()V
 
     goto :goto_0
 .end method
@@ -716,12 +715,9 @@
     return-object v0
 .end method
 
-.method public declared-synchronized L()Ljava/lang/String;
+.method public L()Ljava/lang/String;
     .locals 3
 
-    monitor-enter p0
-
-    :try_start_0
     iget-object v0, p0, Lcom/comscore/analytics/a;->u:Ljava/lang/String;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->u:Ljava/lang/String;
@@ -745,42 +741,17 @@
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/comscore/analytics/a;->u:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method public declared-synchronized M()J
+.method public M()J
     .locals 2
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->k:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
 
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method public N()Landroid/content/Context;
@@ -818,7 +789,7 @@
 .method public R()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
     if-nez v0, :cond_0
 
@@ -828,9 +799,9 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/am/a;->b()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/as/b;->b()Ljava/lang/String;
 
     move-result-object v0
 
@@ -840,7 +811,7 @@
 .method public S()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
     if-nez v0, :cond_0
 
@@ -850,19 +821,19 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/am/a;->c()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/as/b;->c()Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method public T()Lcom/yelp/android/am/a;
+.method public T()Lcom/yelp/android/as/b;
     .locals 1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
     return-object v0
 .end method
@@ -870,7 +841,7 @@
 .method public U()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
     if-nez v0, :cond_0
 
@@ -880,9 +851,9 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/am/a;->d()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/as/b;->d()Ljava/lang/String;
 
     move-result-object v0
 
@@ -940,7 +911,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Lcom/comscore/analytics/a;->b(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v0, v1}, Lcom/comscore/analytics/a;->c(Ljava/lang/String;Z)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -969,7 +940,7 @@
 .method public W()Ljava/lang/String;
     .locals 1
 
-    const-string/jumbo v0, "3.1502.26"
+    const-string/jumbo v0, "3.1508.28"
 
     return-object v0
 .end method
@@ -1008,7 +979,7 @@
     return-object v0
 .end method
 
-.method protected a(Lcom/comscore/applications/EventType;Ljava/util/HashMap;Ljava/lang/String;)Lcom/yelp/android/al/b;
+.method protected a(Lcom/comscore/applications/EventType;Ljava/util/HashMap;Ljava/lang/String;)Lcom/yelp/android/ar/b;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1021,7 +992,7 @@
             ">;",
             "Ljava/lang/String;",
             ")",
-            "Lcom/yelp/android/al/b;"
+            "Lcom/yelp/android/ar/b;"
         }
     .end annotation
 
@@ -1032,22 +1003,29 @@
     return-object v0
 .end method
 
-.method protected a(Landroid/content/Context;Lcom/comscore/utils/m;)Lcom/yelp/android/am/a;
+.method protected a(Landroid/content/Context;Lcom/comscore/utils/m;)Lcom/yelp/android/as/b;
     .locals 1
 
-    new-instance v0, Lcom/yelp/android/am/a;
+    new-instance v0, Lcom/yelp/android/as/b;
 
-    invoke-direct {v0, p1, p2}, Lcom/yelp/android/am/a;-><init>(Landroid/content/Context;Lcom/comscore/utils/m;)V
+    invoke-direct {v0, p1, p2, p0}, Lcom/yelp/android/as/b;-><init>(Landroid/content/Context;Lcom/comscore/utils/m;Lcom/comscore/analytics/a;)V
 
     return-object v0
 .end method
 
-.method public declared-synchronized a()V
-    .locals 2
+.method public a()V
+    .locals 8
 
-    monitor-enter p0
+    const/4 v7, -0x1
 
-    :try_start_0
+    const/4 v6, 0x0
+
+    const/4 v1, 0x0
+
+    const-wide/16 v4, 0x0
+
+    const-wide/16 v2, -0x1
+
     sget-object v0, Lcom/comscore/utils/TransmissionMode;->DEFAULT:Lcom/comscore/utils/TransmissionMode;
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->ai:Lcom/comscore/utils/TransmissionMode;
@@ -1056,9 +1034,7 @@
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->aj:Lcom/comscore/utils/TransmissionMode;
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/comscore/analytics/a;->ah:Z
+    iput-boolean v1, p0, Lcom/comscore/analytics/a;->ah:Z
 
     sget-object v0, Lcom/comscore/utils/f;->c:[Ljava/lang/String;
 
@@ -1072,141 +1048,77 @@
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->K:Lcom/comscore/analytics/SessionState;
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/comscore/analytics/a;->n:Z
+    iput-boolean v1, p0, Lcom/comscore/analytics/a;->n:Z
 
     iget-object v0, p0, Lcom/comscore/analytics/a;->o:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const/4 v1, 0x0
-
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->p:J
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->p:J
 
     iget-object v0, p0, Lcom/comscore/analytics/a;->q:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const/4 v1, 0x0
-
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    const-wide/16 v0, -0x1
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->s:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->s:J
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->r:J
 
-    const-wide/16 v0, -0x1
+    iput-object v6, p0, Lcom/comscore/analytics/a;->t:Ljava/lang/String;
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->r:J
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/comscore/analytics/a;->t:Ljava/lang/String;
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/comscore/analytics/a;->u:Ljava/lang/String;
+    iput-object v6, p0, Lcom/comscore/analytics/a;->u:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/comscore/analytics/a;->y:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
     iget-object v0, p0, Lcom/comscore/analytics/a;->z:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    const/4 v1, 0x0
-
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->set(I)V
 
-    const-wide/16 v0, 0x0
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->B:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->B:J
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->C:J
 
-    const-wide/16 v0, 0x0
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->D:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->C:J
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->E:J
 
-    const-wide/16 v0, 0x0
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->F:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->D:J
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->G:J
 
-    const-wide/16 v0, 0x0
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->L:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->E:J
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->N:J
 
-    const-wide/16 v0, 0x0
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->M:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->F:J
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->H:J
 
-    const-wide/16 v0, 0x0
+    iput-wide v4, p0, Lcom/comscore/analytics/a;->I:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->G:J
+    iput v7, p0, Lcom/comscore/analytics/a;->Q:I
 
-    const-wide/16 v0, 0x0
+    iput v7, p0, Lcom/comscore/analytics/a;->P:I
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->L:J
+    iput v1, p0, Lcom/comscore/analytics/a;->U:I
 
-    const-wide/16 v0, 0x0
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->V:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->N:J
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->J:J
 
-    const-wide/16 v0, 0x0
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->W:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->M:J
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->R:J
 
-    const-wide/16 v0, -0x1
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->S:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->H:J
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->T:J
 
-    const-wide/16 v0, 0x0
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->r:J
 
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->I:J
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/comscore/analytics/a;->Q:I
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Lcom/comscore/analytics/a;->P:I
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/comscore/analytics/a;->U:I
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->V:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->J:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->W:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->R:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->S:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->T:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->r:J
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/comscore/analytics/a;->s:J
+    iput-wide v2, p0, Lcom/comscore/analytics/a;->s:J
 
     invoke-virtual {p0}, Lcom/comscore/analytics/a;->ai()V
 
@@ -1214,30 +1126,26 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
+    iput-object v6, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
     :cond_0
     iget-object v0, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
+    iput-object v6, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
 
     :cond_1
     iget-object v0, p0, Lcom/comscore/analytics/a;->c:Lcom/comscore/applications/d;
@@ -1258,13 +1166,13 @@
     invoke-virtual {v0}, Lcom/comscore/utils/d;->h()V
 
     :cond_3
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/an/a;->c()V
+    invoke-virtual {v0}, Lcom/yelp/android/at/a;->c()V
 
     :cond_4
     iget-object v0, p0, Lcom/comscore/analytics/a;->b:Lcom/comscore/utils/m;
@@ -1274,44 +1182,25 @@
     iget-object v0, p0, Lcom/comscore/analytics/a;->b:Lcom/comscore/utils/m;
 
     invoke-virtual {v0}, Lcom/comscore/utils/m;->d()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_5
-    monitor-exit p0
-
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method declared-synchronized a(IZ)V
+.method a(IZ)V
     .locals 2
 
     const/16 v0, 0x3c
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v1, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v1, :cond_1
 
     :cond_0
     :goto_0
-    monitor-exit p0
-
     return-void
 
     :cond_1
-    :try_start_1
     invoke-virtual {p0}, Lcom/comscore/analytics/a;->ak()V
 
     if-ge p1, v0, :cond_2
@@ -1334,20 +1223,10 @@
     if-ne v0, v1, :cond_3
 
     invoke-virtual {p0}, Lcom/comscore/analytics/a;->aj()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-
     :cond_3
-    :try_start_2
     iget-object v0, p0, Lcom/comscore/analytics/a;->x:Lcom/comscore/analytics/ApplicationState;
 
     sget-object v1, Lcom/comscore/analytics/ApplicationState;->BACKGROUND_UX_ACTIVE:Lcom/comscore/analytics/ApplicationState;
@@ -1359,8 +1238,6 @@
     if-nez v0, :cond_0
 
     invoke-virtual {p0}, Lcom/comscore/analytics/a;->aj()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     goto :goto_0
 .end method
@@ -1381,21 +1258,21 @@
     :cond_1
     iput-object p1, p0, Lcom/comscore/analytics/a;->aa:Landroid/content/Context;
 
-    invoke-virtual {p0}, Lcom/comscore/analytics/a;->e()Lcom/yelp/android/an/a;
+    invoke-virtual {p0}, Lcom/comscore/analytics/a;->e()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iput-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/f;
+    new-instance v1, Lcom/comscore/analytics/h;
 
-    invoke-direct {v1, p0}, Lcom/comscore/analytics/f;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct {v1, p0}, Lcom/comscore/analytics/h;-><init>(Lcom/comscore/analytics/a;)V
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -1423,7 +1300,7 @@
 
     invoke-static {p0, v0}, Lcom/comscore/utils/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    sget-object v0, Lcom/comscore/analytics/c;->a:[I
+    sget-object v0, Lcom/comscore/analytics/d;->a:[I
 
     invoke-virtual {p1}, Lcom/comscore/analytics/ApplicationState;->ordinal()I
 
@@ -1560,7 +1437,7 @@
 
     move-result-wide v0
 
-    sget-object v2, Lcom/comscore/analytics/c;->b:[I
+    sget-object v2, Lcom/comscore/analytics/d;->b:[I
 
     invoke-virtual {p1}, Lcom/comscore/analytics/SessionState;->ordinal()I
 
@@ -1577,11 +1454,11 @@
 
     if-eqz v2, :cond_2
 
-    iget-object v2, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v2, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v3, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
 
-    invoke-virtual {v2, v3}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v2, v3}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v2, 0x0
 
@@ -1678,7 +1555,7 @@
 
     if-eq p1, v0, :cond_3
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/al/c;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/ar/c;
 
     sget-object v1, Lcom/comscore/applications/EventType;->START:Lcom/comscore/applications/EventType;
 
@@ -1688,18 +1565,18 @@
 
     iget-object v3, p0, Lcom/comscore/analytics/a;->Y:Ljava/lang/String;
 
-    invoke-virtual {p0, v1, v2, v3}, Lcom/comscore/analytics/a;->a(Lcom/comscore/applications/EventType;Ljava/util/HashMap;Ljava/lang/String;)Lcom/yelp/android/al/b;
+    invoke-virtual {p0, v1, v2, v3}, Lcom/comscore/analytics/a;->a(Lcom/comscore/applications/EventType;Ljava/util/HashMap;Ljava/lang/String;)Lcom/yelp/android/ar/b;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, v4}, Lcom/yelp/android/al/c;->a(Lcom/yelp/android/al/b;Z)Z
+    invoke-virtual {v0, v1, v4}, Lcom/yelp/android/ar/c;->a(Lcom/yelp/android/ar/b;Z)Z
 
     :cond_3
     sget-object v0, Lcom/comscore/applications/EventType;->CLOSE:Lcom/comscore/applications/EventType;
 
     if-eq p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/al/c;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/ar/c;
 
     invoke-static {p2}, Lcom/comscore/utils/n;->a(Ljava/util/Map;)Ljava/util/HashMap;
 
@@ -1707,11 +1584,11 @@
 
     iget-object v2, p0, Lcom/comscore/analytics/a;->Y:Ljava/lang/String;
 
-    invoke-virtual {p0, p1, v1, v2}, Lcom/comscore/analytics/a;->a(Lcom/comscore/applications/EventType;Ljava/util/HashMap;Ljava/lang/String;)Lcom/yelp/android/al/b;
+    invoke-virtual {p0, p1, v1, v2}, Lcom/comscore/analytics/a;->a(Lcom/comscore/applications/EventType;Ljava/util/HashMap;Ljava/lang/String;)Lcom/yelp/android/ar/b;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1, v4}, Lcom/yelp/android/al/c;->a(Lcom/yelp/android/al/b;Z)Z
+    invoke-virtual {v0, v1, v4}, Lcom/yelp/android/ar/c;->a(Lcom/yelp/android/ar/b;Z)Z
 
     goto :goto_0
 .end method
@@ -1746,17 +1623,17 @@
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/r;
+    new-instance v1, Lcom/comscore/analytics/v;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/comscore/analytics/r;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/applications/EventType;Ljava/util/HashMap;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/comscore/analytics/v;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/applications/EventType;Ljava/util/HashMap;)V
 
-    invoke-virtual {v0, v1, p3}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, p3}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -1782,7 +1659,7 @@
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
@@ -1792,13 +1669,13 @@
 
     if-eq v0, p1, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/k;
+    new-instance v1, Lcom/comscore/analytics/p;
 
-    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/k;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/p;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
 
-    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -1808,9 +1685,9 @@
 
     invoke-direct {p0}, Lcom/comscore/analytics/a;->ap()V
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/al/c;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/ar/c;
 
-    invoke-virtual {v0}, Lcom/yelp/android/al/c;->a()V
+    invoke-virtual {v0}, Lcom/yelp/android/ar/c;->a()V
 
     return-void
 .end method
@@ -1856,17 +1733,17 @@
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/j;
+    new-instance v1, Lcom/comscore/analytics/n;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/comscore/analytics/j;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/comscore/analytics/n;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, p3}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, p3}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -1940,28 +1817,20 @@
     return-void
 .end method
 
-.method public declared-synchronized a(Ljava/lang/String;Z)V
+.method public a(Ljava/lang/String;Z)V
     .locals 2
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_1
 
     :cond_0
     :goto_0
-    monitor-exit p0
-
     return-void
 
     :cond_1
     if-eqz p1, :cond_0
 
-    :try_start_1
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -1971,33 +1840,21 @@
     if-nez p2, :cond_2
 
     invoke-virtual {p0, p1}, Lcom/comscore/analytics/a;->b(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-
     :cond_2
-    :try_start_2
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/g;
+    new-instance v1, Lcom/comscore/analytics/i;
 
-    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/g;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/i;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -2022,7 +1879,7 @@
 
     sub-long v2, v0, v2
 
-    sget-object v4, Lcom/comscore/analytics/c;->a:[I
+    sget-object v4, Lcom/comscore/analytics/d;->a:[I
 
     iget-object v5, p0, Lcom/comscore/analytics/a;->x:Lcom/comscore/analytics/ApplicationState;
 
@@ -2212,22 +2069,22 @@
     :cond_1
     if-nez p2, :cond_2
 
-    iput-boolean p1, p0, Lcom/comscore/analytics/a;->ah:Z
+    invoke-virtual {p0, p1}, Lcom/comscore/analytics/a;->r(Z)V
 
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/m;
+    new-instance v1, Lcom/comscore/analytics/j;
 
-    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/m;-><init>(Lcom/comscore/analytics/a;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/j;-><init>(Lcom/comscore/analytics/a;Z)V
 
-    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -2244,7 +2101,7 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
@@ -2258,13 +2115,13 @@
 
     if-lez v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/n;
+    new-instance v1, Lcom/comscore/analytics/s;
 
-    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/n;-><init>(Lcom/comscore/analytics/a;[Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/s;-><init>(Lcom/comscore/analytics/a;[Ljava/lang/String;)V
 
-    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -2335,49 +2192,27 @@
     return-object v0
 .end method
 
-.method public declared-synchronized ah()V
+.method public ah()V
     .locals 1
-
-    monitor-enter p0
 
     const/4 v0, 0x1
 
-    :try_start_0
-    invoke-virtual {p0, v0}, Lcom/comscore/analytics/a;->s(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
+    invoke-virtual {p0, v0}, Lcom/comscore/analytics/a;->t(Z)V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method public declared-synchronized ai()V
+.method public ai()V
     .locals 2
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_0
 
     :goto_0
-    monitor-exit p0
-
     return-void
 
     :cond_0
-    :try_start_1
     invoke-virtual {p0}, Lcom/comscore/analytics/a;->ak()V
 
     const/4 v0, 0x1
@@ -2387,39 +2222,22 @@
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/comscore/analytics/a;->k:J
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method protected declared-synchronized aj()V
+.method protected aj()V
     .locals 7
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_1
 
     :cond_0
     :goto_0
-    monitor-exit p0
-
     return-void
 
     :cond_1
-    :try_start_1
     invoke-virtual {p0}, Lcom/comscore/analytics/a;->ak()V
 
     iget-wide v0, p0, Lcom/comscore/analytics/a;->k:J
@@ -2430,13 +2248,13 @@
 
     if-ltz v0, :cond_0
 
-    new-instance v0, Lcom/comscore/analytics/q;
+    new-instance v0, Lcom/comscore/analytics/u;
 
-    invoke-direct {v0, p0}, Lcom/comscore/analytics/q;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct {v0, p0}, Lcom/comscore/analytics/u;-><init>(Lcom/comscore/analytics/a;)V
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->i:Ljava/lang/Runnable;
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->i:Ljava/lang/Runnable;
 
@@ -2446,64 +2264,38 @@
 
     iget-wide v5, p0, Lcom/comscore/analytics/a;->k:J
 
-    invoke-virtual/range {v0 .. v6}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;JZJ)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-virtual/range {v0 .. v6}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;JZJ)Z
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method protected declared-synchronized ak()V
+.method protected ak()V
     .locals 2
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_1
 
     :cond_0
     :goto_0
-    monitor-exit p0
-
     return-void
 
     :cond_1
-    :try_start_1
     iget-object v0, p0, Lcom/comscore/analytics/a;->i:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->i:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->i:Ljava/lang/Runnable;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected al()V
@@ -2525,9 +2317,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/am/a;->e()Z
+    invoke-virtual {v0}, Lcom/yelp/android/as/b;->e()Z
 
     move-result v0
 
@@ -2574,11 +2366,11 @@
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->b:Lcom/comscore/utils/m;
 
-    invoke-virtual {p0}, Lcom/comscore/analytics/a;->f()Lcom/yelp/android/al/c;
+    invoke-virtual {p0}, Lcom/comscore/analytics/a;->f()Lcom/yelp/android/ar/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/al/c;
+    iput-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/ar/c;
 
     iget-object v0, p0, Lcom/comscore/analytics/a;->b:Lcom/comscore/utils/m;
 
@@ -2620,11 +2412,11 @@
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->b:Lcom/comscore/utils/m;
 
-    invoke-virtual {p0, v0, v1}, Lcom/comscore/analytics/a;->a(Landroid/content/Context;Lcom/comscore/utils/m;)Lcom/yelp/android/am/a;
+    invoke-virtual {p0, v0, v1}, Lcom/comscore/analytics/a;->a(Landroid/content/Context;Lcom/comscore/utils/m;)Lcom/yelp/android/as/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/am/a;
+    iput-object v0, p0, Lcom/comscore/analytics/a;->al:Lcom/yelp/android/as/b;
 
     return-void
 .end method
@@ -2661,7 +2453,7 @@
 
     invoke-static {p0, v0}, Lcom/comscore/utils/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    sget-object v0, Lcom/comscore/analytics/c;->a:[I
+    sget-object v0, Lcom/comscore/analytics/d;->a:[I
 
     invoke-virtual {p1}, Lcom/comscore/analytics/ApplicationState;->ordinal()I
 
@@ -2764,7 +2556,7 @@
 
     invoke-static {p0, v0}, Lcom/comscore/utils/c;->a(Ljava/lang/Object;Ljava/lang/String;)V
 
-    sget-object v0, Lcom/comscore/analytics/c;->b:[I
+    sget-object v0, Lcom/comscore/analytics/d;->b:[I
 
     invoke-virtual {p1}, Lcom/comscore/analytics/SessionState;->ordinal()I
 
@@ -2820,7 +2612,7 @@
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
@@ -2830,13 +2622,13 @@
 
     if-eq v0, p1, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/l;
+    new-instance v1, Lcom/comscore/analytics/q;
 
-    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/l;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/q;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
 
-    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -2975,24 +2767,25 @@
     return-void
 
     :cond_1
-    if-nez p2, :cond_2
+    if-eqz p1, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/comscore/analytics/a;->d(Ljava/lang/String;)V
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    goto :goto_0
-
-    :cond_2
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/i;
+    if-eqz v0, :cond_0
 
-    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/i;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    new-instance v1, Lcom/comscore/analytics/l;
+
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/l;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -3017,7 +2810,7 @@
 
     sub-long v2, v0, v2
 
-    sget-object v4, Lcom/comscore/analytics/c;->b:[I
+    sget-object v4, Lcom/comscore/analytics/d;->b:[I
 
     iget-object v5, p0, Lcom/comscore/analytics/a;->K:Lcom/comscore/analytics/SessionState;
 
@@ -3247,12 +3040,43 @@
     .end packed-switch
 .end method
 
-.method public declared-synchronized c(Z)I
+.method public b(ZZ)V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-nez p2, :cond_2
+
+    iput-boolean p1, p0, Lcom/comscore/analytics/a;->ah:Z
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    new-instance v1, Lcom/comscore/analytics/r;
+
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/r;-><init>(Lcom/comscore/analytics/a;Z)V
+
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
+
+    goto :goto_0
+.end method
+
+.method public c(Z)I
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-object v0, p0, Lcom/comscore/analytics/a;->A:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
@@ -3288,20 +3112,9 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected c()Lcom/comscore/utils/m;
@@ -3316,12 +3129,43 @@
     return-object v0
 .end method
 
-.method public declared-synchronized d(Z)J
+.method public c(Ljava/lang/String;Z)V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-nez p2, :cond_2
+
+    invoke-direct {p0, p1}, Lcom/comscore/analytics/a;->d(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    new-instance v1, Lcom/comscore/analytics/m;
+
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/m;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
+
+    goto :goto_0
+.end method
+
+.method public d(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->B:J
 
     if-eqz p1, :cond_0
@@ -3345,20 +3189,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected d()Lcom/comscore/utils/DispatchQueue;
@@ -3373,12 +3206,51 @@
     return-object v0
 .end method
 
-.method public declared-synchronized e(Z)J
+.method public d(Ljava/lang/String;Z)V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    if-nez p2, :cond_2
+
+    invoke-direct {p0, p1}, Lcom/comscore/analytics/a;->e(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    new-instance v1, Lcom/comscore/analytics/o;
+
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/o;-><init>(Lcom/comscore/analytics/a;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
+
+    goto :goto_0
+.end method
+
+.method public e(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->F:J
 
     if-eqz p1, :cond_0
@@ -3402,38 +3274,24 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method protected e()Lcom/yelp/android/an/a;
+.method protected e()Lcom/yelp/android/at/a;
     .locals 1
 
-    new-instance v0, Lcom/yelp/android/an/a;
+    new-instance v0, Lcom/yelp/android/at/a;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/an/a;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/at/a;-><init>(Lcom/comscore/analytics/a;)V
 
     return-object v0
 .end method
 
-.method public declared-synchronized f(Z)J
+.method public f(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->C:J
 
     if-eqz p1, :cond_0
@@ -3457,38 +3315,24 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method protected f()Lcom/yelp/android/al/c;
+.method protected f()Lcom/yelp/android/ar/c;
     .locals 1
 
-    new-instance v0, Lcom/yelp/android/al/c;
+    new-instance v0, Lcom/yelp/android/ar/c;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/al/c;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ar/c;-><init>(Lcom/comscore/analytics/a;)V
 
     return-object v0
 .end method
 
-.method public declared-synchronized g(Z)J
+.method public g(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->E:J
 
     if-eqz p1, :cond_0
@@ -3512,20 +3356,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected g()Lcom/comscore/applications/d;
@@ -3540,12 +3373,9 @@
     return-object v0
 .end method
 
-.method public declared-synchronized h(Z)J
+.method public h(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->D:J
 
     if-eqz p1, :cond_0
@@ -3569,20 +3399,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected h()Lcom/comscore/utils/j;
@@ -3595,12 +3414,9 @@
     return-object v0
 .end method
 
-.method public declared-synchronized i(Z)J
+.method public i(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->G:J
 
     if-eqz p1, :cond_0
@@ -3624,20 +3440,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected i()Lcom/comscore/utils/d;
@@ -3650,12 +3455,9 @@
     return-object v0
 .end method
 
-.method public declared-synchronized j(Z)J
+.method public j(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->L:J
 
     if-eqz p1, :cond_0
@@ -3679,20 +3481,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected j()Lcom/comscore/utils/ConnectivityChangeReceiver;
@@ -3705,12 +3496,9 @@
     return-object v0
 .end method
 
-.method public declared-synchronized k(Z)J
+.method public k(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->N:J
 
     if-eqz p1, :cond_0
@@ -3734,20 +3522,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected k()V
@@ -4472,12 +4249,9 @@
     goto :goto_2
 .end method
 
-.method public declared-synchronized l(Z)J
+.method public l(Z)J
     .locals 6
 
-    monitor-enter p0
-
-    :try_start_0
     iget-wide v0, p0, Lcom/comscore/analytics/a;->M:J
 
     if-eqz p1, :cond_0
@@ -4501,20 +4275,9 @@
     move-result-object v4
 
     invoke-virtual {v2, v3, v4}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method public l()V
@@ -4553,12 +4316,9 @@
     goto :goto_0
 .end method
 
-.method public declared-synchronized m(Z)I
+.method public m(Z)I
     .locals 4
 
-    monitor-enter p0
-
-    :try_start_0
     iget v0, p0, Lcom/comscore/analytics/a;->O:I
 
     if-eqz p1, :cond_0
@@ -4582,20 +4342,9 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected m()Ljava/lang/String;
@@ -4635,14 +4384,11 @@
     goto :goto_0
 .end method
 
-.method public declared-synchronized n(Z)I
+.method public n(Z)I
     .locals 4
-
-    monitor-enter p0
 
     const/4 v0, -0x1
 
-    :try_start_0
     iget v1, p0, Lcom/comscore/analytics/a;->Q:I
 
     if-ltz v1, :cond_0
@@ -4670,53 +4416,32 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method public declared-synchronized n()Z
+.method public n()Z
     .locals 4
 
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v2, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v2, :cond_1
 
     :cond_0
     :goto_0
-    monitor-exit p0
-
     return v0
 
     :cond_1
-    :try_start_1
     iget-boolean v2, p0, Lcom/comscore/analytics/a;->n:Z
 
     if-nez v2, :cond_0
 
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/comscore/analytics/a;->n:Z
+    iput-boolean v1, p0, Lcom/comscore/analytics/a;->n:Z
 
     iget-object v0, p0, Lcom/comscore/analytics/a;->q:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -4739,29 +4464,17 @@
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/comscore/analytics/a;->p:J
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move v0, v1
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
-.method public declared-synchronized o(Z)I
+.method public o(Z)I
     .locals 4
-
-    monitor-enter p0
 
     const/4 v0, -0x1
 
-    :try_start_0
     iget v1, p0, Lcom/comscore/analytics/a;->P:I
 
     if-ltz v1, :cond_0
@@ -4789,20 +4502,9 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method protected o()V
@@ -5251,12 +4953,9 @@
     goto/16 :goto_1
 .end method
 
-.method public declared-synchronized p(Z)I
+.method public p(Z)I
     .locals 4
 
-    monitor-enter p0
-
-    :try_start_0
     iget v0, p0, Lcom/comscore/analytics/a;->U:I
 
     if-eqz p1, :cond_0
@@ -5280,20 +4979,9 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v3}, Lcom/comscore/utils/m;->a(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
-
     return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method public p()Lcom/comscore/utils/j;
@@ -5360,7 +5048,23 @@
     return-object v0
 .end method
 
-.method public r(Z)V
+.method r(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/comscore/analytics/a;->ad:Z
+
+    return-void
+.end method
+
+.method public s()Lcom/yelp/android/at/a;
+    .locals 1
+
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    return-object v0
+.end method
+
+.method public s(Z)V
     .locals 2
 
     iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
@@ -5372,63 +5076,55 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/o;
+    new-instance v1, Lcom/comscore/analytics/t;
 
-    invoke-direct {v1, p0}, Lcom/comscore/analytics/o;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct {v1, p0}, Lcom/comscore/analytics/t;-><init>(Lcom/comscore/analytics/a;)V
 
-    invoke-virtual {v0, v1, p1}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, p1}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
 
-.method public s()Lcom/yelp/android/an/a;
+.method public t()Lcom/yelp/android/ar/c;
     .locals 1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/ar/c;
 
     return-object v0
 .end method
 
-.method public declared-synchronized s(Z)V
+.method public t(Z)V
     .locals 2
 
-    monitor-enter p0
-
-    :try_start_0
     iget-boolean v0, p0, Lcom/comscore/analytics/a;->am:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_0
 
     :goto_0
-    monitor-exit p0
-
     return-void
 
     :cond_0
-    :try_start_1
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
@@ -5442,55 +5138,8 @@
     invoke-virtual {p0, p1}, Lcom/comscore/analytics/a;->a(Z)V
 
     invoke-virtual {p0, p1}, Lcom/comscore/analytics/a;->b(Z)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public t()Lcom/yelp/android/al/c;
-    .locals 1
-
-    iget-object v0, p0, Lcom/comscore/analytics/a;->g:Lcom/yelp/android/al/c;
-
-    return-object v0
-.end method
-
-.method public declared-synchronized t(Z)V
-    .locals 3
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
-
-    new-instance v1, Lcom/comscore/analytics/s;
-
-    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/s;-><init>(Lcom/comscore/analytics/a;Z)V
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
 .end method
 
 .method public u()Lcom/comscore/applications/d;
@@ -5499,6 +5148,22 @@
     iget-object v0, p0, Lcom/comscore/analytics/a;->c:Lcom/comscore/applications/d;
 
     return-object v0
+.end method
+
+.method public u(Z)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    new-instance v1, Lcom/comscore/analytics/c;
+
+    invoke-direct {v1, p0, p1}, Lcom/comscore/analytics/c;-><init>(Lcom/comscore/analytics/a;Z)V
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
+
+    return-void
 .end method
 
 .method public v()V
@@ -5513,19 +5178,19 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/p;
+    new-instance v1, Lcom/comscore/analytics/e;
 
-    invoke-direct {v1, p0}, Lcom/comscore/analytics/p;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct {v1, p0}, Lcom/comscore/analytics/e;-><init>(Lcom/comscore/analytics/a;)V
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -5542,19 +5207,19 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
-    new-instance v1, Lcom/comscore/analytics/d;
+    new-instance v1, Lcom/comscore/analytics/f;
 
-    invoke-direct {v1, p0}, Lcom/comscore/analytics/d;-><init>(Lcom/comscore/analytics/a;)V
+    invoke-direct {v1, p0}, Lcom/comscore/analytics/f;-><init>(Lcom/comscore/analytics/a;)V
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method
@@ -5573,21 +5238,21 @@
     return-void
 
     :cond_1
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     iput-object v6, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
@@ -5629,11 +5294,11 @@
     if-eq v5, v4, :cond_0
 
     :cond_3
-    new-instance v0, Lcom/comscore/analytics/e;
+    new-instance v0, Lcom/comscore/analytics/g;
 
     move-object v1, p0
 
-    invoke-direct/range {v0 .. v5}, Lcom/comscore/analytics/e;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/analytics/ApplicationState;Lcom/comscore/analytics/ApplicationState;Lcom/comscore/analytics/SessionState;Lcom/comscore/analytics/SessionState;)V
+    invoke-direct/range {v0 .. v5}, Lcom/comscore/analytics/g;-><init>(Lcom/comscore/analytics/a;Lcom/comscore/analytics/ApplicationState;Lcom/comscore/analytics/ApplicationState;Lcom/comscore/analytics/SessionState;Lcom/comscore/analytics/SessionState;)V
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
@@ -5645,13 +5310,13 @@
 
     if-eq v3, v0, :cond_9
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->j:Ljava/lang/Runnable;
 
     const-wide/16 v2, 0x12c
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 
@@ -5729,11 +5394,11 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 
@@ -5746,13 +5411,13 @@
 
     iput-object v0, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
 
-    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/an/a;
+    iget-object v0, p0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
 
     iget-object v1, p0, Lcom/comscore/analytics/a;->X:Ljava/lang/Runnable;
 
     const-wide/32 v2, 0x493e0
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method

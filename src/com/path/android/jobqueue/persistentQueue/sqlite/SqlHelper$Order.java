@@ -2,13 +2,20 @@ package com.path.android.jobqueue.persistentQueue.sqlite;
 
 public class SqlHelper$Order
 {
-  final c a;
-  final SqlHelper.Order.Type b;
+  final SqlHelper.b a;
+  final Type b;
   
-  public SqlHelper$Order(c paramc, SqlHelper.Order.Type paramType)
+  public SqlHelper$Order(SqlHelper.b paramb, Type paramType)
   {
-    a = paramc;
+    a = paramb;
     b = paramType;
+  }
+  
+  public static enum Type
+  {
+    ASC,  DESC;
+    
+    private Type() {}
   }
 }
 

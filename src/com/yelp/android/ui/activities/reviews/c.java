@@ -1,18 +1,57 @@
 package com.yelp.android.ui.activities.reviews;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.yelp.android.ui.activities.media.ActivityMediaContributionDelegate;
+import com.yelp.android.serializable.Review;
+import com.yelp.android.serializable.ReviewThreshold;
+import com.yelp.android.serializable.YelpBusiness;
+import java.util.List;
 
-class c
-  implements View.OnClickListener
+public abstract interface c
 {
-  c(ActivityPhotoPrompt paramActivityPhotoPrompt) {}
+  public abstract void a();
   
-  public void onClick(View paramView)
-  {
-    a.startActivityForResult(ActivityMediaContributionDelegate.b(a), 1053);
-  }
+  public abstract void a(int paramInt);
+  
+  public abstract void a(YelpBusiness paramYelpBusiness);
+  
+  public abstract void a(String paramString);
+  
+  public abstract void a(String paramString, boolean paramBoolean);
+  
+  public abstract void a(boolean paramBoolean);
+  
+  public abstract void b();
+  
+  public abstract void b(boolean paramBoolean);
+  
+  public abstract void c();
+  
+  public abstract void c(boolean paramBoolean);
+  
+  public abstract void e();
+  
+  public abstract YelpBusiness f();
+  
+  public abstract int g();
+  
+  public abstract Review h();
+  
+  public abstract ReviewSource i();
+  
+  public abstract List<ReviewThreshold> j();
+  
+  public abstract String k();
+  
+  public abstract ReviewState l();
+  
+  public abstract boolean m();
+  
+  public abstract String n();
+  
+  public abstract boolean o();
+  
+  public abstract boolean p();
+  
+  public abstract boolean q();
 }
 
 /* Location:

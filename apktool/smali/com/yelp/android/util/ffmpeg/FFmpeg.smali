@@ -3,6 +3,16 @@
 .source "FFmpeg.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/util/ffmpeg/FFmpeg$TransposeDirection;,
+        Lcom/yelp/android/util/ffmpeg/FFmpeg$PixelFormat;,
+        Lcom/yelp/android/util/ffmpeg/FFmpeg$LogLevel;
+    }
+.end annotation
+
+
 # static fields
 .field private static a:Ljava/lang/Boolean;
 
@@ -68,42 +78,33 @@
 
     const-string/jumbo v3, "FFmpeg not loaded or cannot be executed!"
 
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v1}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method
 
 .method private static a()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     .prologue
     const/4 v0, 0x0
 
-    .line 131
-    const/16 v1, 0x10
-
-    invoke-static {v1}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    .line 132
+    .line 130
     invoke-static {}, Lcom/yelp/android/util/b;->a()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 133
+    .line 131
     const-string/jumbo v0, "arm/pie/ffmpeg"
 
-    .line 145
+    .line 144
     :cond_0
     :goto_0
     return-object v0
 
-    .line 134
+    .line 132
     :cond_1
     invoke-static {}, Lcom/yelp/android/util/b;->b()Z
 
@@ -111,30 +112,26 @@
 
     if-eqz v1, :cond_0
 
-    goto :goto_0
+    .line 133
+    const/16 v1, 0x15
 
-    .line 139
-    :cond_2
-    invoke-static {}, Lcom/yelp/android/util/b;->a()Z
+    invoke-static {v1}, Lcom/yelp/android/appdata/f;->a(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
-    .line 140
-    const-string/jumbo v0, "arm/ffmpeg"
+    .line 138
+    const-string/jumbo v1, "FFmpeg"
+
+    const-string/jumbo v2, "There was an x86 device with API 21+"
+
+    invoke-static {v1, v2}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 141
-    :cond_3
-    invoke-static {}, Lcom/yelp/android/util/b;->b()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 142
+    :cond_2
     const-string/jumbo v0, "x86/ffmpeg"
 
     goto :goto_0
@@ -146,14 +143,14 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 96
+    .line 95
     invoke-static {p0}, Lcom/yelp/android/util/ffmpeg/FFmpeg;->c(Landroid/content/Context;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 97
+    .line 96
     const-string/jumbo v1, "FFmpeg"
 
     const-string/jumbo v2, "FFmpeg already exists and works."
@@ -162,20 +159,20 @@
 
     invoke-static {v1, v2, v0}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 98
+    .line 97
     const/4 v0, 0x1
 
-    .line 120
+    .line 119
     :goto_0
     return v0
 
-    .line 103
+    .line 102
     :cond_0
     const/4 v1, 0x0
 
     sput-object v1, Lcom/yelp/android/util/ffmpeg/FFmpeg;->a:Ljava/lang/Boolean;
 
-    .line 105
+    .line 104
     const-string/jumbo v1, "FFmpeg"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -206,24 +203,22 @@
 
     invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 106
+    .line 105
     invoke-static {}, Lcom/yelp/android/util/ffmpeg/FFmpeg;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 107
+    .line 106
     if-nez v1, :cond_1
 
-    .line 108
+    .line 107
     const-string/jumbo v1, "FFmpeg"
 
     const-string/jumbo v2, "CPU not supported."
 
-    new-array v3, v0, [Ljava/lang/Object;
+    invoke-static {v1, v2}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
-
-    .line 109
+    .line 108
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -232,7 +227,7 @@
 
     goto :goto_0
 
-    .line 114
+    .line 113
     :cond_1
     const-string/jumbo v2, "FFmpeg"
 
@@ -264,25 +259,23 @@
 
     invoke-static {v2, v3, v4}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 115
+    .line 114
     const-string/jumbo v2, "ffmpeg"
 
-    invoke-static {v1, v2}, Lcom/yelp/android/util/l;->a(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v1, v2}, Lcom/yelp/android/util/e;->a(Ljava/lang/String;Ljava/lang/String;)Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 116
+    .line 115
     const-string/jumbo v1, "FFmpeg"
 
     const-string/jumbo v2, "Couldn\'t copy FFmpeg."
 
-    new-array v3, v0, [Ljava/lang/Object;
+    invoke-static {v1, v2}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
-
-    .line 117
+    .line 116
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -291,13 +284,13 @@
 
     goto :goto_0
 
-    .line 120
+    .line 119
     :cond_2
     invoke-static {p0}, Lcom/yelp/android/util/ffmpeg/FFmpeg;->c(Landroid/content/Context;)Z
 
     move-result v0
 
-    goto/16 :goto_0
+    goto :goto_0
 .end method
 
 .method public static a(Ljava/io/File;)Z
@@ -338,13 +331,13 @@
     invoke-static {v0, v1, v3}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 173
-    invoke-static {p0}, Lcom/yelp/android/util/aj;->a(Ljava/io/File;)Z
+    invoke-static {p0}, Lcom/yelp/android/util/t;->a(Ljava/io/File;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 192
+    .line 193
     :goto_0
     return v2
 
@@ -364,12 +357,12 @@
 
     invoke-direct {v8, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    .line 179
+    .line 180
     new-instance v9, Ljava/util/concurrent/atomic/AtomicBoolean;
 
     invoke-direct {v9, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
-    .line 180
+    .line 181
     new-instance v0, Lcom/yelp/android/util/ffmpeg/b;
 
     const/16 v3, 0xa
@@ -384,17 +377,17 @@
 
     invoke-direct/range {v0 .. v8}, Lcom/yelp/android/util/ffmpeg/b;-><init>(Ljava/io/File;IIIIILandroid/graphics/Rect;Ljava/io/File;)V
 
-    .line 181
-    new-instance v1, Lcom/yelp/android/util/ffmpeg/c;
+    .line 182
+    new-instance v1, Lcom/yelp/android/util/ffmpeg/FFmpeg$1;
 
-    invoke-direct {v1, v9}, Lcom/yelp/android/util/ffmpeg/c;-><init>(Ljava/util/concurrent/atomic/AtomicBoolean;)V
+    invoke-direct {v1, v9}, Lcom/yelp/android/util/ffmpeg/FFmpeg$1;-><init>(Ljava/util/concurrent/atomic/AtomicBoolean;)V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/util/ffmpeg/b;->a(Lcom/yelp/android/util/ffmpeg/f;)V
-
-    .line 191
-    invoke-virtual {v0}, Lcom/yelp/android/util/ffmpeg/b;->run()V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/util/ffmpeg/b;->a(Lcom/yelp/android/util/ffmpeg/d$a;)V
 
     .line 192
+    invoke-virtual {v0}, Lcom/yelp/android/util/ffmpeg/b;->run()V
+
+    .line 193
     invoke-virtual {v9}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result v2
@@ -406,7 +399,7 @@
     .locals 3
 
     .prologue
-    .line 196
+    .line 197
     new-instance v0, Ljava/io/File;
 
     invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
@@ -421,59 +414,57 @@
 .end method
 
 .method private static c(Landroid/content/Context;)Z
-    .locals 6
+    .locals 4
 
     .prologue
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    .line 205
+    .line 206
     sget-object v0, Lcom/yelp/android/util/ffmpeg/FFmpeg;->a:Ljava/lang/Boolean;
 
     if-eqz v0, :cond_0
 
-    .line 206
+    .line 207
     sget-object v0, Lcom/yelp/android/util/ffmpeg/FFmpeg;->a:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    .line 233
+    .line 234
     :goto_0
     return v0
 
-    .line 211
+    .line 212
     :cond_0
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
     sput-object v0, Lcom/yelp/android/util/ffmpeg/FFmpeg;->a:Ljava/lang/Boolean;
 
-    .line 212
+    .line 213
     invoke-static {p0}, Lcom/yelp/android/util/ffmpeg/FFmpeg;->b(Landroid/content/Context;)Ljava/io/File;
 
     move-result-object v0
 
-    .line 213
+    .line 214
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 214
+    .line 215
     const-string/jumbo v0, "FFmpeg"
 
     const-string/jumbo v1, "ffmpeg doesn\'t exist."
 
-    new-array v2, v4, [Ljava/lang/Object;
+    invoke-static {v0, v1}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
-
-    .line 233
+    .line 234
     :goto_1
     sget-object v0, Lcom/yelp/android/util/ffmpeg/FFmpeg;->a:Ljava/lang/Boolean;
 
@@ -483,53 +474,53 @@
 
     goto :goto_0
 
-    .line 215
+    .line 216
     :cond_1
-    invoke-virtual {v0, v5}, Ljava/io/File;->setExecutable(Z)Z
+    invoke-virtual {v0, v2}, Ljava/io/File;->setExecutable(Z)Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 216
+    .line 217
     const-string/jumbo v0, "FFmpeg"
 
     const-string/jumbo v1, "Couldn\'t make ffmpeg executable."
 
-    new-array v2, v4, [Ljava/lang/Object;
+    new-array v2, v3, [Ljava/lang/Object;
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_1
 
-    .line 219
+    .line 220
     :cond_2
     const-string/jumbo v0, "FFmpeg"
 
     const-string/jumbo v1, "ffmpeg is executable, testing -version."
 
-    new-array v2, v4, [Ljava/lang/Object;
+    new-array v2, v3, [Ljava/lang/Object;
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 220
-    new-instance v0, Lcom/yelp/android/util/ffmpeg/d;
+    .line 221
+    new-instance v0, Lcom/yelp/android/util/ffmpeg/c;
 
-    invoke-direct {v0}, Lcom/yelp/android/util/ffmpeg/d;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/util/ffmpeg/c;-><init>()V
 
     const-string/jumbo v1, "-version"
 
-    new-array v2, v4, [Ljava/lang/Object;
+    new-array v2, v3, [Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/util/ffmpeg/d;->a(Ljava/lang/String;[Ljava/lang/Object;)Lcom/yelp/android/util/ffmpeg/d;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p0}, Lcom/yelp/android/util/ffmpeg/d;->a(Landroid/content/Context;)Ljava/lang/Process;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/util/ffmpeg/c;->a(Ljava/lang/String;[Ljava/lang/Object;)Lcom/yelp/android/util/ffmpeg/c;
 
     move-result-object v0
 
-    .line 222
+    invoke-virtual {v0, p0}, Lcom/yelp/android/util/ffmpeg/c;->a(Landroid/content/Context;)Ljava/lang/Process;
+
+    move-result-object v0
+
+    .line 223
     if-eqz v0, :cond_3
 
     :try_start_0
@@ -539,7 +530,7 @@
 
     if-nez v1, :cond_3
 
-    .line 223
+    .line 224
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -552,24 +543,20 @@
 
     goto :goto_1
 
-    .line 228
+    .line 229
     :catch_0
     move-exception v0
 
-    .line 229
+    .line 230
     const-string/jumbo v1, "FFmpeg"
 
     const-string/jumbo v2, "\'ffmpeg -version\' can\'t be executed."
 
-    new-array v3, v5, [Ljava/lang/Object;
-
-    aput-object v0, v3, v4
-
-    invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v2, v0}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_1
 
-    .line 225
+    .line 226
     :cond_3
     :try_start_1
     const-string/jumbo v1, "FFmpeg"
@@ -582,7 +569,7 @@
 
     invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 226
+    .line 227
     const-string/jumbo v1, "FFmpeg"
 
     invoke-static {v1, v0}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/Process;)V

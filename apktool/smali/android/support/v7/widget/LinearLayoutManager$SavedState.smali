@@ -6,6 +6,17 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v7/widget/LinearLayoutManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "SavedState"
+.end annotation
+
+
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -20,11 +31,11 @@
 
 
 # instance fields
-.field mAnchorLayoutFromEnd:Z
+.field a:I
 
-.field mAnchorOffset:I
+.field b:I
 
-.field mAnchorPosition:I
+.field c:Z
 
 
 # direct methods
@@ -32,10 +43,10 @@
     .locals 1
 
     .prologue
-    .line 2007
-    new-instance v0, Landroid/support/v7/widget/al;
+    .line 2083
+    new-instance v0, Landroid/support/v7/widget/LinearLayoutManager$SavedState$1;
 
-    invoke-direct {v0}, Landroid/support/v7/widget/al;-><init>()V
+    invoke-direct {v0}, Landroid/support/v7/widget/LinearLayoutManager$SavedState$1;-><init>()V
 
     sput-object v0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -46,10 +57,10 @@
     .locals 0
 
     .prologue
-    .line 1971
+    .line 2047
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1973
+    .line 2049
     return-void
 .end method
 
@@ -59,24 +70,24 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 1975
+    .line 2051
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1976
+    .line 2052
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    iput v1, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I
+    iput v1, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->a:I
 
-    .line 1977
+    .line 2053
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
-    iput v1, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorOffset:I
+    iput v1, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->b:I
 
-    .line 1978
+    .line 2054
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -84,12 +95,12 @@
     if-ne v1, v0, :cond_0
 
     :goto_0
-    iput-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorLayoutFromEnd:Z
+    iput-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->c:Z
 
-    .line 1979
+    .line 2055
     return-void
 
-    .line 1978
+    .line 2054
     :cond_0
     const/4 v0, 0x0
 
@@ -100,46 +111,36 @@
     .locals 1
 
     .prologue
-    .line 1981
+    .line 2057
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1982
-    iget v0, p1, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I
+    .line 2058
+    iget v0, p1, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->a:I
 
-    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I
+    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->a:I
 
-    .line 1983
-    iget v0, p1, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorOffset:I
+    .line 2059
+    iget v0, p1, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->b:I
 
-    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorOffset:I
+    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->b:I
 
-    .line 1984
-    iget-boolean v0, p1, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorLayoutFromEnd:Z
+    .line 2060
+    iget-boolean v0, p1, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->c:Z
 
-    iput-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorLayoutFromEnd:Z
+    iput-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->c:Z
 
-    .line 1985
+    .line 2061
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method a()Z
     .locals 1
 
     .prologue
-    .line 1997
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method hasValidAnchor()Z
-    .locals 1
-
-    .prologue
-    .line 1988
-    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I
+    .line 2064
+    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->a:I
 
     if-ltz v0, :cond_0
 
@@ -154,35 +155,45 @@
     goto :goto_0
 .end method
 
-.method invalidateAnchor()V
+.method b()V
     .locals 1
 
     .prologue
-    .line 1992
+    .line 2068
     const/4 v0, -0x1
 
-    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I
+    iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->a:I
 
-    .line 1993
+    .line 2069
     return-void
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 2073
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 2002
-    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I
+    .line 2078
+    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->a:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2003
-    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorOffset:I
+    .line 2079
+    iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->b:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2004
-    iget-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorLayoutFromEnd:Z
+    .line 2080
+    iget-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->c:Z
 
     if-eqz v0, :cond_0
 
@@ -191,10 +202,10 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 2005
+    .line 2081
     return-void
 
-    .line 2004
+    .line 2080
     :cond_0
     const/4 v0, 0x0
 

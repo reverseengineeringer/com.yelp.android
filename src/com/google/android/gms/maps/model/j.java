@@ -1,17 +1,112 @@
 package com.google.android.gms.maps.model;
 
+import android.os.IBinder;
 import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.b;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.internal.safeparcel.zza;
+import com.google.android.gms.common.internal.safeparcel.zza.zza;
+import com.google.android.gms.common.internal.safeparcel.zzb;
 
 public class j
+  implements Parcelable.Creator<MarkerOptions>
 {
-  static void a(LatLng paramLatLng, Parcel paramParcel, int paramInt)
+  static void a(MarkerOptions paramMarkerOptions, Parcel paramParcel, int paramInt)
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, paramLatLng.getVersionCode());
-    b.a(paramParcel, 2, latitude);
-    b.a(paramParcel, 3, longitude);
-    b.H(paramParcel, paramInt);
+    int i = zzb.zzav(paramParcel);
+    zzb.zzc(paramParcel, 1, paramMarkerOptions.a());
+    zzb.zza(paramParcel, 2, paramMarkerOptions.c(), paramInt, false);
+    zzb.zza(paramParcel, 3, paramMarkerOptions.d(), false);
+    zzb.zza(paramParcel, 4, paramMarkerOptions.e(), false);
+    zzb.zza(paramParcel, 5, paramMarkerOptions.b(), false);
+    zzb.zza(paramParcel, 6, paramMarkerOptions.f());
+    zzb.zza(paramParcel, 7, paramMarkerOptions.g());
+    zzb.zza(paramParcel, 8, paramMarkerOptions.h());
+    zzb.zza(paramParcel, 9, paramMarkerOptions.i());
+    zzb.zza(paramParcel, 10, paramMarkerOptions.j());
+    zzb.zza(paramParcel, 11, paramMarkerOptions.k());
+    zzb.zza(paramParcel, 12, paramMarkerOptions.l());
+    zzb.zza(paramParcel, 13, paramMarkerOptions.m());
+    zzb.zza(paramParcel, 14, paramMarkerOptions.n());
+    zzb.zzI(paramParcel, i);
+  }
+  
+  public MarkerOptions a(Parcel paramParcel)
+  {
+    int j = zza.zzau(paramParcel);
+    int i = 0;
+    LatLng localLatLng = null;
+    String str2 = null;
+    String str1 = null;
+    IBinder localIBinder = null;
+    float f6 = 0.0F;
+    float f5 = 0.0F;
+    boolean bool3 = false;
+    boolean bool2 = false;
+    boolean bool1 = false;
+    float f4 = 0.0F;
+    float f3 = 0.5F;
+    float f2 = 0.0F;
+    float f1 = 1.0F;
+    while (paramParcel.dataPosition() < j)
+    {
+      int k = zza.zzat(paramParcel);
+      switch (zza.zzca(k))
+      {
+      default: 
+        zza.zzb(paramParcel, k);
+        break;
+      case 1: 
+        i = zza.zzg(paramParcel, k);
+        break;
+      case 2: 
+        localLatLng = (LatLng)zza.zza(paramParcel, k, LatLng.CREATOR);
+        break;
+      case 3: 
+        str2 = zza.zzp(paramParcel, k);
+        break;
+      case 4: 
+        str1 = zza.zzp(paramParcel, k);
+        break;
+      case 5: 
+        localIBinder = zza.zzq(paramParcel, k);
+        break;
+      case 6: 
+        f6 = zza.zzl(paramParcel, k);
+        break;
+      case 7: 
+        f5 = zza.zzl(paramParcel, k);
+        break;
+      case 8: 
+        bool3 = zza.zzc(paramParcel, k);
+        break;
+      case 9: 
+        bool2 = zza.zzc(paramParcel, k);
+        break;
+      case 10: 
+        bool1 = zza.zzc(paramParcel, k);
+        break;
+      case 11: 
+        f4 = zza.zzl(paramParcel, k);
+        break;
+      case 12: 
+        f3 = zza.zzl(paramParcel, k);
+        break;
+      case 13: 
+        f2 = zza.zzl(paramParcel, k);
+        break;
+      case 14: 
+        f1 = zza.zzl(paramParcel, k);
+      }
+    }
+    if (paramParcel.dataPosition() != j) {
+      throw new zza.zza("Overread allowed size end=" + j, paramParcel);
+    }
+    return new MarkerOptions(i, localLatLng, str2, str1, localIBinder, f6, f5, bool3, bool2, bool1, f4, f3, f2, f1);
+  }
+  
+  public MarkerOptions[] a(int paramInt)
+  {
+    return new MarkerOptions[paramInt];
   }
 }
 

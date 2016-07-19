@@ -1,10 +1,9 @@
 package com.yelp.android.x;
 
-import com.yelp.android.v.m;
-
-public abstract interface h
-  extends m
-{}
+abstract interface h
+{
+  public abstract void a();
+}
 
 /* Location:
  * Qualified Name:     com.yelp.android.x.h

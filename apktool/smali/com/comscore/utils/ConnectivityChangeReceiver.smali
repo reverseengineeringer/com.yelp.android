@@ -139,13 +139,13 @@
 
     iget-object v0, p0, Lcom/comscore/utils/ConnectivityChangeReceiver;->f:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/comscore/utils/ConnectivityChangeReceiver;->e:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, p1, p2}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method
@@ -428,7 +428,7 @@
 
     iget-object v0, p0, Lcom/comscore/utils/ConnectivityChangeReceiver;->f:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0, p1}, Lcom/comscore/analytics/a;->r(Z)V
+    invoke-virtual {v0, p1}, Lcom/comscore/analytics/a;->s(Z)V
 
     const-wide/16 v0, -0x1
 
@@ -560,13 +560,13 @@
 
     iget-object v0, p0, Lcom/comscore/utils/ConnectivityChangeReceiver;->f:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/comscore/utils/ConnectivityChangeReceiver;->e:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 

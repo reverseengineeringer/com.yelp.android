@@ -1,170 +1,60 @@
 package com.facebook;
 
-import com.facebook.android.R.string;
-import com.facebook.internal.Utility;
+import com.facebook.internal.g;
+import com.facebook.internal.u;
 import java.net.HttpURLConnection;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public final class FacebookRequestError
 {
-  private static final String BODY_KEY = "body";
-  private static final String CODE_KEY = "code";
-  private static final int EC_APP_NOT_INSTALLED = 458;
-  private static final int EC_APP_TOO_MANY_CALLS = 4;
-  private static final int EC_EXPIRED = 463;
-  private static final int EC_INVALID_SESSION = 102;
-  private static final int EC_INVALID_TOKEN = 190;
-  private static final int EC_PASSWORD_CHANGED = 460;
-  private static final int EC_PERMISSION_DENIED = 10;
-  private static final FacebookRequestError.Range EC_RANGE_PERMISSION = new FacebookRequestError.Range(200, 299, null);
-  private static final int EC_SERVICE_UNAVAILABLE = 2;
-  private static final int EC_UNCONFIRMED_USER = 464;
-  private static final int EC_UNKNOWN_ERROR = 1;
-  private static final int EC_USER_CHECKPOINTED = 459;
-  private static final int EC_USER_TOO_MANY_CALLS = 17;
-  private static final String ERROR_CODE_FIELD_KEY = "code";
-  private static final String ERROR_CODE_KEY = "error_code";
-  private static final String ERROR_IS_TRANSIENT_KEY = "is_transient";
-  private static final String ERROR_KEY = "error";
-  private static final String ERROR_MESSAGE_FIELD_KEY = "message";
-  private static final String ERROR_MSG_KEY = "error_msg";
-  private static final String ERROR_REASON_KEY = "error_reason";
-  private static final String ERROR_SUB_CODE_KEY = "error_subcode";
-  private static final String ERROR_TYPE_FIELD_KEY = "type";
-  private static final String ERROR_USER_MSG_KEY = "error_user_msg";
-  private static final String ERROR_USER_TITLE_KEY = "error_user_title";
-  private static final FacebookRequestError.Range HTTP_RANGE_CLIENT_ERROR = new FacebookRequestError.Range(400, 499, null);
-  private static final FacebookRequestError.Range HTTP_RANGE_SERVER_ERROR = new FacebookRequestError.Range(500, 599, null);
-  private static final FacebookRequestError.Range HTTP_RANGE_SUCCESS = new FacebookRequestError.Range(200, 299, null);
-  public static final int INVALID_ERROR_CODE = -1;
-  public static final int INVALID_HTTP_STATUS_CODE = -1;
-  private static final int INVALID_MESSAGE_ID = 0;
-  private final Object batchRequestResult;
-  private final FacebookRequestError.Category category;
-  private final HttpURLConnection connection;
-  private final int errorCode;
-  private final boolean errorIsTransient;
-  private final String errorMessage;
-  private final String errorType;
-  private final String errorUserMessage;
-  private final String errorUserTitle;
-  private final FacebookException exception;
-  private final JSONObject requestResult;
-  private final JSONObject requestResultBody;
-  private final int requestStatusCode;
-  private final boolean shouldNotifyUser;
-  private final int subErrorCode;
-  private final int userActionMessageId;
-  
-  private FacebookRequestError(int paramInt1, int paramInt2, int paramInt3, String paramString1, String paramString2, String paramString3, String paramString4, boolean paramBoolean, JSONObject paramJSONObject1, JSONObject paramJSONObject2, Object paramObject, HttpURLConnection paramHttpURLConnection)
-  {
-    this(paramInt1, paramInt2, paramInt3, paramString1, paramString2, paramString3, paramString4, paramBoolean, paramJSONObject1, paramJSONObject2, paramObject, paramHttpURLConnection, null);
-  }
+  static final a a = new a(200, 299, null);
+  private final Category b;
+  private final int c;
+  private final int d;
+  private final int e;
+  private final String f;
+  private final String g;
+  private final String h;
+  private final String i;
+  private final String j;
+  private final JSONObject k;
+  private final JSONObject l;
+  private final Object m;
+  private final HttpURLConnection n;
+  private final FacebookException o;
   
   private FacebookRequestError(int paramInt1, int paramInt2, int paramInt3, String paramString1, String paramString2, String paramString3, String paramString4, boolean paramBoolean, JSONObject paramJSONObject1, JSONObject paramJSONObject2, Object paramObject, HttpURLConnection paramHttpURLConnection, FacebookException paramFacebookException)
   {
-    requestStatusCode = paramInt1;
-    errorCode = paramInt2;
-    subErrorCode = paramInt3;
-    errorType = paramString1;
-    errorMessage = paramString2;
-    requestResultBody = paramJSONObject1;
-    requestResult = paramJSONObject2;
-    batchRequestResult = paramObject;
-    connection = paramHttpURLConnection;
-    errorUserTitle = paramString3;
-    errorUserMessage = paramString4;
-    errorIsTransient = paramBoolean;
-    int i;
-    int j;
+    c = paramInt1;
+    d = paramInt2;
+    e = paramInt3;
+    f = paramString1;
+    g = paramString2;
+    l = paramJSONObject1;
+    k = paramJSONObject2;
+    m = paramObject;
+    n = paramHttpURLConnection;
+    h = paramString3;
+    i = paramString4;
+    paramInt1 = 0;
     if (paramFacebookException != null)
     {
-      exception = paramFacebookException;
-      i = 1;
-      paramString1 = null;
-      j = 0;
-      if (i == 0) {
-        break label159;
+      o = paramFacebookException;
+      paramInt1 = 1;
+      paramString2 = g();
+      if (paramInt1 == 0) {
+        break label133;
       }
-      paramString1 = FacebookRequestError.Category.CLIENT;
-      paramInt1 = 0;
     }
-    for (;;)
+    label133:
+    for (paramString1 = Category.OTHER;; paramString1 = paramString2.a(paramInt2, paramInt3, paramBoolean))
     {
-      label105:
-      if ((paramString4 != null) && (paramString4.length() > 0)) {}
-      for (paramBoolean = true;; paramBoolean = false)
-      {
-        category = paramString1;
-        userActionMessageId = paramInt1;
-        shouldNotifyUser = paramBoolean;
-        return;
-        exception = new FacebookServiceException(this, paramString2);
-        i = 0;
-        break;
-        label159:
-        if ((paramInt2 == 1) || (paramInt2 == 2))
-        {
-          paramString1 = FacebookRequestError.Category.SERVER;
-          i = j;
-        }
-        for (;;)
-        {
-          if (paramString1 != null) {
-            break label388;
-          }
-          if (!HTTP_RANGE_CLIENT_ERROR.contains(paramInt1)) {
-            break label350;
-          }
-          paramString1 = FacebookRequestError.Category.BAD_REQUEST;
-          paramInt1 = i;
-          break;
-          if ((paramInt2 == 4) || (paramInt2 == 17))
-          {
-            paramString1 = FacebookRequestError.Category.THROTTLING;
-            i = j;
-          }
-          else if ((paramInt2 == 10) || (EC_RANGE_PERMISSION.contains(paramInt2)))
-          {
-            paramString1 = FacebookRequestError.Category.PERMISSION;
-            i = R.string.com_facebook_requesterror_permissions;
-          }
-          else if (paramInt2 != 102)
-          {
-            i = j;
-            if (paramInt2 != 190) {}
-          }
-          else if ((paramInt3 == 459) || (paramInt3 == 464))
-          {
-            paramString1 = FacebookRequestError.Category.AUTHENTICATION_RETRY;
-            i = R.string.com_facebook_requesterror_web_login;
-          }
-          else
-          {
-            paramString1 = FacebookRequestError.Category.AUTHENTICATION_REOPEN_SESSION;
-            if ((paramInt3 == 458) || (paramInt3 == 463)) {
-              i = R.string.com_facebook_requesterror_relogin;
-            } else if (paramInt3 == 460) {
-              i = R.string.com_facebook_requesterror_password_changed;
-            } else {
-              i = R.string.com_facebook_requesterror_reconnect;
-            }
-          }
-        }
-        label350:
-        if (HTTP_RANGE_SERVER_ERROR.contains(paramInt1))
-        {
-          paramString1 = FacebookRequestError.Category.SERVER;
-          paramInt1 = i;
-          break label105;
-        }
-        paramString1 = FacebookRequestError.Category.OTHER;
-        paramInt1 = i;
-        break label105;
-      }
-      label388:
-      paramInt1 = i;
+      b = paramString1;
+      j = paramString2.a(b);
+      return;
+      o = new FacebookServiceException(this, paramString2);
+      break;
     }
   }
   
@@ -175,7 +65,7 @@ public final class FacebookRequestError
   
   FacebookRequestError(HttpURLConnection paramHttpURLConnection, Exception paramException) {}
   
-  static FacebookRequestError checkResponseAndCreateError(JSONObject paramJSONObject, Object paramObject, HttpURLConnection paramHttpURLConnection)
+  static FacebookRequestError a(JSONObject paramJSONObject, Object paramObject, HttpURLConnection paramHttpURLConnection)
   {
     for (;;)
     {
@@ -183,8 +73,8 @@ public final class FacebookRequestError
       {
         if (paramJSONObject.has("code"))
         {
-          int m = paramJSONObject.getInt("code");
-          localObject1 = Utility.getStringPropertyAsJSON(paramJSONObject, "body", "FACEBOOK_NON_JSON_RESULT");
+          int i4 = paramJSONObject.getInt("code");
+          localObject1 = u.a(paramJSONObject, "body", "FACEBOOK_NON_JSON_RESULT");
           if ((localObject1 != null) && ((localObject1 instanceof JSONObject)))
           {
             JSONObject localJSONObject2 = (JSONObject)localObject1;
@@ -193,25 +83,25 @@ public final class FacebookRequestError
             JSONObject localJSONObject1 = null;
             Object localObject4 = null;
             boolean bool2 = false;
-            int j = -1;
-            int k = -1;
-            int i = 0;
+            int i2 = -1;
+            int i3 = -1;
+            int i1 = 0;
             Object localObject2;
             Object localObject3;
             boolean bool1;
             if (localJSONObject2.has("error"))
             {
-              localJSONObject1 = (JSONObject)Utility.getStringPropertyAsJSON(localJSONObject2, "error", null);
+              localJSONObject1 = (JSONObject)u.a(localJSONObject2, "error", null);
               localObject1 = localJSONObject1.optString("type", null);
               str = localJSONObject1.optString("message", null);
-              j = localJSONObject1.optInt("code", -1);
-              k = localJSONObject1.optInt("error_subcode", -1);
+              i2 = localJSONObject1.optInt("code", -1);
+              i3 = localJSONObject1.optInt("error_subcode", -1);
               localObject2 = localJSONObject1.optString("error_user_msg", null);
               localObject3 = localJSONObject1.optString("error_user_title", null);
               bool1 = localJSONObject1.optBoolean("is_transient", false);
-              i = 1;
-              if (i != 0) {
-                return new FacebookRequestError(m, j, k, (String)localObject1, str, (String)localObject3, (String)localObject2, bool1, localJSONObject2, paramJSONObject, paramObject, paramHttpURLConnection);
+              i1 = 1;
+              if (i1 != 0) {
+                return new FacebookRequestError(i4, i2, i3, (String)localObject1, str, (String)localObject3, (String)localObject2, bool1, localJSONObject2, paramJSONObject, paramObject, paramHttpURLConnection, null);
               }
             }
             else
@@ -227,119 +117,130 @@ public final class FacebookRequestError
               }
               localObject1 = localJSONObject2.optString("error_reason", null);
               str = localJSONObject2.optString("error_msg", null);
-              j = localJSONObject2.optInt("error_code", -1);
-              k = localJSONObject2.optInt("error_subcode", -1);
-              i = 1;
+              i2 = localJSONObject2.optInt("error_code", -1);
+              i3 = localJSONObject2.optInt("error_subcode", -1);
+              i1 = 1;
               localObject3 = localObject4;
               localObject2 = localJSONObject1;
               bool1 = bool2;
               continue;
             }
           }
-          if (!HTTP_RANGE_SUCCESS.contains(m))
+          if (!a.a(i4))
           {
             if (!paramJSONObject.has("body")) {
-              break label357;
+              break label359;
             }
-            localObject1 = (JSONObject)Utility.getStringPropertyAsJSON(paramJSONObject, "body", "FACEBOOK_NON_JSON_RESULT");
-            paramJSONObject = new FacebookRequestError(m, -1, -1, null, null, null, null, false, (JSONObject)localObject1, paramJSONObject, paramObject, paramHttpURLConnection);
+            localObject1 = (JSONObject)u.a(paramJSONObject, "body", "FACEBOOK_NON_JSON_RESULT");
+            paramJSONObject = new FacebookRequestError(i4, -1, -1, null, null, null, null, false, (JSONObject)localObject1, paramJSONObject, paramObject, paramHttpURLConnection, null);
             return paramJSONObject;
           }
         }
       }
       catch (JSONException paramJSONObject) {}
       return null;
-      label357:
+      label359:
       Object localObject1 = null;
     }
   }
   
-  public Object getBatchRequestResult()
+  /* Error */
+  static g g()
   {
-    return batchRequestResult;
+    // Byte code:
+    //   0: ldc 2
+    //   2: monitorenter
+    //   3: invokestatic 166	com/facebook/g:h	()Ljava/lang/String;
+    //   6: invokestatic 169	com/facebook/internal/u:d	(Ljava/lang/String;)Lcom/facebook/internal/u$b;
+    //   9: astore_0
+    //   10: aload_0
+    //   11: ifnonnull +12 -> 23
+    //   14: invokestatic 171	com/facebook/internal/g:a	()Lcom/facebook/internal/g;
+    //   17: astore_0
+    //   18: ldc 2
+    //   20: monitorexit
+    //   21: aload_0
+    //   22: areturn
+    //   23: aload_0
+    //   24: invokevirtual 175	com/facebook/internal/u$b:e	()Lcom/facebook/internal/g;
+    //   27: astore_0
+    //   28: goto -10 -> 18
+    //   31: astore_0
+    //   32: ldc 2
+    //   34: monitorexit
+    //   35: aload_0
+    //   36: athrow
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   9	19	0	localObject1	Object
+    //   31	5	0	localObject2	Object
+    // Exception table:
+    //   from	to	target	type
+    //   3	10	31	finally
+    //   14	18	31	finally
+    //   23	28	31	finally
   }
   
-  public FacebookRequestError.Category getCategory()
+  public int a()
   {
-    return category;
+    return c;
   }
   
-  public HttpURLConnection getConnection()
+  public int b()
   {
-    return connection;
+    return d;
   }
   
-  public int getErrorCode()
+  public String c()
   {
-    return errorCode;
+    return f;
   }
   
-  public boolean getErrorIsTransient()
+  public String d()
   {
-    return errorIsTransient;
-  }
-  
-  public String getErrorMessage()
-  {
-    if (errorMessage != null) {
-      return errorMessage;
+    if (g != null) {
+      return g;
     }
-    return exception.getLocalizedMessage();
+    return o.getLocalizedMessage();
   }
   
-  public String getErrorType()
+  public JSONObject e()
   {
-    return errorType;
+    return k;
   }
   
-  public String getErrorUserMessage()
+  public FacebookException f()
   {
-    return errorUserMessage;
-  }
-  
-  public String getErrorUserTitle()
-  {
-    return errorUserTitle;
-  }
-  
-  public FacebookException getException()
-  {
-    return exception;
-  }
-  
-  public JSONObject getRequestResult()
-  {
-    return requestResult;
-  }
-  
-  public JSONObject getRequestResultBody()
-  {
-    return requestResultBody;
-  }
-  
-  public int getRequestStatusCode()
-  {
-    return requestStatusCode;
-  }
-  
-  public int getSubErrorCode()
-  {
-    return subErrorCode;
-  }
-  
-  public int getUserActionMessageId()
-  {
-    return userActionMessageId;
-  }
-  
-  public boolean shouldNotifyUser()
-  {
-    return shouldNotifyUser;
+    return o;
   }
   
   public String toString()
   {
-    return "{HttpStatus: " + requestStatusCode + ", errorCode: " + errorCode + ", errorType: " + errorType + ", errorMessage: " + getErrorMessage() + "}";
+    return "{HttpStatus: " + c + ", errorCode: " + d + ", errorType: " + f + ", errorMessage: " + d() + "}";
+  }
+  
+  public static enum Category
+  {
+    LOGIN_RECOVERABLE,  OTHER,  TRANSIENT;
+    
+    private Category() {}
+  }
+  
+  private static class a
+  {
+    private final int a;
+    private final int b;
+    
+    private a(int paramInt1, int paramInt2)
+    {
+      a = paramInt1;
+      b = paramInt2;
+    }
+    
+    boolean a(int paramInt)
+    {
+      return (a <= paramInt) && (paramInt <= b);
+    }
   }
 }
 

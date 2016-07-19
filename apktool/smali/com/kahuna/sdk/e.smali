@@ -33,7 +33,7 @@
 
     .line 248
     :cond_0
-    const-string/jumbo v0, "KahunaAnalytics"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "App is configured for Push, but you need to call onAppCreate() in your Application to prevent strange behavior!"
 

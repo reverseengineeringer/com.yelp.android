@@ -1,10 +1,35 @@
 package com.google.android.gms.analytics;
 
-public abstract interface c$b
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application.ActivityLifecycleCallbacks;
+import android.os.Bundle;
+
+@TargetApi(14)
+class c$b
+  implements Application.ActivityLifecycleCallbacks
 {
-  public abstract void onConnected();
+  c$b(c paramc) {}
   
-  public abstract void onDisconnected();
+  public void onActivityCreated(Activity paramActivity, Bundle paramBundle) {}
+  
+  public void onActivityDestroyed(Activity paramActivity) {}
+  
+  public void onActivityPaused(Activity paramActivity) {}
+  
+  public void onActivityResumed(Activity paramActivity) {}
+  
+  public void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
+  
+  public void onActivityStarted(Activity paramActivity)
+  {
+    a.a(paramActivity);
+  }
+  
+  public void onActivityStopped(Activity paramActivity)
+  {
+    a.b(paramActivity);
+  }
 }
 
 /* Location:

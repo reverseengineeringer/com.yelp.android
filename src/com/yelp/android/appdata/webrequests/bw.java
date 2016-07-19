@@ -1,23 +1,49 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Event;
-import com.yelp.android.serializable.Event.EventType;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.FavoritesList;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class bw
-  extends g<Void, Void, Event>
+  extends b<Void, Void, FavoritesList>
 {
-  public bw(String paramString, Event.EventType paramEventType, m<Event> paramm)
+  private int a;
+  private String g;
+  
+  public bw(String paramString, int paramInt, ApiRequest.b paramb)
   {
-    super(ApiRequest.RequestType.GET, "event/", paramm);
-    addUrlParam("event_id", paramString);
-    addUrlParam("event_type", paramEventType.toString());
+    super(ApiRequest.RequestType.GET, "/favorites_list", paramb);
+    a("list_id", paramString);
+    a("limit", 5);
+    a("offset", paramInt);
+    a = paramInt;
+    g = paramString;
   }
   
-  public Event a(JSONObject paramJSONObject)
+  public bw(String paramString, ApiRequest.b paramb)
   {
-    return Event.eventFromJSONObject(paramJSONObject.getJSONObject("event"), paramJSONObject.getJSONObject("user"), paramJSONObject.optJSONObject("business"));
+    this(paramString, 0, paramb);
+  }
+  
+  public FavoritesList a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return (FavoritesList)FavoritesList.CREATOR.parse(paramJSONObject.getJSONObject("favorites_list"));
+  }
+  
+  public void a(FavoritesList paramFavoritesList)
+  {
+    super.b(paramFavoritesList);
+    a += 5;
+  }
+  
+  public bw b()
+  {
+    bw localbw = new bw(g, a, n());
+    localbw.f(new Void[0]);
+    return localbw;
   }
 }
 

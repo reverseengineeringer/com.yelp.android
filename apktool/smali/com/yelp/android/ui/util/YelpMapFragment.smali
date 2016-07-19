@@ -3,17 +3,17 @@
 .source "YelpMapFragment.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/map/i;
+.implements Lcom/yelp/android/ui/map/f$a;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
-        "Lcom/yelp/android/serializable/by;",
+        "Lcom/yelp/android/serializable/f;",
         ">",
         "Lcom/yelp/android/ui/activities/support/YelpFragment;",
-        "Lcom/yelp/android/ui/map/i;"
+        "Lcom/yelp/android/ui/map/f$a;"
     }
 .end annotation
 
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private b:Lcom/yelp/android/ui/map/g;
+.field private b:Lcom/yelp/android/ui/map/f;
 
 
 # direct methods
@@ -57,7 +57,7 @@
 
     .prologue
     .line 84
-    const v0, 0x7f0c02f1
+    const v0, 0x7f0f036f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -71,22 +71,22 @@
     return-void
 .end method
 
-.method public e()Lcom/yelp/android/ui/map/g;
+.method public f()Lcom/yelp/android/ui/map/f;
     .locals 1
 
     .prologue
     .line 79
-    iget-object v0, p0, Lcom/yelp/android/ui/util/YelpMapFragment;->b:Lcom/yelp/android/ui/map/g;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/YelpMapFragment;->b:Lcom/yelp/android/ui/map/f;
 
     return-object v0
 .end method
 
-.method protected f()V
+.method protected g()V
     .locals 2
 
     .prologue
     .line 88
-    iget-object v0, p0, Lcom/yelp/android/ui/util/YelpMapFragment;->b:Lcom/yelp/android/ui/map/g;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/YelpMapFragment;->b:Lcom/yelp/android/ui/map/f;
 
     iget-object v1, p0, Lcom/yelp/android/ui/util/YelpMapFragment;->a:Lcom/yelp/android/ui/map/YelpMap;
 
@@ -94,7 +94,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/g;->a(Lcom/google/android/gms/maps/MapView;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/f;->a(Lcom/google/android/gms/maps/MapView;)V
 
     .line 89
     return-void
@@ -127,7 +127,7 @@
     invoke-virtual {v0, p1, v1}, Lcom/yelp/android/ui/map/YelpMap;->a(Landroid/os/Bundle;Lcom/yelp/android/ui/map/e;)V
 
     .line 34
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/YelpMapFragment;->f()V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/YelpMapFragment;->g()V
 
     .line 36
     :cond_0
@@ -142,15 +142,15 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreate(Landroid/os/Bundle;)V
 
     .line 25
-    new-instance v0, Lcom/yelp/android/ui/map/g;
+    new-instance v0, Lcom/yelp/android/ui/map/f;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/YelpMapFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p0}, Lcom/yelp/android/ui/map/g;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/map/i;)V
+    invoke-direct {v0, v1, p0}, Lcom/yelp/android/ui/map/f;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/map/f$a;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/YelpMapFragment;->b:Lcom/yelp/android/ui/map/g;
+    iput-object v0, p0, Lcom/yelp/android/ui/util/YelpMapFragment;->b:Lcom/yelp/android/ui/map/f;
 
     .line 26
     return-void

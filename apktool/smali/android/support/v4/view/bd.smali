@@ -1,29 +1,14 @@
-.class Landroid/support/v4/view/bd;
-.super Landroid/support/v4/view/bc;
-.source "MotionEventCompat.java"
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 125
-    invoke-direct {p0}, Landroid/support/v4/view/bc;-><init>()V
-
-    return-void
-.end method
+.class public interface abstract Landroid/support/v4/view/bd;
+.super Ljava/lang/Object;
+.source "ViewPropertyAnimatorListener.java"
 
 
 # virtual methods
-.method public b(Landroid/view/MotionEvent;)I
-    .locals 1
+.method public abstract a(Landroid/view/View;)V
+.end method
 
-    .prologue
-    .line 128
-    invoke-static {p1}, Landroid/support/v4/view/bh;->a(Landroid/view/MotionEvent;)I
+.method public abstract b(Landroid/view/View;)V
+.end method
 
-    move-result v0
-
-    return v0
+.method public abstract c(Landroid/view/View;)V
 .end method

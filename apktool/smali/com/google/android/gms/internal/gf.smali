@@ -3,70 +3,41 @@
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
-
-
-# instance fields
-.field private final mv:Ljava/lang/Runnable;
-
-.field private volatile wu:Ljava/lang/Thread;
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/google/android/gms/internal/gf$1;
-
-    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/gf$1;-><init>(Lcom/google/android/gms/internal/gf;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/gf;->mv:Ljava/lang/Runnable;
-
     return-void
-.end method
-
-.method static synthetic a(Lcom/google/android/gms/internal/gf;Ljava/lang/Thread;)Ljava/lang/Thread;
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/gf;->wu:Ljava/lang/Thread;
-
-    return-object p1
 .end method
 
 
 # virtual methods
-.method public final cancel()V
+.method public abstract a(Landroid/content/Context;Lcom/google/android/gms/internal/fz;Lcom/google/android/gms/ads/internal/util/client/VersionInfoParcel;)V
+.end method
+
+.method protected a(Lcom/google/android/gms/internal/fz;)V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/gf;->onStop()V
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/fz;->c()V
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/gf;->wu:Ljava/lang/Thread;
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/fz;->a()Lcom/google/android/gms/internal/db$d;
+
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/gf;->wu:Ljava/lang/Thread;
+    invoke-virtual {p1}, Lcom/google/android/gms/internal/fz;->a()Lcom/google/android/gms/internal/db$d;
 
-    invoke-virtual {v0}, Ljava/lang/Thread;->interrupt()V
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/db$d;->a()V
 
     :cond_0
-    return-void
-.end method
-
-.method public abstract cx()V
-.end method
-
-.method public abstract onStop()V
-.end method
-
-.method public final start()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/gf;->mv:Ljava/lang/Runnable;
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gh;->a(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-
     return-void
 .end method

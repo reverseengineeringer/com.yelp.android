@@ -19,9 +19,9 @@ public abstract class YelpTabActivity
     getHelper().a(paramBundle);
     super.onCreate(paramBundle);
     removeToolbarElevation();
-    setContentView(2130903228);
+    setContentView(2130903256);
     a = ((FragmentTabHost)findViewById(16908306));
-    a.setup(this, getSupportFragmentManager(), 16908305);
+    a.a(this, getSupportFragmentManager(), 16908305);
   }
 }
 

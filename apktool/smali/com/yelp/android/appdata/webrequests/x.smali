@@ -1,125 +1,108 @@
-.class final Lcom/yelp/android/appdata/webrequests/x;
-.super Ljava/lang/Object;
-.source "BusinessMediaRequest.java"
-
-# interfaces
-.implements Landroid/os/Parcelable$Creator;
+.class public Lcom/yelp/android/appdata/webrequests/x;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "BusinessCategorySuggestRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
-        "Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;",
-        ">;"
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/util/List",
+        "<",
+        "Lcom/yelp/android/serializable/BusinessCategorySuggest;",
+        ">;>;"
     }
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 2
 
     .prologue
-    .line 152
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 19
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
+    const-string/jumbo v1, "business/category_suggest"
+
+    invoke-direct {p0, v0, v1, p3}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 20
+    const-string/jumbo v0, "term"
+
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/x;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 21
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 22
+    const-string/jumbo v0, "country_code"
+
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/x;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 24
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-    .locals 5
+.method public a(Lorg/json/JSONObject;)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/json/JSONObject;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/BusinessCategorySuggest;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 155
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 28
+    const-string/jumbo v0, "suggestions"
 
-    move-result-object v1
-
-    .line 156
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v0
 
-    .line 157
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    sget-object v1, Lcom/yelp/android/serializable/BusinessCategorySuggest;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
-    move-result-object v2
-
-    .line 158
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v3
-
-    .line 159
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v4
-
-    .line 160
-    if-eqz v0, :cond_0
-
-    .line 161
-    invoke-static {v1, v0, v4}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->photosStartingAtSpecificPhoto(Ljava/lang/String;Ljava/lang/String;I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-
-    move-result-object v0
-
-    .line 165
-    :goto_0
-    return-object v0
-
-    .line 162
-    :cond_0
-    if-eqz v2, :cond_1
-
-    .line 163
-    invoke-static {v1, v2}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->singleVideo(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    .line 165
-    :cond_1
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-
-    invoke-direct {v0, v1, v3, v4}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;II)V
-
-    goto :goto_0
-.end method
-
-.method public a(I)[Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-    .locals 1
-
-    .prologue
-    .line 171
-    new-array v0, p1, [Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-
-    return-object v0
-.end method
-
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 152
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/x;->a(Landroid/os/Parcel;)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    invoke-static {v0, v1}, Lcom/yelp/parcelgen/JsonUtil;->parseJsonList(Lorg/json/JSONArray;Lcom/yelp/parcelgen/JsonParser;)Ljava/util/ArrayList;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public synthetic newArray(I)[Ljava/lang/Object;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 152
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/x;->a(I)[Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .line 14
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/x;->a(Lorg/json/JSONObject;)Ljava/util/List;
 
     move-result-object v0
 

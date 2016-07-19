@@ -21,10 +21,10 @@
     .locals 1
 
     .prologue
-    .line 10
-    new-instance v0, Lcom/yelp/android/serializable/dd;
+    .line 12
+    new-instance v0, Lcom/yelp/android/serializable/SurveyQuestion$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/dd;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/SurveyQuestion$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/SurveyQuestion;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -35,7 +35,7 @@
     .locals 0
 
     .prologue
-    .line 8
+    .line 10
     invoke-direct {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;-><init>()V
 
     return-void
@@ -43,11 +43,89 @@
 
 
 # virtual methods
+.method public bridge synthetic a()Lorg/json/JSONObject;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->a()Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_SurveyQuestion;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_SurveyQuestion;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->d()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
     .prologue
-    .line 8
+    .line 10
     invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->describeContents()I
 
     move-result v0
@@ -55,79 +133,35 @@
     return v0
 .end method
 
-.method public bridge synthetic getAnswers()Ljava/util/ArrayList;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->getAnswers()Ljava/util/ArrayList;
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_SurveyQuestion;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
+    return v0
 .end method
 
-.method public bridge synthetic getQuestion()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->getQuestion()Ljava/lang/String;
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
-.end method
-
-.method public bridge synthetic getQuestionIdentifier()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->getQuestionIdentifier()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_SurveyQuestion;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_SurveyQuestion;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic writeJSON()Lorg/json/JSONObject;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_SurveyQuestion;->writeJSON()Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    return-object v0
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
 
     .prologue
-    .line 8
+    .line 10
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/_SurveyQuestion;->writeToParcel(Landroid/os/Parcel;I)V
 
     return-void

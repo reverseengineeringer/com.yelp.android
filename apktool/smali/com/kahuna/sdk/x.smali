@@ -1,83 +1,178 @@
 .class public Lcom/kahuna/sdk/x;
 .super Ljava/lang/Object;
-.source "KahunaBackgroundRunnable.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
+.source "PushNotificationContainer.java"
 
 
 # instance fields
-.field private final a:Ljava/lang/Runnable;
+.field private a:Landroid/content/Context;
+
+.field private b:Ljava/lang/String;
+
+.field private c:Ljava/lang/String;
+
+.field private d:I
+
+.field private e:Ljava/lang/String;
+
+.field private f:Landroid/graphics/Bitmap;
+
+.field private g:Landroid/os/Bundle;
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/Runnable;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 1
 
     .prologue
-    .line 26
+    .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
-    iput-object p1, p0, Lcom/kahuna/sdk/x;->a:Ljava/lang/Runnable;
+    .line 30
+    const/4 v0, -0x1
 
-    .line 28
+    iput v0, p0, Lcom/kahuna/sdk/x;->d:I
+
+    .line 36
+    iput-object p1, p0, Lcom/kahuna/sdk/x;->a:Landroid/content/Context;
+
+    .line 37
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method protected a()Landroid/content/Context;
+    .locals 1
 
     .prologue
-    .line 33
-    :try_start_0
-    iget-object v0, p0, Lcom/kahuna/sdk/x;->a:Ljava/lang/Runnable;
-
-    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-
     .line 40
-    :cond_0
-    :goto_0
+    iget-object v0, p0, Lcom/kahuna/sdk/x;->a:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method protected a(I)V
+    .locals 0
+
+    .prologue
+    .line 64
+    iput p1, p0, Lcom/kahuna/sdk/x;->d:I
+
+    .line 65
     return-void
+.end method
 
-    .line 34
-    :catch_0
-    move-exception v0
+.method protected a(Landroid/graphics/Bitmap;)V
+    .locals 0
 
-    .line 35
-    sget-boolean v1, Lcom/kahuna/sdk/h;->a:Z
+    .prologue
+    .line 76
+    iput-object p1, p0, Lcom/kahuna/sdk/x;->f:Landroid/graphics/Bitmap;
 
-    if-eqz v1, :cond_0
+    .line 77
+    return-void
+.end method
 
-    .line 36
-    const-string/jumbo v1, "KahunaAnalytics"
+.method protected a(Landroid/os/Bundle;)V
+    .locals 0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    .prologue
+    .line 88
+    iput-object p1, p0, Lcom/kahuna/sdk/x;->g:Landroid/os/Bundle;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    .line 89
+    return-void
+.end method
 
-    const-string/jumbo v3, "Exception while running background task: "
+.method protected a(Ljava/lang/String;)V
+    .locals 0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .prologue
+    .line 48
+    iput-object p1, p0, Lcom/kahuna/sdk/x;->b:Ljava/lang/String;
 
-    move-result-object v2
+    .line 49
+    return-void
+.end method
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+.method protected b()Ljava/lang/String;
+    .locals 1
 
-    move-result-object v2
+    .prologue
+    .line 44
+    iget-object v0, p0, Lcom/kahuna/sdk/x;->b:Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v2
+.method protected b(Ljava/lang/String;)V
+    .locals 0
 
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    .prologue
+    .line 56
+    iput-object p1, p0, Lcom/kahuna/sdk/x;->c:Ljava/lang/String;
 
-    .line 37
-    invoke-virtual {v0}, Ljava/lang/RuntimeException;->printStackTrace()V
+    .line 57
+    return-void
+.end method
 
-    goto :goto_0
+.method protected c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 52
+    iget-object v0, p0, Lcom/kahuna/sdk/x;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method protected c(Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 72
+    iput-object p1, p0, Lcom/kahuna/sdk/x;->e:Ljava/lang/String;
+
+    .line 73
+    return-void
+.end method
+
+.method protected d()I
+    .locals 1
+
+    .prologue
+    .line 60
+    iget v0, p0, Lcom/kahuna/sdk/x;->d:I
+
+    return v0
+.end method
+
+.method protected e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 68
+    iget-object v0, p0, Lcom/kahuna/sdk/x;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method protected f()Landroid/graphics/Bitmap;
+    .locals 1
+
+    .prologue
+    .line 80
+    iget-object v0, p0, Lcom/kahuna/sdk/x;->f:Landroid/graphics/Bitmap;
+
+    return-object v0
+.end method
+
+.method protected g()Landroid/os/Bundle;
+    .locals 1
+
+    .prologue
+    .line 84
+    iget-object v0, p0, Lcom/kahuna/sdk/x;->g:Landroid/os/Bundle;
+
+    return-object v0
 .end method

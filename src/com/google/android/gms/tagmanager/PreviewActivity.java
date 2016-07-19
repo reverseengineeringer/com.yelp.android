@@ -3,6 +3,8 @@ package com.google.android.gms.tagmanager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -10,12 +12,15 @@ import android.os.Bundle;
 public class PreviewActivity
   extends Activity
 {
-  private void d(String paramString1, String paramString2, String paramString3)
+  private void a(String paramString1, String paramString2, String paramString3)
   {
     AlertDialog localAlertDialog = new AlertDialog.Builder(this).create();
     localAlertDialog.setTitle(paramString1);
     localAlertDialog.setMessage(paramString2);
-    localAlertDialog.setButton(-1, paramString3, new PreviewActivity.1(this));
+    localAlertDialog.setButton(-1, paramString3, new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt) {}
+    });
     localAlertDialog.show();
   }
   
@@ -24,27 +29,27 @@ public class PreviewActivity
     try
     {
       super.onCreate(paramBundle);
-      bh.U("Preview activity");
+      m.c("Preview activity");
       paramBundle = getIntent().getData();
-      if (!TagManager.getInstance(this).i(paramBundle))
+      if (!d.a(this).a(paramBundle))
       {
         paramBundle = "Cannot preview the app with the uri: " + paramBundle + ". Launching current version instead.";
-        bh.W(paramBundle);
-        d("Preview failure", paramBundle, "Continue");
+        m.b(paramBundle);
+        a("Preview failure", paramBundle, "Continue");
       }
       paramBundle = getPackageManager().getLaunchIntentForPackage(getPackageName());
       if (paramBundle != null)
       {
-        bh.U("Invoke the launch activity for package name: " + getPackageName());
+        m.c("Invoke the launch activity for package name: " + getPackageName());
         startActivity(paramBundle);
         return;
       }
-      bh.U("No launch activity found for package name: " + getPackageName());
+      m.c("No launch activity found for package name: " + getPackageName());
       return;
     }
     catch (Exception paramBundle)
     {
-      bh.T("Calling preview threw an exception: " + paramBundle.getMessage());
+      m.a("Calling preview threw an exception: " + paramBundle.getMessage());
     }
   }
 }

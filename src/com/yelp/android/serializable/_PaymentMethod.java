@@ -2,25 +2,62 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _PaymentMethod
   implements Parcelable
 {
-  protected String mDescription;
-  protected String mId;
-  protected String mImagePath;
-  protected String mImageUrl;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
   
-  protected _PaymentMethod() {}
-  
-  protected _PaymentMethod(String paramString1, String paramString2, String paramString3, String paramString4)
+  public String a()
   {
-    this();
-    mId = paramString1;
-    mDescription = paramString2;
-    mImageUrl = paramString3;
-    mImagePath = paramString4;
+    return d;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("id")) {
+      a = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("description")) {
+      b = paramJSONObject.optString("description");
+    }
+    if (!paramJSONObject.isNull("image_url")) {
+      c = paramJSONObject.optString("image_url");
+    }
+    if (!paramJSONObject.isNull("image_path")) {
+      d = paramJSONObject.optString("image_path");
+    }
+  }
+  
+  public String b()
+  {
+    return c;
+  }
+  
+  public String c()
+  {
+    return b;
+  }
+  
+  public String d()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -28,56 +65,31 @@ abstract class _PaymentMethod
     return 0;
   }
   
-  public String getDescription()
+  public boolean equals(Object paramObject)
   {
-    return mDescription;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_PaymentMethod)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a();
   }
   
-  public String getId()
+  public int hashCode()
   {
-    return mId;
-  }
-  
-  public String getImagePath()
-  {
-    return mImagePath;
-  }
-  
-  public String getImageUrl()
-  {
-    return mImageUrl;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("description")) {
-      mDescription = paramJSONObject.optString("description");
-    }
-    if (!paramJSONObject.isNull("image_url")) {
-      mImageUrl = paramJSONObject.optString("image_url");
-    }
-    if (!paramJSONObject.isNull("image_path")) {
-      mImagePath = paramJSONObject.optString("image_path");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mId = paramParcel.readString();
-    mDescription = paramParcel.readString();
-    mImageUrl = paramParcel.readString();
-    mImagePath = paramParcel.readString();
+    return new c().a(a).a(b).a(c).a(d).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mId);
-    paramParcel.writeString(mDescription);
-    paramParcel.writeString(mImageUrl);
-    paramParcel.writeString(mImagePath);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
   }
 }
 

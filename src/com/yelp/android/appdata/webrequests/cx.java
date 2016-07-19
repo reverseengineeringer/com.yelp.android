@@ -1,43 +1,33 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Tip;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.android.serializable.YelpCheckIn;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class cx
+  extends k<Void, Void, ArrayList<YelpCheckIn>>
 {
-  final List<Tip> a;
-  final Map<Locale, Integer> b;
-  final Locale c;
-  final List<Locale> d;
+  ArrayList<YelpCheckIn> g;
   
-  public cx(List<Tip> paramList, Locale paramLocale, Map<Locale, Integer> paramMap, List<Locale> paramList1)
+  public cx(k.b<ArrayList<YelpCheckIn>> paramb)
   {
-    a = paramList;
-    c = paramLocale;
-    b = paramMap;
-    d = paramList1;
+    super(ApiRequest.RequestType.GET, "check_ins/friends/nearby", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.MILES);
+    a("mode", 1);
+    a("offset", 0);
   }
   
-  public List<Tip> a()
+  public ArrayList<YelpCheckIn> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return a;
-  }
-  
-  public Map<Locale, Integer> b()
-  {
-    return b;
-  }
-  
-  public Locale c()
-  {
-    return c;
-  }
-  
-  public List<Locale> d()
-  {
-    return d;
+    HashMap localHashMap = YelpBusiness.b(paramJSONObject.getJSONArray("businesses"), i_(), BusinessSearchRequest.FormatMode.FULL);
+    g = YelpCheckIn.a(paramJSONObject.getJSONArray("check_ins"), localHashMap);
+    return g;
   }
 }
 

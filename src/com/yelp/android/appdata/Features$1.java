@@ -1,5 +1,8 @@
 package com.yelp.android.appdata;
 
+import android.content.Context;
+import com.yelp.android.util.ffmpeg.FFmpeg;
+
  enum Features$1
 {
   Features$1(String paramString1)
@@ -7,9 +10,9 @@ package com.yelp.android.appdata;
     super(paramString, paramInt, paramString1, null);
   }
   
-  public boolean isEnabled()
+  protected boolean isEnabled(Context paramContext)
   {
-    return (n.a(14)) && (super.isEnabled());
+    return FFmpeg.a(paramContext);
   }
 }
 

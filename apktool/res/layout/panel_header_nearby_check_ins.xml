@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.yelp.android.ui.widgets.LeftDrawableButton android:textAppearance="@style/SubtitleDarkText" android:id="@id/check_in_button" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="?smallGapSize" android:src="@drawable/check_in_icon" android:text="@string/action_check_in" android:drawablePadding="?smallGapSize" />
+    <com.yelp.android.ui.widgets.LeftDrawableButton android:textAppearance="@style/TitleText" android:id="@id/check_in_button" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/default_small_gap_size" android:src="@drawable/check_in_icon" android:text="@string/action_check_in" android:drawablePadding="@dimen/default_small_gap_size" />
     <com.yelp.android.ui.panels.LeaderboardHeader android:id="@id/leaderboard_header" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <com.yelp.android.ui.panels.TitleWithSubTitleView android:id="@id/my_checkins_header" android:layout_width="fill_parent" android:layout_height="wrap_content" />
 </LinearLayout>

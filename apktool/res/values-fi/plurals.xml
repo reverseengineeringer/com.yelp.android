@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_guests">
+        <item quantity="other">Lisää enintään %1$d vierasta</item>
+        <item quantity="one">Lisää %1$d vieras</item>
+    </plurals>
+    <plurals name="alert_summary_count">
+        <item quantity="other">&amp;lt;b>Sinulla on %1$d uutta ilmoitusta&amp;lt;/b></item>
+        <item quantity="one">&amp;lt;b>Sinulla on %1$d uusi ilmoitus&amp;lt;/b></item>
+    </plurals>
+    <plurals name="business_hours_closes_in">
+        <item quantity="other">Sulkeutuu %1$d min. kuluttua</item>
+        <item quantity="one">Sulkeutuu %1$d min. kuluttua</item>
+    </plurals>
+    <plurals name="business_hours_opens_in">
+        <item quantity="other">Aukeaa %1$d min. kuluttua</item>
+        <item quantity="one">Aukeaa %1$d min. kuluttua</item>
+    </plurals>
+    <plurals name="business_page_checkin_count">
+        <item quantity="other">Sinulla on &amp;lt;b>%1$d&amp;lt;/b> check-iniä täällä</item>
+        <item quantity="one">Sinulla on &amp;lt;b>%1$d&amp;lt;/b> check-in täällä</item>
+    </plurals>
+    <plurals name="checkin_count">
+        <item quantity="other">%1$d check-iniä</item>
+        <item quantity="one">%1$d check-in</item>
+    </plurals>
+    <plurals name="checkins_here_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> check-iniä täällä</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> check-in täällä</item>
+    </plurals>
+    <plurals name="checkins_remaining_to_unlock_offer">
+        <item quantity="other">%1$d check-iniä lisää täällä avataksesi tämän tarjouksen</item>
+        <item quantity="one">%1$d check-in lisää täällä avataksesi tämän tarjouksen</item>
+    </plurals>
+    <plurals name="checkins_this_week">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> check-iniä tällä viikolla</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> check-in tällä viikolla</item>
+    </plurals>
+    <plurals name="checkins_to_unlock_offer">
+        <item quantity="other">%1$d check-iniä täällä avataksesi tämän tarjouksen</item>
+        <item quantity="one">Tee check-in täällä avataksesi tämän tarjouksen</item>
+    </plurals>
+    <plurals name="discuss_this_event">
+        <item quantity="other">%1$d Yelpperiä keskustelevat tästä tapahtumasta</item>
+        <item quantity="one">Yelpperi aloitti keskustelun tästä tapahtumasta</item>
+    </plurals>
+    <plurals name="dollar_signs">
+        <item quantity="other">%1$s %2$s merkkiä</item>
+        <item quantity="one">%1$d %2$s merkki</item>
+    </plurals>
+    <plurals name="dukedoms_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> herttuanarvoa</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> Herttuanarvo</item>
+    </plurals>
+    <plurals name="embedded_formula_for_deals">
+        <item quantity="other">diiliä x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> kappale = yhteensä &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large></item>
+        <item quantity="one">diili x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> kappale = yhteensä &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large></item>
+    </plurals>
+    <plurals name="filter_format">
+        <item quantity="other">%1$s, ja %2$s</item>
+        <item quantity="one">%2$s</item>
+    </plurals>
+    <plurals name="formula_for_deals">
+        <item quantity="other">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> diiliä x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> kappale = yhteensä &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large></item>
+        <item quantity="one">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> diili x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> kappale = yhteensä &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large></item>
+    </plurals>
+    <plurals name="friend_count">
+        <item quantity="other">%1$d kaveria</item>
+        <item quantity="one">%1$d Kaveri</item>
+    </plurals>
+    <plurals name="friend_count_no_param">
+        <item quantity="other">Kaverit</item>
+        <item quantity="one">Kaveri</item>
+    </plurals>
+    <plurals name="friend_request_alert">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> ihmistä haluaa olla kaverisi!</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> haluaa olla kaverisi!</item>
+    </plurals>
+    <plurals name="guests">
+        <item quantity="other">Vieraat</item>
+        <item quantity="one">Vieras</item>
+    </plurals>
+    <plurals name="media_success">
+        <item quantity="other">Kuvasi/videosi ovat pian valmiit.</item>
+        <item quantity="one">Kuvasi/videosi on pian valmis.</item>
+    </plurals>
+    <plurals name="media_success_title">
+        <item quantity="other">Kivoja kuvia!</item>
+        <item quantity="one">Kiva kuva!</item>
+    </plurals>
+    <plurals name="more_highlights_count">
+        <item quantity="other">%1$d kohokohtaa lisää</item>
+        <item quantity="one">%1$d kohokohta lisää</item>
+    </plurals>
+    <plurals name="more_regulars_count">
+        <item quantity="other">%1$d kantista lisää</item>
+        <item quantity="one">%1$d kantis lisää</item>
+    </plurals>
+    <plurals name="more_reviews_count">
+        <item quantity="other">%1$d arvostelua lisää</item>
+        <item quantity="one">%1$d arvostelu lisää</item>
+    </plurals>
+    <plurals name="more_suggestions">
+        <item quantity="other">Katso %1$d lisää</item>
+        <item quantity="one">Katso %1$d lisää</item>
+    </plurals>
+    <plurals name="more_tips_count">
+        <item quantity="other">%1$d vinkkiä lisää</item>
+        <item quantity="one">%1$d vinkki lisää</item>
+    </plurals>
+    <plurals name="my_photo_feed_count">
+        <item quantity="other">Kuvani</item>
+        <item quantity="one">Kuvani</item>
+    </plurals>
+    <plurals name="nearby_friend">
+        <item quantity="other">Kaverit lähettyvillä</item>
+        <item quantity="one">Kaveri lähettyvillä</item>
+    </plurals>
+    <plurals name="opentable_party_size">
+        <item quantity="other">%1$d henkilöä</item>
+        <item quantity="one">%1$d henkilö</item>
+    </plurals>
+    <plurals name="people">
+        <item quantity="other">%1$d henkilöä</item>
+        <item quantity="one">%1$d henkilö</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="other">%1$d kuvaa</item>
+        <item quantity="one">%1$d kuva</item>
+    </plurals>
+    <plurals name="photo_count_no_param">
+        <item quantity="other">Kuvat</item>
+        <item quantity="one">Kuva</item>
+    </plurals>
+    <plurals name="photo_feed_count">
+        <item quantity="other">%1$d kuvaa käyttäjältä %2$s</item>
+        <item quantity="one">Käyttäjän %2$s ottama kuva</item>
+    </plurals>
+    <plurals name="previous_reviews_title">
+        <item quantity="other">%1$d edellistä arvostelua</item>
+        <item quantity="one">%1$d edellinen arvostelu</item>
+    </plurals>
+    <plurals name="redemption_title_count">
+        <item quantity="other">Sinulla on nyt %1$d check-iniä yrityksessä %2$s!</item>
+        <item quantity="one">Se on %1$d check-in paikassa %2$s!</item>
+    </plurals>
+    <plurals name="requesting_quote_from_providers">
+        <item quantity="other">Pyydetään arvioita %1$s palveluntarjoajalta</item>
+        <item quantity="one">Pyydetään arvioita %1$s palveluntarjoajalta</item>
+    </plurals>
+    <plurals name="review_count">
+        <item quantity="other">%1$d arvostelua</item>
+        <item quantity="one">%1$d Arvostelu</item>
+    </plurals>
+    <plurals name="review_count_no_param">
+        <item quantity="other">Arvostelut</item>
+        <item quantity="one">Arvostelu</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals">
+        <item quantity="other">Valitettavasti saat ostaa vain %1$d diiliä</item>
+        <item quantity="one">Valitettavasti tämän diilin kohdalla et voi ostaa kuin %1$d diilin</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals_for_yourself">
+        <item quantity="other">Valitettavasti voit ostaa tätä diiliä itsellesi vain %1$d kappaletta</item>
+        <item quantity="one">Valitettavasti tämän diilin kohdalla et voi ostaa kuin %1$d diilin itsellesi</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_gifts">
+        <item quantity="other">Valitettavasti tätä diiliä voi antaa lahjaksi vain %1$d kappaletta</item>
+        <item quantity="one">Valitettavasti tämän diilin kohdalla et voi antaa kuin %1$d lahjan</item>
+    </plurals>
+    <plurals name="section_label_reviews_search">
+        <item quantity="other">%1$d arvostelua mainitsee sanan &amp;lt;b>%2$s&amp;lt;/b></item>
+        <item quantity="one">%1$d arvostelu mainitsee sanan &amp;lt;b>%2$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="section_not_recommended_reviews_title">
+        <item quantity="other">%1$d arvostelua, joita ei tällä hetkellä suositella</item>
+        <item quantity="one">%1$d arvostelu, jota ei tällä hetkellä suositella</item>
+    </plurals>
+    <plurals name="show_more_events">
+        <item quantity="other">Näytä %1$d lisää</item>
+        <item quantity="one">Näytä %1$d lisää</item>
+    </plurals>
+    <plurals name="star_rating">
+        <item quantity="other">Luokittelu: %1$s tähteä</item>
+        <item quantity="one">Luokittelu: %1$s tähti</item>
+    </plurals>
+    <plurals name="these_and_others">
+        <item quantity="other">%1$s ja %2$s muita</item>
+        <item quantity="one">%1$s ja %2$d muu</item>
+    </plurals>
+    <plurals name="translated_reviews_title">
+        <item quantity="other">Käännetyt arvostelut</item>
+        <item quantity="one">Käännetty arvostelu</item>
+    </plurals>
+    <plurals name="ufc_label">
+        <item quantity="other">&amp;lt;b>%1$s&amp;lt;/b> (%2$d)</item>
+        <item quantity="one">&amp;lt;b>%1$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="using_machine_translation">
+        <item quantity="other">Käytämme koneellista käännösohjelmaa tulkitaksemme näitä arvosteluja. Olemme pahoillamme, jos tulos ei ole täydellinen.</item>
+        <item quantity="one">Käytämme koneellista kielikäännöstä tulkitaksemme tämän arvostelun. Pahoittelut, jos käännös ei ole täydellinen.</item>
+    </plurals>
+    <plurals name="video_count">
+        <item quantity="other">%1$d videota</item>
+        <item quantity="one">%1$d video</item>
+    </plurals>
+    <plurals name="video_count_no_param">
+        <item quantity="other">Videot</item>
+        <item quantity="one">Video</item>
+    </plurals>
+    <plurals name="we_found_alternate_businesses_with_request_a_quote">
+        <item quantity="other">%2$s ei ole mahdollistanut hinta-arviopyyntöjä Yelpissä. Löysimme kuitenkin %1$s palveluntarjoajaa, jotka saattavat vastata pyyntöösi.</item>
+        <item quantity="one">%2$s ei ole mahdollistanut hinta-arviopyyntöjä Yelpissä. Löysimme kuitenkin %1$s palveluntarjoajan, joka saattaa vastata pyyntöösi.</item>
+    </plurals>
+    <plurals name="we_found_suggested_businesses">
+        <item quantity="other">Löysimme %1$s uutta yritystä, jotka saattavat vastata pyyntöösi.</item>
+        <item quantity="one">Löysimme %1$s uuden yrityksen, joka saattaa vastata pyyntöösi.</item>
+    </plurals>
+    <plurals name="write_review_stars">
+        <item quantity="other">%1$d tähteä</item>
+        <item quantity="one">%1$d tähti</item>
+    </plurals>
+    <plurals name="x_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>%2$s&amp;lt;/b> ja %1$d muuta tykkää tästä</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> ja %1$d muu tykkää tästä</item>
+    </plurals>
+    <plurals name="x_comments">
+        <item quantity="other">%1$d kommenttia</item>
+        <item quantity="one">%1$d kommentti</item>
+    </plurals>
+    <plurals name="x_comments_caps">
+        <item quantity="other">%1$d arvostelua</item>
+        <item quantity="one">%1$d arvostelu</item>
+    </plurals>
+    <plurals name="x_compliments">
+        <item quantity="other">%1$d kehua</item>
+        <item quantity="one">%1$d kehu</item>
+    </plurals>
+    <plurals name="x_feet">
+        <item quantity="other">%1$s jalkaa</item>
+        <item quantity="one">%1$s jalka</item>
+    </plurals>
+    <plurals name="x_feet_away">
+        <item quantity="other">%1$s jalan päässä</item>
+        <item quantity="one">%1$s jalan päässä</item>
+    </plurals>
+    <plurals name="x_feet_short">
+        <item quantity="other">%1$s jalkaa</item>
+        <item quantity="one">%1$s jalkaa</item>
+    </plurals>
+    <plurals name="x_kilometers">
+        <item quantity="other">%1$s kilometriä</item>
+        <item quantity="one">%1$s kilometri</item>
+    </plurals>
+    <plurals name="x_kilometers_away">
+        <item quantity="other">%1$s kilometrin päässä</item>
+        <item quantity="one">%1$s kilometrin päässä</item>
+    </plurals>
+    <plurals name="x_kilometers_short">
+        <item quantity="other">%1$s km</item>
+        <item quantity="one">%1$s km</item>
+    </plurals>
+    <plurals name="x_likes">
+        <item quantity="other">%1$d tykkää</item>
+        <item quantity="one">%1$d tykkää</item>
+    </plurals>
+    <plurals name="x_likes_caps">
+        <item quantity="other">%1$d tykkäystä</item>
+        <item quantity="one">%1$d tykkäys</item>
+    </plurals>
+    <plurals name="x_meters">
+        <item quantity="other">%1$s metriä</item>
+        <item quantity="one">%1$s metri</item>
+    </plurals>
+    <plurals name="x_meters_away">
+        <item quantity="other">%1$s metrin päässä</item>
+        <item quantity="one">%1$s metrin päässä</item>
+    </plurals>
+    <plurals name="x_meters_short">
+        <item quantity="other">%1$s m</item>
+        <item quantity="one">%1$s m</item>
+    </plurals>
+    <plurals name="x_miles">
+        <item quantity="other">%1$s mailia</item>
+        <item quantity="one">%1$s maili</item>
+    </plurals>
+    <plurals name="x_miles_away">
+        <item quantity="other">%1$s mailin päässä</item>
+        <item quantity="one">%1$s mailin päässä</item>
+    </plurals>
+    <plurals name="x_miles_short">
+        <item quantity="other">%1$s mailia</item>
+        <item quantity="one">%1$s mailia</item>
+    </plurals>
+    <plurals name="x_people_like_this">
+        <item quantity="other">%1$d ihmistä tykkää tästä</item>
+        <item quantity="one">%1$d henkilö tykkää tästä</item>
+    </plurals>
+    <plurals name="you_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>Sinä&amp;lt;/b> ja %1$d muuta tykkää tästä</item>
+        <item quantity="one">&amp;lt;b>Sinä&amp;lt;/b> ja %1$d muu tykkää tästä</item>
+    </plurals>
+</resources>

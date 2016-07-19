@@ -1,25 +1,20 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.YelpBusinessReview;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.List;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class bk
-  extends h<Void, Void, List<YelpBusinessReview>>
+  extends c
 {
-  public bk(String paramString, int paramInt1, int paramInt2, j<List<YelpBusinessReview>> paramj)
+  public bk(String paramString, c.a parama)
   {
-    super(ApiRequest.RequestType.GET, "deal/reviews", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
-    addUrlParam("deal_id", paramString);
+    super("event/reminder/disable", parama);
+    b("event_id", paramString);
   }
   
-  public List<YelpBusinessReview> a(JSONObject paramJSONObject)
+  public String toString()
   {
-    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("reviews"), YelpBusinessReview.CREATOR);
+    return "EventDisableReminderRequest";
   }
 }
 

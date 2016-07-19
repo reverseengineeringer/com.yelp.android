@@ -4,13 +4,12 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import com.yelp.android.util.YelpLog;
+import java.lang.reflect.Method;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class JavaScriptEventInterface
 {
-  private static final String LOADING_EVENT_PREFIX = "loader.";
-  private static final String METHOD_LOADER_PREFIX = "onLoader";
   private static final String METHOD_PREFIX = "on";
   private final b mCallback;
   private final Handler mHandler;
@@ -23,19 +22,21 @@ public class JavaScriptEventInterface
   
   private String getMethodName(String paramString)
   {
-    String str;
-    if (paramString.startsWith("loader."))
+    int i = 0;
+    paramString = new StringBuilder(paramString);
+    paramString.replace(0, 1, String.valueOf(Character.toUpperCase(paramString.charAt(0))));
+    while (i < paramString.length())
     {
-      str = "onLoader";
-      paramString = paramString.substring("loader.".length());
+      if (paramString.charAt(i) == '.')
+      {
+        paramString.deleteCharAt(i);
+        if ((i < paramString.length()) && (Character.isLetter(paramString.charAt(i)))) {
+          paramString.replace(i, i + 1, String.valueOf(Character.toUpperCase(paramString.charAt(i))));
+        }
+      }
+      i += 1;
     }
-    for (;;)
-    {
-      paramString = new StringBuilder(paramString);
-      paramString.replace(0, 1, String.valueOf(Character.toUpperCase(paramString.charAt(0))));
-      return str + String.valueOf(paramString);
-      str = "on";
-    }
+    return "on" + String.valueOf(paramString);
   }
   
   @JavascriptInterface
@@ -74,6 +75,36 @@ public class JavaScriptEventInterface
       }
     }
   }
+  
+  private static class a
+    implements Runnable
+  {
+    private final JavaScriptEventInterface.b a;
+    private final Method b;
+    private final JSONObject c;
+    
+    public a(JavaScriptEventInterface.b paramb, Method paramMethod, JSONObject paramJSONObject)
+    {
+      a = paramb;
+      b = paramMethod;
+      c = paramJSONObject;
+    }
+    
+    public void run()
+    {
+      try
+      {
+        b.invoke(a, new Object[] { c });
+        return;
+      }
+      catch (Exception localException)
+      {
+        YelpLog.e(this, "callback failed", localException);
+      }
+    }
+  }
+  
+  public static abstract interface b {}
 }
 
 /* Location:

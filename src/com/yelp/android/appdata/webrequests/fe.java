@@ -1,14 +1,26 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.ReviewDraft;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class fe
-  extends ShareRequest
+  extends b<Void, Void, List<ReviewDraft>>
 {
-  public fe(String paramString, ShareRequest.ShareType paramShareType, i parami)
+  public fe(ApiRequest.b<List<ReviewDraft>> paramb, int paramInt1, int paramInt2)
   {
-    super("/review/share/", parami, paramShareType);
-    addPostParam("review_id", paramString);
+    super(ApiRequest.RequestType.GET, "user/reviews/drafts", paramb);
+    a("limit", paramInt1);
+    a("offset", paramInt2);
+  }
+  
+  public List<ReviewDraft> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("drafts"), ReviewDraft.CREATOR);
   }
 }
 

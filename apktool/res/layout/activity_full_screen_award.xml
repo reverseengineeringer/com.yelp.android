@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="@color/blue_seaweed_surprise_light" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<RelativeLayout android:background="@color/white_cream" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/full_screen_award_layout" android:padding="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/oh_yeah_button_layout">
-        <TextView android:textAppearance="@style/BiggestDarkText" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/full_screen_award_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/first_to_tip_at_business" android:maxLines="3" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/full_screen_award_layout" android:background="@color/blue_seaweed_surprise_light" android:padding="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/share_buttons">
+        <TextView android:textAppearance="@style/DeprecatedTitleText" android:textColor="@color/white" android:ellipsize="end" android:gravity="center" android:id="@id/full_screen_award_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_huge_gap_size" android:text="@string/first_to_tip_at_business" android:maxLines="3" />
         <FrameLayout android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_weight="1.0">
-            <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.1" />
-            <ImageView android:id="@id/full_screen_award_icon" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/reward_firsttip" android:contentDescription="@null" />
+            <ImageView android:id="@id/full_screen_award_starburst_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.1" />
+            <ImageView android:id="@id/full_screen_award_icon" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/reward_baron_baroness" android:contentDescription="@null" />
         </FrameLayout>
-        <TextView android:textAppearance="@style/TitleText" android:textColor="@color/white" android:gravity="center" android:id="@id/full_screen_award_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/youre_the_first_to_tip" />
-        <TextView android:textAppearance="@style/HeadlineWhiteText" android:gravity="center" android:id="@id/full_screen_award_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:text="@string/first_to_tip_congratulations_3" />
+        <TextView android:textAppearance="@style/SectionText" android:textColor="@color/white" android:gravity="center" android:id="@id/full_screen_award_subtitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/youre_the_first_to_tip" />
+        <TextView android:textAppearance="@style/DeprecatedSubtitleText" android:gravity="center" android:id="@id/full_screen_award_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginBottom="@dimen/default_large_gap_size" android:text="@string/first_to_tip_congratulations_3" />
     </LinearLayout>
-    <LinearLayout android:id="@id/oh_yeah_button_layout" android:background="@color/white_cream" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+    <LinearLayout android:id="@id/oh_yeah_button_layout" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
         <Button android:id="@id/oh_yeah_button" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/oh_yeah" />
+    </LinearLayout>
+    <LinearLayout android:id="@id/share_buttons" android:background="@color/white_cream" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_above="@id/oh_yeah_button_layout" android:layout_centerHorizontal="true">
+        <ToggleButton android:id="@id/share_twitter_toggle" android:background="@drawable/share_twitter_toggle" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:textOn="" android:textOff="" android:selectable="true" />
+        <ToggleButton android:id="@id/share_facebook_toggle" android:background="@drawable/share_facebook_toggle" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:textOn="" android:textOff="" android:selectable="true" />
     </LinearLayout>
 </RelativeLayout>

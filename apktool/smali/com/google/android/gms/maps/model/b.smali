@@ -1,50 +1,106 @@
-.class public Lcom/google/android/gms/maps/model/b;
+.class public final Lcom/google/android/gms/maps/model/b;
 .super Ljava/lang/Object;
 
 
+# static fields
+.field private static a:Lcom/yelp/android/bk/b;
+
+
 # direct methods
-.method static a(Lcom/google/android/gms/maps/model/CameraPosition;Landroid/os/Parcel;I)V
-    .locals 4
+.method public static a(I)Lcom/google/android/gms/maps/model/a;
+    .locals 2
 
-    invoke-static {p1}, Lcom/google/android/gms/common/internal/safeparcel/b;->H(Landroid/os/Parcel;)I
+    :try_start_0
+    new-instance v0, Lcom/google/android/gms/maps/model/a;
 
-    move-result v0
+    invoke-static {}, Lcom/google/android/gms/maps/model/b;->a()Lcom/yelp/android/bk/b;
 
-    const/4 v1, 0x1
+    move-result-object v1
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/model/CameraPosition;->getVersionCode()I
+    invoke-interface {v1, p0}, Lcom/yelp/android/bk/b;->a(I)Lcom/google/android/gms/dynamic/c;
 
-    move-result v2
+    move-result-object v1
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->c(Landroid/os/Parcel;II)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/model/a;-><init>(Lcom/google/android/gms/dynamic/c;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v1, 0x2
+    return-object v0
 
-    iget-object v2, p0, Lcom/google/android/gms/maps/model/CameraPosition;->target:Lcom/google/android/gms/maps/model/LatLng;
+    :catch_0
+    move-exception v0
 
-    const/4 v3, 0x0
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
 
-    invoke-static {p1, v1, v2, p2, v3}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;ILandroid/os/Parcelable;IZ)V
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
 
-    const/4 v1, 0x3
+    throw v1
+.end method
 
-    iget v2, p0, Lcom/google/android/gms/maps/model/CameraPosition;->zoom:F
+.method public static a(Landroid/graphics/Bitmap;)Lcom/google/android/gms/maps/model/a;
+    .locals 2
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IF)V
+    :try_start_0
+    new-instance v0, Lcom/google/android/gms/maps/model/a;
 
-    const/4 v1, 0x4
+    invoke-static {}, Lcom/google/android/gms/maps/model/b;->a()Lcom/yelp/android/bk/b;
 
-    iget v2, p0, Lcom/google/android/gms/maps/model/CameraPosition;->tilt:F
+    move-result-object v1
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IF)V
+    invoke-interface {v1, p0}, Lcom/yelp/android/bk/b;->a(Landroid/graphics/Bitmap;)Lcom/google/android/gms/dynamic/c;
 
-    const/4 v1, 0x5
+    move-result-object v1
 
-    iget v2, p0, Lcom/google/android/gms/maps/model/CameraPosition;->bearing:F
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/model/a;-><init>(Lcom/google/android/gms/dynamic/c;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-static {p1, v1, v2}, Lcom/google/android/gms/common/internal/safeparcel/b;->a(Landroid/os/Parcel;IF)V
+    return-object v0
 
-    invoke-static {p1, v0}, Lcom/google/android/gms/common/internal/safeparcel/b;->H(Landroid/os/Parcel;I)V
+    :catch_0
+    move-exception v0
 
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method private static a()Lcom/yelp/android/bk/b;
+    .locals 2
+
+    sget-object v0, Lcom/google/android/gms/maps/model/b;->a:Lcom/yelp/android/bk/b;
+
+    const-string/jumbo v1, "IBitmapDescriptorFactory is not initialized"
+
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/zzx;->zzb(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/bk/b;
+
+    return-object v0
+.end method
+
+.method public static a(Lcom/yelp/android/bk/b;)V
+    .locals 1
+
+    sget-object v0, Lcom/google/android/gms/maps/model/b;->a:Lcom/yelp/android/bk/b;
+
+    if-eqz v0, :cond_0
+
+    :goto_0
     return-void
+
+    :cond_0
+    invoke-static {p0}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/bk/b;
+
+    sput-object v0, Lcom/google/android/gms/maps/model/b;->a:Lcom/yelp/android/bk/b;
+
+    goto :goto_0
 .end method

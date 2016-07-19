@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/FacebookConnectManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4009
+    name = "FbPermissionSet"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -47,7 +56,7 @@
 
     const/4 v5, 0x0
 
-    .line 74
+    .line 68
     new-instance v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
     const-string/jumbo v1, "DEFAULT_READ"
@@ -66,7 +75,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->DEFAULT_READ:Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
-    .line 76
+    .line 69
     new-instance v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
     const-string/jumbo v1, "DEFAULT_READ_PUBLISH"
@@ -87,7 +96,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->DEFAULT_READ_PUBLISH:Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
-    .line 78
+    .line 72
     new-instance v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
     const-string/jumbo v1, "DEFAULT_USER_FRIEND"
@@ -110,7 +119,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->DEFAULT_USER_FRIEND:Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
-    .line 80
+    .line 77
     new-instance v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet$1;
 
     const-string/jumbo v1, "DEFAULT_EMAIL_BIRTHDAY_USER_FRIEND"
@@ -141,7 +150,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->DEFAULT_EMAIL_BIRTHDAY_USER_FRIEND:Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
-    .line 73
+    .line 67
     new-array v0, v9, [Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
     sget-object v1, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->DEFAULT_READ:Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
@@ -178,63 +187,71 @@
     .end annotation
 
     .prologue
-    .line 96
+    .line 100
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 97
+    .line 101
     iput-object p3, p0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->mReadPermissions:[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;
 
-    .line 98
+    .line 102
     iput-object p4, p0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->mPublishPermissions:[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;
 
-    .line 99
+    .line 103
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;I[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;Lcom/yelp/android/ui/activities/fc;)V
+.method synthetic constructor <init>(Ljava/lang/String;I[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;Lcom/yelp/android/ui/activities/FacebookConnectManager$1;)V
     .locals 0
 
     .prologue
-    .line 73
+    .line 67
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;-><init>(Ljava/lang/String;I[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;)V
 
     return-void
 .end method
 
-.method private allPermissionsGranted(Lcom/facebook/Session;[Ljava/lang/String;)Z
-    .locals 4
+.method private allPermissionsGranted([Ljava/lang/String;)Z
+    .locals 5
 
     .prologue
     const/4 v0, 0x0
 
-    .line 122
-    array-length v2, p2
+    .line 126
+    array-length v2, p1
 
     move v1, v0
 
     :goto_0
     if-ge v1, v2, :cond_1
 
-    aget-object v3, p2, v1
+    aget-object v3, p1, v1
 
-    .line 123
-    invoke-virtual {p1, v3}, Lcom/facebook/Session;->isPermissionGranted(Ljava/lang/String;)Z
+    .line 127
+    invoke-static {}, Lcom/facebook/AccessToken;->a()Lcom/facebook/AccessToken;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/facebook/AccessToken;->d()Ljava/util/Set;
+
+    move-result-object v4
+
+    invoke-interface {v4, v3}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
-    .line 127
+    .line 131
     :goto_1
     return v0
 
-    .line 122
+    .line 126
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 127
+    .line 131
     :cond_1
     const/4 v0, 0x1
 
@@ -245,12 +262,12 @@
     .locals 3
 
     .prologue
-    .line 131
+    .line 135
     array-length v0, p1
 
     new-array v1, v0, [Ljava/lang/String;
 
-    .line 132
+    .line 136
     const/4 v0, 0x0
 
     :goto_0
@@ -258,7 +275,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 133
+    .line 137
     aget-object v2, p1, v0
 
     invoke-virtual {v2}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;->toString()Ljava/lang/String;
@@ -267,12 +284,12 @@
 
     aput-object v2, v1, v0
 
-    .line 132
+    .line 136
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 135
+    .line 139
     :cond_0
     return-object v1
 .end method
@@ -281,7 +298,7 @@
     .locals 1
 
     .prologue
-    .line 73
+    .line 67
     const-class v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -297,7 +314,7 @@
     .locals 1
 
     .prologue
-    .line 73
+    .line 67
     sget-object v0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->$VALUES:[Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
 
     invoke-virtual {v0}, [Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->clone()Ljava/lang/Object;
@@ -311,32 +328,32 @@
 
 
 # virtual methods
-.method public allPublishPermissionsGranted(Lcom/facebook/Session;)Z
+.method public allPublishPermissionsGranted()Z
     .locals 1
 
     .prologue
-    .line 114
+    .line 118
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->getPublishPermissions()[Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->allPermissionsGranted(Lcom/facebook/Session;[Ljava/lang/String;)Z
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->allPermissionsGranted([Ljava/lang/String;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public allReadPermissionsGranted(Lcom/facebook/Session;)Z
+.method public allReadPermissionsGranted()Z
     .locals 1
 
     .prologue
-    .line 110
+    .line 114
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->getReadPermissions()[Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->allPermissionsGranted(Lcom/facebook/Session;[Ljava/lang/String;)Z
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->allPermissionsGranted([Ljava/lang/String;)Z
 
     move-result v0
 
@@ -347,7 +364,7 @@
     .locals 1
 
     .prologue
-    .line 106
+    .line 110
     iget-object v0, p0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->mPublishPermissions:[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->getPermissionsStrings([Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;)[Ljava/lang/String;
@@ -361,7 +378,7 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 106
     iget-object v0, p0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->mReadPermissions:[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->getPermissionsStrings([Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;)[Ljava/lang/String;
@@ -375,7 +392,7 @@
     .locals 2
 
     .prologue
-    .line 118
+    .line 122
     iget-object v0, p0, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->mPublishPermissions:[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;
 
     invoke-static {}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->h()[Lcom/yelp/android/ui/activities/FacebookConnectManager$FacebookPermission;

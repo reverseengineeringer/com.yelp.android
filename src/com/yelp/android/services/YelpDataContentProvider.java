@@ -8,7 +8,7 @@ import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import com.yelp.android.util.ak;
+import com.yelp.android.util.v;
 import java.util.Collections;
 
 public class YelpDataContentProvider
@@ -28,7 +28,10 @@ public class YelpDataContentProvider
   
   public Uri insert(Uri paramUri, ContentValues paramContentValues)
   {
-    if ((!ak.a(paramUri, "ydid")) || (!paramContentValues.containsKey("ydid")) || (paramContentValues.size() != 1)) {
+    if (!b.a(getContext().getPackageManager())) {
+      return null;
+    }
+    if ((!v.a(paramUri, "ydid")) || (!paramContentValues.containsKey("ydid")) || (paramContentValues.size() != 1)) {
       return null;
     }
     paramContentValues = paramContentValues.getAsString("ydid");
@@ -43,10 +46,13 @@ public class YelpDataContentProvider
   
   public Cursor query(Uri paramUri, String[] paramArrayOfString1, String paramString1, String[] paramArrayOfString2, String paramString2)
   {
-    if (!ak.a(paramUri, "ydid")) {}
+    if (!b.a(getContext().getPackageManager())) {}
     do
     {
-      return null;
+      do
+      {
+        return null;
+      } while (!v.a(paramUri, "ydid"));
       paramUri = getContext().getSharedPreferences("DataContentProvider", 4);
     } while (!paramUri.contains("ydid"));
     paramUri = paramUri.getString("ydid", null);

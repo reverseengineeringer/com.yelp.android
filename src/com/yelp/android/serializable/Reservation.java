@@ -1,33 +1,18 @@
 package com.yelp.android.serializable;
 
 import android.text.TextUtils;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 public class Reservation
   extends _Reservation
   implements Comparable<Reservation>
 {
-  public static final ah<Reservation> CREATOR = new cj();
+  public static final a<Reservation> CREATOR = new Reservation.1();
   
-  public static DateFormat getDatestampForDisplay(String paramString)
+  public int a(Reservation paramReservation)
   {
-    return getDatestampForDisplay(new SimpleDateFormat(paramString, Locale.getDefault()));
-  }
-  
-  public static DateFormat getDatestampForDisplay(DateFormat paramDateFormat)
-  {
-    paramDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-    return paramDateFormat;
-  }
-  
-  public int compareTo(Reservation paramReservation)
-  {
-    Date localDate = mDatestamp;
-    paramReservation = mDatestamp;
+    Date localDate = a;
+    paramReservation = a;
     if (localDate == paramReservation) {
       return 0;
     }
@@ -43,6 +28,26 @@ public class Reservation
     throw new IllegalStateException("What does it mean? What does it mean?");
   }
   
+  public void a(int paramInt)
+  {
+    k = paramInt;
+  }
+  
+  public void a(String paramString)
+  {
+    i = paramString;
+  }
+  
+  public boolean a()
+  {
+    return !TextUtils.isEmpty(i);
+  }
+  
+  public boolean b()
+  {
+    return e();
+  }
+  
   public boolean equals(Object paramObject)
   {
     if (!(paramObject instanceof Reservation)) {}
@@ -50,38 +55,8 @@ public class Reservation
     {
       return false;
       paramObject = (Reservation)paramObject;
-    } while ((mDatestamp == null) || (!mDatestamp.equals(mDatestamp)) || (!mConfirmationNumber.equals(mConfirmationNumber)));
+    } while ((a == null) || (!a.equals(a)) || (!g.equals(g)));
     return true;
-  }
-  
-  public boolean hasCreditCardHold()
-  {
-    return getCreditCardHold();
-  }
-  
-  public boolean isLocked()
-  {
-    return !TextUtils.isEmpty(mTransactionLockId);
-  }
-  
-  public void setConfirmationNumber(String paramString)
-  {
-    mConfirmationNumber = paramString;
-  }
-  
-  public void setPartySize(int paramInt)
-  {
-    mPartySize = paramInt;
-  }
-  
-  public void setQueryId(String paramString)
-  {
-    mQueryId = paramString;
-  }
-  
-  public void setTransactionLockId(String paramString)
-  {
-    mTransactionLockId = paramString;
   }
 }
 

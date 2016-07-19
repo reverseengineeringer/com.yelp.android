@@ -1,198 +1,119 @@
-.class Lcom/yelp/android/ui/activities/deals/d;
-.super Lcom/yelp/android/appdata/webrequests/j;
-.source "ActivityDealDetail.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/yelp/android/appdata/webrequests/j",
-        "<",
-        "Lcom/yelp/android/appdata/webrequests/bg;",
-        ">;"
-    }
-.end annotation
+.class public Lcom/yelp/android/ui/activities/deals/d;
+.super Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;
+.source "UserQuantityView.java"
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
+.field private final b:Lcom/yelp/android/serializable/GiftRecipient;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 2
 
     .prologue
-    .line 558
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
+    .line 25
+    const/4 v0, 0x0
 
-    invoke-direct {p0}, Lcom/yelp/android/appdata/webrequests/j;-><init>()V
+    const v1, 0x7f0101bb
 
+    invoke-direct {p0, p1, v0, v1}, Lcom/yelp/android/ui/activities/deals/d;-><init>(Landroid/content/Context;Lcom/yelp/android/serializable/GiftRecipient;I)V
+
+    .line 26
     return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/serializable/GiftRecipient;)V
+    .locals 1
+
+    .prologue
+    .line 21
+    const v0, 0x7f0101ba
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/activities/deals/d;-><init>(Landroid/content/Context;Lcom/yelp/android/serializable/GiftRecipient;I)V
+
+    .line 22
+    return-void
+.end method
+
+.method private constructor <init>(Landroid/content/Context;Lcom/yelp/android/serializable/GiftRecipient;I)V
+    .locals 5
+
+    .prologue
+    const/4 v1, 0x0
+
+    const/4 v4, 0x0
+
+    .line 29
+    invoke-direct {p0, p1, v1, p3}, Lcom/yelp/android/ui/activities/deals/DealQuantityViewBase;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    .line 30
+    iput-object p2, p0, Lcom/yelp/android/ui/activities/deals/d;->b:Lcom/yelp/android/serializable/GiftRecipient;
+
+    .line 31
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->b:Lcom/yelp/android/serializable/GiftRecipient;
+
+    if-nez v0, :cond_0
+
+    .line 32
+    const v0, 0x7f0702e9
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/deals/d;->setText(Ljava/lang/CharSequence;)V
+
+    .line 41
+    :goto_0
+    return-void
+
+    .line 34
+    :cond_0
+    sget-object v0, Lcom/yelp/android/b$a;->DealQuantityBaseView:[I
+
+    invoke-virtual {p1, v1, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    .line 37
+    invoke-virtual {v0, v4}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 38
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/deals/d;->b:Lcom/yelp/android/serializable/GiftRecipient;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/GiftRecipient;->e()Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v2, v4
+
+    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/deals/d;->setText(Ljava/lang/CharSequence;)V
+
+    .line 39
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/bg;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/bg;",
-            ")V"
-        }
-    .end annotation
-
-    .prologue
-    .line 574
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->a(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;)Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/bg;->b()Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->a(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;)Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 575
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/bg;->b()Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-static {v2}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->a(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;)Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    .line 577
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/bg;->b()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->a(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;Ljava/util/List;)Ljava/util/List;
-
-    .line 578
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/bg;->a()Lcom/yelp/android/serializable/MapSpan;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->a(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;Lcom/yelp/android/serializable/MapSpan;)Lcom/yelp/android/serializable/MapSpan;
-
-    .line 579
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->e(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;)V
-
-    .line 581
-    return-void
-.end method
-
-.method public a()Z
+.method public getRecipient()Lcom/yelp/android/serializable/GiftRecipient;
     .locals 1
 
     .prologue
-    .line 562
-    const/4 v0, 0x1
+    .line 44
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->b:Lcom/yelp/android/serializable/GiftRecipient;
 
-    return v0
-.end method
-
-.method public onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ")V"
-        }
-    .end annotation
-
-    .prologue
-    const v3, 0x7f0c0122
-
-    .line 567
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->d(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;)Landroid/util/SparseArray;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/deals/i;
-
-    invoke-static {p2}, Lcom/yelp/android/util/ErrorType;->getTypeFromException(Lcom/yelp/android/appdata/webrequests/YelpException;)Lcom/yelp/android/util/ErrorType;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-virtual {v1, v2}, Lcom/yelp/android/util/ErrorType;->buildAdapter(Landroid/content/Context;)Landroid/widget/BaseAdapter;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/yelp/android/ui/activities/deals/i;->a:Landroid/widget/BaseAdapter;
-
-    .line 569
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/deals/d;->a:Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;->d(Lcom/yelp/android/ui/activities/deals/ActivityDealDetail;)Landroid/util/SparseArray;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/deals/i;
-
-    const/4 v1, 0x0
-
-    iput-object v1, v0, Lcom/yelp/android/ui/activities/deals/i;->b:Landroid/view/View;
-
-    .line 570
-    return-void
-.end method
-
-.method public synthetic onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
-    .locals 0
-
-    .prologue
-    .line 558
-    check-cast p2, Lcom/yelp/android/appdata/webrequests/bg;
-
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/deals/d;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/bg;)V
-
-    return-void
+    return-object v0
 .end method

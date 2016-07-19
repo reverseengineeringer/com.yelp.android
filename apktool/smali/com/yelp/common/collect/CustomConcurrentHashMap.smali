@@ -3,6 +3,20 @@
 .source "CustomConcurrentHashMap.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$SimpleInternalEntry;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$ComputingImpl;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$a;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$b;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$c;,
+        Lcom/yelp/common/collect/CustomConcurrentHashMap$Builder;
+    }
+.end annotation
+
+
 # direct methods
 .method static synthetic a(I)I
     .locals 1

@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/bumptech/glide/request/GenericRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x401a
+    name = "Status"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -18,6 +27,8 @@
 .field private static final synthetic $VALUES:[Lcom/bumptech/glide/request/GenericRequest$Status;
 
 .field public static final enum CANCELLED:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+.field public static final enum CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
 .field public static final enum COMPLETE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
@@ -106,16 +117,27 @@
     .line 54
     new-instance v0, Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    const-string/jumbo v1, "PAUSED"
+    const-string/jumbo v1, "CLEARED"
 
     const/4 v2, 0x6
+
+    invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/request/GenericRequest$Status;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    .line 56
+    new-instance v0, Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    const-string/jumbo v1, "PAUSED"
+
+    const/4 v2, 0x7
 
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/request/GenericRequest$Status;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->PAUSED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     .line 40
-    const/4 v0, 0x7
+    const/16 v0, 0x8
 
     new-array v0, v0, [Lcom/bumptech/glide/request/GenericRequest$Status;
 
@@ -146,6 +168,12 @@
     aput-object v2, v0, v1
 
     const/4 v1, 0x6
+
+    sget-object v2, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
 
     sget-object v2, Lcom/bumptech/glide/request/GenericRequest$Status;->PAUSED:Lcom/bumptech/glide/request/GenericRequest$Status;
 

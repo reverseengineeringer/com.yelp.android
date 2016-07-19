@@ -1,6 +1,15 @@
 .class public abstract Lcom/yelp/android/appdata/webrequests/ShareRequest;
-.super Lcom/yelp/android/av/h;
+.super Lcom/yelp/android/appdata/webrequests/core/c;
 .source "ShareRequest.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/ShareRequest$1;,
+        Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+    }
+.end annotation
 
 
 # instance fields
@@ -8,7 +17,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/av/i;Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;)V
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;)V
     .locals 2
 
     .prologue
@@ -33,7 +42,7 @@
 
     move-result-object v0
 
-    invoke-direct {p0, v0, p2}, Lcom/yelp/android/av/h;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     .line 40
     iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/ShareRequest;->a:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;

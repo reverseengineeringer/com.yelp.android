@@ -1,11 +1,24 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
+import android.util.Base64;
 
-public abstract interface jr
-  extends IInterface
+public final class jr
 {
-  public abstract void cancel();
+  public static String a(byte[] paramArrayOfByte)
+  {
+    if (paramArrayOfByte == null) {
+      return null;
+    }
+    return Base64.encodeToString(paramArrayOfByte, 0);
+  }
+  
+  public static String b(byte[] paramArrayOfByte)
+  {
+    if (paramArrayOfByte == null) {
+      return null;
+    }
+    return Base64.encodeToString(paramArrayOfByte, 10);
+  }
 }
 
 /* Location:

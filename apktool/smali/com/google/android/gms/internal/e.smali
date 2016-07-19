@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/gms/internal/m;
+.implements Lcom/google/android/gms/internal/k;
 
 
 # direct methods
@@ -38,6 +38,11 @@
 
 .method public a(Ljava/lang/String;Z)[B
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
 
     if-eqz p2, :cond_0
 

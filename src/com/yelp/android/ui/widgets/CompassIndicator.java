@@ -14,12 +14,12 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.LocationService;
-import com.yelp.android.appdata.k;
-import com.yelp.android.appdata.m;
+import com.yelp.android.appdata.e;
+import com.yelp.android.appdata.e.a;
 
 public class CompassIndicator
   extends ImageView
-  implements m
+  implements e.a
 {
   private static final double a = Math.toRadians(45.0D);
   private static Bitmap b;
@@ -44,7 +44,7 @@ public class CompassIndicator
   {
     super(paramContext, paramAttributeSet, paramInt);
     if (b == null) {
-      b = ((BitmapDrawable)getContext().getResources().getDrawable(2130838179)).getBitmap();
+      b = ((BitmapDrawable)getContext().getResources().getDrawable(2130838446)).getBitmap();
     }
     e = new Location("");
     d = ((WindowManager)getContext().getSystemService("window")).getDefaultDisplay();
@@ -56,11 +56,12 @@ public class CompassIndicator
   
   public void a(double paramDouble)
   {
-    if ((Double.isNaN(c)) || (Math.abs(c - paramDouble) >= 5.0D))
-    {
-      c = paramDouble;
-      invalidate();
+    if (Double.isNaN(paramDouble)) {}
+    while ((!Double.isNaN(c)) && (Math.abs(c - paramDouble) < 5.0D)) {
+      return;
     }
+    c = paramDouble;
+    invalidate();
   }
   
   public void a(double paramDouble1, double paramDouble2, String paramString)
@@ -72,7 +73,7 @@ public class CompassIndicator
   protected void onDraw(Canvas paramCanvas)
   {
     int i = 0;
-    Location localLocation = AppData.b().n().c();
+    Location localLocation = AppData.b().r().c();
     if (localLocation == null) {
       return;
     }
@@ -104,7 +105,7 @@ public class CompassIndicator
   {
     super.setVisibility(paramInt);
     if ((paramInt == 0) && (!h)) {
-      h = AppData.b().t().a(this);
+      h = AppData.b().y().a(this);
     }
   }
 }

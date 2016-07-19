@@ -4,33 +4,38 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
 import com.google.android.gms.maps.MapView;
-import com.yelp.android.ui.map.g;
-import com.yelp.android.ui.map.i;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.map.f;
+import com.yelp.android.ui.map.f.a;
+import com.yelp.android.ui.util.as;
 
 @SuppressLint({"NewApi"})
 public abstract class YelpMapActivity
   extends YelpActivity
-  implements n, i
+  implements b.d, f.a
 {
-  private g a;
+  private f a;
   
   public void a(MapView paramMapView)
   {
     a.a(paramMapView);
   }
   
+  protected final boolean m()
+  {
+    return a.e();
+  }
+  
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = new g(this, this);
+    a = new f(this, this);
   }
   
   @Deprecated
   protected Dialog onCreateDialog(int paramInt, Bundle paramBundle)
   {
-    if (paramInt == 1022) {
-      return cr.a(this, paramBundle.getInt("extra.services_not_available"));
+    if (paramInt == 1026) {
+      return as.a(this, paramBundle.getInt("extra.services_not_available"));
     }
     return super.onCreateDialog(paramInt, paramBundle);
   }
@@ -63,11 +68,6 @@ public abstract class YelpMapActivity
   {
     super.onSaveInstanceState(paramBundle);
     a.a(paramBundle);
-  }
-  
-  protected final boolean p()
-  {
-    return a.e();
   }
 }
 

@@ -4,123 +4,72 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.yelp.android.az.b.a;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.UUID;
 
 public abstract class h
   implements g
 {
-  protected MotionEvent kw;
-  protected DisplayMetrics kx;
-  protected m ky;
-  private n kz;
+  protected static GoogleApiClient i;
+  protected MotionEvent a;
+  protected LinkedList<MotionEvent> b = new LinkedList();
+  protected long c = 0L;
+  protected long d = 0L;
+  protected long e = 0L;
+  protected long f = 0L;
+  protected DisplayMetrics g;
+  protected k h;
+  private boolean j = false;
   
-  protected h(Context paramContext, m paramm, n paramn)
+  protected h(Context paramContext, k paramk)
   {
-    ky = paramm;
-    kz = paramn;
+    h = paramk;
     try
     {
-      kx = paramContext.getResources().getDisplayMetrics();
+      g = paramContext.getResources().getDisplayMetrics();
       return;
     }
     catch (UnsupportedOperationException paramContext)
     {
-      kx = new DisplayMetrics();
-      kx.density = 1.0F;
+      g = new DisplayMetrics();
+      g.density = 1.0F;
     }
   }
   
-  /* Error */
   private String a(Context paramContext, String paramString, boolean paramBoolean)
   {
-    // Byte code:
-    //   0: aload_0
-    //   1: monitorenter
-    //   2: aload_0
-    //   3: invokespecial 58	com/google/android/gms/internal/h:t	()V
-    //   6: iload_3
-    //   7: ifeq +27 -> 34
-    //   10: aload_0
-    //   11: aload_1
-    //   12: invokevirtual 62	com/google/android/gms/internal/h:c	(Landroid/content/Context;)V
-    //   15: aload_0
-    //   16: invokespecial 66	com/google/android/gms/internal/h:u	()[B
-    //   19: astore_1
-    //   20: aload_0
-    //   21: monitorexit
-    //   22: aload_1
-    //   23: arraylength
-    //   24: ifne +30 -> 54
-    //   27: iconst_5
-    //   28: invokestatic 72	java/lang/Integer:toString	(I)Ljava/lang/String;
-    //   31: astore_1
-    //   32: aload_1
-    //   33: areturn
-    //   34: aload_0
-    //   35: aload_1
-    //   36: invokevirtual 75	com/google/android/gms/internal/h:b	(Landroid/content/Context;)V
-    //   39: goto -24 -> 15
-    //   42: astore_1
-    //   43: aload_0
-    //   44: monitorexit
-    //   45: aload_1
-    //   46: athrow
-    //   47: astore_1
-    //   48: bipush 7
-    //   50: invokestatic 72	java/lang/Integer:toString	(I)Ljava/lang/String;
-    //   53: areturn
-    //   54: aload_0
-    //   55: aload_1
-    //   56: aload_2
-    //   57: invokevirtual 78	com/google/android/gms/internal/h:a	([BLjava/lang/String;)Ljava/lang/String;
-    //   60: astore_1
-    //   61: aload_1
-    //   62: areturn
-    //   63: astore_1
-    //   64: bipush 7
-    //   66: invokestatic 72	java/lang/Integer:toString	(I)Ljava/lang/String;
-    //   69: areturn
-    //   70: astore_1
-    //   71: iconst_3
-    //   72: invokestatic 72	java/lang/Integer:toString	(I)Ljava/lang/String;
-    //   75: areturn
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	76	0	this	h
-    //   0	76	1	paramContext	Context
-    //   0	76	2	paramString	String
-    //   0	76	3	paramBoolean	boolean
-    // Exception table:
-    //   from	to	target	type
-    //   2	6	42	finally
-    //   10	15	42	finally
-    //   15	22	42	finally
-    //   34	39	42	finally
-    //   43	45	42	finally
-    //   0	2	47	java/security/NoSuchAlgorithmException
-    //   22	32	47	java/security/NoSuchAlgorithmException
-    //   45	47	47	java/security/NoSuchAlgorithmException
-    //   54	61	47	java/security/NoSuchAlgorithmException
-    //   0	2	63	java/io/UnsupportedEncodingException
-    //   22	32	63	java/io/UnsupportedEncodingException
-    //   45	47	63	java/io/UnsupportedEncodingException
-    //   54	61	63	java/io/UnsupportedEncodingException
-    //   0	2	70	java/io/IOException
-    //   22	32	70	java/io/IOException
-    //   45	47	70	java/io/IOException
-    //   54	61	70	java/io/IOException
-  }
-  
-  private void t()
-  {
-    kz.reset();
-  }
-  
-  private byte[] u()
-  {
-    return kz.D();
+    if (paramBoolean) {}
+    try
+    {
+      paramContext = c(paramContext);
+      j = true;
+      while ((paramContext == null) || (paramContext.g() == 0))
+      {
+        return Integer.toString(5);
+        paramContext = b(paramContext);
+      }
+      paramContext = a(paramContext, paramString);
+      return paramContext;
+    }
+    catch (NoSuchAlgorithmException paramContext)
+    {
+      return Integer.toString(7);
+    }
+    catch (UnsupportedEncodingException paramContext)
+    {
+      return Integer.toString(7);
+    }
+    catch (IOException paramContext) {}
+    return Integer.toString(3);
   }
   
   public String a(Context paramContext)
@@ -133,14 +82,40 @@ public abstract class h
     return a(paramContext, paramString, true);
   }
   
+  protected String a(b.a parama, String paramString)
+    throws NoSuchAlgorithmException, UnsupportedEncodingException, IOException
+  {
+    return a(lq.a(parama), paramString);
+  }
+  
+  protected String a(String paramString)
+  {
+    Object localObject = paramString;
+    if (paramString != null)
+    {
+      localObject = paramString;
+      if (paramString.matches("^[a-fA-F0-9]{8}-([a-fA-F0-9]{4}-){3}[a-fA-F0-9]{12}$"))
+      {
+        paramString = UUID.fromString(paramString);
+        localObject = new byte[16];
+        ByteBuffer localByteBuffer = ByteBuffer.wrap((byte[])localObject);
+        localByteBuffer.putLong(paramString.getMostSignificantBits());
+        localByteBuffer.putLong(paramString.getLeastSignificantBits());
+        localObject = h.a((byte[])localObject, true);
+      }
+    }
+    return (String)localObject;
+  }
+  
   String a(byte[] paramArrayOfByte, String paramString)
+    throws NoSuchAlgorithmException, UnsupportedEncodingException, IOException
   {
     Object localObject = paramArrayOfByte;
     if (paramArrayOfByte.length > 239)
     {
-      t();
-      a(20, 1L);
-      localObject = u();
+      paramArrayOfByte = new b.a();
+      t = Long.valueOf(1L);
+      localObject = lq.a(paramArrayOfByte);
     }
     if (localObject.length < 239)
     {
@@ -158,51 +133,69 @@ public abstract class h
       if ((paramString != null) && (paramString.length() > 0)) {
         a(paramString, (byte[])localObject);
       }
-      return ky.a((byte[])localObject, true);
+      return h.a((byte[])localObject, true);
     }
   }
   
   public void a(int paramInt1, int paramInt2, int paramInt3)
   {
-    if (kw != null) {
-      kw.recycle();
+    if (a != null) {
+      a.recycle();
     }
-    kw = MotionEvent.obtain(0L, paramInt3, 1, paramInt1 * kx.density, paramInt2 * kx.density, 0.0F, 0.0F, 0, 0.0F, 0.0F, 0, 0);
-  }
-  
-  protected void a(int paramInt, long paramLong)
-  {
-    kz.b(paramInt, paramLong);
-  }
-  
-  protected void a(int paramInt, String paramString)
-  {
-    kz.b(paramInt, paramString);
+    a = MotionEvent.obtain(0L, paramInt3, 1, paramInt1 * g.density, paramInt2 * g.density, 0.0F, 0.0F, 0, 0.0F, 0.0F, 0, 0);
   }
   
   public void a(MotionEvent paramMotionEvent)
   {
-    if (paramMotionEvent.getAction() == 1)
+    if (j)
     {
-      if (kw != null) {
-        kw.recycle();
+      f = 0L;
+      e = 0L;
+      d = 0L;
+      c = 0L;
+      Iterator localIterator = b.iterator();
+      while (localIterator.hasNext()) {
+        ((MotionEvent)localIterator.next()).recycle();
       }
-      kw = MotionEvent.obtain(paramMotionEvent);
+      b.clear();
+      a = null;
+      j = false;
     }
+    switch (paramMotionEvent.getAction())
+    {
+    default: 
+      return;
+    case 1: 
+      a = MotionEvent.obtain(paramMotionEvent);
+      b.add(a);
+      if (b.size() > 6) {
+        ((MotionEvent)b.remove()).recycle();
+      }
+      e += 1L;
+      return;
+    case 0: 
+      c += 1L;
+      return;
+    case 3: 
+      f += 1L;
+      return;
+    }
+    d += paramMotionEvent.getHistorySize() + 1;
   }
   
   void a(String paramString, byte[] paramArrayOfByte)
+    throws UnsupportedEncodingException
   {
     String str = paramString;
     if (paramString.length() > 32) {
       str = paramString.substring(0, 32);
     }
-    new qn(str.getBytes("UTF-8")).o(paramArrayOfByte);
+    new lj(str.getBytes("UTF-8")).a(paramArrayOfByte);
   }
   
-  protected abstract void b(Context paramContext);
+  protected abstract b.a b(Context paramContext);
   
-  protected abstract void c(Context paramContext);
+  protected abstract b.a c(Context paramContext);
 }
 
 /* Location:

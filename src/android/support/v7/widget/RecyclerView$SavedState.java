@@ -8,13 +8,24 @@ import android.view.View.BaseSavedState;
 class RecyclerView$SavedState
   extends View.BaseSavedState
 {
-  public static final Parcelable.Creator<SavedState> CREATOR = new by();
-  Parcelable mLayoutState;
+  public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+  {
+    public RecyclerView.SavedState a(Parcel paramAnonymousParcel)
+    {
+      return new RecyclerView.SavedState(paramAnonymousParcel);
+    }
+    
+    public RecyclerView.SavedState[] a(int paramAnonymousInt)
+    {
+      return new RecyclerView.SavedState[paramAnonymousInt];
+    }
+  };
+  Parcelable a;
   
   RecyclerView$SavedState(Parcel paramParcel)
   {
     super(paramParcel);
-    mLayoutState = paramParcel.readParcelable(br.class.getClassLoader());
+    a = paramParcel.readParcelable(RecyclerView.i.class.getClassLoader());
   }
   
   RecyclerView$SavedState(Parcelable paramParcelable)
@@ -22,15 +33,15 @@ class RecyclerView$SavedState
     super(paramParcelable);
   }
   
-  private void copyFrom(SavedState paramSavedState)
+  private void a(SavedState paramSavedState)
   {
-    mLayoutState = mLayoutState;
+    a = a;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeParcelable(mLayoutState, 0);
+    paramParcel.writeParcelable(a, 0);
   }
 }
 

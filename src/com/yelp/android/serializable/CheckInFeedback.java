@@ -7,58 +7,58 @@ public class CheckInFeedback
   extends _CheckInFeedback
   implements DisplayableAsUserBadge
 {
-  public static final JsonParser.DualCreator<CheckInFeedback> CREATOR = new y();
+  public static final JsonParser.DualCreator<CheckInFeedback> CREATOR = new CheckInFeedback.1();
   
   public CheckInFeedback() {}
   
   public CheckInFeedback(YelpCheckIn paramYelpCheckIn, User paramUser)
   {
-    super(new Date(), null, paramUser, paramYelpCheckIn.getBusiness(), paramYelpCheckIn);
+    super(new Date(), null, paramUser, paramYelpCheckIn.d(), paramYelpCheckIn);
   }
   
-  public int getFriendCount()
+  public String a()
   {
-    return mUser.getFriendCount();
+    return c.a();
   }
   
-  public int getMediaCount()
+  public String c()
   {
-    return mUser.getMediaCount();
+    return c.c();
   }
   
-  public int getPhotoCount()
+  public boolean h()
   {
-    return mUser.getLocalPhotoCount();
+    return c.h();
   }
   
-  public int getReviewCount()
+  public String i()
   {
-    return mUser.getReviewCount();
+    return c.ae();
   }
   
-  public String getUserId()
+  public int j_()
   {
-    return mUser.getId();
+    return c.j_();
   }
   
-  public String getUserName()
+  public int k_()
   {
-    return mUser.getUserName();
+    return c.k_();
   }
   
-  public String getUserPhotoUrl()
+  public int l_()
   {
-    return mUser.getUserPhotoUrl();
+    return c.M();
   }
   
-  public int getVideoCount()
+  public int m_()
   {
-    return mUser.getVideoCount();
+    return c.m_();
   }
   
-  public boolean isEliteUser()
+  public int n_()
   {
-    return mUser.isEliteUser();
+    return c.n_();
   }
 }
 

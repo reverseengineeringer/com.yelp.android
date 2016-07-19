@@ -1,9 +1,20 @@
 package com.yelp.android.util;
 
-class YelpLog$YelpLogException
+public class YelpLog$YelpLogException
   extends Exception
 {
   private static final long serialVersionUID = -8220825712806410535L;
+  
+  public YelpLog$YelpLogException()
+  {
+    YelpLog.removeTopOfStackTrace(this);
+  }
+  
+  public YelpLog$YelpLogException(String paramString)
+  {
+    super(paramString);
+    YelpLog.removeTopOfStackTrace(this);
+  }
 }
 
 /* Location:

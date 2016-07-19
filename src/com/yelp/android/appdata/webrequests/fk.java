@@ -1,56 +1,72 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.location.Location;
-import android.text.Html;
-import com.yelp.android.serializable.RichSearchSuggestion;
-import com.yelp.android.util.StringUtils;
+import android.text.TextUtils;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Photo;
+import com.yelp.android.util.g;
+import com.yelp.android.util.j;
+import com.yelp.android.util.j.a;
 import com.yelp.parcelgen.JsonParser.DualCreator;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Collections;
+import org.apache.http.HttpEntity;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-public class fk<T>
-  extends fy<T>
+public class fk
+  extends b<Void, Void, a>
 {
-  public fk(String paramString1, boolean paramBoolean, Location paramLocation, String paramString2, m<List<T>> paramm)
+  private final boolean a;
+  private final HttpEntity g;
+  
+  public fk(String paramString1, String paramString2, boolean paramBoolean, ApiRequest.b<a> paramb)
+    throws FileNotFoundException
   {
-    super(ApiRequest.RequestType.GET, a(paramBoolean), paramm, paramLocation, paramString2);
-    addUrlParam("term", paramString1);
-    if (!StringUtils.e(i)) {
-      addUrlParam("location", i);
+    super(ApiRequest.RequestType.POST, "account/add_image", paramb);
+    if (!TextUtils.isEmpty(paramString2)) {
+      b("caption", paramString2);
     }
-    e = paramString1;
+    b("primary", paramBoolean);
+    paramString1 = new File(paramString1);
+    paramString1 = new j.a(g.i, g.i, null, new FileInputStream(paramString1), paramString1.length());
+    g = new j(t(), Collections.singleton(paramString1), null);
+    a = paramBoolean;
   }
   
-  public fk(String paramString, boolean paramBoolean, m<List<T>> paramm)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    this(paramString, paramBoolean, a, "", paramm);
+    return new a((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo")), a);
   }
   
-  private static String a(boolean paramBoolean)
+  protected HttpEntity a()
+    throws YelpException
   {
-    if (paramBoolean) {
-      return "suggest/active_nearby";
-    }
-    return "suggest/rich";
+    return g;
   }
   
-  private List<RichSearchSuggestion> a(List<String> paramList)
+  public static class a
   {
-    ArrayList localArrayList = new ArrayList();
-    paramList = paramList.iterator();
-    while (paramList.hasNext())
+    final Photo a;
+    final boolean b;
+    
+    public a(Photo paramPhoto, boolean paramBoolean)
     {
-      String str = (String)paramList.next();
-      localArrayList.add(RichSearchSuggestion.CREATOR.parse(new JSONObject(Html.fromHtml(str).toString())));
+      a = paramPhoto;
+      b = paramBoolean;
     }
-    return localArrayList;
-  }
-  
-  public List<T> a(JSONObject paramJSONObject)
-  {
-    return a(super.a(paramJSONObject));
+    
+    public Photo a()
+    {
+      return a;
+    }
+    
+    public boolean b()
+    {
+      return b;
+    }
   }
 }
 

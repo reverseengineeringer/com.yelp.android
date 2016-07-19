@@ -7,6 +7,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/parcelgen/JsonParser;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "DualCreator"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",

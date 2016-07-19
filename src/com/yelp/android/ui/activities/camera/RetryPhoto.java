@@ -1,6 +1,5 @@
 package com.yelp.android.ui.activities.camera;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.yelp.android.analytics.iris.ViewIri;
@@ -10,14 +9,6 @@ import java.io.File;
 public class RetryPhoto
   extends YelpActivity
 {
-  public static Intent a(Context paramContext, File paramFile, Intent paramIntent)
-  {
-    paramContext = new Intent(paramContext, RetryPhoto.class);
-    paramContext.putExtra("file_path", paramFile.getAbsolutePath());
-    paramContext.putExtra("retry_service_intent", paramIntent);
-    return paramContext;
-  }
-  
   public ViewIri getIri()
   {
     return null;
@@ -42,7 +33,7 @@ public class RetryPhoto
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    startActivityForResult(PreviewPhoto.a(this, new File(getIntent().getStringExtra("file_path")), true, getText(2131165456), getText(2131166464)), 100);
+    startActivityForResult(PreviewPhoto.a(this, new File(getIntent().getStringExtra("file_path")), true, getText(2131166925), getText(2131166469)), 100);
   }
 }
 

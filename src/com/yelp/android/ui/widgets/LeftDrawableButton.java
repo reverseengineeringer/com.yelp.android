@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import com.yelp.android.ui.util.u.a;
 
 public class LeftDrawableButton
   extends RelativeLayout
@@ -29,11 +30,11 @@ public class LeftDrawableButton
   public void a(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     a = new TextView(paramContext, paramAttributeSet);
-    a.setId(2131492895);
+    a.setId(2131689505);
     b = new ImageView(paramContext, paramAttributeSet);
-    b.setId(2131492894);
+    b.setId(2131689504);
     if (getBackground() == null) {
-      setBackgroundResource(2130837714);
+      setBackgroundResource(2130837778);
     }
     setGravity(17);
     paramContext = new RelativeLayout.LayoutParams(-2, -2);
@@ -51,6 +52,18 @@ public class LeftDrawableButton
     a.setClickable(false);
     addView(a, paramAttributeSet);
     addView(b, paramContext);
+  }
+  
+  public void a(u.a parama)
+  {
+    parama.a(b);
+  }
+  
+  public void setEnabled(boolean paramBoolean)
+  {
+    super.setEnabled(paramBoolean);
+    b.setEnabled(paramBoolean);
+    a.setEnabled(paramBoolean);
   }
   
   public void setImage(int paramInt)

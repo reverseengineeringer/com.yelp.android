@@ -3,8 +3,8 @@ package com.yelp.android.ui.activities.messaging;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,32 +19,34 @@ import android.widget.TextView;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.IriSource;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.gp;
-import com.yelp.android.ay.m;
-import com.yelp.android.database.q;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
+import com.yelp.android.appdata.webrequests.fh;
+import com.yelp.android.appdata.webrequests.messaging.e;
+import com.yelp.android.cc.d;
+import com.yelp.android.database.g;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.friends.ActivityFindFriends;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.dialogs.AlertDialogFragment;
 import com.yelp.android.ui.panels.PanelError;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.ui.widgets.RecipientBoxView;
-import com.yelp.android.ui.widgets.z;
+import com.yelp.android.ui.widgets.RecipientBoxView.a;
 import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 
 public class ComposeMessageFragment
   extends YelpFragment
-  implements z
+  implements RecipientBoxView.a
 {
   private final ArrayList<User> a = new ArrayList();
   private RecipientBoxView b;
   private Bundle c;
-  private gp d;
-  private f e;
-  private com.yelp.android.appdata.webrequests.messaging.e g;
-  private FriendsFragment h;
+  private fh d;
+  private a e;
+  private e f;
+  private FriendsFragment g;
   private User i;
   private TextView j;
   private EditText k;
@@ -53,18 +55,14 @@ public class ComposeMessageFragment
   private boolean n = true;
   private boolean o = false;
   
-  public static ComposeMessageFragment a(User paramUser)
+  public static ComposeMessageFragment a(User paramUser, String paramString)
   {
     ComposeMessageFragment localComposeMessageFragment = new ComposeMessageFragment();
     Bundle localBundle = new Bundle();
     localBundle.putParcelable("args_recipient", paramUser);
+    localBundle.putString("args_message", paramString);
     localComposeMessageFragment.setArguments(localBundle);
     return localComposeMessageFragment;
-  }
-  
-  public static void a()
-  {
-    AppData.b().k().a(EventIri.MessagingNewConversationCanceled, null);
   }
   
   private void a(ComposeMessageFragment.ConversationRequiredField paramConversationRequiredField)
@@ -72,53 +70,61 @@ public class ComposeMessageFragment
     AlertDialogFragment.a(null, ComposeMessageFragment.ConversationRequiredField.access$900(paramConversationRequiredField, getActivity())).show(getFragmentManager(), null);
   }
   
-  private void d(User paramUser)
+  private void c(User paramUser)
   {
-    AppData.b().i().h().a(paramUser, new d(this));
-  }
-  
-  private void h()
-  {
-    if ((User)getArguments().getParcelable("args_recipient") == null) {}
-    for (IriSource localIriSource = IriSource.Inbox;; localIriSource = IriSource.UserProfile)
-    {
-      AppData.a(EventIri.MessagingNewConversationSend, localIriSource.getMapWithParameter());
-      return;
-    }
+    AppData.b().i().f().a(paramUser, new ComposeMessageFragment.3(this));
   }
   
   private void i()
   {
+    Object localObject = (User)getArguments().getParcelable("args_recipient");
+    if (getArguments().getString("args_message") != null) {
+      localObject = IriSource.Share;
+    }
+    for (;;)
+    {
+      AppData.a(EventIri.MessagingNewConversationSend, ((IriSource)localObject).getMapWithParameter());
+      return;
+      if (localObject != null) {
+        localObject = IriSource.UserProfile;
+      } else {
+        localObject = IriSource.Inbox;
+      }
+    }
+  }
+  
+  private void j()
+  {
     o = false;
-    j();
-    w();
+    l();
+    y();
     if (a.isEmpty())
     {
-      e();
-      cr.b(b.getRecipientView());
+      f();
+      as.b(b.getRecipientView());
       return;
     }
     b.a(a);
-    cr.a(b.getRecipientView());
+    as.a(b.getRecipientView());
   }
   
   private boolean k()
   {
-    return ((g != null) && (g.isFetching())) || ((d != null) && (d.isFetching()));
+    return ((f != null) && (f.u())) || ((d != null) && (d.u()));
   }
   
-  private void l()
+  private void m()
   {
-    ComposeMessageFragment.ConversationRequiredField localConversationRequiredField = m();
+    ComposeMessageFragment.ConversationRequiredField localConversationRequiredField = n();
     if (localConversationRequiredField != null)
     {
       a(localConversationRequiredField);
       return;
     }
-    n();
+    o();
   }
   
-  private ComposeMessageFragment.ConversationRequiredField m()
+  private ComposeMessageFragment.ConversationRequiredField n()
   {
     ComposeMessageFragment.ConversationRequiredField[] arrayOfConversationRequiredField = ComposeMessageFragment.ConversationRequiredField.values();
     int i2 = arrayOfConversationRequiredField.length;
@@ -134,98 +140,103 @@ public class ComposeMessageFragment
     return null;
   }
   
-  private void n()
-  {
-    if ((g != null) && (g.isFetching())) {
-      return;
-    }
-    c localc = new c(this);
-    g = new com.yelp.android.appdata.webrequests.messaging.e(b.getRecipient().getId(), j.getText().toString(), k.getText().toString(), localc);
-    g.execute(new Void[0]);
-    a(g, 0);
-    cr.b(k);
-  }
-  
   private void o()
   {
-    if (p())
-    {
-      q();
+    if ((f != null) && (f.u())) {
       return;
     }
-    r();
+    ComposeMessageFragment.2 local2 = new ComposeMessageFragment.2(this);
+    f = new e(b.getRecipient().ae(), j.getText().toString(), k.getText().toString(), local2);
+    f.f(new Void[0]);
+    a(f, 0);
+    as.b(k);
   }
   
-  private boolean p()
+  private void p()
+  {
+    if (q())
+    {
+      r();
+      return;
+    }
+    s();
+  }
+  
+  private boolean q()
   {
     return (!TextUtils.isEmpty(j.getText())) || (!TextUtils.isEmpty(k.getText()));
   }
   
-  private void q()
-  {
-    m localm = new m(b.getRecipient().getUserId(), j.getText().toString(), k.getText().toString());
-    AppData.b().i().h().a(localm, new e(this));
-  }
-  
   private void r()
   {
-    AppData.b().i().h().a(b.getRecipient());
+    d locald = new d(b.getRecipient().i(), j.getText().toString(), k.getText().toString());
+    AppData.b().i().f().a(locald, new ComposeMessageFragment.4(this));
+  }
+  
+  private void s()
+  {
+    AppData.b().i().f().a(b.getRecipient());
+  }
+  
+  public void E_()
+  {
+    getActivity().startActivity(ActivityFindFriends.a(getActivity(), false));
+    AppData.a(EventIri.MessagingNewConversationFindFriends);
+  }
+  
+  public void a()
+  {
+    AppData.b().k().a(EventIri.MessagingNewConversationCanceled, null);
+  }
+  
+  public void a(User paramUser)
+  {
+    if ((n) && (!q()))
+    {
+      c(paramUser);
+      n = false;
+    }
   }
   
   public void a(CharSequence paramCharSequence)
   {
-    if ((h != null) && (h.getListAdapter() != null)) {
-      ((com.yelp.android.bb.a)h.getListAdapter()).getFilter().filter(paramCharSequence);
+    if ((g != null) && (g.b() != null)) {
+      ((com.yelp.android.cl.a)g.b()).getFilter().filter(paramCharSequence);
     }
   }
   
   public void b()
   {
-    FragmentManager localFragmentManager = getFragmentManager();
-    h = ((FriendsFragment)localFragmentManager.findFragmentById(2131493457));
-    if (h != null) {
+    l locall = getFragmentManager();
+    g = ((FriendsFragment)locall.a(2131690135));
+    if (g != null) {
       return;
     }
     if (l)
     {
-      h = FriendsFragment.a(a);
-      FragmentTransaction localFragmentTransaction = localFragmentManager.beginTransaction();
-      localFragmentTransaction.replace(2131493457, h);
-      localFragmentTransaction.addToBackStack(null);
-      localFragmentTransaction.commit();
-      localFragmentManager.executePendingTransactions();
+      g = FriendsFragment.a(a);
+      o localo = locall.a();
+      localo.b(2131690135, g);
+      localo.a(null);
+      localo.a();
+      locall.b();
       return;
     }
-    g();
+    h();
   }
   
   public void b(User paramUser)
   {
-    if ((n) && (!p()))
-    {
-      d(paramUser);
-      n = false;
-    }
+    b.a(paramUser);
   }
   
   public void c()
   {
-    h = null;
-    w();
+    g = null;
+    y();
   }
   
-  public void c(User paramUser)
-  {
-    b.a(paramUser);
-  }
-  
-  public void d()
-  {
-    getActivity().startActivity(ActivityFindFriends.a(getActivity(), false, false));
-    AppData.a(EventIri.MessagingNewConversationFindFriends);
-  }
-  
-  public void e()
+  public void f()
   {
     ActivityComposeMessage localActivityComposeMessage = (ActivityComposeMessage)getActivity();
     localActivityComposeMessage.populateError(ErrorType.NEED_FRIENDS_COMPOSE_MESSAGE);
@@ -235,19 +246,19 @@ public class ComposeMessageFragment
     k.setVisibility(8);
   }
   
-  public void f()
-  {
-    cr.b(b.getRecipientView());
-  }
-  
   public void g()
   {
-    if ((d != null) && (!d.isCompleted())) {
+    as.b(b.getRecipientView());
+  }
+  
+  public void h()
+  {
+    if ((d != null) && (!d.v())) {
       return;
     }
-    b localb = new b(this);
-    d = new gp(AppData.b().m().s(), localb);
-    d.execute(new Void[0]);
+    ComposeMessageFragment.1 local1 = new ComposeMessageFragment.1(this);
+    d = new fh(AppData.b().q().p(), local1);
+    d.f(new Void[0]);
     a(d, 0);
   }
   
@@ -256,6 +267,7 @@ public class ComposeMessageFragment
     super.onActivityCreated(paramBundle);
     if (c.isEmpty())
     {
+      k.setText(getArguments().getString("args_message"));
       i = ((User)getArguments().getParcelable("args_recipient"));
       if (i != null)
       {
@@ -267,7 +279,7 @@ public class ComposeMessageFragment
     do
     {
       return;
-      g();
+      h();
       return;
       b.b(c);
       if (k())
@@ -276,7 +288,7 @@ public class ComposeMessageFragment
         return;
       }
     } while (!c.getBoolean("saved_empty_view_visible"));
-    e();
+    f();
   }
   
   public void onAttach(Activity paramActivity)
@@ -284,7 +296,7 @@ public class ComposeMessageFragment
     super.onAttach(paramActivity);
     try
     {
-      e = ((f)paramActivity);
+      e = ((a)paramActivity);
       return;
     }
     catch (ClassCastException localClassCastException)
@@ -305,16 +317,16 @@ public class ComposeMessageFragment
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     if ((b.getRecipient() != null) || (!a.isEmpty())) {
-      paramMenuInflater.inflate(2131755013, paramMenu);
+      paramMenuInflater.inflate(2131755015, paramMenu);
     }
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903180, (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle));
-    j = ((TextView)paramLayoutInflater.findViewById(2131493454));
-    k = ((EditText)paramLayoutInflater.findViewById(2131493456));
-    b = ((RecipientBoxView)paramLayoutInflater.findViewById(2131493452));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903189, (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle));
+    j = ((TextView)paramLayoutInflater.findViewById(2131690132));
+    k = ((EditText)paramLayoutInflater.findViewById(2131690134));
+    b = ((RecipientBoxView)paramLayoutInflater.findViewById(2131690130));
     b.setOnRecipientBoxListener(this);
     return paramLayoutInflater;
   }
@@ -322,8 +334,8 @@ public class ComposeMessageFragment
   public void onDestroy()
   {
     super.onDestroy();
-    b(d);
-    b(g);
+    c(d);
+    c(f);
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -333,16 +345,16 @@ public class ComposeMessageFragment
     default: 
       return false;
     }
-    l();
-    h();
+    m();
+    i();
     return true;
   }
   
   public void onPause()
   {
     super.onPause();
-    if (((h == null) || (!h.isVisible())) && (b.a()) && (!m)) {
-      o();
+    if (((g == null) || (!g.isVisible())) && (b.a()) && (!m)) {
+      p();
     }
   }
   
@@ -350,7 +362,7 @@ public class ComposeMessageFragment
   {
     super.onResume();
     if (o) {
-      i();
+      j();
     }
   }
   
@@ -373,6 +385,11 @@ public class ComposeMessageFragment
       localBundle.putBoolean("saved_empty_view_visible", bool);
       return;
     }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a();
   }
 }
 

@@ -388,7 +388,7 @@
             "()",
             "Ljava/util/List",
             "<",
-            "Lcom/yelp/android/al/a;",
+            "Lcom/yelp/android/ar/a;",
             ">;"
         }
     .end annotation
@@ -419,9 +419,9 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/al/a;
+    check-cast v0, Lcom/yelp/android/ar/a;
 
-    iget-object v3, v0, Lcom/yelp/android/al/a;->c:Ljava/lang/Boolean;
+    iget-object v3, v0, Lcom/yelp/android/ar/a;->c:Ljava/lang/Boolean;
 
     invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -444,7 +444,7 @@
             "(",
             "Ljava/util/List",
             "<",
-            "Lcom/yelp/android/al/a;",
+            "Lcom/yelp/android/ar/a;",
             ">;)V"
         }
     .end annotation
@@ -467,21 +467,21 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/al/a;
+    check-cast v0, Lcom/yelp/android/ar/a;
 
     iget-object v1, p0, Lcom/comscore/applications/a;->a:Ljava/util/HashMap;
 
-    iget-object v3, v0, Lcom/yelp/android/al/a;->a:Ljava/lang/String;
+    iget-object v3, v0, Lcom/yelp/android/ar/a;->a:Ljava/lang/String;
 
     invoke-virtual {v1, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/yelp/android/al/a;
+    check-cast v1, Lcom/yelp/android/ar/a;
 
     if-nez v1, :cond_2
 
-    iget-object v1, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v1, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-direct {p0, v1}, Lcom/comscore/applications/a;->d(Ljava/lang/String;)Ljava/lang/Boolean;
 
@@ -493,7 +493,7 @@
 
     if-eqz v1, :cond_1
 
-    iget-object v1, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v1, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     const-string/jumbo v3, ""
 
@@ -501,7 +501,7 @@
 
     move-result-object v1
 
-    iget-object v0, v0, Lcom/yelp/android/al/a;->a:Ljava/lang/String;
+    iget-object v0, v0, Lcom/yelp/android/ar/a;->a:Ljava/lang/String;
 
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -512,12 +512,12 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p0, v0}, Lcom/comscore/applications/a;->b(Lcom/yelp/android/al/a;)V
+    invoke-virtual {p0, v0}, Lcom/comscore/applications/a;->b(Lcom/yelp/android/ar/a;)V
 
     goto :goto_0
 
     :cond_2
-    iget-object v3, v1, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v3, v1, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-direct {p0, v3}, Lcom/comscore/applications/a;->c(Ljava/lang/String;)Ljava/lang/Boolean;
 
@@ -529,7 +529,7 @@
 
     if-eqz v3, :cond_3
 
-    iget-object v3, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v3, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-direct {p0, v3}, Lcom/comscore/applications/a;->c(Ljava/lang/String;)Ljava/lang/Boolean;
 
@@ -541,7 +541,7 @@
 
     if-eqz v3, :cond_3
 
-    iget-object v3, v1, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v3, v1, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
@@ -551,7 +551,7 @@
 
     move-result v3
 
-    iget-object v0, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v0, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
@@ -567,7 +567,7 @@
 
     move-result-object v0
 
-    iget-object v1, v1, Lcom/yelp/android/al/a;->a:Ljava/lang/String;
+    iget-object v1, v1, Lcom/yelp/android/ar/a;->a:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->toString()Ljava/lang/String;
 
@@ -582,7 +582,7 @@
     goto :goto_0
 
     :cond_3
-    iget-object v3, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v3, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-direct {p0, v3}, Lcom/comscore/applications/a;->d(Ljava/lang/String;)Ljava/lang/Boolean;
 
@@ -594,15 +594,15 @@
 
     if-eqz v3, :cond_4
 
-    iget-object v3, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v3, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
-    iget-object v1, v1, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v1, v1, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-direct {p0, v3, v1}, Lcom/comscore/applications/a;->c(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v0, v0, Lcom/yelp/android/al/a;->a:Ljava/lang/String;
+    iget-object v0, v0, Lcom/yelp/android/ar/a;->a:Ljava/lang/String;
 
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -613,9 +613,9 @@
     goto/16 :goto_0
 
     :cond_4
-    iget-object v3, v1, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v3, v1, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
-    iget-object v4, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v4, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-direct {p0, v3, v4}, Lcom/comscore/applications/a;->b(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Boolean;
 
@@ -631,7 +631,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, v1, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v4, v1, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -643,7 +643,7 @@
 
     move-result-object v3
 
-    iget-object v0, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v0, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -653,7 +653,7 @@
 
     move-result-object v0
 
-    iget-object v1, v1, Lcom/yelp/android/al/a;->a:Ljava/lang/String;
+    iget-object v1, v1, Lcom/yelp/android/ar/a;->a:Ljava/lang/String;
 
     invoke-static {v5}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -696,9 +696,9 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/al/a;
+    check-cast v0, Lcom/yelp/android/ar/a;
 
-    iget-object v3, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v3, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     invoke-direct {p0, v3}, Lcom/comscore/applications/a;->d(Ljava/lang/String;)Ljava/lang/Boolean;
 
@@ -730,11 +730,11 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/al/a;
+    check-cast v0, Lcom/yelp/android/ar/a;
 
-    iget-object v2, v0, Lcom/yelp/android/al/a;->a:Ljava/lang/String;
+    iget-object v2, v0, Lcom/yelp/android/ar/a;->a:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/yelp/android/al/a;->b:Ljava/lang/String;
+    iget-object v0, v0, Lcom/yelp/android/ar/a;->b:Ljava/lang/String;
 
     const-string/jumbo v3, ""
 

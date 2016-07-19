@@ -1,1117 +1,1598 @@
-.class Lcom/kahuna/sdk/w;
-.super Lcom/yelp/android/ao/f;
-.source "KahunaAnalytics.java"
+.class public Lcom/kahuna/sdk/w;
+.super Ljava/lang/Object;
+.source "KahunaUtils.java"
 
 
-# instance fields
-.field final synthetic a:Lcom/kahuna/sdk/v;
+# static fields
+.field private static a:Ljava/lang/Object;
+
+.field private static b:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/regex/Pattern;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(Lcom/kahuna/sdk/v;)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
     .prologue
-    .line 1889
-    iput-object p1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
+    .line 58
+    new-instance v0, Ljava/lang/Object;
 
-    invoke-direct {p0}, Lcom/yelp/android/ao/f;-><init>()V
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/kahuna/sdk/w;->a:Ljava/lang/Object;
+
+    .line 59
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    sput-object v0, Lcom/kahuna/sdk/w;->b:Ljava/util/Map;
 
     return-void
 .end method
 
-
-# virtual methods
-.method public a(Ljava/lang/String;)V
-    .locals 13
+.method public static a(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 1
 
     .prologue
-    .line 1908
-    const/4 v8, 0x0
+    .line 155
+    if-nez p0, :cond_0
 
-    .line 1910
-    :try_start_0
-    new-instance v10, Lorg/json/JSONObject;
+    .line 156
+    const-string/jumbo v0, "(null)"
 
-    invoke-direct {v10, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    .line 1911
-    const-string/jumbo v0, "success"
-
-    invoke-virtual {v10, v0}, Lorg/json/JSONObject;->getBoolean(Ljava/lang/String;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
-
-    move-result v8
-
-    .line 1913
-    if-eqz v8, :cond_2
-
-    .line 1915
-    :try_start_1
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->d(Lcom/kahuna/sdk/h;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    .line 1916
-    :try_start_2
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->e(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->E(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v0, v2}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
-
-    .line 1918
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->e(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Lcom/kahuna/sdk/ag;->a(Ljava/util/List;Landroid/content/Context;)V
-
-    .line 1919
-    monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    .line 1921
-    :try_start_3
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
-
-    if-eqz v0, :cond_0
-
-    .line 1922
-    const-string/jumbo v0, "KahunaAnalytics"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Number events submitted: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->E(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1924
-    :cond_0
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->D(Lcom/kahuna/sdk/h;)Ljava/util/concurrent/atomic/AtomicInteger;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v1, v1, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v1}, Lcom/kahuna/sdk/h;->E(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    rsub-int/lit8 v1, v1, 0x0
-
-    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicInteger;->addAndGet(I)I
-
-    .line 1926
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->E(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    .line 1927
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/kahuna/sdk/h;->b(Lcom/kahuna/sdk/h;Ljava/util/List;)Ljava/util/List;
-
-    .line 1929
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
-
-    if-eqz v0, :cond_1
-
-    .line 1930
-    const-string/jumbo v0, "KahunaAnalytics"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Events let in Queue: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->e(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1933
-    :cond_1
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v2
-
-    const-wide/16 v4, 0x3e8
-
-    div-long/2addr v2, v4
-
-    invoke-static {v0, v2, v3}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;J)J
-
-    .line 1934
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->I(Lcom/kahuna/sdk/h;)J
-
-    move-result-wide v0
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v0, v1, v2}, Lcom/kahuna/sdk/ag;->a(JLandroid/content/Context;)V
-
-    .line 1937
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;Ljava/lang/String;)Ljava/lang/String;
-
-    .line 1938
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;Lorg/json/JSONArray;)Lorg/json/JSONArray;
-
-    .line 1941
-    :cond_2
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
-
-    if-eqz v0, :cond_3
-
-    .line 1942
-    const-string/jumbo v0, "KahunaAnalytics"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "server reply: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1948
-    :cond_3
-    const-string/jumbo v0, "s"
-
-    invoke-virtual {v10, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
-
-    move-result-object v11
-
-    .line 1949
-    if-eqz v11, :cond_a
-
-    .line 1950
-    invoke-virtual {v11}, Lorg/json/JSONArray;->length()I
-
-    move-result v12
-
-    .line 1951
-    const/4 v0, 0x0
-
-    move v9, v0
-
+    .line 158
     :goto_0
-    if-ge v9, v12, :cond_a
+    return-object v0
 
-    .line 1952
-    invoke-virtual {v11, v9}, Lorg/json/JSONArray;->optString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 1953
-    invoke-static {v0}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    .line 1954
-    const-string/jumbo v1, "a"
-
-    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+    :cond_0
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    goto :goto_0
+.end method
+
+.method protected static a(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
+    .locals 6
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 221
+    if-eqz p0, :cond_0
+
+    const-string/jumbo v0, ""
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_1
 
-    .line 1955
-    invoke-static {}, Lcom/kahuna/sdk/h;->a()Lcom/kahuna/sdk/h;
+    .line 222
+    :cond_0
+    const-string/jumbo v0, ""
+
+    .line 252
+    :goto_0
+    return-object v0
+
+    .line 227
+    :cond_1
+    if-eqz p2, :cond_2
+
+    .line 228
+    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 232
+    :cond_2
+    const/4 v0, 0x0
+
+    .line 234
+    :try_start_0
+    const-string/jumbo v2, "SHA-1"
+
+    .line 235
+    const-string/jumbo v3, "MD5"
+
+    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    .line 236
+    const-string/jumbo v2, "MD5"
+
+    .line 239
+    :cond_3
+    invoke-static {v2}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+
+    move-result-object v2
+
+    .line 240
+    const-string/jumbo v3, "UTF-8"
+
+    invoke-virtual {p0, v3}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v3
+
+    .line 241
+    const/4 v4, 0x0
+
+    array-length v5, v3
+
+    invoke-virtual {v2, v3, v4, v5}, Ljava/security/MessageDigest;->update([BII)V
+
+    .line 242
+    invoke-virtual {v2}, Ljava/security/MessageDigest;->digest()[B
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->s(Lcom/kahuna/sdk/h;)Ljava/util/Map;
+    .line 248
+    :goto_1
+    if-eqz v1, :cond_4
 
-    move-result-object v5
-
-    .line 1956
-    new-instance v0, Lcom/kahuna/sdk/Event;
-
-    const-string/jumbo v1, "k_user_attributes"
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v2
-
-    const-wide/16 v6, 0x3e8
-
-    div-long/2addr v2, v6
-
-    const/4 v4, 0x0
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    invoke-direct/range {v0 .. v7}, Lcom/kahuna/sdk/Event;-><init>(Ljava/lang/String;JLjava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/lang/String;)V
-
-    .line 1957
-    invoke-static {}, Lcom/kahuna/sdk/h;->a()Lcom/kahuna/sdk/h;
-
-    move-result-object v1
-
-    invoke-static {v1, v0}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;Lcom/kahuna/sdk/Event;)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
-
-    .line 1951
-    :cond_4
-    add-int/lit8 v0, v9, 0x1
-
-    move v9, v0
+    .line 249
+    const-string/jumbo v0, ""
 
     goto :goto_0
 
-    .line 1919
+    .line 244
+    :catch_0
+    move-exception v1
+
+    .line 245
+    const/4 v1, 0x1
+
+    goto :goto_1
+
+    .line 252
+    :cond_4
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a([B)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method private static a([B)Ljava/lang/String;
+    .locals 9
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 257
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    .line 258
+    array-length v6, p0
+
+    move v4, v2
+
+    :goto_0
+    if-ge v4, v6, :cond_1
+
+    aget-byte v7, p0, v4
+
+    .line 259
+    ushr-int/lit8 v0, v7, 0x4
+
+    and-int/lit8 v0, v0, 0xf
+
+    move v1, v2
+
+    .line 262
+    :goto_1
+    if-ltz v0, :cond_0
+
+    const/16 v3, 0x9
+
+    if-gt v0, v3, :cond_0
+
+    add-int/lit8 v0, v0, 0x30
+
+    int-to-char v0, v0
+
+    :goto_2
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    .line 263
+    and-int/lit8 v3, v7, 0xf
+
+    .line 264
+    add-int/lit8 v0, v1, 0x1
+
+    const/4 v8, 0x1
+
+    if-lt v1, v8, :cond_2
+
+    .line 258
+    add-int/lit8 v0, v4, 0x1
+
+    move v4, v0
+
+    goto :goto_0
+
+    .line 262
+    :cond_0
+    add-int/lit8 v0, v0, -0xa
+
+    add-int/lit8 v0, v0, 0x61
+
+    int-to-char v0, v0
+
+    goto :goto_2
+
+    .line 266
+    :cond_1
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_2
+    move v1, v0
+
+    move v0, v3
+
+    goto :goto_1
+.end method
+
+.method protected static a()V
+    .locals 2
+
+    .prologue
+    .line 270
+    sget-object v1, Lcom/kahuna/sdk/w;->a:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    .line 271
+    :try_start_0
+    sget-object v0, Lcom/kahuna/sdk/w;->b:Ljava/util/Map;
+
+    invoke-interface {v0}, Ljava/util/Map;->clear()V
+
+    .line 272
+    monitor-exit v1
+
+    .line 273
+    return-void
+
+    .line 272
     :catchall_0
     move-exception v0
 
-    :try_start_4
     monitor-exit v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :try_start_5
     throw v0
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+.end method
 
-    .line 2003
+.method static a(I)Z
+    .locals 1
+
+    .prologue
+    .line 470
+    if-ltz p0, :cond_0
+
+    const/16 v0, 0xff
+
+    if-gt p0, v0, :cond_0
+
+    .line 471
+    const/4 v0, 0x1
+
+    .line 473
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method protected static a(Landroid/content/Context;)Z
+    .locals 6
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 163
+    .line 167
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/16 v3, 0x40
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v0
+
+    .line 168
+    iget-object v3, v0, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+
+    .line 170
+    const-string/jumbo v0, "X.509"
+
+    invoke-static {v0}, Ljava/security/cert/CertificateFactory;->getInstance(Ljava/lang/String;)Ljava/security/cert/CertificateFactory;
+
+    move-result-object v4
+
+    move v2, v1
+
+    .line 172
+    :goto_0
+    array-length v0, v3
+
+    if-ge v2, v0, :cond_1
+
+    .line 174
+    new-instance v0, Ljava/io/ByteArrayInputStream;
+
+    aget-object v5, v3, v2
+
+    invoke-virtual {v5}, Landroid/content/pm/Signature;->toByteArray()[B
+
+    move-result-object v5
+
+    invoke-direct {v0, v5}, Ljava/io/ByteArrayInputStream;-><init>([B)V
+
+    .line 175
+    invoke-virtual {v4, v0}, Ljava/security/cert/CertificateFactory;->generateCertificate(Ljava/io/InputStream;)Ljava/security/cert/Certificate;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/security/cert/X509Certificate;
+
+    .line 176
+    invoke-virtual {v0}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljavax/security/auth/x500/X500Principal;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v5, "CN=Android Debug,O=Android"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    .line 177
+    if-eqz v0, :cond_0
+
+    .line 185
+    :goto_1
+    return v0
+
+    .line 172
+    :cond_0
+    add-int/lit8 v1, v2, 0x1
+
+    move v2, v1
+
+    move v1, v0
+
+    goto :goto_0
+
+    .line 181
     :catch_0
     move-exception v0
 
-    move-object v1, v0
+    move v0, v1
 
-    move v0, v8
+    goto :goto_1
 
-    .line 2004
-    :goto_1
-    sget-boolean v2, Lcom/kahuna/sdk/h;->a:Z
+    :cond_1
+    move v0, v1
 
-    if-eqz v2, :cond_5
+    goto :goto_1
+.end method
 
-    .line 2005
-    const-string/jumbo v2, "KahunaAnalytics"
+.method public static a(Lcom/kahuna/sdk/i;)Z
+    .locals 1
+
+    .prologue
+    .line 113
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Lcom/kahuna/sdk/i;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 114
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 116
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Lcom/kahuna/sdk/inapp/RichInAppMessage;)Z
+    .locals 1
+
+    .prologue
+    .line 141
+    if-nez p0, :cond_0
+
+    .line 142
+    const/4 v0, 0x1
+
+    .line 144
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Lcom/kahuna/sdk/inapp/a;)Z
+    .locals 1
+
+    .prologue
+    .line 127
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/kahuna/sdk/inapp/a;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 128
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 130
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Lcom/kahuna/sdk/inapp/b;)Z
+    .locals 1
+
+    .prologue
+    .line 134
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/kahuna/sdk/inapp/b;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 135
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 137
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Lcom/kahuna/sdk/inapp/d;)Z
+    .locals 1
+
+    .prologue
+    .line 148
+    if-nez p0, :cond_0
+
+    .line 149
+    const/4 v0, 0x1
+
+    .line 151
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Lcom/kahuna/sdk/inapp/e;)Z
+    .locals 1
+
+    .prologue
+    .line 120
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/kahuna/sdk/inapp/e;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 121
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 123
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Ljava/lang/String;)Z
+    .locals 1
+
+    .prologue
+    .line 71
+    if-eqz p0, :cond_0
+
+    const-string/jumbo v0, ""
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 72
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 74
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method protected static a(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 5
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 292
+    invoke-static {p0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {p1}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    move v0, v1
+
+    .line 316
+    :goto_0
+    return v0
+
+    .line 297
+    :cond_1
+    const/4 v0, 0x0
+
+    .line 298
+    :try_start_0
+    sget-object v2, Lcom/kahuna/sdk/w;->a:Ljava/lang/Object;
+
+    monitor-enter v2
+    :try_end_0
+    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 299
+    :try_start_1
+    sget-object v3, Lcom/kahuna/sdk/w;->b:Ljava/util/Map;
+
+    invoke-interface {v3, p0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 300
+    sget-object v0, Lcom/kahuna/sdk/w;->b:Ljava/util/Map;
+
+    invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/regex/Pattern;
+
+    .line 303
+    :cond_2
+    if-nez v0, :cond_3
+
+    .line 304
+    const/4 v0, 0x2
+
+    invoke-static {p0, v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    .line 305
+    sget-object v3, Lcom/kahuna/sdk/w;->b:Ljava/util/Map;
+
+    invoke-interface {v3, p0, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 307
+    :cond_3
+    monitor-exit v2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 309
+    :try_start_2
+    invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+
+    move-result-object v0
+
+    .line 310
+    invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
+    :try_end_2
+    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_2 .. :try_end_2} :catch_0
+
+    move-result v0
+
+    goto :goto_0
+
+    .line 307
+    :catchall_0
+    move-exception v0
+
+    :try_start_3
+    monitor-exit v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
+    throw v0
+    :try_end_4
+    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_4 .. :try_end_4} :catch_0
+
+    .line 311
+    :catch_0
+    move-exception v0
+
+    .line 312
+    sget-boolean v2, Lcom/kahuna/sdk/l;->a:Z
+
+    if-eqz v2, :cond_4
+
+    .line 313
+    const-string/jumbo v2, "Kahuna"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v4, "Caught exception in http response handler: "
+    const-string/jumbo v4, "Caught invalid regex Pattern exception: "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 2006
-    invoke-static {}, Ljava/lang/Thread;->dumpStack()V
-
-    .line 2010
-    :cond_5
-    :goto_2
-    iget-object v1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v1, v1, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v1}, Lcom/kahuna/sdk/h;->t(Lcom/kahuna/sdk/h;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    .line 2011
-    :try_start_6
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v3, 0x0
-
-    invoke-static {v2, v3}, Lcom/kahuna/sdk/h;->b(Lcom/kahuna/sdk/h;Z)Z
-
-    .line 2012
-    monitor-exit v1
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
-
-    .line 2014
-    iget-object v1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v1, v1, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v1}, Lcom/kahuna/sdk/h;->E(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_6
-
-    .line 2015
-    iget-object v1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v1, v1, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v1}, Lcom/kahuna/sdk/h;->E(Lcom/kahuna/sdk/h;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->clear()V
-
-    .line 2016
-    iget-object v1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v1, v1, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v2, 0x0
-
-    invoke-static {v1, v2}, Lcom/kahuna/sdk/h;->b(Lcom/kahuna/sdk/h;Ljava/util/List;)Ljava/util/List;
-
-    .line 2019
-    :cond_6
-    if-eqz v0, :cond_e
-
-    .line 2021
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->p(Lcom/kahuna/sdk/h;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    .line 2022
-    :try_start_7
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->q(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/u;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    if-eqz v0, :cond_7
-
-    .line 2023
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->q(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/u;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/kahuna/sdk/u;->cancel()V
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2024
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
+    :cond_4
+    move v0, v1
 
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v2}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;Lcom/kahuna/sdk/u;)Lcom/kahuna/sdk/u;
-
-    .line 2027
-    :cond_7
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->D(Lcom/kahuna/sdk/h;)Ljava/util/concurrent/atomic/AtomicInteger;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
-
-    move-result v0
-
-    if-gtz v0, :cond_8
-
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->J(Lcom/kahuna/sdk/h;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    .line 2028
-    :cond_8
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    new-instance v2, Lcom/kahuna/sdk/u;
-
-    iget-object v3, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v3, v3, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v4, 0x0
-
-    invoke-direct {v2, v3, v4}, Lcom/kahuna/sdk/u;-><init>(Lcom/kahuna/sdk/h;Lcom/kahuna/sdk/i;)V
-
-    invoke-static {v0, v2}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;Lcom/kahuna/sdk/u;)Lcom/kahuna/sdk/u;
-
-    .line 2029
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->q(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/u;
-
-    move-result-object v0
-
-    new-instance v2, Lcom/kahuna/sdk/v;
-
-    iget-object v3, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v3, v3, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v4, 0x0
-
-    invoke-direct {v2, v3, v4}, Lcom/kahuna/sdk/v;-><init>(Lcom/kahuna/sdk/h;Lcom/kahuna/sdk/i;)V
-
-    const-wide/16 v4, 0x7d0
-
-    invoke-virtual {v0, v2, v4, v5}, Lcom/kahuna/sdk/u;->schedule(Ljava/util/TimerTask;J)V
-
-    .line 2031
-    :cond_9
-    monitor-exit v1
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
-
-    .line 2036
-    :goto_3
-    return-void
-
-    .line 1964
-    :cond_a
-    :try_start_8
-    const-string/jumbo v0, "c"
-
-    invoke-virtual {v10, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    .line 1965
-    if-eqz v0, :cond_b
-
-    .line 1966
-    iget-object v1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v1, v1, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/ah;->a(Lorg/json/JSONObject;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;Lcom/kahuna/sdk/ah;)Lcom/kahuna/sdk/ah;
-
-    .line 1967
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/kahuna/sdk/ah;->m()Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/kahuna/sdk/b;->a(Lorg/json/JSONObject;)V
-
-    .line 1968
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;)Landroid/content/Context;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v1, v1, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v1}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/kahuna/sdk/ah;->a(Landroid/content/Context;Lcom/kahuna/sdk/ah;)V
-
-    .line 1970
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
-
-    if-eqz v0, :cond_b
-
-    .line 1971
-    const-string/jumbo v0, "KahunaAnalytics"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Updated SDK Config Version:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->a()J
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " flushInterval: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->b()D
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " flushEventCount: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->d()J
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " events:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->e()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " flushWithDelayTime: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->g()D
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " delayEvents: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->i()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " bucketConfig: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->m()Lorg/json/JSONObject;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " eventMapping: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->j()Ljava/util/Map;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " include: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->l()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " exclude: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v2, v2, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->C(Lcom/kahuna/sdk/h;)Lcom/kahuna/sdk/ah;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/kahuna/sdk/ah;->k()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1980
-    :cond_b
-    const-string/jumbo v0, "iam"
-
-    invoke-virtual {v10, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    .line 1981
-    if-eqz v0, :cond_c
-
-    .line 1982
-    invoke-static {v0}, Lcom/kahuna/sdk/y;->a(Lorg/json/JSONObject;)V
-
-    .line 1986
-    :cond_c
-    const-string/jumbo v0, "location"
-
-    invoke-virtual {v10, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_0
-
-    move-result-object v0
-
-    .line 1987
-    if-eqz v0, :cond_d
-
-    .line 1989
-    :try_start_9
-    invoke-static {}, Lcom/kahuna/sdk/h;->a()Lcom/kahuna/sdk/h;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/kahuna/sdk/h;->a()Lcom/kahuna/sdk/h;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v1, v0, v2}, Lcom/kahuna/sdk/location/m;->a(Lcom/kahuna/sdk/h;Lorg/json/JSONObject;Landroid/content/Context;)V
-
-    .line 1990
-    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v2, 0x12
-
-    if-lt v1, v2, :cond_d
-
-    .line 1991
-    invoke-static {}, Lcom/kahuna/sdk/h;->a()Lcom/kahuna/sdk/h;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/kahuna/sdk/h;->a()Lcom/kahuna/sdk/h;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/kahuna/sdk/h;->a(Lcom/kahuna/sdk/h;)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v1, v0, v2}, Lcom/kahuna/sdk/location/KahunaIBeaconManager;->a(Lcom/kahuna/sdk/h;Lorg/json/JSONObject;Landroid/content/Context;)V
-    :try_end_9
-    .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_0
-
-    :cond_d
-    :goto_4
-    move v0, v8
-
-    .line 2008
-    goto/16 :goto_2
-
-    .line 1994
-    :catch_1
-    move-exception v0
-
-    .line 1995
-    :try_start_a
-    sget-boolean v1, Lcom/kahuna/sdk/h;->a:Z
-
-    if-eqz v1, :cond_d
-
-    .line 1996
-    const-string/jumbo v1, "KahunaAnalytics"
-
-    const-string/jumbo v2, "Caught error when attepmting to to parse server location services command. If you are NOT using location services please ignore this error: "
-
-    invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1997
-    const-string/jumbo v1, "KahunaAnalytics"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_0
-
-    goto :goto_4
-
-    .line 2012
-    :catchall_1
-    move-exception v0
-
-    :try_start_b
-    monitor-exit v1
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_1
-
-    throw v0
-
-    .line 2031
-    :catchall_2
-    move-exception v0
-
-    :try_start_c
-    monitor-exit v1
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_2
-
-    throw v0
-
-    .line 2034
-    :cond_e
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->H(Lcom/kahuna/sdk/h;)V
-
-    goto/16 :goto_3
-
-    .line 2003
-    :catch_2
-    move-exception v0
-
-    move-object v1, v0
-
-    move v0, v8
-
-    goto/16 :goto_1
+    .line 316
+    goto :goto_0
 .end method
 
-.method public a(Ljava/lang/Throwable;Ljava/lang/String;)V
-    .locals 3
+.method public static a(Ljava/util/List;)Z
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<*>;)Z"
+        }
+    .end annotation
 
     .prologue
-    .line 1894
-    invoke-super {p0, p1, p2}, Lcom/yelp/android/ao/f;->a(Ljava/lang/Throwable;Ljava/lang/String;)V
+    .line 92
+    if-eqz p0, :cond_0
 
-    .line 1895
-    sget-boolean v0, Lcom/kahuna/sdk/h;->a:Z
+    invoke-interface {p0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 93
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 95
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Ljava/util/Map;)Z
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<**>;)Z"
+        }
+    .end annotation
+
+    .prologue
+    .line 106
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Map;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 107
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 109
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method protected static a(Ljava/util/Map;Ljava/util/Map;)Z
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/Set",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)Z"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v2, 0x0
+
+    .line 321
+    invoke-static {p0}, Lcom/kahuna/sdk/w;->a(Ljava/util/Map;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {p1}, Lcom/kahuna/sdk/w;->a(Ljava/util/Map;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    move v0, v2
+
+    .line 346
+    :goto_0
+    return v0
+
+    .line 326
+    :cond_1
+    new-instance v0, Ljava/util/HashSet;
+
+    invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+
+    .line 327
+    invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->retainAll(Ljava/util/Collection;)Z
+
+    .line 328
+    invoke-interface {v0}, Ljava/util/Set;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v0, v2
+
+    .line 329
+    goto :goto_0
+
+    .line 332
+    :cond_2
+    invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_3
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 333
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    .line 334
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Set;
+
+    .line 335
+    invoke-interface {p1, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Set;
+
+    .line 336
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/util/Set;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    invoke-static {v1}, Lcom/kahuna/sdk/w;->a(Ljava/util/Set;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    .line 340
+    new-instance v4, Ljava/util/HashSet;
+
+    invoke-direct {v4, v0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+
+    .line 341
+    invoke-interface {v4, v1}, Ljava/util/Set;->retainAll(Ljava/util/Collection;)Z
+
+    .line 342
+    invoke-interface {v4}, Ljava/util/Set;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    .line 343
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    move v0, v2
+
+    .line 346
+    goto :goto_0
+.end method
+
+.method public static a(Ljava/util/Set;)Z
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Set",
+            "<*>;)Z"
+        }
+    .end annotation
+
+    .prologue
+    .line 99
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Set;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 100
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 102
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Lorg/json/JSONArray;)Z
+    .locals 1
+
+    .prologue
+    .line 85
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lorg/json/JSONArray;->length()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 86
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 88
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static a(Lorg/json/JSONObject;)Z
+    .locals 1
+
+    .prologue
+    .line 78
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lorg/json/JSONObject;->length()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 79
+    :cond_0
+    const/4 v0, 0x1
+
+    .line 81
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method protected static b(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    .prologue
+    .line 205
+    const-string/jumbo v0, ""
+
+    .line 207
+    :try_start_0
+    invoke-static {p0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 208
+    const-string/jumbo v0, "UTF-8"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-static {v0, v1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    .line 217
+    :cond_0
+    :goto_0
+    return-object v0
+
+    .line 210
+    :catch_0
+    move-exception v0
+
+    .line 211
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 212
+    invoke-virtual {v0}, Ljava/io/UnsupportedEncodingException;->printStackTrace()V
+
+    .line 214
+    :cond_1
+    const-string/jumbo v0, ""
+
+    goto :goto_0
+.end method
+
+.method protected static b(Lorg/json/JSONObject;)Ljava/util/Map;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/json/JSONObject;",
+            ")",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 378
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    .line 380
+    sget-object v1, Lorg/json/JSONObject;->NULL:Ljava/lang/Object;
+
+    if-eq p0, v1, :cond_0
+
+    .line 381
+    invoke-static {p0}, Lcom/kahuna/sdk/w;->c(Lorg/json/JSONObject;)Ljava/util/Map;
+
+    move-result-object v0
+
+    .line 383
+    :cond_0
+    return-object v0
+.end method
+
+.method protected static c(Lorg/json/JSONObject;)Ljava/util/Map;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/json/JSONObject;",
+            ")",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 387
+    if-nez p0, :cond_0
+
+    .line 388
+    const/4 v0, 0x0
+
+    .line 402
+    :goto_0
+    return-object v0
+
+    .line 391
+    :cond_0
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    .line 393
+    invoke-virtual {p0}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    .line 394
+    :cond_1
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 395
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 396
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 398
+    if-eqz v3, :cond_1
+
+    .line 399
+    invoke-interface {v1, v0, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :cond_2
+    move-object v0, v1
+
+    .line 402
+    goto :goto_0
+.end method
+
+.method protected static c(Ljava/lang/String;)Z
+    .locals 4
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 276
+    invoke-static {p0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 288
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 281
+    :cond_1
+    const/4 v1, 0x2
+
+    :try_start_0
+    invoke-static {p0, v1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
+    :try_end_0
+    .catch Ljava/util/regex/PatternSyntaxException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 288
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 282
+    :catch_0
+    move-exception v1
+
+    .line 283
+    sget-boolean v1, Lcom/kahuna/sdk/l;->a:Z
+
+    if-eqz v1, :cond_0
+
+    .line 284
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Can\'t process invalid key regular expression: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+.end method
+
+.method public static d(Lorg/json/JSONObject;)Z
+    .locals 7
+
+    .prologue
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 406
+    if-nez p0, :cond_0
+
+    .line 441
+    :goto_0
+    return v1
+
+    .line 411
+    :cond_0
+    invoke-static {}, Lcom/kahuna/sdk/j;->i()Lcom/kahuna/sdk/h;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/kahuna/sdk/h;->d()Lcom/kahuna/sdk/i;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/kahuna/sdk/i;->a()Ljava/util/Map;
+
+    move-result-object v3
+
+    .line 412
+    invoke-virtual {p0}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    .line 413
+    :cond_1
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 415
+    :try_start_0
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 416
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 418
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    invoke-static {v5}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    .line 422
+    invoke-interface {v3, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Set;
+
+    .line 423
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/util/Set;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    .line 427
+    invoke-interface {v0, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
+
+    :goto_1
+    move v1, v0
+
+    .line 441
+    goto :goto_0
+
+    .line 432
+    :catch_0
+    move-exception v0
+
+    .line 433
+    sget-boolean v1, Lcom/kahuna/sdk/l;->a:Z
+
+    if-eqz v1, :cond_2
+
+    .line 434
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "Caught exception processing credential restrictions: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    move v0, v2
+
+    .line 437
+    goto :goto_1
+
+    :cond_3
+    move v0, v2
+
+    goto :goto_1
+.end method
+
+.method public static e(Lorg/json/JSONObject;)Ljava/lang/Integer;
+    .locals 5
+
+    .prologue
+    .line 452
+    invoke-static {p0}, Lcom/kahuna/sdk/w;->a(Lorg/json/JSONObject;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 453
+    const-string/jumbo v0, "r"
+
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1896
-    const-string/jumbo v0, "KahunaAnalytics"
+    const-string/jumbo v0, "g"
+
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "b"
+
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "a"
+
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 454
+    const-string/jumbo v0, "a"
+
+    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    .line 455
+    const-string/jumbo v1, "r"
+
+    invoke-virtual {p0, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    .line 456
+    const-string/jumbo v2, "g"
+
+    invoke-virtual {p0, v2}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    .line 457
+    const-string/jumbo v3, "b"
+
+    invoke-virtual {p0, v3}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v3
+
+    .line 458
+    invoke-static {v1}, Lcom/kahuna/sdk/w;->a(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v2}, Lcom/kahuna/sdk/w;->a(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v3}, Lcom/kahuna/sdk/w;->a(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 459
+    invoke-static {v0, v1, v2, v3}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    .line 466
+    :goto_0
+    return-object v0
+
+    .line 463
+    :cond_0
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 464
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "Failed to send request: "
+    const-string/jumbo v2, "Invalid Rich In App Color Object: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -1119,53 +1600,11 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1898
-    :cond_0
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
+    .line 466
+    :cond_1
+    const/4 v0, 0x0
 
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->t(Lcom/kahuna/sdk/h;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    monitor-enter v1
-
-    .line 1899
-    :try_start_0
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v2}, Lcom/kahuna/sdk/h;->b(Lcom/kahuna/sdk/h;Z)Z
-
-    .line 1900
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 1902
-    iget-object v0, p0, Lcom/kahuna/sdk/w;->a:Lcom/kahuna/sdk/v;
-
-    iget-object v0, v0, Lcom/kahuna/sdk/v;->a:Lcom/kahuna/sdk/h;
-
-    invoke-static {v0}, Lcom/kahuna/sdk/h;->H(Lcom/kahuna/sdk/h;)V
-
-    .line 1903
-    return-void
-
-    .line 1900
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
+    goto :goto_0
 .end method

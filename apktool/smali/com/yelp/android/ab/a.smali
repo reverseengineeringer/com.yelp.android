@@ -1,63 +1,50 @@
-.class Lcom/yelp/android/ab/a;
-.super Ljava/lang/Object;
-.source "GifBitmapProvider.java"
+.class public Lcom/yelp/android/ab/a;
+.super Lcom/yelp/android/aa/b;
+.source "FileDescriptorFileLoader.java"
 
 # interfaces
-.implements Lcom/yelp/android/p/b;
+.implements Lcom/yelp/android/ab/b;
 
 
-# instance fields
-.field private final a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ab/a$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/yelp/android/aa/b",
+        "<",
+        "Landroid/os/ParcelFileDescriptor;",
+        ">;",
+        "Lcom/yelp/android/ab/b",
+        "<",
+        "Ljava/io/File;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)V
+.method public constructor <init>(Lcom/yelp/android/aa/l;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/aa/l",
+            "<",
+            "Landroid/net/Uri;",
+            "Landroid/os/ParcelFileDescriptor;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 12
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 42
+    invoke-direct {p0, p1}, Lcom/yelp/android/aa/b;-><init>(Lcom/yelp/android/aa/l;)V
 
-    .line 13
-    iput-object p1, p0, Lcom/yelp/android/ab/a;->a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
-
-    .line 14
-    return-void
-.end method
-
-
-# virtual methods
-.method public a(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 1
-
-    .prologue
-    .line 18
-    iget-object v0, p0, Lcom/yelp/android/ab/a;->a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/bumptech/glide/load/engine/bitmap_recycle/e;->b(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public a(Landroid/graphics/Bitmap;)V
-    .locals 1
-
-    .prologue
-    .line 23
-    iget-object v0, p0, Lcom/yelp/android/ab/a;->a:Lcom/bumptech/glide/load/engine/bitmap_recycle/e;
-
-    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/e;->a(Landroid/graphics/Bitmap;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 24
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
-
-    .line 26
-    :cond_0
+    .line 43
     return-void
 .end method

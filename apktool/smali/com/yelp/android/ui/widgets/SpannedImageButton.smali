@@ -30,7 +30,7 @@
 
     .prologue
     .line 24
-    sget v0, Lcom/yelp/android/bf/c;->spannedButtonCommentLike:I
+    sget v0, Lcom/yelp/android/co/a$b;->spannedButtonCommentLike:I
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/widgets/SpannedImageButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -194,14 +194,14 @@
     return-void
 .end method
 
-.method public setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/j;)V
+.method public setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/c;)V
     .locals 1
 
     .prologue
     .line 93
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/SpannedImageButton;->a:Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/j;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/widgets/SpannableWidget$SpannableWidgetUtil;->a(Lcom/yelp/android/ui/widgets/c;)V
 
     .line 94
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->refreshDrawableState()V

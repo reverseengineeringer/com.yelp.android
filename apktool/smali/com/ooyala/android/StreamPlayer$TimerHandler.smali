@@ -3,6 +3,17 @@
 .source "StreamPlayer.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/StreamPlayer;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "TimerHandler"
+.end annotation
+
+
 # instance fields
 .field private _lastPlayhead:I
 

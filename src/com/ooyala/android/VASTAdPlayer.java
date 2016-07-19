@@ -119,7 +119,7 @@ class VASTAdPlayer
     return _ad;
   }
   
-  public void init(OoyalaPlayer paramOoyalaPlayer, AdSpot paramAdSpot)
+  public void init(final OoyalaPlayer paramOoyalaPlayer, AdSpot paramAdSpot)
   {
     if (!(paramAdSpot instanceof VASTAdSpot))
     {
@@ -136,7 +136,22 @@ class VASTAdPlayer
         if (_fetchTask != null) {
           _parent.getPlayerAPIClient().cancel(_fetchTask);
         }
-        _fetchTask = _ad.fetchPlaybackInfo(new VASTAdPlayer.1(this, paramOoyalaPlayer));
+        _fetchTask = _ad.fetchPlaybackInfo(new FetchPlaybackInfoCallback()
+        {
+          public void callback(boolean paramAnonymousBoolean)
+          {
+            if (!paramAnonymousBoolean)
+            {
+              _error = "Could not fetch VAST Ad";
+              setState(OoyalaPlayer.State.ERROR);
+            }
+            while (VASTAdPlayer.this.initAfterFetch(paramOoyalaPlayer)) {
+              return;
+            }
+            _error = "Bad VAST Ad";
+            setState(OoyalaPlayer.State.ERROR);
+          }
+        });
         return;
       }
     } while (initAfterFetch(paramOoyalaPlayer));
@@ -343,6 +358,18 @@ class VASTAdPlayer
     }
     _playerLayout = paramFrameLayout;
     _topMargin = paramInt;
+  }
+  
+  private static abstract interface TrackingEvent
+  {
+    public static final String COMPLETE = "complete";
+    public static final String CREATIVE_VIEW = "creativeView";
+    public static final String FIRST_QUARTILE = "firstQuartile";
+    public static final String MIDPOINT = "midpoint";
+    public static final String PAUSE = "pause";
+    public static final String RESUME = "resume";
+    public static final String START = "start";
+    public static final String THIRD_QUARTILE = "thirdQuartile";
   }
 }
 

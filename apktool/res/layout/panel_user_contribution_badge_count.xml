@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:background="@color/white" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<LinearLayout android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCellWithDisclosure">
-        <TextView android:textAppearance="@style/LargeDarkText" android:id="@id/contribution_text" android:paddingRight="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawablePadding="?baseGapSize" />
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/content" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCellWithDisclosure">
+        <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:id="@id/contribution_text" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawablePadding="@dimen/default_base_gap_size" />
         <TextView android:textColor="@android:color/white" android:id="@id/contribution_badge" android:background="@drawable/list_item_badge_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/contribution_text" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:contentDescription="@null" />
     </com.yelp.android.ui.widgets.SpannableRelativeLayout>
 </LinearLayout>

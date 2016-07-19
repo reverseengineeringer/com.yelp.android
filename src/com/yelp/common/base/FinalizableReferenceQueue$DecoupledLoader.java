@@ -8,11 +8,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class FinalizableReferenceQueue$DecoupledLoader
-  implements c
+  implements FinalizableReferenceQueue.b
 {
   private static final String LOADING_ERROR = "Could not load Finalizer in its own class loader. Loading Finalizer in the current class loader instead. As a result, you will not be able to garbage collect this class loader. To support reclaiming this class loader, either resolve the underlying issue, or move Google Collections to your system class path.";
   
   URL getBaseUrl()
+    throws IOException
   {
     String str1 = "com.yelp.common.base.internal.Finalizer".replace('.', '/') + ".class";
     URL localURL = getClass().getClassLoader().getResource(str1);

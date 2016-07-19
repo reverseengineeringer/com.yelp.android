@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:paddingLeft="?baseGapSize" android:paddingTop="?smallGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+<RelativeLayout android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView android:textAppearance="@style/RelativeTimeAgoText" android:id="@id/timeago" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
     <include android:id="@id/user_badge_cell" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/timeago" android:layout_alignParentLeft="true" layout="@layout/panel_passport_short" />

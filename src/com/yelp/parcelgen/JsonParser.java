@@ -1,5 +1,6 @@
 package com.yelp.parcelgen;
 
+import android.os.Parcelable.Creator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +30,7 @@ public abstract class JsonParser<E>
   }
   
   public E parse(JSONArray paramJSONArray)
+    throws JSONException
   {
     if (getElementType() != 2) {
       throw new UnsupportedOperationException("This JsonParser requires you to call parse(JSONObject): " + getClass().getCanonicalName());
@@ -37,12 +39,18 @@ public abstract class JsonParser<E>
   }
   
   public E parse(JSONObject paramJSONObject)
+    throws JSONException
   {
     if (getElementType() != 1) {
       throw new UnsupportedOperationException("This JsonParser requires you to call parse(JSONArray): " + getClass().getCanonicalName());
     }
     throw new UnsupportedOperationException("Must implement parse(JSONObject): " + getClass().getCanonicalName());
   }
+  
+  public static abstract class DualCreator<E>
+    extends JsonParser<E>
+    implements Parcelable.Creator<E>
+  {}
 }
 
 /* Location:

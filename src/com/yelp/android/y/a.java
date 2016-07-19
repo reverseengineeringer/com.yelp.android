@@ -1,25 +1,24 @@
 package com.yelp.android.y;
 
-import java.io.OutputStream;
+import com.bumptech.glide.load.b;
+import java.io.File;
 
-public class a<T>
-  implements com.bumptech.glide.load.a<T>
+public abstract interface a
 {
-  private static final a<?> a = new a();
+  public abstract File a(b paramb);
   
-  public static <T> com.bumptech.glide.load.a<T> b()
+  public abstract void a(b paramb, b paramb1);
+  
+  public abstract void b(b paramb);
+  
+  public static abstract interface a
   {
-    return a;
+    public abstract a a();
   }
   
-  public String a()
+  public static abstract interface b
   {
-    return "";
-  }
-  
-  public boolean a(T paramT, OutputStream paramOutputStream)
-  {
-    return false;
+    public abstract boolean a(File paramFile);
   }
 }
 

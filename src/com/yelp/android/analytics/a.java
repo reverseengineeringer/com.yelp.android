@@ -1,17 +1,16 @@
 package com.yelp.android.analytics;
 
-import com.yelp.android.analytics.iris.b;
 import java.util.Map;
 
 public abstract interface a
 {
   public abstract long getComponentId();
   
-  public abstract b getIri();
+  public abstract com.yelp.android.analytics.iris.a getIri();
   
-  public abstract Map<String, Object> getParametersForIri(b paramb);
+  public abstract Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.a parama);
   
-  public abstract String getRequestIdForIri(b paramb);
+  public abstract String getRequestIdForIri(com.yelp.android.analytics.iris.a parama);
 }
 
 /* Location:

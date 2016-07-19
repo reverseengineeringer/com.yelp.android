@@ -1,110 +1,94 @@
 package android.support.v4.widget;
 
-import android.view.animation.AnimationUtils;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
+import android.widget.CompoundButton;
 
-class c
+public final class c
 {
-  private int a;
-  private int b;
-  private float c;
-  private float d;
-  private long e = Long.MIN_VALUE;
-  private long f = 0L;
-  private int g = 0;
-  private int h = 0;
-  private long i = -1L;
-  private float j;
-  private int k;
+  private static final c a = new b();
   
-  private float a(float paramFloat)
+  static
   {
-    return -4.0F * paramFloat * paramFloat + 4.0F * paramFloat;
-  }
-  
-  private float a(long paramLong)
-  {
-    if (paramLong < e) {
-      return 0.0F;
+    int i = Build.VERSION.SDK_INT;
+    if (i >= 23)
+    {
+      a = new a();
+      return;
     }
-    if ((i < 0L) || (paramLong < i)) {
-      return a.a((float)(paramLong - e) / a, 0.0F, 1.0F) * 0.5F;
+    if (i >= 21)
+    {
+      a = new d();
+      return;
     }
-    long l = i;
-    float f1 = j;
-    float f2 = j;
-    return a.a((float)(paramLong - l) / k, 0.0F, 1.0F) * f2 + (1.0F - f1);
   }
   
-  public void a()
+  public static Drawable a(CompoundButton paramCompoundButton)
   {
-    e = AnimationUtils.currentAnimationTimeMillis();
-    i = -1L;
-    f = e;
-    j = 0.5F;
-    g = 0;
-    h = 0;
+    return a.a(paramCompoundButton);
   }
   
-  public void a(float paramFloat1, float paramFloat2)
+  public static void a(CompoundButton paramCompoundButton, ColorStateList paramColorStateList)
   {
-    c = paramFloat1;
-    d = paramFloat2;
+    a.a(paramCompoundButton, paramColorStateList);
   }
   
-  public void a(int paramInt)
+  public static void a(CompoundButton paramCompoundButton, PorterDuff.Mode paramMode)
   {
-    a = paramInt;
+    a.a(paramCompoundButton, paramMode);
   }
   
-  public void b()
+  static class a
+    extends c.d
   {
-    long l = AnimationUtils.currentAnimationTimeMillis();
-    k = a.a((int)(l - e), 0, b);
-    j = a(l);
-    i = l;
-  }
-  
-  public void b(int paramInt)
-  {
-    b = paramInt;
-  }
-  
-  public boolean c()
-  {
-    return (i > 0L) && (AnimationUtils.currentAnimationTimeMillis() > i + k);
-  }
-  
-  public void d()
-  {
-    if (f == 0L) {
-      throw new RuntimeException("Cannot compute scroll delta before calling start()");
+    public Drawable a(CompoundButton paramCompoundButton)
+    {
+      return d.a(paramCompoundButton);
     }
-    long l1 = AnimationUtils.currentAnimationTimeMillis();
-    float f1 = a(a(l1));
-    long l2 = l1 - f;
-    f = l1;
-    g = ((int)((float)l2 * f1 * c));
-    h = ((int)((float)l2 * f1 * d));
   }
   
-  public int e()
+  static class b
+    implements c.c
   {
-    return (int)(c / Math.abs(c));
+    public Drawable a(CompoundButton paramCompoundButton)
+    {
+      return e.a(paramCompoundButton);
+    }
+    
+    public void a(CompoundButton paramCompoundButton, ColorStateList paramColorStateList)
+    {
+      e.a(paramCompoundButton, paramColorStateList);
+    }
+    
+    public void a(CompoundButton paramCompoundButton, PorterDuff.Mode paramMode)
+    {
+      e.a(paramCompoundButton, paramMode);
+    }
   }
   
-  public int f()
+  static abstract interface c
   {
-    return (int)(d / Math.abs(d));
+    public abstract Drawable a(CompoundButton paramCompoundButton);
+    
+    public abstract void a(CompoundButton paramCompoundButton, ColorStateList paramColorStateList);
+    
+    public abstract void a(CompoundButton paramCompoundButton, PorterDuff.Mode paramMode);
   }
   
-  public int g()
+  static class d
+    extends c.b
   {
-    return g;
-  }
-  
-  public int h()
-  {
-    return h;
+    public void a(CompoundButton paramCompoundButton, ColorStateList paramColorStateList)
+    {
+      f.a(paramCompoundButton, paramColorStateList);
+    }
+    
+    public void a(CompoundButton paramCompoundButton, PorterDuff.Mode paramMode)
+    {
+      f.a(paramCompoundButton, paramMode);
+    }
   }
 }
 

@@ -2,55 +2,74 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/gms/maps/internal/StreetViewLifecycleDelegate;
+.implements Lcom/yelp/android/bj/l;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/gms/maps/StreetViewPanoramaView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "a"
+.end annotation
 
 
 # instance fields
-.field private final akZ:Landroid/view/ViewGroup;
+.field private final a:Landroid/view/ViewGroup;
 
-.field private alA:Landroid/view/View;
+.field private final b:Lcom/yelp/android/bj/i;
 
-.field private final alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+.field private c:Landroid/view/View;
 
 
 # direct methods
-.method public constructor <init>(Landroid/view/ViewGroup;Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;)V
+.method public constructor <init>(Landroid/view/ViewGroup;Lcom/yelp/android/bj/i;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p2}, Lcom/google/android/gms/internal/jx;->i(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    check-cast v0, Lcom/yelp/android/bj/i;
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iput-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    invoke-static {p1}, Lcom/google/android/gms/internal/jx;->i(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p1}, Lcom/google/android/gms/common/internal/zzx;->zzz(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->akZ:Landroid/view/ViewGroup;
+    iput-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->a:Landroid/view/ViewGroup;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getStreetViewPanoramaAsync(Lcom/google/android/gms/maps/OnStreetViewPanoramaReadyCallback;)V
+.method public a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    .locals 2
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    const-string/jumbo v1, "onCreateView not allowed on StreetViewPanoramaViewDelegate"
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method
+
+.method public a()V
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    new-instance v1, Lcom/google/android/gms/maps/StreetViewPanoramaView$a$1;
-
-    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/maps/StreetViewPanoramaView$a$1;-><init>(Lcom/google/android/gms/maps/StreetViewPanoramaView$a;Lcom/google/android/gms/maps/OnStreetViewPanoramaReadyCallback;)V
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->getStreetViewPanoramaAsync(Lcom/google/android/gms/maps/internal/u;)V
+    invoke-interface {v0}, Lcom/yelp/android/bj/i;->b()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -66,43 +85,47 @@
     throw v1
 .end method
 
-.method public nV()Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
-    .locals 1
+.method public a(Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    return-object v0
+    const-string/jumbo v1, "onInflate not allowed on StreetViewPanoramaViewDelegate"
+
+    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
-.method public onCreate(Landroid/os/Bundle;)V
+.method public a(Landroid/os/Bundle;)V
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    invoke-interface {v0, p1}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->onCreate(Landroid/os/Bundle;)V
+    invoke-interface {v0, p1}, Lcom/yelp/android/bj/i;->a(Landroid/os/Bundle;)V
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    invoke-interface {v0}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->getView()Lcom/google/android/gms/dynamic/d;
+    invoke-interface {v0}, Lcom/yelp/android/bj/i;->f()Lcom/google/android/gms/dynamic/c;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/e;->f(Lcom/google/android/gms/dynamic/d;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/android/gms/dynamic/d;->a(Lcom/google/android/gms/dynamic/c;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/View;
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alA:Landroid/view/View;
+    iput-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->c:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->akZ:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->a:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->akZ:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->a:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alA:Landroid/view/View;
+    iget-object v1, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->c:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
     :try_end_0
@@ -120,25 +143,17 @@
     throw v1
 .end method
 
-.method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 2
-
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
-
-    const-string/jumbo v1, "onCreateView not allowed on StreetViewPanoramaViewDelegate"
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public onDestroy()V
+.method public a(Lcom/google/android/gms/maps/f;)V
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    invoke-interface {v0}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->onDestroy()V
+    new-instance v1, Lcom/google/android/gms/maps/StreetViewPanoramaView$a$1;
+
+    invoke-direct {v1, p0, p1}, Lcom/google/android/gms/maps/StreetViewPanoramaView$a$1;-><init>(Lcom/google/android/gms/maps/StreetViewPanoramaView$a;Lcom/google/android/gms/maps/f;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/i;->a(Lcom/yelp/android/bj/n;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -154,7 +169,51 @@
     throw v1
 .end method
 
-.method public onDestroyView()V
+.method public b()V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
+
+    invoke-interface {v0}, Lcom/yelp/android/bj/i;->c()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public b(Landroid/os/Bundle;)V
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/bj/i;->b(Landroid/os/Bundle;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
+
+    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
+
+    throw v1
+.end method
+
+.method public c()V
     .locals 2
 
     new-instance v0, Ljava/lang/UnsupportedOperationException;
@@ -166,25 +225,13 @@
     throw v0
 .end method
 
-.method public onInflate(Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 2
-
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
-
-    const-string/jumbo v1, "onInflate not allowed on StreetViewPanoramaViewDelegate"
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public onLowMemory()V
+.method public d()V
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    invoke-interface {v0}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->onLowMemory()V
+    invoke-interface {v0}, Lcom/yelp/android/bj/i;->d()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -200,13 +247,13 @@
     throw v1
 .end method
 
-.method public onPause()V
+.method public e()V
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    invoke-interface {v0}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->onPause()V
+    invoke-interface {v0}, Lcom/yelp/android/bj/i;->e()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -222,58 +269,10 @@
     throw v1
 .end method
 
-.method public onResume()V
-    .locals 2
+.method public f()Lcom/yelp/android/bj/i;
+    .locals 1
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
+    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->b:Lcom/yelp/android/bj/i;
 
-    invoke-interface {v0}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->onResume()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
-
-    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
-
-    throw v1
-.end method
-
-.method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/StreetViewPanoramaView$a;->alz:Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;
-
-    invoke-interface {v0, p1}, Lcom/google/android/gms/maps/internal/IStreetViewPanoramaViewDelegate;->onSaveInstanceState(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    new-instance v1, Lcom/google/android/gms/maps/model/RuntimeRemoteException;
-
-    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/model/RuntimeRemoteException;-><init>(Landroid/os/RemoteException;)V
-
-    throw v1
-.end method
-
-.method public onStart()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onStop()V
-    .locals 0
-
-    return-void
+    return-object v0
 .end method

@@ -1,50 +1,36 @@
 package com.yelp.android.ag;
 
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import com.yelp.android.af.f;
+import android.graphics.Bitmap;
+import com.bumptech.glide.load.engine.i;
+import com.bumptech.glide.load.f;
 
-public abstract class e<Z>
-  extends k<ImageView, Z>
-  implements f
+public class e
+  implements f<b>
 {
-  public e(ImageView paramImageView)
+  private final f<Bitmap> a;
+  private final com.yelp.android.x.c b;
+  
+  public e(f<Bitmap> paramf, com.yelp.android.x.c paramc)
   {
-    super(paramImageView);
+    a = paramf;
+    b = paramc;
   }
   
-  public void a(Drawable paramDrawable)
+  public i<b> a(i<b> parami, int paramInt1, int paramInt2)
   {
-    ((ImageView)a).setImageDrawable(paramDrawable);
-  }
-  
-  public void a(Exception paramException, Drawable paramDrawable)
-  {
-    ((ImageView)a).setImageDrawable(paramDrawable);
-  }
-  
-  protected abstract void a(Z paramZ);
-  
-  public void a(Z paramZ, com.yelp.android.af.e<? super Z> parame)
-  {
-    if ((parame == null) || (!parame.a(paramZ, this))) {
-      a(paramZ);
+    b localb = (b)parami.b();
+    Bitmap localBitmap = ((b)parami.b()).b();
+    Object localObject = new com.bumptech.glide.load.resource.bitmap.c(localBitmap, b);
+    localObject = (Bitmap)a.a((i)localObject, paramInt1, paramInt2).b();
+    if (!localObject.equals(localBitmap)) {
+      parami = new d(new b(localb, (Bitmap)localObject, a));
     }
+    return parami;
   }
   
-  public Drawable b()
+  public String a()
   {
-    return ((ImageView)a).getDrawable();
-  }
-  
-  public void b(Drawable paramDrawable)
-  {
-    ((ImageView)a).setImageDrawable(paramDrawable);
-  }
-  
-  public void c(Drawable paramDrawable)
-  {
-    ((ImageView)a).setImageDrawable(paramDrawable);
+    return a.a();
   }
 }
 

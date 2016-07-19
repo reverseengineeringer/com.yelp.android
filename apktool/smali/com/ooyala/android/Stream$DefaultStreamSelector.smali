@@ -6,6 +6,17 @@
 .implements Lcom/ooyala/android/StreamSelector;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/Stream;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "DefaultStreamSelector"
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0

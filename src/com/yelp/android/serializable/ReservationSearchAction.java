@@ -1,18 +1,68 @@
 package com.yelp.android.serializable;
 
-import android.content.Context;
-import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
-import com.yelp.android.ui.activities.businesspage.cf;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.yelp.android.analytics.iris.EventIri;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.g.a;
+import com.yelp.android.ui.activities.businesspage.g;
+import com.yelp.android.ui.activities.reservations.ActivityReservationFlow;
+import com.yelp.android.util.StringUtils;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
 
 public class ReservationSearchAction
   extends _ReservationSearchAction
   implements SearchAction
 {
-  public static final JsonParser.DualCreator<ReservationSearchAction> CREATOR = new cm();
-  private cf mHighlightedBusinessInfo;
+  public static final JsonParser.DualCreator<ReservationSearchAction> CREATOR = new ReservationSearchAction.2();
+  private g m;
+  
+  public static Map<String, Object> a(BusinessSearchResult paramBusinessSearchResult, YelpBusiness paramYelpBusiness)
+  {
+    a locala = new a();
+    String str = null;
+    if (paramBusinessSearchResult != null) {
+      str = paramBusinessSearchResult.g();
+    }
+    if (!StringUtils.d(str)) {
+      locala.put("biz_dimension", str);
+    }
+    locala.put("id", paramYelpBusiness.aD());
+    return locala;
+  }
+  
+  public BusinessSearchResult.SearchActionType a()
+  {
+    return BusinessSearchResult.SearchActionType.Reservation;
+  }
+  
+  public void a(Activity paramActivity, BusinessSearchResult paramBusinessSearchResult, String paramString)
+  {
+    paramString = a(paramBusinessSearchResult, paramBusinessSearchResult.a());
+    if (o() != null) {}
+    for (boolean bool = true;; bool = false)
+    {
+      paramString.put("is_using_time_slot", Boolean.valueOf(bool));
+      AppData.a(EventIri.SearchReservationOpen, paramString);
+      paramString = "source_search_page";
+      if (o() != null) {
+        paramString = "source_vertical_search_page";
+      }
+      paramActivity.startActivity(ActivityReservationFlow.a(paramActivity, paramBusinessSearchResult, paramString, this));
+      return;
+    }
+  }
+  
+  public g d()
+  {
+    if (m == null) {
+      m = new ReservationSearchAction.1(this, this);
+    }
+    return m;
+  }
   
   public boolean equals(Object paramObject)
   {
@@ -44,77 +94,59 @@ public class ReservationSearchAction
               } while (getClass() != paramObject.getClass());
               paramObject = (ReservationSearchAction)paramObject;
               bool1 = bool2;
-            } while (isDisabled() != ((ReservationSearchAction)paramObject).isDisabled());
+            } while (b() != ((ReservationSearchAction)paramObject).b());
             bool1 = bool2;
-          } while (getPartySize() != ((ReservationSearchAction)paramObject).getPartySize());
-          if (getTime() == null) {
+          } while (k() != ((ReservationSearchAction)paramObject).k());
+          if (o() == null) {
             break;
           }
           bool1 = bool2;
-        } while (!getTime().equals(((ReservationSearchAction)paramObject).getTime()));
-        if (getType() == null) {
+        } while (!o().equals(((ReservationSearchAction)paramObject).o()));
+        if (m() == null) {
           break label231;
         }
         bool1 = bool2;
-      } while (!getType().equals(((ReservationSearchAction)paramObject).getType()));
-      if (getText() == null) {
+      } while (!TextUtils.equals(m(), ((ReservationSearchAction)paramObject).m()));
+      if (l() == null) {
         break label240;
       }
       bool1 = bool2;
-    } while (!getText().equals(((ReservationSearchAction)paramObject).getText()));
+    } while (!TextUtils.equals(l(), ((ReservationSearchAction)paramObject).l()));
     label231:
     label240:
-    while (((ReservationSearchAction)paramObject).getText() == null)
+    while (((ReservationSearchAction)paramObject).l() == null)
     {
       bool1 = bool2;
-      if (!Arrays.equals(getTextColor(), ((ReservationSearchAction)paramObject).getTextColor())) {
+      if (!Arrays.equals(j(), ((ReservationSearchAction)paramObject).j())) {
         break;
       }
       bool1 = bool2;
-      if (!Arrays.equals(getDefaultColorTop(), ((ReservationSearchAction)paramObject).getDefaultColorTop())) {
+      if (!Arrays.equals(i(), ((ReservationSearchAction)paramObject).i())) {
         break;
       }
       bool1 = bool2;
-      if (!Arrays.equals(getDefaultColorBottom(), ((ReservationSearchAction)paramObject).getDefaultColorBottom())) {
+      if (!Arrays.equals(h(), ((ReservationSearchAction)paramObject).h())) {
         break;
       }
       bool1 = bool2;
-      if (!Arrays.equals(getSelectedColorTop(), ((ReservationSearchAction)paramObject).getSelectedColorTop())) {
+      if (!Arrays.equals(g(), ((ReservationSearchAction)paramObject).g())) {
         break;
       }
       bool1 = bool2;
-      if (!Arrays.equals(getSelectedColorBottom(), ((ReservationSearchAction)paramObject).getSelectedColorBottom())) {
+      if (!Arrays.equals(f(), ((ReservationSearchAction)paramObject).f())) {
         break;
       }
-      return Arrays.equals(getBorderColor(), ((ReservationSearchAction)paramObject).getBorderColor());
-      if (((ReservationSearchAction)paramObject).getTime() == null) {
+      return Arrays.equals(e(), ((ReservationSearchAction)paramObject).e());
+      if (((ReservationSearchAction)paramObject).o() == null) {
         break label84;
       }
       return false;
-      if (((ReservationSearchAction)paramObject).getType() == null) {
+      if (((ReservationSearchAction)paramObject).m() == null) {
         break label107;
       }
       return false;
     }
     return false;
-  }
-  
-  public cf getBusinessListButton()
-  {
-    if (mHighlightedBusinessInfo == null) {
-      mHighlightedBusinessInfo = new cl(this, this);
-    }
-    return mHighlightedBusinessInfo;
-  }
-  
-  public BusinessSearchResult.SearchActionType getSearchActionType()
-  {
-    return BusinessSearchResult.SearchActionType.Reservation;
-  }
-  
-  public void onPressed(Context paramContext, BusinessSearchResult paramBusinessSearchResult)
-  {
-    paramContext.startActivity(ActivityBusinessPage.a(paramContext, paramBusinessSearchResult));
   }
 }
 

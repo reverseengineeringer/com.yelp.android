@@ -4,15 +4,17 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ExternalCheckIn
   extends _ExternalCheckIn
   implements CheckIn
 {
-  public static final ah<ExternalCheckIn> CREATOR = new an();
+  public static final a<ExternalCheckIn> CREATOR = new ExternalCheckIn.1();
   
-  public static ArrayList<CheckIn> mixedCheckInsFromJSONArray(JSONArray paramJSONArray, Map<String, YelpBusiness> paramMap)
+  public static ArrayList<CheckIn> a(JSONArray paramJSONArray, Map<String, YelpBusiness> paramMap)
+    throws JSONException
   {
     int j = paramJSONArray.length();
     ArrayList localArrayList = new ArrayList(j);
@@ -23,8 +25,8 @@ public class ExternalCheckIn
       if (((JSONObject)localObject).has("id"))
       {
         localObject = (YelpCheckIn)YelpCheckIn.CREATOR.parse((JSONObject)localObject);
-        if ((paramMap != null) && (paramMap.containsKey(((YelpCheckIn)localObject).getBusinessId()))) {
-          mBusiness = ((YelpBusiness)paramMap.get(((YelpCheckIn)localObject).getBusinessId()));
+        if ((paramMap != null) && (paramMap.containsKey(((YelpCheckIn)localObject).k()))) {
+          n = ((YelpBusiness)paramMap.get(((YelpCheckIn)localObject).k()));
         }
         localArrayList.add(localObject);
       }
@@ -33,8 +35,8 @@ public class ExternalCheckIn
         i += 1;
         break;
         localObject = (ExternalCheckIn)CREATOR.parse((JSONObject)localObject);
-        if ((paramMap != null) && (paramMap.containsKey(((ExternalCheckIn)localObject).getBusinessId()))) {
-          mBusiness = ((YelpBusiness)paramMap.get(((ExternalCheckIn)localObject).getBusinessId()));
+        if ((paramMap != null) && (paramMap.containsKey(((ExternalCheckIn)localObject).b()))) {
+          k = ((YelpBusiness)paramMap.get(((ExternalCheckIn)localObject).b()));
         }
         localArrayList.add(localObject);
       }
@@ -42,9 +44,19 @@ public class ExternalCheckIn
     return localArrayList;
   }
   
-  public static void updateCheckIn(YelpCheckIn paramYelpCheckIn, YelpBusiness paramYelpBusiness)
+  public static void a(YelpCheckIn paramYelpCheckIn, YelpBusiness paramYelpBusiness)
   {
-    mBusiness = paramYelpBusiness;
+    n = paramYelpBusiness;
+  }
+  
+  public final String a()
+  {
+    return i();
+  }
+  
+  public final String c()
+  {
+    return h();
   }
   
   public boolean equals(Object paramObject)
@@ -62,52 +74,42 @@ public class ExternalCheckIn
           return false;
         }
         paramObject = (ExternalCheckIn)paramObject;
-        if (mAppCheckInId == null)
+        if (d == null)
         {
-          if (mAppCheckInId != null) {
+          if (d != null) {
             return false;
           }
         }
-        else if (!mAppCheckInId.equals(mAppCheckInId)) {
+        else if (!d.equals(d)) {
           return false;
         }
-        if (mAppId != null) {
+        if (c != null) {
           break;
         }
-      } while (mAppId == null);
+      } while (c == null);
       return false;
-    } while (mAppId.equals(mAppId));
+    } while (c.equals(c));
     return false;
-  }
-  
-  public final String getUserName()
-  {
-    return getAppUserName();
-  }
-  
-  public final String getUserPhotoUrl()
-  {
-    return getAppUserImageUrl();
   }
   
   public int hashCode()
   {
     int j = 0;
     int i;
-    if (mAppCheckInId == null)
+    if (d == null)
     {
       i = 0;
-      if (mAppId != null) {
+      if (c != null) {
         break label39;
       }
     }
     for (;;)
     {
       return (i + 31) * 31 + j;
-      i = mAppCheckInId.hashCode();
+      i = d.hashCode();
       break;
       label39:
-      j = mAppId.hashCode();
+      j = c.hashCode();
     }
   }
 }

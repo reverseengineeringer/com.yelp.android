@@ -24,9 +24,11 @@
 
 .field private d:Lcom/yelp/android/ui/panels/PanelError;
 
-.field private e:J
+.field private e:Lcom/yelp/android/bx/a;
 
-.field protected f:Lcom/yelp/android/util/ErrorType;
+.field private f:J
+
+.field protected h:Lcom/yelp/android/util/ErrorType;
 
 
 # direct methods
@@ -34,10 +36,10 @@
     .locals 1
 
     .prologue
-    .line 39
+    .line 43
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;-><init>()V
 
-    .line 47
+    .line 51
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -49,81 +51,103 @@
 
 
 # virtual methods
-.method protected A()Lcom/yelp/android/ui/panels/PanelLoading;
-    .locals 3
-
-    .prologue
-    .line 220
-    new-instance v0, Lcom/yelp/android/ui/panels/PanelLoading;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/panels/PanelLoading;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    .line 221
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x106000b
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->a(I)V
-
-    .line 222
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Landroid/view/View;)V
-
-    .line 223
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
-
-    .line 224
-    return-object v0
-.end method
-
-.method protected B()Lcom/yelp/android/ui/panels/PanelLoading;
+.method protected A()Lcom/yelp/android/ui/panels/PanelError;
     .locals 1
 
     .prologue
-    .line 236
+    .line 194
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
+
+    if-nez v0, :cond_0
+
+    .line 195
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->B()Lcom/yelp/android/ui/panels/PanelError;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
+
+    .line 197
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
+
+    return-object v0
+.end method
+
+.method protected B()Lcom/yelp/android/ui/panels/PanelError;
+    .locals 1
+
+    .prologue
+    .line 208
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/ui/panels/PanelError$a;)Lcom/yelp/android/ui/panels/PanelError;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected C()Lcom/yelp/android/ui/panels/PanelLoading;
+    .locals 1
+
+    .prologue
+    .line 256
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->c:Lcom/yelp/android/ui/panels/PanelLoading;
 
     if-nez v0, :cond_0
 
-    .line 237
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->A()Lcom/yelp/android/ui/panels/PanelLoading;
+    .line 257
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->y_()Lcom/yelp/android/ui/panels/PanelLoading;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->c:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 239
+    .line 259
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->c:Lcom/yelp/android/ui/panels/PanelLoading;
 
     return-object v0
 .end method
 
-.method protected C()V
+.method protected D()V
     .locals 1
 
     .prologue
-    .line 272
+    .line 286
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 273
+    .line 287
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->showLoadingDialog()V
+
+    .line 289
+    :cond_0
+    return-void
+.end method
+
+.method protected E()V
+    .locals 1
+
+    .prologue
+    .line 310
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 311
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -132,21 +156,21 @@
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->hideLoadingDialog()V
 
-    .line 275
+    .line 313
     :cond_0
     return-void
 .end method
 
-.method protected D()V
+.method protected F()V
     .locals 3
 
     .prologue
-    .line 309
+    .line 347
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->b:Ljava/util/List;
 
     if-eqz v0, :cond_1
 
-    .line 310
+    .line 348
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->b:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -166,7 +190,7 @@
 
     check-cast v0, Landroid/content/BroadcastReceiver;
 
-    .line 311
+    .line 349
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v2
@@ -175,33 +199,46 @@
 
     goto :goto_0
 
-    .line 313
+    .line 351
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->b:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
 
-    .line 315
+    .line 353
     :cond_1
     return-void
 .end method
 
-.method protected E()V
+.method protected G()V
     .locals 1
 
     .prologue
-    .line 418
+    .line 455
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/a;Landroid/content/Context;)Z
+    invoke-static {p0, v0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/a;Landroid/content/Context;)Z
 
-    .line 419
+    .line 456
     return-void
 .end method
 
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+.method public H_()V
+    .locals 1
+
+    .prologue
+    .line 263
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 264
+    return-void
+.end method
+
+.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -212,68 +249,68 @@
             ">(",
             "Ljava/lang/String;",
             "TRequest;",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<TResult;>;)TRequest;"
         }
     .end annotation
 
     .prologue
-    .line 398
+    .line 432
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    invoke-virtual {v0, p1, p3}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, p1, p3}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    .line 399
+    .line 433
     if-eqz v0, :cond_0
 
     move-object p2, v0
 
-    .line 402
+    .line 436
     :cond_0
     return-object p2
 .end method
 
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/h;
+.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/k;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Request:",
-            "Lcom/yelp/android/appdata/webrequests/h",
+            "Lcom/yelp/android/appdata/webrequests/k",
             "<**TResult;>;Result:",
             "Ljava/lang/Object;",
             ">(",
             "Ljava/lang/String;",
             "TRequest;",
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<TResult;>;)TRequest;"
         }
     .end annotation
 
     .prologue
-    .line 408
+    .line 446
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    invoke-virtual {v0, p1, p3}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/h;
+    invoke-virtual {v0, p1, p3}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/k;
 
     move-result-object v0
 
-    .line 409
+    .line 447
     if-eqz v0, :cond_0
 
     move-object p2, v0
 
-    .line 412
+    .line 450
     :cond_0
     return-object p2
 .end method
 
-.method protected a(Lcom/yelp/android/ui/panels/aa;)Lcom/yelp/android/ui/panels/PanelError;
+.method protected a(Lcom/yelp/android/ui/panels/PanelError$a;)Lcom/yelp/android/ui/panels/PanelError;
     .locals 2
 
     .prologue
-    .line 198
+    .line 218
     new-instance v0, Lcom/yelp/android/ui/panels/PanelError;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -282,13 +319,13 @@
 
     invoke-direct {v0, v1}, Lcom/yelp/android/ui/panels/PanelError;-><init>(Landroid/content/Context;)V
 
-    .line 199
+    .line 219
     if-eqz p1, :cond_1
 
-    .line 200
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/ui/panels/aa;)V
+    .line 220
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/ui/panels/PanelError$a;)V
 
-    .line 204
+    .line 224
     :goto_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getView()Landroid/view/View;
 
@@ -296,19 +333,19 @@
 
     if-eqz v1, :cond_0
 
-    .line 205
+    .line 225
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Landroid/view/View;)V
 
-    .line 207
+    .line 227
     :cond_0
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelError;->setVisibility(I)V
 
-    .line 208
+    .line 228
     return-object v0
 
-    .line 202
+    .line 222
     :cond_1
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/PanelError;->a()V
 
@@ -319,19 +356,19 @@
     .locals 1
 
     .prologue
-    .line 304
+    .line 342
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     invoke-virtual {v0, p2, p1}, Landroid/support/v4/app/FragmentActivity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 305
+    .line 343
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->b:Ljava/util/List;
 
     invoke-interface {v0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 306
+    .line 344
     return-void
 .end method
 
@@ -339,12 +376,12 @@
     .locals 2
 
     .prologue
-    .line 335
+    .line 373
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0c02af
+    const v1, 0x7f0f0301
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -354,7 +391,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 336
+    .line 374
     return-void
 .end method
 
@@ -369,12 +406,12 @@
     .end annotation
 
     .prologue
-    .line 247
-    const v0, 0x7f07033f
+    .line 267
+    const v0, 0x7f070379
 
     invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;I)V
 
-    .line 248
+    .line 268
     return-void
 .end method
 
@@ -389,23 +426,23 @@
     .end annotation
 
     .prologue
-    .line 253
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->x()V
+    .line 273
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->z()V
 
-    .line 254
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->B()Lcom/yelp/android/ui/panels/PanelLoading;
+    .line 274
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->C()Lcom/yelp/android/ui/panels/PanelLoading;
 
     move-result-object v0
 
-    .line 255
-    invoke-virtual {v0, p2}, Lcom/yelp/android/ui/panels/PanelLoading;->b(I)V
+    .line 275
+    invoke-virtual {v0, p2}, Lcom/yelp/android/ui/panels/PanelLoading;->a(I)V
 
-    .line 256
+    .line 276
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
 
-    .line 257
+    .line 277
     return-void
 .end method
 
@@ -413,29 +450,29 @@
     .locals 1
 
     .prologue
-    .line 162
+    .line 182
     invoke-static {p1}, Lcom/yelp/android/util/ErrorType;->getTypeFromException(Lcom/yelp/android/appdata/webrequests/YelpException;)Lcom/yelp/android/util/ErrorType;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/util/ErrorType;)V
 
-    .line 163
+    .line 183
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/appdata/webrequests/YelpException;Lcom/yelp/android/ui/panels/aa;)V
+.method public a(Lcom/yelp/android/appdata/webrequests/YelpException;Lcom/yelp/android/ui/panels/PanelError$a;)V
     .locals 1
 
     .prologue
-    .line 145
+    .line 165
     invoke-static {p1}, Lcom/yelp/android/util/ErrorType;->getTypeFromException(Lcom/yelp/android/appdata/webrequests/YelpException;)Lcom/yelp/android/util/ErrorType;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/PanelError$a;)V
 
-    .line 146
+    .line 166
     return-void
 .end method
 
@@ -443,46 +480,46 @@
     .locals 1
 
     .prologue
-    .line 140
+    .line 161
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
+    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/PanelError$a;)V
 
-    .line 141
+    .line 162
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
+.method public a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/PanelError$a;)V
     .locals 2
 
     .prologue
-    .line 149
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->j()V
+    .line 169
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->l()V
 
-    .line 150
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->x()V
+    .line 170
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->z()V
 
-    .line 154
+    .line 174
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    .line 155
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->y()Lcom/yelp/android/ui/panels/PanelError;
+    .line 175
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->A()Lcom/yelp/android/ui/panels/PanelError;
 
     move-result-object v0
 
-    .line 156
-    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
+    .line 176
+    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/PanelError$a;)V
 
-    .line 157
+    .line 177
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelError;->setVisibility(I)V
 
-    .line 159
+    .line 179
     :cond_0
     return-void
 .end method
@@ -491,14 +528,14 @@
     .locals 1
 
     .prologue
-    .line 287
+    .line 325
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0, p1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p0, v0, p2}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V
 
-    .line 288
+    .line 326
     return-void
 .end method
 
@@ -517,21 +554,21 @@
     .end annotation
 
     .prologue
-    .line 352
+    .line 395
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
     invoke-virtual {v0, p1, p2}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 353
+    .line 396
     return-void
 .end method
 
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;)V
+.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Request:",
-            "Lcom/yelp/android/appdata/webrequests/h",
+            "Lcom/yelp/android/appdata/webrequests/k",
             "<**TResult;>;Result:",
             "Ljava/lang/Object;",
             ">(",
@@ -541,36 +578,12 @@
     .end annotation
 
     .prologue
-    .line 365
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, p1, p2, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Z)V
-
-    .line 366
-    return-void
-.end method
-
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Z)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<Request:",
-            "Lcom/yelp/android/appdata/webrequests/h",
-            "<**TResult;>;Result:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/String;",
-            "TRequest;Z)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 379
+    .line 413
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Z)V
+    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;)V
 
-    .line 380
+    .line 414
     return-void
 .end method
 
@@ -578,12 +591,16 @@
     .locals 2
 
     .prologue
-    .line 339
+    .line 377
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0c02af
+    .line 378
+    if-eqz v0, :cond_0
+
+    .line 379
+    const v1, 0x7f0f0301
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -593,8 +610,17 @@
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    .line 340
+    .line 383
+    :goto_0
     return-void
+
+    .line 381
+    :cond_0
+    const-string/jumbo v0, "Trying to remove a view while the rootView is null."
+
+    invoke-static {p0, v0}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method protected b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
@@ -608,20 +634,55 @@
     .end annotation
 
     .prologue
-    .line 320
-    if-eqz p1, :cond_0
+    .line 292
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    .line 321
-    const/4 v0, 0x1
+    move-result-object v0
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->cancel(Z)V
+    if-eqz v0, :cond_0
 
-    .line 322
-    const/4 v0, 0x0
+    .line 293
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    move-result-object v0
 
-    .line 324
+    check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->showLoadingDialog(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+
+    .line 295
+    :cond_0
+    return-void
+.end method
+
+.method protected b(Lcom/yelp/android/appdata/webrequests/ApiRequest;I)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
+            "<***>;I)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 298
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 299
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
+
+    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/ui/activities/support/YelpActivity;->showLoadingDialog(Lcom/yelp/android/appdata/webrequests/ApiRequest;I)V
+
+    .line 301
     :cond_0
     return-void
 .end method
@@ -630,14 +691,43 @@
     .locals 1
 
     .prologue
-    .line 299
+    .line 337
     invoke-static {p1}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Ljava/lang/String;)Landroid/content/IntentFilter;
 
     move-result-object v0
 
     invoke-virtual {p0, v0, p2}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V
 
-    .line 300
+    .line 338
+    return-void
+.end method
+
+.method protected c(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
+            "<***>;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 358
+    if-eqz p1, :cond_0
+
+    .line 359
+    const/4 v0, 0x1
+
+    invoke-virtual {p1, v0}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->a(Z)V
+
+    .line 360
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 362
+    :cond_0
     return-void
 .end method
 
@@ -645,28 +735,28 @@
     .locals 2
 
     .prologue
-    .line 428
-    iget-wide v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:J
+    .line 465
+    iget-wide v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->f:J
 
     return-wide v0
 .end method
 
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 423
+    .line 460
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -677,7 +767,7 @@
     .end annotation
 
     .prologue
-    .line 433
+    .line 470
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
@@ -685,54 +775,41 @@
     return-object v0
 .end method
 
-.method public getRequestIdForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/lang/String;
+.method public getRequestIdForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 438
+    .line 475
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public i_()V
+.method public l()V
     .locals 1
 
     .prologue
-    .line 243
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
-
-    .line 244
-    return-void
-.end method
-
-.method public j()V
-    .locals 1
-
-    .prologue
-    .line 228
+    .line 248
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->c:Lcom/yelp/android/ui/panels/PanelLoading;
 
     if-eqz v0, :cond_0
 
-    .line 229
+    .line 249
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->c:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/PanelLoading;->c()V
 
-    .line 230
+    .line 250
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->c:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->b(Landroid/view/View;)V
 
-    .line 231
+    .line 251
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->c:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 233
+    .line 253
     :cond_0
     return-void
 .end method
@@ -741,39 +818,44 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 101
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->f:Lcom/yelp/android/util/ErrorType;
+    .line 102
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->h:Lcom/yelp/android/util/ErrorType;
 
     if-eqz v0, :cond_0
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->f:Lcom/yelp/android/util/ErrorType;
+    .line 103
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->h:Lcom/yelp/android/util/ErrorType;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/util/ErrorType;)V
 
-    .line 96
+    .line 105
     :cond_0
     return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 4
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
 
     .prologue
-    .line 60
+    .line 67
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 61
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 68
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
     const-string/jumbo v1, "API_WORKER_FRAGMENT"
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -781,24 +863,24 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    .line 64
+    .line 71
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
     if-nez v0, :cond_0
 
-    .line 65
+    .line 72
     new-instance v0, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    .line 66
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 73
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
@@ -806,17 +888,17 @@
 
     const-string/jumbo v2, "API_WORKER_FRAGMENT"
 
-    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/FragmentTransaction;->add(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/o;->a(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 70
+    .line 79
     :cond_0
     if-nez p1, :cond_1
 
-    .line 71
+    .line 80
     new-instance v0, Ljava/util/Random;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -825,18 +907,18 @@
 
     invoke-direct {v0, v2, v3}, Ljava/util/Random;-><init>(J)V
 
-    .line 72
+    .line 81
     invoke-virtual {v0}, Ljava/util/Random;->nextLong()J
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:J
+    iput-wide v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->f:J
 
-    .line 76
+    .line 85
     :goto_0
     return-void
 
-    .line 74
+    .line 83
     :cond_1
     const-string/jumbo v0, "id"
 
@@ -844,7 +926,7 @@
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:J
+    iput-wide v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->f:J
 
     goto :goto_0
 .end method
@@ -853,8 +935,8 @@
     .locals 2
 
     .prologue
-    .line 87
-    const v0, 0x7f030191
+    .line 96
+    const v0, 0x7f03020e
 
     const/4 v1, 0x0
 
@@ -869,13 +951,13 @@
     .locals 0
 
     .prologue
-    .line 118
+    .line 135
     invoke-super {p0}, Landroid/support/v4/app/Fragment;->onDetach()V
 
-    .line 119
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->D()V
+    .line 136
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->F()V
 
-    .line 120
+    .line 137
     return-void
 .end method
 
@@ -883,16 +965,16 @@
     .locals 1
 
     .prologue
-    .line 130
+    .line 147
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    invoke-static {v0, p1}, Lcom/yelp/android/ui/k;->a(Landroid/app/Activity;Landroid/view/MenuItem;)Z
+    invoke-static {v0, p1}, Lcom/yelp/android/ui/f;->a(Landroid/app/Activity;Landroid/view/MenuItem;)Z
 
     move-result v0
 
-    .line 131
+    .line 148
     if-eqz v0, :cond_0
 
     :goto_0
@@ -906,17 +988,39 @@
     goto :goto_0
 .end method
 
+.method public onPause()V
+    .locals 1
+
+    .prologue
+    .line 118
+    invoke-super {p0}, Landroid/support/v4/app/Fragment;->onPause()V
+
+    .line 119
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:Lcom/yelp/android/bx/a;
+
+    if-eqz v0, :cond_0
+
+    .line 120
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:Lcom/yelp/android/bx/a;
+
+    invoke-interface {v0}, Lcom/yelp/android/bx/a;->c()V
+
+    .line 122
+    :cond_0
+    return-void
+.end method
+
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)V
     .locals 0
 
     .prologue
-    .line 124
+    .line 141
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onPrepareOptionsMenu(Landroid/view/Menu;)V
 
-    .line 125
-    invoke-static {p0, p1}, Lcom/yelp/android/ui/k;->a(Ljava/lang/Object;Landroid/view/Menu;)V
+    .line 142
+    invoke-static {p0, p1}, Lcom/yelp/android/ui/f;->a(Ljava/lang/Object;Landroid/view/Menu;)V
 
-    .line 126
+    .line 143
     return-void
 .end method
 
@@ -924,26 +1028,24 @@
     .locals 1
 
     .prologue
-    .line 100
+    .line 109
     invoke-super {p0}, Landroid/support/v4/app/Fragment;->onResume()V
 
-    .line 104
-    const/16 v0, 0xb
+    .line 110
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->G()V
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->b(I)Z
-
-    move-result v0
+    .line 111
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:Lcom/yelp/android/bx/a;
 
     if-eqz v0, :cond_0
 
-    .line 105
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->w()V
+    .line 112
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:Lcom/yelp/android/bx/a;
 
-    .line 107
+    invoke-interface {v0}, Lcom/yelp/android/bx/a;->b()V
+
+    .line 114
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->E()V
-
-    .line 108
     return-void
 .end method
 
@@ -951,25 +1053,36 @@
     .locals 4
 
     .prologue
-    .line 112
+    .line 126
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 113
+    .line 127
     const-string/jumbo v0, "id"
 
-    iget-wide v2, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:J
+    iget-wide v2, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->f:J
 
     invoke-virtual {p1, v0, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 114
+    .line 128
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:Lcom/yelp/android/bx/a;
+
+    if-eqz v0, :cond_0
+
+    .line 129
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->e:Lcom/yelp/android/bx/a;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/bx/a;->a(Landroid/os/Bundle;)V
+
+    .line 131
+    :cond_0
     return-void
 .end method
 
-.method protected w()V
+.method protected y()V
     .locals 1
 
     .prologue
-    .line 135
+    .line 152
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -978,70 +1091,73 @@
 
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBarActivity;->supportInvalidateOptionsMenu()V
 
-    .line 136
+    .line 153
     return-void
 .end method
 
-.method public x()V
+.method protected y_()Lcom/yelp/android/ui/panels/PanelLoading;
+    .locals 3
+
+    .prologue
+    .line 240
+    new-instance v0, Lcom/yelp/android/ui/panels/PanelLoading;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/panels/PanelLoading;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    .line 241
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x106000b
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setBackgroundColor(I)V
+
+    .line 242
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Landroid/view/View;)V
+
+    .line 243
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
+
+    .line 244
+    return-object v0
+.end method
+
+.method public z()V
     .locals 2
 
     .prologue
     const/4 v1, 0x0
 
-    .line 166
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->f:Lcom/yelp/android/util/ErrorType;
+    .line 186
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->h:Lcom/yelp/android/util/ErrorType;
 
-    .line 167
+    .line 187
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
 
     if-eqz v0, :cond_0
 
-    .line 168
+    .line 188
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->b(Landroid/view/View;)V
 
-    .line 169
+    .line 189
     iput-object v1, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
 
-    .line 171
+    .line 191
     :cond_0
     return-void
-.end method
-
-.method protected y()Lcom/yelp/android/ui/panels/PanelError;
-    .locals 1
-
-    .prologue
-    .line 174
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
-
-    if-nez v0, :cond_0
-
-    .line 175
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->z()Lcom/yelp/android/ui/panels/PanelError;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
-
-    .line 177
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/YelpFragment;->d:Lcom/yelp/android/ui/panels/PanelError;
-
-    return-object v0
-.end method
-
-.method protected z()Lcom/yelp/android/ui/panels/PanelError;
-    .locals 1
-
-    .prologue
-    .line 188
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->a(Lcom/yelp/android/ui/panels/aa;)Lcom/yelp/android/ui/panels/PanelError;
-
-    move-result-object v0
-
-    return-object v0
 .end method

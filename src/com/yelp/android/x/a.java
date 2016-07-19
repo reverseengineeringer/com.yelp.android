@@ -1,43 +1,138 @@
 package com.yelp.android.x;
 
-import com.yelp.android.r.c;
-import com.yelp.android.r.f;
-import com.yelp.android.v.e;
-import com.yelp.android.v.j;
-import com.yelp.android.v.m;
-import java.io.InputStream;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 
-public class a
-  implements m<e, InputStream>
+class a
+  implements g
 {
-  private final j<e, e> a;
+  private final b a = new b();
+  private final e<a, Bitmap> b = new e();
   
-  public a()
+  private static String d(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
   {
-    this(null);
+    return "[" + paramInt1 + "x" + paramInt2 + "], " + paramConfig;
   }
   
-  public a(j<e, e> paramj)
+  private static String d(Bitmap paramBitmap)
   {
-    a = paramj;
+    return d(paramBitmap.getWidth(), paramBitmap.getHeight(), paramBitmap.getConfig());
   }
   
-  public c<InputStream> a(e parame, int paramInt1, int paramInt2)
+  public Bitmap a()
   {
-    e locale = parame;
-    if (a != null)
+    return (Bitmap)b.a();
+  }
+  
+  public Bitmap a(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
+  {
+    paramConfig = a.a(paramInt1, paramInt2, paramConfig);
+    return (Bitmap)b.a(paramConfig);
+  }
+  
+  public void a(Bitmap paramBitmap)
+  {
+    a locala = a.a(paramBitmap.getWidth(), paramBitmap.getHeight(), paramBitmap.getConfig());
+    b.a(locala, paramBitmap);
+  }
+  
+  public String b(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
+  {
+    return d(paramInt1, paramInt2, paramConfig);
+  }
+  
+  public String b(Bitmap paramBitmap)
+  {
+    return d(paramBitmap);
+  }
+  
+  public int c(Bitmap paramBitmap)
+  {
+    return com.yelp.android.ao.h.a(paramBitmap);
+  }
+  
+  public String toString()
+  {
+    return "AttributeStrategy:\n  " + b;
+  }
+  
+  static class a
+    implements h
+  {
+    private final a.b a;
+    private int b;
+    private int c;
+    private Bitmap.Config d;
+    
+    public a(a.b paramb)
     {
-      locale = (e)a.a(parame, 0, 0);
-      if (locale != null) {
-        break label54;
-      }
-      a.a(parame, 0, 0, parame);
-      locale = parame;
+      a = paramb;
     }
-    label54:
-    for (;;)
+    
+    public void a()
     {
-      return new f(locale);
+      a.a(this);
+    }
+    
+    public void a(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
+    {
+      b = paramInt1;
+      c = paramInt2;
+      d = paramConfig;
+    }
+    
+    public boolean equals(Object paramObject)
+    {
+      boolean bool2 = false;
+      boolean bool1 = bool2;
+      if ((paramObject instanceof a))
+      {
+        paramObject = (a)paramObject;
+        bool1 = bool2;
+        if (b == b)
+        {
+          bool1 = bool2;
+          if (c == c)
+          {
+            bool1 = bool2;
+            if (d == d) {
+              bool1 = true;
+            }
+          }
+        }
+      }
+      return bool1;
+    }
+    
+    public int hashCode()
+    {
+      int j = b;
+      int k = c;
+      if (d != null) {}
+      for (int i = d.hashCode();; i = 0) {
+        return i + (j * 31 + k) * 31;
+      }
+    }
+    
+    public String toString()
+    {
+      return a.c(b, c, d);
+    }
+  }
+  
+  static class b
+    extends b<a.a>
+  {
+    protected a.a a()
+    {
+      return new a.a(this);
+    }
+    
+    public a.a a(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
+    {
+      a.a locala = (a.a)c();
+      locala.a(paramInt1, paramInt2, paramConfig);
+      return locala;
     }
   }
 }

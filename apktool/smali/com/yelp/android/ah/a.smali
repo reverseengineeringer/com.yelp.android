@@ -1,16 +1,26 @@
-.class public final Lcom/yelp/android/ah/a;
+.class public Lcom/yelp/android/ah/a;
 .super Ljava/lang/Object;
-.source "ApplicationVersionSignature.java"
+.source "GifBitmapWrapper.java"
 
 
-# static fields
-.field private static final a:Ljava/util/concurrent/ConcurrentHashMap;
+# instance fields
+.field private final a:Lcom/bumptech/glide/load/engine/i;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/concurrent/ConcurrentHashMap",
+            "Lcom/bumptech/glide/load/engine/i",
             "<",
-            "Ljava/lang/String;",
-            "Lcom/bumptech/glide/load/b;",
+            "Lcom/yelp/android/ag/b;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final b:Lcom/bumptech/glide/load/engine/i;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/bumptech/glide/load/engine/i",
+            "<",
+            "Landroid/graphics/Bitmap;",
             ">;"
         }
     .end annotation
@@ -18,129 +28,132 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public constructor <init>(Lcom/bumptech/glide/load/engine/i;Lcom/bumptech/glide/load/engine/i;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<",
+            "Landroid/graphics/Bitmap;",
+            ">;",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<",
+            "Lcom/yelp/android/ag/b;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
+    .line 16
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     .line 17
-    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
+    if-eqz p1, :cond_0
 
-    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
+    if-eqz p2, :cond_0
 
-    sput-object v0, Lcom/yelp/android/ah/a;->a:Ljava/util/concurrent/ConcurrentHashMap;
+    .line 18
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
+    const-string/jumbo v1, "Can only contain either a bitmap resource or a gif resource, not both"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 20
+    :cond_0
+    if-nez p1, :cond_1
+
+    if-nez p2, :cond_1
+
+    .line 21
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "Must contain either a bitmap resource or a gif resource"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 23
+    :cond_1
+    iput-object p1, p0, Lcom/yelp/android/ah/a;->b:Lcom/bumptech/glide/load/engine/i;
+
+    .line 24
+    iput-object p2, p0, Lcom/yelp/android/ah/a;->a:Lcom/bumptech/glide/load/engine/i;
+
+    .line 25
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;)Lcom/bumptech/glide/load/b;
-    .locals 3
+
+# virtual methods
+.method public a()I
+    .locals 1
 
     .prologue
-    .line 24
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    .line 31
+    iget-object v0, p0, Lcom/yelp/android/ah/a;->b:Lcom/bumptech/glide/load/engine/i;
 
-    move-result-object v2
+    if-eqz v0, :cond_0
 
-    .line 25
-    sget-object v0, Lcom/yelp/android/ah/a;->a:Ljava/util/concurrent/ConcurrentHashMap;
+    .line 32
+    iget-object v0, p0, Lcom/yelp/android/ah/a;->b:Lcom/bumptech/glide/load/engine/i;
 
-    invoke-virtual {v0, v2}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0}, Lcom/bumptech/glide/load/engine/i;->c()I
 
-    move-result-object v0
+    move-result v0
 
-    check-cast v0, Lcom/bumptech/glide/load/b;
+    .line 34
+    :goto_0
+    return v0
 
-    .line 26
-    if-nez v0, :cond_0
-
-    .line 27
-    invoke-static {p0}, Lcom/yelp/android/ah/a;->b(Landroid/content/Context;)Lcom/bumptech/glide/load/b;
-
-    move-result-object v1
-
-    .line 28
-    sget-object v0, Lcom/yelp/android/ah/a;->a:Ljava/util/concurrent/ConcurrentHashMap;
-
-    invoke-virtual {v0, v2, v1}, Ljava/util/concurrent/ConcurrentHashMap;->putIfAbsent(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/bumptech/glide/load/b;
-
-    .line 30
-    if-nez v0, :cond_0
-
-    move-object v0, v1
-
-    .line 35
     :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ah/a;->a:Lcom/bumptech/glide/load/engine/i;
+
+    invoke-interface {v0}, Lcom/bumptech/glide/load/engine/i;->c()I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public b()Lcom/bumptech/glide/load/engine/i;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<",
+            "Landroid/graphics/Bitmap;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 42
+    iget-object v0, p0, Lcom/yelp/android/ah/a;->b:Lcom/bumptech/glide/load/engine/i;
+
     return-object v0
 .end method
 
-.method private static b(Landroid/content/Context;)Lcom/bumptech/glide/load/b;
-    .locals 4
+.method public c()Lcom/bumptech/glide/load/engine/i;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<",
+            "Lcom/yelp/android/ag/b;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 44
-    const/4 v1, 0x0
-
-    .line 46
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    .line 52
-    :goto_0
-    if-eqz v0, :cond_0
-
-    .line 53
-    iget v0, v0, Landroid/content/pm/PackageInfo;->versionCode:I
-
-    invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 57
-    :goto_1
-    new-instance v1, Lcom/yelp/android/ah/c;
-
-    invoke-direct {v1, v0}, Lcom/yelp/android/ah/c;-><init>(Ljava/lang/String;)V
-
-    return-object v1
-
-    .line 47
-    :catch_0
-    move-exception v0
-
     .line 49
-    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    iget-object v0, p0, Lcom/yelp/android/ah/a;->a:Lcom/bumptech/glide/load/engine/i;
 
-    move-object v0, v1
-
-    goto :goto_0
-
-    .line 55
-    :cond_0
-    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/UUID;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_1
+    return-object v0
 .end method

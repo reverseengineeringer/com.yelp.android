@@ -1,50 +1,87 @@
 package com.yelp.android.services.push;
 
-import android.os.AsyncTask;
-import android.os.Handler;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.util.YelpLog;
-import java.io.IOException;
+import android.text.TextUtils;
+import java.lang.ref.WeakReference;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
-class e
-  extends AsyncTask<Void, Void, Boolean>
+public class e
 {
-  e(d paramd) {}
+  private final Map<String, WeakReference<a>> a = new HashMap();
+  private String b;
   
-  protected Boolean a(Void... paramVarArgs)
+  private boolean c(d.a parama)
   {
-    boolean bool = false;
-    try
-    {
-      paramVarArgs = GoogleCloudMessaging.getInstance(AppData.b()).register(new String[] { d.a });
-      YelpLog.i("GcmManager", paramVarArgs);
-      a.a(paramVarArgs);
-      return Boolean.valueOf(bool);
+    if ((!TextUtils.isEmpty(b)) && (b.equals(parama.b()))) {
+      return true;
     }
-    catch (IOException paramVarArgs)
+    b = parama.b();
+    return false;
+  }
+  
+  public void a(a parama)
+  {
+    if (parama != null) {
+      a.put(parama.c(), new WeakReference(parama));
+    }
+  }
+  
+  public boolean a(d.a parama)
+  {
+    if (a.isEmpty()) {
+      return true;
+    }
+    Iterator localIterator = a.values().iterator();
+    boolean bool = true;
+    if (localIterator.hasNext())
     {
-      for (;;)
+      a locala = (a)((WeakReference)localIterator.next()).get();
+      if (locala == null) {
+        break label78;
+      }
+      bool = locala.b(parama) & bool;
+    }
+    label78:
+    for (;;)
+    {
+      break;
+      return bool;
+    }
+  }
+  
+  public void b(d.a parama)
+  {
+    if (c(parama)) {}
+    for (;;)
+    {
+      return;
+      Iterator localIterator = a.values().iterator();
+      while (localIterator.hasNext())
       {
-        YelpLog.error("GcmManager", "Unable to register GCM, error: " + paramVarArgs.getMessage());
-        if ("SERVICE_NOT_AVAILABLE".equals(paramVarArgs.getMessage()))
-        {
-          com.crashlytics.android.d.a(new IllegalStateException(AppData.b().getString(2131165894)));
-          bool = true;
+        a locala = (a)((WeakReference)localIterator.next()).get();
+        if (locala != null) {
+          locala.a(parama);
         }
       }
     }
   }
   
-  protected void a(Boolean paramBoolean)
+  public void b(a parama)
   {
-    d.a(a, false);
-    if ((paramBoolean.booleanValue()) && (d.a(a) < 5))
-    {
-      d.c(a).removeCallbacks(d.b(a));
-      d.c(a).postDelayed(d.b(a), d.d(a));
-      d.a(a, 2L);
+    if (parama != null) {
+      a.remove(parama.c());
     }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(d.a parama);
+    
+    public abstract boolean b(d.a parama);
+    
+    public abstract String c();
   }
 }
 

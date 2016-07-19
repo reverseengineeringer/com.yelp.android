@@ -1,11 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-public final class bd
-  extends az
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+
+public class bd
+  extends c
 {
-  public bd(m<bb> paramm)
+  public bd(String paramString, c.a parama)
   {
-    super(paramm, "user/requests/compliments", false);
+    super("quicktips/delete", parama);
+    b("quicktip_id", paramString);
   }
 }
 

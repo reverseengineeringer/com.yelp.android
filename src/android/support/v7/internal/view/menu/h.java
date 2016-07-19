@@ -1,87 +1,633 @@
 package android.support.v7.internal.view.menu;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build.VERSION;
+import android.support.v4.view.d;
+import android.support.v4.view.d.b;
+import android.support.v4.view.q.e;
+import android.support.v7.internal.widget.o;
+import android.util.Log;
+import android.view.ActionProvider;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.MenuItem.OnActionExpandListener;
+import android.view.MenuItem.OnMenuItemClickListener;
+import android.view.SubMenu;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
+import android.view.ViewDebug.CapturedViewProperty;
+import android.widget.LinearLayout;
+import com.yelp.android.e.b;
 
-class h
-  extends BaseAdapter
+public final class h
+  implements b
 {
-  private int b = -1;
+  private static String w;
+  private static String x;
+  private static String y;
+  private static String z;
+  private final int a;
+  private final int b;
+  private final int c;
+  private final int d;
+  private CharSequence e;
+  private CharSequence f;
+  private Intent g;
+  private char h;
+  private char i;
+  private Drawable j;
+  private int k = 0;
+  private f l;
+  private p m;
+  private Runnable n;
+  private MenuItem.OnMenuItemClickListener o;
+  private int p = 16;
+  private int q = 0;
+  private View r;
+  private d s;
+  private q.e t;
+  private boolean u = false;
+  private ContextMenu.ContextMenuInfo v;
   
-  public h(g paramg)
+  h(f paramf, int paramInt1, int paramInt2, int paramInt3, int paramInt4, CharSequence paramCharSequence, int paramInt5)
   {
-    a();
+    l = paramf;
+    a = paramInt2;
+    b = paramInt1;
+    c = paramInt3;
+    d = paramInt4;
+    e = paramCharSequence;
+    q = paramInt5;
   }
   
-  public m a(int paramInt)
+  public d a()
   {
-    ArrayList localArrayList = a.c.l();
-    int i = g.a(a) + paramInt;
-    paramInt = i;
-    if (b >= 0)
-    {
-      paramInt = i;
-      if (i >= b) {
-        paramInt = i + 1;
-      }
+    return s;
+  }
+  
+  public b a(int paramInt)
+  {
+    Context localContext = l.e();
+    a(LayoutInflater.from(localContext).inflate(paramInt, new LinearLayout(localContext), false));
+    return this;
+  }
+  
+  public b a(d paramd)
+  {
+    if (s != null) {
+      s.f();
     }
-    return (m)localArrayList.get(paramInt);
-  }
-  
-  void a()
-  {
-    m localm = a.c.r();
-    if (localm != null)
-    {
-      ArrayList localArrayList = a.c.l();
-      int j = localArrayList.size();
-      int i = 0;
-      while (i < j)
+    r = null;
+    s = paramd;
+    l.b(true);
+    if (s != null) {
+      s.a(new d.b()
       {
-        if ((m)localArrayList.get(i) == localm)
+        public void a(boolean paramAnonymousBoolean)
         {
-          b = i;
-          return;
+          h.a(h.this).a(h.this);
         }
-        i += 1;
-      }
+      });
     }
-    b = -1;
+    return this;
   }
   
-  public int getCount()
+  public b a(q.e parame)
   {
-    int i = a.c.l().size() - g.a(a);
-    if (b < 0) {
+    t = parame;
+    return this;
+  }
+  
+  public b a(View paramView)
+  {
+    r = paramView;
+    s = null;
+    if ((paramView != null) && (paramView.getId() == -1) && (a > 0)) {
+      paramView.setId(a);
+    }
+    l.b(this);
+    return this;
+  }
+  
+  CharSequence a(m.a parama)
+  {
+    if ((parama != null) && (parama.a())) {
+      return getTitleCondensed();
+    }
+    return getTitle();
+  }
+  
+  public void a(p paramp)
+  {
+    m = paramp;
+    paramp.setHeaderTitle(getTitle());
+  }
+  
+  void a(ContextMenu.ContextMenuInfo paramContextMenuInfo)
+  {
+    v = paramContextMenuInfo;
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    int i2 = p;
+    if (paramBoolean) {}
+    for (int i1 = 4;; i1 = 0)
+    {
+      p = (i1 | i2 & 0xFFFFFFFB);
+      return;
+    }
+  }
+  
+  public b b(int paramInt)
+  {
+    setShowAsAction(paramInt);
+    return this;
+  }
+  
+  void b(boolean paramBoolean)
+  {
+    int i2 = p;
+    int i3 = p;
+    if (paramBoolean) {}
+    for (int i1 = 2;; i1 = 0)
+    {
+      p = (i1 | i3 & 0xFFFFFFFD);
+      if (i2 != p) {
+        l.b(false);
+      }
+      return;
+    }
+  }
+  
+  public boolean b()
+  {
+    if ((o != null) && (o.onMenuItemClick(this))) {}
+    do
+    {
+      do
+      {
+        return true;
+      } while (l.a(l.p(), this));
+      if (n != null)
+      {
+        n.run();
+        return true;
+      }
+      if (g != null) {
+        try
+        {
+          l.e().startActivity(g);
+          return true;
+        }
+        catch (ActivityNotFoundException localActivityNotFoundException)
+        {
+          Log.e("MenuItemImpl", "Can't find activity to handle intent; ignoring", localActivityNotFoundException);
+        }
+      }
+    } while ((s != null) && (s.d()));
+    return false;
+  }
+  
+  public int c()
+  {
+    return d;
+  }
+  
+  boolean c(boolean paramBoolean)
+  {
+    boolean bool = false;
+    int i2 = p;
+    int i3 = p;
+    if (paramBoolean) {}
+    for (int i1 = 0;; i1 = 8)
+    {
+      p = (i1 | i3 & 0xFFFFFFF7);
+      paramBoolean = bool;
+      if (i2 != p) {
+        paramBoolean = true;
+      }
+      return paramBoolean;
+    }
+  }
+  
+  public boolean collapseActionView()
+  {
+    if ((q & 0x8) == 0) {}
+    do
+    {
+      return false;
+      if (r == null) {
+        return true;
+      }
+    } while ((t != null) && (!t.b(this)));
+    return l.d(this);
+  }
+  
+  char d()
+  {
+    if (l.b()) {
       return i;
     }
-    return i - 1;
+    return h;
   }
   
-  public long getItemId(int paramInt)
+  public void d(boolean paramBoolean)
   {
-    return paramInt;
+    if (paramBoolean)
+    {
+      p |= 0x20;
+      return;
+    }
+    p &= 0xFFFFFFDF;
   }
   
-  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  String e()
   {
-    if (paramView == null) {
-      paramView = a.b.inflate(a.f, paramViewGroup, false);
+    char c1 = d();
+    if (c1 == 0) {
+      return "";
+    }
+    StringBuilder localStringBuilder = new StringBuilder(w);
+    switch (c1)
+    {
+    default: 
+      localStringBuilder.append(c1);
     }
     for (;;)
     {
-      ((aa)paramView).a(a(paramInt), 0);
-      return paramView;
+      return localStringBuilder.toString();
+      localStringBuilder.append(x);
+      continue;
+      localStringBuilder.append(y);
+      continue;
+      localStringBuilder.append(z);
     }
   }
   
-  public void notifyDataSetChanged()
+  public void e(boolean paramBoolean)
   {
-    a();
-    super.notifyDataSetChanged();
+    u = paramBoolean;
+    l.b(false);
+  }
+  
+  public boolean expandActionView()
+  {
+    if (!n()) {}
+    while ((t != null) && (!t.a(this))) {
+      return false;
+    }
+    return l.c(this);
+  }
+  
+  boolean f()
+  {
+    return (l.c()) && (d() != 0);
+  }
+  
+  public boolean g()
+  {
+    return (p & 0x4) != 0;
+  }
+  
+  public ActionProvider getActionProvider()
+  {
+    throw new UnsupportedOperationException("This is not supported, use MenuItemCompat.getActionProvider()");
+  }
+  
+  public View getActionView()
+  {
+    if (r != null) {
+      return r;
+    }
+    if (s != null)
+    {
+      r = s.a(this);
+      return r;
+    }
+    return null;
+  }
+  
+  public char getAlphabeticShortcut()
+  {
+    return i;
+  }
+  
+  public int getGroupId()
+  {
+    return b;
+  }
+  
+  public Drawable getIcon()
+  {
+    if (j != null) {
+      return j;
+    }
+    if (k != 0)
+    {
+      Drawable localDrawable = o.a(l.e(), k);
+      k = 0;
+      j = localDrawable;
+      return localDrawable;
+    }
+    return null;
+  }
+  
+  public Intent getIntent()
+  {
+    return g;
+  }
+  
+  @ViewDebug.CapturedViewProperty
+  public int getItemId()
+  {
+    return a;
+  }
+  
+  public ContextMenu.ContextMenuInfo getMenuInfo()
+  {
+    return v;
+  }
+  
+  public char getNumericShortcut()
+  {
+    return h;
+  }
+  
+  public int getOrder()
+  {
+    return c;
+  }
+  
+  public SubMenu getSubMenu()
+  {
+    return m;
+  }
+  
+  @ViewDebug.CapturedViewProperty
+  public CharSequence getTitle()
+  {
+    return e;
+  }
+  
+  public CharSequence getTitleCondensed()
+  {
+    if (f != null) {}
+    for (CharSequence localCharSequence = f;; localCharSequence = e)
+    {
+      Object localObject = localCharSequence;
+      if (Build.VERSION.SDK_INT < 18)
+      {
+        localObject = localCharSequence;
+        if (localCharSequence != null)
+        {
+          localObject = localCharSequence;
+          if (!(localCharSequence instanceof String)) {
+            localObject = localCharSequence.toString();
+          }
+        }
+      }
+      return (CharSequence)localObject;
+    }
+  }
+  
+  public void h()
+  {
+    l.b(this);
+  }
+  
+  public boolean hasSubMenu()
+  {
+    return m != null;
+  }
+  
+  public boolean i()
+  {
+    return l.q();
+  }
+  
+  public boolean isActionViewExpanded()
+  {
+    return u;
+  }
+  
+  public boolean isCheckable()
+  {
+    return (p & 0x1) == 1;
+  }
+  
+  public boolean isChecked()
+  {
+    return (p & 0x2) == 2;
+  }
+  
+  public boolean isEnabled()
+  {
+    return (p & 0x10) != 0;
+  }
+  
+  public boolean isVisible()
+  {
+    if ((s != null) && (s.b())) {
+      if (((p & 0x8) != 0) || (!s.c())) {}
+    }
+    while ((p & 0x8) == 0)
+    {
+      return true;
+      return false;
+    }
+    return false;
+  }
+  
+  public boolean j()
+  {
+    return (p & 0x20) == 32;
+  }
+  
+  public boolean k()
+  {
+    return (q & 0x1) == 1;
+  }
+  
+  public boolean l()
+  {
+    return (q & 0x2) == 2;
+  }
+  
+  public boolean m()
+  {
+    return (q & 0x4) == 4;
+  }
+  
+  public boolean n()
+  {
+    boolean bool2 = false;
+    boolean bool1 = bool2;
+    if ((q & 0x8) != 0)
+    {
+      if ((r == null) && (s != null)) {
+        r = s.a(this);
+      }
+      bool1 = bool2;
+      if (r != null) {
+        bool1 = true;
+      }
+    }
+    return bool1;
+  }
+  
+  public MenuItem setActionProvider(ActionProvider paramActionProvider)
+  {
+    throw new UnsupportedOperationException("This is not supported, use MenuItemCompat.setActionProvider()");
+  }
+  
+  public MenuItem setAlphabeticShortcut(char paramChar)
+  {
+    if (i == paramChar) {
+      return this;
+    }
+    i = Character.toLowerCase(paramChar);
+    l.b(false);
+    return this;
+  }
+  
+  public MenuItem setCheckable(boolean paramBoolean)
+  {
+    int i2 = p;
+    int i3 = p;
+    if (paramBoolean) {}
+    for (int i1 = 1;; i1 = 0)
+    {
+      p = (i1 | i3 & 0xFFFFFFFE);
+      if (i2 != p) {
+        l.b(false);
+      }
+      return this;
+    }
+  }
+  
+  public MenuItem setChecked(boolean paramBoolean)
+  {
+    if ((p & 0x4) != 0)
+    {
+      l.a(this);
+      return this;
+    }
+    b(paramBoolean);
+    return this;
+  }
+  
+  public MenuItem setEnabled(boolean paramBoolean)
+  {
+    if (paramBoolean) {}
+    for (p |= 0x10;; p &= 0xFFFFFFEF)
+    {
+      l.b(false);
+      return this;
+    }
+  }
+  
+  public MenuItem setIcon(int paramInt)
+  {
+    j = null;
+    k = paramInt;
+    l.b(false);
+    return this;
+  }
+  
+  public MenuItem setIcon(Drawable paramDrawable)
+  {
+    k = 0;
+    j = paramDrawable;
+    l.b(false);
+    return this;
+  }
+  
+  public MenuItem setIntent(Intent paramIntent)
+  {
+    g = paramIntent;
+    return this;
+  }
+  
+  public MenuItem setNumericShortcut(char paramChar)
+  {
+    if (h == paramChar) {
+      return this;
+    }
+    h = paramChar;
+    l.b(false);
+    return this;
+  }
+  
+  public MenuItem setOnActionExpandListener(MenuItem.OnActionExpandListener paramOnActionExpandListener)
+  {
+    throw new UnsupportedOperationException("This is not supported, use MenuItemCompat.setOnActionExpandListener()");
+  }
+  
+  public MenuItem setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener paramOnMenuItemClickListener)
+  {
+    o = paramOnMenuItemClickListener;
+    return this;
+  }
+  
+  public MenuItem setShortcut(char paramChar1, char paramChar2)
+  {
+    h = paramChar1;
+    i = Character.toLowerCase(paramChar2);
+    l.b(false);
+    return this;
+  }
+  
+  public void setShowAsAction(int paramInt)
+  {
+    switch (paramInt & 0x3)
+    {
+    default: 
+      throw new IllegalArgumentException("SHOW_AS_ACTION_ALWAYS, SHOW_AS_ACTION_IF_ROOM, and SHOW_AS_ACTION_NEVER are mutually exclusive.");
+    }
+    q = paramInt;
+    l.b(this);
+  }
+  
+  public MenuItem setTitle(int paramInt)
+  {
+    return setTitle(l.e().getString(paramInt));
+  }
+  
+  public MenuItem setTitle(CharSequence paramCharSequence)
+  {
+    e = paramCharSequence;
+    l.b(false);
+    if (m != null) {
+      m.setHeaderTitle(paramCharSequence);
+    }
+    return this;
+  }
+  
+  public MenuItem setTitleCondensed(CharSequence paramCharSequence)
+  {
+    f = paramCharSequence;
+    if (paramCharSequence == null) {
+      paramCharSequence = e;
+    }
+    l.b(false);
+    return this;
+  }
+  
+  public MenuItem setVisible(boolean paramBoolean)
+  {
+    if (c(paramBoolean)) {
+      l.a(this);
+    }
+    return this;
+  }
+  
+  public String toString()
+  {
+    return e.toString();
   }
 }
 

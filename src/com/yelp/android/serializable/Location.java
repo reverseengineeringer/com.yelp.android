@@ -6,11 +6,11 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class Location
   extends _Location
 {
-  public static final JsonParser.DualCreator<Location> CREATOR = new bc();
+  public static final JsonParser.DualCreator<Location> CREATOR = new Location.1();
   
-  public LatLng getLatLng()
+  public LatLng a()
   {
-    return new LatLng(getLatitude(), getLongitude());
+    return new LatLng(c(), b());
   }
 }
 

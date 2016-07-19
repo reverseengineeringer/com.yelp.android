@@ -1,30 +1,16 @@
 package com.yelp.android.serializable;
 
-import android.os.Parcel;
-import com.yelp.parcelgen.JsonParser.DualCreator;
-import org.json.JSONObject;
-
-final class e
-  extends JsonParser.DualCreator<AttributeFilter>
+public abstract interface e
 {
-  public AttributeFilter a(Parcel paramParcel)
-  {
-    AttributeFilter localAttributeFilter = new AttributeFilter();
-    localAttributeFilter.readFromParcel(paramParcel);
-    return localAttributeFilter;
-  }
+  public abstract void a(boolean paramBoolean);
   
-  public AttributeFilter a(JSONObject paramJSONObject)
-  {
-    AttributeFilter localAttributeFilter = new AttributeFilter();
-    localAttributeFilter.readFromJson(paramJSONObject);
-    return localAttributeFilter;
-  }
+  public abstract boolean b();
   
-  public AttributeFilter[] a(int paramInt)
-  {
-    return new AttributeFilter[paramInt];
-  }
+  public abstract String c();
+  
+  public abstract String d();
+  
+  public abstract Photo e();
 }
 
 /* Location:

@@ -2,27 +2,73 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _LocalVideo
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected int mDuration;
-  protected String mFilePath;
-  protected int mHeight;
-  protected int mWidth;
+  protected String a;
+  protected String b;
+  protected int c;
+  protected int d;
+  protected int e;
   
   protected _LocalVideo() {}
   
   protected _LocalVideo(String paramString1, String paramString2, int paramInt1, int paramInt2, int paramInt3)
   {
     this();
-    mFilePath = paramString1;
-    mBusinessId = paramString2;
-    mDuration = paramInt1;
-    mWidth = paramInt2;
-    mHeight = paramInt3;
+    a = paramString1;
+    b = paramString2;
+    c = paramInt1;
+    d = paramInt2;
+    e = paramInt3;
+  }
+  
+  public int a()
+  {
+    return e;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = paramParcel.readInt();
+    d = paramParcel.readInt();
+    e = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("file_path")) {
+      a = paramJSONObject.optString("file_path");
+    }
+    if (!paramJSONObject.isNull("business_id")) {
+      b = paramJSONObject.optString("business_id");
+    }
+    c = paramJSONObject.optInt("duration");
+    d = paramJSONObject.optInt("width");
+    e = paramJSONObject.optInt("height");
+  }
+  
+  public int b()
+  {
+    return d;
+  }
+  
+  public int c()
+  {
+    return c;
+  }
+  
+  public String d()
+  {
+    return b;
   }
   
   public int describeContents()
@@ -30,60 +76,37 @@ abstract class _LocalVideo
     return 0;
   }
   
-  public String getBusinessId()
+  public String e()
   {
-    return mBusinessId;
+    return a;
   }
   
-  public int getDuration()
+  public boolean equals(Object paramObject)
   {
-    return mDuration;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_LocalVideo)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a();
   }
   
-  public String getFilePath()
+  public int hashCode()
   {
-    return mFilePath;
-  }
-  
-  public int getHeight()
-  {
-    return mHeight;
-  }
-  
-  public int getWidth()
-  {
-    return mWidth;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("file_path")) {
-      mFilePath = paramJSONObject.optString("file_path");
-    }
-    if (!paramJSONObject.isNull("business_id")) {
-      mBusinessId = paramJSONObject.optString("business_id");
-    }
-    mDuration = paramJSONObject.optInt("duration");
-    mWidth = paramJSONObject.optInt("width");
-    mHeight = paramJSONObject.optInt("height");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mFilePath = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mDuration = paramParcel.readInt();
-    mWidth = paramParcel.readInt();
-    mHeight = paramParcel.readInt();
+    return new c().a(a).a(b).a(c).a(d).a(e).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mFilePath);
-    paramParcel.writeString(mBusinessId);
-    paramParcel.writeInt(mDuration);
-    paramParcel.writeInt(mWidth);
-    paramParcel.writeInt(mHeight);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeInt(c);
+    paramParcel.writeInt(d);
+    paramParcel.writeInt(e);
   }
 }
 

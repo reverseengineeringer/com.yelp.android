@@ -5,9 +5,19 @@
 .implements Landroid/os/IInterface;
 
 
-# virtual methods
-.method public abstract a(Lcom/google/android/gms/internal/eq;)V
-.end method
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/er$a;
+    }
+.end annotation
 
-.method public abstract isValidPurchase(Ljava/lang/String;)Z
+
+# virtual methods
+.method public abstract a(Lcom/google/android/gms/dynamic/c;)Landroid/os/IBinder;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method

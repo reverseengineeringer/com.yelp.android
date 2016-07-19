@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/widgets/RoundedWebImageView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "RoundingMode"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -54,7 +63,7 @@
 
     const/4 v0, 0x0
 
-    .line 41
+    .line 42
     new-instance v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     const-string/jumbo v2, "DEFAULT"
@@ -63,7 +72,7 @@
 
     sput-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->DEFAULT:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
-    .line 49
+    .line 50
     new-instance v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     const-string/jumbo v2, "CLIP"
@@ -72,7 +81,7 @@
 
     sput-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->CLIP:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
-    .line 56
+    .line 57
     new-instance v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     const-string/jumbo v2, "OVERLAY"
@@ -81,7 +90,7 @@
 
     sput-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->OVERLAY:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
-    .line 61
+    .line 62
     new-instance v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     const-string/jumbo v2, "NONE"
@@ -90,7 +99,7 @@
 
     sput-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->NONE:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
-    .line 34
+    .line 35
     const/4 v1, 0x4
 
     new-array v1, v1, [Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
@@ -113,14 +122,14 @@
 
     sput-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->$VALUES:[Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
-    .line 67
+    .line 68
     new-instance v1, Landroid/util/SparseArray;
 
     invoke-direct {v1}, Landroid/util/SparseArray;-><init>()V
 
     sput-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->modes:Landroid/util/SparseArray;
 
-    .line 68
+    .line 69
     invoke-static {}, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->values()[Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     move-result-object v1
@@ -132,19 +141,19 @@
 
     aget-object v3, v1, v0
 
-    .line 69
+    .line 70
     sget-object v4, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->modes:Landroid/util/SparseArray;
 
     iget v5, v3, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->attrEnumValue:I
 
     invoke-virtual {v4, v5, v3}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    .line 68
+    .line 69
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 71
+    .line 72
     :cond_0
     return-void
 .end method
@@ -158,13 +167,13 @@
     .end annotation
 
     .prologue
-    .line 77
+    .line 78
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 78
+    .line 79
     iput p3, p0, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->attrEnumValue:I
 
-    .line 79
+    .line 80
     return-void
 .end method
 
@@ -172,7 +181,7 @@
     .locals 1
 
     .prologue
-    .line 74
+    .line 75
     sget-object v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->modes:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -188,7 +197,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 35
     const-class v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -204,7 +213,7 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 35
     sget-object v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->$VALUES:[Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     invoke-virtual {v0}, [Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->clone()Ljava/lang/Object;

@@ -1,71 +1,17 @@
 package com.google.ads.mediation.admob;
 
-import android.content.Context;
-import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdRequest.Builder;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.mediation.MediationAdRequest;
-import com.google.android.gms.ads.mediation.MediationBannerAdapter;
-import com.google.android.gms.ads.mediation.MediationBannerListener;
-import com.google.android.gms.ads.mediation.MediationInterstitialAdapter;
-import com.google.android.gms.ads.mediation.MediationInterstitialListener;
-import com.google.android.gms.internal.gq;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Set;
+import com.google.ads.mediation.a;
+import com.google.android.gms.common.annotation.KeepName;
 
+@KeepName
 public final class AdMobAdapter
-  implements MediationBannerAdapter, MediationInterstitialAdapter
+  extends a
 {
-  private AdView i;
-  private InterstitialAd j;
-  
-  static AdRequest a(Context paramContext, MediationAdRequest paramMediationAdRequest, Bundle paramBundle1, Bundle paramBundle2)
+  protected Bundle a(Bundle paramBundle1, Bundle paramBundle2)
   {
-    AdRequest.Builder localBuilder = new AdRequest.Builder();
-    Object localObject = paramMediationAdRequest.getBirthday();
-    if (localObject != null) {
-      localBuilder.setBirthday((Date)localObject);
-    }
-    int k = paramMediationAdRequest.getGender();
-    if (k != 0) {
-      localBuilder.setGender(k);
-    }
-    localObject = paramMediationAdRequest.getKeywords();
-    if (localObject != null)
-    {
-      localObject = ((Set)localObject).iterator();
-      while (((Iterator)localObject).hasNext()) {
-        localBuilder.addKeyword((String)((Iterator)localObject).next());
-      }
-    }
-    localObject = paramMediationAdRequest.getLocation();
-    if (localObject != null) {
-      localBuilder.setLocation((Location)localObject);
-    }
-    if (paramMediationAdRequest.isTesting()) {
-      localBuilder.addTestDevice(gq.v(paramContext));
-    }
-    boolean bool;
-    if (paramBundle2.getInt("tagForChildDirectedTreatment") != -1)
-    {
-      if (paramBundle2.getInt("tagForChildDirectedTreatment") == 1)
-      {
-        bool = true;
-        localBuilder.tagForChildDirectedTreatment(bool);
-      }
-    }
-    else {
-      if (paramBundle1 == null) {
-        break label248;
-      }
-    }
+    if (paramBundle1 != null) {}
     for (;;)
     {
       paramBundle1.putInt("gw", 1);
@@ -74,66 +20,9 @@ public final class AdMobAdapter
         paramBundle1.putString("_ad", paramBundle2.getString("adJson"));
       }
       paramBundle1.putBoolean("_noRefresh", true);
-      localBuilder.addNetworkExtrasBundle(AdMobAdapter.class, paramBundle1);
-      return localBuilder.build();
-      bool = false;
-      break;
-      label248:
+      return paramBundle1;
       paramBundle1 = new Bundle();
     }
-  }
-  
-  public View getBannerView()
-  {
-    return i;
-  }
-  
-  public void onDestroy()
-  {
-    if (i != null)
-    {
-      i.destroy();
-      i = null;
-    }
-    if (j != null) {
-      j = null;
-    }
-  }
-  
-  public void onPause()
-  {
-    if (i != null) {
-      i.pause();
-    }
-  }
-  
-  public void onResume()
-  {
-    if (i != null) {
-      i.resume();
-    }
-  }
-  
-  public void requestBannerAd(Context paramContext, MediationBannerListener paramMediationBannerListener, Bundle paramBundle1, AdSize paramAdSize, MediationAdRequest paramMediationAdRequest, Bundle paramBundle2)
-  {
-    i = new AdView(paramContext);
-    i.setAdSize(new AdSize(paramAdSize.getWidth(), paramAdSize.getHeight()));
-    i.setAdUnitId(paramBundle1.getString("pubid"));
-    i.setAdListener(new AdMobAdapter.a(this, paramMediationBannerListener));
-    i.loadAd(a(paramContext, paramMediationAdRequest, paramBundle2, paramBundle1));
-  }
-  
-  public void requestInterstitialAd(Context paramContext, MediationInterstitialListener paramMediationInterstitialListener, Bundle paramBundle1, MediationAdRequest paramMediationAdRequest, Bundle paramBundle2)
-  {
-    j = new InterstitialAd(paramContext);
-    j.setAdUnitId(paramBundle1.getString("pubid"));
-    j.setAdListener(new AdMobAdapter.b(this, paramMediationInterstitialListener));
-    j.loadAd(a(paramContext, paramMediationAdRequest, paramBundle2, paramBundle1));
-  }
-  
-  public void showInterstitial()
-  {
-    j.show();
   }
 }
 

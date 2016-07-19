@@ -3,16 +3,8 @@
 
 
 # virtual methods
-.method public abstract a(Lcom/google/android/gms/internal/gu;Ljava/util/Map;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/google/android/gms/internal/gu;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
+.method public abstract a(ZF)V
+.end method
+
+.method public abstract b(Z)V
 .end method

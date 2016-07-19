@@ -3,32 +3,36 @@
 .source "YelpMap.java"
 
 # interfaces
-.implements Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
-.implements Lcom/google/android/gms/maps/GoogleMap$OnInfoWindowClickListener;
-.implements Lcom/yelp/android/ui/map/f;
-.implements Lcom/yelp/android/ui/map/i;
+.implements Lcom/google/android/gms/maps/c$c;
+.implements Lcom/google/android/gms/maps/c$d;
+.implements Lcom/yelp/android/ui/map/e$a;
+.implements Lcom/yelp/android/ui/map/f$a;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
-        "Lcom/yelp/android/serializable/by;",
+        "Lcom/yelp/android/serializable/f;",
         ">",
         "Lcom/yelp/android/ui/widgets/SpannableFrameLayout;",
-        "Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;",
-        "Lcom/google/android/gms/maps/GoogleMap$OnInfoWindowClickListener;",
-        "Lcom/yelp/android/ui/map/f",
+        "Lcom/google/android/gms/maps/c$c;",
+        "Lcom/google/android/gms/maps/c$d;",
+        "Lcom/yelp/android/ui/map/e$a",
         "<TT;>;",
-        "Lcom/yelp/android/ui/map/i;"
+        "Lcom/yelp/android/ui/map/f$a;"
     }
 .end annotation
 
 
 # instance fields
-.field private g:Lcom/google/android/gms/maps/MapView;
+.field private b:Lcom/google/android/gms/maps/MapView;
 
-.field private h:Lcom/yelp/android/ui/map/e;
+.field private c:Lcom/google/android/gms/maps/GoogleMapOptions;
+
+.field private i:Lcom/google/android/gms/maps/c$c;
+
+.field private j:Lcom/yelp/android/ui/map/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/yelp/android/ui/map/e",
@@ -37,33 +41,33 @@
     .end annotation
 .end field
 
-.field private i:Lcom/yelp/android/ui/map/f;
+.field private k:Lcom/yelp/android/ui/map/e$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ui/map/f",
+            "Lcom/yelp/android/ui/map/e$a",
             "<TT;>;"
         }
     .end annotation
 .end field
 
-.field private j:Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
-
-.field private k:Lcom/google/android/gms/maps/GoogleMapOptions;
-
-.field private l:Ljava/util/Collection;
+.field private l:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Collection",
-            "<",
-            "Lcom/yelp/android/ui/map/aa;",
-            ">;"
+            "Ljava/util/List",
+            "<TT;>;"
         }
     .end annotation
 .end field
 
-.field private m:Z
+.field private m:Landroid/graphics/RectF;
 
-.field private n:Landroid/graphics/RectF;
+.field private n:Lcom/google/android/gms/maps/model/c;
+
+.field private o:Lcom/google/android/gms/maps/model/LatLng;
+
+.field private p:D
+
+.field private q:I
 
 
 # direct methods
@@ -71,413 +75,318 @@
     .locals 1
 
     .prologue
-    .line 136
-    invoke-static {p1, p2}, Lcom/yelp/android/ui/map/YelpMap;->a(Landroid/content/Context;Landroid/location/Location;)Lcom/google/android/gms/maps/GoogleMapOptions;
+    .line 157
+    invoke-static {p2}, Lcom/yelp/android/ui/map/YelpMap;->a(Landroid/location/Location;)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     move-result-object v0
 
     invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/map/YelpMap;-><init>(Landroid/content/Context;Lcom/google/android/gms/maps/GoogleMapOptions;)V
 
-    .line 137
+    .line 158
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 159
+    .line 180
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 160
+    .line 78
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/yelp/android/ui/map/YelpMap;->q:I
+
+    .line 181
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/maps/GoogleMapOptions;)V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 146
+    .line 167
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 147
+    .line 78
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/yelp/android/ui/map/YelpMap;->q:I
+
+    .line 168
     invoke-virtual {p0, p2}, Lcom/yelp/android/ui/map/YelpMap;->setOptions(Lcom/google/android/gms/maps/GoogleMapOptions;)V
 
-    .line 148
+    .line 169
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;)Lcom/google/android/gms/maps/GoogleMapOptions;
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 116
-    new-instance v0, Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    invoke-direct {v0}, Lcom/google/android/gms/maps/GoogleMapOptions;-><init>()V
-
-    .line 117
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->compassEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 118
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->rotateGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 119
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->scrollGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 120
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->tiltGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 121
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->zoomControlsEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 122
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->zoomGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 126
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->mapToolbarEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 127
-    return-object v0
-.end method
-
-.method public static a(Landroid/content/Context;Landroid/location/Location;)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method public static a(Landroid/location/Location;)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 6
 
     .prologue
-    .line 71
+    .line 88
     const/4 v0, 0x0
 
-    .line 72
-    if-eqz p1, :cond_0
+    .line 89
+    if-eqz p0, :cond_0
 
-    .line 73
-    invoke-static {}, Lcom/google/android/gms/maps/model/CameraPosition;->builder()Lcom/google/android/gms/maps/model/CameraPosition$Builder;
+    .line 90
+    invoke-static {}, Lcom/google/android/gms/maps/model/CameraPosition;->b()Lcom/google/android/gms/maps/model/CameraPosition$a;
 
     move-result-object v0
 
     new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
 
-    invoke-virtual {p1}, Landroid/location/Location;->getLatitude()D
+    invoke-virtual {p0}, Landroid/location/Location;->getLatitude()D
 
     move-result-wide v2
 
-    invoke-virtual {p1}, Landroid/location/Location;->getLongitude()D
+    invoke-virtual {p0}, Landroid/location/Location;->getLongitude()D
 
     move-result-wide v4
 
     invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->target(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/CameraPosition$a;
 
     move-result-object v0
 
     const/high16 v1, 0x41800000    # 16.0f
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->zoom(F)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a(F)Lcom/google/android/gms/maps/model/CameraPosition$a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->build()Lcom/google/android/gms/maps/model/CameraPosition;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a()Lcom/google/android/gms/maps/model/CameraPosition;
 
     move-result-object v0
-
-    .line 77
-    :cond_0
-    invoke-static {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Landroid/content/Context;Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static a(Landroid/content/Context;Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x1
 
     .line 96
-    new-instance v0, Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    invoke-direct {v0}, Lcom/google/android/gms/maps/GoogleMapOptions;-><init>()V
-
-    .line 97
-    if-eqz p1, :cond_0
-
-    .line 98
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/maps/GoogleMapOptions;->camera(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 100
     :cond_0
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->compassEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-static {v0}, Lcom/yelp/android/ui/map/YelpMap;->b(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
 
-    .line 101
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->rotateGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    move-result-object v0
 
-    .line 102
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->scrollGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 103
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->tiltGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 104
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->zoomControlsEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 105
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->zoomGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    .line 106
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/map/YelpMap;)Lcom/google/android/gms/maps/MapView;
+.method static synthetic a(Lcom/yelp/android/ui/map/YelpMap;Lcom/google/android/gms/maps/model/c;)Lcom/google/android/gms/maps/model/c;
+    .locals 0
+
+    .prologue
+    .line 53
+    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->n:Lcom/google/android/gms/maps/model/c;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/map/YelpMap;)Lcom/yelp/android/ui/map/e;
     .locals 1
 
     .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 53
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/yelp/android/ui/map/e;
 
     return-object v0
 .end method
 
-.method private a(Lcom/yelp/android/serializable/by;Lcom/yelp/android/ui/map/a;)Lcom/google/android/gms/maps/model/Marker;
-    .locals 3
+.method private a(Lcom/yelp/android/serializable/f;Lcom/yelp/android/ui/map/a;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
             "Lcom/yelp/android/ui/map/a",
-            "<TT;>;)",
-            "Lcom/google/android/gms/maps/model/Marker;"
+            "<TT;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 512
-    invoke-interface {p1}, Lcom/yelp/android/serializable/by;->getLatLng()Lcom/google/android/gms/maps/model/LatLng;
+    .line 465
+    invoke-interface {p1}, Lcom/yelp/android/serializable/f;->b()Lcom/google/android/gms/maps/model/LatLng;
 
-    move-result-object v0
+    move-result-object v2
 
-    .line 513
-    new-instance v1, Lcom/google/android/gms/maps/model/MarkerOptions;
+    .line 468
+    iget v0, p0, Lcom/yelp/android/ui/map/YelpMap;->q:I
 
-    invoke-direct {v1}, Lcom/google/android/gms/maps/model/MarkerOptions;-><init>()V
+    add-int/lit8 v0, v0, 0x1
 
-    const/4 v2, 0x0
+    iput v0, p0, Lcom/yelp/android/ui/map/YelpMap;->q:I
 
-    invoke-virtual {v1, v2}, Lcom/google/android/gms/maps/model/MarkerOptions;->draggable(Z)Lcom/google/android/gms/maps/model/MarkerOptions;
+    .line 469
+    iget v5, p0, Lcom/yelp/android/ui/map/YelpMap;->q:I
 
-    move-result-object v1
+    .line 470
+    iget-object v6, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/model/MarkerOptions;->position(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/MarkerOptions;
+    new-instance v0, Lcom/yelp/android/ui/map/YelpMap$7;
 
-    move-result-object v0
+    move-object v1, p0
 
-    invoke-interface {p2, p1}, Lcom/yelp/android/ui/map/a;->a(Lcom/yelp/android/serializable/by;)Lcom/google/android/gms/maps/model/BitmapDescriptor;
+    move-object v3, p2
 
-    move-result-object v1
+    move-object v4, p1
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/MarkerOptions;->icon(Lcom/google/android/gms/maps/model/BitmapDescriptor;)Lcom/google/android/gms/maps/model/MarkerOptions;
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/map/YelpMap$7;-><init>(Lcom/yelp/android/ui/map/YelpMap;Lcom/google/android/gms/maps/model/LatLng;Lcom/yelp/android/ui/map/a;Lcom/yelp/android/serializable/f;I)V
 
-    move-result-object v0
+    invoke-virtual {v6, v0}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
 
-    const/high16 v1, 0x3f000000    # 0.5f
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/gms/maps/model/MarkerOptions;->anchor(FF)Lcom/google/android/gms/maps/model/MarkerOptions;
-
-    move-result-object v0
-
-    .line 518
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    invoke-virtual {v1}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/GoogleMap;->addMarker(Lcom/google/android/gms/maps/model/MarkerOptions;)Lcom/google/android/gms/maps/model/Marker;
-
-    move-result-object v0
-
-    .line 519
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->h:Lcom/yelp/android/ui/map/e;
-
-    invoke-interface {v1, p1, v0}, Lcom/yelp/android/ui/map/e;->a(Ljava/lang/Object;Lcom/google/android/gms/maps/model/Marker;)V
-
-    .line 520
-    return-object v0
-.end method
-
-.method static synthetic a(Lcom/yelp/android/ui/map/YelpMap;Lcom/yelp/android/serializable/by;Lcom/yelp/android/ui/map/a;)Lcom/google/android/gms/maps/model/Marker;
-    .locals 1
-
-    .prologue
-    .line 46
-    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/yelp/android/serializable/by;Lcom/yelp/android/ui/map/a;)Lcom/google/android/gms/maps/model/Marker;
-
-    move-result-object v0
-
-    return-object v0
+    .line 486
+    return-void
 .end method
 
 .method static synthetic a(Lcom/yelp/android/ui/map/YelpMap;Z)V
     .locals 0
 
     .prologue
-    .line 46
+    .line 53
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/map/YelpMap;->b(Z)V
 
     return-void
 .end method
 
 .method private a(Z)V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 554
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 637
+    .line 638
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    if-eqz v0, :cond_0
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$9;
 
-    .line 555
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    invoke-direct {v1, p0, p1, p0}, Lcom/yelp/android/ui/map/YelpMap$9;-><init>(Lcom/yelp/android/ui/map/YelpMap;ZLcom/google/android/gms/maps/c$c;)V
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
 
-    move-result-object v0
-
-    if-eqz p1, :cond_1
-
-    :goto_0
-    invoke-virtual {v0, p0}, Lcom/google/android/gms/maps/GoogleMap;->setOnCameraChangeListener(Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;)V
-
-    .line 557
-    :cond_0
+    .line 645
     return-void
-
-    .line 555
-    :cond_1
-    const/4 p0, 0x0
-
-    goto :goto_0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/map/YelpMap;)Lcom/yelp/android/ui/map/e;
-    .locals 1
+.method public static b(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
+    .locals 3
 
     .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->h:Lcom/yelp/android/ui/map/e;
+    const/4 v2, 0x0
 
+    const/4 v1, 0x1
+
+    .line 113
+    new-instance v0, Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    invoke-direct {v0}, Lcom/google/android/gms/maps/GoogleMapOptions;-><init>()V
+
+    .line 114
+    if-eqz p0, :cond_0
+
+    .line 115
+    invoke-virtual {v0, p0}, Lcom/google/android/gms/maps/GoogleMapOptions;->a(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 117
+    :cond_0
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->d(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 118
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->h(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 119
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->e(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 120
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->g(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 121
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->c(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 122
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->f(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 127
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->j(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 128
     return-object v0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/map/YelpMap;Z)V
-    .locals 0
+.method static synthetic b(Lcom/yelp/android/ui/map/YelpMap;)Lcom/yelp/android/ui/map/e$a;
+    .locals 1
 
     .prologue
-    .line 46
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/map/YelpMap;->a(Z)V
+    .line 53
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/yelp/android/ui/map/e$a;
 
-    return-void
+    return-object v0
 .end method
 
 .method private b(Z)V
     .locals 1
 
     .prologue
-    .line 560
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->h:Lcom/yelp/android/ui/map/e;
+    .line 648
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/yelp/android/ui/map/e;
 
     if-eqz v0, :cond_0
 
-    .line 561
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->h:Lcom/yelp/android/ui/map/e;
+    .line 649
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/yelp/android/ui/map/e;
 
     if-eqz p1, :cond_1
 
     :goto_0
-    invoke-interface {v0, p0}, Lcom/yelp/android/ui/map/e;->a(Lcom/yelp/android/ui/map/f;)V
+    invoke-interface {v0, p0}, Lcom/yelp/android/ui/map/e;->a(Lcom/yelp/android/ui/map/e$a;)V
 
-    .line 563
+    .line 651
     :cond_0
     return-void
 
-    .line 561
+    .line 649
     :cond_1
     const/4 p0, 0x0
 
     goto :goto_0
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/map/YelpMap;)Lcom/yelp/android/ui/map/f;
-    .locals 1
+.method public static getReadOnlyOptions()Lcom/google/android/gms/maps/GoogleMapOptions;
+    .locals 2
 
     .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/yelp/android/ui/map/f;
+    const/4 v1, 0x0
 
+    .line 137
+    new-instance v0, Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    invoke-direct {v0}, Lcom/google/android/gms/maps/GoogleMapOptions;-><init>()V
+
+    .line 138
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->d(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 139
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->h(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 140
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->e(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 141
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->g(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 142
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->c(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 143
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->f(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 147
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/GoogleMapOptions;->j(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    .line 148
     return-object v0
-.end method
-
-.method static synthetic d(Lcom/yelp/android/ui/map/YelpMap;)Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
-    .locals 1
-
-    .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
-
-    return-object v0
-.end method
-
-.method private g()V
-    .locals 3
-
-    .prologue
-    .line 690
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    if-eqz v0, :cond_0
-
-    .line 691
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/Collection;
-
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/map/aa;
-
-    .line 692
-    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    invoke-virtual {v2, v0}, Lcom/google/android/gms/maps/MapView;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    goto :goto_0
-
-    .line 695
-    :cond_0
-    return-void
 .end method
 
 
 # virtual methods
 .method public a(Ljava/util/List;)Lcom/google/android/gms/maps/model/LatLngBounds;
-    .locals 22
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -488,10 +397,10 @@
     .end annotation
 
     .prologue
-    .line 386
+    .line 510
     const/4 v3, 0x0
 
-    .line 388
+    .line 512
     const/4 v2, 0x0
 
     move-object/from16 v0, p1
@@ -500,66 +409,76 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/yelp/android/serializable/by;
+    check-cast v2, Lcom/yelp/android/serializable/f;
 
-    invoke-interface {v2}, Lcom/yelp/android/serializable/by;->getLatLng()Lcom/google/android/gms/maps/model/LatLng;
+    invoke-interface {v2}, Lcom/yelp/android/serializable/f;->b()Lcom/google/android/gms/maps/model/LatLng;
 
-    move-result-object v11
+    move-result-object v2
 
-    .line 390
-    iget-wide v0, v11, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    move-object/from16 v0, p0
+
+    iput-object v2, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
+
+    .line 514
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
+
+    iget-wide v0, v2, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
     move-wide/from16 v18, v0
 
-    .line 391
-    iget-wide v0, v11, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    .line 515
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
+
+    iget-wide v0, v2, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
     move-wide/from16 v16, v0
 
-    .line 392
-    iget-wide v14, v11, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    .line 516
+    move-object/from16 v0, p0
 
-    .line 393
-    iget-wide v12, v11, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-object v2, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
 
-    .line 395
+    iget-wide v14, v2, Lcom/google/android/gms/maps/model/LatLng;->b:D
+
+    .line 517
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
+
+    iget-wide v12, v2, Lcom/google/android/gms/maps/model/LatLng;->b:D
+
+    .line 519
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v20
+    move-result-object v11
 
     :cond_0
     :goto_0
-    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Lcom/yelp/android/serializable/by;
+    check-cast v2, Lcom/yelp/android/serializable/f;
 
-    .line 396
-    invoke-interface {v2}, Lcom/yelp/android/serializable/by;->getLatLng()Lcom/google/android/gms/maps/model/LatLng;
+    .line 520
+    invoke-interface {v2}, Lcom/yelp/android/serializable/f;->b()Lcom/google/android/gms/maps/model/LatLng;
 
-    move-result-object v21
+    move-result-object v20
 
-    .line 397
-    move-object/from16 v0, v21
+    .line 521
+    move-object/from16 v0, v20
 
-    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
-
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    move-object/from16 v0, v21
-
-    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
     invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
 
@@ -567,9 +486,19 @@
 
     if-nez v2, :cond_0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->b:D
+
+    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    move-object/from16 v0, v20
+
+    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
     invoke-static {v4, v5}, Ljava/lang/Double;->isInfinite(D)Z
 
@@ -577,9 +506,9 @@
 
     if-nez v2, :cond_0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v20
 
-    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->b:D
 
     invoke-static {v4, v5}, Ljava/lang/Double;->isInfinite(D)Z
 
@@ -587,50 +516,58 @@
 
     if-nez v2, :cond_0
 
-    .line 402
-    if-nez v3, :cond_2
+    .line 527
+    if-nez v3, :cond_4
 
-    .line 403
-    invoke-static {}, Lcom/google/android/gms/maps/model/LatLngBounds;->builder()Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    .line 528
+    invoke-static {}, Lcom/google/android/gms/maps/model/LatLngBounds;->b()Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
     move-result-object v2
 
     move-object v10, v2
 
-    .line 406
+    .line 531
     :goto_1
-    iget-wide v2, v11, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    move-object/from16 v0, p0
 
-    iget-wide v4, v11, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-object v2, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
 
-    move-object/from16 v0, v21
+    iget-wide v2, v2, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
-    iget-wide v6, v0, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v21
+    iget-object v4, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
 
-    iget-wide v8, v0, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v4, v4, Lcom/google/android/gms/maps/model/LatLng;->b:D
 
-    invoke-static/range {v2 .. v9}, Lcom/yelp/android/util/o;->a(DDDD)D
+    move-object/from16 v0, v20
+
+    iget-wide v6, v0, Lcom/google/android/gms/maps/model/LatLng;->a:D
+
+    move-object/from16 v0, v20
+
+    iget-wide v8, v0, Lcom/google/android/gms/maps/model/LatLng;->b:D
+
+    invoke-static/range {v2 .. v9}, Lcom/yelp/android/util/i;->a(DDDD)D
 
     move-result-wide v2
 
-    .line 411
+    .line 540
     const-wide/high16 v4, 0x4049000000000000L    # 50.0
 
     cmpg-double v2, v2, v4
 
-    if-gez v2, :cond_3
+    if-gez v2, :cond_5
 
-    .line 412
-    move-object/from16 v0, v21
+    .line 541
+    move-object/from16 v0, v20
 
-    invoke-virtual {v10, v0}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->include(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    invoke-virtual {v10, v0}, Lcom/google/android/gms/maps/model/LatLngBounds$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
-    .line 414
-    move-object/from16 v0, v21
+    .line 543
+    move-object/from16 v0, v20
 
-    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
     move-wide/from16 v0, v18
 
@@ -638,19 +575,19 @@
 
     move-result-wide v8
 
-    .line 415
-    move-object/from16 v0, v21
+    .line 544
+    move-object/from16 v0, v20
 
-    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->b:D
 
     invoke-static {v14, v15, v2, v3}, Ljava/lang/Math;->min(DD)D
 
     move-result-wide v4
 
-    .line 416
-    move-object/from16 v0, v21
+    .line 545
+    move-object/from16 v0, v20
 
-    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
     move-wide/from16 v0, v16
 
@@ -658,31 +595,37 @@
 
     move-result-wide v6
 
-    .line 417
-    move-object/from16 v0, v21
+    .line 546
+    move-object/from16 v0, v20
 
-    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v2, v0, Lcom/google/android/gms/maps/model/LatLng;->b:D
 
     invoke-static {v12, v13, v2, v3}, Ljava/lang/Math;->max(DD)D
 
     move-result-wide v2
 
-    .line 419
-    new-instance v11, Lcom/google/android/gms/maps/model/LatLng;
+    .line 548
+    new-instance v12, Lcom/google/android/gms/maps/model/LatLng;
 
-    add-double v12, v8, v6
-
-    const-wide/high16 v14, 0x4000000000000000L    # 2.0
-
-    div-double/2addr v12, v14
-
-    add-double v14, v4, v2
+    add-double v14, v8, v6
 
     const-wide/high16 v16, 0x4000000000000000L    # 2.0
 
     div-double v14, v14, v16
 
-    invoke-direct {v11, v12, v13, v14, v15}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
+    add-double v16, v4, v2
+
+    const-wide/high16 v18, 0x4000000000000000L    # 2.0
+
+    div-double v16, v16, v18
+
+    move-wide/from16 v0, v16
+
+    invoke-direct {v12, v14, v15, v0, v1}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
+
+    move-object/from16 v0, p0
+
+    iput-object v12, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
 
     :goto_2
     move-wide v12, v2
@@ -695,23 +638,136 @@
 
     move-object v3, v10
 
-    .line 421
+    .line 550
     goto/16 :goto_0
 
-    .line 422
+    .line 554
     :cond_1
-    invoke-virtual {v3}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->build()Lcom/google/android/gms/maps/model/LatLngBounds;
+    sub-double v2, v16, v18
 
-    move-result-object v2
+    invoke-static {v2, v3}, Ljava/lang/Math;->abs(D)D
+
+    move-result-wide v2
+
+    const-wide v4, 0x3f589374c0000000L    # 0.001500000013038516
+
+    cmpg-double v2, v2, v4
+
+    if-gez v2, :cond_2
+
+    .line 555
+    const-wide v2, 0x3f589374c0000000L    # 0.001500000013038516
+
+    sub-double v4, v16, v18
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->abs(D)D
+
+    move-result-wide v4
+
+    sub-double/2addr v2, v4
+
+    const-wide/high16 v4, 0x4000000000000000L    # 2.0
+
+    div-double/2addr v2, v4
+
+    .line 556
+    add-double v16, v16, v2
+
+    .line 557
+    sub-double v18, v18, v2
+
+    .line 559
+    :cond_2
+    sub-double v2, v12, v14
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->abs(D)D
+
+    move-result-wide v2
+
+    const-wide v4, 0x3f589374c0000000L    # 0.001500000013038516
+
+    cmpg-double v2, v2, v4
+
+    if-gez v2, :cond_3
+
+    .line 560
+    const-wide v2, 0x3f589374c0000000L    # 0.001500000013038516
+
+    sub-double v4, v12, v14
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->abs(D)D
+
+    move-result-wide v4
+
+    sub-double/2addr v2, v4
+
+    const-wide/high16 v4, 0x4000000000000000L    # 2.0
+
+    div-double/2addr v2, v4
+
+    .line 561
+    add-double/2addr v12, v2
+
+    .line 562
+    sub-double/2addr v14, v2
+
+    .line 564
+    :cond_3
+    const-wide v2, 0x3f40624de0000000L    # 5.000000237487257E-4
+
+    add-double v2, v2, v16
+
+    .line 565
+    const-wide v4, 0x3f40624de0000000L    # 5.000000237487257E-4
+
+    sub-double v4, v18, v4
+
+    .line 566
+    const-wide v6, 0x3f40624de0000000L    # 5.000000237487257E-4
+
+    add-double/2addr v6, v12
+
+    .line 567
+    const-wide v8, 0x3f40624de0000000L    # 5.000000237487257E-4
+
+    sub-double v8, v14, v8
+
+    .line 568
+    new-instance v10, Lcom/google/android/gms/maps/model/LatLng;
+
+    invoke-direct {v10, v4, v5, v8, v9}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
+
+    .line 569
+    new-instance v4, Lcom/google/android/gms/maps/model/LatLng;
+
+    invoke-direct {v4, v2, v3, v6, v7}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
+
+    .line 571
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
+
+    invoke-static {v10, v2}, Lcom/yelp/android/util/i;->a(Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;)D
+
+    move-result-wide v2
+
+    move-object/from16 v0, p0
+
+    iput-wide v2, v0, Lcom/yelp/android/ui/map/YelpMap;->p:D
+
+    .line 573
+    new-instance v2, Lcom/google/android/gms/maps/model/LatLngBounds;
+
+    invoke-direct {v2, v10, v4}, Lcom/google/android/gms/maps/model/LatLngBounds;-><init>(Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;)V
 
     return-object v2
 
-    :cond_2
+    :cond_4
     move-object v10, v3
 
-    goto :goto_1
+    goto/16 :goto_1
 
-    :cond_3
+    :cond_5
     move-wide v2, v12
 
     move-wide v4, v14
@@ -720,61 +776,14 @@
 
     move-wide/from16 v8, v18
 
-    goto :goto_2
-.end method
-
-.method public a(Ljava/util/List;Lcom/yelp/android/ui/map/a;)Ljava/lang/Runnable;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<TT;>;",
-            "Lcom/yelp/android/ui/map/a",
-            "<TT;>;)",
-            "Ljava/lang/Runnable;"
-        }
-    .end annotation
-
-    .prologue
-    .line 359
-    new-instance v0, Lcom/yelp/android/ui/map/w;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/yelp/android/ui/map/w;-><init>(Lcom/yelp/android/ui/map/YelpMap;Ljava/util/List;Lcom/yelp/android/ui/map/a;)V
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
-
-    .line 368
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/util/List;)Lcom/google/android/gms/maps/model/LatLngBounds;
-
-    move-result-object v0
-
-    .line 369
-    new-instance v1, Lcom/yelp/android/ui/map/aa;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/Collection;
-
-    iget-object v3, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    new-instance v4, Lcom/yelp/android/ui/map/x;
-
-    invoke-direct {v4, p0, v0}, Lcom/yelp/android/ui/map/x;-><init>(Lcom/yelp/android/ui/map/YelpMap;Lcom/google/android/gms/maps/model/LatLngBounds;)V
-
-    invoke-direct {v1, v2, v3, v4}, Lcom/yelp/android/ui/map/aa;-><init>(Ljava/util/Collection;Lcom/google/android/gms/maps/MapView;Ljava/lang/Runnable;)V
-
-    return-object v1
+    goto/16 :goto_2
 .end method
 
 .method public a()V
-    .locals 1
+    .locals 0
 
     .prologue
-    .line 682
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/map/YelpMap;->m:Z
-
-    .line 683
+    .line 678
     return-void
 .end method
 
@@ -782,27 +791,27 @@
     .locals 2
 
     .prologue
-    .line 247
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 272
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     if-eqz v0, :cond_0
 
-    .line 248
+    .line 273
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    .line 249
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 274
+    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/MapView;->onSaveInstanceState(Landroid/os/Bundle;)V
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/MapView;->b(Landroid/os/Bundle;)V
 
-    .line 250
+    .line 275
     const-string/jumbo v1, "extra.map_view"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 252
+    .line 277
     :cond_0
     return-void
 .end method
@@ -819,12 +828,12 @@
     .end annotation
 
     .prologue
-    .line 184
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 205
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getParent()Landroid/view/ViewParent;
 
@@ -832,85 +841,71 @@
 
     if-eqz v0, :cond_0
 
-    .line 185
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 206
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->removeView(Landroid/view/View;)V
 
-    .line 187
+    .line 208
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/map/YelpMap;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    .line 188
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    if-eqz v1, :cond_2
-
-    .line 189
-    new-instance v1, Lcom/google/android/gms/maps/MapView;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/google/android/gms/maps/GoogleMapOptions;
-
-    invoke-direct {v1, v0, v2}, Lcom/google/android/gms/maps/MapView;-><init>(Landroid/content/Context;Lcom/google/android/gms/maps/GoogleMapOptions;)V
-
-    iput-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    .line 193
-    :goto_0
-    instance-of v1, v0, Lcom/yelp/android/ui/map/i;
-
-    if-eqz v1, :cond_1
-
-    .line 194
-    check-cast v0, Lcom/yelp/android/ui/map/i;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/map/i;->a(Lcom/google/android/gms/maps/MapView;)V
-
-    .line 196
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/map/YelpMap;->addView(Landroid/view/View;I)V
-
-    .line 197
-    iput-object p2, p0, Lcom/yelp/android/ui/map/YelpMap;->h:Lcom/yelp/android/ui/map/e;
-
-    .line 198
-    new-instance v0, Ljava/util/HashSet;
-
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/Collection;
-
-    .line 199
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/map/YelpMap;->m:Z
-
-    .line 201
-    new-instance v0, Lcom/yelp/android/ui/map/g;
-
     invoke-virtual {p0}, Lcom/yelp/android/ui/map/YelpMap;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p0}, Lcom/yelp/android/ui/map/g;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/map/i;)V
+    .line 209
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->c:Lcom/google/android/gms/maps/GoogleMapOptions;
 
-    .line 202
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    if-eqz v0, :cond_2
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/g;->a(Lcom/google/android/gms/maps/MapView;)V
+    .line 210
+    new-instance v0, Lcom/google/android/gms/maps/MapView;
 
-    .line 204
+    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->c:Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    invoke-direct {v0, v1, v2}, Lcom/google/android/gms/maps/MapView;-><init>(Landroid/content/Context;Lcom/google/android/gms/maps/GoogleMapOptions;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    .line 214
+    :goto_0
+    instance-of v0, v1, Lcom/yelp/android/ui/map/f$a;
+
+    if-eqz v0, :cond_1
+
+    move-object v0, v1
+
+    .line 215
+    check-cast v0, Lcom/yelp/android/ui/map/f$a;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    invoke-interface {v0, v2}, Lcom/yelp/android/ui/map/f$a;->a(Lcom/google/android/gms/maps/MapView;)V
+
+    .line 217
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v0, v2}, Lcom/yelp/android/ui/map/YelpMap;->addView(Landroid/view/View;I)V
+
+    .line 218
+    iput-object p2, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/yelp/android/ui/map/e;
+
+    .line 220
+    new-instance v0, Lcom/yelp/android/ui/map/f;
+
+    invoke-direct {v0, v1, p0}, Lcom/yelp/android/ui/map/f;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/map/f$a;)V
+
+    .line 221
+    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/f;->a(Lcom/google/android/gms/maps/MapView;)V
+
+    .line 223
     if-eqz p1, :cond_3
 
-    .line 205
+    .line 224
     const-string/jumbo v0, "extra.map_view"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -919,29 +914,31 @@
 
     check-cast v0, Landroid/os/Bundle;
 
-    .line 207
+    .line 226
     :goto_1
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/MapView;->onCreate(Landroid/os/Bundle;)V
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/MapView;->a(Landroid/os/Bundle;)V
 
-    .line 209
-    new-instance v0, Lcom/yelp/android/ui/map/s;
+    .line 228
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/map/s;-><init>(Lcom/yelp/android/ui/map/YelpMap;)V
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$1;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/map/YelpMap$1;-><init>(Lcom/yelp/android/ui/map/YelpMap;)V
 
-    .line 219
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
+
+    .line 245
     return-void
 
-    .line 191
+    .line 212
     :cond_2
-    new-instance v1, Lcom/google/android/gms/maps/MapView;
+    new-instance v0, Lcom/google/android/gms/maps/MapView;
 
-    invoke-direct {v1, v0}, Lcom/google/android/gms/maps/MapView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/google/android/gms/maps/MapView;-><init>(Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    iput-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     goto :goto_0
 
@@ -955,51 +952,64 @@
     .locals 0
 
     .prologue
-    .line 678
+    .line 673
     return-void
 .end method
 
-.method public a(Lcom/google/android/gms/maps/model/CameraPosition;Lcom/google/android/gms/maps/GoogleMap$CancelableCallback;)V
-    .locals 3
+.method public a(Lcom/google/android/gms/maps/model/CameraPosition;)V
+    .locals 1
 
     .prologue
-    .line 284
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 626
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/google/android/gms/maps/c$c;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 627
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/google/android/gms/maps/c$c;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
+    invoke-interface {v0, p1}, Lcom/google/android/gms/maps/c$c;->a(Lcom/google/android/gms/maps/model/CameraPosition;)V
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 285
-    invoke-static {p1}, Lcom/google/android/gms/maps/CameraUpdateFactory;->newCameraPosition(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/CameraUpdate;
-
-    move-result-object v0
-
-    .line 286
-    new-instance v1, Lcom/yelp/android/ui/map/z;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
-
-    invoke-virtual {v2}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2, v0, p2}, Lcom/yelp/android/ui/map/z;-><init>(Lcom/google/android/gms/maps/GoogleMap;Lcom/google/android/gms/maps/CameraUpdate;Lcom/google/android/gms/maps/GoogleMap$CancelableCallback;)V
-
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
-
-    .line 288
+    .line 629
     :cond_0
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/serializable/by;)V
+.method public a(Lcom/google/android/gms/maps/model/CameraPosition;Lcom/google/android/gms/maps/c$a;)V
+    .locals 2
+
+    .prologue
+    .line 316
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$3;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/yelp/android/ui/map/YelpMap$3;-><init>(Lcom/yelp/android/ui/map/YelpMap;Lcom/google/android/gms/maps/model/CameraPosition;Lcom/google/android/gms/maps/c$a;)V
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
+
+    .line 324
+    return-void
+.end method
+
+.method public a(Lcom/google/android/gms/maps/model/LatLngBounds;)V
+    .locals 2
+
+    .prologue
+    .line 350
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$4;
+
+    invoke-direct {v1, p0, p1}, Lcom/yelp/android/ui/map/YelpMap$4;-><init>(Lcom/yelp/android/ui/map/YelpMap;Lcom/google/android/gms/maps/model/LatLngBounds;)V
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
+
+    .line 371
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/serializable/f;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1008,17 +1018,17 @@
     .end annotation
 
     .prologue
-    .line 706
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/yelp/android/ui/map/f;
+    .line 689
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/yelp/android/ui/map/e$a;
 
     if-eqz v0, :cond_0
 
-    .line 707
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/yelp/android/ui/map/f;
+    .line 690
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/yelp/android/ui/map/e$a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/ui/map/f;->a(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/map/e$a;->a(Ljava/lang/Object;)V
 
-    .line 709
+    .line 692
     :cond_0
     return-void
 .end method
@@ -1027,69 +1037,170 @@
     .locals 0
 
     .prologue
-    .line 46
-    check-cast p1, Lcom/yelp/android/serializable/by;
+    .line 53
+    check-cast p1, Lcom/yelp/android/serializable/f;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/yelp/android/serializable/by;)V
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/yelp/android/serializable/f;)V
 
     return-void
 .end method
 
-.method public a(Ljava/lang/Runnable;)V
-    .locals 4
+.method public a(Ljava/util/List;Lcom/yelp/android/ui/map/a;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<TT;>;",
+            "Lcom/yelp/android/ui/map/a",
+            "<TT;>;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 495
-    iget-boolean v0, p0, Lcom/yelp/android/ui/map/YelpMap;->m:Z
+    .line 427
+    const/4 v0, 0x0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0, p1, p2, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/util/List;Lcom/yelp/android/ui/map/a;Z)V
 
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 428
+    return-void
+.end method
+
+.method public a(Ljava/util/List;Lcom/yelp/android/ui/map/a;Z)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<TT;>;",
+            "Lcom/yelp/android/ui/map/a",
+            "<TT;>;Z)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 441
+    if-eqz p3, :cond_1
+
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
 
     if-nez v0, :cond_1
 
-    .line 499
+    .line 442
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/util/List;)Lcom/google/android/gms/maps/model/LatLngBounds;
+
+    .line 443
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
     :cond_0
     :goto_0
-    return-void
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    .line 498
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    move-result v0
 
-    new-instance v1, Lcom/yelp/android/ui/map/aa;
+    if-eqz v0, :cond_2
 
-    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/Collection;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    move-result-object v0
 
-    invoke-direct {v1, v2, v3, p1}, Lcom/yelp/android/ui/map/aa;-><init>(Ljava/util/Collection;Lcom/google/android/gms/maps/MapView;Ljava/lang/Runnable;)V
+    check-cast v0, Lcom/yelp/android/serializable/f;
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->post(Ljava/lang/Runnable;)Z
+    .line 444
+    invoke-interface {v0}, Lcom/yelp/android/serializable/f;->b()Lcom/google/android/gms/maps/model/LatLng;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/yelp/android/ui/map/YelpMap;->o:Lcom/google/android/gms/maps/model/LatLng;
+
+    invoke-static {v2, v3}, Lcom/yelp/android/util/i;->a(Lcom/google/android/gms/maps/model/LatLng;Lcom/google/android/gms/maps/model/LatLng;)D
+
+    move-result-wide v2
+
+    .line 446
+    iget-wide v4, p0, Lcom/yelp/android/ui/map/YelpMap;->p:D
+
+    const-wide/high16 v6, 0x3ff8000000000000L    # 1.5
+
+    mul-double/2addr v4, v6
+
+    cmpg-double v2, v2, v4
+
+    if-gez v2, :cond_0
+
+    .line 447
+    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
+
+    .line 451
+    :cond_1
+    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
+
+    .line 453
+    :cond_2
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_1
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/f;
+
+    .line 454
+    invoke-direct {p0, v0, p2}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/yelp/android/serializable/f;Lcom/yelp/android/ui/map/a;)V
+
+    goto :goto_1
+
+    .line 456
+    :cond_3
+    return-void
 .end method
 
 .method public b()V
     .locals 1
 
     .prologue
-    .line 222
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 248
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     if-eqz v0, :cond_0
 
-    .line 223
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 249
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onPause()V
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->b()V
 
-    .line 225
+    .line 251
     :cond_0
     return-void
 .end method
 
-.method public b(Lcom/yelp/android/serializable/by;)V
+.method public b(Lcom/yelp/android/serializable/f;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1098,17 +1209,17 @@
     .end annotation
 
     .prologue
-    .line 713
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/yelp/android/ui/map/f;
+    .line 696
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/yelp/android/ui/map/e$a;
 
     if-eqz v0, :cond_0
 
-    .line 714
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/yelp/android/ui/map/f;
+    .line 697
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/yelp/android/ui/map/e$a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/ui/map/f;->b(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/map/e$a;->b(Ljava/lang/Object;)V
 
-    .line 716
+    .line 699
     :cond_0
     return-void
 .end method
@@ -1117,10 +1228,10 @@
     .locals 0
 
     .prologue
-    .line 46
-    check-cast p1, Lcom/yelp/android/serializable/by;
+    .line 53
+    check-cast p1, Lcom/yelp/android/serializable/f;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/YelpMap;->b(Lcom/yelp/android/serializable/by;)V
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/YelpMap;->b(Lcom/yelp/android/serializable/f;)V
 
     return-void
 .end method
@@ -1129,17 +1240,42 @@
     .locals 1
 
     .prologue
-    .line 228
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 254
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     if-eqz v0, :cond_0
 
-    .line 229
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 255
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onResume()V
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->a()V
 
-    .line 231
+    .line 257
+    :cond_0
+    return-void
+.end method
+
+.method public c(Lcom/google/android/gms/maps/model/c;)V
+    .locals 1
+
+    .prologue
+    .line 682
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/yelp/android/ui/map/e;
+
+    if-eqz v0, :cond_0
+
+    .line 683
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/yelp/android/ui/map/e;
+
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/map/e;->e(Lcom/google/android/gms/maps/model/c;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/f;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/yelp/android/serializable/f;)V
+
+    .line 685
     :cond_0
     return-void
 .end method
@@ -1148,20 +1284,17 @@
     .locals 1
 
     .prologue
-    .line 234
-    invoke-direct {p0}, Lcom/yelp/android/ui/map/YelpMap;->g()V
-
-    .line 235
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 260
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     if-eqz v0, :cond_0
 
-    .line 236
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 261
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onDestroy()V
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->c()V
 
-    .line 238
+    .line 263
     :cond_0
     return-void
 .end method
@@ -1170,17 +1303,17 @@
     .locals 1
 
     .prologue
-    .line 241
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 266
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     if-eqz v0, :cond_0
 
-    .line 242
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 267
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onLowMemory()V
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->d()V
 
-    .line 244
+    .line 269
     :cond_0
     return-void
 .end method
@@ -1189,57 +1322,100 @@
     .locals 1
 
     .prologue
-    .line 429
-    new-instance v0, Lcom/yelp/android/ui/map/y;
+    .line 331
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/map/y;-><init>(Lcom/yelp/android/ui/map/YelpMap;)V
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Z)V
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
+    .line 334
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
 
-    .line 441
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    .line 335
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->l:Ljava/util/List;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/util/List;)Lcom/google/android/gms/maps/model/LatLngBounds;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/google/android/gms/maps/model/LatLngBounds;)V
+
+    .line 337
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/google/android/gms/maps/c$c;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->setOnCameraUpdate(Lcom/google/android/gms/maps/c$c;)V
+
+    .line 338
     return-void
 .end method
 
-.method public getBounds()Lcom/google/android/gms/maps/model/LatLngBounds;
-    .locals 1
+.method public g()V
+    .locals 2
 
     .prologue
-    .line 472
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 492
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$8;
 
-    move-result-object v0
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/map/YelpMap$8;-><init>(Lcom/yelp/android/ui/map/YelpMap;)V
 
-    .line 473
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/GoogleMap;->getProjection()Lcom/google/android/gms/maps/Projection;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
 
-    move-result-object v0
-
-    .line 474
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/Projection;->getVisibleRegion()Lcom/google/android/gms/maps/model/VisibleRegion;
-
-    move-result-object v0
-
-    iget-object v0, v0, Lcom/google/android/gms/maps/model/VisibleRegion;->latLngBounds:Lcom/google/android/gms/maps/model/LatLngBounds;
-
-    return-object v0
+    .line 501
+    return-void
 .end method
 
 .method public getCurrentCamera()Lcom/google/android/gms/maps/model/CameraPosition;
     .locals 1
 
     .prologue
-    .line 483
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 615
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/c;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 616
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/c;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/GoogleMap;->getCameraPosition()Lcom/google/android/gms/maps/model/CameraPosition;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/c;->a()Lcom/google/android/gms/maps/model/CameraPosition;
 
     move-result-object v0
+
+    .line 618
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public getLastMarker()Lcom/google/android/gms/maps/model/c;
+    .locals 1
+
+    .prologue
+    .line 725
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->n:Lcom/google/android/gms/maps/model/c;
 
     return-object v0
 .end method
@@ -1248,20 +1424,10 @@
     .locals 1
 
     .prologue
-    .line 163
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 184
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     return-object v0
-.end method
-
-.method public getPlayServicesAvailable()Z
-    .locals 1
-
-    .prologue
-    .line 686
-    iget-boolean v0, p0, Lcom/yelp/android/ui/map/YelpMap;->m:Z
-
-    return v0
 .end method
 
 .method public getViewableRegion()[D
@@ -1270,36 +1436,45 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 450
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 587
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/GoogleMap;->getProjection()Lcom/google/android/gms/maps/Projection;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/c;
 
     move-result-object v0
 
-    .line 451
+    if-eqz v0, :cond_0
+
+    .line 588
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/c;->d()Lcom/google/android/gms/maps/g;
+
+    move-result-object v0
+
+    .line 589
     new-instance v1, Landroid/graphics/Point;
 
     invoke-direct {v1, v6, v6}, Landroid/graphics/Point;-><init>(II)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/Projection;->fromScreenLocation(Landroid/graphics/Point;)Lcom/google/android/gms/maps/model/LatLng;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/g;->a(Landroid/graphics/Point;)Lcom/google/android/gms/maps/model/LatLng;
 
     move-result-object v1
 
-    .line 452
+    .line 590
     new-instance v2, Landroid/graphics/Point;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    iget-object v3, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     invoke-virtual {v3}, Lcom/google/android/gms/maps/MapView;->getWidth()I
 
     move-result v3
 
-    iget-object v4, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    iget-object v4, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
     invoke-virtual {v4}, Lcom/google/android/gms/maps/MapView;->getHeight()I
 
@@ -1307,128 +1482,125 @@
 
     invoke-direct {v2, v3, v4}, Landroid/graphics/Point;-><init>(II)V
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/Projection;->fromScreenLocation(Landroid/graphics/Point;)Lcom/google/android/gms/maps/model/LatLng;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/g;->a(Landroid/graphics/Point;)Lcom/google/android/gms/maps/model/LatLng;
+
+    move-result-object v2
+
+    .line 593
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/c;
 
     move-result-object v0
 
-    .line 454
-    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/c;->a()Lcom/google/android/gms/maps/model/CameraPosition;
 
-    invoke-virtual {v2}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
+    move-result-object v0
 
-    move-result-object v2
+    iget-object v3, v0, Lcom/google/android/gms/maps/model/CameraPosition;->a:Lcom/google/android/gms/maps/model/LatLng;
 
-    invoke-virtual {v2}, Lcom/google/android/gms/maps/GoogleMap;->getCameraPosition()Lcom/google/android/gms/maps/model/CameraPosition;
+    .line 595
+    const/4 v0, 0x6
 
-    move-result-object v2
+    new-array v0, v0, [D
 
-    iget-object v2, v2, Lcom/google/android/gms/maps/model/CameraPosition;->target:Lcom/google/android/gms/maps/model/LatLng;
+    iget-wide v4, v1, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
-    .line 456
-    const/4 v3, 0x6
-
-    new-array v3, v3, [D
-
-    iget-wide v4, v1, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
-
-    aput-wide v4, v3, v6
+    aput-wide v4, v0, v6
 
     const/4 v4, 0x1
 
-    iget-wide v6, v1, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v6, v1, Lcom/google/android/gms/maps/model/LatLng;->b:D
 
-    aput-wide v6, v3, v4
+    aput-wide v6, v0, v4
 
     const/4 v1, 0x2
 
-    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    iget-wide v4, v2, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
-    aput-wide v4, v3, v1
+    aput-wide v4, v0, v1
 
     const/4 v1, 0x3
 
-    iget-wide v4, v0, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v4, v2, Lcom/google/android/gms/maps/model/LatLng;->b:D
 
-    aput-wide v4, v3, v1
+    aput-wide v4, v0, v1
 
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
-    iget-wide v4, v2, Lcom/google/android/gms/maps/model/LatLng;->latitude:D
+    iget-wide v4, v3, Lcom/google/android/gms/maps/model/LatLng;->a:D
 
-    aput-wide v4, v3, v0
+    aput-wide v4, v0, v1
 
-    const/4 v0, 0x5
+    const/4 v1, 0x5
 
-    iget-wide v4, v2, Lcom/google/android/gms/maps/model/LatLng;->longitude:D
+    iget-wide v2, v3, Lcom/google/android/gms/maps/model/LatLng;->b:D
 
-    aput-wide v4, v3, v0
+    aput-wide v2, v0, v1
 
-    return-object v3
+    .line 604
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
-.method public onCameraChange(Lcom/google/android/gms/maps/model/CameraPosition;)V
+.method public h()Z
     .locals 1
 
     .prologue
-    .line 506
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
+    .line 740
+    const/16 v0, 0x10
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/f;->a(I)Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 507
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/map/YelpMap;->getContext()Landroid/content/Context;
 
-    invoke-interface {v0, p1}, Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;->onCameraChange(Lcom/google/android/gms/maps/model/CameraPosition;)V
+    move-result-object v0
 
-    .line 509
+    invoke-static {v0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->isGooglePlayServicesAvailable(Landroid/content/Context;)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
     :cond_0
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 1
 
     .prologue
-    .line 604
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->n:Landroid/graphics/RectF;
+    .line 659
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->m:Landroid/graphics/RectF;
 
     if-eqz v0, :cond_0
 
-    .line 605
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->n:Landroid/graphics/RectF;
+    .line 660
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->m:Landroid/graphics/RectF;
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/RectF;)Z
 
-    .line 607
+    .line 662
     :cond_0
     invoke-super {p0, p1}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 608
-    return-void
-.end method
-
-.method public onInfoWindowClick(Lcom/google/android/gms/maps/model/Marker;)V
-    .locals 1
-
-    .prologue
-    .line 699
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->h:Lcom/yelp/android/ui/map/e;
-
-    if-eqz v0, :cond_0
-
-    .line 700
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->h:Lcom/yelp/android/ui/map/e;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/ui/map/e;->b(Lcom/google/android/gms/maps/model/Marker;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/by;
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/yelp/android/serializable/by;)V
-
-    .line 702
-    :cond_0
+    .line 663
     return-void
 .end method
 
@@ -1436,77 +1608,71 @@
     .locals 0
 
     .prologue
-    .line 595
-    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->n:Landroid/graphics/RectF;
+    .line 654
+    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->m:Landroid/graphics/RectF;
 
-    .line 596
+    .line 655
     return-void
 .end method
 
-.method public setInfoWindowListener(Lcom/yelp/android/ui/map/f;)V
-    .locals 1
+.method public setInfoWindowListener(Lcom/yelp/android/ui/map/e$a;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/ui/map/f",
+            "Lcom/yelp/android/ui/map/e$a",
             "<TT;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 302
-    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/yelp/android/ui/map/f;
+    .line 379
+    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/yelp/android/ui/map/e$a;
 
-    .line 303
-    new-instance v0, Lcom/yelp/android/ui/map/t;
+    .line 380
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/map/t;-><init>(Lcom/yelp/android/ui/map/YelpMap;)V
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$5;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/map/YelpMap$5;-><init>(Lcom/yelp/android/ui/map/YelpMap;)V
 
-    .line 309
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
+
+    .line 387
     return-void
 .end method
 
 .method public setInteractive(Z)V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 335
-    new-instance v0, Lcom/yelp/android/ui/map/v;
+    .line 408
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-direct {v0, p0, p1}, Lcom/yelp/android/ui/map/v;-><init>(Lcom/yelp/android/ui/map/YelpMap;Z)V
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$6;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0, p1}, Lcom/yelp/android/ui/map/YelpMap$6;-><init>(Lcom/yelp/android/ui/map/YelpMap;Z)V
 
-    .line 346
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
+
+    .line 417
     return-void
 .end method
 
 .method public setMapMode(I)V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 719
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 702
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    if-eqz v0, :cond_0
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$10;
 
-    .line 720
-    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    invoke-direct {v1, p0, p1}, Lcom/yelp/android/ui/map/YelpMap$10;-><init>(Lcom/yelp/android/ui/map/YelpMap;I)V
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
 
-    move-result-object v0
-
-    .line 721
-    if-eqz v0, :cond_0
-
-    .line 722
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/maps/GoogleMap;->setMapType(I)V
-
-    .line 725
-    :cond_0
+    .line 709
     return-void
 .end method
 
@@ -1514,44 +1680,44 @@
     .locals 8
 
     .prologue
-    .line 261
-    invoke-static {}, Lcom/google/android/gms/maps/model/LatLngBounds;->builder()Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    .line 286
+    invoke-static {}, Lcom/google/android/gms/maps/model/LatLngBounds;->b()Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
     move-result-object v0
 
     new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLat()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->a()D
 
     move-result-wide v2
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLon()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->b()D
 
     move-result-wide v4
 
     invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->include(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
     move-result-object v0
 
     new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLat()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->a()D
 
     move-result-wide v2
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLatDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->d()D
 
     move-result-wide v4
 
     add-double/2addr v2, v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLon()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->b()D
 
     move-result-wide v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLonDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->c()D
 
     move-result-wide v6
 
@@ -1559,27 +1725,27 @@
 
     invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->include(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
     move-result-object v0
 
     new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLat()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->a()D
 
     move-result-wide v2
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLatDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->d()D
 
     move-result-wide v4
 
     add-double/2addr v2, v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLon()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->b()D
 
     move-result-wide v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLonDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->c()D
 
     move-result-wide v6
 
@@ -1587,27 +1753,27 @@
 
     invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->include(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
     move-result-object v0
 
     new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLat()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->a()D
 
     move-result-wide v2
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLatDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->d()D
 
     move-result-wide v4
 
     sub-double/2addr v2, v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLon()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->b()D
 
     move-result-wide v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLonDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->c()D
 
     move-result-wide v6
 
@@ -1615,27 +1781,27 @@
 
     invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->include(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
     move-result-object v0
 
     new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLat()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->a()D
 
     move-result-wide v2
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLatDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->d()D
 
     move-result-wide v4
 
     sub-double/2addr v2, v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLon()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->b()D
 
     move-result-wide v4
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->getLonDelta()D
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/MapSpan;->c()D
 
     move-result-wide v6
 
@@ -1643,77 +1809,86 @@
 
     invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->include(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/LatLngBounds$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/LatLngBounds$a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/model/LatLngBounds$Builder;->build()Lcom/google/android/gms/maps/model/LatLngBounds;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/model/LatLngBounds$a;->a()Lcom/google/android/gms/maps/model/LatLngBounds;
 
     move-result-object v0
 
-    .line 277
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    .line 306
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/google/android/gms/maps/model/LatLngBounds;)V
 
-    if-eqz v1, :cond_0
+    .line 307
+    return-void
+.end method
 
-    iget-object v1, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+.method public setMyLocationButtonEnabled(Z)V
+    .locals 2
 
-    invoke-virtual {v1}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    .line 278
-    sget v1, Lcom/yelp/android/appdata/ao;->a:I
-
-    invoke-static {v0, v1}, Lcom/google/android/gms/maps/CameraUpdateFactory;->newLatLngBounds(Lcom/google/android/gms/maps/model/LatLngBounds;I)Lcom/google/android/gms/maps/CameraUpdate;
+    .prologue
+    .line 712
+    invoke-virtual {p0}, Lcom/yelp/android/ui/map/YelpMap;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    .line 279
-    new-instance v1, Lcom/yelp/android/ui/map/z;
+    sget-object v1, Lcom/yelp/android/appdata/PermissionGroup;->LOCATION:Lcom/yelp/android/appdata/PermissionGroup;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/map/YelpMap;->g:Lcom/google/android/gms/maps/MapView;
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/k;->a(Landroid/content/Context;Lcom/yelp/android/appdata/PermissionGroup;)Z
 
-    invoke-virtual {v2}, Lcom/google/android/gms/maps/MapView;->getMap()Lcom/google/android/gms/maps/GoogleMap;
+    move-result v0
 
-    move-result-object v2
+    if-eqz v0, :cond_0
 
-    invoke-direct {v1, v2, v0}, Lcom/yelp/android/ui/map/z;-><init>(Lcom/google/android/gms/maps/GoogleMap;Lcom/google/android/gms/maps/CameraUpdate;)V
+    .line 713
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->b:Lcom/google/android/gms/maps/MapView;
 
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
+    new-instance v1, Lcom/yelp/android/ui/map/YelpMap$2;
 
-    .line 281
+    invoke-direct {v1, p0, p1}, Lcom/yelp/android/ui/map/YelpMap$2;-><init>(Lcom/yelp/android/ui/map/YelpMap;Z)V
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->a(Lcom/google/android/gms/maps/e;)V
+
+    .line 721
     :cond_0
     return-void
 .end method
 
-.method public setOnCameraUpdate(Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;)V
+.method public setOnCameraUpdate(Lcom/google/android/gms/maps/c$c;)V
     .locals 1
 
     .prologue
-    .line 318
-    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->j:Lcom/google/android/gms/maps/GoogleMap$OnCameraChangeListener;
+    .line 396
+    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/google/android/gms/maps/c$c;
 
-    .line 319
-    new-instance v0, Lcom/yelp/android/ui/map/u;
+    .line 397
+    iget-object v0, p0, Lcom/yelp/android/ui/map/YelpMap;->i:Lcom/google/android/gms/maps/c$c;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/map/u;-><init>(Lcom/yelp/android/ui/map/YelpMap;)V
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/lang/Runnable;)V
+    const/4 v0, 0x1
 
-    .line 325
+    :goto_0
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/map/YelpMap;->a(Z)V
+
+    .line 398
     return-void
+
+    .line 397
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setOptions(Lcom/google/android/gms/maps/GoogleMapOptions;)V
     .locals 0
 
     .prologue
-    .line 173
-    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->k:Lcom/google/android/gms/maps/GoogleMapOptions;
+    .line 194
+    iput-object p1, p0, Lcom/yelp/android/ui/map/YelpMap;->c:Lcom/google/android/gms/maps/GoogleMapOptions;
 
-    .line 174
+    .line 195
     return-void
 .end method

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/splash_container" android:paddingTop="@dimen/status_bar_height" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/splash_icon_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="-50.0dip" android:layout_above="@id/anchor" android:layout_centerInParent="true">
+        <ImageView android:layout_gravity="center" android:id="@id/icon_border" android:layout_width="250.0dip" android:layout_height="250.0dip" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.2" />
+        <ImageView android:layout_gravity="center" android:id="@id/splash_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/globe" android:contentDescription="@null" />
+    </FrameLayout>
+    <View android:id="@id/anchor" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_centerInParent="true" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/anchor">
+        <View android:id="@id/anchor_text" android:layout_width="0.0dip" android:layout_height="0.0dip" android:layout_centerInParent="true" />
+        <TextView android:textAppearance="@style/DeprecatedHeadlineWhiteText" android:gravity="center" android:id="@id/tagline" android:paddingLeft="@dimen/onboarding_text_padding" android:paddingRight="@dimen/onboarding_text_padding" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_large_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:text="@string/we_know_the_place" android:layout_above="@id/anchor_text" />
+    </RelativeLayout>
+</RelativeLayout>

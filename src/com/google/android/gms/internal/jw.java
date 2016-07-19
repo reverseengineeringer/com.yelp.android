@@ -1,67 +1,50 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
-import java.util.ArrayList;
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 
-public class jw
-  implements Parcelable.Creator<jg.a>
+public final class jw
 {
-  static void a(jg.a parama, Parcel paramParcel, int paramInt)
+  @TargetApi(20)
+  public static boolean a(Context paramContext)
   {
-    paramInt = b.H(paramParcel);
-    b.a(paramParcel, 1, parama.getAccountName(), false);
-    b.c(paramParcel, 1000, parama.getVersionCode());
-    b.b(paramParcel, 2, parama.ho(), false);
-    b.c(paramParcel, 3, parama.hn());
-    b.a(paramParcel, 4, parama.hq(), false);
-    b.H(paramParcel, paramInt);
+    return (kf.h()) && (paramContext.getPackageManager().hasSystemFeature("android.hardware.type.watch"));
   }
   
-  public jg.a E(Parcel paramParcel)
+  public static boolean a(Resources paramResources)
   {
-    int i = 0;
-    String str1 = null;
-    int k = a.G(paramParcel);
-    ArrayList localArrayList = null;
-    String str2 = null;
-    int j = 0;
-    while (paramParcel.dataPosition() < k)
+    if (paramResources == null) {}
+    for (;;)
     {
-      int m = a.F(paramParcel);
-      switch (a.aH(m))
-      {
-      default: 
-        a.b(paramParcel, m);
-        break;
-      case 1: 
-        str2 = a.o(paramParcel, m);
-        break;
-      case 1000: 
-        j = a.g(paramParcel, m);
-        break;
-      case 2: 
-        localArrayList = a.C(paramParcel, m);
-        break;
-      case 3: 
-        i = a.g(paramParcel, m);
-        break;
-      case 4: 
-        str1 = a.o(paramParcel, m);
+      return false;
+      if ((getConfigurationscreenLayout & 0xF) > 3) {}
+      for (int i = 1; ((kf.a()) && (i != 0)) || (b(paramResources)); i = 0) {
+        return true;
       }
     }
-    if (paramParcel.dataPosition() != k) {
-      throw new a.a("Overread allowed size end=" + k, paramParcel);
-    }
-    return new jg.a(j, str2, localArrayList, i, str1);
   }
   
-  public jg.a[] aG(int paramInt)
+  @TargetApi(13)
+  private static boolean b(Resources paramResources)
   {
-    return new jg.a[paramInt];
+    boolean bool2 = false;
+    paramResources = paramResources.getConfiguration();
+    boolean bool1 = bool2;
+    if (kf.b())
+    {
+      bool1 = bool2;
+      if ((screenLayout & 0xF) <= 3)
+      {
+        bool1 = bool2;
+        if (smallestScreenWidthDp >= 600) {
+          bool1 = true;
+        }
+      }
+    }
+    return bool1;
   }
 }
 

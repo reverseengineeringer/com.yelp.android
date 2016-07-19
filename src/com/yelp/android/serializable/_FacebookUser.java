@@ -2,31 +2,75 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _FacebookUser
   implements Parcelable
 {
-  protected String mBirthday;
-  protected String mEmail;
-  protected String mFirstName;
-  protected String mGender;
-  protected String mId;
-  protected String mLastName;
-  protected boolean mVerified;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected boolean g;
   
-  protected _FacebookUser() {}
-  
-  protected _FacebookUser(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, boolean paramBoolean)
+  public String a()
   {
-    this();
-    mFirstName = paramString1;
-    mLastName = paramString2;
-    mBirthday = paramString3;
-    mGender = paramString4;
-    mId = paramString5;
-    mEmail = paramString6;
-    mVerified = paramBoolean;
+    return f;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = paramParcel.createBooleanArray()[0];
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("first_name")) {
+      a = paramJSONObject.optString("first_name");
+    }
+    if (!paramJSONObject.isNull("last_name")) {
+      b = paramJSONObject.optString("last_name");
+    }
+    if (!paramJSONObject.isNull("birthday")) {
+      c = paramJSONObject.optString("birthday");
+    }
+    if (!paramJSONObject.isNull("gender")) {
+      d = paramJSONObject.optString("gender");
+    }
+    if (!paramJSONObject.isNull("id")) {
+      e = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("email")) {
+      f = paramJSONObject.optString("email");
+    }
+    g = paramJSONObject.optBoolean("verified");
+  }
+  
+  public String b()
+  {
+    return e;
+  }
+  
+  public String c()
+  {
+    return d;
+  }
+  
+  public String d()
+  {
+    return c;
   }
   
   public int describeContents()
@@ -34,84 +78,44 @@ abstract class _FacebookUser
     return 0;
   }
   
-  public String getBirthday()
+  public String e()
   {
-    return mBirthday;
+    return b;
   }
   
-  public String getEmail()
+  public boolean equals(Object paramObject)
   {
-    return mEmail;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_FacebookUser)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a();
   }
   
-  public String getFirstName()
+  public String f()
   {
-    return mFirstName;
+    return a;
   }
   
-  public String getGender()
+  public int hashCode()
   {
-    return mGender;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public String getLastName()
-  {
-    return mLastName;
-  }
-  
-  public boolean getVerified()
-  {
-    return mVerified;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("first_name")) {
-      mFirstName = paramJSONObject.optString("first_name");
-    }
-    if (!paramJSONObject.isNull("last_name")) {
-      mLastName = paramJSONObject.optString("last_name");
-    }
-    if (!paramJSONObject.isNull("birthday")) {
-      mBirthday = paramJSONObject.optString("birthday");
-    }
-    if (!paramJSONObject.isNull("gender")) {
-      mGender = paramJSONObject.optString("gender");
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("email")) {
-      mEmail = paramJSONObject.optString("email");
-    }
-    mVerified = paramJSONObject.optBoolean("verified");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mFirstName = paramParcel.readString();
-    mLastName = paramParcel.readString();
-    mBirthday = paramParcel.readString();
-    mGender = paramParcel.readString();
-    mId = paramParcel.readString();
-    mEmail = paramParcel.readString();
-    mVerified = paramParcel.createBooleanArray()[0];
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mFirstName);
-    paramParcel.writeString(mLastName);
-    paramParcel.writeString(mBirthday);
-    paramParcel.writeString(mGender);
-    paramParcel.writeString(mId);
-    paramParcel.writeString(mEmail);
-    paramParcel.writeBooleanArray(new boolean[] { mVerified });
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeBooleanArray(new boolean[] { g });
   }
 }
 

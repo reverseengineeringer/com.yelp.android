@@ -2,19 +2,18 @@ package com.yelp.android.ui.map;
 
 import android.content.Context;
 import android.view.View;
-import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
-import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.c.d;
 import com.yelp.android.serializable.YelpCheckIn;
-import com.yelp.android.ui.panels.ac;
+import com.yelp.android.ui.panels.d;
 import java.util.HashMap;
 import java.util.Map;
 
 public class c
-  implements GoogleMap.OnInfoWindowClickListener, e<YelpCheckIn>
+  implements c.d, e<YelpCheckIn>
 {
   private final Context a;
   private final Map<String, YelpCheckIn> b;
-  private f<YelpCheckIn> c;
+  private e.a<YelpCheckIn> c;
   
   public c(Context paramContext)
   {
@@ -22,9 +21,19 @@ public class c
     b = new HashMap();
   }
   
-  public YelpCheckIn a(Marker paramMarker)
+  public View a(com.google.android.gms.maps.model.c paramc)
   {
-    return (YelpCheckIn)b.get(paramMarker.getId());
+    d locald = new d(a);
+    paramc = (YelpCheckIn)b.get(paramc.a());
+    if (paramc != null)
+    {
+      locald.a();
+      locald.a(paramc.d());
+      if (c != null) {
+        c.b(paramc);
+      }
+    }
+    return locald;
   }
   
   public void a()
@@ -32,41 +41,31 @@ public class c
     b.clear();
   }
   
-  public void a(YelpCheckIn paramYelpCheckIn, Marker paramMarker)
+  public void a(YelpCheckIn paramYelpCheckIn, com.google.android.gms.maps.model.c paramc)
   {
-    b.put(paramMarker.getId(), paramYelpCheckIn);
+    b.put(paramc.a(), paramYelpCheckIn);
   }
   
-  public void a(f<YelpCheckIn> paramf)
+  public void a(e.a<YelpCheckIn> parama)
   {
-    c = paramf;
+    c = parama;
   }
   
-  public View getInfoContents(Marker paramMarker)
+  public View b(com.google.android.gms.maps.model.c paramc)
   {
     return null;
   }
   
-  public View getInfoWindow(Marker paramMarker)
-  {
-    ac localac = new ac(a);
-    paramMarker = (YelpCheckIn)b.get(paramMarker.getId());
-    if (paramMarker != null)
-    {
-      localac.a(null);
-      localac.a(paramMarker.getBusiness());
-      if (c != null) {
-        c.b(paramMarker);
-      }
-    }
-    return localac;
-  }
-  
-  public void onInfoWindowClick(Marker paramMarker)
+  public void c(com.google.android.gms.maps.model.c paramc)
   {
     if (c != null) {
-      c.a(a(paramMarker));
+      c.a(d(paramc));
     }
+  }
+  
+  public YelpCheckIn d(com.google.android.gms.maps.model.c paramc)
+  {
+    return (YelpCheckIn)b.get(paramc.a());
   }
 }
 

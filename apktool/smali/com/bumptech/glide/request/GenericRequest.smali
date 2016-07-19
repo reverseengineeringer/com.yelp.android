@@ -3,12 +3,18 @@
 .source "GenericRequest.java"
 
 # interfaces
-.implements Lcom/bumptech/glide/request/a;
-.implements Lcom/bumptech/glide/request/d;
-.implements Lcom/yelp/android/ag/h;
+.implements Lcom/bumptech/glide/request/b;
+.implements Lcom/bumptech/glide/request/f;
+.implements Lcom/yelp/android/am/h;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/bumptech/glide/request/GenericRequest$Status;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<A:",
@@ -21,9 +27,9 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/request/a;",
-        "Lcom/bumptech/glide/request/d;",
-        "Lcom/yelp/android/ag/h;"
+        "Lcom/bumptech/glide/request/b;",
+        "Lcom/bumptech/glide/request/f;",
+        "Lcom/yelp/android/am/h;"
     }
 .end annotation
 
@@ -42,21 +48,36 @@
 
 
 # instance fields
-.field private A:J
+.field private A:Lcom/bumptech/glide/load/engine/i;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/bumptech/glide/load/engine/i",
+            "<*>;"
+        }
+    .end annotation
+.end field
 
-.field private B:Lcom/bumptech/glide/request/GenericRequest$Status;
+.field private B:Lcom/bumptech/glide/load/engine/b$c;
+
+.field private C:J
+
+.field private D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
 .field private final b:Ljava/lang/String;
 
 .field private c:Lcom/bumptech/glide/load/b;
 
-.field private d:I
+.field private d:Landroid/graphics/drawable/Drawable;
 
 .field private e:I
 
-.field private f:Landroid/content/Context;
+.field private f:I
 
-.field private g:Lcom/bumptech/glide/load/f;
+.field private g:I
+
+.field private h:Landroid/content/Context;
+
+.field private i:Lcom/bumptech/glide/load/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/bumptech/glide/load/f",
@@ -65,18 +86,18 @@
     .end annotation
 .end field
 
-.field private h:Lcom/yelp/android/ae/f;
+.field private j:Lcom/yelp/android/ak/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ae/f",
+            "Lcom/yelp/android/ak/f",
             "<TA;TT;TZ;TR;>;"
         }
     .end annotation
 .end field
 
-.field private i:Lcom/bumptech/glide/request/b;
+.field private k:Lcom/bumptech/glide/request/c;
 
-.field private j:Ljava/lang/Object;
+.field private l:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TA;"
@@ -84,7 +105,7 @@
     .end annotation
 .end field
 
-.field private k:Ljava/lang/Class;
+.field private m:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class",
@@ -93,63 +114,52 @@
     .end annotation
 .end field
 
-.field private l:Z
+.field private n:Z
 
-.field private m:Lcom/bumptech/glide/Priority;
+.field private o:Lcom/bumptech/glide/Priority;
 
-.field private n:Lcom/yelp/android/ag/j;
+.field private p:Lcom/yelp/android/am/j;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ag/j",
+            "Lcom/yelp/android/am/j",
             "<TR;>;"
         }
     .end annotation
 .end field
 
-.field private o:Lcom/bumptech/glide/request/c;
+.field private q:Lcom/bumptech/glide/request/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/bumptech/glide/request/c",
+            "Lcom/bumptech/glide/request/e",
             "<-TA;TR;>;"
         }
     .end annotation
 .end field
 
-.field private p:F
+.field private r:F
 
-.field private q:Lcom/bumptech/glide/load/engine/d;
+.field private s:Lcom/bumptech/glide/load/engine/b;
 
-.field private r:Lcom/yelp/android/af/g;
+.field private t:Lcom/yelp/android/al/d;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/af/g",
+            "Lcom/yelp/android/al/d",
             "<TR;>;"
         }
     .end annotation
 .end field
 
-.field private s:I
+.field private u:I
 
-.field private t:I
+.field private v:I
 
-.field private u:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+.field private w:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
-.field private v:Landroid/graphics/drawable/Drawable;
+.field private x:Landroid/graphics/drawable/Drawable;
 
-.field private w:Landroid/graphics/drawable/Drawable;
+.field private y:Landroid/graphics/drawable/Drawable;
 
-.field private x:Z
-
-.field private y:Lcom/bumptech/glide/load/engine/t;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/bumptech/glide/load/engine/t",
-            "<*>;"
-        }
-    .end annotation
-.end field
-
-.field private z:Lcom/bumptech/glide/load/engine/f;
+.field private z:Z
 
 
 # direct methods
@@ -160,7 +170,7 @@
     .line 37
     const/4 v0, 0x0
 
-    invoke-static {v0}, Lcom/yelp/android/ai/f;->a(I)Ljava/util/Queue;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(I)Ljava/util/Queue;
 
     move-result-object v0
 
@@ -173,10 +183,10 @@
     .locals 1
 
     .prologue
-    .line 139
+    .line 147
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
+    .line 59
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result v0
@@ -187,12 +197,12 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->b:Ljava/lang/String;
 
-    .line 141
+    .line 149
     return-void
 .end method
 
-.method public static a(Lcom/yelp/android/ae/f;Ljava/lang/Object;Lcom/bumptech/glide/load/b;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/yelp/android/ag/j;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/c;Lcom/bumptech/glide/request/b;Lcom/bumptech/glide/load/engine/d;Lcom/bumptech/glide/load/f;Ljava/lang/Class;ZLcom/yelp/android/af/g;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/request/GenericRequest;
-    .locals 22
+.method public static a(Lcom/yelp/android/ak/f;Ljava/lang/Object;Lcom/bumptech/glide/load/b;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/yelp/android/am/j;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/e;Lcom/bumptech/glide/request/c;Lcom/bumptech/glide/load/engine/b;Lcom/bumptech/glide/load/f;Ljava/lang/Class;ZLcom/yelp/android/al/d;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/request/GenericRequest;
+    .locals 24
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -204,26 +214,28 @@
             "R:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/yelp/android/ae/f",
+            "Lcom/yelp/android/ak/f",
             "<TA;TT;TZ;TR;>;TA;",
             "Lcom/bumptech/glide/load/b;",
             "Landroid/content/Context;",
             "Lcom/bumptech/glide/Priority;",
-            "Lcom/yelp/android/ag/j",
+            "Lcom/yelp/android/am/j",
             "<TR;>;F",
             "Landroid/graphics/drawable/Drawable;",
             "I",
             "Landroid/graphics/drawable/Drawable;",
             "I",
-            "Lcom/bumptech/glide/request/c",
+            "Landroid/graphics/drawable/Drawable;",
+            "I",
+            "Lcom/bumptech/glide/request/e",
             "<-TA;TR;>;",
-            "Lcom/bumptech/glide/request/b;",
-            "Lcom/bumptech/glide/load/engine/d;",
+            "Lcom/bumptech/glide/request/c;",
+            "Lcom/bumptech/glide/load/engine/b;",
             "Lcom/bumptech/glide/load/f",
             "<TZ;>;",
             "Ljava/lang/Class",
             "<TR;>;Z",
-            "Lcom/yelp/android/af/g",
+            "Lcom/yelp/android/al/d",
             "<TR;>;II",
             "Lcom/bumptech/glide/load/engine/DiskCacheStrategy;",
             ")",
@@ -233,7 +245,7 @@
     .end annotation
 
     .prologue
-    .line 111
+    .line 117
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest;->a:Ljava/util/Queue;
 
     invoke-interface {v0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -242,10 +254,10 @@
 
     check-cast v0, Lcom/bumptech/glide/request/GenericRequest;
 
-    .line 112
+    .line 118
     if-nez v0, :cond_0
 
-    .line 113
+    .line 119
     new-instance v0, Lcom/bumptech/glide/request/GenericRequest;
 
     invoke-direct {v0}, Lcom/bumptech/glide/request/GenericRequest;-><init>()V
@@ -275,7 +287,7 @@
 
     move-object/from16 v12, p11
 
-    move-object/from16 v13, p12
+    move/from16 v13, p12
 
     move-object/from16 v14, p13
 
@@ -283,88 +295,92 @@
 
     move-object/from16 v16, p15
 
-    move/from16 v17, p16
+    move-object/from16 v17, p16
 
     move-object/from16 v18, p17
 
     move/from16 v19, p18
 
-    move/from16 v20, p19
+    move-object/from16 v20, p19
 
-    move-object/from16 v21, p20
+    move/from16 v21, p20
 
-    .line 115
-    invoke-direct/range {v0 .. v21}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/yelp/android/ae/f;Ljava/lang/Object;Lcom/bumptech/glide/load/b;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/yelp/android/ag/j;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/c;Lcom/bumptech/glide/request/b;Lcom/bumptech/glide/load/engine/d;Lcom/bumptech/glide/load/f;Ljava/lang/Class;ZLcom/yelp/android/af/g;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)V
+    move/from16 v22, p21
 
-    .line 136
+    move-object/from16 v23, p22
+
+    .line 121
+    invoke-direct/range {v0 .. v23}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/yelp/android/ak/f;Ljava/lang/Object;Lcom/bumptech/glide/load/b;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/yelp/android/am/j;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/e;Lcom/bumptech/glide/request/c;Lcom/bumptech/glide/load/engine/b;Lcom/bumptech/glide/load/f;Ljava/lang/Class;ZLcom/yelp/android/al/d;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)V
+
+    .line 144
     return-object v0
 .end method
 
-.method private a(Lcom/bumptech/glide/load/engine/t;Ljava/lang/Object;)V
+.method private a(Lcom/bumptech/glide/load/engine/i;Ljava/lang/Object;)V
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<*>;TR;)V"
         }
     .end annotation
 
     .prologue
-    .line 483
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/request/c;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/request/c;
-
-    iget-object v2, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Ljava/lang/Object;
-
-    iget-object v3, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
-
-    iget-boolean v4, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Z
-
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->o()Z
+    .line 518
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->p()Z
 
     move-result v5
 
+    .line 519
+    sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->COMPLETE:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    .line 520
+    iput-object p1, p0, Lcom/bumptech/glide/request/GenericRequest;->A:Lcom/bumptech/glide/load/engine/i;
+
+    .line 522
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/request/e;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/request/e;
+
+    iget-object v2, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
+
+    iget-object v3, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
+
+    iget-boolean v4, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Z
+
     move-object v1, p2
 
-    invoke-interface/range {v0 .. v5}, Lcom/bumptech/glide/request/c;->onResourceReady(Ljava/lang/Object;Ljava/lang/Object;Lcom/yelp/android/ag/j;ZZ)Z
+    invoke-interface/range {v0 .. v5}, Lcom/bumptech/glide/request/e;->a(Ljava/lang/Object;Ljava/lang/Object;Lcom/yelp/android/am/j;ZZ)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 485
+    .line 524
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->r:Lcom/yelp/android/af/g;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->t:Lcom/yelp/android/al/d;
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Z
 
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->o()Z
-
-    move-result v2
-
-    invoke-interface {v0, v1, v2}, Lcom/yelp/android/af/g;->a(ZZ)Lcom/yelp/android/af/e;
+    invoke-interface {v0, v1, v5}, Lcom/yelp/android/al/d;->a(ZZ)Lcom/yelp/android/al/c;
 
     move-result-object v0
 
-    .line 486
-    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
+    .line 525
+    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
 
-    invoke-interface {v1, p2, v0}, Lcom/yelp/android/ag/j;->a(Ljava/lang/Object;Lcom/yelp/android/af/e;)V
+    invoke-interface {v1, p2, v0}, Lcom/yelp/android/am/j;->a(Ljava/lang/Object;Lcom/yelp/android/al/c;)V
 
-    .line 489
+    .line 528
     :cond_1
-    sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->COMPLETE:Lcom/bumptech/glide/request/GenericRequest$Status;
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->q()V
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
-
-    .line 490
-    iput-object p1, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Lcom/bumptech/glide/load/engine/t;
-
-    .line 492
+    .line 530
     const-string/jumbo v0, "GenericRequest"
 
     const/4 v1, 0x2
@@ -375,7 +391,7 @@
 
     if-eqz v0, :cond_2
 
-    .line 493
+    .line 531
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -386,9 +402,9 @@
 
     move-result-object v0
 
-    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->A:J
+    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->C:J
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ai/c;->a(J)D
+    invoke-static {v2, v3}, Lcom/yelp/android/ao/d;->a(J)D
 
     move-result-wide v2
 
@@ -402,7 +418,7 @@
 
     move-result-object v0
 
-    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/t;->c()I
+    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/i;->c()I
 
     move-result v1
 
@@ -422,7 +438,7 @@
 
     move-result-object v0
 
-    iget-boolean v1, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Z
+    iget-boolean v1, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -434,7 +450,7 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;)V
 
-    .line 496
+    .line 534
     :cond_2
     return-void
 .end method
@@ -443,7 +459,7 @@
     .locals 3
 
     .prologue
-    .line 515
+    .line 553
     const-string/jumbo v0, "GenericRequest"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -472,7 +488,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 516
+    .line 554
     return-void
 .end method
 
@@ -480,31 +496,31 @@
     .locals 2
 
     .prologue
-    .line 233
+    .line 246
     if-nez p1, :cond_1
 
-    .line 234
+    .line 247
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0, p0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 235
+    .line 248
     const-string/jumbo v1, " must not be null"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 236
+    .line 249
     if-eqz p2, :cond_0
 
-    .line 237
+    .line 250
     const-string/jumbo v1, ", "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 238
+    .line 251
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 240
+    .line 253
     :cond_0
     new-instance v1, Ljava/lang/NullPointerException;
 
@@ -516,54 +532,56 @@
 
     throw v1
 
-    .line 242
+    .line 255
     :cond_1
     return-void
 .end method
 
-.method private b(Lcom/bumptech/glide/load/engine/t;)V
+.method private b(Lcom/bumptech/glide/load/engine/i;)V
     .locals 1
 
     .prologue
-    .line 323
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/load/engine/d;
+    .line 341
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->s:Lcom/bumptech/glide/load/engine/b;
 
-    invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/d;->a(Lcom/bumptech/glide/load/engine/t;)V
+    invoke-virtual {v0, p1}, Lcom/bumptech/glide/load/engine/b;->a(Lcom/bumptech/glide/load/engine/i;)V
 
-    .line 324
+    .line 342
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Lcom/bumptech/glide/load/engine/t;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->A:Lcom/bumptech/glide/load/engine/i;
 
-    .line 325
+    .line 343
     return-void
 .end method
 
-.method private b(Lcom/yelp/android/ae/f;Ljava/lang/Object;Lcom/bumptech/glide/load/b;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/yelp/android/ag/j;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/c;Lcom/bumptech/glide/request/b;Lcom/bumptech/glide/load/engine/d;Lcom/bumptech/glide/load/f;Ljava/lang/Class;ZLcom/yelp/android/af/g;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)V
+.method private b(Lcom/yelp/android/ak/f;Ljava/lang/Object;Lcom/bumptech/glide/load/b;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/yelp/android/am/j;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/e;Lcom/bumptech/glide/request/c;Lcom/bumptech/glide/load/engine/b;Lcom/bumptech/glide/load/f;Ljava/lang/Class;ZLcom/yelp/android/al/d;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/ae/f",
+            "Lcom/yelp/android/ak/f",
             "<TA;TT;TZ;TR;>;TA;",
             "Lcom/bumptech/glide/load/b;",
             "Landroid/content/Context;",
             "Lcom/bumptech/glide/Priority;",
-            "Lcom/yelp/android/ag/j",
+            "Lcom/yelp/android/am/j",
             "<TR;>;F",
             "Landroid/graphics/drawable/Drawable;",
             "I",
             "Landroid/graphics/drawable/Drawable;",
             "I",
-            "Lcom/bumptech/glide/request/c",
+            "Landroid/graphics/drawable/Drawable;",
+            "I",
+            "Lcom/bumptech/glide/request/e",
             "<-TA;TR;>;",
-            "Lcom/bumptech/glide/request/b;",
-            "Lcom/bumptech/glide/load/engine/d;",
+            "Lcom/bumptech/glide/request/c;",
+            "Lcom/bumptech/glide/load/engine/b;",
             "Lcom/bumptech/glide/load/f",
             "<TZ;>;",
             "Ljava/lang/Class",
             "<TR;>;Z",
-            "Lcom/yelp/android/af/g",
+            "Lcom/yelp/android/al/d",
             "<TR;>;II",
             "Lcom/bumptech/glide/load/engine/DiskCacheStrategy;",
             ")V"
@@ -571,105 +589,115 @@
     .end annotation
 
     .prologue
-    .line 182
-    iput-object p1, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Lcom/yelp/android/ae/f;
+    .line 193
+    iput-object p1, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Lcom/yelp/android/ak/f;
 
-    .line 183
-    iput-object p2, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Ljava/lang/Object;
+    .line 194
+    iput-object p2, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
 
-    .line 184
+    .line 195
     iput-object p3, p0, Lcom/bumptech/glide/request/GenericRequest;->c:Lcom/bumptech/glide/load/b;
 
-    .line 185
+    .line 196
+    move-object/from16 v0, p12
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->d:Landroid/graphics/drawable/Drawable;
+
+    .line 197
+    move/from16 v0, p13
+
+    iput v0, p0, Lcom/bumptech/glide/request/GenericRequest;->e:I
+
+    .line 198
     invoke-virtual {p4}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->f:Landroid/content/Context;
-
-    .line 186
-    iput-object p5, p0, Lcom/bumptech/glide/request/GenericRequest;->m:Lcom/bumptech/glide/Priority;
-
-    .line 187
-    iput-object p6, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
-
-    .line 188
-    iput p7, p0, Lcom/bumptech/glide/request/GenericRequest;->p:F
-
-    .line 189
-    iput-object p8, p0, Lcom/bumptech/glide/request/GenericRequest;->v:Landroid/graphics/drawable/Drawable;
-
-    .line 190
-    iput p9, p0, Lcom/bumptech/glide/request/GenericRequest;->d:I
-
-    .line 191
-    iput-object p10, p0, Lcom/bumptech/glide/request/GenericRequest;->w:Landroid/graphics/drawable/Drawable;
-
-    .line 192
-    iput p11, p0, Lcom/bumptech/glide/request/GenericRequest;->e:I
-
-    .line 193
-    move-object/from16 v0, p12
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/request/c;
-
-    .line 194
-    move-object/from16 v0, p13
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
-
-    .line 195
-    move-object/from16 v0, p14
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/load/engine/d;
-
-    .line 196
-    move-object/from16 v0, p15
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->g:Lcom/bumptech/glide/load/f;
-
-    .line 197
-    move-object/from16 v0, p16
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Ljava/lang/Class;
-
-    .line 198
-    move/from16 v0, p17
-
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Z
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Landroid/content/Context;
 
     .line 199
-    move-object/from16 v0, p18
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->r:Lcom/yelp/android/af/g;
+    iput-object p5, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/Priority;
 
     .line 200
-    move/from16 v0, p19
-
-    iput v0, p0, Lcom/bumptech/glide/request/GenericRequest;->s:I
+    iput-object p6, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
 
     .line 201
-    move/from16 v0, p20
-
-    iput v0, p0, Lcom/bumptech/glide/request/GenericRequest;->t:I
+    iput p7, p0, Lcom/bumptech/glide/request/GenericRequest;->r:F
 
     .line 202
-    move-object/from16 v0, p21
-
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->u:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+    iput-object p8, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Landroid/graphics/drawable/Drawable;
 
     .line 203
-    sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->PENDING:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iput p9, p0, Lcom/bumptech/glide/request/GenericRequest;->f:I
 
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    .line 204
+    iput-object p10, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Landroid/graphics/drawable/Drawable;
+
+    .line 205
+    iput p11, p0, Lcom/bumptech/glide/request/GenericRequest;->g:I
+
+    .line 206
+    move-object/from16 v0, p14
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/request/e;
 
     .line 207
-    if-eqz p2, :cond_2
+    move-object/from16 v0, p15
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
 
     .line 208
+    move-object/from16 v0, p16
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->s:Lcom/bumptech/glide/load/engine/b;
+
+    .line 209
+    move-object/from16 v0, p17
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/load/f;
+
+    .line 210
+    move-object/from16 v0, p18
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->m:Ljava/lang/Class;
+
+    .line 211
+    move/from16 v0, p19
+
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Z
+
+    .line 212
+    move-object/from16 v0, p20
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->t:Lcom/yelp/android/al/d;
+
+    .line 213
+    move/from16 v0, p21
+
+    iput v0, p0, Lcom/bumptech/glide/request/GenericRequest;->u:I
+
+    .line 214
+    move/from16 v0, p22
+
+    iput v0, p0, Lcom/bumptech/glide/request/GenericRequest;->v:I
+
+    .line 215
+    move-object/from16 v0, p23
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->w:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+
+    .line 216
+    sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->PENDING:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    .line 220
+    if-eqz p2, :cond_2
+
+    .line 221
     const-string/jumbo v1, "ModelLoader"
 
-    invoke-interface {p1}, Lcom/yelp/android/ae/f;->e()Lcom/yelp/android/v/m;
+    invoke-interface {p1}, Lcom/yelp/android/ak/f;->e()Lcom/yelp/android/aa/l;
 
     move-result-object v2
 
@@ -677,10 +705,10 @@
 
     invoke-static {v1, v2, v3}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 209
+    .line 222
     const-string/jumbo v1, "Transcoder"
 
-    invoke-interface {p1}, Lcom/yelp/android/ae/f;->f()Lcom/yelp/android/ad/c;
+    invoke-interface {p1}, Lcom/yelp/android/ak/f;->f()Lcom/yelp/android/ai/c;
 
     move-result-object v2
 
@@ -688,26 +716,26 @@
 
     invoke-static {v1, v2, v3}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 210
+    .line 223
     const-string/jumbo v1, "Transformation"
 
     const-string/jumbo v2, "try .transform(UnitTransformation.get())"
 
-    move-object/from16 v0, p15
+    move-object/from16 v0, p17
 
     invoke-static {v1, v0, v2}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 211
-    invoke-virtual/range {p21 .. p21}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource()Z
+    .line 224
+    invoke-virtual/range {p23 .. p23}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource()Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    .line 212
+    .line 225
     const-string/jumbo v1, "SourceEncoder"
 
-    invoke-interface {p1}, Lcom/yelp/android/ae/f;->c()Lcom/bumptech/glide/load/a;
+    invoke-interface {p1}, Lcom/yelp/android/ak/f;->c()Lcom/bumptech/glide/load/a;
 
     move-result-object v2
 
@@ -715,25 +743,25 @@
 
     invoke-static {v1, v2, v3}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 218
+    .line 231
     :goto_0
-    invoke-virtual/range {p21 .. p21}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource()Z
+    invoke-virtual/range {p23 .. p23}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    invoke-virtual/range {p21 .. p21}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
+    invoke-virtual/range {p23 .. p23}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 222
+    .line 235
     :cond_0
     const-string/jumbo v1, "CacheDecoder"
 
-    invoke-interface {p1}, Lcom/yelp/android/ae/f;->a()Lcom/bumptech/glide/load/d;
+    invoke-interface {p1}, Lcom/yelp/android/ak/f;->a()Lcom/bumptech/glide/load/d;
 
     move-result-object v2
 
@@ -741,18 +769,18 @@
 
     invoke-static {v1, v2, v3}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 225
+    .line 238
     :cond_1
-    invoke-virtual/range {p21 .. p21}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
+    invoke-virtual/range {p23 .. p23}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    .line 226
+    .line 239
     const-string/jumbo v1, "Encoder"
 
-    invoke-interface {p1}, Lcom/yelp/android/ae/f;->d()Lcom/bumptech/glide/load/e;
+    invoke-interface {p1}, Lcom/yelp/android/ak/f;->d()Lcom/bumptech/glide/load/e;
 
     move-result-object v2
 
@@ -760,15 +788,15 @@
 
     invoke-static {v1, v2, v3}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    .line 230
+    .line 243
     :cond_2
     return-void
 
-    .line 215
+    .line 228
     :cond_3
     const-string/jumbo v1, "SourceDecoder"
 
-    invoke-interface {p1}, Lcom/yelp/android/ae/f;->b()Lcom/bumptech/glide/load/d;
+    invoke-interface {p1}, Lcom/yelp/android/ak/f;->b()Lcom/bumptech/glide/load/d;
 
     move-result-object v2
 
@@ -783,46 +811,66 @@
     .locals 2
 
     .prologue
-    .line 368
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->n()Z
+    .line 393
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->o()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 377
+    .line 405
     :goto_0
     return-void
 
-    .line 372
+    .line 397
     :cond_0
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
+
+    if-nez v0, :cond_3
+
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->k()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 373
+    .line 398
+    :goto_1
     if-nez v0, :cond_1
 
-    .line 374
+    .line 399
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->l()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 376
+    .line 401
     :cond_1
-    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
+    if-nez v0, :cond_2
 
-    invoke-interface {v1, p1, v0}, Lcom/yelp/android/ag/j;->a(Ljava/lang/Exception;Landroid/graphics/drawable/Drawable;)V
+    .line 402
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->m()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    .line 404
+    :cond_2
+    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
+
+    invoke-interface {v1, p1, v0}, Lcom/yelp/android/am/j;->a(Ljava/lang/Exception;Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
+
+    .line 397
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_1
 .end method
 
 .method private k()Landroid/graphics/drawable/Drawable;
     .locals 2
 
     .prologue
-    .line 380
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->w:Landroid/graphics/drawable/Drawable;
+    .line 386
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->d:Landroid/graphics/drawable/Drawable;
 
     if-nez v0, :cond_0
 
@@ -830,8 +878,8 @@
 
     if-lez v0, :cond_0
 
-    .line 381
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->f:Landroid/content/Context;
+    .line 387
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -843,11 +891,11 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->w:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->d:Landroid/graphics/drawable/Drawable;
 
-    .line 383
+    .line 389
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->w:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->d:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
@@ -856,78 +904,84 @@
     .locals 2
 
     .prologue
-    .line 387
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->v:Landroid/graphics/drawable/Drawable;
+    .line 408
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Landroid/graphics/drawable/Drawable;
 
     if-nez v0, :cond_0
 
-    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->d:I
+    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->g:I
 
     if-lez v0, :cond_0
 
-    .line 388
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->f:Landroid/content/Context;
+    .line 409
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/bumptech/glide/request/GenericRequest;->d:I
+    iget v1, p0, Lcom/bumptech/glide/request/GenericRequest;->g:I
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->v:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Landroid/graphics/drawable/Drawable;
 
-    .line 390
+    .line 411
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->v:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Landroid/graphics/drawable/Drawable;
 
     return-object v0
 .end method
 
-.method private m()Z
-    .locals 1
+.method private m()Landroid/graphics/drawable/Drawable;
+    .locals 2
 
     .prologue
-    .line 430
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
+    .line 415
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
+    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->f:I
 
-    invoke-interface {v0, p0}, Lcom/bumptech/glide/request/b;->a(Lcom/bumptech/glide/request/a;)Z
+    if-lez v0, :cond_0
 
-    move-result v0
+    .line 416
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Landroid/content/Context;
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v0
+
+    iget v1, p0, Lcom/bumptech/glide/request/GenericRequest;->f:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Landroid/graphics/drawable/Drawable;
+
+    .line 418
     :cond_0
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Landroid/graphics/drawable/Drawable;
 
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return-object v0
 .end method
 
 .method private n()Z
     .locals 1
 
     .prologue
-    .line 434
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
+    .line 458
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
 
-    invoke-interface {v0, p0}, Lcom/bumptech/glide/request/b;->b(Lcom/bumptech/glide/request/a;)Z
+    invoke-interface {v0, p0}, Lcom/bumptech/glide/request/c;->a(Lcom/bumptech/glide/request/b;)Z
 
     move-result v0
 
@@ -949,14 +1003,43 @@
     .locals 1
 
     .prologue
-    .line 438
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
+    .line 462
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
 
-    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->c()Z
+    invoke-interface {v0, p0}, Lcom/bumptech/glide/request/c;->b(Lcom/bumptech/glide/request/b;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private p()Z
+    .locals 1
+
+    .prologue
+    .line 466
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
+
+    invoke-interface {v0}, Lcom/bumptech/glide/request/c;->c()Z
 
     move-result v0
 
@@ -974,6 +1057,25 @@
     goto :goto_0
 .end method
 
+.method private q()V
+    .locals 1
+
+    .prologue
+    .line 470
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
+
+    if-eqz v0, :cond_0
+
+    .line 471
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
+
+    invoke-interface {v0, p0}, Lcom/bumptech/glide/request/c;->c(Lcom/bumptech/glide/request/b;)V
+
+    .line 473
+    :cond_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public a()V
@@ -982,50 +1084,53 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 145
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Lcom/yelp/android/ae/f;
-
-    .line 146
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Ljava/lang/Object;
-
-    .line 147
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->f:Landroid/content/Context;
-
-    .line 148
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
-
-    .line 149
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->v:Landroid/graphics/drawable/Drawable;
-
-    .line 150
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->w:Landroid/graphics/drawable/Drawable;
-
-    .line 151
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/request/c;
-
-    .line 152
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/request/b;
-
     .line 153
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->g:Lcom/bumptech/glide/load/f;
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Lcom/yelp/android/ak/f;
 
     .line 154
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->r:Lcom/yelp/android/af/g;
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
 
     .line 155
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Z
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Landroid/content/Context;
 
     .line 156
-    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Lcom/bumptech/glide/load/engine/f;
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
 
     .line 157
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Landroid/graphics/drawable/Drawable;
+
+    .line 158
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Landroid/graphics/drawable/Drawable;
+
+    .line 159
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->d:Landroid/graphics/drawable/Drawable;
+
+    .line 160
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/request/e;
+
+    .line 161
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Lcom/bumptech/glide/request/c;
+
+    .line 162
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/load/f;
+
+    .line 163
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->t:Lcom/yelp/android/al/d;
+
+    .line 164
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Z
+
+    .line 165
+    iput-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/load/engine/b$c;
+
+    .line 166
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest;->a:Ljava/util/Queue;
 
     invoke-interface {v0, p0}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    .line 158
+    .line 167
     return-void
 .end method
 
@@ -1033,7 +1138,7 @@
     .locals 12
 
     .prologue
-    .line 398
+    .line 426
     const-string/jumbo v0, "GenericRequest"
 
     const/4 v1, 0x2
@@ -1044,7 +1149,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 399
+    .line 427
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1055,9 +1160,9 @@
 
     move-result-object v0
 
-    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->A:J
+    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->C:J
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ai/c;->a(J)D
+    invoke-static {v2, v3}, Lcom/yelp/android/ao/d;->a(J)D
 
     move-result-wide v2
 
@@ -1071,27 +1176,27 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;)V
 
-    .line 401
+    .line 429
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->WAITING_FOR_SIZE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     if-eq v0, v1, :cond_2
 
-    .line 427
+    .line 455
     :cond_1
     :goto_0
     return-void
 
-    .line 404
+    .line 432
     :cond_2
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->RUNNING:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    .line 406
-    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->p:F
+    .line 434
+    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->r:F
 
     int-to-float v1, p1
 
@@ -1101,8 +1206,8 @@
 
     move-result v2
 
-    .line 407
-    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->p:F
+    .line 435
+    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->r:F
 
     int-to-float v1, p2
 
@@ -1112,27 +1217,51 @@
 
     move-result v3
 
-    .line 409
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Lcom/yelp/android/ae/f;
+    .line 437
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Lcom/yelp/android/ak/f;
 
-    invoke-interface {v0}, Lcom/yelp/android/ae/f;->e()Lcom/yelp/android/v/m;
+    invoke-interface {v0}, Lcom/yelp/android/ak/f;->e()Lcom/yelp/android/aa/l;
 
     move-result-object v0
 
-    .line 410
-    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Ljava/lang/Object;
+    .line 438
+    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
 
-    invoke-interface {v0, v1, v2, v3}, Lcom/yelp/android/v/m;->a(Ljava/lang/Object;II)Lcom/yelp/android/r/c;
+    invoke-interface {v0, v1, v2, v3}, Lcom/yelp/android/aa/l;->a(Ljava/lang/Object;II)Lcom/yelp/android/w/c;
 
     move-result-object v4
 
-    .line 412
+    .line 440
     if-nez v4, :cond_3
 
-    .line 413
+    .line 441
     new-instance v0, Ljava/lang/Exception;
 
-    const-string/jumbo v1, "Got null fetcher from model loader"
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Failed to load model: \'"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "\'"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-direct {v0, v1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
@@ -1140,15 +1269,15 @@
 
     goto :goto_0
 
-    .line 416
+    .line 444
     :cond_3
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Lcom/yelp/android/ae/f;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Lcom/yelp/android/ak/f;
 
-    invoke-interface {v0}, Lcom/yelp/android/ae/f;->f()Lcom/yelp/android/ad/c;
+    invoke-interface {v0}, Lcom/yelp/android/ak/f;->f()Lcom/yelp/android/ai/c;
 
     move-result-object v7
 
-    .line 417
+    .line 445
     const-string/jumbo v0, "GenericRequest"
 
     const/4 v1, 0x2
@@ -1159,7 +1288,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 418
+    .line 446
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1170,9 +1299,9 @@
 
     move-result-object v0
 
-    iget-wide v8, p0, Lcom/bumptech/glide/request/GenericRequest;->A:J
+    iget-wide v8, p0, Lcom/bumptech/glide/request/GenericRequest;->C:J
 
-    invoke-static {v8, v9}, Lcom/yelp/android/ai/c;->a(J)D
+    invoke-static {v8, v9}, Lcom/yelp/android/ao/d;->a(J)D
 
     move-result-wide v8
 
@@ -1186,46 +1315,46 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/String;)V
 
-    .line 420
+    .line 448
     :cond_4
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Z
 
-    .line 421
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/load/engine/d;
+    .line 449
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->s:Lcom/bumptech/glide/load/engine/b;
 
     iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->c:Lcom/bumptech/glide/load/b;
 
-    iget-object v5, p0, Lcom/bumptech/glide/request/GenericRequest;->h:Lcom/yelp/android/ae/f;
+    iget-object v5, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Lcom/yelp/android/ak/f;
 
-    iget-object v6, p0, Lcom/bumptech/glide/request/GenericRequest;->g:Lcom/bumptech/glide/load/f;
+    iget-object v6, p0, Lcom/bumptech/glide/request/GenericRequest;->i:Lcom/bumptech/glide/load/f;
 
-    iget-object v8, p0, Lcom/bumptech/glide/request/GenericRequest;->m:Lcom/bumptech/glide/Priority;
+    iget-object v8, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/Priority;
 
-    iget-boolean v9, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Z
+    iget-boolean v9, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Z
 
-    iget-object v10, p0, Lcom/bumptech/glide/request/GenericRequest;->u:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
+    iget-object v10, p0, Lcom/bumptech/glide/request/GenericRequest;->w:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
 
     move-object v11, p0
 
-    invoke-virtual/range {v0 .. v11}, Lcom/bumptech/glide/load/engine/d;->a(Lcom/bumptech/glide/load/b;IILcom/yelp/android/r/c;Lcom/yelp/android/ae/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ad/c;Lcom/bumptech/glide/Priority;ZLcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/request/d;)Lcom/bumptech/glide/load/engine/f;
+    invoke-virtual/range {v0 .. v11}, Lcom/bumptech/glide/load/engine/b;->a(Lcom/bumptech/glide/load/b;IILcom/yelp/android/w/c;Lcom/yelp/android/ak/b;Lcom/bumptech/glide/load/f;Lcom/yelp/android/ai/c;Lcom/bumptech/glide/Priority;ZLcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/request/f;)Lcom/bumptech/glide/load/engine/b$c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Lcom/bumptech/glide/load/engine/f;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/load/engine/b$c;
 
-    .line 423
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Lcom/bumptech/glide/load/engine/t;
+    .line 451
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->A:Lcom/bumptech/glide/load/engine/i;
 
     if-eqz v0, :cond_5
 
     const/4 v0, 0x1
 
     :goto_1
-    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->x:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Z
 
-    .line 424
+    .line 452
     const-string/jumbo v0, "GenericRequest"
 
     const/4 v1, 0x2
@@ -1236,7 +1365,7 @@
 
     if-eqz v0, :cond_1
 
-    .line 425
+    .line 453
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1247,9 +1376,9 @@
 
     move-result-object v0
 
-    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->A:J
+    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->C:J
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ai/c;->a(J)D
+    invoke-static {v2, v3}, Lcom/yelp/android/ao/d;->a(J)D
 
     move-result-wide v2
 
@@ -1265,28 +1394,28 @@
 
     goto/16 :goto_0
 
-    .line 423
+    .line 451
     :cond_5
     const/4 v0, 0x0
 
     goto :goto_1
 .end method
 
-.method public a(Lcom/bumptech/glide/load/engine/t;)V
+.method public a(Lcom/bumptech/glide/load/engine/i;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<*>;)V"
         }
     .end annotation
 
     .prologue
-    .line 447
+    .line 481
     if-nez p1, :cond_0
 
-    .line 448
+    .line 482
     new-instance v0, Ljava/lang/Exception;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1299,7 +1428,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Ljava/lang/Class;
+    iget-object v2, p0, Lcom/bumptech/glide/request/GenericRequest;->m:Ljava/lang/Class;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -1319,20 +1448,20 @@
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/Exception;)V
 
-    .line 474
+    .line 508
     :goto_0
     return-void
 
-    .line 453
+    .line 487
     :cond_0
-    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/t;->b()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/i;->b()Ljava/lang/Object;
 
     move-result-object v1
 
-    .line 454
+    .line 488
     if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->m:Ljava/lang/Class;
 
     invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -1344,11 +1473,11 @@
 
     if-nez v0, :cond_4
 
-    .line 455
+    .line 489
     :cond_1
-    invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/bumptech/glide/load/engine/t;)V
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/bumptech/glide/load/engine/i;)V
 
-    .line 456
+    .line 490
     new-instance v2, Ljava/lang/Exception;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1361,7 +1490,7 @@
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/bumptech/glide/request/GenericRequest;->k:Ljava/lang/Class;
+    iget-object v3, p0, Lcom/bumptech/glide/request/GenericRequest;->m:Ljava/lang/Class;
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -1445,27 +1574,27 @@
 
     goto :goto_2
 
-    .line 466
+    .line 500
     :cond_4
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->m()Z
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->n()Z
 
     move-result v0
 
     if-nez v0, :cond_5
 
-    .line 467
-    invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/bumptech/glide/load/engine/t;)V
+    .line 501
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/bumptech/glide/load/engine/i;)V
 
-    .line 469
+    .line 503
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->COMPLETE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     goto/16 :goto_0
 
-    .line 473
+    .line 507
     :cond_5
-    invoke-direct {p0, p1, v1}, Lcom/bumptech/glide/request/GenericRequest;->a(Lcom/bumptech/glide/load/engine/t;Ljava/lang/Object;)V
+    invoke-direct {p0, p1, v1}, Lcom/bumptech/glide/request/GenericRequest;->a(Lcom/bumptech/glide/load/engine/i;Ljava/lang/Object;)V
 
     goto/16 :goto_0
 .end method
@@ -1474,7 +1603,7 @@
     .locals 4
 
     .prologue
-    .line 503
+    .line 541
     const-string/jumbo v0, "GenericRequest"
 
     const/4 v1, 0x3
@@ -1485,45 +1614,45 @@
 
     if-eqz v0, :cond_0
 
-    .line 504
+    .line 542
     const-string/jumbo v0, "GenericRequest"
 
     const-string/jumbo v1, "load failed"
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 507
+    .line 545
     :cond_0
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->FAILED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    .line 509
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/request/c;
+    .line 547
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/request/e;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->o:Lcom/bumptech/glide/request/c;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->q:Lcom/bumptech/glide/request/e;
 
-    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
 
-    iget-object v2, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
+    iget-object v2, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
 
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->o()Z
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->p()Z
 
     move-result v3
 
-    invoke-interface {v0, p1, v1, v2, v3}, Lcom/bumptech/glide/request/c;->onException(Ljava/lang/Exception;Ljava/lang/Object;Lcom/yelp/android/ag/j;Z)Z
+    invoke-interface {v0, p1, v1, v2, v3}, Lcom/bumptech/glide/request/e;->a(Ljava/lang/Exception;Ljava/lang/Object;Lcom/yelp/android/am/j;Z)Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    .line 510
+    .line 548
     :cond_1
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->b(Ljava/lang/Exception;)V
 
-    .line 512
+    .line 550
     :cond_2
     return-void
 .end method
@@ -1532,51 +1661,53 @@
     .locals 4
 
     .prologue
-    .line 249
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    .line 262
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v0
 
-    iput-wide v0, p0, Lcom/bumptech/glide/request/GenericRequest;->A:J
+    iput-wide v0, p0, Lcom/bumptech/glide/request/GenericRequest;->C:J
 
-    .line 250
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->j:Ljava/lang/Object;
+    .line 263
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->l:Ljava/lang/Object;
 
     if-nez v0, :cond_1
 
-    .line 251
+    .line 264
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->a(Ljava/lang/Exception;)V
 
-    .line 268
+    .line 281
     :cond_0
     :goto_0
     return-void
 
-    .line 255
+    .line 268
     :cond_1
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->WAITING_FOR_SIZE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    .line 256
-    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->s:I
+    .line 269
+    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->u:I
 
-    if-lez v0, :cond_3
+    iget v1, p0, Lcom/bumptech/glide/request/GenericRequest;->v:I
 
-    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->t:I
+    invoke-static {v0, v1}, Lcom/yelp/android/ao/h;->a(II)Z
 
-    if-lez v0, :cond_3
+    move-result v0
 
-    .line 257
-    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->s:I
+    if-eqz v0, :cond_3
 
-    iget v1, p0, Lcom/bumptech/glide/request/GenericRequest;->t:I
+    .line 270
+    iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->u:I
+
+    iget v1, p0, Lcom/bumptech/glide/request/GenericRequest;->v:I
 
     invoke-virtual {p0, v0, v1}, Lcom/bumptech/glide/request/GenericRequest;->a(II)V
 
-    .line 262
+    .line 275
     :goto_1
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->g()Z
 
@@ -1590,22 +1721,22 @@
 
     if-nez v0, :cond_2
 
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->n()Z
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->o()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 263
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
+    .line 276
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
 
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->l()Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->m()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ag/j;->c(Landroid/graphics/drawable/Drawable;)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/am/j;->b(Landroid/graphics/drawable/Drawable;)V
 
-    .line 265
+    .line 278
     :cond_2
     const-string/jumbo v0, "GenericRequest"
 
@@ -1617,7 +1748,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 266
+    .line 279
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1628,9 +1759,9 @@
 
     move-result-object v0
 
-    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->A:J
+    iget-wide v2, p0, Lcom/bumptech/glide/request/GenericRequest;->C:J
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ai/c;->a(J)D
+    invoke-static {v2, v3}, Lcom/yelp/android/ao/d;->a(J)D
 
     move-result-wide v2
 
@@ -1646,11 +1777,11 @@
 
     goto :goto_0
 
-    .line 259
+    .line 272
     :cond_3
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
 
-    invoke-interface {v0, p0}, Lcom/yelp/android/ag/j;->a(Lcom/yelp/android/ag/h;)V
+    invoke-interface {v0, p0}, Lcom/yelp/android/am/j;->a(Lcom/yelp/android/am/h;)V
 
     goto :goto_1
 .end method
@@ -1659,27 +1790,27 @@
     .locals 1
 
     .prologue
-    .line 281
+    .line 294
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->CANCELLED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    .line 282
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Lcom/bumptech/glide/load/engine/f;
+    .line 295
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/load/engine/b$c;
 
     if-eqz v0, :cond_0
 
-    .line 283
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Lcom/bumptech/glide/load/engine/f;
+    .line 296
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/load/engine/b$c;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/f;->a()V
+    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/b$c;->a()V
 
-    .line 284
+    .line 297
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->z:Lcom/bumptech/glide/load/engine/f;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/load/engine/b$c;
 
-    .line 286
+    .line 299
     :cond_0
     return-void
 .end method
@@ -1688,57 +1819,73 @@
     .locals 2
 
     .prologue
-    .line 300
-    invoke-static {}, Lcom/yelp/android/ai/f;->a()V
+    .line 313
+    invoke-static {}, Lcom/yelp/android/ao/h;->a()V
 
-    .line 301
+    .line 314
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    if-ne v0, v1, :cond_0
+
+    .line 327
+    :goto_0
+    return-void
+
+    .line 317
+    :cond_0
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->c()V
 
-    .line 303
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Lcom/bumptech/glide/load/engine/t;
-
-    if-eqz v0, :cond_0
-
-    .line 304
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->y:Lcom/bumptech/glide/load/engine/t;
-
-    invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/bumptech/glide/load/engine/t;)V
-
-    .line 306
-    :cond_0
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->n()Z
-
-    move-result v0
+    .line 319
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->A:Lcom/bumptech/glide/load/engine/i;
 
     if-eqz v0, :cond_1
 
-    .line 307
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->n:Lcom/yelp/android/ag/j;
+    .line 320
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->A:Lcom/bumptech/glide/load/engine/i;
 
-    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->l()Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->b(Lcom/bumptech/glide/load/engine/i;)V
+
+    .line 322
+    :cond_1
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->o()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 323
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->p:Lcom/yelp/android/am/j;
+
+    invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->m()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ag/j;->a(Landroid/graphics/drawable/Drawable;)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/am/j;->a(Landroid/graphics/drawable/Drawable;)V
 
-    .line 309
-    :cond_1
-    return-void
+    .line 326
+    :cond_2
+    sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    goto :goto_0
 .end method
 
 .method public e()V
     .locals 1
 
     .prologue
-    .line 318
+    .line 336
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->d()V
 
-    .line 319
+    .line 337
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->PAUSED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    .line 320
+    .line 338
     return-void
 .end method
 
@@ -1746,14 +1893,14 @@
     .locals 2
 
     .prologue
-    .line 332
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    .line 350
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->RUNNING:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     if-eq v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->WAITING_FOR_SIZE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
@@ -1775,8 +1922,8 @@
     .locals 2
 
     .prologue
-    .line 340
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    .line 358
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->COMPLETE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
@@ -1797,7 +1944,7 @@
     .locals 1
 
     .prologue
-    .line 348
+    .line 366
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->g()Z
 
     move-result v0
@@ -1809,19 +1956,26 @@
     .locals 2
 
     .prologue
-    .line 356
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    .line 374
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->CANCELLED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_0
 
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
+
+    if-ne v0, v1, :cond_1
+
+    :cond_0
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -1831,8 +1985,8 @@
     .locals 2
 
     .prologue
-    .line 364
-    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->B:Lcom/bumptech/glide/request/GenericRequest$Status;
+    .line 382
+    iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->D:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->FAILED:Lcom/bumptech/glide/request/GenericRequest$Status;
 

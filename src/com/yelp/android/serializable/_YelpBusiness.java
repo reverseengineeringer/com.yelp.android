@@ -3,6 +3,8 @@ package com.yelp.android.serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest.FormatMode;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
@@ -11,171 +13,1173 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _YelpBusiness
   implements Parcelable
 {
-  protected String mAddress1;
-  protected String mAddress2;
-  protected String mAddress3;
-  protected String mAlias;
-  protected AlternateBusinessNames mAlternateNames;
-  protected List<Attribution> mAttributions;
-  protected float mAvgRating;
-  protected Video mBizOwnerVideo;
-  protected CallToAction mCallToAction;
-  protected List<Category> mCategories;
-  protected Offer mCheckInOffer;
-  protected int mCheckedInFriendCount;
-  protected List<User> mCheckedInFriends;
-  protected String mCity;
-  protected String mCountry;
-  protected String mCrossStreets;
-  protected Date mDateReopening;
-  protected YelpDeal mDeal;
-  protected String mDialablePhone;
-  protected YelpAddresses mDisplayAddresses;
-  protected String mDisplayUrl;
-  protected BusinessSearchRequest.FormatMode mFormatMode;
-  protected int mFriendBookmarkedCount;
-  protected FromThisBusiness mFromThisBusiness;
-  protected float mGeoAccuracy;
-  protected List<YelpHoursPair> mHours;
-  protected String mId;
-  protected boolean mIsAdRatingDisabled;
-  protected boolean mIsBookmarked;
-  protected boolean mIsClosed;
-  protected boolean mIsMessageToBusinessEnabled;
-  protected boolean mIsMovedToNewAddress;
-  protected double mLatitude;
-  protected String mLocality;
-  protected String mLocalizedAddress;
-  protected List<AttributedLabelValuePair> mLocalizedAttributes;
-  protected List<String> mLocalizedHours;
-  protected String mLocalizedPhone;
-  protected String mLocalizedPrice;
-  protected double mLongitude;
-  protected Menu mMenu;
-  protected String mMenuDisplayUrl;
-  protected String mMenuUrl;
-  protected String mMovedToBusinessId;
-  protected ArrayList<Movie> mMovies;
-  protected String mName;
-  protected List<String> mNeighborhoods;
-  protected int mPhotoCount;
-  protected String mPhotoUrl;
-  protected List<Photo> mPhotos;
-  protected PlatformAction mPlatformAction;
-  protected int mPrice;
-  protected Photo mPrimaryPhoto;
-  protected RecentFriendCheckIns mRecentCheckInFriends;
-  protected int mRegularCount;
-  protected List<String> mRegularNames;
-  protected Reservation mReservation;
-  protected String mReservationProviderString;
-  protected YelpBusinessReview mReview;
-  protected int mReviewCount;
-  protected List<YelpBusinessReviewInsight> mReviewInsights;
-  protected SpamAlert mSpamAlert;
-  protected List<SpecialHours> mSpecialHours;
-  protected String mState;
-  protected String mTheaterUrl;
-  protected int mTipCount;
-  protected User mTopUser;
-  protected String mTransitDescription;
-  protected String mUrl;
-  protected int mUserCheckinsCount;
-  protected int mUserCount;
-  protected List<YelpDeal> mUserDeals;
-  protected int mUserReviewRating;
-  protected String mUserReviewStatus;
-  protected int mVideoCount;
-  protected String mYelpUrl;
-  protected String mZip;
+  protected PlatformAction A;
+  protected RecentFriendCheckIns B;
+  protected Reservation C;
+  protected SpamAlert D;
+  protected String E;
+  protected String F;
+  protected String G;
+  protected String H;
+  protected String I;
+  protected String J;
+  protected String K;
+  protected String L;
+  protected String M;
+  protected String N;
+  protected String O;
+  protected String P;
+  protected String Q;
+  protected String R;
+  protected String S;
+  protected String T;
+  protected String U;
+  protected String V;
+  protected String W;
+  protected String X;
+  protected String Y;
+  protected String Z;
+  protected AlternateBusinessNames a;
+  protected int aA;
+  protected int aB;
+  protected int aC;
+  protected int aD;
+  protected int aE;
+  protected int aF;
+  protected int aG;
+  protected int aH;
+  protected int aI;
+  protected int aJ;
+  protected int aK;
+  protected String aa;
+  protected String ab;
+  protected String ac;
+  protected String ad;
+  protected String ae;
+  protected String af;
+  protected String ag;
+  protected String ah;
+  protected String ai;
+  protected User aj;
+  protected Video ak;
+  protected YelpAddresses al;
+  protected YelpBusinessReview am;
+  protected YelpBusinessReview an;
+  protected YelpDeal ao;
+  protected boolean ap;
+  protected boolean aq;
+  protected boolean ar;
+  protected boolean as;
+  protected boolean at;
+  protected boolean au;
+  protected boolean av;
+  protected double aw;
+  protected double ax;
+  protected double ay;
+  protected double az;
+  protected AndroidAppAnnotation b;
+  protected ArrayList<Movie> c;
+  protected CallToAction d;
+  protected ContinueLastOrderInfo e;
+  protected Date f;
+  protected BusinessSearchRequest.FormatMode g;
+  protected FromThisBusiness h;
+  protected HealthData i;
+  protected List<Attribution> j;
+  protected List<Category> k;
+  protected List<LocalizedAttribute> l;
+  protected List<Photo> m;
+  protected List<SearchResultAnnotation> n;
+  protected List<SpecialHours> o;
+  protected List<String> p;
+  protected List<String> q;
+  protected List<String> r;
+  protected List<User> s;
+  protected List<YelpBusinessReviewInsight> t;
+  protected List<YelpDeal> u;
+  protected List<YelpHoursPair> v;
+  protected Menu w;
+  protected MessageTheBusiness x;
+  protected Offer y;
+  protected Photo z;
   
-  protected _YelpBusiness() {}
-  
-  protected _YelpBusiness(AlternateBusinessNames paramAlternateBusinessNames, ArrayList<Movie> paramArrayList, CallToAction paramCallToAction, Date paramDate, BusinessSearchRequest.FormatMode paramFormatMode, FromThisBusiness paramFromThisBusiness, List<AttributedLabelValuePair> paramList, List<Attribution> paramList1, List<Category> paramList2, List<Photo> paramList3, List<SpecialHours> paramList4, List<String> paramList5, List<String> paramList6, List<String> paramList7, List<User> paramList8, List<YelpBusinessReviewInsight> paramList9, List<YelpDeal> paramList10, List<YelpHoursPair> paramList11, Menu paramMenu, Offer paramOffer, Photo paramPhoto, PlatformAction paramPlatformAction, RecentFriendCheckIns paramRecentFriendCheckIns, Reservation paramReservation, SpamAlert paramSpamAlert, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, String paramString9, String paramString10, String paramString11, String paramString12, String paramString13, String paramString14, String paramString15, String paramString16, String paramString17, String paramString18, String paramString19, String paramString20, String paramString21, String paramString22, String paramString23, String paramString24, String paramString25, String paramString26, String paramString27, User paramUser, Video paramVideo, YelpAddresses paramYelpAddresses, YelpBusinessReview paramYelpBusinessReview, YelpDeal paramYelpDeal, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3, boolean paramBoolean4, boolean paramBoolean5, double paramDouble1, double paramDouble2, float paramFloat1, float paramFloat2, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10, int paramInt11)
+  public JSONObject E()
+    throws JSONException
   {
-    this();
-    mAlternateNames = paramAlternateBusinessNames;
-    mMovies = paramArrayList;
-    mCallToAction = paramCallToAction;
-    mDateReopening = paramDate;
-    mFormatMode = paramFormatMode;
-    mFromThisBusiness = paramFromThisBusiness;
-    mLocalizedAttributes = paramList;
-    mAttributions = paramList1;
-    mCategories = paramList2;
-    mPhotos = paramList3;
-    mSpecialHours = paramList4;
-    mNeighborhoods = paramList5;
-    mRegularNames = paramList6;
-    mLocalizedHours = paramList7;
-    mCheckedInFriends = paramList8;
-    mReviewInsights = paramList9;
-    mUserDeals = paramList10;
-    mHours = paramList11;
-    mMenu = paramMenu;
-    mCheckInOffer = paramOffer;
-    mPrimaryPhoto = paramPhoto;
-    mPlatformAction = paramPlatformAction;
-    mRecentCheckInFriends = paramRecentFriendCheckIns;
-    mReservation = paramReservation;
-    mSpamAlert = paramSpamAlert;
-    mId = paramString1;
-    mAddress1 = paramString2;
-    mAddress2 = paramString3;
-    mAddress3 = paramString4;
-    mState = paramString5;
-    mCity = paramString6;
-    mZip = paramString7;
-    mCountry = paramString8;
-    mLocality = paramString9;
-    mPhotoUrl = paramString10;
-    mCrossStreets = paramString11;
-    mLocalizedAddress = paramString12;
-    mLocalizedPhone = paramString13;
-    mLocalizedPrice = paramString14;
-    mName = paramString15;
-    mAlias = paramString16;
-    mDialablePhone = paramString17;
-    mTransitDescription = paramString18;
-    mUrl = paramString19;
-    mDisplayUrl = paramString20;
-    mMenuUrl = paramString21;
-    mMenuDisplayUrl = paramString22;
-    mMovedToBusinessId = paramString23;
-    mUserReviewStatus = paramString24;
-    mReservationProviderString = paramString25;
-    mTheaterUrl = paramString26;
-    mYelpUrl = paramString27;
-    mTopUser = paramUser;
-    mBizOwnerVideo = paramVideo;
-    mDisplayAddresses = paramYelpAddresses;
-    mReview = paramYelpBusinessReview;
-    mDeal = paramYelpDeal;
-    mIsClosed = paramBoolean1;
-    mIsMovedToNewAddress = paramBoolean2;
-    mIsBookmarked = paramBoolean3;
-    mIsAdRatingDisabled = paramBoolean4;
-    mIsMessageToBusinessEnabled = paramBoolean5;
-    mLatitude = paramDouble1;
-    mLongitude = paramDouble2;
-    mAvgRating = paramFloat1;
-    mGeoAccuracy = paramFloat2;
-    mReviewCount = paramInt1;
-    mPrice = paramInt2;
-    mTipCount = paramInt3;
-    mRegularCount = paramInt4;
-    mFriendBookmarkedCount = paramInt5;
-    mUserCount = paramInt6;
-    mCheckedInFriendCount = paramInt7;
-    mPhotoCount = paramInt8;
-    mUserReviewRating = paramInt9;
-    mUserCheckinsCount = paramInt10;
-    mVideoCount = paramInt11;
+    JSONObject localJSONObject = new JSONObject();
+    if (a != null) {
+      localJSONObject.put("alternate_names", a.a());
+    }
+    if (b != null) {
+      localJSONObject.put("android_app_annotation", b.d());
+    }
+    JSONArray localJSONArray;
+    Iterator localIterator;
+    if (c != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = c.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((Movie)localIterator.next()).a());
+      }
+      localJSONObject.put("movies", localJSONArray);
+    }
+    if (d != null) {
+      localJSONObject.put("call_to_action", d.a());
+    }
+    if (e != null) {
+      localJSONObject.put("continue_last_order_info", e.b());
+    }
+    if (f != null) {
+      localJSONObject.put("time_reopening", f.getTime() / 1000L);
+    }
+    if (h != null) {
+      localJSONObject.put("from_this_business", h.a());
+    }
+    if (i != null) {
+      localJSONObject.put("health_data", i.a());
+    }
+    if (j != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = j.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((Attribution)localIterator.next()).b());
+      }
+      localJSONObject.put("attributions", localJSONArray);
+    }
+    if (k != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = k.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((Category)localIterator.next()).g());
+      }
+      localJSONObject.put("categories", localJSONArray);
+    }
+    if (l != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = l.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((LocalizedAttribute)localIterator.next()).c());
+      }
+      localJSONObject.put("localized_attributes", localJSONArray);
+    }
+    if (m != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = m.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((Photo)localIterator.next()).w());
+      }
+      localJSONObject.put("photos", localJSONArray);
+    }
+    if (n != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = n.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((SearchResultAnnotation)localIterator.next()).b());
+      }
+      localJSONObject.put("search_result_annotations", localJSONArray);
+    }
+    if (o != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = o.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((SpecialHours)localIterator.next()).a());
+      }
+      localJSONObject.put("special_hours", localJSONArray);
+    }
+    if (p != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = p.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put((String)localIterator.next());
+      }
+      localJSONObject.put("neighborhoods", localJSONArray);
+    }
+    if (q != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = q.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put((String)localIterator.next());
+      }
+      localJSONObject.put("regular_names", localJSONArray);
+    }
+    if (r != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = r.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put((String)localIterator.next());
+      }
+      localJSONObject.put("localized_hours", localJSONArray);
+    }
+    if (t != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = t.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((YelpBusinessReviewInsight)localIterator.next()).a());
+      }
+      localJSONObject.put("demographics", localJSONArray);
+    }
+    if (u != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = u.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((YelpDeal)localIterator.next()).o());
+      }
+      localJSONObject.put("user_deals", localJSONArray);
+    }
+    if (v != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = v.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((YelpHoursPair)localIterator.next()).a());
+      }
+      localJSONObject.put("hours", localJSONArray);
+    }
+    if (w != null) {
+      localJSONObject.put("menu", w.a());
+    }
+    if (x != null) {
+      localJSONObject.put("message_the_business", x.a());
+    }
+    if (y != null) {
+      localJSONObject.put("check_in_offer", y.f());
+    }
+    if (z != null) {
+      localJSONObject.put("primary_photo", z.w());
+    }
+    if (A != null) {
+      localJSONObject.put("platform_action", A.a());
+    }
+    if (B != null) {
+      localJSONObject.put("recent_check_in_friends", B.a());
+    }
+    if (C != null) {
+      localJSONObject.put("reservation", C.c());
+    }
+    if (D != null) {
+      localJSONObject.put("spam_alert", D.a());
+    }
+    if (E != null) {
+      localJSONObject.put("id", E);
+    }
+    if (F != null) {
+      localJSONObject.put("address1", F);
+    }
+    if (G != null) {
+      localJSONObject.put("address2", G);
+    }
+    if (H != null) {
+      localJSONObject.put("address3", H);
+    }
+    if (I != null) {
+      localJSONObject.put("state", I);
+    }
+    if (J != null) {
+      localJSONObject.put("city", J);
+    }
+    if (K != null) {
+      localJSONObject.put("zip", K);
+    }
+    if (L != null) {
+      localJSONObject.put("country", L);
+    }
+    if (M != null) {
+      localJSONObject.put("locality", M);
+    }
+    if (N != null) {
+      localJSONObject.put("photo_url", N);
+    }
+    if (O != null) {
+      localJSONObject.put("cross_streets", O);
+    }
+    if (P != null) {
+      localJSONObject.put("localized_address", P);
+    }
+    if (Q != null) {
+      localJSONObject.put("localized_phone", Q);
+    }
+    if (R != null) {
+      localJSONObject.put("localized_price", R);
+    }
+    if (S != null) {
+      localJSONObject.put("name", S);
+    }
+    if (T != null) {
+      localJSONObject.put("alias", T);
+    }
+    if (U != null) {
+      localJSONObject.put("dialable_phone", U);
+    }
+    if (W != null) {
+      localJSONObject.put("health_score", W);
+    }
+    if (X != null) {
+      localJSONObject.put("url", X);
+    }
+    if (Y != null) {
+      localJSONObject.put("display_url", Y);
+    }
+    if (Z != null) {
+      localJSONObject.put("menu_url", Z);
+    }
+    if (aa != null) {
+      localJSONObject.put("menu_display_url", aa);
+    }
+    if (ab != null) {
+      localJSONObject.put("health_score_url", ab);
+    }
+    if (ac != null) {
+      localJSONObject.put("moved_to_business_id", ac);
+    }
+    if (ad != null) {
+      localJSONObject.put("recently_moved_from_business_id", ad);
+    }
+    if (ae != null) {
+      localJSONObject.put("user_review_activity", ae);
+    }
+    if (af != null) {
+      localJSONObject.put("reservation_provider", af);
+    }
+    if (ag != null) {
+      localJSONObject.put("theater_url", ag);
+    }
+    if (ah != null) {
+      localJSONObject.put("yelp_url", ah);
+    }
+    if (ai != null) {
+      localJSONObject.put("share_url", ai);
+    }
+    if (aj != null) {
+      localJSONObject.put("top_user", aj.A());
+    }
+    if (ak != null) {
+      localJSONObject.put("biz_owner_video", ak.n());
+    }
+    if (al != null) {
+      localJSONObject.put("addresses", al.a());
+    }
+    if (am != null) {
+      localJSONObject.put("review", am.s());
+    }
+    if (an != null) {
+      localJSONObject.put("business_review_excerpt", an.s());
+    }
+    if (ao != null) {
+      localJSONObject.put("deal", ao.o());
+    }
+    localJSONObject.put("is_closed", ap);
+    localJSONObject.put("is_moved_to_new_address", aq);
+    localJSONObject.put("is_recently_moved_from_different_address", ar);
+    localJSONObject.put("is_bookmarked", as);
+    localJSONObject.put("is_ad_rating_disabled", at);
+    localJSONObject.put("is_message_to_business_enabled", au);
+    localJSONObject.put("should_track_offline_attribution", av);
+    localJSONObject.put("latitude", aw);
+    localJSONObject.put("longitude", ax);
+    localJSONObject.put("avg_rating", ay);
+    localJSONObject.put("geo_accuracy", az);
+    localJSONObject.put("review_count", aA);
+    localJSONObject.put("price", aB);
+    localJSONObject.put("quicktip_count", aC);
+    localJSONObject.put("regular_count", aD);
+    localJSONObject.put("friend_bookmarked_count", aE);
+    localJSONObject.put("user_count", aF);
+    localJSONObject.put("photo_count", aH);
+    localJSONObject.put("user_latest_review_rating", aI);
+    localJSONObject.put("user_check_in_count", aJ);
+    localJSONObject.put("video_count", aK);
+    return localJSONObject;
+  }
+  
+  public int F()
+  {
+    return aK;
+  }
+  
+  public int G()
+  {
+    return aJ;
+  }
+  
+  public int H()
+  {
+    return aI;
+  }
+  
+  public int I()
+  {
+    return aH;
+  }
+  
+  public int J()
+  {
+    return aG;
+  }
+  
+  public int K()
+  {
+    return aD;
+  }
+  
+  public int L()
+  {
+    return aC;
+  }
+  
+  public int M()
+  {
+    return aB;
+  }
+  
+  public int N()
+  {
+    return aA;
+  }
+  
+  public double O()
+  {
+    return az;
+  }
+  
+  public double P()
+  {
+    return ay;
+  }
+  
+  public double Q()
+  {
+    return ax;
+  }
+  
+  public double R()
+  {
+    return aw;
+  }
+  
+  public boolean S()
+  {
+    return av;
+  }
+  
+  public boolean T()
+  {
+    return au;
+  }
+  
+  public boolean U()
+  {
+    return as;
+  }
+  
+  public boolean V()
+  {
+    return ar;
+  }
+  
+  public boolean W()
+  {
+    return aq;
+  }
+  
+  public YelpDeal X()
+  {
+    return ao;
+  }
+  
+  public YelpBusinessReview Y()
+  {
+    return an;
+  }
+  
+  public YelpAddresses Z()
+  {
+    return al;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((AlternateBusinessNames)paramParcel.readParcelable(AlternateBusinessNames.class.getClassLoader()));
+    b = ((AndroidAppAnnotation)paramParcel.readParcelable(AndroidAppAnnotation.class.getClassLoader()));
+    c = paramParcel.readArrayList(Movie.class.getClassLoader());
+    d = ((CallToAction)paramParcel.readParcelable(CallToAction.class.getClassLoader()));
+    e = ((ContinueLastOrderInfo)paramParcel.readParcelable(ContinueLastOrderInfo.class.getClassLoader()));
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      f = new Date(l1);
+    }
+    g = ((BusinessSearchRequest.FormatMode)paramParcel.readSerializable());
+    h = ((FromThisBusiness)paramParcel.readParcelable(FromThisBusiness.class.getClassLoader()));
+    i = ((HealthData)paramParcel.readParcelable(HealthData.class.getClassLoader()));
+    l = paramParcel.readArrayList(AttributedLabelValuePair.class.getClassLoader());
+    j = paramParcel.readArrayList(Attribution.class.getClassLoader());
+    k = paramParcel.readArrayList(Category.class.getClassLoader());
+    m = paramParcel.readArrayList(Photo.class.getClassLoader());
+    n = paramParcel.readArrayList(SearchResultAnnotation.class.getClassLoader());
+    o = paramParcel.readArrayList(SpecialHours.class.getClassLoader());
+    p = paramParcel.createStringArrayList();
+    q = paramParcel.createStringArrayList();
+    r = paramParcel.createStringArrayList();
+    s = paramParcel.readArrayList(User.class.getClassLoader());
+    t = paramParcel.readArrayList(YelpBusinessReviewInsight.class.getClassLoader());
+    u = paramParcel.readArrayList(YelpDeal.class.getClassLoader());
+    v = paramParcel.readArrayList(YelpHoursPair.class.getClassLoader());
+    w = ((Menu)paramParcel.readParcelable(Menu.class.getClassLoader()));
+    x = ((MessageTheBusiness)paramParcel.readParcelable(MessageTheBusiness.class.getClassLoader()));
+    y = ((Offer)paramParcel.readParcelable(Offer.class.getClassLoader()));
+    z = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
+    A = ((PlatformAction)paramParcel.readParcelable(PlatformAction.class.getClassLoader()));
+    B = ((RecentFriendCheckIns)paramParcel.readParcelable(RecentFriendCheckIns.class.getClassLoader()));
+    C = ((Reservation)paramParcel.readParcelable(Reservation.class.getClassLoader()));
+    D = ((SpamAlert)paramParcel.readParcelable(SpamAlert.class.getClassLoader()));
+    E = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    F = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    G = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    H = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    I = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    J = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    K = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    L = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    M = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    N = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    O = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    P = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    Q = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    R = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    S = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    T = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    U = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    V = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    W = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    X = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    Y = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    Z = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    aa = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    ab = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    ac = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    ad = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    ae = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    af = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    ag = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    ah = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    ai = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    aj = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+    ak = ((Video)paramParcel.readParcelable(Video.class.getClassLoader()));
+    al = ((YelpAddresses)paramParcel.readParcelable(YelpAddresses.class.getClassLoader()));
+    am = ((YelpBusinessReview)paramParcel.readParcelable(YelpBusinessReview.class.getClassLoader()));
+    an = ((YelpBusinessReview)paramParcel.readParcelable(YelpBusinessReview.class.getClassLoader()));
+    ao = ((YelpDeal)paramParcel.readParcelable(YelpDeal.class.getClassLoader()));
+    boolean[] arrayOfBoolean = paramParcel.createBooleanArray();
+    ap = arrayOfBoolean[0];
+    aq = arrayOfBoolean[1];
+    ar = arrayOfBoolean[2];
+    as = arrayOfBoolean[3];
+    at = arrayOfBoolean[4];
+    au = arrayOfBoolean[5];
+    av = arrayOfBoolean[6];
+    aw = paramParcel.readDouble();
+    ax = paramParcel.readDouble();
+    ay = paramParcel.readDouble();
+    az = paramParcel.readDouble();
+    aA = paramParcel.readInt();
+    aB = paramParcel.readInt();
+    aC = paramParcel.readInt();
+    aD = paramParcel.readInt();
+    aE = paramParcel.readInt();
+    aF = paramParcel.readInt();
+    aG = paramParcel.readInt();
+    aH = paramParcel.readInt();
+    aI = paramParcel.readInt();
+    aJ = paramParcel.readInt();
+    aK = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("alternate_names")) {
+      a = ((AlternateBusinessNames)AlternateBusinessNames.CREATOR.parse(paramJSONObject.getJSONObject("alternate_names")));
+    }
+    if (!paramJSONObject.isNull("android_app_annotation")) {
+      b = ((AndroidAppAnnotation)AndroidAppAnnotation.CREATOR.parse(paramJSONObject.getJSONObject("android_app_annotation")));
+    }
+    if (!paramJSONObject.isNull("movies"))
+    {
+      c = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("movies"), Movie.CREATOR);
+      if (!paramJSONObject.isNull("call_to_action")) {
+        d = ((CallToAction)CallToAction.CREATOR.parse(paramJSONObject.getJSONObject("call_to_action")));
+      }
+      if (!paramJSONObject.isNull("continue_last_order_info")) {
+        e = ((ContinueLastOrderInfo)ContinueLastOrderInfo.CREATOR.parse(paramJSONObject.getJSONObject("continue_last_order_info")));
+      }
+      if (!paramJSONObject.isNull("time_reopening")) {
+        f = JsonUtil.parseTimestamp(paramJSONObject, "time_reopening");
+      }
+      if (!paramJSONObject.isNull("from_this_business")) {
+        h = ((FromThisBusiness)FromThisBusiness.CREATOR.parse(paramJSONObject.getJSONObject("from_this_business")));
+      }
+      if (!paramJSONObject.isNull("health_data")) {
+        i = ((HealthData)HealthData.CREATOR.parse(paramJSONObject.getJSONObject("health_data")));
+      }
+      if (paramJSONObject.isNull("attributions")) {
+        break label1819;
+      }
+      j = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("attributions"), Attribution.CREATOR);
+      label237:
+      if (paramJSONObject.isNull("categories")) {
+        break label1829;
+      }
+      k = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("categories"), Category.CREATOR);
+      label262:
+      if (paramJSONObject.isNull("localized_attributes")) {
+        break label1839;
+      }
+      l = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("localized_attributes"), LocalizedAttribute.CREATOR);
+      label289:
+      if (paramJSONObject.isNull("photos")) {
+        break label1849;
+      }
+      m = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("photos"), Photo.CREATOR);
+      label316:
+      if (paramJSONObject.isNull("search_result_annotations")) {
+        break label1859;
+      }
+      n = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("search_result_annotations"), SearchResultAnnotation.CREATOR);
+      label343:
+      if (paramJSONObject.isNull("special_hours")) {
+        break label1869;
+      }
+      o = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("special_hours"), SpecialHours.CREATOR);
+      label370:
+      if (paramJSONObject.isNull("neighborhoods")) {
+        break label1879;
+      }
+      p = JsonUtil.getStringList(paramJSONObject.optJSONArray("neighborhoods"));
+      label394:
+      if (paramJSONObject.isNull("regular_names")) {
+        break label1889;
+      }
+      q = JsonUtil.getStringList(paramJSONObject.optJSONArray("regular_names"));
+      label418:
+      if (paramJSONObject.isNull("localized_hours")) {
+        break label1899;
+      }
+      r = JsonUtil.getStringList(paramJSONObject.optJSONArray("localized_hours"));
+      label442:
+      if (paramJSONObject.isNull("demographics")) {
+        break label1909;
+      }
+      t = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("demographics"), YelpBusinessReviewInsight.CREATOR);
+      label469:
+      if (paramJSONObject.isNull("user_deals")) {
+        break label1919;
+      }
+      u = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("user_deals"), YelpDeal.CREATOR);
+      label496:
+      if (paramJSONObject.isNull("hours")) {
+        break label1929;
+      }
+      v = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("hours"), YelpHoursPair.CREATOR);
+      label523:
+      if (!paramJSONObject.isNull("menu")) {
+        w = ((Menu)Menu.CREATOR.parse(paramJSONObject.getJSONObject("menu")));
+      }
+      if (!paramJSONObject.isNull("message_the_business")) {
+        x = ((MessageTheBusiness)MessageTheBusiness.CREATOR.parse(paramJSONObject.getJSONObject("message_the_business")));
+      }
+      if (!paramJSONObject.isNull("check_in_offer")) {
+        y = ((Offer)Offer.CREATOR.parse(paramJSONObject.getJSONObject("check_in_offer")));
+      }
+      if (!paramJSONObject.isNull("primary_photo")) {
+        z = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("primary_photo")));
+      }
+      if (!paramJSONObject.isNull("platform_action")) {
+        A = ((PlatformAction)PlatformAction.CREATOR.parse(paramJSONObject.getJSONObject("platform_action")));
+      }
+      if (!paramJSONObject.isNull("recent_check_in_friends")) {
+        B = ((RecentFriendCheckIns)RecentFriendCheckIns.CREATOR.parse(paramJSONObject.getJSONObject("recent_check_in_friends")));
+      }
+      if (!paramJSONObject.isNull("reservation")) {
+        C = ((Reservation)Reservation.CREATOR.parse(paramJSONObject.getJSONObject("reservation")));
+      }
+      if (!paramJSONObject.isNull("spam_alert")) {
+        D = ((SpamAlert)SpamAlert.CREATOR.parse(paramJSONObject.getJSONObject("spam_alert")));
+      }
+      if (!paramJSONObject.isNull("id")) {
+        E = paramJSONObject.optString("id");
+      }
+      if (!paramJSONObject.isNull("address1")) {
+        F = paramJSONObject.optString("address1");
+      }
+      if (!paramJSONObject.isNull("address2")) {
+        G = paramJSONObject.optString("address2");
+      }
+      if (!paramJSONObject.isNull("address3")) {
+        H = paramJSONObject.optString("address3");
+      }
+      if (!paramJSONObject.isNull("state")) {
+        I = paramJSONObject.optString("state");
+      }
+      if (!paramJSONObject.isNull("city")) {
+        J = paramJSONObject.optString("city");
+      }
+      if (!paramJSONObject.isNull("zip")) {
+        K = paramJSONObject.optString("zip");
+      }
+      if (!paramJSONObject.isNull("country")) {
+        L = paramJSONObject.optString("country");
+      }
+      if (!paramJSONObject.isNull("locality")) {
+        M = paramJSONObject.optString("locality");
+      }
+      if (!paramJSONObject.isNull("photo_url")) {
+        N = paramJSONObject.optString("photo_url");
+      }
+      if (!paramJSONObject.isNull("cross_streets")) {
+        O = paramJSONObject.optString("cross_streets");
+      }
+      if (!paramJSONObject.isNull("localized_address")) {
+        P = paramJSONObject.optString("localized_address");
+      }
+      if (!paramJSONObject.isNull("localized_phone")) {
+        Q = paramJSONObject.optString("localized_phone");
+      }
+      if (!paramJSONObject.isNull("localized_price")) {
+        R = paramJSONObject.optString("localized_price");
+      }
+      if (!paramJSONObject.isNull("name")) {
+        S = paramJSONObject.optString("name");
+      }
+      if (!paramJSONObject.isNull("alias")) {
+        T = paramJSONObject.optString("alias");
+      }
+      if (!paramJSONObject.isNull("dialable_phone")) {
+        U = paramJSONObject.optString("dialable_phone");
+      }
+      if (!paramJSONObject.isNull("health_score")) {
+        W = paramJSONObject.optString("health_score");
+      }
+      if (!paramJSONObject.isNull("url")) {
+        X = paramJSONObject.optString("url");
+      }
+      if (!paramJSONObject.isNull("display_url")) {
+        Y = paramJSONObject.optString("display_url");
+      }
+      if (!paramJSONObject.isNull("menu_url")) {
+        Z = paramJSONObject.optString("menu_url");
+      }
+      if (!paramJSONObject.isNull("menu_display_url")) {
+        aa = paramJSONObject.optString("menu_display_url");
+      }
+      if (!paramJSONObject.isNull("health_score_url")) {
+        ab = paramJSONObject.optString("health_score_url");
+      }
+      if (!paramJSONObject.isNull("moved_to_business_id")) {
+        ac = paramJSONObject.optString("moved_to_business_id");
+      }
+      if (!paramJSONObject.isNull("recently_moved_from_business_id")) {
+        ad = paramJSONObject.optString("recently_moved_from_business_id");
+      }
+      if (paramJSONObject.isNull("user_review_activity")) {
+        break label1939;
+      }
+    }
+    label1819:
+    label1829:
+    label1839:
+    label1849:
+    label1859:
+    label1869:
+    label1879:
+    label1889:
+    label1899:
+    label1909:
+    label1919:
+    label1929:
+    label1939:
+    for (ae = paramJSONObject.optString("user_review_activity");; ae = "not_started")
+    {
+      if (!paramJSONObject.isNull("reservation_provider")) {
+        af = paramJSONObject.optString("reservation_provider");
+      }
+      if (!paramJSONObject.isNull("theater_url")) {
+        ag = paramJSONObject.optString("theater_url");
+      }
+      if (!paramJSONObject.isNull("yelp_url")) {
+        ah = paramJSONObject.optString("yelp_url");
+      }
+      if (!paramJSONObject.isNull("share_url")) {
+        ai = paramJSONObject.optString("share_url");
+      }
+      if (!paramJSONObject.isNull("top_user")) {
+        aj = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("top_user")));
+      }
+      if (!paramJSONObject.isNull("biz_owner_video")) {
+        ak = ((Video)Video.CREATOR.parse(paramJSONObject.getJSONObject("biz_owner_video")));
+      }
+      if (!paramJSONObject.isNull("addresses")) {
+        al = ((YelpAddresses)YelpAddresses.CREATOR.parse(paramJSONObject.getJSONObject("addresses")));
+      }
+      if (!paramJSONObject.isNull("review")) {
+        am = ((YelpBusinessReview)YelpBusinessReview.CREATOR.parse(paramJSONObject.getJSONObject("review")));
+      }
+      if (!paramJSONObject.isNull("business_review_excerpt")) {
+        an = ((YelpBusinessReview)YelpBusinessReview.CREATOR.parse(paramJSONObject.getJSONObject("business_review_excerpt")));
+      }
+      if (!paramJSONObject.isNull("deal")) {
+        ao = ((YelpDeal)YelpDeal.CREATOR.parse(paramJSONObject.getJSONObject("deal")));
+      }
+      ap = paramJSONObject.optBoolean("is_closed");
+      aq = paramJSONObject.optBoolean("is_moved_to_new_address");
+      ar = paramJSONObject.optBoolean("is_recently_moved_from_different_address");
+      as = paramJSONObject.optBoolean("is_bookmarked");
+      at = paramJSONObject.optBoolean("is_ad_rating_disabled");
+      au = paramJSONObject.optBoolean("is_message_to_business_enabled");
+      av = paramJSONObject.optBoolean("should_track_offline_attribution");
+      aw = paramJSONObject.optDouble("latitude");
+      ax = paramJSONObject.optDouble("longitude");
+      ay = paramJSONObject.optDouble("avg_rating");
+      az = paramJSONObject.optDouble("geo_accuracy");
+      aA = paramJSONObject.optInt("review_count");
+      aB = paramJSONObject.optInt("price");
+      aC = paramJSONObject.optInt("quicktip_count");
+      aD = paramJSONObject.optInt("regular_count");
+      aE = paramJSONObject.optInt("friend_bookmarked_count");
+      aF = paramJSONObject.optInt("user_count");
+      aH = paramJSONObject.optInt("photo_count");
+      aI = paramJSONObject.optInt("user_latest_review_rating");
+      aJ = paramJSONObject.optInt("user_check_in_count");
+      aK = paramJSONObject.optInt("video_count");
+      return;
+      c = new ArrayList();
+      break;
+      j = Collections.emptyList();
+      break label237;
+      k = Collections.emptyList();
+      break label262;
+      l = Collections.emptyList();
+      break label289;
+      m = Collections.emptyList();
+      break label316;
+      n = Collections.emptyList();
+      break label343;
+      o = Collections.emptyList();
+      break label370;
+      p = Collections.emptyList();
+      break label394;
+      q = Collections.emptyList();
+      break label418;
+      r = Collections.emptyList();
+      break label442;
+      t = Collections.emptyList();
+      break label469;
+      u = Collections.emptyList();
+      break label496;
+      v = Collections.emptyList();
+      break label523;
+    }
+  }
+  
+  public String aA()
+  {
+    return H;
+  }
+  
+  public String aB()
+  {
+    return G;
+  }
+  
+  public String aC()
+  {
+    return F;
+  }
+  
+  public String aD()
+  {
+    return E;
+  }
+  
+  public SpamAlert aE()
+  {
+    return D;
+  }
+  
+  public Reservation aF()
+  {
+    return C;
+  }
+  
+  public RecentFriendCheckIns aG()
+  {
+    return B;
+  }
+  
+  public PlatformAction aH()
+  {
+    return A;
+  }
+  
+  public Photo aI()
+  {
+    return z;
+  }
+  
+  public Offer aJ()
+  {
+    return y;
+  }
+  
+  public MessageTheBusiness aK()
+  {
+    return x;
+  }
+  
+  public Menu aL()
+  {
+    return w;
+  }
+  
+  public List<YelpHoursPair> aM()
+  {
+    return v;
+  }
+  
+  public List<YelpDeal> aN()
+  {
+    return u;
+  }
+  
+  public List<YelpBusinessReviewInsight> aO()
+  {
+    return t;
+  }
+  
+  public List<User> aP()
+  {
+    return s;
+  }
+  
+  public List<String> aQ()
+  {
+    return r;
+  }
+  
+  public List<String> aR()
+  {
+    return p;
+  }
+  
+  public List<SpecialHours> aS()
+  {
+    return o;
+  }
+  
+  public List<Photo> aT()
+  {
+    return m;
+  }
+  
+  public List<LocalizedAttribute> aU()
+  {
+    return l;
+  }
+  
+  public List<Category> aV()
+  {
+    return k;
+  }
+  
+  public List<Attribution> aW()
+  {
+    return j;
+  }
+  
+  public HealthData aX()
+  {
+    return i;
+  }
+  
+  public FromThisBusiness aY()
+  {
+    return h;
+  }
+  
+  public BusinessSearchRequest.FormatMode aZ()
+  {
+    return g;
+  }
+  
+  public Video aa()
+  {
+    return ak;
+  }
+  
+  public String ab()
+  {
+    return ai;
+  }
+  
+  public String ac()
+  {
+    return ah;
+  }
+  
+  public String ad()
+  {
+    return ag;
+  }
+  
+  public String ae()
+  {
+    return af;
+  }
+  
+  public String af()
+  {
+    return ad;
+  }
+  
+  public String ag()
+  {
+    return ac;
+  }
+  
+  public String ah()
+  {
+    return ab;
+  }
+  
+  public String ai()
+  {
+    return aa;
+  }
+  
+  public String aj()
+  {
+    return Z;
+  }
+  
+  public String ak()
+  {
+    return Y;
+  }
+  
+  public String al()
+  {
+    return X;
+  }
+  
+  public String am()
+  {
+    return W;
+  }
+  
+  public String an()
+  {
+    return V;
+  }
+  
+  public String ao()
+  {
+    return U;
+  }
+  
+  public String ap()
+  {
+    return T;
+  }
+  
+  public String aq()
+  {
+    return S;
+  }
+  
+  public String ar()
+  {
+    return R;
+  }
+  
+  public String as()
+  {
+    return Q;
+  }
+  
+  public String at()
+  {
+    return O;
+  }
+  
+  public String au()
+  {
+    return N;
+  }
+  
+  public String av()
+  {
+    return M;
+  }
+  
+  public String aw()
+  {
+    return L;
+  }
+  
+  public String ax()
+  {
+    return K;
+  }
+  
+  public String ay()
+  {
+    return J;
+  }
+  
+  public String az()
+  {
+    return I;
+  }
+  
+  public ContinueLastOrderInfo ba()
+  {
+    return e;
+  }
+  
+  public CallToAction bb()
+  {
+    return d;
+  }
+  
+  public ArrayList<Movie> bc()
+  {
+    return c;
+  }
+  
+  public AndroidAppAnnotation bd()
+  {
+    return b;
+  }
+  
+  public AlternateBusinessNames be()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -183,1063 +1187,123 @@ abstract class _YelpBusiness
     return 0;
   }
   
-  public String getAddress1()
+  public boolean equals(Object paramObject)
   {
-    return mAddress1;
-  }
-  
-  public String getAddress2()
-  {
-    return mAddress2;
-  }
-  
-  public String getAddress3()
-  {
-    return mAddress3;
-  }
-  
-  public String getAlias()
-  {
-    return mAlias;
-  }
-  
-  public AlternateBusinessNames getAlternateNames()
-  {
-    return mAlternateNames;
-  }
-  
-  public List<Attribution> getAttributions()
-  {
-    return mAttributions;
-  }
-  
-  public float getAvgRating()
-  {
-    return mAvgRating;
-  }
-  
-  public Video getBizOwnerVideo()
-  {
-    return mBizOwnerVideo;
-  }
-  
-  public CallToAction getCallToAction()
-  {
-    return mCallToAction;
-  }
-  
-  public List<Category> getCategories()
-  {
-    return mCategories;
-  }
-  
-  public Offer getCheckInOffer()
-  {
-    return mCheckInOffer;
-  }
-  
-  public int getCheckedInFriendCount()
-  {
-    return mCheckedInFriendCount;
-  }
-  
-  public List<User> getCheckedInFriends()
-  {
-    return mCheckedInFriends;
-  }
-  
-  public String getCity()
-  {
-    return mCity;
-  }
-  
-  public String getCountry()
-  {
-    return mCountry;
-  }
-  
-  public String getCrossStreets()
-  {
-    return mCrossStreets;
-  }
-  
-  public Date getDateReopening()
-  {
-    return mDateReopening;
-  }
-  
-  public YelpDeal getDeal()
-  {
-    return mDeal;
-  }
-  
-  public String getDialablePhone()
-  {
-    return mDialablePhone;
-  }
-  
-  public YelpAddresses getDisplayAddresses()
-  {
-    return mDisplayAddresses;
-  }
-  
-  public String getDisplayUrl()
-  {
-    return mDisplayUrl;
-  }
-  
-  public BusinessSearchRequest.FormatMode getFormatMode()
-  {
-    return mFormatMode;
-  }
-  
-  public int getFriendBookmarkedCount()
-  {
-    return mFriendBookmarkedCount;
-  }
-  
-  public FromThisBusiness getFromThisBusiness()
-  {
-    return mFromThisBusiness;
-  }
-  
-  public float getGeoAccuracy()
-  {
-    return mGeoAccuracy;
-  }
-  
-  public List<YelpHoursPair> getHours()
-  {
-    return mHours;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public double getLatitude()
-  {
-    return mLatitude;
-  }
-  
-  public String getLocality()
-  {
-    return mLocality;
-  }
-  
-  public String getLocalizedAddress()
-  {
-    return mLocalizedAddress;
-  }
-  
-  public List<AttributedLabelValuePair> getLocalizedAttributes()
-  {
-    return mLocalizedAttributes;
-  }
-  
-  public List<String> getLocalizedHours()
-  {
-    return mLocalizedHours;
-  }
-  
-  public String getLocalizedPhone()
-  {
-    return mLocalizedPhone;
-  }
-  
-  public String getLocalizedPrice()
-  {
-    return mLocalizedPrice;
-  }
-  
-  public double getLongitude()
-  {
-    return mLongitude;
-  }
-  
-  public Menu getMenu()
-  {
-    return mMenu;
-  }
-  
-  public String getMenuDisplayUrl()
-  {
-    return mMenuDisplayUrl;
-  }
-  
-  public String getMenuUrl()
-  {
-    return mMenuUrl;
-  }
-  
-  public String getMovedToBusinessId()
-  {
-    return mMovedToBusinessId;
-  }
-  
-  public ArrayList<Movie> getMovies()
-  {
-    return mMovies;
-  }
-  
-  public String getName()
-  {
-    return mName;
-  }
-  
-  public List<String> getNeighborhoods()
-  {
-    return mNeighborhoods;
-  }
-  
-  public int getPhotoCount()
-  {
-    return mPhotoCount;
-  }
-  
-  public String getPhotoUrl()
-  {
-    return mPhotoUrl;
-  }
-  
-  public List<Photo> getPhotos()
-  {
-    return mPhotos;
-  }
-  
-  public PlatformAction getPlatformAction()
-  {
-    return mPlatformAction;
-  }
-  
-  public int getPrice()
-  {
-    return mPrice;
-  }
-  
-  public Photo getPrimaryPhoto()
-  {
-    return mPrimaryPhoto;
-  }
-  
-  public RecentFriendCheckIns getRecentCheckInFriends()
-  {
-    return mRecentCheckInFriends;
-  }
-  
-  public int getRegularCount()
-  {
-    return mRegularCount;
-  }
-  
-  public List<String> getRegularNames()
-  {
-    return mRegularNames;
-  }
-  
-  public Reservation getReservation()
-  {
-    return mReservation;
-  }
-  
-  public String getReservationProviderString()
-  {
-    return mReservationProviderString;
-  }
-  
-  public YelpBusinessReview getReview()
-  {
-    return mReview;
-  }
-  
-  public int getReviewCount()
-  {
-    return mReviewCount;
-  }
-  
-  public List<YelpBusinessReviewInsight> getReviewInsights()
-  {
-    return mReviewInsights;
-  }
-  
-  public SpamAlert getSpamAlert()
-  {
-    return mSpamAlert;
-  }
-  
-  public List<SpecialHours> getSpecialHours()
-  {
-    return mSpecialHours;
-  }
-  
-  public String getState()
-  {
-    return mState;
-  }
-  
-  public String getTheaterUrl()
-  {
-    return mTheaterUrl;
-  }
-  
-  public int getTipCount()
-  {
-    return mTipCount;
-  }
-  
-  public User getTopUser()
-  {
-    return mTopUser;
-  }
-  
-  public String getTransitDescription()
-  {
-    return mTransitDescription;
-  }
-  
-  public String getUrl()
-  {
-    return mUrl;
-  }
-  
-  public int getUserCheckinsCount()
-  {
-    return mUserCheckinsCount;
-  }
-  
-  public int getUserCount()
-  {
-    return mUserCount;
-  }
-  
-  public List<YelpDeal> getUserDeals()
-  {
-    return mUserDeals;
-  }
-  
-  public int getUserReviewRating()
-  {
-    return mUserReviewRating;
-  }
-  
-  public String getUserReviewStatus()
-  {
-    return mUserReviewStatus;
-  }
-  
-  public int getVideoCount()
-  {
-    return mVideoCount;
-  }
-  
-  public String getYelpUrl()
-  {
-    return mYelpUrl;
-  }
-  
-  public String getZip()
-  {
-    return mZip;
-  }
-  
-  public boolean isAdRatingDisabled()
-  {
-    return mIsAdRatingDisabled;
-  }
-  
-  public boolean isBookmarked()
-  {
-    return mIsBookmarked;
-  }
-  
-  public boolean isClosed()
-  {
-    return mIsClosed;
-  }
-  
-  public boolean isMessageToBusinessEnabled()
-  {
-    return mIsMessageToBusinessEnabled;
-  }
-  
-  public boolean isMovedToNewAddress()
-  {
-    return mIsMovedToNewAddress;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("alternate_names")) {
-      mAlternateNames = ((AlternateBusinessNames)AlternateBusinessNames.CREATOR.parse(paramJSONObject.getJSONObject("alternate_names")));
-    }
-    if (!paramJSONObject.isNull("movies"))
+    if (paramObject == null) {}
+    do
     {
-      mMovies = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("movies"), Movie.CREATOR);
-      if (!paramJSONObject.isNull("call_to_action")) {
-        mCallToAction = ((CallToAction)CallToAction.CREATOR.parse(paramJSONObject.getJSONObject("call_to_action")));
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      if (!paramJSONObject.isNull("time_reopening")) {
-        mDateReopening = JsonUtil.parseTimestamp(paramJSONObject, "time_reopening");
-      }
-      if (!paramJSONObject.isNull("from_this_business")) {
-        mFromThisBusiness = ((FromThisBusiness)FromThisBusiness.CREATOR.parse(paramJSONObject.getJSONObject("from_this_business")));
-      }
-      if (paramJSONObject.isNull("localized_attributes")) {
-        break label1558;
-      }
-      mLocalizedAttributes = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("localized_attributes"), AttributedLabelValuePair.CREATOR);
-      label165:
-      if (paramJSONObject.isNull("attributions")) {
-        break label1568;
-      }
-      mAttributions = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("attributions"), Attribution.CREATOR);
-      label192:
-      if (paramJSONObject.isNull("categories")) {
-        break label1578;
-      }
-      mCategories = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("categories"), Category.CREATOR);
-      label219:
-      if (paramJSONObject.isNull("photos")) {
-        break label1588;
-      }
-      mPhotos = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("photos"), Photo.CREATOR);
-      label246:
-      if (paramJSONObject.isNull("special_hours")) {
-        break label1598;
-      }
-      mSpecialHours = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("special_hours"), SpecialHours.CREATOR);
-      label273:
-      if (paramJSONObject.isNull("neighborhoods")) {
-        break label1608;
-      }
-      mNeighborhoods = JsonUtil.getStringList(paramJSONObject.optJSONArray("neighborhoods"));
-      label297:
-      if (paramJSONObject.isNull("regular_names")) {
-        break label1618;
-      }
-      mRegularNames = JsonUtil.getStringList(paramJSONObject.optJSONArray("regular_names"));
-      label321:
-      if (paramJSONObject.isNull("localized_hours")) {
-        break label1628;
-      }
-      mLocalizedHours = JsonUtil.getStringList(paramJSONObject.optJSONArray("localized_hours"));
-      label345:
-      if (paramJSONObject.isNull("demographics")) {
-        break label1638;
-      }
-      mReviewInsights = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("demographics"), YelpBusinessReviewInsight.CREATOR);
-      label372:
-      if (paramJSONObject.isNull("user_deals")) {
-        break label1648;
-      }
-      mUserDeals = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("user_deals"), YelpDeal.CREATOR);
-      label399:
-      if (paramJSONObject.isNull("hours")) {
-        break label1658;
-      }
-      mHours = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("hours"), YelpHoursPair.CREATOR);
-      label426:
-      if (!paramJSONObject.isNull("menu")) {
-        mMenu = ((Menu)Menu.CREATOR.parse(paramJSONObject.getJSONObject("menu")));
-      }
-      if (!paramJSONObject.isNull("check_in_offer")) {
-        mCheckInOffer = ((Offer)Offer.CREATOR.parse(paramJSONObject.getJSONObject("check_in_offer")));
-      }
-      if (!paramJSONObject.isNull("primary_photo")) {
-        mPrimaryPhoto = ((Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("primary_photo")));
-      }
-      if (!paramJSONObject.isNull("platform_action")) {
-        mPlatformAction = ((PlatformAction)PlatformAction.CREATOR.parse(paramJSONObject.getJSONObject("platform_action")));
-      }
-      if (!paramJSONObject.isNull("recent_check_in_friends")) {
-        mRecentCheckInFriends = ((RecentFriendCheckIns)RecentFriendCheckIns.CREATOR.parse(paramJSONObject.getJSONObject("recent_check_in_friends")));
-      }
-      if (!paramJSONObject.isNull("reservation")) {
-        mReservation = ((Reservation)Reservation.CREATOR.parse(paramJSONObject.getJSONObject("reservation")));
-      }
-      if (!paramJSONObject.isNull("spam_alert")) {
-        mSpamAlert = ((SpamAlert)SpamAlert.CREATOR.parse(paramJSONObject.getJSONObject("spam_alert")));
-      }
-      if (!paramJSONObject.isNull("id")) {
-        mId = paramJSONObject.optString("id");
-      }
-      if (!paramJSONObject.isNull("address1")) {
-        mAddress1 = paramJSONObject.optString("address1");
-      }
-      if (!paramJSONObject.isNull("address2")) {
-        mAddress2 = paramJSONObject.optString("address2");
-      }
-      if (!paramJSONObject.isNull("address3")) {
-        mAddress3 = paramJSONObject.optString("address3");
-      }
-      if (!paramJSONObject.isNull("state")) {
-        mState = paramJSONObject.optString("state");
-      }
-      if (!paramJSONObject.isNull("city")) {
-        mCity = paramJSONObject.optString("city");
-      }
-      if (!paramJSONObject.isNull("zip")) {
-        mZip = paramJSONObject.optString("zip");
-      }
-      if (!paramJSONObject.isNull("country")) {
-        mCountry = paramJSONObject.optString("country");
-      }
-      if (!paramJSONObject.isNull("locality")) {
-        mLocality = paramJSONObject.optString("locality");
-      }
-      if (!paramJSONObject.isNull("photo_url")) {
-        mPhotoUrl = paramJSONObject.optString("photo_url");
-      }
-      if (!paramJSONObject.isNull("cross_streets")) {
-        mCrossStreets = paramJSONObject.optString("cross_streets");
-      }
-      if (!paramJSONObject.isNull("localized_address")) {
-        mLocalizedAddress = paramJSONObject.optString("localized_address");
-      }
-      if (!paramJSONObject.isNull("localized_phone")) {
-        mLocalizedPhone = paramJSONObject.optString("localized_phone");
-      }
-      if (!paramJSONObject.isNull("localized_price")) {
-        mLocalizedPrice = paramJSONObject.optString("localized_price");
-      }
-      if (!paramJSONObject.isNull("name")) {
-        mName = paramJSONObject.optString("name");
-      }
-      if (!paramJSONObject.isNull("alias")) {
-        mAlias = paramJSONObject.optString("alias");
-      }
-      if (!paramJSONObject.isNull("dialable_phone")) {
-        mDialablePhone = paramJSONObject.optString("dialable_phone");
-      }
-      if (!paramJSONObject.isNull("url")) {
-        mUrl = paramJSONObject.optString("url");
-      }
-      if (!paramJSONObject.isNull("display_url")) {
-        mDisplayUrl = paramJSONObject.optString("display_url");
-      }
-      if (!paramJSONObject.isNull("menu_url")) {
-        mMenuUrl = paramJSONObject.optString("menu_url");
-      }
-      if (!paramJSONObject.isNull("menu_display_url")) {
-        mMenuDisplayUrl = paramJSONObject.optString("menu_display_url");
-      }
-      if (!paramJSONObject.isNull("moved_to_business_id")) {
-        mMovedToBusinessId = paramJSONObject.optString("moved_to_business_id");
-      }
-      if (paramJSONObject.isNull("user_review_activity")) {
-        break label1668;
-      }
-    }
-    label1558:
-    label1568:
-    label1578:
-    label1588:
-    label1598:
-    label1608:
-    label1618:
-    label1628:
-    label1638:
-    label1648:
-    label1658:
-    label1668:
-    for (mUserReviewStatus = paramJSONObject.optString("user_review_activity");; mUserReviewStatus = "not_started")
-    {
-      if (!paramJSONObject.isNull("reservation_provider")) {
-        mReservationProviderString = paramJSONObject.optString("reservation_provider");
-      }
-      if (!paramJSONObject.isNull("theater_url")) {
-        mTheaterUrl = paramJSONObject.optString("theater_url");
-      }
-      if (!paramJSONObject.isNull("yelp_url")) {
-        mYelpUrl = paramJSONObject.optString("yelp_url");
-      }
-      if (!paramJSONObject.isNull("top_user")) {
-        mTopUser = ((User)User.CREATOR.parse(paramJSONObject.getJSONObject("top_user")));
-      }
-      if (!paramJSONObject.isNull("biz_owner_video")) {
-        mBizOwnerVideo = ((Video)Video.CREATOR.parse(paramJSONObject.getJSONObject("biz_owner_video")));
-      }
-      if (!paramJSONObject.isNull("addresses")) {
-        mDisplayAddresses = ((YelpAddresses)YelpAddresses.CREATOR.parse(paramJSONObject.getJSONObject("addresses")));
-      }
-      if (!paramJSONObject.isNull("review")) {
-        mReview = ((YelpBusinessReview)YelpBusinessReview.CREATOR.parse(paramJSONObject.getJSONObject("review")));
-      }
-      if (!paramJSONObject.isNull("deal")) {
-        mDeal = ((YelpDeal)YelpDeal.CREATOR.parse(paramJSONObject.getJSONObject("deal")));
-      }
-      mIsClosed = paramJSONObject.optBoolean("is_closed");
-      mIsMovedToNewAddress = paramJSONObject.optBoolean("is_moved_to_new_address");
-      mIsBookmarked = paramJSONObject.optBoolean("is_bookmarked");
-      mIsAdRatingDisabled = paramJSONObject.optBoolean("is_ad_rating_disabled");
-      mIsMessageToBusinessEnabled = paramJSONObject.optBoolean("is_message_to_business_enabled");
-      mLatitude = paramJSONObject.optDouble("latitude");
-      mLongitude = paramJSONObject.optDouble("longitude");
-      mAvgRating = ((float)paramJSONObject.optDouble("avg_rating"));
-      mGeoAccuracy = ((float)paramJSONObject.optDouble("geo_accuracy"));
-      mReviewCount = paramJSONObject.optInt("review_count");
-      mPrice = paramJSONObject.optInt("price");
-      mTipCount = paramJSONObject.optInt("quicktip_count");
-      mRegularCount = paramJSONObject.optInt("regular_count");
-      mFriendBookmarkedCount = paramJSONObject.optInt("friend_bookmarked_count");
-      mUserCount = paramJSONObject.optInt("user_count");
-      mPhotoCount = paramJSONObject.optInt("photo_count");
-      mUserReviewRating = paramJSONObject.optInt("user_latest_review_rating");
-      mUserCheckinsCount = paramJSONObject.optInt("user_check_in_count");
-      mVideoCount = paramJSONObject.optInt("video_count");
-      return;
-      mMovies = new ArrayList();
-      break;
-      mLocalizedAttributes = Collections.emptyList();
-      break label165;
-      mAttributions = Collections.emptyList();
-      break label192;
-      mCategories = Collections.emptyList();
-      break label219;
-      mPhotos = Collections.emptyList();
-      break label246;
-      mSpecialHours = Collections.emptyList();
-      break label273;
-      mNeighborhoods = Collections.emptyList();
-      break label297;
-      mRegularNames = Collections.emptyList();
-      break label321;
-      mLocalizedHours = Collections.emptyList();
-      break label345;
-      mReviewInsights = Collections.emptyList();
-      break label372;
-      mUserDeals = Collections.emptyList();
-      break label399;
-      mHours = Collections.emptyList();
-      break label426;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpBusiness)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a(n, n).a(o, o).a(p, p).a(q, q).a(r, r).a(s, s).a(t, t).a(u, u).a(v, v).a(w, w).a(x, x).a(y, y).a(z, z).a(A, A).a(B, B).a(C, C).a(D, D).a(E, E).a(F, F).a(G, G).a(H, H).a(I, I).a(J, J).a(K, K).a(L, L).a(M, M).a(N, N).a(O, O).a(P, P).a(Q, Q).a(R, R).a(S, S).a(T, T).a(U, U).a(V, V).a(W, W).a(X, X).a(Y, Y).a(Z, Z).a(aa, aa).a(ab, ab).a(ac, ac).a(ad, ad).a(ae, ae).a(af, af).a(ag, ag).a(ah, ah).a(ai, ai).a(aj, aj).a(ak, ak).a(al, al).a(am, am).a(an, an).a(ao, ao).a(ap, ap).a(aq, aq).a(ar, ar).a(as, as).a(at, at).a(au, au).a(av, av).a(aw, aw).a(ax, ax).a(ay, ay).a(az, az).a(aA, aA).a(aB, aB).a(aC, aC).a(aD, aD).a(aE, aE).a(aF, aF).a(aG, aG).a(aH, aH).a(aI, aI).a(aJ, aJ).a(aK, aK).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int hashCode()
   {
-    mAlternateNames = ((AlternateBusinessNames)paramParcel.readParcelable(AlternateBusinessNames.class.getClassLoader()));
-    mMovies = paramParcel.createTypedArrayList(Movie.CREATOR);
-    mCallToAction = ((CallToAction)paramParcel.readParcelable(CallToAction.class.getClassLoader()));
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateReopening = new Date(l);
-    }
-    mFormatMode = ((BusinessSearchRequest.FormatMode)paramParcel.readSerializable());
-    mFromThisBusiness = ((FromThisBusiness)paramParcel.readParcelable(FromThisBusiness.class.getClassLoader()));
-    mLocalizedAttributes = paramParcel.createTypedArrayList(AttributedLabelValuePair.CREATOR);
-    mAttributions = paramParcel.createTypedArrayList(Attribution.CREATOR);
-    mCategories = paramParcel.createTypedArrayList(Category.CREATOR);
-    mPhotos = paramParcel.createTypedArrayList(Photo.CREATOR);
-    mSpecialHours = paramParcel.createTypedArrayList(SpecialHours.CREATOR);
-    mNeighborhoods = paramParcel.createStringArrayList();
-    mRegularNames = paramParcel.createStringArrayList();
-    mLocalizedHours = paramParcel.createStringArrayList();
-    mCheckedInFriends = paramParcel.createTypedArrayList(User.CREATOR);
-    mReviewInsights = paramParcel.createTypedArrayList(YelpBusinessReviewInsight.CREATOR);
-    mUserDeals = paramParcel.createTypedArrayList(YelpDeal.CREATOR);
-    mHours = paramParcel.createTypedArrayList(YelpHoursPair.CREATOR);
-    mMenu = ((Menu)paramParcel.readParcelable(Menu.class.getClassLoader()));
-    mCheckInOffer = ((Offer)paramParcel.readParcelable(Offer.class.getClassLoader()));
-    mPrimaryPhoto = ((Photo)paramParcel.readParcelable(Photo.class.getClassLoader()));
-    mPlatformAction = ((PlatformAction)paramParcel.readParcelable(PlatformAction.class.getClassLoader()));
-    mRecentCheckInFriends = ((RecentFriendCheckIns)paramParcel.readParcelable(RecentFriendCheckIns.class.getClassLoader()));
-    mReservation = ((Reservation)paramParcel.readParcelable(Reservation.class.getClassLoader()));
-    mSpamAlert = ((SpamAlert)paramParcel.readParcelable(SpamAlert.class.getClassLoader()));
-    mId = paramParcel.readString();
-    mAddress1 = paramParcel.readString();
-    mAddress2 = paramParcel.readString();
-    mAddress3 = paramParcel.readString();
-    mState = paramParcel.readString();
-    mCity = paramParcel.readString();
-    mZip = paramParcel.readString();
-    mCountry = paramParcel.readString();
-    mLocality = paramParcel.readString();
-    mPhotoUrl = paramParcel.readString();
-    mCrossStreets = paramParcel.readString();
-    mLocalizedAddress = paramParcel.readString();
-    mLocalizedPhone = paramParcel.readString();
-    mLocalizedPrice = paramParcel.readString();
-    mName = paramParcel.readString();
-    mAlias = paramParcel.readString();
-    mDialablePhone = paramParcel.readString();
-    mTransitDescription = paramParcel.readString();
-    mUrl = paramParcel.readString();
-    mDisplayUrl = paramParcel.readString();
-    mMenuUrl = paramParcel.readString();
-    mMenuDisplayUrl = paramParcel.readString();
-    mMovedToBusinessId = paramParcel.readString();
-    mUserReviewStatus = paramParcel.readString();
-    mReservationProviderString = paramParcel.readString();
-    mTheaterUrl = paramParcel.readString();
-    mYelpUrl = paramParcel.readString();
-    mTopUser = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
-    mBizOwnerVideo = ((Video)paramParcel.readParcelable(Video.class.getClassLoader()));
-    mDisplayAddresses = ((YelpAddresses)paramParcel.readParcelable(YelpAddresses.class.getClassLoader()));
-    mReview = ((YelpBusinessReview)paramParcel.readParcelable(YelpBusinessReview.class.getClassLoader()));
-    mDeal = ((YelpDeal)paramParcel.readParcelable(YelpDeal.class.getClassLoader()));
-    boolean[] arrayOfBoolean = paramParcel.createBooleanArray();
-    mIsClosed = arrayOfBoolean[0];
-    mIsMovedToNewAddress = arrayOfBoolean[1];
-    mIsBookmarked = arrayOfBoolean[2];
-    mIsAdRatingDisabled = arrayOfBoolean[3];
-    mIsMessageToBusinessEnabled = arrayOfBoolean[4];
-    mLatitude = paramParcel.readDouble();
-    mLongitude = paramParcel.readDouble();
-    mAvgRating = paramParcel.readFloat();
-    mGeoAccuracy = paramParcel.readFloat();
-    mReviewCount = paramParcel.readInt();
-    mPrice = paramParcel.readInt();
-    mTipCount = paramParcel.readInt();
-    mRegularCount = paramParcel.readInt();
-    mFriendBookmarkedCount = paramParcel.readInt();
-    mUserCount = paramParcel.readInt();
-    mCheckedInFriendCount = paramParcel.readInt();
-    mPhotoCount = paramParcel.readInt();
-    mUserReviewRating = paramParcel.readInt();
-    mUserCheckinsCount = paramParcel.readInt();
-    mVideoCount = paramParcel.readInt();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a(n).a(o).a(p).a(q).a(r).a(s).a(t).a(u).a(v).a(w).a(x).a(y).a(z).a(A).a(B).a(C).a(D).a(E).a(F).a(G).a(H).a(I).a(J).a(K).a(L).a(M).a(N).a(O).a(P).a(Q).a(R).a(S).a(T).a(U).a(V).a(W).a(X).a(Y).a(Z).a(aa).a(ab).a(ac).a(ad).a(ae).a(af).a(ag).a(ah).a(ai).a(aj).a(ak).a(al).a(am).a(an).a(ao).a(ap).a(aq).a(ar).a(as).a(at).a(au).a(av).a(aw).a(ax).a(ay).a(az).a(aA).a(aB).a(aC).a(aD).a(aE).a(aF).a(aG).a(aH).a(aI).a(aJ).a(aK).a();
   }
   
-  public JSONObject writeJSON()
+  public Date q()
   {
-    JSONObject localJSONObject = new JSONObject();
-    if (mAlternateNames != null) {
-      localJSONObject.put("alternate_names", mAlternateNames.writeJSON());
-    }
-    JSONArray localJSONArray;
-    Iterator localIterator;
-    if (mMovies != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mMovies.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((Movie)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("movies", localJSONArray);
-    }
-    if (mCallToAction != null) {
-      localJSONObject.put("call_to_action", mCallToAction.writeJSON());
-    }
-    if (mDateReopening != null) {
-      localJSONObject.put("time_reopening", mDateReopening.getTime() / 1000L);
-    }
-    if (mFromThisBusiness != null) {
-      localJSONObject.put("from_this_business", mFromThisBusiness.writeJSON());
-    }
-    if (mLocalizedAttributes != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mLocalizedAttributes.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((AttributedLabelValuePair)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("localized_attributes", localJSONArray);
-    }
-    if (mAttributions != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mAttributions.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((Attribution)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("attributions", localJSONArray);
-    }
-    if (mCategories != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mCategories.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((Category)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("categories", localJSONArray);
-    }
-    if (mPhotos != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mPhotos.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((Photo)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("photos", localJSONArray);
-    }
-    if (mSpecialHours != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mSpecialHours.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((SpecialHours)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("special_hours", localJSONArray);
-    }
-    if (mNeighborhoods != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mNeighborhoods.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put((String)localIterator.next());
-      }
-      localJSONObject.put("neighborhoods", localJSONArray);
-    }
-    if (mRegularNames != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mRegularNames.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put((String)localIterator.next());
-      }
-      localJSONObject.put("regular_names", localJSONArray);
-    }
-    if (mLocalizedHours != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mLocalizedHours.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put((String)localIterator.next());
-      }
-      localJSONObject.put("localized_hours", localJSONArray);
-    }
-    if (mReviewInsights != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mReviewInsights.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((YelpBusinessReviewInsight)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("demographics", localJSONArray);
-    }
-    if (mUserDeals != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mUserDeals.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((YelpDeal)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("user_deals", localJSONArray);
-    }
-    if (mHours != null)
-    {
-      localJSONArray = new JSONArray();
-      localIterator = mHours.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((YelpHoursPair)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("hours", localJSONArray);
-    }
-    if (mMenu != null) {
-      localJSONObject.put("menu", mMenu.writeJSON());
-    }
-    if (mCheckInOffer != null) {
-      localJSONObject.put("check_in_offer", mCheckInOffer.writeJSON());
-    }
-    if (mPrimaryPhoto != null) {
-      localJSONObject.put("primary_photo", mPrimaryPhoto.writeJSON());
-    }
-    if (mPlatformAction != null) {
-      localJSONObject.put("platform_action", mPlatformAction.writeJSON());
-    }
-    if (mRecentCheckInFriends != null) {
-      localJSONObject.put("recent_check_in_friends", mRecentCheckInFriends.writeJSON());
-    }
-    if (mReservation != null) {
-      localJSONObject.put("reservation", mReservation.writeJSON());
-    }
-    if (mSpamAlert != null) {
-      localJSONObject.put("spam_alert", mSpamAlert.writeJSON());
-    }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
-    }
-    if (mAddress1 != null) {
-      localJSONObject.put("address1", mAddress1);
-    }
-    if (mAddress2 != null) {
-      localJSONObject.put("address2", mAddress2);
-    }
-    if (mAddress3 != null) {
-      localJSONObject.put("address3", mAddress3);
-    }
-    if (mState != null) {
-      localJSONObject.put("state", mState);
-    }
-    if (mCity != null) {
-      localJSONObject.put("city", mCity);
-    }
-    if (mZip != null) {
-      localJSONObject.put("zip", mZip);
-    }
-    if (mCountry != null) {
-      localJSONObject.put("country", mCountry);
-    }
-    if (mLocality != null) {
-      localJSONObject.put("locality", mLocality);
-    }
-    if (mPhotoUrl != null) {
-      localJSONObject.put("photo_url", mPhotoUrl);
-    }
-    if (mCrossStreets != null) {
-      localJSONObject.put("cross_streets", mCrossStreets);
-    }
-    if (mLocalizedAddress != null) {
-      localJSONObject.put("localized_address", mLocalizedAddress);
-    }
-    if (mLocalizedPhone != null) {
-      localJSONObject.put("localized_phone", mLocalizedPhone);
-    }
-    if (mLocalizedPrice != null) {
-      localJSONObject.put("localized_price", mLocalizedPrice);
-    }
-    if (mName != null) {
-      localJSONObject.put("name", mName);
-    }
-    if (mAlias != null) {
-      localJSONObject.put("alias", mAlias);
-    }
-    if (mDialablePhone != null) {
-      localJSONObject.put("dialable_phone", mDialablePhone);
-    }
-    if (mUrl != null) {
-      localJSONObject.put("url", mUrl);
-    }
-    if (mDisplayUrl != null) {
-      localJSONObject.put("display_url", mDisplayUrl);
-    }
-    if (mMenuUrl != null) {
-      localJSONObject.put("menu_url", mMenuUrl);
-    }
-    if (mMenuDisplayUrl != null) {
-      localJSONObject.put("menu_display_url", mMenuDisplayUrl);
-    }
-    if (mMovedToBusinessId != null) {
-      localJSONObject.put("moved_to_business_id", mMovedToBusinessId);
-    }
-    if (mUserReviewStatus != null) {
-      localJSONObject.put("user_review_activity", mUserReviewStatus);
-    }
-    if (mReservationProviderString != null) {
-      localJSONObject.put("reservation_provider", mReservationProviderString);
-    }
-    if (mTheaterUrl != null) {
-      localJSONObject.put("theater_url", mTheaterUrl);
-    }
-    if (mYelpUrl != null) {
-      localJSONObject.put("yelp_url", mYelpUrl);
-    }
-    if (mTopUser != null) {
-      localJSONObject.put("top_user", mTopUser.writeJSON());
-    }
-    if (mBizOwnerVideo != null) {
-      localJSONObject.put("biz_owner_video", mBizOwnerVideo.writeJSON());
-    }
-    if (mDisplayAddresses != null) {
-      localJSONObject.put("addresses", mDisplayAddresses.writeJSON());
-    }
-    if (mReview != null) {
-      localJSONObject.put("review", mReview.writeJSON());
-    }
-    if (mDeal != null) {
-      localJSONObject.put("deal", mDeal.writeJSON());
-    }
-    localJSONObject.put("is_closed", mIsClosed);
-    localJSONObject.put("is_moved_to_new_address", mIsMovedToNewAddress);
-    localJSONObject.put("is_bookmarked", mIsBookmarked);
-    localJSONObject.put("is_ad_rating_disabled", mIsAdRatingDisabled);
-    localJSONObject.put("is_message_to_business_enabled", mIsMessageToBusinessEnabled);
-    localJSONObject.put("latitude", mLatitude);
-    localJSONObject.put("longitude", mLongitude);
-    localJSONObject.put("avg_rating", mAvgRating);
-    localJSONObject.put("geo_accuracy", mGeoAccuracy);
-    localJSONObject.put("review_count", mReviewCount);
-    localJSONObject.put("price", mPrice);
-    localJSONObject.put("quicktip_count", mTipCount);
-    localJSONObject.put("regular_count", mRegularCount);
-    localJSONObject.put("friend_bookmarked_count", mFriendBookmarkedCount);
-    localJSONObject.put("user_count", mUserCount);
-    localJSONObject.put("photo_count", mPhotoCount);
-    localJSONObject.put("user_latest_review_rating", mUserReviewRating);
-    localJSONObject.put("user_check_in_count", mUserCheckinsCount);
-    localJSONObject.put("video_count", mVideoCount);
-    return localJSONObject;
+    return f;
+  }
+  
+  public boolean r()
+  {
+    return ap;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeParcelable(mAlternateNames, 0);
-    paramParcel.writeTypedList(mMovies);
-    paramParcel.writeParcelable(mCallToAction, 0);
-    if (mDateReopening == null) {}
-    for (long l = -2147483648L;; l = mDateReopening.getTime())
+    paramParcel.writeParcelable(a, 0);
+    paramParcel.writeParcelable(b, 0);
+    paramParcel.writeList(c);
+    paramParcel.writeParcelable(d, 0);
+    paramParcel.writeParcelable(e, 0);
+    if (f == null) {}
+    for (long l1 = -2147483648L;; l1 = f.getTime())
     {
-      paramParcel.writeLong(l);
-      paramParcel.writeSerializable(mFormatMode);
-      paramParcel.writeParcelable(mFromThisBusiness, 0);
-      paramParcel.writeTypedList(mLocalizedAttributes);
-      paramParcel.writeTypedList(mAttributions);
-      paramParcel.writeTypedList(mCategories);
-      paramParcel.writeTypedList(mPhotos);
-      paramParcel.writeTypedList(mSpecialHours);
-      paramParcel.writeStringList(mNeighborhoods);
-      paramParcel.writeStringList(mRegularNames);
-      paramParcel.writeStringList(mLocalizedHours);
-      paramParcel.writeTypedList(mCheckedInFriends);
-      paramParcel.writeTypedList(mReviewInsights);
-      paramParcel.writeTypedList(mUserDeals);
-      paramParcel.writeTypedList(mHours);
-      paramParcel.writeParcelable(mMenu, 0);
-      paramParcel.writeParcelable(mCheckInOffer, 0);
-      paramParcel.writeParcelable(mPrimaryPhoto, 0);
-      paramParcel.writeParcelable(mPlatformAction, 0);
-      paramParcel.writeParcelable(mRecentCheckInFriends, 0);
-      paramParcel.writeParcelable(mReservation, 0);
-      paramParcel.writeParcelable(mSpamAlert, 0);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mAddress1);
-      paramParcel.writeString(mAddress2);
-      paramParcel.writeString(mAddress3);
-      paramParcel.writeString(mState);
-      paramParcel.writeString(mCity);
-      paramParcel.writeString(mZip);
-      paramParcel.writeString(mCountry);
-      paramParcel.writeString(mLocality);
-      paramParcel.writeString(mPhotoUrl);
-      paramParcel.writeString(mCrossStreets);
-      paramParcel.writeString(mLocalizedAddress);
-      paramParcel.writeString(mLocalizedPhone);
-      paramParcel.writeString(mLocalizedPrice);
-      paramParcel.writeString(mName);
-      paramParcel.writeString(mAlias);
-      paramParcel.writeString(mDialablePhone);
-      paramParcel.writeString(mTransitDescription);
-      paramParcel.writeString(mUrl);
-      paramParcel.writeString(mDisplayUrl);
-      paramParcel.writeString(mMenuUrl);
-      paramParcel.writeString(mMenuDisplayUrl);
-      paramParcel.writeString(mMovedToBusinessId);
-      paramParcel.writeString(mUserReviewStatus);
-      paramParcel.writeString(mReservationProviderString);
-      paramParcel.writeString(mTheaterUrl);
-      paramParcel.writeString(mYelpUrl);
-      paramParcel.writeParcelable(mTopUser, 0);
-      paramParcel.writeParcelable(mBizOwnerVideo, 0);
-      paramParcel.writeParcelable(mDisplayAddresses, 0);
-      paramParcel.writeParcelable(mReview, 0);
-      paramParcel.writeParcelable(mDeal, 0);
-      paramParcel.writeBooleanArray(new boolean[] { mIsClosed, mIsMovedToNewAddress, mIsBookmarked, mIsAdRatingDisabled, mIsMessageToBusinessEnabled });
-      paramParcel.writeDouble(mLatitude);
-      paramParcel.writeDouble(mLongitude);
-      paramParcel.writeFloat(mAvgRating);
-      paramParcel.writeFloat(mGeoAccuracy);
-      paramParcel.writeInt(mReviewCount);
-      paramParcel.writeInt(mPrice);
-      paramParcel.writeInt(mTipCount);
-      paramParcel.writeInt(mRegularCount);
-      paramParcel.writeInt(mFriendBookmarkedCount);
-      paramParcel.writeInt(mUserCount);
-      paramParcel.writeInt(mCheckedInFriendCount);
-      paramParcel.writeInt(mPhotoCount);
-      paramParcel.writeInt(mUserReviewRating);
-      paramParcel.writeInt(mUserCheckinsCount);
-      paramParcel.writeInt(mVideoCount);
+      paramParcel.writeLong(l1);
+      paramParcel.writeSerializable(g);
+      paramParcel.writeParcelable(h, 0);
+      paramParcel.writeParcelable(i, 0);
+      paramParcel.writeList(l);
+      paramParcel.writeList(j);
+      paramParcel.writeList(k);
+      paramParcel.writeList(m);
+      paramParcel.writeList(n);
+      paramParcel.writeList(o);
+      paramParcel.writeStringList(p);
+      paramParcel.writeStringList(q);
+      paramParcel.writeStringList(r);
+      paramParcel.writeList(s);
+      paramParcel.writeList(t);
+      paramParcel.writeList(u);
+      paramParcel.writeList(v);
+      paramParcel.writeParcelable(w, 0);
+      paramParcel.writeParcelable(x, 0);
+      paramParcel.writeParcelable(y, 0);
+      paramParcel.writeParcelable(z, 0);
+      paramParcel.writeParcelable(A, 0);
+      paramParcel.writeParcelable(B, 0);
+      paramParcel.writeParcelable(C, 0);
+      paramParcel.writeParcelable(D, 0);
+      paramParcel.writeValue(E);
+      paramParcel.writeValue(F);
+      paramParcel.writeValue(G);
+      paramParcel.writeValue(H);
+      paramParcel.writeValue(I);
+      paramParcel.writeValue(J);
+      paramParcel.writeValue(K);
+      paramParcel.writeValue(L);
+      paramParcel.writeValue(M);
+      paramParcel.writeValue(N);
+      paramParcel.writeValue(O);
+      paramParcel.writeValue(P);
+      paramParcel.writeValue(Q);
+      paramParcel.writeValue(R);
+      paramParcel.writeValue(S);
+      paramParcel.writeValue(T);
+      paramParcel.writeValue(U);
+      paramParcel.writeValue(V);
+      paramParcel.writeValue(W);
+      paramParcel.writeValue(X);
+      paramParcel.writeValue(Y);
+      paramParcel.writeValue(Z);
+      paramParcel.writeValue(aa);
+      paramParcel.writeValue(ab);
+      paramParcel.writeValue(ac);
+      paramParcel.writeValue(ad);
+      paramParcel.writeValue(ae);
+      paramParcel.writeValue(af);
+      paramParcel.writeValue(ag);
+      paramParcel.writeValue(ah);
+      paramParcel.writeValue(ai);
+      paramParcel.writeParcelable(aj, 0);
+      paramParcel.writeParcelable(ak, 0);
+      paramParcel.writeParcelable(al, 0);
+      paramParcel.writeParcelable(am, 0);
+      paramParcel.writeParcelable(an, 0);
+      paramParcel.writeParcelable(ao, 0);
+      paramParcel.writeBooleanArray(new boolean[] { ap, aq, ar, as, at, au, av });
+      paramParcel.writeDouble(aw);
+      paramParcel.writeDouble(ax);
+      paramParcel.writeDouble(ay);
+      paramParcel.writeDouble(az);
+      paramParcel.writeInt(aA);
+      paramParcel.writeInt(aB);
+      paramParcel.writeInt(aC);
+      paramParcel.writeInt(aD);
+      paramParcel.writeInt(aE);
+      paramParcel.writeInt(aF);
+      paramParcel.writeInt(aG);
+      paramParcel.writeInt(aH);
+      paramParcel.writeInt(aI);
+      paramParcel.writeInt(aJ);
+      paramParcel.writeInt(aK);
       return;
     }
   }

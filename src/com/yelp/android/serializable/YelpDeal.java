@@ -14,23 +14,22 @@ import java.util.Currency;
 import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class YelpDeal
   extends _YelpDeal
 {
-  public static final String ACTION_DEAL_CHANGED = "com.yelp.android.deal_changed";
-  public static final Comparator<YelpDeal> COMPARATOR_TIME_EXPIRED = new eh();
-  public static final Comparator<YelpDeal> COMPARATOR_TIME_REDEEMED = new ei();
-  public static final JsonParser.DualCreator<YelpDeal> CREATOR = new eg();
-  public static final String EXTRA_DEAL = "extra.yelp_deal";
-  protected EnumMap<DealPurchase.PurchaseStatus, ArrayList<DealPurchase>> mPurchaseMap;
+  public static final JsonParser.DualCreator<YelpDeal> CREATOR = new YelpDeal.1();
+  public static final Comparator<YelpDeal> b = new YelpDeal.2();
+  public static final Comparator<YelpDeal> c = new YelpDeal.3();
+  protected EnumMap<DealPurchase.PurchaseStatus, ArrayList<DealPurchase>> a;
   
-  private EnumMap<DealPurchase.PurchaseStatus, ArrayList<DealPurchase>> initPurchaseMap()
+  private EnumMap<DealPurchase.PurchaseStatus, ArrayList<DealPurchase>> C()
   {
-    if (mPurchaseMap == null)
+    if (a == null)
     {
-      mPurchaseMap = new EnumMap(DealPurchase.PurchaseStatus.class);
+      a = new EnumMap(DealPurchase.PurchaseStatus.class);
       Object localObject1 = DealPurchase.PurchaseStatus.values();
       int j = localObject1.length;
       int i = 0;
@@ -38,33 +37,117 @@ public class YelpDeal
       while (i < j)
       {
         localObject2 = localObject1[i];
-        mPurchaseMap.put((Enum)localObject2, new ArrayList());
+        a.put((Enum)localObject2, new ArrayList());
         i += 1;
       }
-      localObject1 = mPurchases.iterator();
+      localObject1 = e.iterator();
       while (((Iterator)localObject1).hasNext())
       {
         localObject2 = (DealPurchase)((Iterator)localObject1).next();
-        ((ArrayList)mPurchaseMap.get(((DealPurchase)localObject2).getStatus())).add(localObject2);
+        ((ArrayList)a.get(((DealPurchase)localObject2).c())).add(localObject2);
       }
-      if (((ArrayList)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE)).size() > 0) {
-        Collections.sort((List)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE), DealPurchase.COMPARATOR_TIME_EXPIRED);
+      if (((ArrayList)a.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE)).size() > 0) {
+        Collections.sort((List)a.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE), DealPurchase.a);
       }
-      if (((ArrayList)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED)).size() > 0) {
-        Collections.sort((List)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED), DealPurchase.COMPARATOR_TIME_EXPIRED);
+      if (((ArrayList)a.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED)).size() > 0) {
+        Collections.sort((List)a.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED), DealPurchase.a);
       }
-      if (((ArrayList)mPurchaseMap.get(DealPurchase.PurchaseStatus.REDEEMED)).size() > 0) {
-        Collections.sort((List)mPurchaseMap.get(DealPurchase.PurchaseStatus.REDEEMED), DealPurchase.COMPARATOR_TIME_REDEEMED);
+      if (((ArrayList)a.get(DealPurchase.PurchaseStatus.REDEEMED)).size() > 0) {
+        Collections.sort((List)a.get(DealPurchase.PurchaseStatus.REDEEMED), DealPurchase.b);
       }
     }
-    return mPurchaseMap;
+    return a;
   }
   
-  public int countUsablePurchases()
+  public DealPurchase a()
   {
-    initPurchaseMap();
-    int i = ((ArrayList)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED)).size();
-    return ((ArrayList)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE)).size() + i;
+    DealPurchase localDealPurchase2 = a(DealPurchase.PurchaseStatus.USABLE_FULLPRICE);
+    DealPurchase localDealPurchase1 = localDealPurchase2;
+    if (localDealPurchase2 == null) {
+      localDealPurchase1 = a(DealPurchase.PurchaseStatus.USABLE_EXPIRED);
+    }
+    return localDealPurchase1;
+  }
+  
+  public DealPurchase a(DealPurchase.PurchaseStatus paramPurchaseStatus)
+  {
+    C();
+    if (((ArrayList)a.get(paramPurchaseStatus)).size() > 0) {
+      return (DealPurchase)((ArrayList)a.get(paramPurchaseStatus)).get(0);
+    }
+    return null;
+  }
+  
+  public YelpDealOption a(String paramString)
+  {
+    Iterator localIterator = y().iterator();
+    while (localIterator.hasNext())
+    {
+      YelpDealOption localYelpDealOption = (YelpDealOption)localIterator.next();
+      if (c.equals(paramString)) {
+        return localYelpDealOption;
+      }
+    }
+    return null;
+  }
+  
+  public String a(Context paramContext)
+  {
+    return paramContext.getString(2131165751, new Object[] { i, m });
+  }
+  
+  public void a(DealPurchase paramDealPurchase)
+  {
+    e.remove(paramDealPurchase);
+    e.add(paramDealPurchase);
+    a = null;
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    super.a(paramJSONObject);
+    if (!j()) {
+      z = (SystemClock.elapsedRealtime() + (x - y) * 1000L);
+    }
+  }
+  
+  public ArrayList<DealPurchase> b()
+  {
+    C();
+    ArrayList localArrayList = new ArrayList((Collection)a.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE));
+    localArrayList.addAll((Collection)a.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED));
+    return localArrayList;
+  }
+  
+  public ArrayList<DealPurchase> b(DealPurchase.PurchaseStatus paramPurchaseStatus)
+  {
+    C();
+    return (ArrayList)a.get(paramPurchaseStatus);
+  }
+  
+  public int c()
+  {
+    C();
+    int i = ((ArrayList)a.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED)).size();
+    return ((ArrayList)a.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE)).size() + i;
+  }
+  
+  public int d()
+  {
+    return Math.max(q(), p());
+  }
+  
+  public int e()
+  {
+    if (u == -1)
+    {
+      if (v == -1) {
+        return 0;
+      }
+      return 2131166441;
+    }
+    return 2131166605;
   }
   
   public boolean equals(Object paramObject)
@@ -82,187 +165,96 @@ public class YelpDeal
           return false;
         }
         paramObject = (_YelpDeal)paramObject;
-        if (mId != null) {
+        if (h != null) {
           break;
         }
-      } while (mId == null);
+      } while (h == null);
       return false;
-    } while (mId.equals(mId));
+    } while (h.equals(h));
     return false;
   }
   
-  public Currency getCurrency()
+  public long f()
   {
-    return Currency.getInstance(mCurrencyCode);
+    return z;
   }
   
-  public String getDealTitleWithBizName(Context paramContext)
+  public Currency g()
   {
-    return paramContext.getString(2131165676, new Object[] { mTitle, mBusinessName });
+    return Currency.getInstance(l);
   }
   
-  public YelpDealOption getDisplayDeal()
+  public YelpDealOption h()
   {
-    return (YelpDealOption)getOptions().get(0);
+    return (YelpDealOption)y().get(0);
   }
   
-  public ej getDisplayPrices()
+  public int hashCode()
   {
-    ej localej = new ej();
-    Object localObject = getCurrency();
+    if (h == null) {}
+    for (int i = 0;; i = h.hashCode()) {
+      return i + 31;
+    }
+  }
+  
+  public a i()
+  {
+    a locala = new a();
+    Object localObject = g();
     NumberFormat localNumberFormat = NumberFormat.getCurrencyInstance();
     localNumberFormat.setCurrency((Currency)localObject);
-    BigDecimal localBigDecimal = getDisplayDeal().getDecimalPrice((Currency)localObject);
+    BigDecimal localBigDecimal = h().a((Currency)localObject);
     localNumberFormat.setMinimumFractionDigits(localBigDecimal.scale());
     a = localNumberFormat.format(localBigDecimal);
-    localObject = getDisplayDeal().getDecimalOriginalPrice((Currency)localObject);
+    localObject = h().b((Currency)localObject);
     localNumberFormat.setMinimumFractionDigits(((BigDecimal)localObject).scale());
     b = localNumberFormat.format(localObject);
     localNumberFormat.setMinimumFractionDigits(Math.max(((BigDecimal)localObject).scale(), localBigDecimal.scale()));
     c = localNumberFormat.format(((BigDecimal)localObject).subtract(localBigDecimal));
     d = (100 - localBigDecimal.multiply(new BigDecimal(100)).divide((BigDecimal)localObject, 2, RoundingMode.HALF_EVEN).intValue());
-    return localej;
+    return locala;
   }
   
-  public DealPurchase getFirstPurchaseByStatus(DealPurchase.PurchaseStatus paramPurchaseStatus)
+  public boolean j()
   {
-    initPurchaseMap();
-    if (((ArrayList)mPurchaseMap.get(paramPurchaseStatus)).size() > 0) {
-      return (DealPurchase)((ArrayList)mPurchaseMap.get(paramPurchaseStatus)).get(0);
-    }
-    return null;
+    return x == -1L;
   }
   
-  public DealPurchase getFirstUsablePurchase()
+  public boolean k()
   {
-    DealPurchase localDealPurchase2 = getFirstPurchaseByStatus(DealPurchase.PurchaseStatus.USABLE_FULLPRICE);
-    DealPurchase localDealPurchase1 = localDealPurchase2;
-    if (localDealPurchase2 == null) {
-      localDealPurchase1 = getFirstPurchaseByStatus(DealPurchase.PurchaseStatus.USABLE_EXPIRED);
-    }
-    return localDealPurchase1;
+    return (j()) || (z - SystemClock.elapsedRealtime() > 0L);
   }
   
-  public int getMaxGiftQuantity()
+  public int l()
   {
-    if (mMaxGiftQuantity < 0) {
+    if (s < 0) {
       return Integer.MAX_VALUE;
     }
-    return mMaxGiftQuantity;
+    return s;
   }
   
-  public int getMaxQuantity()
+  public int m()
   {
-    if (mMaxQuantity < 0) {
+    if (t < 0) {
       return Integer.MAX_VALUE;
     }
-    return mMaxQuantity;
+    return t;
   }
   
-  public int getMaxUserQuantity()
+  public int n()
   {
-    if (mMaxUserQuantity < 0) {
+    if (r < 0) {
       return Integer.MAX_VALUE;
     }
-    return mMaxUserQuantity;
+    return r;
   }
   
-  public YelpDealOption getOption(String paramString)
+  public static class a
   {
-    Iterator localIterator = getOptions().iterator();
-    while (localIterator.hasNext())
-    {
-      YelpDealOption localYelpDealOption = (YelpDealOption)localIterator.next();
-      if (mId.equals(paramString)) {
-        return localYelpDealOption;
-      }
-    }
-    return null;
-  }
-  
-  public int getOptionalCount()
-  {
-    return Math.max(getPurchasedCount(), getRemainingCount());
-  }
-  
-  public int getOptionalString()
-  {
-    if (mPurchasedCount == -1)
-    {
-      if (mRemainingCount == -1) {
-        return 0;
-      }
-      return 2131166415;
-    }
-    return 2131166596;
-  }
-  
-  public ArrayList<DealPurchase> getPurchasesByStatus(DealPurchase.PurchaseStatus paramPurchaseStatus)
-  {
-    initPurchaseMap();
-    return (ArrayList)mPurchaseMap.get(paramPurchaseStatus);
-  }
-  
-  public long getSystemClockExpiration()
-  {
-    return mSystemClockExpiration;
-  }
-  
-  public ArrayList<DealPurchase> getUsablePurchases()
-  {
-    initPurchaseMap();
-    ArrayList localArrayList = new ArrayList((Collection)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_FULLPRICE));
-    localArrayList.addAll((Collection)mPurchaseMap.get(DealPurchase.PurchaseStatus.USABLE_EXPIRED));
-    return localArrayList;
-  }
-  
-  public int hashCode()
-  {
-    if (mId == null) {}
-    for (int i = 0;; i = mId.hashCode()) {
-      return i + 31;
-    }
-  }
-  
-  public boolean isActive()
-  {
-    return (isStandingDeal()) || (mSystemClockExpiration - SystemClock.elapsedRealtime() > 0L);
-  }
-  
-  public boolean isStandingDeal()
-  {
-    return mTimeEnd == -1L;
-  }
-  
-  public boolean markPurchaseRedeemedById(String paramString)
-  {
-    Iterator localIterator = getPurchases().iterator();
-    while (localIterator.hasNext())
-    {
-      DealPurchase localDealPurchase = (DealPurchase)localIterator.next();
-      if (paramString.equals(localDealPurchase.getId()))
-      {
-        localDealPurchase.setRedeemed();
-        mPurchaseMap = null;
-        return true;
-      }
-    }
-    return false;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    super.readFromJson(paramJSONObject);
-    if (!isStandingDeal()) {
-      mSystemClockExpiration = (SystemClock.elapsedRealtime() + (mTimeEnd - mTimeReference) * 1000L);
-    }
-  }
-  
-  public void updatePurchase(DealPurchase paramDealPurchase)
-  {
-    mPurchases.remove(paramDealPurchase);
-    mPurchases.add(paramDealPurchase);
-    mPurchaseMap = null;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
   }
 }
 

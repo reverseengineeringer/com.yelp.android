@@ -1,137 +1,35 @@
 package android.support.v7.internal.view.menu;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.DialogInterface.OnDismissListener;
-import android.content.DialogInterface.OnKeyListener;
-import android.os.IBinder;
-import android.view.KeyEvent;
-import android.view.KeyEvent.DispatcherState;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager.LayoutParams;
-import android.widget.ListAdapter;
-import com.yelp.android.g.k;
+import android.content.Context;
+import android.os.Parcelable;
 
-public class l
-  implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener, DialogInterface.OnKeyListener, y
+public abstract interface l
 {
-  g a;
-  private i b;
-  private AlertDialog c;
-  private y d;
+  public abstract void a(Context paramContext, f paramf);
   
-  public l(i parami)
-  {
-    b = parami;
-  }
+  public abstract void a(Parcelable paramParcelable);
   
-  public void a()
-  {
-    if (c != null) {
-      c.dismiss();
-    }
-  }
+  public abstract void a(f paramf, boolean paramBoolean);
   
-  public void a(IBinder paramIBinder)
-  {
-    Object localObject = b;
-    AlertDialog.Builder localBuilder = new AlertDialog.Builder(((i)localObject).e());
-    a = new g(com.yelp.android.g.i.abc_list_menu_item_layout, k.Theme_AppCompat_CompactMenu);
-    a.a(this);
-    b.a(a);
-    localBuilder.setAdapter(a.a(), this);
-    View localView = ((i)localObject).o();
-    if (localView != null) {
-      localBuilder.setCustomTitle(localView);
-    }
-    for (;;)
-    {
-      localBuilder.setOnKeyListener(this);
-      c = localBuilder.create();
-      c.setOnDismissListener(this);
-      localObject = c.getWindow().getAttributes();
-      type = 1003;
-      if (paramIBinder != null) {
-        token = paramIBinder;
-      }
-      flags |= 0x20000;
-      c.show();
-      return;
-      localBuilder.setIcon(((i)localObject).n()).setTitle(((i)localObject).m());
-    }
-  }
+  public abstract void a(boolean paramBoolean);
   
-  public void a(i parami, boolean paramBoolean)
-  {
-    if ((paramBoolean) || (parami == b)) {
-      a();
-    }
-    if (d != null) {
-      d.a(parami, paramBoolean);
-    }
-  }
+  public abstract boolean a();
   
-  public boolean a(i parami)
-  {
-    if (d != null) {
-      return d.a(parami);
-    }
-    return false;
-  }
+  public abstract boolean a(f paramf, h paramh);
   
-  public void onClick(DialogInterface paramDialogInterface, int paramInt)
-  {
-    b.a((m)a.a().getItem(paramInt), 0);
-  }
+  public abstract boolean a(p paramp);
   
-  public void onDismiss(DialogInterface paramDialogInterface)
-  {
-    a.a(b, true);
-  }
+  public abstract int b();
   
-  public boolean onKey(DialogInterface paramDialogInterface, int paramInt, KeyEvent paramKeyEvent)
+  public abstract boolean b(f paramf, h paramh);
+  
+  public abstract Parcelable c();
+  
+  public static abstract interface a
   {
-    if ((paramInt == 82) || (paramInt == 4)) {
-      if ((paramKeyEvent.getAction() == 0) && (paramKeyEvent.getRepeatCount() == 0))
-      {
-        paramDialogInterface = c.getWindow();
-        if (paramDialogInterface != null)
-        {
-          paramDialogInterface = paramDialogInterface.getDecorView();
-          if (paramDialogInterface != null)
-          {
-            paramDialogInterface = paramDialogInterface.getKeyDispatcherState();
-            if (paramDialogInterface != null)
-            {
-              paramDialogInterface.startTracking(paramKeyEvent, this);
-              return true;
-            }
-          }
-        }
-      }
-      else if ((paramKeyEvent.getAction() == 1) && (!paramKeyEvent.isCanceled()))
-      {
-        Object localObject = c.getWindow();
-        if (localObject != null)
-        {
-          localObject = ((Window)localObject).getDecorView();
-          if (localObject != null)
-          {
-            localObject = ((View)localObject).getKeyDispatcherState();
-            if ((localObject != null) && (((KeyEvent.DispatcherState)localObject).isTracking(paramKeyEvent)))
-            {
-              b.a(true);
-              paramDialogInterface.dismiss();
-              return true;
-            }
-          }
-        }
-      }
-    }
-    return b.performShortcut(paramInt, paramKeyEvent, 0);
+    public abstract void a(f paramf, boolean paramBoolean);
+    
+    public abstract boolean a(f paramf);
   }
 }
 

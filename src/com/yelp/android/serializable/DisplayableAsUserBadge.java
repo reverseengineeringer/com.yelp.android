@@ -5,23 +5,23 @@ import android.os.Parcelable;
 public abstract interface DisplayableAsUserBadge
   extends Parcelable
 {
-  public abstract int getFriendCount();
+  public abstract String a();
   
-  public abstract int getMediaCount();
+  public abstract String c();
   
-  public abstract int getPhotoCount();
+  public abstract boolean h();
   
-  public abstract int getReviewCount();
+  public abstract String i();
   
-  public abstract String getUserId();
+  public abstract int j_();
   
-  public abstract String getUserName();
+  public abstract int k_();
   
-  public abstract String getUserPhotoUrl();
+  public abstract int l_();
   
-  public abstract int getVideoCount();
+  public abstract int m_();
   
-  public abstract boolean isEliteUser();
+  public abstract int n_();
 }
 
 /* Location:

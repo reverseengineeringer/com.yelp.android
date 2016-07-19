@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.WidgetSpan android:orientation="horizontal" android:id="@id/delivery_pickup_toggle" android:layout_width="fill_parent" android:layout_height="@dimen/clickable_size">
+        <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/delivery_toggle_button" android:background="@drawable/segmented_control_button_background" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/delivery" android:layout_weight="1.0" yelp:checkable="true" />
+        <com.yelp.android.ui.widgets.SpannedTextView android:id="@id/pickup_toggle_button" android:background="@drawable/segmented_control_button_background" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/pickup" android:layout_weight="1.0" yelp:checkable="true" />
+    </com.yelp.android.ui.widgets.WidgetSpan>
+    <android.widget.Space android:id="@id/width_placeholder" android:visibility="invisible" android:layout_width="0.0dip" android:layout_height="0.0dip" />
+    <FrameLayout android:id="@id/delivery_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

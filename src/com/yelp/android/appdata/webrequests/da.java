@@ -1,25 +1,54 @@
 package com.yelp.android.appdata.webrequests;
 
-class da
-  extends j<Result>
+import android.text.TextUtils;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.TalkTopic;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class da
+  extends k<Void, Void, a>
 {
-  da(cz paramcz, boolean paramBoolean) {}
+  private final boolean g;
   
-  public boolean a()
+  public da(int paramInt, String paramString, k.b<a> paramb)
   {
-    cz.a(b, true);
-    return a;
+    super(ApiRequest.RequestType.GET, "talk/topics/nearby", LocationService.Accuracies.COARSE, LocationService.Recentness.DAY, paramb, LocationService.AccuracyUnit.METERS);
+    a("offset", paramInt);
+    a("limit", 20);
+    a("address", paramString);
+    g = TextUtils.isEmpty(paramString);
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    b.d = paramYelpException;
+    ArrayList localArrayList = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("topics"), TalkTopic.CREATOR);
+    int i = paramJSONObject.getInt("total");
+    return new a(localArrayList, paramJSONObject.getString("talk_location_prompt"), i);
   }
   
-  public void onSuccess(ApiRequest<?, ?, ?> paramApiRequest, Result paramResult)
+  public boolean b()
   {
-    b.c = true;
-    b.b = paramResult;
+    return g;
+  }
+  
+  public static final class a
+  {
+    public final ArrayList<TalkTopic> a;
+    public final String b;
+    public int c;
+    
+    public a(ArrayList<TalkTopic> paramArrayList, String paramString, int paramInt)
+    {
+      b = paramString;
+      a = paramArrayList;
+      c = paramInt;
+    }
   }
 }
 

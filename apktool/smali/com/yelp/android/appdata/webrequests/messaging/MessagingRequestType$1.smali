@@ -3,6 +3,17 @@
 .source "MessagingRequestType.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/messaging/MessagingRequestType;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4008
+    name = null
+.end annotation
+
+
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
@@ -37,7 +48,7 @@
     .line 16
     const-string/jumbo v0, "older_than"
 
-    invoke-virtual {p1, v0, p2}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p1, v0, p2}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->a(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 17
     return-void

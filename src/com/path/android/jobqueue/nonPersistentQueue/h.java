@@ -1,64 +1,40 @@
 package com.path.android.jobqueue.nonPersistentQueue;
 
-import com.path.android.jobqueue.b;
+import java.util.Collection;
 import java.util.Comparator;
 
 public class h
-  implements Comparator<b>
+  extends MergedQueue
 {
-  final Comparator<b> a;
-  
-  public h(Comparator<b> paramComparator)
+  public h(int paramInt, Comparator<com.path.android.jobqueue.a> paramComparator)
   {
-    a = paramComparator;
+    super(paramInt, paramComparator, new g(paramComparator));
   }
   
-  public int a(b paramb1, b paramb2)
+  public b a(long paramLong, Collection<String> paramCollection)
   {
-    int j = 0;
-    int k = 1;
-    long l = System.nanoTime();
-    int i;
-    if (paramb1.g() <= l)
-    {
-      i = 1;
-      if (paramb2.g() <= l) {
-        j = 1;
-      }
-      if (i == 0) {
-        break label73;
-      }
-      if (j == 0) {
-        break label68;
-      }
-      i = a.compare(paramb1, paramb2);
-      label57:
-      j = i;
+    return super.b(MergedQueue.SetId.S0, paramCollection).a(super.a(MergedQueue.SetId.S1, paramLong, paramCollection));
+  }
+  
+  protected c a(MergedQueue.SetId paramSetId, int paramInt, Comparator<com.path.android.jobqueue.a> paramComparator)
+  {
+    if (paramSetId == MergedQueue.SetId.S0) {
+      return new e(paramComparator);
     }
-    label68:
-    label73:
-    label98:
-    do
-    {
-      do
-      {
-        return j;
-        i = 0;
-        break;
-        i = -1;
-        break label57;
-        if (j == 0) {
-          break label98;
-        }
-        j = k;
-      } while (i == 0);
-      return a.compare(paramb1, paramb2);
-      if (paramb1.g() < paramb2.g()) {
-        return -1;
-      }
-      j = k;
-    } while (paramb1.g() > paramb2.g());
-    return a.compare(paramb1, paramb2);
+    return new e(new a(paramComparator));
+  }
+  
+  public b b(Collection<String> paramCollection)
+  {
+    throw new UnsupportedOperationException("cannot call time aware priority queue's count ready jobs w/o providing a time");
+  }
+  
+  protected MergedQueue.SetId c(com.path.android.jobqueue.a parama)
+  {
+    if (parama.g() <= System.nanoTime()) {
+      return MergedQueue.SetId.S0;
+    }
+    return MergedQueue.SetId.S1;
   }
 }
 

@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/analytics/Analytics;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = "HttpAsyncTask"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroid/os/AsyncTask",

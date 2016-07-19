@@ -3,6 +3,17 @@
 .source "FinalizableReferenceQueue.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/common/base/FinalizableReferenceQueue$a;,
+        Lcom/yelp/common/base/FinalizableReferenceQueue$DecoupledLoader;,
+        Lcom/yelp/common/base/FinalizableReferenceQueue$c;,
+        Lcom/yelp/common/base/FinalizableReferenceQueue$b;
+    }
+.end annotation
+
+
 # static fields
 .field private static final FINALIZER_CLASS_NAME:Ljava/lang/String; = "com.yelp.common.base.internal.Finalizer"
 
@@ -47,25 +58,25 @@
     .line 102
     const/4 v0, 0x2
 
-    new-array v0, v0, [Lcom/yelp/common/base/c;
+    new-array v0, v0, [Lcom/yelp/common/base/FinalizableReferenceQueue$b;
 
     const/4 v1, 0x0
 
-    new-instance v2, Lcom/yelp/common/base/d;
+    new-instance v2, Lcom/yelp/common/base/FinalizableReferenceQueue$c;
 
-    invoke-direct {v2}, Lcom/yelp/common/base/d;-><init>()V
+    invoke-direct {v2}, Lcom/yelp/common/base/FinalizableReferenceQueue$c;-><init>()V
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x1
 
-    new-instance v2, Lcom/yelp/common/base/b;
+    new-instance v2, Lcom/yelp/common/base/FinalizableReferenceQueue$a;
 
-    invoke-direct {v2}, Lcom/yelp/common/base/b;-><init>()V
+    invoke-direct {v2}, Lcom/yelp/common/base/FinalizableReferenceQueue$a;-><init>()V
 
     aput-object v2, v0, v1
 
-    invoke-static {v0}, Lcom/yelp/common/base/FinalizableReferenceQueue;->loadFinalizer([Lcom/yelp/common/base/c;)Ljava/lang/Class;
+    invoke-static {v0}, Lcom/yelp/common/base/FinalizableReferenceQueue;->loadFinalizer([Lcom/yelp/common/base/FinalizableReferenceQueue$b;)Ljava/lang/Class;
 
     move-result-object v0
 
@@ -234,12 +245,12 @@
     throw v1
 .end method
 
-.method private static varargs loadFinalizer([Lcom/yelp/common/base/c;)Ljava/lang/Class;
+.method private static varargs loadFinalizer([Lcom/yelp/common/base/FinalizableReferenceQueue$b;)Ljava/lang/Class;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
-            "Lcom/yelp/common/base/c;",
+            "Lcom/yelp/common/base/FinalizableReferenceQueue$b;",
             ")",
             "Ljava/lang/Class",
             "<*>;"
@@ -258,7 +269,7 @@
     aget-object v2, p0, v0
 
     .line 177
-    invoke-interface {v2}, Lcom/yelp/common/base/c;->loadFinalizer()Ljava/lang/Class;
+    invoke-interface {v2}, Lcom/yelp/common/base/FinalizableReferenceQueue$b;->loadFinalizer()Ljava/lang/Class;
 
     move-result-object v2
 

@@ -1,63 +1,54 @@
-.class Lcom/yelp/android/ui/util/aa;
+.class public abstract Lcom/yelp/android/ui/util/aa;
 .super Ljava/lang/Object;
-.source "GridViewSizer.java"
-
-# interfaces
-.implements Lcom/yelp/android/ui/util/cu;
+.source "MediaOpener.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/Signature;
+.annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/ui/util/cu",
-        "<TT;>;"
+        Lcom/yelp/android/ui/util/aa$a;
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/ui/util/cu;
-
-.field final synthetic b:Lcom/yelp/android/ui/util/z;
+.field protected a:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<+",
+            "Lcom/yelp/android/serializable/Media;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/util/z;Lcom/yelp/android/ui/util/cu;)V
+.method public constructor <init>(Ljava/util/List;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<+",
+            "Lcom/yelp/android/serializable/Media;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 85
-    iput-object p1, p0, Lcom/yelp/android/ui/util/aa;->b:Lcom/yelp/android/ui/util/z;
-
-    iput-object p2, p0, Lcom/yelp/android/ui/util/aa;->a:Lcom/yelp/android/ui/util/cu;
-
+    .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 19
+    iput-object p1, p0, Lcom/yelp/android/ui/util/aa;->a:Ljava/util/List;
+
+    .line 20
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/view/View;II)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;II)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 88
-    iget-object v0, p0, Lcom/yelp/android/ui/util/aa;->b:Lcom/yelp/android/ui/util/z;
-
-    invoke-virtual {v0, p2, p3}, Lcom/yelp/android/ui/util/z;->b(II)V
-
-    .line 89
-    iget-object v0, p0, Lcom/yelp/android/ui/util/aa;->a:Lcom/yelp/android/ui/util/cu;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/yelp/android/ui/util/cu;->a(Landroid/view/View;II)V
-
-    .line 90
-    return-void
+.method public abstract a(Landroid/content/Context;I)V
 .end method

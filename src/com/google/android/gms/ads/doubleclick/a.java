@@ -1,6 +1,9 @@
 package com.google.android.gms.ads.doubleclick;
 
-public abstract interface a {}
+public abstract interface a
+{
+  public abstract void a(String paramString1, String paramString2);
+}
 
 /* Location:
  * Qualified Name:     com.google.android.gms.ads.doubleclick.a

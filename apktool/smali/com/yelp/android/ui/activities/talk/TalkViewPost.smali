@@ -3,13 +3,13 @@
 .source "TalkViewPost.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/talk/v;
+.implements Lcom/yelp/android/ui/activities/talk/c;
 
 
 # instance fields
-.field private a:Lcom/yelp/android/ui/activities/talk/q;
+.field private a:Lcom/yelp/android/ui/activities/talk/b;
 
-.field private b:Lcom/yelp/android/ui/activities/talk/q;
+.field private b:Lcom/yelp/android/ui/activities/talk/b;
 
 .field private c:Lcom/yelp/android/serializable/TalkTopic;
 
@@ -21,12 +21,12 @@
 
 .field private g:Landroid/view/View$OnClickListener;
 
-.field private h:Lcom/yelp/android/appdata/webrequests/m;
+.field private h:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/aw/h;",
+            "Lcom/yelp/android/bv/c$b;",
             ">;"
         }
     .end annotation
@@ -38,27 +38,27 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 48
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
-    .line 67
+    .line 66
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->f:Z
 
-    .line 342
-    new-instance v0, Lcom/yelp/android/ui/activities/talk/ae;
+    .line 362
+    new-instance v0, Lcom/yelp/android/ui/activities/talk/TalkViewPost$7;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/talk/ae;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$7;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->g:Landroid/view/View$OnClickListener;
 
-    .line 350
-    new-instance v0, Lcom/yelp/android/ui/activities/talk/af;
+    .line 372
+    new-instance v0, Lcom/yelp/android/ui/activities/talk/TalkViewPost$8;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/talk/af;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$8;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->h:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->h:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-void
 .end method
@@ -67,19 +67,19 @@
     .locals 2
 
     .prologue
-    .line 70
+    .line 69
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/talk/TalkViewPost;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 71
-    const-string/jumbo v1, "extra.topic"
+    .line 70
+    const-string/jumbo v1, "topic"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 72
+    .line 71
     return-object v0
 .end method
 
@@ -87,7 +87,7 @@
     .locals 4
 
     .prologue
-    .line 321
+    .line 338
     invoke-virtual {p1}, Landroid/widget/TextView;->getLayout()Landroid/text/Layout;
 
     move-result-object v0
@@ -98,7 +98,7 @@
 
     move-result v0
 
-    .line 322
+    .line 339
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -119,7 +119,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f070238
+    const v1, 0x7f0706e1
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getString(I)Ljava/lang/String;
 
@@ -133,14 +133,14 @@
 
     move-result-object v0
 
-    .line 324
+    .line 341
     invoke-static {v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
 
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 325
+    .line 342
     return-void
 .end method
 
@@ -148,27 +148,27 @@
     .locals 3
 
     .prologue
-    .line 290
-    new-instance v0, Lcom/yelp/android/ui/activities/talk/ac;
+    .line 304
+    new-instance v0, Lcom/yelp/android/ui/activities/talk/TalkViewPost$5;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/yelp/android/ui/activities/talk/ac;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;Landroid/widget/TextView;Landroid/widget/Button;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$5;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;Landroid/widget/TextView;Landroid/widget/Button;)V
 
-    .line 306
-    new-instance v1, Lcom/yelp/android/ui/activities/talk/ad;
+    .line 322
+    new-instance v1, Lcom/yelp/android/ui/activities/talk/TalkViewPost$6;
 
-    invoke-direct {v1, p0, p2, p1}, Lcom/yelp/android/ui/activities/talk/ad;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;Landroid/widget/Button;Landroid/widget/TextView;)V
+    invoke-direct {v1, p0, p2, p1}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$6;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;Landroid/widget/Button;Landroid/widget/TextView;)V
 
-    .line 316
+    .line 333
     invoke-virtual {p1}, Landroid/widget/TextView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v2
 
     invoke-virtual {v2, v0}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
-    .line 317
+    .line 334
     invoke-virtual {p2, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 318
+    .line 335
     return-void
 .end method
 
@@ -176,7 +176,7 @@
     .locals 0
 
     .prologue
-    .line 49
+    .line 48
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->j()V
 
     return-void
@@ -186,7 +186,7 @@
     .locals 0
 
     .prologue
-    .line 49
+    .line 48
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Landroid/widget/TextView;I)V
 
     return-void
@@ -196,7 +196,7 @@
     .locals 0
 
     .prologue
-    .line 49
+    .line 48
     iput-boolean p1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->f:Z
 
     return p1
@@ -206,8 +206,8 @@
     .locals 0
 
     .prologue
-    .line 49
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->h()V
+    .line 48
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->i()V
 
     return-void
 .end method
@@ -216,7 +216,7 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 48
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->f:Z
 
     return v0
@@ -226,28 +226,28 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
     return-object v0
 .end method
 
-.method static synthetic e(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)Lcom/yelp/android/ui/activities/talk/q;
+.method static synthetic e(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)Lcom/yelp/android/ui/activities/talk/b;
     .locals 1
 
     .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
     return-object v0
 .end method
 
-.method static synthetic f(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)Lcom/yelp/android/ui/activities/talk/q;
+.method static synthetic f(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)Lcom/yelp/android/ui/activities/talk/b;
     .locals 1
 
     .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    .line 48
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
     return-object v0
 .end method
@@ -260,7 +260,7 @@
 
     const/4 v3, 0x0
 
-    .line 234
+    .line 247
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
@@ -271,113 +271,113 @@
 
     move-result-object v1
 
-    .line 235
+    .line 248
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 262
+    .line 275
     :goto_0
     return-void
 
-    .line 240
+    .line 253
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->b()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->b()V
 
-    .line 241
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    .line 254
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->b()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->b()V
 
-    .line 244
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    .line 257
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->f()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->f()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 245
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    .line 258
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/talk/q;->g()Z
+    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/talk/b;->g()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 246
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    .line 259
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->f()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->f()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 248
+    .line 261
     :cond_1
     if-nez v0, :cond_2
 
-    .line 249
+    .line 262
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->n()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 252
+    .line 265
     :cond_2
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->h:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->h:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {p0, v1, v0, v2}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/aw/f;
+    invoke-virtual {p0, v1, v0, v2}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/bv/c;
 
     move-result-object v0
 
-    .line 253
+    .line 266
     new-array v1, v3, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/aw/f;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/bv/c;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 254
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    .line 267
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->g()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->g()Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    .line 255
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    .line 268
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->d()Lcom/yelp/android/ui/activities/talk/j;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->d()Lcom/yelp/android/ui/activities/talk/a;
 
     move-result-object v0
 
-    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/activities/talk/j;->a(Z)V
+    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/activities/talk/a;->a(Z)V
 
-    .line 260
+    .line 273
     :goto_1
     invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Z)V
 
-    .line 261
+    .line 274
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
 
-    invoke-static {v0}, Lcom/yelp/android/ui/util/cr;->b(Landroid/view/View;)V
+    invoke-static {v0}, Lcom/yelp/android/ui/util/as;->b(Landroid/view/View;)V
 
     goto :goto_0
 
-    .line 257
+    .line 270
     :cond_3
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->d()Lcom/yelp/android/ui/activities/talk/j;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->d()Lcom/yelp/android/ui/activities/talk/a;
 
     move-result-object v0
 
-    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/activities/talk/j;->a(Z)V
+    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/activities/talk/a;->a(Z)V
 
     goto :goto_1
 .end method
@@ -386,7 +386,7 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
 
     return-object v0
@@ -400,16 +400,16 @@
 
     const/4 v1, 0x0
 
-    .line 265
+    .line 278
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b()I
 
     move-result v2
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v3
 
@@ -417,8 +417,8 @@
 
     move-result-object v2
 
-    .line 266
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 280
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -426,8 +426,8 @@
 
     invoke-virtual {v0, v2, v3, v4}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 267
-    const v0, 0x7f0c01c0
+    .line 281
+    const v0, 0x7f0f01f0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->findViewById(I)Landroid/view/View;
 
@@ -435,19 +435,19 @@
 
     check-cast v0, Landroid/view/ViewStub;
 
-    .line 268
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c()I
+    .line 282
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b()I
 
     move-result v3
 
     invoke-virtual {v0, v3}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
-    .line 269
+    .line 283
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     move-result-object v0
 
-    .line 272
+    .line 286
     const/4 v3, 0x2
 
     new-array v3, v3, [Landroid/view/View;
@@ -456,7 +456,7 @@
 
     aput-object v2, v3, v4
 
-    .line 273
+    .line 287
     array-length v4, v3
 
     move v2, v1
@@ -466,16 +466,16 @@
 
     aget-object v1, v3, v2
 
-    .line 274
+    .line 288
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->g:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 275
+    .line 289
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Landroid/view/View;)V
 
-    .line 277
-    const v0, 0x7f0c03bb
+    .line 291
+    const v0, 0x7f0f049f
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -483,10 +483,10 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 278
+    .line 292
     iget-object v5, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/TalkTopic;->getTitle()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/TalkTopic;->o()Ljava/lang/String;
 
     move-result-object v5
 
@@ -496,15 +496,15 @@
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 279
+    .line 293
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object v5
 
     invoke-virtual {v0, v5}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    .line 281
-    const v0, 0x7f0c03bd
+    .line 295
+    const v0, 0x7f0f04a1
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -512,8 +512,8 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    .line 282
-    const v5, 0x7f0c0391
+    .line 296
+    const v5, 0x7f0f046e
 
     invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -521,10 +521,10 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 283
+    .line 297
     iget-object v5, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v5}, Lcom/yelp/android/serializable/TalkTopic;->getText()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/TalkTopic;->m()Ljava/lang/String;
 
     move-result-object v5
 
@@ -534,59 +534,61 @@
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 284
+    .line 298
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object v5
 
     invoke-virtual {v1, v5}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    .line 285
+    .line 299
     invoke-direct {p0, v1, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Landroid/widget/TextView;Landroid/widget/Button;)V
 
-    .line 273
+    .line 287
     add-int/lit8 v0, v2, 0x1
 
     move v2, v0
 
     goto :goto_0
 
-    .line 287
+    .line 301
     :cond_0
     return-void
 .end method
 
-.method private h()V
+.method private i()V
     .locals 2
 
     .prologue
-    .line 330
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getHelper()Lcom/yelp/android/ui/activities/support/h;
+    .line 345
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getHelper()Lcom/yelp/android/ui/activities/support/b;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/h;->s()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/b;->t()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 331
+    .line 346
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->f()V
 
-    .line 336
+    .line 355
     :goto_0
     return-void
 
-    .line 333
+    .line 348
     :cond_0
-    const v0, 0x7f0705d2
+    const v0, 0x7f070208
 
-    invoke-static {p0, v0}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/content/Context;I)Landroid/content/Intent;
+    const v1, 0x7f0705ba
+
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/app/Activity;II)Landroid/content/Intent;
 
     move-result-object v0
 
-    const/16 v1, 0x413
+    const/16 v1, 0x418
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->startActivityForResult(Landroid/content/Intent;I)V
 
@@ -597,7 +599,7 @@
     .locals 2
 
     .prologue
-    .line 339
+    .line 358
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->e:Landroid/view/View;
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
@@ -625,10 +627,10 @@
     :goto_0
     invoke-virtual {v1, v0}, Landroid/view/View;->setEnabled(Z)V
 
-    .line 340
+    .line 360
     return-void
 
-    .line 339
+    .line 358
     :cond_0
     const/4 v0, 0x0
 
@@ -637,62 +639,62 @@
 
 
 # virtual methods
-.method public a(Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/aw/f;
+.method public a(Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/bv/c;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "I",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/aw/h;",
+            "Lcom/yelp/android/bv/c$b;",
             ">;)",
-            "Lcom/yelp/android/aw/f;"
+            "Lcom/yelp/android/bv/c;"
         }
     .end annotation
 
     .prologue
-    .line 163
-    new-instance v0, Lcom/yelp/android/aw/g;
+    .line 169
+    new-instance v0, Lcom/yelp/android/bv/c$a;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->n()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/aw/g;-><init>(Ljava/lang/String;Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/bv/c$a;-><init>(Ljava/lang/String;Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     return-object v0
 .end method
 
-.method protected a(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/aw/f;
+.method protected a(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/bv/c;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/aw/h;",
+            "Lcom/yelp/android/bv/c$b;",
             ">;)",
-            "Lcom/yelp/android/aw/f;"
+            "Lcom/yelp/android/bv/c;"
         }
     .end annotation
 
     .prologue
-    .line 223
-    new-instance v0, Lcom/yelp/android/aw/i;
+    .line 236
+    new-instance v0, Lcom/yelp/android/bv/c$c;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->n()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/aw/i;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/bv/c$c;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     return-object v0
 .end method
@@ -701,46 +703,46 @@
     .locals 2
 
     .prologue
-    .line 183
+    .line 192
     const/16 v0, 0x32
 
     if-le p1, v0, :cond_0
 
-    .line 186
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    .line 195
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/talk/q;->a(Lcom/yelp/android/ui/activities/talk/q;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/talk/b;->a(Lcom/yelp/android/ui/activities/talk/b;)V
 
-    .line 187
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    .line 196
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
     const/16 v1, 0x19
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/talk/q;->a(I)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/talk/b;->a(I)V
 
-    .line 189
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    .line 198
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
     const/4 v1, -0x5
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/talk/q;->a(I)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/talk/b;->a(I)V
 
-    .line 195
+    .line 204
     :goto_0
     return-void
 
-    .line 192
+    .line 201
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/talk/q;->a(I)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/talk/b;->a(I)V
 
-    .line 193
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    .line 202
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->c()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->c()V
 
     goto :goto_0
 .end method
@@ -749,8 +751,8 @@
     .locals 3
 
     .prologue
-    .line 202
-    const v0, 0x7f0c0362
+    .line 211
+    const v0, 0x7f0f043c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -758,25 +760,25 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 203
+    .line 212
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->isUserElite()Z
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->a()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 204
-    const v1, 0x7f070230
+    .line 213
+    const v1, 0x7f070281
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    new-instance v2, Ljava/util/Date;
+    invoke-static {}, Lcom/yelp/android/serializable/User;->j()Ljava/util/Date;
 
-    invoke-direct {v2}, Ljava/util/Date;-><init>()V
+    move-result-object v2
 
     invoke-static {v1, v2}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;Ljava/util/Date;)Ljava/lang/CharSequence;
 
@@ -784,9 +786,9 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 208
+    .line 219
     :goto_0
-    const v0, 0x7f0c0246
+    const v0, 0x7f0f025a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -796,16 +798,16 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->getUserPhotoUrl()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->j()Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f02009b
+    const v2, 0x7f0200c6
 
     invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;I)V
 
-    .line 210
-    const v0, 0x7f0c0413
+    .line 221
+    const v0, 0x7f0f025c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -815,14 +817,14 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->getUserName()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->k()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 211
-    const v0, 0x7f0c0414
+    .line 222
+    const v0, 0x7f0f0250
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -832,7 +834,7 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->getUserFriendCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->d()I
 
     move-result v1
 
@@ -842,8 +844,8 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 213
-    const v0, 0x7f0c0415
+    .line 224
+    const v0, 0x7f0f04fa
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -853,7 +855,7 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->getUserReviewCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->g()I
 
     move-result v1
 
@@ -863,8 +865,8 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 215
-    const v0, 0x7f0c0416
+    .line 226
+    const v0, 0x7f0f04fb
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -874,7 +876,7 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->getUserMediaCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/TalkTopic;->b()I
 
     move-result v1
 
@@ -884,8 +886,8 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 217
-    const v0, 0x7f0c02eb
+    .line 228
+    const v0, 0x7f0f0360
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -897,7 +899,7 @@
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/TalkTopic;->getTimeCreated()Ljava/util/Date;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/TalkTopic;->q()Ljava/util/Date;
 
     move-result-object v2
 
@@ -907,10 +909,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 219
+    .line 232
     return-void
 
-    .line 206
+    .line 217
     :cond_0
     const/16 v1, 0x8
 
@@ -923,11 +925,11 @@
     .locals 3
 
     .prologue
-    .line 172
+    .line 178
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->disableLoading()V
 
-    .line 173
-    const v0, 0x7f0705cb
+    .line 179
+    const v0, 0x7f0705b4
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getString(I)Ljava/lang/String;
 
@@ -937,7 +939,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f07041d
+    const v2, 0x7f070452
 
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getString(I)Ljava/lang/String;
 
@@ -947,13 +949,13 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->a(Landroid/support/v4/app/FragmentManager;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/AlertDialogFragment;->a(Landroid/support/v4/app/l;)V
 
-    .line 175
+    .line 184
     return-void
 .end method
 
@@ -961,16 +963,16 @@
     .locals 1
 
     .prologue
-    .line 230
+    .line 243
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->getReplyCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->h()I
 
     move-result v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(I)V
 
-    .line 231
+    .line 244
     return-void
 .end method
 
@@ -978,51 +980,24 @@
     .locals 1
 
     .prologue
-    .line 167
+    .line 173
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setEnabled(Z)V
 
-    .line 168
+    .line 174
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->j()V
 
-    .line 169
+    .line 175
     return-void
 .end method
 
-.method public a_()V
+.method protected b()I
     .locals 1
 
     .prologue
-    .line 151
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->clear()V
-
-    .line 152
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/q;->clear()V
-
-    .line 153
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Ljava/lang/String;)V
-
-    .line 154
-    return-void
-.end method
-
-.method protected c()I
-    .locals 1
-
-    .prologue
-    .line 198
-    const v0, 0x7f030152
+    .line 207
+    const v0, 0x7f0301b7
 
     return v0
 .end method
@@ -1031,17 +1006,17 @@
     .locals 1
 
     .prologue
-    .line 158
+    .line 164
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->TalkViewPost:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 49
+    .line 48
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -1053,11 +1028,11 @@
     .locals 1
 
     .prologue
-    .line 141
+    .line 147
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/YelpListActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 144
-    const/16 v0, 0x413
+    .line 150
+    const/16 v0, 0x418
 
     if-ne p1, v0, :cond_0
 
@@ -1065,10 +1040,10 @@
 
     if-ne p2, v0, :cond_0
 
-    .line 145
+    .line 151
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->f()V
 
-    .line 147
+    .line 153
     :cond_0
     return-void
 .end method
@@ -1079,20 +1054,20 @@
     .prologue
     const/4 v3, 0x3
 
-    .line 77
+    .line 76
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 78
-    const v0, 0x7f03004f
+    .line 77
+    const v0, 0x7f030058
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->setContentView(I)V
 
-    .line 80
+    .line 79
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string/jumbo v1, "extra.topic"
+    const-string/jumbo v1, "topic"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -1102,70 +1077,70 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
+    .line 80
+    new-instance v0, Lcom/yelp/android/ui/activities/talk/b;
+
+    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/activities/talk/b;-><init>(Lcom/yelp/android/ui/activities/talk/c;Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
+
     .line 81
-    new-instance v0, Lcom/yelp/android/ui/activities/talk/q;
+    new-instance v0, Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/activities/talk/q;-><init>(Lcom/yelp/android/ui/activities/talk/v;Landroid/content/Context;)V
+    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/activities/talk/b;-><init>(Lcom/yelp/android/ui/activities/talk/c;Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    .line 82
-    new-instance v0, Lcom/yelp/android/ui/activities/talk/q;
+    .line 83
+    new-instance v0, Lcom/yelp/android/ui/util/aj;
 
-    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/activities/talk/q;-><init>(Lcom/yelp/android/ui/activities/talk/v;Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    invoke-direct {v0}, Lcom/yelp/android/ui/util/aj;-><init>()V
 
     .line 84
-    new-instance v0, Lcom/yelp/android/ui/util/bs;
-
-    invoke-direct {v0}, Lcom/yelp/android/ui/util/bs;-><init>()V
-
-    .line 85
     const/4 v1, 0x1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILandroid/widget/BaseAdapter;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILandroid/widget/BaseAdapter;)V
 
-    .line 86
+    .line 85
     const/4 v1, 0x2
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/talk/q;->d()Lcom/yelp/android/ui/activities/talk/j;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/talk/b;->d()Lcom/yelp/android/ui/activities/talk/a;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILandroid/widget/BaseAdapter;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILandroid/widget/BaseAdapter;)V
+
+    .line 87
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
+
+    invoke-virtual {v0, v3, v1}, Lcom/yelp/android/ui/util/aj;->a(ILandroid/widget/BaseAdapter;)V
 
     .line 88
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
-
-    invoke-virtual {v0, v3, v1}, Lcom/yelp/android/ui/util/bs;->a(ILandroid/widget/BaseAdapter;)V
-
-    .line 89
     const/4 v1, 0x4
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/talk/q;->d()Lcom/yelp/android/ui/activities/talk/j;
+    invoke-virtual {v2}, Lcom/yelp/android/ui/activities/talk/b;->d()Lcom/yelp/android/ui/activities/talk/a;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/bs;->a(ILandroid/widget/BaseAdapter;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/aj;->a(ILandroid/widget/BaseAdapter;)V
 
     .line 91
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/q;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
 
-    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/bs;->a(I)Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/aj;->a(I)Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/talk/q;->a(Lcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/talk/b;->a(Lcom/yelp/android/ui/util/aj$b;)V
 
     .line 93
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -1176,7 +1151,7 @@
     invoke-virtual {v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
     .line 97
-    const v0, 0x7f0c03ea
+    const v0, 0x7f0f04cd
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->findViewById(I)Landroid/view/View;
 
@@ -1189,32 +1164,32 @@
     .line 98
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/talk/y;
+    new-instance v1, Lcom/yelp/android/ui/activities/talk/TalkViewPost$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/y;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$1;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 110
+    .line 112
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/talk/z;
+    new-instance v1, Lcom/yelp/android/ui/activities/talk/TalkViewPost$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/z;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$2;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    .line 116
+    .line 119
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->d:Landroid/widget/TextView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/talk/aa;
+    new-instance v1, Lcom/yelp/android/ui/activities/talk/TalkViewPost$3;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/aa;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$3;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    .line 126
-    const v0, 0x7f0c03eb
+    .line 131
+    const v0, 0x7f0f04ce
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->findViewById(I)Landroid/view/View;
 
@@ -1222,32 +1197,59 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->e:Landroid/view/View;
 
-    .line 127
+    .line 132
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->e:Landroid/view/View;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/talk/ab;
+    new-instance v1, Lcom/yelp/android/ui/activities/talk/TalkViewPost$4;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/ab;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost$4;-><init>(Lcom/yelp/android/ui/activities/talk/TalkViewPost;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 133
+    .line 139
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Z)V
 
-    .line 134
+    .line 140
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->g()V
 
-    .line 136
+    .line 142
     iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->n()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Ljava/lang/String;)V
 
-    .line 137
+    .line 143
+    return-void
+.end method
+
+.method public p_()V
+    .locals 1
+
+    .prologue
+    .line 157
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a:Lcom/yelp/android/ui/activities/talk/b;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->clear()V
+
+    .line 158
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->b:Lcom/yelp/android/ui/activities/talk/b;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/talk/b;->clear()V
+
+    .line 159
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->c:Lcom/yelp/android/serializable/TalkTopic;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/TalkTopic;->n()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->a(Ljava/lang/String;)V
+
+    .line 160
     return-void
 .end method

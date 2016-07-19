@@ -6,6 +6,14 @@
 .implements Landroid/os/Parcelable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/serializable/RankTitle$Rank;
+    }
+.end annotation
+
+
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -20,9 +28,7 @@
 
 
 # instance fields
-.field private final mLocationCount:I
-
-.field private final mLocationNames:Ljava/util/List;
+.field private final a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -33,16 +39,18 @@
     .end annotation
 .end field
 
+.field private final b:I
+
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 156
-    new-instance v0, Lcom/yelp/android/serializable/cf;
+    .line 199
+    new-instance v0, Lcom/yelp/android/serializable/RankTitle$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/cf;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/RankTitle$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/RankTitle;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -62,74 +70,55 @@
     .end annotation
 
     .prologue
-    .line 142
+    .line 185
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 143
-    iput-object p1, p0, Lcom/yelp/android/serializable/RankTitle;->mLocationNames:Ljava/util/List;
+    .line 186
+    iput-object p1, p0, Lcom/yelp/android/serializable/RankTitle;->a:Ljava/util/List;
 
-    .line 144
-    iput p2, p0, Lcom/yelp/android/serializable/RankTitle;->mLocationCount:I
+    .line 187
+    iput p2, p0, Lcom/yelp/android/serializable/RankTitle;->b:I
 
-    .line 145
+    .line 188
     return-void
 .end method
 
 
 # virtual methods
+.method public a()I
+    .locals 1
+
+    .prologue
+    .line 195
+    iget v0, p0, Lcom/yelp/android/serializable/RankTitle;->b:I
+
+    return v0
+.end method
+
 .method public describeContents()I
     .locals 1
 
     .prologue
-    .line 176
+    .line 220
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public getLocationCount()I
-    .locals 1
-
-    .prologue
-    .line 152
-    iget v0, p0, Lcom/yelp/android/serializable/RankTitle;->mLocationCount:I
-
-    return v0
-.end method
-
-.method public getLocationNames()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 148
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankTitle;->mLocationNames:Ljava/util/List;
-
-    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 170
-    iget-object v0, p0, Lcom/yelp/android/serializable/RankTitle;->mLocationNames:Ljava/util/List;
+    .line 214
+    iget-object v0, p0, Lcom/yelp/android/serializable/RankTitle;->a:Ljava/util/List;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
-    .line 171
-    iget v0, p0, Lcom/yelp/android/serializable/RankTitle;->mLocationCount:I
+    .line 215
+    iget v0, p0, Lcom/yelp/android/serializable/RankTitle;->b:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 172
+    .line 216
     return-void
 .end method

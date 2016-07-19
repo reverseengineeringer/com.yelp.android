@@ -1,12 +1,10 @@
 package com.yelp.android.ui.activities.camera;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Cap;
 import android.graphics.Paint.Style;
-import android.os.Build.VERSION;
 import android.util.AttributeSet;
 import android.view.View;
 import java.io.File;
@@ -27,13 +25,10 @@ public class ViewTakePhotoOverlay
   private int i;
   private int j;
   
-  @TargetApi(11)
   public ViewTakePhotoOverlay(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    if (Build.VERSION.SDK_INT >= 11) {
-      setLayerType(1, null);
-    }
+    setLayerType(1, null);
     f = ViewTakePhotoOverlay.CameraState.PREVIEW;
     b = new Paint();
     b.setStyle(Paint.Style.STROKE);
@@ -55,13 +50,13 @@ public class ViewTakePhotoOverlay
       e.cancel();
     }
     e = new Timer();
-    ac localac = new ac(this);
+    ViewTakePhotoOverlay.1 local1 = new ViewTakePhotoOverlay.1(this);
     if (paramLong2 > 0L)
     {
-      e.schedule(localac, paramLong1, paramLong2);
+      e.schedule(local1, paramLong1, paramLong2);
       return;
     }
-    e.schedule(localac, paramLong1);
+    e.schedule(local1, paramLong1);
   }
   
   private void a(Canvas paramCanvas, Paint paramPaint)
@@ -101,7 +96,7 @@ public class ViewTakePhotoOverlay
   protected void onDraw(Canvas paramCanvas)
   {
     super.onDraw(paramCanvas);
-    switch (ae.a[f.ordinal()])
+    switch (ViewTakePhotoOverlay.2.a[f.ordinal()])
     {
     default: 
     case 1: 

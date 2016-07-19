@@ -1,32 +1,27 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Compliment;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.YelpBusinessReview;
+import com.yelp.parcelgen.JsonUtil;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class bb
+  extends k<Void, Void, List<YelpBusinessReview>>
 {
-  final List<Compliment> a;
-  final boolean b;
-  
-  private bb(List<Compliment> paramList, boolean paramBoolean)
+  public bb(String paramString, k.b<List<YelpBusinessReview>> paramb)
   {
-    a = paramList;
-    if ((!paramList.isEmpty()) && (paramBoolean)) {}
-    for (paramBoolean = true;; paramBoolean = false)
-    {
-      b = paramBoolean;
-      return;
-    }
+    super(ApiRequest.RequestType.GET, "deal/reviews", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.MILES);
+    a("deal_id", paramString);
   }
   
-  public List<Compliment> a()
+  public List<YelpBusinessReview> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return a;
-  }
-  
-  public boolean b()
-  {
-    return b;
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("reviews"), YelpBusinessReview.CREATOR);
   }
 }
 

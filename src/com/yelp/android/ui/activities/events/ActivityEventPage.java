@@ -1,21 +1,20 @@
 package com.yelp.android.ui.activities.events;
 
-import android.app.Dialog;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.text.TextUtils;
 import com.yelp.android.analytics.iris.IriSource;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.o;
+import com.yelp.android.analytics.n;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.av.a;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
 import com.yelp.android.serializable.Event;
 import com.yelp.android.serializable.Event.EventType;
-import com.yelp.android.services.l;
 import com.yelp.android.ui.activities.support.YelpActivity;
 
 public class ActivityEventPage
@@ -44,10 +43,11 @@ public class ActivityEventPage
     return null;
   }
   
+  @SuppressLint({"CommitTransaction"})
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = ((EventFragment)getSupportFragmentManager().findFragmentByTag("tag_event_fragment"));
+    a = ((EventFragment)getSupportFragmentManager().a("tag_event_fragment"));
     Object localObject;
     if (a == null)
     {
@@ -60,11 +60,11 @@ public class ActivityEventPage
       paramBundle = IriSource.PushNotification;
       localObject = getIntent().getData();
       a = EventFragment.a(((Uri)localObject).getLastPathSegment(), Event.EventType.getEventTypeFromUri((Uri)localObject), paramBundle);
-      AppData.b().k().a(new o((Uri)localObject));
+      AppData.b().k().a(new n((Uri)localObject));
     }
     for (;;)
     {
-      getSupportFragmentManager().beginTransaction().replace(2131493332, a, "tag_event_fragment").commit();
+      getSupportFragmentManager().a().b(2131689997, a, "tag_event_fragment").a();
       return;
       label113:
       paramBundle = IriSource.Link;
@@ -75,21 +75,13 @@ public class ActivityEventPage
       if (TextUtils.isEmpty((CharSequence)localObject))
       {
         localObject = (IriSource)getIntent().getSerializableExtra("extra_event_source");
-        a = EventFragment.a(paramBundle, paramBundle.getType(), (IriSource)localObject);
+        a = EventFragment.a(paramBundle, paramBundle.K(), (IriSource)localObject);
       }
       else
       {
         a = EventFragment.a(paramBundle, (String)localObject);
       }
     }
-  }
-  
-  protected Dialog onCreateDialog(int paramInt, Bundle paramBundle)
-  {
-    if (paramInt == 1) {
-      return l.a(this, new ak(a.d()), 2131166564);
-    }
-    return null;
   }
 }
 

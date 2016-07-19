@@ -1,15 +1,23 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class bm
-  extends h
+  extends b<Void, Void, String>
 {
-  public bm(String paramString, i parami)
+  public bm(String paramString1, String paramString2, ApiRequest.b<String> paramb)
   {
-    super("quicktips/delete", parami);
-    addPostParam("quicktip_id", paramString);
+    super(ApiRequest.RequestType.POST, "event/flag", paramb);
+    b("event_id", paramString1);
+    b("message", paramString2);
+  }
+  
+  public String a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return paramJSONObject.getString("success_title");
   }
 }
 

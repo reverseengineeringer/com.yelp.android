@@ -3,6 +3,14 @@
 .source "ActivityRecents.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/ActivityRecents$a;
+    }
+.end annotation
+
+
 # static fields
 .field private static final a:[Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
@@ -30,7 +38,7 @@
     .end annotation
 .end field
 
-.field private d:Lcom/yelp/android/ui/activities/dr;
+.field private d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
 .field private e:Z
 
@@ -40,7 +48,7 @@
     .locals 3
 
     .prologue
-    .line 45
+    .line 47
     const/4 v0, 0x7
 
     new-array v0, v0, [Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
@@ -96,10 +104,10 @@
     .locals 0
 
     .prologue
-    .line 41
+    .line 43
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
-    .line 250
+    .line 271
     return-void
 .end method
 
@@ -107,7 +115,7 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 43
     invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/ActivityRecents;->a(Landroid/widget/AdapterView;I)Landroid/view/View;
 
     move-result-object v0
@@ -119,7 +127,7 @@
     .locals 1
 
     .prologue
-    .line 41
+    .line 43
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->b:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
     return-object v0
@@ -129,7 +137,7 @@
     .locals 0
 
     .prologue
-    .line 41
+    .line 43
     iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     return-object p1
@@ -139,17 +147,17 @@
     .locals 4
 
     .prologue
-    .line 150
+    .line 157
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_2
 
-    .line 151
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    .line 158
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 152
+    .line 159
     const/4 v0, 0x0
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
@@ -163,7 +171,7 @@
     :goto_0
     if-ge v1, v3, :cond_1
 
-    .line 153
+    .line 160
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -172,7 +180,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v0
 
@@ -182,12 +190,12 @@
 
     if-eqz v0, :cond_0
 
-    .line 154
+    .line 161
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1, p1}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 152
+    .line 159
     :cond_0
     add-int/lit8 v0, v1, 0x1
 
@@ -195,29 +203,29 @@
 
     goto :goto_0
 
-    .line 157
+    .line 164
     :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->b:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;->notifyDataSetChanged()V
 
-    .line 159
+    .line 166
     :cond_2
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/g;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->f()Lcom/yelp/android/database/d;
+    invoke-virtual {v0}, Lcom/yelp/android/database/g;->d()Lcom/yelp/android/database/b;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/database/d;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/database/b;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 161
+    .line 170
     return-void
 .end method
 
@@ -229,12 +237,12 @@
 
     const/4 v3, -0x2
 
-    .line 221
+    .line 234
     new-instance v0, Landroid/widget/LinearLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    .line 222
+    .line 235
     new-instance v1, Landroid/widget/AbsListView$LayoutParams;
 
     const/4 v2, 0x3
@@ -243,23 +251,23 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 224
+    .line 238
     new-instance v1, Landroid/widget/Button;
 
     invoke-direct {v1, p0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
 
-    .line 225
+    .line 239
     const/16 v2, 0x11
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setGravity(I)V
 
-    .line 226
+    .line 240
     new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
 
     invoke-direct {v2, v4, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
 
-    .line 228
-    sget v3, Lcom/yelp/android/appdata/ao;->e:I
+    .line 242
+    sget v3, Lcom/yelp/android/appdata/n;->e:I
 
     iput v3, v2, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
@@ -269,26 +277,65 @@
 
     iput v3, v2, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
 
-    .line 229
+    .line 244
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 230
-    const v2, 0x7f07014f
+    .line 245
+    const v2, 0x7f0701d1
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(I)V
 
-    .line 231
-    new-instance v2, Lcom/yelp/android/ui/activities/dq;
+    .line 246
+    const/16 v2, 0x15
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/dq;-><init>(Lcom/yelp/android/ui/activities/ActivityRecents;)V
+    invoke-static {v2}, Lcom/yelp/android/appdata/f;->a(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    .line 247
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f020485
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    .line 251
+    :goto_0
+    new-instance v2, Lcom/yelp/android/ui/activities/ActivityRecents$3;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/ActivityRecents$3;-><init>(Lcom/yelp/android/ui/activities/ActivityRecents;)V
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 239
+    .line 260
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    .line 240
+    .line 261
     return-object v0
+
+    .line 249
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0204c5
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_0
 .end method
 
 
@@ -297,7 +344,7 @@
     .locals 2
 
     .prologue
-    .line 132
+    .line 138
     invoke-virtual {p1}, Landroid/widget/ListView;->getAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
@@ -308,59 +355,59 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 133
+    .line 139
     if-eqz v0, :cond_0
 
-    .line 134
+    .line 140
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->e:Z
 
-    .line 135
+    .line 141
     invoke-static {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 136
+    .line 142
     const/16 v1, 0x64
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/ActivityRecents;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 138
+    .line 144
     :cond_0
     return-void
 .end method
 
-.method public c()Lcom/yelp/android/ui/activities/dr;
+.method public b()Lcom/yelp/android/ui/activities/ActivityRecents$a;
     .locals 1
 
     .prologue
-    .line 118
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/dr;
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
     return-object v0
 .end method
 
-.method public e()Lcom/yelp/android/ui/activities/dr;
+.method public e()Lcom/yelp/android/ui/activities/ActivityRecents$a;
     .locals 1
 
     .prologue
-    .line 123
+    .line 129
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->getLastCustomNonConfigurationInstance()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/dr;
+    check-cast v0, Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
-    .line 124
+    .line 130
     if-nez v0, :cond_0
 
-    .line 125
-    new-instance v0, Lcom/yelp/android/ui/activities/dr;
+    .line 131
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/activities/dr;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/activities/ActivityRecents$a;-><init>()V
 
-    .line 127
+    .line 133
     :cond_0
     return-object v0
 .end method
@@ -369,17 +416,17 @@
     .locals 1
 
     .prologue
-    .line 165
+    .line 174
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Recents:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 41
+    .line 43
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -391,8 +438,8 @@
     .locals 1
 
     .prologue
-    .line 41
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->e()Lcom/yelp/android/ui/activities/dr;
+    .line 43
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->e()Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
     move-result-object v0
 
@@ -403,10 +450,10 @@
     .locals 1
 
     .prologue
-    .line 142
+    .line 148
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/YelpListActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 143
+    .line 149
     const/16 v0, 0x64
 
     if-ne p1, v0, :cond_0
@@ -421,7 +468,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 145
+    .line 152
     const-string/jumbo v0, "extra.business"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -432,7 +479,7 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRecents;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 147
+    .line 154
     :cond_0
     return-void
 .end method
@@ -445,58 +492,58 @@
 
     const/4 v2, 0x0
 
-    .line 62
+    .line 65
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 63
-    const v0, 0x7f0704bc
+    .line 66
+    const v0, 0x7f0704d7
 
     invoke-super {p0, v0}, Lcom/yelp/android/ui/util/YelpListActivity;->setTitle(I)V
 
-    .line 64
+    .line 67
     iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->e:Z
 
-    .line 65
+    .line 68
     new-instance v0, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
     invoke-direct {v0, p0}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->b:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
-    .line 66
+    .line 69
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->b:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
     sget-object v1, Lcom/yelp/android/ui/activities/ActivityRecents;->a:[Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;->a([Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;)V
 
-    .line 67
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 70
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    .line 68
+    .line 71
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->f()Landroid/view/View;
 
     move-result-object v1
 
     invoke-virtual {v0, v1, v3, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addFooterView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 69
+    .line 72
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->b:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 70
+    .line 73
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 71
+    .line 74
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRecents;->registerForContextMenu(Landroid/view/View;)V
 
-    .line 72
+    .line 75
     if-eqz p1, :cond_0
 
-    .line 73
+    .line 76
     const-string/jumbo v0, "businesses"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
@@ -505,23 +552,23 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
-    .line 76
+    .line 79
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     if-nez v0, :cond_2
 
-    .line 77
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->e()Lcom/yelp/android/ui/activities/dr;
+    .line 80
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->e()Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/dr;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
-    .line 78
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/dr;
+    .line 81
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/dr;->getStatus()Landroid/os/AsyncTask$Status;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityRecents$a;->getStatus()Landroid/os/AsyncTask$Status;
 
     move-result-object v0
 
@@ -529,8 +576,8 @@
 
     if-ne v0, v1, :cond_1
 
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/dr;
+    .line 82
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
     const/4 v1, 0x1
 
@@ -538,17 +585,17 @@
 
     aput-object p0, v1, v2
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/dr;->b([Ljava/lang/Object;)Lcom/yelp/android/util/aa;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/ActivityRecents$a;->b([Ljava/lang/Object;)Lcom/yelp/android/util/q;
 
-    .line 81
+    .line 84
     :cond_1
     invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/ActivityRecents;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 86
+    .line 89
     :goto_0
     return-void
 
-    .line 83
+    .line 86
     :cond_2
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->b:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
@@ -556,16 +603,16 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;->a(Ljava/util/List;)V
 
-    .line 84
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 87
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
-    const v2, 0x7f07023e
+    const v2, 0x7f070291
 
     invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityRecents;->a(Landroid/widget/AdapterView;I)Landroid/view/View;
 
@@ -580,21 +627,21 @@
     .locals 2
 
     .prologue
-    .line 208
+    .line 221
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
 
-    .line 209
+    .line 222
     instance-of v0, p3, Landroid/widget/AdapterView$AdapterContextMenuInfo;
 
     if-eqz v0, :cond_0
 
-    .line 210
+    .line 223
     check-cast p3, Landroid/widget/AdapterView$AdapterContextMenuInfo;
 
-    .line 211
+    .line 224
     check-cast p2, Landroid/widget/AdapterView;
 
-    .line 212
+    .line 225
     invoke-virtual {p2}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
@@ -607,22 +654,22 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 213
-    invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/util/bf;->a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
+    .line 226
+    invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/util/ab;->a(Landroid/content/Context;Landroid/view/ContextMenu;Lcom/yelp/android/serializable/YelpBusiness;)V
 
-    .line 214
-    const v1, 0x7f020078
+    .line 227
+    const v1, 0x7f02008e
 
     invoke-interface {p1, v1}, Landroid/view/ContextMenu;->setHeaderIcon(I)Landroid/view/ContextMenu;
 
-    .line 215
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
+    .line 228
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
-    .line 217
+    .line 230
     :cond_0
     return-void
 .end method
@@ -631,10 +678,10 @@
     .locals 3
 
     .prologue
-    .line 178
+    .line 187
     packed-switch p1, :pswitch_data_0
 
-    .line 203
+    .line 216
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreateDialog(I)Landroid/app/Dialog;
 
     move-result-object v0
@@ -642,29 +689,29 @@
     :goto_0
     return-object v0
 
-    .line 180
+    .line 189
     :pswitch_0
-    const v0, 0x7f070077
+    const v0, 0x7f0700f2
 
-    invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/util/cp;->a(Landroid/content/Context;II)Landroid/app/AlertDialog$Builder;
+    invoke-static {p0, p1, v0}, Lcom/yelp/android/ui/util/ar;->a(Landroid/content/Context;II)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0706b8
+    const v1, 0x7f070689
 
-    new-instance v2, Lcom/yelp/android/ui/activities/dp;
+    new-instance v2, Lcom/yelp/android/ui/activities/ActivityRecents$2;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/dp;-><init>(Lcom/yelp/android/ui/activities/ActivityRecents;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/ActivityRecents$2;-><init>(Lcom/yelp/android/ui/activities/ActivityRecents;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0703e9
+    const v1, 0x7f07041b
 
-    new-instance v2, Lcom/yelp/android/ui/activities/do;
+    new-instance v2, Lcom/yelp/android/ui/activities/ActivityRecents$1;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/do;-><init>(Lcom/yelp/android/ui/activities/ActivityRecents;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/ActivityRecents$1;-><init>(Lcom/yelp/android/ui/activities/ActivityRecents;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -676,9 +723,9 @@
 
     goto :goto_0
 
-    .line 178
+    .line 187
     :pswitch_data_0
-    .packed-switch 0x7f070078
+    .packed-switch 0x7f0700f3
         :pswitch_0
     .end packed-switch
 .end method
@@ -687,21 +734,21 @@
     .locals 1
 
     .prologue
-    .line 112
+    .line 118
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->onPause()V
 
-    .line 113
+    .line 119
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->t()Lcom/yelp/android/appdata/k;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->y()Lcom/yelp/android/appdata/e;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/k;->b()V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/e;->b()V
 
-    .line 114
+    .line 120
     return-void
 .end method
 
@@ -711,25 +758,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 90
+    .line 93
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->onResume()V
 
-    .line 92
+    .line 95
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     if-nez v0, :cond_2
 
-    .line 93
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->e()Lcom/yelp/android/ui/activities/dr;
+    .line 96
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->e()Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/dr;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/dr;
+    .line 97
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/dr;->getStatus()Landroid/os/AsyncTask$Status;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityRecents$a;->getStatus()Landroid/os/AsyncTask$Status;
 
     move-result-object v0
 
@@ -737,8 +784,8 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/dr;
+    .line 98
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->d:Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
     const/4 v1, 0x1
 
@@ -746,55 +793,55 @@
 
     aput-object p0, v1, v2
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/dr;->b([Ljava/lang/Object;)Lcom/yelp/android/util/aa;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/ActivityRecents$a;->b([Ljava/lang/Object;)Lcom/yelp/android/util/q;
 
-    .line 97
+    .line 100
     :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityRecents;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 104
+    .line 110
     :goto_0
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->e:Z
 
     if-eqz v0, :cond_1
 
-    .line 105
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 111
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setSelection(I)V
 
-    .line 106
+    .line 112
     iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->e:Z
 
-    .line 108
+    .line 114
     :cond_1
     return-void
 
-    .line 99
+    .line 102
     :cond_2
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/g;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->f()Lcom/yelp/android/database/d;
+    invoke-virtual {v0}, Lcom/yelp/android/database/g;->d()Lcom/yelp/android/database/b;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/d;->a()Ljava/util/ArrayList;
+    invoke-virtual {v0}, Lcom/yelp/android/database/b;->a()Ljava/util/ArrayList;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
-    .line 101
+    .line 107
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->b:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
@@ -808,8 +855,8 @@
     .locals 1
 
     .prologue
-    .line 41
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->c()Lcom/yelp/android/ui/activities/dr;
+    .line 43
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRecents;->b()Lcom/yelp/android/ui/activities/ActivityRecents$a;
 
     move-result-object v0
 
@@ -820,22 +867,22 @@
     .locals 2
 
     .prologue
-    .line 170
+    .line 179
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 171
+    .line 180
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
-    .line 172
+    .line 181
     const-string/jumbo v0, "businesses"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityRecents;->c:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 174
+    .line 183
     :cond_0
     return-void
 .end method

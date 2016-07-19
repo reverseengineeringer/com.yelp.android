@@ -1,33 +1,40 @@
 package com.yelp.android.ui.util;
 
-import android.content.Context;
-import android.location.Location;
-import com.yelp.android.analytics.iris.EventIri;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.db;
-import com.yelp.android.appdata.webrequests.fy;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.av.a;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.text.Spanned;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.SimpleAdapter.ViewBinder;
+import android.widget.TextView;
+import com.yelp.android.ui.widgets.WebImageView;
 
-public class aw<T>
-  extends bz<T>
+public class aw
+  implements SimpleAdapter.ViewBinder
 {
-  public aw(List<CharSequence> paramList, ArrayList<CharSequence> paramArrayList1, ArrayList<CharSequence> paramArrayList2, boolean paramBoolean1, boolean paramBoolean2, cc<T> paramcc)
+  private int a;
+  
+  public aw(int paramInt)
   {
-    super(paramList, paramArrayList1, paramArrayList2, paramBoolean1, false, paramBoolean2, paramcc);
+    a = paramInt;
   }
   
-  protected fy a(String paramString1, m<List<T>> paramm, Location paramLocation, String paramString2)
+  public boolean setViewValue(View paramView, Object paramObject, String paramString)
   {
-    return new db(paramString1, paramLocation, paramm);
-  }
-  
-  protected void a(Context paramContext, HashMap<String, Object> paramHashMap)
-  {
-    AppData.b().k().a(EventIri.SearchBarSuggestLocation, paramHashMap);
+    if ((paramView instanceof WebImageView))
+    {
+      ((WebImageView)paramView).setImageUrl(paramString, a);
+      return true;
+    }
+    if (((paramView instanceof ImageView)) && ((paramObject instanceof Double)))
+    {
+      ar.a((ImageView)paramView, ((Double)paramObject).floatValue());
+      return true;
+    }
+    if (((paramView instanceof TextView)) && ((paramObject instanceof Spanned)))
+    {
+      ((TextView)paramView).setText((Spanned)paramObject);
+      return true;
+    }
+    return false;
   }
 }
 

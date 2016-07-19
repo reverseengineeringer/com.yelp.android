@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.GestureDetector;
+import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ScaleGestureDetector.SimpleOnScaleGestureListener;
@@ -18,7 +19,7 @@ public class ScaleWebImageView
   extends ShadowWebImageView
 {
   private ScaleGestureDetector a;
-  private ao b;
+  private c b;
   private GestureDetector c;
   private Matrix d;
   private float e;
@@ -30,7 +31,34 @@ public class ScaleWebImageView
   private boolean k;
   private int l;
   private int m;
-  private final ScaleGestureDetector.SimpleOnScaleGestureListener n = new al(this);
+  private final ScaleGestureDetector.SimpleOnScaleGestureListener n = new ScaleGestureDetector.SimpleOnScaleGestureListener()
+  {
+    public boolean onScale(ScaleGestureDetector paramAnonymousScaleGestureDetector)
+    {
+      ScaleWebImageView.a(ScaleWebImageView.this, paramAnonymousScaleGestureDetector.getScaleFactor(), paramAnonymousScaleGestureDetector.getFocusX(), paramAnonymousScaleGestureDetector.getFocusY());
+      return true;
+    }
+    
+    public boolean onScaleBegin(ScaleGestureDetector paramAnonymousScaleGestureDetector)
+    {
+      if (!ScaleWebImageView.d(ScaleWebImageView.this)) {
+        return false;
+      }
+      ScaleWebImageView.a(ScaleWebImageView.this, false);
+      ScaleWebImageView.b(ScaleWebImageView.this, false);
+      return true;
+    }
+    
+    public void onScaleEnd(ScaleGestureDetector paramAnonymousScaleGestureDetector)
+    {
+      if (ScaleWebImageView.a(ScaleWebImageView.this) < ScaleWebImageView.b(ScaleWebImageView.this))
+      {
+        postDelayed(new ScaleWebImageView.b(ScaleWebImageView.this, ScaleWebImageView.b(ScaleWebImageView.this), getWidth() / 2, getHeight() / 2, true), 16L);
+        return;
+      }
+      postDelayed(new ScaleWebImageView.a(ScaleWebImageView.this), 16L);
+    }
+  };
   
   public ScaleWebImageView(Context paramContext)
   {
@@ -47,7 +75,31 @@ public class ScaleWebImageView
   private void a()
   {
     a = new ScaleGestureDetector(getContext(), n);
-    c = new GestureDetector(getContext(), new ak(this));
+    c = new GestureDetector(getContext(), new GestureDetector.SimpleOnGestureListener()
+    {
+      public boolean onDoubleTap(MotionEvent paramAnonymousMotionEvent)
+      {
+        if (ScaleWebImageView.a(ScaleWebImageView.this) > ScaleWebImageView.b(ScaleWebImageView.this))
+        {
+          ScaleWebImageView.a(ScaleWebImageView.this, false);
+          postDelayed(new ScaleWebImageView.b(ScaleWebImageView.this, ScaleWebImageView.b(ScaleWebImageView.this), paramAnonymousMotionEvent.getX(), paramAnonymousMotionEvent.getY(), true), 16L);
+        }
+        while (ScaleWebImageView.a(ScaleWebImageView.this) != ScaleWebImageView.b(ScaleWebImageView.this)) {
+          return true;
+        }
+        ScaleWebImageView.a(ScaleWebImageView.this, false);
+        postDelayed(new ScaleWebImageView.b(ScaleWebImageView.this, ScaleWebImageView.b(ScaleWebImageView.this) * 2.0F, paramAnonymousMotionEvent.getX(), paramAnonymousMotionEvent.getY(), false), 16L);
+        return true;
+      }
+      
+      public boolean onSingleTapConfirmed(MotionEvent paramAnonymousMotionEvent)
+      {
+        if (ScaleWebImageView.c(ScaleWebImageView.this) != null) {
+          ScaleWebImageView.c(ScaleWebImageView.this).a();
+        }
+        return true;
+      }
+    });
     d = new Matrix();
     d.setScale(1.0F, 1.0F);
     i = new PointF();
@@ -272,9 +324,149 @@ public class ScaleWebImageView
     b();
   }
   
-  public void setTapListener(ao paramao)
+  public void setTapListener(c paramc)
   {
-    b = paramao;
+    b = paramc;
+  }
+  
+  private class a
+    implements Runnable
+  {
+    private final long b = System.currentTimeMillis();
+    private final float c;
+    private final float d;
+    private final float e;
+    private final float f;
+    
+    public a()
+    {
+      Pair localPair = ScaleWebImageView.e(ScaleWebImageView.this);
+      float[] arrayOfFloat = new float[9];
+      ScaleWebImageView.f(ScaleWebImageView.this).getValues(arrayOfFloat);
+      c = arrayOfFloat[2];
+      e = arrayOfFloat[5];
+      d = (((Float)first).floatValue() + c);
+      f = (((Float)second).floatValue() + e);
+    }
+    
+    public void run()
+    {
+      long l = System.currentTimeMillis() - b;
+      float[] arrayOfFloat = new float[9];
+      ScaleWebImageView.f(ScaleWebImageView.this).getValues(arrayOfFloat);
+      float f1 = arrayOfFloat[2];
+      float f2 = arrayOfFloat[5];
+      if (l >= 200L)
+      {
+        ScaleWebImageView.f(ScaleWebImageView.this).postTranslate(d - f1, f - f2);
+        ScaleWebImageView.a(ScaleWebImageView.this, true);
+      }
+      for (;;)
+      {
+        setImageMatrix(ScaleWebImageView.f(ScaleWebImageView.this));
+        return;
+        float f3 = (float)l / 200.0F;
+        float f4 = c;
+        float f5 = d;
+        float f6 = c;
+        float f7 = e;
+        float f8 = f;
+        float f9 = e;
+        ScaleWebImageView.f(ScaleWebImageView.this).postTranslate(f4 + (f5 - f6) * f3 - f1, f3 * (f8 - f9) + f7 - f2);
+        postDelayed(this, 16L);
+      }
+    }
+  }
+  
+  private class b
+    implements Runnable
+  {
+    private final long b = System.currentTimeMillis();
+    private final float c = ScaleWebImageView.a(ScaleWebImageView.this);
+    private final float d;
+    private final float e;
+    private final float f;
+    private final boolean g;
+    private final float h;
+    private final float i;
+    
+    public b(float paramFloat1, float paramFloat2, float paramFloat3, boolean paramBoolean)
+    {
+      d = paramFloat1;
+      e = paramFloat2;
+      f = paramFloat3;
+      g = paramBoolean;
+      float[] arrayOfFloat = new float[9];
+      ScaleWebImageView.f(ScaleWebImageView.this).getValues(arrayOfFloat);
+      h = arrayOfFloat[2];
+      i = arrayOfFloat[5];
+    }
+    
+    public void run()
+    {
+      long l = System.currentTimeMillis() - b;
+      float f4;
+      float[] arrayOfFloat;
+      float f5;
+      float f6;
+      if (l >= 200L)
+      {
+        ScaleWebImageView.f(ScaleWebImageView.this).postScale(d / ScaleWebImageView.a(ScaleWebImageView.this), d / ScaleWebImageView.a(ScaleWebImageView.this), e, f);
+        ScaleWebImageView.a(ScaleWebImageView.this, d);
+        if (g)
+        {
+          f1 = getWidth() / 2;
+          f2 = d * ScaleWebImageView.g(ScaleWebImageView.this) / 2.0F;
+          f3 = getHeight() / 2;
+          f4 = d * ScaleWebImageView.h(ScaleWebImageView.this) / 2.0F;
+          arrayOfFloat = new float[9];
+          ScaleWebImageView.f(ScaleWebImageView.this).getValues(arrayOfFloat);
+          f5 = arrayOfFloat[2];
+          f6 = arrayOfFloat[5];
+          ScaleWebImageView.f(ScaleWebImageView.this).postTranslate(f1 - f2 - f5, f3 - f4 - f6);
+        }
+        for (;;)
+        {
+          ScaleWebImageView.a(ScaleWebImageView.this, true);
+          setImageMatrix(ScaleWebImageView.f(ScaleWebImageView.this));
+          return;
+          ScaleWebImageView.i(ScaleWebImageView.this);
+        }
+      }
+      float f1 = (float)l / 200.0F;
+      float f2 = c + (d - c) * f1;
+      float f3 = f2 / ScaleWebImageView.a(ScaleWebImageView.this);
+      ScaleWebImageView.a(ScaleWebImageView.this, f2);
+      ScaleWebImageView.f(ScaleWebImageView.this).postScale(f3, f3, e, f);
+      if (g)
+      {
+        f2 = getWidth() / 2;
+        f3 = d * ScaleWebImageView.g(ScaleWebImageView.this) / 2.0F;
+        f4 = getHeight() / 2;
+        f5 = d * ScaleWebImageView.h(ScaleWebImageView.this) / 2.0F;
+        arrayOfFloat = new float[9];
+        ScaleWebImageView.f(ScaleWebImageView.this).getValues(arrayOfFloat);
+        f6 = arrayOfFloat[2];
+        float f7 = arrayOfFloat[5];
+        float f8 = h;
+        float f9 = h;
+        float f10 = i;
+        float f11 = i;
+        ScaleWebImageView.f(ScaleWebImageView.this).postTranslate((f2 - f3 - f9) * f1 + f8 - f6, f1 * (f4 - f5 - f11) + f10 - f7);
+      }
+      for (;;)
+      {
+        setImageMatrix(ScaleWebImageView.f(ScaleWebImageView.this));
+        postDelayed(this, 16L);
+        return;
+        ScaleWebImageView.i(ScaleWebImageView.this);
+      }
+    }
+  }
+  
+  public static abstract interface c
+  {
+    public abstract void a();
   }
 }
 

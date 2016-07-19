@@ -8,23 +8,37 @@
 
 .field private b:Landroid/widget/EditText;
 
-.field private c:Landroid/widget/EditText;
+.field private c:Landroid/widget/TextView;
 
-.field private d:Landroid/widget/EditText;
+.field private d:Lcom/yelp/android/serializable/BusinessAttributes;
 
-.field private e:Landroid/widget/EditText;
+.field private e:Landroid/widget/LinearLayout;
 
-.field private f:Landroid/widget/TextView;
+.field private f:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Landroid/widget/EditText;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private g:Landroid/widget/TextView;
+.field private g:Ljava/util/LinkedHashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/LinkedHashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private h:Landroid/widget/TextView;
-
-.field private i:Landroid/widget/TextView;
-
-.field private j:Ljava/lang/String;
-
-.field private final k:Landroid/text/TextWatcher;
+.field private final h:Landroid/text/TextWatcher;
 
 
 # direct methods
@@ -32,181 +46,254 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 38
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 203
-    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/v;
+    .line 226
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/EditName$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/v;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditName;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName$2;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditName;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->k:Landroid/text/TextWatcher;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->h:Landroid/text/TextWatcher;
 
     return-void
 .end method
 
-.method public static final a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+.method public static final a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/BusinessAttributes;)Landroid/content/Intent;
     .locals 2
 
     .prologue
-    .line 65
-    invoke-static {p0, p6}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    .line 66
-    const-string/jumbo v1, "business"
-
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    .line 67
-    const-string/jumbo v1, "name"
-
-    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 68
-    const-string/jumbo v1, "yomi_name"
-
-    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 69
-    const-string/jumbo v1, "english_name"
-
-    invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 70
-    const-string/jumbo v1, "romaji_name"
-
-    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 71
-    return-object v0
-.end method
-
-.method public static final a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 2
-
-    .prologue
-    .line 51
+    .line 72
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/mutatebiz/EditName;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 52
-    const-string/jumbo v1, "business_country"
+    .line 73
+    const-string/jumbo v1, "extra.business"
 
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 53
+    .line 74
+    const-string/jumbo v1, "extra.name"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 75
+    const-string/jumbo v1, "extra.yomi_name"
+
+    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 76
+    const-string/jumbo v1, "extra.english_name"
+
+    invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 77
+    const-string/jumbo v1, "extra.romaji_name"
+
+    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 78
+    const-string/jumbo v1, "extra.business_attributes"
+
+    invoke-virtual {v0, v1, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    .line 79
     return-object v0
 .end method
 
 .method private a()V
-    .locals 3
+    .locals 6
 
     .prologue
-    .line 175
-    new-instance v0, Landroid/content/Intent;
+    .line 183
+    new-instance v3, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
 
+    move-result-object v0
+
+    invoke-direct {v3, v0}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+
+    .line 184
+    const-string/jumbo v0, "extra.name"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
     move-result-object v1
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    .line 176
-    const-string/jumbo v1, "name"
+    move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+    invoke-virtual {v3, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    .line 185
+    const-string/jumbo v0, ""
 
-    move-result-object v2
+    .line 186
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v2, "ja_primary"
 
-    move-result-object v2
+    invoke-interface {v1, v2}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-result v1
 
-    .line 177
-    const-string/jumbo v1, "yomi_name"
+    if-eqz v1, :cond_2
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/EditText;
+    .line 187
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    const-string/jumbo v1, "ja_romanized"
 
-    move-result-object v2
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v2
+    check-cast v0, Landroid/widget/EditText;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    .line 178
-    const-string/jumbo v1, "english_name"
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    move-result-object v0
 
-    move-result-object v2
+    move-object v1, v0
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    .line 189
+    :goto_0
+    const-string/jumbo v0, ""
 
-    move-result-object v2
+    .line 190
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const-string/jumbo v4, "en_primary"
 
-    .line 179
-    const-string/jumbo v1, "romaji_name"
+    invoke-interface {v2, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/EditText;
+    move-result v2
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    if-eqz v2, :cond_1
 
-    move-result-object v2
+    .line 191
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
 
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v2, "en_primary"
 
-    move-result-object v2
+    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-result-object v0
 
-    .line 180
-    const/4 v1, -0x1
+    check-cast v0, Landroid/widget/EditText;
 
-    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->setResult(ILandroid/content/Intent;)V
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    .line 181
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    .line 193
+    :goto_1
+    const-string/jumbo v0, ""
+
+    .line 194
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
+
+    const-string/jumbo v5, "ja_romanized"
+
+    invoke-interface {v4, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    .line 195
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
+
+    const-string/jumbo v4, "ja_romanized"
+
+    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 197
+    :cond_0
+    const-string/jumbo v4, "extra.yomi_name"
+
+    invoke-virtual {v3, v4, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 198
+    const-string/jumbo v1, "extra.english_name"
+
+    invoke-virtual {v3, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 199
+    const-string/jumbo v1, "extra.romaji_name"
+
+    invoke-virtual {v3, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 200
+    const/4 v0, -0x1
+
+    invoke-virtual {p0, v0, v3}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->setResult(ILandroid/content/Intent;)V
+
+    .line 201
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->finish()V
 
-    .line 182
+    .line 202
     return-void
+
+    :cond_1
+    move-object v2, v0
+
+    goto :goto_1
+
+    :cond_2
+    move-object v1, v0
+
+    goto :goto_0
 .end method
 
 .method static synthetic a(Lcom/yelp/android/ui/activities/mutatebiz/EditName;)V
     .locals 0
 
     .prologue
-    .line 30
+    .line 38
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a()V
 
     return-void
 .end method
 
 .method private b()Z
-    .locals 4
+    .locals 6
 
     .prologue
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    .line 194
+    .line 214
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
@@ -223,11 +310,11 @@
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCountry()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aw()Ljava/lang/String;
 
     move-result-object v0
 
@@ -235,28 +322,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     :cond_0
-    move v0, v2
+    move v1, v3
 
-    .line 198
+    .line 218
     :goto_0
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+    const-string/jumbo v0, ""
 
-    invoke-virtual {v3}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    .line 219
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
 
-    move-result-object v3
+    const-string/jumbo v5, "en_primary"
 
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-interface {v4, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    if-eqz v0, :cond_2
+    .line 220
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
+    const-string/jumbo v4, "en_primary"
+
+    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -266,22 +361,38 @@
 
     move-result-object v0
 
+    .line 222
+    :cond_1
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+
+    invoke-virtual {v4}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    if-eqz v1, :cond_3
+
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
-
-    :cond_1
-    move v1, v2
+    if-nez v0, :cond_3
 
     :cond_2
-    return v1
+    move v2, v3
 
     :cond_3
-    move v0, v1
+    return v2
 
-    .line 194
+    :cond_4
+    move v1, v2
+
+    .line 214
     goto :goto_0
 .end method
 
@@ -291,17 +402,17 @@
     .locals 1
 
     .prologue
-    .line 187
+    .line 207
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditField:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 30
+    .line 38
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -310,21 +421,73 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 5
+    .locals 9
 
     .prologue
-    const/16 v4, 0x8
+    const/4 v8, -0x1
 
-    .line 76
+    .line 84
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 77
-    const v0, 0x7f03002c
+    .line 85
+    const v0, 0x7f030036
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->setContentView(I)V
 
-    .line 78
-    const v0, 0x7f0c009c
+    .line 88
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
+
+    .line 92
+    new-instance v0, Ljava/util/LinkedHashMap;
+
+    invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Ljava/util/LinkedHashMap;
+
+    .line 93
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Ljava/util/LinkedHashMap;
+
+    const-string/jumbo v1, "ja_primary"
+
+    const-string/jumbo v2, "extra.yomi_name"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 94
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Ljava/util/LinkedHashMap;
+
+    const-string/jumbo v1, "en_primary"
+
+    const-string/jumbo v2, "extra.english_name"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 95
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Ljava/util/LinkedHashMap;
+
+    const-string/jumbo v1, "ja_romanized"
+
+    const-string/jumbo v2, "extra.romaji_name"
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 97
+    const v0, 0x7f0f0175
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/LinearLayout;
+
+    .line 98
+    const v0, 0x7f0f00d4
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
 
@@ -334,41 +497,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
 
-    .line 79
-    const v0, 0x7f0c0135
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/EditText;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/EditText;
-
-    .line 80
-    const v0, 0x7f0c0137
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/EditText;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
-
-    .line 81
-    const v0, 0x7f0c0139
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/EditText;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/EditText;
-
-    .line 83
-    const v0, 0x7f0c0134
+    .line 99
+    const v0, 0x7f0f0176
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
 
@@ -376,47 +506,14 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Landroid/widget/TextView;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/TextView;
 
-    .line 84
-    const v0, 0x7f0c0138
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Landroid/widget/TextView;
-
-    .line 85
-    const v0, 0x7f0c0133
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->h:Landroid/widget/TextView;
-
-    .line 86
-    const v0, 0x7f0c0136
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->i:Landroid/widget/TextView;
-
-    .line 88
+    .line 101
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string/jumbo v1, "business"
+    const-string/jumbo v1, "extra.business"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -426,40 +523,29 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 89
+    .line 102
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string/jumbo v1, "business_country"
+    const-string/jumbo v1, "extra.business_attributes"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
     move-result-object v0
 
-    const-string/jumbo v1, "business_country"
+    check-cast v0, Lcom/yelp/android/serializable/BusinessAttributes;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Lcom/yelp/android/serializable/BusinessAttributes;
 
-    move-result-object v0
-
-    :goto_0
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->j:Ljava/lang/String;
-
-    .line 93
+    .line 105
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    const-string/jumbo v2, "name"
+    const-string/jumbo v2, "extra.name"
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -467,287 +553,297 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/EditText;
+    .line 106
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Lcom/yelp/android/serializable/BusinessAttributes;
 
-    move-result-object v1
-
-    const-string/jumbo v2, "yomi_name"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttributes;->f()Lcom/yelp/android/serializable/BusinessAttribute;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttribute;->b()Ljava/lang/String;
 
     move-result-object v1
 
-    const-string/jumbo v2, "english_name"
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    .line 109
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Lcom/yelp/android/serializable/BusinessAttributes;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 96
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/EditText;
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "romaji_name"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 98
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessAttributes;->f()Lcom/yelp/android/serializable/BusinessAttribute;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessAttribute;->a()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 99
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a:Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    if-nez v0, :cond_2
+    move-result v0
 
-    const/4 v0, 0x0
+    if-nez v0, :cond_0
 
-    .line 101
+    .line 110
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttributes;->f()Lcom/yelp/android/serializable/BusinessAttribute;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessAttribute;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 114
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+
+    .line 117
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v1}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    move-object v2, v0
+
     :goto_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    .line 106
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/LocaleSettings;->i()Z
+    move-result v0
 
-    move-result v3
+    if-eqz v0, :cond_1
 
-    if-nez v3, :cond_0
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->a(Ljava/lang/String;)Z
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 118
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    .line 119
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 120
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/BusinessAttributes;->c()Ljava/util/Map;
+
+    move-result-object v3
+
+    invoke-interface {v3, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    .line 108
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/EditText;
+    .line 121
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Lcom/yelp/android/serializable/BusinessAttributes;
 
-    .line 139
-    :goto_2
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/u;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/BusinessAttributes;->c()Ljava/util/Map;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/u;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditName;)V
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+    invoke-interface {v2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 151
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+    move-result-object v2
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->k:Landroid/text/TextWatcher;
+    check-cast v2, Lcom/yelp/android/serializable/BusinessAttribute;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    .line 124
+    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    .line 152
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
+    move-result-object v3
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->k:Landroid/text/TextWatcher;
+    const v5, 0x7f03013d
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+    iget-object v6, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/LinearLayout;
 
-    .line 153
-    return-void
+    const/4 v7, 0x1
 
-    .line 89
-    :cond_1
-    const-string/jumbo v0, ""
+    invoke-virtual {v3, v5, v6, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    goto :goto_0
+    move-result-object v5
 
-    .line 99
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 127
+    const v3, 0x7f0f0417
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCountry()Ljava/lang/String;
+    invoke-virtual {v5, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    .line 128
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/BusinessAttribute;->a()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 130
+    invoke-virtual {v3, v8}, Landroid/widget/TextView;->setId(I)V
+
+    .line 132
+    const v3, 0x7f0f0418
+
+    invoke-virtual {v5, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/EditText;
+
+    .line 133
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/BusinessAttribute;->b()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
+
+    .line 134
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getIntent()Landroid/content/Intent;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
-
-    .line 109
-    :cond_3
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a:Lcom/yelp/android/serializable/YelpBusiness;
-
-    if-nez v3, :cond_4
-
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/LocaleSettings;->j()Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    :cond_4
-    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->c(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->j:Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->c(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    .line 114
-    :cond_5
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 115
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 116
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v4}, Landroid/widget/EditText;->setVisibility(I)V
-
-    .line 117
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v4}, Landroid/widget/EditText;->setVisibility(I)V
-
-    .line 119
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->h:Landroid/widget/TextView;
-
-    const v1, 0x7f0700fc
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
-
-    .line 120
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->i:Landroid/widget/TextView;
-
-    const v1, 0x7f0700fd
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
-
-    .line 123
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
-
-    const v1, 0x7f0702e8
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
-
-    .line 124
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
-
-    const v1, 0x7f0702e7
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
-
-    .line 126
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
-
-    goto :goto_2
-
-    .line 128
-    :cond_6
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->h:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 129
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 130
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->i:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->g:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-
-    .line 133
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v4}, Landroid/widget/EditText;->setVisibility(I)V
-
-    .line 134
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->d:Landroid/widget/EditText;
-
-    invoke-virtual {v0, v4}, Landroid/widget/EditText;->setVisibility(I)V
+    invoke-virtual {v3, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
     .line 135
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->e:Landroid/widget/EditText;
+    invoke-virtual {v3, v8}, Landroid/widget/EditText;->setId(I)V
 
-    invoke-virtual {v0, v4}, Landroid/widget/EditText;->setVisibility(I)V
+    .line 136
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
 
-    move-object v0, v1
+    invoke-interface {v0, v1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_2
+    move-object v0, v3
+
+    :goto_2
+    move-object v2, v0
+
+    .line 140
+    goto :goto_1
+
+    .line 112
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->c:Landroid/widget/TextView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    .line 143
+    :cond_1
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/EditName$1;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName$1;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditName;)V
+
+    invoke-virtual {v2, v0}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
+
+    .line 156
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->h:Landroid/text/TextWatcher;
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 157
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
+
+    const-string/jumbo v1, "en_primary"
+
+    invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 158
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->f:Ljava/util/Map;
+
+    const-string/jumbo v1, "en_primary"
+
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/EditText;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->h:Landroid/text/TextWatcher;
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
+
+    .line 161
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b:Landroid/widget/EditText;
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
+
+    .line 162
+    return-void
+
+    :cond_3
+    move-object v0, v2
+
+    goto :goto_2
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
     .locals 2
 
     .prologue
-    .line 157
+    .line 166
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 158
+    .line 167
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f10000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 159
-    const v0, 0x7f0c04fd
+    .line 168
+    const v0, 0x7f0f0607
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 160
-    const v1, 0x7f0703e7
-
-    invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
-
-    .line 161
+    .line 169
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->b()Z
 
     move-result v1
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 162
+    .line 170
     const/4 v0, 0x1
 
     return v0
@@ -757,22 +853,22 @@
     .locals 2
 
     .prologue
-    .line 167
+    .line 175
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    const v1, 0x7f0c04fd
+    const v1, 0x7f0f0607
 
     if-ne v0, v1, :cond_0
 
-    .line 168
+    .line 176
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditName;->a()V
 
-    .line 169
+    .line 177
     const/4 v0, 0x1
 
-    .line 171
+    .line 179
     :goto_0
     return v0
 

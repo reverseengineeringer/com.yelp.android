@@ -7,9 +7,9 @@ import android.widget.FrameLayout;
 
 public class FitWindowsFrameLayout
   extends FrameLayout
-  implements aj
+  implements h
 {
-  private ak a;
+  private h.a a;
   
   public FitWindowsFrameLayout(Context paramContext)
   {
@@ -29,9 +29,9 @@ public class FitWindowsFrameLayout
     return super.fitSystemWindows(paramRect);
   }
   
-  public void setOnFitSystemWindowsListener(ak paramak)
+  public void setOnFitSystemWindowsListener(h.a parama)
   {
-    a = paramak;
+    a = parama;
   }
 }
 

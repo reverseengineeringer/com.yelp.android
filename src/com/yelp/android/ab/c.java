@@ -1,56 +1,30 @@
 package com.yelp.android.ab;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Drawable.ConstantState;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.bumptech.glide.load.f;
-import com.yelp.android.p.d;
+import android.net.Uri;
+import android.os.ParcelFileDescriptor;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.aa.n;
 
-class c
-  extends Drawable.ConstantState
+public class c
+  extends n<ParcelFileDescriptor>
+  implements b<Integer>
 {
-  d a;
-  byte[] b;
-  Context c;
-  f<Bitmap> d;
-  int e;
-  int f;
-  com.yelp.android.p.b g;
-  e h;
-  Bitmap i;
-  
-  public c(d paramd, byte[] paramArrayOfByte, Context paramContext, f<Bitmap> paramf, int paramInt1, int paramInt2, com.yelp.android.p.b paramb, e parame, Bitmap paramBitmap)
+  public c(Context paramContext, l<Uri, ParcelFileDescriptor> paraml)
   {
-    if (paramBitmap == null) {
-      throw new NullPointerException("The first frame of the GIF must not be null");
+    super(paramContext, paraml);
+  }
+  
+  public static class a
+    implements m<Integer, ParcelFileDescriptor>
+  {
+    public l<Integer, ParcelFileDescriptor> a(Context paramContext, com.yelp.android.aa.c paramc)
+    {
+      return new c(paramContext, paramc.a(Uri.class, ParcelFileDescriptor.class));
     }
-    a = paramd;
-    b = paramArrayOfByte;
-    h = parame;
-    i = paramBitmap;
-    c = paramContext.getApplicationContext();
-    d = paramf;
-    e = paramInt1;
-    f = paramInt2;
-    g = paramb;
-  }
-  
-  public int getChangingConfigurations()
-  {
-    return 0;
-  }
-  
-  public Drawable newDrawable()
-  {
-    return new b(this);
-  }
-  
-  public Drawable newDrawable(Resources paramResources)
-  {
-    return newDrawable();
+    
+    public void a() {}
   }
 }
 

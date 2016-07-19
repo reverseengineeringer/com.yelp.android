@@ -1,25 +1,62 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.Event;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Reservation;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Iterator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class by
-  extends h<Void, Void, bz>
+  extends b<Void, Void, a>
 {
-  public by(String paramString, int paramInt1, int paramInt2, j paramj)
+  private final int a;
+  private Date g;
+  private final Date h;
+  
+  public by(ApiRequest.b<a> paramb, YelpBusiness paramYelpBusiness, Date paramDate, int paramInt, String paramString) {}
+  
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    super(ApiRequest.RequestType.GET, "/events/section", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
-    addUrlParam("alias", paramString);
-    addUrlParam("offset", paramInt1);
-    addUrlParam("limit", paramInt2);
+    paramJSONObject = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("times"), Reservation.CREATOR);
+    Iterator localIterator = paramJSONObject.iterator();
+    while (localIterator.hasNext()) {
+      ((Reservation)localIterator.next()).a(a);
+    }
+    Collections.sort(paramJSONObject);
+    return new a(g, paramJSONObject);
   }
   
-  public bz a(JSONObject paramJSONObject)
+  public Date b()
   {
-    return new bz(Event.buildEventsFromJSONResponse(paramJSONObject.getJSONArray("events"), paramJSONObject.getJSONArray("users"), paramJSONObject.getJSONArray("businesses")), paramJSONObject.getInt("total"));
+    return g;
+  }
+  
+  public static class a
+  {
+    final Date a;
+    final ArrayList<Reservation> b;
+    
+    public a(Date paramDate, ArrayList<Reservation> paramArrayList)
+    {
+      a = paramDate;
+      b = paramArrayList;
+    }
+    
+    public Date a()
+    {
+      return a;
+    }
+    
+    public ArrayList<Reservation> b()
+    {
+      return b;
+    }
   }
 }
 

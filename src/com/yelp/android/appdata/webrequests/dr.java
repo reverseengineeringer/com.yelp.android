@@ -3,22 +3,46 @@ package com.yelp.android.appdata.webrequests;
 import com.yelp.android.appdata.LocationService.Accuracies;
 import com.yelp.android.appdata.LocationService.AccuracyUnit;
 import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.ArrayList;
+import com.yelp.android.serializable.Location;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class dr
-  extends h<Void, Void, ArrayList<YelpBusiness>>
+  extends k<Void, Void, a>
 {
-  public dr(j<ArrayList<YelpBusiness>> paramj)
+  public dr(double paramDouble1, double paramDouble2, k.b<a> paramb)
   {
-    super(ApiRequest.RequestType.GET, "nearby/suggest", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
+    super(ApiRequest.RequestType.GET, "geocode/reverse", LocationService.Accuracies.FINE, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.METERS);
+    a("latitude", paramDouble1);
+    a("longitude", paramDouble2);
   }
   
-  public ArrayList<YelpBusiness> a(JSONObject paramJSONObject)
+  public dr(k.b<a> paramb)
   {
-    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("businesses"), YelpBusiness.CREATOR);
+    super(ApiRequest.RequestType.GET, "geocode/reverse", LocationService.Accuracies.FINE, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.METERS);
+  }
+  
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    Location localLocation = null;
+    if (!paramJSONObject.isNull("location")) {
+      localLocation = (Location)Location.CREATOR.parse(paramJSONObject.getJSONObject("location"));
+    }
+    return new a(localLocation, paramJSONObject.getBoolean("yelp_available"));
+  }
+  
+  public static final class a
+  {
+    public final Location a;
+    public final boolean b;
+    
+    public a(Location paramLocation, boolean paramBoolean)
+    {
+      a = paramLocation;
+      b = paramBoolean;
+    }
   }
 }
 

@@ -2,6 +2,7 @@ package com.yelp.android.ui.activities.mutatebiz;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.ContextMenu;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListAdapter;
@@ -19,7 +21,7 @@ import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.serializable.Category;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.ui.activities.ei;
+import com.yelp.android.ui.activities.a;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class EditBusinessCategories
   public static Intent a(Context paramContext, YelpBusiness paramYelpBusiness, ArrayList<Category> paramArrayList)
   {
     paramContext = new Intent(paramContext, EditBusinessCategories.class);
-    paramContext.putExtra("extra.categories", paramArrayList);
+    paramContext.putExtra("extra.category", paramArrayList);
     paramContext.putExtra("extra.business", paramYelpBusiness);
     return paramContext;
   }
@@ -54,27 +56,27 @@ public class EditBusinessCategories
       localHashMap.put("category_id", paramString);
     }
     if (a != null) {
-      localHashMap.put("business_id", a.getId());
+      localHashMap.put("business_id", a.aD());
     }
     AppData.a(paramEventIri, localHashMap);
   }
   
   protected void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
-    List localList = c();
+    List localList = b();
     if (paramView != b) {}
     for (paramListView = (Category)paramListView.getItemAtPosition(paramInt);; paramListView = null)
     {
       paramView = PickCategory.a(this, null, localList);
-      paramView.putExtra("extra.categories", paramListView);
+      paramView.putExtra("extra.category", paramListView);
       startActivityForResult(paramView, 3);
       return;
     }
   }
   
-  List<Category> c()
+  List<Category> b()
   {
-    ArrayList localArrayList = getIntent().getParcelableArrayListExtra("extra.categories");
+    ArrayList localArrayList = getIntent().getParcelableArrayListExtra("extra.category");
     Object localObject = localArrayList;
     if (localArrayList == null) {
       localObject = Collections.emptyList();
@@ -84,8 +86,8 @@ public class EditBusinessCategories
   
   void f()
   {
-    b = getLayoutInflater().inflate(2130903194, q(), false);
-    q().addFooterView(b, null, true);
+    b = getLayoutInflater().inflate(2130903217, r(), false);
+    r().addFooterView(b, null, true);
   }
   
   public ViewIri getIri()
@@ -95,7 +97,7 @@ public class EditBusinessCategories
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
-    ArrayList localArrayList = new ArrayList(c());
+    ArrayList localArrayList = new ArrayList(b());
     switch (paramInt1)
     {
     default: 
@@ -106,14 +108,14 @@ public class EditBusinessCategories
     if (paramInt2 == -1)
     {
       localObject = PickCategory.a(paramIntent);
-      Category localCategory = (Category)paramIntent.getParcelableExtra("extra.categories");
+      Category localCategory = (Category)paramIntent.getParcelableExtra("extra.category");
       if (localCategory != null)
       {
         localArrayList.set(localArrayList.indexOf(localCategory), localObject);
-        a(EventIri.BusinessCategoriesRemoved, String.valueOf(localCategory.getDatabaseId()));
+        a(EventIri.BusinessCategoriesRemoved, String.valueOf(localCategory.e()));
         label97:
-        getIntent().putExtra("extra.categories", localArrayList);
-        a(EventIri.BusinessCategoriesAdded, String.valueOf(((Category)localObject).getDatabaseId()));
+        getIntent().putExtra("extra.category", localArrayList);
+        a(EventIri.BusinessCategoriesAdded, String.valueOf(((Category)localObject).e()));
       }
     }
     else
@@ -125,18 +127,18 @@ public class EditBusinessCategories
     }
     for (;;)
     {
-      localObject = new ei(false);
-      ((ei)localObject).a(localArrayList);
-      q().setAdapter((ListAdapter)localObject);
+      localObject = new a(false);
+      ((a)localObject).a(localArrayList);
+      r().setAdapter((ListAdapter)localObject);
       break;
       localArrayList.remove(localObject);
       localArrayList.add(localObject);
       break label97;
       label184:
-      if ((localArrayList.size() < 3) && (q().getFooterViewsCount() == 0)) {
+      if ((localArrayList.size() < 3) && (r().getFooterViewsCount() == 0)) {
         f();
       } else if (localArrayList.size() >= 3) {
-        q().removeFooterView(b);
+        r().removeFooterView(b);
       }
     }
   }
@@ -150,46 +152,63 @@ public class EditBusinessCategories
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    registerForContextMenu(q());
+    r().setBackgroundColor(getResources().getColor(2131624261));
+    registerForContextMenu(r());
     a = ((YelpBusiness)getIntent().getParcelableExtra("extra.business"));
-    paramBundle = c();
-    Object localObject = getLayoutInflater().inflate(2130903195, q(), false);
-    q().addHeaderView((View)localObject, null, false);
-    localObject = new ei(false);
-    ((ei)localObject).a(paramBundle);
-    if (((ei)localObject).getCount() < 3) {
+    paramBundle = b();
+    Object localObject = getLayoutInflater().inflate(2130903218, r(), false);
+    r().addHeaderView((View)localObject, null, false);
+    localObject = new a(false);
+    ((a)localObject).a(paramBundle);
+    if (((a)localObject).getCount() < 3) {
       f();
     }
-    q().setAdapter((ListAdapter)localObject);
-    q().f();
+    r().setAdapter((ListAdapter)localObject);
+    r().f();
     if (paramBundle.isEmpty()) {
-      q().performItemClick(b, q().getCount() - 1, -1L);
+      r().performItemClick(b, r().getCount() - 1, -1L);
     }
   }
   
-  public void onCreateContextMenu(ContextMenu paramContextMenu, View paramView, ContextMenu.ContextMenuInfo paramContextMenuInfo)
+  public void onCreateContextMenu(ContextMenu paramContextMenu, final View paramView, ContextMenu.ContextMenuInfo paramContextMenuInfo)
   {
     super.onCreateContextMenu(paramContextMenu, paramView, paramContextMenuInfo);
     int i = position;
-    if ((i >= q().getHeaderViewsCount()) && (i < q().getCount() - q().getFooterViewsCount()))
+    if ((i >= r().getHeaderViewsCount()) && (i < r().getCount() - r().getFooterViewsCount()))
     {
-      paramView = (Category)q().getItemAtPosition(i);
-      getMenuInflater().inflate(2131755014, paramContextMenu);
-      paramContextMenu.setHeaderTitle(paramView.getName());
-      paramContextMenu.findItem(2131494131).setOnMenuItemClickListener(new s(this, paramView));
+      paramView = (Category)r().getItemAtPosition(i);
+      getMenuInflater().inflate(2131755016, paramContextMenu);
+      paramContextMenu.setHeaderTitle(paramView.a());
+      paramContextMenu.findItem(2131691005).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener()
+      {
+        public boolean onMenuItemClick(MenuItem paramAnonymousMenuItem)
+        {
+          r().setAdapter(null);
+          if (r().getFooterViewsCount() == 0) {
+            f();
+          }
+          paramAnonymousMenuItem = getIntent().getParcelableArrayListExtra("extra.category");
+          paramAnonymousMenuItem.remove(paramView);
+          a locala = new a(false);
+          locala.a(paramAnonymousMenuItem);
+          r().setAdapter(locala);
+          EditBusinessCategories.a(EditBusinessCategories.this, EventIri.BusinessCategoriesRemoved, String.valueOf(paramView.e()));
+          return true;
+        }
+      });
     }
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755019, paramMenu);
+    getMenuInflater().inflate(2131755021, paramMenu);
     return true;
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494141)
+    if (paramMenuItem.getItemId() == 2131691015)
     {
       a(EventIri.BusinessCategoriesSaved, null);
       setResult(-1, getIntent());

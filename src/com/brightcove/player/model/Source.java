@@ -62,6 +62,14 @@ public class Source
       return localStringBuilder1.toString();
     }
   }
+  
+  public static final class Fields
+  {
+    public static final String BIT_RATE = "bitRate";
+    public static final String DURATION = "duration";
+    public static final String HEADERS = "headers";
+    public static final String URL = "url";
+  }
 }
 
 /* Location:

@@ -1,9 +1,9 @@
 package com.yelp.android.ui.dialogs;
 
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.support.v7.app.d.a;
 import com.yelp.android.appdata.AppData;
 
 public class TwoButtonDialog
@@ -85,12 +85,12 @@ public class TwoButtonDialog
     String str1 = getArguments().getString("positive_button");
     localObject = c((String)localObject, str2);
     if (paramBundle != null) {
-      ((AlertDialog.Builder)localObject).setNegativeButton(paramBundle, b);
+      ((d.a)localObject).b(paramBundle, b);
     }
     if (str1 != null) {
-      ((AlertDialog.Builder)localObject).setPositiveButton(str1, c);
+      ((d.a)localObject).a(str1, c);
     }
-    return ((AlertDialog.Builder)localObject).create();
+    return ((d.a)localObject).b();
   }
 }
 

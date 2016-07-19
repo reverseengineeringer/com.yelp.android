@@ -1,57 +1,64 @@
 .class Lcom/yelp/android/ui/b;
-.super Ljava/lang/Object;
+.super Lcom/yelp/android/ui/l;
 .source "ActivityMonocle.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/ActivityMonocle;
-
-.field private final b:Lcom/yelp/android/ui/m;
-
-.field private final c:Lcom/yelp/android/serializable/Category;
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/m;Lcom/yelp/android/serializable/Category;)V
+.method public constructor <init>(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
     .locals 0
 
     .prologue
-    .line 171
-    iput-object p1, p0, Lcom/yelp/android/ui/b;->a:Lcom/yelp/android/ui/ActivityMonocle;
+    .line 1051
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/l;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 172
-    iput-object p2, p0, Lcom/yelp/android/ui/b;->b:Lcom/yelp/android/ui/m;
-
-    .line 173
-    iput-object p3, p0, Lcom/yelp/android/ui/b;->c:Lcom/yelp/android/serializable/Category;
-
-    .line 174
+    .line 1052
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public a()Z
+    .locals 1
 
     .prologue
-    .line 178
-    iget-object v0, p0, Lcom/yelp/android/ui/b;->b:Lcom/yelp/android/ui/m;
+    .line 1056
+    iget-object v0, p0, Lcom/yelp/android/ui/b;->a:Lcom/yelp/android/ui/ActivityMonocle;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/b;->c:Lcom/yelp/android/serializable/Category;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/ActivityMonocle;->getWindowManager()Landroid/view/WindowManager;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/m;->a(Lcom/yelp/android/serializable/Category;)V
+    move-result-object v0
 
-    .line 179
-    iget-object v0, p0, Lcom/yelp/android/ui/b;->b:Lcom/yelp/android/ui/m;
+    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/m;->b()V
+    move-result-object v0
 
-    .line 181
-    return-void
+    invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
+
+    move-result v0
+
+    .line 1057
+    packed-switch v0, :pswitch_data_0
+
+    .line 1062
+    :pswitch_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    .line 1060
+    :pswitch_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 1057
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method

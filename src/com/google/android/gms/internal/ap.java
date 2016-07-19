@@ -1,134 +1,67 @@
 package com.google.android.gms.internal;
 
-import android.util.Base64OutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.PriorityQueue;
+import android.content.Context;
+import android.os.Build.VERSION;
+import com.google.android.gms.ads.internal.s;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
+@fv
 public class ap
 {
-  private final int nT;
-  private final int nU;
-  private final ao nV = new ar();
-  private Base64OutputStream nW;
-  private ByteArrayOutputStream nX;
+  private boolean a;
+  private String b;
+  private Map<String, String> c;
+  private Context d = null;
+  private String e = null;
   
-  public ap(int paramInt)
+  public ap(Context paramContext, String paramString)
   {
-    nU = paramInt;
-    nT = 6;
+    d = paramContext;
+    e = paramString;
+    a = ((Boolean)ao.G.c()).booleanValue();
+    b = ((String)ao.H.c());
+    c = new LinkedHashMap();
+    c.put("s", "gmob_sdk");
+    c.put("v", "3");
+    c.put("os", Build.VERSION.RELEASE);
+    c.put("sdk", Build.VERSION.SDK);
+    c.put("device", s.e().d());
+    paramString = c;
+    if (paramContext.getApplicationContext() != null) {}
+    for (paramContext = paramContext.getApplicationContext().getPackageName();; paramContext = paramContext.getPackageName())
+    {
+      paramString.put("app", paramContext);
+      paramContext = s.k().a(d);
+      c.put("network_coarse", Integer.toString(m));
+      c.put("network_fine", Integer.toString(n));
+      return;
+    }
   }
   
-  private String m(String paramString)
+  boolean a()
   {
-    paramString = paramString.split("\n");
-    if ((paramString == null) || (paramString.length == 0)) {
-      return "";
-    }
-    nX = new ByteArrayOutputStream();
-    nW = new Base64OutputStream(nX, 10);
-    Arrays.sort(paramString, new ap.1(this));
-    int i = 0;
-    if ((i < paramString.length) && (i < nU))
-    {
-      if (paramString[i].trim().length() == 0) {}
-      for (;;)
-      {
-        i += 1;
-        break;
-        try
-        {
-          nW.write(nV.l(paramString[i]));
-        }
-        catch (IOException localIOException)
-        {
-          gr.b("Error while writing hash to byteStream", localIOException);
-        }
-      }
-    }
-    try
-    {
-      nW.flush();
-      nW.close();
-      paramString = nX.toString();
-      return paramString;
-    }
-    catch (IOException paramString)
-    {
-      gr.b("HashManager: Unable to convert to base 64", paramString);
-    }
-    return "";
+    return a;
   }
   
-  public String a(ArrayList<String> paramArrayList)
+  String b()
   {
-    StringBuffer localStringBuffer = new StringBuffer();
-    paramArrayList = paramArrayList.iterator();
-    while (paramArrayList.hasNext())
-    {
-      localStringBuffer.append(((String)paramArrayList.next()).toLowerCase(Locale.US));
-      localStringBuffer.append('\n');
-    }
-    switch (0)
-    {
-    default: 
-      return "";
-    case 0: 
-      return n(localStringBuffer.toString());
-    }
-    return m(localStringBuffer.toString());
+    return b;
   }
   
-  String n(String paramString)
+  Context c()
   {
-    paramString = paramString.split("\n");
-    if ((paramString == null) || (paramString.length == 0)) {
-      return "";
-    }
-    nX = new ByteArrayOutputStream();
-    nW = new Base64OutputStream(nX, 10);
-    Object localObject = new PriorityQueue(nU, new ap.2(this));
-    int i = 0;
-    if (i < paramString.length)
-    {
-      String[] arrayOfString = aq.p(paramString[i]);
-      if (arrayOfString.length < nT) {}
-      for (;;)
-      {
-        i += 1;
-        break;
-        as.a(arrayOfString, nU, nT, (PriorityQueue)localObject);
-      }
-    }
-    paramString = ((PriorityQueue)localObject).iterator();
-    while (paramString.hasNext())
-    {
-      localObject = (as.a)paramString.next();
-      try
-      {
-        nW.write(nV.l(oa));
-      }
-      catch (IOException localIOException)
-      {
-        gr.b("Error while writing hash to byteStream", localIOException);
-      }
-    }
-    try
-    {
-      nW.flush();
-      nW.close();
-      paramString = nX.toString();
-      return paramString;
-    }
-    catch (IOException paramString)
-    {
-      gr.b("HashManager: unable to convert to base 64", paramString);
-    }
-    return "";
+    return d;
+  }
+  
+  String d()
+  {
+    return e;
+  }
+  
+  Map<String, String> e()
+  {
+    return c;
   }
 }
 

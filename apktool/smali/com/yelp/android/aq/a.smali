@@ -1,253 +1,112 @@
 .class public Lcom/yelp/android/aq/a;
 .super Ljava/lang/Object;
-.source "Configuration.java"
 
 
-# instance fields
-.field private a:Ljava/lang/String;
+# annotations
+.annotation build Landroid/annotation/SuppressLint;
+    value = {
+        "NewApi"
+    }
+.end annotation
 
-.field private b:I
 
-.field private c:I
+# static fields
+.field private static a:Z
 
-.field private d:I
-
-.field private e:I
-
-.field private f:Lcom/path/android/jobqueue/i;
-
-.field private g:Lcom/yelp/android/ar/a;
-
-.field private h:Lcom/yelp/android/au/c;
-
-.field private i:Lcom/yelp/android/at/a;
+.field private static b:Z
 
 
 # direct methods
-.method private constructor <init>()V
+.method static constructor <clinit>()V
     .locals 1
 
-    .prologue
-    .line 35
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 25
-    const-string/jumbo v0, "default_job_manager"
-
-    iput-object v0, p0, Lcom/yelp/android/aq/a;->a:Ljava/lang/String;
-
-    .line 26
-    const/4 v0, 0x5
-
-    iput v0, p0, Lcom/yelp/android/aq/a;->b:I
-
-    .line 27
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/yelp/android/aq/a;->c:I
+    sput-boolean v0, Lcom/yelp/android/aq/a;->a:Z
 
-    .line 28
-    const/16 v0, 0xf
-
-    iput v0, p0, Lcom/yelp/android/aq/a;->d:I
-
-    .line 29
-    const/4 v0, 0x3
-
-    iput v0, p0, Lcom/yelp/android/aq/a;->e:I
-
-    .line 37
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/yelp/android/aq/b;)V
-    .locals 0
-
-    .prologue
-    .line 18
-    invoke-direct {p0}, Lcom/yelp/android/aq/a;-><init>()V
+    sput-boolean v0, Lcom/yelp/android/aq/a;->b:Z
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/aq/a;I)I
-    .locals 0
+.method public static a(Landroid/content/Context;)Z
+    .locals 4
 
-    .prologue
-    .line 18
-    iput p1, p0, Lcom/yelp/android/aq/a;->d:I
+    const/4 v1, 0x0
 
-    return p1
-.end method
+    const/4 v0, 0x1
 
-.method static synthetic a(Lcom/yelp/android/aq/a;)Lcom/path/android/jobqueue/i;
-    .locals 1
+    sget-boolean v2, Lcom/yelp/android/aq/a;->a:Z
 
-    .prologue
-    .line 18
-    iget-object v0, p0, Lcom/yelp/android/aq/a;->f:Lcom/path/android/jobqueue/i;
+    if-eqz v2, :cond_0
 
-    return-object v0
-.end method
+    sget-boolean v0, Lcom/yelp/android/aq/a;->b:Z
 
-.method static synthetic a(Lcom/yelp/android/aq/a;Lcom/path/android/jobqueue/i;)Lcom/path/android/jobqueue/i;
-    .locals 0
-
-    .prologue
-    .line 18
-    iput-object p1, p0, Lcom/yelp/android/aq/a;->f:Lcom/path/android/jobqueue/i;
-
-    return-object p1
-.end method
-
-.method static synthetic a(Lcom/yelp/android/aq/a;Lcom/yelp/android/at/a;)Lcom/yelp/android/at/a;
-    .locals 0
-
-    .prologue
-    .line 18
-    iput-object p1, p0, Lcom/yelp/android/aq/a;->i:Lcom/yelp/android/at/a;
-
-    return-object p1
-.end method
-
-.method static synthetic a(Lcom/yelp/android/aq/a;Lcom/yelp/android/au/c;)Lcom/yelp/android/au/c;
-    .locals 0
-
-    .prologue
-    .line 18
-    iput-object p1, p0, Lcom/yelp/android/aq/a;->h:Lcom/yelp/android/au/c;
-
-    return-object p1
-.end method
-
-.method static synthetic b(Lcom/yelp/android/aq/a;I)I
-    .locals 0
-
-    .prologue
-    .line 18
-    iput p1, p0, Lcom/yelp/android/aq/a;->b:I
-
-    return p1
-.end method
-
-.method static synthetic b(Lcom/yelp/android/aq/a;)Lcom/yelp/android/au/c;
-    .locals 1
-
-    .prologue
-    .line 18
-    iget-object v0, p0, Lcom/yelp/android/aq/a;->h:Lcom/yelp/android/au/c;
-
-    return-object v0
-.end method
-
-.method static synthetic c(Lcom/yelp/android/aq/a;I)I
-    .locals 0
-
-    .prologue
-    .line 18
-    iput p1, p0, Lcom/yelp/android/aq/a;->c:I
-
-    return p1
-.end method
-
-.method static synthetic d(Lcom/yelp/android/aq/a;I)I
-    .locals 0
-
-    .prologue
-    .line 18
-    iput p1, p0, Lcom/yelp/android/aq/a;->e:I
-
-    return p1
-.end method
-
-
-# virtual methods
-.method public a()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 40
-    iget-object v0, p0, Lcom/yelp/android/aq/a;->a:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public b()Lcom/path/android/jobqueue/i;
-    .locals 1
-
-    .prologue
-    .line 44
-    iget-object v0, p0, Lcom/yelp/android/aq/a;->f:Lcom/path/android/jobqueue/i;
-
-    return-object v0
-.end method
-
-.method public c()Lcom/yelp/android/ar/a;
-    .locals 1
-
-    .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/aq/a;->g:Lcom/yelp/android/ar/a;
-
-    return-object v0
-.end method
-
-.method public d()I
-    .locals 1
-
-    .prologue
-    .line 52
-    iget v0, p0, Lcom/yelp/android/aq/a;->d:I
-
+    :goto_0
     return v0
-.end method
 
-.method public e()Lcom/yelp/android/au/c;
-    .locals 1
+    :cond_0
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    .prologue
-    .line 56
-    iget-object v0, p0, Lcom/yelp/android/aq/a;->h:Lcom/yelp/android/au/c;
+    const/4 v3, 0x4
 
-    return-object v0
-.end method
+    if-le v2, v3, :cond_2
 
-.method public f()I
-    .locals 1
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    .prologue
-    .line 60
-    iget v0, p0, Lcom/yelp/android/aq/a;->b:I
+    move-result-object v2
 
-    return v0
-.end method
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-.method public g()I
-    .locals 1
+    move-result-object v3
 
-    .prologue
-    .line 64
-    iget v0, p0, Lcom/yelp/android/aq/a;->c:I
+    invoke-virtual {v2, v3}, Landroid/content/pm/PackageManager;->getInstallerPackageName(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v0
-.end method
+    move-result-object v2
 
-.method public h()Lcom/yelp/android/at/a;
-    .locals 1
+    const-string/jumbo v3, "com.android.vending"
 
-    .prologue
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/aq/a;->i:Lcom/yelp/android/at/a;
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    return-object v0
-.end method
+    move-result v3
 
-.method public i()I
-    .locals 1
+    if-nez v3, :cond_1
 
-    .prologue
-    .line 72
-    iget v0, p0, Lcom/yelp/android/aq/a;->e:I
+    const-string/jumbo v3, "com.google.play"
 
-    return v0
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    :cond_1
+    sput-boolean v0, Lcom/yelp/android/aq/a;->a:Z
+
+    sput-boolean v0, Lcom/yelp/android/aq/a;->b:Z
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    sput-boolean v0, Lcom/yelp/android/aq/a;->a:Z
+
+    sput-boolean v1, Lcom/yelp/android/aq/a;->b:Z
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    sput-boolean v0, Lcom/yelp/android/aq/a;->a:Z
+
+    sput-boolean v1, Lcom/yelp/android/aq/a;->b:Z
+
+    move v0, v1
+
+    goto :goto_0
 .end method

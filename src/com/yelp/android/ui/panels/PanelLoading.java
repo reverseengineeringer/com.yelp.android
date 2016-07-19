@@ -6,33 +6,30 @@ import android.content.res.TypedArray;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.ViewGroup.LayoutParams;
-import android.view.ViewTreeObserver;
-import android.view.ViewTreeObserver.OnScrollChangedListener;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
-import com.yelp.android.appdata.ao;
-import com.yelp.android.bf.d;
-import com.yelp.android.bf.g;
-import com.yelp.android.bf.i;
-import com.yelp.android.bf.m;
-import com.yelp.android.ui.util.as;
+import com.yelp.android.appdata.n;
+import com.yelp.android.co.a.c;
+import com.yelp.android.co.a.f;
+import com.yelp.android.co.a.h;
+import com.yelp.android.co.a.l;
+import com.yelp.android.ui.util.v;
 import com.yelp.android.util.YelpLog;
 
 public class PanelLoading
   extends LinearLayout
 {
-  private ImageView a;
-  private TextView b;
-  private final LayoutInflater c;
-  private as d;
-  private final Context e;
-  private boolean f = true;
-  private String g;
-  private boolean h;
-  private ViewTreeObserver.OnScrollChangedListener i = new ab(this);
+  private final Context a;
+  private final LayoutInflater b;
+  private FrameLayout c;
+  private v d;
+  private View e;
+  private TextView f;
+  private boolean g;
   
   public PanelLoading(Context paramContext)
   {
@@ -42,126 +39,87 @@ public class PanelLoading
   public PanelLoading(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    e = paramContext;
-    c = LayoutInflater.from(paramContext);
+    a = paramContext;
+    b = LayoutInflater.from(paramContext);
     a();
-    a("");
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, m.PanelLoading);
-    int j = paramContext.getInt(0, 0);
+    a(null);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.l.PanelLoading);
+    int i = paramContext.getInt(a.l.PanelLoading_loadingSpinner, 0);
     paramContext.recycle();
-    setSpinner(CommonLoadingSpinner.values()[j]);
-  }
-  
-  private void a(int[] paramArrayOfInt)
-  {
-    if (d != null) {
-      d.b();
-    }
-    d = new as(e, a, paramArrayOfInt, 20);
-    b();
-  }
-  
-  private void e()
-  {
-    if (!h) {
-      a();
-    }
-    ImageView localImageView = a;
-    if (f) {}
-    for (int j = 0;; j = 8)
-    {
-      localImageView.setVisibility(j);
-      if (TextUtils.isEmpty(g)) {
-        break;
-      }
-      b.setText(g);
-      b.setVisibility(0);
-      return;
-    }
-    b.setVisibility(8);
+    setSpinner(CommonLoadingSpinner.values()[i]);
   }
   
   public void a()
   {
-    if (h) {
+    if (g) {
       return;
     }
     setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
     setGravity(17);
     setOrientation(1);
-    setPadding(ao.e, 0, ao.e, 0);
+    setPadding(n.e, 0, n.e, 0);
     setClickable(true);
-    c.inflate(i.panel_loading, this);
-    a = ((ImageView)findViewById(g.loading_spinner));
-    b = ((TextView)findViewById(g.loading_text));
-    a(CommonLoadingSpinner.DEFAULT.getFrames());
-    h = true;
+    b.inflate(a.h.panel_loading, this);
+    c = ((FrameLayout)findViewById(a.f.loading_spinner_holder));
+    f = ((TextView)findViewById(a.f.loading_text));
+    g = true;
   }
   
   public void a(int paramInt)
   {
-    a();
-    setBackgroundColor(paramInt);
-  }
-  
-  public void a(String paramString)
-  {
-    Object localObject = new LinearLayout.LayoutParams(-2, -2);
-    ((LinearLayout.LayoutParams)localObject).setMargins(0, 0, 0, 0);
-    a.setLayoutParams((ViewGroup.LayoutParams)localObject);
-    localObject = paramString;
-    if (TextUtils.isEmpty(paramString)) {
-      localObject = "";
-    }
-    g = ((String)localObject);
-    e();
-  }
-  
-  public void b()
-  {
-    if (d == null)
-    {
-      a(CommonLoadingSpinner.DEFAULT.getFrames());
-      YelpLog.d("PanelLoading", "Animation was started with no spinner reverting to default");
-    }
-    d.a();
-    getViewTreeObserver().removeOnScrollChangedListener(i);
-    getViewTreeObserver().addOnScrollChangedListener(i);
-  }
-  
-  public void b(int paramInt)
-  {
     if (paramInt == 0) {}
-    for (String str = "";; str = getContext().getString(paramInt))
+    for (String str = null;; str = getContext().getString(paramInt))
     {
       a(str);
       return;
     }
   }
   
+  public void a(String paramString)
+  {
+    LinearLayout.LayoutParams localLayoutParams = new LinearLayout.LayoutParams(-2, -2);
+    localLayoutParams.setMargins(0, 0, 0, 0);
+    c.setLayoutParams(localLayoutParams);
+    if (!TextUtils.isEmpty(paramString))
+    {
+      f.setText(paramString);
+      f.setVisibility(0);
+      return;
+    }
+    f.setVisibility(8);
+  }
+  
+  public void b()
+  {
+    if ((d == null) && (e == null))
+    {
+      setSpinner(CommonLoadingSpinner.DEFAULT);
+      YelpLog.d("PanelLoading", "Animation was started with no spinner reverting to default");
+    }
+    if (d != null) {
+      d.a();
+    }
+  }
+  
   public void c()
   {
-    if (d != null)
-    {
+    if (d != null) {
       d.b();
-      d = null;
     }
-    getViewTreeObserver().removeOnScrollChangedListener(i);
   }
   
   public void d()
   {
-    if (!h) {
-      a();
-    }
-    b.setTextColor(getContext().getResources().getColor(d.gray_light));
+    f.setTextColor(getContext().getResources().getColor(a.c.gray_light));
     setBackgroundColor(-1442840576);
   }
   
-  protected void onDetachedFromWindow()
+  protected void onAttachedToWindow()
   {
-    super.onDetachedFromWindow();
-    c();
+    super.onAttachedToWindow();
+    if (getVisibility() == 0) {
+      b();
+    }
   }
   
   public void onWindowVisibilityChanged(int paramInt)
@@ -172,9 +130,28 @@ public class PanelLoading
     }
   }
   
-  public void setSpinner(y paramy)
+  public void setCustomSpinnerView(View paramView)
   {
-    a(paramy.getFrames());
+    if (e == paramView) {
+      return;
+    }
+    c();
+    d = null;
+    e = paramView;
+    c.removeAllViews();
+    c.addView(e);
+    b();
+  }
+  
+  public void setSpinner(c paramc)
+  {
+    c();
+    e = null;
+    c.removeAllViews();
+    ImageView localImageView = new ImageView(getContext());
+    c.addView(localImageView);
+    d = new v(a, localImageView, paramc.getFrames(), 20);
+    b();
   }
   
   public void setVisibility(int paramInt)

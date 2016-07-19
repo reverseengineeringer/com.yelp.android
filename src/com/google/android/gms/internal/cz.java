@@ -1,28 +1,45 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
-import com.google.android.gms.dynamic.d;
+import android.content.Context;
+import android.os.Handler;
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import java.util.concurrent.Future;
 
-public abstract interface cz
-  extends IInterface
+@fv
+public class cz
 {
-  public abstract void a(d paramd, av paramav, String paramString, da paramda);
+  private cy a(Context paramContext, VersionInfoParcel paramVersionInfoParcel, final a<cy> parama, j paramj)
+  {
+    paramContext = new da(paramContext, paramVersionInfoParcel, paramj);
+    a = paramContext;
+    paramContext.a(new cy.a()
+    {
+      public void a()
+      {
+        parama.b(paramaa);
+      }
+    });
+    return paramContext;
+  }
   
-  public abstract void a(d paramd, av paramav, String paramString1, String paramString2, da paramda);
+  public Future<cy> a(final Context paramContext, final VersionInfoParcel paramVersionInfoParcel, final String paramString, final j paramj)
+  {
+    final a locala = new a(null);
+    hd.a.post(new Runnable()
+    {
+      public void run()
+      {
+        cz.a(cz.this, paramContext, paramVersionInfoParcel, locala, paramj).b(paramString);
+      }
+    });
+    return locala;
+  }
   
-  public abstract void a(d paramd, ay paramay, av paramav, String paramString, da paramda);
-  
-  public abstract void a(d paramd, ay paramay, av paramav, String paramString1, String paramString2, da paramda);
-  
-  public abstract void destroy();
-  
-  public abstract d getView();
-  
-  public abstract void pause();
-  
-  public abstract void resume();
-  
-  public abstract void showInterstitial();
+  private static class a<JavascriptEngine>
+    extends hp<JavascriptEngine>
+  {
+    JavascriptEngine a;
+  }
 }
 
 /* Location:

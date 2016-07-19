@@ -1,41 +1,16 @@
 .class Landroid/support/v4/content/h;
 .super Ljava/lang/Object;
-.source "ContextCompatKitKat.java"
+.source "ContextCompatJellybean.java"
 
 
 # direct methods
-.method public static a(Landroid/content/Context;)[Ljava/io/File;
-    .locals 1
+.method public static a(Landroid/content/Context;[Landroid/content/Intent;Landroid/os/Bundle;)V
+    .locals 0
 
     .prologue
-    .line 25
-    invoke-virtual {p0}, Landroid/content/Context;->getExternalCacheDirs()[Ljava/io/File;
+    .line 26
+    invoke-virtual {p0, p1, p2}, Landroid/content/Context;->startActivities([Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static a(Landroid/content/Context;Ljava/lang/String;)[Ljava/io/File;
-    .locals 1
-
-    .prologue
-    .line 29
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getExternalFilesDirs(Ljava/lang/String;)[Ljava/io/File;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static b(Landroid/content/Context;)[Ljava/io/File;
-    .locals 1
-
-    .prologue
-    .line 33
-    invoke-virtual {p0}, Landroid/content/Context;->getObbDirs()[Ljava/io/File;
-
-    move-result-object v0
-
-    return-object v0
+    .line 27
+    return-void
 .end method

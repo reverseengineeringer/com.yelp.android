@@ -32,6 +32,12 @@
 # virtual methods
 .method public findPlaylistById(Ljava/lang/String;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/URISyntaxException;,
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
 
     .prologue
     .line 47
@@ -47,6 +53,12 @@
 
 .method public findPlaylistByReferenceId(Ljava/lang/String;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/URISyntaxException;,
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
 
     .prologue
     .line 51

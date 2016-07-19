@@ -1,21 +1,8 @@
 package com.yelp.android.ui.panels;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-
-class c
-  implements View.OnClickListener
+public abstract interface c
 {
-  c(BizAttributePanel paramBizAttributePanel) {}
-  
-  public void onClick(View paramView)
-  {
-    if (!a.b())
-    {
-      a.removeCallbacks(BizAttributePanel.a(a));
-      BizAttributePanel.a(a, false);
-    }
-  }
+  public abstract int[] getFrames();
 }
 
 /* Location:

@@ -1,312 +1,205 @@
-.class public Lcom/yelp/android/ui/map/g;
+.class public abstract Lcom/yelp/android/ui/map/g;
 .super Ljava/lang/Object;
-.source "MapHelper.java"
+.source "NumberedIconMaker.java"
+
+# interfaces
+.implements Lcom/yelp/android/ui/map/a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T::",
+        "Lcom/yelp/android/serializable/f;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lcom/yelp/android/ui/map/a",
+        "<TT;>;"
+    }
+.end annotation
 
 
 # instance fields
-.field private a:Lcom/google/android/gms/maps/MapView;
+.field private final a:Landroid/graphics/Bitmap;
 
-.field private b:Z
-
-.field private final c:Landroid/content/Context;
-
-.field private final d:Landroid/os/Handler;
-
-.field private final e:Lcom/yelp/android/ui/map/i;
-
-.field private final f:Ljava/lang/Runnable;
+.field private final b:Landroid/text/TextPaint;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/ui/map/i;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 3
 
     .prologue
-    .line 48
+    const/4 v1, 0x1
+
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 32
+    new-instance v0, Landroid/text/TextPaint;
+
+    invoke-direct {v0}, Landroid/text/TextPaint;-><init>()V
+
+    .line 33
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setAntiAlias(Z)V
+
+    .line 34
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
+
     .line 35
-    new-instance v0, Lcom/yelp/android/ui/map/h;
+    const/4 v1, -0x1
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/map/h;-><init>(Lcom/yelp/android/ui/map/g;)V
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setColor(I)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/map/g;->f:Ljava/lang/Runnable;
+    .line 36
+    const/16 v1, 0xe
 
-    .line 49
-    iput-object p2, p0, Lcom/yelp/android/ui/map/g;->e:Lcom/yelp/android/ui/map/i;
+    invoke-static {v1}, Lcom/yelp/android/appdata/n;->a(I)I
 
-    .line 50
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+    move-result v1
 
-    move-result-object v0
+    int-to-float v1, v1
 
-    iput-object v0, p0, Lcom/yelp/android/ui/map/g;->c:Landroid/content/Context;
+    invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 51
-    new-instance v0, Landroid/os/Handler;
+    .line 37
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/yelp/android/ui/map/g;->d:Landroid/os/Handler;
+    .line 38
+    const v2, 0x7f020371
 
-    .line 52
-    invoke-direct {p0}, Lcom/yelp/android/ui/map/g;->f()V
+    invoke-static {v1, v2}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
-    .line 53
-    return-void
-.end method
+    move-result-object v1
 
-.method static synthetic a(Lcom/yelp/android/ui/map/g;)Lcom/google/android/gms/maps/MapView;
-    .locals 1
+    iput-object v1, p0, Lcom/yelp/android/ui/map/g;->a:Landroid/graphics/Bitmap;
 
-    .prologue
-    .line 24
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
+    .line 39
+    iput-object v0, p0, Lcom/yelp/android/ui/map/g;->b:Landroid/text/TextPaint;
 
-    return-object v0
-.end method
-
-.method public static a(Landroid/app/Activity;I)Z
-    .locals 1
-
-    .prologue
-    .line 163
-    invoke-static {p0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->isGooglePlayServicesAvailable(Landroid/content/Context;)I
-
-    move-result v0
-
-    .line 164
-    if-eqz v0, :cond_0
-
-    .line 166
-    invoke-static {v0, p0, p1}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->getErrorDialog(ILandroid/app/Activity;I)Landroid/app/Dialog;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
-
-    .line 167
-    const/4 v0, 0x0
-
-    .line 169
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    goto :goto_0
-.end method
-
-.method static synthetic b(Lcom/yelp/android/ui/map/g;)V
-    .locals 0
-
-    .prologue
-    .line 24
-    invoke-direct {p0}, Lcom/yelp/android/ui/map/g;->g()V
-
-    return-void
-.end method
-
-.method static synthetic c(Lcom/yelp/android/ui/map/g;)Lcom/yelp/android/ui/map/i;
-    .locals 1
-
-    .prologue
-    .line 24
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->e:Lcom/yelp/android/ui/map/i;
-
-    return-object v0
-.end method
-
-.method static synthetic d(Lcom/yelp/android/ui/map/g;)Landroid/os/Handler;
-    .locals 1
-
-    .prologue
-    .line 24
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->d:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method private f()V
-    .locals 2
-
-    .prologue
-    .line 56
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->c:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/MapsInitializer;->initialize(Landroid/content/Context;)I
-
-    .line 57
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/map/g;->b:Z
-
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->d:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/map/g;->f:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    .line 59
-    return-void
-.end method
-
-.method private g()V
-    .locals 2
-
-    .prologue
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    if-eqz v0, :cond_0
-
-    .line 77
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/MapView;->setVisibility(I)V
-
-    .line 79
-    :cond_0
+    .line 40
     return-void
 .end method
 
 
 # virtual methods
-.method public a()V
+.method public a()Landroid/graphics/Bitmap;
     .locals 1
 
     .prologue
-    .line 84
-    iget-boolean v0, p0, Lcom/yelp/android/ui/map/g;->b:Z
+    .line 59
+    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Landroid/graphics/Bitmap;
 
+    return-object v0
+.end method
+
+.method public a(Lcom/yelp/android/serializable/f;)Lcom/google/android/gms/maps/model/a;
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)",
+            "Lcom/google/android/gms/maps/model/a;"
+        }
+    .end annotation
+
+    .prologue
+    .line 44
+    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
+
+    move-result-object v0
+
+    .line 45
     if-nez v0, :cond_0
 
-    .line 85
-    invoke-direct {p0}, Lcom/yelp/android/ui/map/g;->f()V
+    .line 46
+    sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    .line 88
+    .line 48
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
+    iget-object v1, p0, Lcom/yelp/android/ui/map/g;->a:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_1
+    const/4 v2, 0x1
 
-    .line 89
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
+    invoke-virtual {v1, v0, v2}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onResume()V
+    move-result-object v0
 
-    .line 91
-    :cond_1
-    return-void
+    .line 49
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v1
+
+    div-int/lit8 v1, v1, 0x2
+
+    .line 50
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    int-to-double v2, v2
+
+    const-wide v4, 0x3ffccccccccccccdL    # 1.8
+
+    div-double/2addr v2, v4
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->floor(D)D
+
+    move-result-wide v2
+
+    double-to-int v2, v2
+
+    .line 51
+    new-instance v3, Landroid/graphics/Canvas;
+
+    invoke-direct {v3, v0}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    .line 52
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/g;->b(Lcom/yelp/android/serializable/f;)I
+
+    move-result v4
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 53
+    iget-object v5, p0, Lcom/yelp/android/ui/map/g;->b:Landroid/text/TextPaint;
+
+    invoke-virtual {v5, v4}, Landroid/text/TextPaint;->measureText(Ljava/lang/String;)F
+
+    move-result v5
+
+    const/high16 v6, 0x40000000    # 2.0f
+
+    div-float/2addr v5, v6
+
+    .line 54
+    int-to-float v1, v1
+
+    sub-float/2addr v1, v5
+
+    int-to-float v2, v2
+
+    iget-object v5, p0, Lcom/yelp/android/ui/map/g;->b:Landroid/text/TextPaint;
+
+    invoke-virtual {v3, v4, v1, v2, v5}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
+
+    .line 55
+    invoke-static {v0}, Lcom/google/android/gms/maps/model/b;->a(Landroid/graphics/Bitmap;)Lcom/google/android/gms/maps/model/a;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public a(Landroid/os/Bundle;)V
-    .locals 2
-
-    .prologue
-    .line 106
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    if-eqz v0, :cond_0
-
-    .line 107
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    .line 108
-    iget-object v1, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/MapView;->onSaveInstanceState(Landroid/os/Bundle;)V
-
-    .line 109
-    const-string/jumbo v1, "extra.map_view"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    .line 111
-    :cond_0
-    return-void
-.end method
-
-.method public a(Lcom/google/android/gms/maps/MapView;)V
-    .locals 0
-
-    .prologue
-    .line 68
-    iput-object p1, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    .line 69
-    return-void
-.end method
-
-.method public b()V
-    .locals 1
-
-    .prologue
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    if-eqz v0, :cond_0
-
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onPause()V
-
-    .line 97
-    :cond_0
-    return-void
-.end method
-
-.method public c()V
-    .locals 1
-
-    .prologue
-    .line 100
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    if-eqz v0, :cond_0
-
-    .line 101
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onDestroy()V
-
-    .line 103
-    :cond_0
-    return-void
-.end method
-
-.method public d()V
-    .locals 1
-
-    .prologue
-    .line 114
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    if-eqz v0, :cond_0
-
-    .line 115
-    iget-object v0, p0, Lcom/yelp/android/ui/map/g;->a:Lcom/google/android/gms/maps/MapView;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/MapView;->onLowMemory()V
-
-    .line 117
-    :cond_0
-    return-void
-.end method
-
-.method public final e()Z
-    .locals 1
-
-    .prologue
-    .line 144
-    iget-boolean v0, p0, Lcom/yelp/android/ui/map/g;->b:Z
-
-    return v0
+.method protected abstract b(Lcom/yelp/android/serializable/f;)I
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)I"
+        }
+    .end annotation
 .end method

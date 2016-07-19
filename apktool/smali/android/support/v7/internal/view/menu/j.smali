@@ -1,11 +1,44 @@
-.class public interface abstract Landroid/support/v7/internal/view/menu/j;
-.super Ljava/lang/Object;
-.source "MenuBuilder.java"
+.class Landroid/support/v7/internal/view/menu/j;
+.super Landroid/support/v7/internal/view/menu/i;
+.source "MenuItemWrapperJB.java"
+
+
+# annotations
+.annotation build Landroid/annotation/TargetApi;
+    value = 0x10
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v7/internal/view/menu/j$a;
+    }
+.end annotation
+
+
+# direct methods
+.method constructor <init>(Landroid/content/Context;Lcom/yelp/android/e/b;)V
+    .locals 0
+
+    .prologue
+    .line 35
+    invoke-direct {p0, p1, p2}, Landroid/support/v7/internal/view/menu/i;-><init>(Landroid/content/Context;Lcom/yelp/android/e/b;)V
+
+    .line 36
+    return-void
+.end method
 
 
 # virtual methods
-.method public abstract a(Landroid/support/v7/internal/view/menu/i;)V
-.end method
+.method a(Landroid/view/ActionProvider;)Landroid/support/v7/internal/view/menu/i$a;
+    .locals 2
 
-.method public abstract a(Landroid/support/v7/internal/view/menu/i;Landroid/view/MenuItem;)Z
+    .prologue
+    .line 40
+    new-instance v0, Landroid/support/v7/internal/view/menu/j$a;
+
+    iget-object v1, p0, Landroid/support/v7/internal/view/menu/j;->a:Landroid/content/Context;
+
+    invoke-direct {v0, p0, v1, p1}, Landroid/support/v7/internal/view/menu/j$a;-><init>(Landroid/support/v7/internal/view/menu/j;Landroid/content/Context;Landroid/view/ActionProvider;)V
+
+    return-object v0
 .end method

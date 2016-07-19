@@ -1,20 +1,33 @@
 package com.yelp.android.aa;
 
-import com.bumptech.glide.load.d;
-import com.bumptech.glide.load.engine.t;
-import java.io.File;
+import android.net.Uri;
+import java.util.List;
 
-public class a
-  implements d<File, File>
+final class a
 {
-  public t<File> a(File paramFile, int paramInt1, int paramInt2)
+  private static final int a = "file:///android_asset/".length();
+  
+  public static boolean a(Uri paramUri)
   {
-    return new b(paramFile);
+    boolean bool2 = false;
+    boolean bool1 = bool2;
+    if ("file".equals(paramUri.getScheme()))
+    {
+      bool1 = bool2;
+      if (!paramUri.getPathSegments().isEmpty())
+      {
+        bool1 = bool2;
+        if ("android_asset".equals(paramUri.getPathSegments().get(0))) {
+          bool1 = true;
+        }
+      }
+    }
+    return bool1;
   }
   
-  public String a()
+  public static String b(Uri paramUri)
   {
-    return "";
+    return paramUri.toString().substring(a);
   }
 }
 

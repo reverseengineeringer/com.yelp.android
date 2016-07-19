@@ -1,71 +1,13 @@
 package android.support.v4.widget;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.os.Build.VERSION;
+import android.graphics.drawable.Drawable;
+import android.widget.TextView;
 
-public class aa
+class aa
 {
-  private static final ad b = new ab();
-  private Object a;
-  
-  static
+  public static void a(TextView paramTextView, Drawable paramDrawable1, Drawable paramDrawable2, Drawable paramDrawable3, Drawable paramDrawable4)
   {
-    if (Build.VERSION.SDK_INT >= 21)
-    {
-      b = new ae();
-      return;
-    }
-    if (Build.VERSION.SDK_INT >= 14)
-    {
-      b = new ac();
-      return;
-    }
-  }
-  
-  public aa(Context paramContext)
-  {
-    a = b.a(paramContext);
-  }
-  
-  public void a(int paramInt1, int paramInt2)
-  {
-    b.a(a, paramInt1, paramInt2);
-  }
-  
-  public boolean a()
-  {
-    return b.a(a);
-  }
-  
-  public boolean a(float paramFloat)
-  {
-    return b.a(a, paramFloat);
-  }
-  
-  public boolean a(float paramFloat1, float paramFloat2)
-  {
-    return b.a(a, paramFloat1, paramFloat2);
-  }
-  
-  public boolean a(int paramInt)
-  {
-    return b.a(a, paramInt);
-  }
-  
-  public boolean a(Canvas paramCanvas)
-  {
-    return b.a(a, paramCanvas);
-  }
-  
-  public void b()
-  {
-    b.b(a);
-  }
-  
-  public boolean c()
-  {
-    return b.c(a);
+    paramTextView.setCompoundDrawablesRelative(paramDrawable1, paramDrawable2, paramDrawable3, paramDrawable4);
   }
 }
 

@@ -1,28 +1,28 @@
-.class public final Lcom/yelp/android/appdata/webrequests/er;
-.super Ljava/lang/Object;
-.source "ReverseGeocodeRequest.java"
-
-
-# instance fields
-.field public final a:Lcom/yelp/android/serializable/Location;
-
-.field public final b:Z
+.class public Lcom/yelp/android/appdata/webrequests/er;
+.super Lcom/yelp/android/appdata/webrequests/ShareRequest;
+.source "TipShareRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/serializable/Location;Z)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;ZLcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 1
 
     .prologue
-    .line 16
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 7
+    const-string/jumbo v0, "quicktips/share/"
 
-    .line 17
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/er;->a:Lcom/yelp/android/serializable/Location;
+    invoke-direct {p0, v0, p4, p2}, Lcom/yelp/android/appdata/webrequests/ShareRequest;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;)V
 
-    .line 18
-    iput-boolean p2, p0, Lcom/yelp/android/appdata/webrequests/er;->b:Z
+    .line 8
+    const-string/jumbo v0, "quicktip_id"
 
-    .line 19
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/er;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 9
+    const-string/jumbo v0, "with_award"
+
+    invoke-virtual {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/er;->b(Ljava/lang/String;Z)V
+
+    .line 10
     return-void
 .end method

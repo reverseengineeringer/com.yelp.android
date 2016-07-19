@@ -3,7 +3,7 @@ package com.yelp.android.ui.activities.support;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v4.widget.bw;
+import android.support.v4.widget.SwipeRefreshLayout.a;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +11,18 @@ import com.yelp.android.ui.util.ScrollToLoadListView;
 
 public class YelpSwipeRefreshListFragment
   extends YelpListFragment
-  implements bw
+  implements SwipeRefreshLayout.a
 {
-  private SwipeRefreshLayout a;
+  protected SwipeRefreshLayout i;
   
   public void a()
   {
-    a_();
+    p_();
   }
   
   protected void a(View paramView)
   {
-    if ((c()) && (i()))
+    if ((g()) && (j()))
     {
       k().addView(paramView);
       c(paramView);
@@ -31,9 +31,23 @@ public class YelpSwipeRefreshListFragment
     super.a(paramView);
   }
   
+  protected void a(ViewGroup paramViewGroup, View paramView, Bundle paramBundle)
+  {
+    paramViewGroup.removeView(paramView);
+    i.addView(paramView, -1, -1);
+    paramViewGroup.addView(i, -1, -1);
+    i.setOnRefreshListener(this);
+    i.setBackgroundColor(getResources().getColor(2131624261));
+    i.setColorSchemeResources(new int[] { 2131624098, 2131624100, 2131624099, 2131624097 });
+    i.a(false, 0, getResources().getDimensionPixelOffset(2131361962));
+    if (paramBundle != null) {
+      i.setRefreshing(paramBundle.getBoolean("is_refreshing", false));
+    }
+  }
+  
   protected void b(View paramView)
   {
-    if ((c()) && (i()))
+    if ((g()) && (j()))
     {
       k().removeView(paramView);
       c(null);
@@ -42,51 +56,42 @@ public class YelpSwipeRefreshListFragment
     super.b(paramView);
   }
   
-  public void b(boolean paramBoolean)
+  public void c(boolean paramBoolean)
   {
-    a.setRefreshing(paramBoolean);
+    i.setRefreshing(paramBoolean);
   }
   
-  protected boolean c()
+  protected boolean g()
   {
     return true;
   }
   
-  public boolean i()
+  public boolean j()
   {
-    return a.a();
-  }
-  
-  public void j()
-  {
-    super.j();
-    if (c()) {
-      b(false);
-    }
+    return i.a();
   }
   
   public SwipeRefreshLayout k()
   {
-    return a;
+    return i;
+  }
+  
+  public void l()
+  {
+    super.l();
+    if (g()) {
+      c(false);
+    }
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     paramLayoutInflater = (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
-    if (c())
+    if (g())
     {
-      a = new SwipeRefreshLayout(paramLayoutInflater.getContext());
       paramViewGroup = (ScrollToLoadListView)paramLayoutInflater.findViewById(16908298);
-      paramLayoutInflater.removeView(paramViewGroup);
-      a.addView(paramViewGroup, -1, -1);
-      paramLayoutInflater.addView(a, -1, -1);
-      a.setOnRefreshListener(this);
-      a.setBackgroundColor(getResources().getColor(2131362036));
-      a.setColorSchemeResources(new int[] { 2131361897, 2131361899, 2131361898, 2131361896 });
-      a.a(false, 0, getResources().getDimensionPixelOffset(2131427434));
-      if (paramBundle != null) {
-        a.setRefreshing(paramBundle.getBoolean("is_refreshing", false));
-      }
+      i = new SwipeRefreshLayout(paramViewGroup.getContext());
+      a(paramLayoutInflater, paramViewGroup, paramBundle);
     }
     return paramLayoutInflater;
   }
@@ -94,8 +99,8 @@ public class YelpSwipeRefreshListFragment
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    if (c()) {
-      paramBundle.putBoolean("is_refreshing", i());
+    if (g()) {
+      paramBundle.putBoolean("is_refreshing", j());
     }
   }
 }

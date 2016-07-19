@@ -15,12 +15,9 @@ import com.yelp.android.appdata.LocaleSettings;
 import com.yelp.android.appdata.LocationService;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest.FormatMode;
 import com.yelp.android.ui.activities.reviews.ReviewState;
-import com.yelp.android.ui.activities.support.WebViewActivity;
-import com.yelp.android.ui.util.cr;
 import com.yelp.android.util.StringUtils;
 import com.yelp.android.util.StringUtils.Format;
-import com.yelp.android.util.YelpLog;
-import com.yelp.android.util.o;
+import com.yelp.android.util.i;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
@@ -37,158 +34,17 @@ import org.json.JSONObject;
 
 public class YelpBusiness
   extends _YelpBusiness
-  implements by, com.yelp.android.ui.panels.businesssearch.f
+  implements f, com.yelp.android.ui.panels.businesssearch.a
 {
-  public static final JsonParser.DualCreator<YelpBusiness> CREATOR = new dx();
-  public static final String EXTRA_BUSINESS = "extra.business";
-  public static final int GEOACCURACY_MAPPABLE = 6;
-  private String mCachedDisplayAddress;
-  private JSONObject mDFPAdParams;
-  private String mJSONString;
-  private long mTimeFetched = System.currentTimeMillis();
-  private TimeZone mTimeZone = TimeZone.getDefault();
-  private String mYelpRequestId;
+  public static final JsonParser.DualCreator<YelpBusiness> CREATOR = new YelpBusiness.1();
+  private String aL;
+  private long aM = System.currentTimeMillis();
+  private TimeZone aN = TimeZone.getDefault();
+  private JSONObject aO;
+  private String aP;
   
-  public static ArrayList<YelpBusiness> businessesFromJSONArray(JSONArray paramJSONArray, String paramString, BusinessSearchRequest.FormatMode paramFormatMode)
-  {
-    int j = paramJSONArray.length();
-    ArrayList localArrayList = new ArrayList(j);
-    int i = 0;
-    while (i < j)
-    {
-      YelpBusiness localYelpBusiness = (YelpBusiness)CREATOR.parse(paramJSONArray.getJSONObject(i));
-      localYelpBusiness.setYelpRequestId(paramString);
-      if (mFormatMode == null) {
-        mFormatMode = paramFormatMode;
-      }
-      localArrayList.add(localYelpBusiness);
-      i += 1;
-    }
-    return localArrayList;
-  }
-  
-  private String deprecatedCreateLongFormAddress()
-  {
-    boolean bool = LocaleSettings.e(getCountry());
-    ArrayList localArrayList = new ArrayList(4);
-    Object localObject = getAddress1();
-    if (!TextUtils.isEmpty((CharSequence)localObject)) {
-      localArrayList.add(localObject);
-    }
-    localObject = getAddress2();
-    if (!TextUtils.isEmpty((CharSequence)localObject)) {
-      localArrayList.add(localObject);
-    }
-    localObject = getAddress3();
-    if (!TextUtils.isEmpty((CharSequence)localObject)) {
-      localArrayList.add(localObject);
-    }
-    localObject = getLocality();
-    if (!TextUtils.isEmpty((CharSequence)localObject)) {
-      if (bool) {
-        localArrayList.add(0, localObject);
-      }
-    }
-    String str;
-    while (bool)
-    {
-      return TextUtils.join("\n", localArrayList);
-      localArrayList.add(localObject);
-      continue;
-      if (!bool)
-      {
-        str = getCity();
-        if (TextUtils.isEmpty(str)) {
-          break label215;
-        }
-        localObject = str;
-      }
-    }
-    label215:
-    for (;;)
-    {
-      str = getState();
-      if (!TextUtils.isEmpty(str)) {
-        TextUtils.concat(new CharSequence[] { localObject, ", ", str });
-      }
-      str = getZip();
-      if (TextUtils.isEmpty(str)) {
-        break;
-      }
-      TextUtils.concat(new CharSequence[] { localObject, " ", str });
-      break;
-      return TextUtils.join(", ", localArrayList);
-    }
-  }
-  
-  private void deprecatedCreatePrimaryLanguageField()
-  {
-    if ((mDisplayAddresses != null) && (mDisplayAddresses.getPrimaryLanguage() != null)) {
-      return;
-    }
-    String str1 = deprecatedCreateShortFormAddress();
-    String str2 = deprecatedCreateLongFormAddress();
-    mDisplayAddresses = new YelpAddresses(new YelpAddress(createCrossStreets(), str1, str2), null);
-  }
-  
-  private String deprecatedCreateShortFormAddress()
-  {
-    Object localObject;
-    if (LocaleSettings.e(getCountry()))
-    {
-      localObject = new ArrayList();
-      if ((TextUtils.isEmpty(mCity)) && (mNeighborhoods.size() > 0)) {
-        ((ArrayList)localObject).add(mNeighborhoods.get(0));
-      }
-      for (;;)
-      {
-        if (!TextUtils.isEmpty(mAddress1)) {
-          ((ArrayList)localObject).add(mAddress1);
-        }
-        if (!TextUtils.isEmpty(mAddress2)) {
-          ((ArrayList)localObject).add(mAddress2);
-        }
-        if (!TextUtils.isEmpty(mAddress3)) {
-          ((ArrayList)localObject).add(mAddress3);
-        }
-        return TextUtils.join("", (Iterable)localObject);
-        ((ArrayList)localObject).add(mCity);
-      }
-    }
-    if (!TextUtils.isEmpty(mAddress1))
-    {
-      localObject = mCity;
-      if (mNeighborhoods.size() > 0) {
-        localObject = (String)mNeighborhoods.get(0);
-      }
-      if (localObject != null) {
-        return String.format("%s, %s", new Object[] { mAddress1, localObject });
-      }
-      return mAddress1;
-    }
-    if (mNeighborhoods.size() > 0) {
-      return (String)mNeighborhoods.get(0);
-    }
-    return mCity;
-  }
-  
-  public static YelpBusiness findBusinessInListById(List<YelpBusiness> paramList, String paramString)
-  {
-    if ((paramString != null) && (paramList != null))
-    {
-      paramList = paramList.iterator();
-      while (paramList.hasNext())
-      {
-        YelpBusiness localYelpBusiness = (YelpBusiness)paramList.next();
-        if (localYelpBusiness.getId().equals(paramString)) {
-          return localYelpBusiness;
-        }
-      }
-    }
-    return null;
-  }
-  
-  private String generateTransitDescription(JSONArray paramJSONArray)
+  private String a(JSONArray paramJSONArray)
+    throws JSONException
   {
     int j;
     if (paramJSONArray != null)
@@ -223,12 +79,27 @@ public class YelpBusiness
     return localStringBuilder.toString();
   }
   
-  public static HashMap<String, YelpBusiness> jsonBusinessesToMap(JSONArray paramJSONArray, String paramString, BusinessSearchRequest.FormatMode paramFormatMode)
+  public static ArrayList<YelpBusiness> a(JSONArray paramJSONArray, String paramString, BusinessSearchRequest.FormatMode paramFormatMode)
+    throws JSONException
   {
-    return jsonBusinessesToMap(paramJSONArray, paramString, paramFormatMode, false);
+    int j = paramJSONArray.length();
+    ArrayList localArrayList = new ArrayList(j);
+    int i = 0;
+    while (i < j)
+    {
+      YelpBusiness localYelpBusiness = (YelpBusiness)CREATOR.parse(paramJSONArray.getJSONObject(i));
+      localYelpBusiness.a(paramString);
+      if (g == null) {
+        g = paramFormatMode;
+      }
+      localArrayList.add(localYelpBusiness);
+      i += 1;
+    }
+    return localArrayList;
   }
   
-  public static HashMap<String, YelpBusiness> jsonBusinessesToMap(JSONArray paramJSONArray, String paramString, BusinessSearchRequest.FormatMode paramFormatMode, boolean paramBoolean)
+  public static HashMap<String, YelpBusiness> a(JSONArray paramJSONArray, String paramString, BusinessSearchRequest.FormatMode paramFormatMode, boolean paramBoolean)
+    throws JSONException
   {
     int j = paramJSONArray.length();
     HashMap localHashMap = new HashMap(j);
@@ -238,76 +109,395 @@ public class YelpBusiness
       if ((!paramBoolean) || (!paramJSONArray.isNull(i)))
       {
         YelpBusiness localYelpBusiness = (YelpBusiness)CREATOR.parse(paramJSONArray.getJSONObject(i));
-        localYelpBusiness.setYelpRequestId(paramString);
-        if (mFormatMode == null) {
-          mFormatMode = paramFormatMode;
+        localYelpBusiness.a(paramString);
+        if (g == null) {
+          g = paramFormatMode;
         }
-        localHashMap.put(localYelpBusiness.getId(), localYelpBusiness);
+        localHashMap.put(localYelpBusiness.aD(), localYelpBusiness);
       }
       i += 1;
     }
     return localHashMap;
   }
   
-  public String createCrossStreets()
+  public static HashMap<String, YelpBusiness> b(JSONArray paramJSONArray, String paramString, BusinessSearchRequest.FormatMode paramFormatMode)
+    throws JSONException
   {
-    Object localObject3 = null;
-    Object localObject1 = getNeighborhoods();
-    String str;
-    Object localObject2;
-    if (((List)localObject1).isEmpty())
-    {
-      localObject1 = null;
-      str = getCrossStreets();
-      localObject2 = AppData.b();
-      if ((TextUtils.isEmpty(str)) || (TextUtils.isEmpty((CharSequence)localObject1))) {
-        break label112;
-      }
-      if (!str.contains("&")) {
-        break label91;
-      }
-      localObject2 = ((Context)localObject2).getString(2131166290, new Object[] { str, localObject1 });
+    return a(paramJSONArray, paramString, paramFormatMode, false);
+  }
+  
+  private void bf()
+  {
+    if ((al != null) && (al.c() != null)) {
+      return;
     }
-    label91:
-    label112:
-    do
+    String str1 = bg();
+    String str2 = bh();
+    al = new YelpAddresses(new YelpAddress(i(), str1, str2), null);
+  }
+  
+  private String bg()
+  {
+    Object localObject;
+    if (LocaleSettings.d(aw()))
     {
-      do
+      localObject = new ArrayList();
+      if ((TextUtils.isEmpty(J)) && (p.size() > 0)) {
+        ((ArrayList)localObject).add(p.get(0));
+      }
+      for (;;)
       {
-        return (String)localObject2;
-        localObject1 = (String)((List)localObject1).get(0);
-        break;
-        return ((Context)localObject2).getString(2131165667, new Object[] { str, localObject1 });
-        if ((!TextUtils.isEmpty(str)) && (TextUtils.isEmpty((CharSequence)localObject1)))
-        {
-          if (str.contains("&")) {
-            return ((Context)localObject2).getString(2131166291, new Object[] { str });
-          }
-          return ((Context)localObject2).getString(2131165668, new Object[] { str });
+        if (!TextUtils.isEmpty(F)) {
+          ((ArrayList)localObject).add(F);
         }
-        localObject2 = localObject3;
-      } while (!TextUtils.isEmpty(str));
-      localObject2 = localObject3;
-    } while (TextUtils.isEmpty((CharSequence)localObject1));
-    return (String)localObject1;
-  }
-  
-  public void decrementPhotoCount()
-  {
-    mPhotoCount -= 1;
-  }
-  
-  public void decrementTipCount()
-  {
-    mTipCount -= 1;
-  }
-  
-  public void deletePhoto(Photo paramPhoto)
-  {
-    int i = cr.a(mPhotos, paramPhoto);
-    if (i >= 0) {
-      mPhotos.remove(i);
+        if (!TextUtils.isEmpty(G)) {
+          ((ArrayList)localObject).add(G);
+        }
+        if (!TextUtils.isEmpty(H)) {
+          ((ArrayList)localObject).add(H);
+        }
+        return TextUtils.join("", (Iterable)localObject);
+        ((ArrayList)localObject).add(J);
+      }
     }
+    if (!TextUtils.isEmpty(F))
+    {
+      localObject = J;
+      if (p.size() > 0) {
+        localObject = (String)p.get(0);
+      }
+      if (localObject != null) {
+        return String.format("%s, %s", new Object[] { F, localObject });
+      }
+      return F;
+    }
+    if (p.size() > 0) {
+      return (String)p.get(0);
+    }
+    return J;
+  }
+  
+  private String bh()
+  {
+    boolean bool = LocaleSettings.d(aw());
+    ArrayList localArrayList = new ArrayList(4);
+    Object localObject = aC();
+    if (!TextUtils.isEmpty((CharSequence)localObject)) {
+      localArrayList.add(localObject);
+    }
+    localObject = aB();
+    if (!TextUtils.isEmpty((CharSequence)localObject)) {
+      localArrayList.add(localObject);
+    }
+    localObject = aA();
+    if (!TextUtils.isEmpty((CharSequence)localObject)) {
+      localArrayList.add(localObject);
+    }
+    localObject = av();
+    if (!TextUtils.isEmpty((CharSequence)localObject)) {
+      if (bool) {
+        localArrayList.add(0, localObject);
+      }
+    }
+    String str;
+    while (bool)
+    {
+      return TextUtils.join("\n", localArrayList);
+      localArrayList.add(localObject);
+      continue;
+      if (!bool)
+      {
+        str = ay();
+        if (TextUtils.isEmpty(str)) {
+          break label216;
+        }
+        localObject = str;
+      }
+    }
+    label216:
+    for (;;)
+    {
+      str = az();
+      if (!TextUtils.isEmpty(str)) {
+        TextUtils.concat(new CharSequence[] { localObject, ", ", str });
+      }
+      str = ax();
+      if (TextUtils.isEmpty(str)) {
+        break;
+      }
+      TextUtils.concat(new CharSequence[] { localObject, " ", str });
+      break;
+      return TextUtils.join(", ", localArrayList);
+    }
+  }
+  
+  public int A()
+  {
+    return aH + aK;
+  }
+  
+  public int B()
+  {
+    if (p()) {
+      return 2130838393;
+    }
+    return 2130838380;
+  }
+  
+  public boolean C()
+  {
+    return (aw != 0.0D) || (ax != 0.0D);
+  }
+  
+  public boolean D()
+  {
+    Iterator localIterator = n.iterator();
+    while (localIterator.hasNext()) {
+      if ("hot_and_new".equals(((SearchResultAnnotation)localIterator.next()).a())) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  public double a(Location paramLocation)
+  {
+    if ((Double.isNaN(Q())) || (Double.isNaN(R())) || (paramLocation == null)) {
+      return NaN.0D;
+    }
+    return i.a(R(), Q(), paramLocation.getLatitude(), paramLocation.getLongitude());
+  }
+  
+  public Uri a(Context paramContext)
+  {
+    return new Uri.Builder().scheme("http").authority(paramContext.getString(2131166822)).path(paramContext.getString(2131166923)).appendPath(T).build();
+  }
+  
+  public YelpBusiness a()
+  {
+    return this;
+  }
+  
+  public String a(Context paramContext, StringUtils.Format paramFormat)
+  {
+    return a(AppData.b().r().c(), paramContext, paramFormat);
+  }
+  
+  public String a(Location paramLocation, Context paramContext, StringUtils.Format paramFormat)
+  {
+    if ((!p()) || (Double.isNaN(Q())) || (Double.isNaN(R())) || (!i.a(paramLocation))) {
+      return null;
+    }
+    return StringUtils.a(a(paramLocation), paramLocation.getAccuracy(), paramFormat, paramContext);
+  }
+  
+  public void a(double paramDouble)
+  {
+    az = paramDouble;
+  }
+  
+  public void a(int paramInt)
+  {
+    aI = paramInt;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    super.a(paramParcel);
+    aL = paramParcel.readString();
+    aP = paramParcel.readString();
+    aM = paramParcel.readLong();
+    aN = TimeZone.getTimeZone(paramParcel.readString());
+    paramParcel = paramParcel.readString();
+    if (!TextUtils.isEmpty(paramParcel)) {}
+    try
+    {
+      aO = new JSONObject(paramParcel);
+      return;
+    }
+    catch (JSONException paramParcel) {}
+  }
+  
+  public void a(LatLng paramLatLng)
+  {
+    aw = a;
+    ax = b;
+  }
+  
+  public void a(ContinueLastOrderInfo paramContinueLastOrderInfo)
+  {
+    e = paramContinueLastOrderInfo;
+  }
+  
+  public void a(Offer paramOffer)
+  {
+    y = paramOffer;
+  }
+  
+  public void a(Reservation paramReservation)
+  {
+    try
+    {
+      JSONObject localJSONObject = new JSONObject(aL);
+      localJSONObject.remove("reservation");
+      if (paramReservation != null) {
+        localJSONObject.put("reservation", paramReservation.c());
+      }
+      aL = String.valueOf(localJSONObject);
+      C = paramReservation;
+      return;
+    }
+    catch (JSONException paramReservation)
+    {
+      BaseYelpApplication.a("YelpBusiness", "Got a json exception writing the Reservation, %s", new Object[] { paramReservation });
+    }
+  }
+  
+  public void a(YelpBusinessReview paramYelpBusinessReview)
+  {
+    an = paramYelpBusinessReview;
+  }
+  
+  public void a(ReviewState paramReviewState)
+  {
+    ae = paramReviewState.getDescription();
+  }
+  
+  public void a(String paramString)
+  {
+    aP = paramString;
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    super.a(paramJSONObject);
+    if (!paramJSONObject.isNull("transit")) {
+      V = a(paramJSONObject.getJSONArray("transit"));
+    }
+    Object localObject1 = paramJSONObject.optJSONObject("recent_check_in_friends");
+    if (localObject1 != null)
+    {
+      paramJSONObject.remove("recent_check_in_friends");
+      aG = ((JSONObject)localObject1).optInt("count");
+      Object localObject2 = JsonUtil.parseJsonList(((JSONObject)localObject1).getJSONArray("users"), YelpCheckIn.CREATOR);
+      localObject1 = new ArrayList(((ArrayList)localObject2).size());
+      localObject2 = ((ArrayList)localObject2).iterator();
+      while (((Iterator)localObject2).hasNext())
+      {
+        YelpCheckIn localYelpCheckIn = (YelpCheckIn)((Iterator)localObject2).next();
+        User localUser = localYelpCheckIn.y();
+        if (localUser != null)
+        {
+          localUser.a(localYelpCheckIn);
+          ((ArrayList)localObject1).add(localUser);
+        }
+      }
+      s = ((List)localObject1);
+      if (!paramJSONObject.isNull("fmode")) {
+        if (paramJSONObject.optInt("fmode", 0) != 0) {
+          break label252;
+        }
+      }
+    }
+    label252:
+    for (g = BusinessSearchRequest.FormatMode.FULL;; g = BusinessSearchRequest.FormatMode.SHORT)
+    {
+      aO = paramJSONObject.optJSONObject("dfp_ad_params");
+      if (Y == null) {
+        Y = "";
+      }
+      aN = TimeZone.getTimeZone(paramJSONObject.optString("timezone", TimeZone.getDefault().getID()));
+      paramJSONObject.put("local_ads", new JSONArray());
+      aL = paramJSONObject.toString();
+      return;
+      s = Collections.emptyList();
+      break;
+    }
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    try
+    {
+      JSONObject localJSONObject = new JSONObject(aL);
+      localJSONObject.remove("is_bookmarked");
+      localJSONObject.put("is_bookmarked", paramBoolean);
+      aL = String.valueOf(localJSONObject);
+      as = paramBoolean;
+      return;
+    }
+    catch (JSONException localJSONException)
+    {
+      BaseYelpApplication.a("YelpBusiness", "Json Exception [%s]", new Object[] { localJSONException });
+    }
+  }
+  
+  public LatLng b()
+  {
+    return new LatLng(R(), Q());
+  }
+  
+  public String b(Context paramContext)
+  {
+    Object localObject = be();
+    if (localObject == null) {
+      return "";
+    }
+    String str1 = z();
+    ArrayList localArrayList = new ArrayList();
+    if (!S.equalsIgnoreCase(str1)) {
+      localArrayList.add(S);
+    }
+    String str2 = ((AlternateBusinessNames)localObject).d();
+    if ((!TextUtils.isEmpty(str2)) && (!str1.equalsIgnoreCase(str2)) && (!StringUtils.a(localArrayList, str2))) {
+      localArrayList.add(str2);
+    }
+    localObject = ((AlternateBusinessNames)localObject).c();
+    if ((!TextUtils.isEmpty((CharSequence)localObject)) && (!str1.equalsIgnoreCase((String)localObject)) && (!StringUtils.a(localArrayList, (String)localObject))) {
+      localArrayList.add(localObject);
+    }
+    return TextUtils.join(paramContext.getResources().getString(2131166943), localArrayList);
+  }
+  
+  public String c()
+  {
+    return aL;
+  }
+  
+  public String c(Context paramContext)
+  {
+    String str2 = z();
+    String str1 = str2;
+    if (r())
+    {
+      if (W()) {
+        str1 = paramContext.getString(2131165536, new Object[] { str2 });
+      }
+    }
+    else {
+      return str1;
+    }
+    if (q() != null) {
+      return paramContext.getString(2131165543, new Object[] { str2 });
+    }
+    if (!TextUtils.isEmpty(ag())) {
+      return paramContext.getString(2131165542, new Object[] { str2 });
+    }
+    return paramContext.getString(2131165533, new Object[] { str2 });
+  }
+  
+  public TimeZone d()
+  {
+    return aN;
+  }
+  
+  public String e()
+  {
+    if (!k.isEmpty()) {
+      return ((Category)k.get(0)).a();
+    }
+    return "";
   }
   
   public boolean equals(Object paramObject)
@@ -325,68 +515,124 @@ public class YelpBusiness
           return false;
         }
         paramObject = (YelpBusiness)paramObject;
-        if (mId != null) {
+        if (E != null) {
           break;
         }
-      } while (mId == null);
+      } while (E == null);
       return false;
-    } while (mId.equals(mId));
+    } while (E.equals(E));
     return false;
   }
   
-  public Address getAddress()
+  public Address f()
   {
-    Address localAddress = new Address(new Locale(Locale.getDefault().getLanguage(), getCountry()));
-    com.yelp.android.ui.activities.mutatebiz.f.a(localAddress, new String[] { getAddress1(), getAddress2(), getAddress3(), getLocality() });
-    localAddress.setLongitude(getLongitude());
-    localAddress.setLatitude(getLatitude());
-    localAddress.setCountryCode(getCountry());
-    localAddress.setAdminArea(getState());
-    localAddress.setLocality(getLocality());
-    localAddress.setPhone(getLocalizedPhone());
-    localAddress.setPostalCode(getZip());
-    localAddress.setSubLocality(TextUtils.join(", ", mNeighborhoods));
-    localAddress.setUrl(getUrl());
+    Address localAddress = new Address(new Locale(Locale.getDefault().getLanguage(), aw()));
+    com.yelp.android.ui.activities.mutatebiz.a.a(localAddress, new String[] { aC(), aB(), aA(), av() });
+    localAddress.setLongitude(Q());
+    localAddress.setLatitude(R());
+    localAddress.setCountryCode(aw());
+    localAddress.setAdminArea(az());
+    localAddress.setLocality(av());
+    localAddress.setPhone(as());
+    localAddress.setPostalCode(ax());
+    localAddress.setSubLocality(TextUtils.join(", ", p));
+    localAddress.setUrl(al());
     return localAddress;
   }
   
-  public String getAddressForBusinessSearchResult()
+  public boolean g()
   {
-    if (mDisplayAddresses == null) {
-      deprecatedCreatePrimaryLanguageField();
+    return (aE() != null) && ("fraud_warning".equals(aE().b()));
+  }
+  
+  public String h()
+  {
+    if (al == null) {
+      bf();
     }
-    String str = mDisplayAddresses.getPrimaryLanguage().getShortForm();
+    String str = al.c().c();
     if (!TextUtils.isEmpty(str)) {
       return str;
     }
-    if ((TextUtils.isEmpty(str)) && (mDisplayAddresses.getSecondaryLanguage() != null)) {
-      return mDisplayAddresses.getSecondaryLanguage().getShortForm();
+    if ((TextUtils.isEmpty(str)) && (al.b() != null)) {
+      return al.b().c();
     }
     return "";
   }
   
-  public String getAddressForDrivingDirections()
+  public int hashCode()
+  {
+    if (E == null) {}
+    for (int i = 0;; i = E.hashCode()) {
+      return i + 31;
+    }
+  }
+  
+  public String i()
+  {
+    Object localObject3 = null;
+    Object localObject1 = aR();
+    String str;
+    Object localObject2;
+    if (((List)localObject1).isEmpty())
+    {
+      localObject1 = null;
+      str = at();
+      localObject2 = AppData.b();
+      if ((TextUtils.isEmpty(str)) || (TextUtils.isEmpty((CharSequence)localObject1))) {
+        break label112;
+      }
+      if (!str.contains("&")) {
+        break label91;
+      }
+      localObject2 = ((Context)localObject2).getString(2131166327, new Object[] { str, localObject1 });
+    }
+    label91:
+    label112:
+    do
+    {
+      do
+      {
+        return (String)localObject2;
+        localObject1 = (String)((List)localObject1).get(0);
+        break;
+        return ((Context)localObject2).getString(2131165742, new Object[] { str, localObject1 });
+        if ((!TextUtils.isEmpty(str)) && (TextUtils.isEmpty((CharSequence)localObject1)))
+        {
+          if (str.contains("&")) {
+            return ((Context)localObject2).getString(2131166328, new Object[] { str });
+          }
+          return ((Context)localObject2).getString(2131165743, new Object[] { str });
+        }
+        localObject2 = localObject3;
+      } while (!TextUtils.isEmpty(str));
+      localObject2 = localObject3;
+    } while (TextUtils.isEmpty((CharSequence)localObject1));
+    return (String)localObject1;
+  }
+  
+  public String j()
   {
     StringBuilder localStringBuilder = new StringBuilder(100);
-    String str = getAddress1();
+    String str = aC();
     if (!TextUtils.isEmpty(str))
     {
       localStringBuilder.append(str);
       localStringBuilder.append(", ");
     }
-    str = getCity();
+    str = ay();
     if (!TextUtils.isEmpty(str))
     {
       localStringBuilder.append(str);
       localStringBuilder.append(", ");
     }
-    str = getState();
+    str = az();
     if (!TextUtils.isEmpty(str))
     {
       localStringBuilder.append(str);
       localStringBuilder.append(", ");
     }
-    str = getZip();
+    str = ax();
     if (!TextUtils.isEmpty(str))
     {
       localStringBuilder.append(str);
@@ -398,61 +644,50 @@ public class YelpBusiness
     return localStringBuilder.toString();
   }
   
-  public String getAlternateNameString(Context paramContext)
+  public String k()
   {
-    Object localObject = getAlternateNames();
-    if (localObject == null) {
-      return "";
+    if (al == null) {
+      bf();
     }
-    String str1 = getDisplayName();
+    YelpAddress localYelpAddress1 = Z().b();
+    YelpAddress localYelpAddress2 = Z().c();
+    if (localYelpAddress1 == null) {
+      return localYelpAddress2.b();
+    }
     ArrayList localArrayList = new ArrayList();
-    if (!mName.equalsIgnoreCase(str1)) {
-      localArrayList.add(mName);
-    }
-    String str2 = ((AlternateBusinessNames)localObject).getPrimary();
-    if ((!TextUtils.isEmpty(str2)) && (!str1.equalsIgnoreCase(str2)) && (!StringUtils.a(localArrayList, str2))) {
-      localArrayList.add(str2);
-    }
-    localObject = ((AlternateBusinessNames)localObject).getSecondary();
-    if ((!TextUtils.isEmpty((CharSequence)localObject)) && (!str1.equalsIgnoreCase((String)localObject)) && (!StringUtils.a(localArrayList, (String)localObject))) {
-      localArrayList.add(localObject);
-    }
-    return TextUtils.join(paramContext.getResources().getString(2131165723), localArrayList);
+    localArrayList.add(localYelpAddress2.c());
+    localArrayList.add(localYelpAddress1.c());
+    localArrayList.add(av());
+    localArrayList.removeAll(Collections.singleton(""));
+    return TextUtils.join("\n", localArrayList);
   }
   
-  public int getAssetForMap()
+  public String l()
   {
-    if (isLocationAccurate()) {
-      return 2130838156;
+    if (al == null) {
+      bf();
     }
-    return 2130838145;
-  }
-  
-  public String getBestUrl()
-  {
-    if (TextUtils.isEmpty(getDisplayUrl())) {
-      return getUrl();
+    String str2 = al.c().d();
+    YelpAddress localYelpAddress = al.b();
+    String str1 = str2;
+    if (TextUtils.isEmpty(str2))
+    {
+      str1 = str2;
+      if (localYelpAddress != null)
+      {
+        str1 = str2;
+        if (!TextUtils.isEmpty(localYelpAddress.d())) {
+          str1 = localYelpAddress.d();
+        }
+      }
     }
-    return getDisplayUrl();
+    return str1;
   }
   
-  public YelpBusiness getBusiness()
+  public String m()
   {
-    return this;
-  }
-  
-  public String getCategoryForBusinessSearchResult()
-  {
-    if (!mCategories.isEmpty()) {
-      return ((Category)mCategories.get(0)).getName();
-    }
-    return "";
-  }
-  
-  public String getCompleteAddress()
-  {
-    String str1 = getLocalizedStreetAddress();
-    String str2 = getGeneralAddress();
+    String str1 = k();
+    String str2 = l();
     if (TextUtils.isEmpty(str1)) {
       return str2;
     }
@@ -462,27 +697,103 @@ public class YelpBusiness
     return String.valueOf(TextUtils.concat(new CharSequence[] { str1, "\n", str2 }));
   }
   
-  public Date getDateReopening()
+  public String n()
   {
-    Date localDate = super.getDateReopening();
+    return aP;
+  }
+  
+  public String o()
+  {
+    StringBuilder localStringBuilder = new StringBuilder(256);
+    localStringBuilder.append(S).append('\n');
+    if (!TextUtils.isEmpty(P)) {
+      localStringBuilder.append(P).append('\n');
+    }
+    if (!TextUtils.isEmpty(Q)) {
+      localStringBuilder.append(Q).append('\n');
+    }
+    return localStringBuilder.toString();
+  }
+  
+  public boolean p()
+  {
+    return O() >= 6.0D;
+  }
+  
+  public Date q()
+  {
+    Date localDate = super.q();
     if ((localDate != null) && (localDate.after(new Date()))) {
       return localDate;
     }
     return null;
   }
   
-  public JSONObject getDfpParameters()
+  public boolean r()
   {
-    return mDFPAdParams;
+    return (super.r()) || (q() != null);
   }
   
-  public String getDisplayName()
+  public void s()
   {
-    String str2 = getCountry();
-    AlternateBusinessNames localAlternateBusinessNames = getAlternateNames();
+    aC += 1;
+  }
+  
+  public void t()
+  {
+    aC -= 1;
+  }
+  
+  public void u()
+  {
+    aA -= 1;
+  }
+  
+  public JSONObject v()
+  {
+    return aO;
+  }
+  
+  public ReviewState w()
+  {
+    return ReviewState.fromDescription(ae);
+  }
+  
+  public void writeToParcel(Parcel paramParcel, int paramInt)
+  {
+    super.writeToParcel(paramParcel, paramInt);
+    paramParcel.writeString(aL);
+    paramParcel.writeString(aP);
+    paramParcel.writeLong(aM);
+    paramParcel.writeString(aN.getID());
+    if (aO != null)
+    {
+      paramParcel.writeString(aO.toString());
+      return;
+    }
+    paramParcel.writeString("");
+  }
+  
+  public Reservation.Provider x()
+  {
+    return Reservation.Provider.getProvider(af);
+  }
+  
+  public String y()
+  {
+    if (TextUtils.isEmpty(ak())) {
+      return al();
+    }
+    return ak();
+  }
+  
+  public String z()
+  {
+    String str2 = aw();
+    AlternateBusinessNames localAlternateBusinessNames = be();
     Object localObject;
     if ((TextUtils.isEmpty(str2)) || (localAlternateBusinessNames == null)) {
-      localObject = mName;
+      localObject = S;
     }
     String str1;
     do
@@ -497,371 +808,22 @@ public class YelpBusiness
           if ((!LocaleSettings.a(str2)) || (localLocaleSettings.i())) {
             break;
           }
-          str1 = localAlternateBusinessNames.getSecondary();
+          str1 = localAlternateBusinessNames.c();
           localObject = str1;
         } while (!TextUtils.isEmpty(str1));
-        str1 = localAlternateBusinessNames.getRomanized();
+        str1 = localAlternateBusinessNames.b();
         localObject = str1;
       } while (!TextUtils.isEmpty(str1));
       if ((!LocaleSettings.c(str2)) || (localLocaleSettings.j())) {
         break;
       }
-      str1 = localAlternateBusinessNames.getPrimary();
+      str1 = localAlternateBusinessNames.d();
       if (!localLocaleSettings.k()) {
         break;
       }
       localObject = str1;
     } while (!TextUtils.isEmpty(str1));
-    return mName;
-  }
-  
-  public String getDisplayNameForBusinessSearchResult(Context paramContext)
-  {
-    String str2 = getDisplayName();
-    String str1 = str2;
-    if (isClosed())
-    {
-      if (isMovedToNewAddress()) {
-        str1 = paramContext.getString(2131165399, new Object[] { str2 });
-      }
-    }
-    else {
-      return str1;
-    }
-    if (getDateReopening() != null) {
-      return paramContext.getString(2131165404, new Object[] { str2 });
-    }
-    if (!TextUtils.isEmpty(getMovedToBusinessId())) {
-      return paramContext.getString(2131165403, new Object[] { str2 });
-    }
-    return paramContext.getString(2131165396, new Object[] { str2 });
-  }
-  
-  public double getDistance(Location paramLocation)
-  {
-    if ((Double.isNaN(getLongitude())) || (Double.isNaN(getLatitude())) || (paramLocation == null)) {
-      return NaN.0D;
-    }
-    return o.a(getLatitude(), getLongitude(), paramLocation.getLatitude(), paramLocation.getLongitude());
-  }
-  
-  public String getDistanceFormatted(Context paramContext, StringUtils.Format paramFormat)
-  {
-    return getDistanceFormatted(AppData.b().n().c(), paramContext, paramFormat);
-  }
-  
-  public String getDistanceFormatted(Location paramLocation, Context paramContext, StringUtils.Format paramFormat)
-  {
-    if ((!isLocationAccurate()) || (Double.isNaN(getLongitude())) || (Double.isNaN(getLatitude())) || (!o.a(paramLocation))) {
-      return null;
-    }
-    return StringUtils.a(getDistance(paramLocation), paramLocation.getAccuracy(), paramFormat, paramContext);
-  }
-  
-  public String getGeneralAddress()
-  {
-    if (mDisplayAddresses == null) {
-      deprecatedCreatePrimaryLanguageField();
-    }
-    String str2 = mDisplayAddresses.getPrimaryLanguage().getCrossStreets();
-    YelpAddress localYelpAddress = mDisplayAddresses.getSecondaryLanguage();
-    String str1 = str2;
-    if (TextUtils.isEmpty(str2))
-    {
-      str1 = str2;
-      if (localYelpAddress != null)
-      {
-        str1 = str2;
-        if (!TextUtils.isEmpty(localYelpAddress.getCrossStreets())) {
-          str1 = localYelpAddress.getCrossStreets();
-        }
-      }
-    }
-    return str1;
-  }
-  
-  public LatLng getLatLng()
-  {
-    return new LatLng(getLatitude(), getLongitude());
-  }
-  
-  public String getLocalizedStreetAddress()
-  {
-    if (mDisplayAddresses == null) {
-      deprecatedCreatePrimaryLanguageField();
-    }
-    YelpAddress localYelpAddress1 = getDisplayAddresses().getSecondaryLanguage();
-    YelpAddress localYelpAddress2 = getDisplayAddresses().getPrimaryLanguage();
-    if (localYelpAddress1 == null) {
-      return localYelpAddress2.getLongForm();
-    }
-    ArrayList localArrayList = new ArrayList();
-    localArrayList.add(localYelpAddress2.getShortForm());
-    localArrayList.add(localYelpAddress1.getShortForm());
-    localArrayList.add(getLocality());
-    localArrayList.removeAll(Collections.singleton(""));
-    return TextUtils.join("\n", localArrayList);
-  }
-  
-  public Menu getMenu()
-  {
-    if (WebViewActivity.isEventsFeatureSupported()) {
-      return super.getMenu();
-    }
-    return null;
-  }
-  
-  public int getPhotosAndVideosCount()
-  {
-    return mPhotoCount + mVideoCount;
-  }
-  
-  public PlatformAction getPlatformAction()
-  {
-    if (WebViewActivity.isEventsFeatureSupported()) {
-      return super.getPlatformAction();
-    }
-    return null;
-  }
-  
-  public String getRawJSON()
-  {
-    return mJSONString;
-  }
-  
-  public Reservation.Provider getReservationProvider()
-  {
-    return Reservation.Provider.getProvider(mReservationProviderString);
-  }
-  
-  public ReviewState getReviewState()
-  {
-    return ReviewState.fromDescription(mUserReviewStatus);
-  }
-  
-  public String getShareStringShort()
-  {
-    StringBuilder localStringBuilder = new StringBuilder(256);
-    localStringBuilder.append(mName).append('\n');
-    if (!TextUtils.isEmpty(mLocalizedAddress)) {
-      localStringBuilder.append(mLocalizedAddress).append('\n');
-    }
-    if (!TextUtils.isEmpty(mLocalizedPhone)) {
-      localStringBuilder.append(mLocalizedPhone).append('\n');
-    }
-    return localStringBuilder.toString();
-  }
-  
-  public long getTimeFetched()
-  {
-    return mTimeFetched;
-  }
-  
-  public TimeZone getTimeZone()
-  {
-    return mTimeZone;
-  }
-  
-  public String getYelpRequestId()
-  {
-    return mYelpRequestId;
-  }
-  
-  public Uri getYelpUrl(Context paramContext)
-  {
-    return new Uri.Builder().scheme("http").authority(paramContext.getString(2131166852)).path(paramContext.getString(2131165445)).appendPath(mAlias).build();
-  }
-  
-  public int hashCode()
-  {
-    if (mId == null) {}
-    for (int i = 0;; i = mId.hashCode()) {
-      return i + 31;
-    }
-  }
-  
-  public void incrementPhotoCount()
-  {
-    mPhotoCount += 1;
-  }
-  
-  public void incrementTipCount()
-  {
-    mTipCount += 1;
-  }
-  
-  public boolean isClosed()
-  {
-    return (super.isClosed()) || (getDateReopening() != null);
-  }
-  
-  public boolean isLocationAccurate()
-  {
-    return getGeoAccuracy() >= 6.0F;
-  }
-  
-  public void prependPhoto(Photo paramPhoto)
-  {
-    try
-    {
-      if (mPhotos.isEmpty()) {
-        mPhotos = new ArrayList();
-      }
-      mPhotos.add(0, paramPhoto);
-      return;
-    }
-    catch (UnsupportedOperationException paramPhoto)
-    {
-      YelpLog.error(paramPhoto);
-    }
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    super.readFromJson(paramJSONObject);
-    if (!paramJSONObject.isNull("transit")) {
-      mTransitDescription = generateTransitDescription(paramJSONObject.getJSONArray("transit"));
-    }
-    Object localObject1 = paramJSONObject.optJSONObject("recent_check_in_friends");
-    if (localObject1 != null)
-    {
-      paramJSONObject.remove("recent_check_in_friends");
-      mCheckedInFriendCount = ((JSONObject)localObject1).optInt("count");
-      Object localObject2 = JsonUtil.parseJsonList(((JSONObject)localObject1).getJSONArray("users"), YelpCheckIn.CREATOR);
-      localObject1 = new ArrayList(((ArrayList)localObject2).size());
-      localObject2 = ((ArrayList)localObject2).iterator();
-      while (((Iterator)localObject2).hasNext())
-      {
-        YelpCheckIn localYelpCheckIn = (YelpCheckIn)((Iterator)localObject2).next();
-        User localUser = localYelpCheckIn.getUser();
-        if (localUser != null)
-        {
-          localUser.setCheckIn(localYelpCheckIn);
-          ((ArrayList)localObject1).add(localUser);
-        }
-      }
-      mCheckedInFriends = ((List)localObject1);
-      if (!paramJSONObject.isNull("fmode")) {
-        if (paramJSONObject.optInt("fmode", 0) != 0) {
-          break label252;
-        }
-      }
-    }
-    label252:
-    for (mFormatMode = BusinessSearchRequest.FormatMode.FULL;; mFormatMode = BusinessSearchRequest.FormatMode.SHORT)
-    {
-      mDFPAdParams = paramJSONObject.optJSONObject("dfp_ad_params");
-      if (mDisplayUrl == null) {
-        mDisplayUrl = "";
-      }
-      mTimeZone = TimeZone.getTimeZone(paramJSONObject.optString("timezone", TimeZone.getDefault().getID()));
-      paramJSONObject.put("local_ads", new JSONArray());
-      mJSONString = paramJSONObject.toString();
-      return;
-      mCheckedInFriends = Collections.emptyList();
-      break;
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    super.readFromParcel(paramParcel);
-    mJSONString = paramParcel.readString();
-    mYelpRequestId = paramParcel.readString();
-    mTimeFetched = paramParcel.readLong();
-    mTimeZone = TimeZone.getTimeZone("" + paramParcel.readString());
-    paramParcel = paramParcel.readString();
-    if (!TextUtils.isEmpty(paramParcel)) {}
-    try
-    {
-      mDFPAdParams = new JSONObject(paramParcel);
-      return;
-    }
-    catch (JSONException paramParcel) {}
-  }
-  
-  public void setBookmarked(boolean paramBoolean)
-  {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject(mJSONString);
-      localJSONObject.remove("is_bookmarked");
-      localJSONObject.put("is_bookmarked", paramBoolean);
-      mJSONString = String.valueOf(localJSONObject);
-      mIsBookmarked = paramBoolean;
-      return;
-    }
-    catch (JSONException localJSONException)
-    {
-      BaseYelpApplication.a("YelpBusiness", "Json Exception [%s]", new Object[] { localJSONException });
-    }
-  }
-  
-  public void setCheckInOffer(Offer paramOffer)
-  {
-    mCheckInOffer = paramOffer;
-  }
-  
-  public void setIsMessageToBusinessEnabled(boolean paramBoolean)
-  {
-    mIsMessageToBusinessEnabled = paramBoolean;
-  }
-  
-  public void setReservation(Reservation paramReservation)
-  {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject(mJSONString);
-      localJSONObject.remove("reservation");
-      if (paramReservation != null) {
-        localJSONObject.put("reservation", paramReservation.writeJSON());
-      }
-      mJSONString = String.valueOf(localJSONObject);
-      mReservation = paramReservation;
-      return;
-    }
-    catch (JSONException paramReservation)
-    {
-      BaseYelpApplication.a("YelpBusiness", "Got a json exception writing the Reservation, %s", new Object[] { paramReservation });
-    }
-  }
-  
-  public void setReviewState(ReviewState paramReviewState)
-  {
-    mUserReviewStatus = paramReviewState.getDescription();
-  }
-  
-  public void setUserReviewRating(int paramInt)
-  {
-    mUserReviewRating = paramInt;
-  }
-  
-  public void setYelpRequestId(String paramString)
-  {
-    mYelpRequestId = paramString;
-  }
-  
-  public void updatePhoto(Photo paramPhoto)
-  {
-    int i = cr.a(mPhotos, paramPhoto);
-    if (i >= 0) {
-      mPhotos.set(i, paramPhoto);
-    }
-  }
-  
-  public void writeToParcel(Parcel paramParcel, int paramInt)
-  {
-    super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeString(mJSONString);
-    paramParcel.writeString(mYelpRequestId);
-    paramParcel.writeLong(mTimeFetched);
-    paramParcel.writeString(mTimeZone.getID());
-    if (mDFPAdParams != null)
-    {
-      paramParcel.writeString(mDFPAdParams.toString());
-      return;
-    }
-    paramParcel.writeString("");
+    return S;
   }
 }
 

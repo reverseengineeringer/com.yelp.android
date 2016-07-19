@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class PaymentMethod
   extends _PaymentMethod
 {
-  public static final JsonParser.DualCreator<PaymentMethod> CREATOR = new bs();
+  public static final JsonParser.DualCreator<PaymentMethod> CREATOR = new PaymentMethod.1();
   
   public boolean equals(Object paramObject)
   {
@@ -14,7 +14,7 @@ public class PaymentMethod
     {
       return false;
       paramObject = (PaymentMethod)paramObject;
-    } while ((!mId.equals(mId)) || (!mDescription.equals(mDescription)) || (!mImageUrl.equals(mImageUrl)));
+    } while ((!a.equals(a)) || (!b.equals(b)) || (!c.equals(c)));
     return true;
   }
 }

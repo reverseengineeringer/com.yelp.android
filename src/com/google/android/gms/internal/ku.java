@@ -1,56 +1,52 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import android.text.TextUtils;
+import com.google.android.gms.measurement.f;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ku
-  implements Parcelable.Creator<kv.b>
+public final class ku
+  extends f<ku>
 {
-  static void a(kv.b paramb, Parcel paramParcel, int paramInt)
+  public String a;
+  public boolean b;
+  
+  public String a()
   {
-    int i = b.H(paramParcel);
-    b.c(paramParcel, 1, versionCode);
-    b.a(paramParcel, 2, fv, false);
-    b.a(paramParcel, 3, NZ, paramInt, false);
-    b.H(paramParcel, i);
+    return a;
   }
   
-  public kv.b N(Parcel paramParcel)
+  public void a(ku paramku)
   {
-    kr.a locala = null;
-    int j = a.G(paramParcel);
-    int i = 0;
-    String str = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
-      {
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 2: 
-        str = a.o(paramParcel, k);
-        break;
-      case 3: 
-        locala = (kr.a)a.a(paramParcel, k, kr.a.CREATOR);
-      }
+    if (!TextUtils.isEmpty(a)) {
+      paramku.a(a);
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+    if (b) {
+      paramku.a(b);
     }
-    return new kv.b(i, str, locala);
   }
   
-  public kv.b[] aO(int paramInt)
+  public void a(String paramString)
   {
-    return new kv.b[paramInt];
+    a = paramString;
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    b = paramBoolean;
+  }
+  
+  public boolean b()
+  {
+    return b;
+  }
+  
+  public String toString()
+  {
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("description", a);
+    localHashMap.put("fatal", Boolean.valueOf(b));
+    return a(localHashMap);
   }
 }
 

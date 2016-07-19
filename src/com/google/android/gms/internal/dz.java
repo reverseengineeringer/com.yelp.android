@@ -1,68 +1,66 @@
 package com.google.android.gms.internal;
 
-import android.os.IBinder;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import android.location.Location;
+import com.yelp.android.bc.a;
+import java.util.Date;
+import java.util.Set;
 
-public class dz
-  implements Parcelable.Creator<ea>
+@fv
+public final class dz
+  implements a
 {
-  static void a(ea paramea, Parcel paramParcel, int paramInt)
+  private final Date a;
+  private final int b;
+  private final Set<String> c;
+  private final boolean d;
+  private final Location e;
+  private final int f;
+  private final boolean g;
+  
+  public dz(Date paramDate, int paramInt1, Set<String> paramSet, Location paramLocation, boolean paramBoolean1, int paramInt2, boolean paramBoolean2)
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, versionCode);
-    b.a(paramParcel, 3, paramea.cu(), false);
-    b.a(paramParcel, 4, paramea.cv(), false);
-    b.a(paramParcel, 5, paramea.cw(), false);
-    b.a(paramParcel, 6, paramea.ct(), false);
-    b.H(paramParcel, paramInt);
+    a = paramDate;
+    b = paramInt1;
+    c = paramSet;
+    e = paramLocation;
+    d = paramBoolean1;
+    f = paramInt2;
+    g = paramBoolean2;
   }
   
-  public ea g(Parcel paramParcel)
+  public Date a()
   {
-    IBinder localIBinder1 = null;
-    int j = a.G(paramParcel);
-    int i = 0;
-    IBinder localIBinder2 = null;
-    IBinder localIBinder3 = null;
-    IBinder localIBinder4 = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
-      {
-      case 2: 
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 3: 
-        localIBinder4 = a.p(paramParcel, k);
-        break;
-      case 4: 
-        localIBinder3 = a.p(paramParcel, k);
-        break;
-      case 5: 
-        localIBinder2 = a.p(paramParcel, k);
-        break;
-      case 6: 
-        localIBinder1 = a.p(paramParcel, k);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
-    }
-    return new ea(i, localIBinder4, localIBinder3, localIBinder2, localIBinder1);
+    return a;
   }
   
-  public ea[] o(int paramInt)
+  public int b()
   {
-    return new ea[paramInt];
+    return b;
+  }
+  
+  public Set<String> c()
+  {
+    return c;
+  }
+  
+  public Location d()
+  {
+    return e;
+  }
+  
+  public int e()
+  {
+    return f;
+  }
+  
+  public boolean f()
+  {
+    return d;
+  }
+  
+  public boolean g()
+  {
+    return g;
   }
 }
 

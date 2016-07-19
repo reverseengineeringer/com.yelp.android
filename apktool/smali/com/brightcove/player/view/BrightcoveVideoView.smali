@@ -45,6 +45,12 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/view/BrightcoveVideoView$SurfaceListener;
+    }
+.end annotation
+
 
 # static fields
 .field private static final FFWD:Ljava/lang/String; = "ffwd"
@@ -1086,6 +1092,11 @@
 # virtual methods
 .method public add(ILcom/brightcove/player/model/Video;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IndexOutOfBoundsException;
+        }
+    .end annotation
 
     .prologue
     .line 922
@@ -1131,6 +1142,12 @@
             "<",
             "Lcom/brightcove/player/model/Video;",
             ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IndexOutOfBoundsException;
         }
     .end annotation
 
@@ -2474,6 +2491,11 @@
 
 .method public remove(I)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IndexOutOfBoundsException;
+        }
+    .end annotation
 
     .prologue
     .line 1074
@@ -2674,6 +2696,11 @@
 
 .method public setCurrentIndex(I)V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IndexOutOfBoundsException;
+        }
+    .end annotation
 
     .prologue
     .line 998

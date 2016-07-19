@@ -9,15 +9,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.yelp.android.appdata.ao;
+import com.yelp.android.appdata.n;
 import com.yelp.android.appdata.webrequests.ApiRequest;
 import com.yelp.android.appdata.webrequests.YelpException;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.panels.aa;
+import com.yelp.android.ui.panels.PanelError.a;
 
 public abstract class YelpListActivity
   extends YelpActivity
-  implements AdapterView.OnItemClickListener, aa
+  implements AdapterView.OnItemClickListener, PanelError.a
 {
   private ScrollToLoadListView a;
   private int b;
@@ -27,55 +27,43 @@ public abstract class YelpListActivity
   {
     TextView localTextView = new TextView(this);
     localTextView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-    localTextView.setPadding(ao.a, ao.a, ao.a, ao.a);
+    localTextView.setPadding(n.a, n.a, n.a, n.a);
     localTextView.setGravity(17);
     localTextView.setText(paramInt);
-    localTextView.setTextAppearance(this, 2131689621);
+    localTextView.setTextAppearance(this, 2131296462);
     localTextView.setVisibility(8);
-    ((ViewGroup)paramAdapterView.getRootView().findViewById(2131493332)).addView(localTextView);
+    ((ViewGroup)paramAdapterView.getRootView().findViewById(2131689997)).addView(localTextView);
     return localTextView;
+  }
+  
+  public void a()
+  {
+    r().f();
   }
   
   protected void a(ListView paramListView, View paramView, int paramInt, long paramLong) {}
   
-  public void a_()
-  {
-    c(0);
-    d();
-  }
+  protected void c() {}
   
   public void c(int paramInt)
   {
     b = paramInt;
   }
   
-  protected void d() {}
-  
   public void d(int paramInt)
   {
     b += paramInt;
   }
   
-  public int e_()
-  {
-    return c;
-  }
-  
-  public int i()
+  public int h()
   {
     return 0;
-  }
-  
-  public void m_()
-  {
-    clearError();
-    a_();
   }
   
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903442);
+    setContentView(2130903567);
     if (paramBundle != null)
     {
       c = paramBundle.getInt("yelp:limit", 20);
@@ -89,7 +77,7 @@ public abstract class YelpListActivity
   public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
   {
     super.onError(paramApiRequest, paramYelpException);
-    t();
+    a();
   }
   
   public final void onItemClick(AdapterView<?> paramAdapterView, View paramView, int paramInt, long paramLong)
@@ -119,33 +107,51 @@ public abstract class YelpListActivity
       if (getIntent().getBooleanExtra("known empty", false)) {
         break label79;
       }
-      s();
+      t();
     }
     label79:
-    while (i() == 0) {
+    while (h() == 0) {
       return;
     }
-    q().setEmptyView(a(q(), i()));
+    r().setEmptyView(a(r(), h()));
   }
   
-  public ScrollToLoadListView q()
+  public void p_()
+  {
+    c(0);
+    c();
+  }
+  
+  public void q_()
+  {
+    clearError();
+    p_();
+  }
+  
+  public ScrollToLoadListView r()
   {
     return a;
   }
   
-  public int r()
+  public int s()
   {
     return b;
   }
   
-  public void s()
+  public int s_()
   {
-    q().setOnLoadNeeded(new df(this));
+    return c;
   }
   
   public void t()
   {
-    q().f();
+    r().setOnLoadNeeded(new Runnable()
+    {
+      public void run()
+      {
+        c();
+      }
+    });
   }
 }
 

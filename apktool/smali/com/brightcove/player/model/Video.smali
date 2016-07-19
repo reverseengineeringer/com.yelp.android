@@ -3,6 +3,14 @@
 .source "Video.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/model/Video$Fields;
+    }
+.end annotation
+
+
 # instance fields
 .field private cuePoints:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;

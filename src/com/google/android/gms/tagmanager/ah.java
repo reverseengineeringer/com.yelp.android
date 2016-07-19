@@ -1,34 +1,16 @@
 package com.google.android.gms.tagmanager;
 
-import com.google.android.gms.internal.a;
-import com.google.android.gms.internal.d.a;
-import java.util.Map;
-
-class ah
-  extends aj
+abstract interface ah
 {
-  private static final String ID = a.K.toString();
-  private final ct aqo;
+  public abstract ah a(int paramInt);
   
-  public ah(ct paramct)
-  {
-    super(ID, new String[0]);
-    aqo = paramct;
-  }
+  public abstract o a();
   
-  public d.a B(Map<String, d.a> paramMap)
-  {
-    paramMap = aqo.qE();
-    if (paramMap == null) {
-      return di.rb();
-    }
-    return di.u(paramMap);
-  }
+  public abstract ah b(int paramInt);
   
-  public boolean pe()
-  {
-    return false;
-  }
+  public abstract ah c(int paramInt);
+  
+  public abstract ah d(int paramInt);
 }
 
 /* Location:

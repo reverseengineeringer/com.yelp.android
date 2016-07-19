@@ -7,25 +7,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class NearbyRow
   extends _NearbyRow
 {
-  public static final JsonParser.DualCreator<NearbyRow> CREATOR = new bl();
+  public static final JsonParser.DualCreator<NearbyRow> CREATOR = new NearbyRow.1();
   
-  public static ArrayList<NearbyRow> rowsFromJSONArray(JSONArray paramJSONArray, HashMap<String, YelpBusiness> paramHashMap, String paramString)
+  public static ArrayList<NearbyRow> a(JSONArray paramJSONArray, HashMap<String, YelpBusiness> paramHashMap, String paramString)
+    throws JSONException
   {
     paramString = new ArrayList();
     int i = 0;
     while (i < paramJSONArray.length())
     {
       NearbyRow localNearbyRow = (NearbyRow)CREATOR.parse(paramJSONArray.getJSONObject(i));
-      Iterator localIterator = localNearbyRow.getResults().iterator();
+      Iterator localIterator = localNearbyRow.e().iterator();
       while (localIterator.hasNext())
       {
         NearbyResult localNearbyResult = (NearbyResult)localIterator.next();
-        mBusiness = ((YelpBusiness)paramHashMap.get(localNearbyResult.getBusinessId()));
+        e = ((YelpBusiness)paramHashMap.get(localNearbyResult.c()));
       }
       paramString.add(localNearbyRow);
       i += 1;
@@ -33,18 +35,19 @@ public class NearbyRow
     return paramString;
   }
   
-  public static ArrayList<NearbyRow> rowsFromNearbySuggestResponse(JSONObject paramJSONObject, String paramString)
+  public static ArrayList<NearbyRow> a(JSONObject paramJSONObject, String paramString)
+    throws JSONException
   {
-    HashMap localHashMap = YelpBusiness.jsonBusinessesToMap(paramJSONObject.getJSONArray("businesses"), paramString, BusinessSearchRequest.FormatMode.SHORT);
-    return rowsFromJSONArray(paramJSONObject.getJSONArray("suggestions"), localHashMap, paramString);
+    HashMap localHashMap = YelpBusiness.b(paramJSONObject.getJSONArray("businesses"), paramString, BusinessSearchRequest.FormatMode.SHORT);
+    return a(paramJSONObject.getJSONArray("suggestions"), localHashMap, paramString);
   }
   
-  public List<YelpBusiness> getBusinessListForResults()
+  public List<YelpBusiness> a()
   {
     ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = mResults.iterator();
+    Iterator localIterator = a.iterator();
     while (localIterator.hasNext()) {
-      localArrayList.add(((NearbyResult)localIterator.next()).getBusiness());
+      localArrayList.add(((NearbyResult)localIterator.next()).b());
     }
     return localArrayList;
   }

@@ -6,7 +6,10 @@ import com.brightcove.player.event.Component;
 import com.brightcove.player.event.Emits;
 import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
+import com.brightcove.player.event.EventListener;
 import com.brightcove.player.event.ListensFor;
+import com.brightcove.player.media.tasks.FindPlaylistTask;
+import com.brightcove.player.media.tasks.FindVideoTask;
 import com.brightcove.player.model.CuePoint;
 import com.brightcove.player.model.Playlist;
 import com.brightcove.player.model.Source;
@@ -15,6 +18,7 @@ import com.brightcove.player.model.Video;
 import com.brightcove.player.util.ErrorUtil;
 import com.brightcove.player.util.StringUtil;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -54,7 +58,7 @@ public class MediaService
   public static final String TOKEN = "token";
   public static final String VIDEO_FIELDS = "video_fields";
   public static final String VIDEO_ID = "video_id";
-  private MediaService.OnFindMediaListener findMediaListener;
+  private OnFindMediaListener findMediaListener;
   private String queryBaseURL;
   private String readToken;
   
@@ -79,6 +83,7 @@ public class MediaService
   }
   
   public static CuePoint buildCuePointFromJSON(JSONObject paramJSONObject, EventEmitter paramEventEmitter, List<String> paramList)
+    throws JSONException
   {
     paramEventEmitter = null;
     int i = 0;
@@ -115,6 +120,7 @@ public class MediaService
   }
   
   private static SourceCollection buildHLSSourceCollectionFromURL(JSONObject paramJSONObject, String paramString)
+    throws JSONException
   {
     paramString = paramJSONObject.getString(paramString);
     paramJSONObject = null;
@@ -125,6 +131,7 @@ public class MediaService
   }
   
   public static Playlist buildPlaylistFromJSON(JSONObject paramJSONObject, EventEmitter paramEventEmitter, List<String> paramList)
+    throws JSONException, IllegalArgumentException
   {
     if (paramJSONObject == null) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("jsonRequired"));
@@ -164,6 +171,7 @@ public class MediaService
   }
   
   private static Serializable buildSerializable(Object paramObject)
+    throws JSONException
   {
     if ((paramObject instanceof Serializable)) {
       return (Serializable)paramObject;
@@ -184,6 +192,7 @@ public class MediaService
   }
   
   private static SourceCollection buildSourceCollectionFromVideoFullLength(JSONObject paramJSONObject)
+    throws JSONException
   {
     Object localObject = paramJSONObject.getJSONObject("videoFullLength");
     paramJSONObject = new HashSet();
@@ -194,75 +203,76 @@ public class MediaService
   
   /* Error */
   public static Source buildSourceFromJSON(JSONObject paramJSONObject)
+    throws JSONException
   {
     // Byte code:
-    //   0: new 169	java/util/HashMap
+    //   0: new 176	java/util/HashMap
     //   3: dup
-    //   4: invokespecial 171	java/util/HashMap:<init>	()V
+    //   4: invokespecial 178	java/util/HashMap:<init>	()V
     //   7: astore 4
     //   9: aload_0
-    //   10: ldc_w 335
-    //   13: invokevirtual 147	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
+    //   10: ldc_w 343
+    //   13: invokevirtual 154	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
     //   16: ifne +21 -> 37
     //   19: aload 4
-    //   21: ldc_w 335
+    //   21: ldc_w 343
     //   24: aload_0
-    //   25: ldc_w 335
-    //   28: invokevirtual 190	org/json/JSONObject:getString	(Ljava/lang/String;)Ljava/lang/String;
-    //   31: invokeinterface 204 3 0
+    //   25: ldc_w 343
+    //   28: invokevirtual 197	org/json/JSONObject:getString	(Ljava/lang/String;)Ljava/lang/String;
+    //   31: invokeinterface 211 3 0
     //   36: pop
     //   37: aload_0
-    //   38: ldc_w 337
-    //   41: invokevirtual 147	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
+    //   38: ldc_w 345
+    //   41: invokevirtual 154	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
     //   44: ifne +24 -> 68
     //   47: aload 4
-    //   49: ldc_w 339
+    //   49: ldc_w 347
     //   52: aload_0
-    //   53: ldc_w 337
-    //   56: invokevirtual 258	org/json/JSONObject:getLong	(Ljava/lang/String;)J
-    //   59: invokestatic 264	java/lang/Long:valueOf	(J)Ljava/lang/Long;
-    //   62: invokeinterface 204 3 0
+    //   53: ldc_w 345
+    //   56: invokevirtual 266	org/json/JSONObject:getLong	(Ljava/lang/String;)J
+    //   59: invokestatic 272	java/lang/Long:valueOf	(J)Ljava/lang/Long;
+    //   62: invokeinterface 211 3 0
     //   67: pop
     //   68: aload_0
-    //   69: ldc_w 341
-    //   72: invokevirtual 147	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
+    //   69: ldc_w 349
+    //   72: invokevirtual 154	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
     //   75: ifne +24 -> 99
     //   78: aload 4
-    //   80: ldc_w 343
+    //   80: ldc_w 351
     //   83: aload_0
-    //   84: ldc_w 341
-    //   87: invokevirtual 187	org/json/JSONObject:getInt	(Ljava/lang/String;)I
-    //   90: invokestatic 348	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
-    //   93: invokeinterface 204 3 0
+    //   84: ldc_w 349
+    //   87: invokevirtual 194	org/json/JSONObject:getInt	(Ljava/lang/String;)I
+    //   90: invokestatic 356	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
+    //   93: invokeinterface 211 3 0
     //   98: pop
     //   99: aload_0
-    //   100: ldc_w 350
-    //   103: invokevirtual 147	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
+    //   100: ldc_w 358
+    //   103: invokevirtual 154	org/json/JSONObject:isNull	(Ljava/lang/String;)Z
     //   106: ifne +86 -> 192
     //   109: aload_0
-    //   110: ldc_w 350
-    //   113: invokevirtual 190	org/json/JSONObject:getString	(Ljava/lang/String;)Ljava/lang/String;
+    //   110: ldc_w 358
+    //   113: invokevirtual 197	org/json/JSONObject:getString	(Ljava/lang/String;)Ljava/lang/String;
     //   116: astore 5
     //   118: aload 4
-    //   120: ldc_w 335
-    //   123: invokeinterface 353 2 0
-    //   128: checkcast 92	java/lang/String
+    //   120: ldc_w 343
+    //   123: invokeinterface 361 2 0
+    //   128: checkcast 97	java/lang/String
     //   131: astore_3
     //   132: aload_3
     //   133: ifnull +116 -> 249
-    //   136: new 355	java/net/URI
+    //   136: new 363	java/net/URI
     //   139: dup
     //   140: aload_3
-    //   141: invokespecial 356	java/net/URI:<init>	(Ljava/lang/String;)V
-    //   144: invokevirtual 359	java/net/URI:getScheme	()Ljava/lang/String;
+    //   141: invokespecial 364	java/net/URI:<init>	(Ljava/lang/String;)V
+    //   144: invokevirtual 367	java/net/URI:getScheme	()Ljava/lang/String;
     //   147: astore 6
     //   149: aload 6
-    //   151: ldc 19
-    //   153: invokevirtual 183	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   151: ldc 24
+    //   153: invokevirtual 190	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   156: ifne +16 -> 172
     //   159: aload 6
-    //   161: ldc_w 361
-    //   164: invokevirtual 183	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   161: ldc_w 369
+    //   164: invokevirtual 190	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   167: istore_2
     //   168: iload_2
     //   169: ifeq +45 -> 214
@@ -271,19 +281,19 @@ public class MediaService
     //   174: iload_1
     //   175: ifne +79 -> 254
     //   178: aload 4
-    //   180: ldc_w 363
-    //   183: getstatic 366	com/brightcove/player/media/DeliveryType:UNKNOWN	Lcom/brightcove/player/media/DeliveryType;
-    //   186: invokeinterface 204 3 0
+    //   180: ldc_w 371
+    //   183: getstatic 374	com/brightcove/player/media/DeliveryType:UNKNOWN	Lcom/brightcove/player/media/DeliveryType;
+    //   186: invokeinterface 211 3 0
     //   191: pop
     //   192: aload_0
     //   193: aload 4
-    //   195: getstatic 369	com/brightcove/player/media/SourceFields:DEFAULT_FIELDS	[Ljava/lang/String;
-    //   198: invokestatic 216	java/util/Arrays:asList	([Ljava/lang/Object;)Ljava/util/List;
-    //   201: invokestatic 220	com/brightcove/player/media/MediaService:parseJSONProperties	(Lorg/json/JSONObject;Ljava/util/Map;Ljava/util/List;)V
-    //   204: new 238	com/brightcove/player/model/Source
+    //   195: getstatic 377	com/brightcove/player/media/SourceFields:DEFAULT_FIELDS	[Ljava/lang/String;
+    //   198: invokestatic 223	java/util/Arrays:asList	([Ljava/lang/Object;)Ljava/util/List;
+    //   201: invokestatic 227	com/brightcove/player/media/MediaService:parseJSONProperties	(Lorg/json/JSONObject;Ljava/util/Map;Ljava/util/List;)V
+    //   204: new 246	com/brightcove/player/model/Source
     //   207: dup
     //   208: aload 4
-    //   210: invokespecial 372	com/brightcove/player/model/Source:<init>	(Ljava/util/Map;)V
+    //   210: invokespecial 380	com/brightcove/player/model/Source:<init>	(Ljava/util/Map;)V
     //   213: areturn
     //   214: iconst_0
     //   215: istore_1
@@ -291,64 +301,64 @@ public class MediaService
     //   219: astore_3
     //   220: aconst_null
     //   221: astore_3
-    //   222: getstatic 81	com/brightcove/player/media/MediaService:TAG	Ljava/lang/String;
-    //   225: new 374	java/lang/StringBuilder
+    //   222: getstatic 86	com/brightcove/player/media/MediaService:TAG	Ljava/lang/String;
+    //   225: new 382	java/lang/StringBuilder
     //   228: dup
-    //   229: invokespecial 375	java/lang/StringBuilder:<init>	()V
-    //   232: ldc_w 377
-    //   235: invokevirtual 381	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   229: invokespecial 383	java/lang/StringBuilder:<init>	()V
+    //   232: ldc_w 385
+    //   235: invokevirtual 389	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
     //   238: aload_3
-    //   239: invokevirtual 381	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   242: invokevirtual 384	java/lang/StringBuilder:toString	()Ljava/lang/String;
-    //   245: invokestatic 390	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;)I
+    //   239: invokevirtual 389	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   242: invokevirtual 392	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   245: invokestatic 398	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;)I
     //   248: pop
     //   249: iconst_0
     //   250: istore_1
     //   251: goto -77 -> 174
     //   254: aload 5
-    //   256: ldc_w 392
-    //   259: invokevirtual 183	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   256: ldc_w 400
+    //   259: invokevirtual 190	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   262: ifeq +20 -> 282
     //   265: aload 4
-    //   267: ldc_w 363
-    //   270: getstatic 394	com/brightcove/player/media/DeliveryType:MP4	Lcom/brightcove/player/media/DeliveryType;
-    //   273: invokeinterface 204 3 0
+    //   267: ldc_w 371
+    //   270: getstatic 402	com/brightcove/player/media/DeliveryType:MP4	Lcom/brightcove/player/media/DeliveryType;
+    //   273: invokeinterface 211 3 0
     //   278: pop
     //   279: goto -87 -> 192
     //   282: aload 5
-    //   284: ldc_w 396
-    //   287: invokevirtual 183	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   284: ldc_w 404
+    //   287: invokevirtual 190	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   290: ifeq +20 -> 310
     //   293: aload 4
-    //   295: ldc_w 363
-    //   298: getstatic 244	com/brightcove/player/media/DeliveryType:HLS	Lcom/brightcove/player/media/DeliveryType;
-    //   301: invokeinterface 204 3 0
+    //   295: ldc_w 371
+    //   298: getstatic 252	com/brightcove/player/media/DeliveryType:HLS	Lcom/brightcove/player/media/DeliveryType;
+    //   301: invokeinterface 211 3 0
     //   306: pop
     //   307: goto -115 -> 192
     //   310: aload 5
-    //   312: ldc_w 398
-    //   315: invokevirtual 183	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   312: ldc_w 406
+    //   315: invokevirtual 190	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   318: ifeq +20 -> 338
     //   321: aload 4
-    //   323: ldc_w 363
-    //   326: getstatic 400	com/brightcove/player/media/DeliveryType:FLV	Lcom/brightcove/player/media/DeliveryType;
-    //   329: invokeinterface 204 3 0
+    //   323: ldc_w 371
+    //   326: getstatic 408	com/brightcove/player/media/DeliveryType:FLV	Lcom/brightcove/player/media/DeliveryType;
+    //   329: invokeinterface 211 3 0
     //   334: pop
     //   335: goto -143 -> 192
     //   338: aload 5
-    //   340: ldc_w 402
-    //   343: invokevirtual 183	java/lang/String:equals	(Ljava/lang/Object;)Z
+    //   340: ldc_w 410
+    //   343: invokevirtual 190	java/lang/String:equals	(Ljava/lang/Object;)Z
     //   346: ifeq +20 -> 366
     //   349: aload 4
-    //   351: ldc_w 363
-    //   354: getstatic 404	com/brightcove/player/media/DeliveryType:WVM	Lcom/brightcove/player/media/DeliveryType;
-    //   357: invokeinterface 204 3 0
+    //   351: ldc_w 371
+    //   354: getstatic 412	com/brightcove/player/media/DeliveryType:WVM	Lcom/brightcove/player/media/DeliveryType;
+    //   357: invokeinterface 211 3 0
     //   362: pop
     //   363: goto -171 -> 192
     //   366: aload 4
-    //   368: ldc_w 363
-    //   371: getstatic 366	com/brightcove/player/media/DeliveryType:UNKNOWN	Lcom/brightcove/player/media/DeliveryType;
-    //   374: invokeinterface 204 3 0
+    //   368: ldc_w 371
+    //   371: getstatic 374	com/brightcove/player/media/DeliveryType:UNKNOWN	Lcom/brightcove/player/media/DeliveryType;
+    //   374: invokeinterface 211 3 0
     //   379: pop
     //   380: goto -188 -> 192
     //   383: astore 6
@@ -372,6 +382,7 @@ public class MediaService
   }
   
   private static List<CuePoint> buildVideoCuePoints(JSONObject paramJSONObject, EventEmitter paramEventEmitter, List<String> paramList)
+    throws JSONException
   {
     ArrayList localArrayList = null;
     if (!paramJSONObject.isNull("cuePoints"))
@@ -389,6 +400,7 @@ public class MediaService
   }
   
   public static Video buildVideoFromJSON(JSONObject paramJSONObject, EventEmitter paramEventEmitter, List<String> paramList)
+    throws JSONException, IllegalArgumentException
   {
     if (paramJSONObject == null) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("jsonRequired"));
@@ -404,6 +416,7 @@ public class MediaService
   }
   
   private static Map<String, Object> buildVideoProperties(JSONObject paramJSONObject, List<String> paramList)
+    throws JSONException
   {
     HashMap localHashMap = new HashMap();
     if (!paramJSONObject.isNull("accountId")) {
@@ -462,6 +475,7 @@ public class MediaService
   }
   
   private static Set<SourceCollection> buildVideoSourceCollections(JSONObject paramJSONObject)
+    throws JSONException
   {
     HashSet localHashSet1 = new HashSet();
     HashSet localHashSet2 = new HashSet();
@@ -522,6 +536,7 @@ public class MediaService
   }
   
   private static Set<Source> getRenditionSources(JSONObject paramJSONObject)
+    throws JSONException
   {
     HashSet localHashSet = new HashSet();
     localHashSet.addAll(getRenditionSources(paramJSONObject, "renditions"));
@@ -531,6 +546,7 @@ public class MediaService
   }
   
   private static Set<Source> getRenditionSources(JSONObject paramJSONObject, String paramString)
+    throws JSONException
   {
     HashSet localHashSet = new HashSet();
     paramJSONObject = paramJSONObject.optJSONArray(paramString);
@@ -547,6 +563,7 @@ public class MediaService
   }
   
   private static void parseJSONProperties(JSONObject paramJSONObject, Map<String, Object> paramMap, List<String> paramList)
+    throws JSONException
   {
     if ((paramJSONObject == null) || (paramMap == null)) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("jsonAndPropertiesRequired"));
@@ -590,9 +607,59 @@ public class MediaService
   
   protected void initializeListeners()
   {
-    findMediaListener = new MediaService.OnFindMediaListener(this, null);
+    findMediaListener = new OnFindMediaListener(null);
     addListener("findVideo", findMediaListener);
     addListener("findPlaylist", findMediaListener);
+  }
+  
+  private class OnFindMediaListener
+    implements EventListener
+  {
+    private OnFindMediaListener() {}
+    
+    public void processEvent(Event paramEvent)
+    {
+      HashMap localHashMap = new HashMap();
+      localHashMap.put("token", readToken);
+      localHashMap.put("media_delivery", "http");
+      if (properties.containsKey("options")) {
+        localHashMap.putAll((Map)properties.get("options"));
+      }
+      try
+      {
+        if (properties.containsKey("videoID"))
+        {
+          new FindVideoTask(eventEmitter, paramEvent, queryBaseURL, localHashMap).findVideoById((String)properties.get("videoID"));
+          return;
+        }
+        if (properties.containsKey("videoReferenceID"))
+        {
+          new FindVideoTask(eventEmitter, paramEvent, queryBaseURL, localHashMap).findVideoByReferenceId((String)properties.get("videoReferenceID"));
+          return;
+        }
+      }
+      catch (URISyntaxException localURISyntaxException)
+      {
+        MediaService.this.respondWithError(paramEvent, localURISyntaxException);
+        return;
+        if (properties.containsKey("playlistID"))
+        {
+          new FindPlaylistTask(eventEmitter, paramEvent, queryBaseURL, localURISyntaxException).findPlaylistById((String)properties.get("playlistID"));
+          return;
+        }
+      }
+      catch (UnsupportedEncodingException localUnsupportedEncodingException)
+      {
+        MediaService.this.respondWithError(paramEvent, localUnsupportedEncodingException);
+        return;
+      }
+      if (properties.containsKey("playlistReferenceID"))
+      {
+        new FindPlaylistTask(eventEmitter, paramEvent, queryBaseURL, localUnsupportedEncodingException).findPlaylistByReferenceId((String)properties.get("playlistReferenceID"));
+        return;
+      }
+      throw new IllegalArgumentException(ErrorUtil.getMessage("keyNotFound"));
+    }
   }
 }
 

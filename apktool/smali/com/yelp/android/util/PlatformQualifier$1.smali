@@ -3,12 +3,23 @@
 .source "PlatformQualifier.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/util/PlatformQualifier;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4008
+    name = null
+.end annotation
+
+
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
     .locals 1
 
     .prologue
-    .line 20
+    .line 19
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/util/PlatformQualifier;-><init>(Ljava/lang/String;ILcom/yelp/android/util/PlatformQualifier$1;)V
@@ -22,7 +33,7 @@
     .locals 2
 
     .prologue
-    .line 23
+    .line 22
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0

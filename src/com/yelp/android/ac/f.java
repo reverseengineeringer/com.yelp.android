@@ -1,40 +1,31 @@
 package com.yelp.android.ac;
 
-import android.graphics.Bitmap;
-import com.bumptech.glide.load.e;
-import com.bumptech.glide.load.engine.t;
-import com.yelp.android.ab.b;
-import java.io.OutputStream;
+import android.content.Context;
+import android.net.Uri;
+import com.yelp.android.aa.c;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.aa.n;
+import java.io.InputStream;
 
 public class f
-  implements e<a>
+  extends n<InputStream>
+  implements e<Integer>
 {
-  private final e<Bitmap> a;
-  private final e<b> b;
-  private String c;
-  
-  public f(e<Bitmap> parame, e<b> parame1)
+  public f(Context paramContext, l<Uri, InputStream> paraml)
   {
-    a = parame;
-    b = parame1;
+    super(paramContext, paraml);
   }
   
-  public String a()
+  public static class a
+    implements m<Integer, InputStream>
   {
-    if (c == null) {
-      c = (a.a() + b.a());
+    public l<Integer, InputStream> a(Context paramContext, c paramc)
+    {
+      return new f(paramContext, paramc.a(Uri.class, InputStream.class));
     }
-    return c;
-  }
-  
-  public boolean a(t<a> paramt, OutputStream paramOutputStream)
-  {
-    paramt = (a)paramt.b();
-    t localt = paramt.b();
-    if (localt != null) {
-      return a.a(localt, paramOutputStream);
-    }
-    return b.a(paramt.c(), paramOutputStream);
+    
+    public void a() {}
   }
 }
 

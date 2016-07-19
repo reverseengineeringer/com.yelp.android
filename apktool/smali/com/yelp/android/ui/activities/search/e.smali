@@ -1,39 +1,26 @@
-.class Lcom/yelp/android/ui/activities/search/e;
+.class public interface abstract Lcom/yelp/android/ui/activities/search/e;
 .super Ljava/lang/Object;
-.source "SearchBusinessesByList.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/search/SearchBusinessesByList;
-
-
-# direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/search/SearchBusinessesByList;)V
-    .locals 0
-
-    .prologue
-    .line 322
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/search/e;->a:Lcom/yelp/android/ui/activities/search/SearchBusinessesByList;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+.source "Searchable.java"
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 1
+.method public abstract a(Lcom/yelp/android/appdata/webrequests/eo;Ljava/lang/String;)V
+.end method
 
-    .prologue
-    .line 326
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/search/e;->a:Lcom/yelp/android/ui/activities/search/SearchBusinessesByList;
+.method public abstract l()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end method
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/search/SearchUtils;->b(Landroid/app/Activity;)V
+.method public abstract n()[D
+.end method
 
-    .line 327
-    return-void
+.method public abstract o()I
 .end method

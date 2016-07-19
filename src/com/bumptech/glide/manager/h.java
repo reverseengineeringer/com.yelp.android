@@ -2,7 +2,11 @@ package com.bumptech.glide.manager;
 
 public abstract interface h
 {
-  public abstract void a(i parami);
+  public abstract void d();
+  
+  public abstract void e();
+  
+  public abstract void f();
 }
 
 /* Location:

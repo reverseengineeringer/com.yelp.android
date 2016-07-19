@@ -23,7 +23,7 @@
 
 
 # virtual methods
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -34,25 +34,25 @@
             ">(",
             "Ljava/lang/String;",
             "TRequest;",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<TResult;>;)TRequest;"
         }
     .end annotation
 
     .prologue
-    .line 98
+    .line 104
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    invoke-virtual {v0, p1, p3}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, p1, p3}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    .line 99
+    .line 105
     if-eqz v0, :cond_0
 
     move-object p2, v0
 
-    .line 102
+    .line 108
     :cond_0
     return-object p2
 .end method
@@ -72,20 +72,20 @@
     .end annotation
 
     .prologue
-    .line 83
+    .line 89
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
     invoke-virtual {v0, p1, p2}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 84
+    .line 90
     return-void
 .end method
 
-.method protected final c()Lcom/yelp/android/ui/activities/support/YelpActivity;
+.method protected final d()Lcom/yelp/android/ui/activities/support/YelpActivity;
     .locals 1
 
     .prologue
-    .line 112
+    .line 118
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -95,32 +95,48 @@
     return-object v0
 .end method
 
+.method protected e()Landroid/support/v7/app/d$a;
+    .locals 2
+
+    .prologue
+    .line 122
+    new-instance v0, Landroid/support/v7/app/d$a;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/support/v7/app/d$a;-><init>(Landroid/content/Context;)V
+
+    return-object v0
+.end method
+
 .method public getComponentId()J
     .locals 2
 
     .prologue
-    .line 71
+    .line 77
     const-wide/16 v0, 0x0
 
     return-wide v0
 .end method
 
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 56
+    .line 62
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -131,7 +147,7 @@
     .end annotation
 
     .prologue
-    .line 61
+    .line 67
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
@@ -139,11 +155,11 @@
     return-object v0
 .end method
 
-.method public getRequestIdForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/lang/String;
+.method public getRequestIdForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 66
+    .line 72
     const/4 v0, 0x0
 
     return-object v0
@@ -151,29 +167,34 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
 
     .prologue
-    .line 33
+    .line 35
     invoke-super {p0, p1}, Landroid/support/v4/app/DialogFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 36
+    .line 38
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->getParentFragment()Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
     move-object v1, v0
 
-    .line 39
+    .line 42
     :goto_0
     const-string/jumbo v0, "API_WORKER_FRAGMENT"
 
-    invoke-virtual {v1, v0}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v1, v0}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -181,20 +202,20 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    .line 41
+    .line 45
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
     if-nez v0, :cond_0
 
-    .line 42
+    .line 46
     new-instance v0, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->a:Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;
 
-    .line 43
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    .line 47
+    invoke-virtual {v1}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
@@ -202,23 +223,23 @@
 
     const-string/jumbo v2, "API_WORKER_FRAGMENT"
 
-    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/FragmentTransaction;->add(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/o;->a(Landroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 46
+    .line 52
     :cond_0
     return-void
 
-    .line 36
+    .line 38
     :cond_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->getParentFragment()Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/Fragment;->getFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {v0}, Landroid/support/v4/app/Fragment;->getFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
@@ -231,16 +252,16 @@
     .locals 1
 
     .prologue
-    .line 50
+    .line 56
     invoke-super {p0}, Landroid/support/v4/app/DialogFragment;->onResume()V
 
-    .line 51
+    .line 57
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/a;Landroid/content/Context;)Z
+    invoke-static {p0, v0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/a;Landroid/content/Context;)Z
 
-    .line 52
+    .line 58
     return-void
 .end method

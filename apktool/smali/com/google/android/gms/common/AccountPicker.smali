@@ -11,7 +11,54 @@
     return-void
 .end method
 
-.method public static a(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Z)Landroid/content/Intent;
+.method public static newChooseAccountIntent(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+    .locals 9
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/accounts/Account;",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/accounts/Account;",
+            ">;[",
+            "Ljava/lang/String;",
+            "Z",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "[",
+            "Ljava/lang/String;",
+            "Landroid/os/Bundle;",
+            ")",
+            "Landroid/content/Intent;"
+        }
+    .end annotation
+
+    const/4 v8, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    move-object v6, p6
+
+    move-object/from16 v7, p7
+
+    invoke-static/range {v0 .. v8}, Lcom/google/android/gms/common/AccountPicker;->zza(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Z)Landroid/content/Intent;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static zza(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Z)Landroid/content/Intent;
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,15 +102,15 @@
 
     move/from16 v8, p8
 
-    invoke-static/range {v0 .. v10}, Lcom/google/android/gms/common/AccountPicker;->a(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;ZII)Landroid/content/Intent;
+    invoke-static/range {v0 .. v10}, Lcom/google/android/gms/common/AccountPicker;->zza(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;ZII)Landroid/content/Intent;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static a(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;ZII)Landroid/content/Intent;
-    .locals 2
+.method public static zza(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;ZII)Landroid/content/Intent;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -84,67 +131,41 @@
         }
     .end annotation
 
-    new-instance v0, Landroid/content/Intent;
+    const/4 v11, 0x0
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    const/4 v12, 0x0
 
-    const-string/jumbo v1, "com.google.android.gms.common.account.CHOOSE_ACCOUNT"
+    move-object v0, p0
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    move-object v1, p1
 
-    const-string/jumbo v1, "com.google.android.gms"
+    move-object v2, p2
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+    move/from16 v3, p3
 
-    const-string/jumbo v1, "allowableAccounts"
+    move-object/from16 v4, p4
 
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+    move-object/from16 v5, p5
 
-    const-string/jumbo v1, "allowableAccountTypes"
+    move-object/from16 v6, p6
 
-    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
+    move-object/from16 v7, p7
 
-    const-string/jumbo v1, "addAccountOptions"
+    move/from16 v8, p8
 
-    invoke-virtual {v0, v1, p7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+    move/from16 v9, p9
 
-    const-string/jumbo v1, "selectedAccount"
+    move/from16 v10, p10
 
-    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-static/range {v0 .. v12}, Lcom/google/android/gms/common/AccountPicker;->zza(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;ZIILjava/lang/String;Z)Landroid/content/Intent;
 
-    const-string/jumbo v1, "alwaysPromptForAccount"
-
-    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    const-string/jumbo v1, "descriptionTextOverride"
-
-    invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v1, "authTokenType"
-
-    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v1, "addAccountRequiredFeatures"
-
-    invoke-virtual {v0, v1, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string/jumbo v1, "setGmsCoreAccount"
-
-    invoke-virtual {v0, v1, p8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
-
-    const-string/jumbo v1, "overrideTheme"
-
-    invoke-virtual {v0, v1, p9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    const-string/jumbo v1, "overrideCustomTheme"
-
-    invoke-virtual {v0, v1, p10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public static newChooseAccountIntent(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
-    .locals 9
+.method public static zza(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;ZIILjava/lang/String;Z)Landroid/content/Intent;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,32 +181,97 @@
             "[",
             "Ljava/lang/String;",
             "Landroid/os/Bundle;",
-            ")",
+            "ZII",
+            "Ljava/lang/String;",
+            "Z)",
             "Landroid/content/Intent;"
         }
     .end annotation
 
-    const/4 v8, 0x0
+    new-instance v1, Landroid/content/Intent;
 
-    move-object v0, p0
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    move-object v1, p1
+    if-nez p12, :cond_0
 
-    move-object v2, p2
+    if-nez p11, :cond_1
 
-    move v3, p3
+    const/4 v0, 0x1
 
-    move-object v4, p4
+    :goto_0
+    const-string/jumbo v2, "We only support hostedDomain filter for account chip styled account picker"
 
-    move-object v5, p5
+    invoke-static {v0, v2}, Lcom/google/android/gms/common/internal/zzx;->zzb(ZLjava/lang/Object;)V
 
-    move-object v6, p6
+    :cond_0
+    if-eqz p12, :cond_2
 
-    move-object/from16 v7, p7
+    const-string/jumbo v0, "com.google.android.gms.common.account.CHOOSE_ACCOUNT_USERTILE"
 
-    invoke-static/range {v0 .. v8}, Lcom/google/android/gms/common/AccountPicker;->a(Landroid/accounts/Account;Ljava/util/ArrayList;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;Landroid/os/Bundle;Z)Landroid/content/Intent;
+    :goto_1
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v0
+    const-string/jumbo v0, "com.google.android.gms"
 
-    return-object v0
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "allowableAccounts"
+
+    invoke-virtual {v1, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "allowableAccountTypes"
+
+    invoke-virtual {v1, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "addAccountOptions"
+
+    invoke-virtual {v1, v0, p7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "selectedAccount"
+
+    invoke-virtual {v1, v0, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "alwaysPromptForAccount"
+
+    invoke-virtual {v1, v0, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    const-string/jumbo v0, "descriptionTextOverride"
+
+    invoke-virtual {v1, v0, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "authTokenType"
+
+    invoke-virtual {v1, v0, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "addAccountRequiredFeatures"
+
+    invoke-virtual {v1, v0, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string/jumbo v0, "setGmsCoreAccount"
+
+    invoke-virtual {v1, v0, p8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    const-string/jumbo v0, "overrideTheme"
+
+    invoke-virtual {v1, v0, p9}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v0, "overrideCustomTheme"
+
+    invoke-virtual {v1, v0, p10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    const-string/jumbo v0, "hostedDomainFilter"
+
+    invoke-virtual {v1, v0, p11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    return-object v1
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v0, "com.google.android.gms.common.account.CHOOSE_ACCOUNT"
+
+    goto :goto_1
 .end method

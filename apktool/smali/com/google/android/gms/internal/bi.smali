@@ -1,325 +1,170 @@
 .class public Lcom/google/android/gms/internal/bi;
-.super Ljava/lang/Object;
+.super Lcom/google/android/gms/ads/formats/c;
+
+
+# annotations
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field private final a:Lcom/google/android/gms/internal/bh;
 
-.field private final oH:Lcom/google/android/gms/internal/cx;
+.field private final b:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/google/android/gms/ads/formats/a$a;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private final oI:Lcom/google/android/gms/internal/ax;
-
-.field private oJ:Lcom/google/android/gms/internal/bd;
-
-.field private oK:Ljava/lang/String;
-
-.field private oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
-
-.field private oN:Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;
-
-.field private oO:Lcom/google/android/gms/ads/doubleclick/b;
-
-.field private oP:Lcom/google/android/gms/ads/doubleclick/PublisherInterstitialAd;
-
-.field private ob:Lcom/google/android/gms/ads/AdListener;
-
-.field private os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-
-.field private ou:Ljava/lang/String;
+.field private final c:Lcom/google/android/gms/internal/be;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
-
-    invoke-static {}, Lcom/google/android/gms/internal/ax;->bg()Lcom/google/android/gms/internal/ax;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, p1, v0, v1}, Lcom/google/android/gms/internal/bi;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/ax;Lcom/google/android/gms/ads/doubleclick/PublisherInterstitialAd;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/ads/doubleclick/PublisherInterstitialAd;)V
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/internal/ax;->bg()Lcom/google/android/gms/internal/ax;
-
-    move-result-object v0
-
-    invoke-direct {p0, p1, v0, p2}, Lcom/google/android/gms/internal/bi;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/ax;Lcom/google/android/gms/ads/doubleclick/PublisherInterstitialAd;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/google/android/gms/internal/ax;Lcom/google/android/gms/ads/doubleclick/PublisherInterstitialAd;)V
-    .locals 1
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Lcom/google/android/gms/internal/cx;
-
-    invoke-direct {v0}, Lcom/google/android/gms/internal/cx;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/bi;->oH:Lcom/google/android/gms/internal/cx;
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/bi;->mContext:Landroid/content/Context;
-
-    iput-object p2, p0, Lcom/google/android/gms/internal/bi;->oI:Lcom/google/android/gms/internal/ax;
-
-    iput-object p3, p0, Lcom/google/android/gms/internal/bi;->oP:Lcom/google/android/gms/ads/doubleclick/PublisherInterstitialAd;
-
-    return-void
-.end method
-
-.method private v(Ljava/lang/String;)V
+.method public constructor <init>(Lcom/google/android/gms/internal/bh;)V
     .locals 4
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->ou:Ljava/lang/String;
+    invoke-direct {p0}, Lcom/google/android/gms/ads/formats/c;-><init>()V
 
-    if-nez v0, :cond_0
+    new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/bi;->w(Ljava/lang/String;)V
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->mContext:Landroid/content/Context;
+    iput-object v0, p0, Lcom/google/android/gms/internal/bi;->b:Ljava/util/List;
 
-    new-instance v1, Lcom/google/android/gms/internal/ay;
+    iput-object p1, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
 
-    invoke-direct {v1}, Lcom/google/android/gms/internal/ay;-><init>()V
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
 
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->ou:Ljava/lang/String;
-
-    iget-object v3, p0, Lcom/google/android/gms/internal/bi;->oH:Lcom/google/android/gms/internal/cx;
-
-    invoke-static {v0, v1, v2, v3}, Lcom/google/android/gms/internal/au;->a(Landroid/content/Context;Lcom/google/android/gms/internal/ay;Ljava/lang/String;Lcom/google/android/gms/internal/cx;)Lcom/google/android/gms/internal/bd;
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->b()Ljava/util/List;
 
     move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->ob:Lcom/google/android/gms/ads/AdListener;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    new-instance v1, Lcom/google/android/gms/internal/at;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->ob:Lcom/google/android/gms/ads/AdListener;
-
-    invoke-direct {v1, v2}, Lcom/google/android/gms/internal/at;-><init>(Lcom/google/android/gms/ads/AdListener;)V
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/bc;)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    new-instance v1, Lcom/google/android/gms/internal/ba;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-
-    invoke-direct {v1, v2}, Lcom/google/android/gms/internal/ba;-><init>(Lcom/google/android/gms/ads/doubleclick/AppEventListener;)V
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/bf;)V
-
-    :cond_2
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    new-instance v1, Lcom/google/android/gms/internal/es;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
-
-    invoke-direct {v1, v2}, Lcom/google/android/gms/internal/es;-><init>(Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;)V
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/en;)V
-
-    :cond_3
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oN:Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    new-instance v1, Lcom/google/android/gms/internal/ew;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->oN:Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;
-
-    invoke-direct {v1, v2}, Lcom/google/android/gms/internal/ew;-><init>(Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;)V
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->oK:Ljava/lang/String;
-
-    invoke-interface {v0, v1, v2}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/er;Ljava/lang/String;)V
-
-    :cond_4
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oO:Lcom/google/android/gms/ads/doubleclick/b;
-
-    if-eqz v0, :cond_5
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    new-instance v1, Lcom/google/android/gms/internal/bs;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->oO:Lcom/google/android/gms/ads/doubleclick/b;
-
-    invoke-direct {v1, v2}, Lcom/google/android/gms/internal/bs;-><init>(Lcom/google/android/gms/ads/doubleclick/b;)V
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/br;)V
-
-    :cond_5
-    return-void
-.end method
-
-.method private w(Ljava/lang/String;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "The ad unit ID must be set on InterstitialAd before "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " is called."
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    move-result-object v0
 
     :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Lcom/google/android/gms/internal/bi;->a(Ljava/lang/Object;)Lcom/google/android/gms/internal/bd;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->b:Ljava/util/List;
+
+    new-instance v3, Lcom/google/android/gms/internal/be;
+
+    invoke-direct {v3, v1}, Lcom/google/android/gms/internal/be;-><init>(Lcom/google/android/gms/internal/bd;)V
+
+    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "Failed to get image."
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :cond_1
+    const/4 v1, 0x0
+
+    :try_start_1
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->d()Lcom/google/android/gms/internal/bd;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    new-instance v0, Lcom/google/android/gms/internal/be;
+
+    invoke-direct {v0, v2}, Lcom/google/android/gms/internal/be;-><init>(Lcom/google/android/gms/internal/bd;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    :goto_1
+    iput-object v0, p0, Lcom/google/android/gms/internal/bi;->c:Lcom/google/android/gms/internal/be;
+
     return-void
+
+    :catch_1
+    move-exception v0
+
+    const-string/jumbo v2, "Failed to get icon."
+
+    invoke-static {v2, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    :cond_2
+    move-object v0, v1
+
+    goto :goto_1
 .end method
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/internal/bg;)V
-    .locals 3
+.method a(Ljava/lang/Object;)Lcom/google/android/gms/internal/bd;
+    .locals 1
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
+    instance-of v0, p1, Landroid/os/IBinder;
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v0, "loadAd"
+    check-cast p1, Landroid/os/IBinder;
 
-    invoke-direct {p0, v0}, Lcom/google/android/gms/internal/bi;->v(Ljava/lang/String;)V
+    invoke-static {p1}, Lcom/google/android/gms/internal/bd$a;->a(Landroid/os/IBinder;)Lcom/google/android/gms/internal/bd;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->oI:Lcom/google/android/gms/internal/ax;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/bi;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1, v2, p1}, Lcom/google/android/gms/internal/ax;->a(Landroid/content/Context;Lcom/google/android/gms/internal/bg;)Lcom/google/android/gms/internal/av;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/av;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oH:Lcom/google/android/gms/internal/cx;
-
-    invoke-virtual {p1}, Lcom/google/android/gms/internal/bg;->bj()Ljava/util/Map;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/cx;->d(Ljava/util/Map;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Failed to load ad."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public getAdListener()Lcom/google/android/gms/ads/AdListener;
+.method protected synthetic a()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->ob:Lcom/google/android/gms/ads/AdListener;
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/bi;->j()Lcom/google/android/gms/dynamic/c;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public getAdUnitId()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->ou:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getAppEventListener()Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-
-    return-object v0
-.end method
-
-.method public getInAppPurchaseListener()Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
-
-    return-object v0
-.end method
-
-.method public getMediationAdapterClassName()Ljava/lang/String;
+.method public b()Ljava/lang/CharSequence;
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    invoke-interface {v0}, Lcom/google/android/gms/internal/bd;->getMediationAdapterClassName()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->a()Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -331,275 +176,211 @@
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "Failed to get the mediation adapter class name."
+    const-string/jumbo v1, "Failed to get headline."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public isLoaded()Z
-    .locals 3
+.method public c()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/google/android/gms/ads/formats/a$a;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->b:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/CharSequence;
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->c()Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "Failed to get body."
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public e()Lcom/google/android/gms/ads/formats/a$a;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->c:Lcom/google/android/gms/internal/be;
+
+    return-object v0
+.end method
+
+.method public f()Ljava/lang/CharSequence;
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->e()Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "Failed to get call to action."
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public g()Ljava/lang/Double;
+    .locals 6
 
     const/4 v0, 0x0
 
     :try_start_0
-    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
+    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
+
+    invoke-interface {v1}, Lcom/google/android/gms/internal/bh;->f()D
+
+    move-result-wide v2
+
+    const-wide/high16 v4, -0x4010000000000000L    # -1.0
+
+    cmpl-double v1, v2, v4
 
     if-nez v1, :cond_0
 
     :goto_0
-    return v0
+    return-object v0
 
     :cond_0
-    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    invoke-interface {v1}, Lcom/google/android/gms/internal/bd;->isReady()Z
+    invoke-static {v2, v3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
+    move-result-object v0
 
     goto :goto_0
 
     :catch_0
     move-exception v1
 
-    const-string/jumbo v2, "Failed to check if ad is ready."
+    const-string/jumbo v2, "Failed to get star rating."
 
-    invoke-static {v2, v1}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v2, v1}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method
 
-.method public setAdListener(Lcom/google/android/gms/ads/AdListener;)V
+.method public h()Ljava/lang/CharSequence;
     .locals 2
 
     :try_start_0
-    iput-object p1, p0, Lcom/google/android/gms/internal/bi;->ob:Lcom/google/android/gms/ads/AdListener;
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz p1, :cond_1
-
-    new-instance v0, Lcom/google/android/gms/internal/at;
-
-    invoke-direct {v0, p1}, Lcom/google/android/gms/internal/at;-><init>(Lcom/google/android/gms/ads/AdListener;)V
-
-    :goto_0
-    invoke-interface {v1, v0}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/bc;)V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->g()Ljava/lang/String;
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    :cond_0
-    :goto_1
-    return-void
+    move-result-object v0
 
-    :cond_1
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v1, "Failed to get store"
+
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
+
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public i()Ljava/lang/CharSequence;
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->h()Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "Failed to set the AdListener."
+    const-string/jumbo v1, "Failed to get price."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_1
-.end method
-
-.method public setAdUnitId(Ljava/lang/String;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->ou:Ljava/lang/String;
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "The ad unit ID can only be set once on InterstitialAd."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    iput-object p1, p0, Lcom/google/android/gms/internal/bi;->ou:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public setAppEventListener(Lcom/google/android/gms/ads/doubleclick/AppEventListener;)V
-    .locals 2
-
-    :try_start_0
-    iput-object p1, p0, Lcom/google/android/gms/internal/bi;->os:Lcom/google/android/gms/ads/doubleclick/AppEventListener;
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz p1, :cond_1
-
-    new-instance v0, Lcom/google/android/gms/internal/ba;
-
-    invoke-direct {v0, p1}, Lcom/google/android/gms/internal/ba;-><init>(Lcom/google/android/gms/ads/doubleclick/AppEventListener;)V
-
-    :goto_0
-    invoke-interface {v1, v0}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/bf;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method protected j()Lcom/google/android/gms/dynamic/c;
+    .locals 2
+
+    :try_start_0
+    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->a:Lcom/google/android/gms/internal/bh;
+
+    invoke-interface {v0}, Lcom/google/android/gms/internal/bh;->i()Lcom/google/android/gms/dynamic/c;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
 
     :catch_0
     move-exception v0
 
-    const-string/jumbo v1, "Failed to set the AppEventListener."
+    const-string/jumbo v1, "Failed to retrieve native ad engine."
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/ads/internal/util/client/b;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_1
-.end method
-
-.method public setInAppPurchaseListener(Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oN:Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "Play store purchase parameter has already been set."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    :try_start_0
-    iput-object p1, p0, Lcom/google/android/gms/internal/bi;->oM:Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz p1, :cond_2
-
-    new-instance v0, Lcom/google/android/gms/internal/es;
-
-    invoke-direct {v0, p1}, Lcom/google/android/gms/internal/es;-><init>(Lcom/google/android/gms/ads/purchase/InAppPurchaseListener;)V
-
-    :goto_0
-    invoke-interface {v1, v0}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/en;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_1
-    :goto_1
-    return-void
-
-    :cond_2
     const/4 v0, 0x0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Failed to set the InAppPurchaseListener."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    goto :goto_1
-.end method
-
-.method public setPlayStorePurchaseParams(Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;Ljava/lang/String;)V
-    .locals 2
-
-    :try_start_0
-    iput-object p1, p0, Lcom/google/android/gms/internal/bi;->oN:Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    if-eqz p1, :cond_1
-
-    new-instance v0, Lcom/google/android/gms/internal/ew;
-
-    invoke-direct {v0, p1}, Lcom/google/android/gms/internal/ew;-><init>(Lcom/google/android/gms/ads/purchase/PlayStorePurchaseListener;)V
-
-    :goto_0
-    invoke-interface {v1, v0, p2}, Lcom/google/android/gms/internal/bd;->a(Lcom/google/android/gms/internal/er;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Failed to set the play store purchase parameter."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    goto :goto_1
-.end method
-
-.method public show()V
-    .locals 2
-
-    :try_start_0
-    const-string/jumbo v0, "show"
-
-    invoke-direct {p0, v0}, Lcom/google/android/gms/internal/bi;->w(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bi;->oJ:Lcom/google/android/gms/internal/bd;
-
-    invoke-interface {v0}, Lcom/google/android/gms/internal/bd;->showInterstitial()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Failed to show interstitial."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method

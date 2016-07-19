@@ -6,6 +6,17 @@
 .implements Ljava/util/concurrent/ThreadFactory;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/yelp/android/webimageview/ImageLoader;->initialize(Landroid/content/Context;Ljava/lang/Thread$UncaughtExceptionHandler;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = null
+.end annotation
+
+
 # instance fields
 .field private final COUNTER:Ljava/util/concurrent/atomic/AtomicInteger;
 

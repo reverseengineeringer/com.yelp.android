@@ -1,22 +1,25 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Badge;
-import com.yelp.parcelgen.JsonParser.DualCreator;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.ArrayList;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class r
-  extends g<String, Void, Badge>
+  extends b<Void, Void, ArrayList<String>>
 {
-  public r(String paramString, m<Badge> paramm)
+  public r(String paramString, ArrayList<String> paramArrayList, ApiRequest.b<ArrayList<String>> paramb)
   {
-    super(ApiRequest.RequestType.GET, "/badge", paramm);
-    addUrlParam("badge_id", paramString);
+    super(ApiRequest.RequestType.POST, "/business/survey/vote", paramb);
+    b("business_id", paramString);
+    b("answer_identifiers", paramArrayList);
   }
   
-  public Badge a(JSONObject paramJSONObject)
+  public ArrayList<String> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return (Badge)Badge.CREATOR.parse(paramJSONObject.getJSONObject("badge"));
+    return new ArrayList(JsonUtil.getStringList(paramJSONObject.optJSONArray("failed_votes")));
   }
 }
 

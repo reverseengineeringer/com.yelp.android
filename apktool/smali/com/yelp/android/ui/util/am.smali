@@ -1,84 +1,127 @@
-.class final Lcom/yelp/android/ui/util/am;
+.class public Lcom/yelp/android/ui/util/am;
 .super Ljava/lang/Object;
-.source "ImageInputHelper.java"
-
-# interfaces
-.implements Landroid/os/Parcelable$Creator;
+.source "ThemeMixer.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator",
-        "<",
-        "Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;",
-        ">;"
-    }
-.end annotation
+# instance fields
+.field private final a:Landroid/app/Activity;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>(Landroid/app/Activity;)V
     .locals 0
 
     .prologue
-    .line 123
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 33
+    iput-object p1, p0, Lcom/yelp/android/ui/util/am;->a:Landroid/app/Activity;
+
+    .line 34
     return-void
+.end method
+
+.method private b(ILandroid/content/res/Resources$Theme;)Landroid/content/res/Resources$Theme;
+    .locals 2
+
+    .prologue
+    .line 78
+    iget-object v0, p0, Lcom/yelp/android/ui/util/am;->a:Landroid/app/Activity;
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->newTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object v0
+
+    .line 79
+    if-eqz p2, :cond_0
+
+    .line 80
+    invoke-virtual {v0, p2}, Landroid/content/res/Resources$Theme;->setTo(Landroid/content/res/Resources$Theme;)V
+
+    .line 82
+    :cond_0
+    if-eqz p1, :cond_1
+
+    .line 83
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, p1, v1}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
+
+    .line 85
+    :cond_1
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
-    .locals 2
+.method public a(ILandroid/content/res/Resources$Theme;)Landroid/content/res/Resources$Theme;
+    .locals 4
 
     .prologue
-    .line 126
-    invoke-static {}, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->values()[Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
+    const/4 v3, 0x1
+
+    .line 49
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/util/am;->b(ILandroid/content/res/Resources$Theme;)Landroid/content/res/Resources$Theme;
+
+    move-result-object v1
+
+    .line 51
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    aget-object v0, v0, v1
-
-    return-object v0
-.end method
-
-.method public a(I)[Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
-    .locals 1
-
-    .prologue
-    .line 131
-    new-array v0, p1, [Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
-
-    return-object v0
-.end method
-
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 123
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/util/am;->a(Landroid/os/Parcel;)Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    .line 52
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->c()Z
 
-.method public synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
+    move-result v2
 
-    .prologue
-    .line 123
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/util/am;->a(I)[Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
+    if-eqz v2, :cond_0
 
-    move-result-object v0
+    .line 53
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->j()Z
 
-    return-object v0
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const v0, 0x7f09014f
+
+    .line 54
+    :goto_0
+    invoke-virtual {v1, v0, v3}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
+
+    .line 59
+    :cond_0
+    new-instance v0, Ljava/util/Date;
+
+    invoke-direct {v0}, Ljava/util/Date;-><init>()V
+
+    invoke-static {v0}, Lcom/yelp/android/util/Holiday;->getHolidayTheme(Ljava/util/Date;)I
+
+    move-result v0
+
+    .line 60
+    if-eqz v0, :cond_1
+
+    .line 61
+    invoke-virtual {v1, v0, v3}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
+
+    .line 64
+    :cond_1
+    return-object v1
+
+    .line 53
+    :cond_2
+    const v0, 0x7f090150
+
+    goto :goto_0
 .end method

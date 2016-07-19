@@ -1,26 +1,16 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Location;
-import com.yelp.parcelgen.JsonParser.DualCreator;
-import org.json.JSONObject;
+import android.location.Location;
+import java.util.List;
 
-public class cn
-  extends g<Void, Void, Location>
+public class cn<T>
+  extends ep<T>
 {
-  public cn(String paramString, m<Location> paramm)
+  public cn(String paramString, Location paramLocation, ApiRequest.b<List<T>> paramb)
   {
-    super(ApiRequest.RequestType.GET, "geocode", paramm);
-    addUrlParam("address", paramString);
-  }
-  
-  public Location a(JSONObject paramJSONObject)
-  {
-    Location localLocation = null;
-    if (!paramJSONObject.isNull("location")) {
-      localLocation = (Location)Location.CREATOR.parse(paramJSONObject.getJSONObject("location"));
-    }
-    return localLocation;
+    super(ApiRequest.RequestType.GET, "suggest/locations", paramb, paramLocation, paramString);
+    super.a("location", paramString);
+    j = paramString;
   }
 }
 

@@ -3,9 +3,9 @@
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
     <View android:id="@id/background" android:background="#88000000" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <LinearLayout android:layout_gravity="center|top" android:orientation="vertical" android:id="@id/checkin_result_content" android:background="@android:color/white" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <com.yelp.android.ui.widgets.MessageAlertBox android:id="@id/alert_box" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="?baseGapSize" style="@style/MessageAlertBox.Green" />
-        <FrameLayout android:id="@id/biz_attribute_fragment_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="?baseGapSize" />
-        <View android:background="@color/gray_light_stroke" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="?baseGapSize" android:layout_marginRight="?baseGapSize" />
+        <com.yelp.android.ui.widgets.MessageAlertBox android:id="@id/alert_box" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" style="@style/MessageAlertBox.Green" />
+        <FrameLayout android:id="@id/biz_attribute_fragment_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" />
+        <View android:background="@color/gray_light_stroke" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" />
         <Button android:textColor="@color/gray_yoni" android:gravity="center" android:id="@id/close_button" android:background="@null" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/dialog_close" />
     </LinearLayout>
 </FrameLayout>

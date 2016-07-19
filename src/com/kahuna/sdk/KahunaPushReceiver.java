@@ -8,7 +8,7 @@ public class KahunaPushReceiver
   extends BroadcastReceiver
 {
   private static boolean a = false;
-  private final af b = new af("[" + getClass().getName() + "]: ");
+  private final r b = new r("[" + getClass().getName() + "]: ");
   
   static final String b(Context paramContext)
   {

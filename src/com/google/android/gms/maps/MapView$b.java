@@ -4,71 +4,73 @@ import android.content.Context;
 import android.os.RemoteException;
 import android.view.ViewGroup;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.dynamic.a;
-import com.google.android.gms.dynamic.e;
-import com.google.android.gms.dynamic.f;
-import com.google.android.gms.maps.internal.IMapViewDelegate;
-import com.google.android.gms.maps.internal.c;
-import com.google.android.gms.maps.internal.x;
+import com.google.android.gms.dynamic.b;
 import com.google.android.gms.maps.model.RuntimeRemoteException;
+import com.yelp.android.bj.q;
+import com.yelp.android.bj.s;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 class MapView$b
-  extends a<MapView.a>
+  extends b<MapView.a>
 {
-  protected f<MapView.a> akW;
-  private final List<OnMapReadyCallback> akX = new ArrayList();
-  private final ViewGroup ald;
-  private final GoogleMapOptions ale;
-  private final Context mContext;
+  protected com.google.android.gms.dynamic.e<MapView.a> a;
+  private final ViewGroup b;
+  private final Context c;
+  private final GoogleMapOptions d;
+  private final List<e> e = new ArrayList();
   
   MapView$b(ViewGroup paramViewGroup, Context paramContext, GoogleMapOptions paramGoogleMapOptions)
   {
-    ald = paramViewGroup;
-    mContext = paramContext;
-    ale = paramGoogleMapOptions;
+    b = paramViewGroup;
+    c = paramContext;
+    d = paramGoogleMapOptions;
   }
   
-  protected void a(f<MapView.a> paramf)
+  protected void a(com.google.android.gms.dynamic.e<MapView.a> parame)
   {
-    akW = paramf;
-    nO();
+    a = parame;
+    g();
   }
   
-  public void getMapAsync(OnMapReadyCallback paramOnMapReadyCallback)
+  public void a(e parame)
   {
-    if (je() != null)
+    if (a() != null)
     {
-      ((MapView.a)je()).getMapAsync(paramOnMapReadyCallback);
+      ((MapView.a)a()).a(parame);
       return;
     }
-    akX.add(paramOnMapReadyCallback);
+    e.add(parame);
   }
   
-  public void nO()
+  public void g()
   {
-    if ((akW != null) && (je() == null)) {}
-    try
-    {
-      Object localObject = x.S(mContext).a(e.k(mContext), ale);
-      akW.a(new MapView.a(ald, (IMapViewDelegate)localObject));
-      localObject = akX.iterator();
-      while (((Iterator)localObject).hasNext())
+    if ((a != null) && (a() == null)) {
+      try
       {
-        OnMapReadyCallback localOnMapReadyCallback = (OnMapReadyCallback)((Iterator)localObject).next();
-        ((MapView.a)je()).getMapAsync(localOnMapReadyCallback);
+        d.a(c);
+        Object localObject = q.a(c).a(com.google.android.gms.dynamic.d.a(c), d);
+        if (localObject == null) {
+          return;
+        }
+        a.a(new MapView.a(b, (com.yelp.android.bj.e)localObject));
+        localObject = e.iterator();
+        while (((Iterator)localObject).hasNext())
+        {
+          e locale = (e)((Iterator)localObject).next();
+          ((MapView.a)a()).a(locale);
+        }
+        return;
       }
-      return;
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+        e.clear();
+        return;
+      }
+      catch (GooglePlayServicesNotAvailableException localGooglePlayServicesNotAvailableException) {}
     }
-    catch (RemoteException localRemoteException)
-    {
-      throw new RuntimeRemoteException(localRemoteException);
-      akX.clear();
-      return;
-    }
-    catch (GooglePlayServicesNotAvailableException localGooglePlayServicesNotAvailableException) {}
   }
 }
 

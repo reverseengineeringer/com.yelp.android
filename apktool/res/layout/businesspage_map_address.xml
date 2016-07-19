@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:paddingLeft="?leftGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:paddingTop="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <com.yelp.android.ui.map.MapSpannableLinearLayout android:id="@id/map_cell" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell">
-        <LinearLayout android:id="@id/address" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <ImageView android:layout_gravity="center_vertical" android:id="@id/mapIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="?imageGapSize" android:src="@drawable/map_cell_icon" android:contentDescription="@null" />
+        <LinearLayout android:id="@id/address" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/mapIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_image_gap_size" android:src="@drawable/map_cell_icon" android:contentDescription="@null" />
             <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="2.0">
-                <TextView android:textAppearance="@style/LargeText" android:gravity="center_horizontal" android:id="@id/addressExact" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-                <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_horizontal" android:id="@id/addressGeneral" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <TextView android:textAppearance="@style/BodyText" android:gravity="center_horizontal" android:id="@id/addressExact" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:gravity="center_horizontal" android:id="@id/addressGeneral" android:layout_width="fill_parent" android:layout_height="wrap_content" />
             </LinearLayout>
-            <ImageView android:layout_gravity="center_vertical" android:id="@id/emptyMapIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="?imageGapSize" android:src="@drawable/map_cell_icon" android:contentDescription="@null" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/emptyMapIcon" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/default_image_gap_size" android:src="@drawable/map_cell_icon" android:contentDescription="@null" />
         </LinearLayout>
     </com.yelp.android.ui.map.MapSpannableLinearLayout>
 </com.yelp.android.ui.widgets.WidgetSpan>

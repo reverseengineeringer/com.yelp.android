@@ -7,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import com.yelp.android.bb.a;
+import com.yelp.android.cl.a;
 import com.yelp.android.serializable.User;
 import java.util.ArrayList;
 
 public class FriendsFragment
   extends ListFragment
 {
-  private ArrayList<User> a;
-  private a b;
-  private x c;
+  private ArrayList<User> i;
+  private a j;
+  private a k;
   
   public static FriendsFragment a(ArrayList<User> paramArrayList)
   {
@@ -27,11 +27,18 @@ public class FriendsFragment
     return paramArrayList;
   }
   
+  public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
+  {
+    super.a(paramListView, paramView, paramInt, paramLong);
+    paramListView = (User)j.getItem(paramInt);
+    k.a(paramListView);
+  }
+  
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    getListView().setOnScrollListener(new w(this));
-    getListView().setSelector(2130838372);
+    a().setOnScrollListener(new FriendsFragment.1(this));
+    a().setSelector(2130838707);
   }
   
   public void onAttach(Activity paramActivity)
@@ -39,7 +46,7 @@ public class FriendsFragment
     super.onAttach(paramActivity);
     try
     {
-      c = ((x)paramActivity);
+      k = ((a)paramActivity);
       return;
     }
     catch (ClassCastException paramActivity)
@@ -52,21 +59,21 @@ public class FriendsFragment
   {
     super.onCreate(paramBundle);
     setRetainInstance(true);
-    a = getArguments().getParcelableArrayList("data_friends");
-    b = new a(a);
-    setListAdapter(b);
+    i = getArguments().getParcelableArrayList("data_friends");
+    j = new a(i);
+    a(j);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    return paramLayoutInflater.inflate(2130903235, paramViewGroup, false);
+    return paramLayoutInflater.inflate(2130903538, paramViewGroup, false);
   }
   
-  public void onListItemClick(ListView paramListView, View paramView, int paramInt, long paramLong)
+  public static abstract interface a
   {
-    super.onListItemClick(paramListView, paramView, paramInt, paramLong);
-    paramListView = (User)b.getItem(paramInt);
-    c.a(paramListView);
+    public abstract void a(User paramUser);
+    
+    public abstract void b();
   }
 }
 

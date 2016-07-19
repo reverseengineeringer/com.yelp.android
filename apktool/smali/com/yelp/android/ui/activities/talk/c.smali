@@ -1,39 +1,29 @@
-.class Lcom/yelp/android/ui/activities/talk/c;
+.class public interface abstract Lcom/yelp/android/ui/activities/talk/c;
 .super Ljava/lang/Object;
-.source "ActivityTalk.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnClickListener;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/talk/ActivityTalk;
-
-
-# direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/talk/ActivityTalk;)V
-    .locals 0
-
-    .prologue
-    .line 224
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/talk/c;->a:Lcom/yelp/android/ui/activities/talk/ActivityTalk;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+.source "TalkMessageCallback.java"
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+.method public abstract a(Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/bv/c;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "I",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/bv/c$b;",
+            ">;)",
+            "Lcom/yelp/android/bv/c;"
+        }
+    .end annotation
+.end method
 
-    .prologue
-    .line 228
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/talk/c;->a:Lcom/yelp/android/ui/activities/talk/ActivityTalk;
+.method public abstract a(Lcom/yelp/android/appdata/webrequests/YelpException;)V
+.end method
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/talk/ActivityTalk;->h(Lcom/yelp/android/ui/activities/talk/ActivityTalk;)V
+.method public abstract a(Z)V
+.end method
 
-    .line 229
-    return-void
+.method public abstract disableLoading()V
 .end method

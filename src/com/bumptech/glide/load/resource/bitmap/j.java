@@ -1,46 +1,195 @@
 package com.bumptech.glide.load.resource.bitmap;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.os.ParcelFileDescriptor;
-import com.bumptech.glide.load.DecodeFormat;
-import com.bumptech.glide.load.d;
-import com.yelp.android.aa.c;
-import java.io.File;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Drawable.ConstantState;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import com.yelp.android.ae.b;
 
 public class j
-  implements com.yelp.android.ae.b<ParcelFileDescriptor, Bitmap>
+  extends b
 {
-  private final d<File, Bitmap> a;
-  private final k b;
-  private final b c;
-  private final com.bumptech.glide.load.a<ParcelFileDescriptor> d;
+  private final Rect a = new Rect();
+  private int b;
+  private int c;
+  private boolean d;
+  private boolean e;
+  private a f;
   
-  public j(com.bumptech.glide.load.engine.bitmap_recycle.e parame, DecodeFormat paramDecodeFormat)
+  public j(Resources paramResources, Bitmap paramBitmap)
   {
-    a = new c(new u(parame, paramDecodeFormat));
-    b = new k(parame, paramDecodeFormat);
-    c = new b();
-    d = com.yelp.android.y.a.b();
+    this(paramResources, new a(paramBitmap));
   }
   
-  public d<File, Bitmap> a()
+  j(Resources paramResources, a parama)
   {
-    return a;
+    if (parama == null) {
+      throw new NullPointerException("BitmapState must not be null");
+    }
+    f = parama;
+    int i;
+    if (paramResources != null)
+    {
+      int j = getDisplayMetricsdensityDpi;
+      i = j;
+      if (j == 0) {
+        i = 160;
+      }
+      b = i;
+    }
+    for (;;)
+    {
+      b = a.getScaledWidth(i);
+      c = a.getScaledHeight(i);
+      return;
+      i = b;
+    }
   }
   
-  public d<ParcelFileDescriptor, Bitmap> b()
+  public void a(int paramInt) {}
+  
+  public boolean a()
+  {
+    return false;
+  }
+  
+  public Bitmap b()
+  {
+    return f.a;
+  }
+  
+  public void draw(Canvas paramCanvas)
+  {
+    if (d)
+    {
+      Gravity.apply(119, b, c, getBounds(), a);
+      d = false;
+    }
+    paramCanvas.drawBitmap(f.a, null, a, f.c);
+  }
+  
+  public Drawable.ConstantState getConstantState()
+  {
+    return f;
+  }
+  
+  public int getIntrinsicHeight()
+  {
+    return c;
+  }
+  
+  public int getIntrinsicWidth()
   {
     return b;
   }
   
-  public com.bumptech.glide.load.a<ParcelFileDescriptor> c()
+  public int getOpacity()
   {
-    return d;
+    Bitmap localBitmap = f.a;
+    if ((localBitmap == null) || (localBitmap.hasAlpha()) || (f.c.getAlpha() < 255)) {
+      return -3;
+    }
+    return -1;
   }
   
-  public com.bumptech.glide.load.e<Bitmap> d()
+  public boolean isRunning()
   {
-    return c;
+    return false;
+  }
+  
+  public Drawable mutate()
+  {
+    if ((!e) && (super.mutate() == this))
+    {
+      f = new a(f);
+      e = true;
+    }
+    return this;
+  }
+  
+  protected void onBoundsChange(Rect paramRect)
+  {
+    super.onBoundsChange(paramRect);
+    d = true;
+  }
+  
+  public void setAlpha(int paramInt)
+  {
+    if (f.c.getAlpha() != paramInt)
+    {
+      f.a(paramInt);
+      invalidateSelf();
+    }
+  }
+  
+  public void setColorFilter(ColorFilter paramColorFilter)
+  {
+    f.a(paramColorFilter);
+    invalidateSelf();
+  }
+  
+  public void start() {}
+  
+  public void stop() {}
+  
+  static class a
+    extends Drawable.ConstantState
+  {
+    private static final Paint d = new Paint(6);
+    final Bitmap a;
+    int b;
+    Paint c = d;
+    
+    public a(Bitmap paramBitmap)
+    {
+      a = paramBitmap;
+    }
+    
+    a(a parama)
+    {
+      this(a);
+      b = b;
+    }
+    
+    void a()
+    {
+      if (d == c) {
+        c = new Paint(6);
+      }
+    }
+    
+    void a(int paramInt)
+    {
+      a();
+      c.setAlpha(paramInt);
+    }
+    
+    void a(ColorFilter paramColorFilter)
+    {
+      a();
+      c.setColorFilter(paramColorFilter);
+    }
+    
+    public int getChangingConfigurations()
+    {
+      return 0;
+    }
+    
+    public Drawable newDrawable()
+    {
+      return new j(null, this);
+    }
+    
+    public Drawable newDrawable(Resources paramResources)
+    {
+      return new j(paramResources, this);
+    }
   }
 }
 

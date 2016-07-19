@@ -1,0 +1,170 @@
+package com.yelp.android.serializable;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.Date;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+abstract class _ContinueLastOrderInfo
+  implements Parcelable
+{
+  protected Date a;
+  protected Date b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  
+  public void a(Parcel paramParcel)
+  {
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      a = new Date(l);
+    }
+    l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      b = new Date(l);
+    }
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("expiry_date")) {
+      b = JsonUtil.parseTimestamp(paramJSONObject, "expiry_date");
+    }
+    if (!paramJSONObject.isNull("clo_url")) {
+      c = paramJSONObject.optString("clo_url");
+    }
+    if (!paramJSONObject.isNull("title")) {
+      d = paramJSONObject.optString("title");
+    }
+    if (!paramJSONObject.isNull("description")) {
+      e = paramJSONObject.optString("description");
+    }
+    if (!paramJSONObject.isNull("image_url")) {
+      f = paramJSONObject.optString("image_url");
+    }
+  }
+  
+  public JSONObject b()
+    throws JSONException
+  {
+    JSONObject localJSONObject = new JSONObject();
+    if (a != null) {
+      localJSONObject.put("time_created", a.getTime() / 1000L);
+    }
+    if (b != null) {
+      localJSONObject.put("expiry_date", b.getTime() / 1000L);
+    }
+    if (c != null) {
+      localJSONObject.put("clo_url", c);
+    }
+    if (d != null) {
+      localJSONObject.put("title", d);
+    }
+    if (e != null) {
+      localJSONObject.put("description", e);
+    }
+    if (f != null) {
+      localJSONObject.put("image_url", f);
+    }
+    return localJSONObject;
+  }
+  
+  public String c()
+  {
+    return f;
+  }
+  
+  public String d()
+  {
+    return e;
+  }
+  
+  public int describeContents()
+  {
+    return 0;
+  }
+  
+  public String e()
+  {
+    return d;
+  }
+  
+  public boolean equals(Object paramObject)
+  {
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_ContinueLastOrderInfo)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a();
+  }
+  
+  public String f()
+  {
+    return c;
+  }
+  
+  public Date g()
+  {
+    return b;
+  }
+  
+  public Date h()
+  {
+    return a;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a();
+  }
+  
+  public void writeToParcel(Parcel paramParcel, int paramInt)
+  {
+    long l2 = -2147483648L;
+    if (a == null)
+    {
+      l1 = -2147483648L;
+      paramParcel.writeLong(l1);
+      if (b != null) {
+        break label80;
+      }
+    }
+    label80:
+    for (long l1 = l2;; l1 = b.getTime())
+    {
+      paramParcel.writeLong(l1);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeValue(f);
+      return;
+      l1 = a.getTime();
+      break;
+    }
+  }
+}
+
+/* Location:
+ * Qualified Name:     com.yelp.android.serializable._ContinueLastOrderInfo
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

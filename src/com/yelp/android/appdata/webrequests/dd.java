@@ -1,33 +1,23 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.content.Intent;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.RemoteConfigPreferences;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Preferences;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-class dd
-  implements m<RemoteConfigPreferences>
+public class dd
+  extends b<String, Void, Preferences>
 {
-  dd(dc paramdc) {}
-  
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, RemoteConfigPreferences paramRemoteConfigPreferences)
+  public dd(ApiRequest.b<Preferences> paramb)
   {
-    AppData.b().a(paramRemoteConfigPreferences);
-    dc.a(a, paramRemoteConfigPreferences);
-    if (dc.a(a) != null)
-    {
-      dc.a(a).onSuccess(paramApiRequest, paramRemoteConfigPreferences);
-      dc.a(a, null);
-    }
-    AppData.b().sendBroadcast(new Intent("com.yelp.android.intent.new_account_config"));
+    super(ApiRequest.RequestType.GET, "preferences", paramb);
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public Preferences a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    if (dc.a(a) != null)
-    {
-      dc.a(a).onError(paramApiRequest, paramYelpException);
-      dc.a(a, null);
-    }
+    return (Preferences)Preferences.CREATOR.parse(paramJSONObject);
   }
 }
 

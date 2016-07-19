@@ -1,74 +1,180 @@
-.class public final Lcom/google/android/gms/internal/lc;
+.class public Lcom/google/android/gms/internal/lc;
 .super Ljava/lang/Object;
 
 
-# static fields
-.field private static Oe:Ljava/util/regex/Pattern;
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/lc$a;
+    }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
+# instance fields
+.field private final a:Lcom/google/android/gms/playlog/internal/f;
+
+.field private b:Lcom/google/android/gms/playlog/internal/PlayLoggerContext;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public constructor <init>(Landroid/content/Context;ILjava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/lc$a;ZLjava/lang/String;)V
+    .locals 14
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v2, v4}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+
+    move-result-object v1
+
+    iget v3, v1, Landroid/content/pm/PackageInfo;->versionCode:I
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    new-instance v1, Lcom/google/android/gms/playlog/internal/PlayLoggerContext;
+
+    move/from16 v4, p2
+
+    move-object/from16 v5, p3
+
+    move-object/from16 v6, p4
+
+    move/from16 v7, p6
+
+    invoke-direct/range {v1 .. v7}, Lcom/google/android/gms/playlog/internal/PlayLoggerContext;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Z)V
+
+    iput-object v1, p0, Lcom/google/android/gms/internal/lc;->b:Lcom/google/android/gms/playlog/internal/PlayLoggerContext;
+
+    new-instance v1, Lcom/google/android/gms/playlog/internal/f;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v12
+
+    new-instance v13, Lcom/google/android/gms/playlog/internal/d;
+
+    move-object/from16 v0, p5
+
+    invoke-direct {v13, v0}, Lcom/google/android/gms/playlog/internal/d;-><init>(Lcom/google/android/gms/internal/lc$a;)V
+
+    new-instance v3, Lcom/google/android/gms/common/internal/zzf;
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/16 v7, 0x31
+
+    const/4 v8, 0x0
+
+    const/4 v11, 0x0
+
+    move-object v9, v2
+
+    move-object/from16 v10, p7
+
+    invoke-direct/range {v3 .. v11}, Lcom/google/android/gms/common/internal/zzf;-><init>(Landroid/accounts/Account;Ljava/util/Set;Ljava/util/Map;ILandroid/view/View;Ljava/lang/String;Ljava/lang/String;Lcom/google/android/gms/internal/lg;)V
+
+    invoke-direct {v1, p1, v12, v13, v3}, Lcom/google/android/gms/playlog/internal/f;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/playlog/internal/d;Lcom/google/android/gms/common/internal/zzf;)V
+
+    iput-object v1, p0, Lcom/google/android/gms/internal/lc;->a:Lcom/google/android/gms/playlog/internal/f;
+
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v4, "PlayLogger"
+
+    const-string/jumbo v5, "This can\'t happen."
+
+    invoke-static {v4, v5, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method public a()V
     .locals 1
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/google/android/gms/internal/lc;->a:Lcom/google/android/gms/playlog/internal/f;
 
-    sput-object v0, Lcom/google/android/gms/internal/lc;->Oe:Ljava/util/regex/Pattern;
+    invoke-virtual {v0}, Lcom/google/android/gms/playlog/internal/f;->a()V
 
     return-void
 .end method
 
-.method public static K(Landroid/content/Context;)Z
-    .locals 2
+.method public varargs a(JLjava/lang/String;[B[Ljava/lang/String;)V
+    .locals 11
 
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    iget-object v0, p0, Lcom/google/android/gms/internal/lc;->a:Lcom/google/android/gms/playlog/internal/f;
 
-    move-result-object v0
+    iget-object v9, p0, Lcom/google/android/gms/internal/lc;->b:Lcom/google/android/gms/playlog/internal/PlayLoggerContext;
 
-    const-string/jumbo v1, "android.hardware.type.watch"
+    new-instance v1, Lcom/google/android/gms/playlog/internal/LogEvent;
 
-    invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    const-wide/16 v4, 0x0
 
-    move-result v0
+    move-wide v2, p1
 
-    return v0
+    move-object v6, p3
+
+    move-object v7, p4
+
+    move-object/from16 v8, p5
+
+    invoke-direct/range {v1 .. v8}, Lcom/google/android/gms/playlog/internal/LogEvent;-><init>(JJLjava/lang/String;[B[Ljava/lang/String;)V
+
+    invoke-virtual {v0, v9, v1}, Lcom/google/android/gms/playlog/internal/f;->a(Lcom/google/android/gms/playlog/internal/PlayLoggerContext;Lcom/google/android/gms/playlog/internal/LogEvent;)V
+
+    return-void
 .end method
 
-.method public static aS(I)I
+.method public varargs a(Ljava/lang/String;[B[Ljava/lang/String;)V
+    .locals 7
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    move-object v1, p0
+
+    move-object v4, p1
+
+    move-object v5, p2
+
+    move-object v6, p3
+
+    invoke-virtual/range {v1 .. v6}, Lcom/google/android/gms/internal/lc;->a(JLjava/lang/String;[B[Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public b()V
     .locals 1
 
-    div-int/lit16 v0, p0, 0x3e8
+    iget-object v0, p0, Lcom/google/android/gms/internal/lc;->a:Lcom/google/android/gms/playlog/internal/f;
 
-    return v0
-.end method
+    invoke-virtual {v0}, Lcom/google/android/gms/playlog/internal/f;->b()V
 
-.method public static aT(I)I
-    .locals 1
-
-    rem-int/lit16 v0, p0, 0x3e8
-
-    div-int/lit8 v0, v0, 0x64
-
-    return v0
-.end method
-
-.method public static aU(I)Z
-    .locals 2
-
-    invoke-static {p0}, Lcom/google/android/gms/internal/lc;->aT(I)I
-
-    move-result v0
-
-    const/4 v1, 0x3
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return-void
 .end method

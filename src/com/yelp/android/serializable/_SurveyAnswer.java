@@ -2,25 +2,76 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _SurveyAnswer
   implements Parcelable
 {
-  protected String mAnswerIdentifier;
-  protected String mSuccessMessage;
-  protected String mText;
-  protected String mTitle;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
   
-  protected _SurveyAnswer() {}
-  
-  protected _SurveyAnswer(String paramString1, String paramString2, String paramString3, String paramString4)
+  public JSONObject a()
+    throws JSONException
   {
-    this();
-    mTitle = paramString1;
-    mText = paramString2;
-    mAnswerIdentifier = paramString3;
-    mSuccessMessage = paramString4;
+    JSONObject localJSONObject = new JSONObject();
+    if (a != null) {
+      localJSONObject.put("title", a);
+    }
+    if (b != null) {
+      localJSONObject.put("text", b);
+    }
+    if (c != null) {
+      localJSONObject.put("answer_identifier", c);
+    }
+    if (d != null) {
+      localJSONObject.put("success_message", d);
+    }
+    return localJSONObject;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("title")) {
+      a = paramJSONObject.optString("title");
+    }
+    if (!paramJSONObject.isNull("text")) {
+      b = paramJSONObject.optString("text");
+    }
+    if (!paramJSONObject.isNull("answer_identifier")) {
+      c = paramJSONObject.optString("answer_identifier");
+    }
+    if (!paramJSONObject.isNull("success_message")) {
+      d = paramJSONObject.optString("success_message");
+    }
+  }
+  
+  public String b()
+  {
+    return d;
+  }
+  
+  public String c()
+  {
+    return c;
+  }
+  
+  public String d()
+  {
+    return b;
   }
   
   public int describeContents()
@@ -28,74 +79,36 @@ abstract class _SurveyAnswer
     return 0;
   }
   
-  public String getAnswerIdentifier()
+  public String e()
   {
-    return mAnswerIdentifier;
+    return a;
   }
   
-  public String getSuccessMessage()
+  public boolean equals(Object paramObject)
   {
-    return mSuccessMessage;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_SurveyAnswer)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a();
   }
   
-  public String getText()
+  public int hashCode()
   {
-    return mText;
-  }
-  
-  public String getTitle()
-  {
-    return mTitle;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("title")) {
-      mTitle = paramJSONObject.optString("title");
-    }
-    if (!paramJSONObject.isNull("text")) {
-      mText = paramJSONObject.optString("text");
-    }
-    if (!paramJSONObject.isNull("answer_identifier")) {
-      mAnswerIdentifier = paramJSONObject.optString("answer_identifier");
-    }
-    if (!paramJSONObject.isNull("success_message")) {
-      mSuccessMessage = paramJSONObject.optString("success_message");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mTitle = paramParcel.readString();
-    mText = paramParcel.readString();
-    mAnswerIdentifier = paramParcel.readString();
-    mSuccessMessage = paramParcel.readString();
-  }
-  
-  public JSONObject writeJSON()
-  {
-    JSONObject localJSONObject = new JSONObject();
-    if (mTitle != null) {
-      localJSONObject.put("title", mTitle);
-    }
-    if (mText != null) {
-      localJSONObject.put("text", mText);
-    }
-    if (mAnswerIdentifier != null) {
-      localJSONObject.put("answer_identifier", mAnswerIdentifier);
-    }
-    if (mSuccessMessage != null) {
-      localJSONObject.put("success_message", mSuccessMessage);
-    }
-    return localJSONObject;
+    return new c().a(a).a(b).a(c).a(d).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mTitle);
-    paramParcel.writeString(mText);
-    paramParcel.writeString(mAnswerIdentifier);
-    paramParcel.writeString(mSuccessMessage);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
   }
 }
 

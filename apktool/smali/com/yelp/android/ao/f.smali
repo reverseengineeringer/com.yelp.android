@@ -1,503 +1,292 @@
 .class public Lcom/yelp/android/ao/f;
-.super Ljava/lang/Object;
-.source "AsyncHttpResponseHandler.java"
+.super Ljava/io/FilterInputStream;
+.source "MarkEnforcingInputStream.java"
 
 
 # instance fields
-.field private a:Landroid/os/Handler;
+.field private a:I
 
 
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Ljava/io/InputStream;)V
     .locals 1
 
     .prologue
+    .line 17
+    invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
+
+    .line 14
+    const/high16 v0, -0x80000000
+
+    iput v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    .line 18
+    return-void
+.end method
+
+.method private a(J)J
+    .locals 3
+
+    .prologue
+    .line 73
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    if-nez v0, :cond_1
+
+    .line 74
+    const-wide/16 p1, -0x1
+
+    .line 78
+    :cond_0
+    :goto_0
+    return-wide p1
+
+    .line 75
+    :cond_1
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    const/high16 v1, -0x80000000
+
+    if-eq v0, v1, :cond_0
+
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    int-to-long v0, v0
+
+    cmp-long v0, p1, v0
+
+    if-lez v0, :cond_0
+
+    .line 76
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    int-to-long p1, v0
+
+    goto :goto_0
+.end method
+
+.method private b(J)V
+    .locals 3
+
+    .prologue
     .line 83
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
 
-    .line 85
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+    const/high16 v1, -0x80000000
 
-    move-result-object v0
+    if-eq v0, v1, :cond_0
+
+    const-wide/16 v0, -0x1
+
+    cmp-long v0, p1, v0
 
     if-eqz v0, :cond_0
 
+    .line 84
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    int-to-long v0, v0
+
+    sub-long/2addr v0, p1
+
+    long-to-int v0, v0
+
+    iput v0, p0, Lcom/yelp/android/ao/f;->a:I
+
     .line 86
-    new-instance v0, Lcom/yelp/android/ao/g;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/ao/g;-><init>(Lcom/yelp/android/ao/f;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ao/f;->a:Landroid/os/Handler;
-
-    .line 93
     :cond_0
     return-void
 .end method
 
 
 # virtual methods
-.method protected a(ILjava/lang/Object;)Landroid/os/Message;
-    .locals 1
-
-    .prologue
-    .line 225
-    .line 226
-    iget-object v0, p0, Lcom/yelp/android/ao/f;->a:Landroid/os/Handler;
-
-    if-eqz v0, :cond_0
-
-    .line 227
-    iget-object v0, p0, Lcom/yelp/android/ao/f;->a:Landroid/os/Handler;
-
-    invoke-virtual {v0, p1, p2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    .line 233
-    :goto_0
-    return-object v0
-
-    .line 229
-    :cond_0
-    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
-
-    move-result-object v0
-
-    .line 230
-    iput p1, v0, Landroid/os/Message;->what:I
-
-    .line 231
-    iput-object p2, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    goto :goto_0
-.end method
-
-.method public a()V
-    .locals 0
-
-    .prologue
-    .line 103
-    return-void
-.end method
-
-.method public a(ILjava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 133
-    invoke-virtual {p0, p2}, Lcom/yelp/android/ao/f;->a(Ljava/lang/String;)V
-
-    .line 134
-    return-void
-.end method
-
-.method public a(I[Lorg/apache/http/Header;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 123
-    invoke-virtual {p0, p1, p3}, Lcom/yelp/android/ao/f;->a(ILjava/lang/String;)V
-
-    .line 124
-    return-void
-.end method
-
-.method protected a(Landroid/os/Message;)V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x1
-
-    const/4 v1, 0x0
-
-    .line 198
-    iget v0, p1, Landroid/os/Message;->what:I
-
-    packed-switch v0, :pswitch_data_0
-
-    .line 214
-    :goto_0
-    return-void
-
-    .line 200
-    :pswitch_0
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    .line 201
-    aget-object v1, v0, v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    aget-object v1, v0, v3
-
-    check-cast v1, [Lorg/apache/http/Header;
-
-    check-cast v1, [Lorg/apache/http/Header;
-
-    const/4 v3, 0x2
-
-    aget-object v0, v0, v3
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-virtual {p0, v2, v1, v0}, Lcom/yelp/android/ao/f;->c(I[Lorg/apache/http/Header;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 204
-    :pswitch_1
-    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    check-cast v0, [Ljava/lang/Object;
-
-    .line 205
-    aget-object v1, v0, v1
-
-    check-cast v1, Ljava/lang/Throwable;
-
-    aget-object v0, v0, v3
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ao/f;->c(Ljava/lang/Throwable;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 208
-    :pswitch_2
-    invoke-virtual {p0}, Lcom/yelp/android/ao/f;->a()V
-
-    goto :goto_0
-
-    .line 211
-    :pswitch_3
-    invoke-virtual {p0}, Lcom/yelp/android/ao/f;->b()V
-
-    goto :goto_0
-
-    .line 198
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-        :pswitch_3
-    .end packed-switch
-.end method
-
-.method public a(Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 114
-    return-void
-.end method
-
-.method public a(Ljava/lang/Throwable;)V
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
+.method public available()I
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
     .end annotation
 
     .prologue
-    .line 142
-    return-void
+    .line 69
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    const/high16 v1, -0x80000000
+
+    if-ne v0, v1, :cond_0
+
+    invoke-super {p0}, Ljava/io/FilterInputStream;->available()I
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    iget v0, p0, Lcom/yelp/android/ao/f;->a:I
+
+    invoke-super {p0}, Ljava/io/FilterInputStream;->available()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
-.method public a(Ljava/lang/Throwable;Ljava/lang/String;)V
+.method public mark(I)V
     .locals 0
 
     .prologue
-    .line 151
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ao/f;->a(Ljava/lang/Throwable;)V
+    .line 22
+    invoke-super {p0, p1}, Ljava/io/FilterInputStream;->mark(I)V
 
-    .line 152
+    .line 23
+    iput p1, p0, Lcom/yelp/android/ao/f;->a:I
+
+    .line 24
     return-void
 .end method
 
-.method protected a(Ljava/lang/Throwable;[B)V
-    .locals 3
+.method public read()I
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    const/4 v2, 0x1
+    const-wide/16 v4, 0x1
 
-    .line 168
-    const/4 v0, 0x2
+    .line 28
+    invoke-direct {p0, v4, v5}, Lcom/yelp/android/ao/f;->a(J)J
 
-    new-array v0, v0, [Ljava/lang/Object;
+    move-result-wide v0
 
-    const/4 v1, 0x0
+    const-wide/16 v2, -0x1
 
-    aput-object p1, v0, v1
+    cmp-long v0, v0, v2
 
-    aput-object p2, v0, v2
+    if-nez v0, :cond_0
 
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ao/f;->a(ILjava/lang/Object;)Landroid/os/Message;
+    .line 29
+    const/4 v0, -0x1
 
-    move-result-object v0
+    .line 34
+    :goto_0
+    return v0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ao/f;->b(Landroid/os/Message;)V
+    .line 32
+    :cond_0
+    invoke-super {p0}, Ljava/io/FilterInputStream;->read()I
 
-    .line 169
-    return-void
+    move-result v0
+
+    .line 33
+    invoke-direct {p0, v4, v5}, Lcom/yelp/android/ao/f;->b(J)V
+
+    goto :goto_0
 .end method
 
-.method a(Lorg/apache/http/HttpResponse;)V
+.method public read([BII)I
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v0, -0x1
 
-    .line 238
-    invoke-interface {p1}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+    .line 39
+    int-to-long v2, p3
 
-    move-result-object v3
+    invoke-direct {p0, v2, v3}, Lcom/yelp/android/ao/f;->a(J)J
 
-    .line 242
-    :try_start_0
-    invoke-interface {p1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+    move-result-wide v2
 
-    move-result-object v0
+    long-to-int v1, v2
 
-    .line 243
-    if-eqz v0, :cond_0
+    .line 40
+    if-ne v1, v0, :cond_0
 
-    .line 244
-    new-instance v2, Lorg/apache/http/entity/BufferedHttpEntity;
-
-    invoke-direct {v2, v0}, Lorg/apache/http/entity/BufferedHttpEntity;-><init>(Lorg/apache/http/HttpEntity;)V
-
-    .line 245
-    const-string/jumbo v0, "UTF-8"
-
-    invoke-static {v2, v0}, Lorg/apache/http/util/EntityUtils;->toString(Lorg/apache/http/HttpEntity;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    .line 251
-    :cond_0
+    .line 46
     :goto_0
-    invoke-interface {v3}, Lorg/apache/http/StatusLine;->getStatusCode()I
+    return v0
+
+    .line 44
+    :cond_0
+    invoke-super {p0, p1, p2, v1}, Ljava/io/FilterInputStream;->read([BII)I
 
     move-result v0
 
-    const/16 v2, 0x12c
+    .line 45
+    int-to-long v2, v0
 
-    if-lt v0, v2, :cond_1
-
-    .line 252
-    new-instance v0, Lorg/apache/http/client/HttpResponseException;
-
-    invoke-interface {v3}, Lorg/apache/http/StatusLine;->getStatusCode()I
-
-    move-result v2
-
-    invoke-interface {v3}, Lorg/apache/http/StatusLine;->getReasonPhrase()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v0, v2, v3}, Lorg/apache/http/client/HttpResponseException;-><init>(ILjava/lang/String;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ao/f;->b(Ljava/lang/Throwable;Ljava/lang/String;)V
-
-    .line 256
-    :goto_1
-    return-void
-
-    .line 247
-    :catch_0
-    move-exception v0
-
-    move-object v2, v0
-
-    move-object v0, v1
-
-    .line 248
-    check-cast v0, Ljava/lang/String;
-
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ao/f;->b(Ljava/lang/Throwable;Ljava/lang/String;)V
+    invoke-direct {p0, v2, v3}, Lcom/yelp/android/ao/f;->b(J)V
 
     goto :goto_0
-
-    .line 254
-    :cond_1
-    invoke-interface {v3}, Lorg/apache/http/StatusLine;->getStatusCode()I
-
-    move-result v0
-
-    invoke-interface {p1}, Lorg/apache/http/HttpResponse;->getAllHeaders()[Lorg/apache/http/Header;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v0, v2, v1}, Lcom/yelp/android/ao/f;->b(I[Lorg/apache/http/Header;Ljava/lang/String;)V
-
-    goto :goto_1
 .end method
 
-.method public b()V
-    .locals 0
-
-    .prologue
-    .line 108
-    return-void
-.end method
-
-.method protected b(I[Lorg/apache/http/Header;Ljava/lang/String;)V
-    .locals 3
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 160
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    new-instance v1, Ljava/lang/Integer;
-
-    invoke-direct {v1, p1}, Ljava/lang/Integer;-><init>(I)V
-
-    aput-object v1, v0, v2
-
-    const/4 v1, 0x1
-
-    aput-object p2, v0, v1
-
-    const/4 v1, 0x2
-
-    aput-object p3, v0, v1
-
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ao/f;->a(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ao/f;->b(Landroid/os/Message;)V
-
-    .line 161
-    return-void
-.end method
-
-.method protected b(Landroid/os/Message;)V
+.method public reset()V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    .line 217
-    iget-object v0, p0, Lcom/yelp/android/ao/f;->a:Landroid/os/Handler;
+    .line 51
+    invoke-super {p0}, Ljava/io/FilterInputStream;->reset()V
 
-    if-eqz v0, :cond_0
+    .line 52
+    const/high16 v0, -0x80000000
 
-    .line 218
-    iget-object v0, p0, Lcom/yelp/android/ao/f;->a:Landroid/os/Handler;
+    iput v0, p0, Lcom/yelp/android/ao/f;->a:I
 
-    invoke-virtual {v0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
-
-    .line 222
-    :goto_0
+    .line 53
     return-void
+.end method
 
-    .line 220
+.method public skip(J)J
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    const-wide/16 v0, -0x1
+
+    .line 57
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ao/f;->a(J)J
+
+    move-result-wide v2
+
+    .line 58
+    cmp-long v4, v2, v0
+
+    if-nez v4, :cond_0
+
+    .line 64
+    :goto_0
+    return-wide v0
+
+    .line 62
     :cond_0
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ao/f;->a(Landroid/os/Message;)V
+    invoke-super {p0, v2, v3}, Ljava/io/FilterInputStream;->skip(J)J
+
+    move-result-wide v0
+
+    .line 63
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ao/f;->b(J)V
 
     goto :goto_0
-.end method
-
-.method protected b(Ljava/lang/Throwable;Ljava/lang/String;)V
-    .locals 3
-
-    .prologue
-    const/4 v2, 0x1
-
-    .line 164
-    const/4 v0, 0x2
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v1, 0x0
-
-    aput-object p1, v0, v1
-
-    aput-object p2, v0, v2
-
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ao/f;->a(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ao/f;->b(Landroid/os/Message;)V
-
-    .line 165
-    return-void
-.end method
-
-.method protected c()V
-    .locals 2
-
-    .prologue
-    .line 172
-    const/4 v0, 0x2
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ao/f;->a(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ao/f;->b(Landroid/os/Message;)V
-
-    .line 173
-    return-void
-.end method
-
-.method protected c(I[Lorg/apache/http/Header;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 185
-    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/android/ao/f;->a(I[Lorg/apache/http/Header;Ljava/lang/String;)V
-
-    .line 186
-    return-void
-.end method
-
-.method protected c(Ljava/lang/Throwable;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 189
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ao/f;->a(Ljava/lang/Throwable;Ljava/lang/String;)V
-
-    .line 190
-    return-void
-.end method
-
-.method protected d()V
-    .locals 2
-
-    .prologue
-    .line 176
-    const/4 v0, 0x3
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ao/f;->a(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ao/f;->b(Landroid/os/Message;)V
-
-    .line 177
-    return-void
 .end method

@@ -1,14 +1,32 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Compliment;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.ContinueLastOrderInfo;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public final class aw
-  extends av
+public class aw
+  extends b<Void, Void, ContinueLastOrderInfo>
 {
-  public aw(m<Compliment> paramm, Compliment paramCompliment)
+  private String a;
+  
+  public aw(String paramString, ApiRequest.b<ContinueLastOrderInfo> paramb)
   {
-    super(paramm, "compliment/approve", paramCompliment);
-    addPostParam("thanx_id", paramCompliment.getId());
+    super(ApiRequest.RequestType.GET, "continue_last_order/continue_last_order_info", paramb);
+    a("business_id", paramString);
+    a = paramString;
+  }
+  
+  public ContinueLastOrderInfo a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return (ContinueLastOrderInfo)ContinueLastOrderInfo.CREATOR.parse(paramJSONObject);
+  }
+  
+  public String b()
+  {
+    return a;
   }
 }
 

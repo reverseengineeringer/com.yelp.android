@@ -1,45 +1,28 @@
 .class Landroid/support/v7/app/h;
-.super Ljava/lang/Object;
-.source "ActionBarActivityDelegateBase.java"
-
-# interfaces
-.implements Landroid/support/v7/internal/widget/ak;
-
-
-# instance fields
-.field final synthetic a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+.super Landroid/support/v7/app/k;
+.source "AppCompatDelegateImplV11.java"
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v7/app/ActionBarActivityDelegateBase;)V
+.method constructor <init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/e;)V
     .locals 0
 
     .prologue
-    .line 338
-    iput-object p1, p0, Landroid/support/v7/app/h;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+    .line 28
+    invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/app/k;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/e;)V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
+    .line 29
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/graphics/Rect;)V
-    .locals 2
+.method b(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
+    .locals 1
 
     .prologue
-    .line 341
-    iget-object v0, p0, Landroid/support/v7/app/h;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+    .line 34
+    const/4 v0, 0x0
 
-    iget v1, p1, Landroid/graphics/Rect;->top:I
-
-    invoke-static {v0, v1}, Landroid/support/v7/app/ActionBarActivityDelegateBase;->c(Landroid/support/v7/app/ActionBarActivityDelegateBase;I)I
-
-    move-result v0
-
-    iput v0, p1, Landroid/graphics/Rect;->top:I
-
-    .line 342
-    return-void
+    return-object v0
 .end method

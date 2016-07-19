@@ -1,36 +1,12 @@
 package android.support.v4.view;
 
-import android.view.MenuItem;
-import android.view.View;
+import android.view.ViewConfiguration;
 
 class at
-  implements aw
 {
-  public MenuItem a(MenuItem paramMenuItem, View paramView)
+  public static int a(ViewConfiguration paramViewConfiguration)
   {
-    return paramMenuItem;
-  }
-  
-  public View a(MenuItem paramMenuItem)
-  {
-    return null;
-  }
-  
-  public void a(MenuItem paramMenuItem, int paramInt) {}
-  
-  public MenuItem b(MenuItem paramMenuItem, int paramInt)
-  {
-    return paramMenuItem;
-  }
-  
-  public boolean b(MenuItem paramMenuItem)
-  {
-    return false;
-  }
-  
-  public boolean c(MenuItem paramMenuItem)
-  {
-    return false;
+    return paramViewConfiguration.getScaledPagingTouchSlop();
   }
 }
 

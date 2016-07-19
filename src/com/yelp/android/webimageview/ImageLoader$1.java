@@ -1,5 +1,6 @@
 package com.yelp.android.webimageview;
 
+import android.os.Process;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -10,9 +11,16 @@ final class ImageLoader$1
   
   ImageLoader$1(Thread.UncaughtExceptionHandler paramUncaughtExceptionHandler) {}
   
-  public Thread newThread(Runnable paramRunnable)
+  public Thread newThread(final Runnable paramRunnable)
   {
-    paramRunnable = new Thread(new ImageLoader.1.1(this, paramRunnable));
+    paramRunnable = new Thread(new Runnable()
+    {
+      public void run()
+      {
+        Process.setThreadPriority(-1);
+        paramRunnable.run();
+      }
+    });
     paramRunnable.setDaemon(true);
     paramRunnable.setName("ImageLoader-" + COUNTER.incrementAndGet());
     if (val$exceptionHandler != null) {

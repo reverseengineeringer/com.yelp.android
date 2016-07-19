@@ -6,6 +6,17 @@
 .implements Lcom/brightcove/player/event/EventListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/media/Catalog;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "OnFindPlaylistListener"
+.end annotation
+
+
 # instance fields
 .field private playlistListener:Lcom/brightcove/player/media/PlaylistListener;
 

@@ -1,21 +1,15 @@
 package com.bumptech.glide.load.engine;
 
-import com.bumptech.glide.request.d;
+import com.bumptech.glide.load.a;
+import com.bumptech.glide.load.b;
+import com.bumptech.glide.load.d;
+import com.yelp.android.ai.c;
 
-public class f
+class f
 {
-  private final i a;
-  private final d b;
-  
-  public f(d paramd, i parami)
+  public e a(String paramString, b paramb, int paramInt1, int paramInt2, d paramd1, d paramd2, com.bumptech.glide.load.f paramf, com.bumptech.glide.load.e parame, c paramc, a parama)
   {
-    b = paramd;
-    a = parami;
-  }
-  
-  public void a()
-  {
-    a.b(b);
+    return new e(paramString, paramb, paramInt1, paramInt2, paramd1, paramd2, paramf, parame, paramc, parama);
   }
 }
 

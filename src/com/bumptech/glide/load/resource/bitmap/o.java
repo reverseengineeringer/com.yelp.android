@@ -1,28 +1,42 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.yelp.android.ai.f;
-import com.yelp.android.z.a;
+import android.graphics.Bitmap;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.engine.i;
+import java.io.InputStream;
 
 public class o
-  extends a<m>
+  implements d<InputStream, Bitmap>
 {
-  private final e b;
+  private final f a;
+  private com.yelp.android.x.c b;
+  private DecodeFormat c;
+  private String d;
   
-  public o(m paramm, e parame)
+  public o(f paramf, com.yelp.android.x.c paramc, DecodeFormat paramDecodeFormat)
   {
-    super(paramm);
-    b = parame;
+    a = paramf;
+    b = paramc;
+    c = paramDecodeFormat;
   }
   
-  public int c()
+  public o(com.yelp.android.x.c paramc, DecodeFormat paramDecodeFormat)
   {
-    return f.a(((m)a).b());
+    this(f.a, paramc, paramDecodeFormat);
   }
   
-  public void d()
+  public i<Bitmap> a(InputStream paramInputStream, int paramInt1, int paramInt2)
   {
-    b.a(((m)a).b());
+    return c.a(a.a(paramInputStream, b, paramInt1, paramInt2, c), b);
+  }
+  
+  public String a()
+  {
+    if (d == null) {
+      d = ("StreamBitmapDecoder.com.bumptech.glide.load.resource.bitmap" + a.a() + c.name());
+    }
+    return d;
   }
 }
 

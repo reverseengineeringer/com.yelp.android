@@ -1,25 +1,25 @@
 package com.yelp.android.services.push;
 
 import android.net.Uri;
-import com.yelp.android.analytics.iris.PushNotificationIri;
+import com.yelp.android.analytics.iris.EventIri;
 
 public enum CheckInPushNotificationHandler$CheckInButtonType
 {
-  COMMENT,  LIKE(PushNotificationIri.PushNotificationFriendCheckInLike);
+  COMMENT,  LIKE(EventIri.PushNotificationFriendCheckInLike);
   
-  private PushNotificationIri mButtonIri;
+  private EventIri mButtonIri;
   
   private CheckInPushNotificationHandler$CheckInButtonType()
   {
     this(null);
   }
   
-  private CheckInPushNotificationHandler$CheckInButtonType(PushNotificationIri paramPushNotificationIri)
+  private CheckInPushNotificationHandler$CheckInButtonType(EventIri paramEventIri)
   {
-    mButtonIri = paramPushNotificationIri;
+    mButtonIri = paramEventIri;
   }
   
-  public PushNotificationIri getButtonIri(Uri paramUri)
+  public EventIri getButtonIri(Uri paramUri)
   {
     return mButtonIri;
   }

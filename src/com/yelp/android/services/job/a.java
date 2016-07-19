@@ -1,13 +1,13 @@
 package com.yelp.android.services.job;
 
 import android.content.Context;
-import com.yelp.android.aq.c;
+import com.yelp.android.bm.a.a;
 
 public class a
 {
-  public static com.yelp.android.aq.a a(Context paramContext)
+  public static com.yelp.android.bm.a a(Context paramContext)
   {
-    return new c(paramContext).a(new b()).c(0).b(2).d(3).a(15).a();
+    return new a.a(paramContext).a(new a.1()).c(0).b(2).d(3).a(15).a();
   }
 }
 

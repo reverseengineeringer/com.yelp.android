@@ -1,12 +1,13 @@
 package com.google.android.gms.tagmanager;
 
+import com.google.android.gms.internal.d.a;
+
 class r
+  implements y
 {
-  private String aqN = "https://www.googletagmanager.com";
-  
-  public String pu()
+  public ah a(d.a parama)
   {
-    return aqN;
+    return new u();
   }
 }
 

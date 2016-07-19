@@ -1,35 +1,16 @@
 package com.google.android.gms.internal;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ThreadFactory;
+import android.content.Context;
 
-@ey
-public final class gh
+public abstract interface gh
 {
-  private static final ThreadFactory ww = new gh.3();
-  private static final ExecutorService wx = Executors.newFixedThreadPool(10, ww);
+  public abstract a a(Context paramContext);
   
-  public static Future<Void> a(Runnable paramRunnable)
+  public static class a
   {
-    return submit(new gh.1(paramRunnable));
-  }
-  
-  public static <T> Future<T> submit(Callable<T> paramCallable)
-  {
-    try
-    {
-      paramCallable = wx.submit(new gh.2(paramCallable));
-      return paramCallable;
-    }
-    catch (RejectedExecutionException paramCallable)
-    {
-      gr.d("Thread execution is rejected.", paramCallable);
-    }
-    return new gk(null);
+    public final int a;
+    public final long b;
+    public final long c;
   }
 }
 

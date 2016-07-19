@@ -3,11 +3,11 @@ package com.yelp.android.ui.activities.tips;
 import android.content.Context;
 import android.content.Intent;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.cu;
-import com.yelp.android.appdata.webrequests.cv;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.cj;
+import com.yelp.android.appdata.webrequests.cj.a;
 import com.yelp.android.serializable.TipFeedback;
 import com.yelp.android.ui.activities.reviewpage.UserBadgeList;
 import com.yelp.android.ui.util.ScrollToLoadListView;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class WhoLikedThisTip
   extends UserBadgeList
-  implements m<cv>
+  implements ApiRequest.b<cj.a>
 {
   public static Intent a(Context paramContext, String paramString1, String paramString2)
   {
@@ -33,21 +33,21 @@ public class WhoLikedThisTip
     return paramContext;
   }
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, cv paramcv)
+  public void a(ApiRequest<?, ?, ?> paramApiRequest, cj.a parama)
   {
     a(a);
-    q().f();
+    r().f();
     disableLoading();
   }
   
-  public cu b(ApiRequest<?, ?, ?> paramApiRequest)
+  public cj b(ApiRequest<Void, ?, ?> paramApiRequest)
   {
-    cu localcu = (cu)paramApiRequest;
-    paramApiRequest = localcu;
-    if (localcu == null) {
-      paramApiRequest = new cu(this, getIntent().getStringExtra("TIP"));
+    cj localcj = (cj)paramApiRequest;
+    paramApiRequest = localcj;
+    if (localcj == null) {
+      paramApiRequest = new cj(this, getIntent().getStringExtra("TIP"));
     }
-    paramApiRequest.setCallback(this);
+    paramApiRequest.a(this);
     return paramApiRequest;
   }
   
@@ -56,12 +56,12 @@ public class WhoLikedThisTip
     return ViewIri.TipLikes;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    paramb = new HashMap();
-    paramb.put("business_id", getIntent().getStringExtra("BUSINESS_ID"));
-    paramb.put("quicktip_id", getIntent().getStringExtra("TIP"));
-    return paramb;
+    parama = new HashMap();
+    parama.put("business_id", getIntent().getStringExtra("BUSINESS_ID"));
+    parama.put("quicktip_id", getIntent().getStringExtra("TIP"));
+    return parama;
   }
 }
 

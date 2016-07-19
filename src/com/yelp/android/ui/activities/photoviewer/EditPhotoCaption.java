@@ -6,31 +6,55 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
+import android.text.Html;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.webrequests.ApiRequest;
 import com.yelp.android.appdata.webrequests.ShareRequest.ShareType;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.bg;
+import com.yelp.android.appdata.webrequests.core.c.a;
 import com.yelp.android.serializable.Photo;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.addphoto.AddCaptionFragment;
-import com.yelp.android.ui.activities.addphoto.g;
+import com.yelp.android.ui.activities.addphoto.AddCaptionFragment.b;
 import com.yelp.android.ui.activities.support.YelpActivity;
+import com.yelp.android.ui.dialogs.AlertDialogFragment;
+import com.yelp.android.ui.dialogs.e;
+import com.yelp.android.util.ObjectDirtyEvent;
+import com.yelp.android.util.YelpLog;
 import java.util.Collections;
 import java.util.List;
 
 public class EditPhotoCaption
   extends YelpActivity
-  implements g
+  implements AddCaptionFragment.b
 {
   private YelpBusiness a;
   private Photo b;
   private String c;
   private AlertDialog d;
-  private com.yelp.android.appdata.webrequests.bn e;
-  private final i f = new s(this);
+  private bg e;
+  private final c.a f = new c.a()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, Void paramAnonymousVoid)
+    {
+      EditPhotoCaption.a(EditPhotoCaption.this).dismiss();
+      EditPhotoCaption.c(EditPhotoCaption.this).a(EditPhotoCaption.b(EditPhotoCaption.this));
+      new ObjectDirtyEvent(EditPhotoCaption.c(EditPhotoCaption.this), "com.yelp.android.media.update").a(EditPhotoCaption.this);
+      finish();
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      EditPhotoCaption.a(EditPhotoCaption.this).dismiss();
+      AlertDialogFragment.a(null, Html.fromHtml(paramAnonymousYelpException.getMessage(AppData.b())).toString()).show(getSupportFragmentManager(), null);
+      YelpLog.remoteError(paramAnonymousYelpException);
+    }
+  };
   
   public static Intent a(Context paramContext, Photo paramPhoto, YelpBusiness paramYelpBusiness)
   {
@@ -40,20 +64,20 @@ public class EditPhotoCaption
     return paramContext;
   }
   
-  private void b()
+  private void a()
   {
     c();
-    AppData.a(EventIri.BusinessPhotoCaptionEditSaved, Collections.singletonMap("photo_id", b.getId()));
-    e = new com.yelp.android.appdata.webrequests.bn(b.getId(), c, f);
-    e.execute(new Void[0]);
+    AppData.a(EventIri.BusinessPhotoCaptionEditSaved, Collections.singletonMap("photo_id", b.a()));
+    e = new bg(b.a(), c, f);
+    e.f(new Void[0]);
   }
   
   private void c()
   {
     if (d == null)
     {
-      d = new com.yelp.android.ui.dialogs.bn(this);
-      d.setMessage(getString(2131166354));
+      d = new e(this);
+      d.setMessage(getString(2131166377));
       d.setCancelable(false);
     }
     d.show();
@@ -61,22 +85,22 @@ public class EditPhotoCaption
   
   private Fragment d()
   {
-    return AddCaptionFragment.a(b.getBusinessId(), b.getThumbnailUrl(), b.getCaption());
+    return AddCaptionFragment.a(b.k(), b.f(), b.g());
   }
-  
-  public void a() {}
   
   public void a(String paramString, List<ShareRequest.ShareType> paramList)
   {
     c = paramString;
-    int i = getResources().getInteger(2131558423);
+    int i = getResources().getInteger(2131492900);
     if (c.length() > i)
     {
-      showInfoDialog(getString(2131166307, new Object[] { Integer.valueOf(i) }));
+      showInfoDialog(getString(2131166341, new Object[] { Integer.valueOf(i) }));
       return;
     }
-    b();
+    a();
   }
+  
+  public void b() {}
   
   public ViewIri getIri()
   {
@@ -85,7 +109,7 @@ public class EditPhotoCaption
   
   public void onBackPressed()
   {
-    AppData.a(EventIri.BusinessPhotoCaptionEditCanceled, Collections.singletonMap("photo_id", b.getId()));
+    AppData.a(EventIri.BusinessPhotoCaptionEditCanceled, Collections.singletonMap("photo_id", b.a()));
     super.onBackPressed();
   }
   
@@ -96,18 +120,18 @@ public class EditPhotoCaption
     b = ((Photo)localIntent.getParcelableExtra("extra.photo"));
     a = ((YelpBusiness)localIntent.getParcelableExtra("extra.business"));
     if (a != null) {
-      setTitle(a.getDisplayName());
+      setTitle(a.z());
     }
     for (;;)
     {
       if (paramBundle != null) {
         c = paramBundle.getString("saved_caption");
       }
-      if (getSupportFragmentManager().findFragmentById(2131493332) == null) {
-        getSupportFragmentManager().beginTransaction().add(2131493332, d()).commit();
+      if (getSupportFragmentManager().a(2131689997) == null) {
+        getSupportFragmentManager().a().a(2131689997, d()).a();
       }
       return;
-      setTitle(2131165733);
+      setTitle(2131165812);
     }
   }
   
@@ -123,7 +147,7 @@ public class EditPhotoCaption
   public void onResume()
   {
     super.onResume();
-    e = ((com.yelp.android.appdata.webrequests.bn)thawRequest("edit_caption", e, f));
+    e = ((bg)thawRequest("edit_caption", e, f));
     if (e != null) {
       c();
     }

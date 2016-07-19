@@ -7,10 +7,12 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
 
 public class WebImageView
@@ -79,7 +81,7 @@ public class WebImageView
     return mLoaded;
   }
   
-  public void loadImage(WebImageView.ImageLoadedCallback paramImageLoadedCallback)
+  public void loadImage(ImageLoadedCallback paramImageLoadedCallback)
   {
     try
     {
@@ -91,7 +93,7 @@ public class WebImageView
     if (!mLoaded)
     {
       setImageDrawable(mLoadingDrawable);
-      ImageLoader.start(mUrl, mReqWidth, mReqHeight, new WebImageView.WebImageLoaderHandler(mUrl, this, Long.MAX_VALUE - SystemClock.elapsedRealtime() + mPriority, paramImageLoadedCallback), mSavePermanently, mFollowCrossRedirects);
+      ImageLoader.start(mUrl, mReqWidth, mReqHeight, new WebImageLoaderHandler(mUrl, this, Long.MAX_VALUE - SystemClock.elapsedRealtime() + mPriority, paramImageLoadedCallback), mSavePermanently, mFollowCrossRedirects);
     }
   }
   
@@ -141,12 +143,12 @@ public class WebImageView
     setImageUrl(paramString, paramInt2, paramInt3);
   }
   
-  public void setImageUrl(String paramString, boolean paramBoolean, WebImageView.ImageLoadedCallback paramImageLoadedCallback)
+  public void setImageUrl(String paramString, boolean paramBoolean, ImageLoadedCallback paramImageLoadedCallback)
   {
     setImageUrl(paramString, paramBoolean, paramImageLoadedCallback, 0, 0);
   }
   
-  public void setImageUrl(String paramString, boolean paramBoolean, WebImageView.ImageLoadedCallback paramImageLoadedCallback, int paramInt1, int paramInt2)
+  public void setImageUrl(String paramString, boolean paramBoolean, ImageLoadedCallback paramImageLoadedCallback, int paramInt1, int paramInt2)
   {
     reset();
     if (TextUtils.isEmpty(paramString)) {}
@@ -203,6 +205,48 @@ public class WebImageView
   public void setSavePermanently(boolean paramBoolean)
   {
     mSavePermanently = paramBoolean;
+  }
+  
+  public static abstract interface ImageLoadedCallback
+  {
+    public abstract void imageLoaded(WebImageView paramWebImageView);
+  }
+  
+  public static class WebImageLoaderHandler
+    extends ImageLoaderHandler<WebImageView>
+  {
+    private final WeakReference<WebImageView.ImageLoadedCallback> mCallback;
+    String mUrl;
+    
+    public WebImageLoaderHandler(String paramString, WebImageView paramWebImageView, long paramLong, WebImageView.ImageLoadedCallback paramImageLoadedCallback)
+    {
+      super();
+      mUrl = paramString;
+      mCallback = new WeakReference(paramImageLoadedCallback);
+      priority = paramLong;
+    }
+    
+    public void handleMessage(Message paramMessage)
+    {
+      WebImageView localWebImageView = (WebImageView)getImageView();
+      if (localWebImageView == null) {
+        return;
+      }
+      try
+      {
+        if (mUrl.equals(mUrl))
+        {
+          super.handleMessage(paramMessage);
+          WebImageView.access$102(localWebImageView, true);
+          paramMessage = (WebImageView.ImageLoadedCallback)mCallback.get();
+          if (paramMessage != null) {
+            paramMessage.imageLoaded(localWebImageView);
+          }
+        }
+        return;
+      }
+      finally {}
+    }
   }
 }
 

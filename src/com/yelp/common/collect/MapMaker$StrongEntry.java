@@ -1,16 +1,16 @@
 package com.yelp.common.collect;
 
 class MapMaker$StrongEntry<K, V>
-  implements f<K, V>
+  implements MapMaker.a<K, V>
 {
   final int hash;
-  final c<K, V, f<K, V>> internals;
+  final CustomConcurrentHashMap.b<K, V, MapMaker.a<K, V>> internals;
   final K key;
-  volatile g<K, V> valueReference = MapMaker.access$600();
+  volatile MapMaker.b<K, V> valueReference = MapMaker.access$600();
   
-  MapMaker$StrongEntry(c<K, V, f<K, V>> paramc, K paramK, int paramInt)
+  MapMaker$StrongEntry(CustomConcurrentHashMap.b<K, V, MapMaker.a<K, V>> paramb, K paramK, int paramInt)
   {
-    internals = paramc;
+    internals = paramb;
     key = paramK;
     hash = paramInt;
   }
@@ -25,19 +25,19 @@ class MapMaker$StrongEntry<K, V>
     return (K)key;
   }
   
-  public f<K, V> getNext()
+  public MapMaker.a<K, V> getNext()
   {
     return null;
   }
   
-  public g<K, V> getValueReference()
+  public MapMaker.b<K, V> getValueReference()
   {
     return valueReference;
   }
   
-  public void setValueReference(g<K, V> paramg)
+  public void setValueReference(MapMaker.b<K, V> paramb)
   {
-    valueReference = paramg;
+    valueReference = paramb;
   }
   
   public void valueReclaimed()

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include layout="@layout/panel_activity_feed_user_profile_header" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/feed_description" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/gray_light_rounded_rect_border" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size">
+        <RelativeLayout android:id="@id/business_layout" android:background="@drawable/selector_list_cell_transparent_borderless" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/panel_activity_feed_business_segment" />
+        </RelativeLayout>
+        <View android:id="@id/comment_divider" android:background="@color/gray_light_stroke" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/default_large_gap_size" />
+        <TextView android:textAppearance="@style/BodyText" android:id="@id/primary_comment" android:paddingTop="@dimen/default_base_gap_size" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/text_wrapper" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_toLeftOf="@id/comment_button" android:layout_alignParentLeft="true">
+            <TextView android:id="@id/likes_comments_count" android:background="@drawable/selector_rounded_cell" android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+        </LinearLayout>
+        <com.yelp.android.ui.widgets.AnimatedToggleButton android:gravity="center" android:id="@id/like_button" android:background="@drawable/selector_rounded_cell" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/button_like_gray" android:layout_alignTop="@id/text_wrapper" android:layout_alignBottom="@id/text_wrapper" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <com.yelp.android.ui.widgets.AnimatedToggleButton android:id="@id/comment_button" android:background="@drawable/selector_rounded_cell" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_base_gap_size" android:drawableLeft="@drawable/comment_icon_stroke" android:layout_toLeftOf="@id/like_button" android:layout_alignTop="@id/text_wrapper" android:layout_alignBottom="@id/text_wrapper" android:contentDescription="@string/comment" />
+    </RelativeLayout>
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/default_base_gap_size" />
+</LinearLayout>

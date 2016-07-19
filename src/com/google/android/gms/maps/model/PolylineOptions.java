@@ -2,68 +2,58 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.aa;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public final class PolylineOptions
   implements SafeParcelable
 {
-  public static final o CREATOR = new o();
-  private final int CK;
-  private float alX = 0.0F;
-  private boolean alY = true;
-  private float amc = 10.0F;
-  private final List<LatLng> amx;
-  private boolean amz = false;
-  private int mColor = -16777216;
+  public static final m CREATOR = new m();
+  private final int a;
+  private final List<LatLng> b;
+  private float c = 10.0F;
+  private int d = -16777216;
+  private float e = 0.0F;
+  private boolean f = true;
+  private boolean g = false;
+  private boolean h = false;
   
   public PolylineOptions()
   {
-    CK = 1;
-    amx = new ArrayList();
+    a = 1;
+    b = new ArrayList();
   }
   
-  PolylineOptions(int paramInt1, List paramList, float paramFloat1, int paramInt2, float paramFloat2, boolean paramBoolean1, boolean paramBoolean2)
+  PolylineOptions(int paramInt1, List paramList, float paramFloat1, int paramInt2, float paramFloat2, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3)
   {
-    CK = paramInt1;
-    amx = paramList;
-    amc = paramFloat1;
-    mColor = paramInt2;
-    alX = paramFloat2;
-    alY = paramBoolean1;
-    amz = paramBoolean2;
+    a = paramInt1;
+    b = paramList;
+    c = paramFloat1;
+    d = paramInt2;
+    e = paramFloat2;
+    f = paramBoolean1;
+    g = paramBoolean2;
+    h = paramBoolean3;
   }
   
-  public PolylineOptions add(LatLng paramLatLng)
+  int a()
   {
-    amx.add(paramLatLng);
-    return this;
+    return a;
   }
   
-  public PolylineOptions add(LatLng... paramVarArgs)
+  public List<LatLng> b()
   {
-    amx.addAll(Arrays.asList(paramVarArgs));
-    return this;
+    return b;
   }
   
-  public PolylineOptions addAll(Iterable<LatLng> paramIterable)
+  public float c()
   {
-    paramIterable = paramIterable.iterator();
-    while (paramIterable.hasNext())
-    {
-      LatLng localLatLng = (LatLng)paramIterable.next();
-      amx.add(localLatLng);
-    }
-    return this;
+    return c;
   }
   
-  public PolylineOptions color(int paramInt)
+  public int d()
   {
-    mColor = paramInt;
-    return this;
+    return d;
   }
   
   public int describeContents()
@@ -71,73 +61,29 @@ public final class PolylineOptions
     return 0;
   }
   
-  public PolylineOptions geodesic(boolean paramBoolean)
+  public float e()
   {
-    amz = paramBoolean;
-    return this;
+    return e;
   }
   
-  public int getColor()
+  public boolean f()
   {
-    return mColor;
+    return f;
   }
   
-  public List<LatLng> getPoints()
+  public boolean g()
   {
-    return amx;
+    return g;
   }
   
-  int getVersionCode()
+  public boolean h()
   {
-    return CK;
-  }
-  
-  public float getWidth()
-  {
-    return amc;
-  }
-  
-  public float getZIndex()
-  {
-    return alX;
-  }
-  
-  public boolean isGeodesic()
-  {
-    return amz;
-  }
-  
-  public boolean isVisible()
-  {
-    return alY;
-  }
-  
-  public PolylineOptions visible(boolean paramBoolean)
-  {
-    alY = paramBoolean;
-    return this;
-  }
-  
-  public PolylineOptions width(float paramFloat)
-  {
-    amc = paramFloat;
-    return this;
+    return h;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      p.a(this, paramParcel, paramInt);
-      return;
-    }
-    o.a(this, paramParcel, paramInt);
-  }
-  
-  public PolylineOptions zIndex(float paramFloat)
-  {
-    alX = paramFloat;
-    return this;
+    m.a(this, paramParcel, paramInt);
   }
 }
 

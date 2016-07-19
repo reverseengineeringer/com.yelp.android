@@ -2,9 +2,74 @@ package com.yelp.android.g;
 
 public final class h
 {
-  public static final int abc_config_activityDefaultDur = 2131558400;
-  public static final int abc_config_activityShortDur = 2131558401;
-  public static final int abc_max_action_buttons = 2131558402;
+  public static abstract interface a<T>
+  {
+    public abstract T a();
+    
+    public abstract boolean a(T paramT);
+  }
+  
+  public static class b<T>
+    implements h.a<T>
+  {
+    private final Object[] a;
+    private int b;
+    
+    public b(int paramInt)
+    {
+      if (paramInt <= 0) {
+        throw new IllegalArgumentException("The max pool size must be > 0");
+      }
+      a = new Object[paramInt];
+    }
+    
+    private boolean b(T paramT)
+    {
+      boolean bool2 = false;
+      int i = 0;
+      for (;;)
+      {
+        boolean bool1 = bool2;
+        if (i < b)
+        {
+          if (a[i] == paramT) {
+            bool1 = true;
+          }
+        }
+        else {
+          return bool1;
+        }
+        i += 1;
+      }
+    }
+    
+    public T a()
+    {
+      if (b > 0)
+      {
+        int i = b - 1;
+        Object localObject = a[i];
+        a[i] = null;
+        b -= 1;
+        return (T)localObject;
+      }
+      return null;
+    }
+    
+    public boolean a(T paramT)
+    {
+      if (b(paramT)) {
+        throw new IllegalStateException("Already in the pool!");
+      }
+      if (b < a.length)
+      {
+        a[b] = paramT;
+        b += 1;
+        return true;
+      }
+      return false;
+    }
+  }
 }
 
 /* Location:

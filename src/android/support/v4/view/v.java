@@ -1,34 +1,12 @@
 package android.support.v4.view;
 
-import android.os.Build.VERSION;
-import android.view.KeyEvent;
+import android.view.MotionEvent;
 
-public class v
+class v
 {
-  static final z a = new w();
-  
-  static
+  public static int a(MotionEvent paramMotionEvent)
   {
-    if (Build.VERSION.SDK_INT >= 11)
-    {
-      a = new y();
-      return;
-    }
-  }
-  
-  public static boolean a(KeyEvent paramKeyEvent)
-  {
-    return a.b(paramKeyEvent.getMetaState());
-  }
-  
-  public static boolean a(KeyEvent paramKeyEvent, int paramInt)
-  {
-    return a.a(paramKeyEvent.getMetaState(), paramInt);
-  }
-  
-  public static void b(KeyEvent paramKeyEvent)
-  {
-    a.a(paramKeyEvent);
+    return paramMotionEvent.getSource();
   }
 }
 

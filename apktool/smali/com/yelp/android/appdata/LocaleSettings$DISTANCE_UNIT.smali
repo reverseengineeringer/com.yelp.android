@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/LocaleSettings;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "DISTANCE_UNIT"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -39,40 +48,40 @@
 
     const/4 v3, 0x0
 
-    .line 25
+    .line 27
     new-instance v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
     const-string/jumbo v1, "AUTOMATIC"
 
-    sget v2, Lcom/yelp/android/bf/k;->distance_unit_automatic:I
+    sget v2, Lcom/yelp/android/co/a$j;->distance_unit_automatic:I
 
     invoke-direct {v0, v1, v3, v2}, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->AUTOMATIC:Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
-    .line 26
+    .line 28
     new-instance v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
     const-string/jumbo v1, "KILOMETERS"
 
-    sget v2, Lcom/yelp/android/bf/k;->distance_unit_kilometers:I
+    sget v2, Lcom/yelp/android/co/a$j;->distance_unit_kilometers:I
 
     invoke-direct {v0, v1, v4, v2}, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->KILOMETERS:Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
-    .line 27
+    .line 29
     new-instance v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
     const-string/jumbo v1, "MILES"
 
-    sget v2, Lcom/yelp/android/bf/k;->distance_unit_miles:I
+    sget v2, Lcom/yelp/android/co/a$j;->distance_unit_miles:I
 
     invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->MILES:Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
-    .line 24
+    .line 26
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
@@ -103,13 +112,13 @@
     .end annotation
 
     .prologue
-    .line 31
+    .line 33
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 32
+    .line 34
     iput p3, p0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->mResourceName:I
 
-    .line 33
+    .line 35
     return-void
 .end method
 
@@ -117,23 +126,23 @@
     .locals 4
 
     .prologue
-    .line 36
+    .line 38
     invoke-static {}, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->values()[Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
     move-result-object v0
 
     array-length v1, v0
 
-    .line 37
+    .line 39
     new-array v2, v1, [Ljava/lang/String;
 
-    .line 38
+    .line 40
     const/4 v0, 0x0
 
     :goto_0
     if-ge v0, v1, :cond_0
 
-    .line 39
+    .line 41
     invoke-static {}, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->values()[Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
     move-result-object v3
@@ -148,12 +157,12 @@
 
     aput-object v3, v2, v0
 
-    .line 38
+    .line 40
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 41
+    .line 43
     :cond_0
     return-object v2
 .end method
@@ -162,7 +171,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 26
     const-class v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -178,7 +187,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 26
     sget-object v0, Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->$VALUES:[Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/LocaleSettings$DISTANCE_UNIT;->clone()Ljava/lang/Object;

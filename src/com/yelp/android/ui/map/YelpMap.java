@@ -1,5 +1,6 @@
 package com.yelp.android.ui.map;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Point;
@@ -7,48 +8,48 @@ import android.graphics.RectF;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.CancelableCallback;
-import com.google.android.gms.maps.GoogleMap.OnCameraChangeListener;
-import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.Projection;
+import com.google.android.gms.maps.b;
+import com.google.android.gms.maps.c.a;
+import com.google.android.gms.maps.c.c;
+import com.google.android.gms.maps.c.d;
+import com.google.android.gms.maps.c.f;
+import com.google.android.gms.maps.g;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CameraPosition.Builder;
+import com.google.android.gms.maps.model.CameraPosition.a;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.maps.model.LatLngBounds.Builder;
-import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.LatLngBounds.a;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.VisibleRegion;
-import com.yelp.android.appdata.ao;
+import com.yelp.android.appdata.PermissionGroup;
+import com.yelp.android.appdata.k;
+import com.yelp.android.appdata.n;
 import com.yelp.android.serializable.MapSpan;
-import com.yelp.android.serializable.by;
 import com.yelp.android.ui.widgets.SpannableFrameLayout;
-import com.yelp.android.util.o;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-public class YelpMap<T extends by>
+public class YelpMap<T extends com.yelp.android.serializable.f>
   extends SpannableFrameLayout
-  implements GoogleMap.OnCameraChangeListener, GoogleMap.OnInfoWindowClickListener, f<T>, i
+  implements c.c, c.d, e.a<T>, f.a
 {
-  private MapView g;
-  private e<T> h;
-  private f<T> i;
-  private GoogleMap.OnCameraChangeListener j;
-  private GoogleMapOptions k;
-  private Collection<aa> l;
-  private boolean m;
-  private RectF n;
+  private MapView b;
+  private GoogleMapOptions c;
+  private c.c i;
+  private e<T> j;
+  private e.a<T> k;
+  private List<T> l;
+  private RectF m;
+  private com.google.android.gms.maps.model.c n;
+  private LatLng o;
+  private double p;
+  private int q = 0;
   
   public YelpMap(Context paramContext, Location paramLocation)
   {
-    this(paramContext, a(paramContext, paramLocation));
+    this(paramContext, a(paramLocation));
   }
   
   public YelpMap(Context paramContext, AttributeSet paramAttributeSet)
@@ -62,76 +63,69 @@ public class YelpMap<T extends by>
     setOptions(paramGoogleMapOptions);
   }
   
-  public static GoogleMapOptions a(Context paramContext)
-  {
-    paramContext = new GoogleMapOptions();
-    paramContext.compassEnabled(false);
-    paramContext.rotateGesturesEnabled(false);
-    paramContext.scrollGesturesEnabled(false);
-    paramContext.tiltGesturesEnabled(false);
-    paramContext.zoomControlsEnabled(false);
-    paramContext.zoomGesturesEnabled(false);
-    paramContext.mapToolbarEnabled(false);
-    return paramContext;
-  }
-  
-  public static GoogleMapOptions a(Context paramContext, Location paramLocation)
+  public static GoogleMapOptions a(Location paramLocation)
   {
     CameraPosition localCameraPosition = null;
     if (paramLocation != null) {
-      localCameraPosition = CameraPosition.builder().target(new LatLng(paramLocation.getLatitude(), paramLocation.getLongitude())).zoom(16.0F).build();
+      localCameraPosition = CameraPosition.b().a(new LatLng(paramLocation.getLatitude(), paramLocation.getLongitude())).a(16.0F).a();
     }
-    return a(paramContext, localCameraPosition);
+    return b(localCameraPosition);
   }
   
-  public static GoogleMapOptions a(Context paramContext, CameraPosition paramCameraPosition)
+  private void a(final T paramT, final a<T> parama)
   {
-    paramContext = new GoogleMapOptions();
-    if (paramCameraPosition != null) {
-      paramContext.camera(paramCameraPosition);
-    }
-    paramContext.compassEnabled(true);
-    paramContext.rotateGesturesEnabled(true);
-    paramContext.scrollGesturesEnabled(true);
-    paramContext.tiltGesturesEnabled(true);
-    paramContext.zoomControlsEnabled(true);
-    paramContext.zoomGesturesEnabled(true);
-    return paramContext;
-  }
-  
-  private Marker a(T paramT, a<T> parama)
-  {
-    LatLng localLatLng = paramT.getLatLng();
-    parama = new MarkerOptions().draggable(false).position(localLatLng).icon(parama.a(paramT)).anchor(0.5F, 1.0F);
-    parama = g.getMap().addMarker(parama);
-    h.a(paramT, parama);
-    return parama;
-  }
-  
-  private void a(boolean paramBoolean)
-  {
-    GoogleMap localGoogleMap;
-    if (g != null)
+    final LatLng localLatLng = paramT.b();
+    q += 1;
+    final int i1 = q;
+    b.a(new com.google.android.gms.maps.e()
     {
-      localGoogleMap = g.getMap();
-      if (!paramBoolean) {
-        break label27;
+      public void a(com.google.android.gms.maps.c paramAnonymousc)
+      {
+        paramAnonymousc = paramAnonymousc.a(new MarkerOptions().a(false).a(localLatLng).a(parama.a(paramT)).a("marker " + i1).a(0.5F, 1.0F));
+        YelpMap.a(YelpMap.this).a(paramT, paramAnonymousc);
+        YelpMap.a(YelpMap.this, paramAnonymousc);
       }
-    }
-    label27:
-    for (YelpMap localYelpMap = this;; localYelpMap = null)
+    });
+  }
+  
+  private void a(final boolean paramBoolean)
+  {
+    b.a(new com.google.android.gms.maps.e()
     {
-      localGoogleMap.setOnCameraChangeListener(localYelpMap);
-      return;
+      public void a(com.google.android.gms.maps.c paramAnonymousc)
+      {
+        if (paramBoolean) {}
+        for (c.c localc = jdField_this;; localc = null)
+        {
+          paramAnonymousc.a(localc);
+          return;
+        }
+      }
+    });
+  }
+  
+  public static GoogleMapOptions b(CameraPosition paramCameraPosition)
+  {
+    GoogleMapOptions localGoogleMapOptions = new GoogleMapOptions();
+    if (paramCameraPosition != null) {
+      localGoogleMapOptions.a(paramCameraPosition);
     }
+    localGoogleMapOptions.d(true);
+    localGoogleMapOptions.h(true);
+    localGoogleMapOptions.e(true);
+    localGoogleMapOptions.g(true);
+    localGoogleMapOptions.c(false);
+    localGoogleMapOptions.f(true);
+    localGoogleMapOptions.j(false);
+    return localGoogleMapOptions;
   }
   
   private void b(boolean paramBoolean)
   {
     e locale;
-    if (h != null)
+    if (j != null)
     {
-      locale = h;
+      locale = j;
       if (!paramBoolean) {
         break label26;
       }
@@ -144,295 +138,425 @@ public class YelpMap<T extends by>
     }
   }
   
-  private void g()
+  public static GoogleMapOptions getReadOnlyOptions()
   {
-    if (g != null)
-    {
-      Iterator localIterator = l.iterator();
-      while (localIterator.hasNext())
-      {
-        aa localaa = (aa)localIterator.next();
-        g.removeCallbacks(localaa);
-      }
-    }
+    GoogleMapOptions localGoogleMapOptions = new GoogleMapOptions();
+    localGoogleMapOptions.d(false);
+    localGoogleMapOptions.h(false);
+    localGoogleMapOptions.e(false);
+    localGoogleMapOptions.g(false);
+    localGoogleMapOptions.c(false);
+    localGoogleMapOptions.f(false);
+    localGoogleMapOptions.j(false);
+    return localGoogleMapOptions;
   }
   
   public LatLngBounds a(List<T> paramList)
   {
-    LatLng localLatLng2 = null;
-    LatLng localLatLng1 = ((by)paramList.get(0)).getLatLng();
-    double d3 = latitude;
-    double d1 = latitude;
-    double d4 = longitude;
-    double d2 = longitude;
+    LatLng localLatLng = null;
+    o = ((com.yelp.android.serializable.f)paramList.get(0)).b();
+    double d4 = o.a;
+    double d3 = o.a;
+    double d2 = o.b;
+    double d1 = o.b;
     Iterator localIterator = paramList.iterator();
-    paramList = localLatLng2;
-    label137:
+    paramList = localLatLng;
+    label147:
     double d5;
     double d6;
     while (localIterator.hasNext())
     {
-      localLatLng2 = ((by)localIterator.next()).getLatLng();
-      if ((!Double.isNaN(latitude)) && (!Double.isNaN(longitude)) && (!Double.isInfinite(latitude)) && (!Double.isInfinite(longitude)))
+      localLatLng = ((com.yelp.android.serializable.f)localIterator.next()).b();
+      if ((!Double.isNaN(a)) && (!Double.isNaN(b)) && (!Double.isInfinite(a)) && (!Double.isInfinite(b)))
       {
         if (paramList != null) {
-          break label285;
+          break label470;
         }
-        paramList = LatLngBounds.builder();
-        if (o.a(latitude, longitude, latitude, longitude) >= 50.0D) {
-          break label288;
+        paramList = LatLngBounds.b();
+        if (com.yelp.android.util.i.a(o.a, o.b, a, b) >= 50.0D) {
+          break label473;
         }
-        paramList.include(localLatLng2);
-        d5 = Math.min(d3, latitude);
-        d3 = Math.min(d4, longitude);
-        d6 = Math.max(d1, latitude);
-        d4 = Math.max(d2, longitude);
-        localLatLng1 = new LatLng((d5 + d6) / 2.0D, (d3 + d4) / 2.0D);
+        paramList.a(localLatLng);
+        d5 = Math.min(d4, a);
+        d4 = Math.min(d2, b);
+        d2 = Math.max(d3, a);
+        d6 = Math.max(d1, b);
+        o = new LatLng((d5 + d2) / 2.0D, (d4 + d6) / 2.0D);
         d1 = d5;
-        d2 = d6;
+        d3 = d4;
+        d4 = d6;
       }
     }
     for (;;)
     {
       d5 = d2;
       d6 = d1;
-      d2 = d4;
-      d4 = d3;
-      d1 = d5;
-      d3 = d6;
-      break;
-      return paramList.build();
-      label285:
-      break label137;
-      label288:
-      d5 = d4;
-      d6 = d3;
-      d4 = d2;
+      d1 = d4;
+      d2 = d3;
       d3 = d5;
-      d2 = d1;
+      d4 = d6;
+      break;
+      d6 = d3;
+      d5 = d4;
+      if (Math.abs(d3 - d4) < 0.001500000013038516D)
+      {
+        d5 = (0.001500000013038516D - Math.abs(d3 - d4)) / 2.0D;
+        d6 = d3 + d5;
+        d5 = d4 - d5;
+      }
+      d4 = d1;
+      d3 = d2;
+      if (Math.abs(d1 - d2) < 0.001500000013038516D)
+      {
+        d3 = (0.001500000013038516D - Math.abs(d1 - d2)) / 2.0D;
+        d4 = d1 + d3;
+        d3 = d2 - d3;
+      }
+      paramList = new LatLng(d5 - 5.000000237487257E-4D, d3 - 5.000000237487257E-4D);
+      localLatLng = new LatLng(5.000000237487257E-4D + d6, 5.000000237487257E-4D + d4);
+      p = com.yelp.android.util.i.a(paramList, o);
+      return new LatLngBounds(paramList, localLatLng);
+      label470:
+      break label147;
+      label473:
+      d5 = d3;
+      d6 = d4;
+      d4 = d1;
+      d3 = d2;
+      d2 = d5;
       d1 = d6;
     }
   }
   
-  public Runnable a(List<T> paramList, a<T> parama)
-  {
-    a(new w(this, paramList, parama));
-    paramList = a(paramList);
-    return new aa(l, g, new x(this, paramList));
-  }
-  
-  public void a()
-  {
-    m = true;
-  }
+  public void a() {}
   
   public void a(Bundle paramBundle)
   {
-    if (g != null)
+    if (b != null)
     {
       Bundle localBundle = new Bundle();
-      g.onSaveInstanceState(localBundle);
+      b.b(localBundle);
       paramBundle.putParcelable("extra.map_view", localBundle);
     }
   }
   
   public void a(Bundle paramBundle, e<T> parame)
   {
-    if ((g != null) && (g.getParent() != null)) {
-      removeView(g);
+    if ((b != null) && (b.getParent() != null)) {
+      removeView(b);
     }
     Context localContext = getContext();
-    if (k != null)
+    if (c != null)
     {
-      g = new MapView(localContext, k);
-      if ((localContext instanceof i)) {
-        ((i)localContext).a(g);
+      b = new MapView(localContext, c);
+      if ((localContext instanceof f.a)) {
+        ((f.a)localContext).a(b);
       }
-      addView(g, 0);
-      h = parame;
-      l = new HashSet();
-      m = true;
-      new g(getContext(), this).a(g);
+      addView(b, 0);
+      j = parame;
+      new f(localContext, this).a(b);
       if (paramBundle == null) {
-        break label173;
+        break label157;
       }
       paramBundle = (Bundle)paramBundle.getParcelable("extra.map_view");
     }
-    label173:
+    label157:
     for (;;)
     {
-      g.onCreate(paramBundle);
-      a(new s(this));
+      b.a(paramBundle);
+      b.a(new com.google.android.gms.maps.e()
+      {
+        @SuppressLint({"MissingPermission"})
+        public void a(com.google.android.gms.maps.c paramAnonymousc)
+        {
+          paramAnonymousc.a(YelpMap.a(YelpMap.this));
+          paramAnonymousc.a(YelpMap.this);
+          paramAnonymousc.a(true);
+          if (k.a(getContext(), PermissionGroup.LOCATION)) {
+            paramAnonymousc.b(true);
+          }
+        }
+      });
       return;
-      g = new MapView(localContext);
+      b = new MapView(localContext);
       break;
     }
   }
   
   public void a(MapView paramMapView) {}
   
-  public void a(CameraPosition paramCameraPosition, GoogleMap.CancelableCallback paramCancelableCallback)
+  public void a(CameraPosition paramCameraPosition)
   {
-    if ((g != null) && (g.getMap() != null))
-    {
-      paramCameraPosition = CameraUpdateFactory.newCameraPosition(paramCameraPosition);
-      a(new z(g.getMap(), paramCameraPosition, paramCancelableCallback));
+    if (i != null) {
+      i.a(paramCameraPosition);
     }
+  }
+  
+  public void a(final CameraPosition paramCameraPosition, final c.a parama)
+  {
+    b.a(new com.google.android.gms.maps.e()
+    {
+      public void a(com.google.android.gms.maps.c paramAnonymousc)
+      {
+        paramAnonymousc.a(b.a(paramCameraPosition), parama);
+      }
+    });
+  }
+  
+  public void a(final LatLngBounds paramLatLngBounds)
+  {
+    b.a(new com.google.android.gms.maps.e()
+    {
+      public void a(final com.google.android.gms.maps.c paramAnonymousc)
+      {
+        try
+        {
+          paramAnonymousc.a(b.a(paramLatLngBounds, n.a));
+          return;
+        }
+        catch (IllegalStateException localIllegalStateException)
+        {
+          paramAnonymousc.a(new c.f()
+          {
+            public void a()
+            {
+              paramAnonymousc.a(b.a(a, n.a));
+            }
+          });
+        }
+      }
+    });
   }
   
   public void a(T paramT)
   {
-    if (i != null) {
-      i.a(paramT);
+    if (k != null) {
+      k.a(paramT);
     }
   }
   
-  public void a(Runnable paramRunnable)
+  public void a(List<T> paramList, a<T> parama)
   {
-    if ((!m) || (g == null)) {
-      return;
+    a(paramList, parama, false);
+  }
+  
+  public void a(List<T> paramList, a<T> parama, boolean paramBoolean)
+  {
+    Iterator localIterator;
+    if ((paramBoolean) && (l != null) && (!l.isEmpty()))
+    {
+      a(l);
+      localIterator = paramList.iterator();
     }
-    g.post(new aa(l, g, paramRunnable));
+    while (localIterator.hasNext())
+    {
+      com.yelp.android.serializable.f localf = (com.yelp.android.serializable.f)localIterator.next();
+      if (com.yelp.android.util.i.a(localf.b(), o) < p * 1.5D)
+      {
+        l.add(localf);
+        continue;
+        l = paramList;
+      }
+    }
+    paramList = paramList.iterator();
+    while (paramList.hasNext()) {
+      a((com.yelp.android.serializable.f)paramList.next(), parama);
+    }
   }
   
   public void b()
   {
-    if (g != null) {
-      g.onPause();
+    if (b != null) {
+      b.b();
     }
   }
   
   public void b(T paramT)
   {
-    if (i != null) {
-      i.b(paramT);
+    if (k != null) {
+      k.b(paramT);
     }
   }
   
   public void c()
   {
-    if (g != null) {
-      g.onResume();
+    if (b != null) {
+      b.a();
+    }
+  }
+  
+  public void c(com.google.android.gms.maps.model.c paramc)
+  {
+    if (j != null) {
+      a((com.yelp.android.serializable.f)j.e(paramc));
     }
   }
   
   public void d()
   {
-    g();
-    if (g != null) {
-      g.onDestroy();
+    if (b != null) {
+      b.c();
     }
   }
   
   public void e()
   {
-    if (g != null) {
-      g.onLowMemory();
+    if (b != null) {
+      b.d();
     }
   }
   
   public void f()
   {
-    a(new y(this));
+    a(false);
+    if ((l != null) && (l.size() > 0)) {
+      a(a(l));
+    }
+    setOnCameraUpdate(i);
   }
   
-  public LatLngBounds getBounds()
+  public void g()
   {
-    return g.getMap().getProjection().getVisibleRegion().latLngBounds;
+    b.a(new com.google.android.gms.maps.e()
+    {
+      public void a(com.google.android.gms.maps.c paramAnonymousc)
+      {
+        YelpMap.a(YelpMap.this).a();
+        YelpMap localYelpMap = YelpMap.this;
+        if (YelpMap.b(YelpMap.this) != null) {}
+        for (boolean bool = true;; bool = false)
+        {
+          YelpMap.a(localYelpMap, bool);
+          paramAnonymousc.b();
+          return;
+        }
+      }
+    });
   }
   
   public CameraPosition getCurrentCamera()
   {
-    return g.getMap().getCameraPosition();
+    if (b.getMap() != null) {
+      return b.getMap().a();
+    }
+    return null;
+  }
+  
+  public com.google.android.gms.maps.model.c getLastMarker()
+  {
+    return n;
   }
   
   public MapView getMapView()
   {
-    return g;
-  }
-  
-  public boolean getPlayServicesAvailable()
-  {
-    return m;
+    return b;
   }
   
   public double[] getViewableRegion()
   {
-    Object localObject = g.getMap().getProjection();
-    LatLng localLatLng1 = ((Projection)localObject).fromScreenLocation(new Point(0, 0));
-    localObject = ((Projection)localObject).fromScreenLocation(new Point(g.getWidth(), g.getHeight()));
-    LatLng localLatLng2 = g.getMap().getCameraPosition().target;
-    return new double[] { latitude, longitude, latitude, longitude, latitude, longitude };
+    if (b.getMap() != null)
+    {
+      Object localObject = b.getMap().d();
+      LatLng localLatLng1 = ((g)localObject).a(new Point(0, 0));
+      localObject = ((g)localObject).a(new Point(b.getWidth(), b.getHeight()));
+      LatLng localLatLng2 = b.getMap().a().a;
+      return new double[] { a, b, a, b, a, b };
+    }
+    return null;
   }
   
-  public void onCameraChange(CameraPosition paramCameraPosition)
+  public boolean h()
   {
-    if (j != null) {
-      j.onCameraChange(paramCameraPosition);
-    }
+    return (com.yelp.android.appdata.f.a(16)) && (GooglePlayServicesUtil.isGooglePlayServicesAvailable(getContext()) == 0);
   }
   
   protected void onDraw(Canvas paramCanvas)
   {
-    if (n != null) {
-      paramCanvas.clipRect(n);
+    if (m != null) {
+      paramCanvas.clipRect(m);
     }
     super.onDraw(paramCanvas);
   }
   
-  public void onInfoWindowClick(Marker paramMarker)
-  {
-    if (h != null) {
-      a((by)h.b(paramMarker));
-    }
-  }
-  
   public void setClipRect(RectF paramRectF)
   {
-    n = paramRectF;
+    m = paramRectF;
   }
   
-  public void setInfoWindowListener(f<T> paramf)
+  public void setInfoWindowListener(e.a<T> parama)
   {
-    i = paramf;
-    a(new t(this));
-  }
-  
-  public void setInteractive(boolean paramBoolean)
-  {
-    a(new v(this, paramBoolean));
-  }
-  
-  public void setMapMode(int paramInt)
-  {
-    if (g != null)
+    k = parama;
+    b.a(new com.google.android.gms.maps.e()
     {
-      GoogleMap localGoogleMap = g.getMap();
-      if (localGoogleMap != null) {
-        localGoogleMap.setMapType(paramInt);
+      public void a(com.google.android.gms.maps.c paramAnonymousc)
+      {
+        paramAnonymousc = YelpMap.this;
+        if (YelpMap.b(YelpMap.this) != null) {}
+        for (boolean bool = true;; bool = false)
+        {
+          YelpMap.a(paramAnonymousc, bool);
+          return;
+        }
       }
-    }
+    });
+  }
+  
+  public void setInteractive(final boolean paramBoolean)
+  {
+    b.a(new com.google.android.gms.maps.e()
+    {
+      public void a(com.google.android.gms.maps.c paramAnonymousc)
+      {
+        paramAnonymousc = paramAnonymousc.c();
+        paramAnonymousc.b(paramBoolean);
+        paramAnonymousc.a(paramBoolean);
+      }
+    });
+  }
+  
+  public void setMapMode(final int paramInt)
+  {
+    b.a(new com.google.android.gms.maps.e()
+    {
+      public void a(com.google.android.gms.maps.c paramAnonymousc)
+      {
+        paramAnonymousc.a(paramInt);
+      }
+    });
   }
   
   public void setMapSpan(MapSpan paramMapSpan)
   {
-    paramMapSpan = LatLngBounds.builder().include(new LatLng(paramMapSpan.getLat(), paramMapSpan.getLon())).include(new LatLng(paramMapSpan.getLat() + paramMapSpan.getLatDelta(), paramMapSpan.getLon() + paramMapSpan.getLonDelta())).include(new LatLng(paramMapSpan.getLat() + paramMapSpan.getLatDelta(), paramMapSpan.getLon() - paramMapSpan.getLonDelta())).include(new LatLng(paramMapSpan.getLat() - paramMapSpan.getLatDelta(), paramMapSpan.getLon() + paramMapSpan.getLonDelta())).include(new LatLng(paramMapSpan.getLat() - paramMapSpan.getLatDelta(), paramMapSpan.getLon() - paramMapSpan.getLonDelta())).build();
-    if ((g != null) && (g.getMap() != null))
-    {
-      paramMapSpan = CameraUpdateFactory.newLatLngBounds(paramMapSpan, ao.a);
-      a(new z(g.getMap(), paramMapSpan));
+    a(LatLngBounds.b().a(new LatLng(paramMapSpan.a(), paramMapSpan.b())).a(new LatLng(paramMapSpan.a() + paramMapSpan.d(), paramMapSpan.b() + paramMapSpan.c())).a(new LatLng(paramMapSpan.a() + paramMapSpan.d(), paramMapSpan.b() - paramMapSpan.c())).a(new LatLng(paramMapSpan.a() - paramMapSpan.d(), paramMapSpan.b() + paramMapSpan.c())).a(new LatLng(paramMapSpan.a() - paramMapSpan.d(), paramMapSpan.b() - paramMapSpan.c())).a());
+  }
+  
+  public void setMyLocationButtonEnabled(final boolean paramBoolean)
+  {
+    if (k.a(getContext(), PermissionGroup.LOCATION)) {
+      b.a(new com.google.android.gms.maps.e()
+      {
+        public void a(com.google.android.gms.maps.c paramAnonymousc)
+        {
+          paramAnonymousc.c().a(paramBoolean);
+        }
+      });
     }
   }
   
-  public void setOnCameraUpdate(GoogleMap.OnCameraChangeListener paramOnCameraChangeListener)
+  public void setOnCameraUpdate(c.c paramc)
   {
-    j = paramOnCameraChangeListener;
-    a(new u(this));
+    i = paramc;
+    if (i != null) {}
+    for (boolean bool = true;; bool = false)
+    {
+      a(bool);
+      return;
+    }
   }
   
   public void setOptions(GoogleMapOptions paramGoogleMapOptions)
   {
-    k = paramGoogleMapOptions;
+    c = paramGoogleMapOptions;
   }
 }
 

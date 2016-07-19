@@ -3,24 +3,38 @@
 .source "ScrollToLoadListView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/util/ScrollToLoadListView$b;,
+        Lcom/yelp/android/ui/util/ScrollToLoadListView$d;,
+        Lcom/yelp/android/ui/util/ScrollToLoadListView$a;,
+        Lcom/yelp/android/ui/util/ScrollToLoadListView$e;,
+        Lcom/yelp/android/ui/util/ScrollToLoadListView$c;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-.field private b:Lcom/yelp/android/ui/util/bq;
+.field private b:Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
-.field private c:Lcom/yelp/android/ui/util/bm;
+.field private c:Lcom/yelp/android/ui/util/ScrollToLoadListView$a;
 
-.field private d:Lcom/yelp/android/ui/util/bp;
+.field private d:Lcom/yelp/android/ui/util/ScrollToLoadListView$d;
 
-.field private e:I
+.field private e:Landroid/widget/AbsListView$OnScrollListener;
 
-.field private f:Z
+.field private f:I
 
 .field private g:Z
 
-.field private h:Landroid/view/View;
+.field private h:Z
 
-.field private i:Z
+.field private i:Landroid/view/View;
+
+.field private j:Z
 
 
 # direct methods
@@ -28,54 +42,55 @@
     .locals 2
 
     .prologue
+    .line 51
+    const/4 v0, 0x0
+
     const/4 v1, 0x0
 
-    .line 50
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/util/PullDownListView;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1, v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 43
-    sget v0, Lcom/yelp/android/bf/f;->gray_section_background:I
-
-    iput v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e:I
-
-    .line 44
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:Z
-
-    .line 45
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
-
-    .line 47
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Z
-
-    .line 51
+    .line 52
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
+    .line 55
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+
+    .line 56
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    .locals 3
+
+    .prologue
+    const/4 v2, 0x0
 
     .line 59
-    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/util/PullDownListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    .line 43
-    sget v0, Lcom/yelp/android/bf/f;->gray_section_background:I
-
-    iput v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e:I
+    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/PullDownListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     .line 44
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:Z
+    sget v0, Lcom/yelp/android/co/a$e;->gray_section_background:I
+
+    iput v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:I
 
     .line 45
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
+    iput-boolean v2, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
 
-    .line 47
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Z
+    .line 46
+    iput-boolean v2, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->h:Z
+
+    .line 48
+    iput-boolean v2, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->j:Z
 
     .line 60
-    sget-object v0, Lcom/yelp/android/bf/m;->ScrollToLoadListView:[I
+    sget-object v0, Lcom/yelp/android/co/a$l;->ScrollToLoadListView:[I
 
     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
@@ -85,75 +100,69 @@
     if-eqz v0, :cond_0
 
     .line 63
-    invoke-virtual {v0, v1, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    sget v1, Lcom/yelp/android/co/a$l;->ScrollToLoadListView_topLoading:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v1
 
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:Z
+    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
 
-    .line 65
+    .line 64
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     .line 67
     :cond_0
-    return-void
-.end method
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$a;
 
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
-
-    .prologue
     const/4 v1, 0x0
 
-    .line 55
-    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/PullDownListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$a;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/ui/util/ScrollToLoadListView$1;)V
 
-    .line 43
-    sget v0, Lcom/yelp/android/bf/f;->gray_section_background:I
+    iput-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->c:Lcom/yelp/android/ui/util/ScrollToLoadListView$a;
 
-    iput v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e:I
-
-    .line 44
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:Z
-
-    .line 45
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
-
-    .line 47
-    iput-boolean v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Z
-
-    .line 56
+    .line 68
     return-void
 .end method
 
-.method private a(Lcom/yelp/android/ui/util/bo;)V
+.method static synthetic a(Lcom/yelp/android/ui/util/ScrollToLoadListView;)Landroid/widget/AbsListView$OnScrollListener;
+    .locals 1
+
+    .prologue
+    .line 37
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e:Landroid/widget/AbsListView$OnScrollListener;
+
+    return-object v0
+.end method
+
+.method private a(Lcom/yelp/android/ui/util/ScrollToLoadListView$c;)V
     .locals 3
 
     .prologue
     const/4 v2, 0x0
 
-    .line 171
-    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:Z
+    .line 161
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
 
     if-eqz v0, :cond_0
 
-    .line 177
+    .line 167
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
 
-    .line 178
+    .line 168
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {p0, v0, p1, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 182
+    .line 172
     :goto_0
     return-void
 
-    .line 180
+    .line 170
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
@@ -167,49 +176,34 @@
 
     .prologue
     .line 37
-    iput-boolean p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Z
+    iput-boolean p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->j:Z
 
     return p1
 .end method
 
 .method private j()V
-    .locals 2
+    .locals 1
 
     .prologue
-    .line 128
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/bq;
+    .line 122
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
     if-nez v0, :cond_0
 
-    .line 129
-    new-instance v0, Lcom/yelp/android/ui/util/bq;
+    .line 123
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
-    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/util/bq;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/ui/util/ScrollToLoadListView;)V
+    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView$e;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/ui/util/ScrollToLoadListView;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/bq;
+    iput-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
-    .line 130
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/bq;
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
     invoke-super {p0, v0}, Lcom/yelp/android/ui/util/PullDownListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
 
-    .line 133
+    .line 126
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->c:Lcom/yelp/android/ui/util/bm;
-
-    if-nez v0, :cond_1
-
-    .line 134
-    new-instance v0, Lcom/yelp/android/ui/util/bm;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/util/bm;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/ui/util/bk;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->c:Lcom/yelp/android/ui/util/bm;
-
-    .line 136
-    :cond_1
     return-void
 .end method
 
@@ -217,8 +211,8 @@
     .locals 1
 
     .prologue
-    .line 141
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/bp;
+    .line 131
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView$d;
 
     if-nez v0, :cond_0
 
@@ -228,17 +222,17 @@
 
     if-eqz v0, :cond_0
 
-    .line 142
+    .line 132
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/bq;
+    iput-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
-    .line 143
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->c:Lcom/yelp/android/ui/util/bm;
+    .line 133
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->c:Lcom/yelp/android/ui/util/ScrollToLoadListView$a;
 
     invoke-super {p0, v0}, Lcom/yelp/android/ui/util/PullDownListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
 
-    .line 145
+    .line 135
     :cond_0
     return-void
 .end method
@@ -247,21 +241,21 @@
     .locals 1
 
     .prologue
-    .line 185
-    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:Z
+    .line 175
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
 
     if-eqz v0, :cond_0
 
-    .line 186
+    .line 176
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->removeHeaderView(Landroid/view/View;)Z
 
-    .line 190
+    .line 180
     :goto_0
     return-void
 
-    .line 188
+    .line 178
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
@@ -276,10 +270,10 @@
     .locals 3
 
     .prologue
-    .line 200
+    .line 190
     iput-object p2, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 201
+    .line 191
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     new-instance v1, Landroid/widget/AbsListView$LayoutParams;
@@ -294,32 +288,32 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 203
-    new-instance v0, Lcom/yelp/android/ui/util/bo;
+    .line 193
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$c;
 
-    invoke-direct {v0, p1}, Lcom/yelp/android/ui/util/bo;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v0, p1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$c;-><init>(Ljava/lang/Runnable;)V
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Lcom/yelp/android/ui/util/bo;)V
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Lcom/yelp/android/ui/util/ScrollToLoadListView$c;)V
 
-    .line 204
-    new-instance v0, Lcom/yelp/android/ui/util/bq;
+    .line 194
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
-    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/util/bq;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/ui/util/ScrollToLoadListView;)V
+    invoke-direct {v0, p0, p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView$e;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Lcom/yelp/android/ui/util/ScrollToLoadListView;)V
 
     invoke-super {p0, v0}, Lcom/yelp/android/ui/util/PullDownListView;->setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
 
-    .line 205
+    .line 195
     return-void
 .end method
 
-.method public a(Ljava/lang/Runnable;Lcom/yelp/android/ui/panels/y;)V
+.method public a(Ljava/lang/Runnable;Lcom/yelp/android/ui/panels/c;)V
     .locals 3
 
     .prologue
-    .line 158
+    .line 148
     invoke-direct {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->l()V
 
-    .line 160
+    .line 150
     new-instance v0, Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->getContext()Landroid/content/Context;
@@ -330,7 +324,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 161
+    .line 151
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     new-instance v1, Landroid/widget/AbsListView$LayoutParams;
@@ -345,35 +339,35 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 163
+    .line 153
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    iget v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e:I
+    iget v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:I
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setBackgroundResource(I)V
 
-    .line 164
+    .line 154
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    invoke-virtual {v0, p2}, Lcom/yelp/android/ui/panels/PanelLoading;->setSpinner(Lcom/yelp/android/ui/panels/y;)V
+    invoke-virtual {v0, p2}, Lcom/yelp/android/ui/panels/PanelLoading;->setSpinner(Lcom/yelp/android/ui/panels/c;)V
 
-    .line 166
+    .line 156
     if-eqz p1, :cond_0
 
-    new-instance v0, Lcom/yelp/android/ui/util/bo;
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$c;
 
-    invoke-direct {v0, p1}, Lcom/yelp/android/ui/util/bo;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v0, p1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$c;-><init>(Ljava/lang/Runnable;)V
 
     :goto_0
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Lcom/yelp/android/ui/util/bo;)V
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Lcom/yelp/android/ui/util/ScrollToLoadListView$c;)V
 
-    .line 167
+    .line 157
     invoke-direct {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->j()V
 
-    .line 168
+    .line 158
     return-void
 
-    .line 166
+    .line 156
     :cond_0
     const/4 v0, 0x0
 
@@ -384,7 +378,7 @@
     .locals 2
 
     .prologue
-    .line 258
+    .line 248
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->getCount()I
 
     move-result v0
@@ -393,15 +387,15 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 271
+    .line 262
     :goto_0
     return-void
 
-    .line 261
+    .line 251
     :cond_0
-    new-instance v0, Lcom/yelp/android/ui/util/bk;
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$1;
 
-    invoke-direct {v0, p0, p1}, Lcom/yelp/android/ui/util/bk;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Z)V
+    invoke-direct {v0, p0, p1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$1;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Z)V
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->post(Ljava/lang/Runnable;)Z
 
@@ -412,7 +406,7 @@
     .locals 2
 
     .prologue
-    .line 277
+    .line 268
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->getCount()I
 
     move-result v0
@@ -421,15 +415,15 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 290
+    .line 282
     :goto_0
     return-void
 
-    .line 280
+    .line 271
     :cond_0
-    new-instance v0, Lcom/yelp/android/ui/util/bl;
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$2;
 
-    invoke-direct {v0, p0, p1}, Lcom/yelp/android/ui/util/bl;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Z)V
+    invoke-direct {v0, p0, p1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$2;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView;Z)V
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->post(Ljava/lang/Runnable;)Z
 
@@ -440,12 +434,12 @@
     .locals 2
 
     .prologue
-    .line 463
+    .line 465
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     if-eqz v0, :cond_0
 
-    .line 464
+    .line 466
     iget-object v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     if-eqz p1, :cond_1
@@ -455,11 +449,11 @@
     :goto_0
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
 
-    .line 466
+    .line 468
     :cond_0
     return-void
 
-    .line 464
+    .line 466
     :cond_1
     const/16 v0, 0x8
 
@@ -470,8 +464,8 @@
     .locals 1
 
     .prologue
-    .line 115
-    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
+    .line 109
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->h:Z
 
     return v0
 .end method
@@ -480,8 +474,8 @@
     .locals 1
 
     .prologue
-    .line 123
-    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:Z
+    .line 117
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
 
     return v0
 .end method
@@ -490,22 +484,22 @@
     .locals 1
 
     .prologue
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->h:Landroid/view/View;
+    .line 77
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Landroid/view/View;
 
     if-nez v0, :cond_0
 
-    .line 84
+    .line 78
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/PullDownListView;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
-    .line 86
+    .line 80
     :goto_0
     return v0
 
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->h:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Landroid/view/View;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
@@ -518,14 +512,14 @@
     .locals 2
 
     .prologue
-    .line 193
+    .line 183
     const/4 v0, 0x0
 
     sget-object v1, Lcom/yelp/android/ui/panels/CommonLoadingSpinner;->SMALL:Lcom/yelp/android/ui/panels/CommonLoadingSpinner;
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Ljava/lang/Runnable;Lcom/yelp/android/ui/panels/y;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Ljava/lang/Runnable;Lcom/yelp/android/ui/panels/c;)V
 
-    .line 194
+    .line 184
     return-void
 .end method
 
@@ -535,42 +529,42 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 231
+    .line 221
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     if-eqz v0, :cond_1
 
-    .line 232
+    .line 222
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->getAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 236
-    new-instance v0, Lcom/yelp/android/ui/util/bn;
+    .line 226
+    new-instance v0, Lcom/yelp/android/ui/util/ScrollToLoadListView$b;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/bn;-><init>(Lcom/yelp/android/ui/util/bk;)V
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$b;-><init>(Lcom/yelp/android/ui/util/ScrollToLoadListView$1;)V
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 238
+    .line 228
     :cond_0
     invoke-direct {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->l()V
 
-    .line 239
+    .line 229
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/PanelLoading;->c()V
 
-    .line 242
+    .line 232
     :cond_1
     iput-object v1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 243
+    .line 233
     invoke-direct {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->k()V
 
-    .line 244
+    .line 234
     return-void
 .end method
 
@@ -578,7 +572,7 @@
     .locals 1
 
     .prologue
-    .line 247
+    .line 237
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     if-nez v0, :cond_0
@@ -598,7 +592,7 @@
     .locals 1
 
     .prologue
-    .line 251
+    .line 241
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     return-object v0
@@ -608,8 +602,8 @@
     .locals 1
 
     .prologue
-    .line 469
-    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Z
+    .line 471
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->j:Z
 
     return v0
 .end method
@@ -618,12 +612,12 @@
     .locals 1
 
     .prologue
-    .line 473
+    .line 475
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->j:Z
 
-    .line 474
+    .line 476
     return-void
 .end method
 
@@ -635,14 +629,14 @@
 
     const/4 v1, 0x1
 
-    .line 298
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/bq;
+    .line 290
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/bq;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b:Lcom/yelp/android/ui/util/ScrollToLoadListView$e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bq;->a()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView$e;->a()Z
 
     move-result v0
 
@@ -650,25 +644,25 @@
 
     move v0, v1
 
-    .line 299
+    .line 291
     :goto_0
-    iget-object v3, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/bp;
+    iget-object v3, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView$d;
 
     if-eqz v3, :cond_3
 
-    .line 300
-    iget-object v3, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/bp;
+    .line 292
+    iget-object v3, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView$d;
 
-    invoke-interface {v3, p1}, Lcom/yelp/android/ui/util/bp;->a(Landroid/view/MotionEvent;)Z
+    invoke-interface {v3, p1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$d;->a(Landroid/view/MotionEvent;)Z
 
     move-result v3
 
-    .line 301
+    .line 293
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/bp;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView$d;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/ui/util/bp;->b(Landroid/view/MotionEvent;)Z
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/util/ScrollToLoadListView$d;->b(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -676,13 +670,13 @@
 
     move v2, v1
 
-    .line 304
+    .line 296
     :cond_0
     if-nez v3, :cond_1
 
     if-eqz v2, :cond_3
 
-    .line 308
+    .line 300
     :cond_1
     :goto_1
     return v1
@@ -690,10 +684,10 @@
     :cond_2
     move v0, v2
 
-    .line 298
+    .line 290
     goto :goto_0
 
-    .line 308
+    .line 300
     :cond_3
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/PullDownListView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
@@ -706,10 +700,10 @@
     .locals 0
 
     .prologue
-    .line 119
-    iput-boolean p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->g:Z
+    .line 113
+    iput-boolean p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->h:Z
 
-    .line 120
+    .line 114
     return-void
 .end method
 
@@ -717,35 +711,35 @@
     .locals 1
 
     .prologue
-    .line 148
+    .line 138
     sget-object v0, Lcom/yelp/android/ui/panels/CommonLoadingSpinner;->SMALL:Lcom/yelp/android/ui/panels/CommonLoadingSpinner;
 
-    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Ljava/lang/Runnable;Lcom/yelp/android/ui/panels/y;)V
+    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a(Ljava/lang/Runnable;Lcom/yelp/android/ui/panels/c;)V
 
-    .line 149
+    .line 139
     return-void
 .end method
 
-.method public setOnPullDownCallback(Lcom/yelp/android/ui/util/bp;)V
+.method public setOnPullDownCallback(Lcom/yelp/android/ui/util/ScrollToLoadListView$d;)V
     .locals 1
 
     .prologue
-    .line 99
-    iput-object p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/bp;
+    .line 93
+    iput-object p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView$d;
 
-    .line 100
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/bp;
+    .line 94
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView$d;
 
     if-eqz v0, :cond_0
 
-    .line 101
+    .line 95
     invoke-direct {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->j()V
 
-    .line 105
+    .line 99
     :goto_0
     return-void
 
-    .line 103
+    .line 97
     :cond_0
     invoke-direct {p0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->k()V
 
@@ -753,38 +747,35 @@
 .end method
 
 .method public setOnScrollListener(Landroid/widget/AbsListView$OnScrollListener;)V
-    .locals 2
+    .locals 0
 
     .prologue
-    .line 77
-    new-instance v0, Ljava/lang/UnsupportedOperationException;
+    .line 72
+    iput-object p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e:Landroid/widget/AbsListView$OnScrollListener;
 
-    const-string/jumbo v1, "setOnScrollListener() not allowed for ScrollToLoadListView"
-
-    invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    .line 73
+    return-void
 .end method
 
 .method public setPanelLoadingBackground(I)V
     .locals 1
 
     .prologue
-    .line 108
+    .line 102
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     if-eqz v0, :cond_0
 
-    .line 109
+    .line 103
     iget-object v0, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->a:Lcom/yelp/android/ui/panels/PanelLoading;
 
     invoke-virtual {v0, p1}, Lcom/yelp/android/ui/panels/PanelLoading;->setBackgroundResource(I)V
 
-    .line 111
+    .line 105
     :cond_0
-    iput p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->e:I
+    iput p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f:I
 
-    .line 112
+    .line 106
     return-void
 .end method
 
@@ -792,9 +783,9 @@
     .locals 0
 
     .prologue
-    .line 95
-    iput-object p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->h:Landroid/view/View;
+    .line 89
+    iput-object p1, p0, Lcom/yelp/android/ui/util/ScrollToLoadListView;->i:Landroid/view/View;
 
-    .line 96
+    .line 90
     return-void
 .end method

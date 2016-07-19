@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:id="@id/edit_business_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+<ScrollView android:id="@id/change_business_view" android:background="@color/white_dirty_snow" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
     <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <RelativeLayout android:id="@id/closed_business_cell" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?cellButtonStyle">
-            <CheckBox android:id="@id/closed_check" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
-            <TextView android:textAppearance="@style/SubtitleText" android:gravity="center_vertical" android:id="@id/closed_title_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="?smallGapSize" android:text="@string/permanently_closed" android:layout_toLeftOf="@id/closed_check" android:layout_alignParentLeft="true" />
-        </RelativeLayout>
+        <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/claim_biz_button" />
+        <com.yelp.android.ui.widgets.WidgetSpan android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/closed_business_cell" android:background="@drawable/selector_full_bleed" android:paddingLeft="@dimen/default_large_gap_size" android:paddingTop="@dimen/see_more_button_padding" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/see_more_button_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.yelp.android.ui.widgets.YelpToggleButton android:id="@id/closed_check" android:background="@drawable/switch_toggle" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/yes" android:textOff="@string/no" android:layout_alignParentRight="true" />
+                <TextView android:textAppearance="@style/DeprecatedSubtitleText" android:gravity="center_vertical" android:id="@id/closed_title_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:text="@string/permanently_closed_question" android:layout_alignParentLeft="true" />
+            </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+            <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/duplicate_business_cell" android:background="@drawable/selector_full_bleed" android:paddingLeft="@dimen/default_large_gap_size" android:paddingTop="@dimen/see_more_button_padding" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/see_more_button_padding" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.yelp.android.ui.widgets.YelpToggleButton android:id="@id/is_duplicate_check" android:background="@drawable/switch_toggle" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/yes" android:textOff="@string/no" android:layout_alignParentRight="true" />
+                <TextView android:textAppearance="@style/DeprecatedSubtitleText" android:gravity="center_vertical" android:id="@id/is_duplicate_title_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:text="@string/duplicate_business" android:layout_toLeftOf="@id/is_duplicate_check" android:layout_alignParentLeft="true" />
+            </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+        </com.yelp.android.ui.widgets.WidgetSpan>
         <LinearLayout android:orientation="vertical" android:id="@id/removable_panel" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_name" yelp:label="@string/name" style="?cellButtonStyle" />
-            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_address" yelp:setIcon="@drawable/add_business_address_icon" yelp:label="@string/address_and_map_location" style="?cellButtonStyle" />
-            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_categories" yelp:emptyText="@string/add_categories" yelp:label="@string/categories" style="?cellButtonStyle" />
-            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_open_hours" yelp:attachmentIcon="@drawable/photo_icon" yelp:emptyText="@string/add_hours" yelp:label="@string/hours" style="?cellButtonStyle" />
-            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_phone_number" yelp:emptyText="@string/add_phone" yelp:label="@string/phone" style="?cellButtonStyle" />
-            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_website" yelp:emptyText="@string/add_website" yelp:label="@string/website" style="?cellButtonStyle" />
-            <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/business_menu_url" android:visibility="gone" yelp:emptyIcon="@drawable/icon_green_plus_sign" yelp:emptyText="@string/add_menu_url" yelp:label="@string/menu_url" style="?cellButtonStyle" />
+            <TextView android:text="@string/name" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+            <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_name" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:emptyText="@string/business_name" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
+            <TextView android:text="@string/address_and_map_location" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+            <include layout="@layout/business_map_address" />
+            <TextView android:text="@string/categories" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+            <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_categories" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:emptyText="@string/add_categories" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
+            <TextView android:text="@string/hours" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+            <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_open_hours" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:attachmentIcon="@drawable/photo_icon" yelp:emptyText="@string/add_hours" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
+            <TextView android:text="@string/phone" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+            <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_phone_number" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:emptyText="@string/add_phone" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
+            <TextView android:text="@string/website" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+            <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_website" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:emptyText="@string/add_website" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
+            <TextView android:id="@id/business_menu_url_title" android:text="@string/menu_url" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+            <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/business_menu_url" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:emptyText="@string/add_menu_url" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
         </LinearLayout>
-        <com.yelp.android.ui.activities.mutatebiz.LabeledField android:id="@id/notes" yelp:emptyText="@string/notes_for_the_yelp_team" yelp:label="@string/notes" style="?cellButtonStyle" />
+        <TextView android:text="@string/notes" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+        <com.yelp.android.ui.activities.mutatebiz.Field android:id="@id/notes" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:emptyText="@string/notes_for_the_yelp_team" yelp:position="bottom|left" style="@style/ButtonFullBleed.WithArrow" />
     </LinearLayout>
 </ScrollView>

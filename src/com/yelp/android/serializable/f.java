@@ -1,30 +1,10 @@
 package com.yelp.android.serializable;
 
-import android.os.Parcel;
-import com.yelp.parcelgen.JsonParser.DualCreator;
-import org.json.JSONObject;
+import com.google.android.gms.maps.model.LatLng;
 
-final class f
-  extends JsonParser.DualCreator<AttributeFilters>
+public abstract interface f
 {
-  public AttributeFilters a(Parcel paramParcel)
-  {
-    AttributeFilters localAttributeFilters = new AttributeFilters();
-    localAttributeFilters.readFromParcel(paramParcel);
-    return localAttributeFilters;
-  }
-  
-  public AttributeFilters a(JSONObject paramJSONObject)
-  {
-    AttributeFilters localAttributeFilters = new AttributeFilters();
-    localAttributeFilters.readFromJson(paramJSONObject);
-    return localAttributeFilters;
-  }
-  
-  public AttributeFilters[] a(int paramInt)
-  {
-    return new AttributeFilters[paramInt];
-  }
+  public abstract LatLng b();
 }
 
 /* Location:

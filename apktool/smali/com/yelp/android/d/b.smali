@@ -1,11 +1,13 @@
-.class interface abstract Lcom/yelp/android/d/b;
+.class Lcom/yelp/android/d/b;
 .super Ljava/lang/Object;
-.source "ICUCompat.java"
+.source "DrawableCompatApi22.java"
 
 
-# virtual methods
-.method public abstract a(Ljava/lang/String;)Ljava/lang/String;
-.end method
+# direct methods
+.method public static a(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
+    .locals 0
 
-.method public abstract b(Ljava/lang/String;)Ljava/lang/String;
+    .prologue
+    .line 28
+    return-object p0
 .end method

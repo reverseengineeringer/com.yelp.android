@@ -130,16 +130,16 @@
     .locals 0
 
     .prologue
-    .line 84
+    .line 88
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 85
+    .line 89
     invoke-virtual {p0, p2, p3}, Lcom/yelp/android/ui/activities/media/ActivityMediaContributionDelegate;->setResult(ILandroid/content/Intent;)V
 
-    .line 86
+    .line 90
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/media/ActivityMediaContributionDelegate;->finish()V
 
-    .line 87
+    .line 91
     return-void
 .end method
 
@@ -153,11 +153,14 @@
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 63
+    if-nez p1, :cond_0
+
+    .line 64
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/media/ActivityMediaContributionDelegate;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 65
+    .line 66
     const-string/jumbo v1, "extra_disable_video_for_reviews"
 
     const/4 v2, 0x0
@@ -166,34 +169,35 @@
 
     move-result v1
 
-    .line 66
+    .line 67
     const-string/jumbo v2, "extra_business_id"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 68
-    if-eqz v1, :cond_0
+    .line 69
+    if-eqz v1, :cond_1
 
     sget-object v0, Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;->PHOTO:Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;
 
-    .line 69
+    .line 71
     :goto_0
     invoke-static {p0, v0, v3, v3, v2}, Lcom/yelp/android/ui/activities/gallery/ActivityChooseFromGallery;->a(Landroid/content/Context;Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;ZZLjava/lang/String;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 76
-    const/16 v1, 0x41d
+    .line 79
+    const/16 v1, 0x426
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/media/ActivityMediaContributionDelegate;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 77
+    .line 81
+    :cond_0
     return-void
 
-    .line 68
-    :cond_0
+    .line 69
+    :cond_1
     sget-object v0, Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;->PHOTO_AND_VIDEO:Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;
 
     goto :goto_0

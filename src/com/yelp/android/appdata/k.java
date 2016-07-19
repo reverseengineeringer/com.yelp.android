@@ -1,123 +1,152 @@
 package com.yelp.android.appdata;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.os.AsyncTask;
-import android.os.AsyncTask.Status;
-import java.lang.ref.WeakReference;
+import android.support.v4.app.Fragment;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Map;
 
 public class k
-  implements SensorEventListener, ar
 {
-  private final int a = 10000;
-  private final float[] b = new float[3];
-  private ArrayList<WeakReference<m>> c;
-  private SensorManager d;
-  private Sensor e;
-  private double f;
-  private boolean g;
-  private long h;
-  private final StateBroadcastReceiver i;
-  private final AsyncTask<Context, Void, Sensor> j = new l(this);
-  
-  public k(Context paramContext)
+  public static Map<PermissionGroup, Boolean> a(String[] paramArrayOfString, int[] paramArrayOfInt)
   {
-    j.execute(new Context[] { paramContext });
-    i = StateBroadcastReceiver.a(paramContext, this);
-  }
-  
-  private void c()
-  {
-    if (c.isEmpty())
+    com.yelp.android.g.a locala = new com.yelp.android.g.a();
+    int i = 0;
+    if (i < paramArrayOfString.length)
     {
-      b();
-      return;
-    }
-    a();
-  }
-  
-  public void a()
-  {
-    if ((!g) && (e != null) && (!c.isEmpty())) {
-      g = d.registerListener(this, e, 2);
-    }
-  }
-  
-  public void a(Context paramContext)
-  {
-    a();
-  }
-  
-  public boolean a(m paramm)
-  {
-    if (e == null)
-    {
-      if (j.getStatus().equals(AsyncTask.Status.RUNNING)) {
-        j.cancel(true);
+      PermissionGroup localPermissionGroup = PermissionGroup.find(paramArrayOfString[i]);
+      if (paramArrayOfInt[i] == 0) {}
+      for (boolean bool = true;; bool = false)
+      {
+        locala.put(localPermissionGroup, Boolean.valueOf(bool));
+        i += 1;
+        break;
       }
-      return false;
     }
-    c.add(new WeakReference(paramm));
-    c();
+    return locala;
+  }
+  
+  @TargetApi(23)
+  public static boolean a(Activity paramActivity, int paramInt, PermissionGroup... paramVarArgs)
+  {
+    if (f.b(23)) {}
+    do
+    {
+      return false;
+      paramVarArgs = b(paramActivity, paramVarArgs);
+    } while (paramVarArgs.length == 0);
+    if (a(paramActivity, paramVarArgs)) {
+      paramActivity.requestPermissions(paramVarArgs, paramInt);
+    }
+    for (;;)
+    {
+      return true;
+      paramActivity.requestPermissions(paramVarArgs, paramInt);
+    }
+  }
+  
+  @TargetApi(23)
+  public static boolean a(Activity paramActivity, String[] paramArrayOfString)
+  {
+    boolean bool2 = false;
+    int j = paramArrayOfString.length;
+    int i = 0;
+    for (;;)
+    {
+      boolean bool1 = bool2;
+      if (i < j)
+      {
+        if (paramActivity.shouldShowRequestPermissionRationale(paramArrayOfString[i])) {
+          bool1 = true;
+        }
+      }
+      else {
+        return bool1;
+      }
+      i += 1;
+    }
+  }
+  
+  public static boolean a(Context paramContext, PermissionGroup paramPermissionGroup)
+  {
+    paramPermissionGroup = permissions;
+    int j = paramPermissionGroup.length;
+    int i = 0;
+    while (i < j)
+    {
+      if (!a(paramContext, paramPermissionGroup[i])) {
+        return false;
+      }
+      i += 1;
+    }
     return true;
   }
   
-  public void b()
+  private static boolean a(Context paramContext, String paramString)
   {
-    if ((g) && (e != null))
+    return android.support.v4.app.a.a(paramContext, paramString) == 0;
+  }
+  
+  public static boolean a(Context paramContext, PermissionGroup... paramVarArgs)
+  {
+    int j = paramVarArgs.length;
+    int i = 0;
+    while (i < j)
     {
-      d.unregisterListener(this);
-      g = false;
+      if (b(paramContext, paramVarArgs[i])) {
+        return false;
+      }
+      i += 1;
+    }
+    return true;
+  }
+  
+  @TargetApi(23)
+  public static boolean a(Fragment paramFragment, int paramInt, PermissionGroup... paramVarArgs)
+  {
+    if (f.b(23)) {}
+    do
+    {
+      return false;
+      paramVarArgs = b(paramFragment.getContext(), paramVarArgs);
+    } while (paramVarArgs.length == 0);
+    if (a(paramFragment.getActivity(), paramVarArgs)) {
+      paramFragment.requestPermissions(paramVarArgs, paramInt);
+    }
+    for (;;)
+    {
+      return true;
+      paramFragment.requestPermissions(paramVarArgs, paramInt);
     }
   }
   
-  public void b(Context paramContext)
+  public static boolean b(Context paramContext, PermissionGroup paramPermissionGroup)
   {
-    b();
+    return !a(paramContext, paramPermissionGroup);
   }
   
-  public void onAccuracyChanged(Sensor paramSensor, int paramInt) {}
-  
-  public void onSensorChanged(SensorEvent paramSensorEvent)
+  private static String[] b(Context paramContext, PermissionGroup[] paramArrayOfPermissionGroup)
   {
-    if (sensor.getType() != 3) {}
-    label148:
-    do
+    ArrayList localArrayList = new ArrayList();
+    int k = paramArrayOfPermissionGroup.length;
+    int i = 0;
+    while (i < k)
     {
-      return;
-      Iterator localIterator;
-      if ((accuracy == 0) && (System.currentTimeMillis() - 10000L > h))
+      String[] arrayOfString = permissions;
+      int m = arrayOfString.length;
+      int j = 0;
+      while (j < m)
       {
-        f = NaN.0D;
-        paramSensorEvent = new ArrayList();
-        localIterator = c.iterator();
-      }
-      for (;;)
-      {
-        if (!localIterator.hasNext()) {
-          break label148;
+        String str = arrayOfString[j];
+        if (!a(paramContext, str)) {
+          localArrayList.add(str);
         }
-        WeakReference localWeakReference = (WeakReference)localIterator.next();
-        m localm = (m)localWeakReference.get();
-        if (localm != null)
-        {
-          localm.a(f);
-          continue;
-          System.arraycopy(values, 0, b, 0, 3);
-          f = b[0];
-          h = System.currentTimeMillis();
-          break;
-        }
-        paramSensorEvent.add(localWeakReference);
+        j += 1;
       }
-    } while (paramSensorEvent.isEmpty());
-    c.removeAll(paramSensorEvent);
-    c();
+      i += 1;
+    }
+    return (String[])localArrayList.toArray(new String[localArrayList.size()]);
   }
 }
 

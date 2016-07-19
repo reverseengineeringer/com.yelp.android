@@ -9,7 +9,7 @@ import android.view.ViewGroup.MarginLayoutParams;
 public class RecyclerView$LayoutParams
   extends ViewGroup.MarginLayoutParams
 {
-  ce a;
+  RecyclerView.u a;
   final Rect b = new Rect();
   boolean c = true;
   boolean d = false;

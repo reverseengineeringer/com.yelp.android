@@ -4,31 +4,96 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build.VERSION;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver.OnScrollChangedListener;
 import android.widget.PopupWindow;
-import com.yelp.android.g.l;
+import com.yelp.android.j.a.k;
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 
 public class AppCompatPopupWindow
   extends PopupWindow
 {
-  private final boolean a;
+  private static final boolean a;
+  private boolean b;
+  
+  static
+  {
+    if (Build.VERSION.SDK_INT < 21) {}
+    for (boolean bool = true;; bool = false)
+    {
+      a = bool;
+      return;
+    }
+  }
   
   public AppCompatPopupWindow(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = bg.a(paramContext, paramAttributeSet, l.PopupWindow, paramInt, 0);
-    a = paramContext.a(l.PopupWindow_overlapAnchor, false);
-    setBackgroundDrawable(paramContext.a(l.PopupWindow_android_popupBackground));
+    paramContext = p.a(paramContext, paramAttributeSet, a.k.PopupWindow, paramInt, 0);
+    if (paramContext.e(a.k.PopupWindow_overlapAnchor)) {
+      a(paramContext.a(a.k.PopupWindow_overlapAnchor, false));
+    }
+    setBackgroundDrawable(paramContext.a(a.k.PopupWindow_android_popupBackground));
     paramContext.b();
+    if (Build.VERSION.SDK_INT < 14) {
+      a(this);
+    }
+  }
+  
+  private static void a(final PopupWindow paramPopupWindow)
+  {
+    try
+    {
+      Field localField1 = PopupWindow.class.getDeclaredField("mAnchor");
+      localField1.setAccessible(true);
+      Field localField2 = PopupWindow.class.getDeclaredField("mOnScrollChangedListener");
+      localField2.setAccessible(true);
+      localField2.set(paramPopupWindow, new ViewTreeObserver.OnScrollChangedListener()
+      {
+        public void onScrollChanged()
+        {
+          try
+          {
+            WeakReference localWeakReference = (WeakReference)a.get(paramPopupWindow);
+            if (localWeakReference != null)
+            {
+              if (localWeakReference.get() == null) {
+                return;
+              }
+              c.onScrollChanged();
+              return;
+            }
+          }
+          catch (IllegalAccessException localIllegalAccessException) {}
+        }
+      });
+      return;
+    }
+    catch (Exception paramPopupWindow)
+    {
+      Log.d("AppCompatPopupWindow", "Exception while installing workaround OnScrollChangedListener", paramPopupWindow);
+    }
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    if (a)
+    {
+      b = paramBoolean;
+      return;
+    }
+    android.support.v4.widget.p.a(this, paramBoolean);
   }
   
   public void showAsDropDown(View paramView, int paramInt1, int paramInt2)
   {
     int i = paramInt2;
-    if (Build.VERSION.SDK_INT < 21)
+    if (a)
     {
       i = paramInt2;
-      if (a) {
+      if (b) {
         i = paramInt2 - paramView.getHeight();
       }
     }
@@ -39,10 +104,10 @@ public class AppCompatPopupWindow
   public void showAsDropDown(View paramView, int paramInt1, int paramInt2, int paramInt3)
   {
     int i = paramInt2;
-    if (Build.VERSION.SDK_INT < 21)
+    if (a)
     {
       i = paramInt2;
-      if (a) {
+      if (b) {
         i = paramInt2 - paramView.getHeight();
       }
     }
@@ -51,7 +116,7 @@ public class AppCompatPopupWindow
   
   public void update(View paramView, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    if ((Build.VERSION.SDK_INT < 21) && (a)) {
+    if ((a) && (b)) {
       paramInt2 -= paramView.getHeight();
     }
     for (;;)

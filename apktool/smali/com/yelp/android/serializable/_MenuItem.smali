@@ -7,13 +7,7 @@
 
 
 # instance fields
-.field protected mAlias:Ljava/lang/String;
-
-.field protected mDescription:Ljava/lang/String;
-
-.field protected mName:Ljava/lang/String;
-
-.field protected mPhotos:Ljava/util/List;
+.field protected a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -24,9 +18,15 @@
     .end annotation
 .end field
 
-.field protected mPrice:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mReviewSnippet:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
+
+.field protected d:Ljava/lang/String;
+
+.field protected e:Ljava/lang/String;
+
+.field protected f:Ljava/lang/String;
 
 
 # direct methods
@@ -34,143 +34,131 @@
     .locals 0
 
     .prologue
-    .line 35
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/Photo;",
-            ">;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ")V"
-        }
-    .end annotation
-
-    .prologue
-    .line 25
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_MenuItem;-><init>()V
-
-    .line 26
-    iput-object p1, p0, Lcom/yelp/android/serializable/_MenuItem;->mPhotos:Ljava/util/List;
-
-    .line 27
-    iput-object p2, p0, Lcom/yelp/android/serializable/_MenuItem;->mAlias:Ljava/lang/String;
-
-    .line 28
-    iput-object p3, p0, Lcom/yelp/android/serializable/_MenuItem;->mName:Ljava/lang/String;
-
-    .line 29
-    iput-object p4, p0, Lcom/yelp/android/serializable/_MenuItem;->mReviewSnippet:Ljava/lang/String;
-
-    .line 30
-    iput-object p5, p0, Lcom/yelp/android/serializable/_MenuItem;->mPrice:Ljava/lang/String;
-
-    .line 31
-    iput-object p6, p0, Lcom/yelp/android/serializable/_MenuItem;->mDescription:Ljava/lang/String;
-
-    .line 32
+    .line 44
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 59
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getAlias()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 42
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mAlias:Ljava/lang/String;
+    .line 105
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->f:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getDescription()Ljava/lang/String;
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mDescription:Ljava/lang/String;
+    .line 122
+    const-class v0, Lcom/yelp/android/serializable/Photo;
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readArrayList(Ljava/lang/ClassLoader;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
+
+    .line 123
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->b:Ljava/lang/String;
+
+    .line 124
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->c:Ljava/lang/String;
+
+    .line 125
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->d:Ljava/lang/String;
+
+    .line 126
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->e:Ljava/lang/String;
+
+    .line 127
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->f:Ljava/lang/String;
+
+    .line 128
+    return-void
 .end method
 
-.method public getName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 45
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getPhotos()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/Photo;",
-            ">;"
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPhotos:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method public getPrice()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPrice:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getReviewSnippet()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mReviewSnippet:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 2
-
-    .prologue
-    .line 81
+    .line 131
     const-string/jumbo v0, "photos"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -179,7 +167,7 @@
 
     if-nez v0, :cond_5
 
-    .line 82
+    .line 132
     const-string/jumbo v0, "photos"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -192,9 +180,9 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPhotos:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
 
-    .line 86
+    .line 136
     :goto_0
     const-string/jumbo v0, "alias"
 
@@ -204,16 +192,16 @@
 
     if-nez v0, :cond_0
 
-    .line 87
+    .line 137
     const-string/jumbo v0, "alias"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mAlias:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->b:Ljava/lang/String;
 
-    .line 89
+    .line 139
     :cond_0
     const-string/jumbo v0, "name"
 
@@ -223,16 +211,16 @@
 
     if-nez v0, :cond_1
 
-    .line 90
+    .line 140
     const-string/jumbo v0, "name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->c:Ljava/lang/String;
 
-    .line 92
+    .line 142
     :cond_1
     const-string/jumbo v0, "review_snippet"
 
@@ -242,16 +230,16 @@
 
     if-nez v0, :cond_2
 
-    .line 93
+    .line 143
     const-string/jumbo v0, "review_snippet"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mReviewSnippet:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->d:Ljava/lang/String;
 
-    .line 95
+    .line 145
     :cond_2
     const-string/jumbo v0, "price"
 
@@ -261,16 +249,16 @@
 
     if-nez v0, :cond_3
 
-    .line 96
+    .line 146
     const-string/jumbo v0, "price"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPrice:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->e:Ljava/lang/String;
 
-    .line 98
+    .line 148
     :cond_3
     const-string/jumbo v0, "description"
 
@@ -280,116 +268,263 @@
 
     if-nez v0, :cond_4
 
-    .line 99
+    .line 149
     const-string/jumbo v0, "description"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mDescription:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->f:Ljava/lang/String;
 
-    .line 101
+    .line 151
     :cond_4
     return-void
 
-    .line 84
+    .line 134
     :cond_5
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPhotos:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
 
     goto :goto_0
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 72
-    sget-object v0, Lcom/yelp/android/serializable/Photo;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
+    .line 101
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+    return-object v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 93
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/Photo;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 85
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 109
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 48
+    if-nez p1, :cond_1
+
+    .line 62
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 52
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 53
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 56
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 60
+    check-cast p1, Lcom/yelp/android/serializable/_MenuItem;
+
+    .line 62
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPhotos:Ljava/util/List;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->b:Ljava/lang/String;
 
-    .line 73
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_MenuItem;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mAlias:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->c:Ljava/lang/String;
 
+    iget-object v2, p1, Lcom/yelp/android/serializable/_MenuItem;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_MenuItem;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_MenuItem;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_MenuItem;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
     .line 74
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->b:Ljava/lang/String;
 
-    .line 75
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mReviewSnippet:Ljava/lang/String;
-
-    .line 76
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPrice:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->c:Ljava/lang/String;
 
-    .line 77
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mDescription:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->d:Ljava/lang/String;
 
-    .line 78
-    return-void
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_MenuItem;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 63
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPhotos:Ljava/util/List;
+    .line 113
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->a:Ljava/util/List;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mAlias:Ljava/lang/String;
+    .line 114
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 65
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mName:Ljava/lang/String;
+    .line 115
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mReviewSnippet:Ljava/lang/String;
+    .line 116
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mPrice:Ljava/lang/String;
+    .line 117
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->mDescription:Ljava/lang/String;
+    .line 118
+    iget-object v0, p0, Lcom/yelp/android/serializable/_MenuItem;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 69
+    .line 119
     return-void
 .end method

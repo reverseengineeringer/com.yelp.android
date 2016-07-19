@@ -3,6 +3,14 @@
 .source "ViewStubCompat.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v7/internal/widget/ViewStubCompat$a;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:I
 
@@ -21,7 +29,7 @@
 
 .field private d:Landroid/view/LayoutInflater;
 
-.field private e:Landroid/support/v7/internal/widget/bl;
+.field private e:Landroid/support/v7/internal/widget/ViewStubCompat$a;
 
 
 # direct methods
@@ -53,14 +61,14 @@
     iput v2, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->a:I
 
     .line 54
-    sget-object v0, Lcom/yelp/android/g/l;->ViewStubCompat:[I
+    sget-object v0, Lcom/yelp/android/j/a$k;->ViewStubCompat:[I
 
     invoke-virtual {p1, p2, v0, p3, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
     .line 57
-    sget v1, Lcom/yelp/android/g/l;->ViewStubCompat_android_inflatedId:I
+    sget v1, Lcom/yelp/android/j/a$k;->ViewStubCompat_android_inflatedId:I
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -69,7 +77,7 @@
     iput v1, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->b:I
 
     .line 58
-    sget v1, Lcom/yelp/android/g/l;->ViewStubCompat_android_layout:I
+    sget v1, Lcom/yelp/android/j/a$k;->ViewStubCompat_android_layout:I
 
     invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -78,7 +86,7 @@
     iput v1, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->a:I
 
     .line 60
-    sget v1, Lcom/yelp/android/g/l;->ViewStubCompat_android_id:I
+    sget v1, Lcom/yelp/android/j/a$k;->ViewStubCompat_android_id:I
 
     invoke-virtual {v0, v1, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
@@ -188,14 +196,14 @@
     iput-object v0, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->c:Ljava/lang/ref/WeakReference;
 
     .line 220
-    iget-object v0, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->e:Landroid/support/v7/internal/widget/bl;
+    iget-object v0, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->e:Landroid/support/v7/internal/widget/ViewStubCompat$a;
 
     if-eqz v0, :cond_1
 
     .line 221
-    iget-object v0, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->e:Landroid/support/v7/internal/widget/bl;
+    iget-object v0, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->e:Landroid/support/v7/internal/widget/ViewStubCompat$a;
 
-    invoke-interface {v0, p0, v1}, Landroid/support/v7/internal/widget/bl;->a(Landroid/support/v7/internal/widget/ViewStubCompat;Landroid/view/View;)V
+    invoke-interface {v0, p0, v1}, Landroid/support/v7/internal/widget/ViewStubCompat$a;->a(Landroid/support/v7/internal/widget/ViewStubCompat;Landroid/view/View;)V
 
     .line 224
     :cond_1
@@ -332,12 +340,12 @@
     return-void
 .end method
 
-.method public setOnInflateListener(Landroid/support/v7/internal/widget/bl;)V
+.method public setOnInflateListener(Landroid/support/v7/internal/widget/ViewStubCompat$a;)V
     .locals 0
 
     .prologue
     .line 242
-    iput-object p1, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->e:Landroid/support/v7/internal/widget/bl;
+    iput-object p1, p0, Landroid/support/v7/internal/widget/ViewStubCompat;->e:Landroid/support/v7/internal/widget/ViewStubCompat$a;
 
     .line 243
     return-void

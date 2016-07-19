@@ -1,57 +1,47 @@
 package com.yelp.android.ui.util;
 
-import com.crashlytics.android.d;
-import com.yelp.android.ui.activities.ActivityCreateAccount.Gender;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import com.yelp.android.aa.d;
+import com.yelp.android.aa.n;
+import com.yelp.android.ac.e;
+import com.yelp.android.ac.h;
+import com.yelp.android.util.StringUtils;
+import com.yelp.android.w.c;
+import com.yelp.android.w.g;
+import java.io.InputStream;
 
 public class p
+  implements e<Uri>
 {
-  public final String a;
-  public final String b;
-  public final String c;
-  public Calendar d;
-  public ActivityCreateAccount.Gender e;
-  public final String f;
+  private Context a;
   
-  public p(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6)
+  public p(Context paramContext)
   {
-    a = paramString1;
-    b = paramString2;
-    c = paramString3;
-    f = paramString6;
-    paramString1 = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-    if (paramString4 != null) {}
-    try
+    a = paramContext;
+  }
+  
+  public c<InputStream> a(Uri paramUri, int paramInt1, int paramInt2)
+  {
+    paramUri = paramUri.toString();
+    if (StringUtils.d(paramUri)) {}
+    do
     {
-      d = Calendar.getInstance();
-      d.setTime(paramString1.parse(paramString4));
-      e = ActivityCreateAccount.Gender.NOT_SPECIFIED;
-      if (paramString5 == null)
-      {
-        e = ActivityCreateAccount.Gender.NOT_SPECIFIED;
-        return;
+      return null;
+      if ((paramUri.startsWith("http://")) || (paramUri.startsWith("https://"))) {
+        return new g(new d(paramUri));
       }
-    }
-    catch (ParseException paramString1)
+    } while (!paramUri.startsWith("bundle://"));
+    paramUri = paramUri.substring("bundle://".length());
+    int i = ar.a(a, paramUri);
+    if (i == 0)
     {
-      do
-      {
-        for (;;)
-        {
-          d = null;
-          d.a(6, "GoogleAuth", "Birthdate format changed. " + paramString1.getMessage());
-        }
-        if (paramString5.equalsIgnoreCase("male"))
-        {
-          e = ActivityCreateAccount.Gender.MALE;
-          return;
-        }
-      } while (!paramString5.equalsIgnoreCase("female"));
-      e = ActivityCreateAccount.Gender.FEMALE;
+      Intent localIntent = new Intent("com.yelp.android.webimageview.intent.invalid_bundle_url");
+      localIntent.putExtra("image_url", paramUri);
+      a.sendBroadcast(localIntent);
     }
+    return new n(a, new h(a)).a(Integer.valueOf(i), paramInt1, paramInt2);
   }
 }
 

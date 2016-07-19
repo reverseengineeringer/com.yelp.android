@@ -3,6 +3,7 @@ package com.kahuna.sdk.location;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import com.google.android.gms.common.ConnectionResult;
@@ -13,24 +14,27 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.FusedLocationProviderApi;
-import com.google.android.gms.location.Geofence;
-import com.google.android.gms.location.GeofencingApi;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.e;
+import com.google.android.gms.location.g;
+import com.google.android.gms.location.j;
 import com.kahuna.sdk.KahunaCoreReceiver;
 import java.util.List;
 import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class f
   implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status>
 {
   private Context a;
   private PendingIntent b;
-  private List<Geofence> c;
+  private List<com.google.android.gms.location.f> c;
   private GoogleApiClient d;
-  private LocationListener e = new g(this);
+  private j e = new j()
+  {
+    public void a(Location paramAnonymousLocation) {}
+  };
   private boolean f;
   
   public f(Context paramContext)
@@ -53,7 +57,7 @@ public class f
   private GoogleApiClient b()
   {
     if (d == null) {
-      d = new GoogleApiClient.Builder(a).addApi(LocationServices.API).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
+      d = new GoogleApiClient.Builder(a).addApi(com.google.android.gms.location.l.a).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
     }
     return d;
   }
@@ -61,7 +65,7 @@ public class f
   private void c()
   {
     b = e();
-    LocationServices.GeofencingApi.addGeofences(d, c, b).setResultCallback(this);
+    com.google.android.gms.location.l.c.a(d, c, b).setResultCallback(this);
   }
   
   private void d()
@@ -70,8 +74,8 @@ public class f
     {
       f = false;
       b().disconnect();
-      if (com.kahuna.sdk.h.p()) {
-        Log.d("KahunaEngine", "Location Services client disconnected.");
+      if (com.kahuna.sdk.l.u()) {
+        Log.d("Kahuna", "Location Services client disconnected.");
       }
       d = null;
       return;
@@ -95,22 +99,40 @@ public class f
     {
       if (paramStatus.isSuccess())
       {
-        if (com.kahuna.sdk.h.p()) {
-          Log.d("KahunaEngine", "Geofences added successfully: " + c);
+        if (com.kahuna.sdk.l.u()) {
+          Log.d("Kahuna", "Geofences added successfully: " + c);
         }
-        paramStatus = LocationRequest.create();
-        paramStatus.setPriority(100);
-        paramStatus.setInterval(100L);
-        paramStatus.setFastestInterval(10L);
-        LocationServices.FusedLocationApi.requestLocationUpdates(d, paramStatus, e);
-        if (com.kahuna.sdk.h.p()) {
-          Log.d("KahunaEngine", "Requesting gps updates for 30 seconds for new geofences just updated");
+        paramStatus = LocationRequest.a();
+        paramStatus.a(100);
+        paramStatus.a(100L);
+        paramStatus.c(10L);
+        com.google.android.gms.location.l.b.a(d, paramStatus, e);
+        if (com.kahuna.sdk.l.u()) {
+          Log.d("Kahuna", "Requesting gps updates for 30 seconds for new geofences just updated");
         }
-        new Timer().schedule(new h(this), 30000L);
+        new Timer().schedule(new TimerTask()
+        {
+          public void run()
+          {
+            try
+            {
+              com.google.android.gms.location.l.b.a(f.a(f.this), f.b(f.this)).await(5000L, TimeUnit.MILLISECONDS);
+              if (com.kahuna.sdk.l.u()) {
+                Log.d("Kahuna", "Finished requesting for gps updates for geofences.");
+              }
+              f.c(f.this);
+              return;
+            }
+            catch (Exception localException)
+            {
+              for (;;) {}
+            }
+          }
+        }, 30000L);
         return;
       }
-      if (com.kahuna.sdk.h.p()) {
-        Log.d("KahunaEngine", "Failure adding Geofences: " + c);
+      if (com.kahuna.sdk.l.u()) {
+        Log.d("Kahuna", "Failure adding Geofences: " + c);
       }
       d();
       return;
@@ -121,7 +143,8 @@ public class f
     }
   }
   
-  public void a(List<Geofence> paramList)
+  public void a(List<com.google.android.gms.location.f> paramList)
+    throws UnsupportedOperationException
   {
     c = paramList;
     if (!f)
@@ -129,16 +152,16 @@ public class f
       f = true;
       a();
     }
-    while (!com.kahuna.sdk.h.p()) {
+    while (!com.kahuna.sdk.l.u()) {
       return;
     }
-    Log.w("KahunaEngine", "Error attempting to register geofences while previous registration in progess");
+    Log.w("Kahuna", "Error attempting to register geofences while previous registration in progess");
   }
   
   public void onConnected(Bundle paramBundle)
   {
-    if (com.kahuna.sdk.h.p()) {
-      Log.d("KahunaEngine", "Location Services client connected.");
+    if (com.kahuna.sdk.l.u()) {
+      Log.d("Kahuna", "Location Services client connected.");
     }
     try
     {
@@ -147,18 +170,18 @@ public class f
     }
     catch (Exception paramBundle)
     {
-      while (!com.kahuna.sdk.h.p()) {}
-      Log.d("KahunaEngine", "Caught exception in Geofence Remover onConnected: " + paramBundle);
+      while (!com.kahuna.sdk.l.u()) {}
+      Log.d("Kahuna", "Caught exception in Geofence Remover onConnected: " + paramBundle);
     }
   }
   
   public void onConnectionFailed(ConnectionResult paramConnectionResult)
   {
     f = false;
-    if (com.kahuna.sdk.h.p())
+    if (com.kahuna.sdk.l.u())
     {
-      Log.e("KahunaEngine", "Adding: Received connection failed event while attempt geofencing connection.");
-      Log.e("KahunaEngine", "Error Code: " + paramConnectionResult.getErrorCode());
+      Log.e("Kahuna", "Adding: Received connection failed event while attempt geofencing connection.");
+      Log.e("Kahuna", "Error Code: " + paramConnectionResult.getErrorCode());
     }
     d = null;
   }

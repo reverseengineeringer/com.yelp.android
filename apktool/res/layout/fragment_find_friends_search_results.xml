@@ -2,5 +2,5 @@
 <RelativeLayout android:orientation="vertical" android:id="@id/yelp_fragment_container" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <com.yelp.android.ui.util.ScrollToLoadListView android:id="@android:id/list" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?listViewStyle" />
-    <TextView android:textAppearance="@style/SubtitleDarkText" android:gravity="center" android:id="@id/no_results_view" android:padding="20.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/member_none_found" />
+    <TextView android:textAppearance="@style/TitleText" android:gravity="center" android:id="@id/no_results_view" android:padding="20.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/member_none_found" />
 </RelativeLayout>

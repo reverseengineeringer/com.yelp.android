@@ -1,6 +1,10 @@
 package com.google.ads.mediation;
 
-import com.google.android.gms.internal.gr;
+import com.google.android.gms.internal.gz;
+import java.lang.annotation.Annotation;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.HashMap;
@@ -14,7 +18,8 @@ public abstract class MediationServerParameters
 {
   protected void a() {}
   
-  public void load(Map<String, String> paramMap)
+  public void a(Map<String, String> paramMap)
+    throws MediationServerParameters.MappingException
   {
     Object localObject1 = new HashMap();
     Object localObject2 = getClass().getFields();
@@ -24,14 +29,14 @@ public abstract class MediationServerParameters
     while (i < j)
     {
       localObject3 = localObject2[i];
-      MediationServerParameters.Parameter localParameter = (MediationServerParameters.Parameter)((Field)localObject3).getAnnotation(MediationServerParameters.Parameter.class);
-      if (localParameter != null) {
-        ((Map)localObject1).put(localParameter.name(), localObject3);
+      a locala = (a)((Field)localObject3).getAnnotation(a.class);
+      if (locala != null) {
+        ((Map)localObject1).put(locala.a(), localObject3);
       }
       i += 1;
     }
     if (((Map)localObject1).isEmpty()) {
-      gr.W("No server options fields detected. To suppress this message either add a field with the @Parameter annotation, or override the load() method.");
+      gz.d("No server options fields detected. To suppress this message either add a field with the @Parameter annotation, or override the load() method.");
     }
     paramMap = paramMap.entrySet().iterator();
     while (paramMap.hasNext())
@@ -45,14 +50,14 @@ public abstract class MediationServerParameters
         }
         catch (IllegalAccessException localIllegalAccessException)
         {
-          gr.W("Server option \"" + (String)((Map.Entry)localObject2).getKey() + "\" could not be set: Illegal Access");
+          gz.d("Server option \"" + (String)((Map.Entry)localObject2).getKey() + "\" could not be set: Illegal Access");
         }
         catch (IllegalArgumentException localIllegalArgumentException)
         {
-          gr.W("Server option \"" + (String)((Map.Entry)localObject2).getKey() + "\" could not be set: Bad Type");
+          gz.d("Server option \"" + (String)((Map.Entry)localObject2).getKey() + "\" could not be set: Bad Type");
         }
       } else {
-        gr.S("Unexpected server option: " + (String)((Map.Entry)localObject2).getKey() + " = \"" + (String)((Map.Entry)localObject2).getValue() + "\"");
+        gz.a("Unexpected server option: " + (String)((Map.Entry)localObject2).getKey() + " = \"" + (String)((Map.Entry)localObject2).getValue() + "\"");
       }
     }
     paramMap = new StringBuilder();
@@ -60,19 +65,37 @@ public abstract class MediationServerParameters
     while (((Iterator)localObject1).hasNext())
     {
       localObject2 = (Field)((Iterator)localObject1).next();
-      if (((MediationServerParameters.Parameter)((Field)localObject2).getAnnotation(MediationServerParameters.Parameter.class)).required())
+      if (((a)((Field)localObject2).getAnnotation(a.class)).b())
       {
-        gr.W("Required server option missing: " + ((MediationServerParameters.Parameter)((Field)localObject2).getAnnotation(MediationServerParameters.Parameter.class)).name());
+        gz.d("Required server option missing: " + ((a)((Field)localObject2).getAnnotation(a.class)).a());
         if (paramMap.length() > 0) {
           paramMap.append(", ");
         }
-        paramMap.append(((MediationServerParameters.Parameter)((Field)localObject2).getAnnotation(MediationServerParameters.Parameter.class)).name());
+        paramMap.append(((a)((Field)localObject2).getAnnotation(a.class)).a());
       }
     }
     if (paramMap.length() > 0) {
-      throw new MediationServerParameters.MappingException("Required server option(s) missing: " + paramMap.toString());
+      throw new MappingException("Required server option(s) missing: " + paramMap.toString());
     }
     a();
+  }
+  
+  public static final class MappingException
+    extends Exception
+  {
+    public MappingException(String paramString)
+    {
+      super();
+    }
+  }
+  
+  @Retention(RetentionPolicy.RUNTIME)
+  @Target({java.lang.annotation.ElementType.FIELD})
+  protected static @interface a
+  {
+    String a();
+    
+    boolean b() default true;
   }
 }
 

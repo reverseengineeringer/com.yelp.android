@@ -1,5 +1,7 @@
 package com.google.android.gms.maps;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,71 +10,23 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.gms.internal.jx;
-import com.google.android.gms.maps.internal.IGoogleMapDelegate;
-import com.google.android.gms.maps.internal.IMapFragmentDelegate;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.internal.zzx;
 import com.google.android.gms.maps.model.RuntimeRemoteException;
+import com.yelp.android.bj.ae.a;
+import com.yelp.android.bj.k;
+import com.yelp.android.bj.p;
+import com.yelp.android.bj.q;
+import com.yelp.android.bj.s;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+@TargetApi(11)
 public class MapFragment
   extends Fragment
 {
-  private final MapFragment.b akR = new MapFragment.b(this);
-  private GoogleMap akS;
-  
-  public static MapFragment newInstance()
-  {
-    return new MapFragment();
-  }
-  
-  public static MapFragment newInstance(GoogleMapOptions paramGoogleMapOptions)
-  {
-    MapFragment localMapFragment = new MapFragment();
-    Bundle localBundle = new Bundle();
-    localBundle.putParcelable("MapOptions", paramGoogleMapOptions);
-    localMapFragment.setArguments(localBundle);
-    return localMapFragment;
-  }
-  
-  @Deprecated
-  public final GoogleMap getMap()
-  {
-    Object localObject = nN();
-    if (localObject == null) {}
-    for (;;)
-    {
-      return null;
-      try
-      {
-        localObject = ((IMapFragmentDelegate)localObject).getMap();
-        if (localObject == null) {
-          continue;
-        }
-        if ((akS == null) || (akS.nC().asBinder() != ((IGoogleMapDelegate)localObject).asBinder())) {
-          akS = new GoogleMap((IGoogleMapDelegate)localObject);
-        }
-        return akS;
-      }
-      catch (RemoteException localRemoteException)
-      {
-        throw new RuntimeRemoteException(localRemoteException);
-      }
-    }
-  }
-  
-  public void getMapAsync(OnMapReadyCallback paramOnMapReadyCallback)
-  {
-    jx.aU("getMapAsync must be called on the main thread.");
-    akR.getMapAsync(paramOnMapReadyCallback);
-  }
-  
-  protected IMapFragmentDelegate nN()
-  {
-    akR.nO();
-    if (akR.je() == null) {
-      return null;
-    }
-    return ((MapFragment.a)akR.je()).nN();
-  }
+  private final b a = new b(this);
   
   public void onActivityCreated(Bundle paramBundle)
   {
@@ -85,58 +39,61 @@ public class MapFragment
   public void onAttach(Activity paramActivity)
   {
     super.onAttach(paramActivity);
-    MapFragment.b.a(akR, paramActivity);
+    b.a(a, paramActivity);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    akR.onCreate(paramBundle);
+    a.a(paramBundle);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    return akR.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
+    paramLayoutInflater = a.a(paramLayoutInflater, paramViewGroup, paramBundle);
+    paramLayoutInflater.setClickable(true);
+    return paramLayoutInflater;
   }
   
   public void onDestroy()
   {
-    akR.onDestroy();
+    a.e();
     super.onDestroy();
   }
   
   public void onDestroyView()
   {
-    akR.onDestroyView();
+    a.d();
     super.onDestroyView();
   }
   
+  @SuppressLint({"NewApi"})
   public void onInflate(Activity paramActivity, AttributeSet paramAttributeSet, Bundle paramBundle)
   {
     super.onInflate(paramActivity, paramAttributeSet, paramBundle);
-    MapFragment.b.a(akR, paramActivity);
-    paramAttributeSet = GoogleMapOptions.createFromAttributes(paramActivity, paramAttributeSet);
+    b.a(a, paramActivity);
+    paramAttributeSet = GoogleMapOptions.a(paramActivity, paramAttributeSet);
     Bundle localBundle = new Bundle();
     localBundle.putParcelable("MapOptions", paramAttributeSet);
-    akR.onInflate(paramActivity, localBundle, paramBundle);
+    a.a(paramActivity, localBundle, paramBundle);
   }
   
   public void onLowMemory()
   {
-    akR.onLowMemory();
+    a.f();
     super.onLowMemory();
   }
   
   public void onPause()
   {
-    akR.onPause();
+    a.c();
     super.onPause();
   }
   
   public void onResume()
   {
     super.onResume();
-    akR.onResume();
+    a.b();
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
@@ -145,12 +102,225 @@ public class MapFragment
       paramBundle.setClassLoader(MapFragment.class.getClassLoader());
     }
     super.onSaveInstanceState(paramBundle);
-    akR.onSaveInstanceState(paramBundle);
+    a.b(paramBundle);
   }
   
   public void setArguments(Bundle paramBundle)
   {
     super.setArguments(paramBundle);
+  }
+  
+  static class a
+    implements k
+  {
+    private final Fragment a;
+    private final com.yelp.android.bj.d b;
+    
+    public a(Fragment paramFragment, com.yelp.android.bj.d paramd)
+    {
+      b = ((com.yelp.android.bj.d)zzx.zzz(paramd));
+      a = ((Fragment)zzx.zzz(paramFragment));
+    }
+    
+    public View a(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
+    {
+      try
+      {
+        paramLayoutInflater = b.a(com.google.android.gms.dynamic.d.a(paramLayoutInflater), com.google.android.gms.dynamic.d.a(paramViewGroup), paramBundle);
+        return (View)com.google.android.gms.dynamic.d.a(paramLayoutInflater);
+      }
+      catch (RemoteException paramLayoutInflater)
+      {
+        throw new RuntimeRemoteException(paramLayoutInflater);
+      }
+    }
+    
+    public void a()
+    {
+      try
+      {
+        b.b();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public void a(Activity paramActivity, Bundle paramBundle1, Bundle paramBundle2)
+    {
+      paramBundle1 = (GoogleMapOptions)paramBundle1.getParcelable("MapOptions");
+      try
+      {
+        b.a(com.google.android.gms.dynamic.d.a(paramActivity), paramBundle1, paramBundle2);
+        return;
+      }
+      catch (RemoteException paramActivity)
+      {
+        throw new RuntimeRemoteException(paramActivity);
+      }
+    }
+    
+    public void a(Bundle paramBundle)
+    {
+      Bundle localBundle = paramBundle;
+      if (paramBundle == null) {}
+      try
+      {
+        localBundle = new Bundle();
+        paramBundle = a.getArguments();
+        if ((paramBundle != null) && (paramBundle.containsKey("MapOptions"))) {
+          p.a(localBundle, "MapOptions", paramBundle.getParcelable("MapOptions"));
+        }
+        b.a(localBundle);
+        return;
+      }
+      catch (RemoteException paramBundle)
+      {
+        throw new RuntimeRemoteException(paramBundle);
+      }
+    }
+    
+    public void a(final e parame)
+    {
+      try
+      {
+        b.a(new ae.a()
+        {
+          public void a(com.yelp.android.bj.b paramAnonymousb)
+            throws RemoteException
+          {
+            parame.a(new c(paramAnonymousb));
+          }
+        });
+        return;
+      }
+      catch (RemoteException parame)
+      {
+        throw new RuntimeRemoteException(parame);
+      }
+    }
+    
+    public void b()
+    {
+      try
+      {
+        b.c();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public void b(Bundle paramBundle)
+    {
+      try
+      {
+        b.b(paramBundle);
+        return;
+      }
+      catch (RemoteException paramBundle)
+      {
+        throw new RuntimeRemoteException(paramBundle);
+      }
+    }
+    
+    public void c()
+    {
+      try
+      {
+        b.d();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public void d()
+    {
+      try
+      {
+        b.e();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public void e()
+    {
+      try
+      {
+        b.f();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+  }
+  
+  static class b
+    extends com.google.android.gms.dynamic.b<MapFragment.a>
+  {
+    protected com.google.android.gms.dynamic.e<MapFragment.a> a;
+    private final Fragment b;
+    private Activity c;
+    private final List<e> d = new ArrayList();
+    
+    b(Fragment paramFragment)
+    {
+      b = paramFragment;
+    }
+    
+    private void a(Activity paramActivity)
+    {
+      c = paramActivity;
+      g();
+    }
+    
+    protected void a(com.google.android.gms.dynamic.e<MapFragment.a> parame)
+    {
+      a = parame;
+      g();
+    }
+    
+    public void g()
+    {
+      if ((c != null) && (a != null) && (a() == null)) {
+        try
+        {
+          d.a(c);
+          Object localObject = q.a(c).b(com.google.android.gms.dynamic.d.a(c));
+          if (localObject == null) {
+            return;
+          }
+          a.a(new MapFragment.a(b, (com.yelp.android.bj.d)localObject));
+          localObject = d.iterator();
+          while (((Iterator)localObject).hasNext())
+          {
+            e locale = (e)((Iterator)localObject).next();
+            ((MapFragment.a)a()).a(locale);
+          }
+          return;
+        }
+        catch (RemoteException localRemoteException)
+        {
+          throw new RuntimeRemoteException(localRemoteException);
+          d.clear();
+          return;
+        }
+        catch (GooglePlayServicesNotAvailableException localGooglePlayServicesNotAvailableException) {}
+      }
+    }
   }
 }
 

@@ -94,13 +94,13 @@ public class a
     return localArrayList;
   }
   
-  public List<com.yelp.android.al.a> a()
+  public List<com.yelp.android.ar.a> a()
   {
     ArrayList localArrayList = new ArrayList();
     Iterator localIterator = a.values().iterator();
     while (localIterator.hasNext())
     {
-      com.yelp.android.al.a locala = (com.yelp.android.al.a)localIterator.next();
+      com.yelp.android.ar.a locala = (com.yelp.android.ar.a)localIterator.next();
       if (c.booleanValue()) {
         localArrayList.add(locala);
       }
@@ -108,13 +108,13 @@ public class a
     return localArrayList;
   }
   
-  public void a(List<com.yelp.android.al.a> paramList)
+  public void a(List<com.yelp.android.ar.a> paramList)
   {
     paramList = paramList.iterator();
     while (paramList.hasNext())
     {
-      Object localObject1 = (com.yelp.android.al.a)paramList.next();
-      Object localObject2 = (com.yelp.android.al.a)a.get(a);
+      Object localObject1 = (com.yelp.android.ar.a)paramList.next();
+      Object localObject2 = (com.yelp.android.ar.a)a.get(a);
       if (localObject2 == null)
       {
         if (d(b).booleanValue())
@@ -124,7 +124,7 @@ public class a
         }
         else
         {
-          b((com.yelp.android.al.a)localObject1);
+          b((com.yelp.android.ar.a)localObject1);
         }
       }
       else if ((c(b).booleanValue()) && (c(b).booleanValue()))
@@ -152,7 +152,7 @@ public class a
     Object localObject2 = a.values().iterator();
     while (((Iterator)localObject2).hasNext())
     {
-      com.yelp.android.al.a locala = (com.yelp.android.al.a)((Iterator)localObject2).next();
+      com.yelp.android.ar.a locala = (com.yelp.android.ar.a)((Iterator)localObject2).next();
       if (d(b).booleanValue()) {
         ((ArrayList)localObject1).add(locala);
       }
@@ -160,7 +160,7 @@ public class a
     localObject1 = ((ArrayList)localObject1).iterator();
     while (((Iterator)localObject1).hasNext())
     {
-      localObject2 = (com.yelp.android.al.a)((Iterator)localObject1).next();
+      localObject2 = (com.yelp.android.ar.a)((Iterator)localObject1).next();
       a(a, c(b, ""), Boolean.valueOf(true));
     }
   }

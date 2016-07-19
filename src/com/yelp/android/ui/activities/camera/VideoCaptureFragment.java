@@ -1,6 +1,5 @@
 package com.yelp.android.ui.activities.camera;
 
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -21,26 +20,30 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.Features;
+import com.yelp.android.appdata.PermissionGroup;
+import com.yelp.android.appdata.g;
+import com.yelp.android.appdata.k;
 import com.yelp.android.ui.activities.gallery.ActivityChooseFromGallery;
-import com.yelp.android.ui.activities.media.d;
+import com.yelp.android.ui.activities.media.b;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.dialogs.AlertDialogFragment;
 import com.yelp.android.ui.util.ImageInputHelper.ImageSource;
 import com.yelp.android.ui.util.MediaStoreUtil.MediaType;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.ui.widgets.PieProgress;
 import com.yelp.android.ui.widgets.SquareTextureView;
 import com.yelp.android.util.YelpLog;
-import com.yelp.android.util.f;
-import com.yelp.android.util.l;
+import com.yelp.android.util.d;
+import com.yelp.android.util.e;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@TargetApi(14)
 public class VideoCaptureFragment
   extends YelpFragment
 {
@@ -49,16 +52,17 @@ public class VideoCaptureFragment
   private Button c;
   private Camera d;
   private MediaRecorder e;
-  private boolean g;
-  private boolean h = true;
+  private boolean f;
+  private boolean g = true;
   private long i = 0L;
   private int j;
   private String k;
   private String l;
   private boolean m;
-  private d n;
-  private final TextureView.SurfaceTextureListener o = new v(this);
-  private final Runnable p = new w(this);
+  private b n;
+  private g o;
+  private final TextureView.SurfaceTextureListener p = new VideoCaptureFragment.5(this);
+  private final Runnable q = new VideoCaptureFragment.6(this);
   
   public static VideoCaptureFragment a(String paramString, boolean paramBoolean)
   {
@@ -77,7 +81,7 @@ public class VideoCaptureFragment
       getActivity().finish();
       return;
     }
-    startActivityForResult(ActivityChooseFromGallery.a(getActivity(), MediaStoreUtil.MediaType.VIDEO, false, false, l), 1029);
+    startActivityForResult(ActivityChooseFromGallery.a(getActivity(), MediaStoreUtil.MediaType.VIDEO, false, false, l), 1032);
   }
   
   private void a(int paramInt1, int paramInt2)
@@ -98,15 +102,15 @@ public class VideoCaptureFragment
   
   private void a(ImageView paramImageView)
   {
-    paramImageView.setOnClickListener(new t(this));
-    Features.video_upload_from_gallery.isEnabledAsync(getActivity(), new u(this, paramImageView));
+    paramImageView.setOnClickListener(new VideoCaptureFragment.3(this));
+    o = Features.video_upload_from_gallery.isEnabledAsync(getActivity(), new VideoCaptureFragment.4(this, paramImageView));
   }
   
   private void b()
   {
-    h = true;
+    g = true;
     b.b();
-    c.setBackgroundResource(2130838533);
+    c.setBackgroundResource(2130838952);
   }
   
   private void c()
@@ -140,35 +144,35 @@ public class VideoCaptureFragment
     }
   }
   
-  private void e()
+  private void f()
   {
     getActivity().setRequestedOrientation(4);
   }
   
-  private void f()
+  private void g()
   {
-    File localFile = l.d();
+    File localFile = e.d();
     if (localFile == null)
     {
-      AlertDialogFragment.a(null, getString(2131166763)).show(getFragmentManager(), null);
+      AlertDialogFragment.a(null, getString(2131166743)).show(getFragmentManager(), null);
       return;
     }
     k = localFile.getAbsolutePath();
     c();
-    b.postDelayed(p, 120L);
-    g();
-    c.setBackgroundResource(2130838534);
+    b.postDelayed(q, 120L);
+    h();
+    c.setBackgroundResource(2130838953);
     i = System.currentTimeMillis();
   }
   
-  private void g()
+  private void h()
   {
     e = new MediaRecorder();
     d.unlock();
     e.setCamera(d);
     e.setAudioSource(5);
     e.setVideoSource(1);
-    CamcorderProfile localCamcorderProfile = l();
+    CamcorderProfile localCamcorderProfile = m();
     fileFormat = 2;
     videoCodec = 2;
     e.setProfile(localCamcorderProfile);
@@ -179,37 +183,37 @@ public class VideoCaptureFragment
       e.prepare();
       e.start();
       a(videoFrameWidth, videoFrameHeight);
-      g = true;
+      f = true;
       return;
     }
     catch (IOException localIOException)
     {
-      YelpLog.error(localIOException);
-    }
-  }
-  
-  private void h()
-  {
-    b.removeCallbacks(p);
-    i();
-    h = true;
-    if (b.getProgress() < 25)
-    {
-      k();
-      AlertDialogFragment.a(null, getString(2131166826)).show(getFragmentManager(), null);
-      b();
-    }
-    for (;;)
-    {
-      e();
-      return;
-      ((x)getActivity()).a(k);
+      YelpLog.remoteError(localIOException);
     }
   }
   
   private void i()
   {
-    g = false;
+    b.removeCallbacks(q);
+    j();
+    g = true;
+    if (b.getProgress() < 25)
+    {
+      k();
+      AlertDialogFragment.a(null, getString(2131166790)).show(getFragmentManager(), null);
+      b();
+    }
+    for (;;)
+    {
+      f();
+      return;
+      ((a)getActivity()).a(k);
+    }
+  }
+  
+  private void j()
+  {
+    f = false;
     try
     {
       e.stop();
@@ -224,7 +228,7 @@ public class VideoCaptureFragment
       for (;;)
       {
         k();
-        YelpLog.error("VideoCapture", "MediaRecorder.stop() failed at " + (System.currentTimeMillis() - i) + "ms", localRuntimeException);
+        YelpLog.remoteError("VideoCapture", "MediaRecorder.stop() failed at " + (System.currentTimeMillis() - i) + "ms", localRuntimeException);
       }
     }
   }
@@ -236,7 +240,7 @@ public class VideoCaptureFragment
     }
   }
   
-  private CamcorderProfile l()
+  private CamcorderProfile m()
   {
     if (CamcorderProfile.hasProfile(5)) {
       return CamcorderProfile.get(5);
@@ -244,16 +248,16 @@ public class VideoCaptureFragment
     return CamcorderProfile.get(1);
   }
   
-  public b getIri()
+  public a getIri()
   {
     return ViewIri.BusinessVideoCapture;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    paramb = new HashMap(1);
-    paramb.put("id", l);
-    return paramb;
+    parama = new HashMap(1);
+    parama.put("id", l);
+    return parama;
   }
   
   public void onActivityCreated(Bundle paramBundle)
@@ -272,7 +276,7 @@ public class VideoCaptureFragment
       return;
     } while (paramInt2 != -1);
     FragmentActivity localFragmentActivity = getActivity();
-    f.a(paramIntent, "extra_media_source", ImageInputHelper.ImageSource.GALLERY);
+    d.a(paramIntent, "extra_media_source", ImageInputHelper.ImageSource.GALLERY);
     localFragmentActivity.setResult(paramInt2, paramIntent);
     localFragmentActivity.finish();
   }
@@ -280,36 +284,37 @@ public class VideoCaptureFragment
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
+    k.a(this, 250, new PermissionGroup[] { PermissionGroup.CAMERA, PermissionGroup.STORAGE, PermissionGroup.MICROPHONE });
     paramBundle = getArguments();
     l = paramBundle.getString("business_id");
     m = paramBundle.getBoolean("started_from_gallery");
-    j = CameraWrangler.a(getActivity().getWindowManager().getDefaultDisplay(), 0);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903229, paramViewGroup, false);
-    a = ((SquareTextureView)paramLayoutInflater.findViewById(2131493307));
-    b = ((PieProgress)paramLayoutInflater.findViewById(2131493597));
-    c = ((Button)paramLayoutInflater.findViewById(2131493598));
-    paramViewGroup = (ImageView)paramLayoutInflater.findViewById(2131493599);
-    a.setSurfaceTextureListener(o);
-    c.setOnTouchListener(new r(this));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903257, paramViewGroup, false);
+    a = ((SquareTextureView)paramLayoutInflater.findViewById(2131689963));
+    b = ((PieProgress)paramLayoutInflater.findViewById(2131690308));
+    c = ((Button)paramLayoutInflater.findViewById(2131690309));
+    paramViewGroup = (ImageView)paramLayoutInflater.findViewById(2131690310);
+    a.setSurfaceTextureListener(p);
+    c.setOnTouchListener(new VideoCaptureFragment.1(this));
     if (m) {
       paramViewGroup.setVisibility(8);
     }
-    paramViewGroup.setOnClickListener(new s(this));
-    a((ImageView)paramLayoutInflater.findViewById(2131493303));
+    paramViewGroup.setOnClickListener(new VideoCaptureFragment.2(this));
+    a((ImageView)paramLayoutInflater.findViewById(2131689959));
     return paramLayoutInflater;
   }
   
   public void onPause()
   {
     super.onPause();
-    if (g)
+    ar.b(getActivity());
+    if (f)
     {
-      b.removeCallbacks(p);
-      i();
+      b.removeCallbacks(q);
+      j();
       k();
     }
     if (d != null)
@@ -324,13 +329,63 @@ public class VideoCaptureFragment
     }
   }
   
+  public void onRequestPermissionsResult(int paramInt, String[] paramArrayOfString, int[] paramArrayOfInt)
+  {
+    if (250 == paramInt)
+    {
+      paramArrayOfString = k.a(paramArrayOfString, paramArrayOfInt);
+      if ((paramArrayOfString.containsKey(PermissionGroup.CAMERA)) && (!((Boolean)paramArrayOfString.get(PermissionGroup.CAMERA)).booleanValue()))
+      {
+        as.a(2131166342, 0);
+        getActivity().setResult(0);
+        getActivity().finish();
+      }
+      do
+      {
+        return;
+        if ((paramArrayOfString.containsKey(PermissionGroup.STORAGE)) && (!((Boolean)paramArrayOfString.get(PermissionGroup.STORAGE)).booleanValue()))
+        {
+          as.a(2131166342, 0);
+          getActivity().setResult(0);
+          getActivity().finish();
+          return;
+        }
+        if ((paramArrayOfString.containsKey(PermissionGroup.MICROPHONE)) && (!((Boolean)paramArrayOfString.get(PermissionGroup.MICROPHONE)).booleanValue()))
+        {
+          as.a(2131166342, 0);
+          getActivity().setResult(0);
+          getActivity().finish();
+          return;
+        }
+      } while (paramArrayOfString.size() <= 0);
+      return;
+    }
+    super.onRequestPermissionsResult(paramInt, paramArrayOfString, paramArrayOfInt);
+  }
+  
   public void onResume()
   {
     super.onResume();
-    b();
-    if (a.isAvailable()) {
-      o.onSurfaceTextureAvailable(a.getSurfaceTexture(), a.getWidth(), a.getHeight());
+    ar.a(getActivity());
+    if (!k.a(getActivity(), new PermissionGroup[] { PermissionGroup.CAMERA, PermissionGroup.STORAGE, PermissionGroup.MICROPHONE })) {
+      b();
     }
+    if (a.isAvailable()) {
+      p.onSurfaceTextureAvailable(a.getSurfaceTexture(), a.getWidth(), a.getHeight());
+    }
+  }
+  
+  public void onStop()
+  {
+    super.onStop();
+    if (o != null) {
+      o.cancel(true);
+    }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(String paramString);
   }
 }
 

@@ -1,22 +1,6 @@
 package com.comscore.analytics;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
-class d
-  implements Runnable
-{
-  d(a parama) {}
-  
-  public void run()
-  {
-    if (a.an()) {}
-    while (a.y.get() <= 0) {
-      return;
-    }
-    a.y.getAndDecrement();
-    a.x();
-  }
-}
+class d {}
 
 /* Location:
  * Qualified Name:     com.comscore.analytics.d

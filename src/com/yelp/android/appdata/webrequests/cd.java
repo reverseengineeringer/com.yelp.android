@@ -1,14 +1,28 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Location;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class cd
-  extends h
+  extends b<Void, Void, Location>
 {
-  public cd(boolean paramBoolean, m paramm)
+  public cd(String paramString, ApiRequest.b<Location> paramb)
   {
-    super(ApiRequest.RequestType.POST, "account/facebook/auto_friend", paramm);
-    addPostParam("enabled", paramBoolean);
+    super(ApiRequest.RequestType.GET, "geocode", paramb);
+    a("address", paramString);
+  }
+  
+  public Location a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    Location localLocation = null;
+    if (!paramJSONObject.isNull("location")) {
+      localLocation = (Location)Location.CREATOR.parse(paramJSONObject.getJSONObject("location"));
+    }
+    return localLocation;
   }
 }
 

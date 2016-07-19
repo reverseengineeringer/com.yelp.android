@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:paddingTop="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<FrameLayout android:paddingTop="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
-    <com.yelp.android.ui.widgets.SpannedTextView android:textAppearance="@style/SubtitleLightText" android:id="@id/list_title" android:paddingLeft="?largeGapSize" android:paddingRight="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="left" style="?sublistCellDivided" />
+    <com.yelp.android.ui.widgets.SpannedTextView android:textAppearance="@style/DeprecatedSubtitleLightText" android:id="@id/list_title" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="?sublistCell" />
 </FrameLayout>

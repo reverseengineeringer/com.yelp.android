@@ -1,28 +1,10 @@
 package com.yelp.android.ui.panels.businesssearch;
 
-import android.content.Context;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.serializable.w;
-import com.yelp.android.ui.util.x;
-import com.yelp.android.util.StringUtils;
-import java.util.List;
 
-class a
-  extends x<T, String>
+public abstract interface a
 {
-  a(BusinessAdapter paramBusinessAdapter) {}
-  
-  public String a(Context paramContext, T paramT)
-  {
-    paramContext = paramT.getBusiness();
-    if (paramContext == null) {}
-    do
-    {
-      return "";
-      paramContext = paramContext.getCategories();
-    } while (paramContext.isEmpty());
-    return StringUtils.a(", ", paramContext, new w());
-  }
+  public abstract YelpBusiness a();
 }
 
 /* Location:

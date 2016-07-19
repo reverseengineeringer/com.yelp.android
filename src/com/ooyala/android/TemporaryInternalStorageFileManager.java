@@ -3,6 +3,8 @@ package com.ooyala.android;
 import android.content.Context;
 import android.util.Log;
 import java.io.File;
+import java.io.FileFilter;
+import java.io.IOException;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -19,7 +21,24 @@ public final class TemporaryInternalStorageFileManager
     Log.d("TemporaryInternalStorageFiles", "cleanup(): dir=" + paramContext);
     if ((paramContext != null) && (paramContext.isDirectory()))
     {
-      paramContext = paramContext.listFiles(new TemporaryInternalStorageFileManager.1(this, new Date().getTime()));
+      paramContext = paramContext.listFiles(new FileFilter()
+      {
+        public boolean accept(File paramAnonymousFile)
+        {
+          boolean bool2 = paramAnonymousFile.isFile();
+          boolean bool3 = paramAnonymousFile.getName().startsWith("OOTISF_");
+          if (val$now - paramAnonymousFile.lastModified() >= 300000L) {}
+          for (boolean bool1 = true;; bool1 = false)
+          {
+            Log.d("TemporaryInternalStorageFiles", "cleanup(): f=" + paramAnonymousFile.getAbsolutePath() + ", isFile=" + bool2 + ", nameMatches=" + bool3 + ", isOld=" + bool1);
+            if ((!bool2) || (!bool3) || (!bool1)) {
+              break;
+            }
+            return true;
+          }
+          return false;
+        }
+      });
       int j = paramContext.length;
       int i = 0;
       while (i < j)
@@ -33,6 +52,7 @@ public final class TemporaryInternalStorageFileManager
   }
   
   public TemporaryInternalStorageFile next(Context paramContext, String paramString1, String paramString2)
+    throws IOException
   {
     cleanup(paramContext);
     s_nextTmpId.getAndIncrement();

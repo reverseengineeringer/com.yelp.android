@@ -14,6 +14,7 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
+import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -29,10 +30,12 @@ import com.brightcove.player.controller.VideoPlaybackController;
 import com.brightcove.player.display.VideoDisplayComponent;
 import com.brightcove.player.display.VideoStillDisplayComponent;
 import com.brightcove.player.event.Component;
+import com.brightcove.player.event.Default;
 import com.brightcove.player.event.Emits;
 import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
 import com.brightcove.player.event.EventEmitterImpl;
+import com.brightcove.player.event.EventListener;
 import com.brightcove.player.event.ListensFor;
 import com.brightcove.player.event.RegisteringEventEmitter;
 import com.brightcove.player.management.BrightcovePluginManager;
@@ -83,7 +86,7 @@ public class BrightcoveVideoView
   protected int playheadPosition;
   protected BrightcovePluginManager pluginManager;
   protected DefaultSourceSelectionController sourceController;
-  protected BrightcoveVideoView.SurfaceListener surfaceListener;
+  protected SurfaceListener surfaceListener;
   protected VideoDisplayComponent videoDisplay;
   protected VideoStillDisplayComponent videoStillDisplay;
   private Map<Video, Source> videoToSourceMap = new HashMap();
@@ -148,7 +151,7 @@ public class BrightcoveVideoView
   {
     if (hasNextVideo())
     {
-      Video localVideo = (Video)videos.get(currentIndex + 1);
+      final Video localVideo = (Video)videos.get(currentIndex + 1);
       Object localObject = (Source)videoToSourceMap.get(localVideo);
       if (localObject != null)
       {
@@ -157,13 +160,22 @@ public class BrightcoveVideoView
       }
       localObject = new HashMap();
       ((Map)localObject).put("video", localVideo);
-      eventEmitter.request("selectSource", (Map)localObject, new BrightcoveVideoView.18(this, localVideo));
+      eventEmitter.request("selectSource", (Map)localObject, new EventListener()
+      {
+        public void processEvent(Event paramAnonymousEvent)
+        {
+          paramAnonymousEvent = (Source)properties.get("source");
+          videoToSourceMap.put(localVideo, paramAnonymousEvent);
+          EventUtil.emit(eventEmitter, "didSelectSource", localVideo, paramAnonymousEvent);
+          EventUtil.emit(eventEmitter, "prebufferNextVideo", localVideo, paramAnonymousEvent);
+        }
+      });
       return;
     }
     eventEmitter.emit("prebufferNextVideo");
   }
   
-  private void setCurrentIndexPrivate(int paramInt)
+  private void setCurrentIndexPrivate(final int paramInt)
   {
     if (paramInt == -1)
     {
@@ -172,8 +184,28 @@ public class BrightcoveVideoView
         return;
       }
     }
-    UUID localUUID = UUID.randomUUID();
-    eventEmitter.once("willChangeVideo", new BrightcoveVideoView.17(this, localUUID, paramInt));
+    final UUID localUUID = UUID.randomUUID();
+    eventEmitter.once("willChangeVideo", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        if (properties.get("uuid").equals(localUUID))
+        {
+          resetMetaData();
+          BrightcoveVideoView.access$402(BrightcoveVideoView.this, paramInt);
+          paramAnonymousEvent = (Video)properties.get("nextVideo");
+          if (paramAnonymousEvent != null) {
+            EventUtil.emit(eventEmitter, "setVideo", paramAnonymousEvent);
+          }
+        }
+        else
+        {
+          return;
+        }
+        eventEmitter.emit("setSource");
+      }
+    });
     HashMap localHashMap = new HashMap();
     localHashMap.put("index", Integer.valueOf(currentIndex));
     localHashMap.put("currentVideo", getCurrentVideo());
@@ -262,6 +294,7 @@ public class BrightcoveVideoView
   }
   
   public void add(int paramInt, Video paramVideo)
+    throws IndexOutOfBoundsException
   {
     videos.add(paramInt, paramVideo);
     emitDidChangeList();
@@ -274,6 +307,7 @@ public class BrightcoveVideoView
   }
   
   public void addAll(int paramInt, Collection<Video> paramCollection)
+    throws IndexOutOfBoundsException
   {
     videos.addAll(paramInt, paramCollection);
     emitDidChangeList();
@@ -286,7 +320,7 @@ public class BrightcoveVideoView
   }
   
   @TargetApi(19)
-  public void addSubtitleSource(InputStream paramInputStream, MediaFormat paramMediaFormat)
+  public void addSubtitleSource(final InputStream paramInputStream, MediaFormat paramMediaFormat)
   {
     Video localVideo = getCurrentVideo();
     paramInputStream = Pair.create(paramInputStream, paramMediaFormat);
@@ -295,7 +329,16 @@ public class BrightcoveVideoView
       addSubtitlePair(localVideo, paramInputStream);
       return;
     }
-    eventEmitter.once("willChangeVideo", new BrightcoveVideoView.19(this, paramInputStream));
+    eventEmitter.once("willChangeVideo", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        paramAnonymousEvent = (Video)properties.get("nextVideo");
+        if (paramAnonymousEvent != null) {
+          BrightcoveVideoView.this.addSubtitlePair(paramAnonymousEvent, paramInputStream);
+        }
+      }
+    });
   }
   
   protected void attachMediaController()
@@ -313,7 +356,63 @@ public class BrightcoveVideoView
     {
       mediaController.setAnchorView((View)localObject);
       if (mediaPlayerControl == null) {
-        mediaController.setMediaPlayer(new BrightcoveVideoView.16(this));
+        mediaController.setMediaPlayer(new MediaController.MediaPlayerControl()
+        {
+          public boolean canPause()
+          {
+            return BrightcoveVideoView.this.canPause();
+          }
+          
+          public boolean canSeekBackward()
+          {
+            return BrightcoveVideoView.this.canSeekBackward();
+          }
+          
+          public boolean canSeekForward()
+          {
+            return BrightcoveVideoView.this.canSeekForward();
+          }
+          
+          public int getAudioSessionId()
+          {
+            return 0;
+          }
+          
+          public int getBufferPercentage()
+          {
+            return BrightcoveVideoView.this.getBufferPercentage();
+          }
+          
+          public int getCurrentPosition()
+          {
+            return BrightcoveVideoView.this.getCurrentPosition() / 1000;
+          }
+          
+          public int getDuration()
+          {
+            return BrightcoveVideoView.this.getDuration() / 1000;
+          }
+          
+          public boolean isPlaying()
+          {
+            return BrightcoveVideoView.this.isPlaying();
+          }
+          
+          public void pause()
+          {
+            BrightcoveVideoView.this.pause();
+          }
+          
+          public void seekTo(int paramAnonymousInt)
+          {
+            BrightcoveVideoView.this.seekTo(paramAnonymousInt * 1000);
+          }
+          
+          public void start()
+          {
+            BrightcoveVideoView.this.start();
+          }
+        });
       }
       if (videoDisplay.getMediaPlayer() != null)
       {
@@ -476,7 +575,7 @@ public class BrightcoveVideoView
       for (;;)
       {
         brightcoveSurfaceView = ((BrightcoveSurfaceView)brightcoveSurfaceViewClass.getConstructors()[0].newInstance(new Object[] { paramContext }));
-        surfaceListener = new BrightcoveVideoView.SurfaceListener(this);
+        surfaceListener = new SurfaceListener();
         brightcoveSurfaceView.getHolder().addCallback(surfaceListener);
         imageView = new ImageView(paramContext);
         addView(brightcoveSurfaceView);
@@ -511,21 +610,166 @@ public class BrightcoveVideoView
   
   protected void initListeners()
   {
-    eventEmitter.on("hideSeekControls", new BrightcoveVideoView.1(this));
-    eventEmitter.on("showSeekControls", new BrightcoveVideoView.2(this));
-    eventEmitter.on("sourceNotPlayable", new BrightcoveVideoView.3(this));
-    eventEmitter.on("videoDurationChanged", new BrightcoveVideoView.4(this));
-    eventEmitter.on("progress", new BrightcoveVideoView.5(this));
-    eventEmitter.on("didSetSource", new BrightcoveVideoView.6(this));
-    eventEmitter.on("completed", new BrightcoveVideoView.7(this));
-    eventEmitter.on("bufferedUpdate", new BrightcoveVideoView.8(this));
-    eventEmitter.on("seekTo", new BrightcoveVideoView.9(this));
-    eventEmitter.on("didSeekTo", new BrightcoveVideoView.10(this));
-    eventEmitter.on("didSetSource", new BrightcoveVideoView.11(this));
-    eventEmitter.on("didPlay", new BrightcoveVideoView.12(this));
-    eventEmitter.on("didStop", new BrightcoveVideoView.13(this));
-    eventEmitter.on("didPause", new BrightcoveVideoView.14(this));
-    eventEmitter.on("willInterruptContent", new BrightcoveVideoView.15(this));
+    eventEmitter.on("hideSeekControls", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        BrightcoveVideoView.this.setupSeekControls(paramAnonymousEvent);
+      }
+    });
+    eventEmitter.on("showSeekControls", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        BrightcoveVideoView.this.setupSeekControls(paramAnonymousEvent);
+      }
+    });
+    eventEmitter.on("sourceNotPlayable", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        eventEmitter.emit("stop");
+      }
+    });
+    eventEmitter.on("videoDurationChanged", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        duration = paramAnonymousEvent.getIntegerProperty("duration");
+        if ((brightcoveSurfaceView.isShown()) && (mediaController != null)) {
+          mediaController.show();
+        }
+      }
+    });
+    eventEmitter.on("progress", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        int i = paramAnonymousEvent.getIntegerProperty("duration");
+        if (i > -1)
+        {
+          Log.d(BrightcoveVideoView.TAG, String.format("Changing duration to %d.", new Object[] { Integer.valueOf(i) }));
+          duration = i;
+        }
+        i = paramAnonymousEvent.getIntegerProperty("playheadPosition");
+        if (i > -1)
+        {
+          Log.d(BrightcoveVideoView.TAG, String.format("Changing playheadPosition to %d.", new Object[] { Integer.valueOf(i) }));
+          playheadPosition = i;
+        }
+      }
+    });
+    eventEmitter.on("didSetSource", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        onPrepared();
+        attachMediaController();
+        paramAnonymousEvent = (Video)properties.get("video");
+        if ((paramAnonymousEvent != null) && (!paramAnonymousEvent.equals(BrightcoveVideoView.this.getCurrentVideo())) && (videos.indexOf(paramAnonymousEvent) >= 0)) {
+          BrightcoveVideoView.access$408(BrightcoveVideoView.this);
+        }
+      }
+    });
+    eventEmitter.on("completed", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        if (onCompletionListener != null) {
+          onCompletionListener.onCompletion(null);
+        }
+        playheadPosition = 0;
+        BrightcoveVideoView.this.setCurrentlyPlaying(false);
+      }
+    });
+    eventEmitter.on("bufferedUpdate", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        BrightcoveVideoView.access$702(BrightcoveVideoView.this, paramAnonymousEvent.getIntegerProperty("percentComplete"));
+      }
+    });
+    eventEmitter.on("seekTo", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        int i = paramAnonymousEvent.getIntegerProperty("seekPosition");
+        if (i > -1) {
+          playheadPosition = i;
+        }
+      }
+    });
+    eventEmitter.on("didSeekTo", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        int i = paramAnonymousEvent.getIntegerProperty("playheadPosition");
+        if (i > -1) {
+          playheadPosition = i;
+        }
+      }
+    });
+    eventEmitter.on("didSetSource", new EventListener()
+    {
+      @Default
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        BrightcoveVideoView.access$802(BrightcoveVideoView.this, true);
+        if (hasPendingPlay)
+        {
+          BrightcoveVideoView.access$902(BrightcoveVideoView.this, false);
+          eventEmitter.emit("play");
+        }
+      }
+    });
+    eventEmitter.on("didPlay", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        BrightcoveVideoView.this.setCurrentlyPlaying(true);
+        if ((brightcoveSurfaceView.isShown()) && (mediaController != null)) {
+          mediaController.show();
+        }
+        BrightcoveVideoView.this.prebufferNextVideo();
+      }
+    });
+    eventEmitter.on("didStop", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        resetMetaData();
+      }
+    });
+    eventEmitter.on("didPause", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        BrightcoveVideoView.this.setCurrentlyPlaying(false);
+      }
+    });
+    eventEmitter.on("willInterruptContent", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        if (mediaController != null)
+        {
+          mediaController.hide();
+          eventEmitter.once("progress", new EventListener()
+          {
+            public void processEvent(Event paramAnonymous2Event)
+            {
+              mediaController.show();
+            }
+          });
+        }
+      }
+    });
   }
   
   public boolean isPlaying()
@@ -602,6 +846,7 @@ public class BrightcoveVideoView
   }
   
   public void remove(int paramInt)
+    throws IndexOutOfBoundsException
   {
     Video localVideo = (Video)videos.remove(paramInt);
     videoToSourceMap.remove(localVideo);
@@ -649,6 +894,7 @@ public class BrightcoveVideoView
   }
   
   public void setCurrentIndex(int paramInt)
+    throws IndexOutOfBoundsException
   {
     if (paramInt == currentIndex) {
       return;
@@ -765,6 +1011,31 @@ public class BrightcoveVideoView
     HashMap localHashMap = new HashMap();
     localHashMap.put("playheadPosition", Integer.valueOf(playheadPosition));
     eventEmitter.emit("stop", localHashMap);
+  }
+  
+  private class SurfaceListener
+    implements SurfaceHolder.Callback
+  {
+    public SurfaceListener() {}
+    
+    public void surfaceChanged(SurfaceHolder paramSurfaceHolder, int paramInt1, int paramInt2, int paramInt3)
+    {
+      Log.d(BrightcoveVideoView.TAG, "Surface changed to " + paramInt2 + ", " + paramInt3);
+      videoDisplay.surfaceChanged(paramSurfaceHolder, paramInt1, paramInt2, paramInt3);
+    }
+    
+    public void surfaceCreated(SurfaceHolder paramSurfaceHolder)
+    {
+      Log.d(BrightcoveVideoView.TAG, "Surface created.");
+      eventEmitter.emit("readyToPlay");
+      videoDisplay.surfaceCreated(paramSurfaceHolder);
+    }
+    
+    public void surfaceDestroyed(SurfaceHolder paramSurfaceHolder)
+    {
+      Log.d(BrightcoveVideoView.TAG, "Surface destroyed.");
+      videoDisplay.surfaceDestroyed(paramSurfaceHolder);
+    }
   }
 }
 

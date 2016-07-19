@@ -1,15 +1,17 @@
 package com.google.android.gms.internal;
 
-final class fq$3
-  implements gv.a
+import com.google.android.gms.ads.internal.formats.f;
+import java.util.Map;
+
+class fq$3
+  implements bz
 {
-  fq$3(String paramString) {}
+  fq$3(fq paramfq, f paramf) {}
   
-  public void a(gu paramgu)
+  public void a(ib paramib, Map<String, String> paramMap)
   {
-    String str = String.format("javascript:%s(%s);", new Object[] { "AFMA_buildAdURL", uC });
-    gr.V("About to execute: " + str);
-    paramgu.loadUrl(str);
+    paramib = (String)paramMap.get("asset");
+    fq.a(b, a, paramib);
   }
 }
 

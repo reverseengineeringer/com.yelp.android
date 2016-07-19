@@ -1,21 +1,10 @@
 package com.bumptech.glide.load;
 
-import android.os.Build.VERSION;
-
 public enum DecodeFormat
 {
-  public static final DecodeFormat DEFAULT;
+  ALWAYS_ARGB_8888,  PREFER_ARGB_8888,  PREFER_RGB_565;
   
-  static
-  {
-    $VALUES = new DecodeFormat[] { ALWAYS_ARGB_8888, PREFER_RGB_565 };
-    if (Build.VERSION.SDK_INT > 19) {}
-    for (DecodeFormat localDecodeFormat = ALWAYS_ARGB_8888;; localDecodeFormat = PREFER_RGB_565)
-    {
-      DEFAULT = localDecodeFormat;
-      return;
-    }
-  }
+  public static final DecodeFormat DEFAULT = PREFER_RGB_565;
   
   private DecodeFormat() {}
 }

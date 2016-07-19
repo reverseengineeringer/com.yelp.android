@@ -12,7 +12,7 @@
     .locals 0
 
     .prologue
-    .line 20
+    .line 19
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
     return-void
@@ -22,24 +22,24 @@
     .locals 2
 
     .prologue
-    .line 31
+    .line 28
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/events/ActivityEventPage;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 32
+    .line 29
     const-string/jumbo v1, "extra.event"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 33
+    .line 30
     const-string/jumbo v1, "extra_event_source"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 34
+    .line 31
     return-object v0
 .end method
 
@@ -47,24 +47,24 @@
     .locals 2
 
     .prologue
-    .line 39
+    .line 36
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/events/ActivityEventPage;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 40
+    .line 37
     const-string/jumbo v1, "extra.event"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 41
+    .line 38
     const-string/jumbo v1, "extra_section_alias"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 42
+    .line 39
     return-object v0
 .end method
 
@@ -74,17 +74,17 @@
     .locals 1
 
     .prologue
-    .line 92
+    .line 83
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 20
+    .line 19
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -94,19 +94,24 @@
 
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 4
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
 
     .prologue
-    .line 47
+    .line 46
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 48
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 47
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
     const-string/jumbo v1, "tag_event_fragment"
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -114,12 +119,12 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->a:Lcom/yelp/android/ui/activities/events/EventFragment;
 
-    .line 50
+    .line 49
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->a:Lcom/yelp/android/ui/activities/events/EventFragment;
 
     if-nez v0, :cond_0
 
-    .line 53
+    .line 52
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -130,17 +135,17 @@
 
     if-eqz v0, :cond_2
 
-    .line 54
+    .line 53
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->wasLaunchedFromPushNotification()Z
 
     move-result v0
 
-    .line 55
+    .line 54
     if-eqz v0, :cond_1
 
     sget-object v0, Lcom/yelp/android/analytics/iris/IriSource;->PushNotification:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 57
+    .line 56
     :goto_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getIntent()Landroid/content/Intent;
 
@@ -150,71 +155,71 @@
 
     move-result-object v1
 
-    .line 58
+    .line 57
     invoke-virtual {v1}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 59
+    .line 58
     invoke-static {v1}, Lcom/yelp/android/serializable/Event$EventType;->getEventTypeFromUri(Landroid/net/Uri;)Lcom/yelp/android/serializable/Event$EventType;
 
     move-result-object v3
 
-    .line 60
+    .line 59
     invoke-static {v2, v3, v0}, Lcom/yelp/android/ui/activities/events/EventFragment;->a(Ljava/lang/String;Lcom/yelp/android/serializable/Event$EventType;Lcom/yelp/android/analytics/iris/IriSource;)Lcom/yelp/android/ui/activities/events/EventFragment;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->a:Lcom/yelp/android/ui/activities/events/EventFragment;
 
-    .line 61
+    .line 60
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v0
 
-    new-instance v2, Lcom/yelp/android/analytics/o;
+    new-instance v2, Lcom/yelp/android/analytics/n;
 
-    invoke-direct {v2, v1}, Lcom/yelp/android/analytics/o;-><init>(Landroid/net/Uri;)V
+    invoke-direct {v2, v1}, Lcom/yelp/android/analytics/n;-><init>(Landroid/net/Uri;)V
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/b;)V
+    invoke-virtual {v0, v2}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/b;)V
 
-    .line 74
+    .line 73
     :goto_1
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    const v1, 0x7f0c01d4
+    const v1, 0x7f0f020d
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->a:Lcom/yelp/android/ui/activities/events/EventFragment;
 
     const-string/jumbo v3, "tag_event_fragment"
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/FragmentTransaction;->replace(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/o;->b(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
     .line 78
     :cond_0
     return-void
 
-    .line 55
+    .line 54
     :cond_1
     sget-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Link:Lcom/yelp/android/analytics/iris/IriSource;
 
     goto :goto_0
 
-    .line 64
+    .line 63
     :cond_2
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getIntent()Landroid/content/Intent;
 
@@ -228,7 +233,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Event;
 
-    .line 65
+    .line 64
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -239,14 +244,14 @@
 
     move-result-object v1
 
-    .line 66
+    .line 65
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
-    .line 67
+    .line 66
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -259,8 +264,8 @@
 
     check-cast v1, Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 69
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getType()Lcom/yelp/android/serializable/Event$EventType;
+    .line 68
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->K()Lcom/yelp/android/serializable/Event$EventType;
 
     move-result-object v2
 
@@ -272,7 +277,7 @@
 
     goto :goto_1
 
-    .line 71
+    .line 70
     :cond_3
     invoke-static {v0, v1}, Lcom/yelp/android/ui/activities/events/EventFragment;->a(Lcom/yelp/android/serializable/Event;Ljava/lang/String;)Lcom/yelp/android/ui/activities/events/EventFragment;
 
@@ -281,40 +286,4 @@
     iput-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->a:Lcom/yelp/android/ui/activities/events/EventFragment;
 
     goto :goto_1
-.end method
-
-.method protected onCreateDialog(ILandroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 2
-
-    .prologue
-    .line 82
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_0
-
-    .line 83
-    new-instance v0, Lcom/yelp/android/ui/activities/events/ak;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/events/ActivityEventPage;->a:Lcom/yelp/android/ui/activities/events/EventFragment;
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/events/EventFragment;->d()Lcom/yelp/android/serializable/Event;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/activities/events/ak;-><init>(Lcom/yelp/android/serializable/Event;)V
-
-    const v1, 0x7f070564
-
-    invoke-static {p0, v0, v1}, Lcom/yelp/android/services/l;->a(Landroid/app/Activity;Lcom/yelp/android/services/q;I)Landroid/app/Dialog;
-
-    move-result-object v0
-
-    .line 86
-    :goto_0
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method

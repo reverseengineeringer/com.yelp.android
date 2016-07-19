@@ -12,7 +12,7 @@ class ListFragment$2
   
   public void onItemClick(AdapterView<?> paramAdapterView, View paramView, int paramInt, long paramLong)
   {
-    this$0.onListItemClick((ListView)paramAdapterView, paramView, paramInt, paramLong);
+    a.a((ListView)paramAdapterView, paramView, paramInt, paramLong);
   }
 }
 

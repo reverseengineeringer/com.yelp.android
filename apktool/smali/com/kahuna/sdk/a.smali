@@ -97,7 +97,7 @@
     .line 49
     iget-object v1, p0, Lcom/kahuna/sdk/a;->b:Ljava/lang/String;
 
-    invoke-static {v1}, Lcom/kahuna/sdk/aj;->a(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/kahuna/sdk/w;->a(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -124,7 +124,7 @@
 
     .line 54
     :cond_0
-    invoke-static {v0}, Lcom/kahuna/sdk/aj;->b(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -145,7 +145,7 @@
     .line 66
     iget-object v0, p0, Lcom/kahuna/sdk/a;->c:Ljava/util/List;
 
-    invoke-static {v0}, Lcom/kahuna/sdk/aj;->a(Ljava/util/List;)Z
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->a(Ljava/util/List;)Z
 
     move-result v0
 
@@ -173,7 +173,7 @@
     check-cast v0, Ljava/lang/String;
 
     .line 68
-    invoke-static {v0}, Lcom/kahuna/sdk/aj;->b(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/kahuna/sdk/w;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

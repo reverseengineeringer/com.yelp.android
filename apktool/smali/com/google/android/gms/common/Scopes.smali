@@ -11,6 +11,8 @@
 
 .field public static final DRIVE_FILE:Ljava/lang/String; = "https://www.googleapis.com/auth/drive.file"
 
+.field public static final EMAIL:Ljava/lang/String; = "email"
+
 .field public static final FITNESS_ACTIVITY_READ:Ljava/lang/String; = "https://www.googleapis.com/auth/fitness.activity.read"
 
 .field public static final FITNESS_ACTIVITY_READ_WRITE:Ljava/lang/String; = "https://www.googleapis.com/auth/fitness.activity.write"
@@ -23,11 +25,17 @@
 
 .field public static final FITNESS_LOCATION_READ_WRITE:Ljava/lang/String; = "https://www.googleapis.com/auth/fitness.location.write"
 
+.field public static final FITNESS_NUTRITION_READ:Ljava/lang/String; = "https://www.googleapis.com/auth/fitness.nutrition.read"
+
+.field public static final FITNESS_NUTRITION_READ_WRITE:Ljava/lang/String; = "https://www.googleapis.com/auth/fitness.nutrition.write"
+
 .field public static final GAMES:Ljava/lang/String; = "https://www.googleapis.com/auth/games"
 
 .field public static final PLUS_LOGIN:Ljava/lang/String; = "https://www.googleapis.com/auth/plus.login"
 
 .field public static final PLUS_ME:Ljava/lang/String; = "https://www.googleapis.com/auth/plus.me"
+
+.field public static final PLUS_MOMENTS:Ljava/lang/String; = "https://www.googleapis.com/auth/plus.moments.write"
 
 .field public static final PROFILE:Ljava/lang/String; = "profile"
 

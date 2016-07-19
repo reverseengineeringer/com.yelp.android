@@ -16,13 +16,13 @@
     .locals 0
 
     .prologue
-    .line 34
+    .line 38
     invoke-direct {p0, p2}, Lcom/facebook/FacebookException;-><init>(Ljava/lang/String;)V
 
-    .line 35
+    .line 39
     iput-object p1, p0, Lcom/facebook/FacebookServiceException;->error:Lcom/facebook/FacebookRequestError;
 
-    .line 36
+    .line 40
     return-void
 .end method
 
@@ -32,7 +32,7 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 48
     iget-object v0, p0, Lcom/facebook/FacebookServiceException;->error:Lcom/facebook/FacebookRequestError;
 
     return-object v0
@@ -42,7 +42,7 @@
     .locals 2
 
     .prologue
-    .line 49
+    .line 53
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -61,7 +61,7 @@
 
     iget-object v1, p0, Lcom/facebook/FacebookServiceException;->error:Lcom/facebook/FacebookRequestError;
 
-    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->getRequestStatusCode()I
+    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->a()I
 
     move-result v1
 
@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Lcom/facebook/FacebookServiceException;->error:Lcom/facebook/FacebookRequestError;
 
-    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->getErrorCode()I
+    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->b()I
 
     move-result v1
 
@@ -93,7 +93,7 @@
 
     iget-object v1, p0, Lcom/facebook/FacebookServiceException;->error:Lcom/facebook/FacebookRequestError;
 
-    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->getErrorType()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->c()Ljava/lang/String;
 
     move-result-object v1
 
@@ -109,7 +109,7 @@
 
     iget-object v1, p0, Lcom/facebook/FacebookServiceException;->error:Lcom/facebook/FacebookRequestError;
 
-    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->getErrorMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/facebook/FacebookRequestError;->d()Ljava/lang/String;
 
     move-result-object v1
 

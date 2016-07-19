@@ -3,6 +3,16 @@
 .source "ImageCache.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/webimageview/ImageCache$EfficientOptionsFactory;,
+        Lcom/yelp/android/webimageview/ImageCache$OptionsFactory;,
+        Lcom/yelp/android/webimageview/ImageCache$ExternalStorageWrapper;
+    }
+.end annotation
+
+
 # static fields
 .field private static final CACHE_CLEAR_FREQUENCY:I = 0x4b
 
@@ -714,6 +724,11 @@
 
 .method public put(Ljava/lang/String;Ljava/io/InputStream;)Landroid/graphics/Bitmap;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 261
@@ -728,6 +743,11 @@
 
 .method public put(Ljava/lang/String;Ljava/io/InputStream;Z)Landroid/graphics/Bitmap;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
     .line 284

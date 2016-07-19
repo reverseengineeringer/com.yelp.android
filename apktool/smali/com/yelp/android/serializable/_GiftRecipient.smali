@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field protected mEmail:Ljava/lang/String;
+.field protected a:Ljava/lang/String;
 
-.field protected mFrom:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mMessage:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mName:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
 
 # direct methods
@@ -21,10 +21,10 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 27
+    .line 29
     return-void
 .end method
 
@@ -32,137 +32,291 @@
     .locals 0
 
     .prologue
-    .line 18
+    .line 20
     invoke-direct {p0}, Lcom/yelp/android/serializable/_GiftRecipient;-><init>()V
 
-    .line 19
-    iput-object p1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mName:Ljava/lang/String;
-
-    .line 20
-    iput-object p2, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mFrom:Ljava/lang/String;
-
     .line 21
-    iput-object p3, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mEmail:Ljava/lang/String;
+    iput-object p1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->a:Ljava/lang/String;
 
     .line 22
-    iput-object p4, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mMessage:Ljava/lang/String;
+    iput-object p2, p0, Lcom/yelp/android/serializable/_GiftRecipient;->b:Ljava/lang/String;
 
     .line 23
+    iput-object p3, p0, Lcom/yelp/android/serializable/_GiftRecipient;->c:Ljava/lang/String;
+
+    .line 24
+    iput-object p4, p0, Lcom/yelp/android/serializable/_GiftRecipient;->d:Ljava/lang/String;
+
+    .line 25
     return-void
 .end method
 
 
 # virtual methods
+.method public a(Landroid/os/Parcel;)V
+    .locals 1
+
+    .prologue
+    .line 93
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->a:Ljava/lang/String;
+
+    .line 94
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->b:Ljava/lang/String;
+
+    .line 95
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->c:Ljava/lang/String;
+
+    .line 96
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->d:Ljava/lang/String;
+
+    .line 97
+    return-void
+.end method
+
+.method public b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 78
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 74
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 70
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public describeContents()I
     .locals 1
 
     .prologue
-    .line 44
+    .line 82
     const/4 v0, 0x0
 
     return v0
 .end method
 
-.method public getEmail()Ljava/lang/String;
+.method public e()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 36
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mEmail:Ljava/lang/String;
+    .line 66
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->a:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getFrom()Ljava/lang/String;
-    .locals 1
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
 
     .prologue
+    const/4 v0, 0x0
+
     .line 33
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mFrom:Ljava/lang/String;
+    if-nez p1, :cond_1
 
-    return-object v0
-.end method
+    .line 47
+    :cond_0
+    :goto_0
+    return v0
 
-.method public getMessage()Ljava/lang/String;
-    .locals 1
+    .line 37
+    :cond_1
+    if-ne p1, p0, :cond_2
 
-    .prologue
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mMessage:Ljava/lang/String;
+    .line 38
+    const/4 v0, 0x1
 
-    return-object v0
-.end method
+    goto :goto_0
 
-.method public getName()Ljava/lang/String;
-    .locals 1
+    .line 41
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    .prologue
-    .line 30
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mName:Ljava/lang/String;
+    move-result-object v1
 
-    return-object v0
-.end method
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 1
+    move-result-object v2
 
-    .prologue
-    .line 55
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    if-ne v1, v2, :cond_0
+
+    .line 45
+    check-cast p1, Lcom/yelp/android/serializable/_GiftRecipient;
+
+    .line 47
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->a:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_GiftRecipient;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->b:Ljava/lang/String;
 
-    .line 56
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_GiftRecipient;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mFrom:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->c:Ljava/lang/String;
 
+    iget-object v2, p1, Lcom/yelp/android/serializable/_GiftRecipient;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_GiftRecipient;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
     .line 57
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mEmail:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->b:Ljava/lang/String;
 
-    .line 58
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mMessage:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->c:Ljava/lang/String;
 
-    .line 59
-    return-void
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_GiftRecipient;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mName:Ljava/lang/String;
+    .line 86
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->a:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mFrom:Ljava/lang/String;
+    .line 87
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 50
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mEmail:Ljava/lang/String;
+    .line 88
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->mMessage:Ljava/lang/String;
+    .line 89
+    iget-object v0, p0, Lcom/yelp/android/serializable/_GiftRecipient;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 52
+    .line 90
     return-void
 .end method

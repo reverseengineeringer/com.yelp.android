@@ -1,56 +1,34 @@
 package com.yelp.android.e;
 
-import java.util.Map;
+import android.support.v4.view.d;
+import android.support.v4.view.q.e;
+import android.view.MenuItem;
+import android.view.View;
 
-class b
-  extends g<K, V>
+public abstract interface b
+  extends MenuItem
 {
-  b(a parama) {}
+  public abstract d a();
   
-  protected int a()
-  {
-    return a.h;
-  }
+  public abstract b a(d paramd);
   
-  protected int a(Object paramObject)
-  {
-    return a.a(paramObject);
-  }
+  public abstract b a(q.e parame);
   
-  protected Object a(int paramInt1, int paramInt2)
-  {
-    return a.g[((paramInt1 << 1) + paramInt2)];
-  }
+  public abstract boolean collapseActionView();
   
-  protected V a(int paramInt, V paramV)
-  {
-    return (V)a.a(paramInt, paramV);
-  }
+  public abstract boolean expandActionView();
   
-  protected void a(int paramInt)
-  {
-    a.d(paramInt);
-  }
+  public abstract View getActionView();
   
-  protected void a(K paramK, V paramV)
-  {
-    a.put(paramK, paramV);
-  }
+  public abstract boolean isActionViewExpanded();
   
-  protected int b(Object paramObject)
-  {
-    return a.b(paramObject);
-  }
+  public abstract MenuItem setActionView(int paramInt);
   
-  protected Map<K, V> b()
-  {
-    return a;
-  }
+  public abstract MenuItem setActionView(View paramView);
   
-  protected void c()
-  {
-    a.clear();
-  }
+  public abstract void setShowAsAction(int paramInt);
+  
+  public abstract MenuItem setShowAsActionFlags(int paramInt);
 }
 
 /* Location:

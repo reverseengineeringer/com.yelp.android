@@ -1,28 +1,16 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Reservation;
-import java.util.ArrayList;
-import java.util.Date;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class cg
+  extends c
 {
-  final Date a;
-  final ArrayList<Reservation> b;
-  
-  public cg(Date paramDate, ArrayList<Reservation> paramArrayList)
+  public cg(String paramString1, String paramString2, c.a parama)
   {
-    a = paramDate;
-    b = paramArrayList;
-  }
-  
-  public Date a()
-  {
-    return a;
-  }
-  
-  public ArrayList<Reservation> b()
-  {
-    return b;
+    super("account/line/link", parama);
+    b("access_token", paramString1);
+    b("line_user_id", paramString2);
   }
 }
 

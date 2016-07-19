@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:paddingTop="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <View android:layout_width="fill_parent" android:layout_height="1.0dip" style="?android:attr/listSeparatorTextViewStyle" />
-    <RelativeLayout android:background="@drawable/selector_list_cell_white_gutter" android:paddingLeft="?baseGapSize" android:paddingTop="?largeGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <ImageView android:id="@id/arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?largeGapSize" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
-        <TextView android:textAppearance="@style/LargeLightText" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/arrow" android:layout_alignParentLeft="true" />
-    </RelativeLayout>
+<LinearLayout android:orientation="vertical" android:paddingTop="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:paddingTop="@dimen/default_large_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size" yelp:position="bottom|left" style="?sublistCell">
+        <ImageView android:id="@id/arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_small_gap_size" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_large_gap_size" android:layout_toLeftOf="@id/arrow" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
 </LinearLayout>

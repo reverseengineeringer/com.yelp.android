@@ -1,33 +1,32 @@
 package com.yelp.android.appdata.experiment;
 
-public class b<E extends Enum<E>>
-  extends a<E>
+import java.util.Random;
+
+public class b<C extends Enum<C>>
+  extends a<C>
 {
-  private final E c;
-  
-  public b(String paramString, Class<E> paramClass, E paramE)
+  public b(String paramString, Class<C> paramClass)
   {
     super(paramString, paramClass);
-    c = paramE;
   }
   
-  public E a()
+  protected C a()
   {
-    return a(g.a().a(a));
+    Random localRandom = new Random();
+    Enum[] arrayOfEnum = (Enum[])b.getEnumConstants();
+    return arrayOfEnum[localRandom.nextInt(arrayOfEnum.length)];
   }
   
-  protected E a(String paramString)
+  public C b()
   {
-    if (paramString == null) {
-      return c;
-    }
-    try
+    Object localObject = g.a().a(a);
+    if (localObject == null)
     {
-      paramString = Enum.valueOf(b, paramString);
-      return paramString;
+      localObject = a();
+      g.a().a(a, ((Enum)localObject).name());
+      return (C)localObject;
     }
-    catch (IllegalArgumentException paramString) {}
-    return c;
+    return Enum.valueOf(b, (String)localObject);
   }
 }
 

@@ -1,124 +1,156 @@
 package com.yelp.android.services;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.net.Uri;
-import android.support.v4.app.NotificationCompat.BigPictureStyle;
-import android.support.v4.app.NotificationCompat.Builder;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.PhotoUploadRequestBase;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.ep;
-import com.yelp.android.serializable.User;
-import com.yelp.android.ui.activities.camera.RetryPhoto;
-import java.io.File;
+import com.yelp.android.co.a.j;
+import com.yelp.android.debug.Debug.ApiEndpoint;
+import com.yelp.android.debug.d;
 
-class i
-  extends ep<Float, Object>
+public class i
 {
-  private final Context a;
-  private final int b;
-  private final Intent c;
-  private final NotificationManager d;
-  private final Bitmap e;
+  static String a;
+  static String b;
+  static String c;
+  static d d;
+  static Debug.ApiEndpoint e;
+  private static final String f = String.valueOf(new char[] { 61, 61, 119, 100, 88, 86, 122, 82, 75, 108, 110, 77, 122, 103, 110, 89, 84, 78, 88, 97, 114, 120, 50, 81, 118, 57, 50, 86, 53, 78, 84, 87 });
+  private static final String g = String.valueOf(new char[] { 61, 61, 103, 78, 79, 120, 109, 87, 75, 70, 85, 73, 117, 86, 68, 81, 57, 85, 51, 79, 84, 90, 108, 77, 56, 115, 105, 76, 113, 86, 50, 81, 115, 90, 107, 84 });
+  private static final String h = String.valueOf(new char[] { 61, 61, 119, 100, 107, 49, 121, 98, 88, 100, 86, 86, 81, 104, 72, 83, 68, 49, 109, 101, 121, 69, 71, 84, 105, 74, 108, 77, 116, 70, 122, 85 });
+  private static final String i = String.valueOf(new char[] { 61, 61, 119, 78, 106, 86, 83, 75, 109, 100, 50, 79, 112, 99, 106, 83, 84, 90, 87, 77, 107, 115, 88, 86, 74, 49, 121, 73, 70, 70, 50, 73, 115, 103, 71, 86 });
+  private static final String j = String.valueOf(new char[] { 116, 57, 50, 89, 117, 119, 87, 97, 104, 49, 50, 90, 65, 82, 87, 97, 118, 74, 72, 90, 117, 70, 71, 99, 115, 86, 87, 101 });
+  private static final String k = String.valueOf(new char[] { 116, 57, 50, 89, 117, 119, 87, 97, 104, 49, 50, 90, 65, 90, 88, 90, 107, 82, 87, 97, 118, 74, 72, 90, 117, 70, 71, 99, 115, 86, 87, 101 });
+  private static final String l = String.valueOf(new char[] { 61, 61, 81, 77, 120, 85, 68, 77, 122, 69, 122, 78 });
+  private static final String m = String.valueOf(new char[] { 61, 65, 68, 77, 53, 69, 50, 78, 104, 90, 50, 78, 107, 90, 122, 78, 106, 90, 50, 77, 106, 100, 84, 89, 120, 77, 68, 77, 48, 73, 50, 89, 49, 89, 84, 78, 49, 81, 122, 77, 121, 89, 71, 90 });
+  private static final String n = String.valueOf(new char[] { 61, 73, 106, 78, 120, 103, 122, 77, 120, 69, 106, 78, 120, 69, 84, 77, 121, 77, 84, 78, 120, 65, 84, 77 });
+  private static final String o = String.valueOf(new char[] { 61, 73, 106, 78, 120, 77, 84, 77, 53, 89, 106, 77, 48, 77, 106, 77, 120, 77, 84, 78, 120, 65, 84, 77 });
+  private static final String p = String.valueOf(new char[] { 61, 73, 106, 78, 120, 77, 84, 79, 49, 69, 68, 77, 53, 65, 106, 77, 120, 77, 84, 78, 120, 65, 84, 77 });
+  private static final String q = String.valueOf(new char[] { 61, 69, 106, 78, 120, 77, 84, 78, 51, 81, 122, 77, 49, 99, 84, 79 });
+  private static final String r = String.valueOf(new char[] { 61, 77, 50, 89, 121, 107, 122, 89, 105, 104, 84, 77, 51, 73, 109, 90, 50, 69, 87, 78, 109, 70, 109, 77, 119, 89, 84, 79, 50, 81, 68, 90, 51, 73, 50, 77, 53, 85, 122, 89, 121, 89, 50, 77 });
+  private static final String s = String.valueOf(new char[] { 61, 111, 88, 97, 105, 53, 67, 90, 112, 57, 109, 99, 107, 53, 87, 89, 117, 65, 72, 98, 108, 108, 110, 76, 116, 57, 50, 89 });
+  private static final String t = String.valueOf(new char[] { 61, 61, 65, 90, 49, 99, 84, 89, 50, 89, 122, 89, 106, 74, 122, 89, 108, 66, 84, 79, 50, 103, 106, 90, 51, 69, 87, 89, 104, 78, 106, 89, 108, 86, 87, 90, 52, 103, 84, 78, 106, 90, 87, 77, 108, 90, 84, 77, 53, 69, 122, 89, 120, 99, 68, 78, 51, 85, 122, 77, 121, 65, 106, 90, 119, 107, 84, 78, 106, 78, 109, 78, 52, 89, 84, 89, 120, 73, 109, 78, 49, 103, 84, 78, 48, 85, 84, 90 });
+  private static final String u = String.valueOf(new char[] { 61, 61, 65, 90, 112, 57, 109, 99, 107, 53, 87, 89, 117, 65, 72, 98, 108, 108, 110, 76, 116, 57, 50, 89 });
   
-  public i(Context paramContext, int paramInt, Intent paramIntent, Bitmap paramBitmap)
+  static
   {
-    a = paramContext.getApplicationContext();
-    b = paramInt;
-    c = paramIntent;
-    d = ((NotificationManager)paramContext.getSystemService("notification"));
-    e = paramBitmap;
+    a(new d("yelp.com"), Debug.ApiEndpoint.AUTO_API);
   }
   
-  private Notification a(PhotoUploadRequestBase<?> paramPhotoUploadRequestBase, YelpException paramYelpException)
+  public static String a()
   {
-    NotificationCompat.Builder localBuilder = new NotificationCompat.Builder(a);
-    Object localObject1 = new Intent(c);
-    ((Intent)localObject1).setData(Uri.fromFile(paramPhotoUploadRequestBase.getFile()));
-    ((Intent)localObject1).putExtra("entity_id", b);
-    localObject1 = PendingIntent.getService(a, 0, (Intent)localObject1, 1073741824);
-    localBuilder.addAction(2130838103, a.getText(2131166752), (PendingIntent)localObject1);
-    Object localObject2 = new Intent(c);
-    ((Intent)localObject2).putExtra("entity_id", b);
-    ((Intent)localObject2).setAction("android.intent.action.DELETE");
-    localObject1 = paramPhotoUploadRequestBase.getFile();
-    ((Intent)localObject2).setData(Uri.fromFile(((File)localObject1).getAbsoluteFile()));
-    localObject2 = PendingIntent.getService(a, 0, (Intent)localObject2, 1073741824);
-    localBuilder.addAction(2130838212, a.getText(2131165456), (PendingIntent)localObject2);
-    localBuilder.setWhen(System.currentTimeMillis());
-    localBuilder.setLights(-65536, 100, 100);
-    localBuilder.setDeleteIntent((PendingIntent)localObject2);
-    localBuilder.setAutoCancel(true);
-    localBuilder.setSmallIcon(17301579);
-    paramPhotoUploadRequestBase = RetryPhoto.a(a, paramPhotoUploadRequestBase.getFile(), c);
-    paramPhotoUploadRequestBase.setData(Uri.fromFile(((File)localObject1).getAbsoluteFile()));
-    localBuilder.setContentIntent(PendingIntent.getActivity(a, 0, paramPhotoUploadRequestBase, 1073741824));
-    localBuilder.setTicker(a.getText(2131165777));
-    localBuilder.setContentText(paramYelpException.getMessage(a));
-    localBuilder.setContentTitle(a.getText(2131165777));
-    try
+    if (d.c()) {
+      return b("=IGM4ADNxQGN4ATN2IGN2MjZiVmY1czMiJGN1MDMjhjZ");
+    }
+    if (d.d()) {
+      return b("=kzN1QmZmZ2MhdzNlVmMkZzNkFDZzIDM1E2NlRjN1QTN");
+    }
+    return b("=Q2N1cTN2EWZ0QWZjhzMhN2NkR2NmhzMjNWZkZ2Y3QWN");
+  }
+  
+  public static String a(Context paramContext)
+  {
+    if (d.c()) {
+      return paramContext.getString(a.j.mobile_host);
+    }
+    return d.b();
+  }
+  
+  public static String a(String paramString)
+  {
+    return d.a(paramString);
+  }
+  
+  public static void a(d paramd, Debug.ApiEndpoint paramApiEndpoint)
+  {
+    d = paramd;
+    e = paramApiEndpoint;
+    if (d == null) {
+      d = new d("yelp.com");
+    }
+    if (e == null) {
+      e = Debug.ApiEndpoint.AUTO_API;
+    }
+    a = eendpoint + "." + d.a();
+    if (d.c())
     {
-      paramPhotoUploadRequestBase = e.copy(Bitmap.Config.ARGB_8888, true);
-      localObject1 = new Canvas(paramPhotoUploadRequestBase);
-      localObject2 = new Matrix();
-      Paint localPaint = new Paint();
-      ColorMatrix localColorMatrix = new ColorMatrix();
-      localColorMatrix.setSaturation(0.0F);
-      localPaint.setColorFilter(new ColorMatrixColorFilter(localColorMatrix));
-      ((Canvas)localObject1).drawBitmap(paramPhotoUploadRequestBase, (Matrix)localObject2, localPaint);
-      localBuilder.setLargeIcon(paramPhotoUploadRequestBase);
-      paramPhotoUploadRequestBase = new NotificationCompat.BigPictureStyle(localBuilder).bigPicture(paramPhotoUploadRequestBase).bigLargeIcon(BitmapFactory.decodeResource(a.getResources(), 2130837624)).setBigContentTitle(a.getText(2131165777)).setSummaryText(paramYelpException.getMessage(a)).build();
-      return paramPhotoUploadRequestBase;
+      b = b(f);
+      c = b(g);
+      return;
     }
-    catch (Exception paramPhotoUploadRequestBase) {}
-    return localBuilder.build();
+    b = b(h);
+    c = b(i);
   }
   
-  private void a(ApiRequest<?, ?, ?> paramApiRequest)
+  public static String b()
   {
-    if ((paramApiRequest instanceof PhotoUploadRequestBase)) {
-      ((PhotoUploadRequestBase)paramApiRequest).getFile().delete();
+    if (d.c()) {
+      return b(q);
     }
+    if (d.d()) {
+      return b(o);
+    }
+    if (d.e()) {
+      return b(p);
+    }
+    return b(n);
   }
   
-  public void a(Float paramFloat)
+  protected static String b(String paramString)
   {
-    paramFloat = PhotoUploadService.a(a, c, e, paramFloat.floatValue());
-    d.notify("PhotoUploadListener.notification", b, paramFloat);
+    return a.a(new StringBuffer(paramString).reverse().toString());
   }
   
-  public boolean a()
+  public static d c()
   {
-    return true;
+    return d;
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public static String d()
   {
-    d.cancel("PhotoUploadListener.notification", b);
-    d.notify("PhotoUploadListener.notification", b, a((PhotoUploadRequestBase)paramApiRequest, paramYelpException));
-    e.recycle();
+    return b(l);
   }
   
-  public void onSuccess(ApiRequest<?, ?, ?> paramApiRequest, Object paramObject)
+  public static String e()
   {
-    d.cancel("PhotoUploadListener.notification", b);
-    e.recycle();
-    AppData.b().m().s().addPhotoCount(1);
-    a(paramApiRequest);
+    return "https://sb.scorecardresearch.com/p2?c2=" + d();
+  }
+  
+  public static String f()
+  {
+    return b(m);
+  }
+  
+  public static String g()
+  {
+    return a;
+  }
+  
+  public static String h()
+  {
+    return b;
+  }
+  
+  public static String i()
+  {
+    return c;
+  }
+  
+  public static String j()
+  {
+    return b(r);
+  }
+  
+  public static String k()
+  {
+    return b(s);
+  }
+  
+  public static String l()
+  {
+    return b(u);
+  }
+  
+  public static String m()
+  {
+    return b(t);
   }
 }
 

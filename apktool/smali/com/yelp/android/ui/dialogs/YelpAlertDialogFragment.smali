@@ -53,17 +53,6 @@
 
 
 # virtual methods
-.method public a(Landroid/content/DialogInterface$OnCancelListener;)V
-    .locals 0
-
-    .prologue
-    .line 41
-    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/YelpAlertDialogFragment;->a:Landroid/content/DialogInterface$OnCancelListener;
-
-    .line 42
-    return-void
-.end method
-
 .method public a(Landroid/content/DialogInterface$OnDismissListener;)V
     .locals 0
 
@@ -75,50 +64,46 @@
     return-void
 .end method
 
-.method public a(Landroid/support/v4/app/FragmentManager;)V
+.method public a(Landroid/support/v4/app/l;)V
     .locals 1
 
     .prologue
     .line 37
     const-string/jumbo v0, ""
 
-    invoke-super {p0, p1, v0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    invoke-super {p0, p1, v0}, Lcom/yelp/android/ui/dialogs/YelpBaseDialogFragment;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
 
     .line 38
     return-void
 .end method
 
-.method protected c(Ljava/lang/String;Ljava/lang/String;)Landroid/app/AlertDialog$Builder;
+.method protected c(Ljava/lang/String;Ljava/lang/String;)Landroid/support/v7/app/d$a;
     .locals 2
 
     .prologue
     .line 49
-    new-instance v0, Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpAlertDialogFragment;->e()Landroid/support/v7/app/d$a;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/YelpAlertDialogFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    move-result-object v0
 
     .line 50
     if-eqz p1, :cond_0
 
     .line 51
-    invoke-virtual {v0, p1}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, p1}, Landroid/support/v7/app/d$a;->a(Ljava/lang/CharSequence;)Landroid/support/v7/app/d$a;
 
     .line 53
     :cond_0
     if-eqz p2, :cond_1
 
     .line 54
-    invoke-virtual {v0, p2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, p2}, Landroid/support/v7/app/d$a;->b(Ljava/lang/CharSequence;)Landroid/support/v7/app/d$a;
 
     .line 56
     :cond_1
     iget-object v1, p0, Lcom/yelp/android/ui/dialogs/YelpAlertDialogFragment;->a:Landroid/content/DialogInterface$OnCancelListener;
 
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/support/v7/app/d$a;->a(Landroid/content/DialogInterface$OnCancelListener;)Landroid/support/v7/app/d$a;
 
     .line 57
     return-object v0

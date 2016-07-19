@@ -22,9 +22,9 @@
 
     .prologue
     .line 12
-    new-instance v0, Lcom/yelp/android/serializable/am;
+    new-instance v0, Lcom/yelp/android/serializable/EventSection$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/am;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/EventSection$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/EventSection;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -43,110 +43,29 @@
 
 
 # virtual methods
-.method public bridge synthetic describeContents()I
-    .locals 1
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->describeContents()I
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_EventSection;->a(Landroid/os/Parcel;)V
 
-    move-result v0
-
-    return v0
+    return-void
 .end method
 
-.method public bridge synthetic getAlias()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->getAlias()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getBusinesses()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->getBusinesses()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getEvents()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->getEvents()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getHeader()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->getHeader()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getItemsToShow()[I
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->getItemsToShow()[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTotal()I
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->getTotal()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUsers()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->getUsers()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 34
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_EventSection;->readFromJson(Lorg/json/JSONObject;)V
-
     .line 35
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_EventSection;->a(Lorg/json/JSONObject;)V
+
+    .line 36
     const-string/jumbo v0, "events"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -165,24 +84,110 @@
 
     move-result-object v2
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/serializable/Event;->buildEventsFromJSONResponse(Lorg/json/JSONArray;Lorg/json/JSONArray;Lorg/json/JSONArray;)Ljava/util/ArrayList;
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/serializable/Event;->a(Lorg/json/JSONArray;Lorg/json/JSONArray;Lorg/json/JSONArray;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/EventSection;->mEvents:Ljava/util/List;
+    iput-object v0, p0, Lcom/yelp/android/serializable/EventSection;->a:Ljava/util/List;
 
-    .line 37
+    .line 41
     return-void
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
+.method public bridge synthetic a()[I
+    .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_EventSection;->readFromParcel(Landroid/os/Parcel;)V
+    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->a()[I
 
-    return-void
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic b()I
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->b()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic describeContents()I
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->describeContents()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic e()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->e()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_EventSection;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic hashCode()I
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_EventSection;->hashCode()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

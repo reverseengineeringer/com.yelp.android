@@ -1,108 +1,121 @@
 package com.google.android.gms.internal;
 
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.Canvas;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.view.View.MeasureSpec;
-import android.webkit.WebView;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
+import com.google.android.gms.dynamic.c.a;
 
-public final class fb$a
-  extends AsyncTask<Void, Void, Boolean>
+public abstract class fb$a
+  extends Binder
+  implements fb
 {
-  private final WebView tx;
-  private Bitmap ty;
-  
-  public fb$a(fb paramfb, WebView paramWebView)
+  public static fb a(IBinder paramIBinder)
   {
-    tx = paramWebView;
+    if (paramIBinder == null) {
+      return null;
+    }
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManagerCreator");
+    if ((localIInterface != null) && ((localIInterface instanceof fb))) {
+      return (fb)localIInterface;
+    }
+    return new a(paramIBinder);
   }
   
-  protected void a(Boolean paramBoolean)
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+    throws RemoteException
   {
-    fb.c(tz);
-    if ((paramBoolean.booleanValue()) || (tz.cH()) || (fb.d(tz) <= 0L))
+    switch (paramInt1)
     {
-      tz.tw = paramBoolean.booleanValue();
-      fb.e(tz).a(tz.mo);
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManagerCreator");
+      return true;
     }
-    while (fb.d(tz) <= 0L) {
-      return;
-    }
-    if (gr.v(2)) {
-      gr.S("Ad not detected, scheduling another run.");
-    }
-    fb.g(tz).postDelayed(tz, fb.f(tz));
+    paramParcel1.enforceInterface("com.google.android.gms.ads.internal.purchase.client.IInAppPurchaseManagerCreator");
+    paramParcel1 = a(c.a.a(paramParcel1.readStrongBinder()));
+    paramParcel2.writeNoException();
+    paramParcel2.writeStrongBinder(paramParcel1);
+    return true;
   }
   
-  protected Boolean b(Void... paramVarArgs)
+  private static class a
+    implements fb
   {
-    for (;;)
+    private IBinder a;
+    
+    a(IBinder paramIBinder)
     {
-      int i;
-      int m;
-      try
-      {
-        int n = ty.getWidth();
-        int i1 = ty.getHeight();
-        if ((n == 0) || (i1 == 0))
-        {
-          paramVarArgs = Boolean.valueOf(false);
-          return paramVarArgs;
-        }
-        i = 0;
-        j = 0;
-        int k;
-        if (i < n)
-        {
-          k = 0;
-          if (k >= i1) {
-            break label139;
-          }
-          m = j;
-          if (ty.getPixel(i, k) != 0) {
-            m = j + 1;
-          }
-        }
-        else
-        {
-          if (j / (n * i1 / 100.0D) > 0.1D)
-          {
-            bool = true;
-            paramVarArgs = Boolean.valueOf(bool);
-            continue;
-          }
-          boolean bool = false;
-          continue;
-        }
-        k += 10;
-      }
-      finally {}
-      int j = m;
-      continue;
-      label139:
-      i += 10;
+      a = paramIBinder;
     }
-  }
-  
-  protected void onPreExecute()
-  {
-    try
+    
+    /* Error */
+    public IBinder a(com.google.android.gms.dynamic.c paramc)
+      throws RemoteException
     {
-      ty = Bitmap.createBitmap(fb.a(tz), fb.b(tz), Bitmap.Config.ARGB_8888);
-      tx.setVisibility(0);
-      tx.measure(View.MeasureSpec.makeMeasureSpec(fb.a(tz), 0), View.MeasureSpec.makeMeasureSpec(fb.b(tz), 0));
-      tx.layout(0, 0, fb.a(tz), fb.b(tz));
-      Canvas localCanvas = new Canvas(ty);
-      tx.draw(localCanvas);
-      tx.invalidate();
-      return;
+      // Byte code:
+      //   0: invokestatic 27	android/os/Parcel:obtain	()Landroid/os/Parcel;
+      //   3: astore_2
+      //   4: invokestatic 27	android/os/Parcel:obtain	()Landroid/os/Parcel;
+      //   7: astore_3
+      //   8: aload_2
+      //   9: ldc 29
+      //   11: invokevirtual 33	android/os/Parcel:writeInterfaceToken	(Ljava/lang/String;)V
+      //   14: aload_1
+      //   15: ifnull +48 -> 63
+      //   18: aload_1
+      //   19: invokeinterface 39 1 0
+      //   24: astore_1
+      //   25: aload_2
+      //   26: aload_1
+      //   27: invokevirtual 42	android/os/Parcel:writeStrongBinder	(Landroid/os/IBinder;)V
+      //   30: aload_0
+      //   31: getfield 17	com/google/android/gms/internal/fb$a$a:a	Landroid/os/IBinder;
+      //   34: iconst_1
+      //   35: aload_2
+      //   36: aload_3
+      //   37: iconst_0
+      //   38: invokeinterface 48 5 0
+      //   43: pop
+      //   44: aload_3
+      //   45: invokevirtual 51	android/os/Parcel:readException	()V
+      //   48: aload_3
+      //   49: invokevirtual 54	android/os/Parcel:readStrongBinder	()Landroid/os/IBinder;
+      //   52: astore_1
+      //   53: aload_3
+      //   54: invokevirtual 57	android/os/Parcel:recycle	()V
+      //   57: aload_2
+      //   58: invokevirtual 57	android/os/Parcel:recycle	()V
+      //   61: aload_1
+      //   62: areturn
+      //   63: aconst_null
+      //   64: astore_1
+      //   65: goto -40 -> 25
+      //   68: astore_1
+      //   69: aload_3
+      //   70: invokevirtual 57	android/os/Parcel:recycle	()V
+      //   73: aload_2
+      //   74: invokevirtual 57	android/os/Parcel:recycle	()V
+      //   77: aload_1
+      //   78: athrow
+      // Local variable table:
+      //   start	length	slot	name	signature
+      //   0	79	0	this	a
+      //   0	79	1	paramc	com.google.android.gms.dynamic.c
+      //   3	71	2	localParcel1	Parcel
+      //   7	63	3	localParcel2	Parcel
+      // Exception table:
+      //   from	to	target	type
+      //   8	14	68	finally
+      //   18	25	68	finally
+      //   25	53	68	finally
     }
-    finally
+    
+    public IBinder asBinder()
     {
-      localObject = finally;
-      throw ((Throwable)localObject);
+      return a;
     }
   }
 }

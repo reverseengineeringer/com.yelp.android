@@ -1,6 +1,6 @@
-.class Lcom/path/android/jobqueue/nonPersistentQueue/g;
+.class public Lcom/path/android/jobqueue/nonPersistentQueue/g;
 .super Ljava/lang/Object;
-.source "NonPersistentPriorityQueue.java"
+.source "TimeAwareComparator.java"
 
 # interfaces
 .implements Ljava/util/Comparator;
@@ -12,111 +12,190 @@
         "Ljava/lang/Object;",
         "Ljava/util/Comparator",
         "<",
-        "Lcom/path/android/jobqueue/b;",
+        "Lcom/path/android/jobqueue/a;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/path/android/jobqueue/nonPersistentQueue/f;
+.field final a:Ljava/util/Comparator;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Comparator",
+            "<",
+            "Lcom/path/android/jobqueue/a;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(Lcom/path/android/jobqueue/nonPersistentQueue/f;)V
+.method public constructor <init>(Ljava/util/Comparator;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Comparator",
+            "<",
+            "Lcom/path/android/jobqueue/a;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 110
-    iput-object p1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/g;->a:Lcom/path/android/jobqueue/nonPersistentQueue/f;
-
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 15
+    iput-object p1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/g;->a:Ljava/util/Comparator;
+
+    .line 16
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/path/android/jobqueue/b;Lcom/path/android/jobqueue/b;)I
-    .locals 4
+.method public a(Lcom/path/android/jobqueue/a;Lcom/path/android/jobqueue/a;)I
+    .locals 8
 
     .prologue
-    .line 115
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->c()I
+    const/4 v2, 0x0
+
+    const/4 v3, -0x1
+
+    const/4 v1, 0x1
+
+    .line 20
+    invoke-static {}, Ljava/lang/System;->nanoTime()J
+
+    move-result-wide v4
+
+    .line 21
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->g()J
+
+    move-result-wide v6
+
+    cmp-long v0, v6, v4
+
+    if-gtz v0, :cond_2
+
+    move v0, v1
+
+    .line 22
+    :goto_0
+    invoke-virtual {p2}, Lcom/path/android/jobqueue/a;->g()J
+
+    move-result-wide v6
+
+    cmp-long v4, v6, v4
+
+    if-gtz v4, :cond_0
+
+    move v2, v1
+
+    .line 23
+    :cond_0
+    if-eqz v0, :cond_4
+
+    .line 24
+    if-eqz v2, :cond_3
+
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/g;->a:Ljava/util/Comparator;
+
+    invoke-interface {v0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v0
 
-    invoke-virtual {p2}, Lcom/path/android/jobqueue/b;->c()I
+    :goto_1
+    move v1, v0
+
+    .line 36
+    :cond_1
+    :goto_2
+    return v1
+
+    :cond_2
+    move v0, v2
+
+    .line 21
+    goto :goto_0
+
+    :cond_3
+    move v0, v3
+
+    .line 24
+    goto :goto_1
+
+    .line 26
+    :cond_4
+    if-eqz v2, :cond_5
+
+    .line 27
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/g;->a:Ljava/util/Comparator;
+
+    invoke-interface {v0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/path/android/jobqueue/nonPersistentQueue/f;->a(II)I
+    goto :goto_2
 
-    move-result v0
+    .line 31
+    :cond_5
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->g()J
 
-    .line 116
-    if-eqz v0, :cond_1
+    move-result-wide v4
 
-    .line 127
-    :cond_0
-    :goto_0
-    return v0
+    invoke-virtual {p2}, Lcom/path/android/jobqueue/a;->g()J
 
-    .line 121
-    :cond_1
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->e()J
+    move-result-wide v6
 
-    move-result-wide v0
+    cmp-long v0, v4, v6
 
-    invoke-virtual {p2}, Lcom/path/android/jobqueue/b;->e()J
+    if-gez v0, :cond_6
 
-    move-result-wide v2
+    move v1, v3
 
-    invoke-static {v0, v1, v2, v3}, Lcom/path/android/jobqueue/nonPersistentQueue/f;->a(JJ)I
+    .line 32
+    goto :goto_2
 
-    move-result v0
-
-    neg-int v0, v0
-
-    .line 122
-    if-nez v0, :cond_0
-
-    .line 127
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->a()Ljava/lang/Long;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v0
-
-    invoke-virtual {p2}, Lcom/path/android/jobqueue/b;->a()Ljava/lang/Long;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+    .line 33
+    :cond_6
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->g()J
 
     move-result-wide v2
 
-    invoke-static {v0, v1, v2, v3}, Lcom/path/android/jobqueue/nonPersistentQueue/f;->a(JJ)I
+    invoke-virtual {p2}, Lcom/path/android/jobqueue/a;->g()J
 
-    move-result v0
+    move-result-wide v4
 
-    neg-int v0, v0
+    cmp-long v0, v2, v4
 
-    goto :goto_0
+    if-gtz v0, :cond_1
+
+    .line 36
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/g;->a:Ljava/util/Comparator;
+
+    invoke-interface {v0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
+
+    move-result v1
+
+    goto :goto_2
 .end method
 
 .method public synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
 
     .prologue
-    .line 110
-    check-cast p1, Lcom/path/android/jobqueue/b;
+    .line 11
+    check-cast p1, Lcom/path/android/jobqueue/a;
 
-    check-cast p2, Lcom/path/android/jobqueue/b;
+    check-cast p2, Lcom/path/android/jobqueue/a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/g;->a(Lcom/path/android/jobqueue/b;Lcom/path/android/jobqueue/b;)I
+    invoke-virtual {p0, p1, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/g;->a(Lcom/path/android/jobqueue/a;Lcom/path/android/jobqueue/a;)I
 
     move-result v0
 

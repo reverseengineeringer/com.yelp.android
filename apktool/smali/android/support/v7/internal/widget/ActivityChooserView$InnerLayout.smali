@@ -3,6 +3,17 @@
 .source "ActivityChooserView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v7/internal/widget/ActivityChooserView;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "InnerLayout"
+.end annotation
+
+
 # static fields
 .field private static final a:[I
 
@@ -38,21 +49,21 @@
     .line 838
     sget-object v0, Landroid/support/v7/internal/widget/ActivityChooserView$InnerLayout;->a:[I
 
-    invoke-static {p1, p2, v0}, Landroid/support/v7/internal/widget/bg;->a(Landroid/content/Context;Landroid/util/AttributeSet;[I)Landroid/support/v7/internal/widget/bg;
+    invoke-static {p1, p2, v0}, Landroid/support/v7/internal/widget/p;->a(Landroid/content/Context;Landroid/util/AttributeSet;[I)Landroid/support/v7/internal/widget/p;
 
     move-result-object v0
 
     .line 839
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/internal/widget/bg;->a(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v1}, Landroid/support/v7/internal/widget/p;->a(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Landroid/support/v7/internal/widget/ActivityChooserView$InnerLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 840
-    invoke-virtual {v0}, Landroid/support/v7/internal/widget/bg;->b()V
+    invoke-virtual {v0}, Landroid/support/v7/internal/widget/p;->b()V
 
     .line 841
     return-void

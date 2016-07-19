@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:background="@color/black" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/DeprecatedSubtitleBoldWhiteText" android:id="@id/consider_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:text="@string/you_might_also_consider" android:layout_centerHorizontal="true" />
+    <RelativeLayout android:id="@id/ad_body" android:background="@drawable/ad_background" android:padding="@dimen/photo_ad_border" android:layout_width="@dimen/photo_ad_width_land" android:layout_height="@dimen/photo_ad_height_land" android:layout_below="@id/consider_text" android:layout_centerHorizontal="true">
+        <RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true">
+            <RelativeLayout android:id="@id/ad_photo_holder" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/ad_photo" android:layout_width="@dimen/photo_ad_width" android:layout_height="@dimen/photo_ad_height_land" android:scaleType="centerCrop" android:contentDescription="@string/go_to_this_business" />
+                <View android:background="@drawable/fade_to_white" android:layout_width="@dimen/photo_ad_gradient_width" android:layout_height="@dimen/photo_ad_height_land" android:layout_alignRight="@id/ad_photo" />
+            </RelativeLayout>
+            <RelativeLayout android:layout_width="@dimen/photo_ad_snippet_width_land" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:id="@id/business_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <ImageView android:id="@id/business_stars" android:paddingTop="@dimen/default_small_gap_size" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/business_stars" android:layout_below="@id/business_title" android:contentDescription="@null" />
+                <TextView android:textAppearance="@style/DeprecatedLargeGrayText" android:id="@id/review_count" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_small_gap_size" android:text="@string/x_reviews" android:layout_toRightOf="@id/business_stars" android:layout_alignBottom="@id/business_stars" />
+                <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/thumbnail_photo" android:paddingRight="@dimen/default_small_gap_size" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:layout_below="@id/business_stars" />
+                <TextView android:textAppearance="@style/DeprecatedStandardText" android:ellipsize="end" android:id="@id/ad_text" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lines="4" android:layout_toRightOf="@id/thumbnail_photo" android:layout_below="@id/business_stars" android:layout_alignTop="@id/thumbnail_photo" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout android:background="@drawable/ad_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_large_gap_size" android:layout_alignLeft="@id/ad_body" android:layout_alignTop="@id/ad_body">
+        <TextView android:textAppearance="@style/LargeBoldWhiteText" android:paddingLeft="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ad" />
+    </LinearLayout>
+    <Button android:id="@id/button_go_to_business" android:background="@drawable/button_black_white_outline" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="@dimen/photo_ad_width" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_huge_gap_size" android:text="@string/go_to_this_business" android:layout_below="@id/ad_body" android:layout_centerHorizontal="true" android:textAllCaps="true" style="@style/LargeBoldWhiteText" />
+</RelativeLayout>

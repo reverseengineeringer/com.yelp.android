@@ -1,70 +1,43 @@
 .class public Lcom/yelp/android/appdata/webrequests/b;
-.super Lcom/yelp/android/av/g;
-.source "AccountConfirmedRequest.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/yelp/android/av/g",
-        "<",
-        "Ljava/lang/String;",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Boolean;",
-        ">;"
-    }
-.end annotation
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "AccountConfirmRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-    .locals 2
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 1
 
     .prologue
-    .line 14
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+    .line 12
+    const/4 v0, 0x1
 
-    const-string/jumbo v1, "account/info/confirmed"
+    invoke-direct {p0, p1, v0, p2}, Lcom/yelp/android/appdata/webrequests/b;-><init>(Ljava/lang/String;ZLcom/yelp/android/appdata/webrequests/core/c$a;)V
 
-    invoke-direct {p0, v0, v1, p2}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-
-    .line 15
-    const-string/jumbo v0, "user_id"
-
-    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/b;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 16
+    .line 13
     return-void
 .end method
 
-
-# virtual methods
-.method public a(Lorg/json/JSONObject;)Ljava/lang/Boolean;
-    .locals 1
+.method public constructor <init>(Ljava/lang/String;ZLcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 2
 
     .prologue
+    .line 17
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+
+    const-string/jumbo v1, "account/confirm"
+
+    invoke-direct {p0, v0, v1, p3}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 18
+    const-string/jumbo v0, "email_id"
+
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/b;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 19
+    const-string/jumbo v0, "send_welcome_email"
+
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/b;->b(Ljava/lang/String;Z)V
+
     .line 20
-    const-string/jumbo v0, "is_account_confirmed"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/b;->a(Lorg/json/JSONObject;)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method

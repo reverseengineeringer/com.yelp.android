@@ -6,5 +6,5 @@
         <CheckBox android:layout_gravity="bottom|center|left" android:id="@id/toggle" android:layout_width="30.0dip" android:layout_height="fill_parent" android:checked="false" />
         <TextView android:gravity="center_vertical" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/satellite" />
     </LinearLayout>
-    <TextView android:id="@id/business_text" android:background="@drawable/gray_section_background" android:padding="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:bufferType="spannable" android:maxLines="4" android:minLines="2" />
+    <TextView android:id="@id/business_text" android:background="@drawable/gray_section_background" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:bufferType="spannable" android:maxLines="4" android:minLines="2" />
 </com.yelp.android.ui.map.YelpMap>

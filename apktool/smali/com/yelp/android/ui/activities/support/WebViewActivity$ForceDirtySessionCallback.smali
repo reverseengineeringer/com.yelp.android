@@ -3,7 +3,18 @@
 .source "WebViewActivity.java"
 
 # interfaces
-.implements Lcom/yelp/android/av/i;
+.implements Lcom/yelp/android/appdata/webrequests/core/c$a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/support/WebViewActivity;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "ForceDirtySessionCallback"
+.end annotation
 
 
 # instance fields
@@ -17,15 +28,15 @@
     .locals 0
 
     .prologue
-    .line 799
+    .line 873
     iput-object p1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->this$0:Lcom/yelp/android/ui/activities/support/WebViewActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 800
+    .line 874
     iput-object p2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->mIntent:Landroid/content/Intent;
 
-    .line 801
+    .line 875
     return-void
 .end method
 
@@ -44,7 +55,7 @@
     .end annotation
 
     .prologue
-    .line 805
+    .line 879
     const-string/jumbo v0, "WEBVIEW"
 
     const-string/jumbo v1, "Force dirty session request failed."
@@ -55,19 +66,19 @@
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 806
+    .line 880
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->this$0:Lcom/yelp/android/ui/activities/support/WebViewActivity;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 807
+    .line 881
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->this$0:Lcom/yelp/android/ui/activities/support/WebViewActivity;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->disableLoading()V
 
-    .line 808
+    .line 882
     return-void
 .end method
 
@@ -75,7 +86,7 @@
     .locals 0
 
     .prologue
-    .line 795
+    .line 869
     check-cast p2, Ljava/lang/Void;
 
     invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Void;)V
@@ -96,7 +107,7 @@
     .end annotation
 
     .prologue
-    .line 812
+    .line 886
     const-string/jumbo v0, "WEBVIEW"
 
     const-string/jumbo v1, "Force dirty session request successfully sent."
@@ -107,18 +118,18 @@
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 813
+    .line 887
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->this$0:Lcom/yelp/android/ui/activities/support/WebViewActivity;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->mIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->startActivity(Landroid/content/Intent;)V
 
-    .line 814
+    .line 888
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;->this$0:Lcom/yelp/android/ui/activities/support/WebViewActivity;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->disableLoading()V
 
-    .line 815
+    .line 889
     return-void
 .end method

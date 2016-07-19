@@ -1,10 +1,8 @@
 package com.google.android.gms.common.api;
 
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
 
 public abstract interface GoogleApiClient$OnConnectionFailedListener
-  extends GooglePlayServicesClient.OnConnectionFailedListener
 {
   public abstract void onConnectionFailed(ConnectionResult paramConnectionResult);
 }

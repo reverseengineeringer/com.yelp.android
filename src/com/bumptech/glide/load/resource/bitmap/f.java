@@ -8,8 +8,8 @@ import android.graphics.BitmapFactory.Options;
 import android.os.Build.VERSION;
 import android.util.Log;
 import com.bumptech.glide.load.DecodeFormat;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.yelp.android.ai.b;
+import com.yelp.android.ao.h;
+import com.yelp.android.x.c;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.EnumSet;
@@ -19,33 +19,80 @@ import java.util.Set;
 public abstract class f
   implements a<InputStream>
 {
-  public static final f a = new g();
-  public static final f b = new h();
-  public static final f c = new i();
+  public static final f a = new f()
+  {
+    protected int a(int paramAnonymousInt1, int paramAnonymousInt2, int paramAnonymousInt3, int paramAnonymousInt4)
+    {
+      return Math.min(paramAnonymousInt2 / paramAnonymousInt4, paramAnonymousInt1 / paramAnonymousInt3);
+    }
+    
+    public String a()
+    {
+      return "AT_LEAST.com.bumptech.glide.load.data.bitmap";
+    }
+  };
+  public static final f b = new f()
+  {
+    protected int a(int paramAnonymousInt1, int paramAnonymousInt2, int paramAnonymousInt3, int paramAnonymousInt4)
+    {
+      int i = 1;
+      paramAnonymousInt1 = (int)Math.ceil(Math.max(paramAnonymousInt2 / paramAnonymousInt4, paramAnonymousInt1 / paramAnonymousInt3));
+      paramAnonymousInt2 = Math.max(1, Integer.highestOneBit(paramAnonymousInt1));
+      if (paramAnonymousInt2 < paramAnonymousInt1) {}
+      for (paramAnonymousInt1 = i;; paramAnonymousInt1 = 0) {
+        return paramAnonymousInt2 << paramAnonymousInt1;
+      }
+    }
+    
+    public String a()
+    {
+      return "AT_MOST.com.bumptech.glide.load.data.bitmap";
+    }
+  };
+  public static final f c = new f()
+  {
+    protected int a(int paramAnonymousInt1, int paramAnonymousInt2, int paramAnonymousInt3, int paramAnonymousInt4)
+    {
+      return 0;
+    }
+    
+    public String a()
+    {
+      return "NONE.com.bumptech.glide.load.data.bitmap";
+    }
+  };
   private static final Set<ImageHeaderParser.ImageType> d = EnumSet.of(ImageHeaderParser.ImageType.JPEG, ImageHeaderParser.ImageType.PNG_A, ImageHeaderParser.ImageType.PNG);
-  private static final Queue<BitmapFactory.Options> e = com.yelp.android.ai.f.a(0);
+  private static final Queue<BitmapFactory.Options> e = h.a(0);
   
   private int a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
   {
+    int i = paramInt5;
+    if (paramInt5 == Integer.MIN_VALUE) {
+      i = paramInt3;
+    }
+    paramInt5 = paramInt4;
+    if (paramInt4 == Integer.MIN_VALUE) {
+      paramInt5 = paramInt2;
+    }
     if ((paramInt1 == 90) || (paramInt1 == 270))
     {
-      paramInt1 = a(paramInt3, paramInt2, paramInt4, paramInt5);
+      paramInt1 = a(paramInt3, paramInt2, paramInt5, i);
       if (paramInt1 != 0) {
-        break label50;
+        break label78;
       }
     }
-    label50:
-    for (paramInt1 = 0;; paramInt1 = Integer.highestOneBit(paramInt1 - 1))
+    label78:
+    for (paramInt1 = 0;; paramInt1 = Integer.highestOneBit(paramInt1))
     {
       return Math.max(1, paramInt1);
-      paramInt1 = a(paramInt2, paramInt3, paramInt4, paramInt5);
+      paramInt1 = a(paramInt2, paramInt3, paramInt5, i);
       break;
     }
   }
   
   private static Bitmap.Config a(InputStream paramInputStream, DecodeFormat paramDecodeFormat)
   {
-    if ((paramDecodeFormat == DecodeFormat.ALWAYS_ARGB_8888) || (Build.VERSION.SDK_INT == 16)) {
+    if ((paramDecodeFormat == DecodeFormat.ALWAYS_ARGB_8888) || (paramDecodeFormat == DecodeFormat.PREFER_ARGB_8888) || (Build.VERSION.SDK_INT == 16)) {
       return Bitmap.Config.ARGB_8888;
     }
     paramInputStream.mark(1024);
@@ -114,15 +161,15 @@ public abstract class f
     return Bitmap.Config.RGB_565;
   }
   
-  private Bitmap a(b paramb, BitmapFactory.Options paramOptions, e parame, int paramInt1, int paramInt2, int paramInt3, DecodeFormat paramDecodeFormat)
+  private Bitmap a(com.yelp.android.ao.f paramf, RecyclableBufferedInputStream paramRecyclableBufferedInputStream, BitmapFactory.Options paramOptions, c paramc, int paramInt1, int paramInt2, int paramInt3, DecodeFormat paramDecodeFormat)
   {
-    paramDecodeFormat = a(paramb, paramDecodeFormat);
+    paramDecodeFormat = a(paramf, paramDecodeFormat);
     inSampleSize = paramInt3;
     inPreferredConfig = paramDecodeFormat;
-    if (((inSampleSize == 1) || (19 <= Build.VERSION.SDK_INT)) && (a(paramb))) {
-      a(paramOptions, parame.b((int)Math.ceil(paramInt1 / paramInt3), (int)Math.ceil(paramInt2 / paramInt3), paramDecodeFormat));
+    if (((inSampleSize == 1) || (19 <= Build.VERSION.SDK_INT)) && (a(paramf))) {
+      a(paramOptions, paramc.b((int)Math.ceil(paramInt1 / paramInt3), (int)Math.ceil(paramInt2 / paramInt3), paramDecodeFormat));
     }
-    return b(paramb, paramOptions);
+    return b(paramf, paramRecyclableBufferedInputStream, paramOptions);
   }
   
   private static void a(BitmapFactory.Options paramOptions)
@@ -211,30 +258,29 @@ public abstract class f
     }
   }
   
-  private static Bitmap b(b paramb, BitmapFactory.Options paramOptions)
+  private static Bitmap b(com.yelp.android.ao.f paramf, RecyclableBufferedInputStream paramRecyclableBufferedInputStream, BitmapFactory.Options paramOptions)
   {
     if (inJustDecodeBounds) {
-      paramb.mark(5242880);
+      paramf.mark(5242880);
     }
-    Bitmap localBitmap;
     for (;;)
     {
-      localBitmap = BitmapFactory.decodeStream(paramb, null, paramOptions);
+      paramRecyclableBufferedInputStream = BitmapFactory.decodeStream(paramf, null, paramOptions);
       try
       {
         if (inJustDecodeBounds) {
-          paramb.reset();
+          paramf.reset();
         }
-        return localBitmap;
-        paramb.a();
+        return paramRecyclableBufferedInputStream;
+        paramRecyclableBufferedInputStream.a();
       }
-      catch (IOException paramb)
+      catch (IOException paramf)
       {
         while (!Log.isLoggable("Downsampler", 6)) {}
-        Log.e("Downsampler", "Exception loading inDecodeBounds=" + inJustDecodeBounds + " sample=" + inSampleSize, paramb);
+        Log.e("Downsampler", "Exception loading inDecodeBounds=" + inJustDecodeBounds + " sample=" + inSampleSize, paramf);
       }
     }
-    return localBitmap;
+    return paramRecyclableBufferedInputStream;
   }
   
   /* Error */
@@ -244,13 +290,13 @@ public abstract class f
     // Byte code:
     //   0: ldc 2
     //   2: monitorenter
-    //   3: getstatic 46	com/bumptech/glide/load/resource/bitmap/f:e	Ljava/util/Queue;
+    //   3: getstatic 52	com/bumptech/glide/load/resource/bitmap/f:e	Ljava/util/Queue;
     //   6: astore_0
     //   7: aload_0
     //   8: monitorenter
-    //   9: getstatic 46	com/bumptech/glide/load/resource/bitmap/f:e	Ljava/util/Queue;
-    //   12: invokeinterface 242 1 0
-    //   17: checkcast 157	android/graphics/BitmapFactory$Options
+    //   9: getstatic 52	com/bumptech/glide/load/resource/bitmap/f:e	Ljava/util/Queue;
+    //   12: invokeinterface 248 1 0
+    //   17: checkcast 161	android/graphics/BitmapFactory$Options
     //   20: astore_1
     //   21: aload_0
     //   22: monitorexit
@@ -258,12 +304,12 @@ public abstract class f
     //   24: astore_0
     //   25: aload_1
     //   26: ifnonnull +15 -> 41
-    //   29: new 157	android/graphics/BitmapFactory$Options
+    //   29: new 161	android/graphics/BitmapFactory$Options
     //   32: dup
-    //   33: invokespecial 243	android/graphics/BitmapFactory$Options:<init>	()V
+    //   33: invokespecial 249	android/graphics/BitmapFactory$Options:<init>	()V
     //   36: astore_0
     //   37: aload_0
-    //   38: invokestatic 184	com/bumptech/glide/load/resource/bitmap/f:b	(Landroid/graphics/BitmapFactory$Options;)V
+    //   38: invokestatic 188	com/bumptech/glide/load/resource/bitmap/f:b	(Landroid/graphics/BitmapFactory$Options;)V
     //   41: ldc 2
     //   43: monitorexit
     //   44: aload_0
@@ -301,6 +347,9 @@ public abstract class f
     inSampleSize = 1;
     inPreferredConfig = null;
     inJustDecodeBounds = false;
+    outWidth = 0;
+    outHeight = 0;
+    outMimeType = null;
     if (11 <= Build.VERSION.SDK_INT)
     {
       inBitmap = null;
@@ -311,234 +360,247 @@ public abstract class f
   protected abstract int a(int paramInt1, int paramInt2, int paramInt3, int paramInt4);
   
   /* Error */
-  public Bitmap a(InputStream paramInputStream, e parame, int paramInt1, int paramInt2, DecodeFormat paramDecodeFormat)
+  public Bitmap a(InputStream paramInputStream, c paramc, int paramInt1, int paramInt2, DecodeFormat paramDecodeFormat)
   {
     // Byte code:
-    //   0: invokestatic 262	com/yelp/android/ai/a:a	()Lcom/yelp/android/ai/a;
+    //   0: invokestatic 278	com/yelp/android/ao/a:a	()Lcom/yelp/android/ao/a;
     //   3: astore 9
     //   5: aload 9
-    //   7: invokevirtual 265	com/yelp/android/ai/a:b	()[B
+    //   7: invokevirtual 281	com/yelp/android/ao/a:b	()[B
     //   10: astore 10
     //   12: aload 9
-    //   14: invokevirtual 265	com/yelp/android/ai/a:b	()[B
+    //   14: invokevirtual 281	com/yelp/android/ao/a:b	()[B
     //   17: astore 11
-    //   19: invokestatic 267	com/bumptech/glide/load/resource/bitmap/f:b	()Landroid/graphics/BitmapFactory$Options;
+    //   19: invokestatic 283	com/bumptech/glide/load/resource/bitmap/f:b	()Landroid/graphics/BitmapFactory$Options;
     //   22: astore 12
-    //   24: new 269	com/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream
+    //   24: new 229	com/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream
     //   27: dup
     //   28: aload_1
     //   29: aload 11
-    //   31: invokespecial 272	com/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream:<init>	(Ljava/io/InputStream;[B)V
-    //   34: invokestatic 275	com/yelp/android/ai/b:a	(Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;)Lcom/yelp/android/ai/b;
-    //   37: astore 13
-    //   39: aload 13
-    //   41: ldc -43
-    //   43: invokevirtual 216	com/yelp/android/ai/b:mark	(I)V
-    //   46: new 110	com/bumptech/glide/load/resource/bitmap/ImageHeaderParser
-    //   49: dup
-    //   50: aload 13
-    //   52: invokespecial 113	com/bumptech/glide/load/resource/bitmap/ImageHeaderParser:<init>	(Ljava/io/InputStream;)V
-    //   55: invokevirtual 278	com/bumptech/glide/load/resource/bitmap/ImageHeaderParser:c	()I
-    //   58: istore 6
-    //   60: aload 13
-    //   62: invokevirtual 223	com/yelp/android/ai/b:reset	()V
-    //   65: aload 12
-    //   67: aload 10
-    //   69: putfield 247	android/graphics/BitmapFactory$Options:inTempStorage	[B
-    //   72: aload_0
+    //   31: invokespecial 286	com/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream:<init>	(Ljava/io/InputStream;[B)V
+    //   34: astore_1
+    //   35: aload_1
+    //   36: invokestatic 291	com/yelp/android/ao/c:a	(Ljava/io/InputStream;)Lcom/yelp/android/ao/c;
+    //   39: astore 13
+    //   41: new 219	com/yelp/android/ao/f
+    //   44: dup
+    //   45: aload 13
+    //   47: invokespecial 292	com/yelp/android/ao/f:<init>	(Ljava/io/InputStream;)V
+    //   50: astore 14
+    //   52: aload 13
+    //   54: ldc -39
+    //   56: invokevirtual 293	com/yelp/android/ao/c:mark	(I)V
+    //   59: new 114	com/bumptech/glide/load/resource/bitmap/ImageHeaderParser
+    //   62: dup
+    //   63: aload 13
+    //   65: invokespecial 117	com/bumptech/glide/load/resource/bitmap/ImageHeaderParser:<init>	(Ljava/io/InputStream;)V
+    //   68: invokevirtual 296	com/bumptech/glide/load/resource/bitmap/ImageHeaderParser:c	()I
+    //   71: istore 6
     //   73: aload 13
-    //   75: aload 12
-    //   77: invokevirtual 281	com/bumptech/glide/load/resource/bitmap/f:a	(Lcom/yelp/android/ai/b;Landroid/graphics/BitmapFactory$Options;)[I
-    //   80: astore_1
-    //   81: aload_1
-    //   82: iconst_0
-    //   83: iaload
-    //   84: istore 7
-    //   86: aload_1
-    //   87: iconst_1
-    //   88: iaload
-    //   89: istore 8
-    //   91: aload_0
-    //   92: aload 13
-    //   94: aload 12
-    //   96: aload_2
-    //   97: iload 7
-    //   99: iload 8
-    //   101: aload_0
-    //   102: iload 6
-    //   104: invokestatic 285	com/bumptech/glide/load/resource/bitmap/v:a	(I)I
-    //   107: iload 7
-    //   109: iload 8
-    //   111: iload_3
-    //   112: iload 4
-    //   114: invokespecial 287	com/bumptech/glide/load/resource/bitmap/f:a	(IIIII)I
-    //   117: aload 5
-    //   119: invokespecial 289	com/bumptech/glide/load/resource/bitmap/f:a	(Lcom/yelp/android/ai/b;Landroid/graphics/BitmapFactory$Options;Lcom/bumptech/glide/load/engine/bitmap_recycle/e;IIILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
-    //   122: astore 14
-    //   124: aload 13
-    //   126: invokevirtual 292	com/yelp/android/ai/b:b	()Ljava/io/IOException;
-    //   129: astore_1
-    //   130: aload_1
-    //   131: ifnull +149 -> 280
-    //   134: new 294	java/lang/RuntimeException
-    //   137: dup
-    //   138: aload_1
-    //   139: invokespecial 297	java/lang/RuntimeException:<init>	(Ljava/lang/Throwable;)V
-    //   142: athrow
-    //   143: astore_1
-    //   144: aload 9
-    //   146: aload 10
-    //   148: invokevirtual 300	com/yelp/android/ai/a:a	([B)Z
-    //   151: pop
-    //   152: aload 9
-    //   154: aload 11
-    //   156: invokevirtual 300	com/yelp/android/ai/a:a	([B)Z
-    //   159: pop
-    //   160: aload 13
-    //   162: invokevirtual 302	com/yelp/android/ai/b:c	()V
-    //   165: aload 12
-    //   167: invokestatic 304	com/bumptech/glide/load/resource/bitmap/f:a	(Landroid/graphics/BitmapFactory$Options;)V
-    //   170: aload_1
-    //   171: athrow
-    //   172: astore_1
-    //   173: ldc 121
-    //   175: iconst_5
-    //   176: invokestatic 127	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
-    //   179: ifeq +12 -> 191
-    //   182: ldc 121
-    //   184: ldc -127
-    //   186: aload_1
-    //   187: invokestatic 133	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    //   190: pop
-    //   191: goto -126 -> 65
-    //   194: astore_1
-    //   195: ldc 121
-    //   197: iconst_5
-    //   198: invokestatic 127	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
-    //   201: ifeq +13 -> 214
-    //   204: ldc 121
-    //   206: ldc_w 306
-    //   209: aload_1
-    //   210: invokestatic 133	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    //   213: pop
-    //   214: aload 13
-    //   216: invokevirtual 223	com/yelp/android/ai/b:reset	()V
-    //   219: iconst_0
-    //   220: istore 6
-    //   222: goto -157 -> 65
-    //   225: astore_1
-    //   226: ldc 121
-    //   228: iconst_5
-    //   229: invokestatic 127	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
-    //   232: ifeq +12 -> 244
-    //   235: ldc 121
-    //   237: ldc -127
-    //   239: aload_1
-    //   240: invokestatic 133	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    //   243: pop
-    //   244: iconst_0
-    //   245: istore 6
-    //   247: goto -182 -> 65
-    //   250: astore_1
-    //   251: aload 13
-    //   253: invokevirtual 223	com/yelp/android/ai/b:reset	()V
-    //   256: aload_1
-    //   257: athrow
-    //   258: astore_2
-    //   259: ldc 121
-    //   261: iconst_5
-    //   262: invokestatic 127	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
-    //   265: ifeq -9 -> 256
-    //   268: ldc 121
-    //   270: ldc -127
-    //   272: aload_2
-    //   273: invokestatic 133	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    //   276: pop
-    //   277: goto -21 -> 256
-    //   280: aconst_null
-    //   281: astore_1
-    //   282: aload 14
-    //   284: ifnull +48 -> 332
-    //   287: aload 14
-    //   289: aload_2
-    //   290: iload 6
-    //   292: invokestatic 309	com/bumptech/glide/load/resource/bitmap/v:a	(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/e;I)Landroid/graphics/Bitmap;
-    //   295: astore 5
-    //   297: aload 5
-    //   299: astore_1
-    //   300: aload 14
-    //   302: aload 5
-    //   304: invokevirtual 312	java/lang/Object:equals	(Ljava/lang/Object;)Z
-    //   307: ifne +25 -> 332
-    //   310: aload 5
-    //   312: astore_1
+    //   75: invokevirtual 297	com/yelp/android/ao/c:reset	()V
+    //   78: aload 12
+    //   80: aload 10
+    //   82: putfield 253	android/graphics/BitmapFactory$Options:inTempStorage	[B
+    //   85: aload_0
+    //   86: aload 14
+    //   88: aload_1
+    //   89: aload 12
+    //   91: invokevirtual 300	com/bumptech/glide/load/resource/bitmap/f:a	(Lcom/yelp/android/ao/f;Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Landroid/graphics/BitmapFactory$Options;)[I
+    //   94: astore 15
+    //   96: aload 15
+    //   98: iconst_0
+    //   99: iaload
+    //   100: istore 7
+    //   102: aload 15
+    //   104: iconst_1
+    //   105: iaload
+    //   106: istore 8
+    //   108: aload_0
+    //   109: aload 14
+    //   111: aload_1
+    //   112: aload 12
+    //   114: aload_2
+    //   115: iload 7
+    //   117: iload 8
+    //   119: aload_0
+    //   120: iload 6
+    //   122: invokestatic 304	com/bumptech/glide/load/resource/bitmap/p:a	(I)I
+    //   125: iload 7
+    //   127: iload 8
+    //   129: iload_3
+    //   130: iload 4
+    //   132: invokespecial 306	com/bumptech/glide/load/resource/bitmap/f:a	(IIIII)I
+    //   135: aload 5
+    //   137: invokespecial 308	com/bumptech/glide/load/resource/bitmap/f:a	(Lcom/yelp/android/ao/f;Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Landroid/graphics/BitmapFactory$Options;Lcom/yelp/android/x/c;IIILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
+    //   140: astore 14
+    //   142: aload 13
+    //   144: invokevirtual 311	com/yelp/android/ao/c:a	()Ljava/io/IOException;
+    //   147: astore_1
+    //   148: aload_1
+    //   149: ifnull +155 -> 304
+    //   152: new 313	java/lang/RuntimeException
+    //   155: dup
+    //   156: aload_1
+    //   157: invokespecial 316	java/lang/RuntimeException:<init>	(Ljava/lang/Throwable;)V
+    //   160: athrow
+    //   161: astore_1
+    //   162: aload 9
+    //   164: aload 10
+    //   166: invokevirtual 319	com/yelp/android/ao/a:a	([B)Z
+    //   169: pop
+    //   170: aload 9
+    //   172: aload 11
+    //   174: invokevirtual 319	com/yelp/android/ao/a:a	([B)Z
+    //   177: pop
+    //   178: aload 13
+    //   180: invokevirtual 321	com/yelp/android/ao/c:b	()V
+    //   183: aload 12
+    //   185: invokestatic 323	com/bumptech/glide/load/resource/bitmap/f:a	(Landroid/graphics/BitmapFactory$Options;)V
+    //   188: aload_1
+    //   189: athrow
+    //   190: astore 15
+    //   192: ldc 125
+    //   194: iconst_5
+    //   195: invokestatic 131	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
+    //   198: ifeq +13 -> 211
+    //   201: ldc 125
+    //   203: ldc -123
+    //   205: aload 15
+    //   207: invokestatic 137	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    //   210: pop
+    //   211: goto -133 -> 78
+    //   214: astore 15
+    //   216: ldc 125
+    //   218: iconst_5
+    //   219: invokestatic 131	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
+    //   222: ifeq +14 -> 236
+    //   225: ldc 125
+    //   227: ldc_w 325
+    //   230: aload 15
+    //   232: invokestatic 137	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    //   235: pop
+    //   236: aload 13
+    //   238: invokevirtual 297	com/yelp/android/ao/c:reset	()V
+    //   241: iconst_0
+    //   242: istore 6
+    //   244: goto -166 -> 78
+    //   247: astore 15
+    //   249: ldc 125
+    //   251: iconst_5
+    //   252: invokestatic 131	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
+    //   255: ifeq +13 -> 268
+    //   258: ldc 125
+    //   260: ldc -123
+    //   262: aload 15
+    //   264: invokestatic 137	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    //   267: pop
+    //   268: iconst_0
+    //   269: istore 6
+    //   271: goto -193 -> 78
+    //   274: astore_1
+    //   275: aload 13
+    //   277: invokevirtual 297	com/yelp/android/ao/c:reset	()V
+    //   280: aload_1
+    //   281: athrow
+    //   282: astore_2
+    //   283: ldc 125
+    //   285: iconst_5
+    //   286: invokestatic 131	android/util/Log:isLoggable	(Ljava/lang/String;I)Z
+    //   289: ifeq -9 -> 280
+    //   292: ldc 125
+    //   294: ldc -123
+    //   296: aload_2
+    //   297: invokestatic 137	android/util/Log:w	(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    //   300: pop
+    //   301: goto -21 -> 280
+    //   304: aconst_null
+    //   305: astore_1
+    //   306: aload 14
+    //   308: ifnull +48 -> 356
+    //   311: aload 14
     //   313: aload_2
-    //   314: aload 14
-    //   316: invokeinterface 315 2 0
-    //   321: ifne +11 -> 332
+    //   314: iload 6
+    //   316: invokestatic 328	com/bumptech/glide/load/resource/bitmap/p:a	(Landroid/graphics/Bitmap;Lcom/yelp/android/x/c;I)Landroid/graphics/Bitmap;
+    //   319: astore 5
+    //   321: aload 5
+    //   323: astore_1
     //   324: aload 14
-    //   326: invokevirtual 320	android/graphics/Bitmap:recycle	()V
-    //   329: aload 5
-    //   331: astore_1
-    //   332: aload 9
-    //   334: aload 10
-    //   336: invokevirtual 300	com/yelp/android/ai/a:a	([B)Z
-    //   339: pop
-    //   340: aload 9
-    //   342: aload 11
-    //   344: invokevirtual 300	com/yelp/android/ai/a:a	([B)Z
-    //   347: pop
-    //   348: aload 13
-    //   350: invokevirtual 302	com/yelp/android/ai/b:c	()V
-    //   353: aload 12
-    //   355: invokestatic 304	com/bumptech/glide/load/resource/bitmap/f:a	(Landroid/graphics/BitmapFactory$Options;)V
-    //   358: aload_1
-    //   359: areturn
+    //   326: aload 5
+    //   328: invokevirtual 331	java/lang/Object:equals	(Ljava/lang/Object;)Z
+    //   331: ifne +25 -> 356
+    //   334: aload 5
+    //   336: astore_1
+    //   337: aload_2
+    //   338: aload 14
+    //   340: invokeinterface 334 2 0
+    //   345: ifne +11 -> 356
+    //   348: aload 14
+    //   350: invokevirtual 339	android/graphics/Bitmap:recycle	()V
+    //   353: aload 5
+    //   355: astore_1
+    //   356: aload 9
+    //   358: aload 10
+    //   360: invokevirtual 319	com/yelp/android/ao/a:a	([B)Z
+    //   363: pop
+    //   364: aload 9
+    //   366: aload 11
+    //   368: invokevirtual 319	com/yelp/android/ao/a:a	([B)Z
+    //   371: pop
+    //   372: aload 13
+    //   374: invokevirtual 321	com/yelp/android/ao/c:b	()V
+    //   377: aload 12
+    //   379: invokestatic 323	com/bumptech/glide/load/resource/bitmap/f:a	(Landroid/graphics/BitmapFactory$Options;)V
+    //   382: aload_1
+    //   383: areturn
     // Local variable table:
     //   start	length	slot	name	signature
-    //   0	360	0	this	f
-    //   0	360	1	paramInputStream	InputStream
-    //   0	360	2	parame	e
-    //   0	360	3	paramInt1	int
-    //   0	360	4	paramInt2	int
-    //   0	360	5	paramDecodeFormat	DecodeFormat
-    //   58	233	6	i	int
-    //   84	24	7	j	int
-    //   89	21	8	k	int
-    //   3	338	9	locala	com.yelp.android.ai.a
-    //   10	325	10	arrayOfByte1	byte[]
-    //   17	326	11	arrayOfByte2	byte[]
-    //   22	332	12	localOptions	BitmapFactory.Options
-    //   37	312	13	localb	b
-    //   122	203	14	localBitmap	Bitmap
+    //   0	384	0	this	f
+    //   0	384	1	paramInputStream	InputStream
+    //   0	384	2	paramc	c
+    //   0	384	3	paramInt1	int
+    //   0	384	4	paramInt2	int
+    //   0	384	5	paramDecodeFormat	DecodeFormat
+    //   71	244	6	i	int
+    //   100	26	7	j	int
+    //   106	22	8	k	int
+    //   3	362	9	locala	com.yelp.android.ao.a
+    //   10	349	10	arrayOfByte1	byte[]
+    //   17	350	11	arrayOfByte2	byte[]
+    //   22	356	12	localOptions	BitmapFactory.Options
+    //   39	334	13	localc	com.yelp.android.ao.c
+    //   50	299	14	localObject	Object
+    //   94	9	15	arrayOfInt	int[]
+    //   190	16	15	localIOException1	IOException
+    //   214	17	15	localIOException2	IOException
+    //   247	16	15	localIOException3	IOException
     // Exception table:
     //   from	to	target	type
-    //   39	46	143	finally
-    //   60	65	143	finally
-    //   65	81	143	finally
-    //   91	130	143	finally
-    //   134	143	143	finally
-    //   173	191	143	finally
-    //   214	219	143	finally
-    //   226	244	143	finally
-    //   251	256	143	finally
-    //   256	258	143	finally
-    //   259	277	143	finally
-    //   287	297	143	finally
-    //   300	310	143	finally
-    //   313	329	143	finally
-    //   60	65	172	java/io/IOException
-    //   46	60	194	java/io/IOException
-    //   214	219	225	java/io/IOException
-    //   46	60	250	finally
-    //   195	214	250	finally
-    //   251	256	258	java/io/IOException
+    //   52	59	161	finally
+    //   73	78	161	finally
+    //   78	96	161	finally
+    //   108	148	161	finally
+    //   152	161	161	finally
+    //   192	211	161	finally
+    //   236	241	161	finally
+    //   249	268	161	finally
+    //   275	280	161	finally
+    //   280	282	161	finally
+    //   283	301	161	finally
+    //   311	321	161	finally
+    //   324	334	161	finally
+    //   337	353	161	finally
+    //   73	78	190	java/io/IOException
+    //   59	73	214	java/io/IOException
+    //   236	241	247	java/io/IOException
+    //   59	73	274	finally
+    //   216	236	274	finally
+    //   275	280	282	java/io/IOException
   }
   
-  public int[] a(b paramb, BitmapFactory.Options paramOptions)
+  public int[] a(com.yelp.android.ao.f paramf, RecyclableBufferedInputStream paramRecyclableBufferedInputStream, BitmapFactory.Options paramOptions)
   {
     inJustDecodeBounds = true;
-    b(paramb, paramOptions);
+    b(paramf, paramRecyclableBufferedInputStream, paramOptions);
     inJustDecodeBounds = false;
     return new int[] { outWidth, outHeight };
   }

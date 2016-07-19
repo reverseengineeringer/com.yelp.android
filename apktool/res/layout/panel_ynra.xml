@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:paddingLeft="?baseGapSize" android:paddingTop="?largeGapSize" android:paddingBottom="?smallGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/your_next_review_awaits" style="?minorListSeparatorTextViewStyle" />
+    <TextView android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_large_gap_size" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/your_next_review_awaits" style="?minorListSeparatorTextViewStyle" />
     <LinearLayout android:orientation="vertical" android:id="@id/ynra_content" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-    <Button android:textAppearance="@style/LargeDarkText" android:id="@id/see_more_button" android:background="@drawable/button_white_gray_border" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:minHeight="@dimen/clickable_size" android:text="@string/see_more" />
+    <Button android:textAppearance="@style/DeprecatedLargeDarkText" android:id="@id/see_more_button" android:background="@drawable/button_white_gray_border" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:minHeight="@dimen/clickable_size" android:text="@string/see_more" />
 </LinearLayout>

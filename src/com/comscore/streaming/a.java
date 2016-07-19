@@ -106,7 +106,7 @@ public class a
     if (!localHashMap.containsKey("ns_st_it")) {
       localHashMap.put("ns_st_it", "c");
     }
-    localHashMap.put("ns_st_sv", "4.1502.26");
+    localHashMap.put("ns_st_sv", "4.1508.28");
     return localHashMap;
   }
   

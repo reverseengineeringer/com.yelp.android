@@ -5,12 +5,11 @@ import android.util.Log;
 
 public class YelpLog
 {
-  private static al mDelegate = null;
+  private static a mDelegate = null;
   
   public static int d(Object paramObject, String paramString)
   {
-    showDebugToast(paramString);
-    return Log.d(resolveTag(paramObject), paramString);
+    return 0;
   }
   
   public static int e(Object paramObject, String paramString)
@@ -25,44 +24,62 @@ public class YelpLog
     return Log.e(resolveTag(paramObject), paramString, paramThrowable);
   }
   
-  public static void error(Exception paramException)
+  public static int i(Object paramObject, String paramString)
   {
-    error(null, null, paramException);
+    return 0;
   }
   
-  public static void error(Object paramObject, Exception paramException)
+  public static void registerDelegate(a parama)
   {
-    error(paramObject, null, paramException);
+    mDelegate = parama;
   }
   
-  public static void error(Object paramObject, String paramString)
+  public static void remoteBreadcrumb(String paramString)
   {
-    error(paramObject, paramString, new YelpLog.YelpLogException());
+    d("Breadcrumb", paramString);
+    mDelegate.remoteBreadcrumb(paramString);
   }
   
-  public static void error(Object paramObject, String paramString, Exception paramException)
+  public static void remoteError(Object paramObject, String paramString)
+  {
+    remoteError(paramObject, null, new YelpLogException(paramString));
+  }
+  
+  public static void remoteError(Object paramObject, String paramString, Throwable paramThrowable)
   {
     String str3 = resolveTag(paramObject);
-    String str2 = paramException.getLocalizedMessage();
+    String str2 = paramThrowable.getLocalizedMessage();
     String str1 = str2;
     if (!TextUtils.isEmpty(paramString)) {
       str1 = "[" + paramString + "]" + str2;
     }
-    e(str3, str1, paramException);
+    e(str3, str1, paramThrowable);
     if (mDelegate != null) {
-      mDelegate.error(paramObject, paramString, paramException);
+      mDelegate.remoteError(paramObject, paramString, paramThrowable);
     }
   }
   
-  public static int i(Object paramObject, String paramString)
+  public static void remoteError(Object paramObject, Throwable paramThrowable)
   {
-    showDebugToast(paramString);
-    return Log.i(resolveTag(paramObject), paramString);
+    remoteError(paramObject, null, paramThrowable);
   }
   
-  public static void registerDelegate(al paramal)
+  public static void remoteError(Throwable paramThrowable)
   {
-    mDelegate = paramal;
+    remoteError(null, null, paramThrowable);
+  }
+  
+  public static void removeTopOfStackTrace(Throwable paramThrowable)
+  {
+    StackTraceElement[] arrayOfStackTraceElement1 = paramThrowable.getStackTrace();
+    StackTraceElement[] arrayOfStackTraceElement2 = new StackTraceElement[arrayOfStackTraceElement1.length - 1];
+    int i = 0;
+    while (i < arrayOfStackTraceElement2.length)
+    {
+      arrayOfStackTraceElement2[i] = arrayOfStackTraceElement1[(i + 1)];
+      i += 1;
+    }
+    paramThrowable.setStackTrace(arrayOfStackTraceElement2);
   }
   
   private static String resolveTag(Object paramObject)
@@ -80,14 +97,37 @@ public class YelpLog
   
   public static int v(Object paramObject, String paramString)
   {
-    showDebugToast(paramString);
-    return Log.v(resolveTag(paramObject), paramString);
+    return 0;
   }
   
   public static int w(Object paramObject, String paramString)
   {
     showDebugToast(paramString);
     return Log.w(resolveTag(paramObject), paramString);
+  }
+  
+  public static class YelpLogException
+    extends Exception
+  {
+    private static final long serialVersionUID = -8220825712806410535L;
+    
+    public YelpLogException()
+    {
+      YelpLog.removeTopOfStackTrace(this);
+    }
+    
+    public YelpLogException(String paramString)
+    {
+      super();
+      YelpLog.removeTopOfStackTrace(this);
+    }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void remoteBreadcrumb(String paramString);
+    
+    public abstract void remoteError(Object paramObject, String paramString, Throwable paramThrowable);
   }
 }
 

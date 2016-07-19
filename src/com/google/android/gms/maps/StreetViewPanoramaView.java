@@ -1,59 +1,62 @@
 package com.google.android.gms.maps;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.google.android.gms.dynamic.a;
-import com.google.android.gms.internal.jx;
-import com.google.android.gms.maps.internal.IStreetViewPanoramaViewDelegate;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.internal.zzx;
+import com.google.android.gms.dynamic.b;
+import com.google.android.gms.dynamic.d;
+import com.google.android.gms.dynamic.e;
 import com.google.android.gms.maps.model.RuntimeRemoteException;
+import com.yelp.android.bj.g;
+import com.yelp.android.bj.i;
+import com.yelp.android.bj.l;
+import com.yelp.android.bj.n.a;
+import com.yelp.android.bj.q;
+import com.yelp.android.bj.s;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class StreetViewPanoramaView
   extends FrameLayout
 {
-  private StreetViewPanorama alm;
-  private final StreetViewPanoramaView.b aly;
-  
-  public StreetViewPanoramaView(Context paramContext)
-  {
-    super(paramContext);
-    aly = new StreetViewPanoramaView.b(this, paramContext, null);
-  }
+  private final b a;
+  private h b;
   
   public StreetViewPanoramaView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    aly = new StreetViewPanoramaView.b(this, paramContext, null);
+    a = new b(this, paramContext, null);
   }
   
   public StreetViewPanoramaView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    aly = new StreetViewPanoramaView.b(this, paramContext, null);
-  }
-  
-  public StreetViewPanoramaView(Context paramContext, StreetViewPanoramaOptions paramStreetViewPanoramaOptions)
-  {
-    super(paramContext);
-    aly = new StreetViewPanoramaView.b(this, paramContext, paramStreetViewPanoramaOptions);
+    a = new b(this, paramContext, null);
   }
   
   @Deprecated
-  public final StreetViewPanorama getStreetViewPanorama()
+  public final h getStreetViewPanorama()
   {
-    if (alm != null) {
-      return alm;
+    if (b != null) {
+      return b;
     }
-    aly.nO();
-    if (aly.je() == null) {
+    a.g();
+    if (a.a() == null) {
       return null;
     }
     try
     {
-      alm = new StreetViewPanorama(((StreetViewPanoramaView.a)aly.je()).nV().getStreetViewPanorama());
-      return alm;
+      b = new h(((a)a.a()).f().a());
+      return b;
     }
     catch (RemoteException localRemoteException)
     {
@@ -61,43 +64,186 @@ public class StreetViewPanoramaView
     }
   }
   
-  public void getStreetViewPanoramaAsync(OnStreetViewPanoramaReadyCallback paramOnStreetViewPanoramaReadyCallback)
+  static class a
+    implements l
   {
-    jx.aU("getStreetViewPanoramaAsync() must be called on the main thread");
-    aly.getStreetViewPanoramaAsync(paramOnStreetViewPanoramaReadyCallback);
-  }
-  
-  public final void onCreate(Bundle paramBundle)
-  {
-    aly.onCreate(paramBundle);
-    if (aly.je() == null) {
-      a.b(this);
+    private final ViewGroup a;
+    private final i b;
+    private View c;
+    
+    public a(ViewGroup paramViewGroup, i parami)
+    {
+      b = ((i)zzx.zzz(parami));
+      a = ((ViewGroup)zzx.zzz(paramViewGroup));
+    }
+    
+    public View a(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
+    {
+      throw new UnsupportedOperationException("onCreateView not allowed on StreetViewPanoramaViewDelegate");
+    }
+    
+    public void a()
+    {
+      try
+      {
+        b.b();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public void a(Activity paramActivity, Bundle paramBundle1, Bundle paramBundle2)
+    {
+      throw new UnsupportedOperationException("onInflate not allowed on StreetViewPanoramaViewDelegate");
+    }
+    
+    public void a(Bundle paramBundle)
+    {
+      try
+      {
+        b.a(paramBundle);
+        c = ((View)d.a(b.f()));
+        a.removeAllViews();
+        a.addView(c);
+        return;
+      }
+      catch (RemoteException paramBundle)
+      {
+        throw new RuntimeRemoteException(paramBundle);
+      }
+    }
+    
+    public void a(final f paramf)
+    {
+      try
+      {
+        b.a(new n.a()
+        {
+          public void a(g paramAnonymousg)
+            throws RemoteException
+          {
+            paramf.a(new h(paramAnonymousg));
+          }
+        });
+        return;
+      }
+      catch (RemoteException paramf)
+      {
+        throw new RuntimeRemoteException(paramf);
+      }
+    }
+    
+    public void b()
+    {
+      try
+      {
+        b.c();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public void b(Bundle paramBundle)
+    {
+      try
+      {
+        b.b(paramBundle);
+        return;
+      }
+      catch (RemoteException paramBundle)
+      {
+        throw new RuntimeRemoteException(paramBundle);
+      }
+    }
+    
+    public void c()
+    {
+      throw new UnsupportedOperationException("onDestroyView not allowed on StreetViewPanoramaViewDelegate");
+    }
+    
+    public void d()
+    {
+      try
+      {
+        b.d();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public void e()
+    {
+      try
+      {
+        b.e();
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+      }
+    }
+    
+    public i f()
+    {
+      return b;
     }
   }
   
-  public final void onDestroy()
+  static class b
+    extends b<StreetViewPanoramaView.a>
   {
-    aly.onDestroy();
-  }
-  
-  public final void onLowMemory()
-  {
-    aly.onLowMemory();
-  }
-  
-  public final void onPause()
-  {
-    aly.onPause();
-  }
-  
-  public final void onResume()
-  {
-    aly.onResume();
-  }
-  
-  public final void onSaveInstanceState(Bundle paramBundle)
-  {
-    aly.onSaveInstanceState(paramBundle);
+    protected e<StreetViewPanoramaView.a> a;
+    private final ViewGroup b;
+    private final Context c;
+    private final StreetViewPanoramaOptions d;
+    private final List<f> e = new ArrayList();
+    
+    b(ViewGroup paramViewGroup, Context paramContext, StreetViewPanoramaOptions paramStreetViewPanoramaOptions)
+    {
+      b = paramViewGroup;
+      c = paramContext;
+      d = paramStreetViewPanoramaOptions;
+    }
+    
+    protected void a(e<StreetViewPanoramaView.a> parame)
+    {
+      a = parame;
+      g();
+    }
+    
+    public void g()
+    {
+      if ((a != null) && (a() == null)) {}
+      try
+      {
+        Object localObject = q.a(c).a(d.a(c), d);
+        a.a(new StreetViewPanoramaView.a(b, (i)localObject));
+        localObject = e.iterator();
+        while (((Iterator)localObject).hasNext())
+        {
+          f localf = (f)((Iterator)localObject).next();
+          ((StreetViewPanoramaView.a)a()).a(localf);
+        }
+        return;
+      }
+      catch (RemoteException localRemoteException)
+      {
+        throw new RuntimeRemoteException(localRemoteException);
+        e.clear();
+        return;
+      }
+      catch (GooglePlayServicesNotAvailableException localGooglePlayServicesNotAvailableException) {}
+    }
   }
 }
 

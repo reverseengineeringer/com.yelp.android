@@ -29,14 +29,14 @@
 
     new-instance v1, Ljava/util/ArrayList;
 
-    invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
+    invoke-interface {p0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
 
     move-result v0
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Lcom/google/android/gms/common/data/DataBuffer;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -66,12 +66,12 @@
     :catchall_0
     move-exception v0
 
-    invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->close()V
+    invoke-interface {p0}, Lcom/google/android/gms/common/data/DataBuffer;->close()V
 
     throw v0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->close()V
+    invoke-interface {p0}, Lcom/google/android/gms/common/data/DataBuffer;->close()V
 
     return-object v1
 .end method
@@ -88,7 +88,7 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
+    invoke-interface {p0}, Lcom/google/android/gms/common/data/DataBuffer;->getCount()I
 
     move-result v0
 
@@ -115,7 +115,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->gV()Landroid/os/Bundle;
+    invoke-interface {p0}, Lcom/google/android/gms/common/data/DataBuffer;->zzpZ()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -150,7 +150,7 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/google/android/gms/common/data/DataBuffer;->gV()Landroid/os/Bundle;
+    invoke-interface {p0}, Lcom/google/android/gms/common/data/DataBuffer;->zzpZ()Landroid/os/Bundle;
 
     move-result-object v0
 

@@ -1,22 +1,35 @@
 package com.google.android.gms.tagmanager;
 
-import com.google.android.gms.internal.a;
-import com.google.android.gms.internal.d.a;
-import java.util.Map;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.os.Build.VERSION;
 
 class ae
-  extends dd
 {
-  private static final String ID = a.at.toString();
-  
-  public ae()
+  @SuppressLint({"CommitPrefEdits"})
+  static void a(Context paramContext, String paramString1, String paramString2, String paramString3)
   {
-    super(ID);
+    paramContext = paramContext.getSharedPreferences(paramString1, 0).edit();
+    paramContext.putString(paramString2, paramString3);
+    a(paramContext);
   }
   
-  protected boolean a(String paramString1, String paramString2, Map<String, d.a> paramMap)
+  static void a(SharedPreferences.Editor paramEditor)
   {
-    return paramString1.equals(paramString2);
+    if (Build.VERSION.SDK_INT >= 9)
+    {
+      paramEditor.apply();
+      return;
+    }
+    new Thread(new Runnable()
+    {
+      public void run()
+      {
+        a.commit();
+      }
+    }).start();
   }
 }
 

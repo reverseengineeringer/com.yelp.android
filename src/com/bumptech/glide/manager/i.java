@@ -1,12 +1,13 @@
 package com.bumptech.glide.manager;
 
-public abstract interface i
+class i
+  implements c
 {
-  public abstract void c();
+  public void d() {}
   
-  public abstract void d();
+  public void e() {}
   
-  public abstract void e();
+  public void f() {}
 }
 
 /* Location:

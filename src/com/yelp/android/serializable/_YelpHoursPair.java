@@ -2,20 +2,29 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 
 abstract class _YelpHoursPair
   implements Parcelable
 {
-  protected int mClose;
-  protected int mOpen;
+  protected int b;
+  protected int c;
   
-  protected _YelpHoursPair() {}
-  
-  protected _YelpHoursPair(int paramInt1, int paramInt2)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mOpen = paramInt1;
-    mClose = paramInt2;
+    b = paramParcel.readInt();
+    c = paramParcel.readInt();
+  }
+  
+  public int b()
+  {
+    return c;
+  }
+  
+  public int c()
+  {
+    return b;
   }
   
   public int describeContents()
@@ -23,26 +32,29 @@ abstract class _YelpHoursPair
     return 0;
   }
   
-  public int getClose()
+  public boolean equals(Object paramObject)
   {
-    return mClose;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpHoursPair)paramObject;
+    return new b().a(b, b).a(c, c).a();
   }
   
-  public int getOpen()
+  public int hashCode()
   {
-    return mOpen;
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mOpen = paramParcel.readInt();
-    mClose = paramParcel.readInt();
+    return new c().a(b).a(c).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeInt(mOpen);
-    paramParcel.writeInt(mClose);
+    paramParcel.writeInt(b);
+    paramParcel.writeInt(c);
   }
 }
 

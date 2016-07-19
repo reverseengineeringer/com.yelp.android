@@ -1,13 +1,34 @@
 package com.yelp.android.g;
 
-public final class c
+public class c
 {
-  public static final int abc_action_bar_embed_tabs = 2131296256;
-  public static final int abc_action_bar_embed_tabs_pre_jb = 2131296257;
-  public static final int abc_action_bar_expanded_action_views_exclusive = 2131296258;
-  public static final int abc_config_actionMenuItemAllCaps = 2131296259;
-  public static final int abc_config_allowActionMenuItemTextWithIcon = 2131296260;
-  public static final int abc_config_showMenuShortcutsWhenKeyboardPresent = 2131296261;
+  public static void a(Object paramObject, StringBuilder paramStringBuilder)
+  {
+    if (paramObject == null)
+    {
+      paramStringBuilder.append("null");
+      return;
+    }
+    String str2 = paramObject.getClass().getSimpleName();
+    String str1;
+    if (str2 != null)
+    {
+      str1 = str2;
+      if (str2.length() > 0) {}
+    }
+    else
+    {
+      str2 = paramObject.getClass().getName();
+      int i = str2.lastIndexOf('.');
+      str1 = str2;
+      if (i > 0) {
+        str1 = str2.substring(i + 1);
+      }
+    }
+    paramStringBuilder.append(str1);
+    paramStringBuilder.append('{');
+    paramStringBuilder.append(Integer.toHexString(System.identityHashCode(paramObject)));
+  }
 }
 
 /* Location:

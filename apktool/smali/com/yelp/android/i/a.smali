@@ -1,1043 +1,257 @@
 .class public Lcom/yelp/android/i/a;
-.super Landroid/support/v7/app/ActionBar;
-.source "ToolbarActionBar.java"
+.super Lcom/yelp/android/i/b;
+.source "FastOutSlowInInterpolator.java"
 
 
-# instance fields
-.field private a:Landroid/support/v7/internal/widget/ah;
-
-.field private b:Z
-
-.field private c:Lcom/yelp/android/i/h;
-
-.field private d:Z
-
-.field private e:Z
-
-.field private f:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/support/v7/app/a;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private g:Landroid/view/Window;
-
-.field private h:Landroid/support/v7/internal/view/menu/g;
-
-.field private final i:Ljava/lang/Runnable;
-
-.field private final j:Landroid/support/v7/widget/dj;
+# static fields
+.field private static final a:[F
 
 
 # direct methods
-.method public constructor <init>(Landroid/support/v7/widget/Toolbar;Ljava/lang/CharSequence;Landroid/view/Window;Lcom/yelp/android/i/h;)V
-    .locals 2
-
-    .prologue
-    .line 81
-    invoke-direct {p0}, Landroid/support/v7/app/ActionBar;-><init>()V
-
-    .line 59
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/i/a;->f:Ljava/util/ArrayList;
-
-    .line 65
-    new-instance v0, Lcom/yelp/android/i/b;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/i/b;-><init>(Lcom/yelp/android/i/a;)V
-
-    iput-object v0, p0, Lcom/yelp/android/i/a;->i:Ljava/lang/Runnable;
-
-    .line 72
-    new-instance v0, Lcom/yelp/android/i/c;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/i/c;-><init>(Lcom/yelp/android/i/a;)V
-
-    iput-object v0, p0, Lcom/yelp/android/i/a;->j:Landroid/support/v7/widget/dj;
-
-    .line 82
-    new-instance v0, Landroid/support/v7/internal/widget/bh;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p1, v1}, Landroid/support/v7/internal/widget/bh;-><init>(Landroid/support/v7/widget/Toolbar;Z)V
-
-    iput-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    .line 83
-    new-instance v0, Lcom/yelp/android/i/g;
-
-    invoke-direct {v0, p0, p4}, Lcom/yelp/android/i/g;-><init>(Lcom/yelp/android/i/a;Lcom/yelp/android/i/h;)V
-
-    iput-object v0, p0, Lcom/yelp/android/i/a;->c:Lcom/yelp/android/i/h;
-
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    iget-object v1, p0, Lcom/yelp/android/i/a;->c:Lcom/yelp/android/i/h;
-
-    invoke-interface {v0, v1}, Landroid/support/v7/internal/widget/ah;->a(Lcom/yelp/android/i/h;)V
-
-    .line 85
-    iget-object v0, p0, Lcom/yelp/android/i/a;->j:Landroid/support/v7/widget/dj;
-
-    invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar;->setOnMenuItemClickListener(Landroid/support/v7/widget/dj;)V
-
-    .line 86
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0, p2}, Landroid/support/v7/internal/widget/ah;->a(Ljava/lang/CharSequence;)V
-
-    .line 88
-    iput-object p3, p0, Lcom/yelp/android/i/a;->g:Landroid/view/Window;
-
-    .line 89
-    return-void
-.end method
-
-.method private a(Landroid/view/Menu;)Landroid/view/View;
-    .locals 2
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 503
-    invoke-direct {p0, p1}, Lcom/yelp/android/i/a;->b(Landroid/view/Menu;)V
-
-    .line 505
-    if-eqz p1, :cond_0
-
-    iget-object v1, p0, Lcom/yelp/android/i/a;->h:Landroid/support/v7/internal/view/menu/g;
-
-    if-nez v1, :cond_1
-
-    .line 512
-    :cond_0
-    :goto_0
-    return-object v0
-
-    .line 509
-    :cond_1
-    iget-object v1, p0, Lcom/yelp/android/i/a;->h:Landroid/support/v7/internal/view/menu/g;
-
-    invoke-virtual {v1}, Landroid/support/v7/internal/view/menu/g;->a()Landroid/widget/ListAdapter;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/widget/ListAdapter;->getCount()I
-
-    move-result v1
-
-    if-lez v1, :cond_0
-
-    .line 510
-    iget-object v0, p0, Lcom/yelp/android/i/a;->h:Landroid/support/v7/internal/view/menu/g;
-
-    iget-object v1, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v1}, Landroid/support/v7/internal/widget/ah;->a()Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/internal/view/menu/g;->a(Landroid/view/ViewGroup;)Landroid/support/v7/internal/view/menu/z;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/View;
-
-    goto :goto_0
-.end method
-
-.method static synthetic a(Lcom/yelp/android/i/a;Landroid/view/Menu;)Landroid/view/View;
+.method static constructor <clinit>()V
     .locals 1
 
     .prologue
-    .line 52
-    invoke-direct {p0, p1}, Lcom/yelp/android/i/a;->a(Landroid/view/Menu;)Landroid/view/View;
+    .line 34
+    const/16 v0, 0xc9
 
-    move-result-object v0
+    new-array v0, v0, [F
 
-    return-object v0
-.end method
+    fill-array-data v0, :array_0
 
-.method static synthetic a(Lcom/yelp/android/i/a;)Lcom/yelp/android/i/h;
-    .locals 1
+    sput-object v0, Lcom/yelp/android/i/a;->a:[F
 
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/i/a;->c:Lcom/yelp/android/i/h;
-
-    return-object v0
-.end method
-
-.method static synthetic a(Lcom/yelp/android/i/a;Z)Z
-    .locals 0
-
-    .prologue
-    .line 52
-    iput-boolean p1, p0, Lcom/yelp/android/i/a;->b:Z
-
-    return p1
-.end method
-
-.method private b(Landroid/view/Menu;)V
-    .locals 5
-
-    .prologue
-    const/4 v4, 0x1
-
-    .line 516
-    iget-object v0, p0, Lcom/yelp/android/i/a;->h:Landroid/support/v7/internal/view/menu/g;
-
-    if-nez v0, :cond_0
-
-    instance-of v0, p1, Landroid/support/v7/internal/view/menu/i;
-
-    if-eqz v0, :cond_0
-
-    .line 517
-    check-cast p1, Landroid/support/v7/internal/view/menu/i;
-
-    .line 519
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->b()Landroid/content/Context;
-
-    move-result-object v0
-
-    .line 520
-    new-instance v1, Landroid/util/TypedValue;
-
-    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
-
-    .line 521
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->newTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v2
-
-    .line 522
-    invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources$Theme;->setTo(Landroid/content/res/Resources$Theme;)V
-
-    .line 525
-    sget v3, Lcom/yelp/android/g/b;->panelMenuListTheme:I
-
-    invoke-virtual {v2, v3, v1, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    .line 526
-    iget v3, v1, Landroid/util/TypedValue;->resourceId:I
-
-    if-eqz v3, :cond_1
-
-    .line 527
-    iget v1, v1, Landroid/util/TypedValue;->resourceId:I
-
-    invoke-virtual {v2, v1, v4}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
-
-    .line 532
-    :goto_0
-    new-instance v1, Landroid/view/ContextThemeWrapper;
-
-    const/4 v3, 0x0
-
-    invoke-direct {v1, v0, v3}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    .line 533
-    invoke-virtual {v1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources$Theme;->setTo(Landroid/content/res/Resources$Theme;)V
-
-    .line 536
-    new-instance v0, Landroid/support/v7/internal/view/menu/g;
-
-    sget v2, Lcom/yelp/android/g/i;->abc_list_menu_item_layout:I
-
-    invoke-direct {v0, v1, v2}, Landroid/support/v7/internal/view/menu/g;-><init>(Landroid/content/Context;I)V
-
-    iput-object v0, p0, Lcom/yelp/android/i/a;->h:Landroid/support/v7/internal/view/menu/g;
-
-    .line 537
-    iget-object v0, p0, Lcom/yelp/android/i/a;->h:Landroid/support/v7/internal/view/menu/g;
-
-    new-instance v1, Lcom/yelp/android/i/f;
-
-    const/4 v2, 0x0
-
-    invoke-direct {v1, p0, v2}, Lcom/yelp/android/i/f;-><init>(Lcom/yelp/android/i/a;Lcom/yelp/android/i/b;)V
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/internal/view/menu/g;->a(Landroid/support/v7/internal/view/menu/y;)V
-
-    .line 538
-    iget-object v0, p0, Lcom/yelp/android/i/a;->h:Landroid/support/v7/internal/view/menu/g;
-
-    invoke-virtual {p1, v0}, Landroid/support/v7/internal/view/menu/i;->a(Landroid/support/v7/internal/view/menu/x;)V
-
-    .line 540
-    :cond_0
     return-void
 
-    .line 529
-    :cond_1
-    sget v1, Lcom/yelp/android/g/k;->Theme_AppCompat_CompactMenu:I
-
-    invoke-virtual {v2, v1, v4}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
-
-    goto :goto_0
+    :array_0
+    .array-data 4
+        0x0
+        0x38d1b717    # 1.0E-4f
+        0x3951b717    # 2.0E-4f
+        0x3a03126f    # 5.0E-4f
+        0x3a6bedfa    # 9.0E-4f
+        0x3ab78034    # 0.0014f
+        0x3b03126f    # 0.002f
+        0x3b30f27c    # 0.0027f
+        0x3b6bedfa    # 0.0036f
+        0x3b96bb99    # 0.0046f
+        0x3bbe0ded    # 0.0058f
+        0x3be8a71e    # 0.0071f
+        0x3c0b4396    # 0.0085f
+        0x3c257a78    # 0.0101f
+        0x3c4154ca    # 0.0118f
+        0x3c6075f7    # 0.0137f
+        0x3c816f00    # 0.0158f
+        0x3c9374bc    # 0.018f
+        0x3ca7ef9e    # 0.0205f
+        0x3cbd3c36    # 0.0231f
+        0x3cd42c3d    # 0.0259f
+        0x3cecbfb1    # 0.0289f
+        0x3d037b4a
+        0x3d116873    # 0.0355f
+        0x3d202752    # 0.0391f
+        0x3d3020c5    # 0.043f
+        0x3d40ebee    # 0.0471f
+        0x3d5288ce    # 0.0514f
+        0x3d656042    # 0.056f
+        0x3d79096c    # 0.0608f
+        0x3d872b02    # 0.066f
+        0x3d923a2a    # 0.0714f
+        0x3d9de69b    # 0.0771f
+        0x3da9fbe7    # 0.083f
+        0x3db6e2eb    # 0.0893f
+        0x3dc46738    # 0.0959f
+        0x3dd2bd3c    # 0.1029f
+        0x3de17c1c    # 0.1101f
+        0x3df10cb3    # 0.1177f
+        0x3e00b780    # 0.1257f
+        0x3e091d15    # 0.1339f
+        0x3e1205bc    # 0.1426f
+        0x3e1b3d08    # 0.1516f
+        0x3e24dd2f    # 0.161f
+        0x3e2ecbfb    # 0.1707f
+        0x3e3923a3    # 0.1808f
+        0x3e43e426    # 0.1913f
+        0x3e4ef34d    # 0.2021f
+        0x3e5a6b51    # 0.2133f
+        0x3e6631f9    # 0.2248f
+        0x3e724745    # 0.2366f
+        0x3e7eab36    # 0.2487f
+        0x3e85aee6    # 0.2611f
+        0x3e8c2f83    # 0.2738f
+        0x3e92ca58    # 0.2867f
+        0x3e997f63    # 0.2998f
+        0x3ea04ea5    # 0.3131f
+        0x3ea72b02    # 0.3265f
+        0x3eae147b    # 0.34f
+        0x3eb50b0f    # 0.3536f
+        0x3ebc0ebf    # 0.3673f
+        0x3ec3126f    # 0.381f
+        0x3eca0903    # 0.3946f
+        0x3ed0ff97    # 0.4082f
+        0x3ed7e910    # 0.4217f
+        0x3eded289    # 0.4352f
+        0x3ee5a1cb    # 0.4485f
+        0x3eec56d6    # 0.4616f
+        0x3ef2fec5    # 0.4746f
+        0x3ef98c7e    # 0.4874f
+        0x3f000000    # 0.5f
+        0x3f032ca5    # 0.5124f
+        0x3f064c30    # 0.5246f
+        0x3f095810    # 0.5365f
+        0x3f0c56d6    # 0.5482f
+        0x3f0f4880    # 0.5597f
+        0x3f122d0e    # 0.571f
+        0x3f14fdf4    # 0.582f
+        0x3f17c1be    # 0.5928f
+        0x3f1a71de    # 0.6033f
+        0x3f1d14e4    # 0.6136f
+        0x3f1faace    # 0.6237f
+        0x3f222d0e    # 0.6335f
+        0x3f24a234    # 0.6431f
+        0x3f270a3d    # 0.6525f
+        0x3f295e9e    # 0.6616f
+        0x3f2bac71    # 0.6706f
+        0x3f2de69b    # 0.6793f
+        0x3f3013a9    # 0.6878f
+        0x3f32339c    # 0.6961f
+        0x3f344d01    # 0.7043f
+        0x3f3652bd    # 0.7122f
+        0x3f384b5e    # 0.7199f
+        0x3f3a3d71    # 0.7275f
+        0x3f3c2268    # 0.7349f
+        0x3f3dfa44    # 0.7421f
+        0x3f3fc505    # 0.7491f
+        0x3f4182aa    # 0.7559f
+        0x3f4339c1    # 0.7626f
+        0x3f44ea4b    # 0.7692f
+        0x3f468db9    # 0.7756f
+        0x3f48240b    # 0.7818f
+        0x3f49b3d0    # 0.7879f
+        0x3f4b367a    # 0.7938f
+        0x3f4cb296    # 0.7996f
+        0x3f4e2824    # 0.8053f
+        0x3f4f9097    # 0.8108f
+        0x3f50f27c    # 0.8162f
+        0x3f524dd3    # 0.8215f
+        0x3f539c0f    # 0.8266f
+        0x3f54ea4b    # 0.8317f
+        0x3f562b6b    # 0.8366f
+        0x3f5765fe    # 0.8414f
+        0x3f589a02    # 0.8461f
+        0x3f59c77a    # 0.8507f
+        0x3f5ae7d5    # 0.8551f
+        0x3f5c0831    # 0.8595f
+        0x3f5d21ff    # 0.8638f
+        0x3f5e2eb2    # 0.8679f
+        0x3f5f3b64    # 0.872f
+        0x3f604189    # 0.876f
+        0x3f613a93    # 0.8798f
+        0x3f62339c    # 0.8836f
+        0x3f632618    # 0.8873f
+        0x3f641206    # 0.8909f
+        0x3f64fdf4    # 0.8945f
+        0x3f65dcc6    # 0.8979f
+        0x3f66bb99    # 0.9013f
+        0x3f6793de    # 0.9046f
+        0x3f686595    # 0.9078f
+        0x3f6930be    # 0.9109f
+        0x3f69f55a    # 0.9139f
+        0x3f6ab9f5    # 0.9169f
+        0x3f6b7803    # 0.9198f
+        0x3f6c3611    # 0.9227f
+        0x3f6ce704    # 0.9254f
+        0x3f6d97f6    # 0.9281f
+        0x3f6e425b    # 0.9307f
+        0x3f6eecc0    # 0.9333f
+        0x3f6f9097    # 0.9358f
+        0x3f702de0    # 0.9382f
+        0x3f70cb29    # 0.9406f
+        0x3f7161e5    # 0.9429f
+        0x3f71f8a1    # 0.9452f
+        0x3f7288ce    # 0.9474f
+        0x3f73126f    # 0.9495f
+        0x3f739c0f    # 0.9516f
+        0x3f741f21    # 0.9536f
+        0x3f74a234    # 0.9556f
+        0x3f751eb8    # 0.9575f
+        0x3f759b3d    # 0.9594f
+        0x3f761134    # 0.9612f
+        0x3f76809d    # 0.9629f
+        0x3f76f007    # 0.9646f
+        0x3f775f70    # 0.9663f
+        0x3f77c84b    # 0.9679f
+        0x3f783127    # 0.9695f
+        0x3f789375    # 0.971f
+        0x3f78f5c3    # 0.9725f
+        0x3f795183    # 0.9739f
+        0x3f79ad43    # 0.9753f
+        0x3f7a0275    # 0.9766f
+        0x3f7a57a8    # 0.9779f
+        0x3f7aa64c    # 0.9791f
+        0x3f7af4f1    # 0.9803f
+        0x3f7b4396    # 0.9815f
+        0x3f7b8bac    # 0.9826f
+        0x3f7bd3c3    # 0.9837f
+        0x3f7c1bda    # 0.9848f
+        0x3f7c5d64    # 0.9858f
+        0x3f7c985f    # 0.9867f
+        0x3f7cd9e8    # 0.9877f
+        0x3f7d0e56    # 0.9885f
+        0x3f7d4952    # 0.9894f
+        0x3f7d7dbf    # 0.9902f
+        0x3f7db22d    # 0.991f
+        0x3f7de00d    # 0.9917f
+        0x3f7e0ded    # 0.9924f
+        0x3f7e3bcd    # 0.9931f
+        0x3f7e6320    # 0.9937f
+        0x3f7e9100    # 0.9944f
+        0x3f7eb1c4    # 0.9949f
+        0x3f7ed917    # 0.9955f
+        0x3f7ef9db    # 0.996f
+        0x3f7f1412    # 0.9964f
+        0x3f7f34d7    # 0.9969f
+        0x3f7f4f0e    # 0.9973f
+        0x3f7f6944    # 0.9977f
+        0x3f7f7cee    # 0.998f
+        0x3f7f9724    # 0.9984f
+        0x3f7fa440    # 0.9986f
+        0x3f7fb7e9    # 0.9989f
+        0x3f7fc505    # 0.9991f
+        0x3f7fd220    # 0.9993f
+        0x3f7fdf3b    # 0.9995f
+        0x3f7fec57    # 0.9997f
+        0x3f7ff2e5    # 0.9998f
+        0x3f7ff972    # 0.9999f
+        0x3f7ff972    # 0.9999f
+        0x3f800000    # 1.0f
+        0x3f800000    # 1.0f
+    .end array-data
 .end method
 
-.method static synthetic b(Lcom/yelp/android/i/a;)Z
+.method public constructor <init>()V
     .locals 1
 
     .prologue
-    .line 52
-    iget-boolean v0, p0, Lcom/yelp/android/i/a;->b:Z
+    .line 67
+    sget-object v0, Lcom/yelp/android/i/a;->a:[F
 
-    return v0
-.end method
+    invoke-direct {p0, v0}, Lcom/yelp/android/i/b;-><init>([F)V
 
-.method static synthetic c(Lcom/yelp/android/i/a;)Landroid/support/v7/internal/widget/ah;
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    return-object v0
-.end method
-
-.method static synthetic d(Lcom/yelp/android/i/a;)Landroid/view/Window;
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/i/a;->g:Landroid/view/Window;
-
-    return-object v0
-.end method
-
-.method private k()Landroid/view/Menu;
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 574
-    iget-boolean v0, p0, Lcom/yelp/android/i/a;->d:Z
-
-    if-nez v0, :cond_0
-
-    .line 575
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    new-instance v1, Lcom/yelp/android/i/d;
-
-    invoke-direct {v1, p0, v3}, Lcom/yelp/android/i/d;-><init>(Lcom/yelp/android/i/a;Lcom/yelp/android/i/b;)V
-
-    new-instance v2, Lcom/yelp/android/i/e;
-
-    invoke-direct {v2, p0, v3}, Lcom/yelp/android/i/e;-><init>(Lcom/yelp/android/i/a;Lcom/yelp/android/i/b;)V
-
-    invoke-interface {v0, v1, v2}, Landroid/support/v7/internal/widget/ah;->a(Landroid/support/v7/internal/view/menu/y;Landroid/support/v7/internal/view/menu/j;)V
-
-    .line 577
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/i/a;->d:Z
-
-    .line 579
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->t()Landroid/view/Menu;
-
-    move-result-object v0
-
-    return-object v0
+    .line 68
+    return-void
 .end method
 
 
 # virtual methods
-.method public a()Landroid/view/View;
+.method public bridge synthetic getInterpolation(F)F
     .locals 1
 
     .prologue
-    .line 302
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->r()Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public a(Lcom/yelp/android/m/b;)Lcom/yelp/android/m/a;
-    .locals 1
-
-    .prologue
-    .line 204
-    iget-object v0, p0, Lcom/yelp/android/i/a;->c:Lcom/yelp/android/i/h;
-
-    invoke-interface {v0, p1}, Lcom/yelp/android/i/h;->a(Lcom/yelp/android/m/b;)Lcom/yelp/android/m/a;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public a(F)V
-    .locals 1
-
-    .prologue
-    .line 149
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->a()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    invoke-static {v0, p1}, Landroid/support/v4/view/ce;->f(Landroid/view/View;F)V
-
-    .line 150
-    return-void
-.end method
-
-.method public a(I)V
-    .locals 3
-
-    .prologue
-    .line 108
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->b()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    .line 109
-    iget-object v1, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v1}, Landroid/support/v7/internal/widget/ah;->a()Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, p1, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/i/a;->a(Landroid/view/View;)V
-
-    .line 110
-    return-void
-.end method
-
-.method public a(II)V
-    .locals 4
-
-    .prologue
-    .line 266
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->p()I
-
-    move-result v0
-
-    .line 267
-    iget-object v1, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    and-int v2, p1, p2
-
-    xor-int/lit8 v3, p2, -0x1
-
-    and-int/2addr v0, v3
-
-    or-int/2addr v0, v2
-
-    invoke-interface {v1, v0}, Landroid/support/v7/internal/widget/ah;->c(I)V
-
-    .line 268
-    return-void
-.end method
-
-.method public a(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    .prologue
-    .line 199
-    invoke-super {p0, p1}, Landroid/support/v7/app/ActionBar;->a(Landroid/content/res/Configuration;)V
-
-    .line 200
-    return-void
-.end method
-
-.method public a(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    .prologue
-    .line 297
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/ah;->c(Landroid/graphics/drawable/Drawable;)V
-
-    .line 298
-    return-void
-.end method
-
-.method public a(Landroid/support/v7/app/a;)V
-    .locals 1
-
-    .prologue
-    .line 483
-    iget-object v0, p0, Lcom/yelp/android/i/a;->f:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    .line 484
-    return-void
-.end method
-
-.method public a(Landroid/view/View;)V
-    .locals 2
-
-    .prologue
-    const/4 v1, -0x2
-
-    .line 97
-    new-instance v0, Landroid/support/v7/app/ActionBar$LayoutParams;
-
-    invoke-direct {v0, v1, v1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(II)V
-
-    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/i/a;->a(Landroid/view/View;Landroid/support/v7/app/ActionBar$LayoutParams;)V
-
-    .line 98
-    return-void
-.end method
-
-.method public a(Landroid/view/View;Landroid/support/v7/app/ActionBar$LayoutParams;)V
-    .locals 1
-
-    .prologue
-    .line 102
-    invoke-virtual {p1, p2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 103
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/ah;->a(Landroid/view/View;)V
-
-    .line 104
-    return-void
-.end method
-
-.method public a(Ljava/lang/CharSequence;)V
-    .locals 1
-
-    .prologue
-    .line 236
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/ah;->b(Ljava/lang/CharSequence;)V
-
-    .line 237
-    return-void
-.end method
-
-.method public a(Z)V
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x4
-
-    .line 282
-    if-eqz p1, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/i/a;->a(II)V
-
-    .line 283
-    return-void
-
-    .line 282
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public a(ILandroid/view/KeyEvent;)Z
-    .locals 2
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 478
-    invoke-direct {p0}, Lcom/yelp/android/i/a;->k()Landroid/view/Menu;
-
-    move-result-object v1
-
-    .line 479
-    if-eqz v1, :cond_0
-
-    invoke-interface {v1, p1, p2, v0}, Landroid/view/Menu;->performShortcut(ILandroid/view/KeyEvent;I)Z
-
-    move-result v0
-
-    :cond_0
-    return v0
-.end method
-
-.method public b()I
-    .locals 1
-
-    .prologue
-    .line 330
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->p()I
+    .line 28
+    invoke-super {p0, p1}, Lcom/yelp/android/i/b;->getInterpolation(F)F
 
     move-result v0
 
     return v0
-.end method
-
-.method public b(I)V
-    .locals 2
-
-    .prologue
-    .line 241
-    iget-object v1, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    if-eqz p1, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->b()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v1, v0}, Landroid/support/v7/internal/widget/ah;->b(Ljava/lang/CharSequence;)V
-
-    .line 242
-    return-void
-
-    .line 241
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public b(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    .prologue
-    .line 169
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/ah;->b(Landroid/graphics/drawable/Drawable;)V
-
-    .line 170
-    return-void
-.end method
-
-.method public b(Ljava/lang/CharSequence;)V
-    .locals 1
-
-    .prologue
-    .line 246
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/ah;->a(Ljava/lang/CharSequence;)V
-
-    .line 247
-    return-void
-.end method
-
-.method public b(Z)V
-    .locals 2
-
-    .prologue
-    const/16 v1, 0x8
-
-    .line 287
-    if-eqz p1, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/i/a;->a(II)V
-
-    .line 288
-    return-void
-
-    .line 287
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public c()I
-    .locals 1
-
-    .prologue
-    .line 406
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->s()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public c(I)V
-    .locals 1
-
-    .prologue
-    .line 189
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/ah;->e(I)V
-
-    .line 190
-    return-void
-.end method
-
-.method public c(Z)V
-    .locals 2
-
-    .prologue
-    const/16 v1, 0x10
-
-    .line 292
-    if-eqz p1, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/i/a;->a(II)V
-
-    .line 293
-    return-void
-
-    .line 292
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public d()V
-    .locals 2
-
-    .prologue
-    .line 413
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Landroid/support/v7/internal/widget/ah;->f(I)V
-
-    .line 414
-    return-void
-.end method
-
-.method public d(Z)V
-    .locals 0
-
-    .prologue
-    .line 145
-    return-void
-.end method
-
-.method public e()V
-    .locals 2
-
-    .prologue
-    .line 420
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    const/16 v1, 0x8
-
-    invoke-interface {v0, v1}, Landroid/support/v7/internal/widget/ah;->f(I)V
-
-    .line 421
-    return-void
-.end method
-
-.method public f()Landroid/content/Context;
-    .locals 1
-
-    .prologue
-    .line 159
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->b()Landroid/content/Context;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public f(Z)V
-    .locals 0
-
-    .prologue
-    .line 185
-    return-void
-.end method
-
-.method public g(Z)V
-    .locals 0
-
-    .prologue
-    .line 195
-    return-void
-.end method
-
-.method public g()Z
-    .locals 2
-
-    .prologue
-    .line 435
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->a()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/i/a;->i:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    .line 436
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->a()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/i/a;->i:Ljava/lang/Runnable;
-
-    invoke-static {v0, v1}, Landroid/support/v4/view/ce;->a(Landroid/view/View;Ljava/lang/Runnable;)V
-
-    .line 437
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method public h(Z)V
-    .locals 3
-
-    .prologue
-    .line 491
-    iget-boolean v0, p0, Lcom/yelp/android/i/a;->e:Z
-
-    if-ne p1, v0, :cond_1
-
-    .line 500
-    :cond_0
-    return-void
-
-    .line 494
-    :cond_1
-    iput-boolean p1, p0, Lcom/yelp/android/i/a;->e:Z
-
-    .line 496
-    iget-object v0, p0, Lcom/yelp/android/i/a;->f:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    .line 497
-    const/4 v0, 0x0
-
-    move v1, v0
-
-    :goto_0
-    if-ge v1, v2, :cond_0
-
-    .line 498
-    iget-object v0, p0, Lcom/yelp/android/i/a;->f:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/support/v7/app/a;
-
-    invoke-interface {v0, p1}, Landroid/support/v7/app/a;->a(Z)V
-
-    .line 497
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
-
-    goto :goto_0
-.end method
-
-.method public h()Z
-    .locals 1
-
-    .prologue
-    .line 442
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->d()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 443
-    iget-object v0, p0, Lcom/yelp/android/i/a;->a:Landroid/support/v7/internal/widget/ah;
-
-    invoke-interface {v0}, Landroid/support/v7/internal/widget/ah;->e()V
-
-    .line 444
-    const/4 v0, 0x1
-
-    .line 446
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public i()Lcom/yelp/android/i/h;
-    .locals 1
-
-    .prologue
-    .line 92
-    iget-object v0, p0, Lcom/yelp/android/i/a;->c:Lcom/yelp/android/i/h;
-
-    return-object v0
-.end method
-
-.method j()V
-    .locals 5
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 450
-    invoke-direct {p0}, Lcom/yelp/android/i/a;->k()Landroid/view/Menu;
-
-    move-result-object v1
-
-    .line 451
-    instance-of v2, v1, Landroid/support/v7/internal/view/menu/i;
-
-    if-eqz v2, :cond_4
-
-    move-object v0, v1
-
-    check-cast v0, Landroid/support/v7/internal/view/menu/i;
-
-    move-object v2, v0
-
-    .line 452
-    :goto_0
-    if-eqz v2, :cond_0
-
-    .line 453
-    invoke-virtual {v2}, Landroid/support/v7/internal/view/menu/i;->g()V
-
-    .line 456
-    :cond_0
-    :try_start_0
-    invoke-interface {v1}, Landroid/view/Menu;->clear()V
-
-    .line 457
-    iget-object v0, p0, Lcom/yelp/android/i/a;->c:Lcom/yelp/android/i/h;
-
-    const/4 v3, 0x0
-
-    invoke-interface {v0, v3, v1}, Lcom/yelp/android/i/h;->a(ILandroid/view/Menu;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/yelp/android/i/a;->c:Lcom/yelp/android/i/h;
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    invoke-interface {v0, v3, v4, v1}, Lcom/yelp/android/i/h;->a(ILandroid/view/View;Landroid/view/Menu;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 459
-    :cond_1
-    invoke-interface {v1}, Landroid/view/Menu;->clear()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 462
-    :cond_2
-    if-eqz v2, :cond_3
-
-    .line 463
-    invoke-virtual {v2}, Landroid/support/v7/internal/view/menu/i;->h()V
-
-    .line 466
-    :cond_3
-    return-void
-
-    :cond_4
-    move-object v2, v0
-
-    .line 451
-    goto :goto_0
-
-    .line 462
-    :catchall_0
-    move-exception v0
-
-    if-eqz v2, :cond_5
-
-    .line 463
-    invoke-virtual {v2}, Landroid/support/v7/internal/view/menu/i;->h()V
-
-    :cond_5
-    throw v0
 .end method

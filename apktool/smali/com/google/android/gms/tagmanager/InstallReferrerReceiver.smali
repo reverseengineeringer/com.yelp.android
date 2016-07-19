@@ -1,59 +1,39 @@
 .class public final Lcom/google/android/gms/tagmanager/InstallReferrerReceiver;
-.super Landroid/content/BroadcastReceiver;
+.super Lcom/google/android/gms/analytics/CampaignTrackingReceiver;
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Lcom/google/android/gms/analytics/CampaignTrackingReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+.method protected a()Ljava/lang/Class;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/lang/Class",
+            "<+",
+            "Lcom/google/android/gms/analytics/CampaignTrackingService;",
+            ">;"
+        }
+    .end annotation
 
-    const-string/jumbo v0, "referrer"
+    const-class v0, Lcom/google/android/gms/tagmanager/InstallReferrerService;
 
-    invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v0
+.method protected a(Ljava/lang/String;)V
+    .locals 0
 
-    const-string/jumbo v1, "com.android.vending.INSTALL_REFERRER"
+    invoke-static {p1}, Lcom/google/android/gms/tagmanager/l;->a(Ljava/lang/String;)V
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    :goto_0
     return-void
-
-    :cond_1
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/ay;->cH(Ljava/lang/String;)V
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-class v2, Lcom/google/android/gms/tagmanager/InstallReferrerService;
-
-    invoke-direct {v1, p1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    const-string/jumbo v2, "referrer"
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    goto :goto_0
 .end method

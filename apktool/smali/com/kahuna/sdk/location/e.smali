@@ -79,7 +79,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->connect()V
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->connect()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -110,7 +110,7 @@
 
     invoke-direct {v0, v1}, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;-><init>(Landroid/content/Context;)V
 
-    sget-object v1, Lcom/google/android/gms/location/LocationServices;->API:Lcom/google/android/gms/common/api/Api;
+    sget-object v1, Lcom/google/android/gms/location/l;->a:Lcom/google/android/gms/common/api/Api;
 
     invoke-virtual {v0, v1}, Lcom/google/android/gms/common/api/GoogleApiClient$Builder;->addApi(Lcom/google/android/gms/common/api/Api;)Lcom/google/android/gms/common/api/GoogleApiClient$Builder;
 
@@ -152,17 +152,17 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->disconnect()V
+    invoke-virtual {v0}, Lcom/google/android/gms/common/api/GoogleApiClient;->disconnect()V
 
     .line 142
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 143
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "Location Services client disconnected."
 
@@ -201,14 +201,14 @@
     if-eqz v0, :cond_1
 
     .line 203
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 204
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -242,14 +242,14 @@
 
     .line 207
     :cond_1
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 208
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -288,6 +288,13 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;,
+            Ljava/lang/UnsupportedOperationException;
+        }
+    .end annotation
+
     .prologue
     .line 86
     if-eqz p1, :cond_0
@@ -300,14 +307,14 @@
 
     .line 87
     :cond_0
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     .line 88
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "No valid geofences, ignoring."
 
@@ -338,14 +345,14 @@
 
     .prologue
     .line 162
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 163
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "Location Services client connected."
 
@@ -354,18 +361,18 @@
     .line 168
     :cond_0
     :try_start_0
-    sget-object v0, Lcom/google/android/gms/location/LocationServices;->GeofencingApi:Lcom/google/android/gms/location/GeofencingApi;
+    sget-object v0, Lcom/google/android/gms/location/l;->c:Lcom/google/android/gms/location/g;
 
     iget-object v1, p0, Lcom/kahuna/sdk/location/e;->c:Lcom/google/android/gms/common/api/GoogleApiClient;
 
     iget-object v2, p0, Lcom/kahuna/sdk/location/e;->b:Ljava/util/List;
 
-    invoke-interface {v0, v1, v2}, Lcom/google/android/gms/location/GeofencingApi;->removeGeofences(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/util/List;)Lcom/google/android/gms/common/api/PendingResult;
+    invoke-interface {v0, v1, v2}, Lcom/google/android/gms/location/g;->a(Lcom/google/android/gms/common/api/GoogleApiClient;Ljava/util/List;)Lcom/google/android/gms/common/api/PendingResult;
 
     move-result-object v0
 
     .line 169
-    invoke-interface {v0, p0}, Lcom/google/android/gms/common/api/PendingResult;->setResultCallback(Lcom/google/android/gms/common/api/ResultCallback;)V
+    invoke-virtual {v0, p0}, Lcom/google/android/gms/common/api/PendingResult;->setResultCallback(Lcom/google/android/gms/common/api/ResultCallback;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -379,14 +386,14 @@
     move-exception v0
 
     .line 172
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 173
-    const-string/jumbo v1, "KahunaEngine"
+    const-string/jumbo v1, "Kahuna"
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -421,21 +428,21 @@
     iput-boolean v0, p0, Lcom/kahuna/sdk/location/e;->d:Z
 
     .line 190
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 191
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "Removal: Received connection failed event while attempt geofencing connection."
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 192
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     new-instance v1, Ljava/lang/StringBuilder;
 

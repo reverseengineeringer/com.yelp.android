@@ -1,13 +1,49 @@
 package com.google.android.gms.internal;
 
-import android.graphics.drawable.Drawable;
-
-public final class jc
-  extends kj<jc.a, Drawable>
+public class jc<T>
 {
-  public jc()
+  public final T a;
+  public final u.a b;
+  public final zzr c;
+  public boolean d = false;
+  
+  private jc(zzr paramzzr)
   {
-    super(10);
+    a = null;
+    b = null;
+    c = paramzzr;
+  }
+  
+  private jc(T paramT, u.a parama)
+  {
+    a = paramT;
+    b = parama;
+    c = null;
+  }
+  
+  public static <T> jc<T> a(zzr paramzzr)
+  {
+    return new jc(paramzzr);
+  }
+  
+  public static <T> jc<T> a(T paramT, u.a parama)
+  {
+    return new jc(paramT, parama);
+  }
+  
+  public boolean a()
+  {
+    return c == null;
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(zzr paramzzr);
+  }
+  
+  public static abstract interface b<T>
+  {
+    public abstract void a(T paramT);
   }
 }
 

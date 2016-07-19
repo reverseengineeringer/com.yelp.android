@@ -1,79 +1,177 @@
 .class public Lcom/google/android/gms/internal/kg;
-.super Lcom/google/android/gms/internal/jl;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/google/android/gms/internal/jl",
-        "<",
-        "Lcom/google/android/gms/internal/ki;",
-        ">;"
-    }
-.end annotation
+.super Ljava/lang/Object;
 
 
 # direct methods
-.method public varargs constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/common/api/GoogleApiClient$ConnectionCallbacks;Lcom/google/android/gms/common/api/GoogleApiClient$OnConnectionFailedListener;[Ljava/lang/String;)V
-    .locals 0
+.method public static a(II)Ljava/lang/String;
+    .locals 5
 
-    invoke-direct/range {p0 .. p5}, Lcom/google/android/gms/internal/jl;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/google/android/gms/common/api/GoogleApiClient$ConnectionCallbacks;Lcom/google/android/gms/common/api/GoogleApiClient$OnConnectionFailedListener;[Ljava/lang/String;)V
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
-    return-void
-.end method
+    move-result-object v0
 
+    invoke-virtual {v0}, Ljava/lang/Thread;->getStackTrace()[Ljava/lang/StackTraceElement;
 
-# virtual methods
-.method protected T(Landroid/os/IBinder;)Lcom/google/android/gms/internal/ki;
-    .locals 1
+    move-result-object v0
 
-    invoke-static {p1}, Lcom/google/android/gms/internal/ki$a;->V(Landroid/os/IBinder;)Lcom/google/android/gms/internal/ki;
+    new-instance v1, Ljava/lang/StringBuffer;
+
+    invoke-direct {v1}, Ljava/lang/StringBuffer;-><init>()V
+
+    add-int v2, p1, p0
+
+    :goto_0
+    if-ge p0, v2, :cond_0
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/internal/kg;->a([Ljava/lang/StackTraceElement;I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    move-result-object v3
+
+    const-string/jumbo v4, " "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+
+    add-int/lit8 p0, p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method protected a(Lcom/google/android/gms/internal/jt;Lcom/google/android/gms/internal/jl$e;)V
-    .locals 2
-
-    const v0, 0x648278
-
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/kg;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {p1, p2, v0, v1}, Lcom/google/android/gms/internal/jt;->j(Lcom/google/android/gms/internal/js;ILjava/lang/String;)V
-
-    return-void
-.end method
-
-.method public bK()Ljava/lang/String;
+.method public static a(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
 
-    const-string/jumbo v0, "com.google.android.gms.common.service.START"
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    return-object v0
-.end method
+    move-result v0
 
-.method protected bL()Ljava/lang/String;
-    .locals 1
-
-    const-string/jumbo v0, "com.google.android.gms.common.internal.service.ICommonService"
-
-    return-object v0
-.end method
-
-.method protected synthetic l(Landroid/os/IBinder;)Landroid/os/IInterface;
-    .locals 1
-
-    invoke-virtual {p0, p1}, Lcom/google/android/gms/internal/kg;->T(Landroid/os/IBinder;)Lcom/google/android/gms/internal/ki;
+    invoke-static {p0, v0}, Lcom/google/android/gms/internal/kg;->a(Landroid/content/Context;I)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public static a(Landroid/content/Context;I)Ljava/lang/String;
+    .locals 3
+
+    const-string/jumbo v0, "activity"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager;
+
+    invoke-virtual {v0}, Landroid/app/ActivityManager;->getRunningAppProcesses()Ljava/util/List;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager$RunningAppProcessInfo;
+
+    iget v2, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
+
+    if-ne v2, p1, :cond_0
+
+    iget-object v0, v0, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
+
+    :goto_0
+    return-object v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private static a([Ljava/lang/StackTraceElement;I)Ljava/lang/String;
+    .locals 3
+
+    add-int/lit8 v0, p1, 0x4
+
+    array-length v1, p0
+
+    if-lt v0, v1, :cond_0
+
+    const-string/jumbo v0, "<bottom of call stack>"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    add-int/lit8 v0, p1, 0x4
+
+    aget-object v0, p0, v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0}, Ljava/lang/StackTraceElement;->getClassName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/StackTraceElement;->getMethodName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, ":"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Ljava/lang/StackTraceElement;->getLineNumber()I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method

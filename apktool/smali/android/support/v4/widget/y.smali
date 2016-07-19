@@ -1,53 +1,92 @@
-.class Landroid/support/v4/widget/y;
+.class public Landroid/support/v4/widget/y;
 .super Ljava/lang/Object;
-.source "DrawerLayoutCompatApi21.java"
+.source "TextViewCompat.java"
 
-# interfaces
-.implements Landroid/view/View$OnApplyWindowInsetsListener;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/widget/y$c;,
+        Landroid/support/v4/widget/y$b;,
+        Landroid/support/v4/widget/y$a;,
+        Landroid/support/v4/widget/y$d;
+    }
+.end annotation
+
+
+# static fields
+.field static final a:Landroid/support/v4/widget/y$d;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 2
 
     .prologue
-    .line 86
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 129
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    return-void
-.end method
+    .line 130
+    const/16 v1, 0x12
 
+    if-lt v0, v1, :cond_0
 
-# virtual methods
-.method public onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 1
+    .line 131
+    new-instance v0, Landroid/support/v4/widget/y$c;
 
-    .prologue
-    .line 89
-    check-cast p1, Landroid/support/v4/widget/z;
+    invoke-direct {v0}, Landroid/support/v4/widget/y$c;-><init>()V
 
-    .line 90
-    invoke-virtual {p2}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
+    sput-object v0, Landroid/support/v4/widget/y;->a:Landroid/support/v4/widget/y$d;
 
-    move-result v0
-
-    if-lez v0, :cond_0
-
-    const/4 v0, 0x1
-
+    .line 137
     :goto_0
-    invoke-interface {p1, p2, v0}, Landroid/support/v4/widget/z;->a(Ljava/lang/Object;Z)V
+    return-void
 
-    .line 91
-    invoke-virtual {p2}, Landroid/view/WindowInsets;->consumeSystemWindowInsets()Landroid/view/WindowInsets;
-
-    move-result-object v0
-
-    return-object v0
-
-    .line 90
+    .line 132
     :cond_0
-    const/4 v0, 0x0
+    const/16 v1, 0x11
+
+    if-lt v0, v1, :cond_1
+
+    .line 133
+    new-instance v0, Landroid/support/v4/widget/y$b;
+
+    invoke-direct {v0}, Landroid/support/v4/widget/y$b;-><init>()V
+
+    sput-object v0, Landroid/support/v4/widget/y;->a:Landroid/support/v4/widget/y$d;
 
     goto :goto_0
+
+    .line 135
+    :cond_1
+    new-instance v0, Landroid/support/v4/widget/y$a;
+
+    invoke-direct {v0}, Landroid/support/v4/widget/y$a;-><init>()V
+
+    sput-object v0, Landroid/support/v4/widget/y;->a:Landroid/support/v4/widget/y$d;
+
+    goto :goto_0
+.end method
+
+.method public static a(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    .locals 6
+
+    .prologue
+    .line 157
+    sget-object v0, Landroid/support/v4/widget/y;->a:Landroid/support/v4/widget/y$d;
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-interface/range {v0 .. v5}, Landroid/support/v4/widget/y$d;->a(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    .line 158
+    return-void
 .end method

@@ -3,13 +3,24 @@
 .source "BusinessContributionType.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/BusinessContributionType;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4008
+    name = null
+.end annotation
+
+
 # direct methods
-.method constructor <init>(Ljava/lang/String;IILjava/lang/String;Z)V
-    .locals 7
+.method constructor <init>(Ljava/lang/String;IILjava/lang/String;)V
+    .locals 6
 
     .prologue
-    .line 23
-    const/4 v6, 0x0
+    .line 21
+    const/4 v5, 0x0
 
     move-object v0, p0
 
@@ -21,9 +32,7 @@
 
     move-object v4, p4
 
-    move v5, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/BusinessContributionType;-><init>(Ljava/lang/String;IILjava/lang/String;ZLcom/yelp/android/appdata/BusinessContributionType$1;)V
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/BusinessContributionType;-><init>(Ljava/lang/String;IILjava/lang/String;Lcom/yelp/android/appdata/BusinessContributionType$1;)V
 
     return-void
 .end method
@@ -34,8 +43,8 @@
     .locals 1
 
     .prologue
-    .line 30
-    invoke-static {p1, p2}, Lcom/yelp/android/ui/activities/ActivityCheckIn;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
+    .line 28
+    invoke-static {p1, p2}, Lcom/yelp/android/ui/activities/ActivityCheckIn;->b(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Landroid/content/Intent;
 
     move-result-object v0
 

@@ -1,646 +1,599 @@
-.class public Lcom/yelp/android/ui/h;
-.super Landroid/widget/BaseAdapter;
-.source "DinoAnimationAdapter.java"
+.class Lcom/yelp/android/ui/h;
+.super Lcom/yelp/android/appdata/webrequests/k$b;
+.source "ActivityMonocle.java"
 
-# interfaces
-.implements Lcom/yelp/android/ui/util/j;
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/yelp/android/appdata/webrequests/k$b",
+        "<",
+        "Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;",
+        ">;"
+    }
+.end annotation
 
 
 # static fields
-.field private static final a:I
-
-.field private static final b:[I
+.field public static a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
 
 # instance fields
-.field private c:Lcom/yelp/android/DinoListView;
+.field private final b:Lcom/yelp/android/ui/ActivityMonocle;
 
-.field private d:[I
+.field private final c:Lcom/yelp/android/ui/MonocleEngine;
 
-.field private e:Landroid/content/Context;
+.field private final d:Lcom/yelp/android/ui/g;
 
-.field private f:Z
+.field private final e:Landroid/view/SurfaceView;
 
-.field private g:Z
-
-.field private h:Landroid/graphics/Paint;
+.field private f:Lcom/yelp/android/serializable/Category;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public constructor <init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/MonocleEngine;Lcom/yelp/android/ui/g;Landroid/view/SurfaceView;)V
     .locals 1
 
     .prologue
-    .line 36
-    const/16 v0, 0x61
+    .line 632
+    invoke-direct {p0}, Lcom/yelp/android/appdata/webrequests/k$b;-><init>()V
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/ao;->a(I)I
+    .line 626
+    const/4 v0, 0x0
 
-    move-result v0
+    iput-object v0, p0, Lcom/yelp/android/ui/h;->f:Lcom/yelp/android/serializable/Category;
 
-    sput v0, Lcom/yelp/android/ui/h;->a:I
+    .line 633
+    iput-object p1, p0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
 
-    .line 37
-    const/16 v0, 0x12
+    .line 634
+    iput-object p2, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/ui/MonocleEngine;
 
-    new-array v0, v0, [I
+    .line 635
+    iput-object p3, p0, Lcom/yelp/android/ui/h;->d:Lcom/yelp/android/ui/g;
 
-    fill-array-data v0, :array_0
+    .line 636
+    iput-object p4, p0, Lcom/yelp/android/ui/h;->e:Landroid/view/SurfaceView;
 
-    sput-object v0, Lcom/yelp/android/ui/h;->b:[I
-
-    return-void
-
-    :array_0
-    .array-data 4
-        0x7f020181
-        0x7f02018b
-        0x7f02018c
-        0x7f02018d
-        0x7f02018e
-        0x7f02018f
-        0x7f020190
-        0x7f020191
-        0x7f020192
-        0x7f020182
-        0x7f020183
-        0x7f020184
-        0x7f020185
-        0x7f020186
-        0x7f020187
-        0x7f020188
-        0x7f020189
-        0x7f02018a
-    .end array-data
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/DinoListView;)V
-    .locals 6
-
-    .prologue
-    const/4 v4, 0x0
-
-    const/4 v1, 0x1
-
-    .line 66
-    invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
-
-    .line 67
-    iput-object p1, p0, Lcom/yelp/android/ui/h;->e:Landroid/content/Context;
-
-    .line 68
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    .line 69
-    iput-object p2, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/DinoListView;
-
-    .line 71
-    iput-boolean v1, p0, Lcom/yelp/android/ui/h;->f:Z
-
-    .line 72
-    iput-boolean v1, p0, Lcom/yelp/android/ui/h;->g:Z
-
-    .line 74
-    sget-object v0, Lcom/yelp/android/ui/h;->b:[I
-
-    array-length v0, v0
-
-    new-array v0, v0, [I
-
-    iput-object v0, p0, Lcom/yelp/android/ui/h;->d:[I
-
-    .line 75
-    iget-object v3, p0, Lcom/yelp/android/ui/h;->d:[I
-
-    sget-object v0, Lcom/yelp/android/ui/h;->b:[I
-
-    aget v0, v0, v4
-
-    invoke-static {v2, v0}, Lcom/yelp/android/ui/util/cp;->a(Landroid/content/res/Resources;I)Landroid/util/Pair;
-
-    move-result-object v0
-
-    iget-object v0, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    aput v0, v3, v4
-
-    .line 78
-    :goto_0
-    sget-object v0, Lcom/yelp/android/ui/h;->b:[I
-
-    array-length v0, v0
-
-    if-ge v1, v0, :cond_0
-
-    .line 79
-    iget-object v3, p0, Lcom/yelp/android/ui/h;->d:[I
-
-    sget-object v0, Lcom/yelp/android/ui/h;->b:[I
-
-    aget v0, v0, v1
-
-    invoke-static {v2, v0}, Lcom/yelp/android/ui/util/cp;->a(Landroid/content/res/Resources;I)Landroid/util/Pair;
-
-    move-result-object v0
-
-    iget-object v0, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    iget-object v4, p0, Lcom/yelp/android/ui/h;->d:[I
-
-    add-int/lit8 v5, v1, -0x1
-
-    aget v4, v4, v5
-
-    add-int/2addr v0, v4
-
-    aput v0, v3, v1
-
-    .line 78
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
-
-    goto :goto_0
-
-    .line 83
-    :cond_0
-    new-instance v0, Landroid/graphics/Paint;
-
-    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/h;->h:Landroid/graphics/Paint;
-
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->h:Landroid/graphics/Paint;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0a000c
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
-
-    .line 85
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->h:Landroid/graphics/Paint;
-
-    sget v1, Lcom/yelp/android/ui/h;->a:I
-
-    int-to-float v1, v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
-
-    .line 86
+    .line 637
     return-void
 .end method
 
 
 # virtual methods
-.method public a()I
+.method public a(Landroid/location/Location;)V
     .locals 2
 
     .prologue
-    .line 171
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->d:[I
+    .line 734
+    const-string/jumbo v0, "SEARCH"
 
-    const/16 v1, 0x8
+    const-string/jumbo v1, "Starting HTTP Request"
 
-    aget v0, v0, v1
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v0
+    .line 735
+    return-void
 .end method
 
-.method public a(I)Ljava/lang/Integer;
-    .locals 1
+.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;)V
+    .locals 18
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
+            "<***>;",
+            "Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;",
+            ")V"
+        }
+    .end annotation
 
     .prologue
-    .line 162
-    sget-object v0, Lcom/yelp/android/ui/h;->b:[I
+    .line 668
+    .line 669
+    move-object/from16 v0, p1
 
-    aget v0, v0, p1
+    instance-of v2, v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    if-nez v2, :cond_0
 
-    move-result-object v0
+    .line 670
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    return-object v0
+    const-string/jumbo v3, "Cannot use this request object"
+
+    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    .line 672
+    :cond_0
+    check-cast p1, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 673
+    invoke-interface/range {p2 .. p2}, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;->b()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/yelp/android/serializable/BusinessSearchResult;->b(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v12
+
+    .line 676
+    const-string/jumbo v2, "SEARCH"
+
+    const-string/jumbo v3, "done"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 677
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->e:Landroid/view/SurfaceView;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroid/view/SurfaceView;->setVisibility(I)V
+
+    .line 678
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->e:Landroid/view/SurfaceView;
+
+    const/16 v3, 0x3ec
+
+    invoke-static {v2, v3}, Lcom/yelp/android/ui/m;->b(Landroid/view/SurfaceView;I)V
+
+    .line 680
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/ui/MonocleEngine;
+
+    invoke-virtual/range {p1 .. p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->f()Landroid/location/Location;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/location/Location;->getLatitude()D
+
+    move-result-wide v4
+
+    double-to-float v3, v4
+
+    invoke-virtual/range {p1 .. p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->f()Landroid/location/Location;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/location/Location;->getLongitude()D
+
+    move-result-wide v4
+
+    double-to-float v4, v4
+
+    invoke-virtual {v2, v3, v4}, Lcom/yelp/android/ui/MonocleEngine;->SetLocation(FF)V
+
+    .line 684
+    new-instance v13, Lcom/yelp/android/ui/panels/d;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    invoke-direct {v13, v2}, Lcom/yelp/android/ui/panels/d;-><init>(Landroid/content/Context;)V
+
+    .line 685
+    invoke-virtual {v13}, Lcom/yelp/android/ui/panels/d;->a()V
+
+    .line 687
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/ui/MonocleEngine;
+
+    invoke-virtual {v2}, Lcom/yelp/android/ui/MonocleEngine;->ClearObjects()V
+
+    .line 688
+    const/4 v3, 0x0
+
+    .line 689
+    new-instance v14, Lcom/yelp/android/ui/c;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    invoke-direct {v14, v2}, Lcom/yelp/android/ui/c;-><init>(Landroid/content/Context;)V
+
+    .line 690
+    const/4 v2, 0x0
+
+    move v11, v2
+
+    :goto_0
+    invoke-interface {v12}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v11, v2, :cond_2
+
+    .line 691
+    invoke-interface {v12, v11}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v9, v2
+
+    check-cast v9, Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 693
+    invoke-virtual {v13, v9}, Lcom/yelp/android/ui/panels/d;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 694
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    sget-object v4, Lcom/yelp/android/util/StringUtils$Format;->ABBREVIATED:Lcom/yelp/android/util/StringUtils$Format;
+
+    invoke-virtual {v9, v2, v4}, Lcom/yelp/android/serializable/YelpBusiness;->a(Landroid/content/Context;Lcom/yelp/android/util/StringUtils$Format;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v13, v2}, Lcom/yelp/android/ui/panels/d;->setDistance(Ljava/lang/String;)V
+
+    .line 696
+    const/4 v2, 0x0
+
+    invoke-virtual {v13, v2}, Lcom/yelp/android/ui/panels/d;->setVisibility(I)V
+
+    .line 698
+    invoke-virtual {v14, v13}, Lcom/yelp/android/ui/c;->a(Landroid/view/View;)Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    .line 699
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getRowBytes()I
+
+    move-result v4
+
+    mul-int/2addr v2, v4
+
+    .line 702
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v4
+
+    array-length v4, v4
+
+    if-ge v4, v2, :cond_4
+
+    .line 703
+    :cond_1
+    invoke-static {v2}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
+
+    move-result-object v2
+
+    move-object v10, v2
+
+    .line 705
+    :goto_1
+    invoke-virtual {v10}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
+
+    .line 706
+    invoke-virtual {v5, v10}, Landroid/graphics/Bitmap;->copyPixelsToBuffer(Ljava/nio/Buffer;)V
+
+    .line 708
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/ui/MonocleEngine;
+
+    invoke-virtual {v10}, Ljava/nio/ByteBuffer;->array()[B
+
+    move-result-object v3
+
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v4
+
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v5
+
+    invoke-virtual {v9}, Lcom/yelp/android/serializable/YelpBusiness;->R()D
+
+    move-result-wide v6
+
+    double-to-float v6, v6
+
+    invoke-virtual {v9}, Lcom/yelp/android/serializable/YelpBusiness;->Q()D
+
+    move-result-wide v16
+
+    move-wide/from16 v0, v16
+
+    double-to-float v7, v0
+
+    new-instance v8, Lcom/yelp/android/ui/i;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    invoke-direct {v8, v15, v9}, Lcom/yelp/android/ui/i;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    invoke-virtual/range {v2 .. v8}, Lcom/yelp/android/ui/MonocleEngine;->AddObject([BIIFFLcom/yelp/android/ui/ActivityMonocle$MonocleButton;)I
+
+    .line 690
+    add-int/lit8 v2, v11, 0x1
+
+    move v11, v2
+
+    move-object v3, v10
+
+    goto :goto_0
+
+    .line 717
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->d:Lcom/yelp/android/ui/g;
+
+    const/4 v3, 0x1
+
+    iput-boolean v3, v2, Lcom/yelp/android/ui/g;->a:Z
+
+    .line 718
+    sget-object v2, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
+
+    if-eqz v2, :cond_3
+
+    .line 719
+    sget-object v2, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
+
+    invoke-virtual {v2}, Landroid/app/Dialog;->hide()V
+
+    .line 721
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    iget-object v3, v3, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/a;
+
+    invoke-virtual {v3}, Lcom/yelp/android/ui/a;->a()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/yelp/android/ui/ActivityMonocle;->d:I
+
+    .line 722
+    const/4 v2, 0x0
+
+    sput-object v2, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 723
+    return-void
+
+    :cond_4
+    move-object v10, v3
+
+    goto :goto_1
 .end method
 
-.method public b(I)I
-    .locals 1
+.method public a(Lcom/yelp/android/serializable/Category;)V
+    .locals 0
 
     .prologue
-    .line 175
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->d:[I
+    .line 640
+    iput-object p1, p0, Lcom/yelp/android/ui/h;->f:Lcom/yelp/android/serializable/Category;
 
-    aget v0, v0, p1
+    .line 641
+    return-void
+.end method
+
+.method public a()Z
+    .locals 2
+
+    .prologue
+    .line 727
+    iget-object v0, p0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/ActivityMonocle;->a()V
+
+    .line 728
+    const-string/jumbo v0, "SEARCH"
+
+    const-string/jumbo v1, "No location provider for search"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 729
+    const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public b()V
-    .locals 1
-
-    .prologue
-    .line 179
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/h;->g:Z
-
-    .line 180
-    return-void
-.end method
-
-.method public c()Z
-    .locals 1
-
-    .prologue
-    .line 183
-    iget-boolean v0, p0, Lcom/yelp/android/ui/h;->g:Z
-
-    return v0
-.end method
-
-.method public clear()V
-    .locals 0
-
-    .prologue
-    .line 149
-    return-void
-.end method
-
-.method public d()V
-    .locals 1
-
-    .prologue
-    .line 187
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/h;->f:Z
-
-    .line 188
-    invoke-virtual {p0}, Lcom/yelp/android/ui/h;->notifyDataSetChanged()V
-
-    .line 189
-    return-void
-.end method
-
-.method public e()V
-    .locals 1
-
-    .prologue
-    .line 192
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/h;->f:Z
-
-    .line 193
-    invoke-virtual {p0}, Lcom/yelp/android/ui/h;->notifyDataSetChanged()V
-
-    .line 194
-    return-void
-.end method
-
-.method public f()Z
-    .locals 1
-
-    .prologue
-    .line 197
-    iget-boolean v0, p0, Lcom/yelp/android/ui/h;->f:Z
-
-    return v0
-.end method
-
-.method public getCount()I
-    .locals 1
-
-    .prologue
-    .line 153
-    iget-boolean v0, p0, Lcom/yelp/android/ui/h;->g:Z
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/yelp/android/ui/h;->f:Z
-
-    if-nez v0, :cond_0
-
-    .line 154
-    sget-object v0, Lcom/yelp/android/ui/h;->b:[I
-
-    array-length v0, v0
-
-    .line 156
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public synthetic getItem(I)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 32
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/h;->a(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getItemId(I)J
     .locals 2
 
     .prologue
-    .line 167
-    sget-object v0, Lcom/yelp/android/ui/h;->b:[I
+    .line 644
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    aget v0, v0, p1
-
-    int-to-long v0, v0
-
-    return-wide v0
-.end method
-
-.method public getItemViewType(I)I
-    .locals 2
-
-    .prologue
-    const/4 v0, 0x2
-
-    .line 95
-    if-ne p1, v0, :cond_1
-
-    .line 96
-    const/4 v0, 0x3
-
-    .line 102
-    :cond_0
-    :goto_0
-    return v0
-
-    .line 97
-    :cond_1
-    const/4 v1, 0x5
-
-    if-eq p1, v1, :cond_0
-
-    .line 99
-    const/16 v0, 0x8
-
-    if-ge p1, v0, :cond_2
-
-    .line 100
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    .line 102
-    :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 6
-
-    .prologue
-    const/4 v3, -0x2
-
-    .line 108
-    if-nez p2, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/h;->getItemViewType(I)I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    .line 109
-    new-instance v1, Lcom/yelp/android/ui/i;
-
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->e:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/h;->h:Landroid/graphics/Paint;
-
-    invoke-direct {v1, v0, v2}, Lcom/yelp/android/ui/i;-><init>(Landroid/content/Context;Landroid/graphics/Paint;)V
-
-    .line 110
-    new-instance v0, Landroid/view/ViewGroup$LayoutParams;
-
-    invoke-direct {v0, v3, v3}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    move-object v0, v1
-
-    .line 121
-    :goto_0
-    check-cast v0, Landroid/widget/ImageView;
-
-    .line 123
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/g;
 
     move-result-object v1
 
-    sget-object v2, Lcom/yelp/android/ui/h;->b:[I
-
-    aget v2, v2, p1
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1}, Lcom/yelp/android/database/g;->e()Lcom/yelp/android/ca/a;
 
     move-result-object v1
 
-    .line 125
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v0, v1, p0}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;-><init>(Lcom/yelp/android/ca/a;Lcom/yelp/android/appdata/webrequests/k$b;)V
 
-    .line 126
-    sget-object v1, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
+    sput-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    .line 647
+    sget-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    .line 128
-    iget-object v1, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/DinoListView;
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->MONOCLE:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
-    invoke-virtual {v1}, Lcom/yelp/android/DinoListView;->getLastVisiblePosition()I
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    move-result v1
+    .line 648
+    iget-object v0, p0, Lcom/yelp/android/ui/h;->f:Lcom/yelp/android/serializable/Category;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/DinoListView;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v2}, Lcom/yelp/android/DinoListView;->getFirstVisiblePosition()I
+    .line 649
+    sget-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    move-result v2
+    iget-object v1, p0, Lcom/yelp/android/ui/h;->f:Lcom/yelp/android/serializable/Category;
 
-    sub-int/2addr v1, v2
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/serializable/Category;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    add-int/lit8 v1, v1, 0x1
+    .line 651
+    :cond_0
+    sget-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    .line 133
-    iget-object v2, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/DinoListView;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->y()V
 
-    invoke-virtual {v2}, Lcom/yelp/android/DinoListView;->getOnScrollListener()Landroid/widget/AbsListView$OnScrollListener;
+    .line 653
+    sget-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
+
+    if-eqz v0, :cond_1
+
+    .line 654
+    sget-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
+
+    .line 656
+    :cond_1
+    return-void
+.end method
+
+.method public c()V
+    .locals 2
+
+    .prologue
+    .line 659
+    sget-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    if-eqz v0, :cond_0
+
+    .line 660
+    sget-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 661
+    sget-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Z)V
+
+    .line 663
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    iget-object v0, v0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/a;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/h;->b:Lcom/yelp/android/ui/ActivityMonocle;
+
+    iget v1, v1, Lcom/yelp/android/ui/ActivityMonocle;->d:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/a;->a(I)V
+
+    .line 664
+    return-void
+.end method
+
+.method public onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
+            "<***>;",
+            "Lcom/yelp/android/appdata/webrequests/YelpException;",
+            ")V"
+        }
+    .end annotation
+
+    .prologue
+    .line 739
+    const-string/jumbo v0, "SEARCH"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Error"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/YelpException;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/DinoListView;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/DinoListView;
+    move-result-object v1
 
-    invoke-virtual {v4}, Lcom/yelp/android/DinoListView;->getFirstVisiblePosition()I
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v4
+    move-result-object v1
 
-    iget-object v5, p0, Lcom/yelp/android/ui/h;->c:Lcom/yelp/android/DinoListView;
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v5}, Lcom/yelp/android/DinoListView;->getCount()I
-
-    move-result v5
-
-    invoke-interface {v2, v3, v4, v1, v5}, Landroid/widget/AbsListView$OnScrollListener;->onScroll(Landroid/widget/AbsListView;III)V
-
-    .line 137
-    return-object v0
-
-    .line 112
-    :cond_0
-    if-nez p2, :cond_1
-
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/h;->getItemViewType(I)I
-
-    move-result v0
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_1
-
-    .line 113
-    new-instance v1, Lcom/yelp/android/bc/c;
-
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->e:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/h;->h:Landroid/graphics/Paint;
-
-    invoke-direct {v1, v0, v2}, Lcom/yelp/android/bc/c;-><init>(Landroid/content/Context;Landroid/graphics/Paint;)V
-
-    move-object v0, v1
-
-    .line 114
-    check-cast v0, Lcom/yelp/android/bc/c;
-
-    invoke-virtual {v0}, Lcom/yelp/android/bc/c;->a()V
-
-    move-object v0, v1
-
-    goto :goto_0
-
-    .line 115
-    :cond_1
-    if-nez p2, :cond_2
-
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/h;->getItemViewType(I)I
-
-    move-result v0
-
-    const/4 v1, 0x3
-
-    if-ne v0, v1, :cond_2
-
-    .line 116
-    new-instance v1, Lcom/yelp/android/bc/a;
-
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->e:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/h;->h:Landroid/graphics/Paint;
-
-    invoke-direct {v1, v0, v2}, Lcom/yelp/android/bc/a;-><init>(Landroid/content/Context;Landroid/graphics/Paint;)V
-
-    move-object v0, v1
-
-    .line 117
-    check-cast v0, Lcom/yelp/android/bc/a;
-
-    invoke-virtual {v0}, Lcom/yelp/android/bc/a;->a()V
-
-    move-object v0, v1
-
-    goto :goto_0
-
-    .line 118
-    :cond_2
-    if-nez p2, :cond_3
-
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/h;->getItemViewType(I)I
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    .line 119
-    new-instance v1, Landroid/widget/ImageView;
-
-    iget-object v0, p0, Lcom/yelp/android/ui/h;->e:Landroid/content/Context;
-
-    invoke-direct {v1, v0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
-
-    move-object v0, v1
-
-    goto/16 :goto_0
-
-    :cond_3
-    move-object v0, p2
-
-    goto/16 :goto_0
-.end method
-
-.method public getViewTypeCount()I
-    .locals 1
-
-    .prologue
-    .line 90
-    const/4 v0, 0x4
-
-    return v0
-.end method
-
-.method public isEnabled(I)Z
-    .locals 1
-
-    .prologue
-    .line 143
+    .line 741
     const/4 v0, 0x0
 
-    return v0
+    sput-object v0, Lcom/yelp/android/ui/h;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 742
+    sget-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
+
+    if-eqz v0, :cond_0
+
+    .line 743
+    sget-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
+
+    invoke-virtual {v0}, Landroid/app/Dialog;->hide()V
+
+    .line 745
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/h;->b()V
+
+    .line 746
+    return-void
+.end method
+
+.method public synthetic onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
+    .locals 0
+
+    .prologue
+    .line 619
+    check-cast p2, Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;
+
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/h;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse;)V
+
+    return-void
 .end method

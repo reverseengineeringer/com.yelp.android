@@ -1,36 +1,21 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.ads.purchase.b;
 
-@ey
+@fv
 public final class fe
+  extends ez.a
 {
-  public static gf a(Context paramContext, fh paramfh, fe.a parama)
+  private final b a;
+  
+  public fe(b paramb)
   {
-    if (lO.wV) {
-      return b(paramContext, paramfh, parama);
-    }
-    return c(paramContext, paramfh, parama);
+    a = paramb;
   }
   
-  private static gf b(Context paramContext, fh paramfh, fe.a parama)
+  public void a(ey paramey)
   {
-    gr.S("Fetching ad response from local ad request service.");
-    paramContext = new ff.a(paramContext, paramfh, parama);
-    paramContext.start();
-    return paramContext;
-  }
-  
-  private static gf c(Context paramContext, fh paramfh, fe.a parama)
-  {
-    gr.S("Fetching ad response from remote ad request service.");
-    if (GooglePlayServicesUtil.isGooglePlayServicesAvailable(paramContext) != 0)
-    {
-      gr.W("Failed to connect to remote ad request service.");
-      return null;
-    }
-    return new ff.b(paramContext, paramfh, parama);
+    a.a(new fg(paramey));
   }
 }
 

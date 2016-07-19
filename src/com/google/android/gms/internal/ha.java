@@ -1,64 +1,31 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.google.android.gms.ads.internal.s;
 
+@fv
 public class ha
-  implements Parcelable
+  extends Handler
 {
-  @Deprecated
-  public static final Parcelable.Creator<ha> CREATOR = new ha.1();
-  private String CE;
-  private String CF;
-  private String mValue;
-  
-  @Deprecated
-  public ha() {}
-  
-  @Deprecated
-  ha(Parcel paramParcel)
+  public ha(Looper paramLooper)
   {
-    readFromParcel(paramParcel);
+    super(paramLooper);
   }
   
-  public ha(String paramString1, String paramString2, String paramString3)
+  public void handleMessage(Message paramMessage)
   {
-    CE = paramString1;
-    CF = paramString2;
-    mValue = paramString3;
-  }
-  
-  @Deprecated
-  private void readFromParcel(Parcel paramParcel)
-  {
-    CE = paramParcel.readString();
-    CF = paramParcel.readString();
-    mValue = paramParcel.readString();
-  }
-  
-  @Deprecated
-  public int describeContents()
-  {
-    return 0;
-  }
-  
-  public String getId()
-  {
-    return CE;
-  }
-  
-  public String getValue()
-  {
-    return mValue;
-  }
-  
-  @Deprecated
-  public void writeToParcel(Parcel paramParcel, int paramInt)
-  {
-    paramParcel.writeString(CE);
-    paramParcel.writeString(CF);
-    paramParcel.writeString(mValue);
+    try
+    {
+      super.handleMessage(paramMessage);
+      return;
+    }
+    catch (Exception paramMessage)
+    {
+      s.h().a(paramMessage, false);
+      throw paramMessage;
+    }
   }
 }
 

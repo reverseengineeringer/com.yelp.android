@@ -3,21 +3,21 @@ package android.support.v4.app;
 import android.view.View;
 
 class Fragment$1
-  implements FragmentContainer
+  extends i
 {
   Fragment$1(Fragment paramFragment) {}
   
-  public View findViewById(int paramInt)
+  public View a(int paramInt)
   {
-    if (this$0.mView == null) {
+    if (a.mView == null) {
       throw new IllegalStateException("Fragment does not have a view");
     }
-    return this$0.mView.findViewById(paramInt);
+    return a.mView.findViewById(paramInt);
   }
   
-  public boolean hasView()
+  public boolean a()
   {
-    return this$0.mView != null;
+    return a.mView != null;
   }
 }
 

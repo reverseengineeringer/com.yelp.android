@@ -4,15 +4,17 @@
 
 
 # annotations
-.annotation build Landroid/annotation/TargetApi;
-    value = 0xe
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
+    }
 .end annotation
 
 
 # instance fields
 .field private a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
-.field private b:Lcom/yelp/android/ui/activities/camera/ab;
+.field private b:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
 
 .field private c:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
@@ -20,9 +22,9 @@
 
 .field private e:Ljava/lang/String;
 
-.field private g:I
+.field private f:I
 
-.field private h:I
+.field private g:I
 
 .field private i:I
 
@@ -40,24 +42,24 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 34
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;-><init>()V
 
-    .line 207
-    new-instance v0, Lcom/yelp/android/ui/activities/camera/y;
+    .line 205
+    new-instance v0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/y;-><init>(Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$1;-><init>(Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->l:Landroid/view/TextureView$SurfaceTextureListener;
 
-    .line 225
-    new-instance v0, Lcom/yelp/android/ui/activities/camera/z;
+    .line 226
+    new-instance v0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/z;-><init>(Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$2;-><init>(Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->m:Landroid/media/MediaPlayer$OnPreparedListener;
 
-    .line 251
+    .line 255
     return-void
 .end method
 
@@ -65,12 +67,12 @@
     .locals 2
 
     .prologue
-    .line 88
-    invoke-static {p0}, Lcom/yelp/android/util/aj;->a(Ljava/lang/String;)I
+    .line 85
+    invoke-static {p0}, Lcom/yelp/android/util/t;->a(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 89
+    .line 86
     const/4 v1, 0x0
 
     invoke-static {p0, p1, v1, v0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a(Ljava/lang/String;Ljava/lang/String;II)Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;
@@ -84,40 +86,40 @@
     .locals 3
 
     .prologue
-    .line 70
+    .line 67
     new-instance v0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;-><init>()V
 
-    .line 71
+    .line 68
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 72
+    .line 69
     const-string/jumbo v2, "video_file_path"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 73
+    .line 70
     const-string/jumbo v2, "business_id"
 
     invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 74
+    .line 71
     const-string/jumbo v2, "video_start_time_ms"
 
     invoke-virtual {v1, v2, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 75
+    .line 72
     const-string/jumbo v2, "video_end_time_ms"
 
     invoke-virtual {v1, v2, p3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 76
+    .line 73
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 77
+    .line 74
     return-object v0
 .end method
 
@@ -125,7 +127,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 34
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     return-object v0
@@ -135,7 +137,7 @@
     .locals 0
 
     .prologue
-    .line 37
+    .line 34
     iput-object p1, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     return-object p1
@@ -145,32 +147,32 @@
     .locals 4
 
     .prologue
-    .line 191
-    new-instance v0, Lcom/yelp/android/util/aj;
+    .line 188
+    new-instance v0, Lcom/yelp/android/util/t;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->d:Ljava/lang/String;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/util/aj;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/yelp/android/util/t;-><init>(Ljava/lang/String;)V
 
-    .line 192
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->d()I
+    .line 189
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->d()I
 
     move-result v2
 
-    .line 193
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->c()I
+    .line 190
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->c()I
 
     move-result v1
 
-    .line 194
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->e()Z
+    .line 191
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->e()Z
 
     move-result v3
 
-    .line 195
-    invoke-virtual {v0}, Lcom/yelp/android/util/aj;->release()V
+    .line 192
+    invoke-virtual {v0}, Lcom/yelp/android/util/t;->release()V
 
-    .line 201
+    .line 198
     if-eqz v3, :cond_0
 
     if-gt v1, v2, :cond_1
@@ -185,7 +187,7 @@
 
     move v3, v0
 
-    .line 203
+    .line 201
     :goto_0
     if-eqz v3, :cond_3
 
@@ -194,16 +196,16 @@
     :goto_1
     iput v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->k:I
 
-    .line 204
+    .line 202
     if-eqz v3, :cond_4
 
     :goto_2
     iput v2, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->j:I
 
-    .line 205
+    .line 203
     return-void
 
-    .line 201
+    .line 198
     :cond_2
     const/4 v0, 0x0
 
@@ -214,13 +216,13 @@
     :cond_3
     move v0, v2
 
-    .line 203
+    .line 201
     goto :goto_1
 
     :cond_4
     move v2, v1
 
-    .line 204
+    .line 202
     goto :goto_2
 .end method
 
@@ -228,7 +230,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 34
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->d:Ljava/lang/String;
 
     return-object v0
@@ -238,7 +240,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 34
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->c:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
     return-object v0
@@ -248,7 +250,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 34
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->m:Landroid/media/MediaPlayer$OnPreparedListener;
 
     return-object v0
@@ -258,7 +260,7 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 34
     iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->i:I
 
     return v0
@@ -268,8 +270,8 @@
     .locals 1
 
     .prologue
-    .line 37
-    iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->h:I
+    .line 34
+    iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->g:I
 
     return v0
 .end method
@@ -278,30 +280,30 @@
     .locals 1
 
     .prologue
-    .line 37
-    iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->g:I
+    .line 34
+    iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->f:I
 
     return v0
 .end method
 
 
 # virtual methods
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 182
+    .line 179
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessVideoPreview:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -312,7 +314,7 @@
     .end annotation
 
     .prologue
-    .line 187
+    .line 184
     const-string/jumbo v0, "id"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->e:Ljava/lang/String;
@@ -328,29 +330,29 @@
     .locals 2
 
     .prologue
-    .line 120
+    .line 117
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 121
+    .line 118
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
 
-    .line 122
-    const v1, 0x7f070498
+    .line 119
+    const v1, 0x7f0704b1
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->setTitle(I)V
 
-    .line 123
+    .line 120
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->getSupportActionBar()Landroid/support/v7/app/ActionBar;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar;->d()V
 
-    .line 124
+    .line 121
     return-void
 .end method
 
@@ -358,15 +360,15 @@
     .locals 0
 
     .prologue
-    .line 146
+    .line 143
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 147
-    check-cast p1, Lcom/yelp/android/ui/activities/camera/ab;
+    .line 144
+    check-cast p1, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
 
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/ab;
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
 
-    .line 148
+    .line 145
     return-void
 .end method
 
@@ -374,10 +376,10 @@
     .locals 2
 
     .prologue
-    .line 94
+    .line 91
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 95
+    .line 92
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -390,7 +392,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->d:Ljava/lang/String;
 
-    .line 96
+    .line 93
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -401,9 +403,9 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->g:I
+    iput v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->f:I
 
-    .line 97
+    .line 94
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -414,9 +416,9 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->h:I
+    iput v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->g:I
 
-    .line 98
+    .line 95
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -429,27 +431,27 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->e:Ljava/lang/String;
 
-    .line 99
+    .line 96
     if-nez p1, :cond_0
 
-    .line 100
-    iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->g:I
+    .line 97
+    iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->f:I
 
     iput v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->i:I
 
-    .line 104
+    .line 101
     :goto_0
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a()V
 
-    .line 105
+    .line 102
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->setHasOptionsMenu(Z)V
 
-    .line 106
+    .line 103
     return-void
 
-    .line 102
+    .line 99
     :cond_0
     const-string/jumbo v0, "play_position"
 
@@ -466,15 +468,15 @@
     .locals 1
 
     .prologue
-    .line 158
+    .line 155
     invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 159
-    const v0, 0x7f100025
+    .line 156
+    const v0, 0x7f100029
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 160
+    .line 157
     return-void
 .end method
 
@@ -482,8 +484,8 @@
     .locals 4
 
     .prologue
-    .line 111
-    const v0, 0x7f0300c0
+    .line 108
+    const v0, 0x7f0300dc
 
     const/4 v1, 0x0
 
@@ -491,8 +493,8 @@
 
     move-result-object v1
 
-    .line 112
-    const v0, 0x7f0c01bb
+    .line 109
+    const v0, 0x7f0f01eb
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -502,7 +504,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->c:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
-    .line 113
+    .line 110
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->c:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
     iget v2, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->j:I
@@ -511,14 +513,14 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/yelp/android/ui/widgets/SquareTextureView;->a(II)V
 
-    .line 114
+    .line 111
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->c:Lcom/yelp/android/ui/widgets/SquareTextureView;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->l:Landroid/view/TextureView$SurfaceTextureListener;
 
     invoke-virtual {v0, v2}, Lcom/yelp/android/ui/widgets/SquareTextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    .line 115
+    .line 112
     return-object v1
 .end method
 
@@ -526,15 +528,15 @@
     .locals 1
 
     .prologue
-    .line 152
+    .line 149
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onDetach()V
 
-    .line 153
+    .line 150
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/ab;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
 
-    .line 154
+    .line 151
     return-void
 .end method
 
@@ -542,33 +544,33 @@
     .locals 1
 
     .prologue
-    .line 164
+    .line 161
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 169
+    .line 166
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 166
+    .line 163
     :pswitch_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/ab;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/camera/ab;->b()V
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;->c()V
 
-    .line 167
+    .line 164
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 164
+    .line 161
     :pswitch_data_0
-    .packed-switch 0x7f0c050c
+    .packed-switch 0x7f0f0615
         :pswitch_0
     .end packed-switch
 .end method
@@ -577,15 +579,15 @@
     .locals 1
 
     .prologue
-    .line 128
+    .line 125
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onPause()V
 
-    .line 129
+    .line 126
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     if-eqz v0, :cond_0
 
-    .line 130
+    .line 127
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->getCurrentPosition()I
@@ -594,22 +596,22 @@
 
     iput v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->i:I
 
-    .line 131
+    .line 128
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->stop()V
 
-    .line 132
+    .line 129
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;->release()V
 
-    .line 133
+    .line 130
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
-    .line 139
+    .line 136
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->isRemoving()Z
 
@@ -617,12 +619,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 140
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/ab;
+    .line 137
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->b:Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/camera/ab;->c()V
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment$a;->d()V
 
-    .line 142
+    .line 139
     :cond_1
     return-void
 .end method
@@ -631,26 +633,26 @@
     .locals 2
 
     .prologue
-    .line 174
+    .line 171
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 175
+    .line 172
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 
     if-nez v0, :cond_0
 
     iget v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->i:I
 
-    .line 177
+    .line 174
     :goto_0
     const-string/jumbo v1, "play_position"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 178
+    .line 175
     return-void
 
-    .line 175
+    .line 172
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/camera/VideoPreviewFragment;->a:Lcom/yelp/android/ui/activities/videotrim/BetterMediaPlayer;
 

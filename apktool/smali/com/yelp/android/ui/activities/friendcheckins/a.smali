@@ -1,19 +1,25 @@
 .class public Lcom/yelp/android/ui/activities/friendcheckins/a;
-.super Lcom/yelp/android/ui/util/au;
+.super Lcom/yelp/android/ui/util/w;
 .source "CheckInsNearbyAdapter.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/util/j;
+.implements Lcom/yelp/android/ui/util/g;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/friendcheckins/a$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/ui/util/au",
+        "Lcom/yelp/android/ui/util/w",
         "<",
         "Lcom/yelp/android/serializable/CheckIn;",
         ">;",
-        "Lcom/yelp/android/ui/util/j;"
+        "Lcom/yelp/android/ui/util/g;"
     }
 .end annotation
 
@@ -78,11 +84,11 @@
 
 .field private final g:Z
 
-.field private h:Lcom/yelp/android/ui/activities/friendcheckins/r;
+.field private h:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
-.field private i:Lcom/yelp/android/ui/activities/friendcheckins/r;
+.field private i:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
-.field private j:Lcom/yelp/android/ui/activities/friendcheckins/r;
+.field private j:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
 .field private k:Landroid/location/Location;
 
@@ -93,7 +99,7 @@
 
     .prologue
     .line 81
-    invoke-direct {p0}, Lcom/yelp/android/ui/util/au;-><init>()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/util/w;-><init>()V
 
     .line 82
     iput-boolean p1, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->f:Z
@@ -140,23 +146,23 @@
     return-void
 .end method
 
-.method private a(ILcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/ui/activities/friendcheckins/b;Landroid/view/ViewGroup;)V
+.method private a(ILcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/ui/activities/friendcheckins/a$a;Landroid/view/ViewGroup;)V
     .locals 6
 
     .prologue
     const/4 v5, 0x0
 
-    .line 191
+    .line 200
     invoke-virtual {p4}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    .line 192
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->getTotalCount()I
+    .line 201
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->w()I
 
     move-result v2
 
-    .line 193
+    .line 202
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->b:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -165,11 +171,11 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    .line 194
+    .line 203
     if-nez v0, :cond_0
 
-    .line 195
-    const v0, 0x7f0e0006
+    .line 204
+    const v0, 0x7f080006
 
     new-array v3, v5, [Ljava/lang/String;
 
@@ -177,56 +183,56 @@
 
     move-result-object v0
 
-    .line 197
+    .line 207
     iget-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->b:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 199
+    .line 209
     :cond_0
-    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
+    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/j;)V
+    invoke-virtual {v2, v3}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/c;)V
 
-    .line 200
-    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
+    .line 210
+    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->getFeedback()Lcom/yelp/android/serializable/Feedback;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->n()Lcom/yelp/android/serializable/Feedback;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/Feedback;->isLikedByUser()Z
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/Feedback;->c()Z
 
     move-result v3
 
     invoke-virtual {v2, v3}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->setChecked(Z)V
 
-    .line 201
-    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
+    .line 211
+    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->h:Lcom/yelp/android/ui/activities/friendcheckins/r;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->h:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
-    invoke-virtual {v2, v3}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/j;)V
+    invoke-virtual {v2, v3}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->setOnCheckedChangeListener(Lcom/yelp/android/ui/widgets/c;)V
 
-    .line 202
-    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
+    .line 212
+    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->l:Lcom/yelp/android/ui/widgets/SpannedImageButton;
 
     invoke-virtual {v2, p2}, Lcom/yelp/android/ui/widgets/SpannedImageButton;->setTag(Ljava/lang/Object;)V
 
-    .line 203
-    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->m:Landroid/view/View;
+    .line 213
+    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->m:Landroid/view/View;
 
     invoke-virtual {v2, p2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 204
-    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->k:Landroid/widget/TextView;
+    .line 214
+    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->k:Landroid/widget/TextView;
 
     invoke-virtual {v2, p2}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V
 
-    .line 205
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->getLocationRankTitle()Lcom/yelp/android/serializable/RankTitle$Rank;
+    .line 215
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->l()Lcom/yelp/android/serializable/RankTitle$Rank;
 
     move-result-object v2
 
@@ -238,15 +244,15 @@
 
     if-eqz v2, :cond_1
 
-    .line 206
-    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->h:Landroid/widget/TextView;
+    .line 216
+    iget-object v2, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->h:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 207
-    iget-object v0, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->h:Landroid/widget/TextView;
+    .line 217
+    iget-object v0, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->h:Landroid/widget/TextView;
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->getLocationRankTitle()Lcom/yelp/android/serializable/RankTitle$Rank;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->l()Lcom/yelp/android/serializable/RankTitle$Rank;
 
     move-result-object v2
 
@@ -256,28 +262,28 @@
 
     invoke-virtual {v0, v2, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 210
+    .line 220
     :cond_1
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->getPrimaryComment()Lcom/yelp/android/serializable/Comment;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->A()Lcom/yelp/android/serializable/Comment;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    .line 211
-    iget-object v0, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->i:Landroid/widget/TextView;
+    .line 221
+    iget-object v0, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->i:Landroid/widget/TextView;
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->getPrimaryComment()Lcom/yelp/android/serializable/Comment;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpCheckIn;->A()Lcom/yelp/android/serializable/Comment;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Comment;->getText()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Comment;->c()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 213
+    .line 223
     :cond_2
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->e:Landroid/util/SparseArray;
 
@@ -287,40 +293,40 @@
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    .line 214
+    .line 224
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_4
 
-    .line 215
-    invoke-virtual {p2, v1}, Lcom/yelp/android/serializable/YelpCheckIn;->getCommentCountLikeCountText(Landroid/content/Context;)Ljava/lang/CharSequence;
+    .line 225
+    invoke-virtual {p2, v1}, Lcom/yelp/android/serializable/YelpCheckIn;->b(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 216
+    .line 226
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-nez v1, :cond_3
 
-    .line 217
+    .line 227
     new-instance v2, Landroid/text/style/StyleSpan;
 
     const/4 v1, 0x1
 
     invoke-direct {v2, v1}, Landroid/text/style/StyleSpan;-><init>(I)V
 
-    .line 218
+    .line 228
     new-instance v1, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v1, v0}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
     move-object v0, v1
 
-    .line 219
+    .line 229
     check-cast v0, Landroid/text/SpannableStringBuilder;
 
     invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
@@ -331,19 +337,19 @@
 
     invoke-virtual {v0, v2, v5, v3, v4}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
-    .line 222
+    .line 232
     :goto_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->e:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 224
+    .line 234
     :goto_1
-    iget-object v0, p3, Lcom/yelp/android/ui/activities/friendcheckins/b;->k:Landroid/widget/TextView;
+    iget-object v0, p3, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->k:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 225
+    .line 235
     return-void
 
     :cond_3
@@ -361,37 +367,37 @@
     .locals 1
 
     .prologue
-    .line 318
+    .line 329
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->k:Landroid/location/Location;
 
-    .line 319
+    .line 330
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->a:Landroid/util/SparseArray;
 
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
 
-    .line 320
+    .line 331
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->b:Landroid/util/SparseArray;
 
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
 
-    .line 321
+    .line 332
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->c:Landroid/util/SparseArray;
 
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
 
-    .line 322
+    .line 333
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->d:Landroid/util/SparseArray;
 
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
 
-    .line 323
+    .line 334
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->e:Landroid/util/SparseArray;
 
     invoke-virtual {v0}, Landroid/util/SparseArray;->clear()V
 
-    .line 324
+    .line 335
     return-void
 .end method
 
@@ -402,15 +408,15 @@
 
     .prologue
     .line 92
-    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/r;
+    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     const-string/jumbo v1, "extra.data"
 
     const-string/jumbo v2, "extra.checked"
 
-    invoke-direct {v0, p1, v1, v2}, Lcom/yelp/android/ui/activities/friendcheckins/r;-><init>(Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v0, p1, v1, v2}, Lcom/yelp/android/ui/activities/friendcheckins/c;-><init>(Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->h:Lcom/yelp/android/ui/activities/friendcheckins/r;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->h:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     .line 93
     return-void
@@ -442,15 +448,15 @@
 
     .prologue
     .line 96
-    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/r;
+    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     const-string/jumbo v1, "extra.data"
 
     const-string/jumbo v2, "extra.checked"
 
-    invoke-direct {v0, p1, v1, v2}, Lcom/yelp/android/ui/activities/friendcheckins/r;-><init>(Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v0, p1, v1, v2}, Lcom/yelp/android/ui/activities/friendcheckins/c;-><init>(Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->i:Lcom/yelp/android/ui/activities/friendcheckins/r;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->i:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     .line 97
     return-void
@@ -461,15 +467,15 @@
 
     .prologue
     .line 100
-    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/r;
+    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     const-string/jumbo v1, "extra.data"
 
     const-string/jumbo v2, "extra.checked"
 
-    invoke-direct {v0, p1, v1, v2}, Lcom/yelp/android/ui/activities/friendcheckins/r;-><init>(Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v0, p1, v1, v2}, Lcom/yelp/android/ui/activities/friendcheckins/c;-><init>(Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->j:Lcom/yelp/android/ui/activities/friendcheckins/r;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->j:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     .line 101
     return-void
@@ -483,24 +489,24 @@
 
     const/4 v2, 0x0
 
-    .line 285
+    .line 296
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/friendcheckins/a;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/CheckIn;
 
-    .line 286
+    .line 297
     if-nez v0, :cond_0
 
-    .line 287
+    .line 298
     const/4 v0, -0x1
 
-    .line 301
+    .line 312
     :goto_0
     return v0
 
-    .line 288
+    .line 299
     :cond_0
     instance-of v1, v0, Lcom/yelp/android/serializable/ExternalCheckIn;
 
@@ -508,17 +514,17 @@
 
     move v0, v2
 
-    .line 289
+    .line 300
     goto :goto_0
 
     :cond_1
     move-object v1, v0
 
-    .line 291
+    .line 302
     check-cast v1, Lcom/yelp/android/serializable/YelpCheckIn;
 
-    .line 292
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpCheckIn;->getLocationRankTitle()Lcom/yelp/android/serializable/RankTitle$Rank;
+    .line 303
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpCheckIn;->l()Lcom/yelp/android/serializable/RankTitle$Rank;
 
     move-result-object v1
 
@@ -528,10 +534,10 @@
 
     move-result v1
 
-    .line 293
+    .line 304
     check-cast v0, Lcom/yelp/android/serializable/YelpCheckIn;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->getPrimaryComment()Lcom/yelp/android/serializable/Comment;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->A()Lcom/yelp/android/serializable/Comment;
 
     move-result-object v0
 
@@ -539,35 +545,35 @@
 
     move v2, v3
 
-    .line 294
+    .line 305
     :cond_2
     if-eqz v1, :cond_3
 
     if-nez v2, :cond_3
 
-    .line 295
+    .line 306
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 296
+    .line 307
     :cond_3
     if-nez v1, :cond_4
 
     if-eqz v2, :cond_4
 
-    .line 297
+    .line 308
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 298
+    .line 309
     :cond_4
     if-eqz v1, :cond_5
 
     if-eqz v2, :cond_5
 
-    .line 299
+    .line 310
     const/4 v0, 0x4
 
     goto :goto_0
@@ -575,7 +581,7 @@
     :cond_5
     move v0, v3
 
-    .line 301
+    .line 312
     goto :goto_0
 .end method
 
@@ -596,7 +602,7 @@
     if-nez p2, :cond_1
 
     .line 111
-    const v0, 0x7f030158
+    const v0, 0x7f0301bf
 
     .line 112
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/friendcheckins/a;->getItemViewType(I)I
@@ -606,7 +612,7 @@
     if-nez v1, :cond_0
 
     .line 113
-    const v0, 0x7f030110
+    const v0, 0x7f030171
 
     .line 115
     :cond_0
@@ -619,13 +625,13 @@
     move-result-object p2
 
     .line 116
-    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/b;
+    new-instance v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;
 
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/friendcheckins/a;->getItemViewType(I)I
 
     move-result v1
 
-    invoke-direct {v0, v1, p2}, Lcom/yelp/android/ui/activities/friendcheckins/b;-><init>(ILandroid/view/View;)V
+    invoke-direct {v0, v1, p2}, Lcom/yelp/android/ui/activities/friendcheckins/a$a;-><init>(ILandroid/view/View;)V
 
     .line 117
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
@@ -638,16 +644,16 @@
     if-eqz v1, :cond_1
 
     .line 119
-    iget-object v1, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->k:Landroid/widget/TextView;
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->k:Landroid/widget/TextView;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->j:Lcom/yelp/android/ui/activities/friendcheckins/r;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->j:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 120
-    iget-object v0, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->m:Landroid/view/View;
+    iget-object v0, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->m:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->i:Lcom/yelp/android/ui/activities/friendcheckins/r;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->i:Lcom/yelp/android/ui/activities/friendcheckins/c;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -661,7 +667,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->n()Lcom/yelp/android/appdata/LocationService;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->r()Lcom/yelp/android/appdata/LocationService;
 
     move-result-object v0
 
@@ -672,21 +678,21 @@
     :goto_0
     iput-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->k:Landroid/location/Location;
 
-    .line 126
+    .line 128
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/friendcheckins/b;
+    check-cast v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;
 
-    .line 127
+    .line 129
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/friendcheckins/a;->getItem(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/yelp/android/serializable/CheckIn;
 
-    .line 128
+    .line 130
     iget-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->c:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -695,21 +701,21 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    .line 129
+    .line 131
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
     if-eqz v4, :cond_2
 
-    .line 130
-    const v2, 0x7f0e0022
+    .line 132
+    const v2, 0x7f080025
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->d()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewCount()I
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->N()I
 
     move-result v4
 
@@ -719,50 +725,50 @@
 
     move-result-object v2
 
-    .line 132
+    .line 137
     iget-object v4, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->c:Landroid/util/SparseArray;
 
     invoke-virtual {v4, p1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 134
+    .line 139
     :cond_2
-    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/widget/TextView;
+    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->b:Landroid/widget/TextView;
 
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 135
-    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->b:Landroid/widget/TextView;
+    .line 140
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->b:Landroid/widget/TextView;
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->getAvgRating()F
-
-    move-result v4
-
-    invoke-static {v2, v4}, Lcom/yelp/android/ui/util/cp;->a(Landroid/widget/TextView;F)V
-
-    .line 136
-    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->a:Lcom/yelp/android/ui/widgets/WebImageView;
-
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getUserPhotoUrl()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->d()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v4
 
-    const v5, 0x7f02009b
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->P()D
+
+    move-result-wide v4
+
+    invoke-static {v2, v4, v5}, Lcom/yelp/android/ui/util/ar;->a(Landroid/widget/TextView;D)V
+
+    .line 141
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->a:Lcom/yelp/android/ui/widgets/WebImageView;
+
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->c()Ljava/lang/String;
+
+    move-result-object v4
+
+    const v5, 0x7f0200c6
 
     invoke-virtual {v2, v4, v5}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;I)V
 
-    .line 137
+    .line 142
     iget-boolean v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->g:Z
 
     if-eqz v2, :cond_8
 
-    .line 138
-    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->c:Landroid/widget/TextView;
+    .line 143
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->c:Landroid/widget/TextView;
 
-    const v4, 0x7f070410
+    const v4, 0x7f070447
 
     const/4 v5, 0x2
 
@@ -776,7 +782,7 @@
 
     aput-object v6, v5, v7
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getUserName()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->a()Ljava/lang/String;
 
     move-result-object v6
 
@@ -788,36 +794,36 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 143
+    .line 149
     :goto_1
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->d()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v2
 
-    .line 144
-    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->d:Landroid/widget/TextView;
+    .line 150
+    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->d:Landroid/widget/TextView;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 145
+    .line 151
     iget-boolean v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->f:Z
 
     if-eqz v2, :cond_9
 
-    .line 146
-    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->e:Landroid/widget/TextView;
+    .line 152
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->e:Landroid/widget/TextView;
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getLocation()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->g()Ljava/lang/String;
 
     move-result-object v4
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 158
+    .line 166
     :cond_3
     :goto_2
     iget-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->d:Landroid/util/SparseArray;
@@ -828,21 +834,21 @@
 
     check-cast v2, Ljava/lang/CharSequence;
 
-    .line 159
+    .line 167
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
     if-eqz v4, :cond_4
 
-    .line 160
+    .line 168
     invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
     sget-object v4, Lcom/yelp/android/util/StringUtils$Format;->LONG:Lcom/yelp/android/util/StringUtils$Format;
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getDateCreated()Ljava/util/Date;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->e()Ljava/util/Date;
 
     move-result-object v5
 
@@ -850,32 +856,32 @@
 
     move-result-object v2
 
-    .line 162
+    .line 171
     iget-object v4, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->d:Landroid/util/SparseArray;
 
     invoke-virtual {v4, p1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 164
+    .line 173
     :cond_4
-    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->f:Landroid/widget/TextView;
+    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->f:Landroid/widget/TextView;
 
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 166
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getAppName()Ljava/lang/String;
+    .line 175
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->f()Ljava/lang/String;
 
     move-result-object v2
 
     if-eqz v2, :cond_5
 
-    .line 168
-    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->g:Landroid/widget/TextView;
+    .line 177
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->g:Landroid/widget/TextView;
 
-    const v4, 0x7f07065d
+    const v4, 0x7f070639
 
     new-array v5, v8, [Ljava/lang/Object;
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getAppName()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->f()Ljava/lang/String;
 
     move-result-object v6
 
@@ -887,18 +893,18 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 171
+    .line 180
     :cond_5
     instance-of v2, v1, Lcom/yelp/android/serializable/YelpCheckIn;
 
     if-eqz v2, :cond_6
 
-    .line 173
+    .line 182
     check-cast v1, Lcom/yelp/android/serializable/YelpCheckIn;
 
-    invoke-direct {p0, p1, v1, v0, p3}, Lcom/yelp/android/ui/activities/friendcheckins/a;->a(ILcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/ui/activities/friendcheckins/b;Landroid/view/ViewGroup;)V
+    invoke-direct {p0, p1, v1, v0, p3}, Lcom/yelp/android/ui/activities/friendcheckins/a;->a(ILcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/ui/activities/friendcheckins/a$a;Landroid/view/ViewGroup;)V
 
-    .line 175
+    .line 184
     :cond_6
     return-object p2
 
@@ -908,11 +914,11 @@
 
     goto/16 :goto_0
 
-    .line 141
+    .line 147
     :cond_8
-    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->c:Landroid/widget/TextView;
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->c:Landroid/widget/TextView;
 
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getUserName()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->a()Ljava/lang/String;
 
     move-result-object v4
 
@@ -920,13 +926,13 @@
 
     goto :goto_1
 
-    .line 147
+    .line 153
     :cond_9
     iget-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->a:Landroid/util/SparseArray;
 
     if-eqz v2, :cond_3
 
-    .line 148
+    .line 154
     iget-object v2, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->a:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -935,7 +941,7 @@
 
     check-cast v2, Ljava/lang/String;
 
-    .line 149
+    .line 155
     iget-object v4, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->a:Landroid/util/SparseArray;
 
     invoke-virtual {v4, p1}, Landroid/util/SparseArray;->indexOfKey(I)I
@@ -944,8 +950,8 @@
 
     if-gez v4, :cond_a
 
-    .line 150
-    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    .line 156
+    invoke-interface {v1}, Lcom/yelp/android/serializable/CheckIn;->d()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v2
 
@@ -953,18 +959,18 @@
 
     sget-object v5, Lcom/yelp/android/util/StringUtils$Format;->ABBREVIATED:Lcom/yelp/android/util/StringUtils$Format;
 
-    invoke-virtual {v2, v4, v3, v5}, Lcom/yelp/android/serializable/YelpBusiness;->getDistanceFormatted(Landroid/location/Location;Landroid/content/Context;Lcom/yelp/android/util/StringUtils$Format;)Ljava/lang/String;
+    invoke-virtual {v2, v4, v3, v5}, Lcom/yelp/android/serializable/YelpBusiness;->a(Landroid/location/Location;Landroid/content/Context;Lcom/yelp/android/util/StringUtils$Format;)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 152
+    .line 160
     iget-object v4, p0, Lcom/yelp/android/ui/activities/friendcheckins/a;->a:Landroid/util/SparseArray;
 
     invoke-virtual {v4, p1, v2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
 
-    .line 155
+    .line 163
     :cond_a
-    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/b;->e:Landroid/widget/TextView;
+    iget-object v4, v0, Lcom/yelp/android/ui/activities/friendcheckins/a$a;->e:Landroid/widget/TextView;
 
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -975,7 +981,7 @@
     .locals 1
 
     .prologue
-    .line 308
+    .line 319
     const/4 v0, 0x5
 
     return v0
@@ -985,12 +991,12 @@
     .locals 0
 
     .prologue
-    .line 313
+    .line 324
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/friendcheckins/a;->c()V
 
-    .line 314
-    invoke-super {p0}, Lcom/yelp/android/ui/util/au;->notifyDataSetChanged()V
+    .line 325
+    invoke-super {p0}, Lcom/yelp/android/ui/util/w;->notifyDataSetChanged()V
 
-    .line 315
+    .line 326
     return-void
 .end method

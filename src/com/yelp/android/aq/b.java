@@ -1,6 +1,20 @@
 package com.yelp.android.aq;
 
-class b {}
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Build.VERSION;
+
+@SuppressLint({"NewApi"})
+public class b
+{
+  public static String a()
+  {
+    if (Integer.valueOf(Build.VERSION.SDK_INT).intValue() >= 9) {
+      return Build.SERIAL;
+    }
+    return null;
+  }
+}
 
 /* Location:
  * Qualified Name:     com.yelp.android.aq.b

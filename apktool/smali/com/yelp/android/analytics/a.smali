@@ -7,14 +7,14 @@
 .method public abstract getComponentId()J
 .end method
 
-.method public abstract getIri()Lcom/yelp/android/analytics/iris/b;
+.method public abstract getIri()Lcom/yelp/android/analytics/iris/a;
 .end method
 
-.method public abstract getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public abstract getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -25,5 +25,5 @@
     .end annotation
 .end method
 
-.method public abstract getRequestIdForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/lang/String;
+.method public abstract getRequestIdForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/lang/String;
 .end method

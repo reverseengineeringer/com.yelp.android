@@ -72,17 +72,17 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/g;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->f()Lcom/yelp/android/database/d;
+    invoke-virtual {v0}, Lcom/yelp/android/database/g;->d()Lcom/yelp/android/database/b;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/database/d;->a(Ljava/lang/String;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/database/b;->a(Ljava/lang/String;)Landroid/os/AsyncTask;
 
-    .line 30
+    .line 32
     :cond_1
     return-void
 .end method

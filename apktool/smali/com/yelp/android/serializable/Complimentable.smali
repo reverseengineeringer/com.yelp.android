@@ -7,11 +7,11 @@
 
 
 # virtual methods
-.method public abstract getId()Ljava/lang/String;
+.method public abstract a()Ljava/lang/String;
 .end method
 
-.method public abstract getType()Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
+.method public abstract b()Ljava/lang/String;
 .end method
 
-.method public abstract getUserId()Ljava/lang/String;
+.method public abstract c()Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 .end method

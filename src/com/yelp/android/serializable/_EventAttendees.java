@@ -2,72 +2,55 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _EventAttendees
   implements Parcelable
 {
-  protected List<String> mAttendeeIds;
-  protected List<User> mAttendees;
-  protected String mAttendeesText;
-  protected int[] mSectionCounts;
-  protected List<String> mSectionNames;
+  protected List<String> a;
+  protected List<String> b;
+  protected List<User> c;
+  protected String d;
+  protected int[] e;
   
   protected _EventAttendees() {}
   
   protected _EventAttendees(List<String> paramList1, List<String> paramList2, List<User> paramList, String paramString, int[] paramArrayOfInt)
   {
     this();
-    mAttendeeIds = paramList1;
-    mSectionNames = paramList2;
-    mAttendees = paramList;
-    mAttendeesText = paramString;
-    mSectionCounts = paramArrayOfInt;
+    a = paramList1;
+    b = paramList2;
+    c = paramList;
+    d = paramString;
+    e = paramArrayOfInt;
   }
   
-  public int describeContents()
+  public void a(Parcel paramParcel)
   {
-    return 0;
+    a = paramParcel.createStringArrayList();
+    b = paramParcel.createStringArrayList();
+    c = paramParcel.readArrayList(User.class.getClassLoader());
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = paramParcel.createIntArray();
   }
   
-  public List<String> getAttendeeIds()
-  {
-    return mAttendeeIds;
-  }
-  
-  public List<User> getAttendees()
-  {
-    return mAttendees;
-  }
-  
-  public String getAttendeesText()
-  {
-    return mAttendeesText;
-  }
-  
-  public int[] getSectionCounts()
-  {
-    return mSectionCounts;
-  }
-  
-  public List<String> getSectionNames()
-  {
-    return mSectionNames;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
     if (!paramJSONObject.isNull("attendee_ids"))
     {
-      mAttendeeIds = JsonUtil.getStringList(paramJSONObject.optJSONArray("attendee_ids"));
+      a = JsonUtil.getStringList(paramJSONObject.optJSONArray("attendee_ids"));
       if (paramJSONObject.isNull("section_names")) {
         break label151;
       }
-      mSectionNames = JsonUtil.getStringList(paramJSONObject.optJSONArray("section_names"));
+      b = JsonUtil.getStringList(paramJSONObject.optJSONArray("section_names"));
       label44:
       if (paramJSONObject.isNull("attendees")) {
         break label161;
@@ -75,46 +58,86 @@ abstract class _EventAttendees
     }
     label151:
     label161:
-    for (mAttendees = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("attendees"), User.CREATOR);; mAttendees = Collections.emptyList())
+    for (c = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("attendees"), User.CREATOR);; c = Collections.emptyList())
     {
       if (!paramJSONObject.isNull("attendees_text")) {
-        mAttendeesText = paramJSONObject.optString("attendees_text");
+        d = paramJSONObject.optString("attendees_text");
       }
       if (paramJSONObject.isNull("section_counts")) {
         return;
       }
       paramJSONObject = paramJSONObject.getJSONArray("section_counts");
       int j = paramJSONObject.length();
-      mSectionCounts = new int[j];
+      e = new int[j];
       int i = 0;
       while (i < j)
       {
-        mSectionCounts[i] = paramJSONObject.getInt(i);
+        e[i] = paramJSONObject.getInt(i);
         i += 1;
       }
-      mAttendeeIds = Collections.emptyList();
+      a = Collections.emptyList();
       break;
-      mSectionNames = Collections.emptyList();
+      b = Collections.emptyList();
       break label44;
     }
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int[] a()
   {
-    mAttendeeIds = paramParcel.createStringArrayList();
-    mSectionNames = paramParcel.createStringArrayList();
-    mAttendees = paramParcel.createTypedArrayList(User.CREATOR);
-    mAttendeesText = paramParcel.readString();
-    mSectionCounts = paramParcel.createIntArray();
+    return e;
+  }
+  
+  public String b()
+  {
+    return d;
+  }
+  
+  public List<User> c()
+  {
+    return c;
+  }
+  
+  public List<String> d()
+  {
+    return b;
+  }
+  
+  public int describeContents()
+  {
+    return 0;
+  }
+  
+  public List<String> e()
+  {
+    return a;
+  }
+  
+  public boolean equals(Object paramObject)
+  {
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_EventAttendees)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a();
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(a).a(b).a(c).a(d).a(e).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeStringList(mAttendeeIds);
-    paramParcel.writeStringList(mSectionNames);
-    paramParcel.writeTypedList(mAttendees);
-    paramParcel.writeString(mAttendeesText);
-    paramParcel.writeIntArray(mSectionCounts);
+    paramParcel.writeStringList(a);
+    paramParcel.writeStringList(b);
+    paramParcel.writeList(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeIntArray(e);
   }
 }
 

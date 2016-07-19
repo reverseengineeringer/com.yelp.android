@@ -1,113 +1,94 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Handler.Callback;
-import android.os.Message;
-import java.util.HashMap;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 
-public final class jn
-  implements Handler.Callback
+public abstract interface jn
+  extends IInterface
 {
-  private static final Object Nd = new Object();
-  private static jn Ne;
-  private final HashMap<String, jn.a> Nf = new HashMap();
-  private final Handler mHandler = new Handler(paramContext.getMainLooper(), this);
-  private final Context mO;
+  public abstract void a(int paramInt)
+    throws RemoteException;
   
-  private jn(Context paramContext)
+  public static abstract class a
+    extends Binder
+    implements jn
   {
-    mO = paramContext.getApplicationContext();
-  }
-  
-  public static jn J(Context paramContext)
-  {
-    synchronized (Nd)
+    public a()
     {
-      if (Ne == null) {
-        Ne = new jn(paramContext.getApplicationContext());
-      }
-      return Ne;
+      attachInterface(this, "com.google.android.gms.common.internal.service.ICommonCallbacks");
     }
-  }
-  
-  public boolean a(String paramString, jl<?>.f paramjl)
-  {
-    for (;;)
+    
+    public static jn a(IBinder paramIBinder)
     {
-      jn.a locala;
-      synchronized (Nf)
-      {
-        locala = (jn.a)Nf.get(paramString);
-        if (locala == null)
-        {
-          locala = new jn.a(this, paramString);
-          locala.a(paramjl);
-          locala.hA();
-          Nf.put(paramString, locala);
-          paramString = locala;
-          boolean bool = paramString.isBound();
-          return bool;
-        }
-        mHandler.removeMessages(0, locala);
-        if (locala.c(paramjl)) {
-          throw new IllegalStateException("Trying to bind a GmsServiceConnection that was already connected before.  startServiceAction=" + paramString);
-        }
+      if (paramIBinder == null) {
+        return null;
       }
-      locala.a(paramjl);
-      switch (locala.getState())
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.common.internal.service.ICommonCallbacks");
+      if ((localIInterface != null) && ((localIInterface instanceof jn))) {
+        return (jn)localIInterface;
+      }
+      return new a(paramIBinder);
+    }
+    
+    public IBinder asBinder()
+    {
+      return this;
+    }
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
+    {
+      switch (paramInt1)
       {
-      case 1: 
-        paramjl.onServiceConnected(locala.getComponentName(), locala.getBinder());
-        paramString = locala;
-        break;
-      case 2: 
-        locala.hA();
-        paramString = locala;
-        break;
       default: 
-        paramString = locala;
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.common.internal.service.ICommonCallbacks");
+        return true;
       }
-    }
-  }
-  
-  public void b(String paramString, jl<?>.f paramjl)
-  {
-    jn.a locala;
-    synchronized (Nf)
-    {
-      locala = (jn.a)Nf.get(paramString);
-      if (locala == null) {
-        throw new IllegalStateException("Nonexistent connection status for service action: " + paramString);
-      }
-    }
-    if (!locala.c(paramjl)) {
-      throw new IllegalStateException("Trying to unbind a GmsServiceConnection  that was not bound before.  startServiceAction=" + paramString);
-    }
-    locala.b(paramjl);
-    if (locala.hD())
-    {
-      paramString = mHandler.obtainMessage(0, locala);
-      mHandler.sendMessageDelayed(paramString, 5000L);
-    }
-  }
-  
-  public boolean handleMessage(Message arg1)
-  {
-    switch (what)
-    {
-    default: 
-      return false;
-    }
-    jn.a locala = (jn.a)obj;
-    synchronized (Nf)
-    {
-      if (locala.hD())
-      {
-        locala.hB();
-        Nf.remove(locala.hC());
-      }
+      paramParcel1.enforceInterface("com.google.android.gms.common.internal.service.ICommonCallbacks");
+      a(paramParcel1.readInt());
+      paramParcel2.writeNoException();
       return true;
+    }
+    
+    private static class a
+      implements jn
+    {
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
+      {
+        a = paramIBinder;
+      }
+      
+      public void a(int paramInt)
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.common.internal.service.ICommonCallbacks");
+          localParcel1.writeInt(paramInt);
+          a.transact(1, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          return;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
     }
   }
 }

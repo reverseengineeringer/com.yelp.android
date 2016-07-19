@@ -7,14 +7,25 @@ import android.os.Parcelable.Creator;
 class ActionMenuPresenter$SavedState
   implements Parcelable
 {
-  public static final Parcelable.Creator<SavedState> CREATOR = new i();
-  public int openSubMenuId;
+  public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+  {
+    public ActionMenuPresenter.SavedState a(Parcel paramAnonymousParcel)
+    {
+      return new ActionMenuPresenter.SavedState(paramAnonymousParcel);
+    }
+    
+    public ActionMenuPresenter.SavedState[] a(int paramAnonymousInt)
+    {
+      return new ActionMenuPresenter.SavedState[paramAnonymousInt];
+    }
+  };
+  public int a;
   
   ActionMenuPresenter$SavedState() {}
   
   ActionMenuPresenter$SavedState(Parcel paramParcel)
   {
-    openSubMenuId = paramParcel.readInt();
+    a = paramParcel.readInt();
   }
   
   public int describeContents()
@@ -24,7 +35,7 @@ class ActionMenuPresenter$SavedState
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeInt(openSubMenuId);
+    paramParcel.writeInt(a);
   }
 }
 

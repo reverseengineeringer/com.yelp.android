@@ -2,17 +2,17 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
-import com.google.android.gms.internal.jv.a;
-import com.google.android.gms.internal.jx;
+import com.google.android.gms.common.internal.zzw;
+import com.google.android.gms.common.internal.zzw.zza;
+import com.google.android.gms.common.internal.zzx;
 
 public class StreetViewPanoramaOrientation
   implements SafeParcelable
 {
-  public static final t CREATOR = new t();
-  private final int CK;
-  public final float bearing;
-  public final float tilt;
+  public static final q CREATOR = new q();
+  public final float a;
+  public final float b;
+  private final int c;
   
   public StreetViewPanoramaOrientation(float paramFloat1, float paramFloat2)
   {
@@ -24,26 +24,21 @@ public class StreetViewPanoramaOrientation
     if ((-90.0F <= paramFloat1) && (paramFloat1 <= 90.0F)) {}
     for (boolean bool = true;; bool = false)
     {
-      jx.b(bool, "Tilt needs to be between -90 and 90 inclusive");
-      CK = paramInt;
-      tilt = (0.0F + paramFloat1);
+      zzx.zzb(bool, "Tilt needs to be between -90 and 90 inclusive");
+      c = paramInt;
+      a = (0.0F + paramFloat1);
       paramFloat1 = paramFloat2;
       if (paramFloat2 <= 0.0D) {
         paramFloat1 = paramFloat2 % 360.0F + 360.0F;
       }
-      bearing = (paramFloat1 % 360.0F);
+      b = (paramFloat1 % 360.0F);
       return;
     }
   }
   
-  public static StreetViewPanoramaOrientation.Builder builder()
+  int a()
   {
-    return new StreetViewPanoramaOrientation.Builder();
-  }
-  
-  public static StreetViewPanoramaOrientation.Builder builder(StreetViewPanoramaOrientation paramStreetViewPanoramaOrientation)
-  {
-    return new StreetViewPanoramaOrientation.Builder(paramStreetViewPanoramaOrientation);
+    return c;
   }
   
   public int describeContents()
@@ -61,28 +56,46 @@ public class StreetViewPanoramaOrientation
         return false;
       }
       paramObject = (StreetViewPanoramaOrientation)paramObject;
-    } while ((Float.floatToIntBits(tilt) == Float.floatToIntBits(tilt)) && (Float.floatToIntBits(bearing) == Float.floatToIntBits(bearing)));
+    } while ((Float.floatToIntBits(a) == Float.floatToIntBits(a)) && (Float.floatToIntBits(b) == Float.floatToIntBits(b)));
     return false;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { Float.valueOf(tilt), Float.valueOf(bearing) });
+    return zzw.hashCode(new Object[] { Float.valueOf(a), Float.valueOf(b) });
   }
   
   public String toString()
   {
-    return jv.h(this).a("tilt", Float.valueOf(tilt)).a("bearing", Float.valueOf(bearing)).toString();
+    return zzw.zzy(this).zzg("tilt", Float.valueOf(a)).zzg("bearing", Float.valueOf(b)).toString();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    t.a(this, paramParcel, paramInt);
+    q.a(this, paramParcel, paramInt);
+  }
+  
+  public static final class a
+  {
+    public float a;
+    public float b;
+    
+    public a a(float paramFloat)
+    {
+      b = paramFloat;
+      return this;
+    }
+    
+    public StreetViewPanoramaOrientation a()
+    {
+      return new StreetViewPanoramaOrientation(b, a);
+    }
+    
+    public a b(float paramFloat)
+    {
+      a = paramFloat;
+      return this;
+    }
   }
 }
 

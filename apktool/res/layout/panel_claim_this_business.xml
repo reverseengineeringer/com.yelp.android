@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/claim_business_container" android:paddingTop="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="vertical" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent" yelp:position="bottom|left" style="?sublistCell">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/claim_business_image_bg" android:background="@drawable/city_background_blue_repeat" android:layout_width="fill_parent" android:layout_height="@dimen/claim_business_background_height" android:contentDescription="@null" />
+            <ImageView android:layout_gravity="bottom|center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:src="@drawable/house" android:contentDescription="@null" />
+        </FrameLayout>
+        <TextView android:textAppearance="@style/TitleText" android:layout_gravity="center" android:paddingTop="@dimen/default_large_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/is_this_your_business" />
+        <TextView android:textAppearance="@style/BodyText" android:layout_gravity="center" android:paddingTop="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/respond_to_reviews" />
+        <TextView android:textAppearance="@style/BodyText" android:layout_gravity="center" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/claiming_is_free" />
+        <Button android:layout_gravity="center" android:id="@id/claim_business_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_large_gap_size" android:text="@string/claim_this_business" style="@style/Widget.Button.BusinessPage" />
+    </com.yelp.android.ui.widgets.SpannableLinearLayout>
+</FrameLayout>

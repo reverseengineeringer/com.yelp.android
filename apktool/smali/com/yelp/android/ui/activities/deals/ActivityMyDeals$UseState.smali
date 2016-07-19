@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/deals/ActivityMyDeals;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x401a
+    name = "UseState"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -31,7 +40,7 @@
 
     const/4 v2, 0x0
 
-    .line 67
+    .line 66
     new-instance v0, Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;
 
     const-string/jumbo v1, "UNUSED"
@@ -40,7 +49,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;->UNUSED:Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;
 
-    .line 68
+    .line 67
     new-instance v0, Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;
 
     const-string/jumbo v1, "USED"
@@ -49,7 +58,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;->USED:Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;
 
-    .line 66
+    .line 65
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;
@@ -76,7 +85,7 @@
     .end annotation
 
     .prologue
-    .line 66
+    .line 65
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -86,7 +95,7 @@
     .locals 1
 
     .prologue
-    .line 66
+    .line 65
     const-class v0, Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -102,7 +111,7 @@
     .locals 1
 
     .prologue
-    .line 66
+    .line 65
     sget-object v0, Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;->$VALUES:[Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;
 
     invoke-virtual {v0}, [Lcom/yelp/android/ui/activities/deals/ActivityMyDeals$UseState;->clone()Ljava/lang/Object;

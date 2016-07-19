@@ -7,8 +7,6 @@
 
 
 # static fields
-.field private static final ANDROID_CLIENT_ERROR:Ljava/lang/String; = "ANDROID_CLIENT_ERROR"
-
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,69 +57,69 @@
 
     .prologue
     .line 48
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorUnknown:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorUnknown:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorUnknown:I
 
     .line 51
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorServerResourceNotFound:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorServerResourceNotFound:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorServerResourceNotFound:I
 
     .line 53
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorServerMaintenance:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorServerMaintenance:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorServerMaintenance:I
 
     .line 55
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorServerResponse:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorServerResponse:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorServerResponse:I
 
     .line 57
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorCannotConnectToHost:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorCannotConnectToHost:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorCannotConnectToHost:I
 
     .line 58
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorNotConnectedToInternet:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorNotConnectedToInternet:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorNotConnectedToInternet:I
 
     .line 61
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorInvalidMIMEType:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorInvalidMIMEType:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorInvalidMIMEType:I
 
     .line 63
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorUnknown:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorUnknown:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorInvalidData:I
 
     .line 65
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorFacebookConnect:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorFacebookConnect:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorFacebookConnect:I
 
     .line 66
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorLocationServicesDisabled:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorLocationServicesDisabled:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorLocationServicesDisabled:I
 
     .line 68
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorCountryNotSupported:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorCountryNotSupported:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorCountryNotSupported:I
 
     .line 69
-    sget v0, Lcom/yelp/android/bf/k;->YPErrorCheckInNoLocation:I
+    sget v0, Lcom/yelp/android/co/a$j;->YPErrorCheckInNoLocation:I
 
     sput v0, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorCheckInNoLocation:I
 
     .line 80
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/hg;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/YelpException$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/hg;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/YelpException$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/YelpException;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -205,7 +203,7 @@
 
     const/4 v3, 0x0
 
-    sget v4, Lcom/yelp/android/bf/k;->site_name:I
+    sget v4, Lcom/yelp/android/co/a$j;->site_name:I
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

@@ -40,10 +40,10 @@ class PlayerAPIClient
   
   private Map<String, String> authorizeParams(List<String> paramList)
   {
-    HashMap localHashMap = new HashMap();
+    final HashMap localHashMap = new HashMap();
     StringBuilder localStringBuilder = new StringBuilder().append(Utils.device());
     if (_isHook) {}
-    for (Object localObject = "-hook";; localObject = "")
+    for (final Object localObject = "-hook";; localObject = "")
     {
       localHashMap.put("device", (String)localObject);
       localHashMap.put("domain", _domain);
@@ -53,7 +53,14 @@ class PlayerAPIClient
       if (_embedTokenGenerator != null)
       {
         localObject = new Semaphore(0);
-        _embedTokenGenerator.getTokenForEmbedCodes(paramList, new PlayerAPIClient.1(this, localHashMap, (Semaphore)localObject));
+        _embedTokenGenerator.getTokenForEmbedCodes(paramList, new EmbedTokenGeneratorCallback()
+        {
+          public void setEmbedToken(String paramAnonymousString)
+          {
+            localHashMap.put("embedToken", paramAnonymousString);
+            localObject.release();
+          }
+        });
       }
       try
       {
@@ -86,6 +93,7 @@ class PlayerAPIClient
   }
   
   private JSONObject getContentTreeData(JSONObject paramJSONObject)
+    throws OoyalaException
   {
     if (paramJSONObject == null) {
       throw new OoyalaException(OoyalaException.OoyalaErrorCode.ERROR_CONTENT_TREE_INVALID, "Content Tree response invalid (nil).");
@@ -135,6 +143,7 @@ class PlayerAPIClient
   }
   
   private JSONObject verifyAuthorizeHeartbeatJSON(JSONObject paramJSONObject)
+    throws OoyalaException
   {
     if (paramJSONObject == null) {
       throw new OoyalaException(OoyalaException.OoyalaErrorCode.ERROR_AUTHORIZATION_HEARTBEAT_FAILED, "response invalid (nil).");
@@ -162,6 +171,7 @@ class PlayerAPIClient
   }
   
   private JSONObject verifyAuthorizeJSON(JSONObject paramJSONObject, List<String> paramList)
+    throws OoyalaException
   {
     if (paramJSONObject == null) {
       throw new OoyalaException(OoyalaException.OoyalaErrorCode.ERROR_AUTHORIZATION_INVALID, "Authorization response invalid (nil).");
@@ -211,6 +221,7 @@ class PlayerAPIClient
   }
   
   private JSONObject verifyContentTreeObject(JSONObject paramJSONObject, List<String> paramList)
+    throws OoyalaException
   {
     paramJSONObject = getContentTreeData(paramJSONObject);
     if ((paramJSONObject != null) && (paramList != null))
@@ -228,6 +239,7 @@ class PlayerAPIClient
   }
   
   private JSONObject verifyContentTreeObject(JSONObject paramJSONObject, List<String> paramList1, List<String> paramList2)
+    throws OoyalaException
   {
     paramJSONObject = getContentTreeData(paramJSONObject);
     if ((paramJSONObject != null) && (paramList1 != null))
@@ -278,30 +290,33 @@ class PlayerAPIClient
   }
   
   public boolean authorize(AuthorizableItemInternal paramAuthorizableItemInternal)
+    throws OoyalaException
   {
     return authorizeEmbedCodes(paramAuthorizableItemInternal.embedCodesToAuthorize(), paramAuthorizableItemInternal);
   }
   
   public boolean authorize(AuthorizableItemInternal paramAuthorizableItemInternal, PlayerInfo paramPlayerInfo)
+    throws OoyalaException
   {
     return authorizeEmbedCodes(paramAuthorizableItemInternal.embedCodesToAuthorize(), paramAuthorizableItemInternal, paramPlayerInfo);
   }
   
   public Object authorizeEmbedCodes(List<String> paramList, AuthorizableItemInternal paramAuthorizableItemInternal, AuthorizeCallback paramAuthorizeCallback)
   {
-    paramAuthorizeCallback = new PlayerAPIClient.AuthorizeTask(this, paramAuthorizeCallback);
+    paramAuthorizeCallback = new AuthorizeTask(paramAuthorizeCallback);
     paramAuthorizeCallback.execute(new Object[] { paramList, paramAuthorizableItemInternal });
     return paramAuthorizeCallback;
   }
   
   public Object authorizeEmbedCodes(List<String> paramList, AuthorizableItemInternal paramAuthorizableItemInternal, PlayerInfo paramPlayerInfo, AuthorizeCallback paramAuthorizeCallback)
   {
-    paramAuthorizeCallback = new PlayerAPIClient.AuthorizeTask(this, paramAuthorizeCallback);
+    paramAuthorizeCallback = new AuthorizeTask(paramAuthorizeCallback);
     paramAuthorizeCallback.execute(new Object[] { paramList, paramAuthorizableItemInternal, paramPlayerInfo });
     return paramAuthorizeCallback;
   }
   
   public boolean authorizeEmbedCodes(List<String> paramList, AuthorizableItemInternal paramAuthorizableItemInternal)
+    throws OoyalaException
   {
     Object localObject = String.format("/sas/player_api/v%s/authorization/embed_code/%s/%s", new Object[] { "1", _pcode, Utils.join(paramList, ",") });
     localObject = OoyalaAPIHelper.objectForAPI(Constants.AUTHORIZE_HOST, (String)localObject, authorizeParams(paramList));
@@ -339,6 +354,7 @@ class PlayerAPIClient
   }
   
   public boolean authorizeEmbedCodes(List<String> paramList, AuthorizableItemInternal paramAuthorizableItemInternal, PlayerInfo paramPlayerInfo)
+    throws OoyalaException
   {
     String str = String.format("/sas/player_api/v%s/authorization/embed_code/%s/%s", new Object[] { "1", _pcode, Utils.join(paramList, ",") });
     Map localMap = authorizeParams(paramList);
@@ -397,14 +413,15 @@ class PlayerAPIClient
     }
   }
   
-  public Object authorizeHeartbeat(PlayerAPIClient.AuthorizeHeartbeatCallback paramAuthorizeHeartbeatCallback)
+  public Object authorizeHeartbeat(AuthorizeHeartbeatCallback paramAuthorizeHeartbeatCallback)
   {
-    paramAuthorizeHeartbeatCallback = new PlayerAPIClient.AuthorizeHeartbeatTask(this, paramAuthorizeHeartbeatCallback);
+    paramAuthorizeHeartbeatCallback = new AuthorizeHeartbeatTask(paramAuthorizeHeartbeatCallback);
     paramAuthorizeHeartbeatCallback.execute(new Void[0]);
     return paramAuthorizeHeartbeatCallback;
   }
   
   public boolean authorizeHeartbeat()
+    throws OoyalaException
   {
     Object localObject = String.format("/sas/player_api/v%s/auth_heartbeat/pcode/%s/auth_token/%s", new Object[] { "1", _pcode, getAuthToken() });
     localObject = OoyalaAPIHelper.objectForAPI(Constants.AUTHORIZE_HOST, (String)localObject, null);
@@ -426,6 +443,7 @@ class PlayerAPIClient
   }
   
   public ContentItem contentTree(List<String> paramList)
+    throws OoyalaException
   {
     return contentTreeWithAdSet(paramList, null);
   }
@@ -436,6 +454,7 @@ class PlayerAPIClient
   }
   
   public ContentItem contentTreeByExternalIds(List<String> paramList)
+    throws OoyalaException
   {
     Object localObject1 = null;
     Object localObject2 = String.format("/player_api/v%s/content_tree/external_id/%s/%s", new Object[] { "1", _pcode, Utils.join(paramList, ",") });
@@ -472,10 +491,10 @@ class PlayerAPIClient
   
   public Object contentTreeByExternalIdsWithAdSetCode(List<String> paramList, String paramString, ContentTreeCallback paramContentTreeCallback)
   {
-    paramString = new PlayerAPIClient.ContentTreeByExternalIdsTask(this, paramContentTreeCallback);
-    paramContentTreeCallback = new PlayerAPIClient.ContentTreeTaskParam(this, null);
+    paramString = new ContentTreeByExternalIdsTask(paramContentTreeCallback);
+    paramContentTreeCallback = new ContentTreeTaskParam(null);
     idList = paramList;
-    paramString.execute(new PlayerAPIClient.ContentTreeTaskParam[] { paramContentTreeCallback });
+    paramString.execute(new ContentTreeTaskParam[] { paramContentTreeCallback });
     return paramString;
   }
   
@@ -529,12 +548,13 @@ class PlayerAPIClient
   
   public Object contentTreeNext(PaginatedParentItem paramPaginatedParentItem, ContentTreeNextCallback paramContentTreeNextCallback)
   {
-    paramContentTreeNextCallback = new PlayerAPIClient.ContentTreeNextTask(this, paramContentTreeNextCallback);
+    paramContentTreeNextCallback = new ContentTreeNextTask(paramContentTreeNextCallback);
     paramContentTreeNextCallback.execute(new Object[] { paramPaginatedParentItem });
     return paramContentTreeNextCallback;
   }
   
   public ContentItem contentTreeWithAdSet(List<String> paramList, String paramString)
+    throws OoyalaException
   {
     HashMap localHashMap = null;
     if (paramString != null)
@@ -562,20 +582,22 @@ class PlayerAPIClient
   
   public Object contentTreeWithAdSet(List<String> paramList, String paramString, ContentTreeCallback paramContentTreeCallback)
   {
-    paramContentTreeCallback = new PlayerAPIClient.ContentTreeTask(this, paramContentTreeCallback);
-    PlayerAPIClient.ContentTreeTaskParam localContentTreeTaskParam = new PlayerAPIClient.ContentTreeTaskParam(this, null);
+    paramContentTreeCallback = new ContentTreeTask(paramContentTreeCallback);
+    ContentTreeTaskParam localContentTreeTaskParam = new ContentTreeTaskParam(null);
     idList = paramList;
     adSetCode = paramString;
-    paramContentTreeCallback.execute(new PlayerAPIClient.ContentTreeTaskParam[] { localContentTreeTaskParam });
+    paramContentTreeCallback.execute(new ContentTreeTaskParam[] { localContentTreeTaskParam });
     return paramContentTreeCallback;
   }
   
   public boolean fetchMetadata(ContentItem paramContentItem)
+    throws OoyalaException
   {
     return fetchMetadataForEmbedCodes(paramContentItem.embedCodesToAuthorize(), paramContentItem);
   }
   
   public boolean fetchMetadataForEmbedCodes(List<String> paramList, AuthorizableItem paramAuthorizableItem)
+    throws OoyalaException
   {
     paramList = String.format("/player_api/v%s/metadata/embed_code/%s/%s", new Object[] { "1", _pcode, Utils.join(paramList, ",") });
     paramList = OoyalaAPIHelper.objectForAPI(Constants.METADATA_HOST, paramList, contentTreeParams(null));
@@ -631,10 +653,10 @@ class PlayerAPIClient
   
   public Object metadata(ContentItem paramContentItem, MetadataFetchedCallback paramMetadataFetchedCallback)
   {
-    paramMetadataFetchedCallback = new PlayerAPIClient.MetadataFetchTask(this, paramMetadataFetchedCallback);
-    PlayerAPIClient.MetadataFetchTaskParam localMetadataFetchTaskParam = new PlayerAPIClient.MetadataFetchTaskParam(this, null);
+    paramMetadataFetchedCallback = new MetadataFetchTask(paramMetadataFetchedCallback);
+    MetadataFetchTaskParam localMetadataFetchTaskParam = new MetadataFetchTaskParam(null);
     item = paramContentItem;
-    paramMetadataFetchedCallback.execute(new PlayerAPIClient.MetadataFetchTaskParam[] { localMetadataFetchTaskParam });
+    paramMetadataFetchedCallback.execute(new MetadataFetchTaskParam[] { localMetadataFetchTaskParam });
     return paramMetadataFetchedCallback;
   }
   
@@ -646,6 +668,236 @@ class PlayerAPIClient
   public void setHook()
   {
     _isHook = true;
+  }
+  
+  public static abstract interface AuthorizeHeartbeatCallback
+  {
+    public abstract void callback(boolean paramBoolean, OoyalaException paramOoyalaException);
+  }
+  
+  private class AuthorizeHeartbeatTask
+    extends AsyncTask<Void, Void, Boolean>
+  {
+    protected PlayerAPIClient.AuthorizeHeartbeatCallback _callback = null;
+    protected OoyalaException _error = null;
+    
+    public AuthorizeHeartbeatTask(PlayerAPIClient.AuthorizeHeartbeatCallback paramAuthorizeHeartbeatCallback)
+    {
+      _callback = paramAuthorizeHeartbeatCallback;
+    }
+    
+    protected Boolean doInBackground(Void... paramVarArgs)
+    {
+      try
+      {
+        boolean bool = authorizeHeartbeat();
+        return Boolean.valueOf(bool);
+      }
+      catch (OoyalaException paramVarArgs)
+      {
+        _error = paramVarArgs;
+      }
+      return Boolean.FALSE;
+    }
+    
+    protected void onPostExecute(Boolean paramBoolean)
+    {
+      _callback.callback(paramBoolean.booleanValue(), _error);
+    }
+  }
+  
+  private class AuthorizeTask
+    extends AsyncTask<Object, Integer, Boolean>
+  {
+    protected AuthorizeCallback _callback = null;
+    protected OoyalaException _error = null;
+    
+    public AuthorizeTask(AuthorizeCallback paramAuthorizeCallback)
+    {
+      _callback = paramAuthorizeCallback;
+    }
+    
+    protected Boolean doInBackground(Object... paramVarArgs)
+    {
+      if (paramVarArgs.length < 2) {
+        return Boolean.valueOf(false);
+      }
+      if (!(paramVarArgs[0] instanceof List)) {
+        return Boolean.valueOf(false);
+      }
+      List localList = (List)paramVarArgs[0];
+      if ((paramVarArgs[1] instanceof AuthorizableItemInternal)) {}
+      for (AuthorizableItemInternal localAuthorizableItemInternal = (AuthorizableItemInternal)paramVarArgs[1];; localAuthorizableItemInternal = null) {
+        switch (paramVarArgs.length)
+        {
+        default: 
+          return Boolean.valueOf(false);
+        }
+      }
+      boolean bool;
+      try
+      {
+        bool = authorizeEmbedCodes(localList, localAuthorizableItemInternal);
+        return Boolean.valueOf(bool);
+      }
+      catch (OoyalaException paramVarArgs)
+      {
+        _error = paramVarArgs;
+        return Boolean.valueOf(false);
+      }
+      if ((paramVarArgs[2] instanceof PlayerInfo)) {}
+      for (paramVarArgs = (PlayerInfo)paramVarArgs[2];; paramVarArgs = null) {
+        try
+        {
+          bool = authorizeEmbedCodes(localList, localAuthorizableItemInternal, paramVarArgs);
+          return Boolean.valueOf(bool);
+        }
+        catch (OoyalaException paramVarArgs)
+        {
+          _error = paramVarArgs;
+        }
+      }
+      return Boolean.valueOf(false);
+    }
+    
+    protected void onPostExecute(Boolean paramBoolean)
+    {
+      _callback.callback(paramBoolean.booleanValue(), _error);
+    }
+  }
+  
+  private class ContentTreeByExternalIdsTask
+    extends PlayerAPIClient.ContentTreeTask
+  {
+    public ContentTreeByExternalIdsTask(ContentTreeCallback paramContentTreeCallback)
+    {
+      super(paramContentTreeCallback);
+    }
+    
+    protected ContentItem doInBackground(PlayerAPIClient.ContentTreeTaskParam... paramVarArgs)
+    {
+      if ((paramVarArgs.length == 0) || (paramVarArgs[0] == null) || (0idList == null) || (0idList.isEmpty())) {
+        return null;
+      }
+      try
+      {
+        paramVarArgs = contentTreeByExternalIds(0idList);
+        return paramVarArgs;
+      }
+      catch (OoyalaException paramVarArgs)
+      {
+        _error = paramVarArgs;
+      }
+      return null;
+    }
+  }
+  
+  private class ContentTreeNextTask
+    extends AsyncTask<Object, Integer, PaginatedItemResponse>
+  {
+    protected ContentTreeNextCallback _callback = null;
+    protected OoyalaException _error = null;
+    
+    public ContentTreeNextTask(ContentTreeNextCallback paramContentTreeNextCallback)
+    {
+      _callback = paramContentTreeNextCallback;
+    }
+    
+    protected PaginatedItemResponse doInBackground(Object... paramVarArgs)
+    {
+      if ((paramVarArgs.length < 1) || (paramVarArgs[0] == null) || (!(paramVarArgs[0] instanceof PaginatedParentItem))) {
+        return null;
+      }
+      return contentTreeNext((PaginatedParentItem)paramVarArgs[1]);
+    }
+    
+    protected void onPostExecute(PaginatedItemResponse paramPaginatedItemResponse)
+    {
+      _callback.callback(paramPaginatedItemResponse, _error);
+    }
+  }
+  
+  private class ContentTreeTask
+    extends AsyncTask<PlayerAPIClient.ContentTreeTaskParam, Integer, ContentItem>
+  {
+    protected ContentTreeCallback _callback = null;
+    protected OoyalaException _error = null;
+    
+    public ContentTreeTask(ContentTreeCallback paramContentTreeCallback)
+    {
+      _callback = paramContentTreeCallback;
+    }
+    
+    protected ContentItem doInBackground(PlayerAPIClient.ContentTreeTaskParam... paramVarArgs)
+    {
+      if ((paramVarArgs.length == 0) || (paramVarArgs[0] == null) || (0idList == null) || (0idList.isEmpty())) {
+        return null;
+      }
+      try
+      {
+        paramVarArgs = contentTreeWithAdSet(0idList, 0adSetCode);
+        return paramVarArgs;
+      }
+      catch (OoyalaException paramVarArgs)
+      {
+        _error = paramVarArgs;
+      }
+      return null;
+    }
+    
+    protected void onPostExecute(ContentItem paramContentItem)
+    {
+      _callback.callback(paramContentItem, _error);
+    }
+  }
+  
+  private class ContentTreeTaskParam
+  {
+    public String adSetCode;
+    public List<String> idList;
+    
+    private ContentTreeTaskParam() {}
+  }
+  
+  private class MetadataFetchTask
+    extends AsyncTask<PlayerAPIClient.MetadataFetchTaskParam, Integer, Boolean>
+  {
+    protected MetadataFetchedCallback _callback = null;
+    protected OoyalaException _error = null;
+    
+    public MetadataFetchTask(MetadataFetchedCallback paramMetadataFetchedCallback)
+    {
+      _callback = paramMetadataFetchedCallback;
+    }
+    
+    protected Boolean doInBackground(PlayerAPIClient.MetadataFetchTaskParam... paramVarArgs)
+    {
+      if ((paramVarArgs.length == 0) || (paramVarArgs[0] == null) || (0item == null)) {
+        return Boolean.valueOf(false);
+      }
+      try
+      {
+        boolean bool = fetchMetadata(0item);
+        return Boolean.valueOf(bool);
+      }
+      catch (OoyalaException paramVarArgs)
+      {
+        _error = paramVarArgs;
+      }
+      return null;
+    }
+    
+    protected void onPostExecute(Boolean paramBoolean)
+    {
+      _callback.callback(paramBoolean.booleanValue(), _error);
+    }
+  }
+  
+  private class MetadataFetchTaskParam
+  {
+    public ContentItem item;
+    
+    private MetadataFetchTaskParam() {}
   }
 }
 

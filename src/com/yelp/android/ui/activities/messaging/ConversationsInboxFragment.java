@@ -19,17 +19,12 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.bb.h;
 import com.yelp.android.serializable.BusinessUser;
 import com.yelp.android.serializable.Conversation;
-import com.yelp.android.serializable.bg;
-import com.yelp.android.services.push.i;
-import com.yelp.android.services.push.j;
-import com.yelp.android.ui.activities.messaging.apimanagers.d;
-import com.yelp.android.ui.activities.messaging.apimanagers.g;
-import com.yelp.android.ui.activities.messaging.apimanagers.p;
+import com.yelp.android.services.push.e.a;
+import com.yelp.android.ui.activities.messaging.apimanagers.b;
+import com.yelp.android.ui.activities.messaging.apimanagers.g.a;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.util.ScrollToLoadListView;
@@ -40,20 +35,20 @@ import java.util.List;
 public class ConversationsInboxFragment
   extends YelpListFragment
 {
-  private h a;
-  private d b;
+  private com.yelp.android.cl.c a;
+  private b b;
   private List<Conversation> c;
   private a d;
   private ScrollToLoadListView e;
-  private String g;
-  private Conversation h;
+  private String f;
+  private Conversation g;
   private MessagingActionsHelper i;
   private boolean j = true;
   private boolean k;
   private boolean l;
-  private final j m = new q(this);
-  private final p n = new s(this);
-  private final g o = new t(this);
+  private final e.a m = new ConversationsInboxFragment.1(this);
+  private final g.a n = new ConversationsInboxFragment.2(this);
+  private final com.yelp.android.ui.activities.messaging.apimanagers.c o = new ConversationsInboxFragment.3(this);
   
   public static ConversationsInboxFragment a(ArrayList<Conversation> paramArrayList, Conversation paramConversation)
   {
@@ -77,9 +72,9 @@ public class ConversationsInboxFragment
   
   private void a(ContextMenu paramContextMenu, Conversation paramConversation)
   {
-    boolean bool2 = paramConversation.getOtherUser().isBlocked();
-    BusinessUser localBusinessUser = paramConversation.getBizUser();
-    MenuItem localMenuItem = paramContextMenu.findItem(2131494133);
+    boolean bool2 = paramConversation.a().b();
+    BusinessUser localBusinessUser = paramConversation.k();
+    MenuItem localMenuItem = paramContextMenu.findItem(2131691007);
     boolean bool1;
     Object localObject;
     if (!bool2)
@@ -89,10 +84,10 @@ public class ConversationsInboxFragment
       if (localBusinessUser == null) {
         break label113;
       }
-      localObject = getString(2131165407);
+      localObject = getString(2131165546);
       label56:
       localMenuItem.setTitle((CharSequence)localObject);
-      localObject = paramContextMenu.findItem(2131494134);
+      localObject = paramContextMenu.findItem(2131691008);
       ((MenuItem)localObject).setVisible(bool2);
       if (localBusinessUser == null) {
         break label140;
@@ -100,13 +95,13 @@ public class ConversationsInboxFragment
     }
     label113:
     label140:
-    for (paramContextMenu = getString(2131166765);; paramContextMenu = getString(2131166766, new Object[] { paramConversation.getOtherUser().getName() }))
+    for (paramContextMenu = getString(2131166745);; paramContextMenu = getString(2131166746, new Object[] { paramConversation.a().c() }))
     {
       ((MenuItem)localObject).setTitle(paramContextMenu);
       return;
       bool1 = false;
       break;
-      localObject = getString(2131165408, new Object[] { paramConversation.getOtherUser().getName() });
+      localObject = getString(2131165547, new Object[] { paramConversation.a().c() });
       break label56;
     }
   }
@@ -115,27 +110,27 @@ public class ConversationsInboxFragment
   {
     int i1 = a.b(paramString);
     if (i1 != -1) {
-      e.post(new v(this, i1));
+      e.post(new ConversationsInboxFragment.5(this, i1));
     }
   }
   
-  private void h()
+  private void i()
   {
     AppData.a(EventIri.MessagingNewConversationFromInbox);
   }
   
-  private String i()
+  private String j()
   {
     if (a.isEmpty()) {
       return null;
     }
-    if (h != null) {
-      return h.getId();
+    if (g != null) {
+      return g.h();
     }
-    if (a.a(g) == null) {
-      return ((Conversation)a.getItem(0)).getId();
+    if (a.a(f) == null) {
+      return ((Conversation)a.getItem(0)).h();
     }
-    return g;
+    return f;
   }
   
   private void k()
@@ -143,7 +138,7 @@ public class ConversationsInboxFragment
     ((YelpActivity)getActivity()).enableLoading();
   }
   
-  private void l()
+  private void t()
   {
     ((YelpActivity)getActivity()).disableLoading();
   }
@@ -153,11 +148,22 @@ public class ConversationsInboxFragment
     b.e();
   }
   
+  public Conversation G_()
+  {
+    if (f != null) {
+      return a.a(f);
+    }
+    if (g != null) {
+      return g;
+    }
+    return null;
+  }
+  
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     super.a(paramListView, paramView, paramInt, paramLong);
     paramListView = (Conversation)a.getItem(paramInt);
-    a(paramListView.getId());
+    a(paramListView.h());
     d.a(paramListView);
   }
   
@@ -165,52 +171,43 @@ public class ConversationsInboxFragment
   {
     if (getActivitygetResourcesgetConfigurationorientation == 2)
     {
-      int i2 = a.b(paramConversation.getId());
-      a.b(paramConversation);
+      int i2 = a.b(paramConversation.h());
+      a.c(paramConversation);
       int i1 = i2;
       if (i2 == a.getCount()) {
         i1 = i2 - 1;
       }
       if (!a.isEmpty()) {
-        e.performItemClick(null, i1, r().getItemId(i1));
+        e.performItemClick(null, i1, q().getItemId(i1));
       }
     }
     for (;;)
     {
       if (a.isEmpty()) {
-        a_();
+        p_();
       }
       return;
-      a.b(paramConversation);
+      a.c(paramConversation);
     }
   }
   
-  public void a(bg parambg)
+  public void a(com.yelp.android.serializable.e parame)
   {
     Iterator localIterator = a.b().iterator();
     while (localIterator.hasNext())
     {
       Conversation localConversation = (Conversation)localIterator.next();
-      if (localConversation.getOtherUser().equals(parambg)) {
-        localConversation.getOtherUser().setBlocked(parambg.isBlocked());
+      if (localConversation.a().equals(parame)) {
+        localConversation.a().a(parame.b());
       }
     }
   }
   
   public void a(String paramString)
   {
-    g = paramString;
+    f = paramString;
     a.c(paramString);
     a.notifyDataSetChanged();
-  }
-  
-  public void a_()
-  {
-    ((YelpActivity)getActivity()).clearError();
-    b.c();
-    if (j) {
-      k();
-    }
   }
   
   public void b(Conversation paramConversation)
@@ -218,44 +215,24 @@ public class ConversationsInboxFragment
     a.a(paramConversation);
   }
   
-  public Conversation d()
-  {
-    if (g != null) {
-      return a.a(g);
-    }
-    if (h != null) {
-      return h;
-    }
-    return null;
-  }
-  
-  public List<Conversation> e()
+  public List<Conversation> f()
   {
     return a.b();
   }
   
-  public void f()
-  {
-    a_();
-  }
-  
   public void g()
   {
-    b.d();
+    p_();
   }
   
-  public b getIri()
+  public com.yelp.android.analytics.iris.a getIri()
   {
     return ViewIri.MessagingInbox;
   }
   
-  protected void j_()
+  public void h()
   {
-    if (!b.a())
-    {
-      e.setOnLoadNeeded(new u(this));
-      a(a);
-    }
+    b.d();
   }
   
   public void onActivityCreated(Bundle paramBundle)
@@ -269,14 +246,14 @@ public class ConversationsInboxFragment
       k = false;
       if (b == null)
       {
-        b = new d(getActivity(), c, o);
+        b = new b(getActivity(), c, o);
         a = b.b();
         a(a);
       }
       if (a.isEmpty()) {
-        a_();
+        p_();
       }
-      j_();
+      u_();
       setHasOptionsMenu(true);
       return;
       e.setVerticalScrollBarEnabled(false);
@@ -286,7 +263,7 @@ public class ConversationsInboxFragment
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    if ((paramInt1 == 1030) && (paramInt2 == -1)) {
+    if ((paramInt1 == 1033) && (paramInt2 == -1)) {
       j = false;
     }
   }
@@ -311,12 +288,12 @@ public class ConversationsInboxFragment
     switch (i1)
     {
     default: 
-      if ((i.a(getActivity().getSupportFragmentManager(), i1, h)) || (super.onContextItemSelected(paramMenuItem))) {
+      if ((i.a(getActivity().getSupportFragmentManager(), i1, g)) || (super.onContextItemSelected(paramMenuItem))) {
         return true;
       }
       break;
-    case 2131494138: 
-      d.a(h);
+    case 2131691012: 
+      d.a(g);
       return true;
     }
     return false;
@@ -326,12 +303,12 @@ public class ConversationsInboxFragment
   {
     super.onCreate(paramBundle);
     Bundle localBundle = getArguments();
-    h = ((Conversation)localBundle.getParcelable("current_conversation"));
-    g = localBundle.getString("conversation_id");
+    g = ((Conversation)localBundle.getParcelable("current_conversation"));
+    f = localBundle.getString("conversation_id");
     c = localBundle.getParcelableArrayList("conversations");
-    i = new MessagingActionsHelper(n, d.d());
+    i = new MessagingActionsHelper(n, d.c());
     i.a(getActivity());
-    i.a(h);
+    i.a(g);
     if (paramBundle == null)
     {
       l = false;
@@ -342,19 +319,19 @@ public class ConversationsInboxFragment
   
   public void onCreateContextMenu(ContextMenu paramContextMenu, View paramView, ContextMenu.ContextMenuInfo paramContextMenuInfo)
   {
-    getActivity().getMenuInflater().inflate(2131755017, paramContextMenu);
+    getActivity().getMenuInflater().inflate(2131755019, paramContextMenu);
     int i1 = position;
-    h = ((Conversation)((ListView)paramView).getItemAtPosition(i1));
-    i.a(h);
-    a(h.getId());
-    a(paramContextMenu, h);
-    paramContextMenu.setHeaderTitle(h.getSubject());
-    paramContextMenu.setHeaderIcon(2130837624);
+    g = ((Conversation)((ListView)paramView).getItemAtPosition(i1));
+    i.a(g);
+    a(g.h());
+    a(paramContextMenu, g);
+    paramContextMenu.setHeaderTitle(g.g());
+    paramContextMenu.setHeaderIcon(2130837646);
   }
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755016, paramMenu);
+    paramMenuInflater.inflate(2131755018, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
@@ -377,15 +354,15 @@ public class ConversationsInboxFragment
     default: 
       return false;
     }
-    h();
-    startActivityForResult(ActivityComposeMessage.a(getActivity()), 1030);
+    i();
+    startActivityForResult(ActivityComposeMessage.a(getActivity()), 1033);
     return true;
   }
   
   public void onPause()
   {
     super.onPause();
-    d.d().a(null, null);
+    d.c().a(null, null);
     AppData.b().c().b(m);
     if (b.g()) {
       b.h();
@@ -395,22 +372,22 @@ public class ConversationsInboxFragment
   public void onResume()
   {
     super.onResume();
-    d.d().a(n, null);
+    d.c().a(n, null);
     AppData.b().c().a(m);
-    getActivity().setTitle(2131166088);
+    getActivity().setTitle(2131166150);
     if (!a.isEmpty()) {
-      g();
+      h();
     }
     for (;;)
     {
       if (getActivitygetResourcesgetConfigurationorientation == 1)
       {
-        g = null;
+        f = null;
         ((YelpActivity)getActivity()).showHotButtons();
       }
       return;
       if (!b.g()) {
-        a_();
+        p_();
       }
     }
   }
@@ -419,6 +396,24 @@ public class ConversationsInboxFragment
   {
     super.onSaveInstanceState(paramBundle);
     paramBundle.putBoolean("have_received_count", l);
+  }
+  
+  public void p_()
+  {
+    ((YelpActivity)getActivity()).clearError();
+    b.c();
+    if (j) {
+      k();
+    }
+  }
+  
+  protected void u_()
+  {
+    if (!b.a())
+    {
+      e.setOnLoadNeeded(new ConversationsInboxFragment.4(this));
+      a(a);
+    }
   }
 }
 

@@ -5,17 +5,17 @@ import android.content.Intent;
 public class GooglePlayServicesRepairableException
   extends UserRecoverableException
 {
-  private final int Eo;
+  private final int zzVn;
   
   GooglePlayServicesRepairableException(int paramInt, String paramString, Intent paramIntent)
   {
     super(paramString, paramIntent);
-    Eo = paramInt;
+    zzVn = paramInt;
   }
   
   public int getConnectionStatusCode()
   {
-    return Eo;
+    return zzVn;
   }
 }
 

@@ -1,30 +1,51 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.User;
-import java.util.ArrayList;
-import java.util.Map;
-
-public final class cm
+public class cm<Request extends k<?, ?, Result>, Result>
+  extends dn<Request, Result, k.b<Result>>
 {
-  final ArrayList<User> a;
-  final int b;
-  final Map<String, String> c;
+  private boolean e;
   
-  public cm(Map<String, String> paramMap, ArrayList<User> paramArrayList, int paramInt)
+  public cm(Request paramRequest)
   {
-    c = paramMap;
-    a = paramArrayList;
-    b = paramInt;
+    super(paramRequest);
+    a = paramRequest;
+    ((k)a).a(new k.b()
+    {
+      public boolean a()
+      {
+        cm.a(cm.this, true);
+        return !((k)a).b();
+      }
+      
+      public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+      {
+        d = paramAnonymousYelpException;
+      }
+      
+      public void onSuccess(ApiRequest<?, ?, ?> paramAnonymousApiRequest, Result paramAnonymousResult)
+      {
+        c = true;
+        b = paramAnonymousResult;
+      }
+    });
   }
   
-  public ArrayList<User> a()
+  public Request a(k.b<Result> paramb)
   {
-    return a;
-  }
-  
-  public Map<String, String> b()
-  {
-    return c;
+    ((k)a).a(paramb);
+    if (e) {
+      paramb.a();
+    }
+    if (c) {
+      paramb.onSuccess(a, b);
+    }
+    for (;;)
+    {
+      return (k)a;
+      if (d != null) {
+        paramb.onError(a, d);
+      }
+    }
   }
 }
 

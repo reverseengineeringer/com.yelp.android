@@ -7,29 +7,49 @@ import android.os.Parcelable.Creator;
 public class Royal
   implements Parcelable
 {
-  public static final Parcelable.Creator<Royal> CREATOR = new cw();
-  private final String mDescription;
-  private final int mDukedoms;
-  private final String mLocationName;
-  private final String mTitle;
-  private final User mUser;
+  public static final Parcelable.Creator<Royal> CREATOR = new Royal.1();
+  private final User a;
+  private final String b;
+  private final int c;
+  private final String d;
+  private final String e;
   
   private Royal(Parcel paramParcel)
   {
-    mUser = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
-    mLocationName = paramParcel.readString();
-    mDukedoms = paramParcel.readInt();
-    mTitle = paramParcel.readString();
-    mDescription = paramParcel.readString();
+    a = ((User)paramParcel.readParcelable(User.class.getClassLoader()));
+    b = paramParcel.readString();
+    c = paramParcel.readInt();
+    d = paramParcel.readString();
+    e = paramParcel.readString();
   }
   
   public Royal(User paramUser, String paramString1, int paramInt, String paramString2, String paramString3)
   {
-    mUser = paramUser;
-    mLocationName = paramString1;
-    mDukedoms = paramInt;
-    mTitle = paramString2;
-    mDescription = paramString3;
+    a = paramUser;
+    b = paramString1;
+    c = paramInt;
+    d = paramString2;
+    e = paramString3;
+  }
+  
+  public User a()
+  {
+    return a;
+  }
+  
+  public String b()
+  {
+    return b;
+  }
+  
+  public int c()
+  {
+    return c;
+  }
+  
+  public String d()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -37,43 +57,18 @@ public class Royal
     return 0;
   }
   
-  public String getDescription()
+  public String e()
   {
-    return mDescription;
-  }
-  
-  public int getDukedomCount()
-  {
-    return mDukedoms;
-  }
-  
-  public String getLocationName()
-  {
-    return mLocationName;
-  }
-  
-  public String getTitle()
-  {
-    return mTitle;
-  }
-  
-  public User getUser()
-  {
-    return mUser;
-  }
-  
-  public String getUserId()
-  {
-    return mUser.getId();
+    return a.ae();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeParcelable(mUser, paramInt);
-    paramParcel.writeString(mLocationName);
-    paramParcel.writeInt(mDukedoms);
-    paramParcel.writeString(mTitle);
-    paramParcel.writeString(mDescription);
+    paramParcel.writeParcelable(a, paramInt);
+    paramParcel.writeString(b);
+    paramParcel.writeInt(c);
+    paramParcel.writeString(d);
+    paramParcel.writeString(e);
   }
 }
 

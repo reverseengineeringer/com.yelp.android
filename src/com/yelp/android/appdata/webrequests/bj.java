@@ -1,25 +1,27 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.YelpDeal;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Event;
+import com.yelp.android.serializable.Event.EventType;
+import com.yelp.android.serializable.EventRsvp;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class bj
-  extends g<Void, Void, YelpDeal>
+  extends b<Void, Void, EventRsvp>
 {
-  public String a;
-  
-  public bj(String paramString, m<YelpDeal> paramm)
+  public bj(Event paramEvent, ApiRequest.b<EventRsvp> paramb)
   {
-    super(ApiRequest.RequestType.GET, "deal", paramm);
-    a = paramString;
-    addUrlParam("deal_id", a);
+    super(ApiRequest.RequestType.POST, "/event/rsvp/cancel", paramb);
+    b("event_id", paramEvent.I());
+    b("event_type", paramEvent.K().toString());
   }
   
-  public YelpDeal a(JSONObject paramJSONObject)
+  public EventRsvp a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return (YelpDeal)YelpDeal.CREATOR.parse(paramJSONObject.getJSONObject("deal"));
+    return (EventRsvp)EventRsvp.CREATOR.parse(paramJSONObject.getJSONObject("rsvp"));
   }
 }
 

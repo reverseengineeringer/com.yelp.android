@@ -1,55 +1,74 @@
 package com.yelp.android.r;
 
-import android.content.res.AssetManager;
-import android.util.Log;
-import com.bumptech.glide.Priority;
-import java.io.IOException;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 
-public abstract class a<T>
-  implements c<T>
+public abstract class a
 {
-  private final String a;
-  private final AssetManager b;
-  private T c;
+  private Object a;
+  private boolean b;
   
-  public a(AssetManager paramAssetManager, String paramString)
+  public abstract MenuInflater a();
+  
+  public abstract void a(int paramInt);
+  
+  public abstract void a(View paramView);
+  
+  public abstract void a(CharSequence paramCharSequence);
+  
+  public void a(Object paramObject)
   {
-    b = paramAssetManager;
-    a = paramString;
+    a = paramObject;
   }
   
-  protected abstract T a(AssetManager paramAssetManager, String paramString);
-  
-  public T a(Priority paramPriority)
+  public void a(boolean paramBoolean)
   {
-    c = a(b, a);
-    return (T)c;
+    b = paramBoolean;
   }
   
-  public void a()
+  public abstract Menu b();
+  
+  public abstract void b(int paramInt);
+  
+  public abstract void b(CharSequence paramCharSequence);
+  
+  public abstract void c();
+  
+  public abstract void d();
+  
+  public abstract CharSequence f();
+  
+  public abstract CharSequence g();
+  
+  public boolean h()
   {
-    if (c == null) {}
-    do
-    {
-      return;
-      try
-      {
-        a(c);
-        return;
-      }
-      catch (IOException localIOException) {}
-    } while (!Log.isLoggable("AssetUriFetcher", 2));
-    Log.v("AssetUriFetcher", "Failed to close data", localIOException);
+    return false;
   }
   
-  protected abstract void a(T paramT);
+  public abstract View i();
   
-  public String b()
+  public Object j()
   {
     return a;
   }
   
-  public void c() {}
+  public boolean k()
+  {
+    return b;
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(a parama);
+    
+    public abstract boolean a(a parama, Menu paramMenu);
+    
+    public abstract boolean a(a parama, MenuItem paramMenuItem);
+    
+    public abstract boolean b(a parama, Menu paramMenu);
+  }
 }
 
 /* Location:

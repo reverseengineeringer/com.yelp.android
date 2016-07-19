@@ -1,57 +1,97 @@
 .class public Lcom/yelp/android/af/d;
 .super Ljava/lang/Object;
-.source "DrawableCrossFadeViewAnimation.java"
+.source "StreamFileDataLoadProvider.java"
 
 # interfaces
-.implements Lcom/yelp/android/af/e;
+.implements Lcom/yelp/android/ak/b;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/af/d$1;,
+        Lcom/yelp/android/af/d$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "<T:",
-        "Landroid/graphics/drawable/Drawable;",
-        ">",
         "Ljava/lang/Object;",
-        "Lcom/yelp/android/af/e",
-        "<TT;>;"
+        "Lcom/yelp/android/ak/b",
+        "<",
+        "Ljava/io/InputStream;",
+        "Ljava/io/File;",
+        ">;"
     }
 .end annotation
 
 
+# static fields
+.field private static final a:Lcom/yelp/android/af/d$a;
+
+
 # instance fields
-.field private final a:Lcom/yelp/android/af/e;
+.field private final b:Lcom/bumptech/glide/load/d;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/af/e",
-            "<TT;>;"
+            "Lcom/bumptech/glide/load/d",
+            "<",
+            "Ljava/io/File;",
+            "Ljava/io/File;",
+            ">;"
         }
     .end annotation
 .end field
 
-.field private final b:I
+.field private final c:Lcom/bumptech/glide/load/a;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/bumptech/glide/load/a",
+            "<",
+            "Ljava/io/InputStream;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/af/e;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/af/e",
-            "<TT;>;I)V"
-        }
-    .end annotation
+.method static constructor <clinit>()V
+    .locals 2
+
+    .prologue
+    .line 19
+    new-instance v0, Lcom/yelp/android/af/d$a;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/af/d$a;-><init>(Lcom/yelp/android/af/d$1;)V
+
+    sput-object v0, Lcom/yelp/android/af/d;->a:Lcom/yelp/android/af/d$a;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 1
 
     .prologue
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 25
-    iput-object p1, p0, Lcom/yelp/android/af/d;->a:Lcom/yelp/android/af/e;
+    new-instance v0, Lcom/yelp/android/af/a;
+
+    invoke-direct {v0}, Lcom/yelp/android/af/a;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/af/d;->b:Lcom/bumptech/glide/load/d;
 
     .line 26
-    iput p2, p0, Lcom/yelp/android/af/d;->b:I
+    new-instance v0, Lcom/yelp/android/aa/o;
+
+    invoke-direct {v0}, Lcom/yelp/android/aa/o;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/af/d;->c:Lcom/bumptech/glide/load/a;
 
     .line 27
     return-void
@@ -59,79 +99,82 @@
 
 
 # virtual methods
-.method public a(Landroid/graphics/drawable/Drawable;Lcom/yelp/android/af/f;)Z
-    .locals 5
+.method public a()Lcom/bumptech/glide/load/d;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TT;",
-            "Lcom/yelp/android/af/f;",
-            ")Z"
+            "()",
+            "Lcom/bumptech/glide/load/d",
+            "<",
+            "Ljava/io/File;",
+            "Ljava/io/File;",
+            ">;"
         }
     .end annotation
 
     .prologue
-    const/4 v1, 0x0
+    .line 31
+    iget-object v0, p0, Lcom/yelp/android/af/d;->b:Lcom/bumptech/glide/load/d;
 
-    const/4 v0, 0x1
-
-    .line 44
-    invoke-interface {p2}, Lcom/yelp/android/af/f;->b()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    .line 45
-    if-eqz v2, :cond_0
-
-    .line 46
-    new-instance v3, Landroid/graphics/drawable/TransitionDrawable;
-
-    const/4 v4, 0x2
-
-    new-array v4, v4, [Landroid/graphics/drawable/Drawable;
-
-    aput-object v2, v4, v1
-
-    aput-object p1, v4, v0
-
-    invoke-direct {v3, v4}, Landroid/graphics/drawable/TransitionDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
-
-    .line 47
-    invoke-virtual {v3, v0}, Landroid/graphics/drawable/TransitionDrawable;->setCrossFadeEnabled(Z)V
-
-    .line 48
-    iget v1, p0, Lcom/yelp/android/af/d;->b:I
-
-    invoke-virtual {v3, v1}, Landroid/graphics/drawable/TransitionDrawable;->startTransition(I)V
-
-    .line 49
-    invoke-interface {p2, v3}, Lcom/yelp/android/af/f;->b(Landroid/graphics/drawable/Drawable;)V
-
-    .line 53
-    :goto_0
-    return v0
-
-    .line 52
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/af/d;->a:Lcom/yelp/android/af/e;
-
-    invoke-interface {v0, p1, p2}, Lcom/yelp/android/af/e;->a(Ljava/lang/Object;Lcom/yelp/android/af/f;)Z
-
-    move v0, v1
-
-    .line 53
-    goto :goto_0
+    return-object v0
 .end method
 
-.method public bridge synthetic a(Ljava/lang/Object;Lcom/yelp/android/af/f;)Z
+.method public b()Lcom/bumptech/glide/load/d;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/d",
+            "<",
+            "Ljava/io/InputStream;",
+            "Ljava/io/File;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 14
-    check-cast p1, Landroid/graphics/drawable/Drawable;
+    .line 36
+    sget-object v0, Lcom/yelp/android/af/d;->a:Lcom/yelp/android/af/d$a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/af/d;->a(Landroid/graphics/drawable/Drawable;Lcom/yelp/android/af/f;)Z
+    return-object v0
+.end method
 
-    move-result v0
+.method public c()Lcom/bumptech/glide/load/a;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/a",
+            "<",
+            "Ljava/io/InputStream;",
+            ">;"
+        }
+    .end annotation
 
-    return v0
+    .prologue
+    .line 41
+    iget-object v0, p0, Lcom/yelp/android/af/d;->c:Lcom/bumptech/glide/load/a;
+
+    return-object v0
+.end method
+
+.method public d()Lcom/bumptech/glide/load/e;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/e",
+            "<",
+            "Ljava/io/File;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 46
+    invoke-static {}, Lcom/yelp/android/ad/b;->b()Lcom/yelp/android/ad/b;
+
+    move-result-object v0
+
+    return-object v0
 .end method

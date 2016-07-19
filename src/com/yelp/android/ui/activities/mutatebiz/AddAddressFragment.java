@@ -1,44 +1,40 @@
 package com.yelp.android.ui.activities.mutatebiz;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.location.Address;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.text.Editable;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.LocaleSettings;
-import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.u;
+import com.yelp.android.appdata.webrequests.v;
+import com.yelp.android.appdata.webrequests.w;
+import com.yelp.android.serializable.AddressAttribute;
+import com.yelp.android.serializable.AddressExample;
+import com.yelp.android.serializable.BusinessAttribute;
+import com.yelp.android.serializable.BusinessAttributes;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpBusinessAddresses;
 import com.yelp.android.serializable.YelpDetailedAddress;
 import com.yelp.android.ui.activities.support.YelpFragment;
-import com.yelp.android.ui.activities.support.o;
-import com.yelp.android.ui.dialogs.FlagsDialog;
-import com.yelp.android.ui.dialogs.ao;
-import com.yelp.android.ui.dialogs.ap;
-import com.yelp.android.ui.dialogs.ar;
+import com.yelp.android.ui.activities.support.b.e;
 import com.yelp.android.ui.util.BackgroundTaskFragment;
-import com.yelp.android.ui.util.cr;
-import com.yelp.android.ui.util.g;
-import java.util.ArrayList;
+import com.yelp.android.ui.util.as;
+import com.yelp.android.ui.util.d.a;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -49,199 +45,218 @@ import java.util.Map;
 
 public class AddAddressFragment
   extends YelpFragment
-  implements TextWatcher, o, g<List<Address>>
+  implements b.e, d.a<List<Address>>
 {
-  boolean a;
+  protected boolean a;
   protected boolean b;
   private YelpBusiness c;
   private TextView d;
   private TextView e;
+  private TextView f;
   private TextView g;
-  private TextView h;
   private TextView i;
   private TextView j;
   private TextView k;
   private View l;
   private Address m;
-  private Address n;
-  private ImageButton o;
-  private Locale p;
+  private String n;
+  private View o;
+  private boolean p;
   private YelpBusinessAddresses q;
-  private FlagsDialog r;
-  private ArrayList<ap> s;
-  private e t;
+  private BusinessAttributes r;
+  private w s;
+  private a t;
   private BackgroundTaskFragment<Void, List<Address>> u;
-  private final ar v = new d(this);
+  private final ApiRequest.b<BusinessAttributes> v = new AddAddressFragment.3(this);
+  private final TextWatcher w = new AddAddressFragment.4(this);
   
-  public static Address a(Bundle paramBundle)
+  public static AddAddressFragment a(Address paramAddress, CharSequence paramCharSequence, YelpBusinessAddresses paramYelpBusinessAddresses, BusinessAttributes paramBusinessAttributes, String paramString, boolean paramBoolean)
   {
-    return (Address)paramBundle.getParcelable("address");
+    AddAddressFragment localAddAddressFragment = new AddAddressFragment();
+    localAddAddressFragment.setArguments(b(paramAddress, paramCharSequence, paramYelpBusinessAddresses, paramBusinessAttributes, paramString, paramBoolean));
+    return localAddAddressFragment;
   }
   
-  public static Bundle a(Address paramAddress, CharSequence paramCharSequence, YelpBusinessAddresses paramYelpBusinessAddresses, boolean paramBoolean)
+  public static Bundle b(Address paramAddress, CharSequence paramCharSequence, YelpBusinessAddresses paramYelpBusinessAddresses, BusinessAttributes paramBusinessAttributes, String paramString, boolean paramBoolean)
   {
     Bundle localBundle = new Bundle();
     localBundle.putParcelable("address", paramAddress);
-    localBundle.putString("business_name", paramCharSequence.toString());
-    localBundle.putParcelable("business_addresses", paramYelpBusinessAddresses);
-    localBundle.putBoolean("is_address_edit", paramBoolean);
-    return localBundle;
-  }
-  
-  private void a(String paramString)
-  {
-    Iterator localIterator = s.iterator();
-    while (localIterator.hasNext())
+    if (paramCharSequence == null) {}
+    for (paramAddress = null;; paramAddress = paramCharSequence.toString())
     {
-      ap localap = (ap)localIterator.next();
-      if (TextUtils.equals(localap.b().getCountry(), paramString)) {
-        a(localap.b(), localap.a());
-      }
+      localBundle.putString("business_name", paramAddress);
+      localBundle.putParcelable("business_addresses", paramYelpBusinessAddresses);
+      localBundle.putParcelable("business_attributes", paramBusinessAttributes);
+      localBundle.putString("business_country", paramString);
+      localBundle.putBoolean("is_address_edit", paramBoolean);
+      return localBundle;
     }
   }
   
-  private void a(Locale paramLocale)
+  private void c(View paramView)
   {
-    if (LocaleSettings.d(paramLocale.getCountry()))
+    Object localObject1;
+    Object localObject2;
+    if ((d != null) && (e != null) && (k != null))
     {
-      paramLocale = AddressHint.getFromCountry(paramLocale.getCountry());
-      if (b)
+      localObject1 = d.getText();
+      localObject2 = e.getText();
+    }
+    for (Object localObject3 = k.getText();; localObject3 = "")
+    {
+      if (LocaleSettings.e(n))
       {
-        d.setHint(address1Primary);
-        e.setHint(address2Primary);
-        g.setHint(address1Alt);
-        h.setHint(address2Alt);
-        g.setVisibility(0);
-        h.setVisibility(0);
+        k = ((TextView)paramView.findViewById(2131690931));
+        d = ((TextView)paramView.findViewById(2131690932));
+        e = ((TextView)paramView.findViewById(2131690933));
+        if (!p) {
+          break label315;
+        }
+        k.setVisibility(8);
+        k = ((TextView)paramView.findViewById(2131690939));
+        paramView.findViewById(2131690938).setVisibility(0);
+        label134:
+        d.setText((CharSequence)localObject1);
+        e.setText((CharSequence)localObject2);
+        k.setText((CharSequence)localObject3);
+        d.setHint(r.i().b().b());
+        e.setHint(r.i().b().a());
+        if (!LocaleSettings.b(n)) {
+          break label337;
+        }
+        k.setText(2131166916);
+        k.setHint(2131165641);
+        label227:
+        if (TextUtils.isEmpty(r.i().a())) {
+          break label390;
+        }
         i.setVisibility(0);
-        j.setVisibility(0);
+        i.setText(r.i().a());
+      }
+      for (;;)
+      {
+        g();
         return;
+        d = ((TextView)paramView.findViewById(2131690931));
+        e = ((TextView)paramView.findViewById(2131690932));
+        k = ((TextView)paramView.findViewById(2131690933));
+        break;
+        label315:
+        k.setVisibility(0);
+        paramView.findViewById(2131690938).setVisibility(8);
+        break label134;
+        label337:
+        if (k.getText().toString().equals(getString(2131166916))) {
+          k.setText("");
+        }
+        k.setHint(r.h().b());
+        break label227;
+        label390:
+        i.setVisibility(4);
       }
-      g.setVisibility(8);
-      h.setVisibility(8);
-      i.setVisibility(8);
-      j.setVisibility(8);
-      d.setHint(address1);
-      e.setHint(address2);
-      return;
+      localObject1 = "";
+      localObject2 = "";
     }
-    g.setVisibility(8);
-    h.setVisibility(8);
-    i.setVisibility(8);
-    j.setVisibility(8);
-    d.setHint(2131165349);
-    e.setHint(2131165350);
-  }
-  
-  private void a(Locale paramLocale, int paramInt)
-  {
-    o.setImageResource(paramInt);
-    Object localObject = new Configuration(getResources().getConfiguration());
-    locale = paramLocale;
-    DisplayMetrics localDisplayMetrics = new DisplayMetrics();
-    getActivity().getWindowManager().getDefaultDisplay().getMetrics(localDisplayMetrics);
-    localObject = new Resources(getActivity().getAssets(), localDisplayMetrics, (Configuration)localObject).getText(2131166020);
-    if (LocaleSettings.b(paramLocale.getCountry()))
-    {
-      k.setText(2131165920);
-      k.setHint(2131165516);
-    }
-    for (;;)
-    {
-      a(paramLocale);
-      p = paramLocale;
-      return;
-      if (k.getText().toString().equals(getString(2131165920))) {
-        k.setText("");
-      }
-      k.setHint((CharSequence)localObject);
-    }
-  }
-  
-  public static YelpBusinessAddresses b(Bundle paramBundle)
-  {
-    return (YelpBusinessAddresses)paramBundle.getParcelable("business_addresses");
-  }
-  
-  public static Address c(Bundle paramBundle)
-  {
-    return (Address)paramBundle.getParcelable("geocoded");
-  }
-  
-  public static boolean d(Bundle paramBundle)
-  {
-    return paramBundle.getBoolean("is_address_edit");
   }
   
   private void g()
   {
-    u = ((BackgroundTaskFragment)getFragmentManager().findFragmentByTag("tag_request_fragment"));
+    if (p)
+    {
+      Object localObject = (AddressAttribute)r.b().values().iterator().next();
+      f.setHint(((AddressAttribute)localObject).b().b());
+      g.setHint(((AddressAttribute)localObject).b().a());
+      o.setVisibility(0);
+      f.setVisibility(0);
+      g.setVisibility(0);
+      j.setText(((AddressAttribute)localObject).a());
+      j.setVisibility(0);
+      if ((q != null) && (q.a().size() > 0))
+      {
+        localObject = (YelpDetailedAddress)q.a().values().iterator().next();
+        f.setText(((YelpDetailedAddress)localObject).c());
+        g.setText(((YelpDetailedAddress)localObject).b());
+      }
+      return;
+    }
+    o.setVisibility(8);
+    f.setVisibility(8);
+    g.setVisibility(8);
+    j.setVisibility(8);
+  }
+  
+  @SuppressLint({"CommitTransaction"})
+  private void h()
+  {
+    u = ((BackgroundTaskFragment)getFragmentManager().a("tag_request_fragment"));
     if (u == null)
     {
-      u = new c(this);
-      getFragmentManager().beginTransaction().add(u, "tag_request_fragment").commit();
+      u = new AddAddressFragment.2(this);
+      getFragmentManager().a().a(u, "tag_request_fragment").a();
     }
     u.a(this);
   }
   
-  protected Address a()
+  public ViewIri a()
   {
-    if ((!a) && (a(getArguments()) != null)) {
-      return a(getArguments());
-    }
-    Address localAddress = new Address(p);
-    localAddress.setAddressLine(0, String.valueOf(d.getText()));
-    localAddress.setAddressLine(1, String.valueOf(e.getText()));
-    localAddress.setAddressLine(2, String.valueOf(k.getText()));
-    localAddress.setLocality(String.valueOf(k.getText()));
-    localAddress.setCountryCode(p.getCountry());
-    localAddress.setCountryName(p.getDisplayCountry(p));
-    return localAddress;
+    return ViewIri.BusinessEditAddress;
   }
   
   public void a(List<Address> paramList)
   {
-    j();
+    l();
     if ((paramList == null) || (paramList.get(0) == null))
     {
-      m = null;
-      cr.a(getText(2131166762), 0);
+      as.a(getText(2131166742), 0);
       return;
     }
-    Address localAddress = (Address)paramList.get(0);
-    Object localObject1 = "";
-    Object localObject2 = "";
-    String str2 = localAddress.getLocality();
-    String str1;
-    if (localAddress.getMaxAddressLineIndex() >= 0)
+    Object localObject3 = (Address)paramList.get(0);
+    if (!((Address)localObject3).getCountryCode().equals(n))
     {
-      str1 = localAddress.getAddressLine(0);
-      localObject1 = str1;
-      if (TextUtils.equals(str1, str2)) {
+      n = ((Address)localObject3).getCountryCode();
+      f();
+    }
+    Object localObject1 = "";
+    String str = ((Address)localObject3).getLocality();
+    if (((Address)localObject3).getMaxAddressLineIndex() >= 0)
+    {
+      localObject2 = ((Address)localObject3).getAddressLine(0);
+      localObject1 = localObject2;
+      if (TextUtils.equals((CharSequence)localObject2, str)) {
         localObject1 = "";
       }
     }
-    if (localAddress.getMaxAddressLineIndex() >= 1)
+    if (((Address)localObject3).getMaxAddressLineIndex() >= 1)
     {
-      str1 = localAddress.getAddressLine(1);
-      localObject2 = str1;
-      if (TextUtils.equals(str1, str2)) {
-        localObject2 = "";
+      localObject3 = ((Address)localObject3).getAddressLine(1);
+      localObject2 = localObject3;
+      if (!TextUtils.equals((CharSequence)localObject3, str)) {}
+    }
+    for (Object localObject2 = "";; localObject2 = "")
+    {
+      d.setText((CharSequence)localObject1);
+      e.setText((CharSequence)localObject2);
+      if (LocaleSettings.b(n)) {
+        k.setText(2131166916);
+      }
+      for (;;)
+      {
+        if (paramList.size() > 1)
+        {
+          paramList = (Address)paramList.get(1);
+          localObject1 = new YelpDetailedAddress(String.valueOf(paramList.getAddressLine(0)), String.valueOf(paramList.getAddressLine(1)), "");
+          f.setText(paramList.getAddressLine(0));
+          g.setText(paramList.getAddressLine(1));
+          q.a().put(Locale.ENGLISH.getLanguage(), localObject1);
+          if ((TextUtils.isEmpty(str)) && (!TextUtils.isEmpty(paramList.getLocality()))) {
+            k.setText(paramList.getLocality());
+          }
+        }
+        m = c();
+        return;
+        k.setText(str);
       }
     }
-    d.setText((CharSequence)localObject1);
-    e.setText((CharSequence)localObject2);
-    if (paramList.size() > 1)
-    {
-      paramList = (Address)paramList.get(1);
-      g.setText(paramList.getAddressLine(0));
-      h.setText(paramList.getAddressLine(1));
-    }
-    k.setText(str2);
-    if (!TextUtils.isEmpty(localAddress.getCountryCode())) {
-      a(localAddress.getCountryCode());
-    }
-    m = localAddress;
   }
   
   public void a(boolean paramBoolean)
@@ -251,54 +266,50 @@ public class AddAddressFragment
     }
   }
   
-  public void afterTextChanged(Editable paramEditable)
+  public void b()
   {
-    a = true;
+    l.performClick();
   }
   
-  public void b(YelpException paramYelpException) {}
-  
-  public void beforeTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3) {}
-  
-  protected YelpBusinessAddresses c()
+  protected Address c()
   {
-    if (b)
+    if ((!b) && (getArguments().getParcelable("address") != null)) {
+      return (Address)getArguments().getParcelable("address");
+    }
+    Locale localLocale = new Locale(AppData.b().g().h().getLanguage(), n);
+    Address localAddress = new Address(localLocale);
+    localAddress.setAddressLine(0, String.valueOf(d.getText()));
+    localAddress.setAddressLine(1, String.valueOf(e.getText()));
+    localAddress.setAddressLine(2, String.valueOf(k.getText()));
+    localAddress.setLocality(String.valueOf(k.getText()));
+    localAddress.setCountryCode(n);
+    localAddress.setCountryName(localLocale.getDisplayCountry(localLocale));
+    return localAddress;
+  }
+  
+  protected YelpBusinessAddresses e()
+  {
+    if (p)
     {
       YelpDetailedAddress localYelpDetailedAddress1 = new YelpDetailedAddress(String.valueOf(d.getText()), String.valueOf(e.getText()), "");
       HashMap localHashMap = new HashMap();
-      if (LocaleSettings.d(n.getCountryCode()))
-      {
-        YelpDetailedAddress localYelpDetailedAddress2 = new YelpDetailedAddress(String.valueOf(g.getText()), String.valueOf(h.getText()), "");
-        localHashMap.put(Locale.ENGLISH.getLanguage(), localYelpDetailedAddress2);
-      }
-      return new YelpBusinessAddresses(q.getLanguage(), String.valueOf(k.getText()), localYelpDetailedAddress1, localHashMap);
+      YelpDetailedAddress localYelpDetailedAddress2 = new YelpDetailedAddress(String.valueOf(f.getText()), String.valueOf(g.getText()), "");
+      localHashMap.put(Locale.ENGLISH.getLanguage(), localYelpDetailedAddress2);
+      return new YelpBusinessAddresses(q.d(), String.valueOf(k.getText()), localYelpDetailedAddress1, localHashMap);
     }
     return new YelpBusinessAddresses();
   }
   
-  protected Address d()
+  protected void f()
   {
-    return m;
-  }
-  
-  public void e()
-  {
-    if (r == null)
+    H_();
+    if (a) {}
+    for (Object localObject = new v(n, v);; localObject = new u(n, v))
     {
-      r = FlagsDialog.a(p);
-      r.a(v);
+      s = ((w)localObject);
+      s.f(new Void[0]);
+      return;
     }
-    r.show(getChildFragmentManager(), null);
-  }
-  
-  public ViewIri f()
-  {
-    return ViewIri.BusinessEditAddress;
-  }
-  
-  public void k_()
-  {
-    l.performClick();
   }
   
   public void onAttach(Activity paramActivity)
@@ -306,7 +317,7 @@ public class AddAddressFragment
     super.onAttach(paramActivity);
     try
     {
-      t = ((e)paramActivity);
+      t = ((a)paramActivity);
       return;
     }
     catch (ClassCastException paramActivity)
@@ -318,21 +329,20 @@ public class AddAddressFragment
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = false;
-    p = AppData.b().g().h();
-    if (paramBundle != null)
-    {
-      a = paramBundle.getBoolean("dirty");
-      p = ((Locale)paramBundle.getSerializable("locale"));
+    b = false;
+    if (paramBundle != null) {
+      b = paramBundle.getBoolean("dirty");
     }
     for (c = ((YelpBusiness)paramBundle.getParcelable("business"));; c = ((YelpBusiness)getArguments().getParcelable("business")))
     {
-      n = a(getArguments());
-      b = d(getArguments());
-      q = b(getArguments());
-      s = ao.b();
+      m = ((Address)getArguments().getParcelable("address"));
+      q = ((YelpBusinessAddresses)getArguments().getParcelable("business_addresses"));
+      r = ((BusinessAttributes)getArguments().getParcelable("business_attributes"));
+      n = getArguments().getString("business_country");
+      a = getArguments().getBoolean("is_address_edit");
+      p = r.a();
       setHasOptionsMenu(true);
-      g();
+      h();
       return;
     }
   }
@@ -340,68 +350,31 @@ public class AddAddressFragment
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-    paramMenuInflater.inflate(2131755032, paramMenu);
+    paramMenuInflater.inflate(2131755036, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     paramViewGroup = (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
-    paramLayoutInflater.inflate(2130903424, paramViewGroup);
-    if (c == null)
-    {
-      paramLayoutInflater = AppData.b().g().h().getCountry();
-      if (!LocaleSettings.f(paramLayoutInflater)) {
-        break label408;
-      }
-      k = ((TextView)paramViewGroup.findViewById(2131494059));
-      d = ((TextView)paramViewGroup.findViewById(2131494060));
-      e = ((TextView)paramViewGroup.findViewById(2131494064));
-      label89:
-      g = ((TextView)paramViewGroup.findViewById(2131494062));
-      h = ((TextView)paramViewGroup.findViewById(2131494063));
-      i = ((TextView)paramViewGroup.findViewById(2131494058));
-      j = ((TextView)paramViewGroup.findViewById(2131494061));
-      d.setHint(2131165349);
-      e.setHint(2131165350);
-      k.setHint(2131166020);
-      l = paramViewGroup.findViewById(2131494057);
-      o = ((ImageButton)paramViewGroup.findViewById(2131494044));
-      o.setOnClickListener(new a(this));
-      if (n == null) {
-        break label453;
-      }
-      a(Collections.singletonList(n));
-      if ((q != null) && (q.getAlternateAddresses().size() > 0))
-      {
-        paramLayoutInflater = (YelpDetailedAddress)q.getAlternateAddresses().values().iterator().next();
-        g.setText(paramLayoutInflater.getAddress1());
-        h.setText(paramLayoutInflater.getAddress2());
-      }
-      m = c(getArguments());
+    paramLayoutInflater.inflate(2130903547, paramViewGroup);
+    f = ((TextView)paramViewGroup.findViewById(2131690936));
+    g = ((TextView)paramViewGroup.findViewById(2131690937));
+    i = ((TextView)paramViewGroup.findViewById(2131690930));
+    j = ((TextView)paramViewGroup.findViewById(2131690934));
+    l = paramViewGroup.findViewById(2131690929);
+    o = paramViewGroup.findViewById(2131690935);
+    c(paramViewGroup);
+    if (m != null) {
+      a(Collections.singletonList(m));
     }
-    for (;;)
-    {
-      d.addTextChangedListener(this);
-      e.addTextChangedListener(this);
-      k.addTextChangedListener(this);
-      l.setOnClickListener(new b(this));
-      if (n != null) {
-        getActivity().setTitle(2131165730);
-      }
-      if ((!b) || (!LocaleSettings.d(n.getCountryCode()))) {
-        d.requestFocus();
-      }
-      return paramViewGroup;
-      paramLayoutInflater = c.getCountry();
-      break;
-      label408:
-      d = ((TextView)paramViewGroup.findViewById(2131494059));
-      e = ((TextView)paramViewGroup.findViewById(2131494060));
-      k = ((TextView)paramViewGroup.findViewById(2131494064));
-      break label89;
-      label453:
-      a(p.getCountry());
+    l.setOnClickListener(new AddAddressFragment.1(this));
+    if (m != null) {
+      getActivity().setTitle(2131165809);
     }
+    if (!p) {
+      d.requestFocus();
+    }
+    return paramViewGroup;
   }
   
   public void onDetach()
@@ -411,28 +384,45 @@ public class AddAddressFragment
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494141)
+    if (paramMenuItem.getItemId() == 2131691015)
     {
-      e locale = t;
+      a locala = t;
       if (c == null) {}
-      for (paramMenuItem = getArguments().getString("business_name");; paramMenuItem = c.getName())
+      for (paramMenuItem = getArguments().getString("business_name");; paramMenuItem = c.aq())
       {
-        locale.a(paramMenuItem);
+        locala.a(paramMenuItem);
         return true;
       }
     }
     return super.onOptionsItemSelected(paramMenuItem);
   }
   
+  public void onPause()
+  {
+    super.onPause();
+    a("business_attributes", s);
+  }
+  
+  public void onResume()
+  {
+    super.onResume();
+    d.addTextChangedListener(w);
+    e.addTextChangedListener(w);
+    k.addTextChangedListener(w);
+    s = ((w)a("business_attributes", s, v));
+  }
+  
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putBoolean("dirty", a);
-    paramBundle.putSerializable("locale", p);
+    paramBundle.putBoolean("dirty", b);
     paramBundle.putParcelable("business", c);
   }
   
-  public void onTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3) {}
+  public static abstract interface a
+  {
+    public abstract void a(String paramString);
+  }
 }
 
 /* Location:

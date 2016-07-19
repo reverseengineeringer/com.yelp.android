@@ -1,65 +1,79 @@
 package com.yelp.android.ui.activities.friendcheckins;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.StyleSpan;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout.LayoutParams;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import com.yelp.android.ui.widgets.SpannedImageButton;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.serializable.Comment;
+import com.yelp.android.serializable.User;
+import com.yelp.android.ui.util.w;
 import com.yelp.android.ui.widgets.WebImageView;
+import com.yelp.android.util.StringUtils;
+import com.yelp.android.util.StringUtils.Format;
+import java.util.ArrayList;
 
-public final class b
+public class b
+  extends w<Comment>
 {
-  public final WebImageView a;
-  public final TextView b;
-  public final TextView c;
-  public final TextView d;
-  public final TextView e;
-  public final TextView f;
-  public final TextView g;
-  public final TextView h;
-  public final TextView i;
-  public final ImageView j;
-  public final TextView k;
-  public final SpannedImageButton l;
-  public final View m;
+  private static String a = "key.state";
+  private Animation b;
   
-  public b(int paramInt, View paramView)
+  public void a(Context paramContext)
   {
-    b = ((TextView)paramView.findViewById(2131493677));
-    a = ((WebImageView)paramView.findViewById(2131493770));
-    c = ((TextView)paramView.findViewById(2131493771));
-    d = ((TextView)paramView.findViewById(2131493774));
-    e = ((TextView)paramView.findViewById(2131493773));
-    f = ((TextView)paramView.findViewById(2131493772));
-    g = ((TextView)paramView.findViewById(2131493853));
-    h = ((TextView)paramView.findViewById(2131493776));
-    i = ((TextView)paramView.findViewById(2131493777));
-    j = ((ImageView)paramView.findViewById(2131493775));
-    k = ((TextView)paramView.findViewById(2131493778));
-    l = ((SpannedImageButton)paramView.findViewById(2131493689));
-    m = paramView.findViewById(2131493779);
-    a(paramInt);
+    b = AnimationUtils.loadAnimation(paramContext, 17432576);
+    b.setDuration(1000L);
   }
   
-  void a(int paramInt)
+  public void a(Bundle paramBundle)
   {
-    RelativeLayout.LayoutParams localLayoutParams;
-    if ((paramInt == 4) || (paramInt == 2))
-    {
-      localLayoutParams = (RelativeLayout.LayoutParams)k.getLayoutParams();
-      localLayoutParams.addRule(3, i.getId());
-      k.setLayoutParams(localLayoutParams);
-      i.setVisibility(0);
-      j.setVisibility(0);
+    paramBundle = paramBundle.getParcelableArrayList(a);
+    if (paramBundle != null) {
+      a(paramBundle);
     }
-    if ((paramInt == 1) || (paramInt == 2))
+  }
+  
+  public void b(Bundle paramBundle)
+  {
+    paramBundle.putParcelableArrayList(a, new ArrayList(super.a()));
+  }
+  
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    Context localContext = paramViewGroup.getContext();
+    Comment localComment = (Comment)getItem(paramInt);
+    View localView = paramView;
+    if (paramView == null)
     {
-      h.setVisibility(8);
-      localLayoutParams = (RelativeLayout.LayoutParams)k.getLayoutParams();
-      localLayoutParams.addRule(3, b.getId());
-      if (paramInt == 2) {
-        localLayoutParams.addRule(3, i.getId());
-      }
+      localView = LayoutInflater.from(localContext).inflate(2130903378, paramViewGroup, false);
+      localView.setTag(new b.a(localView));
+    }
+    paramView = (b.a)localView.getTag();
+    c.setText(StringUtils.a(localContext, StringUtils.Format.LONG, localComment.e()));
+    paramViewGroup = SpannableString.valueOf(localComment.b().ac());
+    paramViewGroup.setSpan(new StyleSpan(1), 0, paramViewGroup.length(), 18);
+    SpannableString localSpannableString = SpannableString.valueOf(localComment.c());
+    paramViewGroup = TextUtils.expandTemplate(localContext.getText(2131166622), new CharSequence[] { paramViewGroup, localSpannableString });
+    b.setText(paramViewGroup);
+    a.setImageUrl(localComment.b().c(), 2130837703);
+    if ((paramInt == getCount() - 1) && (AppData.b().q().a(localComment.b())))
+    {
+      paramView = b;
+      b = null;
+    }
+    for (;;)
+    {
+      localView.setAnimation(paramView);
+      return localView;
+      paramView = null;
     }
   }
 }

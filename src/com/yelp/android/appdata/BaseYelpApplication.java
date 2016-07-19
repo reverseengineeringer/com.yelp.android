@@ -8,8 +8,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
-import com.crashlytics.android.d;
-import com.yelp.android.database.m;
+import com.yelp.android.database.e;
 import com.yelp.android.debug.Debug;
 import com.yelp.android.util.YelpLog;
 import java.text.SimpleDateFormat;
@@ -19,12 +18,26 @@ public abstract class BaseYelpApplication
   extends Application
 {
   protected static BaseYelpApplication f;
-  public static final SimpleDateFormat g = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS");
+  public static final SimpleDateFormat g = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS", Locale.US);
   private Configuration a;
   protected boolean b;
   protected boolean c;
   protected boolean d;
   protected boolean e;
+  
+  public static BaseYelpApplication K()
+  {
+    try
+    {
+      BaseYelpApplication localBaseYelpApplication = f;
+      return localBaseYelpApplication;
+    }
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
+  }
   
   public static void a(Object paramObject, Process paramProcess) {}
   
@@ -49,27 +62,15 @@ public abstract class BaseYelpApplication
     return (BaseYelpApplication)paramContext.getApplicationContext();
   }
   
-  public static BaseYelpApplication z()
-  {
-    try
-    {
-      BaseYelpApplication localBaseYelpApplication = f;
-      return localBaseYelpApplication;
-    }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
-    }
-  }
+  public abstract d I();
+  
+  public abstract r J();
   
   public abstract LocaleSettings g();
   
-  public abstract n h();
+  public abstract f h();
   
-  public abstract m j();
-  
-  public abstract Debug o();
+  public abstract e j();
   
   public void onConfigurationChanged(Configuration paramConfiguration)
   {
@@ -85,20 +86,20 @@ public abstract class BaseYelpApplication
         if (a != null)
         {
           i = paramConfiguration.diff(a);
-          break label179;
+          break label186;
           b = bool1;
           if ((i & 0x1) == 1) {
-            break label192;
+            break label199;
           }
           if ((i & 0x2) == 2)
           {
-            break label192;
+            break label199;
             e = bool1;
             if ((i & 0x80) != 128) {
               continue;
             }
             j = 1;
-            break label198;
+            break label205;
             c = bool1;
             if ((i & 0x40000000) != 1073741824) {
               continue;
@@ -106,24 +107,24 @@ public abstract class BaseYelpApplication
             bool1 = bool2;
             d = bool1;
             if ((d) || (c)) {
-              ao.a(getResourcesgetDisplayMetricsdensity);
+              n.a(getResourcesgetDisplayMetricsdensity);
             }
-            a = paramConfiguration;
+            a = new Configuration(paramConfiguration);
           }
         }
         else
         {
           i = -1;
-          break label179;
+          break label186;
           bool1 = false;
           continue;
         }
         bool1 = false;
         continue;
         j = 0;
-        break label198;
+        break label205;
         k = 0;
-        break label212;
+        break label219;
         bool1 = false;
         continue;
         bool1 = false;
@@ -133,17 +134,17 @@ public abstract class BaseYelpApplication
         }
       }
       finally {}
-      label179:
+      label186:
       boolean bool1 = true;
       continue;
-      label192:
+      label199:
       bool1 = true;
       continue;
-      label198:
+      label205:
       if ((i & 0x100) == 256)
       {
         k = 1;
-        label212:
+        label219:
         if ((j != 0) || (k != 0)) {
           bool1 = true;
         }
@@ -155,13 +156,10 @@ public abstract class BaseYelpApplication
   {
     super.onCreate();
     f = this;
-    d.a("locale", Locale.getDefault().toString());
     registerActivityLifecycleCallbacks(a.a());
   }
   
-  public abstract j x();
-  
-  public abstract bc y();
+  public abstract Debug t();
 }
 
 /* Location:

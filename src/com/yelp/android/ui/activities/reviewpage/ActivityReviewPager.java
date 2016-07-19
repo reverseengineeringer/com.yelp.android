@@ -1,5 +1,6 @@
 package com.yelp.android.ui.activities.reviewpage;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -9,13 +10,20 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.LocaleSettings;
-import com.yelp.android.appdata.webrequests.ew;
-import com.yelp.android.appdata.webrequests.ex;
-import com.yelp.android.appdata.webrequests.ey;
-import com.yelp.android.appdata.webrequests.ez;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.dx;
+import com.yelp.android.appdata.webrequests.dx.a;
+import com.yelp.android.appdata.webrequests.dy;
+import com.yelp.android.appdata.webrequests.dy.a;
+import com.yelp.android.serializable.ReviewBroadcast;
 import com.yelp.android.serializable.ReviewHighlight.ReviewHighlightType;
 import com.yelp.android.serializable.YelpBusinessReview;
-import com.yelp.android.ui.widgets.ah;
+import com.yelp.android.ui.activities.reviews.ReviewState;
+import com.yelp.android.ui.widgets.ReviewPagerFragment;
+import com.yelp.android.ui.widgets.ReviewPagerFragment.b;
+import com.yelp.android.util.ObjectDirtyEvent;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -28,7 +36,7 @@ import java.util.Map;
 public class ActivityReviewPager
   extends ActivityAbstractReviewPager
 {
-  private List<n> f;
+  private List<a> f;
   private int g;
   private Locale h;
   private int i;
@@ -38,28 +46,63 @@ public class ActivityReviewPager
   private Map<Locale, Integer> m;
   private ArrayList<Locale> n;
   private String o;
-  private ew p;
-  private ey q;
-  private final com.yelp.android.appdata.webrequests.m<ez> r = new j(this);
-  private final com.yelp.android.appdata.webrequests.m<ex> s = new k(this);
+  private dx p;
+  private dy q;
+  private final ApiRequest.b<dy.a> r = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, dy.a paramAnonymousa)
+    {
+      paramAnonymousApiRequest = a.iterator();
+      while (paramAnonymousApiRequest.hasNext())
+      {
+        YelpBusinessReview localYelpBusinessReview = (YelpBusinessReview)paramAnonymousApiRequest.next();
+        localYelpBusinessReview.a(new Locale(localYelpBusinessReview.I(), c.getCountry()));
+      }
+      a(a);
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      a(paramAnonymousYelpException);
+    }
+  };
+  private final ApiRequest.b<dx.a> s = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, dx.a paramAnonymousa)
+    {
+      a(a);
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      a(paramAnonymousYelpException);
+    }
+  };
   
   public static Intent a(Context paramContext, YelpBusinessReview paramYelpBusinessReview, String paramString1, String paramString2, String paramString3)
   {
     ArrayList localArrayList = new ArrayList(1);
     localArrayList.add(paramYelpBusinessReview);
-    Locale localLocale = paramYelpBusinessReview.getLocale();
-    paramYelpBusinessReview = localLocale;
-    if (localLocale == null) {
-      paramYelpBusinessReview = AppData.b().g().h();
+    Locale localLocale2 = paramYelpBusinessReview.o();
+    Locale localLocale1 = localLocale2;
+    if (localLocale2 == null) {
+      if (paramYelpBusinessReview.I() == null) {
+        break label92;
+      }
     }
-    return a(paramContext, paramString2, paramString1, paramString3, localArrayList, 0, Collections.singletonMap(paramYelpBusinessReview, Integer.valueOf(1)), null);
+    label92:
+    for (localLocale1 = new Locale(paramYelpBusinessReview.I(), AppData.b().g().h().getCountry());; localLocale1 = AppData.b().g().h())
+    {
+      paramYelpBusinessReview.a(localLocale1);
+      return a(paramContext, paramString2, paramString1, paramString3, localArrayList, 0, Collections.singletonMap(localLocale1, Integer.valueOf(1)), null);
+    }
   }
   
   public static Intent a(Context paramContext, String paramString1, String paramString2)
   {
     paramContext = new Intent(paramContext, ActivityReviewPager.class);
     paramContext.putExtra("business_id", paramString2);
-    paramContext.putExtra("review_id.extra", paramString1);
+    paramContext.putExtra("business_review_id", paramString1);
     return paramContext;
   }
   
@@ -85,16 +128,11 @@ public class ActivityReviewPager
     return paramContext;
   }
   
-  public static Intent a(Context paramContext, String paramString1, String paramString2, String paramString3, List<YelpBusinessReview> paramList, int paramInt)
-  {
-    return a(paramContext, paramString1, paramString2, paramString3, paramList, paramInt, null, null, false);
-  }
-  
   public static Intent a(Context paramContext, String paramString1, String paramString2, String paramString3, List<YelpBusinessReview> paramList, int paramInt, Map<Locale, Integer> paramMap, ArrayList<Locale> paramArrayList, boolean paramBoolean)
   {
     paramContext = ActivityAbstractReviewPager.a(paramContext, paramString1, paramString2, paramString3, paramList, paramInt, paramBoolean, ActivityReviewPager.class);
     if (paramMap != null) {
-      paramContext.putParcelableArrayListExtra("locale_review_counts.extra", LocaleCount.mapToList(paramMap));
+      paramContext.putParcelableArrayListExtra("locale_review_counts.extra", LocaleCount.a(paramMap));
     }
     if (paramArrayList != null) {
       paramContext.putExtra("review_languages.extra", paramArrayList);
@@ -102,18 +140,13 @@ public class ActivityReviewPager
     return paramContext;
   }
   
-  public static YelpBusinessReview a(Intent paramIntent)
-  {
-    return (YelpBusinessReview)paramIntent.getParcelableExtra("extra.review");
-  }
-  
   private void a(String paramString)
   {
     Locale localLocale = AppData.b().g().h();
-    q = new ey(a, 0, 1, localLocale, r);
+    q = new dy(a, 0, 1, localLocale, r);
     q.a(paramString);
     enableLoading();
-    q.execute(new String[0]);
+    q.f(new Void[0]);
   }
   
   private void a(boolean paramBoolean)
@@ -122,20 +155,20 @@ public class ActivityReviewPager
     int i1 = ((Integer)first).intValue();
     int i2 = ((Integer)second).intValue();
     if (j) {
-      if ((p == null) || (!p.isFetching()))
+      if ((p == null) || (!p.u()))
       {
-        p = new ew(a, k, l, o, i2, i1, s);
-        p.execute(new String[0]);
+        p = new dx(a, k, l, o, i2, i1, s);
+        p.f(new Void[0]);
       }
     }
     for (;;)
     {
       enableLoading();
       return;
-      if ((q == null) || (!q.isFetching()))
+      if ((q == null) || (!q.u()))
       {
-        q = new ey(a, i2, i1, h, r);
-        q.execute(new String[0]);
+        q = new dy(a, i2, i1, h, r);
+        q.f(new Void[0]);
       }
     }
   }
@@ -150,7 +183,7 @@ public class ActivityReviewPager
       Locale localLocale = (Locale)localIterator.next();
       Integer localInteger = (Integer)m.get(localLocale);
       if ((i1 > 0) && (localObject != null)) {
-        f.add(new n(this, i1, localLocale, (Locale)localObject));
+        f.add(new a(i1, localLocale, (Locale)localObject));
       }
       i2 = localInteger.intValue();
       localObject = localLocale;
@@ -159,8 +192,34 @@ public class ActivityReviewPager
   
   private void g()
   {
-    registerDirtyEventReceiver("com.yelp.android.review.state.update", new l(this));
-    registerDirtyEventReceiver("com.yelp.android.review.translate", new m(this));
+    registerDirtyEventReceiver("com.yelp.android.review.state.update", new BroadcastReceiver()
+    {
+      public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+      {
+        paramAnonymousContext = (ReviewBroadcast)ObjectDirtyEvent.a(paramAnonymousIntent);
+        if ((paramAnonymousContext.e() == ReviewState.FINISHED_RECENTLY) && (paramAnonymousContext.c().equals(d())))
+        {
+          c().a(paramAnonymousContext.b());
+          d.g();
+        }
+      }
+    });
+    registerDirtyEventReceiver("com.yelp.android.review.translate", new BroadcastReceiver()
+    {
+      public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+      {
+        paramAnonymousContext = ObjectDirtyEvent.c(paramAnonymousIntent).iterator();
+        while (paramAnonymousContext.hasNext())
+        {
+          paramAnonymousIntent = (YelpBusinessReview)paramAnonymousContext.next();
+          int i = c.indexOf(paramAnonymousIntent);
+          if (i >= 0) {
+            c.set(i, paramAnonymousIntent);
+          }
+          d.a(paramAnonymousIntent);
+        }
+      }
+    });
   }
   
   protected int a()
@@ -179,25 +238,67 @@ public class ActivityReviewPager
     return i2;
   }
   
-  protected ah b()
+  protected ReviewPagerFragment.b b()
   {
-    return new i(this);
+    new ReviewPagerFragment.b()
+    {
+      public void a(boolean paramAnonymousBoolean, int paramAnonymousInt)
+      {
+        ActivityReviewPager.a(ActivityReviewPager.this, paramAnonymousInt);
+        if (ActivityReviewPager.a(ActivityReviewPager.this).isEmpty())
+        {
+          ActivityReviewPager.a(ActivityReviewPager.this, paramAnonymousBoolean);
+          return;
+        }
+        Object localObject = ActivityReviewPager.a(ActivityReviewPager.this).iterator();
+        ActivityReviewPager.a locala;
+        do
+        {
+          if (!((Iterator)localObject).hasNext()) {
+            break;
+          }
+          locala = (ActivityReviewPager.a)((Iterator)localObject).next();
+        } while (locala.a() <= paramAnonymousInt);
+        for (localObject = locala.c();; localObject = null)
+        {
+          int i;
+          if (localObject == null)
+          {
+            i = ActivityReviewPager.a(ActivityReviewPager.this).size() - 1;
+            if (i >= 0) {
+              if (paramAnonymousInt >= ((ActivityReviewPager.a)ActivityReviewPager.a(ActivityReviewPager.this).get(i)).a())
+              {
+                locala = (ActivityReviewPager.a)ActivityReviewPager.a(ActivityReviewPager.this).get(i);
+                localObject = locala.b();
+              }
+            }
+          }
+          for (;;)
+          {
+            ActivityReviewPager localActivityReviewPager = ActivityReviewPager.this;
+            if (locala != null) {}
+            for (paramAnonymousInt = locala.a();; paramAnonymousInt = 0)
+            {
+              ActivityReviewPager.b(localActivityReviewPager, paramAnonymousInt);
+              ActivityReviewPager.a(ActivityReviewPager.this, (Locale)localObject);
+              ActivityReviewPager.a(ActivityReviewPager.this, paramAnonymousBoolean);
+              return;
+              i -= 1;
+              break;
+            }
+            locala = null;
+          }
+        }
+      }
+    };
   }
   
   protected boolean e()
   {
-    if (((q != null) && (q.isFetching())) || ((p != null) && (p.isFetching()))) {
+    if (((q != null) && (q.u())) || ((p != null) && (p.u()))) {
       return true;
     }
     return super.e();
-  }
-  
-  public void onBackPressed()
-  {
-    Intent localIntent = new Intent();
-    localIntent.putExtra("extra.review", c());
-    setResult(-1, localIntent);
-    super.onBackPressed();
   }
   
   protected void onCreate(Bundle paramBundle)
@@ -210,7 +311,7 @@ public class ActivityReviewPager
       k = paramBundle.getString("review_highlight_id");
       l = ((ReviewHighlight.ReviewHighlightType)paramBundle.getSerializable("review_highlight_type"));
       j = paramBundle.getBoolean("displays_filtered_reviews");
-      m = LocaleCount.listToMap(paramBundle.getParcelableArrayList("review_counts"));
+      m = LocaleCount.a(paramBundle.getParcelableArrayList("review_counts"));
       n = ((ArrayList)paramBundle.getSerializable("review_languages"));
       o = paramBundle.getString("highlighted_review_id");
       h = ((Locale)paramBundle.getSerializable("next_request_locale"));
@@ -227,7 +328,7 @@ public class ActivityReviewPager
       o = localIntent.getExtras().getString("highlighted_review_id.extra");
       m = new HashMap();
       if (localIntent.hasExtra("locale_review_counts.extra")) {
-        m = LocaleCount.listToMap(localIntent.getParcelableArrayListExtra("locale_review_counts.extra"));
+        m = LocaleCount.a(localIntent.getParcelableArrayListExtra("locale_review_counts.extra"));
       }
       n = new ArrayList();
       if (localIntent.hasExtra("review_languages.extra")) {
@@ -236,14 +337,14 @@ public class ActivityReviewPager
       if (localIntent.hasExtra("reviews_extra"))
       {
         if (!c.isEmpty()) {
-          h = ((YelpBusinessReview)c.get(0)).getLocale();
+          h = ((YelpBusinessReview)c.get(0)).o();
         } else {
           h = getResourcesgetConfigurationlocale;
         }
       }
       else
       {
-        paramBundle = localIntent.getStringExtra("review_id.extra");
+        paramBundle = localIntent.getStringExtra("business_review_id");
         if (!TextUtils.isEmpty(paramBundle)) {
           a(paramBundle);
         }
@@ -260,21 +361,50 @@ public class ActivityReviewPager
   
   protected void onResume()
   {
-    q = ((ey)thawRequest("reviews", q, r));
-    p = ((ew)thawRequest("filtered_reviews", p, s));
+    q = ((dy)thawRequest("reviews", q, r));
+    p = ((dx)thawRequest("filtered_reviews", p, s));
     super.onResume();
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putParcelableArrayList("review_counts", LocaleCount.mapToList(m));
+    paramBundle.putParcelableArrayList("review_counts", LocaleCount.a(m));
     paramBundle.putSerializable("review_languages", n);
     paramBundle.putString("review_highlight_id", k);
     paramBundle.putSerializable("review_highlight_type", l);
     paramBundle.putBoolean("displays_filtered_reviews", j);
     paramBundle.putString("highlighted_review_id", o);
     paramBundle.putSerializable("next_request_locale", h);
+  }
+  
+  private class a
+  {
+    private final Locale b;
+    private final Locale c;
+    private final int d;
+    
+    public a(int paramInt, Locale paramLocale1, Locale paramLocale2)
+    {
+      d = paramInt;
+      b = paramLocale1;
+      c = paramLocale2;
+    }
+    
+    public int a()
+    {
+      return d;
+    }
+    
+    public Locale b()
+    {
+      return b;
+    }
+    
+    public Locale c()
+    {
+      return c;
+    }
   }
 }
 

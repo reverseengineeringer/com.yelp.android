@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/media_selected" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBox android:layout_gravity="center|right|top" android:id="@id/media_selected_check_box" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/default_small_gap_size" />
+    <ImageView android:id="@id/media_selected_border" android:background="@drawable/media_selected_rectangle" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@null" />
+</FrameLayout>

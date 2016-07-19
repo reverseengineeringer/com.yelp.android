@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/header" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/photo_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/photo" android:layout_width="fill_parent" android:layout_height="@dimen/large_photo_header_height" android:scaleType="centerCrop" android:contentDescription="@null" />
+        <View android:background="@drawable/large_photo_header_gradient_bottom" android:layout_width="fill_parent" android:layout_height="@dimen/large_photo_header_height" />
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:padding="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignBottom="@id/photo_container">
+        <TextView android:textAppearance="@style/HeadlineText" android:textColor="@color/WhiteText" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textAppearance="@style/BodyText" android:textColor="@color/WhiteText" android:id="@id/subTitle" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+    <ViewStub android:id="@id/header_details_stub" android:inflatedId="@id/header_details" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/photo_container" />
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_alignParentBottom="true" />
+</RelativeLayout>

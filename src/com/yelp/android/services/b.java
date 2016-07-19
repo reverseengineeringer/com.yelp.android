@@ -1,43 +1,105 @@
 package com.yelp.android.services;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import com.yelp.android.analytics.h;
-import com.yelp.android.analytics.iris.EventIri;
-import com.yelp.android.serializable.YelpBusiness;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.Signature;
+import android.os.Binder;
+import com.yelp.android.util.YelpLog;
+import com.yelp.android.util.d;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
-public final class b
-  extends q
+public class b
 {
-  private final YelpBusiness a;
-  
-  public b(YelpBusiness paramYelpBusiness)
+  private static String a(Signature paramSignature)
   {
-    a = paramYelpBusiness;
-  }
-  
-  public Uri a(Context paramContext)
-  {
-    return a.getYelpUrl(paramContext);
-  }
-  
-  public h a()
-  {
-    return new h().a(EventIri.BusinessShare).a("business_id", a.getId());
-  }
-  
-  public void a(Context paramContext, o paramo, Intent paramIntent)
-  {
-    super.a(paramContext, paramo, paramIntent);
-    if (paramo.f()) {
-      paramIntent.putExtra("android.intent.extra.SUBJECT", paramContext.getString(2131166562, new Object[] { a.getDisplayName() }));
+    try
+    {
+      paramSignature = d.a(MessageDigest.getInstance("SHA-256").digest(paramSignature.toByteArray()));
+      return paramSignature;
     }
+    catch (NoSuchAlgorithmException paramSignature) {}
+    return null;
   }
   
-  public String b(Context paramContext)
+  private static Map<String, String> a()
   {
-    return a.getShareStringShort();
+    HashMap localHashMap = new HashMap();
+    localHashMap.put(i.k(), i.m());
+    return localHashMap;
+  }
+  
+  public static boolean a(PackageManager paramPackageManager)
+  {
+    Map localMap = b(paramPackageManager);
+    String[] arrayOfString = paramPackageManager.getPackagesForUid(Binder.getCallingUid());
+    if (arrayOfString == null) {
+      return false;
+    }
+    int j = arrayOfString.length;
+    int i = 0;
+    while (i < j)
+    {
+      String str = arrayOfString[i];
+      if ((localMap.containsKey(str)) && (a(paramPackageManager, str, (String)localMap.get(str)))) {
+        return true;
+      }
+      i += 1;
+    }
+    return false;
+  }
+  
+  private static boolean a(PackageManager paramPackageManager, String paramString1, String paramString2)
+  {
+    try
+    {
+      paramPackageManager = getPackageInfo64signatures;
+      if (paramPackageManager.length == 1)
+      {
+        boolean bool = paramString2.equals(a(paramPackageManager[0]));
+        if (bool) {
+          return true;
+        }
+      }
+      return false;
+    }
+    catch (PackageManager.NameNotFoundException paramPackageManager) {}
+    return false;
+  }
+  
+  private static Map<String, String> b(PackageManager paramPackageManager)
+  {
+    HashMap localHashMap = new HashMap();
+    localHashMap.putAll(a());
+    localHashMap.putAll(c(paramPackageManager));
+    return localHashMap;
+  }
+  
+  private static Map<String, String> c(PackageManager paramPackageManager)
+  {
+    HashMap localHashMap = new HashMap();
+    String str = i.l();
+    try
+    {
+      paramPackageManager = getPackageInfo64signatures;
+      if (paramPackageManager.length != 1) {
+        throw new SecurityException("The apk has " + paramPackageManager.length + " signatures, but should have only one signature!");
+      }
+    }
+    catch (PackageManager.NameNotFoundException paramPackageManager)
+    {
+      YelpLog.remoteError(paramPackageManager);
+      return localHashMap;
+      localHashMap.put(str, a(paramPackageManager[0]));
+      return localHashMap;
+    }
+    catch (SecurityException paramPackageManager)
+    {
+      for (;;) {}
+    }
   }
 }
 

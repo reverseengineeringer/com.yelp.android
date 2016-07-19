@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/user_profile_layout" android:background="@drawable/selector_white_rect" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/user_badge_cell" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" layout="@layout/panel_passport_short" />
+    <TextView android:textAppearance="@style/CaptionGreyText" android:ellipsize="end" android:id="@id/time_ago" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip" android:layout_marginBottom="1.0dip" android:lines="1" android:includeFontPadding="false" android:layout_alignParentRight="true" />
+</RelativeLayout>

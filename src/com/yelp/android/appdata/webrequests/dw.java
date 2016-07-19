@@ -1,38 +1,62 @@
 package com.yelp.android.appdata.webrequests;
 
 import android.text.TextUtils;
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.TalkTopic;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.ReviewHighlight;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class dw
-  extends h<Void, Void, dx>
+  extends b<String, Void, a>
 {
-  private final boolean a;
-  
-  public dw(int paramInt, String paramString, j<dx> paramj)
+  public dw(String paramString, int paramInt1, int paramInt2, SearchRequest paramSearchRequest, ApiRequest.b<a> paramb)
   {
-    super(ApiRequest.RequestType.GET, "talk/topics/nearby", LocationService.Accuracies.COARSE, LocationService.Recentness.DAY, paramj, LocationService.AccuracyUnit.METERS);
-    addUrlParam("offset", paramInt);
-    addUrlParam("limit", 20);
-    addUrlParam("address", paramString);
-    a = TextUtils.isEmpty(paramString);
+    super(ApiRequest.RequestType.GET, "reviews/highlights", paramb);
+    if (paramInt2 <= 0) {
+      throw new IllegalArgumentException("Limit cannot be negative or zero");
+    }
+    if (paramInt1 < 0) {
+      throw new IllegalArgumentException("Offset cannot be negative");
+    }
+    if (TextUtils.isEmpty(paramString)) {
+      throw new IllegalArgumentException("BusinessId cannot be empty");
+    }
+    a("business_id", paramString);
+    a("limit", paramInt2);
+    a("offset", paramInt1);
+    if ((paramSearchRequest != null) && (paramSearchRequest.E() != null)) {
+      a("search_query", paramSearchRequest.E());
+    }
   }
   
-  public dx a(JSONObject paramJSONObject)
+  public a a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    ArrayList localArrayList = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("topics"), TalkTopic.CREATOR);
-    int i = paramJSONObject.getInt("total");
-    return new dx(localArrayList, paramJSONObject.getString("talk_location_prompt"), i);
+    return new a(JsonUtil.parseJsonList(paramJSONObject.optJSONArray("review_highlights"), ReviewHighlight.CREATOR), paramJSONObject.getInt("total"));
   }
   
-  public boolean isLocationAbsolutelyRequired()
+  public static class a
   {
-    return a;
+    ArrayList<ReviewHighlight> a;
+    int b;
+    
+    public a(ArrayList<ReviewHighlight> paramArrayList, int paramInt)
+    {
+      a = paramArrayList;
+      b = paramInt;
+    }
+    
+    public ArrayList<ReviewHighlight> a()
+    {
+      return a;
+    }
+    
+    public int b()
+    {
+      return b;
+    }
   }
 }
 

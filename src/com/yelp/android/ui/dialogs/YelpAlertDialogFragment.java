@@ -1,11 +1,11 @@
 package com.yelp.android.ui.dialogs;
 
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.l;
+import android.support.v7.app.d.a;
 
 public abstract class YelpAlertDialogFragment
   extends YelpBaseDialogFragment
@@ -25,32 +25,27 @@ public abstract class YelpAlertDialogFragment
     return localBundle;
   }
   
-  public void a(DialogInterface.OnCancelListener paramOnCancelListener)
-  {
-    a = paramOnCancelListener;
-  }
-  
   public void a(DialogInterface.OnDismissListener paramOnDismissListener)
   {
     b = paramOnDismissListener;
   }
   
-  public void a(FragmentManager paramFragmentManager)
+  public void a(l paraml)
   {
-    super.show(paramFragmentManager, "");
+    super.show(paraml, "");
   }
   
-  protected AlertDialog.Builder c(String paramString1, String paramString2)
+  protected d.a c(String paramString1, String paramString2)
   {
-    AlertDialog.Builder localBuilder = new AlertDialog.Builder(getActivity());
+    d.a locala = e();
     if (paramString1 != null) {
-      localBuilder.setTitle(paramString1);
+      locala.a(paramString1);
     }
     if (paramString2 != null) {
-      localBuilder.setMessage(paramString2);
+      locala.b(paramString2);
     }
-    localBuilder.setOnCancelListener(a);
-    return localBuilder;
+    locala.a(a);
+    return locala;
   }
   
   public void onDismiss(DialogInterface paramDialogInterface)

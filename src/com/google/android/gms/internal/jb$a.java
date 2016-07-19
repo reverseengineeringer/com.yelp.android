@@ -1,10 +1,16 @@
 package com.google.android.gms.internal;
 
-import android.graphics.Path;
-
-public abstract interface jb$a
+abstract interface jb$a
 {
-  public abstract Path g(int paramInt1, int paramInt2);
+  public abstract Boolean a(String paramString, Boolean paramBoolean);
+  
+  public abstract Float a(String paramString, Float paramFloat);
+  
+  public abstract Integer a(String paramString, Integer paramInteger);
+  
+  public abstract Long a(String paramString, Long paramLong);
+  
+  public abstract String a(String paramString1, String paramString2);
 }
 
 /* Location:

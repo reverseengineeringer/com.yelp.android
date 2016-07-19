@@ -1,195 +1,284 @@
 package android.support.v4.widget;
 
-import android.view.View;
+import android.content.Context;
+import android.os.Build.VERSION;
+import android.view.animation.Interpolator;
+import android.widget.Scroller;
 
-class v
-  extends ca
+public class v
 {
-  private final int b;
-  private bx c;
-  private final Runnable d = new w(this);
+  Object a;
+  a b;
   
-  public v(DrawerLayout paramDrawerLayout, int paramInt)
+  private v(int paramInt, Context paramContext, Interpolator paramInterpolator)
   {
-    b = paramInt;
-  }
-  
-  private void b()
-  {
-    int i = 3;
-    if (b == 3) {
-      i = 5;
-    }
-    View localView = a.b(i);
-    if (localView != null) {
-      a.i(localView);
-    }
-  }
-  
-  private void c()
-  {
-    int j = 0;
-    int k = c.b();
-    int i;
-    View localView;
-    if (b == 3)
-    {
-      i = 1;
-      if (i == 0) {
-        break label149;
-      }
-      localView = a.b(3);
-      if (localView != null) {
-        j = -localView.getWidth();
-      }
-      j += k;
+    if (paramInt >= 14) {
+      b = new d();
     }
     for (;;)
     {
-      if ((localView != null) && (((i != 0) && (localView.getLeft() < j)) || ((i == 0) && (localView.getLeft() > j) && (a.a(localView) == 0))))
-      {
-        DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)localView.getLayoutParams();
-        c.a(localView, j, localView.getTop());
-        c = true;
-        a.invalidate();
-        b();
-        a.c();
-      }
+      a = b.a(paramContext, paramInterpolator);
       return;
-      i = 0;
-      break;
-      label149:
-      localView = a.b(5);
-      j = a.getWidth();
-      j -= k;
-    }
-  }
-  
-  public int a(View paramView)
-  {
-    if (a.g(paramView)) {
-      return paramView.getWidth();
-    }
-    return 0;
-  }
-  
-  public int a(View paramView, int paramInt1, int paramInt2)
-  {
-    if (a.a(paramView, 3)) {
-      return Math.max(-paramView.getWidth(), Math.min(paramInt1, 0));
-    }
-    paramInt2 = a.getWidth();
-    return Math.max(paramInt2 - paramView.getWidth(), Math.min(paramInt1, paramInt2));
-  }
-  
-  public void a()
-  {
-    a.removeCallbacks(d);
-  }
-  
-  public void a(int paramInt)
-  {
-    a.a(b, paramInt, c.c());
-  }
-  
-  public void a(int paramInt1, int paramInt2)
-  {
-    a.postDelayed(d, 160L);
-  }
-  
-  public void a(bx parambx)
-  {
-    c = parambx;
-  }
-  
-  public void a(View paramView, float paramFloat1, float paramFloat2)
-  {
-    paramFloat2 = a.d(paramView);
-    int k = paramView.getWidth();
-    int i;
-    if (a.a(paramView, 3)) {
-      if ((paramFloat1 > 0.0F) || ((paramFloat1 == 0.0F) && (paramFloat2 > 0.5F))) {
-        i = 0;
+      if (paramInt >= 9) {
+        b = new c();
+      } else {
+        b = new b();
       }
     }
-    for (;;)
+  }
+  
+  v(Context paramContext, Interpolator paramInterpolator)
+  {
+    this(Build.VERSION.SDK_INT, paramContext, paramInterpolator);
+  }
+  
+  public static v a(Context paramContext)
+  {
+    return a(paramContext, null);
+  }
+  
+  public static v a(Context paramContext, Interpolator paramInterpolator)
+  {
+    return new v(paramContext, paramInterpolator);
+  }
+  
+  public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  {
+    b.a(a, paramInt1, paramInt2, paramInt3, paramInt4);
+  }
+  
+  public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
+  {
+    b.a(a, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5);
+  }
+  
+  public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8)
+  {
+    b.a(a, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8);
+  }
+  
+  public void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10)
+  {
+    b.a(a, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8, paramInt9, paramInt10);
+  }
+  
+  public boolean a()
+  {
+    return b.a(a);
+  }
+  
+  public int b()
+  {
+    return b.b(a);
+  }
+  
+  public int c()
+  {
+    return b.c(a);
+  }
+  
+  public int d()
+  {
+    return b.g(a);
+  }
+  
+  public int e()
+  {
+    return b.h(a);
+  }
+  
+  public float f()
+  {
+    return b.d(a);
+  }
+  
+  public boolean g()
+  {
+    return b.e(a);
+  }
+  
+  public void h()
+  {
+    b.f(a);
+  }
+  
+  static abstract interface a
+  {
+    public abstract Object a(Context paramContext, Interpolator paramInterpolator);
+    
+    public abstract void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4);
+    
+    public abstract void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5);
+    
+    public abstract void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8);
+    
+    public abstract void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10);
+    
+    public abstract boolean a(Object paramObject);
+    
+    public abstract int b(Object paramObject);
+    
+    public abstract int c(Object paramObject);
+    
+    public abstract float d(Object paramObject);
+    
+    public abstract boolean e(Object paramObject);
+    
+    public abstract void f(Object paramObject);
+    
+    public abstract int g(Object paramObject);
+    
+    public abstract int h(Object paramObject);
+  }
+  
+  static class b
+    implements v.a
+  {
+    public Object a(Context paramContext, Interpolator paramInterpolator)
     {
-      c.a(i, paramView.getTop());
-      a.invalidate();
-      return;
-      i = -k;
-      continue;
-      int j = a.getWidth();
-      if (paramFloat1 >= 0.0F)
-      {
-        i = j;
-        if (paramFloat1 == 0.0F)
-        {
-          i = j;
-          if (paramFloat2 <= 0.5F) {}
-        }
+      if (paramInterpolator != null) {
+        return new Scroller(paramContext, paramInterpolator);
       }
-      else
-      {
-        i = j - k;
-      }
+      return new Scroller(paramContext);
     }
-  }
-  
-  public void a(View paramView, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
-  {
-    paramInt2 = paramView.getWidth();
-    float f;
-    if (a.a(paramView, 3))
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
     {
-      f = (paramInt2 + paramInt1) / paramInt2;
-      a.b(paramView, f);
-      if (f != 0.0F) {
-        break label76;
-      }
+      ((Scroller)paramObject).startScroll(paramInt1, paramInt2, paramInt3, paramInt4);
     }
-    label76:
-    for (paramInt1 = 4;; paramInt1 = 0)
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
     {
-      paramView.setVisibility(paramInt1);
-      a.invalidate();
-      return;
-      f = (a.getWidth() - paramInt1) / paramInt2;
-      break;
+      ((Scroller)paramObject).startScroll(paramInt1, paramInt2, paramInt3, paramInt4, paramInt5);
     }
-  }
-  
-  public boolean a(View paramView, int paramInt)
-  {
-    return (a.g(paramView)) && (a.a(paramView, b)) && (a.a(paramView) == 0);
-  }
-  
-  public int b(View paramView, int paramInt1, int paramInt2)
-  {
-    return paramView.getTop();
-  }
-  
-  public void b(int paramInt1, int paramInt2)
-  {
-    if ((paramInt1 & 0x1) == 1) {}
-    for (View localView = a.b(3);; localView = a.b(5))
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8)
     {
-      if ((localView != null) && (a.a(localView) == 0)) {
-        c.a(localView, paramInt2);
-      }
-      return;
+      ((Scroller)paramObject).fling(paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8);
+    }
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10)
+    {
+      ((Scroller)paramObject).fling(paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8);
+    }
+    
+    public boolean a(Object paramObject)
+    {
+      return ((Scroller)paramObject).isFinished();
+    }
+    
+    public int b(Object paramObject)
+    {
+      return ((Scroller)paramObject).getCurrX();
+    }
+    
+    public int c(Object paramObject)
+    {
+      return ((Scroller)paramObject).getCurrY();
+    }
+    
+    public float d(Object paramObject)
+    {
+      return 0.0F;
+    }
+    
+    public boolean e(Object paramObject)
+    {
+      return ((Scroller)paramObject).computeScrollOffset();
+    }
+    
+    public void f(Object paramObject)
+    {
+      ((Scroller)paramObject).abortAnimation();
+    }
+    
+    public int g(Object paramObject)
+    {
+      return ((Scroller)paramObject).getFinalX();
+    }
+    
+    public int h(Object paramObject)
+    {
+      return ((Scroller)paramObject).getFinalY();
     }
   }
   
-  public void b(View paramView, int paramInt)
+  static class c
+    implements v.a
   {
-    getLayoutParamsc = false;
-    b();
+    public Object a(Context paramContext, Interpolator paramInterpolator)
+    {
+      return w.a(paramContext, paramInterpolator);
+    }
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+    {
+      w.a(paramObject, paramInt1, paramInt2, paramInt3, paramInt4);
+    }
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5)
+    {
+      w.a(paramObject, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5);
+    }
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8)
+    {
+      w.a(paramObject, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8);
+    }
+    
+    public void a(Object paramObject, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int paramInt7, int paramInt8, int paramInt9, int paramInt10)
+    {
+      w.a(paramObject, paramInt1, paramInt2, paramInt3, paramInt4, paramInt5, paramInt6, paramInt7, paramInt8, paramInt9, paramInt10);
+    }
+    
+    public boolean a(Object paramObject)
+    {
+      return w.a(paramObject);
+    }
+    
+    public int b(Object paramObject)
+    {
+      return w.b(paramObject);
+    }
+    
+    public int c(Object paramObject)
+    {
+      return w.c(paramObject);
+    }
+    
+    public float d(Object paramObject)
+    {
+      return 0.0F;
+    }
+    
+    public boolean e(Object paramObject)
+    {
+      return w.d(paramObject);
+    }
+    
+    public void f(Object paramObject)
+    {
+      w.e(paramObject);
+    }
+    
+    public int g(Object paramObject)
+    {
+      return w.f(paramObject);
+    }
+    
+    public int h(Object paramObject)
+    {
+      return w.g(paramObject);
+    }
   }
   
-  public boolean b(int paramInt)
+  static class d
+    extends v.c
   {
-    return false;
+    public float d(Object paramObject)
+    {
+      return x.a(paramObject);
+    }
   }
 }
 

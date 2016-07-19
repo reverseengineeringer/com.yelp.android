@@ -1,47 +1,56 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
+import android.content.Context;
+import com.google.android.gms.ads.internal.s;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-@ey
-public final class do
-  implements SafeParcelable
+@fv
+public class do
 {
-  public static final dn CREATOR = new dn();
-  public final String mimeType;
-  public final String packageName;
-  public final String rG;
-  public final String rH;
-  public final String rI;
-  public final String rJ;
-  public final String rK;
-  public final int versionCode;
-  
-  public do(int paramInt, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7)
+  public List<String> a(JSONObject paramJSONObject, String paramString)
+    throws JSONException
   {
-    versionCode = paramInt;
-    rG = paramString1;
-    rH = paramString2;
-    mimeType = paramString3;
-    packageName = paramString4;
-    rI = paramString5;
-    rJ = paramString6;
-    rK = paramString7;
+    paramJSONObject = paramJSONObject.optJSONArray(paramString);
+    if (paramJSONObject != null)
+    {
+      paramString = new ArrayList(paramJSONObject.length());
+      int i = 0;
+      while (i < paramJSONObject.length())
+      {
+        paramString.add(paramJSONObject.getString(i));
+        i += 1;
+      }
+      return Collections.unmodifiableList(paramString);
+    }
+    return null;
   }
   
-  public do(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7)
+  public void a(Context paramContext, String paramString1, gr paramgr, String paramString2, boolean paramBoolean, List<String> paramList)
   {
-    this(1, paramString1, paramString2, paramString3, paramString4, paramString5, paramString6, paramString7);
-  }
-  
-  public int describeContents()
-  {
-    return 0;
-  }
-  
-  public void writeToParcel(Parcel paramParcel, int paramInt)
-  {
-    dn.a(this, paramParcel, paramInt);
+    if ((paramList == null) || (paramList.isEmpty())) {
+      return;
+    }
+    if (paramBoolean) {}
+    for (String str1 = "1";; str1 = "0")
+    {
+      Iterator localIterator = paramList.iterator();
+      while (localIterator.hasNext())
+      {
+        String str2 = ((String)localIterator.next()).replaceAll("@gw_adlocid@", paramString2).replaceAll("@gw_adnetrefresh@", str1).replaceAll("@gw_qdata@", q.f).replaceAll("@gw_sdkver@", paramString1).replaceAll("@gw_sessid@", s.h().a()).replaceAll("@gw_seqnum@", i);
+        paramList = str2;
+        if (n != null) {
+          paramList = str2.replaceAll("@gw_adnetid@", n.b).replaceAll("@gw_allocid@", n.d);
+        }
+        new hk(paramContext, paramString1, paramList).g();
+      }
+      break;
+    }
   }
 }
 

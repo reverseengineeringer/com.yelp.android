@@ -1,12 +1,32 @@
 package android.support.v4.view;
 
-import android.view.Gravity;
+import android.view.MotionEvent;
 
 class u
 {
-  public static int a(int paramInt1, int paramInt2)
+  public static int a(MotionEvent paramMotionEvent)
   {
-    return Gravity.getAbsoluteGravity(paramInt1, paramInt2);
+    return paramMotionEvent.getPointerCount();
+  }
+  
+  public static int a(MotionEvent paramMotionEvent, int paramInt)
+  {
+    return paramMotionEvent.findPointerIndex(paramInt);
+  }
+  
+  public static int b(MotionEvent paramMotionEvent, int paramInt)
+  {
+    return paramMotionEvent.getPointerId(paramInt);
+  }
+  
+  public static float c(MotionEvent paramMotionEvent, int paramInt)
+  {
+    return paramMotionEvent.getX(paramInt);
+  }
+  
+  public static float d(MotionEvent paramMotionEvent, int paramInt)
+  {
+    return paramMotionEvent.getY(paramInt);
   }
 }
 

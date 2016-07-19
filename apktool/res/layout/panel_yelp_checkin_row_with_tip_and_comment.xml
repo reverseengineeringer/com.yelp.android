@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:padding="?baseGapSize" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+<RelativeLayout android:padding="@dimen/default_base_gap_size" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/panel_checkin_base" />
-    <TextView android:textAppearance="@style/StandardLightText" android:id="@id/checkin_count_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/check_in_icon_small" android:drawablePadding="@dimen/std_compound_drawable_offset" android:layout_below="@id/review_count" android:layout_alignLeft="@id/review_count" />
+    <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:id="@id/checkin_count_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/check_in_icon_small" android:drawablePadding="@dimen/std_compound_drawable_offset" android:layout_below="@id/review_count" android:layout_alignLeft="@id/review_count" />
     <include layout="@layout/panel_checkin_comment_bubble_buttons" />
 </RelativeLayout>

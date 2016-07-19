@@ -3,10 +3,19 @@
 .source "MapMaker.java"
 
 # interfaces
-.implements Lcom/yelp/common/collect/g;
+.implements Lcom/yelp/common/collect/MapMaker$b;
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/MapMaker;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "NullOutputExceptionReference"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<K:",
@@ -15,7 +24,7 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/yelp/common/collect/g",
+        "Lcom/yelp/common/collect/MapMaker$b",
         "<TK;TV;>;"
     }
 .end annotation
@@ -42,14 +51,14 @@
 
 
 # virtual methods
-.method public copyFor(Lcom/yelp/common/collect/f;)Lcom/yelp/common/collect/g;
+.method public copyFor(Lcom/yelp/common/collect/MapMaker$a;)Lcom/yelp/common/collect/MapMaker$b;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/common/collect/f",
+            "Lcom/yelp/common/collect/MapMaker$a",
             "<TK;TV;>;)",
-            "Lcom/yelp/common/collect/g",
+            "Lcom/yelp/common/collect/MapMaker$b",
             "<TK;TV;>;"
         }
     .end annotation

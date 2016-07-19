@@ -3,6 +3,17 @@
 .source "SourceAwareMetadataObject.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/model/SourceAwareMetadataObject;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "Fields"
+.end annotation
+
+
 # static fields
 .field public static final DELIVERY_TYPE:Ljava/lang/String; = "deliveryType"
 

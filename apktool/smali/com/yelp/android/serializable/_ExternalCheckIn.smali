@@ -7,27 +7,27 @@
 
 
 # instance fields
-.field protected mAppCheckInId:Ljava/lang/String;
+.field protected a:Ljava/util/Date;
 
-.field protected mAppId:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mAppName:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mAppUserId:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
-.field protected mAppUserImageUrl:Ljava/lang/String;
+.field protected e:Ljava/lang/String;
 
-.field protected mAppUserName:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+.field protected g:Ljava/lang/String;
 
-.field protected mBusinessId:Ljava/lang/String;
+.field protected h:Ljava/lang/String;
 
-.field protected mDateCreated:Ljava/util/Date;
+.field protected i:Ljava/lang/String;
 
-.field protected mLocation:Ljava/lang/String;
+.field protected j:Ljava/lang/String;
 
-.field protected mUserId:Ljava/lang/String;
+.field protected k:Lcom/yelp/android/serializable/YelpBusiness;
 
 
 # direct methods
@@ -35,184 +35,203 @@
     .locals 0
 
     .prologue
-    .line 45
+    .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/YelpBusiness;)V
-    .locals 0
-
-    .prologue
-    .line 30
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_ExternalCheckIn;-><init>()V
-
-    .line 31
-    iput-object p1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mDateCreated:Ljava/util/Date;
-
-    .line 32
-    iput-object p2, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mUserId:Ljava/lang/String;
-
-    .line 33
-    iput-object p3, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppId:Ljava/lang/String;
-
-    .line 34
-    iput-object p4, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppCheckInId:Ljava/lang/String;
-
-    .line 35
-    iput-object p5, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppName:Ljava/lang/String;
-
-    .line 36
-    iput-object p6, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserId:Ljava/lang/String;
-
-    .line 37
-    iput-object p7, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserName:Ljava/lang/String;
-
-    .line 38
-    iput-object p8, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserImageUrl:Ljava/lang/String;
-
-    .line 39
-    iput-object p9, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusinessId:Ljava/lang/String;
-
-    .line 40
-    iput-object p10, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mLocation:Ljava/lang/String;
-
-    .line 41
-    iput-object p11, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
-
-    .line 42
+    .line 58
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a(Landroid/os/Parcel;)V
+    .locals 4
 
     .prologue
-    .line 84
-    const/4 v0, 0x0
+    .line 171
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    return v0
+    move-result-wide v0
+
+    .line 172
+    const-wide/32 v2, -0x80000000
+
+    cmp-long v2, v0, v2
+
+    if-eqz v2, :cond_0
+
+    .line 173
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
+
+    .line 175
+    :cond_0
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->b:Ljava/lang/String;
+
+    .line 176
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->c:Ljava/lang/String;
+
+    .line 177
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->d:Ljava/lang/String;
+
+    .line 178
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->e:Ljava/lang/String;
+
+    .line 179
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->f:Ljava/lang/String;
+
+    .line 180
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->g:Ljava/lang/String;
+
+    .line 181
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->h:Ljava/lang/String;
+
+    .line 182
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->i:Ljava/lang/String;
+
+    .line 183
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->j:Ljava/lang/String;
+
+    .line 184
+    const-class v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->k:Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 185
+    return-void
 .end method
 
-.method public getAppCheckInId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppCheckInId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getAppId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 55
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getAppName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getAppUserId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getAppUserImageUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 70
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserImageUrl:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getAppUserName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserName:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-    .locals 1
-
-    .prologue
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
-
-    return-object v0
-.end method
-
-.method public getBusinessId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 73
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusinessId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getDateCreated()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mDateCreated:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getLocation()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mLocation:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getUserId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mUserId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 119
+    .line 188
     const-string/jumbo v0, "time_created"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -221,16 +240,16 @@
 
     if-nez v0, :cond_0
 
-    .line 120
+    .line 189
     const-string/jumbo v0, "time_created"
 
     invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mDateCreated:Ljava/util/Date;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
 
-    .line 122
+    .line 191
     :cond_0
     const-string/jumbo v0, "user_id"
 
@@ -240,16 +259,16 @@
 
     if-nez v0, :cond_1
 
-    .line 123
+    .line 192
     const-string/jumbo v0, "user_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mUserId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->b:Ljava/lang/String;
 
-    .line 125
+    .line 194
     :cond_1
     const-string/jumbo v0, "app_id"
 
@@ -259,16 +278,16 @@
 
     if-nez v0, :cond_2
 
-    .line 126
+    .line 195
     const-string/jumbo v0, "app_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->c:Ljava/lang/String;
 
-    .line 128
+    .line 197
     :cond_2
     const-string/jumbo v0, "app_check_in_id"
 
@@ -278,16 +297,16 @@
 
     if-nez v0, :cond_3
 
-    .line 129
+    .line 198
     const-string/jumbo v0, "app_check_in_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppCheckInId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->d:Ljava/lang/String;
 
-    .line 131
+    .line 200
     :cond_3
     const-string/jumbo v0, "app_name"
 
@@ -297,16 +316,16 @@
 
     if-nez v0, :cond_4
 
-    .line 132
+    .line 201
     const-string/jumbo v0, "app_name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->e:Ljava/lang/String;
 
-    .line 134
+    .line 203
     :cond_4
     const-string/jumbo v0, "app_user_id"
 
@@ -316,16 +335,16 @@
 
     if-nez v0, :cond_5
 
-    .line 135
+    .line 204
     const-string/jumbo v0, "app_user_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->f:Ljava/lang/String;
 
-    .line 137
+    .line 206
     :cond_5
     const-string/jumbo v0, "app_user_name"
 
@@ -335,16 +354,16 @@
 
     if-nez v0, :cond_6
 
-    .line 138
+    .line 207
     const-string/jumbo v0, "app_user_name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->g:Ljava/lang/String;
 
-    .line 140
+    .line 209
     :cond_6
     const-string/jumbo v0, "app_user_image_url"
 
@@ -354,16 +373,16 @@
 
     if-nez v0, :cond_7
 
-    .line 141
+    .line 210
     const-string/jumbo v0, "app_user_image_url"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserImageUrl:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->h:Ljava/lang/String;
 
-    .line 143
+    .line 212
     :cond_7
     const-string/jumbo v0, "business_id"
 
@@ -373,16 +392,16 @@
 
     if-nez v0, :cond_8
 
-    .line 144
+    .line 213
     const-string/jumbo v0, "business_id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusinessId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->i:Ljava/lang/String;
 
-    .line 146
+    .line 215
     :cond_8
     const-string/jumbo v0, "location"
 
@@ -392,16 +411,16 @@
 
     if-nez v0, :cond_9
 
-    .line 147
+    .line 216
     const-string/jumbo v0, "location"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mLocation:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->j:Ljava/lang/String;
 
-    .line 149
+    .line 218
     :cond_9
     const-string/jumbo v0, "business"
 
@@ -411,7 +430,7 @@
 
     if-nez v0, :cond_a
 
-    .line 150
+    .line 219
     sget-object v0, Lcom/yelp/android/serializable/YelpBusiness;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     const-string/jumbo v1, "business"
@@ -426,125 +445,319 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->k:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 152
+    .line 221
     :cond_a
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 4
+.method public b()Ljava/lang/String;
+    .locals 1
 
     .prologue
-    .line 102
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+    .line 141
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->i:Ljava/lang/String;
 
-    move-result-wide v0
+    return-object v0
+.end method
 
-    .line 103
-    const-wide/32 v2, -0x80000000
+.method public d()Lcom/yelp/android/serializable/YelpBusiness;
+    .locals 1
 
-    cmp-long v2, v0, v2
+    .prologue
+    .line 149
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->k:Lcom/yelp/android/serializable/YelpBusiness;
 
-    if-eqz v2, :cond_0
+    return-object v0
+.end method
 
-    .line 104
-    new-instance v2, Ljava/util/Date;
+.method public describeContents()I
+    .locals 1
 
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+    .prologue
+    .line 153
+    const/4 v0, 0x0
 
-    iput-object v2, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mDateCreated:Ljava/util/Date;
+    return v0
+.end method
 
-    .line 106
-    :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+.method public e()Ljava/util/Date;
+    .locals 1
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mUserId:Ljava/lang/String;
-
-    .line 107
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppId:Ljava/lang/String;
-
-    .line 108
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppCheckInId:Ljava/lang/String;
-
+    .prologue
     .line 109
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 62
+    if-nez p1, :cond_1
+
+    .line 76
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 66
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 67
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 70
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 74
+    check-cast p1, Lcom/yelp/android/serializable/_ExternalCheckIn;
+
+    .line 76
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->b:Ljava/lang/String;
 
-    .line 110
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->b:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserId:Ljava/lang/String;
-
-    .line 111
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->c:Ljava/lang/String;
 
-    .line 112
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->c:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserImageUrl:Ljava/lang/String;
-
-    .line 113
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusinessId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->d:Ljava/lang/String;
 
-    .line 114
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->d:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mLocation:Ljava/lang/String;
-
-    .line 115
-    const-class v0, Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->f:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->f:Ljava/lang/String;
 
-    .line 116
-    return-void
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->g:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->h:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->i:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->j:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->k:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ExternalCheckIn;->k:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 125
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public g()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 145
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->j:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public h()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 137
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->h:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 93
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->k:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 133
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->g:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
     .prologue
-    .line 88
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mDateCreated:Ljava/util/Date;
+    .line 157
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -553,64 +766,64 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 89
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mUserId:Ljava/lang/String;
+    .line 158
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 90
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppId:Ljava/lang/String;
+    .line 159
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 91
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppCheckInId:Ljava/lang/String;
+    .line 160
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 92
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppName:Ljava/lang/String;
+    .line 161
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserId:Ljava/lang/String;
+    .line 162
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserName:Ljava/lang/String;
+    .line 163
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->g:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mAppUserImageUrl:Ljava/lang/String;
+    .line 164
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->h:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 96
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusinessId:Ljava/lang/String;
+    .line 165
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->i:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 97
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mLocation:Ljava/lang/String;
+    .line 166
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->j:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mBusiness:Lcom/yelp/android/serializable/YelpBusiness;
+    .line 167
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->k:Lcom/yelp/android/serializable/YelpBusiness;
 
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 99
+    .line 168
     return-void
 
-    .line 88
+    .line 157
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->mDateCreated:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ExternalCheckIn;->a:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

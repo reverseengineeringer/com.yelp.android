@@ -6,6 +6,17 @@
 .implements Ljava/lang/Runnable;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/ChannelSet;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "NextChildrenRunner"
+.end annotation
+
+
 # instance fields
 .field private _listener:Lcom/ooyala/android/PaginatedItemListener;
 

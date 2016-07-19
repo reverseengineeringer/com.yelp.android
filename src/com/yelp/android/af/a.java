@@ -1,39 +1,20 @@
 package com.yelp.android.af;
 
-import android.graphics.drawable.Drawable;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.engine.i;
+import java.io.File;
 
-public class a<T extends Drawable>
-  implements g<T>
+public class a
+  implements d<File, File>
 {
-  private final l<T> a;
-  private final int b;
-  private d<T> c;
-  
-  public a()
+  public i<File> a(File paramFile, int paramInt1, int paramInt2)
   {
-    this(300);
+    return new b(paramFile);
   }
   
-  public a(int paramInt)
+  public String a()
   {
-    this(new l(new c(null)), paramInt);
-  }
-  
-  a(l<T> paraml, int paramInt)
-  {
-    a = paraml;
-    b = paramInt;
-  }
-  
-  public e<T> a(boolean paramBoolean1, boolean paramBoolean2)
-  {
-    if (paramBoolean1) {
-      return h.b();
-    }
-    if (c == null) {
-      c = new d(a.a(false, paramBoolean2), b);
-    }
-    return c;
+    return "";
   }
 }
 

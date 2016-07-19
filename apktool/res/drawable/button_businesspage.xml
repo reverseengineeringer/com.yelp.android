@@ -11,7 +11,7 @@
             </item>
             <item android:top="@dimen/border" android:bottom="@dimen/border">
                 <shape android:shape="rectangle">
-                    <gradient android:startColor="@color/gray_mid_light" android:endColor="@color/gray_button_bar_pressed_color_bottom" android:angle="@integer/gradient_start_top" />
+                    <gradient android:startColor="@color/gray_mid_light" android:endColor="@color/gray_light_silver_divider" android:angle="@integer/gradient_start_top" />
                 </shape>
             </item>
         </layer-list>
@@ -25,7 +25,7 @@
             </item>
             <item android:top="@dimen/border" android:bottom="@dimen/border">
                 <shape android:shape="rectangle">
-                    <gradient android:startColor="@color/gray_mid_light" android:endColor="@color/gray_button_bar_pressed_color_bottom" android:angle="@integer/gradient_start_top" />
+                    <gradient android:startColor="@color/gray_mid_light" android:endColor="@color/gray_light_silver_divider" android:angle="@integer/gradient_start_top" />
                 </shape>
             </item>
         </layer-list>

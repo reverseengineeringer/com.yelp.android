@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white_dirty_snow" android:padding="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/contextual_image_view" android:paddingTop="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/contextual_button_layout">
+        <FrameLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center" android:layout_width="250.0dip" android:layout_height="250.0dip" android:src="@drawable/starburst_background" android:contentDescription="@null" android:alpha="0.7" />
+            <ImageView android:layout_gravity="center" android:id="@id/contextual_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" />
+        </FrameLayout>
+        <TextView android:textAppearance="@style/DeprecatedHeadlineLightText" android:gravity="center" android:id="@id/contextual_tagline" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_large_gap_size" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/contextual_button_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <Button android:id="@id/facebook_log_in_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="@dimen/clickable_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:text="@string/continue_with_facebook" android:drawableLeft="@drawable/facebook_icon_white" android:drawableRight="@drawable/chevron_white_small" style="@style/Widget.Button.Flat.Blue" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button android:id="@id/contextual_login_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:text="@string/login" android:layout_weight="1.0" style="@style/Widget.Button.Flat.Gray" />
+            <Button android:id="@id/contextual_sign_up_button" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="0.0dip" android:layout_height="@dimen/clickable_size" android:layout_marginLeft="@dimen/default_base_gap_size" android:text="@string/im_new" android:layout_weight="1.0" style="@style/Widget.Button.Flat.Green" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

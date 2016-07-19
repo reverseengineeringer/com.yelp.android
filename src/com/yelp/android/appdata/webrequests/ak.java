@@ -1,6 +1,7 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.adjust.sdk.e;
+import com.yelp.android.analytics.adjust.AdjustManager;
+import com.yelp.android.analytics.adjust.AdjustManager.YelpAdjustEvent;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.LocationService.Accuracies;
@@ -9,36 +10,38 @@ import com.yelp.android.appdata.LocationService.Recentness;
 import com.yelp.android.serializable.YelpCheckIn;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ak
-  extends h<String, Void, YelpCheckIn>
+  extends k<String, Void, YelpCheckIn>
 {
-  private YelpCheckIn a;
+  private YelpCheckIn g;
   
-  public ak(String paramString1, String paramString2, j<YelpCheckIn> paramj)
+  public ak(String paramString1, String paramString2, k.b<YelpCheckIn> paramb)
   {
-    super(ApiRequest.RequestType.POST, "check_in", LocationService.Accuracies.MEDIUM, LocationService.Recentness.MINUTE, paramj, LocationService.AccuracyUnit.MILES);
-    addPostParam("business_id", paramString1);
+    super(ApiRequest.RequestType.POST, "check_in", LocationService.Accuracies.UNKNOWN, LocationService.Recentness.MINUTE, paramb, LocationService.AccuracyUnit.MILES);
+    b("business_id", paramString1);
     if (paramString2 != null) {
-      addPostParam("comment", paramString2);
+      b("comment", paramString2);
     }
   }
   
   public YelpCheckIn a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    return YelpCheckIn.checkInFromJSONResponse(paramJSONObject, this);
+    return YelpCheckIn.a(paramJSONObject, this);
   }
   
   protected void a(YelpCheckIn paramYelpCheckIn)
   {
     HashMap localHashMap = new HashMap(2);
-    localHashMap.put("request_id", getRequestId());
-    localHashMap.put("id", paramYelpCheckIn.getBusinessId());
-    e.a("lyi71l");
+    localHashMap.put("request_id", i_());
+    localHashMap.put("id", paramYelpCheckIn.k());
+    AppData.b().l().a(AdjustManager.YelpAdjustEvent.CHECKED_IN);
     AppData.a(EventIri.CheckedIn, localHashMap);
-    a = paramYelpCheckIn;
-    super.onSuccess(a);
+    g = paramYelpCheckIn;
+    super.b(g);
   }
 }
 

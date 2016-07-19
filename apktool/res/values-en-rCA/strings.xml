@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ad_choices_url">https://m.yelp.ca/static?p=privacy#third-parties</string>
-    <string name="advertiser_faq_url">https://m.yelp.ca/advertiser_faq</string>
     <string name="category_banks">Banks &amp; Credit Unions</string>
     <string name="category_bars">Bars</string>
     <string name="category_coffee">Coffee &amp; Tea</string>
@@ -16,10 +14,10 @@
     <string name="compliment_desc_funny">"I think I just LOL'd my pants!"</string>
     <string name="compliment_desc_hot">"You're hotter than a campfire and I want me s'more."</string>
     <string name="compliment_desc_list">"Blizzow, Yelper! You're like Letterman but with nicer teeth."</string>
-    <string name="compliment_desc_more">In the words of Oliver Twist... Please, sir, I want some more.</string>
+    <string name="compliment_desc_more">In the words of Oliver Twist… Please, sir, I want some more.</string>
     <string name="compliment_desc_note" />
     <string name="compliment_desc_photos">They say a picture is worth a 1000 words; I read this one twice.</string>
-    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke... There aren't enough languages in the world to express my gratitude."</string>
+    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke… There aren't enough languages in the world to express my gratitude."</string>
     <string name="compliment_desc_profile">Your profile is the Yelp beneath my wings.</string>
     <string name="compliment_desc_writer">"You've got the write stuff, baby!"</string>
     <string name="compliment_funny">"You're Funny"</string>
@@ -31,14 +29,6 @@
     <string name="compliment_plain">Thank You</string>
     <string name="compliment_profile">Like Your Profile</string>
     <string name="compliment_writer">Good Writer</string>
-    <string name="content_guidelines_url">https://m.yelp.ca/guidelines</string>
-    <string name="description">Find and read reviews about great local businesses near you.</string>
-    <string name="elite_url">https://m.yelp.ca/elite</string>
-    <string name="locality_string">City, Province</string>
-    <string name="mobile_host">m.yelp.ca</string>
-    <string name="not_recommended_reviews_url">https://m.yelp.ca/not_recommended_reviews/%1$s</string>
-    <string name="privacy_policy_url">https://m.yelp.ca/static?p=privacy</string>
-    <string name="privacy_settings_url">https://m.yelp.ca/profile_privacy</string>
     <string name="remove_reason_member_request">"This Yelper's account has been closed."</string>
     <string name="remove_reason_post_by_admin">This post was removed by a Yelp admin.</string>
     <string name="remove_reason_post_by_admin_tos">This post violated the Yelp &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Terms of Service&lt;/a> and has been removed.</string>
@@ -58,12 +48,15 @@
     <string name="remove_reason_topic_tos_multiple">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_spammer">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_threat">This conversation was removed because the Yelper who started it no longer has an account.</string>
+    <string name="remove_reason_tos_bizowner">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_content">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_deals">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_general">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_multiple">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_paidreviewer">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_solicitation">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_spammer">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_threat">"This Yelper's account has been closed."</string>
-    <string name="site_name">Yelp.ca</string>
     <string name="talk_category_0">Other</string>
     <string name="talk_category_1">Local Questions &amp; Answers</string>
     <string name="talk_category_10">Food</string>
@@ -94,6 +87,17 @@
     <string name="talk_category_travel">Travel</string>
     <string name="talk_category_uncategorized">Other</string>
     <string name="talk_category_yelper_shout_outs">Yelper Shout-Outs</string>
+    <string name="ad_choices_url">https://m.yelp.ca/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.ca/advertiser_faq</string>
+    <string name="content_guidelines_url">https://m.yelp.ca/guidelines</string>
+    <string name="description">Find and read reviews about great local businesses near you.</string>
+    <string name="elite_url">https://m.yelp.ca/elite</string>
+    <string name="locality_string">City, Province</string>
+    <string name="mobile_host">m.yelp.ca</string>
+    <string name="not_recommended_reviews_url">https://m.yelp.ca/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://m.yelp.ca/static?p=privacy</string>
+    <string name="privacy_settings_url">https://m.yelp.ca/profile_privacy</string>
+    <string name="site_name">Yelp.ca</string>
     <string name="terms_of_service_url">https://m.yelp.ca/static?p=tos</string>
     <string name="www_host">www.yelp.ca</string>
 </resources>

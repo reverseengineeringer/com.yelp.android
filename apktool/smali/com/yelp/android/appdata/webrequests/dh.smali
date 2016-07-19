@@ -1,156 +1,96 @@
-.class Lcom/yelp/android/appdata/webrequests/dh;
-.super Ljava/lang/Object;
-.source "LoginManager.java"
-
-# interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
+.class public Lcom/yelp/android/appdata/webrequests/dh;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "RedeemOfferRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
-        "Lcom/yelp/android/serializable/User;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Lcom/yelp/android/serializable/Offer;",
         ">;"
     }
 .end annotation
 
 
-# instance fields
-.field final synthetic a:Lcom/yelp/android/appdata/webrequests/dc;
-
-
 # direct methods
-.method constructor <init>(Lcom/yelp/android/appdata/webrequests/dc;)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/Offer;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 691
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 12
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string/jumbo v1, "check_ins/offer/redeem"
 
+    invoke-direct {p0, v0, v1, p2}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 13
+    const-string/jumbo v0, "offer_id"
+
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/dh;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 14
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/serializable/User;)V
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/Offer;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 18
+    sget-object v0, Lcom/yelp/android/serializable/Offer;->CREATOR:Lcom/yelp/android/serializable/a;
+
+    const-string/jumbo v1, "offer"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/a;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Offer;
+
+    return-object v0
+.end method
+
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/serializable/User;",
-            ")V"
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 695
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-virtual {v0, p2}, Lcom/yelp/android/appdata/webrequests/dc;->b(Lcom/yelp/android/serializable/User;)V
-
-    .line 696
-    return-void
-.end method
-
-.method public onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ")V"
-        }
-    .end annotation
-
-    .prologue
-    .line 701
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/webrequests/dc;->b(Lcom/yelp/android/appdata/webrequests/dc;)I
-
-    move-result v0
-
-    const/4 v1, 0x3
-
-    if-ge v0, v1, :cond_1
-
-    .line 702
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c(Lcom/yelp/android/appdata/webrequests/dc;)V
-
-    .line 703
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/webrequests/dc;->d(Lcom/yelp/android/appdata/webrequests/dc;)I
-
-    .line 710
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 705
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/yelp/android/appdata/webrequests/dc;->a(Lcom/yelp/android/appdata/webrequests/dc;I)I
-
-    .line 706
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e(Lcom/yelp/android/appdata/webrequests/dc;)Lcom/yelp/android/serializable/User;
+    .line 9
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/dh;->a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/Offer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/dh;->a:Lcom/yelp/android/appdata/webrequests/dc;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/webrequests/dc;->e(Lcom/yelp/android/appdata/webrequests/dc;)Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->isFullUser()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 707
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string/jumbo v2, "user_failed_to_fetch"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/AppData;->sendBroadcast(Landroid/content/Intent;)V
-
-    goto :goto_0
-.end method
-
-.method public synthetic onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
-    .locals 0
-
-    .prologue
-    .line 691
-    check-cast p2, Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/appdata/webrequests/dh;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/serializable/User;)V
-
-    return-void
+    return-object v0
 .end method

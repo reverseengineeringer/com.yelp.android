@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.ListView;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.bu;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.bn;
 import com.yelp.android.serializable.Event;
 import com.yelp.android.serializable.EventAttendees;
 import com.yelp.android.serializable.User;
@@ -22,9 +22,9 @@ public class EventAttendeesFragment
 {
   private Event a;
   private EventAttendees b;
-  private e c;
-  private bu d;
-  private final m<List<User>> e = new g(this);
+  private b c;
+  private bn d;
+  private final ApiRequest.b<List<User>> e = new EventAttendeesFragment.2(this);
   
   public static EventAttendeesFragment a(Event paramEvent, EventAttendees paramEventAttendees)
   {
@@ -38,11 +38,11 @@ public class EventAttendeesFragment
   
   private void a(Bundle paramBundle)
   {
-    c = new e(b, paramBundle);
+    c = new b(b, paramBundle);
     a(c);
-    a(c.c());
+    b(c.c());
     if (!c.c()) {
-      m().setOnLoadNeeded(new f(this));
+      m().setOnLoadNeeded(new EventAttendeesFragment.1(this));
     }
   }
   
@@ -51,12 +51,12 @@ public class EventAttendeesFragment
     paramListView = c.a(paramInt);
     if (paramListView != null)
     {
-      AppData.a(EventIri.EventUser, "event_id", a.getId());
+      AppData.a(EventIri.EventUser, "event_id", a.I());
       startActivity(ActivityUserProfile.a(AppData.b(), paramListView));
     }
   }
   
-  public b getIri()
+  public a getIri()
   {
     return ViewIri.EventAttendees;
   }
@@ -83,7 +83,7 @@ public class EventAttendeesFragment
   public void onResume()
   {
     super.onResume();
-    d = ((bu)a("event_more_attendees_request", null, e));
+    d = ((bn)a("event_more_attendees_request", null, e));
   }
   
   public void onSaveInstanceState(Bundle paramBundle)

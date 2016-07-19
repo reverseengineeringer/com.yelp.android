@@ -1,42 +1,58 @@
 package com.yelp.android.ac;
 
-import android.graphics.Bitmap;
-import com.bumptech.glide.load.engine.t;
-import com.yelp.android.ab.b;
+import android.content.Context;
+import com.yelp.android.aa.d;
+import com.yelp.android.aa.k;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.w.g;
+import java.io.InputStream;
 
 public class a
+  implements l<d, InputStream>
 {
-  private final t<b> a;
-  private final t<Bitmap> b;
+  private final k<d, d> a;
   
-  public a(t<Bitmap> paramt, t<b> paramt1)
+  public a()
   {
-    if ((paramt != null) && (paramt1 != null)) {
-      throw new IllegalArgumentException("Can only contain either a bitmap resource or a gif resource, not both");
-    }
-    if ((paramt == null) && (paramt1 == null)) {
-      throw new IllegalArgumentException("Must contain either a bitmap resource or a gif resource");
-    }
-    b = paramt;
-    a = paramt1;
+    this(null);
   }
   
-  public int a()
+  public a(k<d, d> paramk)
   {
-    if (b != null) {
-      return b.c();
+    a = paramk;
+  }
+  
+  public com.yelp.android.w.c<InputStream> a(d paramd, int paramInt1, int paramInt2)
+  {
+    d locald = paramd;
+    if (a != null)
+    {
+      locald = (d)a.a(paramd, 0, 0);
+      if (locald != null) {
+        break label54;
+      }
+      a.a(paramd, 0, 0, paramd);
+      locald = paramd;
     }
-    return a.c();
+    label54:
+    for (;;)
+    {
+      return new g(locald);
+    }
   }
   
-  public t<Bitmap> b()
+  public static class a
+    implements m<d, InputStream>
   {
-    return b;
-  }
-  
-  public t<b> c()
-  {
-    return a;
+    private final k<d, d> a = new k(500);
+    
+    public l<d, InputStream> a(Context paramContext, com.yelp.android.aa.c paramc)
+    {
+      return new a(a);
+    }
+    
+    public void a() {}
   }
 }
 

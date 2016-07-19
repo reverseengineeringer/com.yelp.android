@@ -22,9 +22,9 @@
 
     .prologue
     .line 23
-    new-instance v0, Lcom/yelp/android/serializable/bs;
+    new-instance v0, Lcom/yelp/android/serializable/PaymentMethod$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/bs;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/PaymentMethod$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/PaymentMethod;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -43,6 +43,79 @@
 
 
 # virtual methods
+.method public bridge synthetic a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_PaymentMethod;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_PaymentMethod;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -76,19 +149,9 @@
     check-cast p1, Lcom/yelp/android/serializable/PaymentMethod;
 
     .line 18
-    iget-object v1, p0, Lcom/yelp/android/serializable/PaymentMethod;->mId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/PaymentMethod;->a:Ljava/lang/String;
 
-    iget-object v2, p1, Lcom/yelp/android/serializable/PaymentMethod;->mId:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/yelp/android/serializable/PaymentMethod;->mDescription:Ljava/lang/String;
-
-    iget-object v2, p1, Lcom/yelp/android/serializable/PaymentMethod;->mDescription:Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/PaymentMethod;->a:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -96,9 +159,19 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/yelp/android/serializable/PaymentMethod;->mImageUrl:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/PaymentMethod;->b:Ljava/lang/String;
 
-    iget-object v2, p1, Lcom/yelp/android/serializable/PaymentMethod;->mImageUrl:Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/PaymentMethod;->b:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/PaymentMethod;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/PaymentMethod;->c:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -111,72 +184,16 @@
     goto :goto_0
 .end method
 
-.method public bridge synthetic getDescription()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->getDescription()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
-.end method
-
-.method public bridge synthetic getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getImagePath()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->getImagePath()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getImageUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_PaymentMethod;->getImageUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_PaymentMethod;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_PaymentMethod;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

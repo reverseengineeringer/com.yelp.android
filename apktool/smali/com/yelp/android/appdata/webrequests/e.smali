@@ -1,32 +1,79 @@
 .class public Lcom/yelp/android/appdata/webrequests/e;
-.super Lcom/yelp/android/av/h;
-.source "AddFriendRequest.java"
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "AccountGuestUserInfoRequest.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/e$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/yelp/android/appdata/webrequests/core/b",
+        "<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Lcom/yelp/android/appdata/webrequests/e$a;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/av/i;Lcom/yelp/android/serializable/User;Ljava/lang/String;)V
-    .locals 2
+.method public constructor <init>()V
+    .locals 3
+
+    .prologue
+    .line 18
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+
+    const-string/jumbo v1, "account/guest_user_info"
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 19
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/e$a;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 24
-    const-string/jumbo v0, "user/add_friend"
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/e$a;
 
-    invoke-direct {p0, v0, p1}, Lcom/yelp/android/av/h;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, p1}, Lcom/yelp/android/appdata/webrequests/e$a;-><init>(Lorg/json/JSONObject;)V
 
-    .line 25
-    const-string/jumbo v0, "user_id"
+    return-object v0
+.end method
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
-    move-result-object v1
+    .prologue
+    .line 14
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/e;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/e$a;
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/e;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v0
 
-    .line 26
-    const-string/jumbo v0, "message"
-
-    invoke-virtual {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/e;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 27
-    return-void
+    return-object v0
 .end method

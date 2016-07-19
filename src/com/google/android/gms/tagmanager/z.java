@@ -1,41 +1,22 @@
 package com.google.android.gms.tagmanager;
 
-import android.content.Context;
-import android.provider.Settings.Secure;
-import com.google.android.gms.internal.a;
 import com.google.android.gms.internal.d.a;
-import java.util.Map;
 
-class z
-  extends aj
+abstract interface z
 {
-  private static final String ID = a.Z.toString();
-  private final Context mContext;
+  public abstract w a();
   
-  public z(Context paramContext)
-  {
-    super(ID, new String[0]);
-    mContext = paramContext;
-  }
+  public abstract void a(d.a parama);
   
-  public d.a B(Map<String, d.a> paramMap)
-  {
-    paramMap = Y(mContext);
-    if (paramMap == null) {
-      return di.rb();
-    }
-    return di.u(paramMap);
-  }
+  public abstract w b();
   
-  protected String Y(Context paramContext)
-  {
-    return Settings.Secure.getString(paramContext.getContentResolver(), "android_id");
-  }
+  public abstract x c();
   
-  public boolean pe()
-  {
-    return true;
-  }
+  public abstract x d();
+  
+  public abstract x e();
+  
+  public abstract x f();
 }
 
 /* Location:

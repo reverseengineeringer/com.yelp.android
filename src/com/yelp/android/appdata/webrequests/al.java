@@ -1,15 +1,18 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class al
   extends ShareRequest
 {
-  public al(String paramString, ShareRequest.ShareType paramShareType, i parami)
+  public al(String paramString, ShareRequest.ShareType paramShareType, boolean paramBoolean, c.a parama)
   {
-    super("check_in/share/", parami, paramShareType);
+    super("check_in/share/", parama, paramShareType);
     a = paramShareType;
-    addPostParam("check_in_id", paramString);
+    b("check_in_id", paramString);
+    if (!paramShareType.equals(ShareRequest.ShareType.YELP)) {
+      b("with_award", paramBoolean);
+    }
   }
 }
 

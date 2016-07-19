@@ -6,7 +6,7 @@
 # instance fields
 .field private a:Ljava/lang/String;
 
-.field private b:Lcom/yelp/android/ui/util/cj;
+.field private b:Lcom/yelp/android/ui/util/ap;
 
 
 # direct methods
@@ -68,12 +68,12 @@
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityUserList;)Lcom/yelp/android/ui/util/cj;
+.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityUserList;)Lcom/yelp/android/ui/util/ap;
     .locals 1
 
     .prologue
     .line 23
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/cj;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/ap;
 
     return-object v0
 .end method
@@ -84,7 +84,7 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 73
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->a:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/yelp/android/analytics/iris/ViewIri;->valueOf(Ljava/lang/String;)Lcom/yelp/android/analytics/iris/ViewIri;
@@ -94,7 +94,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -140,14 +140,14 @@
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->a:Ljava/lang/String;
 
     .line 53
-    new-instance v0, Lcom/yelp/android/ui/util/cj;
+    new-instance v0, Lcom/yelp/android/ui/util/ap;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/util/cj;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/util/ap;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/cj;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/ap;
 
     .line 54
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/cj;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/ap;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityUserList;->getIntent()Landroid/content/Intent;
 
@@ -161,35 +161,35 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/cj;->a(Ljava/util/Collection;Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/util/ap;->a(Ljava/util/Collection;Z)V
 
     .line 55
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityUserList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityUserList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/ui/activities/eh;
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityUserList$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/eh;-><init>(Lcom/yelp/android/ui/activities/ActivityUserList;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityUserList$1;-><init>(Lcom/yelp/android/ui/activities/ActivityUserList;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 63
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityUserList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 67
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityUserList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/cj;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityUserList;->b:Lcom/yelp/android/ui/util/ap;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 64
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityUserList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 68
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityUserList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 65
+    .line 69
     return-void
 .end method

@@ -87,7 +87,13 @@ public class BrightcoveClosedCaptioningSurfaceView
     if (paramRenderingWidget != null)
     {
       if (subtitlesChangedListener == null) {
-        subtitlesChangedListener = new BrightcoveClosedCaptioningSurfaceView.1(this);
+        subtitlesChangedListener = new SubtitleTrack.RenderingWidget.OnChangedListener()
+        {
+          public void onChanged(SubtitleTrack.RenderingWidget paramAnonymousRenderingWidget)
+          {
+            invalidate();
+          }
+        };
       }
       setWillNotDraw(false);
       paramRenderingWidget.setOnChangedListener(subtitlesChangedListener);

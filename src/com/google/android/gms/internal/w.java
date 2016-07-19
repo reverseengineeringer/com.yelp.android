@@ -4,11 +4,11 @@ import android.view.View;
 
 public abstract interface w
 {
-  public abstract void av();
+  public abstract View a();
   
-  public abstract void aw();
+  public abstract boolean b();
   
-  public abstract void b(View paramView);
+  public abstract w c();
 }
 
 /* Location:

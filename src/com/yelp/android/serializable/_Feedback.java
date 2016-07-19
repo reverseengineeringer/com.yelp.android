@@ -2,21 +2,34 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import java.util.List;
 
 abstract class _Feedback
   implements Parcelable
 {
-  protected List<String> mFeedbackByUser;
-  protected int mPositiveFeedbackCount;
+  protected List<String> a;
+  protected int b;
   
   protected _Feedback() {}
   
   protected _Feedback(List<String> paramList, int paramInt)
   {
     this();
-    mFeedbackByUser = paramList;
-    mPositiveFeedbackCount = paramInt;
+    a = paramList;
+    b = paramInt;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = paramParcel.createStringArrayList();
+    b = paramParcel.readInt();
+  }
+  
+  public int d()
+  {
+    return b;
   }
   
   public int describeContents()
@@ -24,26 +37,29 @@ abstract class _Feedback
     return 0;
   }
   
-  public List<String> getFeedbackByUser()
+  public boolean equals(Object paramObject)
   {
-    return mFeedbackByUser;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Feedback)paramObject;
+    return new b().a(a, a).a(b, b).a();
   }
   
-  public int getPositiveFeedbackCount()
+  public int hashCode()
   {
-    return mPositiveFeedbackCount;
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mFeedbackByUser = paramParcel.createStringArrayList();
-    mPositiveFeedbackCount = paramParcel.readInt();
+    return new c().a(a).a(b).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeStringList(mFeedbackByUser);
-    paramParcel.writeInt(mPositiveFeedbackCount);
+    paramParcel.writeStringList(a);
+    paramParcel.writeInt(b);
   }
 }
 

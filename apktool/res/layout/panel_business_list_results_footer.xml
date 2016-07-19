@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/white_cream" android:paddingBottom="?largeGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/white_cream" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.activities.search.PagingPanel android:id="@id/paging_panel" android:padding="@dimen/default_base_gap_size" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
-    <com.yelp.android.ui.activities.search.PagingPanel android:id="@id/paging_panel" android:padding="?baseGapSize" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
-    <TextView android:textAppearance="@style/LargeDarkText" android:id="@id/folded_text" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/show_all_results" style="?sublistGrayCell" />
-    <TextView android:textAppearance="@style/LargeDarkText" android:id="@id/save_search" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/save_search" style="?sublistGrayCell" />
+    <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:id="@id/folded_text" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/show_all_results" style="?sublistGrayCell" />
     <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/panel_add_a_business" />
     <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
-    <TextView android:textAppearance="@style/LargeDarkText" android:layout_gravity="center" android:id="@id/attribution_text" android:padding="?baseGapSize" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:layout_gravity="center" android:id="@id/attribution_text" android:padding="@dimen/default_base_gap_size" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
 </LinearLayout>

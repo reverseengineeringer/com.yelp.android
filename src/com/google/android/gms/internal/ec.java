@@ -1,178 +1,109 @@
 package com.google.android.gms.internal;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.SystemClock;
+import android.view.View;
+import com.google.android.gms.ads.formats.a.a;
+import com.google.android.gms.dynamic.d;
+import com.yelp.android.bc.j;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
-@ey
+@fv
 public class ec
-  extends gf
-  implements ServiceConnection
+  extends dx.a
 {
-  private Context mContext;
-  private final Object mH = new Object();
-  private boolean sD = false;
-  private er sE;
-  private eb sF;
-  private eh sG;
-  private List<ef> sH = null;
-  private ek sI;
+  private final j a;
   
-  public ec(Context paramContext, er paramer, ek paramek)
+  public ec(j paramj)
   {
-    mContext = paramContext;
-    sE = paramer;
-    sI = paramek;
-    sF = new eb(paramContext);
-    sG = eh.j(mContext);
-    sH = sG.d(10L);
+    a = paramj;
   }
   
-  private void a(ef paramef, String paramString1, String paramString2)
+  public String a()
   {
-    Intent localIntent = new Intent();
-    localIntent.putExtra("RESPONSE_CODE", 0);
-    localIntent.putExtra("INAPP_PURCHASE_DATA", paramString1);
-    localIntent.putExtra("INAPP_DATA_SIGNATURE", paramString2);
-    gq.wR.post(new ec.1(this, paramef, localIntent));
+    return a.e();
   }
   
-  private void b(long paramLong)
+  public void a(com.google.android.gms.dynamic.c paramc)
   {
-    do
-    {
-      if (!c(paramLong)) {
-        gr.W("Timeout waiting for pending transaction to be processed.");
-      }
-    } while (!sD);
+    a.b((View)d.a(paramc));
   }
   
-  private boolean c(long paramLong)
+  public List b()
   {
-    paramLong = 60000L - (SystemClock.elapsedRealtime() - paramLong);
-    if (paramLong <= 0L) {
-      return false;
-    }
-    try
+    Object localObject = a.f();
+    if (localObject != null)
     {
-      mH.wait(paramLong);
-      return true;
-    }
-    catch (InterruptedException localInterruptedException)
-    {
-      for (;;)
+      ArrayList localArrayList = new ArrayList();
+      localObject = ((List)localObject).iterator();
+      while (((Iterator)localObject).hasNext())
       {
-        gr.W("waitWithTimeout_lock interrupted");
+        a.a locala = (a.a)((Iterator)localObject).next();
+        localArrayList.add(new com.google.android.gms.ads.internal.formats.c(locala.a(), locala.b(), locala.c()));
       }
+      return localArrayList;
     }
+    return null;
   }
   
-  private void cy()
+  public void b(com.google.android.gms.dynamic.c paramc)
   {
-    if (sH.isEmpty()) {
-      return;
-    }
-    HashMap localHashMap = new HashMap();
-    Object localObject1 = sH.iterator();
-    Object localObject2;
-    while (((Iterator)localObject1).hasNext())
-    {
-      localObject2 = (ef)((Iterator)localObject1).next();
-      localHashMap.put(sV, localObject2);
-    }
-    localObject1 = null;
-    for (;;)
-    {
-      localObject1 = sF.d(mContext.getPackageName(), (String)localObject1);
-      if (localObject1 == null) {}
-      do
-      {
-        do
-        {
-          localObject1 = localHashMap.keySet().iterator();
-          while (((Iterator)localObject1).hasNext())
-          {
-            localObject2 = (String)((Iterator)localObject1).next();
-            sG.a((ef)localHashMap.get(localObject2));
-          }
-          break;
-        } while (ei.b((Bundle)localObject1) != 0);
-        localObject2 = ((Bundle)localObject1).getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
-        ArrayList localArrayList1 = ((Bundle)localObject1).getStringArrayList("INAPP_PURCHASE_DATA_LIST");
-        ArrayList localArrayList2 = ((Bundle)localObject1).getStringArrayList("INAPP_DATA_SIGNATURE_LIST");
-        localObject1 = ((Bundle)localObject1).getString("INAPP_CONTINUATION_TOKEN");
-        int i = 0;
-        while (i < ((ArrayList)localObject2).size())
-        {
-          if (localHashMap.containsKey(((ArrayList)localObject2).get(i)))
-          {
-            String str1 = (String)((ArrayList)localObject2).get(i);
-            String str2 = (String)localArrayList1.get(i);
-            String str3 = (String)localArrayList2.get(i);
-            ef localef = (ef)localHashMap.get(str1);
-            String str4 = ei.D(str2);
-            if (sU.equals(str4))
-            {
-              a(localef, str2, str3);
-              localHashMap.remove(str1);
-            }
-          }
-          i += 1;
-        }
-      } while ((localObject1 == null) || (localHashMap.isEmpty()));
-    }
+    a.a((View)d.a(paramc));
   }
   
-  public void cx()
+  public String c()
   {
-    synchronized (mH)
-    {
-      Intent localIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
-      localIntent.setPackage("com.android.vending");
-      mContext.bindService(localIntent, this, 1);
-      b(SystemClock.elapsedRealtime());
-      mContext.unbindService(this);
-      sF.destroy();
-      return;
-    }
+    return a.g();
   }
   
-  public void onServiceConnected(ComponentName arg1, IBinder paramIBinder)
+  public bd d()
   {
-    synchronized (mH)
-    {
-      sF.t(paramIBinder);
-      cy();
-      sD = true;
-      mH.notify();
-      return;
+    a.a locala = a.h();
+    if (locala != null) {
+      return new com.google.android.gms.ads.internal.formats.c(locala.a(), locala.b(), locala.c());
     }
+    return null;
   }
   
-  public void onServiceDisconnected(ComponentName paramComponentName)
+  public String e()
   {
-    gr.U("In-app billing service disconnected.");
-    sF.destroy();
+    return a.i();
   }
   
-  public void onStop()
+  public double f()
   {
-    synchronized (mH)
-    {
-      mContext.unbindService(this);
-      sF.destroy();
-      return;
-    }
+    return a.j();
+  }
+  
+  public String g()
+  {
+    return a.k();
+  }
+  
+  public String h()
+  {
+    return a.l();
+  }
+  
+  public void i()
+  {
+    a.d();
+  }
+  
+  public boolean j()
+  {
+    return a.a();
+  }
+  
+  public boolean k()
+  {
+    return a.b();
+  }
+  
+  public Bundle l()
+  {
+    return a.c();
   }
 }
 

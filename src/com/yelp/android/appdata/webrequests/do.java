@@ -1,38 +1,20 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.User;
+import com.yelp.android.appdata.webrequests.core.b;
 import org.json.JSONObject;
 
 public class do
-  extends g<Void, Void, User>
+  extends b<Void, Void, String>
 {
-  private final User a;
-  private final boolean b;
-  
-  public do(m<User> paramm, User paramUser, boolean paramBoolean)
+  public do(ApiRequest.b<String> paramb)
   {
-    super(ApiRequest.RequestType.POST, "account/user/save", paramm);
-    addPostParam("user_id", paramUser.getId());
-    if (!paramBoolean) {}
-    for (boolean bool = true;; bool = false)
-    {
-      addPostParam("alert", bool);
-      a = paramUser;
-      b = paramBoolean;
-      return;
-    }
+    super(ApiRequest.RequestType.POST, "account/resend_email_confirmation", paramb);
   }
   
-  public User a(JSONObject paramJSONObject)
+  public String a(JSONObject paramJSONObject)
+    throws YelpException
   {
-    paramJSONObject = a;
-    if (!b) {}
-    for (boolean bool = true;; bool = false)
-    {
-      paramJSONObject.setSendingNotifications(bool);
-      return a;
-    }
+    return paramJSONObject.optString("email");
   }
 }
 

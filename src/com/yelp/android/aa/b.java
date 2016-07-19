@@ -1,14 +1,22 @@
 package com.yelp.android.aa;
 
-import com.yelp.android.y.c;
+import android.net.Uri;
+import com.yelp.android.w.c;
 import java.io.File;
 
-public class b
-  extends c<File>
+public class b<T>
+  implements l<File, T>
 {
-  public b(File paramFile)
+  private final l<Uri, T> a;
+  
+  public b(l<Uri, T> paraml)
   {
-    super(paramFile);
+    a = paraml;
+  }
+  
+  public c<T> a(File paramFile, int paramInt1, int paramInt2)
+  {
+    return a.a(Uri.fromFile(paramFile), paramInt1, paramInt2);
   }
 }
 

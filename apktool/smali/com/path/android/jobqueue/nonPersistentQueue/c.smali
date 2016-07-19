@@ -7,7 +7,7 @@
 .method public abstract a()I
 .end method
 
-.method public abstract a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+.method public abstract a(Ljava/util/Collection;)Lcom/path/android/jobqueue/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -15,7 +15,7 @@
             "<",
             "Ljava/lang/String;",
             ">;)",
-            "Lcom/path/android/jobqueue/b;"
+            "Lcom/path/android/jobqueue/a;"
         }
     .end annotation
 .end method
@@ -33,7 +33,7 @@
     .end annotation
 .end method
 
-.method public abstract a(Lcom/path/android/jobqueue/b;)Z
+.method public abstract a(Lcom/path/android/jobqueue/a;)Z
 .end method
 
 .method public abstract b(Ljava/util/Collection;)Lcom/path/android/jobqueue/nonPersistentQueue/b;
@@ -49,5 +49,5 @@
     .end annotation
 .end method
 
-.method public abstract b(Lcom/path/android/jobqueue/b;)Z
+.method public abstract b(Lcom/path/android/jobqueue/a;)Z
 .end method

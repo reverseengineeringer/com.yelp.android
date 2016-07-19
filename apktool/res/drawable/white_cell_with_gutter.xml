@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list android:opacity="transparent"
+<layer-list
   xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
     <item android:left="@dimen/list_gutter_padding" android:right="@dimen/list_gutter_padding">
         <shape>
             <solid android:color="@color/gray_light_silver_divider" />
         </shape>
     </item>
-    <item android:bottom="1.0px">
+    <item android:bottom="1.0dip">
         <shape>
             <solid android:color="@android:color/white" />
         </shape>

@@ -10,31 +10,33 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.yelp.android.serializable.by;
+import com.yelp.android.serializable.f;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.ui.util.ScrollToLoadListView.d;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.av;
 
-public class ComboListFragment<T extends by>
+public class ComboListFragment<T extends f>
   extends YelpListFragment
 {
-  ViewTreeObserver.OnGlobalLayoutListener a = new g(this);
-  private i<T> b;
-  private h<T> c;
+  ViewTreeObserver.OnGlobalLayoutListener a = new ComboListFragment.1(this);
+  private b<T> b;
+  private a<T> c;
   private Runnable d;
   private View e;
-  private View g;
-  private RelativeLayout h;
+  private View f;
+  private RelativeLayout g;
   private View i;
   private int j = 0;
   private boolean k = false;
   private LinearLayout l;
   
-  public static <E extends by> ComboListFragment<E> a(int paramInt, boolean paramBoolean)
+  public static <E extends f> ComboListFragment<E> a(int paramInt, boolean paramBoolean)
   {
     ComboListFragment localComboListFragment = new ComboListFragment();
     Bundle localBundle = new Bundle();
@@ -44,7 +46,7 @@ public class ComboListFragment<T extends by>
     return localComboListFragment;
   }
   
-  private boolean e(View paramView)
+  private boolean f(View paramView)
   {
     return paramView == l;
   }
@@ -56,7 +58,7 @@ public class ComboListFragment<T extends by>
     {
       return;
       paramListView = paramListView.getItemAtPosition(paramInt);
-      if (e(paramView))
+      if (f(paramView))
       {
         b.a(this);
         return;
@@ -65,14 +67,14 @@ public class ComboListFragment<T extends by>
     b.a(this, paramListView);
   }
   
-  public void a(h<T> paramh)
+  public void a(a<T> parama)
   {
-    c = paramh;
+    c = parama;
   }
   
-  public void a(i<T> parami)
+  public void a(b<T> paramb)
   {
-    b = parami;
+    b = paramb;
   }
   
   public void a(Runnable paramRunnable)
@@ -89,58 +91,58 @@ public class ComboListFragment<T extends by>
   public void a(String paramString)
   {
     if (l != null) {
-      ((TextView)l.findViewById(2131492996)).setText(paramString);
+      ((TextView)l.findViewById(2131689641)).setText(paramString);
     }
   }
   
-  public int d()
+  public int e()
   {
     return j;
   }
   
-  public int e()
+  public int f()
   {
     m().measure(m().getWidth(), m().getHeight());
     return l.getMeasuredHeight();
   }
   
-  public int f()
-  {
-    return h.getMeasuredHeight() + g.getMeasuredHeight();
-  }
-  
   public int g()
   {
-    return e.getMeasuredHeight() + g.getMeasuredHeight();
+    return g.getMeasuredHeight() + f.getMeasuredHeight();
   }
   
-  public void h()
+  public int h()
   {
-    if (h == null) {}
-    ImageView localImageView;
-    do
-    {
-      return;
-      localImageView = (ImageView)h.findViewById(2131493432);
-    } while (localImageView.getVisibility() != 8);
-    cw.c(localImageView, cw.e);
-    k = true;
+    return e.getMeasuredHeight() + f.getMeasuredHeight();
   }
   
   public void i()
   {
-    if (h == null) {}
+    if (g == null) {}
     ImageView localImageView;
     do
     {
       return;
-      localImageView = (ImageView)h.findViewById(2131493432);
+      localImageView = (ImageView)g.findViewById(2131690111);
+    } while (localImageView.getVisibility() != 8);
+    av.c(localImageView, av.e);
+    k = true;
+  }
+  
+  public void j()
+  {
+    if (g == null) {}
+    ImageView localImageView;
+    do
+    {
+      return;
+      localImageView = (ImageView)g.findViewById(2131690111);
     } while (localImageView.getVisibility() != 0);
-    cw.b(localImageView, cw.e);
+    av.b(localImageView, av.e);
     k = false;
   }
   
-  public void l_()
+  public void k()
   {
     try
     {
@@ -160,12 +162,12 @@ public class ComboListFragment<T extends by>
       m().setOnLoadNeeded(d);
     }
     m().getViewTreeObserver().addOnGlobalLayoutListener(a);
-    l = ((LinearLayout)getActivity().getLayoutInflater().inflate(2130903174, m(), false));
-    e = l.findViewById(2131493429);
-    g = l.findViewById(2131493430);
-    h = ((RelativeLayout)l.findViewById(2131493431));
+    l = ((LinearLayout)getActivity().getLayoutInflater().inflate(2130903183, m(), false));
+    e = l.findViewById(2131690108);
+    f = l.findViewById(2131690109);
+    g = ((RelativeLayout)l.findViewById(2131690110));
     if (k) {
-      l.findViewById(2131493432).setVisibility(0);
+      l.findViewById(2131690111).setVisibility(0);
     }
     i = new View(getActivity());
     i.setBackgroundResource(17170443);
@@ -199,7 +201,7 @@ public class ComboListFragment<T extends by>
   public void onDestroyView()
   {
     super.onDestroyView();
-    cp.a(m(), a);
+    ar.a(m(), a);
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
@@ -207,6 +209,23 @@ public class ComboListFragment<T extends by>
     super.onSaveInstanceState(paramBundle);
     paramBundle.putInt("position", j);
     paramBundle.putBoolean("show_handle_image", k);
+  }
+  
+  public static abstract interface a<T extends f>
+  {
+    public abstract void a(ComboListFragment<T> paramComboListFragment);
+    
+    public abstract void b(ComboListFragment<T> paramComboListFragment);
+    
+    public abstract ListAdapter c(ComboListFragment<T> paramComboListFragment);
+  }
+  
+  public static abstract interface b<T extends f>
+    extends ScrollToLoadListView.d
+  {
+    public abstract void a(ComboListFragment<T> paramComboListFragment);
+    
+    public abstract void a(ComboListFragment<T> paramComboListFragment, Object paramObject);
   }
 }
 

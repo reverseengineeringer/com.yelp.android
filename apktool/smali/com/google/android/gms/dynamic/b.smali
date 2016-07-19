@@ -1,366 +1,498 @@
-.class public final Lcom/google/android/gms/dynamic/b;
-.super Lcom/google/android/gms/dynamic/c$a;
+.class public abstract Lcom/google/android/gms/dynamic/b;
+.super Ljava/lang/Object;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/dynamic/b$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T::",
+        "Lcom/google/android/gms/dynamic/a;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
 
 
 # instance fields
-.field private TG:Landroid/app/Fragment;
+.field private a:Lcom/google/android/gms/dynamic/a;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "TT;"
+        }
+    .end annotation
+.end field
+
+.field private b:Landroid/os/Bundle;
+
+.field private c:Ljava/util/LinkedList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/LinkedList",
+            "<",
+            "Lcom/google/android/gms/dynamic/b$a;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final d:Lcom/google/android/gms/dynamic/e;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/dynamic/e",
+            "<TT;>;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method private constructor <init>(Landroid/app/Fragment;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    invoke-direct {p0}, Lcom/google/android/gms/dynamic/c$a;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
+    new-instance v0, Lcom/google/android/gms/dynamic/b$1;
+
+    invoke-direct {v0, p0}, Lcom/google/android/gms/dynamic/b$1;-><init>(Lcom/google/android/gms/dynamic/b;)V
+
+    iput-object v0, p0, Lcom/google/android/gms/dynamic/b;->d:Lcom/google/android/gms/dynamic/e;
 
     return-void
 .end method
 
-.method public static a(Landroid/app/Fragment;)Lcom/google/android/gms/dynamic/b;
+.method static synthetic a(Lcom/google/android/gms/dynamic/b;Landroid/os/Bundle;)Landroid/os/Bundle;
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/gms/dynamic/b;->b:Landroid/os/Bundle;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/google/android/gms/dynamic/b;Lcom/google/android/gms/dynamic/a;)Lcom/google/android/gms/dynamic/a;
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    return-object p1
+.end method
+
+.method static synthetic a(Lcom/google/android/gms/dynamic/b;)Ljava/util/LinkedList;
     .locals 1
 
-    if-eqz p0, :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->c:Ljava/util/LinkedList;
 
-    new-instance v0, Lcom/google/android/gms/dynamic/b;
+    return-object v0
+.end method
 
-    invoke-direct {v0, p0}, Lcom/google/android/gms/dynamic/b;-><init>(Landroid/app/Fragment;)V
+.method private a(I)V
+    .locals 1
 
     :goto_0
-    return-object v0
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->c:Ljava/util/LinkedList;
 
-    :cond_0
-    const/4 v0, 0x0
+    invoke-virtual {v0}, Ljava/util/LinkedList;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->c:Ljava/util/LinkedList;
+
+    invoke-virtual {v0}, Ljava/util/LinkedList;->getLast()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/google/android/gms/dynamic/b$a;
+
+    invoke-interface {v0}, Lcom/google/android/gms/dynamic/b$a;->a()I
+
+    move-result v0
+
+    if-lt v0, p1, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->c:Ljava/util/LinkedList;
+
+    invoke-virtual {v0}, Ljava/util/LinkedList;->removeLast()Ljava/lang/Object;
 
     goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private a(Landroid/os/Bundle;Lcom/google/android/gms/dynamic/b$a;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    invoke-interface {p2, v0}, Lcom/google/android/gms/dynamic/b$a;->a(Lcom/google/android/gms/dynamic/a;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->c:Ljava/util/LinkedList;
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/util/LinkedList;
+
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
+
+    iput-object v0, p0, Lcom/google/android/gms/dynamic/b;->c:Ljava/util/LinkedList;
+
+    :cond_1
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->c:Ljava/util/LinkedList;
+
+    invoke-virtual {v0, p2}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+
+    if-eqz p1, :cond_2
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->b:Landroid/os/Bundle;
+
+    if-nez v0, :cond_3
+
+    invoke-virtual {p1}, Landroid/os/Bundle;->clone()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/Bundle;
+
+    iput-object v0, p0, Lcom/google/android/gms/dynamic/b;->b:Landroid/os/Bundle;
+
+    :cond_2
+    :goto_1
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->d:Lcom/google/android/gms/dynamic/e;
+
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/dynamic/b;->a(Lcom/google/android/gms/dynamic/e;)V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->b:Landroid/os/Bundle;
+
+    invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
+
+    goto :goto_1
+.end method
+
+.method static synthetic b(Lcom/google/android/gms/dynamic/b;)Lcom/google/android/gms/dynamic/a;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    return-object v0
+.end method
+
+.method public static b(Landroid/widget/FrameLayout;)V
+    .locals 8
+
+    const/4 v7, -0x2
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->isGooglePlayServicesAvailable(Landroid/content/Context;)I
+
+    move-result v1
+
+    invoke-static {v0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->zzao(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v1, v2}, Lcom/google/android/gms/common/internal/zzg;->zzc(Landroid/content/Context;ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v1}, Lcom/google/android/gms/common/internal/zzg;->zzh(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v4, Landroid/widget/LinearLayout;
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    const/4 v5, 0x1
+
+    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setOrientation(I)V
+
+    new-instance v5, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v5, v7, v7}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    invoke-virtual {p0, v4}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+
+    new-instance v5, Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
+
+    new-instance v6, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v6, v7, v7}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v5, v6}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    if-eqz v3, :cond_0
+
+    new-instance v2, Landroid/widget/Button;
+
+    invoke-direct {v2, v0}, Landroid/widget/Button;-><init>(Landroid/content/Context;)V
+
+    new-instance v5, Landroid/widget/FrameLayout$LayoutParams;
+
+    invoke-direct {v5, v7, v7}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {v2, v5}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v4, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    new-instance v3, Lcom/google/android/gms/dynamic/b$5;
+
+    invoke-direct {v3, v0, v1}, Lcom/google/android/gms/dynamic/b$5;-><init>(Landroid/content/Context;I)V
+
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_0
+    return-void
 .end method
 
 
 # virtual methods
-.method public d(Lcom/google/android/gms/dynamic/d;)V
+.method public a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+    .locals 6
+
+    new-instance v2, Landroid/widget/FrameLayout;
+
+    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-direct {v2, v0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+
+    new-instance v0, Lcom/google/android/gms/dynamic/b$4;
+
+    move-object v1, p0
+
+    move-object v3, p1
+
+    move-object v4, p2
+
+    move-object v5, p3
+
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/dynamic/b$4;-><init>(Lcom/google/android/gms/dynamic/b;Landroid/widget/FrameLayout;Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)V
+
+    invoke-direct {p0, p3, v0}, Lcom/google/android/gms/dynamic/b;->a(Landroid/os/Bundle;Lcom/google/android/gms/dynamic/b$a;)V
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0, v2}, Lcom/google/android/gms/dynamic/b;->a(Landroid/widget/FrameLayout;)V
+
+    :cond_0
+    return-object v2
+.end method
+
+.method public a()Lcom/google/android/gms/dynamic/a;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TT;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    return-object v0
+.end method
+
+.method public a(Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/dynamic/b$2;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/android/gms/dynamic/b$2;-><init>(Lcom/google/android/gms/dynamic/b;Landroid/app/Activity;Landroid/os/Bundle;Landroid/os/Bundle;)V
+
+    invoke-direct {p0, p3, v0}, Lcom/google/android/gms/dynamic/b;->a(Landroid/os/Bundle;Lcom/google/android/gms/dynamic/b$a;)V
+
+    return-void
+.end method
+
+.method public a(Landroid/os/Bundle;)V
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/dynamic/b$3;
+
+    invoke-direct {v0, p0, p1}, Lcom/google/android/gms/dynamic/b$3;-><init>(Lcom/google/android/gms/dynamic/b;Landroid/os/Bundle;)V
+
+    invoke-direct {p0, p1, v0}, Lcom/google/android/gms/dynamic/b;->a(Landroid/os/Bundle;Lcom/google/android/gms/dynamic/b$a;)V
+
+    return-void
+.end method
+
+.method protected a(Landroid/widget/FrameLayout;)V
+    .locals 0
+
+    invoke-static {p1}, Lcom/google/android/gms/dynamic/b;->b(Landroid/widget/FrameLayout;)V
+
+    return-void
+.end method
+
+.method protected abstract a(Lcom/google/android/gms/dynamic/e;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/dynamic/e",
+            "<TT;>;)V"
+        }
+    .end annotation
+.end method
+
+.method public b()V
     .locals 2
 
-    invoke-static {p1}, Lcom/google/android/gms/dynamic/e;->f(Lcom/google/android/gms/dynamic/d;)Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    move-result-object v0
+    new-instance v1, Lcom/google/android/gms/dynamic/b$6;
 
-    check-cast v0, Landroid/view/View;
+    invoke-direct {v1, p0}, Lcom/google/android/gms/dynamic/b$6;-><init>(Lcom/google/android/gms/dynamic/b;)V
 
-    iget-object v1, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v1, v0}, Landroid/app/Fragment;->registerForContextMenu(Landroid/view/View;)V
+    invoke-direct {p0, v0, v1}, Lcom/google/android/gms/dynamic/b;->a(Landroid/os/Bundle;Lcom/google/android/gms/dynamic/b$a;)V
 
     return-void
 .end method
 
-.method public e(Lcom/google/android/gms/dynamic/d;)V
-    .locals 2
+.method public b(Landroid/os/Bundle;)V
+    .locals 1
 
-    invoke-static {p1}, Lcom/google/android/gms/dynamic/e;->f(Lcom/google/android/gms/dynamic/d;)Ljava/lang/Object;
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-    move-result-object v0
+    if-eqz v0, :cond_1
 
-    check-cast v0, Landroid/view/View;
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-    iget-object v1, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
+    invoke-interface {v0, p1}, Lcom/google/android/gms/dynamic/a;->b(Landroid/os/Bundle;)V
 
-    invoke-virtual {v1, v0}, Landroid/app/Fragment;->unregisterForContextMenu(Landroid/view/View;)V
-
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->b:Landroid/os/Bundle;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->b:Landroid/os/Bundle;
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
+
+    goto :goto_0
 .end method
 
-.method public getArguments()Landroid/os/Bundle;
+.method public c()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-    invoke-virtual {v0}, Landroid/app/Fragment;->getArguments()Landroid/os/Bundle;
+    if-eqz v0, :cond_0
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-    return-object v0
-.end method
+    invoke-interface {v0}, Lcom/google/android/gms/dynamic/a;->b()V
 
-.method public getId()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getId()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getRetainInstance()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getRetainInstance()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getTag()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getTag()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getTargetRequestCode()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getTargetRequestCode()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getUserVisibleHint()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getUserVisibleHint()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getView()Lcom/google/android/gms/dynamic/d;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getView()Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/e;->k(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/d;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public isAdded()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isAdded()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isDetached()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isDetached()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isHidden()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isHidden()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isInLayout()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isInLayout()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isRemoving()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isRemoving()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isResumed()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isResumed()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isVisible()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->isVisible()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public jf()Lcom/google/android/gms/dynamic/d;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/e;->k(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/d;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public jg()Lcom/google/android/gms/dynamic/c;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getParentFragment()Landroid/app/Fragment;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/b;->a(Landroid/app/Fragment;)Lcom/google/android/gms/dynamic/b;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public jh()Lcom/google/android/gms/dynamic/d;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/e;->k(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/d;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public ji()Lcom/google/android/gms/dynamic/c;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0}, Landroid/app/Fragment;->getTargetFragment()Landroid/app/Fragment;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/b;->a(Landroid/app/Fragment;)Lcom/google/android/gms/dynamic/b;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public setHasOptionsMenu(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0, p1}, Landroid/app/Fragment;->setHasOptionsMenu(Z)V
-
+    :goto_0
     return-void
+
+    :cond_0
+    const/4 v0, 0x5
+
+    invoke-direct {p0, v0}, Lcom/google/android/gms/dynamic/b;->a(I)V
+
+    goto :goto_0
 .end method
 
-.method public setMenuVisibility(Z)V
+.method public d()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-    invoke-virtual {v0, p1}, Landroid/app/Fragment;->setMenuVisibility(Z)V
+    if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    invoke-interface {v0}, Lcom/google/android/gms/dynamic/a;->c()V
+
+    :goto_0
     return-void
+
+    :cond_0
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/google/android/gms/dynamic/b;->a(I)V
+
+    goto :goto_0
 .end method
 
-.method public setRetainInstance(Z)V
+.method public e()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-    invoke-virtual {v0, p1}, Landroid/app/Fragment;->setRetainInstance(Z)V
+    if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
+
+    invoke-interface {v0}, Lcom/google/android/gms/dynamic/a;->d()V
+
+    :goto_0
     return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/google/android/gms/dynamic/b;->a(I)V
+
+    goto :goto_0
 .end method
 
-.method public setUserVisibleHint(Z)V
+.method public f()V
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-    invoke-virtual {v0, p1}, Landroid/app/Fragment;->setUserVisibleHint(Z)V
+    if-eqz v0, :cond_0
 
-    return-void
-.end method
+    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->a:Lcom/google/android/gms/dynamic/a;
 
-.method public startActivity(Landroid/content/Intent;)V
-    .locals 1
+    invoke-interface {v0}, Lcom/google/android/gms/dynamic/a;->e()V
 
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0, p1}, Landroid/app/Fragment;->startActivity(Landroid/content/Intent;)V
-
-    return-void
-.end method
-
-.method public startActivityForResult(Landroid/content/Intent;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/dynamic/b;->TG:Landroid/app/Fragment;
-
-    invoke-virtual {v0, p1, p2}, Landroid/app/Fragment;->startActivityForResult(Landroid/content/Intent;I)V
-
+    :cond_0
     return-void
 .end method

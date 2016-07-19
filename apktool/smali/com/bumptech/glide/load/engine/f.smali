@@ -1,45 +1,49 @@
-.class public Lcom/bumptech/glide/load/engine/f;
+.class Lcom/bumptech/glide/load/engine/f;
 .super Ljava/lang/Object;
-.source "Engine.java"
-
-
-# instance fields
-.field private final a:Lcom/bumptech/glide/load/engine/i;
-
-.field private final b:Lcom/bumptech/glide/request/d;
+.source "EngineKeyFactory.java"
 
 
 # direct methods
-.method public constructor <init>(Lcom/bumptech/glide/request/d;Lcom/bumptech/glide/load/engine/i;)V
+.method constructor <init>()V
     .locals 0
 
     .prologue
-    .line 46
+    .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 47
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/f;->b:Lcom/bumptech/glide/request/d;
-
-    .line 48
-    iput-object p2, p0, Lcom/bumptech/glide/load/engine/f;->a:Lcom/bumptech/glide/load/engine/i;
-
-    .line 49
     return-void
 .end method
 
 
 # virtual methods
-.method public a()V
-    .locals 2
+.method public a(Ljava/lang/String;Lcom/bumptech/glide/load/b;IILcom/bumptech/glide/load/d;Lcom/bumptech/glide/load/d;Lcom/bumptech/glide/load/f;Lcom/bumptech/glide/load/e;Lcom/yelp/android/ai/c;Lcom/bumptech/glide/load/a;)Lcom/bumptech/glide/load/engine/e;
+    .locals 11
 
     .prologue
-    .line 52
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/f;->a:Lcom/bumptech/glide/load/engine/i;
+    .line 16
+    new-instance v0, Lcom/bumptech/glide/load/engine/e;
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/engine/f;->b:Lcom/bumptech/glide/request/d;
+    move-object v1, p1
 
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/load/engine/i;->b(Lcom/bumptech/glide/request/d;)V
+    move-object v2, p2
 
-    .line 53
-    return-void
+    move v3, p3
+
+    move v4, p4
+
+    move-object/from16 v5, p5
+
+    move-object/from16 v6, p6
+
+    move-object/from16 v7, p7
+
+    move-object/from16 v8, p8
+
+    move-object/from16 v9, p9
+
+    move-object/from16 v10, p10
+
+    invoke-direct/range {v0 .. v10}, Lcom/bumptech/glide/load/engine/e;-><init>(Ljava/lang/String;Lcom/bumptech/glide/load/b;IILcom/bumptech/glide/load/d;Lcom/bumptech/glide/load/d;Lcom/bumptech/glide/load/f;Lcom/bumptech/glide/load/e;Lcom/yelp/android/ai/c;Lcom/bumptech/glide/load/a;)V
+
+    return-object v0
 .end method

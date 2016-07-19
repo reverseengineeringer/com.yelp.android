@@ -7,35 +7,38 @@
 
 
 # virtual methods
-.method public abstract getBorderColor()[I
+.method public abstract a()Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
 .end method
 
-.method public abstract getBusinessListButton()Lcom/yelp/android/ui/activities/businesspage/o;
+.method public abstract a(Landroid/app/Activity;Lcom/yelp/android/serializable/BusinessSearchResult;Ljava/lang/String;)V
 .end method
 
-.method public abstract getDefaultColorBottom()[I
+.method public abstract b()Z
 .end method
 
-.method public abstract getDefaultColorTop()[I
+.method public abstract c()Ljava/lang/String;
 .end method
 
-.method public abstract getSearchActionType()Lcom/yelp/android/serializable/BusinessSearchResult$SearchActionType;
+.method public abstract e()[I
 .end method
 
-.method public abstract getSelectedColorBottom()[I
+.method public abstract f()[I
 .end method
 
-.method public abstract getSelectedColorTop()[I
+.method public abstract g()[I
 .end method
 
-.method public abstract getText()Ljava/lang/String;
+.method public abstract h()[I
 .end method
 
-.method public abstract getTextColor()[I
+.method public abstract i()[I
 .end method
 
-.method public abstract isDisabled()Z
+.method public abstract j()[I
 .end method
 
-.method public abstract onPressed(Landroid/content/Context;Lcom/yelp/android/serializable/BusinessSearchResult;)V
+.method public abstract l()Ljava/lang/String;
+.end method
+
+.method public abstract n()Lcom/yelp/android/ui/activities/businesspage/b;
 .end method

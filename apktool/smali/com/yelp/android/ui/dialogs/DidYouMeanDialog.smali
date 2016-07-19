@@ -3,6 +3,14 @@
 .source "DidYouMeanDialog.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/dialogs/DidYouMeanDialog$a;
+    }
+.end annotation
+
+
 # static fields
 .field private static final a:Ljava/lang/String;
 
@@ -20,7 +28,7 @@
     .locals 2
 
     .prologue
-    .line 27
+    .line 29
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -43,7 +51,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->a:Ljava/lang/String;
 
-    .line 28
+    .line 30
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -73,10 +81,10 @@
     .locals 0
 
     .prologue
-    .line 26
+    .line 27
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 82
+    .line 89
     return-void
 .end method
 
@@ -84,29 +92,29 @@
     .locals 2
 
     .prologue
-    .line 44
+    .line 47
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 45
+    .line 48
     sget-object v1, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->a:Ljava/lang/String;
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 46
+    .line 49
     sget-object v1, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->b:Ljava/lang/String;
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    .line 47
+    .line 50
     const/high16 v1, 0x4000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 48
+    .line 51
     return-object v0
 .end method
 
@@ -116,17 +124,17 @@
     .locals 1
 
     .prologue
-    .line 100
+    .line 108
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 26
+    .line 27
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -138,23 +146,34 @@
     .locals 3
 
     .prologue
-    .line 53
+    const/4 v2, 0x0
+
+    .line 56
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 54
-    const v0, 0x7f0f0159
+    .line 57
+    const v0, 0x7f0901c3
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->setTheme(I)V
 
-    .line 55
+    .line 61
+    new-instance v0, Landroid/widget/LinearLayout;
+
+    invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+
+    new-instance v1, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {v1, v2, v2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 63
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 56
+    .line 64
     sget-object v1, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->a:Ljava/lang/String;
-
-    const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -162,7 +181,7 @@
 
     iput v1, p0, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->c:I
 
-    .line 57
+    .line 65
     sget-object v1, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->b:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -171,15 +190,15 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->d:Ljava/lang/CharSequence;
 
-    .line 58
+    .line 66
     if-nez p1, :cond_0
 
-    .line 59
+    .line 67
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->showDialog(I)V
 
-    .line 61
+    .line 69
     :cond_0
     return-void
 .end method
@@ -190,12 +209,12 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 65
+    .line 73
     const/4 v0, 0x1
 
     if-eq p1, v0, :cond_0
 
-    .line 66
+    .line 74
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Someone is using this Activity the wrong way"
@@ -204,23 +223,23 @@
 
     throw v0
 
-    .line 68
+    .line 76
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog;->d:Ljava/lang/CharSequence;
 
-    .line 69
+    .line 77
     new-instance v1, Landroid/text/SpannableStringBuilder;
 
     invoke-direct {v1, v0}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    .line 70
+    .line 78
     new-instance v0, Landroid/text/style/AlignmentSpan$Standard;
 
     sget-object v2, Landroid/text/Layout$Alignment;->ALIGN_CENTER:Landroid/text/Layout$Alignment;
 
     invoke-direct {v0, v2}, Landroid/text/style/AlignmentSpan$Standard;-><init>(Landroid/text/Layout$Alignment;)V
 
-    .line 71
+    .line 79
     invoke-virtual {v1}, Landroid/text/SpannableStringBuilder;->length()I
 
     move-result v2
@@ -229,7 +248,7 @@
 
     invoke-virtual {v1, v0, v4, v2, v3}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
 
-    .line 72
+    .line 80
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -248,23 +267,23 @@
 
     move-result-object v0
 
-    const v1, 0x7f070419
+    const v1, 0x7f07070d
 
-    new-instance v2, Lcom/yelp/android/ui/dialogs/s;
+    new-instance v2, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog$a;
 
-    invoke-direct {v2, p0, v4}, Lcom/yelp/android/ui/dialogs/s;-><init>(Landroid/app/Activity;I)V
+    invoke-direct {v2, p0, v4}, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog$a;-><init>(Landroid/app/Activity;I)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f07041a
+    const v1, 0x7f07044f
 
-    new-instance v2, Lcom/yelp/android/ui/dialogs/s;
+    new-instance v2, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog$a;
 
     const/4 v3, -0x1
 
-    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/dialogs/s;-><init>(Landroid/app/Activity;I)V
+    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/dialogs/DidYouMeanDialog$a;-><init>(Landroid/app/Activity;I)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

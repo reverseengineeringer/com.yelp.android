@@ -1,41 +1,58 @@
 package com.yelp.android.ui.activities.categorypicker;
 
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import com.yelp.android.appdata.webrequests.v;
-import com.yelp.android.serializable.YelpBusiness;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.yelp.android.co.a.f;
+import com.yelp.android.co.a.h;
+import com.yelp.android.serializable.CategorySuggestion;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.ui.util.w;
 
-class a
-  implements TextWatcher
+public class a<Suggest extends CategorySuggestion>
+  extends w<Suggest>
 {
-  a(AddNewCategoryFragment paramAddNewCategoryFragment) {}
-  
-  public void afterTextChanged(Editable paramEditable) {}
-  
-  public void beforeTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3) {}
-  
-  public void onTextChanged(CharSequence paramCharSequence, int paramInt1, int paramInt2, int paramInt3)
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
   {
-    if ((AddNewCategoryFragment.a(a) != null) && (AddNewCategoryFragment.a(a).isFetching())) {
-      AddNewCategoryFragment.a(a).cancel(true);
-    }
-    AddNewCategoryFragment localAddNewCategoryFragment;
-    String str;
-    if (!TextUtils.isEmpty(paramCharSequence))
+    CategorySuggestion localCategorySuggestion = (CategorySuggestion)getItem(paramInt);
+    if (paramView == null)
     {
-      localAddNewCategoryFragment = a;
-      str = paramCharSequence.toString();
-      if (AddNewCategoryFragment.b(a) == null) {
-        break label115;
+      paramView = LayoutInflater.from(paramViewGroup.getContext()).inflate(a.h.business_category_suggest_panel, paramViewGroup, false);
+      paramViewGroup = new a(paramView, null);
+      paramView.setTag(paramViewGroup);
+    }
+    String str2;
+    String str3;
+    for (;;)
+    {
+      String str1 = localCategorySuggestion.d();
+      str2 = localCategorySuggestion.e();
+      str3 = e.a(str2, str1);
+      if ((!localCategorySuggestion.b()) && (!localCategorySuggestion.c())) {
+        break;
       }
+      a.a(paramViewGroup).setText(ar.a(str1, str3));
+      return paramView;
+      paramViewGroup = (a)paramView.getTag();
     }
-    label115:
-    for (paramCharSequence = AddNewCategoryFragment.b(a).getCountry();; paramCharSequence = null)
+    if ((!TextUtils.isEmpty(str2)) && (localCategorySuggestion.a()))
     {
-      AddNewCategoryFragment.a(localAddNewCategoryFragment, new v(str, paramCharSequence, AddNewCategoryFragment.c(a)));
-      AddNewCategoryFragment.a(a).execute(new Void[0]);
-      return;
+      a.a(paramViewGroup).setText(ar.a(str2, str3));
+      return paramView;
+    }
+    a.a(paramViewGroup).setText(str3);
+    return paramView;
+  }
+  
+  private static class a
+  {
+    private final TextView a;
+    
+    private a(View paramView)
+    {
+      a = ((TextView)paramView.findViewById(a.f.business_category_suggest));
     }
   }
 }

@@ -1,19 +1,11 @@
 package com.yelp.android.serializable;
 
 import com.yelp.parcelgen.JsonParser.DualCreator;
-import java.util.Date;
 
 public class Comment
   extends _Comment
 {
-  public static final JsonParser.DualCreator<Comment> CREATOR = new z();
-  
-  public Comment() {}
-  
-  public Comment(Date paramDate, String paramString1, User paramUser, String paramString2)
-  {
-    super(paramDate, paramString1, paramString2, paramUser);
-  }
+  public static final JsonParser.DualCreator<Comment> CREATOR = new Comment.1();
 }
 
 /* Location:

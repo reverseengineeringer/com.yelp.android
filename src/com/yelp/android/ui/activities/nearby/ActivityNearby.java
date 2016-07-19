@@ -8,32 +8,35 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.yelp.android.analytics.iris.EventIri;
+import com.yelp.android.analytics.iris.IriSource;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.j;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest.SearchMode;
-import com.yelp.android.appdata.webrequests.SearchRequest.SearchOption;
-import com.yelp.android.appdata.webrequests.fv;
-import com.yelp.android.database.q;
-import com.yelp.android.serializable.AttributeFilters;
+import com.yelp.android.appdata.webrequests.eo;
+import com.yelp.android.cm.c;
+import com.yelp.android.database.g;
 import com.yelp.android.serializable.Category;
 import com.yelp.android.serializable.Filter;
-import com.yelp.android.serializable.Filter.BusinessState;
-import com.yelp.android.serializable.Filter.Sort;
+import com.yelp.android.serializable.Sort;
 import com.yelp.android.ui.activities.search.SearchBusinessesByList;
+import com.yelp.android.ui.activities.search.SearchOverlay;
 import com.yelp.android.ui.activities.support.ActivitySingleSearchBar;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.ab;
-import java.util.ArrayList;
-import java.util.EnumSet;
+import com.yelp.android.ui.util.SuggestionFilter.SuggestionType;
+import com.yelp.android.ui.util.r;
+import java.util.Collections;
 
 public class ActivityNearby
   extends ActivitySingleSearchBar<NearbyPageFragment>
-  implements ac
+  implements NearbyPageFragment.a
 {
-  private ab a;
+  private r a;
   
   public static Intent a(Context paramContext)
   {
@@ -44,46 +47,33 @@ public class ActivityNearby
   
   public static Intent a(Context paramContext, String paramString)
   {
-    return SearchBusinessesByList.a(paramContext, new fv().b(paramString).a());
+    return SearchBusinessesByList.a(paramContext, new eo().b(paramString).a());
   }
   
   public static Intent a(Context paramContext, String paramString, Category paramCategory)
   {
     BusinessSearchRequest.SearchMode localSearchMode = BusinessSearchRequest.SearchMode.DEFAULT;
-    EnumSet localEnumSet1 = EnumSet.noneOf(SearchRequest.SearchOption.class);
-    EnumSet localEnumSet2 = EnumSet.noneOf(Filter.BusinessState.class);
-    ArrayList localArrayList = new ArrayList();
-    if (("Everything".equals(paramString)) || (paramContext.getString(2131165475).equals(paramString)))
+    if (("Everything".equals(paramString)) || (paramContext.getString(2131165605).equalsIgnoreCase(paramString)))
     {
       paramString = null;
       paramCategory = null;
     }
     for (;;)
     {
-      if ((!localEnumSet1.isEmpty()) || (localSearchMode == BusinessSearchRequest.SearchMode.NEARBY) || (!TextUtils.isEmpty(paramString))) {
+      if ((localSearchMode == BusinessSearchRequest.SearchMode.NEARBY) || (!TextUtils.isEmpty(paramString))) {
         paramCategory = null;
       }
-      AppData.b().i().g().b();
-      return SearchBusinessesByList.a(paramContext, new fv().b(paramString).a(paramCategory).a(localSearchMode).a(localEnumSet1).a(new Filter(localEnumSet2, null, null, Filter.Sort.Default, new AttributeFilters(localArrayList))).a());
-      if ("ActiveDeal".equals(paramString))
-      {
-        paramString = paramContext.getString(2131165681);
-      }
-      else if ("CheckInOffer".equals(paramString))
-      {
-        localEnumSet1 = EnumSet.of(SearchRequest.SearchOption.CHECK_IN_OFFERS);
-        paramString = null;
-      }
-      else if ("NewBusiness".equals(paramString))
-      {
-        paramString = paramContext.getString(2131165930);
-      }
-      else if ("PlatformDelivery".equals(paramString))
-      {
-        paramString = paramContext.getString(2131165693);
-      }
-      else
-      {
+      AppData.b().i().e().b();
+      return SearchBusinessesByList.a(paramContext, new eo().b(paramString).a(paramCategory).a(localSearchMode).a(new Filter(null, Sort.Default)).a());
+      if ("ActiveDeal".equals(paramString)) {
+        paramString = paramContext.getString(2131165756);
+      } else if ("CheckInOffer".equals(paramString)) {
+        paramString = paramContext.getString(2131165617);
+      } else if ("NewBusiness".equals(paramString)) {
+        paramString = paramContext.getString(2131165995);
+      } else if ("PlatformDelivery".equals(paramString)) {
+        paramString = paramContext.getString(2131165771);
+      } else {
         paramString = null;
       }
     }
@@ -96,24 +86,50 @@ public class ActivityNearby
   
   private void f()
   {
-    View localView1 = findViewById(2131493634);
-    View localView2 = findViewById(2131494015);
-    ImageView localImageView = (ImageView)findViewById(2131494017);
+    View localView1 = findViewById(2131690378);
+    final View localView2 = findViewById(2131690886);
+    final ImageView localImageView = (ImageView)findViewById(2131690888);
     SwipeRefreshLayout localSwipeRefreshLayout = ((NearbyPageFragment)e()).k();
-    Resources localResources = getResources();
-    Drawable localDrawable2 = localResources.getDrawable(2130838194);
-    Drawable localDrawable1 = localResources.getDrawable(2130838069);
-    localDrawable2.mutate();
-    localDrawable1.mutate();
-    int i = localResources.getColor(2131361874);
-    localDrawable2 = com.yelp.android.a.a.c(localDrawable2);
-    localDrawable1 = com.yelp.android.a.a.c(localDrawable1);
-    com.yelp.android.a.a.a(localDrawable2, i);
-    com.yelp.android.a.a.a(localDrawable1, i);
-    localDrawable2 = com.yelp.android.a.a.d(localDrawable2);
-    localDrawable1 = com.yelp.android.a.a.d(localDrawable1);
+    final Resources localResources = getResources();
+    final Object localObject = new c(this, j.a().d());
+    final Drawable localDrawable = localResources.getDrawable(2130838674);
+    ((Drawable)localObject).mutate();
+    localDrawable.mutate();
+    int i = localResources.getColor(2131624076);
+    localObject = com.yelp.android.d.a.c((Drawable)localObject);
+    localDrawable = com.yelp.android.d.a.c(localDrawable);
+    com.yelp.android.d.a.a((Drawable)localObject, i);
+    com.yelp.android.d.a.a(localDrawable, i);
+    localObject = (c)com.yelp.android.d.a.d((Drawable)localObject);
+    localDrawable = com.yelp.android.d.a.d(localDrawable);
     if (a == null) {
-      a = new c(this, localView1, localSwipeRefreshLayout, new View[] { localView2, findViewById(2131493600) }, localResources, localView2, localImageView, localDrawable1, localDrawable2);
+      a = new r(localView1, localSwipeRefreshLayout, new View[] { localView2, findViewById(2131690311) })
+      {
+        float a = localResources.getDimension(2131362070);
+        float b = a / 2.0F;
+        float c = getResources().getDimension(2131361892);
+        
+        protected void a()
+        {
+          super.a();
+          localImageView.setImageDrawable(localObject);
+          localImageView.setOnClickListener(new ActivityNearby.2.1(this));
+        }
+        
+        protected void a(float paramAnonymousFloat)
+        {
+          super.a(paramAnonymousFloat);
+          float f1 = (c - paramAnonymousFloat) / c;
+          f1 = b - f1 * b;
+          float f2 = a;
+          localView2.setPadding(localView2.getPaddingLeft(), (int)f1, localView2.getPaddingRight(), (int)(f2 - f1));
+          if ((paramAnonymousFloat != c) && (localImageView.getDrawable() != localDrawable))
+          {
+            localImageView.setImageDrawable(localDrawable);
+            localImageView.setOnClickListener(null);
+          }
+        }
+      };
     }
     ((NearbyPageFragment)e()).m().setOnTouchListener(a);
   }
@@ -126,8 +142,8 @@ public class ActivityNearby
   public void a(ListView paramListView)
   {
     super.a(paramListView);
-    int i = getResources().getDimensionPixelSize(2131427370);
-    ((NearbyPageFragment)e()).k().a(false, i, getResources().getDimensionPixelSize(2131427434) + i);
+    int i = getResources().getDimensionPixelSize(2131361892);
+    ((NearbyPageFragment)e()).k().a(false, i, getResources().getDimensionPixelSize(2131361962) + i);
   }
   
   public void b()
@@ -135,9 +151,9 @@ public class ActivityNearby
     f();
   }
   
-  protected NearbyPageFragment d()
+  protected NearbyPageFragment c()
   {
-    return new NearbyPageFragment();
+    return NearbyPageFragment.a(getIntent().getBooleanExtra("show_location_permission", false));
   }
   
   public ViewIri getIri()
@@ -148,7 +164,15 @@ public class ActivityNearby
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    ((TextView)findViewById(2131493226)).setOnClickListener(new b(this));
+    ((TextView)findViewById(2131690889)).setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        AppData.a(EventIri.SearchBar, IriSource.Nearby.getMapWithParameter());
+        paramAnonymousView = Collections.singletonList(getResources().getString(2131165745));
+        startActivity(SearchOverlay.a(ActivityNearby.this, paramAnonymousView, "", "", SuggestionFilter.SuggestionType.SEARCH, IriSource.Nearby));
+      }
+    });
   }
   
   public void onDrawerItemSelected(Intent paramIntent, String paramString)

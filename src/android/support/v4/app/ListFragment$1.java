@@ -9,7 +9,7 @@ class ListFragment$1
   
   public void run()
   {
-    this$0.mList.focusableViewAvailable(this$0.mList);
+    a.b.focusableViewAvailable(a.b);
   }
 }
 

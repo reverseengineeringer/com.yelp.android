@@ -1,13 +1,33 @@
 package com.yelp.android.al;
 
-class e
-  implements Runnable
+public class e<R>
+  implements c<R>
 {
-  e(c paramc, b paramb) {}
+  private static final e<?> a = new e();
+  private static final d<?> b = new a();
   
-  public void run()
+  public static <R> d<R> a()
   {
-    c.a(b, a);
+    return b;
+  }
+  
+  public static <R> c<R> b()
+  {
+    return a;
+  }
+  
+  public boolean a(Object paramObject, c.a parama)
+  {
+    return false;
+  }
+  
+  public static class a<R>
+    implements d<R>
+  {
+    public c<R> a(boolean paramBoolean1, boolean paramBoolean2)
+    {
+      return e.c();
+    }
   }
 }
 

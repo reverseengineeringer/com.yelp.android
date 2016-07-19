@@ -1,5 +1,6 @@
 package com.ooyala.android;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -38,7 +39,7 @@ public class Video
   
   public Object fetchPlaybackInfo(FetchPlaybackInfoCallback paramFetchPlaybackInfoCallback)
   {
-    paramFetchPlaybackInfoCallback = new Video.FetchPlaybackInfoTask(this, paramFetchPlaybackInfoCallback);
+    paramFetchPlaybackInfoCallback = new FetchPlaybackInfoTask(paramFetchPlaybackInfoCallback);
     paramFetchPlaybackInfoCallback.execute(new Void[0]);
     return paramFetchPlaybackInfoCallback;
   }
@@ -154,7 +155,7 @@ public class Video
   public Constants.ReturnState update(JSONObject paramJSONObject)
   {
     int i = 0;
-    switch (Video.1.$SwitchMap$com$ooyala$android$Constants$ReturnState[super.update(paramJSONObject).ordinal()])
+    switch (super.update(paramJSONObject))
     {
     }
     for (;;)
@@ -245,6 +246,27 @@ public class Video
       return this;
     }
     return null;
+  }
+  
+  private class FetchPlaybackInfoTask
+    extends AsyncTask<Void, Integer, Boolean>
+  {
+    protected FetchPlaybackInfoCallback _callback = null;
+    
+    public FetchPlaybackInfoTask(FetchPlaybackInfoCallback paramFetchPlaybackInfoCallback)
+    {
+      _callback = paramFetchPlaybackInfoCallback;
+    }
+    
+    protected Boolean doInBackground(Void... paramVarArgs)
+    {
+      return Boolean.valueOf(fetchPlaybackInfo());
+    }
+    
+    protected void onPostExecute(Boolean paramBoolean)
+    {
+      _callback.callback(paramBoolean.booleanValue());
+    }
   }
 }
 

@@ -1,11 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:id="@id/activity_errorscrolling_main" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
-        <TextView android:textAppearance="@style/LargeText" android:id="@id/activity_errorscrolling_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-    </ScrollView>
-    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <Button android:id="@id/activity_errorscrolling_btnCopyText" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/copy" android:layout_weight="1.0" />
-        <Button android:id="@id/activity_errorscrolling_btnClose" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/close" android:layout_weight="1.0" />
-    </LinearLayout>
-</LinearLayout>
+<x />

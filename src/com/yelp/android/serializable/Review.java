@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class Review
   extends _Review
 {
-  public static final JsonParser.DualCreator<Review> CREATOR = new cn();
+  public static final JsonParser.DualCreator<Review> CREATOR = new Review.1();
 }
 
 /* Location:

@@ -44,7 +44,7 @@
 
     const-string/jumbo v1, "REVIEW"
 
-    const v2, 0x7f0705e1
+    const v2, 0x7f0705c9
 
     const-string/jumbo v3, "review"
 
@@ -57,7 +57,7 @@
 
     const-string/jumbo v1, "TIP"
 
-    const v2, 0x7f0705e2
+    const v2, 0x7f0705ca
 
     const-string/jumbo v3, "quicktip"
 
@@ -221,7 +221,7 @@
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;->mSource:Ljava/lang/String;
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 85
     return-void

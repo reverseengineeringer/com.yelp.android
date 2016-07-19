@@ -1,8 +1,50 @@
 package com.google.android.gms.internal;
 
-public abstract interface t
+import android.content.Context;
+import com.google.android.gms.ads.internal.client.AdSizeParcel;
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import org.json.JSONObject;
+
+@fv
+public class t
+  extends o
 {
-  public abstract void onAdClicked();
+  private final dc d;
+  
+  public t(Context paramContext, AdSizeParcel paramAdSizeParcel, gr paramgr, VersionInfoParcel paramVersionInfoParcel, w paramw, dc paramdc)
+  {
+    super(paramContext, paramAdSizeParcel, paramgr, paramVersionInfoParcel, paramw);
+    d = paramdc;
+    a(d);
+    a();
+    b(false);
+    gz.a("Tracking ad unit: " + b.d());
+  }
+  
+  protected void b(JSONObject paramJSONObject)
+  {
+    d.a("AFMA_updateActiveView", paramJSONObject);
+  }
+  
+  protected void c()
+  {
+    synchronized (a)
+    {
+      super.c();
+      b(d);
+      return;
+    }
+  }
+  
+  public void d()
+  {
+    c();
+  }
+  
+  protected boolean j()
+  {
+    return true;
+  }
 }
 
 /* Location:

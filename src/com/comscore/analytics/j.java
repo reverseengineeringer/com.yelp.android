@@ -3,11 +3,11 @@ package com.comscore.analytics;
 class j
   implements Runnable
 {
-  j(a parama, String paramString1, String paramString2) {}
+  j(a parama, boolean paramBoolean) {}
   
   public void run()
   {
-    a.a(c, a, b);
+    b.ad = a;
   }
 }
 

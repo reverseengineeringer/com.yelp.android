@@ -1,16 +1,24 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
-import org.apache.http.client.HttpClient;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.serializable.YelpBusiness;
 
 public class dk
-  extends h
+  extends c
 {
-  public dk(HttpClient paramHttpClient, i parami)
+  private YelpBusiness a;
+  
+  public dk(YelpBusiness paramYelpBusiness, c.a parama)
   {
-    super("account/logout", parami);
-    setHttpClient(paramHttpClient);
+    super("bookmarks/remove", parama);
+    b("business_id", paramYelpBusiness.aD());
+    a = paramYelpBusiness;
+  }
+  
+  public YelpBusiness b()
+  {
+    return a;
   }
 }
 

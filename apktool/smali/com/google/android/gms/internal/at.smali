@@ -1,75 +1,94 @@
-.class public final Lcom/google/android/gms/internal/at;
-.super Lcom/google/android/gms/internal/bc$a;
+.class public abstract Lcom/google/android/gms/internal/at;
+.super Ljava/lang/Object;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
-# instance fields
-.field private final ob:Lcom/google/android/gms/ads/AdListener;
+# static fields
+.field public static final a:Lcom/google/android/gms/internal/at;
+    .annotation runtime Lcom/google/android/gms/internal/fv;
+    .end annotation
+.end field
+
+.field public static final b:Lcom/google/android/gms/internal/at;
+    .annotation runtime Lcom/google/android/gms/internal/fv;
+    .end annotation
+.end field
+
+.field public static final c:Lcom/google/android/gms/internal/at;
+    .annotation runtime Lcom/google/android/gms/internal/fv;
+    .end annotation
+.end field
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/android/gms/ads/AdListener;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/google/android/gms/internal/at$1;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/at$1;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/internal/at;->a:Lcom/google/android/gms/internal/at;
+
+    new-instance v0, Lcom/google/android/gms/internal/at$2;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/at$2;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/internal/at;->b:Lcom/google/android/gms/internal/at;
+
+    new-instance v0, Lcom/google/android/gms/internal/at$3;
+
+    invoke-direct {v0}, Lcom/google/android/gms/internal/at$3;-><init>()V
+
+    sput-object v0, Lcom/google/android/gms/internal/at;->c:Lcom/google/android/gms/internal/at;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/google/android/gms/internal/bc$a;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/at;->ob:Lcom/google/android/gms/ads/AdListener;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAdClosed()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/at;->ob:Lcom/google/android/gms/ads/AdListener;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/AdListener;->onAdClosed()V
-
-    return-void
+.method public abstract a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 .end method
 
-.method public onAdFailedToLoad(I)V
+.method public final a(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")V"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/at;->ob:Lcom/google/android/gms/ads/AdListener;
+    invoke-interface {p1, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/ads/AdListener;->onAdFailedToLoad(I)V
+    move-result-object v0
 
-    return-void
-.end method
+    check-cast v0, Ljava/lang/String;
 
-.method public onAdLeftApplication()V
-    .locals 1
+    invoke-virtual {p0, v0, p3}, Lcom/google/android/gms/internal/at;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/at;->ob:Lcom/google/android/gms/ads/AdListener;
+    move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/AdListener;->onAdLeftApplication()V
-
-    return-void
-.end method
-
-.method public onAdLoaded()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/at;->ob:Lcom/google/android/gms/ads/AdListener;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/AdListener;->onAdLoaded()V
-
-    return-void
-.end method
-
-.method public onAdOpened()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/at;->ob:Lcom/google/android/gms/ads/AdListener;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/AdListener;->onAdOpened()V
+    invoke-interface {p1, p2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

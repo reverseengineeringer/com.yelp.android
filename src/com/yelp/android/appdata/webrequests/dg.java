@@ -1,27 +1,27 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.eq;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.RoyaltySet;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-class dg
-  extends j<eq>
+public class dg
+  extends k<Void, Void, ArrayList<RoyaltySet>>
 {
-  dg(dc paramdc, String paramString) {}
-  
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, eq parameq)
+  public dg(k.b<ArrayList<RoyaltySet>> paramb)
   {
-    dc.a(b, a, parameq);
-    b.a(parameq);
-    dc.a(b, true, null);
+    super(ApiRequest.RequestType.GET, "rankings/location", LocationService.Accuracies.COARSE, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.MILES);
+    a("latitude");
+    b("longitude");
   }
   
-  public boolean a()
+  public ArrayList<RoyaltySet> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return true;
-  }
-  
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
-  {
-    dc.a(b, false, paramYelpException);
+    return RoyaltySet.a(paramJSONObject.getJSONArray("location_rankings"));
   }
 }
 

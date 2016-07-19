@@ -2,23 +2,62 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _YelpDetailedAddress
   implements Parcelable
 {
-  protected String mAddress1;
-  protected String mAddress2;
-  protected String mAddress3;
+  protected String a;
+  protected String b;
+  protected String c;
   
   protected _YelpDetailedAddress() {}
   
   protected _YelpDetailedAddress(String paramString1, String paramString2, String paramString3)
   {
     this();
-    mAddress1 = paramString1;
-    mAddress2 = paramString2;
-    mAddress3 = paramString3;
+    a = paramString1;
+    b = paramString2;
+    c = paramString3;
+  }
+  
+  public String a()
+  {
+    return c;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("address1")) {
+      a = paramJSONObject.optString("address1");
+    }
+    if (!paramJSONObject.isNull("address2")) {
+      b = paramJSONObject.optString("address2");
+    }
+    if (!paramJSONObject.isNull("address3")) {
+      c = paramJSONObject.optString("address3");
+    }
+  }
+  
+  public String b()
+  {
+    return b;
+  }
+  
+  public String c()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -26,46 +65,30 @@ abstract class _YelpDetailedAddress
     return 0;
   }
   
-  public String getAddress1()
+  public boolean equals(Object paramObject)
   {
-    return mAddress1;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpDetailedAddress)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a();
   }
   
-  public String getAddress2()
+  public int hashCode()
   {
-    return mAddress2;
-  }
-  
-  public String getAddress3()
-  {
-    return mAddress3;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("address1")) {
-      mAddress1 = paramJSONObject.optString("address1");
-    }
-    if (!paramJSONObject.isNull("address2")) {
-      mAddress2 = paramJSONObject.optString("address2");
-    }
-    if (!paramJSONObject.isNull("address3")) {
-      mAddress3 = paramJSONObject.optString("address3");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mAddress1 = paramParcel.readString();
-    mAddress2 = paramParcel.readString();
-    mAddress3 = paramParcel.readString();
+    return new c().a(a).a(b).a(c).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mAddress1);
-    paramParcel.writeString(mAddress2);
-    paramParcel.writeString(mAddress3);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
   }
 }
 

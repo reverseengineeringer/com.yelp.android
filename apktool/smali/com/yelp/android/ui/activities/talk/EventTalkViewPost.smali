@@ -6,10 +6,10 @@
 # instance fields
 .field private a:Lcom/yelp/android/serializable/Event;
 
-.field private b:Lcom/yelp/android/appdata/webrequests/m;
+.field private b:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Ljava/lang/Integer;",
             ">;"
@@ -26,12 +26,12 @@
     .line 24
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;-><init>()V
 
-    .line 87
-    new-instance v0, Lcom/yelp/android/ui/activities/talk/n;
+    .line 86
+    new-instance v0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/talk/n;-><init>(Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost$1;-><init>(Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->b:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->b:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-void
 .end method
@@ -40,89 +40,89 @@
     .locals 3
 
     .prologue
-    .line 32
+    .line 31
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 33
-    const-string/jumbo v1, "extra.topic"
+    .line 32
+    const-string/jumbo v1, "topic"
 
-    invoke-static {p1}, Lcom/yelp/android/serializable/TalkTopic;->fromEvent(Lcom/yelp/android/serializable/Event;)Lcom/yelp/android/serializable/TalkTopic;
+    invoke-static {p1}, Lcom/yelp/android/serializable/TalkTopic;->a(Lcom/yelp/android/serializable/Event;)Lcom/yelp/android/serializable/TalkTopic;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 34
-    const-string/jumbo v1, "extra.event"
+    .line 33
+    const-string/jumbo v1, "event"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 35
+    .line 34
     return-object v0
 .end method
 
 
 # virtual methods
-.method public a(Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/aw/f;
+.method public a(Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/bv/c;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "I",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/aw/h;",
+            "Lcom/yelp/android/bv/c$b;",
             ">;)",
-            "Lcom/yelp/android/aw/f;"
+            "Lcom/yelp/android/bv/c;"
         }
     .end annotation
 
     .prologue
-    .line 41
-    new-instance v0, Lcom/yelp/android/aw/c;
+    .line 40
+    new-instance v0, Lcom/yelp/android/bv/a$a;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->a:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->I()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/aw/c;-><init>(Ljava/lang/String;Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/bv/a$a;-><init>(Ljava/lang/String;Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     return-object v0
 .end method
 
-.method protected a(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/aw/f;
+.method protected a(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/bv/c;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/aw/h;",
+            "Lcom/yelp/android/bv/c$b;",
             ">;)",
-            "Lcom/yelp/android/aw/f;"
+            "Lcom/yelp/android/bv/c;"
         }
     .end annotation
 
     .prologue
-    .line 74
-    new-instance v0, Lcom/yelp/android/aw/d;
+    .line 73
+    new-instance v0, Lcom/yelp/android/bv/a$b;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->a:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->I()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/aw/d;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, p1, p2, p3}, Lcom/yelp/android/bv/a$b;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     return-object v0
 .end method
@@ -131,10 +131,10 @@
     .locals 4
 
     .prologue
-    const v3, 0x7f020097
+    const v3, 0x7f0200c2
 
-    .line 57
-    const v0, 0x7f0c03bc
+    .line 56
+    const v0, 0x7f0f04a0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -144,14 +144,14 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->a:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v1, p0}, Lcom/yelp/android/serializable/Event;->getFormattedTimeRange(Landroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {v1, p0}, Lcom/yelp/android/serializable/Event;->a(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 60
-    const v0, 0x7f0c0311
+    .line 59
+    const v0, 0x7f0f0396
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -159,45 +159,45 @@
 
     check-cast v0, Lcom/yelp/android/ui/widgets/RoundedImageView;
 
-    .line 61
+    .line 60
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->a:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->getPhoto()Lcom/yelp/android/serializable/Photo;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->J()Lcom/yelp/android/serializable/Photo;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    .line 62
-    invoke-static {p0}, Lcom/bumptech/glide/h;->a(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/j;
+    .line 61
+    invoke-static {p0}, Lcom/yelp/android/ui/util/t;->a(Landroid/content/Context;)Lcom/yelp/android/ui/util/t;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->a:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Event;->getPhoto()Lcom/yelp/android/serializable/Photo;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Event;->J()Lcom/yelp/android/serializable/Photo;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Photo;->getThumbnailUrl()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Photo;->f()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/bumptech/glide/j;->a(Ljava/lang/String;)Lcom/bumptech/glide/d;
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/t;->a(Ljava/lang/String;)Lcom/yelp/android/ui/util/u$a;
 
     move-result-object v1
 
-    invoke-virtual {v1, v3}, Lcom/bumptech/glide/d;->b(I)Lcom/bumptech/glide/c;
+    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/util/u$a;->b(I)Lcom/yelp/android/ui/util/u$a;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Lcom/bumptech/glide/c;->a(Landroid/widget/ImageView;)Lcom/yelp/android/ag/j;
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/util/u$a;->a(Landroid/widget/ImageView;)V
 
-    .line 69
+    .line 68
     :goto_0
     return-void
 
-    .line 67
+    .line 66
     :cond_0
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/widgets/RoundedImageView;->setImageResource(I)V
 
@@ -208,39 +208,39 @@
     .locals 3
 
     .prologue
-    .line 81
-    new-instance v0, Lcom/yelp/android/aw/e;
+    .line 80
+    new-instance v0, Lcom/yelp/android/bv/b;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->a:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Event;->I()Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->b:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->b:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-direct {v0, v1, p1, v2}, Lcom/yelp/android/aw/e;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, p1, v2}, Lcom/yelp/android/bv/b;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 83
+    .line 82
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/av/g;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/core/b;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 84
+    .line 83
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 85
+    .line 84
     return-void
 .end method
 
-.method protected c()I
+.method protected b()I
     .locals 1
 
     .prologue
-    .line 52
-    const v0, 0x7f030106
+    .line 51
+    const v0, 0x7f030166
 
     return v0
 .end method
@@ -249,12 +249,12 @@
     .locals 2
 
     .prologue
-    .line 46
+    .line 45
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string/jumbo v1, "extra.event"
+    const-string/jumbo v1, "event"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -264,9 +264,9 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/talk/EventTalkViewPost;->a:Lcom/yelp/android/serializable/Event;
 
-    .line 47
+    .line 46
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/talk/TalkViewPost;->onCreate(Landroid/os/Bundle;)V
 
-    .line 48
+    .line 47
     return-void
 .end method

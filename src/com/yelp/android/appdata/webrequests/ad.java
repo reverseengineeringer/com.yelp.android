@@ -1,52 +1,38 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.location.Location;
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.yelp.android.serializable.Category;
-import com.yelp.android.serializable.Filter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.EnumSet;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Photo;
+import com.yelp.android.util.StringUtils;
+import com.yelp.android.util.e;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.apache.http.HttpEntity;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-final class ad
-  implements Parcelable.Creator<BusinessSearchRequest>
+public class ad
+  extends b<Void, Void, Photo>
 {
-  public BusinessSearchRequest a(Parcel paramParcel)
+  private final String a;
+  
+  public ad(String paramString1, String paramString2, String paramString3)
   {
-    boolean bool = true;
-    BusinessSearchRequest localBusinessSearchRequest = new BusinessSearchRequest();
-    localBusinessSearchRequest.setSearchTerms(paramParcel.readString());
-    localBusinessSearchRequest.setTermNear(paramParcel.readString());
-    localBusinessSearchRequest.setFormatMode(BusinessSearchRequest.FormatMode.values()[paramParcel.readInt()]);
-    localBusinessSearchRequest.setSearchMode(BusinessSearchRequest.SearchMode.values()[paramParcel.readInt()]);
-    Object localObject = new ArrayList();
-    paramParcel.readList((List)localObject, SearchRequest.SearchOption.class.getClassLoader());
-    BusinessSearchRequest.access$200(localBusinessSearchRequest).addAll((Collection)localObject);
-    if (paramParcel.readByte() == 1) {}
-    for (;;)
-    {
-      localBusinessSearchRequest.setUnFoldedResults(bool);
-      localBusinessSearchRequest.setFilter((Filter)paramParcel.readParcelable(BusinessSearchRequest.class.getClassLoader()));
-      localBusinessSearchRequest.setLimit(paramParcel.readInt());
-      localBusinessSearchRequest.setLocation((Location)paramParcel.readParcelable(BusinessSearchRequest.class.getClassLoader()));
-      localBusinessSearchRequest.setCategory((Category)paramParcel.readParcelable(BusinessSearchRequest.class.getClassLoader()));
-      int i = paramParcel.readInt();
-      if (i > 0)
-      {
-        localObject = new double[i];
-        paramParcel.readDoubleArray((double[])localObject);
-        localBusinessSearchRequest.setRegion((double[])localObject);
-      }
-      return localBusinessSearchRequest;
-      bool = false;
+    super(ApiRequest.RequestType.POST, "business/add_image", null);
+    a = paramString3;
+    b("biz_id", paramString1);
+    if (!StringUtils.d(paramString2)) {
+      b("caption", paramString2);
     }
   }
   
-  public BusinessSearchRequest[] a(int paramInt)
+  public Photo a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return new BusinessSearchRequest[paramInt];
+    return (Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo"));
+  }
+  
+  protected HttpEntity a()
+  {
+    return e.a("image", a, t());
   }
 }
 

@@ -3,7 +3,7 @@ package com.comscore.instrumentation;
 import android.app.Activity;
 import android.os.Bundle;
 import com.comscore.analytics.a;
-import com.comscore.analytics.h;
+import com.comscore.analytics.k;
 
 public class InstrumentedActivity
   extends Activity
@@ -11,20 +11,20 @@ public class InstrumentedActivity
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    h.a(getApplicationContext());
+    k.a(getApplicationContext());
   }
   
   protected void onPause()
   {
     super.onPause();
-    h.b();
+    k.b();
   }
   
   protected void onResume()
   {
     super.onResume();
-    h.e().a(getClass().getSimpleName());
-    h.a();
+    k.d().a(getClass().getSimpleName());
+    k.a();
   }
 }
 

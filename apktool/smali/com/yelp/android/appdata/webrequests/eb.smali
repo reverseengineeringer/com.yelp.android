@@ -1,61 +1,28 @@
-.class Lcom/yelp/android/appdata/webrequests/eb;
-.super Ljava/lang/Object;
-.source "PhotoUploadRequestBase.java"
-
-# interfaces
-.implements Lcom/yelp/android/util/n;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;
+.class public Lcom/yelp/android/appdata/webrequests/eb;
+.super Lcom/yelp/android/appdata/webrequests/ShareRequest;
+.source "ReviewShareRequest.java"
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;ZLcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 1
 
     .prologue
-    .line 81
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/eb;->a:Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;
+    .line 7
+    const-string/jumbo v0, "/review/share/"
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, v0, p4, p2}, Lcom/yelp/android/appdata/webrequests/ShareRequest;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;)V
 
-    return-void
-.end method
+    .line 8
+    const-string/jumbo v0, "review_id"
 
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/eb;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-# virtual methods
-.method public a(I)V
-    .locals 6
+    .line 9
+    const-string/jumbo v0, "with_award"
 
-    .prologue
-    .line 86
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eb;->a:Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;
+    invoke-virtual {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/eb;->b(Ljava/lang/String;Z)V
 
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Float;
-
-    const/4 v2, 0x0
-
-    int-to-float v3, p1
-
-    iget-object v4, p0, Lcom/yelp/android/appdata/webrequests/eb;->a:Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;
-
-    iget-wide v4, v4, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;->mImageSize:J
-
-    long-to-float v4, v4
-
-    div-float/2addr v3, v4
-
-    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/PhotoUploadRequestBase;->publishProgress([Ljava/lang/Object;)V
-
-    .line 87
+    .line 10
     return-void
 .end method

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_guests">
+        <item quantity="other">Lägg till upp till %1$d gäster</item>
+        <item quantity="one">Lägg till %1$d gäst</item>
+    </plurals>
+    <plurals name="alert_summary_count">
+        <item quantity="other">&amp;lt;b>Du har %1$d nya notiser&amp;lt;/b></item>
+        <item quantity="one">&amp;lt;b>Du har %1$d ny notis&amp;lt;/b></item>
+    </plurals>
+    <plurals name="business_hours_closes_in">
+        <item quantity="other">Stänger om %1$d min</item>
+        <item quantity="one">Stänger om %1$d min</item>
+    </plurals>
+    <plurals name="business_hours_opens_in">
+        <item quantity="other">Öppnar om %1$d min</item>
+        <item quantity="one">Öppnar om %1$d min</item>
+    </plurals>
+    <plurals name="business_page_checkin_count">
+        <item quantity="other">Du har &amp;lt;b>%1$d&amp;lt;/b> incheckningar här</item>
+        <item quantity="one">Du har &amp;lt;b>%1$d&amp;lt;/b> incheckning här</item>
+    </plurals>
+    <plurals name="checkin_count">
+        <item quantity="other">%1$d incheckningar</item>
+        <item quantity="one">%1$d incheckning</item>
+    </plurals>
+    <plurals name="checkins_here_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> incheckningar här</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> incheckning här</item>
+    </plurals>
+    <plurals name="checkins_remaining_to_unlock_offer">
+        <item quantity="other">%1$d fler incheckningar här för att låsa upp erbjudandet</item>
+        <item quantity="one">%1$d till incheckning här för att låsa upp erbjudandet</item>
+    </plurals>
+    <plurals name="checkins_this_week">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> incheckningar denna veckan</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> incheckning denna veckan</item>
+    </plurals>
+    <plurals name="checkins_to_unlock_offer">
+        <item quantity="other">%1$d incheckningar här för att låsa upp erbjudandet</item>
+        <item quantity="one">Tryck här för att låsa upp erbjudandet</item>
+    </plurals>
+    <plurals name="discuss_this_event">
+        <item quantity="other">%1$d Yelpare diskuterar detta event</item>
+        <item quantity="one">En Yelpare började diskutera detta event</item>
+    </plurals>
+    <plurals name="dollar_signs">
+        <item quantity="other">%1$s %2$s tecken</item>
+        <item quantity="one">%1$d %2$s tecken</item>
+    </plurals>
+    <plurals name="dukedoms_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> Hertigdömen</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> hertigdöme</item>
+    </plurals>
+    <plurals name="embedded_formula_for_deals">
+        <item quantity="other">deals x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> styck = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totalt</item>
+        <item quantity="one">deal x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> styck = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totalt</item>
+    </plurals>
+    <plurals name="filter_format">
+        <item quantity="other">%1$s, och %2$s</item>
+        <item quantity="one">%2$s</item>
+    </plurals>
+    <plurals name="formula_for_deals">
+        <item quantity="other">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> deals x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> styck = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totalt</item>
+        <item quantity="one">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> deal x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> styck= &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totalt</item>
+    </plurals>
+    <plurals name="friend_count">
+        <item quantity="other">%1$d vänner</item>
+        <item quantity="one">%1$d vän</item>
+    </plurals>
+    <plurals name="friend_count_no_param">
+        <item quantity="other">Vänner</item>
+        <item quantity="one">Vän</item>
+    </plurals>
+    <plurals name="friend_request_alert">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> personer vill bli vän med dig!</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> vill lägga till dig som vän!</item>
+    </plurals>
+    <plurals name="guests">
+        <item quantity="other">Gäster</item>
+        <item quantity="one">Gäst</item>
+    </plurals>
+    <plurals name="media_success">
+        <item quantity="other">Fotona/videorna kommer vara redo snart.</item>
+        <item quantity="one">Fotot/videon kommer vara redo snart.</item>
+    </plurals>
+    <plurals name="media_success_title">
+        <item quantity="other">Snygga foton!</item>
+        <item quantity="one">Snyggt foto!</item>
+    </plurals>
+    <plurals name="more_highlights_count">
+        <item quantity="other">%1$d till höjdpunkter</item>
+        <item quantity="one">%1$d till höjdpunkt</item>
+    </plurals>
+    <plurals name="more_regulars_count">
+        <item quantity="other">%1$d till stammisar</item>
+        <item quantity="one">%1$d till stammis</item>
+    </plurals>
+    <plurals name="more_reviews_count">
+        <item quantity="other">%1$d till recensioner</item>
+        <item quantity="one">%1$d till recension</item>
+    </plurals>
+    <plurals name="more_suggestions">
+        <item quantity="other">Visa %1$d till</item>
+        <item quantity="one">Visa %1$d till</item>
+    </plurals>
+    <plurals name="more_tips_count">
+        <item quantity="other">%1$d till tips</item>
+        <item quantity="one">%1$d till tips</item>
+    </plurals>
+    <plurals name="my_photo_feed_count">
+        <item quantity="other">Mina foton</item>
+        <item quantity="one">Mitt foto</item>
+    </plurals>
+    <plurals name="nearby_friend">
+        <item quantity="other">Vänner i närheten</item>
+        <item quantity="one">Vän i närheten</item>
+    </plurals>
+    <plurals name="opentable_party_size">
+        <item quantity="other">%1$d personer</item>
+        <item quantity="one">%1$d person</item>
+    </plurals>
+    <plurals name="people">
+        <item quantity="other">%1$d personer</item>
+        <item quantity="one">%1$d person</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="other">%1$d foton</item>
+        <item quantity="one">%1$d foto</item>
+    </plurals>
+    <plurals name="photo_count_no_param">
+        <item quantity="other">Foton</item>
+        <item quantity="one">Foto</item>
+    </plurals>
+    <plurals name="photo_feed_count">
+        <item quantity="other">%1$d Foton av %2$s</item>
+        <item quantity="one">Foto av %2$s</item>
+    </plurals>
+    <plurals name="previous_reviews_title">
+        <item quantity="other">%1$d föregående recensioner</item>
+        <item quantity="one">%1$d föregående recension</item>
+    </plurals>
+    <plurals name="redemption_title_count">
+        <item quantity="other">Det blir %1$d incheckningar på %2$s!</item>
+        <item quantity="one">Då har du %1$d incheckning på %2$s!</item>
+    </plurals>
+    <plurals name="requesting_quote_from_providers">
+        <item quantity="other">Begär offert från %1$s leverantörer</item>
+        <item quantity="one">Begär offert från %1$s leverantör</item>
+    </plurals>
+    <plurals name="review_count">
+        <item quantity="other">%1$d recensioner</item>
+        <item quantity="one">%1$d recension</item>
+    </plurals>
+    <plurals name="review_count_no_param">
+        <item quantity="other">Recensioner</item>
+        <item quantity="one">Recension</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals">
+        <item quantity="other">Tyvärr får du bara köpa %1$d av denna dealen</item>
+        <item quantity="one">Tyvärr kan du bara köpa %1$d deal med denna dealen</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals_for_yourself">
+        <item quantity="other">Tyvärr får du bara köpa %1$d av denna deal till dig själv.</item>
+        <item quantity="one">Tyvärr kan du bara köpa %1$d deal till dig själv med denna dealen</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_gifts">
+        <item quantity="other">Tyvärr får du bara ge bort %1$d gåvor med denna dealen</item>
+        <item quantity="one">Tyvärr kan du bara ge bort %1$d gåva med denna dealen</item>
+    </plurals>
+    <plurals name="section_label_reviews_search">
+        <item quantity="other">%1$d recensioner nämner &amp;lt;b>%2$s&amp;lt;/b></item>
+        <item quantity="one">%1$d recension nämner &amp;lt;b>%2$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="section_not_recommended_reviews_title">
+        <item quantity="other">%1$d recensioner som inte rekommenderas för tillfället</item>
+        <item quantity="one">%1$d recension som inte rekommenderas för tillfället</item>
+    </plurals>
+    <plurals name="show_more_events">
+        <item quantity="other">Visa %1$d till</item>
+        <item quantity="one">Visa %1$d till</item>
+    </plurals>
+    <plurals name="star_rating">
+        <item quantity="other">%1$s stjärnor</item>
+        <item quantity="one">%1$s stjärna</item>
+    </plurals>
+    <plurals name="these_and_others">
+        <item quantity="other">%1$s and %2$s andra</item>
+        <item quantity="one">%1$s och %2$d andra</item>
+    </plurals>
+    <plurals name="translated_reviews_title">
+        <item quantity="other">Översatta recensioner</item>
+        <item quantity="one">Översatt recension</item>
+    </plurals>
+    <plurals name="ufc_label">
+        <item quantity="other">&amp;lt;b>%1$s&amp;lt;/b> (%2$d)</item>
+        <item quantity="one">&amp;lt;b>%1$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="using_machine_translation">
+        <item quantity="other">Vi använder automatisk översättning för att tyda dessa recensioner så vi ber om ursäkt om resultatet inte är helt perfekt.</item>
+        <item quantity="one">Vi använder automatisk översättning för att tolka den här recensionen. Vi ber om ursäkt ifall resultatet inte är helt perfekt.</item>
+    </plurals>
+    <plurals name="video_count">
+        <item quantity="other">%1$d videor</item>
+        <item quantity="one">%1$d video</item>
+    </plurals>
+    <plurals name="video_count_no_param">
+        <item quantity="other">Videor</item>
+        <item quantity="one">Video</item>
+    </plurals>
+    <plurals name="we_found_alternate_businesses_with_request_a_quote">
+        <item quantity="other">%2$s har ej aktiverat offertförfrågan på Yelp. Vi hittade dock %1$s andra leverantörer som kan svara på din förfrågan.</item>
+        <item quantity="one">%2$s har ej aktiverat offertförfrågan på Yelp. Vi hittade dock %1$s annan leverantör som kan svara på din förfrågan.</item>
+    </plurals>
+    <plurals name="we_found_suggested_businesses">
+        <item quantity="other">Vi hittade %1$s till företag som är verksamma i ditt område och som troligtvis kommer svara på din förfrågan.</item>
+        <item quantity="one">Vi hittade %1$s till företag som är verksamt i ditt område och som troligtvis kommer svara på din förfrågan.</item>
+    </plurals>
+    <plurals name="write_review_stars">
+        <item quantity="other">%1$d stjärnor</item>
+        <item quantity="one">%1$d stjärna</item>
+    </plurals>
+    <plurals name="x_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>%2$s&amp;lt;/b> och %1$d andra gillar detta</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> och %1$d till gillar detta</item>
+    </plurals>
+    <plurals name="x_comments">
+        <item quantity="other">%1$d kommentarer</item>
+        <item quantity="one">%1$d kommentar</item>
+    </plurals>
+    <plurals name="x_comments_caps">
+        <item quantity="other">%1$d kommentarer</item>
+        <item quantity="one">%1$d kommentar</item>
+    </plurals>
+    <plurals name="x_compliments">
+        <item quantity="other">%1$d komplimanger</item>
+        <item quantity="one">%1$d komplimang</item>
+    </plurals>
+    <plurals name="x_feet">
+        <item quantity="other">%1$s fot</item>
+        <item quantity="one">%1$s fot</item>
+    </plurals>
+    <plurals name="x_feet_away">
+        <item quantity="other">%1$s fot bort</item>
+        <item quantity="one">%1$s fot bort</item>
+    </plurals>
+    <plurals name="x_feet_short">
+        <item quantity="other">%1$s fot</item>
+        <item quantity="one">%1$s fot</item>
+    </plurals>
+    <plurals name="x_kilometers">
+        <item quantity="other">%1$s kilometer</item>
+        <item quantity="one">%1$s kilometer</item>
+    </plurals>
+    <plurals name="x_kilometers_away">
+        <item quantity="other">%1$s kilometer bort</item>
+        <item quantity="one">%1$s kilometer bort</item>
+    </plurals>
+    <plurals name="x_kilometers_short">
+        <item quantity="other">%1$s km</item>
+        <item quantity="one">%1$s km</item>
+    </plurals>
+    <plurals name="x_likes">
+        <item quantity="other">%1$d gillade</item>
+        <item quantity="one">%1$d gillar</item>
+    </plurals>
+    <plurals name="x_likes_caps">
+        <item quantity="other">%1$d gillar</item>
+        <item quantity="one">%1$d gillar</item>
+    </plurals>
+    <plurals name="x_meters">
+        <item quantity="other">%1$s meter</item>
+        <item quantity="one">%1$s meter</item>
+    </plurals>
+    <plurals name="x_meters_away">
+        <item quantity="other">%1$s meter bort</item>
+        <item quantity="one">%1$s meter bort</item>
+    </plurals>
+    <plurals name="x_meters_short">
+        <item quantity="other">%1$s m</item>
+        <item quantity="one">%1$s m</item>
+    </plurals>
+    <plurals name="x_miles">
+        <item quantity="other">%1$s miles</item>
+        <item quantity="one">%1$s mile</item>
+    </plurals>
+    <plurals name="x_miles_away">
+        <item quantity="other">%1$s mile bort</item>
+        <item quantity="one">%1$s mile bort</item>
+    </plurals>
+    <plurals name="x_miles_short">
+        <item quantity="other">%1$s mi</item>
+        <item quantity="one">%1$s mi</item>
+    </plurals>
+    <plurals name="x_people_like_this">
+        <item quantity="other">%1$d personer gillar detta</item>
+        <item quantity="one">%1$d personer gillar detta</item>
+    </plurals>
+    <plurals name="you_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>Du&amp;lt;/b> och %1$d andra gillar detta</item>
+        <item quantity="one">&amp;lt;b>Du&amp;lt;/b> och %1$d andra gillar detta</item>
+    </plurals>
+</resources>

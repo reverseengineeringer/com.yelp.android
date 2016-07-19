@@ -1,109 +1,37 @@
 package com.google.android.gms.tagmanager;
 
-import android.content.Context;
-import android.os.Process;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
-import com.google.android.gms.internal.ld;
-import com.google.android.gms.internal.lf;
-
-class a
+public class a
 {
-  private static a aqa;
-  private static Object xO = new Object();
-  private volatile long apW = 900000L;
-  private volatile long apX = 30000L;
-  private volatile long apY;
-  private a.a apZ = new a.1(this);
-  private volatile boolean mClosed = false;
-  private final Context mContext;
-  private final ld wb;
-  private final Thread wu;
-  private volatile AdvertisingIdClient.Info xQ;
+  private final String a;
+  private ab b;
   
-  private a(Context paramContext)
+  private ab c()
   {
-    this(paramContext, null, lf.jdMethod_if());
-  }
-  
-  a(Context paramContext, a.a parama, ld paramld)
-  {
-    wb = paramld;
-    if (paramContext != null) {}
-    for (mContext = paramContext.getApplicationContext();; mContext = paramContext)
+    try
     {
-      if (parama != null) {
-        apZ = parama;
-      }
-      wu = new Thread(new a.2(this));
-      return;
+      ab localab = b;
+      return localab;
     }
-  }
-  
-  static a W(Context paramContext)
-  {
-    if (aqa == null) {}
-    synchronized (xO)
+    finally
     {
-      if (aqa == null)
-      {
-        aqa = new a(paramContext);
-        aqa.start();
-      }
-      return aqa;
+      localObject = finally;
+      throw ((Throwable)localObject);
     }
   }
   
-  private void pb()
+  public String a()
   {
-    Process.setThreadPriority(10);
-    while (!mClosed) {
-      try
-      {
-        xQ = apZ.pd();
-        Thread.sleep(apW);
-      }
-      catch (InterruptedException localInterruptedException)
-      {
-        bh.U("sleep interrupted in AdvertiserDataPoller thread; continuing");
-      }
-    }
+    return a;
   }
   
-  private void pc()
+  public void a(String paramString)
   {
-    if (wb.currentTimeMillis() - apY < apX) {
-      return;
-    }
-    interrupt();
-    apY = wb.currentTimeMillis();
+    c().a(paramString);
   }
   
-  void interrupt()
+  void b()
   {
-    wu.interrupt();
-  }
-  
-  public boolean isLimitAdTrackingEnabled()
-  {
-    pc();
-    if (xQ == null) {
-      return true;
-    }
-    return xQ.isLimitAdTrackingEnabled();
-  }
-  
-  public String pa()
-  {
-    pc();
-    if (xQ == null) {
-      return null;
-    }
-    return xQ.getId();
-  }
-  
-  void start()
-  {
-    wu.start();
+    b = null;
   }
 }
 

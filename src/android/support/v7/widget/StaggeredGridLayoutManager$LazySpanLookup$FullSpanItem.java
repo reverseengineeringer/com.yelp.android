@@ -8,31 +8,50 @@ import java.util.Arrays;
 class StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem
   implements Parcelable
 {
-  public static final Parcelable.Creator<FullSpanItem> CREATOR = new cz();
-  int mGapDir;
-  int[] mGapPerSpan;
-  boolean mHasUnwantedGapAfter;
-  int mPosition;
+  public static final Parcelable.Creator<FullSpanItem> CREATOR = new Parcelable.Creator()
+  {
+    public StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem a(Parcel paramAnonymousParcel)
+    {
+      return new StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem(paramAnonymousParcel);
+    }
+    
+    public StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem[] a(int paramAnonymousInt)
+    {
+      return new StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem[paramAnonymousInt];
+    }
+  };
+  int a;
+  int b;
+  int[] c;
+  boolean d;
   
   public StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem() {}
   
   public StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem(Parcel paramParcel)
   {
-    mPosition = paramParcel.readInt();
-    mGapDir = paramParcel.readInt();
+    a = paramParcel.readInt();
+    b = paramParcel.readInt();
     if (paramParcel.readInt() == 1) {}
     for (;;)
     {
-      mHasUnwantedGapAfter = bool;
+      d = bool;
       int i = paramParcel.readInt();
       if (i > 0)
       {
-        mGapPerSpan = new int[i];
-        paramParcel.readIntArray(mGapPerSpan);
+        c = new int[i];
+        paramParcel.readIntArray(c);
       }
       return;
       bool = false;
     }
+  }
+  
+  int a(int paramInt)
+  {
+    if (c == null) {
+      return 0;
+    }
+    return c[paramInt];
   }
   
   public int describeContents()
@@ -40,37 +59,24 @@ class StaggeredGridLayoutManager$LazySpanLookup$FullSpanItem
     return 0;
   }
   
-  int getGapForSpan(int paramInt)
-  {
-    if (mGapPerSpan == null) {
-      return 0;
-    }
-    return mGapPerSpan[paramInt];
-  }
-  
-  public void invalidateSpanGaps()
-  {
-    mGapPerSpan = null;
-  }
-  
   public String toString()
   {
-    return "FullSpanItem{mPosition=" + mPosition + ", mGapDir=" + mGapDir + ", mHasUnwantedGapAfter=" + mHasUnwantedGapAfter + ", mGapPerSpan=" + Arrays.toString(mGapPerSpan) + '}';
+    return "FullSpanItem{mPosition=" + a + ", mGapDir=" + b + ", mHasUnwantedGapAfter=" + d + ", mGapPerSpan=" + Arrays.toString(c) + '}';
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeInt(mPosition);
-    paramParcel.writeInt(mGapDir);
-    if (mHasUnwantedGapAfter) {}
+    paramParcel.writeInt(a);
+    paramParcel.writeInt(b);
+    if (d) {}
     for (paramInt = 1;; paramInt = 0)
     {
       paramParcel.writeInt(paramInt);
-      if ((mGapPerSpan == null) || (mGapPerSpan.length <= 0)) {
+      if ((c == null) || (c.length <= 0)) {
         break;
       }
-      paramParcel.writeInt(mGapPerSpan.length);
-      paramParcel.writeIntArray(mGapPerSpan);
+      paramParcel.writeInt(c.length);
+      paramParcel.writeIntArray(c);
       return;
     }
     paramParcel.writeInt(0);

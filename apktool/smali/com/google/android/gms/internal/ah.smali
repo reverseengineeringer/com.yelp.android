@@ -1,31 +1,69 @@
-.class public interface abstract Lcom/google/android/gms/internal/ah;
+.class public final Lcom/google/android/gms/internal/ah;
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+
+# instance fields
+.field private a:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    sget-object v0, Lcom/google/android/gms/internal/ao;->b:Lcom/google/android/gms/internal/ak;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ak;->b()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-direct {p0, v0}, Lcom/google/android/gms/internal/ah;-><init>(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 1
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/google/android/gms/internal/ao;->b:Lcom/google/android/gms/internal/ak;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ak;->b()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    :goto_0
+    iput-object v0, p0, Lcom/google/android/gms/internal/ah;->a:Ljava/lang/String;
+
+    return-void
+
+    :cond_0
+    move-object v0, p1
+
+    goto :goto_0
+.end method
+
+
 # virtual methods
-.method public abstract a(Lcom/google/android/gms/internal/ah$a;)V
-.end method
+.method public a()Ljava/lang/String;
+    .locals 1
 
-.method public abstract a(Lcom/google/android/gms/internal/t;Lcom/google/android/gms/internal/ds;Lcom/google/android/gms/internal/cb;Lcom/google/android/gms/internal/dv;ZLcom/google/android/gms/internal/ce;)V
-.end method
+    iget-object v0, p0, Lcom/google/android/gms/internal/ah;->a:Ljava/lang/String;
 
-.method public abstract a(Ljava/lang/String;Lcom/google/android/gms/internal/cd;)V
-.end method
-
-.method public abstract a(Ljava/lang/String;Lorg/json/JSONObject;)V
-.end method
-
-.method public abstract destroy()V
-.end method
-
-.method public abstract f(Ljava/lang/String;)V
-.end method
-
-.method public abstract g(Ljava/lang/String;)V
-.end method
-
-.method public abstract pause()V
-.end method
-
-.method public abstract resume()V
+    return-object v0
 .end method

@@ -3,78 +3,160 @@
 
 
 # static fields
-.field public static final API:Lcom/google/android/gms/common/api/Api;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/common/api/Api",
-            "<",
-            "Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private static final a:Ljava/util/regex/Pattern;
 
-.field public static final DQ:Lcom/google/android/gms/common/api/Api$c;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/common/api/Api$c",
-            "<",
-            "Lcom/google/android/gms/internal/kg;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private static final DR:Lcom/google/android/gms/common/api/Api$b;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/android/gms/common/api/Api$b",
-            "<",
-            "Lcom/google/android/gms/internal/kg;",
-            "Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public static final Nu:Lcom/google/android/gms/internal/kd;
+.field private static final b:Ljava/util/regex/Pattern;
 
 
 # direct methods
 .method static constructor <clinit>()V
+    .locals 1
+
+    const-string/jumbo v0, "\\\\."
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/android/gms/internal/kc;->a:Ljava/util/regex/Pattern;
+
+    const-string/jumbo v0, "[\\\\\"/\u0008\u000c\n\r\t]"
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/android/gms/internal/kc;->b:Ljava/util/regex/Pattern;
+
+    return-void
+.end method
+
+.method public static a(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
 
-    new-instance v0, Lcom/google/android/gms/common/api/Api$c;
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-direct {v0}, Lcom/google/android/gms/common/api/Api$c;-><init>()V
+    move-result v0
 
-    sput-object v0, Lcom/google/android/gms/internal/kc;->DQ:Lcom/google/android/gms/common/api/Api$c;
+    if-nez v0, :cond_2
 
-    new-instance v0, Lcom/google/android/gms/internal/kc$1;
+    sget-object v0, Lcom/google/android/gms/internal/kc;->b:Ljava/util/regex/Pattern;
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/kc$1;-><init>()V
+    invoke-virtual {v0, p0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
 
-    sput-object v0, Lcom/google/android/gms/internal/kc;->DR:Lcom/google/android/gms/common/api/Api$b;
+    move-result-object v1
 
-    new-instance v0, Lcom/google/android/gms/common/api/Api;
+    const/4 v0, 0x0
 
-    sget-object v1, Lcom/google/android/gms/internal/kc;->DR:Lcom/google/android/gms/common/api/Api$b;
+    :goto_0
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->find()Z
 
-    sget-object v2, Lcom/google/android/gms/internal/kc;->DQ:Lcom/google/android/gms/common/api/Api$c;
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuffer;
+
+    invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
+
+    :cond_0
+    invoke-virtual {v1}, Ljava/util/regex/Matcher;->group()Ljava/lang/String;
+
+    move-result-object v2
 
     const/4 v3, 0x0
 
-    new-array v3, v3, [Lcom/google/android/gms/common/api/Scope;
+    invoke-virtual {v2, v3}, Ljava/lang/String;->charAt(I)C
 
-    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Lcom/google/android/gms/common/api/Api$b;Lcom/google/android/gms/common/api/Api$c;[Lcom/google/android/gms/common/api/Scope;)V
+    move-result v2
 
-    sput-object v0, Lcom/google/android/gms/internal/kc;->API:Lcom/google/android/gms/common/api/Api;
+    sparse-switch v2, :sswitch_data_0
 
-    new-instance v0, Lcom/google/android/gms/internal/ke;
+    goto :goto_0
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/ke;-><init>()V
+    :sswitch_0
+    const-string/jumbo v2, "\\\\b"
 
-    sput-object v0, Lcom/google/android/gms/internal/kc;->Nu:Lcom/google/android/gms/internal/kd;
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
 
-    return-void
+    goto :goto_0
+
+    :sswitch_1
+    const-string/jumbo v2, "\\\\\\\""
+
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
+
+    goto :goto_0
+
+    :sswitch_2
+    const-string/jumbo v2, "\\\\\\\\"
+
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
+
+    goto :goto_0
+
+    :sswitch_3
+    const-string/jumbo v2, "\\\\/"
+
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
+
+    goto :goto_0
+
+    :sswitch_4
+    const-string/jumbo v2, "\\\\f"
+
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
+
+    goto :goto_0
+
+    :sswitch_5
+    const-string/jumbo v2, "\\\\n"
+
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
+
+    goto :goto_0
+
+    :sswitch_6
+    const-string/jumbo v2, "\\\\r"
+
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
+
+    goto :goto_0
+
+    :sswitch_7
+    const-string/jumbo v2, "\\\\t"
+
+    invoke-virtual {v1, v0, v2}, Ljava/util/regex/Matcher;->appendReplacement(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;
+
+    goto :goto_0
+
+    :cond_1
+    if-nez v0, :cond_3
+
+    :cond_2
+    :goto_1
+    return-object p0
+
+    :cond_3
+    invoke-virtual {v1, v0}, Ljava/util/regex/Matcher;->appendTail(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_1
+
+    :sswitch_data_0
+    .sparse-switch
+        0x8 -> :sswitch_0
+        0x9 -> :sswitch_7
+        0xa -> :sswitch_5
+        0xc -> :sswitch_4
+        0xd -> :sswitch_6
+        0x22 -> :sswitch_1
+        0x2f -> :sswitch_3
+        0x5c -> :sswitch_2
+    .end sparse-switch
 .end method

@@ -1,117 +1,132 @@
-.class final Lcom/yelp/android/appdata/webrequests/g;
-.super Ljava/lang/Object;
-.source "ApiException.java"
-
-# interfaces
-.implements Landroid/os/Parcelable$Creator;
+.class public Lcom/yelp/android/appdata/webrequests/g;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "AccountLocationsRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
-        "Lcom/yelp/android/appdata/webrequests/ApiException;",
-        ">;"
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/util/List",
+        "<",
+        "Lcom/yelp/android/serializable/UserLocation;",
+        ">;>;"
     }
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/UserLocation;",
+            ">;>;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 82
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 21
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
+    const-string/jumbo v1, "account/locations"
+
+    invoke-direct {p0, v0, v1, p1}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 22
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Lcom/yelp/android/appdata/webrequests/ApiException;
-    .locals 4
+.method public a(Lorg/json/JSONObject;)Ljava/util/List;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/json/JSONObject;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/UserLocation;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    const/4 v1, 0x0
+    .line 26
+    const-string/jumbo v0, "locations"
 
-    .line 86
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v1
+
+    .line 27
+    invoke-virtual {v1}, Lorg/json/JSONArray;->length()I
 
     move-result v2
 
-    .line 87
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 28
+    new-instance v3, Ljava/util/ArrayList;
 
-    move-result-object v3
+    invoke-direct {v3, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 89
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .line 29
+    const/4 v0, 0x0
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 91
-    :try_start_0
-    new-instance v0, Lorg/json/JSONObject;
-
-    invoke-direct {v0, v3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 96
     :goto_0
-    new-instance v3, Lcom/yelp/android/appdata/webrequests/ApiException;
+    if-ge v0, v2, :cond_0
 
-    invoke-direct {v3, v2, v0, v1}, Lcom/yelp/android/appdata/webrequests/ApiException;-><init>(ILorg/json/JSONObject;Lcom/yelp/android/appdata/webrequests/g;)V
+    .line 30
+    sget-object v4, Lcom/yelp/android/serializable/UserLocation;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
-    return-object v3
+    invoke-virtual {v1, v0}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
 
-    .line 92
-    :catch_0
-    move-exception v0
+    move-result-object v5
 
-    move-object v0, v1
+    invoke-virtual {v4, v5}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 29
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 32
     :cond_0
-    move-object v0, v1
-
-    goto :goto_0
+    return-object v3
 .end method
 
-.method public a(I)[Lcom/yelp/android/appdata/webrequests/ApiException;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 101
-    new-array v0, p1, [Lcom/yelp/android/appdata/webrequests/ApiException;
-
-    return-object v0
-.end method
-
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 82
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/g;->a(Landroid/os/Parcel;)Lcom/yelp/android/appdata/webrequests/ApiException;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 82
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/g;->a(I)[Lcom/yelp/android/appdata/webrequests/ApiException;
+    .line 18
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/g;->a(Lorg/json/JSONObject;)Ljava/util/List;
 
     move-result-object v0
 

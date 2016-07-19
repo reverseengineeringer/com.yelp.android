@@ -1,139 +1,129 @@
-.class public abstract Lcom/google/android/gms/internal/em$a;
-.super Landroid/os/Binder;
+.class public final Lcom/google/android/gms/internal/em$a;
+.super Ljava/lang/Object;
 
-# interfaces
-.implements Lcom/google/android/gms/internal/em;
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/gms/internal/em;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = "a"
+.end annotation
+
+
+# instance fields
+.field private a:Z
+
+.field private b:Z
+
+.field private c:Z
+
+.field private d:Z
+
+.field private e:Z
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Landroid/os/Binder;-><init>()V
-
-    const-string/jumbo v0, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchase"
-
-    invoke-virtual {p0, p0, v0}, Lcom/google/android/gms/internal/em$a;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static u(Landroid/os/IBinder;)Lcom/google/android/gms/internal/em;
-    .locals 2
+.method static synthetic a(Lcom/google/android/gms/internal/em$a;)Z
+    .locals 1
 
-    if-nez p0, :cond_0
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/em$a;->a:Z
 
-    const/4 v0, 0x0
+    return v0
+.end method
 
-    :goto_0
-    return-object v0
+.method static synthetic b(Lcom/google/android/gms/internal/em$a;)Z
+    .locals 1
 
-    :cond_0
-    const-string/jumbo v0, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchase"
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/em$a;->b:Z
 
-    invoke-interface {p0, v0}, Landroid/os/IBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IInterface;
+    return v0
+.end method
 
-    move-result-object v0
+.method static synthetic c(Lcom/google/android/gms/internal/em$a;)Z
+    .locals 1
 
-    if-eqz v0, :cond_1
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/em$a;->c:Z
 
-    instance-of v1, v0, Lcom/google/android/gms/internal/em;
+    return v0
+.end method
 
-    if-eqz v1, :cond_1
+.method static synthetic d(Lcom/google/android/gms/internal/em$a;)Z
+    .locals 1
 
-    check-cast v0, Lcom/google/android/gms/internal/em;
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/em$a;->d:Z
 
-    goto :goto_0
+    return v0
+.end method
 
-    :cond_1
-    new-instance v0, Lcom/google/android/gms/internal/em$a$a;
+.method static synthetic e(Lcom/google/android/gms/internal/em$a;)Z
+    .locals 1
 
-    invoke-direct {v0, p0}, Lcom/google/android/gms/internal/em$a$a;-><init>(Landroid/os/IBinder;)V
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/em$a;->e:Z
 
-    goto :goto_0
+    return v0
 .end method
 
 
 # virtual methods
-.method public asBinder()Landroid/os/IBinder;
+.method public a(Z)Lcom/google/android/gms/internal/em$a;
     .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/em$a;->a:Z
 
     return-object p0
 .end method
 
-.method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+.method public a()Lcom/google/android/gms/internal/em;
     .locals 2
 
-    const/4 v0, 0x1
+    new-instance v0, Lcom/google/android/gms/internal/em;
 
-    sparse-switch p1, :sswitch_data_0
+    const/4 v1, 0x0
 
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
+    invoke-direct {v0, p0, v1}, Lcom/google/android/gms/internal/em;-><init>(Lcom/google/android/gms/internal/em$a;Lcom/google/android/gms/internal/em$1;)V
 
-    move-result v0
+    return-object v0
+.end method
 
-    :goto_0
-    return v0
+.method public b(Z)Lcom/google/android/gms/internal/em$a;
+    .locals 0
 
-    :sswitch_0
-    const-string/jumbo v1, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchase"
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/em$a;->b:Z
 
-    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    return-object p0
+.end method
 
-    goto :goto_0
+.method public c(Z)Lcom/google/android/gms/internal/em$a;
+    .locals 0
 
-    :sswitch_1
-    const-string/jumbo v1, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchase"
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/em$a;->c:Z
 
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+    return-object p0
+.end method
 
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/em$a;->getProductId()Ljava/lang/String;
+.method public d(Z)Lcom/google/android/gms/internal/em$a;
+    .locals 0
 
-    move-result-object v1
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/em$a;->d:Z
 
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+    return-object p0
+.end method
 
-    invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+.method public e(Z)Lcom/google/android/gms/internal/em$a;
+    .locals 0
 
-    goto :goto_0
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/em$a;->e:Z
 
-    :sswitch_2
-    const-string/jumbo v1, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchase"
-
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/google/android/gms/internal/em$a;->recordResolution(I)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto :goto_0
-
-    :sswitch_3
-    const-string/jumbo v1, "com.google.android.gms.ads.internal.purchase.client.IInAppPurchase"
-
-    invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
-
-    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Lcom/google/android/gms/internal/em$a;->recordPlayBillingResolution(I)V
-
-    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
-
-    goto :goto_0
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0x1 -> :sswitch_1
-        0x2 -> :sswitch_2
-        0x3 -> :sswitch_3
-        0x5f4e5446 -> :sswitch_0
-    .end sparse-switch
+    return-object p0
 .end method

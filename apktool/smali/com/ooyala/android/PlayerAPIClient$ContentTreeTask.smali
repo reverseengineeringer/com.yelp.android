@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/PlayerAPIClient;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "ContentTreeTask"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroid/os/AsyncTask",

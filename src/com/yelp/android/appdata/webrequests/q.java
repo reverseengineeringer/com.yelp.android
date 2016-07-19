@@ -1,25 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.parcelgen.JsonParser;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.List;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
-public class q<E>
-  extends JsonParser<List<E>>
+public class q
+  extends ShareRequest
 {
-  private final String a;
-  private final JsonParser<E> b;
-  
-  public q(String paramString, JsonParser<E> paramJsonParser)
+  public q(String paramString1, String paramString2, ShareRequest.ShareType paramShareType, c.a parama)
   {
-    a = paramString;
-    b = paramJsonParser;
-  }
-  
-  public List<E> a(JSONObject paramJSONObject)
-  {
-    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray(a), b);
+    super("/badge/share/", parama, paramShareType);
+    b("badge_id", paramString1);
+    b("check_in_id", paramString2);
   }
 }
 

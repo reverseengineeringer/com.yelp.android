@@ -18,7 +18,7 @@
 
     const/4 v1, 0x0
 
-    .line 41
+    .line 40
     new-array v0, v5, [C
 
     sput-object v0, Lcom/yelp/android/services/a;->a:[C
@@ -49,7 +49,7 @@
 
     goto :goto_0
 
-    .line 46
+    .line 47
     :cond_0
     const/16 v0, 0x61
 
@@ -58,14 +58,14 @@
 
     if-gt v0, v3, :cond_1
 
-    .line 47
+    .line 48
     sget-object v4, Lcom/yelp/android/services/a;->a:[C
 
     add-int/lit8 v3, v2, 0x1
 
     aput-char v0, v4, v2
 
-    .line 46
+    .line 47
     add-int/lit8 v0, v0, 0x1
 
     int-to-char v0, v0
@@ -74,7 +74,7 @@
 
     goto :goto_1
 
-    .line 48
+    .line 50
     :cond_1
     const/16 v0, 0x30
 
@@ -83,14 +83,14 @@
 
     if-gt v0, v3, :cond_2
 
-    .line 49
+    .line 51
     sget-object v4, Lcom/yelp/android/services/a;->a:[C
 
     add-int/lit8 v3, v2, 0x1
 
     aput-char v0, v4, v2
 
-    .line 48
+    .line 50
     add-int/lit8 v0, v0, 0x1
 
     int-to-char v0, v0
@@ -99,7 +99,7 @@
 
     goto :goto_2
 
-    .line 50
+    .line 53
     :cond_2
     sget-object v0, Lcom/yelp/android/services/a;->a:[C
 
@@ -109,7 +109,7 @@
 
     aput-char v4, v0, v2
 
-    .line 51
+    .line 54
     sget-object v0, Lcom/yelp/android/services/a;->a:[C
 
     add-int/lit8 v2, v3, 0x1
@@ -118,7 +118,7 @@
 
     aput-char v2, v0, v3
 
-    .line 55
+    .line 58
     const/16 v0, 0x80
 
     new-array v0, v0, [B
@@ -127,7 +127,7 @@
 
     move v0, v1
 
-    .line 57
+    .line 61
     :goto_3
     sget-object v2, Lcom/yelp/android/services/a;->b:[B
 
@@ -135,24 +135,24 @@
 
     if-ge v0, v2, :cond_3
 
-    .line 58
+    .line 62
     sget-object v2, Lcom/yelp/android/services/a;->b:[B
 
     const/4 v3, -0x1
 
     aput-byte v3, v2, v0
 
-    .line 57
+    .line 61
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    .line 59
+    .line 64
     :cond_3
     :goto_4
     if-ge v1, v5, :cond_4
 
-    .line 60
+    .line 65
     sget-object v0, Lcom/yelp/android/services/a;->b:[B
 
     sget-object v2, Lcom/yelp/android/services/a;->a:[C
@@ -163,12 +163,12 @@
 
     aput-byte v3, v0, v2
 
-    .line 59
+    .line 64
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_4
 
-    .line 61
+    .line 67
     :cond_4
     return-void
 .end method
@@ -177,18 +177,14 @@
     .locals 2
 
     .prologue
-    .line 71
+    .line 132
     new-instance v0, Ljava/lang/String;
 
-    invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
+    invoke-static {p0}, Lcom/yelp/android/services/a;->b(Ljava/lang/String;)[B
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/yelp/android/services/a;->a([B)[C
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/String;-><init>([C)V
+    invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
 
     return-object v0
 .end method
@@ -203,15 +199,15 @@
 
     const/16 v11, 0x7f
 
-    .line 151
+    .line 157
     array-length v1, p0
 
-    .line 152
+    .line 158
     rem-int/lit8 v3, v1, 0x4
 
     if-eqz v3, :cond_a
 
-    .line 153
+    .line 159
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string/jumbo v1, "Length of Base64 encoded input string is not a multiple of 4."
@@ -220,7 +216,7 @@
 
     throw v0
 
-    .line 155
+    .line 162
     :goto_0
     if-lez v6, :cond_0
 
@@ -232,39 +228,39 @@
 
     if-ne v1, v3, :cond_0
 
-    .line 156
+    .line 163
     add-int/lit8 v1, v6, -0x1
 
     move v6, v1
 
     goto :goto_0
 
-    .line 157
+    .line 165
     :cond_0
     mul-int/lit8 v1, v6, 0x3
 
     div-int/lit8 v7, v1, 0x4
 
-    .line 158
+    .line 166
     new-array v8, v7, [B
 
     move v5, v0
 
-    .line 161
+    .line 169
     :goto_1
     if-ge v0, v6, :cond_7
 
-    .line 162
+    .line 170
     add-int/lit8 v1, v0, 0x1
 
     aget-char v9, p0, v0
 
-    .line 163
+    .line 171
     add-int/lit8 v0, v1, 0x1
 
     aget-char v10, p0, v1
 
-    .line 164
+    .line 172
     if-ge v0, v6, :cond_2
 
     add-int/lit8 v1, v0, 0x1
@@ -275,7 +271,7 @@
 
     move v0, v1
 
-    .line 165
+    .line 173
     :goto_2
     if-ge v0, v6, :cond_3
 
@@ -285,7 +281,7 @@
 
     move v3, v1
 
-    .line 166
+    .line 174
     :goto_3
     if-gt v9, v11, :cond_1
 
@@ -295,7 +291,7 @@
 
     if-le v0, v11, :cond_4
 
-    .line 167
+    .line 175
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -308,7 +304,7 @@
     :cond_2
     move v4, v2
 
-    .line 164
+    .line 172
     goto :goto_2
 
     :cond_3
@@ -316,31 +312,31 @@
 
     move v0, v2
 
-    .line 165
+    .line 173
     goto :goto_3
 
-    .line 168
+    .line 177
     :cond_4
     sget-object v1, Lcom/yelp/android/services/a;->b:[B
 
     aget-byte v1, v1, v9
 
-    .line 169
+    .line 178
     sget-object v9, Lcom/yelp/android/services/a;->b:[B
 
     aget-byte v9, v9, v10
 
-    .line 170
+    .line 179
     sget-object v10, Lcom/yelp/android/services/a;->b:[B
 
     aget-byte v4, v10, v4
 
-    .line 171
+    .line 180
     sget-object v10, Lcom/yelp/android/services/a;->b:[B
 
     aget-byte v0, v10, v0
 
-    .line 172
+    .line 181
     if-ltz v1, :cond_5
 
     if-ltz v9, :cond_5
@@ -349,7 +345,7 @@
 
     if-gez v0, :cond_6
 
-    .line 173
+    .line 182
     :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -359,7 +355,7 @@
 
     throw v0
 
-    .line 174
+    .line 184
     :cond_6
     shl-int/lit8 v1, v1, 0x2
 
@@ -367,7 +363,7 @@
 
     or-int/2addr v1, v10
 
-    .line 175
+    .line 185
     and-int/lit8 v9, v9, 0xf
 
     shl-int/lit8 v9, v9, 0x4
@@ -376,35 +372,35 @@
 
     or-int/2addr v9, v10
 
-    .line 176
+    .line 186
     and-int/lit8 v4, v4, 0x3
 
     shl-int/lit8 v4, v4, 0x6
 
     or-int/2addr v4, v0
 
-    .line 177
+    .line 187
     add-int/lit8 v0, v5, 0x1
 
     int-to-byte v1, v1
 
     aput-byte v1, v8, v5
 
-    .line 178
+    .line 188
     if-ge v0, v7, :cond_9
 
-    .line 179
+    .line 189
     add-int/lit8 v1, v0, 0x1
 
     int-to-byte v5, v9
 
     aput-byte v5, v8, v0
 
-    .line 180
+    .line 191
     :goto_4
     if-ge v1, v7, :cond_8
 
-    .line 181
+    .line 192
     add-int/lit8 v0, v1, 0x1
 
     int-to-byte v4, v4
@@ -416,10 +412,10 @@
 
     move v0, v3
 
-    .line 182
+    .line 194
     goto :goto_1
 
-    .line 183
+    .line 195
     :cond_7
     return-object v8
 
@@ -443,7 +439,7 @@
     .locals 1
 
     .prologue
-    .line 82
+    .line 88
     array-length v0, p0
 
     invoke-static {p0, v0}, Lcom/yelp/android/services/a;->a([BI)[C
@@ -461,39 +457,39 @@
 
     const/4 v1, 0x0
 
-    .line 94
+    .line 100
     mul-int/lit8 v0, p1, 0x4
 
     add-int/lit8 v0, v0, 0x2
 
     div-int/lit8 v6, v0, 0x3
 
-    .line 95
+    .line 101
     add-int/lit8 v0, p1, 0x2
 
     div-int/lit8 v0, v0, 0x3
 
     mul-int/lit8 v0, v0, 0x4
 
-    .line 96
+    .line 102
     new-array v7, v0, [C
 
     move v5, v1
 
     move v2, v1
 
-    .line 99
+    .line 105
     :goto_0
     if-ge v2, p1, :cond_4
 
-    .line 100
+    .line 106
     add-int/lit8 v0, v2, 0x1
 
     aget-byte v2, p0, v2
 
     and-int/lit16 v8, v2, 0xff
 
-    .line 101
+    .line 107
     if-ge v0, p1, :cond_0
 
     add-int/lit8 v2, v0, 0x1
@@ -506,7 +502,7 @@
 
     move v0, v2
 
-    .line 102
+    .line 108
     :goto_1
     if-ge v0, p1, :cond_1
 
@@ -516,11 +512,11 @@
 
     and-int/lit16 v0, v0, 0xff
 
-    .line 103
+    .line 109
     :goto_2
     ushr-int/lit8 v9, v8, 0x2
 
-    .line 104
+    .line 110
     and-int/lit8 v8, v8, 0x3
 
     shl-int/lit8 v8, v8, 0x4
@@ -529,7 +525,7 @@
 
     or-int/2addr v8, v10
 
-    .line 105
+    .line 111
     and-int/lit8 v4, v4, 0xf
 
     shl-int/lit8 v4, v4, 0x2
@@ -538,10 +534,10 @@
 
     or-int/2addr v4, v10
 
-    .line 106
+    .line 112
     and-int/lit8 v10, v0, 0x3f
 
-    .line 107
+    .line 113
     add-int/lit8 v0, v5, 0x1
 
     sget-object v11, Lcom/yelp/android/services/a;->a:[C
@@ -550,7 +546,7 @@
 
     aput-char v9, v7, v5
 
-    .line 108
+    .line 114
     add-int/lit8 v5, v0, 0x1
 
     sget-object v9, Lcom/yelp/android/services/a;->a:[C
@@ -559,7 +555,7 @@
 
     aput-char v8, v7, v0
 
-    .line 109
+    .line 115
     if-ge v5, v6, :cond_2
 
     sget-object v0, Lcom/yelp/android/services/a;->a:[C
@@ -569,10 +565,10 @@
     :goto_3
     aput-char v0, v7, v5
 
-    .line 110
+    .line 116
     add-int/lit8 v4, v5, 0x1
 
-    .line 111
+    .line 117
     if-ge v4, v6, :cond_3
 
     sget-object v0, Lcom/yelp/android/services/a;->a:[C
@@ -582,18 +578,18 @@
     :goto_4
     aput-char v0, v7, v4
 
-    .line 112
+    .line 118
     add-int/lit8 v0, v4, 0x1
 
     move v5, v0
 
-    .line 113
+    .line 119
     goto :goto_0
 
     :cond_0
     move v4, v1
 
-    .line 101
+    .line 107
     goto :goto_1
 
     :cond_1
@@ -601,47 +597,31 @@
 
     move v0, v1
 
-    .line 102
+    .line 108
     goto :goto_2
 
     :cond_2
     move v0, v3
 
-    .line 109
+    .line 115
     goto :goto_3
 
     :cond_3
     move v0, v3
 
-    .line 111
+    .line 117
     goto :goto_4
 
-    .line 114
+    .line 120
     :cond_4
     return-object v7
 .end method
 
-.method public static b(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-
-    .prologue
-    .line 126
-    new-instance v0, Ljava/lang/String;
-
-    invoke-static {p0}, Lcom/yelp/android/services/a;->c(Ljava/lang/String;)[B
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
-
-    return-object v0
-.end method
-
-.method public static c(Ljava/lang/String;)[B
+.method public static b(Ljava/lang/String;)[B
     .locals 1
 
     .prologue
-    .line 138
+    .line 144
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v0

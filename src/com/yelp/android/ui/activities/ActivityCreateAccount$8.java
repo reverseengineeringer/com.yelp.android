@@ -1,0 +1,18 @@
+package com.yelp.android.ui.activities;
+
+class ActivityCreateAccount$8
+  implements Runnable
+{
+  ActivityCreateAccount$8(ActivityCreateAccount paramActivityCreateAccount) {}
+  
+  public void run()
+  {
+    ActivityCreateAccount.l(a);
+  }
+}
+
+/* Location:
+ * Qualified Name:     com.yelp.android.ui.activities.ActivityCreateAccount.8
+ * Java Class Version: 6 (50.0)
+ * JD-Core Version:    0.7.1
+ */

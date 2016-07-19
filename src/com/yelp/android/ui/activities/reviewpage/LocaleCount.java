@@ -17,38 +17,23 @@ import java.util.Set;
 public class LocaleCount
   implements Parcelable
 {
-  public static final Parcelable.Creator<LocaleCount> CREATOR = new af();
-  public final int mCount;
-  public final Locale mLocale;
+  public static final Parcelable.Creator<LocaleCount> CREATOR = new LocaleCount.1();
+  public final Locale a;
+  public final int b;
   
   public LocaleCount(Locale paramLocale, int paramInt)
   {
-    mLocale = paramLocale;
-    mCount = paramInt;
+    a = paramLocale;
+    b = paramInt;
   }
   
   public LocaleCount(Map.Entry<Locale, Integer> paramEntry)
   {
-    mLocale = ((Locale)paramEntry.getKey());
-    mCount = ((Integer)paramEntry.getValue()).intValue();
+    a = ((Locale)paramEntry.getKey());
+    b = ((Integer)paramEntry.getValue()).intValue();
   }
   
-  public static Map<Locale, Integer> listToMap(ArrayList<LocaleCount> paramArrayList)
-  {
-    if (paramArrayList == null) {
-      return null;
-    }
-    HashMap localHashMap = new HashMap();
-    paramArrayList = paramArrayList.iterator();
-    while (paramArrayList.hasNext())
-    {
-      LocaleCount localLocaleCount = (LocaleCount)paramArrayList.next();
-      localHashMap.put(mLocale, Integer.valueOf(mCount));
-    }
-    return localHashMap;
-  }
-  
-  public static ArrayList<LocaleCount> mapToList(Map<Locale, Integer> paramMap)
+  public static ArrayList<LocaleCount> a(Map<Locale, Integer> paramMap)
   {
     if (paramMap == null) {
       return null;
@@ -61,6 +46,21 @@ public class LocaleCount
     return localArrayList;
   }
   
+  public static Map<Locale, Integer> a(ArrayList<LocaleCount> paramArrayList)
+  {
+    if (paramArrayList == null) {
+      return null;
+    }
+    HashMap localHashMap = new HashMap();
+    paramArrayList = paramArrayList.iterator();
+    while (paramArrayList.hasNext())
+    {
+      LocaleCount localLocaleCount = (LocaleCount)paramArrayList.next();
+      localHashMap.put(a, Integer.valueOf(b));
+    }
+    return localHashMap;
+  }
+  
   public int describeContents()
   {
     return 0;
@@ -68,8 +68,8 @@ public class LocaleCount
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    YelpBusinessReview.writeLocaleToParcel(paramParcel, mLocale);
-    paramParcel.writeInt(mCount);
+    YelpBusinessReview.a(paramParcel, a);
+    paramParcel.writeInt(b);
   }
 }
 

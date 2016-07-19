@@ -1,65 +1,130 @@
 .class Landroid/support/v4/widget/h;
-.super Ljava/lang/Object;
-.source "ContentLoadingProgressBar.java"
+.super Landroid/widget/Filter;
+.source "CursorFilter.java"
 
-# interfaces
-.implements Ljava/lang/Runnable;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/widget/h$a;
+    }
+.end annotation
 
 
 # instance fields
-.field final synthetic a:Landroid/support/v4/widget/ContentLoadingProgressBar;
+.field a:Landroid/support/v4/widget/h$a;
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v4/widget/ContentLoadingProgressBar;)V
+.method constructor <init>(Landroid/support/v4/widget/h$a;)V
     .locals 0
 
     .prologue
-    .line 52
-    iput-object p1, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/ContentLoadingProgressBar;
+    .line 39
+    invoke-direct {p0}, Landroid/widget/Filter;-><init>()V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 40
+    iput-object p1, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/h$a;
 
+    .line 41
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public convertResultToString(Ljava/lang/Object;)Ljava/lang/CharSequence;
+    .locals 1
 
     .prologue
-    const/4 v1, 0x0
+    .line 45
+    iget-object v0, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/h$a;
 
-    .line 56
-    iget-object v0, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/ContentLoadingProgressBar;
+    check-cast p1, Landroid/database/Cursor;
 
-    invoke-static {v0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->b(Landroid/support/v4/widget/ContentLoadingProgressBar;Z)Z
+    invoke-interface {v0, p1}, Landroid/support/v4/widget/h$a;->c(Landroid/database/Cursor;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected performFiltering(Ljava/lang/CharSequence;)Landroid/widget/Filter$FilterResults;
+    .locals 3
+
+    .prologue
+    .line 50
+    iget-object v0, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/h$a;
+
+    invoke-interface {v0, p1}, Landroid/support/v4/widget/h$a;->a(Ljava/lang/CharSequence;)Landroid/database/Cursor;
+
+    move-result-object v0
+
+    .line 52
+    new-instance v1, Landroid/widget/Filter$FilterResults;
+
+    invoke-direct {v1}, Landroid/widget/Filter$FilterResults;-><init>()V
+
+    .line 53
+    if-eqz v0, :cond_0
+
+    .line 54
+    invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
+
+    move-result v2
+
+    iput v2, v1, Landroid/widget/Filter$FilterResults;->count:I
+
+    .line 55
+    iput-object v0, v1, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
+
+    .line 60
+    :goto_0
+    return-object v1
 
     .line 57
-    iget-object v0, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/ContentLoadingProgressBar;
+    :cond_0
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Landroid/support/v4/widget/ContentLoadingProgressBar;->a(Landroid/support/v4/widget/ContentLoadingProgressBar;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
+    iput v0, v1, Landroid/widget/Filter$FilterResults;->count:I
 
     .line 58
-    iget-object v0, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/ContentLoadingProgressBar;
+    const/4 v0, 0x0
 
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    iput-object v0, v1, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
 
-    move-result-wide v2
+    goto :goto_0
+.end method
 
-    invoke-static {v0, v2, v3}, Landroid/support/v4/widget/ContentLoadingProgressBar;->a(Landroid/support/v4/widget/ContentLoadingProgressBar;J)J
+.method protected publishResults(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterResults;)V
+    .locals 2
 
-    .line 59
-    iget-object v0, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/ContentLoadingProgressBar;
+    .prologue
+    .line 65
+    iget-object v0, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/h$a;
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/widget/ContentLoadingProgressBar;->setVisibility(I)V
+    invoke-interface {v0}, Landroid/support/v4/widget/h$a;->a()Landroid/database/Cursor;
 
-    .line 61
+    move-result-object v0
+
+    .line 67
+    iget-object v1, p2, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p2, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
+
+    if-eq v1, v0, :cond_0
+
+    .line 68
+    iget-object v1, p0, Landroid/support/v4/widget/h;->a:Landroid/support/v4/widget/h$a;
+
+    iget-object v0, p2, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
+
+    check-cast v0, Landroid/database/Cursor;
+
+    invoke-interface {v1, v0}, Landroid/support/v4/widget/h$a;->a(Landroid/database/Cursor;)V
+
+    .line 70
     :cond_0
     return-void
 .end method

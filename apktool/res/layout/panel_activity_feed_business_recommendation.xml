@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <TextView android:textAppearance="@style/BodyText" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/trending_business" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/border" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" />
+    <com.yelp.android.ui.widgets.HotNewBusinessAwardBanner android:id="@id/hot_new_business_banner" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginBottom="@dimen/default_small_gap_size" style="@style/AwardBannerHotNewBusiness" />
+    <com.yelp.android.ui.widgets.AwardBanner android:id="@id/popular_bookmark_banner" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginBottom="@dimen/default_small_gap_size" style="@style/AwardBannerPopularBookmark" />
+    <include layout="@layout/panel_activity_feed_business_fullcontent_segment" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

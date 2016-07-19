@@ -7,21 +7,41 @@ import android.os.Parcelable.Creator;
 public class RankLocation
   implements Parcelable
 {
-  public static final Parcelable.Creator<RankLocation> CREATOR = new ce();
-  public static final az<RankLocation> LAZY_CREATOR = new cd();
-  private final YelpBusiness mBusiness;
-  private final String mId;
-  private final String mName;
-  private final RankTitle.Rank mRank;
-  private final int mTopUserCount;
+  public static final Parcelable.Creator<RankLocation> CREATOR = new RankLocation.2();
+  public static final c<RankLocation> a = new RankLocation.1();
+  private final String b;
+  private final String c;
+  private final int d;
+  private final RankTitle.Rank e;
+  private final YelpBusiness f;
   
   public RankLocation(String paramString1, String paramString2, int paramInt, RankTitle.Rank paramRank, YelpBusiness paramYelpBusiness)
   {
-    mId = paramString1;
-    mName = paramString2;
-    mRank = paramRank;
-    mTopUserCount = paramInt;
-    mBusiness = paramYelpBusiness;
+    b = paramString1;
+    c = paramString2;
+    e = paramRank;
+    d = paramInt;
+    f = paramYelpBusiness;
+  }
+  
+  public String a()
+  {
+    return b;
+  }
+  
+  public String b()
+  {
+    return c;
+  }
+  
+  public int c()
+  {
+    return d;
+  }
+  
+  public YelpBusiness d()
+  {
+    return f;
   }
   
   public int describeContents()
@@ -29,41 +49,16 @@ public class RankLocation
     return 0;
   }
   
-  public YelpBusiness getBusiness()
-  {
-    return mBusiness;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public String getName()
-  {
-    return mName;
-  }
-  
-  public RankTitle.Rank getRank()
-  {
-    return mRank;
-  }
-  
-  public int getTopUserCount()
-  {
-    return mTopUserCount;
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mId);
-    paramParcel.writeString(mName);
-    paramParcel.writeInt(mTopUserCount);
-    if (mRank == null) {}
-    for (String str = null;; str = mRank.name())
+    paramParcel.writeString(b);
+    paramParcel.writeString(c);
+    paramParcel.writeInt(d);
+    if (e == null) {}
+    for (String str = null;; str = e.name())
     {
       paramParcel.writeString(str);
-      paramParcel.writeParcelable(mBusiness, 0);
+      paramParcel.writeParcelable(f, 0);
       return;
     }
   }

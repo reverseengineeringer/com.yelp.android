@@ -3,6 +3,9 @@ package com.yelp.android.ui.activities.deals;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -33,20 +36,20 @@ public class ChooseDealOption
     return ViewIri.DealOptions;
   }
   
-  protected void onCreate(Bundle paramBundle)
+  protected void onCreate(final Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    Object localObject1 = getIntent();
+    final Object localObject1 = getIntent();
     paramBundle = (YelpDeal)((Intent)localObject1).getParcelableExtra("DEAL.xtra");
     localObject1 = (YelpBusiness)((Intent)localObject1).getParcelableExtra("BUSINESS.xtra");
-    Object localObject4 = paramBundle.getOptions();
+    Object localObject4 = paramBundle.y();
     if (((List)localObject4).size() == 1)
     {
       startActivity(PurchaseDealsForm.a(this, (YelpBusiness)localObject1, paramBundle, 0));
       finish();
       return;
     }
-    setContentView(2130903072);
+    setContentView(2130903080);
     Object localObject2 = new String[2];
     localObject2[0] = "Title";
     localObject2[1] = "Subtitle";
@@ -56,14 +59,21 @@ public class ChooseDealOption
     {
       YelpDealOption localYelpDealOption = (YelpDealOption)((Iterator)localObject4).next();
       TreeMap localTreeMap = new TreeMap();
-      localTreeMap.put(localObject2[0], localYelpDealOption.getTitle());
-      localTreeMap.put(localObject2[1], localYelpDealOption.getDescription());
+      localTreeMap.put(localObject2[0], localYelpDealOption.g());
+      localTreeMap.put(localObject2[1], localYelpDealOption.f());
       ((List)localObject3).add(localTreeMap);
     }
-    localObject2 = new SimpleAdapter(this, (List)localObject3, 2130903158, (String[])localObject2, new int[] { 2131492996, 2131493145 });
-    localObject3 = (ListView)findViewById(2131493087);
+    localObject2 = new SimpleAdapter(this, (List)localObject3, 2130903176, (String[])localObject2, new int[] { 2131689641, 2131689711 });
+    localObject3 = (ListView)findViewById(2131689771);
     ((ListView)localObject3).setAdapter((ListAdapter)localObject2);
-    ((ListView)localObject3).setOnItemClickListener(new ac(this, (YelpBusiness)localObject1, paramBundle));
+    ((ListView)localObject3).setOnItemClickListener(new AdapterView.OnItemClickListener()
+    {
+      public void onItemClick(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong)
+      {
+        finish();
+        startActivity(PurchaseDealsForm.a(ChooseDealOption.this, localObject1, paramBundle, paramAnonymousInt));
+      }
+    });
   }
 }
 

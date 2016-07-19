@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/serializable/Compliment;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "ComplimentableItemType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -64,13 +73,13 @@
 
     const-string/jumbo v1, "REVIEW"
 
-    const v3, 0x7f0701b9
+    const v3, 0x7f0701ef
 
-    const v4, 0x7f0701ba
+    const v4, 0x7f0701f0
 
-    const v5, 0x7f0701bb
+    const v5, 0x7f0701f1
 
-    const v6, 0x7f0701bc
+    const v6, 0x7f0701f2
 
     const-string/jumbo v7, "review_id"
 
@@ -83,13 +92,13 @@
 
     const-string/jumbo v4, "BIZ_PHOTO"
 
-    const v6, 0x7f0701ad
+    const v6, 0x7f0701e6
 
-    const v7, 0x7f0701ae
+    const v7, 0x7f0701e7
 
-    const v8, 0x7f0701af
+    const v8, 0x7f0701e8
 
-    const v9, 0x7f0701b0
+    const v9, 0x7f0701e9
 
     const-string/jumbo v10, "biz_photo_id"
 
@@ -104,15 +113,15 @@
 
     const-string/jumbo v4, "USER_PHOTO"
 
-    const v6, 0x7f0701b5
+    const v6, 0x7f0701eb
 
-    const v7, 0x7f0701b6
+    const v7, 0x7f0701ec
 
-    const v8, 0x7f0701b7
+    const v8, 0x7f0701ed
 
-    const v9, 0x7f0701b8
+    const v9, 0x7f0701ee
 
-    const-string/jumbo v10, ""
+    const-string/jumbo v10, "user_photo_id"
 
     move v5, v12
 
@@ -120,18 +129,18 @@
 
     sput-object v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->USER_PHOTO:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
-    .line 63
+    .line 64
     new-instance v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
     const-string/jumbo v4, "QUICK_TIP"
 
-    const v6, 0x7f0701be
+    const v6, 0x7f0701f4
 
-    const v7, 0x7f0701bf
+    const v7, 0x7f0701f5
 
-    const v8, 0x7f0701c0
+    const v8, 0x7f0701f6
 
-    const v9, 0x7f0701c1
+    const v9, 0x7f0701f7
 
     const-string/jumbo v10, "quicktip_id"
 
@@ -141,18 +150,18 @@
 
     sput-object v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->QUICK_TIP:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
-    .line 69
+    .line 70
     new-instance v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
     const-string/jumbo v4, "EVENT_PHOTO"
 
-    const v6, 0x7f0701a0
+    const v6, 0x7f0701de
 
-    const v7, 0x7f0701a1
+    const v7, 0x7f0701df
 
-    const v8, 0x7f0701a2
+    const v8, 0x7f0701e0
 
-    const v9, 0x7f0701b1
+    const v9, 0x7f0701ea
 
     const-string/jumbo v10, ""
 
@@ -162,20 +171,20 @@
 
     sput-object v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->EVENT_PHOTO:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
-    .line 75
+    .line 76
     new-instance v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
     const-string/jumbo v4, "USER"
 
     const/4 v5, 0x5
 
-    const v6, 0x7f0701a4
+    const v6, 0x7f0701e1
 
-    const v7, 0x7f0701a5
+    const v7, 0x7f0701e2
 
-    const v8, 0x7f0701a6
+    const v8, 0x7f0701e3
 
-    const v9, 0x7f0701a7
+    const v9, 0x7f0701e4
 
     const-string/jumbo v10, ""
 
@@ -183,20 +192,20 @@
 
     sput-object v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->USER:Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
-    .line 81
+    .line 82
     new-instance v3, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;
 
     const-string/jumbo v4, "UNKNOWN"
 
     const/4 v5, 0x6
 
-    const v6, 0x7f0701a4
+    const v6, 0x7f0701e1
 
-    const v7, 0x7f0701a5
+    const v7, 0x7f0701e2
 
-    const v8, 0x7f0701a6
+    const v8, 0x7f0701e3
 
-    const v9, 0x7f0701a7
+    const v9, 0x7f0701e4
 
     const-string/jumbo v10, ""
 
@@ -257,25 +266,25 @@
     .end annotation
 
     .prologue
-    .line 94
+    .line 100
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 95
+    .line 101
     iput p3, p0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->mToAnotherFemaleUser:I
 
-    .line 96
+    .line 102
     iput p4, p0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->mToAnotherMaleUser:I
 
-    .line 97
+    .line 103
     iput p5, p0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->mToLoggedInFemaleUser:I
 
-    .line 98
+    .line 104
     iput p6, p0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->mToLoggedInMaleUser:I
 
-    .line 99
+    .line 105
     iput-object p7, p0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->mKey:Ljava/lang/String;
 
-    .line 100
+    .line 106
     return-void
 .end method
 
@@ -317,13 +326,13 @@
     .locals 1
 
     .prologue
-    .line 112
+    .line 118
     if-eqz p2, :cond_2
 
-    .line 113
+    .line 119
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->isMale()Z
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->w()Z
 
     move-result v0
 
@@ -332,21 +341,21 @@
     :cond_0
     iget v0, p0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->mToLoggedInMaleUser:I
 
-    .line 115
+    .line 121
     :goto_0
     return v0
 
-    .line 113
+    .line 119
     :cond_1
     iget v0, p0, Lcom/yelp/android/serializable/Compliment$ComplimentableItemType;->mToAnotherFemaleUser:I
 
     goto :goto_0
 
-    .line 115
+    .line 121
     :cond_2
     if-eqz p1, :cond_3
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->isMale()Z
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->w()Z
 
     move-result v0
 

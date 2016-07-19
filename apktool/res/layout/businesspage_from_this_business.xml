@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
-    <RelativeLayout android:orientation="horizontal" android:background="@drawable/businesspage_grey_box_background" android:padding="?imageGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:minHeight="48.0dip">
-        <com.yelp.android.ui.widgets.WebImageView android:id="@id/from_this_biz_image" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:layout_marginRight="?imageGapSize" android:layout_alignParentLeft="true" android:layout_centerVertical="true" yelp:forceRoundingMode="clip" />
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="@dimen/clickable_size" yelp:position="bottom|left" style="?sublistCell">
+        <com.yelp.android.ui.widgets.WebImageView android:id="@id/from_this_biz_image" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:layout_marginRight="@dimen/default_image_gap_size" android:layout_alignParentLeft="true" android:layout_centerVertical="true" yelp:forceRoundingMode="clip" />
         <ImageView android:id="@id/from_this_biz_disclosure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="5.0dip" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
-        <TextView android:ellipsize="end" android:id="@id/from_this_biz_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_toLeftOf="@id/from_this_biz_disclosure" android:layout_toRightOf="@id/from_this_biz_image" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" style="@style/StandardText" />
-    </RelativeLayout>
+        <TextView android:textAppearance="@style/DeprecatedStandardText" android:ellipsize="end" android:id="@id/from_this_biz_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_toLeftOf="@id/from_this_biz_disclosure" android:layout_toRightOf="@id/from_this_biz_image" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
 </merge>

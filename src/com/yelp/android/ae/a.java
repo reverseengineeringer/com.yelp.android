@@ -1,92 +1,25 @@
 package com.yelp.android.ae;
 
-import com.bumptech.glide.load.d;
-import com.bumptech.glide.load.e;
-import com.yelp.android.ad.c;
-import com.yelp.android.v.m;
-import java.io.File;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.Drawable.ConstantState;
+import com.bumptech.glide.load.engine.i;
 
-public class a<A, T, Z, R>
-  implements f<A, T, Z, R>, Cloneable
+public abstract class a<T extends Drawable>
+  implements i<T>
 {
-  private final f<A, T, Z, R> a;
-  private d<File, Z> b;
-  private d<T, Z> c;
-  private e<Z> d;
-  private c<Z, R> e;
-  private com.bumptech.glide.load.a<T> f;
+  protected final T a;
   
-  public a(f<A, T, Z, R> paramf)
+  public a(T paramT)
   {
-    a = paramf;
-  }
-  
-  public d<File, Z> a()
-  {
-    if (b != null) {
-      return b;
+    if (paramT == null) {
+      throw new NullPointerException("Drawable must not be null!");
     }
-    return a.a();
+    a = paramT;
   }
   
-  public void a(com.bumptech.glide.load.a<T> parama)
+  public final T a()
   {
-    f = parama;
-  }
-  
-  public void a(d<T, Z> paramd)
-  {
-    c = paramd;
-  }
-  
-  public d<T, Z> b()
-  {
-    if (c != null) {
-      return c;
-    }
-    return a.b();
-  }
-  
-  public com.bumptech.glide.load.a<T> c()
-  {
-    if (f != null) {
-      return f;
-    }
-    return a.c();
-  }
-  
-  public e<Z> d()
-  {
-    if (d != null) {
-      return d;
-    }
-    return a.d();
-  }
-  
-  public m<A, T> e()
-  {
-    return a.e();
-  }
-  
-  public c<Z, R> f()
-  {
-    if (e != null) {
-      return e;
-    }
-    return a.f();
-  }
-  
-  public a<A, T, Z, R> g()
-  {
-    try
-    {
-      a locala = (a)super.clone();
-      return locala;
-    }
-    catch (CloneNotSupportedException localCloneNotSupportedException)
-    {
-      throw new RuntimeException(localCloneNotSupportedException);
-    }
+    return a.getConstantState().newDrawable();
   }
 }
 

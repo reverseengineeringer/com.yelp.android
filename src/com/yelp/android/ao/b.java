@@ -1,27 +1,87 @@
 package com.yelp.android.ao;
 
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpRequestInterceptor;
-import org.apache.http.protocol.HttpContext;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
-class b
-  implements HttpRequestInterceptor
+public final class b
+  extends FilterInputStream
 {
-  b(a parama) {}
+  private final long a;
+  private int b;
   
-  public void process(HttpRequest paramHttpRequest, HttpContext paramHttpContext)
+  b(InputStream paramInputStream, long paramLong)
   {
-    if (!paramHttpRequest.containsHeader("Accept-Encoding")) {
-      paramHttpRequest.addHeader("Accept-Encoding", "gzip");
+    super(paramInputStream);
+    a = paramLong;
+  }
+  
+  private int a(int paramInt)
+    throws IOException
+  {
+    if (paramInt >= 0) {
+      b += paramInt;
     }
-    paramHttpContext = a.a(a).keySet().iterator();
-    while (paramHttpContext.hasNext())
+    while (a - b <= 0L) {
+      return paramInt;
+    }
+    throw new IOException("Failed to read all expected data, expected: " + a + ", but read: " + b);
+  }
+  
+  public static InputStream a(InputStream paramInputStream, long paramLong)
+  {
+    return new b(paramInputStream, paramLong);
+  }
+  
+  public int available()
+    throws IOException
+  {
+    try
     {
-      String str = (String)paramHttpContext.next();
-      paramHttpRequest.addHeader(str, (String)a.a(a).get(str));
+      long l = Math.max(a - b, in.available());
+      int i = (int)l;
+      return i;
+    }
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
+  }
+  
+  public int read()
+    throws IOException
+  {
+    try
+    {
+      int i = a(super.read());
+      return i;
+    }
+    finally
+    {
+      localObject = finally;
+      throw ((Throwable)localObject);
+    }
+  }
+  
+  public int read(byte[] paramArrayOfByte)
+    throws IOException
+  {
+    return read(paramArrayOfByte, 0, paramArrayOfByte.length);
+  }
+  
+  public int read(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+    throws IOException
+  {
+    try
+    {
+      paramInt1 = a(super.read(paramArrayOfByte, paramInt1, paramInt2));
+      return paramInt1;
+    }
+    finally
+    {
+      paramArrayOfByte = finally;
+      throw paramArrayOfByte;
     }
   }
 }

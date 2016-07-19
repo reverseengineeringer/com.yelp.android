@@ -1,41 +1,81 @@
 package com.google.android.gms.internal;
 
-import com.google.android.gms.ads.AdListener;
+import android.text.TextUtils;
+import java.util.Map;
 
-@ey
-public final class at
-  extends bc.a
+@fv
+public abstract class at
 {
-  private final AdListener ob;
-  
-  public at(AdListener paramAdListener)
+  @fv
+  public static final at a = new at()
   {
-    ob = paramAdListener;
-  }
-  
-  public void onAdClosed()
+    public String a(String paramAnonymousString1, String paramAnonymousString2)
+    {
+      return paramAnonymousString2;
+    }
+  };
+  @fv
+  public static final at b = new at()
   {
-    ob.onAdClosed();
-  }
-  
-  public void onAdFailedToLoad(int paramInt)
+    public String a(String paramAnonymousString1, String paramAnonymousString2)
+    {
+      if (paramAnonymousString1 != null) {
+        return paramAnonymousString1;
+      }
+      return paramAnonymousString2;
+    }
+  };
+  @fv
+  public static final at c = new at()
   {
-    ob.onAdFailedToLoad(paramInt);
-  }
+    private String a(String paramAnonymousString)
+    {
+      if (TextUtils.isEmpty(paramAnonymousString)) {}
+      int i;
+      int j;
+      do
+      {
+        return paramAnonymousString;
+        i = 0;
+        int k = paramAnonymousString.length();
+        for (;;)
+        {
+          j = k;
+          if (i >= paramAnonymousString.length()) {
+            break;
+          }
+          j = k;
+          if (paramAnonymousString.charAt(i) != ',') {
+            break;
+          }
+          i += 1;
+        }
+        while ((j > 0) && (paramAnonymousString.charAt(j - 1) == ',')) {
+          j -= 1;
+        }
+      } while ((i == 0) && (j == paramAnonymousString.length()));
+      return paramAnonymousString.substring(i, j);
+    }
+    
+    public String a(String paramAnonymousString1, String paramAnonymousString2)
+    {
+      paramAnonymousString1 = a(paramAnonymousString1);
+      paramAnonymousString2 = a(paramAnonymousString2);
+      if (TextUtils.isEmpty(paramAnonymousString1)) {
+        return paramAnonymousString2;
+      }
+      if (TextUtils.isEmpty(paramAnonymousString2)) {
+        return paramAnonymousString1;
+      }
+      return paramAnonymousString1 + "," + paramAnonymousString2;
+    }
+  };
   
-  public void onAdLeftApplication()
-  {
-    ob.onAdLeftApplication();
-  }
+  public abstract String a(String paramString1, String paramString2);
   
-  public void onAdLoaded()
+  public final void a(Map<String, String> paramMap, String paramString1, String paramString2)
   {
-    ob.onAdLoaded();
-  }
-  
-  public void onAdOpened()
-  {
-    ob.onAdOpened();
+    paramMap.put(paramString1, a((String)paramMap.get(paramString1), paramString2));
   }
 }
 

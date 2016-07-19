@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field protected a:Lcom/yelp/android/ui/dialogs/r;
+.field protected a:Lcom/yelp/android/ui/dialogs/b;
 
 
 # direct methods
@@ -20,13 +20,13 @@
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/ui/dialogs/r;)V
+.method public a(Lcom/yelp/android/ui/dialogs/b;)V
     .locals 0
 
     .prologue
-    .line 25
-    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/UserFeedbackDialog;->a:Lcom/yelp/android/ui/dialogs/r;
-
     .line 26
+    iput-object p1, p0, Lcom/yelp/android/ui/dialogs/UserFeedbackDialog;->a:Lcom/yelp/android/ui/dialogs/b;
+
+    .line 27
     return-void
 .end method

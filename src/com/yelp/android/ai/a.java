@@ -1,53 +1,33 @@
 package com.yelp.android.ai;
 
-import android.util.Log;
-import java.util.Queue;
+import android.graphics.Bitmap;
+import com.bumptech.glide.load.engine.i;
+import com.bumptech.glide.load.resource.bitmap.j;
+import com.yelp.android.ae.b;
 
-public final class a
+public class a
+  implements c<com.yelp.android.ah.a, b>
 {
-  private static final a b = new a();
-  private final Queue<byte[]> a = f.a(0);
+  private final c<Bitmap, j> a;
   
-  public static a a()
+  public a(c<Bitmap, j> paramc)
   {
-    return b;
+    a = paramc;
   }
   
-  public boolean a(byte[] paramArrayOfByte)
+  public i<b> a(i<com.yelp.android.ah.a> parami)
   {
-    boolean bool = false;
-    if (paramArrayOfByte.length != 65536) {
-      return false;
+    parami = (com.yelp.android.ah.a)parami.b();
+    i locali = parami.b();
+    if (locali != null) {
+      return a.a(locali);
     }
-    synchronized (a)
-    {
-      if (a.size() < 32)
-      {
-        bool = true;
-        a.offer(paramArrayOfByte);
-      }
-      return bool;
-    }
+    return parami.c();
   }
   
-  public byte[] b()
+  public String a()
   {
-    synchronized (a)
-    {
-      byte[] arrayOfByte = (byte[])a.poll();
-      ??? = arrayOfByte;
-      if (arrayOfByte == null)
-      {
-        arrayOfByte = new byte[65536];
-        ??? = arrayOfByte;
-        if (Log.isLoggable("ByteArrayPool", 3))
-        {
-          Log.d("ByteArrayPool", "Created temp bytes");
-          ??? = arrayOfByte;
-        }
-      }
-      return (byte[])???;
-    }
+    return "GifBitmapWrapperDrawableTranscoder.com.bumptech.glide.load.resource.transcode";
   }
 }
 

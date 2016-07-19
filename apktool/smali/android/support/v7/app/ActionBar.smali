@@ -3,15 +3,25 @@
 .source "ActionBar.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v7/app/ActionBar$LayoutParams;,
+        Landroid/support/v7/app/ActionBar$b;,
+        Landroid/support/v7/app/ActionBar$a;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 97
+    .line 90
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1362
+    .line 1311
     return-void
 .end method
 
@@ -20,11 +30,11 @@
 .method public abstract a()Landroid/view/View;
 .end method
 
-.method public a(Lcom/yelp/android/m/b;)Lcom/yelp/android/m/a;
+.method public a(Lcom/yelp/android/r/a$a;)Lcom/yelp/android/r/a;
     .locals 1
 
     .prologue
-    .line 1044
+    .line 1037
     const/4 v0, 0x0
 
     return-object v0
@@ -34,14 +44,14 @@
     .locals 2
 
     .prologue
-    .line 1008
+    .line 1001
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
 
     if-eqz v0, :cond_0
 
-    .line 1009
+    .line 1002
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Setting a non-zero elevation is not supported in this action bar configuration."
@@ -50,7 +60,7 @@
 
     throw v0
 
-    .line 1012
+    .line 1005
     :cond_0
     return-void
 .end method
@@ -62,14 +72,14 @@
     .locals 0
 
     .prologue
-    .line 1036
+    .line 1029
     return-void
 .end method
 
 .method public abstract a(Landroid/graphics/drawable/Drawable;)V
 .end method
 
-.method public abstract a(Landroid/support/v7/app/a;)V
+.method public abstract a(Landroid/support/v7/app/ActionBar$a;)V
 .end method
 
 .method public abstract a(Landroid/view/View;)V
@@ -85,7 +95,7 @@
     .locals 1
 
     .prologue
-    .line 1064
+    .line 1057
     const/4 v0, 0x0
 
     return v0
@@ -97,19 +107,11 @@
 .method public abstract b(I)V
 .end method
 
-.method public b(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
-
-    .prologue
-    .line 877
-    return-void
-.end method
-
 .method public b(Ljava/lang/CharSequence;)V
     .locals 0
 
     .prologue
-    .line 1074
+    .line 1067
     return-void
 .end method
 
@@ -123,7 +125,7 @@
     .locals 0
 
     .prologue
-    .line 937
+    .line 930
     return-void
 .end method
 
@@ -137,7 +139,7 @@
     .locals 0
 
     .prologue
-    .line 835
+    .line 828
     return-void
 .end method
 
@@ -148,10 +150,10 @@
     .locals 2
 
     .prologue
-    .line 953
+    .line 946
     if-eqz p1, :cond_0
 
-    .line 954
+    .line 947
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "Hide on content scroll is not supported in this action bar configuration."
@@ -160,7 +162,7 @@
 
     throw v0
 
-    .line 957
+    .line 950
     :cond_0
     return-void
 .end method
@@ -169,7 +171,7 @@
     .locals 1
 
     .prologue
-    .line 847
+    .line 840
     const/4 v0, 0x0
 
     return-object v0
@@ -179,7 +181,7 @@
     .locals 0
 
     .prologue
-    .line 1028
+    .line 1021
     return-void
 .end method
 
@@ -187,7 +189,7 @@
     .locals 0
 
     .prologue
-    .line 1032
+    .line 1025
     return-void
 .end method
 
@@ -195,7 +197,7 @@
     .locals 1
 
     .prologue
-    .line 1054
+    .line 1047
     const/4 v0, 0x0
 
     return v0
@@ -205,7 +207,7 @@
     .locals 0
 
     .prologue
-    .line 1040
+    .line 1033
     return-void
 .end method
 
@@ -213,7 +215,7 @@
     .locals 1
 
     .prologue
-    .line 1069
+    .line 1062
     const/4 v0, 0x0
 
     return v0

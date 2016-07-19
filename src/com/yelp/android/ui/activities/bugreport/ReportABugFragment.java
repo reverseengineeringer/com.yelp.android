@@ -3,7 +3,7 @@ package com.yelp.android.ui.activities.bugreport;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.l;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -15,10 +15,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.eh;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.appdata.webrequests.dl;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.dialogs.AlertDialogFragment;
@@ -29,10 +30,10 @@ public class ReportABugFragment
   private EditText a;
   private EditText b;
   private View c;
-  private eh d;
-  private i e = new a(this);
-  private TextWatcher g = new b(this);
-  private DialogInterface.OnClickListener h = new c(this);
+  private dl d;
+  private c.a e = new ReportABugFragment.1(this);
+  private TextWatcher f = new ReportABugFragment.2(this);
+  private DialogInterface.OnClickListener g = new ReportABugFragment.3(this);
   
   public static ReportABugFragment a()
   {
@@ -43,28 +44,28 @@ public class ReportABugFragment
   
   private void b()
   {
-    i_();
-    d = new eh((YelpActivity)getActivity(), b.getText().toString(), c(), e);
-    d.execute(new Void[0]);
+    H_();
+    d = new dl((YelpActivity)getActivity(), b.getText().toString(), c(), e);
+    d.f(new Void[0]);
     AppData.a(EventIri.BugReportSent);
-    w();
+    y();
   }
   
   private String c()
   {
     String str2 = a.getText().toString();
     String str1 = str2;
-    if (AppData.b().m() != null)
+    if (AppData.b().q() != null)
     {
       str1 = str2;
       if (TextUtils.isEmpty(str2)) {
-        str1 = AppData.b().m().m();
+        str1 = AppData.b().q().i();
       }
     }
     return str1;
   }
   
-  public com.yelp.android.analytics.iris.b getIri()
+  public a getIri()
   {
     return ViewIri.BugReport;
   }
@@ -73,25 +74,25 @@ public class ReportABugFragment
   {
     super.onCreate(paramBundle);
     setHasOptionsMenu(true);
-    paramBundle = (AlertDialogFragment)getActivity().getSupportFragmentManager().findFragmentByTag("bug_reported_dialog");
+    paramBundle = (AlertDialogFragment)getActivity().getSupportFragmentManager().a("bug_reported_dialog");
     if (paramBundle != null) {
-      paramBundle.a(h);
+      paramBundle.a(g);
     }
   }
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
-    paramMenuInflater.inflate(2131755033, paramMenu);
+    paramMenuInflater.inflate(2131755037, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903406, (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle));
-    b = ((EditText)paramLayoutInflater.findViewById(2131494009));
-    b.addTextChangedListener(g);
-    a = ((EditText)paramLayoutInflater.findViewById(2131494008));
-    a.addTextChangedListener(g);
-    c = paramLayoutInflater.findViewById(2131494007);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903515, (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle));
+    b = ((EditText)paramLayoutInflater.findViewById(2131690877));
+    b.addTextChangedListener(f);
+    a = ((EditText)paramLayoutInflater.findViewById(2131689746));
+    a.addTextChangedListener(f);
+    c = paramLayoutInflater.findViewById(2131690876);
     return paramLayoutInflater;
   }
   
@@ -114,10 +115,10 @@ public class ReportABugFragment
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
-    if ((b != null) && (!TextUtils.isEmpty(b.getText())) && (!TextUtils.isEmpty(c())) && ((d == null) || (!d.isFetching()))) {}
+    if ((b != null) && (!TextUtils.isEmpty(b.getText())) && (!TextUtils.isEmpty(c())) && ((d == null) || (!d.u()))) {}
     for (boolean bool = true;; bool = false)
     {
-      paramMenu.findItem(2131494155).setEnabled(bool);
+      paramMenu.findItem(2131691028).setEnabled(bool);
       return;
     }
   }
@@ -125,12 +126,12 @@ public class ReportABugFragment
   public void onResume()
   {
     super.onResume();
-    d = ((eh)a("report_a_bug_request", null, e));
-    if ((d != null) && (d.isFetching())) {
-      i_();
+    d = ((dl)a("report_a_bug_request", null, e));
+    if ((d != null) && (d.u())) {
+      H_();
     }
-    dc localdc = AppData.b().m();
-    if ((localdc != null) && (localdc.c()))
+    co localco = AppData.b().q();
+    if ((localco != null) && (localco.b()))
     {
       a.setVisibility(8);
       c.setVisibility(8);

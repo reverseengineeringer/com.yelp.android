@@ -1,15 +1,24 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.BusinessClaimedResult;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class z
-  extends ShareRequest
+  extends b<Void, Void, BusinessClaimedResult>
 {
-  public z(String paramString, ShareRequest.ShareType paramShareType, i parami)
+  public z(String paramString, ApiRequest.b<BusinessClaimedResult> paramb)
   {
-    super("business/photo/share/", parami, paramShareType);
-    a = paramShareType;
-    addPostParam("photo_id", paramString);
+    super(ApiRequest.RequestType.GET, "business/claimed", paramb);
+    a("business_id", paramString);
+  }
+  
+  public BusinessClaimedResult a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    return (BusinessClaimedResult)BusinessClaimedResult.CREATOR.parse(paramJSONObject);
   }
 }
 

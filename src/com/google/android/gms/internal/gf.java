@@ -1,26 +1,19 @@
 package com.google.android.gms.internal;
 
-@ey
+import android.content.Context;
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+
+@fv
 public abstract class gf
 {
-  private final Runnable mv = new gf.1(this);
-  private volatile Thread wu;
+  public abstract void a(Context paramContext, fz paramfz, VersionInfoParcel paramVersionInfoParcel);
   
-  public final void cancel()
+  protected void a(fz paramfz)
   {
-    onStop();
-    if (wu != null) {
-      wu.interrupt();
+    paramfz.c();
+    if (paramfz.a() != null) {
+      paramfz.a().a();
     }
-  }
-  
-  public abstract void cx();
-  
-  public abstract void onStop();
-  
-  public final void start()
-  {
-    gh.a(mv);
   }
 }
 

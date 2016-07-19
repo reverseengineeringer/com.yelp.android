@@ -30,22 +30,22 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.LocaleSettings;
+import com.yelp.android.appdata.f;
 import com.yelp.android.appdata.n;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.ey;
-import com.yelp.android.appdata.webrequests.ez;
+import com.yelp.android.appdata.webrequests.dy;
+import com.yelp.android.appdata.webrequests.dy.a;
+import com.yelp.android.g.g;
 import com.yelp.android.serializable.ReviewThreshold;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.services.x;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.panels.PanelError;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.panels.PanelLoading;
-import com.yelp.android.ui.panels.aa;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.ui.util.av;
 import com.yelp.android.util.ErrorType;
 import com.yelp.android.util.StringUtils;
 import java.util.ArrayList;
@@ -58,19 +58,19 @@ import java.util.TimerTask;
 
 public class ReviewComposeFragment
   extends ReviewBaseFragment
-  implements com.yelp.android.appdata.webrequests.m<ez>, aa
+  implements ApiRequest.b<dy.a>, PanelError.a
 {
-  private ez A;
+  private dy.a A;
   private Timer B;
   private Runnable C;
   private TimerTask D;
   private TextWatcher E;
-  private final View.OnClickListener F = new ac(this);
+  private final View.OnClickListener F = new ReviewComposeFragment.1(this);
   private TextView e;
   private EditText f;
   private ScrollToLoadListView g;
   private PanelError h;
-  private z i;
+  private b i;
   private View j;
   private LinearLayout k;
   private TextView l;
@@ -86,42 +86,15 @@ public class ReviewComposeFragment
   private boolean v;
   private boolean w;
   private List<ReviewThreshold> x;
-  private ey y;
+  private dy y;
   private YelpException z;
-  
-  private int a(Rect paramRect)
-  {
-    int i1 = ((YelpActivity)getActivity()).getSupportActionBar().c();
-    int i2 = paramRect.height() - i1 - k.findViewById(2131493582).getHeight();
-    i1 = i2;
-    if (c.getVisibility() != 8) {
-      i1 = i2 - c.getHeight();
-    }
-    i2 = i1;
-    if (!n)
-    {
-      i2 = i1;
-      if (l != null) {
-        if (!i.isEmpty()) {
-          break label116;
-        }
-      }
-    }
-    label116:
-    for (i2 = l.getHeight();; i2 = g.getHeight())
-    {
-      i2 = i1 - (i2 + j.getHeight());
-      f.setHeight(i2);
-      return i2;
-    }
-  }
   
   private void a(long paramLong)
   {
     AlphaAnimation localAlphaAnimation = new AlphaAnimation(1.0F, 0.0F);
     localAlphaAnimation.setDuration(paramLong);
-    localAlphaAnimation.setAnimationListener(new am(this));
-    if (c.findViewById(2131493579) != null) {
+    localAlphaAnimation.setAnimationListener(new ReviewComposeFragment.11(this));
+    if (c.findViewById(2131690289) != null) {
       a.startAnimation(localAlphaAnimation);
     }
   }
@@ -136,68 +109,95 @@ public class ReviewComposeFragment
     e.setVisibility(8);
   }
   
+  private void a(Rect paramRect)
+  {
+    int i1 = ((YelpActivity)getActivity()).getSupportActionBar().c();
+    int i2 = paramRect.height() - i1 - k.findViewById(2131690292).getHeight();
+    i1 = i2;
+    if (c.getVisibility() != 8) {
+      i1 = i2 - c.getHeight();
+    }
+    i2 = i1;
+    if (!n)
+    {
+      i2 = i1;
+      if (l != null) {
+        if (!i.isEmpty()) {
+          break label115;
+        }
+      }
+    }
+    label115:
+    for (i2 = l.getHeight();; i2 = g.getHeight())
+    {
+      i2 = i1 - (i2 + j.getHeight());
+      f.setHeight(i2);
+      return;
+    }
+  }
+  
   private void a(Spanned paramSpanned)
   {
     if (!isAdded()) {}
-    label34:
-    label91:
+    label27:
+    label84:
+    label259:
+    label261:
     label267:
-    label269:
     label276:
-    label285:
-    label304:
+    label295:
     do
     {
       return;
       int i1;
       int i2;
       TextView localTextView;
-      if ((y == null) || ((y != null) && (y.isCompleted())))
+      if ((y == null) || (y.v()))
       {
         i1 = 1;
         if ((!TextUtils.isEmpty(e.getText())) && (e.getText().toString().equals(paramSpanned.toString()))) {
-          break label267;
+          break label259;
         }
         localObject = e;
         if ((!i.isEmpty()) || (i1 == 0)) {
-          break label269;
+          break label261;
         }
         i2 = 0;
         ((TextView)localObject).setCompoundDrawablesWithIntrinsicBounds(i2, 0, 0, 0);
         localTextView = e;
         if ((!i.isEmpty()) || (i1 == 0)) {
-          break label276;
+          break label267;
         }
       }
       for (Object localObject = null;; localObject = F)
       {
         localTextView.setOnClickListener((View.OnClickListener)localObject);
-        if ((!getString(2131166531).equals(paramSpanned.toString())) || (!i.isEmpty()) || (e.getVisibility() != 0)) {
-          break label304;
+        if ((!getString(2131166529).equals(paramSpanned.toString())) || (!i.isEmpty()) || (e.getVisibility() != 0)) {
+          break label295;
         }
         paramSpanned = new AlphaAnimation(1.0F, 0.0F);
-        paramSpanned.setDuration(cw.a);
-        paramSpanned.setAnimationListener(new ad(this));
-        if ((e.getAnimation() != null) || (e.getText().toString().equals(getString(2131166576))) || (e.getText().toString().equals(getString(2131166531)))) {
-          break label285;
+        paramSpanned.setDuration(av.a);
+        paramSpanned.setAnimationListener(new ReviewComposeFragment.2(this));
+        if ((e.getAnimation() != null) || (e.getText().toString().equals(getString(2131166585))) || (e.getText().toString().equals(getString(2131166529)))) {
+          break label276;
         }
         e.startAnimation(paramSpanned);
         return;
         i1 = 0;
-        break label34;
+        break label27;
         break;
-        i2 = 2130838307;
-        break label91;
+        i2 = 2130838627;
+        break label84;
       }
       e.setText("");
       e.setVisibility(4);
       return;
-    } while ((e.getVisibility() != 0) && ((e.getVisibility() != 4) || ((i.isEmpty()) && (getString(2131166531).equals(paramSpanned.toString())))));
+    } while ((e.getVisibility() != 0) && ((e.getVisibility() != 4) || ((i.isEmpty()) && (getString(2131166529).equals(paramSpanned.toString())))));
     e.setText(paramSpanned);
-    cw.c(e, cw.a);
+    av.c(e, av.a);
   }
   
-  private void a(ez paramez)
+  private void a(dy.a parama)
   {
     g.setEmptyView(l);
     if (a.size() == 0) {
@@ -224,8 +224,8 @@ public class ReviewComposeFragment
   
   private void a(YelpBusiness paramYelpBusiness)
   {
-    if (paramYelpBusiness.getReviewCount() > 0) {
-      a(paramYelpBusiness.getId());
+    if (paramYelpBusiness.N() > 0) {
+      a(paramYelpBusiness.aD());
     }
   }
   
@@ -234,25 +234,25 @@ public class ReviewComposeFragment
     return (keyboard == 2) && (hardKeyboardHidden == 1);
   }
   
-  private void d()
+  private void c()
   {
     if (((d.l() != ReviewState.FINISHED_NOT_RECENTLY) || (d.o())) && (!d.p()))
     {
-      cw.c(b, cw.e);
-      cw.c(f, cw.e);
-      cw.c(j, cw.e);
-      cw.c(g, cw.e);
-      if ((o.getReviewCount() == 0) && (u == 1)) {
-        cw.c(l, cw.e);
+      av.c(b, av.e);
+      av.c(f, av.e);
+      av.c(j, av.e);
+      av.c(g, av.e);
+      if ((o.N() == 0) && (u == 1)) {
+        av.c(l, av.e);
       }
       return;
     }
-    cw.c(k, cw.e);
+    av.c(k, av.e);
   }
   
   private void e()
   {
-    e.setOnClickListener(new aj(this));
+    e.setOnClickListener(new ReviewComposeFragment.8(this));
   }
   
   private void f()
@@ -263,7 +263,7 @@ public class ReviewComposeFragment
   
   private void g()
   {
-    E = new ak(this);
+    E = new ReviewComposeFragment.9(this);
     f.addTextChangedListener(E);
   }
   
@@ -275,7 +275,7 @@ public class ReviewComposeFragment
   
   private void i()
   {
-    m = new al(this);
+    m = new ReviewComposeFragment.10(this);
   }
   
   private View j()
@@ -321,7 +321,7 @@ public class ReviewComposeFragment
       if ((i3 == 0) || (i2 == 0)) {
         break label82;
       }
-      return getString(2131165912);
+      return getString(2131165986);
       i1 = 0;
       break;
       label72:
@@ -332,9 +332,9 @@ public class ReviewComposeFragment
     }
     label82:
     if (i1 != 0) {
-      return getString(2131166533);
+      return getString(2131166532);
     }
-    return getString(2131166531);
+    return getString(2131166529);
   }
   
   private Spanned l()
@@ -348,13 +348,13 @@ public class ReviewComposeFragment
         break;
       }
       localReviewThreshold = (ReviewThreshold)localIterator.next();
-    } while (i1 < localReviewThreshold.getThreshold());
+    } while (i1 < localReviewThreshold.a());
     for (;;)
     {
       if (localReviewThreshold == null) {
         return new SpannedString(k());
       }
-      return StringUtils.a(Html.fromHtml(localReviewThreshold.getTextAtThreshold()), Color.rgb(localReviewThreshold.getRedVal(), localReviewThreshold.getGreenVal(), localReviewThreshold.getBlueVal()));
+      return StringUtils.a(Html.fromHtml(localReviewThreshold.e()), Color.rgb(localReviewThreshold.d(), localReviewThreshold.b(), localReviewThreshold.c()));
       localReviewThreshold = null;
     }
   }
@@ -368,7 +368,7 @@ public class ReviewComposeFragment
       if (!n) {
         break;
       }
-    } while ((y != null) && (!y.isCompleted()));
+    } while ((y != null) && (!y.v()));
     a(l());
     return;
     n();
@@ -383,19 +383,19 @@ public class ReviewComposeFragment
       return;
       if (u == 1)
       {
-        e.setCompoundDrawablesWithIntrinsicBounds(2130838308, 0, 0, 0);
+        e.setCompoundDrawablesWithIntrinsicBounds(2130838628, 0, 0, 0);
         e.setOnClickListener(F);
-        e.setText(getText(2131166576));
-        cw.c(e, cw.a);
+        e.setText(getText(2131166585));
+        av.c(e, av.a);
         return;
       }
       localSpanned = l();
-      if (o.getReviewCount() <= 0) {
+      if (o.N() <= 0) {
         break;
       }
     } while ((!TextUtils.isEmpty(e.getText())) && (e.getText().toString().equals(localSpanned.toString())));
     e.setText(l());
-    cw.c(e, cw.a);
+    av.c(e, av.a);
     return;
     p();
   }
@@ -405,9 +405,9 @@ public class ReviewComposeFragment
     g.f();
     if (i.getCount() == 0)
     {
-      PanelError localPanelError = c();
+      PanelError localPanelError = b();
       localPanelError.a(ErrorType.getTypeFromException(z));
-      localPanelError.setBackgroundColor(getActivity().getResources().getColor(2131362036));
+      localPanelError.setBackgroundColor(getActivity().getResources().getColor(2131624261));
       g.setEmptyView(localPanelError);
     }
   }
@@ -416,9 +416,9 @@ public class ReviewComposeFragment
   {
     g.setVisibility(8);
     e.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-    e.setText(getString(2131165829));
+    e.setText(getString(2131165911));
     e.setOnClickListener(null);
-    cw.c(e, cw.a);
+    av.c(e, av.a);
   }
   
   private void q()
@@ -437,34 +437,34 @@ public class ReviewComposeFragment
   
   private void r()
   {
-    if ((!g.g()) || (o.getReviewCount() == i.getCount())) {
+    if ((!g.g()) || (o.N() == i.getCount())) {
       return;
     }
     PanelLoading localPanelLoading = new PanelLoading(getActivity());
     localPanelLoading.a();
-    g.a(new ae(this), localPanelLoading);
+    g.a(new ReviewComposeFragment.3(this), localPanelLoading);
   }
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, ez paramez)
+  public void a(ApiRequest<?, ?, ?> paramApiRequest, dy.a parama)
   {
     if (g != null)
     {
-      a(paramez);
+      a(parama);
       return;
     }
-    A = paramez;
+    A = parama;
   }
   
   public void a(String paramString)
   {
-    if ((y == null) || (y.getStatus() == AsyncTask.Status.FINISHED))
+    if ((y == null) || (y.m() == AsyncTask.Status.FINISHED))
     {
-      y = new ey(paramString, s, 10, Locale.getDefault(), this);
-      y.execute(new String[0]);
+      y = new dy(paramString, s, 10, Locale.getDefault(), this);
+      y.f(new Void[0]);
     }
   }
   
-  public PanelError c()
+  public PanelError b()
   {
     if (h == null)
     {
@@ -477,27 +477,16 @@ public class ReviewComposeFragment
     return h;
   }
   
-  public void m_()
-  {
-    z = null;
-    A = null;
-    g.setEmptyView(null);
-    h.setVisibility(8);
-    r();
-    a(o);
-  }
-  
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    paramBundle = AppData.b().g();
-    t = ((Integer)ngetActivityhgdb).intValue();
+    t = ((Integer)bhdb).intValue();
   }
   
   public void onAttach(Activity paramActivity)
   {
     super.onAttach(paramActivity);
-    d = ((ao)paramActivity);
+    d = ((c)paramActivity);
   }
   
   public void onConfigurationChanged(Configuration paramConfiguration)
@@ -510,10 +499,10 @@ public class ReviewComposeFragment
   {
     super.onCreate(paramBundle);
     if (i == null) {
-      i = new z();
+      i = new b();
     }
     o = d.f();
-    C = new af(this);
+    C = new ReviewComposeFragment.4(this);
     p = -1;
     v = false;
     if (paramBundle != null)
@@ -539,15 +528,15 @@ public class ReviewComposeFragment
     if (getActivity() != null) {
       ((YelpActivity)getActivity()).updateOptionsMenu();
     }
-    k = ((LinearLayout)paramLayoutInflater.inflate(2130903226, paramViewGroup, false));
-    g = ((ScrollToLoadListView)k.findViewById(2131493584));
-    e = ((TextView)k.findViewById(2131493582));
-    f = ((EditText)k.findViewById(2131493581));
-    a = ((StarsView)k.findViewById(2131493579));
-    j = k.findViewById(2131493583);
-    l = ((TextView)k.findViewById(2131493585));
-    b = k.findViewById(2131493580);
-    c = ((ViewGroup)k.findViewById(2131493578));
+    k = ((LinearLayout)paramLayoutInflater.inflate(2130903253, paramViewGroup, false));
+    g = ((ScrollToLoadListView)k.findViewById(2131690294));
+    e = ((TextView)k.findViewById(2131690292));
+    f = ((EditText)k.findViewById(2131690291));
+    a = ((StarsView)k.findViewById(2131690289));
+    j = k.findViewById(2131690293);
+    l = ((TextView)k.findViewById(2131690295));
+    b = k.findViewById(2131690290);
+    c = ((ViewGroup)k.findViewById(2131690288));
     u = getResourcesgetConfigurationorientation;
     w = false;
     q();
@@ -557,7 +546,8 @@ public class ReviewComposeFragment
     if (d.g() > 0)
     {
       b.setVisibility(8);
-      c.setPadding(0, cp.a(getActivity(), 2130772041) + com.yelp.android.appdata.ao.a(1), 0, 0);
+      int i1 = getActivity().getResources().getDimensionPixelOffset(2131361958);
+      c.setPadding(0, i1 + n.a(1), 0, 0);
       if (paramBundle == null) {
         a(0L);
       }
@@ -567,41 +557,41 @@ public class ReviewComposeFragment
       paramLayoutInflater = ((YelpActivity)getActivity()).getSupportActionBar().a();
       paramViewGroup = a;
       if (!paramLayoutInflater.getTag().equals("stars")) {
-        break label445;
+        break label451;
       }
-      paramLayoutInflater = StarsView.StarSize.SMALL;
-      label306:
-      paramViewGroup.setStarSize(paramLayoutInflater);
+      paramLayoutInflater = StarsView.StarStyle.SMALL;
+      label313:
+      paramViewGroup.setStarStyle(paramLayoutInflater);
       a.setNumStars(d.g());
       n = false;
       x = d.j();
       Collections.sort(x);
       if (u != 2) {
-        break label459;
+        break label465;
       }
-      if (o.getReviewCount() <= 0) {
-        break label452;
+      if (o.N() <= 0) {
+        break label458;
       }
-      e.setText(getString(2131165912));
-      e.setCompoundDrawablesWithIntrinsicBounds(2130838307, 0, 0, 0);
-      cw.c(e, cw.a);
-      label409:
+      e.setText(getString(2131165986));
+      e.setCompoundDrawablesWithIntrinsicBounds(2130838627, 0, 0, 0);
+      av.c(e, av.a);
+      label415:
       e();
     }
     for (;;)
     {
-      a.setOnStarsClicked(new ag(this));
+      a.setOnStarsClicked(new ReviewComposeFragment.5(this));
       g();
       return k;
       j();
       break;
-      label445:
-      paramLayoutInflater = StarsView.StarSize.LARGE;
-      break label306;
-      label452:
+      label451:
+      paramLayoutInflater = StarsView.StarStyle.LARGE;
+      break label313;
+      label458:
       p();
-      break label409;
-      label459:
+      break label415;
+      label465:
       f();
       if (paramBundle == null) {
         k.postDelayed(C, 750L);
@@ -615,18 +605,19 @@ public class ReviewComposeFragment
   {
     if (y != null)
     {
-      y.cancel(true);
-      y.setCallback(null);
+      y.a(true);
+      y.a(null);
     }
     f.removeTextChangedListener(E);
     k.removeCallbacks(C);
+    k.getViewTreeObserver().removeOnGlobalLayoutListener(m);
     super.onDestroy();
   }
   
   public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
   {
     z = paramYelpException;
-    if (((paramApiRequest instanceof ey)) && (g != null)) {
+    if (((paramApiRequest instanceof dy)) && (g != null)) {
       o();
     }
   }
@@ -644,17 +635,20 @@ public class ReviewComposeFragment
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
-    paramMenu = paramMenu.findItem(2131494118);
-    paramMenu.setTitle(getString(2131165653));
-    paramMenu.setOnMenuItemClickListener(new ai(this));
+    if (!isAdded()) {
+      return;
+    }
+    paramMenu = paramMenu.findItem(2131690992);
+    paramMenu.setTitle(getString(2131165730));
+    paramMenu.setOnMenuItemClickListener(new ReviewComposeFragment.7(this));
   }
   
   public void onResume()
   {
-    d();
+    c();
     d.e();
-    D = new ah(this);
-    if (o.getReviewCount() == 0)
+    D = new ReviewComposeFragment.6(this);
+    if (o.N() == 0)
     {
       g.f();
       if (u != 1) {
@@ -678,6 +672,16 @@ public class ReviewComposeFragment
   {
     paramBundle.putParcelableArrayList("extra_reviews", new ArrayList(i.a()));
     super.onSaveInstanceState(paramBundle);
+  }
+  
+  public void q_()
+  {
+    z = null;
+    A = null;
+    g.setEmptyView(null);
+    h.setVisibility(8);
+    r();
+    a(o);
   }
 }
 

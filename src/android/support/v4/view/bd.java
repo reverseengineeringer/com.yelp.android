@@ -1,14 +1,14 @@
 package android.support.v4.view;
 
-import android.view.MotionEvent;
+import android.view.View;
 
-class bd
-  extends bc
+public abstract interface bd
 {
-  public int b(MotionEvent paramMotionEvent)
-  {
-    return bh.a(paramMotionEvent);
-  }
+  public abstract void a(View paramView);
+  
+  public abstract void b(View paramView);
+  
+  public abstract void c(View paramView);
 }
 
 /* Location:

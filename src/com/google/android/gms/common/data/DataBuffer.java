@@ -4,70 +4,26 @@ import android.os.Bundle;
 import com.google.android.gms.common.api.Releasable;
 import java.util.Iterator;
 
-public abstract class DataBuffer<T>
-  implements Releasable, Iterable<T>
+public abstract interface DataBuffer<T>
+  extends Releasable, Iterable<T>
 {
-  protected final DataHolder JG;
-  
-  protected DataBuffer(DataHolder paramDataHolder)
-  {
-    JG = paramDataHolder;
-    if (JG != null) {
-      JG.e(this);
-    }
-  }
-  
   @Deprecated
-  public final void close()
-  {
-    release();
-  }
-  
-  public int describeContents()
-  {
-    return 0;
-  }
-  
-  public Bundle gV()
-  {
-    return JG.gV();
-  }
+  public abstract void close();
   
   public abstract T get(int paramInt);
   
-  public int getCount()
-  {
-    if (JG == null) {
-      return 0;
-    }
-    return JG.getCount();
-  }
+  public abstract int getCount();
   
   @Deprecated
-  public boolean isClosed()
-  {
-    if (JG == null) {
-      return true;
-    }
-    return JG.isClosed();
-  }
+  public abstract boolean isClosed();
   
-  public Iterator<T> iterator()
-  {
-    return new c(this);
-  }
+  public abstract Iterator<T> iterator();
   
-  public void release()
-  {
-    if (JG != null) {
-      JG.close();
-    }
-  }
+  public abstract void release();
   
-  public Iterator<T> singleRefIterator()
-  {
-    return new h(this);
-  }
+  public abstract Iterator<T> singleRefIterator();
+  
+  public abstract Bundle zzpZ();
 }
 
 /* Location:

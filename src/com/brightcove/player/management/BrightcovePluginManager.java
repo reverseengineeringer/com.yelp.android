@@ -2,8 +2,11 @@ package com.brightcove.player.management;
 
 import android.util.Log;
 import com.brightcove.player.event.AbstractComponent;
+import com.brightcove.player.event.Default;
 import com.brightcove.player.event.Emits;
+import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
+import com.brightcove.player.event.EventListener;
 import com.brightcove.player.event.ListensFor;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 @Emits(events={})
@@ -25,7 +29,7 @@ public class BrightcovePluginManager
   private Class<?> crashlyticsClass;
   private Method crashlyticsLogMethod;
   private boolean isCrashlyticsAvailable;
-  BrightcovePluginManager.OnRegisterPluginListener onRegisterPluginListener;
+  OnRegisterPluginListener onRegisterPluginListener;
   private List<String> pluginsInUse;
   
   public BrightcovePluginManager(EventEmitter paramEventEmitter)
@@ -45,7 +49,7 @@ public class BrightcovePluginManager
   {
     try
     {
-      crashlyticsClass = Class.forName("com.crashlytics.android.d");
+      crashlyticsClass = Class.forName("com.yelp.android.au.a");
       isCrashlyticsAvailable = true;
       return;
     }
@@ -112,7 +116,7 @@ public class BrightcovePluginManager
   
   protected void initializeListeners()
   {
-    onRegisterPluginListener = new BrightcovePluginManager.OnRegisterPluginListener(this);
+    onRegisterPluginListener = new OnRegisterPluginListener();
     addListener("registerPlugin", onRegisterPluginListener);
   }
   
@@ -205,6 +209,25 @@ public class BrightcovePluginManager
       for (;;)
       {
         Log.e(TAG, "Failed to close stream.", localIOException5);
+      }
+    }
+  }
+  
+  protected class OnRegisterPluginListener
+    implements EventListener
+  {
+    protected OnRegisterPluginListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      if (properties.containsKey("pluginName"))
+      {
+        paramEvent = (String)properties.get("pluginName");
+        Log.v(BrightcovePluginManager.TAG, "OnRegisterPluginListener: plugin: " + paramEvent);
+        if (!pluginsInUse.contains(paramEvent)) {
+          pluginsInUse.add(paramEvent);
+        }
       }
     }
   }

@@ -6,26 +6,26 @@ import java.util.Iterator;
 public final class DataBufferObserverSet
   implements DataBufferObserver, DataBufferObserver.Observable
 {
-  private HashSet<DataBufferObserver> KY = new HashSet();
+  private HashSet<DataBufferObserver> zzajd = new HashSet();
   
   public void addObserver(DataBufferObserver paramDataBufferObserver)
   {
-    KY.add(paramDataBufferObserver);
+    zzajd.add(paramDataBufferObserver);
   }
   
   public void clear()
   {
-    KY.clear();
+    zzajd.clear();
   }
   
   public boolean hasObservers()
   {
-    return !KY.isEmpty();
+    return !zzajd.isEmpty();
   }
   
   public void onDataChanged()
   {
-    Iterator localIterator = KY.iterator();
+    Iterator localIterator = zzajd.iterator();
     while (localIterator.hasNext()) {
       ((DataBufferObserver)localIterator.next()).onDataChanged();
     }
@@ -33,7 +33,7 @@ public final class DataBufferObserverSet
   
   public void onDataRangeChanged(int paramInt1, int paramInt2)
   {
-    Iterator localIterator = KY.iterator();
+    Iterator localIterator = zzajd.iterator();
     while (localIterator.hasNext()) {
       ((DataBufferObserver)localIterator.next()).onDataRangeChanged(paramInt1, paramInt2);
     }
@@ -41,7 +41,7 @@ public final class DataBufferObserverSet
   
   public void onDataRangeInserted(int paramInt1, int paramInt2)
   {
-    Iterator localIterator = KY.iterator();
+    Iterator localIterator = zzajd.iterator();
     while (localIterator.hasNext()) {
       ((DataBufferObserver)localIterator.next()).onDataRangeInserted(paramInt1, paramInt2);
     }
@@ -49,7 +49,7 @@ public final class DataBufferObserverSet
   
   public void onDataRangeMoved(int paramInt1, int paramInt2, int paramInt3)
   {
-    Iterator localIterator = KY.iterator();
+    Iterator localIterator = zzajd.iterator();
     while (localIterator.hasNext()) {
       ((DataBufferObserver)localIterator.next()).onDataRangeMoved(paramInt1, paramInt2, paramInt3);
     }
@@ -57,7 +57,7 @@ public final class DataBufferObserverSet
   
   public void onDataRangeRemoved(int paramInt1, int paramInt2)
   {
-    Iterator localIterator = KY.iterator();
+    Iterator localIterator = zzajd.iterator();
     while (localIterator.hasNext()) {
       ((DataBufferObserver)localIterator.next()).onDataRangeRemoved(paramInt1, paramInt2);
     }
@@ -65,7 +65,7 @@ public final class DataBufferObserverSet
   
   public void removeObserver(DataBufferObserver paramDataBufferObserver)
   {
-    KY.remove(paramDataBufferObserver);
+    zzajd.remove(paramDataBufferObserver);
   }
 }
 

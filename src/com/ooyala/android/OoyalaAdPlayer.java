@@ -62,7 +62,7 @@ class OoyalaAdPlayer
     return _ad;
   }
   
-  public void init(OoyalaPlayer paramOoyalaPlayer, AdSpot paramAdSpot)
+  public void init(final OoyalaPlayer paramOoyalaPlayer, AdSpot paramAdSpot)
   {
     if (!(paramAdSpot instanceof OoyalaAdSpot))
     {
@@ -86,7 +86,19 @@ class OoyalaAdPlayer
       if (getBasePlayer() != null) {}
       for (paramAdSpot = getBasePlayer().getPlayerInfo();; paramAdSpot = StreamPlayer.defaultPlayerInfo)
       {
-        _fetchTask = _ad._api.authorize(_ad, paramAdSpot, new OoyalaAdPlayer.1(this, paramOoyalaPlayer));
+        _fetchTask = _ad._api.authorize(_ad, paramAdSpot, new AuthorizeCallback()
+        {
+          public void callback(boolean paramAnonymousBoolean, OoyalaException paramAnonymousOoyalaException)
+          {
+            if ((paramAnonymousOoyalaException != null) || (!_ad.isAuthorized()))
+            {
+              _error = "Error fetching VAST XML";
+              setState(OoyalaPlayer.State.ERROR);
+              return;
+            }
+            OoyalaAdPlayer.this.initAfterFetch(paramOoyalaPlayer);
+          }
+        });
         return;
       }
     }
@@ -119,7 +131,7 @@ class OoyalaAdPlayer
     }
   }
   
-  public void setBasePlayer(StreamPlayer paramStreamPlayer)
+  public void setBasePlayer(final StreamPlayer paramStreamPlayer)
   {
     if (_ad == null)
     {
@@ -129,7 +141,16 @@ class OoyalaAdPlayer
     if (paramStreamPlayer != null) {}
     for (PlayerInfo localPlayerInfo = paramStreamPlayer.getPlayerInfo();; localPlayerInfo = StreamPlayer.defaultPlayerInfo)
     {
-      _ad._api.authorize(_ad, localPlayerInfo, new OoyalaAdPlayer.2(this, paramStreamPlayer));
+      _ad._api.authorize(_ad, localPlayerInfo, new AuthorizeCallback()
+      {
+        public void callback(boolean paramAnonymousBoolean, OoyalaException paramAnonymousOoyalaException)
+        {
+          if ((paramAnonymousOoyalaException != null) || (!_ad.isAuthorized())) {
+            return;
+          }
+          OoyalaAdPlayer.this.setBasePlayer2(paramStreamPlayer);
+        }
+      });
       return;
     }
   }

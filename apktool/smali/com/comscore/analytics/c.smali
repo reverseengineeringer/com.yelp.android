@@ -1,183 +1,161 @@
-.class synthetic Lcom/comscore/analytics/c;
+.class Lcom/comscore/analytics/c;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Ljava/lang/Runnable;
 
-# static fields
-.field static final synthetic a:[I
 
-.field static final synthetic b:[I
+# instance fields
+.field final synthetic a:Z
+
+.field final synthetic b:Lcom/comscore/analytics/a;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method constructor <init>(Lcom/comscore/analytics/a;Z)V
+    .locals 0
 
-    invoke-static {}, Lcom/comscore/analytics/SessionState;->values()[Lcom/comscore/analytics/SessionState;
+    iput-object p1, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
 
-    move-result-object v0
+    iput-boolean p2, p0, Lcom/comscore/analytics/c;->a:Z
 
-    array-length v0, v0
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-array v0, v0, [I
+    return-void
+.end method
 
-    sput-object v0, Lcom/comscore/analytics/c;->b:[I
 
-    :try_start_0
-    sget-object v0, Lcom/comscore/analytics/c;->b:[I
+# virtual methods
+.method public run()V
+    .locals 2
 
-    sget-object v1, Lcom/comscore/analytics/SessionState;->ACTIVE_USER:Lcom/comscore/analytics/SessionState;
+    iget-boolean v0, p0, Lcom/comscore/analytics/c;->a:Z
 
-    invoke-virtual {v1}, Lcom/comscore/analytics/SessionState;->ordinal()I
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    invoke-static {v0}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;Z)Z
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    iget-object v1, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    invoke-static {v1}, Lcom/comscore/analytics/a;->b(Lcom/comscore/analytics/a;)Z
 
     move-result v1
 
-    const/4 v2, 0x1
+    invoke-virtual {v0, v1}, Lcom/comscore/analytics/a;->q(Z)V
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_6
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
 
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->a()V
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->q()Lcom/comscore/utils/ConnectivityChangeReceiver;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/comscore/utils/ConnectivityChangeReceiver;->a()V
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->u()Lcom/comscore/applications/d;
+
+    move-result-object v0
+
+    const/16 v1, 0xbb8
+
+    invoke-virtual {v0, v1}, Lcom/comscore/applications/d;->a(I)V
+
+    :cond_0
     :goto_0
-    :try_start_1
-    sget-object v0, Lcom/comscore/analytics/c;->b:[I
-
-    sget-object v1, Lcom/comscore/analytics/SessionState;->USER:Lcom/comscore/analytics/SessionState;
-
-    invoke-virtual {v1}, Lcom/comscore/analytics/SessionState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_5
-
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/comscore/analytics/c;->b:[I
-
-    sget-object v1, Lcom/comscore/analytics/SessionState;->APPLICATION:Lcom/comscore/analytics/SessionState;
-
-    invoke-virtual {v1}, Lcom/comscore/analytics/SessionState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_4
-
-    :goto_2
-    :try_start_3
-    sget-object v0, Lcom/comscore/analytics/c;->b:[I
-
-    sget-object v1, Lcom/comscore/analytics/SessionState;->INACTIVE:Lcom/comscore/analytics/SessionState;
-
-    invoke-virtual {v1}, Lcom/comscore/analytics/SessionState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
-
-    :goto_3
-    invoke-static {}, Lcom/comscore/analytics/ApplicationState;->values()[Lcom/comscore/analytics/ApplicationState;
-
-    move-result-object v0
-
-    array-length v0, v0
-
-    new-array v0, v0, [I
-
-    sput-object v0, Lcom/comscore/analytics/c;->a:[I
-
-    :try_start_4
-    sget-object v0, Lcom/comscore/analytics/c;->a:[I
-
-    sget-object v1, Lcom/comscore/analytics/ApplicationState;->INACTIVE:Lcom/comscore/analytics/ApplicationState;
-
-    invoke-virtual {v1}, Lcom/comscore/analytics/ApplicationState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_2
-
-    :goto_4
-    :try_start_5
-    sget-object v0, Lcom/comscore/analytics/c;->a:[I
-
-    sget-object v1, Lcom/comscore/analytics/ApplicationState;->BACKGROUND_UX_ACTIVE:Lcom/comscore/analytics/ApplicationState;
-
-    invoke-virtual {v1}, Lcom/comscore/analytics/ApplicationState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_1
-
-    :goto_5
-    :try_start_6
-    sget-object v0, Lcom/comscore/analytics/c;->a:[I
-
-    sget-object v1, Lcom/comscore/analytics/ApplicationState;->FOREGROUND:Lcom/comscore/analytics/ApplicationState;
-
-    invoke-virtual {v1}, Lcom/comscore/analytics/ApplicationState;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_0
-
-    :goto_6
     return-void
 
-    :catch_0
-    move-exception v0
+    :cond_1
+    iget-boolean v0, p0, Lcom/comscore/analytics/c;->a:Z
 
-    goto :goto_6
+    if-nez v0, :cond_0
 
-    :catch_1
-    move-exception v0
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
 
-    goto :goto_5
+    invoke-static {v0}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;)Z
 
-    :catch_2
-    move-exception v0
+    move-result v0
 
-    goto :goto_4
+    if-eqz v0, :cond_0
 
-    :catch_3
-    move-exception v0
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
 
-    goto :goto_3
+    const/4 v1, 0x0
 
-    :catch_4
-    move-exception v0
+    invoke-static {v0, v1}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;Z)Z
 
-    goto :goto_2
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
 
-    :catch_5
-    move-exception v0
+    iget-object v1, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
 
-    goto :goto_1
+    iget-boolean v1, v1, Lcom/comscore/analytics/a;->af:Z
 
-    :catch_6
-    move-exception v0
+    invoke-static {v0, v1}, Lcom/comscore/analytics/a;->b(Lcom/comscore/analytics/a;Z)Z
+
+    invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    iget-object v1, v1, Lcom/comscore/analytics/a;->ag:Ljava/lang/Thread$UncaughtExceptionHandler;
+
+    if-eq v0, v1, :cond_2
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    iget-object v0, v0, Lcom/comscore/analytics/a;->ag:Ljava/lang/Thread$UncaughtExceptionHandler;
+
+    invoke-static {v0}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->q()Lcom/comscore/utils/ConnectivityChangeReceiver;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/comscore/utils/ConnectivityChangeReceiver;->b()V
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->u()Lcom/comscore/applications/d;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/comscore/applications/d;->d()V
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->p()Lcom/comscore/utils/j;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/comscore/utils/j;->e()V
+
+    iget-object v0, p0, Lcom/comscore/analytics/c;->b:Lcom/comscore/analytics/a;
+
+    iget-object v0, v0, Lcom/comscore/analytics/a;->f:Lcom/yelp/android/at/a;
+
+    invoke-virtual {v0}, Lcom/yelp/android/at/a;->c()V
 
     goto :goto_0
 .end method

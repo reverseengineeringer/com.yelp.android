@@ -1,13 +1,18 @@
 package com.yelp.android.ui.dialogs;
 
+import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout.Alignment;
 import android.text.SpannableStringBuilder;
 import android.text.style.AlignmentSpan.Standard;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.ui.activities.support.YelpActivity;
 
@@ -36,7 +41,8 @@ public class DidYouMeanDialog
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setTheme(2131689817);
+    setTheme(2131296707);
+    setContentView(new LinearLayout(this), new LinearLayout.LayoutParams(0, 0));
     Intent localIntent = getIntent();
     c = localIntent.getIntExtra(a, 0);
     d = localIntent.getStringExtra(b);
@@ -52,7 +58,27 @@ public class DidYouMeanDialog
     }
     SpannableStringBuilder localSpannableStringBuilder = new SpannableStringBuilder(d);
     localSpannableStringBuilder.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, localSpannableStringBuilder.length(), 17);
-    return new AlertDialog.Builder(this).setTitle(c).setMessage(localSpannableStringBuilder).setCancelable(false).setNegativeButton(2131166233, new s(this, 0)).setPositiveButton(2131166234, new s(this, -1)).create();
+    return new AlertDialog.Builder(this).setTitle(c).setMessage(localSpannableStringBuilder).setCancelable(false).setNegativeButton(2131166989, new a(this, 0)).setPositiveButton(2131166287, new a(this, -1)).create();
+  }
+  
+  private static final class a
+    implements DialogInterface.OnClickListener
+  {
+    private int a;
+    private Activity b;
+    
+    public a(Activity paramActivity, int paramInt)
+    {
+      a = paramInt;
+      b = paramActivity;
+    }
+    
+    public void onClick(DialogInterface paramDialogInterface, int paramInt)
+    {
+      b.setResult(a, null);
+      b.finish();
+      paramDialogInterface.dismiss();
+    }
   }
 }
 

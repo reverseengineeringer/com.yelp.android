@@ -1,106 +1,47 @@
-.class final Lcom/yelp/android/ak/f;
+.class public interface abstract Lcom/yelp/android/ak/f;
 .super Ljava/lang/Object;
+.source "LoadProvider.java"
 
 # interfaces
-.implements Landroid/content/ServiceConnection;
+.implements Lcom/yelp/android/ak/b;
 
 
-# instance fields
-.field a:Z
-
-.field private final b:Ljava/util/concurrent/LinkedBlockingQueue;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/concurrent/LinkedBlockingQueue",
-            "<",
-            "Landroid/os/IBinder;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
-# direct methods
-.method private constructor <init>()V
-    .locals 2
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/yelp/android/ak/f;->a:Z
-
-    new-instance v0, Ljava/util/concurrent/LinkedBlockingQueue;
-
-    const/4 v1, 0x1
-
-    invoke-direct {v0, v1}, Ljava/util/concurrent/LinkedBlockingQueue;-><init>(I)V
-
-    iput-object v0, p0, Lcom/yelp/android/ak/f;->b:Ljava/util/concurrent/LinkedBlockingQueue;
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/yelp/android/ak/e;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/yelp/android/ak/f;-><init>()V
-
-    return-void
-.end method
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<A:",
+        "Ljava/lang/Object;",
+        "T:",
+        "Ljava/lang/Object;",
+        "Z:",
+        "Ljava/lang/Object;",
+        "R:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lcom/yelp/android/ak/b",
+        "<TT;TZ;>;"
+    }
+.end annotation
 
 
 # virtual methods
-.method public a()Landroid/os/IBinder;
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/yelp/android/ak/f;->a:Z
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ak/f;->a:Z
-
-    iget-object v0, p0, Lcom/yelp/android/ak/f;->b:Ljava/util/concurrent/LinkedBlockingQueue;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/LinkedBlockingQueue;->take()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/os/IBinder;
-
-    return-object v0
+.method public abstract e()Lcom/yelp/android/aa/l;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/yelp/android/aa/l",
+            "<TA;TT;>;"
+        }
+    .end annotation
 .end method
 
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/yelp/android/ak/f;->b:Ljava/util/concurrent/LinkedBlockingQueue;
-
-    invoke-virtual {v0, p2}, Ljava/util/concurrent/LinkedBlockingQueue;->put(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 0
-
-    return-void
+.method public abstract f()Lcom/yelp/android/ai/c;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/yelp/android/ai/c",
+            "<TZ;TR;>;"
+        }
+    .end annotation
 .end method

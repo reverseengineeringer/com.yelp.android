@@ -13,6 +13,14 @@
 .implements Landroid/view/SurfaceHolder$Callback;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/BaseStreamPlayer$1;
+    }
+.end annotation
+
+
 # static fields
 .field private static final TAG:Ljava/lang/String;
 

@@ -1,32 +1,50 @@
 package com.kahuna.sdk.location;
 
+import android.content.Context;
 import android.util.Log;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.location.FusedLocationProviderApi;
-import com.google.android.gms.location.LocationServices;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.kahuna.sdk.l;
 
-class h
-  extends TimerTask
+public class h
 {
-  h(f paramf) {}
-  
-  public void run()
+  protected static boolean a(Context paramContext)
   {
-    try
+    int i = GooglePlayServicesUtil.isGooglePlayServicesAvailable(paramContext);
+    if (i == 0)
     {
-      LocationServices.FusedLocationApi.removeLocationUpdates(f.a(a), f.b(a)).await(5000L, TimeUnit.MILLISECONDS);
-      if (com.kahuna.sdk.h.p()) {
-        Log.d("KahunaEngine", "Finished requesting for gps updates for geofences.");
+      if (l.u()) {
+        Log.d("Kahuna", "Google Play services is available. yay!");
       }
-      f.c(a);
-      return;
+      return true;
     }
-    catch (Exception localException)
+    if (l.u()) {
+      Log.d("Kahuna", "Google Play services is NOT available. Code: " + i);
+    }
+    return false;
+  }
+  
+  protected static boolean a(Context paramContext, String paramString)
+  {
+    boolean bool;
+    if (paramContext.checkCallingOrSelfPermission(paramString) == 0)
     {
-      for (;;) {}
+      bool = true;
+      if (!bool) {
+        break label52;
+      }
+      if (l.u()) {
+        Log.d("Kahuna", paramString + " permission available.");
+      }
     }
+    label52:
+    while (!l.u())
+    {
+      return bool;
+      bool = false;
+      break;
+    }
+    Log.d("Kahuna", "Permission " + paramString + " NOT available");
+    return bool;
   }
 }
 

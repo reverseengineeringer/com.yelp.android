@@ -69,7 +69,7 @@
 
     .prologue
     .line 50
-    const v0, 0x7f0c0119
+    const v0, 0x7f0f00ef
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditOpenHoursDescription;->findViewById(I)Landroid/view/View;
 
@@ -121,7 +121,7 @@
     if-nez v0, :cond_0
 
     .line 57
-    const v0, 0x7f0c0131
+    const v0, 0x7f0f0173
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditOpenHoursDescription;->findViewById(I)Landroid/view/View;
 
@@ -130,19 +130,19 @@
     check-cast v0, Landroid/widget/TextView;
 
     .line 58
-    const v2, 0x7f0705d8
+    const v2, 0x7f0705c2
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
     .line 59
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditOpenHoursDescription;->a:Landroid/widget/TextView;
 
-    const v2, 0x7f07022a
+    const v2, 0x7f07027a
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setHint(I)V
 
     .line 60
-    const v0, 0x7f0c013a
+    const v0, 0x7f0f0177
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditOpenHoursDescription;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +153,7 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 61
-    const v0, 0x7f0c013b
+    const v0, 0x7f0f0178
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditOpenHoursDescription;->findViewById(I)Landroid/view/View;
 
@@ -179,7 +179,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -199,7 +199,7 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 44
-    const v0, 0x7f03002e
+    const v0, 0x7f030038
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditOpenHoursDescription;->setContentView(I)V
 
@@ -225,7 +225,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -244,7 +244,7 @@
 
     move-result v0
 
-    const v1, 0x7f0c04fd
+    const v1, 0x7f0f0607
 
     if-ne v0, v1, :cond_0
 

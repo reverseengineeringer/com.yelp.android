@@ -1,22 +1,26 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Offer;
-import com.yelp.android.serializable.ah;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.ReviewSuggestion;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.ArrayList;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ee
-  extends g<Void, Void, Offer>
+  extends k<Void, Void, ArrayList<ReviewSuggestion>>
 {
-  public ee(String paramString, m<Offer> paramm)
+  public ee(k.b<ArrayList<ReviewSuggestion>> paramb)
   {
-    super(ApiRequest.RequestType.POST, "check_ins/offer/redeem", paramm);
-    addPostParam("offer_id", paramString);
+    super(ApiRequest.RequestType.GET, "/reviews/suggestions", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.MILES);
   }
   
-  public Offer a(JSONObject paramJSONObject)
+  public ArrayList<ReviewSuggestion> a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    return (Offer)Offer.CREATOR.parse(paramJSONObject.getJSONObject("offer"));
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("review_suggestions"), ReviewSuggestion.CREATOR);
   }
 }
 

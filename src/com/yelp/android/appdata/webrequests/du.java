@@ -1,24 +1,17 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.RichSearchSuggestion;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.List;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import java.util.ArrayList;
+import org.apache.commons.lang3.b;
 
 public class du
-  extends h<Void, Void, List<RichSearchSuggestion>>
+  extends c
 {
-  public du(j<List<RichSearchSuggestion>> paramj)
+  public du(ArrayList<String> paramArrayList, c.a parama)
   {
-    super(ApiRequest.RequestType.GET, "suggest/nearby_search", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
-  }
-  
-  public List<RichSearchSuggestion> a(JSONObject paramJSONObject)
-  {
-    return JsonUtil.parseJsonList(paramJSONObject.optJSONArray("suggestions"), RichSearchSuggestion.CREATOR);
+    super(ApiRequest.RequestType.POST, "/reviews/draft/delete_multiple", parama);
+    b("business_ids", b.a(paramArrayList, ','));
   }
 }
 

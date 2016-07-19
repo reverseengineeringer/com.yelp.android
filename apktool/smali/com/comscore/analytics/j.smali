@@ -6,22 +6,18 @@
 
 
 # instance fields
-.field final synthetic a:Ljava/lang/String;
+.field final synthetic a:Z
 
-.field final synthetic b:Ljava/lang/String;
-
-.field final synthetic c:Lcom/comscore/analytics/a;
+.field final synthetic b:Lcom/comscore/analytics/a;
 
 
 # direct methods
-.method constructor <init>(Lcom/comscore/analytics/a;Ljava/lang/String;Ljava/lang/String;)V
+.method constructor <init>(Lcom/comscore/analytics/a;Z)V
     .locals 0
 
-    iput-object p1, p0, Lcom/comscore/analytics/j;->c:Lcom/comscore/analytics/a;
+    iput-object p1, p0, Lcom/comscore/analytics/j;->b:Lcom/comscore/analytics/a;
 
-    iput-object p2, p0, Lcom/comscore/analytics/j;->a:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/comscore/analytics/j;->b:Ljava/lang/String;
+    iput-boolean p2, p0, Lcom/comscore/analytics/j;->a:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -31,15 +27,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/comscore/analytics/j;->c:Lcom/comscore/analytics/a;
+    iget-object v0, p0, Lcom/comscore/analytics/j;->b:Lcom/comscore/analytics/a;
 
-    iget-object v1, p0, Lcom/comscore/analytics/j;->a:Ljava/lang/String;
+    iget-boolean v1, p0, Lcom/comscore/analytics/j;->a:Z
 
-    iget-object v2, p0, Lcom/comscore/analytics/j;->b:Ljava/lang/String;
-
-    invoke-static {v0, v1, v2}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;Ljava/lang/String;Ljava/lang/String;)V
+    iput-boolean v1, v0, Lcom/comscore/analytics/a;->ad:Z
 
     return-void
 .end method

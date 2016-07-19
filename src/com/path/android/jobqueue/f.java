@@ -1,23 +1,56 @@
 package com.path.android.jobqueue;
 
-import android.content.Context;
-import com.path.android.jobqueue.persistentQueue.sqlite.SqliteJobQueue;
-import com.path.android.jobqueue.persistentQueue.sqlite.e;
-import com.yelp.android.ap.a;
-
 public class f
-  implements i
 {
-  com.path.android.jobqueue.persistentQueue.sqlite.f a = new e();
+  public static final f a = new a(true);
+  public static final f b = new a(false);
+  private boolean c;
+  private Long d;
+  private Integer e;
+  private boolean f = false;
   
-  public g a(Context paramContext, Long paramLong, String paramString)
+  public f(boolean paramBoolean)
   {
-    return new a(new SqliteJobQueue(paramContext, paramLong.longValue(), paramString, a));
+    c = paramBoolean;
   }
   
-  public g b(Context paramContext, Long paramLong, String paramString)
+  public void a(Long paramLong)
   {
-    return new a(new com.path.android.jobqueue.nonPersistentQueue.f(paramLong.longValue(), paramString));
+    d = paramLong;
+  }
+  
+  public boolean a()
+  {
+    return c;
+  }
+  
+  public Long b()
+  {
+    return d;
+  }
+  
+  public Integer c()
+  {
+    return e;
+  }
+  
+  public boolean d()
+  {
+    return f;
+  }
+  
+  private static class a
+    extends f
+  {
+    public a(boolean paramBoolean)
+    {
+      super();
+    }
+    
+    public void a(Long paramLong)
+    {
+      throw new IllegalStateException("This object is immutable. Create a new one using the constructor.");
+    }
   }
 }
 

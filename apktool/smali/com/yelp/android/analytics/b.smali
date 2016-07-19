@@ -20,26 +20,26 @@
     .locals 2
 
     .prologue
-    .line 22
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 23
+    .line 24
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/yelp/android/analytics/b;->a:J
 
-    .line 24
-    invoke-static {}, Lcom/yelp/android/appdata/BaseYelpApplication;->z()Lcom/yelp/android/appdata/BaseYelpApplication;
+    .line 25
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/BaseYelpApplication;->x()Lcom/yelp/android/appdata/j;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/j;->ab()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->Z()Ljava/lang/String;
 
     move-result-object v0
 
@@ -106,6 +106,11 @@
 
 .method public c()Lorg/json/JSONObject;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 57

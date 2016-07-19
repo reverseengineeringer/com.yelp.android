@@ -1,5 +1,6 @@
 package com.path.android.jobqueue.nonPersistentQueue;
 
+import com.path.android.jobqueue.a;
 import java.util.Collection;
 import java.util.Comparator;
 
@@ -8,15 +9,15 @@ public abstract class MergedQueue
 {
   c a;
   c b;
-  final Comparator<com.path.android.jobqueue.b> c;
-  final Comparator<com.path.android.jobqueue.b> d;
+  final Comparator<a> c;
+  final Comparator<a> d;
   
-  public MergedQueue(int paramInt, Comparator<com.path.android.jobqueue.b> paramComparator1, Comparator<com.path.android.jobqueue.b> paramComparator2)
+  public MergedQueue(int paramInt, Comparator<a> paramComparator1, Comparator<a> paramComparator2)
   {
     c = paramComparator1;
     d = paramComparator2;
-    a = a(MergedQueue.SetId.S0, paramInt, paramComparator1);
-    b = a(MergedQueue.SetId.S1, paramInt, paramComparator1);
+    a = a(SetId.S0, paramInt, paramComparator1);
+    b = a(SetId.S1, paramInt, paramComparator1);
   }
   
   public int a()
@@ -24,79 +25,86 @@ public abstract class MergedQueue
     return a.a() + b.a();
   }
   
-  protected com.path.android.jobqueue.b a(MergedQueue.SetId paramSetId, Collection<String> paramCollection)
+  protected a a(SetId paramSetId, Collection<String> paramCollection)
   {
-    if (paramSetId == MergedQueue.SetId.S0) {
+    if (paramSetId == SetId.S0) {
       return a.a(paramCollection);
     }
     return b.a(paramCollection);
   }
   
-  public com.path.android.jobqueue.b a(Collection<String> paramCollection)
+  public a a(Collection<String> paramCollection)
   {
-    com.path.android.jobqueue.b localb1;
-    com.path.android.jobqueue.b localb2;
+    a locala1;
+    a locala2;
     for (;;)
     {
-      localb1 = a.a(paramCollection);
-      if ((localb1 != null) && (c(localb1) != MergedQueue.SetId.S0))
+      locala1 = a.a(paramCollection);
+      if ((locala1 != null) && (c(locala1) != SetId.S0))
       {
-        b.a(localb1);
-        a.b(localb1);
+        b.a(locala1);
+        a.b(locala1);
       }
       else
       {
-        localb2 = b.a(paramCollection);
-        if ((localb2 == null) || (c(localb2) == MergedQueue.SetId.S1)) {
+        locala2 = b.a(paramCollection);
+        if ((locala2 == null) || (c(locala2) == SetId.S1)) {
           break;
         }
-        a.a(localb2);
-        b.b(localb2);
+        a.a(locala2);
+        b.b(locala2);
       }
     }
-    if (localb1 == null) {}
+    if (locala1 == null) {}
     do
     {
-      return localb2;
-      if (localb2 == null) {
-        return localb1;
+      return locala2;
+      if (locala2 == null) {
+        return locala1;
       }
-    } while (d.compare(localb1, localb2) != -1);
-    return localb1;
+    } while (d.compare(locala1, locala2) != -1);
+    return locala1;
   }
   
-  public b a(MergedQueue.SetId paramSetId, long paramLong, Collection<String> paramCollection)
+  public b a(SetId paramSetId, long paramLong, Collection<String> paramCollection)
   {
-    if (paramSetId == MergedQueue.SetId.S0) {
+    if (paramSetId == SetId.S0) {
       return a.a(paramLong, paramCollection);
     }
     return b.a(paramLong, paramCollection);
   }
   
-  protected abstract c a(MergedQueue.SetId paramSetId, int paramInt, Comparator<com.path.android.jobqueue.b> paramComparator);
+  protected abstract c a(SetId paramSetId, int paramInt, Comparator<a> paramComparator);
   
-  public boolean a(com.path.android.jobqueue.b paramb)
+  public boolean a(a parama)
   {
-    if (c(paramb) == MergedQueue.SetId.S0) {
-      return a.a(paramb);
+    if (c(parama) == SetId.S0) {
+      return a.a(parama);
     }
-    return b.a(paramb);
+    return b.a(parama);
   }
   
-  public b b(MergedQueue.SetId paramSetId, Collection<String> paramCollection)
+  public b b(SetId paramSetId, Collection<String> paramCollection)
   {
-    if (paramSetId == MergedQueue.SetId.S0) {
+    if (paramSetId == SetId.S0) {
       return a.b(paramCollection);
     }
     return b.b(paramCollection);
   }
   
-  public boolean b(com.path.android.jobqueue.b paramb)
+  public boolean b(a parama)
   {
-    return (b.b(paramb)) || (a.b(paramb));
+    return (b.b(parama)) || (a.b(parama));
   }
   
-  protected abstract MergedQueue.SetId c(com.path.android.jobqueue.b paramb);
+  protected abstract SetId c(a parama);
+  
+  protected static enum SetId
+  {
+    S0,  S1;
+    
+    private SetId() {}
+  }
 }
 
 /* Location:

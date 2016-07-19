@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field protected mDateUpdated:Ljava/util/Date;
+.field protected a:Ljava/util/Date;
 
-.field protected mId:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mText:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mUser:Lcom/yelp/android/serializable/User;
+.field protected d:Lcom/yelp/android/serializable/User;
 
 
 # direct methods
@@ -21,219 +21,152 @@
     .locals 0
 
     .prologue
-    .line 31
+    .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/serializable/User;)V
-    .locals 0
-
-    .prologue
-    .line 23
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_Comment;-><init>()V
-
-    .line 24
-    iput-object p1, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
-
-    .line 25
-    iput-object p2, p0, Lcom/yelp/android/serializable/_Comment;->mId:Ljava/lang/String;
-
-    .line 26
-    iput-object p3, p0, Lcom/yelp/android/serializable/_Comment;->mText:Ljava/lang/String;
-
-    .line 27
-    iput-object p4, p0, Lcom/yelp/android/serializable/_Comment;->mUser:Lcom/yelp/android/serializable/User;
-
-    .line 28
+    .line 33
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a()Lorg/json/JSONObject;
+    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 49
-    const/4 v0, 0x0
+    .line 122
+    new-instance v0, Lorg/json/JSONObject;
 
-    return v0
-.end method
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-.method public getDateUpdated()Ljava/util/Date;
-    .locals 1
+    .line 123
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
 
-    .prologue
-    .line 35
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
+    if-eqz v1, :cond_0
 
-    return-object v0
-.end method
+    .line 124
+    const-string/jumbo v1, "time_updated"
 
-.method public getId()Ljava/lang/String;
-    .locals 1
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
 
-    .prologue
-    .line 38
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mId:Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/util/Date;->getTime()J
 
-    return-object v0
-.end method
+    move-result-wide v2
 
-.method public getText()Ljava/lang/String;
-    .locals 1
+    const-wide/16 v4, 0x3e8
 
-    .prologue
-    .line 41
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mText:Ljava/lang/String;
+    div-long/2addr v2, v4
 
-    return-object v0
-.end method
+    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-.method public getUser()Lcom/yelp/android/serializable/User;
-    .locals 1
-
-    .prologue
-    .line 44
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mUser:Lcom/yelp/android/serializable/User;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 2
-
-    .prologue
-    .line 70
-    const-string/jumbo v0, "time_updated"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 71
-    const-string/jumbo v0, "time_updated"
-
-    invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
-
-    .line 73
+    .line 126
     :cond_0
-    const-string/jumbo v0, "id"
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+    if-eqz v1, :cond_1
 
-    move-result v0
+    .line 127
+    const-string/jumbo v1, "id"
 
-    if-nez v0, :cond_1
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
 
-    .line 74
-    const-string/jumbo v0, "id"
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mId:Ljava/lang/String;
-
-    .line 76
+    .line 129
     :cond_1
-    const-string/jumbo v0, "text"
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+    if-eqz v1, :cond_2
 
-    move-result v0
+    .line 130
+    const-string/jumbo v1, "text"
 
-    if-nez v0, :cond_2
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
 
-    .line 77
-    const-string/jumbo v0, "text"
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mText:Ljava/lang/String;
-
-    .line 79
+    .line 132
     :cond_2
-    const-string/jumbo v0, "user"
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+    if-eqz v1, :cond_3
 
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    .line 80
-    sget-object v0, Lcom/yelp/android/serializable/User;->CREATOR:Lcom/yelp/android/serializable/ah;
-
+    .line 133
     const-string/jumbo v1, "user"
 
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
 
-    move-result-object v1
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->A()Lorg/json/JSONObject;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ah;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    check-cast v0, Lcom/yelp/android/serializable/User;
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mUser:Lcom/yelp/android/serializable/User;
-
-    .line 82
+    .line 135
     :cond_3
-    return-void
+    return-object v0
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public a(Landroid/os/Parcel;)V
     .locals 4
 
     .prologue
-    .line 60
+    .line 97
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
-    .line 61
+    .line 98
     const-wide/32 v2, -0x80000000
 
     cmp-long v2, v0, v2
 
     if-eqz v2, :cond_0
 
-    .line 62
+    .line 99
     new-instance v2, Ljava/util/Date;
 
     invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
 
-    iput-object v2, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
+    iput-object v2, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
 
-    .line 64
+    .line 101
     :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mId:Ljava/lang/String;
-
-    .line 65
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mText:Ljava/lang/String;
+    check-cast v0, Ljava/lang/String;
 
-    .line 66
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
+
+    .line 102
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
+
+    .line 103
     const-class v0, Lcom/yelp/android/serializable/User;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -246,95 +179,287 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mUser:Lcom/yelp/android/serializable/User;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
 
-    .line 67
+    .line 104
     return-void
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
-    .locals 6
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 85
-    new-instance v0, Lorg/json/JSONObject;
+    .line 107
+    const-string/jumbo v0, "time_updated"
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
-    .line 86
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-nez v0, :cond_0
 
-    .line 87
-    const-string/jumbo v1, "time_updated"
+    .line 108
+    const-string/jumbo v0, "time_updated"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
+    invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
-    invoke-virtual {v2}, Ljava/util/Date;->getTime()J
+    move-result-object v0
 
-    move-result-wide v2
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
 
-    const-wide/16 v4, 0x3e8
-
-    div-long/2addr v2, v4
-
-    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
-
-    .line 89
+    .line 110
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->mId:Ljava/lang/String;
+    const-string/jumbo v0, "id"
 
-    if-eqz v1, :cond_1
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
-    .line 90
-    const-string/jumbo v1, "id"
+    move-result v0
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->mId:Ljava/lang/String;
+    if-nez v0, :cond_1
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    .line 111
+    const-string/jumbo v0, "id"
 
-    .line 92
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
+
+    .line 113
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->mText:Ljava/lang/String;
+    const-string/jumbo v0, "text"
 
-    if-eqz v1, :cond_2
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
-    .line 93
-    const-string/jumbo v1, "text"
+    move-result v0
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->mText:Ljava/lang/String;
+    if-nez v0, :cond_2
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    .line 114
+    const-string/jumbo v0, "text"
 
-    .line 95
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
+
+    .line 116
     :cond_2
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->mUser:Lcom/yelp/android/serializable/User;
+    const-string/jumbo v0, "user"
 
-    if-eqz v1, :cond_3
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
-    .line 96
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    .line 117
+    sget-object v0, Lcom/yelp/android/serializable/User;->CREATOR:Lcom/yelp/android/serializable/a;
+
     const-string/jumbo v1, "user"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Comment;->mUser:Lcom/yelp/android/serializable/User;
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->writeJSON()Lorg/json/JSONObject;
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/a;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/User;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
+
+    .line 119
+    :cond_3
+    return-void
+.end method
+
+.method public b()Lcom/yelp/android/serializable/User;
+    .locals 1
+
+    .prologue
+    .line 82
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
+
+    return-object v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 78
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 74
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 86
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 70
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 37
+    if-nez p1, :cond_1
+
+    .line 51
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 41
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 42
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 45
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    if-ne v1, v2, :cond_0
 
-    .line 98
-    :cond_3
-    return-object v0
+    .line 49
+    check-cast p1, Lcom/yelp/android/serializable/_Comment;
+
+    .line 51
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 61
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
     .prologue
-    .line 53
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
+    .line 90
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -343,29 +468,29 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mId:Ljava/lang/String;
+    .line 91
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 55
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mText:Ljava/lang/String;
+    .line 92
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 56
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mUser:Lcom/yelp/android/serializable/User;
+    .line 93
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->d:Lcom/yelp/android/serializable/User;
 
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 57
+    .line 94
     return-void
 
-    .line 53
+    .line 90
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->mDateUpdated:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Comment;->a:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

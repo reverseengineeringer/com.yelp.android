@@ -1,33 +1,38 @@
 package com.yelp.android.ui.activities.friends;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.RemoteConfigPreferences;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.bu;
+import com.yelp.android.appdata.webrequests.bv;
 import com.yelp.android.appdata.webrequests.cc;
-import com.yelp.android.appdata.webrequests.cd;
-import com.yelp.android.appdata.webrequests.cl;
-import com.yelp.android.appdata.webrequests.cm;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.cc.a;
+import com.yelp.android.appdata.webrequests.core.c.a;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.FacebookConnectManager;
 import com.yelp.android.ui.activities.FacebookConnectManager.FbPermissionSet;
-import com.yelp.android.ui.activities.fg;
+import com.yelp.android.ui.activities.FacebookConnectManager.a;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.cj;
+import com.yelp.android.ui.util.ap;
 import com.yelp.android.ui.widgets.YelpToggleButton;
 import com.yelp.android.util.ContactsFetcher.Contact;
+import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -36,59 +41,69 @@ public class FindFriendsFBContactsFragment
   extends YelpListFragment
 {
   private String a;
-  private cj b;
+  private ap b;
   private ArrayList<User> c;
-  private cl d;
-  private cc e;
-  private cd g;
-  private FacebookConnectManager<ActivityFindFriends> h;
+  private cc d;
+  private bu e;
+  private bv f;
+  private FacebookConnectManager<ActivityFindFriends> g;
   private boolean i;
-  private TextView j;
-  private RelativeLayout k;
-  private RelativeLayout l;
-  private YelpToggleButton m;
-  private final View.OnClickListener n = new c(this);
-  private final View.OnClickListener o = new f(this);
-  private final View.OnClickListener p = new g(this);
-  private final com.yelp.android.av.i q = new h(this);
-  private final com.yelp.android.appdata.webrequests.m<Boolean> r = new i(this);
-  private final com.yelp.android.appdata.webrequests.m<cm> s = new j(this);
-  private final fg<ActivityFindFriends> t = new l(this);
-  private final com.yelp.android.appdata.webrequests.m<RemoteConfigPreferences> u = new m(this);
+  private RelativeLayout j;
+  private View k;
+  private TextView l;
+  private TextView m;
+  private RelativeLayout n;
+  private RelativeLayout o;
+  private YelpToggleButton p;
+  private View q;
+  private final View.OnClickListener r = new FindFriendsFBContactsFragment.2(this);
+  private final View.OnClickListener s = new FindFriendsFBContactsFragment.3(this);
+  private final View.OnClickListener t = new FindFriendsFBContactsFragment.4(this);
+  private final View.OnClickListener u = new FindFriendsFBContactsFragment.5(this);
+  private final c.a v = new FindFriendsFBContactsFragment.6(this);
+  private final ApiRequest.b<Boolean> w = new FindFriendsFBContactsFragment.7(this);
+  private final ApiRequest.b<cc.a> x = new FindFriendsFBContactsFragment.8(this);
+  private final FacebookConnectManager.a<ActivityFindFriends> y = new FindFriendsFBContactsFragment.9(this);
   
   private void a(Iterable<String> paramIterable)
   {
     boolean bool = "SOURCE_FACEBOOK".equals(a);
-    d = new cl(s, paramIterable, false, bool);
-    d.execute(new Void[0]);
-    a(d, 2131165824);
+    d = new cc(x, paramIterable, false, bool);
+    d.f(new Void[0]);
+    a(d, 2131165906);
   }
   
   private void a(ArrayList<User> paramArrayList, Map<String, ContactsFetcher.Contact> paramMap)
   {
-    j();
-    m().setVisibility(0);
+    l();
     c = paramArrayList;
     b.clear();
     b.a(paramMap);
     b.a(c);
-    a(true);
+    b(true);
+    if (c.isEmpty())
+    {
+      a(ErrorType.NO_FRIENDS_IN_CONTACTS);
+      g();
+      return;
+    }
+    h();
   }
   
-  private void b(boolean paramBoolean)
+  private void a(boolean paramBoolean)
   {
-    j();
-    m.setChecked(paramBoolean);
+    l();
+    p.setChecked(paramBoolean);
     if (paramBoolean)
     {
       if (d != null) {
-        d.cancel(true);
+        d.a(true);
       }
-      m().setVisibility(8);
-      l.setVisibility(8);
+      g();
+      o.setVisibility(8);
       return;
     }
-    a_();
+    p_();
   }
   
   public static FindFriendsFBContactsFragment c()
@@ -96,29 +111,46 @@ public class FindFriendsFBContactsFragment
     return new FindFriendsFBContactsFragment();
   }
   
-  private void e()
+  private void f()
   {
     if ("SOURCE_CONTACTS".equals(a))
     {
-      a(null, 2131165824);
-      new b(this).execute(new Void[0]);
+      a(null, 2131165906);
+      new FindFriendsFBContactsFragment.1(this).execute(new Void[0]);
       return;
     }
     a(Collections.emptyList());
+  }
+  
+  private void g()
+  {
+    k.setVisibility(0);
+    m().setVisibility(8);
+  }
+  
+  private void h()
+  {
+    k.setVisibility(8);
+    m().setVisibility(0);
+  }
+  
+  public ViewIri C_()
+  {
+    return ViewIri.FriendFinder;
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     super.a(paramListView, paramView, paramInt, paramLong);
     paramListView = (User)c.get(paramInt);
-    startActivity(ActivityUserProfile.a(getActivity(), paramListView.getId()));
+    startActivity(ActivityUserProfile.a(getActivity(), paramListView.ae()));
   }
   
   protected void a(YelpException paramYelpException)
   {
     super.a(paramYelpException);
     m().getEmptyView().setVisibility(8);
-    k.setVisibility(8);
+    n.setVisibility(8);
   }
   
   public void a(String paramString)
@@ -126,38 +158,7 @@ public class FindFriendsFBContactsFragment
     a = paramString;
   }
   
-  public void a_()
-  {
-    if ("SOURCE_FACEBOOK".equals(a))
-    {
-      if (h == null) {
-        h = new FacebookConnectManager((ActivityFindFriends)getActivity(), 2131166015, t, FacebookConnectManager.FbPermissionSet.DEFAULT_USER_FRIEND, 1023);
-      }
-      while (FacebookConnectManager.a())
-      {
-        a(Collections.emptyList());
-        return;
-        h.a(t);
-        h.a((ActivityFindFriends)getActivity());
-      }
-      h.e();
-      return;
-    }
-    if (AppData.b().m().h() == null)
-    {
-      AppData.b().m().a(u);
-      a(null, 2131165824);
-      return;
-    }
-    e();
-  }
-  
-  public ViewIri d()
-  {
-    return ViewIri.FriendFinder;
-  }
-  
-  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.b paramb)
+  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.a parama)
   {
     if ("SOURCE_CONTACTS".equals(a)) {
       return Collections.singletonMap("use_contacts", Boolean.valueOf(true));
@@ -168,12 +169,9 @@ public class FindFriendsFBContactsFragment
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    switch (paramInt1)
-    {
-    default: 
-      return;
+    if (g != null) {
+      g.a(paramInt1, paramInt2, paramIntent);
     }
-    h.a(paramInt1, paramInt2, paramIntent);
   }
   
   public void onCreate(Bundle paramBundle)
@@ -183,34 +181,66 @@ public class FindFriendsFBContactsFragment
     {
       a = paramBundle.getString("source");
       c = paramBundle.getParcelableArrayList("users");
-      b = cj.a(paramBundle);
+      b = ap.a(paramBundle);
       i = paramBundle.getBoolean("fb_auto_friend");
     }
     for (;;)
     {
-      b.a(n);
+      b.a(r);
       b.a(true);
       a(b);
       return;
-      b = new cj(2130903314);
+      b = new ap(2130903411);
     }
   }
   
+  public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
+  {
+    paramMenuInflater.inflate(2131755025, paramMenu);
+  }
+  
+  @SuppressLint({"InflateParams"})
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903216, paramViewGroup, false);
-    j = ((TextView)paramLayoutInflater.findViewById(2131493553));
-    k = ((RelativeLayout)paramLayoutInflater.findViewById(2131493552));
-    l = ((RelativeLayout)paramLayoutInflater.findViewById(2131493559));
-    paramLayoutInflater.findViewById(2131493560).setOnClickListener(o);
+    j = ((RelativeLayout)paramLayoutInflater.inflate(2130903242, paramViewGroup, false));
+    l = ((TextView)j.findViewById(2131690257));
+    m = ((TextView)j.findViewById(2131690255));
+    n = ((RelativeLayout)j.findViewById(2131690254));
+    o = ((RelativeLayout)j.findViewById(2131690263));
+    j.findViewById(2131690264).setOnClickListener(s);
+    k = j.findViewById(2131689967);
+    paramViewGroup = (ViewFlipper)k;
+    paramViewGroup.setDisplayedChild(paramViewGroup.indexOfChild(j.findViewById(2131690255)));
     if ("SOURCE_FACEBOOK".equals(a))
     {
-      paramLayoutInflater.findViewById(2131493554).setVisibility(0);
-      ((TextView)k.findViewById(2131493561)).setText(2131165872);
-      m = ((YelpToggleButton)paramLayoutInflater.findViewById(2131493558));
-      m.setOnClickListener(p);
+      j.findViewById(2131690258).setVisibility(0);
+      ((TextView)n.findViewById(2131690265)).setText(2131165949);
+      p = ((YelpToggleButton)j.findViewById(2131690262));
+      p.setOnClickListener(t);
+      if (com.facebook.share.widget.a.e())
+      {
+        q = paramLayoutInflater.inflate(2130903416, null);
+        q.setOnClickListener(null);
+        q.findViewById(2131690704).setOnClickListener(u);
+        e(q);
+        setHasOptionsMenu(true);
+        ((TextView)j.findViewById(2131690256).findViewById(2131690703)).setText(getString(2131166797));
+        paramViewGroup.setDisplayedChild(paramViewGroup.indexOfChild(j.findViewById(2131690256)));
+        j.findViewById(2131690704).setOnClickListener(u);
+      }
     }
-    return paramLayoutInflater;
+    return j;
+  }
+  
+  public boolean onOptionsItemSelected(MenuItem paramMenuItem)
+  {
+    switch (paramMenuItem.getItemId())
+    {
+    default: 
+      return super.onOptionsItemSelected(paramMenuItem);
+    }
+    q.findViewById(2131690704).performClick();
+    return true;
   }
   
   public void onPause()
@@ -218,38 +248,31 @@ public class FindFriendsFBContactsFragment
     super.onPause();
     a("friends", d);
     a("facebook_auto_friend_get", e);
-    a("facebook_auto_friend_post", g);
-    if (h != null)
-    {
-      FacebookConnectManager localFacebookConnectManager = h;
-      if (FacebookConnectManager.a()) {
-        h.a(null);
-      }
-    }
+    a("facebook_auto_friend_post", f);
   }
   
   public void onResume()
   {
     super.onResume();
-    d = ((cl)a("friends", d, s));
-    e = ((cc)a("facebook_auto_friend_get", e, r));
+    d = ((cc)a("friends", d, x));
+    e = ((bu)a("facebook_auto_friend_get", e, w));
     if (c == null)
     {
       if (!"SOURCE_FACEBOOK".equals(a)) {
         break label106;
       }
-      i_();
       if (e == null)
       {
-        e = new cc(r);
-        e.execute(new String[0]);
+        H_();
+        e = new bu(w);
+        e.f(new String[0]);
       }
     }
     label106:
     while (d != null) {
       return;
     }
-    a_();
+    p_();
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
@@ -259,6 +282,26 @@ public class FindFriendsFBContactsFragment
     paramBundle.putParcelableArrayList("users", c);
     paramBundle.putBoolean("fb_auto_friend", i);
     super.onSaveInstanceState(paramBundle);
+  }
+  
+  public void p_()
+  {
+    if ("SOURCE_FACEBOOK".equals(a))
+    {
+      if (g == null) {
+        g = new FacebookConnectManager((ActivityFindFriends)getActivity(), 2131166073, y, FacebookConnectManager.FbPermissionSet.DEFAULT_USER_FRIEND);
+      }
+      while (FacebookConnectManager.a())
+      {
+        a(Collections.emptyList());
+        return;
+        g.a(y);
+        g.a((ActivityFindFriends)getActivity());
+      }
+      g.e();
+      return;
+    }
+    f();
   }
 }
 

@@ -1,17 +1,16 @@
-.class public interface abstract Landroid/support/v4/widget/t;
+.class Landroid/support/v4/widget/t;
 .super Ljava/lang/Object;
-.source "DrawerLayout.java"
+.source "PopupWindowCompatKitKat.java"
 
 
-# virtual methods
-.method public abstract onDrawerClosed(Landroid/view/View;)V
-.end method
+# direct methods
+.method public static a(Landroid/widget/PopupWindow;Landroid/view/View;III)V
+    .locals 0
 
-.method public abstract onDrawerOpened(Landroid/view/View;)V
-.end method
+    .prologue
+    .line 30
+    invoke-virtual {p0, p1, p2, p3, p4}, Landroid/widget/PopupWindow;->showAsDropDown(Landroid/view/View;III)V
 
-.method public abstract onDrawerSlide(Landroid/view/View;F)V
-.end method
-
-.method public abstract onDrawerStateChanged(I)V
+    .line 31
+    return-void
 .end method

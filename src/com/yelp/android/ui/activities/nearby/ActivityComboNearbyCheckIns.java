@@ -6,20 +6,21 @@ import android.os.Bundle;
 import com.yelp.android.serializable.CheckIn;
 import com.yelp.android.serializable.YelpCheckIn;
 import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
-import com.yelp.android.ui.activities.friendcheckins.p;
+import com.yelp.android.ui.activities.friendcheckins.NearbyCheckIns.a;
+import com.yelp.android.ui.activities.friendcheckins.a;
 import com.yelp.android.ui.map.c;
 import com.yelp.android.ui.map.e;
-import com.yelp.android.ui.map.k;
-import com.yelp.android.ui.util.au;
+import com.yelp.android.ui.map.j;
+import com.yelp.android.ui.util.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class ActivityComboNearbyCheckIns
   extends ComboMapListActivity<YelpCheckIn>
 {
-  private com.yelp.android.ui.activities.friendcheckins.a a;
+  private a a;
   private ArrayList<YelpCheckIn> c;
-  private p d;
+  private NearbyCheckIns.a d;
   
   public static Intent a(Context paramContext, ArrayList<YelpCheckIn> paramArrayList, String paramString)
   {
@@ -34,14 +35,14 @@ public class ActivityComboNearbyCheckIns
     return new c(this);
   }
   
-  protected au<CheckIn> a(int paramInt)
+  protected w<CheckIn> a(int paramInt)
   {
     return a;
   }
   
   public void a(YelpCheckIn paramYelpCheckIn)
   {
-    startActivity(ActivityBusinessPage.b(this, paramYelpCheckIn.getBusiness()));
+    startActivity(ActivityBusinessPage.b(this, paramYelpCheckIn.d()));
   }
   
   public void a(ComboListFragment<YelpCheckIn> paramComboListFragment)
@@ -52,7 +53,7 @@ public class ActivityComboNearbyCheckIns
   public void a(ComboListFragment<YelpCheckIn> paramComboListFragment, Object paramObject)
   {
     if ((paramObject instanceof YelpCheckIn)) {
-      startActivity(ActivityBusinessPage.b(this, ((YelpCheckIn)paramObject).getBusiness()));
+      startActivity(ActivityBusinessPage.b(this, ((YelpCheckIn)paramObject).d()));
     }
   }
   
@@ -60,7 +61,7 @@ public class ActivityComboNearbyCheckIns
   
   public void c()
   {
-    j().a(c, new k(this, 0));
+    j().a(c, new j(this, 0));
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -77,7 +78,7 @@ public class ActivityComboNearbyCheckIns
     paramBundle = new Intent("like");
     Object localObject = new Intent("comment");
     Intent localIntent = new Intent("view_like_comment");
-    a = new com.yelp.android.ui.activities.friendcheckins.a(false, true);
+    a = new a(false, true);
     a.a(createPendingResult(103, paramBundle, 0));
     a.b(createPendingResult(102, (Intent)localObject, 0));
     a.c(createPendingResult(104, localIntent, 0));
@@ -87,8 +88,14 @@ public class ActivityComboNearbyCheckIns
       paramBundle.add((YelpCheckIn)((Iterator)localObject).next());
     }
     a.a(paramBundle);
-    d = new a(this);
-    l().a(true);
+    d = new NearbyCheckIns.a()
+    {
+      protected void a(YelpCheckIn paramAnonymousYelpCheckIn)
+      {
+        ActivityComboNearbyCheckIns.a(ActivityComboNearbyCheckIns.this).b(paramAnonymousYelpCheckIn);
+      }
+    };
+    l().b(true);
   }
 }
 

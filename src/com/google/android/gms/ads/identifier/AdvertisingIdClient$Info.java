@@ -2,28 +2,28 @@ package com.google.android.gms.ads.identifier;
 
 public final class AdvertisingIdClient$Info
 {
-  private final String lx;
-  private final boolean ly;
+  private final String zzpc;
+  private final boolean zzpd;
   
   public AdvertisingIdClient$Info(String paramString, boolean paramBoolean)
   {
-    lx = paramString;
-    ly = paramBoolean;
+    zzpc = paramString;
+    zzpd = paramBoolean;
   }
   
   public String getId()
   {
-    return lx;
+    return zzpc;
   }
   
   public boolean isLimitAdTrackingEnabled()
   {
-    return ly;
+    return zzpd;
   }
   
   public String toString()
   {
-    return "{" + lx + "}" + ly;
+    return "{" + zzpc + "}" + zzpd;
   }
 }
 

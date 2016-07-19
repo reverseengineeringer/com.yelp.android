@@ -1,40 +1,27 @@
 package com.yelp.android.ac;
 
-import com.bumptech.glide.load.engine.t;
+import android.content.Context;
+import android.net.Uri;
+import com.yelp.android.aa.l;
+import com.yelp.android.w.c;
+import com.yelp.android.w.i;
+import java.io.InputStream;
 
 public class b
-  implements t<a>
+  implements l<Uri, InputStream>
 {
-  private final a a;
+  private final Context a;
+  private final l<Uri, InputStream> b;
   
-  public b(a parama)
+  public b(Context paramContext, l<Uri, InputStream> paraml)
   {
-    if (parama == null) {
-      throw new NullPointerException("Data must not be null");
-    }
-    a = parama;
+    a = paramContext;
+    b = paraml;
   }
   
-  public a a()
+  public c<InputStream> a(Uri paramUri, int paramInt1, int paramInt2)
   {
-    return a;
-  }
-  
-  public int c()
-  {
-    return a.a();
-  }
-  
-  public void d()
-  {
-    t localt = a.b();
-    if (localt != null) {
-      localt.d();
-    }
-    localt = a.c();
-    if (localt != null) {
-      localt.d();
-    }
+    return new i(a, paramUri, b.a(paramUri, paramInt1, paramInt2), paramInt1, paramInt2);
   }
 }
 

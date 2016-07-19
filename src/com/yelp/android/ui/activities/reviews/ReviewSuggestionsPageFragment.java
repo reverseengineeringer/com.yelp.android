@@ -9,44 +9,43 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import com.yelp.android.analytics.h;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.IriSource;
-import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest.FormatMode;
 import com.yelp.android.appdata.webrequests.BusinessSearchRequest.SearchMode;
 import com.yelp.android.appdata.webrequests.SearchRequest.SearchResponse;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.dr;
-import com.yelp.android.appdata.webrequests.fi;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.database.q;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.cv;
+import com.yelp.android.appdata.webrequests.ee;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.database.g;
 import com.yelp.android.serializable.ReviewSuggestion;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.support.ActivitySingleSearchBar;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.panels.PanelError;
-import com.yelp.android.ui.panels.aa;
-import com.yelp.android.ui.panels.at;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bv;
-import com.yelp.android.ui.util.bw;
+import com.yelp.android.ui.panels.PanelError.a;
+import com.yelp.android.ui.panels.g.a;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.b;
+import com.yelp.android.ui.util.aj.c;
 import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 
 public class ReviewSuggestionsPageFragment
   extends YelpListFragment
-  implements aa
+  implements PanelError.a
 {
-  private bs a;
-  private ba b;
-  private x c;
-  private fi d;
-  private dr e;
-  private ArrayList<ReviewSuggestion> g;
-  private ArrayList<YelpBusiness> h;
+  private aj a;
+  private d b;
+  private a c;
+  private ee d;
+  private cv e;
+  private ArrayList<ReviewSuggestion> f;
+  private ArrayList<YelpBusiness> g;
   private ArrayList<ReviewSuggestion> i;
   private int j;
   private int k;
@@ -60,87 +59,87 @@ public class ReviewSuggestionsPageFragment
   private String s;
   private Button t;
   private BusinessSearchRequest u;
-  private final m<ArrayList<ReviewSuggestion>> v = new bc(this);
-  private final j<ArrayList<YelpBusiness>> w = new bd(this);
-  private final j<SearchRequest.SearchResponse> x = new be(this);
-  private final at y = new bf(this);
+  private final k.b<ArrayList<ReviewSuggestion>> v = new ReviewSuggestionsPageFragment.2(this);
+  private final k.b<ArrayList<YelpBusiness>> w = new ReviewSuggestionsPageFragment.3(this);
+  private final k.b<SearchRequest.SearchResponse> x = new ReviewSuggestionsPageFragment.4(this);
+  private final g.a y = new ReviewSuggestionsPageFragment.5(this);
   
   private void b(ErrorType paramErrorType)
   {
     if (paramErrorType.isMoreImportant(l)) {
       l = paramErrorType;
     }
-    if (j == h()) {
+    if (j == i()) {
       a(l, this);
     }
   }
   
-  public static ReviewSuggestionsPageFragment e()
+  public static ReviewSuggestionsPageFragment f()
   {
     return new ReviewSuggestionsPageFragment();
   }
   
-  private void f()
+  private void g()
   {
-    a = new bs();
-    b = new ba(y);
-    View localView = getActivity().getLayoutInflater().inflate(2130903409, m(), false);
-    t = ((Button)localView.findViewById(2131493972));
-    t.setOnClickListener(new bb(this));
-    String str = getString(2131166620);
-    a.a(2131166620, bw.a(str, b).a(2130772320).a(localView).a());
-    c = new x();
-    a.a(2131166168, bw.a(c).a(2130772320).a());
+    a = new aj();
+    b = new d(y);
+    View localView = getActivity().getLayoutInflater().inflate(2130903520, m(), false);
+    t = ((Button)localView.findViewById(2131690821));
+    t.setOnClickListener(new ReviewSuggestionsPageFragment.1(this));
+    String str = getString(2131166634);
+    a.a(2131166634, aj.c.a(str, b).a(2130772430).a(localView).b());
+    c = new a();
+    a.a(2131166218, aj.c.a(c).a(2130772430).b());
   }
   
-  private void g()
+  private void h()
   {
     if (u == null)
     {
-      u = new BusinessSearchRequest(AppData.b().i().g(), x);
-      u.setFormatMode(BusinessSearchRequest.FormatMode.SHORT);
-      u.setSearchTerms(p);
-      if (!TextUtils.equals(q, getString(2131165670))) {
+      u = new BusinessSearchRequest(AppData.b().i().e(), x);
+      u.a(BusinessSearchRequest.FormatMode.SHORT);
+      u.g(p);
+      if (!TextUtils.equals(q, getString(2131165745))) {
         break label143;
       }
-      u.setSearchMode(BusinessSearchRequest.SearchMode.NEARBY);
+      u.a(BusinessSearchRequest.SearchMode.NEARBY);
     }
-    for (s = getString(2131166168);; s = getString(2131166509))
+    for (s = getString(2131166218);; s = getString(2131166508))
     {
       a(u);
-      u.search();
+      u.y();
       a.clear();
       return;
-      b(u);
-      u = u.copy().setCallback(x);
+      c(u);
+      u = u.B().a(x);
       break;
       label143:
-      u.setSearchMode(null);
-      u.setTermNear(q);
+      u.a(null);
+      u.e(q);
     }
   }
   
-  private int h()
+  private int i()
   {
-    if (AppData.b().m().c()) {
+    if (AppData.b().q().b()) {
       return 2;
     }
     return 1;
   }
   
-  private void i()
+  private void j()
   {
-    if ((h() == 2) && ((d == null) || (!d.isFetching())))
+    if ((i() == 2) && ((d == null) || (!d.u())))
     {
-      d = new fi(v);
+      d = new ee(v);
       a(d);
-      d.execute(new Void[0]);
+      d.a(new Void[0]);
     }
-    if ((e == null) || (!e.isFetching()))
+    if ((e == null) || (!e.u()))
     {
-      e = new dr(w);
+      e = new cv(w);
       a(e);
-      e.executeWithLocation(new Void[0]);
+      e.a(new Void[0]);
     }
   }
   
@@ -148,10 +147,10 @@ public class ReviewSuggestionsPageFragment
   {
     boolean bool1 = true;
     if (o) {
-      return h != null;
+      return g != null;
     }
     boolean bool2 = m;
-    if (k + j == h()) {}
+    if (k + j == i()) {}
     for (;;)
     {
       m = (bool1 | bool2);
@@ -160,7 +159,7 @@ public class ReviewSuggestionsPageFragment
     }
   }
   
-  private void l()
+  private void t()
   {
     m = true;
     a.clear();
@@ -168,37 +167,37 @@ public class ReviewSuggestionsPageFragment
     v();
     if (l != ErrorType.NO_ERROR)
     {
-      PanelError localPanelError = y();
+      PanelError localPanelError = A();
       localPanelError.a(l, this);
       c(localPanelError);
     }
     a(a);
-    j();
+    l();
   }
   
   private void u()
   {
-    if ((o) || (g == null) || (g.isEmpty())) {
+    if ((o) || (f == null) || (f.isEmpty())) {
       return;
     }
-    i = new ArrayList(g.size());
-    i.addAll(g.subList(0, Math.min(g.size(), 3)));
+    i = new ArrayList(f.size());
+    i.addAll(f.subList(0, Math.min(f.size(), 3)));
     b.a(i);
-    if (g.size() > 3) {
+    if (f.size() > 3) {
       t.setVisibility(0);
     }
-    AppData.a(ViewIri.ReviewSuggestionsViewed, IriSource.AddReviewPage.getMapWithParameter());
+    h.a(IriSource.AddReviewPage, i);
   }
   
   private void v()
   {
-    if ((h == null) || (h.isEmpty()))
+    if ((g == null) || (g.isEmpty()))
     {
       b(ErrorType.NO_RESULTS);
       return;
     }
-    c.a(h.subList(0, Math.min(h.size(), 20)));
-    a.a(2131166168).a(s);
+    c.a(g.subList(0, Math.min(g.size(), 20)));
+    a.a(2131166218).a(s);
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
@@ -215,7 +214,7 @@ public class ReviewSuggestionsPageFragment
     }
     for (paramListView = ReviewSource.SearchAddReviewBusiness;; paramListView = ReviewSource.NearbySearchAddReviewBusiness)
     {
-      AppData.a(paramView, "id", localYelpBusiness.getId());
+      AppData.a(paramView, "id", localYelpBusiness.aD());
       startActivity(ActivityReviewWrite.a(getActivity(), localYelpBusiness, paramListView));
       return;
       label66:
@@ -229,41 +228,7 @@ public class ReviewSuggestionsPageFragment
     p = paramString1;
     q = paramString2;
     r = paramString3;
-    g();
-  }
-  
-  public void a_()
-  {
-    j();
-    x();
-    a.clear();
-    p = null;
-    s = getString(2131166168);
-    o = false;
-    j = 0;
-    k = 0;
-    m = false;
-    l = ErrorType.NO_ERROR;
-    n = false;
-    b(d);
-    d = null;
-    b(e);
-    e = null;
-    g = null;
-    h = null;
-    i = null;
-    i();
-  }
-  
-  public void m_()
-  {
-    if (o)
-    {
-      x();
-      g();
-      return;
-    }
-    a_();
+    h();
   }
   
   public void onActivityCreated(Bundle paramBundle)
@@ -271,25 +236,25 @@ public class ReviewSuggestionsPageFragment
     super.onActivityCreated(paramBundle);
     if (paramBundle != null)
     {
-      g = paramBundle.getParcelableArrayList("saved_suggestions");
-      h = paramBundle.getParcelableArrayList("saved_nearby");
+      f = paramBundle.getParcelableArrayList("saved_suggestions");
+      g = paramBundle.getParcelableArrayList("saved_nearby");
       m = paramBundle.getBoolean("saved_requests_completed", false);
       n = paramBundle.getBoolean("saved_review_flow", false);
       o = paramBundle.getBoolean("saved_search_flow", false);
-      l = ((ErrorType)paramBundle.getParcelable("saved_main_error"));
+      l = ((ErrorType)paramBundle.getSerializable("saved_main_error"));
       s = paramBundle.getString("saved_search_header");
       p = paramBundle.getString("saved_search_text");
       q = paramBundle.getString("saved_location_text");
     }
-    f();
+    g();
     if (k()) {
-      l();
+      t();
     }
     for (;;)
     {
-      a(true);
+      b(true);
       return;
-      a_();
+      p_();
     }
   }
   
@@ -307,9 +272,9 @@ public class ReviewSuggestionsPageFragment
     super.onDestroy();
     if (getActivity().isFinishing())
     {
-      b(d);
-      b(e);
-      b(u);
+      c(d);
+      c(e);
+      c(u);
     }
   }
   
@@ -324,26 +289,60 @@ public class ReviewSuggestionsPageFragment
   public void onResume()
   {
     super.onResume();
-    d = ((fi)a("ADD_REVIEW_SUGGESTIONS", d, v));
-    e = ((dr)a("ADD_REVIEW_NEARBY", e, w));
+    d = ((ee)a("ADD_REVIEW_SUGGESTIONS", d, v));
+    e = ((cv)a("ADD_REVIEW_NEARBY", e, w));
     u = ((BusinessSearchRequest)a("ADD_REVIEW_SEARCH", u, x));
     if (n) {
-      a_();
+      p_();
     }
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putParcelableArrayList("saved_suggestions", g);
-    paramBundle.putParcelableArrayList("saved_nearby", h);
+    paramBundle.putParcelableArrayList("saved_suggestions", f);
+    paramBundle.putParcelableArrayList("saved_nearby", g);
     paramBundle.putBoolean("saved_requests_completed", m);
     paramBundle.putBoolean("saved_review_flow", n);
     paramBundle.putBoolean("saved_search_flow", o);
-    paramBundle.putParcelable("saved_main_error", l);
+    paramBundle.putSerializable("saved_main_error", l);
     paramBundle.putString("saved_search_header", s);
     paramBundle.putString("saved_search_text", p);
     paramBundle.putString("saved_location_text", q);
+  }
+  
+  public void p_()
+  {
+    l();
+    z();
+    a.clear();
+    p = null;
+    s = getString(2131166218);
+    o = false;
+    j = 0;
+    k = 0;
+    m = false;
+    l = ErrorType.NO_ERROR;
+    n = false;
+    c(d);
+    d = null;
+    c(e);
+    e = null;
+    f = null;
+    g = null;
+    i = null;
+    j();
+  }
+  
+  public void q_()
+  {
+    if (o)
+    {
+      z();
+      h();
+      return;
+    }
+    p_();
   }
 }
 

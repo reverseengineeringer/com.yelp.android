@@ -1,36 +1,76 @@
 package android.support.v7.internal.view.menu;
 
-import android.view.CollapsibleActionView;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
-import android.widget.FrameLayout;
-import com.yelp.android.m.c;
+import com.yelp.android.e.c;
 
 class q
-  extends FrameLayout
-  implements c
+  extends o
+  implements SubMenu
 {
-  final CollapsibleActionView a;
-  
-  q(View paramView)
+  q(Context paramContext, c paramc)
   {
-    super(paramView.getContext());
-    a = ((CollapsibleActionView)paramView);
-    addView(paramView);
+    super(paramContext, paramc);
   }
   
-  public void a()
+  public c b()
   {
-    a.onActionViewExpanded();
+    return (c)b;
   }
   
-  public void b()
+  public void clearHeader()
   {
-    a.onActionViewCollapsed();
+    b().clearHeader();
   }
   
-  View c()
+  public MenuItem getItem()
   {
-    return (View)a;
+    return a(b().getItem());
+  }
+  
+  public SubMenu setHeaderIcon(int paramInt)
+  {
+    b().setHeaderIcon(paramInt);
+    return this;
+  }
+  
+  public SubMenu setHeaderIcon(Drawable paramDrawable)
+  {
+    b().setHeaderIcon(paramDrawable);
+    return this;
+  }
+  
+  public SubMenu setHeaderTitle(int paramInt)
+  {
+    b().setHeaderTitle(paramInt);
+    return this;
+  }
+  
+  public SubMenu setHeaderTitle(CharSequence paramCharSequence)
+  {
+    b().setHeaderTitle(paramCharSequence);
+    return this;
+  }
+  
+  public SubMenu setHeaderView(View paramView)
+  {
+    b().setHeaderView(paramView);
+    return this;
+  }
+  
+  public SubMenu setIcon(int paramInt)
+  {
+    b().setIcon(paramInt);
+    return this;
+  }
+  
+  public SubMenu setIcon(Drawable paramDrawable)
+  {
+    b().setIcon(paramDrawable);
+    return this;
   }
 }
 

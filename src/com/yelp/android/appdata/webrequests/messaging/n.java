@@ -1,12 +1,12 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class n
-  extends h
+  extends c
 {
-  public n(String paramString, boolean paramBoolean, i parami) {}
+  public n(String paramString, boolean paramBoolean, c.a parama) {}
   
   public String toString()
   {

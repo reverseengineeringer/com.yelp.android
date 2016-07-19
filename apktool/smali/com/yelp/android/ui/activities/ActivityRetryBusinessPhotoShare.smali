@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 15
+    .line 14
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityRetryShare;-><init>()V
 
     return-void
@@ -34,28 +34,30 @@
     .end annotation
 
     .prologue
-    .line 42
-    invoke-static {p0, p1, p2}, Lcom/yelp/android/ui/activities/ActivityRetryShare;->b(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;)Landroid/content/Intent;
+    .line 35
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, p2, v0}, Lcom/yelp/android/ui/activities/ActivityRetryShare;->b(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;Ljava/util/Collection;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 43
+    .line 36
     const-class v1, Lcom/yelp/android/ui/activities/ActivityRetryBusinessPhotoShare;
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 44
+    .line 37
     return-object v0
 .end method
 
 
 # virtual methods
-.method public a()Lcom/yelp/android/ui/activities/dw;
+.method public a()Lcom/yelp/android/ui/activities/ActivityRetryShare$a;
     .locals 1
 
     .prologue
-    .line 19
-    sget-object v0, Lcom/yelp/android/ui/activities/ActivityRetryBusinessPhotoShare;->h:Lcom/yelp/android/ui/activities/dw;
+    .line 18
+    sget-object v0, Lcom/yelp/android/ui/activities/ActivityRetryBusinessPhotoShare;->j:Lcom/yelp/android/ui/activities/ActivityRetryShare$a;
 
     return-object v0
 .end method
@@ -64,7 +66,7 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 28
     sget-object v0, Lcom/yelp/android/services/ShareService$ShareObjectType;->PHOTO:Lcom/yelp/android/services/ShareService$ShareObjectType;
 
     return-object v0
@@ -74,17 +76,17 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 23
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 15
+    .line 14
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityRetryBusinessPhotoShare;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0

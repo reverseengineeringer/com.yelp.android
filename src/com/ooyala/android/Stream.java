@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 public class Stream
 {
-  private static StreamSelector _selector = new Stream.DefaultStreamSelector();
+  private static StreamSelector _selector = new DefaultStreamSelector();
   protected String _aspectRatio = null;
   protected int _audioBitrate = -1;
   protected String _deliveryType = null;
@@ -100,7 +100,7 @@ public class Stream
   
   public static void resetStreamSelector()
   {
-    _selector = new Stream.DefaultStreamSelector();
+    _selector = new DefaultStreamSelector();
   }
   
   public static void setStreamSelector(StreamSelector paramStreamSelector)
@@ -386,6 +386,55 @@ public class Stream
     catch (JSONException paramJSONObject)
     {
       System.out.println("ERROR: Fail to update stream with dictionary because of invalid JSON: " + paramJSONObject);
+    }
+  }
+  
+  private static class DefaultStreamSelector
+    implements StreamSelector
+  {
+    public Stream bestStream(Set<Stream> paramSet)
+    {
+      Stream localStream = null;
+      Iterator localIterator = null;
+      Object localObject = localIterator;
+      if (paramSet != null)
+      {
+        if (paramSet.size() != 0) {
+          break label26;
+        }
+        localObject = localIterator;
+      }
+      label26:
+      do
+      {
+        return (Stream)localObject;
+        localIterator = paramSet.iterator();
+        paramSet = localStream;
+        localObject = paramSet;
+      } while (!localIterator.hasNext());
+      localStream = (Stream)localIterator.next();
+      if ((localStream.getDeliveryType().equals("remote_asset")) || (localStream.getDeliveryType().equals("hls"))) {
+        return localStream;
+      }
+      if ((Stream.isDeliveryTypePlayable(localStream)) && (Stream.isProfilePlayable(localStream)))
+      {
+        localObject = localStream;
+        if (paramSet != null)
+        {
+          localObject = localStream;
+          if (localStream.getCombinedBitrate() >= paramSet.getCombinedBitrate()) {
+            if ((localStream.getCombinedBitrate() != paramSet.getCombinedBitrate()) || (localStream.getHeight() >= paramSet.getHeight())) {
+              break label147;
+            }
+          }
+        }
+      }
+      label147:
+      for (localObject = localStream;; localObject = paramSet)
+      {
+        paramSet = (Set<Stream>)localObject;
+        break;
+      }
     }
   }
 }

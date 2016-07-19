@@ -246,6 +246,12 @@
 # virtual methods
 .method public buildURI(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/URISyntaxException;,
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
 
     .prologue
     .line 161
@@ -572,6 +578,12 @@
 
 .method public executeWithCommand(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/net/URISyntaxException;,
+            Ljava/io/UnsupportedEncodingException;
+        }
+    .end annotation
 
     .prologue
     .line 101

@@ -1,153 +1,203 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.view.MotionEvent;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Vector;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicReference;
 
-@ey
-class x
-  implements g, Runnable
+@fv
+public class x
 {
-  private u.b lB;
-  private final List<Object[]> mp = new Vector();
-  private final AtomicReference<g> mq = new AtomicReference();
-  CountDownLatch mr = new CountDownLatch(1);
+  private final int a;
+  private final int b;
+  private final int c;
+  private final ac d;
+  private final Object e = new Object();
+  private ArrayList<String> f = new ArrayList();
+  private ArrayList<String> g = new ArrayList();
+  private int h = 0;
+  private int i = 0;
+  private int j = 0;
+  private int k;
+  private String l = "";
+  private String m = "";
   
-  public x(u.b paramb)
+  public x(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    lB = paramb;
-    if (gq.dB())
-    {
-      gh.a(this);
-      return;
-    }
-    run();
+    a = paramInt1;
+    b = paramInt2;
+    c = paramInt3;
+    d = new ac(paramInt4);
   }
   
-  private void aB()
+  private String a(ArrayList<String> paramArrayList, int paramInt)
   {
-    if (mp.isEmpty()) {}
-    for (;;)
-    {
-      return;
-      Iterator localIterator = mp.iterator();
-      while (localIterator.hasNext())
-      {
-        Object[] arrayOfObject = (Object[])localIterator.next();
-        if (arrayOfObject.length == 1) {
-          ((g)mq.get()).a((MotionEvent)arrayOfObject[0]);
-        } else if (arrayOfObject.length == 3) {
-          ((g)mq.get()).a(((Integer)arrayOfObject[0]).intValue(), ((Integer)arrayOfObject[1]).intValue(), ((Integer)arrayOfObject[2]).intValue());
-        }
-      }
+    if (paramArrayList.isEmpty()) {
+      paramArrayList = "";
     }
-  }
-  
-  private Context i(Context paramContext)
-  {
-    if (!aC()) {}
-    Context localContext;
+    Object localObject;
     do
     {
-      return paramContext;
-      localContext = paramContext.getApplicationContext();
-    } while (localContext == null);
-    return localContext;
-  }
-  
-  public String a(Context paramContext)
-  {
-    if (aA())
-    {
-      g localg = (g)mq.get();
-      if (localg != null)
+      return paramArrayList;
+      localObject = new StringBuffer();
+      paramArrayList = paramArrayList.iterator();
+      do
       {
-        aB();
-        return localg.a(i(paramContext));
-      }
-    }
-    return "";
+        if (!paramArrayList.hasNext()) {
+          break;
+        }
+        ((StringBuffer)localObject).append((String)paramArrayList.next());
+        ((StringBuffer)localObject).append(' ');
+      } while (((StringBuffer)localObject).length() <= paramInt);
+      ((StringBuffer)localObject).deleteCharAt(((StringBuffer)localObject).length() - 1);
+      localObject = ((StringBuffer)localObject).toString();
+      paramArrayList = (ArrayList<String>)localObject;
+    } while (((String)localObject).length() < paramInt);
+    return ((String)localObject).substring(0, paramInt);
   }
   
-  public String a(Context paramContext, String paramString)
+  private void c(String paramString, boolean paramBoolean)
   {
-    if (aA())
+    if ((paramString == null) || (paramString.length() < c)) {
+      return;
+    }
+    synchronized (e)
     {
-      g localg = (g)mq.get();
-      if (localg != null)
+      f.add(paramString);
+      h += paramString.length();
+      if (paramBoolean) {
+        g.add(paramString);
+      }
+      return;
+    }
+  }
+  
+  int a(int paramInt1, int paramInt2)
+  {
+    return a * paramInt1 + b * paramInt2;
+  }
+  
+  public void a(int paramInt)
+  {
+    i = paramInt;
+  }
+  
+  public void a(String arg1, boolean paramBoolean)
+  {
+    c(???, paramBoolean);
+    synchronized (e)
+    {
+      if (j < 0) {
+        gz.a("ActivityContent: negative number of WebViews.");
+      }
+      g();
+      return;
+    }
+  }
+  
+  public boolean a()
+  {
+    for (;;)
+    {
+      synchronized (e)
       {
-        aB();
-        return localg.a(i(paramContext), paramString);
+        if (j == 0)
+        {
+          bool = true;
+          return bool;
+        }
       }
+      boolean bool = false;
     }
-    return "";
   }
   
-  public void a(int paramInt1, int paramInt2, int paramInt3)
+  public String b()
   {
-    g localg = (g)mq.get();
-    if (localg != null)
+    return l;
+  }
+  
+  public void b(String paramString, boolean paramBoolean)
+  {
+    c(paramString, paramBoolean);
+  }
+  
+  public String c()
+  {
+    return m;
+  }
+  
+  public void d()
+  {
+    synchronized (e)
     {
-      aB();
-      localg.a(paramInt1, paramInt2, paramInt3);
+      k -= 100;
       return;
     }
-    mp.add(new Object[] { Integer.valueOf(paramInt1), Integer.valueOf(paramInt2), Integer.valueOf(paramInt3) });
   }
   
-  public void a(MotionEvent paramMotionEvent)
+  public void e()
   {
-    g localg = (g)mq.get();
-    if (localg != null)
+    synchronized (e)
     {
-      aB();
-      localg.a(paramMotionEvent);
+      j -= 1;
       return;
     }
-    mp.add(new Object[] { paramMotionEvent });
   }
   
-  protected void a(g paramg)
+  public boolean equals(Object paramObject)
   {
-    mq.set(paramg);
-  }
-  
-  protected boolean aA()
-  {
-    try
+    if (!(paramObject instanceof x)) {}
+    do
     {
-      mr.await();
-      return true;
-    }
-    catch (InterruptedException localInterruptedException)
-    {
-      gr.d("Interrupted during GADSignals creation.", localInterruptedException);
-    }
-    return false;
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+      paramObject = (x)paramObject;
+    } while ((((x)paramObject).b() == null) || (!((x)paramObject).b().equals(b())));
+    return true;
   }
   
-  protected boolean aC()
+  public void f()
   {
-    return ga.bN().getBoolean("gads:spam_app_context:enabled", false);
-  }
-  
-  public void run()
-  {
-    try
+    synchronized (e)
     {
-      a(j.a(lB.lO.wS, i(lB.lM)));
+      j += 1;
       return;
     }
-    finally
+  }
+  
+  public void g()
+  {
+    synchronized (e)
     {
-      mr.countDown();
-      lB = null;
+      int n = a(h, i);
+      if (n > k)
+      {
+        k = n;
+        l = d.a(f);
+        m = d.a(g);
+      }
+      return;
     }
+  }
+  
+  public int h()
+  {
+    return k;
+  }
+  
+  public int hashCode()
+  {
+    return b().hashCode();
+  }
+  
+  int i()
+  {
+    return h;
+  }
+  
+  public String toString()
+  {
+    return "ActivityContent fetchId: " + i + " score:" + k + " total_length:" + h + "\n text: " + a(f, 100) + "\n viewableText" + a(g, 100) + "\n signture: " + l + "\n viewableSignture: " + m;
   }
 }
 

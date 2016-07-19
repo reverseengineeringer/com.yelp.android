@@ -1,47 +1,83 @@
-.class Lcom/yelp/android/ui/activities/reviews/c;
+.class public interface abstract Lcom/yelp/android/ui/activities/reviews/c;
 .super Ljava/lang/Object;
-.source "ActivityPhotoPrompt.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;
-
-
-# direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;)V
-    .locals 0
-
-    .prologue
-    .line 124
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/c;->a:Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+.source "ReviewFragmentListener.java"
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 3
+.method public abstract a()V
+.end method
 
-    .prologue
-    .line 127
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/c;->a:Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;
+.method public abstract a(I)V
+.end method
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/c;->a:Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;
+.method public abstract a(Lcom/yelp/android/serializable/YelpBusiness;)V
+.end method
 
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/media/ActivityMediaContributionDelegate;->b(Landroid/content/Context;)Landroid/content/Intent;
+.method public abstract a(Ljava/lang/String;)V
+.end method
 
-    move-result-object v1
+.method public abstract a(Ljava/lang/String;Z)V
+.end method
 
-    const/16 v2, 0x41d
+.method public abstract a(Z)V
+.end method
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->startActivityForResult(Landroid/content/Intent;I)V
+.method public abstract b()V
+.end method
 
-    .line 130
-    return-void
+.method public abstract b(Z)V
+.end method
+
+.method public abstract c()V
+.end method
+
+.method public abstract c(Z)V
+.end method
+
+.method public abstract e()V
+.end method
+
+.method public abstract f()Lcom/yelp/android/serializable/YelpBusiness;
+.end method
+
+.method public abstract g()I
+.end method
+
+.method public abstract h()Lcom/yelp/android/serializable/Review;
+.end method
+
+.method public abstract i()Lcom/yelp/android/ui/activities/reviews/ReviewSource;
+.end method
+
+.method public abstract j()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/ReviewThreshold;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract k()Ljava/lang/String;
+.end method
+
+.method public abstract l()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+.end method
+
+.method public abstract m()Z
+.end method
+
+.method public abstract n()Ljava/lang/String;
+.end method
+
+.method public abstract o()Z
+.end method
+
+.method public abstract p()Z
+.end method
+
+.method public abstract q()Z
 .end method

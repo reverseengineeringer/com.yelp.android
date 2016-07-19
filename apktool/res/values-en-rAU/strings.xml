@@ -1,25 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ad_choices_url">https://m.yelp.com.au/static?p=privacy#third-parties</string>
-    <string name="advertiser_faq_url">https://m.yelp.com.au/advertiser_faq</string>
-    <string name="category_banks">Banks &amp; Financial Institutions</string>
+    <string name="abc_action_bar_home_description">Navigate home</string>
+    <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
+    <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
+    <string name="abc_action_bar_up_description">Navigate up</string>
+    <string name="abc_action_menu_overflow_description">More options</string>
+    <string name="abc_action_mode_done">Done</string>
+    <string name="abc_activity_chooser_view_see_all">See all</string>
+    <string name="abc_activitychooserview_choose_application">Choose an app</string>
+    <string name="abc_search_hint">Search…</string>
+    <string name="abc_searchview_description_clear">Clear query</string>
+    <string name="abc_searchview_description_query">Search query</string>
+    <string name="abc_searchview_description_search">Search</string>
+    <string name="abc_searchview_description_submit">Submit query</string>
+    <string name="abc_searchview_description_voice">Voice search</string>
+    <string name="abc_shareactionprovider_share_with">Share with</string>
+    <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
+    <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="common_google_play_services_api_unavailable_text">%1$s requires one or more Google Play services that are not currently available. Please contact the developer for assistance.</string>
+    <string name="common_google_play_services_enable_button">Enable Google Play services</string>
+    <string name="common_google_play_services_enable_text">"%1$s won't work unless you enable Google Play services."</string>
+    <string name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string name="common_google_play_services_install_button">Get Google Play services</string>
+    <string name="common_google_play_services_install_text_phone">"%1$s won't run without Google Play services, which are missing from your phone."</string>
+    <string name="common_google_play_services_install_text_tablet">"%1$s won't run without Google Play services, which are missing from your tablet."</string>
+    <string name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_invalid_account_text">The specified account does not exist on this device. Please choose a different account.</string>
+    <string name="common_google_play_services_invalid_account_title">Invalid account</string>
+    <string name="common_google_play_services_network_error_text">A data connection is required to connect to Google Play services.</string>
+    <string name="common_google_play_services_network_error_title">Network Error</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_restricted_profile_text">Accessing accounts from a restricted profile is not supported.</string>
+    <string name="common_google_play_services_restricted_profile_title">Restricted Profile</string>
+    <string name="common_google_play_services_sign_in_failed_text">Error signing in to the specified account. Please choose a different account.</string>
+    <string name="common_google_play_services_sign_in_failed_title">Sign in failed</string>
+    <string name="common_google_play_services_unknown_issue">%1$s is having trouble with Google Play services. If the problem persists, please contact the developer for assistance.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s relies on Google Play services, which is not supported by your device. Contact the manufacturer for assistance.</string>
+    <string name="common_google_play_services_unsupported_title">Google Play services</string>
+    <string name="common_google_play_services_update_button">Update</string>
+    <string name="common_google_play_services_update_text">"%1$s won't run unless you update Google Play services."</string>
+    <string name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text">"%1$s won't run without Google Play services, which are currently updating."</string>
+    <string name="common_google_play_services_updating_title">Google Play services are updating</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign In</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="place_autocomplete_clear_button">Clear search</string>
+    <string name="place_autocomplete_search_hint">Search</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="category_banks">Bank &amp; Building Societies</string>
     <string name="category_bars">Bars</string>
-    <string name="category_coffee">Coffee &amp; Tea</string>
-    <string name="category_drugstores">Pharmacies &amp; Chemists</string>
+    <string name="category_coffee">Coffee &amp; Tea Shops</string>
+    <string name="category_drugstores">Pharmacy &amp; Chemists</string>
     <string name="category_nightlife">Nightlife</string>
     <string name="category_restaurants">Restaurants</string>
     <string name="category_servicestations">Petrol &amp; Service Stations</string>
     <string name="compliment_cool">"You're Cool"</string>
     <string name="compliment_cute">Nice Picture</string>
     <string name="compliment_desc_cool">"You're so cool Ice Cube puts you in his drinks."</string>
-    <string name="compliment_desc_cute">Noice photo... it really screams \"Look at moiye....look at moiye please\"</string>
+    <string name="compliment_desc_cute">Noice photo… it really screams \"Look at moiye…look at moiye please\"</string>
     <string name="compliment_desc_funny">"Once you get your own sitcom I'll be there to add the laugh track."</string>
     <string name="compliment_desc_hot">"Like a strip of bacon frying over an open fire, you're seriously sizzling."</string>
     <string name="compliment_desc_list">Bonza list, mate!</string>
-    <string name="compliment_desc_more">"I know you must have a lot of other commitments and social activities that take away time from your Yelp reviews but I can't take it anymore...you have to write another review. It's like coffee in the morning and I've started getting headaches from your absence so please get your priorities right."</string>
+    <string name="compliment_desc_more">"I know you must have a lot of other commitments and social activities that take away time from your Yelp reviews but I can't take it anymore…you have to write another review. It's like coffee in the morning and I've started getting headaches from your absence so please get your priorities right."</string>
     <string name="compliment_desc_note" />
     <string name="compliment_desc_photos">Do you shoot for National Geographic?</string>
-    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke... There aren't enough languages in the world to express my gratitude."</string>
+    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke… There aren't enough languages in the world to express my gratitude."</string>
     <string name="compliment_desc_profile">Your profile is like bad medicine. Bad medicine is what I need.</string>
     <string name="compliment_desc_writer">"You've got the write stuff, baby!"</string>
     <string name="compliment_funny">"You're Funny"</string>
@@ -31,13 +78,6 @@
     <string name="compliment_plain">Thank You</string>
     <string name="compliment_profile">Like Your Profile</string>
     <string name="compliment_writer">Well Put!</string>
-    <string name="content_guidelines_url">https://m.yelp.com.au/guidelines</string>
-    <string name="elite_url">https://m.yelp.com.au/elite</string>
-    <string name="locality_string">City</string>
-    <string name="mobile_host">m.yelp.com.au</string>
-    <string name="not_recommended_reviews_url">https://m.yelp.com.au/not_recommended_reviews/%1$s</string>
-    <string name="privacy_policy_url">https://m.yelp.com.au/static?p=privacy</string>
-    <string name="privacy_settings_url">https://m.yelp.com.au/profile_privacy</string>
     <string name="remove_reason_member_request">"This Yelper's account has been closed."</string>
     <string name="remove_reason_post_by_admin">This post was removed by a Yelp admin.</string>
     <string name="remove_reason_post_by_admin_tos">This post violated the Yelp &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Terms of Service&lt;/a> and has been removed.</string>
@@ -57,12 +97,15 @@
     <string name="remove_reason_topic_tos_multiple">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_spammer">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_threat">This conversation was removed because the Yelper who started it no longer has an account.</string>
+    <string name="remove_reason_tos_bizowner">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_content">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_deals">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_general">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_multiple">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_paidreviewer">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_solicitation">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_spammer">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_threat">"This Yelper's account has been closed."</string>
-    <string name="site_name">Yelp.com.au</string>
     <string name="talk_category_0">Other</string>
     <string name="talk_category_1">Local Questions &amp; Answers</string>
     <string name="talk_category_10">Food</string>
@@ -93,6 +136,16 @@
     <string name="talk_category_travel">Travel</string>
     <string name="talk_category_uncategorized">Other</string>
     <string name="talk_category_yelper_shout_outs">Yelper Shout-Outs</string>
+    <string name="ad_choices_url">https://m.yelp.com.au/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.com.au/advertiser_faq</string>
+    <string name="content_guidelines_url">https://m.yelp.com.au/guidelines</string>
+    <string name="elite_url">https://m.yelp.com.au/elite</string>
+    <string name="locality_string">City</string>
+    <string name="mobile_host">m.yelp.com.au</string>
+    <string name="not_recommended_reviews_url">https://m.yelp.com.au/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://m.yelp.com.au/static?p=privacy</string>
+    <string name="privacy_settings_url">https://m.yelp.com.au/profile_privacy</string>
+    <string name="site_name">Yelp.com.au</string>
     <string name="terms_of_service_url">https://m.yelp.com.au/static?p=tos</string>
     <string name="www_host">www.yelp.com.au</string>
 </resources>

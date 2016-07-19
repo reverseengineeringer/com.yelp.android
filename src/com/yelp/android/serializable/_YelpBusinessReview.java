@@ -2,6 +2,8 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
@@ -9,77 +11,334 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _YelpBusinessReview
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected String mBusinessName;
-  protected BusinessOwnerReply mBusinessOwnerReply;
-  protected String mBusinessPhotoUrl;
-  protected Date mDateModified;
-  protected String mId;
-  protected boolean mIsFirstReview;
-  protected boolean mIsUserFollowed;
-  protected boolean mIsUserFriend;
-  protected String mLanguage;
-  protected List<Photo> mPhotos;
-  protected List<PreviousReview> mPreviousReviews;
-  protected int mRating;
-  protected String mText;
-  protected String mTextAttributed;
-  protected String mTextExcerpt;
-  protected String mTranslatedText;
-  protected long mUpdatableAfter;
-  protected int mUserCheckInCount;
-  protected List<String> mUserDisabledFeatures;
-  protected int[] mUserEliteYears;
-  protected int mUserFriendCount;
-  protected String mUserId;
-  protected String mUserName;
-  protected int mUserPhotoCount;
-  protected String mUserPhotoUrl;
-  protected String mUserRankTitleText;
-  protected int mUserReviewCount;
-  protected int mUserVideoCount;
-  protected List<Video> mVideos;
+  protected int A;
+  protected int B;
+  protected int C;
+  protected int D;
+  protected int E;
+  protected int[] F;
+  protected long G;
+  protected BusinessOwnerReply a;
+  protected Date b;
+  protected Date c;
+  protected List<Photo> d;
+  protected List<PreviousReview> e;
+  protected List<String> f;
+  protected List<String> g;
+  protected List<Video> h;
+  protected String i;
+  protected String j;
+  protected String k;
+  protected String l;
+  protected String m;
+  protected String n;
+  protected String o;
+  protected String p;
+  protected String q;
+  protected String r;
+  protected String s;
+  protected String t;
+  protected String u;
+  protected TranslatedReview v;
+  protected boolean w;
+  protected boolean x;
+  protected boolean y;
+  protected int z;
   
-  protected _YelpBusinessReview() {}
-  
-  protected _YelpBusinessReview(BusinessOwnerReply paramBusinessOwnerReply, Date paramDate, List<Photo> paramList, List<PreviousReview> paramList1, List<String> paramList2, List<Video> paramList3, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, String paramString9, String paramString10, String paramString11, String paramString12, String paramString13, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int[] paramArrayOfInt, long paramLong)
+  public int A()
   {
-    this();
-    mBusinessOwnerReply = paramBusinessOwnerReply;
-    mDateModified = paramDate;
-    mPhotos = paramList;
-    mPreviousReviews = paramList1;
-    mUserDisabledFeatures = paramList2;
-    mVideos = paramList3;
-    mId = paramString1;
-    mUserId = paramString2;
-    mBusinessId = paramString3;
-    mText = paramString4;
-    mTextExcerpt = paramString5;
-    mUserName = paramString6;
-    mUserPhotoUrl = paramString7;
-    mBusinessName = paramString8;
-    mBusinessPhotoUrl = paramString9;
-    mUserRankTitleText = paramString10;
-    mTextAttributed = paramString11;
-    mTranslatedText = paramString12;
-    mLanguage = paramString13;
-    mIsUserFriend = paramBoolean1;
-    mIsUserFollowed = paramBoolean2;
-    mIsFirstReview = paramBoolean3;
-    mRating = paramInt1;
-    mUserReviewCount = paramInt2;
-    mUserFriendCount = paramInt3;
-    mUserCheckInCount = paramInt4;
-    mUserPhotoCount = paramInt5;
-    mUserVideoCount = paramInt6;
-    mUserEliteYears = paramArrayOfInt;
-    mUpdatableAfter = paramLong;
+    return B;
+  }
+  
+  public int B()
+  {
+    return A;
+  }
+  
+  public int C()
+  {
+    return z;
+  }
+  
+  public boolean D()
+  {
+    return y;
+  }
+  
+  public boolean E()
+  {
+    return x;
+  }
+  
+  public boolean F()
+  {
+    return w;
+  }
+  
+  public TranslatedReview G()
+  {
+    return v;
+  }
+  
+  public String H()
+  {
+    return u;
+  }
+  
+  public String I()
+  {
+    return t;
+  }
+  
+  public String J()
+  {
+    return s;
+  }
+  
+  public String K()
+  {
+    return r;
+  }
+  
+  public String L()
+  {
+    return q;
+  }
+  
+  public String M()
+  {
+    return p;
+  }
+  
+  public String N()
+  {
+    return o;
+  }
+  
+  public String O()
+  {
+    return n;
+  }
+  
+  public String P()
+  {
+    return m;
+  }
+  
+  public String Q()
+  {
+    return k;
+  }
+  
+  public List<Video> R()
+  {
+    return h;
+  }
+  
+  public List<String> S()
+  {
+    return f;
+  }
+  
+  public List<PreviousReview> T()
+  {
+    return e;
+  }
+  
+  public List<Photo> U()
+  {
+    return d;
+  }
+  
+  public Date V()
+  {
+    return c;
+  }
+  
+  public Date W()
+  {
+    return b;
+  }
+  
+  public BusinessOwnerReply X()
+  {
+    return a;
+  }
+  
+  public String a()
+  {
+    return i;
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("business_owner_reply")) {
+      a = ((BusinessOwnerReply)BusinessOwnerReply.CREATOR.parse(paramJSONObject.getJSONObject("business_owner_reply")));
+    }
+    if (!paramJSONObject.isNull("time_modified")) {
+      b = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
+    }
+    if (!paramJSONObject.isNull("rotd_time")) {
+      c = JsonUtil.parseTimestamp(paramJSONObject, "rotd_time");
+    }
+    if (!paramJSONObject.isNull("photos"))
+    {
+      d = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("photos"), Photo.CREATOR);
+      if (paramJSONObject.isNull("previous_reviews")) {
+        break label623;
+      }
+      e = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("previous_reviews"), PreviousReview.CREATOR);
+      label116:
+      if (paramJSONObject.isNull("user_disabled_features")) {
+        break label633;
+      }
+      f = JsonUtil.getStringList(paramJSONObject.optJSONArray("user_disabled_features"));
+      label138:
+      if (paramJSONObject.isNull("milestones")) {
+        break label643;
+      }
+      g = JsonUtil.getStringList(paramJSONObject.optJSONArray("milestones"));
+      label160:
+      if (paramJSONObject.isNull("videos")) {
+        break label653;
+      }
+    }
+    label623:
+    label633:
+    label643:
+    label653:
+    for (h = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("videos"), Video.CREATOR);; h = Collections.emptyList())
+    {
+      if (!paramJSONObject.isNull("id")) {
+        i = paramJSONObject.optString("id");
+      }
+      if (!paramJSONObject.isNull("user_encid")) {
+        j = paramJSONObject.optString("user_encid");
+      }
+      if (!paramJSONObject.isNull("business_id")) {
+        k = paramJSONObject.optString("business_id");
+      }
+      if (!paramJSONObject.isNull("text")) {
+        l = paramJSONObject.optString("text");
+      }
+      if (!paramJSONObject.isNull("text_excerpt")) {
+        m = paramJSONObject.optString("text_excerpt");
+      }
+      if (!paramJSONObject.isNull("user_name")) {
+        n = paramJSONObject.optString("user_name");
+      }
+      if (!paramJSONObject.isNull("user_photo_url")) {
+        o = paramJSONObject.optString("user_photo_url");
+      }
+      if (!paramJSONObject.isNull("business_name")) {
+        p = paramJSONObject.optString("business_name");
+      }
+      if (!paramJSONObject.isNull("business_photo_url")) {
+        q = paramJSONObject.optString("business_photo_url");
+      }
+      if (!paramJSONObject.isNull("user_location_rank_title")) {
+        r = paramJSONObject.optString("user_location_rank_title");
+      }
+      if (!paramJSONObject.isNull("text_attributed")) {
+        s = paramJSONObject.optString("text_attributed");
+      }
+      if (!paramJSONObject.isNull("language")) {
+        t = paramJSONObject.optString("language");
+      }
+      if (!paramJSONObject.isNull("share_url")) {
+        u = paramJSONObject.optString("share_url");
+      }
+      if (!paramJSONObject.isNull("translated_review")) {
+        v = ((TranslatedReview)TranslatedReview.CREATOR.parse(paramJSONObject.getJSONObject("translated_review")));
+      }
+      w = paramJSONObject.optBoolean("user_is_friend");
+      x = paramJSONObject.optBoolean("user_is_followed");
+      y = paramJSONObject.optBoolean("is_first_review");
+      z = paramJSONObject.optInt("rating");
+      A = paramJSONObject.optInt("user_review_count");
+      B = paramJSONObject.optInt("user_friend_count");
+      C = paramJSONObject.optInt("user_check_in_count");
+      D = paramJSONObject.optInt("user_photo_count");
+      E = paramJSONObject.optInt("user_video_count");
+      if (paramJSONObject.isNull("user_elite_years")) {
+        break label663;
+      }
+      JSONArray localJSONArray = paramJSONObject.getJSONArray("user_elite_years");
+      int i2 = localJSONArray.length();
+      F = new int[i2];
+      int i1 = 0;
+      while (i1 < i2)
+      {
+        F[i1] = localJSONArray.getInt(i1);
+        i1 += 1;
+      }
+      d = Collections.emptyList();
+      break;
+      e = Collections.emptyList();
+      break label116;
+      f = Collections.emptyList();
+      break label138;
+      g = Collections.emptyList();
+      break label160;
+    }
+    label663:
+    G = paramJSONObject.optLong("updatable_after");
+  }
+  
+  public String b()
+  {
+    return j;
+  }
+  
+  public void b(Parcel paramParcel)
+  {
+    a = ((BusinessOwnerReply)paramParcel.readParcelable(BusinessOwnerReply.class.getClassLoader()));
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      b = new Date(l1);
+    }
+    l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      c = new Date(l1);
+    }
+    d = paramParcel.readArrayList(Photo.class.getClassLoader());
+    e = paramParcel.readArrayList(PreviousReview.class.getClassLoader());
+    f = paramParcel.createStringArrayList();
+    g = paramParcel.createStringArrayList();
+    h = paramParcel.readArrayList(Video.class.getClassLoader());
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    l = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    m = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    n = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    o = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    p = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    q = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    r = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    s = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    t = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    u = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    v = ((TranslatedReview)paramParcel.readParcelable(TranslatedReview.class.getClassLoader()));
+    boolean[] arrayOfBoolean = paramParcel.createBooleanArray();
+    w = arrayOfBoolean[0];
+    x = arrayOfBoolean[1];
+    y = arrayOfBoolean[2];
+    z = paramParcel.readInt();
+    A = paramParcel.readInt();
+    B = paramParcel.readInt();
+    C = paramParcel.readInt();
+    D = paramParcel.readInt();
+    E = paramParcel.readInt();
+    F = paramParcel.createIntArray();
+    G = paramParcel.readLong();
   }
   
   public int describeContents()
@@ -87,442 +346,231 @@ abstract class _YelpBusinessReview
     return 0;
   }
   
-  public String getBusinessId()
+  public String e()
   {
-    return mBusinessId;
+    return l;
   }
   
-  public String getBusinessName()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessName;
-  }
-  
-  public BusinessOwnerReply getBusinessOwnerReply()
-  {
-    return mBusinessOwnerReply;
-  }
-  
-  public String getBusinessPhotoUrl()
-  {
-    return mBusinessPhotoUrl;
-  }
-  
-  public Date getDateModified()
-  {
-    return mDateModified;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public String getLanguage()
-  {
-    return mLanguage;
-  }
-  
-  public List<Photo> getPhotos()
-  {
-    return mPhotos;
-  }
-  
-  public List<PreviousReview> getPreviousReviews()
-  {
-    return mPreviousReviews;
-  }
-  
-  public int getRating()
-  {
-    return mRating;
-  }
-  
-  public String getText()
-  {
-    return mText;
-  }
-  
-  public String getTextAttributed()
-  {
-    return mTextAttributed;
-  }
-  
-  public String getTextExcerpt()
-  {
-    return mTextExcerpt;
-  }
-  
-  public String getTranslatedText()
-  {
-    return mTranslatedText;
-  }
-  
-  public long getUpdatableAfter()
-  {
-    return mUpdatableAfter;
-  }
-  
-  public int getUserCheckInCount()
-  {
-    return mUserCheckInCount;
-  }
-  
-  public List<String> getUserDisabledFeatures()
-  {
-    return mUserDisabledFeatures;
-  }
-  
-  public int[] getUserEliteYears()
-  {
-    return mUserEliteYears;
-  }
-  
-  public int getUserFriendCount()
-  {
-    return mUserFriendCount;
-  }
-  
-  public String getUserId()
-  {
-    return mUserId;
-  }
-  
-  public String getUserName()
-  {
-    return mUserName;
-  }
-  
-  public int getUserPhotoCount()
-  {
-    return mUserPhotoCount;
-  }
-  
-  public String getUserPhotoUrl()
-  {
-    return mUserPhotoUrl;
-  }
-  
-  public String getUserRankTitleText()
-  {
-    return mUserRankTitleText;
-  }
-  
-  public int getUserReviewCount()
-  {
-    return mUserReviewCount;
-  }
-  
-  public int getUserVideoCount()
-  {
-    return mUserVideoCount;
-  }
-  
-  public List<Video> getVideos()
-  {
-    return mVideos;
-  }
-  
-  public boolean isFirstReview()
-  {
-    return mIsFirstReview;
-  }
-  
-  public boolean isUserFollowed()
-  {
-    return mIsUserFollowed;
-  }
-  
-  public boolean isUserFriend()
-  {
-    return mIsUserFriend;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("business_owner_reply")) {
-      mBusinessOwnerReply = ((BusinessOwnerReply)BusinessOwnerReply.CREATOR.parse(paramJSONObject.getJSONObject("business_owner_reply")));
-    }
-    if (!paramJSONObject.isNull("time_modified")) {
-      mDateModified = JsonUtil.parseTimestamp(paramJSONObject, "time_modified");
-    }
-    if (!paramJSONObject.isNull("photos"))
+    if (paramObject == null) {}
+    do
     {
-      mPhotos = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("photos"), Photo.CREATOR);
-      if (paramJSONObject.isNull("previous_reviews")) {
-        break label557;
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      mPreviousReviews = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("previous_reviews"), PreviousReview.CREATOR);
-      label97:
-      if (paramJSONObject.isNull("user_disabled_features")) {
-        break label567;
-      }
-      mUserDisabledFeatures = JsonUtil.getStringList(paramJSONObject.optJSONArray("user_disabled_features"));
-      label119:
-      if (paramJSONObject.isNull("videos")) {
-        break label577;
-      }
-    }
-    label557:
-    label567:
-    label577:
-    for (mVideos = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("videos"), Video.CREATOR);; mVideos = Collections.emptyList())
-    {
-      if (!paramJSONObject.isNull("id")) {
-        mId = paramJSONObject.optString("id");
-      }
-      if (!paramJSONObject.isNull("user_encid")) {
-        mUserId = paramJSONObject.optString("user_encid");
-      }
-      if (!paramJSONObject.isNull("business_id")) {
-        mBusinessId = paramJSONObject.optString("business_id");
-      }
-      if (!paramJSONObject.isNull("text")) {
-        mText = paramJSONObject.optString("text");
-      }
-      if (!paramJSONObject.isNull("text_excerpt")) {
-        mTextExcerpt = paramJSONObject.optString("text_excerpt");
-      }
-      if (!paramJSONObject.isNull("user_name")) {
-        mUserName = paramJSONObject.optString("user_name");
-      }
-      if (!paramJSONObject.isNull("user_photo_url")) {
-        mUserPhotoUrl = paramJSONObject.optString("user_photo_url");
-      }
-      if (!paramJSONObject.isNull("business_name")) {
-        mBusinessName = paramJSONObject.optString("business_name");
-      }
-      if (!paramJSONObject.isNull("business_photo_url")) {
-        mBusinessPhotoUrl = paramJSONObject.optString("business_photo_url");
-      }
-      if (!paramJSONObject.isNull("user_location_rank_title")) {
-        mUserRankTitleText = paramJSONObject.optString("user_location_rank_title");
-      }
-      if (!paramJSONObject.isNull("text_attributed")) {
-        mTextAttributed = paramJSONObject.optString("text_attributed");
-      }
-      if (!paramJSONObject.isNull("translated_text")) {
-        mTranslatedText = paramJSONObject.optString("translated_text");
-      }
-      if (!paramJSONObject.isNull("language")) {
-        mLanguage = paramJSONObject.optString("language");
-      }
-      mIsUserFriend = paramJSONObject.optBoolean("user_is_friend");
-      mIsUserFollowed = paramJSONObject.optBoolean("user_is_followed");
-      mIsFirstReview = paramJSONObject.optBoolean("is_first_review");
-      mRating = paramJSONObject.optInt("rating");
-      mUserReviewCount = paramJSONObject.optInt("user_review_count");
-      mUserFriendCount = paramJSONObject.optInt("user_friend_count");
-      mUserCheckInCount = paramJSONObject.optInt("user_check_in_count");
-      mUserPhotoCount = paramJSONObject.optInt("user_photo_count");
-      mUserVideoCount = paramJSONObject.optInt("user_video_count");
-      if (paramJSONObject.isNull("user_elite_years")) {
-        break label587;
-      }
-      JSONArray localJSONArray = paramJSONObject.getJSONArray("user_elite_years");
-      int j = localJSONArray.length();
-      mUserEliteYears = new int[j];
-      int i = 0;
-      while (i < j)
-      {
-        mUserEliteYears[i] = localJSONArray.getInt(i);
-        i += 1;
-      }
-      mPhotos = Collections.emptyList();
-      break;
-      mPreviousReviews = Collections.emptyList();
-      break label97;
-      mUserDisabledFeatures = Collections.emptyList();
-      break label119;
-    }
-    label587:
-    mUpdatableAfter = paramJSONObject.optLong("updatable_after");
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_YelpBusinessReview)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a(n, n).a(o, o).a(p, p).a(q, q).a(r, r).a(s, s).a(t, t).a(u, u).a(v, v).a(w, w).a(x, x).a(y, y).a(z, z).a(A, A).a(B, B).a(C, C).a(D, D).a(E, E).a(F, F).a(G, G).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int hashCode()
   {
-    mBusinessOwnerReply = ((BusinessOwnerReply)paramParcel.readParcelable(BusinessOwnerReply.class.getClassLoader()));
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateModified = new Date(l);
-    }
-    mPhotos = paramParcel.createTypedArrayList(Photo.CREATOR);
-    mPreviousReviews = paramParcel.createTypedArrayList(PreviousReview.CREATOR);
-    mUserDisabledFeatures = paramParcel.createStringArrayList();
-    mVideos = paramParcel.createTypedArrayList(Video.CREATOR);
-    mId = paramParcel.readString();
-    mUserId = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mText = paramParcel.readString();
-    mTextExcerpt = paramParcel.readString();
-    mUserName = paramParcel.readString();
-    mUserPhotoUrl = paramParcel.readString();
-    mBusinessName = paramParcel.readString();
-    mBusinessPhotoUrl = paramParcel.readString();
-    mUserRankTitleText = paramParcel.readString();
-    mTextAttributed = paramParcel.readString();
-    mTranslatedText = paramParcel.readString();
-    mLanguage = paramParcel.readString();
-    boolean[] arrayOfBoolean = paramParcel.createBooleanArray();
-    mIsUserFriend = arrayOfBoolean[0];
-    mIsUserFollowed = arrayOfBoolean[1];
-    mIsFirstReview = arrayOfBoolean[2];
-    mRating = paramParcel.readInt();
-    mUserReviewCount = paramParcel.readInt();
-    mUserFriendCount = paramParcel.readInt();
-    mUserCheckInCount = paramParcel.readInt();
-    mUserPhotoCount = paramParcel.readInt();
-    mUserVideoCount = paramParcel.readInt();
-    mUserEliteYears = paramParcel.createIntArray();
-    mUpdatableAfter = paramParcel.readLong();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a(n).a(o).a(p).a(q).a(r).a(s).a(t).a(u).a(v).a(w).a(x).a(y).a(z).a(A).a(B).a(C).a(D).a(E).a(F).a(G).a();
   }
   
-  public JSONObject writeJSON()
+  public JSONObject s()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
-    if (mBusinessOwnerReply != null) {
-      localJSONObject.put("business_owner_reply", mBusinessOwnerReply.writeJSON());
+    if (a != null) {
+      localJSONObject.put("business_owner_reply", a.a());
     }
-    if (mDateModified != null) {
-      localJSONObject.put("time_modified", mDateModified.getTime() / 1000L);
+    if (b != null) {
+      localJSONObject.put("time_modified", b.getTime() / 1000L);
+    }
+    if (c != null) {
+      localJSONObject.put("rotd_time", c.getTime() / 1000L);
     }
     JSONArray localJSONArray;
     Object localObject;
-    if (mPhotos != null)
+    if (d != null)
     {
       localJSONArray = new JSONArray();
-      localObject = mPhotos.iterator();
+      localObject = d.iterator();
       while (((Iterator)localObject).hasNext()) {
-        localJSONArray.put(((Photo)((Iterator)localObject).next()).writeJSON());
+        localJSONArray.put(((Photo)((Iterator)localObject).next()).w());
       }
       localJSONObject.put("photos", localJSONArray);
     }
-    if (mPreviousReviews != null)
+    if (e != null)
     {
       localJSONArray = new JSONArray();
-      localObject = mPreviousReviews.iterator();
+      localObject = e.iterator();
       while (((Iterator)localObject).hasNext()) {
-        localJSONArray.put(((PreviousReview)((Iterator)localObject).next()).writeJSON());
+        localJSONArray.put(((PreviousReview)((Iterator)localObject).next()).a());
       }
       localJSONObject.put("previous_reviews", localJSONArray);
     }
-    if (mUserDisabledFeatures != null)
+    if (f != null)
     {
       localJSONArray = new JSONArray();
-      localObject = mUserDisabledFeatures.iterator();
+      localObject = f.iterator();
       while (((Iterator)localObject).hasNext()) {
         localJSONArray.put((String)((Iterator)localObject).next());
       }
       localJSONObject.put("user_disabled_features", localJSONArray);
     }
-    if (mVideos != null)
+    if (g != null)
     {
       localJSONArray = new JSONArray();
-      localObject = mVideos.iterator();
+      localObject = g.iterator();
       while (((Iterator)localObject).hasNext()) {
-        localJSONArray.put(((Video)((Iterator)localObject).next()).writeJSON());
+        localJSONArray.put((String)((Iterator)localObject).next());
+      }
+      localJSONObject.put("milestones", localJSONArray);
+    }
+    if (h != null)
+    {
+      localJSONArray = new JSONArray();
+      localObject = h.iterator();
+      while (((Iterator)localObject).hasNext()) {
+        localJSONArray.put(((Video)((Iterator)localObject).next()).n());
       }
       localJSONObject.put("videos", localJSONArray);
     }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
+    if (i != null) {
+      localJSONObject.put("id", i);
     }
-    if (mUserId != null) {
-      localJSONObject.put("user_encid", mUserId);
+    if (j != null) {
+      localJSONObject.put("user_encid", j);
     }
-    if (mBusinessId != null) {
-      localJSONObject.put("business_id", mBusinessId);
+    if (k != null) {
+      localJSONObject.put("business_id", k);
     }
-    if (mText != null) {
-      localJSONObject.put("text", mText);
+    if (l != null) {
+      localJSONObject.put("text", l);
     }
-    if (mTextExcerpt != null) {
-      localJSONObject.put("text_excerpt", mTextExcerpt);
+    if (m != null) {
+      localJSONObject.put("text_excerpt", m);
     }
-    if (mUserName != null) {
-      localJSONObject.put("user_name", mUserName);
+    if (n != null) {
+      localJSONObject.put("user_name", n);
     }
-    if (mUserPhotoUrl != null) {
-      localJSONObject.put("user_photo_url", mUserPhotoUrl);
+    if (o != null) {
+      localJSONObject.put("user_photo_url", o);
     }
-    if (mBusinessName != null) {
-      localJSONObject.put("business_name", mBusinessName);
+    if (p != null) {
+      localJSONObject.put("business_name", p);
     }
-    if (mBusinessPhotoUrl != null) {
-      localJSONObject.put("business_photo_url", mBusinessPhotoUrl);
+    if (q != null) {
+      localJSONObject.put("business_photo_url", q);
     }
-    if (mUserRankTitleText != null) {
-      localJSONObject.put("user_location_rank_title", mUserRankTitleText);
+    if (r != null) {
+      localJSONObject.put("user_location_rank_title", r);
     }
-    if (mTextAttributed != null) {
-      localJSONObject.put("text_attributed", mTextAttributed);
+    if (s != null) {
+      localJSONObject.put("text_attributed", s);
     }
-    if (mTranslatedText != null) {
-      localJSONObject.put("translated_text", mTranslatedText);
+    if (t != null) {
+      localJSONObject.put("language", t);
     }
-    if (mLanguage != null) {
-      localJSONObject.put("language", mLanguage);
+    if (u != null) {
+      localJSONObject.put("share_url", u);
     }
-    localJSONObject.put("user_is_friend", mIsUserFriend);
-    localJSONObject.put("user_is_followed", mIsUserFollowed);
-    localJSONObject.put("is_first_review", mIsFirstReview);
-    localJSONObject.put("rating", mRating);
-    localJSONObject.put("user_review_count", mUserReviewCount);
-    localJSONObject.put("user_friend_count", mUserFriendCount);
-    localJSONObject.put("user_check_in_count", mUserCheckInCount);
-    localJSONObject.put("user_photo_count", mUserPhotoCount);
-    localJSONObject.put("user_video_count", mUserVideoCount);
-    if (mUserEliteYears != null)
+    if (v != null) {
+      localJSONObject.put("translated_review", v.b());
+    }
+    localJSONObject.put("user_is_friend", w);
+    localJSONObject.put("user_is_followed", x);
+    localJSONObject.put("is_first_review", y);
+    localJSONObject.put("rating", z);
+    localJSONObject.put("user_review_count", A);
+    localJSONObject.put("user_friend_count", B);
+    localJSONObject.put("user_check_in_count", C);
+    localJSONObject.put("user_photo_count", D);
+    localJSONObject.put("user_video_count", E);
+    if (F != null)
     {
       localJSONArray = new JSONArray();
-      localObject = mUserEliteYears;
-      int j = localObject.length;
-      int i = 0;
-      while (i < j)
+      localObject = F;
+      int i2 = localObject.length;
+      int i1 = 0;
+      while (i1 < i2)
       {
-        localJSONArray.put(localObject[i]);
-        i += 1;
+        localJSONArray.put(localObject[i1]);
+        i1 += 1;
       }
       localJSONObject.put("user_elite_years", localJSONArray);
     }
-    localJSONObject.put("updatable_after", mUpdatableAfter);
+    localJSONObject.put("updatable_after", G);
     return localJSONObject;
+  }
+  
+  public long v()
+  {
+    return G;
+  }
+  
+  public int[] w()
+  {
+    return F;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeParcelable(mBusinessOwnerReply, 0);
-    if (mDateModified == null) {}
-    for (long l = -2147483648L;; l = mDateModified.getTime())
+    long l2 = -2147483648L;
+    paramParcel.writeParcelable(a, 0);
+    if (b == null)
     {
-      paramParcel.writeLong(l);
-      paramParcel.writeTypedList(mPhotos);
-      paramParcel.writeTypedList(mPreviousReviews);
-      paramParcel.writeStringList(mUserDisabledFeatures);
-      paramParcel.writeTypedList(mVideos);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mUserId);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeString(mText);
-      paramParcel.writeString(mTextExcerpt);
-      paramParcel.writeString(mUserName);
-      paramParcel.writeString(mUserPhotoUrl);
-      paramParcel.writeString(mBusinessName);
-      paramParcel.writeString(mBusinessPhotoUrl);
-      paramParcel.writeString(mUserRankTitleText);
-      paramParcel.writeString(mTextAttributed);
-      paramParcel.writeString(mTranslatedText);
-      paramParcel.writeString(mLanguage);
-      paramParcel.writeBooleanArray(new boolean[] { mIsUserFriend, mIsUserFollowed, mIsFirstReview });
-      paramParcel.writeInt(mRating);
-      paramParcel.writeInt(mUserReviewCount);
-      paramParcel.writeInt(mUserFriendCount);
-      paramParcel.writeInt(mUserCheckInCount);
-      paramParcel.writeInt(mUserPhotoCount);
-      paramParcel.writeInt(mUserVideoCount);
-      paramParcel.writeIntArray(mUserEliteYears);
-      paramParcel.writeLong(mUpdatableAfter);
-      return;
+      l1 = -2147483648L;
+      paramParcel.writeLong(l1);
+      if (c != null) {
+        break label302;
+      }
     }
+    label302:
+    for (long l1 = l2;; l1 = c.getTime())
+    {
+      paramParcel.writeLong(l1);
+      paramParcel.writeList(d);
+      paramParcel.writeList(e);
+      paramParcel.writeStringList(f);
+      paramParcel.writeStringList(g);
+      paramParcel.writeList(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeValue(j);
+      paramParcel.writeValue(k);
+      paramParcel.writeValue(l);
+      paramParcel.writeValue(m);
+      paramParcel.writeValue(n);
+      paramParcel.writeValue(o);
+      paramParcel.writeValue(p);
+      paramParcel.writeValue(q);
+      paramParcel.writeValue(r);
+      paramParcel.writeValue(s);
+      paramParcel.writeValue(t);
+      paramParcel.writeValue(u);
+      paramParcel.writeParcelable(v, 0);
+      paramParcel.writeBooleanArray(new boolean[] { w, x, y });
+      paramParcel.writeInt(z);
+      paramParcel.writeInt(A);
+      paramParcel.writeInt(B);
+      paramParcel.writeInt(C);
+      paramParcel.writeInt(D);
+      paramParcel.writeInt(E);
+      paramParcel.writeIntArray(F);
+      paramParcel.writeLong(G);
+      return;
+      l1 = b.getTime();
+      break;
+    }
+  }
+  
+  public int x()
+  {
+    return E;
+  }
+  
+  public int y()
+  {
+    return D;
+  }
+  
+  public int z()
+  {
+    return C;
   }
 }
 

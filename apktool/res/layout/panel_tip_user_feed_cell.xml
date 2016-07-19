@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:paddingLeft="10.0dip" android:paddingTop="8.0dip" android:paddingRight="10.0dip" android:paddingBottom="10.0dip" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <include android:id="@id/award_banners" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/tip_award_banners" />
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <include android:id="@id/top" layout="@layout/panel_base_user_feed_cell" />
-        <include layout="@layout/panel_tip_bubble_buttons" />
-    </RelativeLayout>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/default_base_gap_size" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <com.yelp.android.ui.widgets.AwardBanner android:id="@id/first_to_tip_banner" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AwardBannerFirstToTip" />
+    <include android:id="@id/feed_header" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/feed_entry_header" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size">
+        <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/business_photo" android:layout_width="@dimen/feed_thumbsize" android:layout_height="@dimen/feed_thumbsize" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_small_gap_size">
+            <TextView android:textAppearance="@style/TitleText" android:id="@id/business_name_title" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/content_box" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginRight="@dimen/default_small_gap_size">
+                <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/content_image" android:visibility="gone" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" android:layout_marginRight="@dimen/default_image_gap_size" />
+                <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:ellipsize="end" android:id="@id/content_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/bubble_buttons" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size">
+                <TextView android:textAppearance="@style/CaptionText" android:textStyle="bold" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/compliment_box" android:background="@drawable/comment_bubble" android:clickable="true" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_small_gap_size" android:hint="@string/like_or_compliment" android:includeFontPadding="false" android:layout_weight="1.0" />
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="fill_parent">
+                    <com.yelp.android.ui.widgets.WidgetSpan android:layout_gravity="center_vertical" android:id="@id/buttons" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                        <com.yelp.android.ui.widgets.SpannedImageButton android:id="@id/compliment_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/compliment_button_icon" android:contentDescription="@string/compliment" style="@style/Widget.Button.ComplimentLike" />
+                        <com.yelp.android.ui.widgets.SpannedImageButton android:id="@id/like_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/like_button_icon" android:contentDescription="@string/feedback_i_like_it" yelp:checkable="true" style="@style/Widget.Button.ComplimentLike" />
+                    </com.yelp.android.ui.widgets.WidgetSpan>
+                    <TextView android:id="@id/edit_button" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/edit" android:layout_alignLeft="@id/buttons" android:layout_alignRight="@id/buttons" style="@style/LightButton" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

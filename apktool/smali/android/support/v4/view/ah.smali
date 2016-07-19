@@ -1,29 +1,29 @@
 .class Landroid/support/v4/view/ah;
 .super Ljava/lang/Object;
-.source "LayoutInflaterCompatBase.java"
+.source "VelocityTrackerCompatHoneycomb.java"
 
 
 # direct methods
-.method static a(Landroid/view/LayoutInflater;Landroid/support/v4/view/am;)V
+.method public static a(Landroid/view/VelocityTracker;I)F
     .locals 1
 
     .prologue
-    .line 45
-    if-eqz p1, :cond_0
+    .line 26
+    invoke-virtual {p0, p1}, Landroid/view/VelocityTracker;->getXVelocity(I)F
 
-    new-instance v0, Landroid/support/v4/view/ai;
+    move-result v0
 
-    invoke-direct {v0, p1}, Landroid/support/v4/view/ai;-><init>(Landroid/support/v4/view/am;)V
+    return v0
+.end method
 
-    :goto_0
-    invoke-virtual {p0, v0}, Landroid/view/LayoutInflater;->setFactory(Landroid/view/LayoutInflater$Factory;)V
+.method public static b(Landroid/view/VelocityTracker;I)F
+    .locals 1
 
-    .line 46
-    return-void
+    .prologue
+    .line 29
+    invoke-virtual {p0, p1}, Landroid/view/VelocityTracker;->getYVelocity(I)F
 
-    .line 45
-    :cond_0
-    const/4 v0, 0x0
+    move-result v0
 
-    goto :goto_0
+    return v0
 .end method

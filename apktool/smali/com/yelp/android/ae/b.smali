@@ -1,60 +1,26 @@
-.class public interface abstract Lcom/yelp/android/ae/b;
-.super Ljava/lang/Object;
-.source "DataLoadProvider.java"
+.class public abstract Lcom/yelp/android/ae/b;
+.super Landroid/graphics/drawable/Drawable;
+.source "GlideDrawable.java"
+
+# interfaces
+.implements Landroid/graphics/drawable/Animatable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        "Z:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;"
-    }
-.end annotation
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
+
+    return-void
+.end method
 
 
 # virtual methods
-.method public abstract a()Lcom/bumptech/glide/load/d;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/bumptech/glide/load/d",
-            "<",
-            "Ljava/io/File;",
-            "TZ;>;"
-        }
-    .end annotation
+.method public abstract a(I)V
 .end method
 
-.method public abstract b()Lcom/bumptech/glide/load/d;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/bumptech/glide/load/d",
-            "<TT;TZ;>;"
-        }
-    .end annotation
-.end method
-
-.method public abstract c()Lcom/bumptech/glide/load/a;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/bumptech/glide/load/a",
-            "<TT;>;"
-        }
-    .end annotation
-.end method
-
-.method public abstract d()Lcom/bumptech/glide/load/e;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/bumptech/glide/load/e",
-            "<TZ;>;"
-        }
-    .end annotation
+.method public abstract a()Z
 .end method

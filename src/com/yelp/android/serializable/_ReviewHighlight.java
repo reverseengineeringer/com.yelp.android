@@ -2,31 +2,70 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _ReviewHighlight
   implements Parcelable
 {
-  protected String mIdentifier;
-  protected String mPhotoUrl;
-  protected int mReviewCount;
-  protected String mReviewId;
-  protected String mSentence;
-  protected String mTitle;
-  protected String mType;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected int g;
   
-  protected _ReviewHighlight() {}
-  
-  protected _ReviewHighlight(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, int paramInt)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mType = paramString1;
-    mIdentifier = paramString2;
-    mSentence = paramString3;
-    mReviewId = paramString4;
-    mPhotoUrl = paramString5;
-    mTitle = paramString6;
-    mReviewCount = paramInt;
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("type")) {
+      a = paramJSONObject.optString("type");
+    }
+    if (!paramJSONObject.isNull("identifier")) {
+      b = paramJSONObject.optString("identifier");
+    }
+    if (!paramJSONObject.isNull("sentence")) {
+      c = paramJSONObject.optString("sentence");
+    }
+    if (!paramJSONObject.isNull("review_id")) {
+      d = paramJSONObject.optString("review_id");
+    }
+    if (!paramJSONObject.isNull("photo_url")) {
+      e = paramJSONObject.optString("photo_url");
+    }
+    if (!paramJSONObject.isNull("title")) {
+      f = paramJSONObject.optString("title");
+    }
+    g = paramJSONObject.optInt("review_count");
+  }
+  
+  public String b()
+  {
+    return f;
+  }
+  
+  public String c()
+  {
+    return e;
+  }
+  
+  public String d()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -34,84 +73,49 @@ abstract class _ReviewHighlight
     return 0;
   }
   
-  public String getIdentifier()
+  public String e()
   {
-    return mIdentifier;
+    return c;
   }
   
-  public String getPhotoUrl()
+  public boolean equals(Object paramObject)
   {
-    return mPhotoUrl;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_ReviewHighlight)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a();
   }
   
-  public int getReviewCount()
+  public String f()
   {
-    return mReviewCount;
+    return b;
   }
   
-  public String getReviewId()
+  public String g()
   {
-    return mReviewId;
+    return a;
   }
   
-  public String getSentence()
+  public int hashCode()
   {
-    return mSentence;
-  }
-  
-  public String getTitle()
-  {
-    return mTitle;
-  }
-  
-  public String getType()
-  {
-    return mType;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("type")) {
-      mType = paramJSONObject.optString("type");
-    }
-    if (!paramJSONObject.isNull("identifier")) {
-      mIdentifier = paramJSONObject.optString("identifier");
-    }
-    if (!paramJSONObject.isNull("sentence")) {
-      mSentence = paramJSONObject.optString("sentence");
-    }
-    if (!paramJSONObject.isNull("review_id")) {
-      mReviewId = paramJSONObject.optString("review_id");
-    }
-    if (!paramJSONObject.isNull("photo_url")) {
-      mPhotoUrl = paramJSONObject.optString("photo_url");
-    }
-    if (!paramJSONObject.isNull("title")) {
-      mTitle = paramJSONObject.optString("title");
-    }
-    mReviewCount = paramJSONObject.optInt("review_count");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mType = paramParcel.readString();
-    mIdentifier = paramParcel.readString();
-    mSentence = paramParcel.readString();
-    mReviewId = paramParcel.readString();
-    mPhotoUrl = paramParcel.readString();
-    mTitle = paramParcel.readString();
-    mReviewCount = paramParcel.readInt();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mType);
-    paramParcel.writeString(mIdentifier);
-    paramParcel.writeString(mSentence);
-    paramParcel.writeString(mReviewId);
-    paramParcel.writeString(mPhotoUrl);
-    paramParcel.writeString(mTitle);
-    paramParcel.writeInt(mReviewCount);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
+    paramParcel.writeInt(g);
   }
 }
 

@@ -144,6 +144,11 @@
 
 .method private verifyIndex(I)I
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/ArrayIndexOutOfBoundsException;
+        }
+    .end annotation
 
     .prologue
     .line 26

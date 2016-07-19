@@ -1,63 +1,68 @@
 package com.google.android.gms.dynamic;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.os.Binder;
+import android.os.IBinder;
 import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 
 public abstract interface c
   extends IInterface
 {
-  public abstract void d(d paramd);
-  
-  public abstract void e(d paramd);
-  
-  public abstract Bundle getArguments();
-  
-  public abstract int getId();
-  
-  public abstract boolean getRetainInstance();
-  
-  public abstract String getTag();
-  
-  public abstract int getTargetRequestCode();
-  
-  public abstract boolean getUserVisibleHint();
-  
-  public abstract d getView();
-  
-  public abstract boolean isAdded();
-  
-  public abstract boolean isDetached();
-  
-  public abstract boolean isHidden();
-  
-  public abstract boolean isInLayout();
-  
-  public abstract boolean isRemoving();
-  
-  public abstract boolean isResumed();
-  
-  public abstract boolean isVisible();
-  
-  public abstract d jf();
-  
-  public abstract c jg();
-  
-  public abstract d jh();
-  
-  public abstract c ji();
-  
-  public abstract void setHasOptionsMenu(boolean paramBoolean);
-  
-  public abstract void setMenuVisibility(boolean paramBoolean);
-  
-  public abstract void setRetainInstance(boolean paramBoolean);
-  
-  public abstract void setUserVisibleHint(boolean paramBoolean);
-  
-  public abstract void startActivity(Intent paramIntent);
-  
-  public abstract void startActivityForResult(Intent paramIntent, int paramInt);
+  public static abstract class a
+    extends Binder
+    implements c
+  {
+    public a()
+    {
+      attachInterface(this, "com.google.android.gms.dynamic.IObjectWrapper");
+    }
+    
+    public static c a(IBinder paramIBinder)
+    {
+      if (paramIBinder == null) {
+        return null;
+      }
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.dynamic.IObjectWrapper");
+      if ((localIInterface != null) && ((localIInterface instanceof c))) {
+        return (c)localIInterface;
+      }
+      return new a(paramIBinder);
+    }
+    
+    public IBinder asBinder()
+    {
+      return this;
+    }
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
+    {
+      switch (paramInt1)
+      {
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      }
+      paramParcel2.writeString("com.google.android.gms.dynamic.IObjectWrapper");
+      return true;
+    }
+    
+    private static class a
+      implements c
+    {
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
+      {
+        a = paramIBinder;
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
+    }
+  }
 }
 
 /* Location:

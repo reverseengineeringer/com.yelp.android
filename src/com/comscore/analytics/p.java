@@ -1,19 +1,15 @@
 package com.comscore.analytics;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import com.comscore.utils.TransmissionMode;
 
 class p
   implements Runnable
 {
-  p(a parama) {}
+  p(a parama, TransmissionMode paramTransmissionMode) {}
   
   public void run()
   {
-    if (a.an()) {
-      return;
-    }
-    a.y.getAndIncrement();
-    a.x();
+    a.a(b, a);
   }
 }
 

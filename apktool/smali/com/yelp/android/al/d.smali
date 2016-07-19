@@ -1,24 +1,26 @@
-.class public Lcom/yelp/android/al/d;
-.super Lcom/yelp/android/al/a;
+.class public interface abstract Lcom/yelp/android/al/d;
+.super Ljava/lang/Object;
+.source "GlideAnimationFactory.java"
 
 
-# instance fields
-.field private d:Ljava/lang/Boolean;
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<R:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
 
 
-# direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/al/a;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
-
-    const/4 v0, 0x1
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/al/d;->d:Ljava/lang/Boolean;
-
-    return-void
+# virtual methods
+.method public abstract a(ZZ)Lcom/yelp/android/al/c;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(ZZ)",
+            "Lcom/yelp/android/al/c",
+            "<TR;>;"
+        }
+    .end annotation
 .end method

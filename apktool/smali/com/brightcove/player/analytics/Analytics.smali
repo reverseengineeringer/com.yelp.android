@@ -23,6 +23,13 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/analytics/Analytics$Fields;,
+        Lcom/brightcove/player/analytics/Analytics$HttpAsyncTask;
+    }
+.end annotation
+
 
 # static fields
 .field private static final baseURL:Ljava/lang/String; = "http://metrics.brightcove.com/tracker"

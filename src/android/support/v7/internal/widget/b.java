@@ -1,47 +1,44 @@
 package android.support.v7.internal.widget;
 
-import android.support.v4.view.eh;
-import android.support.v4.view.ex;
-import android.support.v7.widget.ActionMenuView;
-import android.view.View;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
 
-public class b
-  implements ex
+class b
+  extends Drawable
 {
-  int a;
-  private boolean c = false;
+  final ActionBarContainer a;
   
-  protected b(a parama) {}
-  
-  public b a(eh parameh, int paramInt)
+  public b(ActionBarContainer paramActionBarContainer)
   {
-    b.i = parameh;
-    a = paramInt;
-    return this;
+    a = paramActionBarContainer;
   }
   
-  public void a(View paramView)
+  public void draw(Canvas paramCanvas)
   {
-    b.setVisibility(0);
-    c = false;
-  }
-  
-  public void b(View paramView)
-  {
-    if (c) {}
+    if (a.d) {
+      if (a.c != null) {
+        a.c.draw(paramCanvas);
+      }
+    }
     do
     {
       return;
-      b.i = null;
-      b.setVisibility(a);
-    } while ((b.e == null) || (b.c == null));
-    b.c.setVisibility(a);
+      if (a.a != null) {
+        a.a.draw(paramCanvas);
+      }
+    } while ((a.b == null) || (!a.e));
+    a.b.draw(paramCanvas);
   }
   
-  public void c(View paramView)
+  public int getOpacity()
   {
-    c = true;
+    return 0;
   }
+  
+  public void setAlpha(int paramInt) {}
+  
+  public void setColorFilter(ColorFilter paramColorFilter) {}
 }
 
 /* Location:

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <LinearLayout android:orientation="vertical" android:id="@id/local_issue_layout" android:background="@drawable/white_rounded_rect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_large_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size">
+            <TextView android:id="@id/local_yelp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/the_local_yelp" style="@style/SectionText" />
+            <TextView android:gravity="end" android:id="@id/local_issue_date" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/DeprecatedSubtitleGrayText" />
+        </LinearLayout>
+        <TextView android:id="@id/local_issue_location" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" style="@style/DeprecatedSubtitleGrayText" />
+        <FrameLayout android:id="@id/photo_container" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/photo" android:layout_width="fill_parent" android:layout_height="@dimen/local_issue_height" android:scaleType="centerCrop" android:contentDescription="@null" />
+            <View android:background="@drawable/large_photo_header_gradient_bottom" android:layout_width="fill_parent" android:layout_height="@dimen/local_issue_height" />
+            <TextView android:layout_gravity="bottom" android:id="@id/local_issue_title" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/DeprecatedHugeWhiteText" />
+        </FrameLayout>
+    </LinearLayout>
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

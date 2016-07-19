@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/talk_post" android:background="@drawable/selector_white_rect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textAppearance="@style/TitleText" android:ellipsize="end" android:id="@id/talk_topic" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" />
+        <TextView android:textAppearance="@style/BodyText" android:ellipsize="end" android:id="@id/talk_message" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:maxLines="3" />
+    </LinearLayout>
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/call_to_action" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:contentDescription="@null" />
+</LinearLayout>

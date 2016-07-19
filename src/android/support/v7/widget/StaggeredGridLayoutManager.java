@@ -2,65 +2,69 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.Parcelable.Creator;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.view.accessibility.AccessibilityEvent;
-import com.yelp.android.f.a;
-import com.yelp.android.f.aj;
-import com.yelp.android.f.g;
-import com.yelp.android.f.q;
+import com.yelp.android.h.a;
+import com.yelp.android.h.c;
+import com.yelp.android.h.c.l;
+import com.yelp.android.h.m;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.BitSet;
+import java.util.List;
 
 public class StaggeredGridLayoutManager
-  extends br
+  extends RecyclerView.i
 {
   private boolean A;
   private final Runnable B;
-  ba a;
-  ba b;
+  i a;
+  i b;
   boolean c;
   int d;
   int e;
-  StaggeredGridLayoutManager.LazySpanLookup f;
+  LazySpanLookup f;
   private int g;
-  private db[] h;
+  private b[] h;
   private int i;
   private int j;
-  private ah k;
+  private g k;
   private boolean l;
   private BitSet m;
   private int n;
   private boolean o;
   private boolean p;
-  private StaggeredGridLayoutManager.SavedState t;
+  private SavedState t;
   private int u;
   private int v;
   private int w;
   private final Rect x;
-  private final cy y;
+  private final a y;
   private boolean z;
   
-  private boolean A()
+  private boolean B()
   {
-    if ((q() == 0) || (n == 0) || (!m())) {
+    if ((r() == 0) || (n == 0) || (!m())) {
       return false;
     }
     int i2;
     if (c) {
-      i2 = D();
+      i2 = E();
     }
-    for (int i1 = E(); (i2 == 0) && (f() != null); i1 = D())
+    for (int i1 = F(); (i2 == 0) && (f() != null); i1 = E())
     {
       f.a();
-      z();
+      A();
       l();
       return true;
-      i2 = E();
+      i2 = F();
     }
     if (!z) {
       return false;
@@ -77,30 +81,30 @@ public class StaggeredGridLayoutManager
       f.a(i1 + 1);
       return false;
     }
-    StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem2 = f.a(i2, mPosition, i3 * -1, true);
+    StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem2 = f.a(i2, a, i3 * -1, true);
     if (localFullSpanItem2 == null) {
-      f.a(mPosition);
+      f.a(a);
     }
     for (;;)
     {
-      z();
+      A();
       l();
       return true;
-      f.a(mPosition + 1);
-    }
-  }
-  
-  private void B()
-  {
-    if (a == null)
-    {
-      a = ba.a(this, i);
-      b = ba.a(this, 1 - i);
-      k = new ah();
+      f.a(a + 1);
     }
   }
   
   private void C()
+  {
+    if (a == null)
+    {
+      a = i.a(this, i);
+      b = i.a(this, 1 - i);
+      k = new g();
+    }
+  }
+  
+  private void D()
   {
     boolean bool = true;
     if ((i == 1) || (!g()))
@@ -117,21 +121,21 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  private int D()
+  private int E()
   {
-    int i1 = q();
+    int i1 = r();
     if (i1 == 0) {
       return 0;
     }
-    return d(e(i1 - 1));
+    return d(f(i1 - 1));
   }
   
-  private int E()
+  private int F()
   {
-    if (q() == 0) {
+    if (r() == 0) {
       return 0;
     }
-    return d(e(0));
+    return d(f(0));
   }
   
   private int a(int paramInt1, int paramInt2, int paramInt3)
@@ -146,78 +150,75 @@ public class StaggeredGridLayoutManager
     return View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(paramInt1) - paramInt2 - paramInt3, i1);
   }
   
-  private int a(bv parambv, ah paramah, cb paramcb)
+  private int a(RecyclerView.n paramn, g paramg, RecyclerView.r paramr)
   {
     m.set(0, g, true);
-    int i1;
-    int i2;
-    int i4;
     int i3;
-    int i5;
-    label96:
+    int i4;
+    label58:
+    int i1;
+    label61:
     View localView;
-    StaggeredGridLayoutManager.LayoutParams localLayoutParams;
-    int i8;
-    int i6;
-    label158:
-    db localdb;
-    label179:
-    label190:
-    label211:
-    label243:
+    LayoutParams localLayoutParams;
     int i7;
+    int i5;
+    label123:
+    b localb;
+    label144:
+    label155:
+    label176:
+    label208:
+    int i6;
     StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem;
+    int i2;
     if (d == 1)
     {
-      i1 = a.d() + k.a;
-      i2 = k.e;
-      i4 = a.g();
-      i3 = i1;
-      i4 = i2 + i1 + i4;
-      c(d, i4);
+      i3 = f + a;
+      c(d, i3);
       if (!c) {
-        break label481;
+        break label407;
       }
-      i5 = a.d();
-      if ((!paramah.a(paramcb)) || (m.isEmpty())) {
-        break label779;
+      i4 = a.d();
+      i1 = 0;
+      if ((!paramg.a(paramr)) || (m.isEmpty())) {
+        break label705;
       }
-      localView = paramah.a(parambv);
-      localLayoutParams = (StaggeredGridLayoutManager.LayoutParams)localView.getLayoutParams();
-      i8 = localLayoutParams.e();
-      i1 = f.c(i8);
+      localView = paramg.a(paramn);
+      localLayoutParams = (LayoutParams)localView.getLayoutParams();
+      i7 = localLayoutParams.e();
+      i1 = f.c(i7);
       if (i1 != -1) {
-        break label493;
+        break label419;
       }
-      i6 = 1;
-      if (i6 == 0) {
-        break label509;
+      i5 = 1;
+      if (i5 == 0) {
+        break label435;
       }
       if (!f) {
-        break label499;
+        break label425;
       }
-      localdb = h[0];
-      f.a(i8, localdb);
-      e = localdb;
+      localb = h[0];
+      f.a(i7, localb);
+      e = localb;
       if (d != 1) {
-        break label521;
+        break label447;
       }
       b(localView);
       a(localView, localLayoutParams);
       if (d != 1) {
-        break label543;
+        break label469;
       }
       if (!f) {
-        break label531;
+        break label457;
       }
-      i1 = l(i5);
-      i7 = i1 + a.c(localView);
-      if ((i6 == 0) || (!f)) {
-        break label844;
+      i1 = n(i4);
+      i6 = i1 + a.c(localView);
+      if ((i5 == 0) || (!f)) {
+        break label796;
       }
-      localFullSpanItem = a(i1);
-      mGapDir = -1;
-      mPosition = i8;
+      localFullSpanItem = j(i1);
+      b = -1;
+      a = i7;
       f.a(localFullSpanItem);
       i2 = i1;
     }
@@ -225,71 +226,68 @@ public class StaggeredGridLayoutManager
     {
       if ((f) && (c == -1))
       {
-        if (i6 != 0) {
+        if (i5 != 0) {
           z = true;
         }
       }
       else
       {
-        label330:
-        a(localView, localLayoutParams, paramah);
+        label295:
+        a(localView, localLayoutParams, paramg);
         if (!f) {
-          break label713;
+          break label639;
         }
         i1 = b.c();
-        label356:
-        i6 = i1 + b.c(localView);
+        label321:
+        i5 = i1 + b.c(localView);
         if (i != 1) {
-          break label744;
+          break label670;
         }
-        b(localView, i1, i2, i6, i7);
-        label392:
+        b(localView, i1, i2, i5, i6);
+        label357:
         if (!f) {
-          break label761;
+          break label687;
         }
-        c(k.d, i4);
+        c(k.d, i3);
       }
       for (;;)
       {
-        a(parambv, k, localdb, i3);
-        break label96;
-        i1 = a.c() - k.a;
-        i2 = k.e;
-        i4 = a.c();
-        i3 = i1;
-        i4 = i1 - i2 - i4;
+        a(paramn, k);
+        i1 = 1;
+        break label61;
+        i3 = e - a;
         break;
-        label481:
-        i5 = a.c();
-        break label96;
-        label493:
-        i6 = 0;
-        break label158;
-        label499:
-        localdb = a(paramah);
-        break label179;
-        label509:
-        localdb = h[i1];
-        break label190;
-        label521:
+        label407:
+        i4 = a.c();
+        break label58;
+        label419:
+        i5 = 0;
+        break label123;
+        label425:
+        localb = a(paramg);
+        break label144;
+        label435:
+        localb = h[i1];
+        break label155;
+        label447:
         b(localView, 0);
-        break label211;
-        label531:
-        i1 = localdb.b(i5);
-        break label243;
-        label543:
+        break label176;
+        label457:
+        i1 = localb.b(i4);
+        break label208;
+        label469:
         if (f) {}
-        for (i1 = k(i5);; i1 = localdb.a(i5))
+        for (i1 = m(i4);; i1 = localb.a(i4))
         {
           i2 = i1 - a.c(localView);
-          if ((i6 != 0) && (f))
+          if ((i5 != 0) && (f))
           {
-            localFullSpanItem = i(i1);
-            mGapDir = 1;
-            mPosition = i8;
+            localFullSpanItem = k(i1);
+            b = 1;
+            a = i7;
             f.a(localFullSpanItem);
           }
-          i7 = i1;
+          i6 = i1;
           break;
         }
         if (d == 1) {
@@ -300,11 +298,11 @@ public class StaggeredGridLayoutManager
         for (;;)
         {
           if (i1 == 0) {
-            break label711;
+            break label637;
           }
-          localFullSpanItem = f.f(i8);
+          localFullSpanItem = f.f(i7);
           if (localFullSpanItem != null) {
-            mHasUnwantedGapAfter = true;
+            d = true;
           }
           z = true;
           break;
@@ -316,37 +314,43 @@ public class StaggeredGridLayoutManager
             i1 = 0;
           }
         }
-        label711:
-        break label330;
-        label713:
+        label637:
+        break label295;
+        label639:
         i1 = d;
-        i6 = j;
-        i1 = b.c() + i1 * i6;
-        break label356;
-        label744:
-        b(localView, i2, i1, i7, i6);
-        break label392;
-        label761:
-        a(localdb, k.d, i4);
+        i5 = j;
+        i1 = b.c() + i1 * i5;
+        break label321;
+        label670:
+        b(localView, i2, i1, i6, i5);
+        break label357;
+        label687:
+        a(localb, k.d, i3);
       }
-      label779:
+      label705:
+      if (i1 == 0) {
+        a(paramn, k);
+      }
       if (k.d == -1) {
-        return Math.max(0, i3 - k(a.c()) + k.a);
+        i1 = m(a.c());
       }
-      return Math.max(0, l(a.d()) - i3 + k.a);
-      label844:
+      for (i1 = a.c() - i1; i1 > 0; i1 = n(a.d()) - a.d()) {
+        return Math.min(a, i1);
+      }
+      return 0;
+      label796:
       i2 = i1;
     }
   }
   
-  private int a(cb paramcb)
+  private int a(RecyclerView.r paramr)
   {
     boolean bool2 = false;
-    if (q() == 0) {
+    if (r() == 0) {
       return 0;
     }
-    B();
-    ba localba = a;
+    C();
+    i locali = a;
     if (!A) {}
     for (boolean bool1 = true;; bool1 = false)
     {
@@ -355,24 +359,11 @@ public class StaggeredGridLayoutManager
       if (!A) {
         bool1 = true;
       }
-      return ch.a(paramcb, localba, localView, b(bool1, true), this, A, c);
+      return k.a(paramr, locali, localView, b(bool1, true), this, A, c);
     }
   }
   
-  private StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem a(int paramInt)
-  {
-    StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem = new StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem();
-    mGapPerSpan = new int[g];
-    int i1 = 0;
-    while (i1 < g)
-    {
-      mGapPerSpan[i1] = (paramInt - h[i1].b(paramInt));
-      i1 += 1;
-    }
-    return localFullSpanItem;
-  }
-  
-  private db a(ah paramah)
+  private b a(g paramg)
   {
     Object localObject2 = null;
     Object localObject1 = null;
@@ -382,7 +373,7 @@ public class StaggeredGridLayoutManager
     int i6;
     int i5;
     int i4;
-    if (n(d))
+    if (p(d))
     {
       i1 = g - 1;
       i3 = -1;
@@ -392,19 +383,19 @@ public class StaggeredGridLayoutManager
       i6 = a.c();
       i5 = Integer.MAX_VALUE;
       i4 = i1;
-      paramah = (ah)localObject1;
+      paramg = (g)localObject1;
       i1 = i5;
       label60:
-      localObject1 = paramah;
+      localObject1 = paramg;
       if (i4 == i3) {
         break label193;
       }
       localObject1 = h[i4];
-      i5 = ((db)localObject1).b(i6);
+      i5 = ((b)localObject1).b(i6);
       if (i5 >= i1) {
         break label199;
       }
-      paramah = (ah)localObject1;
+      paramg = (g)localObject1;
       i1 = i5;
     }
     label122:
@@ -422,79 +413,129 @@ public class StaggeredGridLayoutManager
       i6 = a.d();
       i5 = Integer.MIN_VALUE;
       i4 = i1;
-      paramah = (ah)localObject2;
+      paramg = (g)localObject2;
       i1 = i5;
-      localObject1 = paramah;
+      localObject1 = paramg;
       if (i4 != i3)
       {
         localObject1 = h[i4];
-        i5 = ((db)localObject1).a(i6);
+        i5 = ((b)localObject1).a(i6);
         if (i5 <= i1) {
           break label196;
         }
-        paramah = (ah)localObject1;
+        paramg = (g)localObject1;
         i1 = i5;
       }
       for (;;)
       {
         i4 += i2;
         break;
-        return (db)localObject1;
+        return (b)localObject1;
       }
     }
   }
   
-  private void a(int paramInt, cb paramcb)
+  private void a(int paramInt)
   {
     int i1 = 1;
-    k.a = 0;
-    k.b = paramInt;
+    k.d = paramInt;
+    g localg = k;
+    boolean bool2 = c;
     boolean bool1;
-    if (n())
+    if (paramInt == -1)
     {
-      int i2 = paramcb.c();
-      boolean bool2 = c;
-      if (i2 < paramInt)
-      {
-        bool1 = true;
-        if (bool2 != bool1) {
-          break label95;
-        }
-        k.e = 0;
-        label61:
-        k.d = -1;
-        paramcb = k;
-        if (!c) {
-          break label123;
-        }
+      bool1 = true;
+      if (bool2 != bool1) {
+        break label49;
       }
     }
-    label95:
-    label123:
+    label49:
     for (paramInt = i1;; paramInt = -1)
     {
       c = paramInt;
       return;
       bool1 = false;
       break;
-      k.e = a.f();
-      break label61;
-      k.e = 0;
-      break label61;
     }
   }
   
-  private void a(bv parambv, int paramInt)
+  private void a(int paramInt, RecyclerView.r paramr)
   {
-    while (q() > 0)
+    int i1 = 0;
+    k.a = 0;
+    k.b = paramInt;
+    boolean bool1;
+    if (o())
     {
-      View localView = e(0);
-      if (a.b(localView) >= paramInt) {
-        break;
-      }
-      StaggeredGridLayoutManager.LayoutParams localLayoutParams = (StaggeredGridLayoutManager.LayoutParams)localView.getLayoutParams();
-      if (f)
+      int i2 = paramr.c();
+      if (i2 != -1)
       {
+        boolean bool2 = c;
+        if (i2 < paramInt)
+        {
+          bool1 = true;
+          if (bool2 != bool1) {
+            break label113;
+          }
+          paramInt = a.f();
+        }
+      }
+    }
+    for (;;)
+    {
+      if (n())
+      {
+        k.e = (a.c() - i1);
+        k.f = (paramInt + a.d());
+        return;
+        bool1 = false;
+        break;
+        label113:
+        i1 = a.f();
+        paramInt = 0;
+        continue;
+      }
+      k.f = (paramInt + a.e());
+      k.e = (-i1);
+      return;
+      paramInt = 0;
+    }
+  }
+  
+  private void a(RecyclerView.n paramn, int paramInt)
+  {
+    for (;;)
+    {
+      View localView;
+      LayoutParams localLayoutParams;
+      if (r() > 0)
+      {
+        localView = f(0);
+        if (a.b(localView) <= paramInt)
+        {
+          localLayoutParams = (LayoutParams)localView.getLayoutParams();
+          if (!f) {
+            break label105;
+          }
+          i1 = 0;
+          if (i1 >= g) {
+            break label79;
+          }
+          if (b.a(h[i1]).size() != 1) {
+            break label72;
+          }
+        }
+      }
+      label72:
+      label79:
+      label105:
+      while (b.a(e).size() == 1)
+      {
+        for (;;)
+        {
+          return;
+          i1 += 1;
+        }
         int i1 = 0;
         while (i1 < g)
         {
@@ -503,46 +544,69 @@ public class StaggeredGridLayoutManager
         }
       }
       e.h();
-      a(localView, parambv);
+      a(localView, paramn);
     }
   }
   
-  private void a(bv parambv, ah paramah, db paramdb, int paramInt)
+  private void a(RecyclerView.n paramn, RecyclerView.r paramr, boolean paramBoolean)
   {
-    if (d == -1)
-    {
-      b(parambv, Math.max(paramInt, j(paramdb.b())) + (a.e() - a.c()));
-      return;
-    }
-    a(parambv, Math.min(paramInt, m(paramdb.d())) - (a.e() - a.c()));
-  }
-  
-  private void a(bv parambv, cb paramcb, boolean paramBoolean)
-  {
-    int i1 = l(a.d());
+    int i1 = n(a.d());
     i1 = a.d() - i1;
     if (i1 > 0)
     {
-      i1 -= -c(-i1, parambv, paramcb);
+      i1 -= -c(-i1, paramn, paramr);
       if ((paramBoolean) && (i1 > 0)) {
         a.a(i1);
       }
     }
   }
   
-  private void a(cy paramcy)
+  private void a(RecyclerView.n paramn, g paramg)
   {
-    if (t.mSpanOffsetsSize > 0) {
-      if (t.mSpanOffsetsSize == g)
+    if (a == 0)
+    {
+      if (d == -1)
+      {
+        b(paramn, f);
+        return;
+      }
+      a(paramn, e);
+      return;
+    }
+    if (d == -1)
+    {
+      i1 = e - l(e);
+      if (i1 < 0) {}
+      for (i1 = f;; i1 = f - Math.min(i1, a))
+      {
+        b(paramn, i1);
+        return;
+      }
+    }
+    int i1 = o(f) - f;
+    if (i1 < 0) {}
+    int i2;
+    for (i1 = e;; i1 = Math.min(i1, a) + i2)
+    {
+      a(paramn, i1);
+      return;
+      i2 = e;
+    }
+  }
+  
+  private void a(a parama)
+  {
+    if (t.c > 0) {
+      if (t.c == g)
       {
         int i2 = 0;
         if (i2 < g)
         {
           h[i2].e();
-          int i3 = t.mSpanOffsets[i2];
+          int i3 = t.d[i2];
           int i1 = i3;
           if (i3 != Integer.MIN_VALUE) {
-            if (!t.mAnchorLayoutFromEnd) {
+            if (!t.i) {
               break label102;
             }
           }
@@ -557,42 +621,42 @@ public class StaggeredGridLayoutManager
       }
       else
       {
-        t.invalidateSpanInfo();
-        t.mAnchorPosition = t.mVisibleAnchorPosition;
+        t.a();
+        t.a = t.b;
       }
     }
-    p = t.mLastLayoutRTL;
-    a(t.mReverseLayout);
-    C();
-    if (t.mAnchorPosition != -1) {
-      d = t.mAnchorPosition;
+    p = t.j;
+    a(t.h);
+    D();
+    if (t.a != -1) {
+      d = t.a;
     }
-    for (c = t.mAnchorLayoutFromEnd;; c = c)
+    for (c = t.i;; c = c)
     {
-      if (t.mSpanLookupSize > 1)
+      if (t.e > 1)
       {
-        f.a = t.mSpanLookup;
-        f.b = t.mFullSpanItems;
+        f.a = t.f;
+        f.b = t.g;
       }
       return;
     }
   }
   
-  private void a(db paramdb, int paramInt1, int paramInt2)
+  private void a(b paramb, int paramInt1, int paramInt2)
   {
-    int i1 = paramdb.i();
+    int i1 = paramb.i();
     if (paramInt1 == -1) {
-      if (i1 + paramdb.b() < paramInt2) {
+      if (i1 + paramb.b() <= paramInt2) {
         m.set(d, false);
       }
     }
-    while (paramdb.d() - i1 <= paramInt2) {
+    while (paramb.d() - i1 < paramInt2) {
       return;
     }
     m.set(d, false);
   }
   
-  private void a(View paramView, StaggeredGridLayoutManager.LayoutParams paramLayoutParams)
+  private void a(View paramView, LayoutParams paramLayoutParams)
   {
     if (f)
     {
@@ -612,7 +676,7 @@ public class StaggeredGridLayoutManager
     b(paramView, b(width, v), w);
   }
   
-  private void a(View paramView, StaggeredGridLayoutManager.LayoutParams paramLayoutParams, ah paramah)
+  private void a(View paramView, LayoutParams paramLayoutParams, g paramg)
   {
     if (d == 1)
     {
@@ -632,14 +696,14 @@ public class StaggeredGridLayoutManager
     e.a(paramView);
   }
   
-  private boolean a(db paramdb)
+  private boolean a(b paramb)
   {
     if (c)
     {
-      if (paramdb.d() >= a.d()) {}
+      if (paramb.d() >= a.d()) {}
     }
     else {
-      while (paramdb.b() > a.c()) {
+      while (paramb.b() > a.c()) {
         return true;
       }
     }
@@ -661,7 +725,7 @@ public class StaggeredGridLayoutManager
     int i1;
     if (c)
     {
-      i3 = D();
+      i3 = E();
       if (paramInt3 != 3) {
         break label100;
       }
@@ -685,7 +749,7 @@ public class StaggeredGridLayoutManager
     for (;;)
     {
       return;
-      i3 = E();
+      i3 = F();
       break;
       label89:
       i2 = paramInt1 + 1;
@@ -703,7 +767,7 @@ public class StaggeredGridLayoutManager
       f.b(paramInt2, 1);
       break label72;
       if (c) {}
-      for (paramInt1 = E(); i1 <= paramInt1; paramInt1 = D())
+      for (paramInt1 = F(); i1 <= paramInt1; paramInt1 = E())
       {
         l();
         return;
@@ -711,56 +775,41 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  private void b(int paramInt, cb paramcb)
+  private void b(RecyclerView.n paramn, int paramInt)
   {
-    int i1 = 1;
-    k.a = 0;
-    k.b = paramInt;
-    boolean bool1;
-    if (n())
-    {
-      int i2 = paramcb.c();
-      boolean bool2 = c;
-      if (i2 > paramInt)
-      {
-        bool1 = true;
-        if (bool2 != bool1) {
-          break label97;
-        }
-        k.e = 0;
-      }
-    }
+    int i1 = r() - 1;
     for (;;)
     {
-      k.d = 1;
-      paramcb = k;
-      paramInt = i1;
-      if (c) {
-        paramInt = -1;
-      }
-      c = paramInt;
-      return;
-      bool1 = false;
-      break;
-      label97:
-      k.e = a.f();
-      continue;
-      k.e = 0;
-    }
-  }
-  
-  private void b(bv parambv, int paramInt)
-  {
-    int i1 = q() - 1;
-    while (i1 >= 0)
-    {
-      View localView = e(i1);
-      if (a.a(localView) <= paramInt) {
-        break;
-      }
-      StaggeredGridLayoutManager.LayoutParams localLayoutParams = (StaggeredGridLayoutManager.LayoutParams)localView.getLayoutParams();
-      if (f)
+      View localView;
+      LayoutParams localLayoutParams;
+      if (i1 >= 0)
       {
+        localView = f(i1);
+        if (a.a(localView) >= paramInt)
+        {
+          localLayoutParams = (LayoutParams)localView.getLayoutParams();
+          if (!f) {
+            break label119;
+          }
+          i2 = 0;
+          if (i2 >= g) {
+            break label88;
+          }
+          if (b.a(h[i2]).size() != 1) {
+            break label79;
+          }
+        }
+      }
+      label79:
+      label88:
+      label119:
+      while (b.a(e).size() == 1)
+      {
+        for (;;)
+        {
+          return;
+          i2 += 1;
+        }
         int i2 = 0;
         while (i2 < g)
         {
@@ -769,17 +818,17 @@ public class StaggeredGridLayoutManager
         }
       }
       e.g();
-      a(localView, parambv);
+      a(localView, paramn);
       i1 -= 1;
     }
   }
   
-  private void b(bv parambv, cb paramcb, boolean paramBoolean)
+  private void b(RecyclerView.n paramn, RecyclerView.r paramr, boolean paramBoolean)
   {
-    int i1 = k(a.c()) - a.c();
+    int i1 = m(a.c()) - a.c();
     if (i1 > 0)
     {
-      i1 -= c(i1, parambv, paramcb);
+      i1 -= c(i1, paramn, paramr);
       if ((paramBoolean) && (i1 > 0)) {
         a.a(-i1);
       }
@@ -789,13 +838,13 @@ public class StaggeredGridLayoutManager
   private void b(View paramView, int paramInt1, int paramInt2)
   {
     a(paramView, x);
-    StaggeredGridLayoutManager.LayoutParams localLayoutParams = (StaggeredGridLayoutManager.LayoutParams)paramView.getLayoutParams();
+    LayoutParams localLayoutParams = (LayoutParams)paramView.getLayoutParams();
     paramView.measure(a(paramInt1, leftMargin + x.left, rightMargin + x.right), a(paramInt2, topMargin + x.top, bottomMargin + x.bottom));
   }
   
   private void b(View paramView, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    StaggeredGridLayoutManager.LayoutParams localLayoutParams = (StaggeredGridLayoutManager.LayoutParams)paramView.getLayoutParams();
+    LayoutParams localLayoutParams = (LayoutParams)paramView.getLayoutParams();
     a(paramView, paramInt1 + leftMargin, paramInt2 + topMargin, paramInt3 - rightMargin, paramInt4 - bottomMargin);
   }
   
@@ -804,7 +853,7 @@ public class StaggeredGridLayoutManager
     int i1 = 0;
     if (i1 < g)
     {
-      if (db.a(h[i1]).isEmpty()) {}
+      if (b.a(h[i1]).isEmpty()) {}
       for (;;)
       {
         i1 += 1;
@@ -814,10 +863,10 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  private boolean c(cb paramcb, cy paramcy)
+  private boolean c(RecyclerView.r paramr, a parama)
   {
     if (o) {}
-    for (int i1 = q(paramcb.e());; i1 = p(paramcb.e()))
+    for (int i1 = s(paramr.e());; i1 = r(paramr.e()))
     {
       a = i1;
       b = Integer.MIN_VALUE;
@@ -825,14 +874,14 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  private int h(cb paramcb)
+  private int h(RecyclerView.r paramr)
   {
     boolean bool2 = false;
-    if (q() == 0) {
+    if (r() == 0) {
       return 0;
     }
-    B();
-    ba localba = a;
+    C();
+    i locali = a;
     if (!A) {}
     for (boolean bool1 = true;; bool1 = false)
     {
@@ -841,18 +890,18 @@ public class StaggeredGridLayoutManager
       if (!A) {
         bool1 = true;
       }
-      return ch.a(paramcb, localba, localView, b(bool1, true), this, A);
+      return k.a(paramr, locali, localView, b(bool1, true), this, A);
     }
   }
   
-  private int i(cb paramcb)
+  private int i(RecyclerView.r paramr)
   {
     boolean bool2 = false;
-    if (q() == 0) {
+    if (r() == 0) {
       return 0;
     }
-    B();
-    ba localba = a;
+    C();
+    i locali = a;
     if (!A) {}
     for (boolean bool1 = true;; bool1 = false)
     {
@@ -861,64 +910,43 @@ public class StaggeredGridLayoutManager
       if (!A) {
         bool1 = true;
       }
-      return ch.b(paramcb, localba, localView, b(bool1, true), this, A);
+      return k.b(paramr, locali, localView, b(bool1, true), this, A);
     }
   }
   
-  private StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem i(int paramInt)
+  private StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem j(int paramInt)
   {
     StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem = new StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem();
-    mGapPerSpan = new int[g];
+    c = new int[g];
     int i1 = 0;
     while (i1 < g)
     {
-      mGapPerSpan[i1] = (h[i1].a(paramInt) - paramInt);
+      c[i1] = (paramInt - h[i1].b(paramInt));
       i1 += 1;
     }
     return localFullSpanItem;
   }
   
-  private int j(int paramInt)
+  private StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem k(int paramInt)
   {
-    int i2 = h[0].a(paramInt);
-    int i1 = 1;
+    StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem localFullSpanItem = new StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem();
+    c = new int[g];
+    int i1 = 0;
     while (i1 < g)
     {
-      int i4 = h[i1].a(paramInt);
-      int i3 = i2;
-      if (i4 > i2) {
-        i3 = i4;
-      }
+      c[i1] = (h[i1].a(paramInt) - paramInt);
       i1 += 1;
-      i2 = i3;
     }
-    return i2;
-  }
-  
-  private int k(int paramInt)
-  {
-    int i2 = h[0].a(paramInt);
-    int i1 = 1;
-    while (i1 < g)
-    {
-      int i4 = h[i1].a(paramInt);
-      int i3 = i2;
-      if (i4 < i2) {
-        i3 = i4;
-      }
-      i1 += 1;
-      i2 = i3;
-    }
-    return i2;
+    return localFullSpanItem;
   }
   
   private int l(int paramInt)
   {
-    int i2 = h[0].b(paramInt);
+    int i2 = h[0].a(paramInt);
     int i1 = 1;
     while (i1 < g)
     {
-      int i4 = h[i1].b(paramInt);
+      int i4 = h[i1].a(paramInt);
       int i3 = i2;
       if (i4 > i2) {
         i3 = i4;
@@ -931,6 +959,40 @@ public class StaggeredGridLayoutManager
   
   private int m(int paramInt)
   {
+    int i2 = h[0].a(paramInt);
+    int i1 = 1;
+    while (i1 < g)
+    {
+      int i4 = h[i1].a(paramInt);
+      int i3 = i2;
+      if (i4 < i2) {
+        i3 = i4;
+      }
+      i1 += 1;
+      i2 = i3;
+    }
+    return i2;
+  }
+  
+  private int n(int paramInt)
+  {
+    int i2 = h[0].b(paramInt);
+    int i1 = 1;
+    while (i1 < g)
+    {
+      int i4 = h[i1].b(paramInt);
+      int i3 = i2;
+      if (i4 > i2) {
+        i3 = i4;
+      }
+      i1 += 1;
+      i2 = i3;
+    }
+    return i2;
+  }
+  
+  private int o(int paramInt)
+  {
     int i2 = h[0].b(paramInt);
     int i1 = 1;
     while (i1 < g)
@@ -946,7 +1008,27 @@ public class StaggeredGridLayoutManager
     return i2;
   }
   
-  private boolean n(int paramInt)
+  private void o(View paramView)
+  {
+    int i1 = g - 1;
+    while (i1 >= 0)
+    {
+      h[i1].b(paramView);
+      i1 -= 1;
+    }
+  }
+  
+  private void p(View paramView)
+  {
+    int i1 = g - 1;
+    while (i1 >= 0)
+    {
+      h[i1].a(paramView);
+      i1 -= 1;
+    }
+  }
+  
+  private boolean p(int paramInt)
   {
     int i1;
     if (i == 0) {
@@ -986,10 +1068,10 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  private int o(int paramInt)
+  private int q(int paramInt)
   {
     int i1 = -1;
-    if (q() == 0)
+    if (r() == 0)
     {
       if (c) {
         return 1;
@@ -997,7 +1079,7 @@ public class StaggeredGridLayoutManager
       return -1;
     }
     int i2;
-    if (paramInt < E())
+    if (paramInt < F())
     {
       i2 = 1;
       if (i2 == c) {
@@ -1013,23 +1095,13 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  private void o(View paramView)
+  private int r(int paramInt)
   {
-    int i1 = g - 1;
-    while (i1 >= 0)
-    {
-      h[i1].b(paramView);
-      i1 -= 1;
-    }
-  }
-  
-  private int p(int paramInt)
-  {
-    int i2 = q();
+    int i2 = r();
     int i1 = 0;
     while (i1 < i2)
     {
-      int i3 = d(e(i1));
+      int i3 = d(f(i1));
       if ((i3 >= 0) && (i3 < paramInt)) {
         return i3;
       }
@@ -1038,22 +1110,12 @@ public class StaggeredGridLayoutManager
     return 0;
   }
   
-  private void p(View paramView)
+  private int s(int paramInt)
   {
-    int i1 = g - 1;
+    int i1 = r() - 1;
     while (i1 >= 0)
     {
-      h[i1].a(paramView);
-      i1 -= 1;
-    }
-  }
-  
-  private int q(int paramInt)
-  {
-    int i1 = q() - 1;
-    while (i1 >= 0)
-    {
-      int i2 = d(e(i1));
+      int i2 = d(f(i1));
       if ((i2 >= 0) && (i2 < paramInt)) {
         return i2;
       }
@@ -1062,48 +1124,48 @@ public class StaggeredGridLayoutManager
     return 0;
   }
   
-  public int a(int paramInt, bv parambv, cb paramcb)
+  public int a(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr)
   {
-    return c(paramInt, parambv, paramcb);
+    return c(paramInt, paramn, paramr);
   }
   
-  public int a(bv parambv, cb paramcb)
+  public int a(RecyclerView.n paramn, RecyclerView.r paramr)
   {
     if (i == 0) {
       return g;
     }
-    return super.a(parambv, paramcb);
+    return super.a(paramn, paramr);
   }
   
   public RecyclerView.LayoutParams a()
   {
-    return new StaggeredGridLayoutManager.LayoutParams(-2, -2);
+    return new LayoutParams(-2, -2);
   }
   
   public RecyclerView.LayoutParams a(Context paramContext, AttributeSet paramAttributeSet)
   {
-    return new StaggeredGridLayoutManager.LayoutParams(paramContext, paramAttributeSet);
+    return new LayoutParams(paramContext, paramAttributeSet);
   }
   
   public RecyclerView.LayoutParams a(ViewGroup.LayoutParams paramLayoutParams)
   {
     if ((paramLayoutParams instanceof ViewGroup.MarginLayoutParams)) {
-      return new StaggeredGridLayoutManager.LayoutParams((ViewGroup.MarginLayoutParams)paramLayoutParams);
+      return new LayoutParams((ViewGroup.MarginLayoutParams)paramLayoutParams);
     }
-    return new StaggeredGridLayoutManager.LayoutParams(paramLayoutParams);
+    return new LayoutParams(paramLayoutParams);
   }
   
   View a(boolean paramBoolean1, boolean paramBoolean2)
   {
-    B();
+    C();
     int i2 = a.c();
     int i3 = a.d();
-    int i4 = q();
+    int i4 = r();
     int i1 = 0;
     Object localObject1 = null;
     if (i1 < i4)
     {
-      View localView = e(i1);
+      View localView = f(i1);
       int i5 = a.a(localView);
       Object localObject2 = localObject1;
       if (a.b(localView) > i2)
@@ -1137,11 +1199,49 @@ public class StaggeredGridLayoutManager
   
   public void a(Parcelable paramParcelable)
   {
-    if ((paramParcelable instanceof StaggeredGridLayoutManager.SavedState))
+    if ((paramParcelable instanceof SavedState))
     {
-      t = ((StaggeredGridLayoutManager.SavedState)paramParcelable);
+      t = ((SavedState)paramParcelable);
       l();
     }
+  }
+  
+  public void a(RecyclerView.n paramn, RecyclerView.r paramr, View paramView, c paramc)
+  {
+    paramn = paramView.getLayoutParams();
+    if (!(paramn instanceof LayoutParams))
+    {
+      super.a(paramView, paramc);
+      return;
+    }
+    paramn = (LayoutParams)paramn;
+    if (i == 0)
+    {
+      i2 = paramn.a();
+      if (f) {}
+      for (i1 = g;; i1 = 1)
+      {
+        paramc.c(c.l.a(i2, i1, -1, -1, f, false));
+        return;
+      }
+    }
+    int i2 = paramn.a();
+    if (f) {}
+    for (int i1 = g;; i1 = 1)
+    {
+      paramc.c(c.l.a(-1, -1, i2, i1, f, false));
+      return;
+    }
+  }
+  
+  void a(RecyclerView.r paramr, a parama)
+  {
+    if (b(paramr, parama)) {}
+    while (c(paramr, parama)) {
+      return;
+    }
+    parama.b();
+    a = 0;
   }
   
   public void a(RecyclerView paramRecyclerView)
@@ -1160,7 +1260,12 @@ public class StaggeredGridLayoutManager
     b(paramInt1, paramInt2, 3);
   }
   
-  public void a(RecyclerView paramRecyclerView, bv parambv)
+  public void a(RecyclerView paramRecyclerView, int paramInt1, int paramInt2, Object paramObject)
+  {
+    b(paramInt1, paramInt2, 2);
+  }
+  
+  public void a(RecyclerView paramRecyclerView, RecyclerView.n paramn)
   {
     b(B);
     int i1 = 0;
@@ -1171,50 +1276,12 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  public void a(bv parambv, cb paramcb, View paramView, g paramg)
-  {
-    parambv = paramView.getLayoutParams();
-    if (!(parambv instanceof StaggeredGridLayoutManager.LayoutParams))
-    {
-      super.a(paramView, paramg);
-      return;
-    }
-    parambv = (StaggeredGridLayoutManager.LayoutParams)parambv;
-    if (i == 0)
-    {
-      i2 = parambv.a();
-      if (f) {}
-      for (i1 = g;; i1 = 1)
-      {
-        paramg.c(q.a(i2, i1, -1, -1, f, false));
-        return;
-      }
-    }
-    int i2 = parambv.a();
-    if (f) {}
-    for (int i1 = g;; i1 = 1)
-    {
-      paramg.c(q.a(-1, -1, i2, i1, f, false));
-      return;
-    }
-  }
-  
-  void a(cb paramcb, cy paramcy)
-  {
-    if (b(paramcb, paramcy)) {}
-    while (c(paramcb, paramcy)) {
-      return;
-    }
-    paramcy.b();
-    a = 0;
-  }
-  
   public void a(AccessibilityEvent paramAccessibilityEvent)
   {
     super.a(paramAccessibilityEvent);
     View localView1;
     View localView2;
-    if (q() > 0)
+    if (r() > 0)
     {
       paramAccessibilityEvent = a.a(paramAccessibilityEvent);
       localView1 = a(false, true);
@@ -1247,8 +1314,8 @@ public class StaggeredGridLayoutManager
   public void a(boolean paramBoolean)
   {
     a(null);
-    if ((t != null) && (t.mReverseLayout != paramBoolean)) {
-      t.mReverseLayout = paramBoolean;
+    if ((t != null) && (t.h != paramBoolean)) {
+      t.h = paramBoolean;
     }
     l = paramBoolean;
     l();
@@ -1256,37 +1323,37 @@ public class StaggeredGridLayoutManager
   
   public boolean a(RecyclerView.LayoutParams paramLayoutParams)
   {
-    return paramLayoutParams instanceof StaggeredGridLayoutManager.LayoutParams;
+    return paramLayoutParams instanceof LayoutParams;
   }
   
-  public int b(int paramInt, bv parambv, cb paramcb)
+  public int b(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr)
   {
-    return c(paramInt, parambv, paramcb);
+    return c(paramInt, paramn, paramr);
   }
   
-  public int b(bv parambv, cb paramcb)
+  public int b(RecyclerView.n paramn, RecyclerView.r paramr)
   {
     if (i == 1) {
       return g;
     }
-    return super.b(parambv, paramcb);
+    return super.b(paramn, paramr);
   }
   
-  public int b(cb paramcb)
+  public int b(RecyclerView.r paramr)
   {
-    return a(paramcb);
+    return a(paramr);
   }
   
   View b(boolean paramBoolean1, boolean paramBoolean2)
   {
-    B();
+    C();
     int i2 = a.c();
     int i3 = a.d();
-    int i1 = q() - 1;
+    int i1 = r() - 1;
     Object localObject1 = null;
     if (i1 >= 0)
     {
-      View localView = e(i1);
+      View localView = f(i1);
       int i4 = a.a(localView);
       int i5 = a.b(localView);
       Object localObject2 = localObject1;
@@ -1329,25 +1396,25 @@ public class StaggeredGridLayoutManager
     return t == null;
   }
   
-  boolean b(cb paramcb, cy paramcy)
+  boolean b(RecyclerView.r paramr, a parama)
   {
     boolean bool = false;
-    if ((paramcb.a()) || (d == -1)) {
+    if ((paramr.a()) || (d == -1)) {
       return false;
     }
-    if ((d < 0) || (d >= paramcb.e()))
+    if ((d < 0) || (d >= paramr.e()))
     {
       d = -1;
       e = Integer.MIN_VALUE;
       return false;
     }
-    if ((t == null) || (t.mAnchorPosition == -1) || (t.mSpanOffsetsSize < 1))
+    if ((t == null) || (t.a == -1) || (t.c < 1))
     {
-      paramcb = b(d);
-      if (paramcb != null)
+      paramr = b(d);
+      if (paramr != null)
       {
         if (c) {}
-        for (int i1 = D();; i1 = E())
+        for (int i1 = E();; i1 = F())
         {
           a = i1;
           if (e == Integer.MIN_VALUE) {
@@ -1356,13 +1423,13 @@ public class StaggeredGridLayoutManager
           if (!c) {
             break;
           }
-          b = (a.d() - e - a.b(paramcb));
+          b = (a.d() - e - a.b(paramr));
           return true;
         }
-        b = (a.c() + e - a.a(paramcb));
+        b = (a.c() + e - a.a(paramr));
         return true;
         label188:
-        if (a.c(paramcb) > a.f())
+        if (a.c(paramr) > a.f())
         {
           if (c) {}
           for (i1 = a.d();; i1 = a.c())
@@ -1371,13 +1438,13 @@ public class StaggeredGridLayoutManager
             return true;
           }
         }
-        i1 = a.a(paramcb) - a.c();
+        i1 = a.a(paramr) - a.c();
         if (i1 < 0)
         {
           b = (-i1);
           return true;
         }
-        i1 = a.d() - a.b(paramcb);
+        i1 = a.d() - a.b(paramr);
         if (i1 < 0)
         {
           b = i1;
@@ -1389,17 +1456,17 @@ public class StaggeredGridLayoutManager
       a = d;
       if (e == Integer.MIN_VALUE)
       {
-        if (o(a) == 1) {
+        if (q(a) == 1) {
           bool = true;
         }
         c = bool;
-        paramcy.b();
+        parama.b();
       }
       for (;;)
       {
         d = true;
         return true;
-        paramcy.a(e);
+        parama.a(e);
       }
     }
     b = Integer.MIN_VALUE;
@@ -1407,35 +1474,23 @@ public class StaggeredGridLayoutManager
     return true;
   }
   
-  int c(int paramInt, bv parambv, cb paramcb)
+  int c(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr)
   {
-    int i1 = 1;
-    int i2 = -1;
-    B();
-    ah localah;
+    C();
+    int i1;
+    int i2;
     if (paramInt > 0)
     {
-      k.d = 1;
-      localah = k;
-      if (c)
-      {
-        i1 = i2;
-        c = i1;
-        i1 = D();
-        k.b = (i1 + k.c);
-        i2 = Math.abs(paramInt);
-        k.a = i2;
-        localah = k;
-        if (!n()) {
-          break label200;
-        }
-        i1 = a.f();
-        label106:
-        e = i1;
-        i1 = a(parambv, k, paramcb);
-        if (i2 >= i1) {
-          break label206;
-        }
+      i1 = 1;
+      i2 = E();
+      a(i2, paramr);
+      a(i1);
+      k.b = (i2 + k.c);
+      i2 = Math.abs(paramInt);
+      k.a = i2;
+      i1 = a(paramn, k, paramr);
+      if (i2 >= i1) {
+        break label112;
       }
     }
     for (;;)
@@ -1443,22 +1498,10 @@ public class StaggeredGridLayoutManager
       a.a(-paramInt);
       o = c;
       return paramInt;
-      i1 = 1;
+      i1 = -1;
+      i2 = F();
       break;
-      k.d = -1;
-      localah = k;
-      if (c) {}
-      for (;;)
-      {
-        c = i1;
-        i1 = E();
-        break;
-        i1 = -1;
-      }
-      label200:
-      i1 = 0;
-      break label106;
-      label206:
+      label112:
       if (paramInt < 0) {
         paramInt = -i1;
       } else {
@@ -1467,20 +1510,20 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  public int c(cb paramcb)
+  public int c(RecyclerView.r paramr)
   {
-    return a(paramcb);
+    return a(paramr);
   }
   
   public Parcelable c()
   {
     if (t != null) {
-      return new StaggeredGridLayoutManager.SavedState(t);
+      return new SavedState(t);
     }
-    StaggeredGridLayoutManager.SavedState localSavedState = new StaggeredGridLayoutManager.SavedState();
-    mReverseLayout = l;
-    mAnchorLayoutFromEnd = o;
-    mLastLayoutRTL = p;
+    SavedState localSavedState = new SavedState();
+    h = l;
+    i = o;
+    j = p;
     int i1;
     label130:
     int i2;
@@ -1488,21 +1531,21 @@ public class StaggeredGridLayoutManager
     int i3;
     if ((f != null) && (f.a != null))
     {
-      mSpanLookup = f.a;
-      mSpanLookupSize = mSpanLookup.length;
-      mFullSpanItems = f.b;
-      if (q() <= 0) {
+      f = f.a;
+      e = f.length;
+      g = f.b;
+      if (r() <= 0) {
         break label277;
       }
-      B();
+      C();
       if (!o) {
         break label236;
       }
-      i1 = D();
-      mAnchorPosition = i1;
-      mVisibleAnchorPosition = i();
-      mSpanOffsetsSize = g;
-      mSpanOffsets = new int[g];
+      i1 = E();
+      a = i1;
+      b = i();
+      c = g;
+      d = new int[g];
       i2 = 0;
       if (i2 >= g) {
         break label295;
@@ -1518,13 +1561,13 @@ public class StaggeredGridLayoutManager
     }
     for (;;)
     {
-      mSpanOffsets[i2] = i1;
+      d[i2] = i1;
       i2 += 1;
       break label167;
-      mSpanLookupSize = 0;
+      e = 0;
       break;
       label236:
-      i1 = E();
+      i1 = F();
       break label130;
       label244:
       i3 = h[i2].a(Integer.MIN_VALUE);
@@ -1534,37 +1577,47 @@ public class StaggeredGridLayoutManager
       }
     }
     label277:
-    mAnchorPosition = -1;
-    mVisibleAnchorPosition = -1;
-    mSpanOffsetsSize = 0;
+    a = -1;
+    b = -1;
+    c = 0;
     label295:
     return localSavedState;
   }
   
-  public void c(RecyclerView paramRecyclerView, int paramInt1, int paramInt2)
+  public void c(int paramInt)
   {
-    b(paramInt1, paramInt2, 2);
+    if ((t != null) && (t.a != paramInt)) {
+      t.b();
+    }
+    d = paramInt;
+    e = Integer.MIN_VALUE;
+    l();
   }
   
-  public void c(bv parambv, cb paramcb)
+  public void c(RecyclerView.n paramn, RecyclerView.r paramr)
   {
     int i2 = 0;
-    B();
-    cy localcy = y;
-    localcy.a();
+    C();
+    a locala = y;
+    locala.a();
+    if (((t != null) || (d != -1)) && (paramr.e() == 0))
+    {
+      c(paramn);
+      return;
+    }
     if (t != null) {
-      a(localcy);
+      a(locala);
     }
     for (;;)
     {
-      a(paramcb, localcy);
+      a(paramr, locala);
       if ((t == null) && ((c != o) || (g() != p)))
       {
         f.a();
         d = true;
       }
-      if ((q() <= 0) || ((t != null) && (t.mSpanOffsetsSize >= 1))) {
-        break label215;
+      if ((r() <= 0) || ((t != null) && (t.c >= 1))) {
+        break label243;
       }
       if (!d) {
         break;
@@ -1578,7 +1631,7 @@ public class StaggeredGridLayoutManager
         }
         i1 += 1;
       }
-      C();
+      D();
       c = c;
     }
     int i1 = 0;
@@ -1587,37 +1640,36 @@ public class StaggeredGridLayoutManager
       h[i1].a(c, b);
       i1 += 1;
     }
-    label215:
-    a(parambv);
+    label243:
+    a(paramn);
     z = false;
     h();
-    ah localah;
+    a(a, paramr);
     if (c)
     {
-      a(a, paramcb);
-      a(parambv, k, paramcb);
-      b(a, paramcb);
-      localah = k;
-      b += k.c;
-      a(parambv, k, paramcb);
-      if (q() > 0)
+      a(-1);
+      a(paramn, k, paramr);
+      a(1);
+      k.b = (a + k.c);
+      a(paramn, k, paramr);
+      if (r() > 0)
       {
         if (!c) {
-          break label501;
+          break label511;
         }
-        a(parambv, paramcb, true);
-        b(parambv, paramcb, false);
+        a(paramn, paramr, true);
+        b(paramn, paramr, false);
       }
     }
     for (;;)
     {
-      if (!paramcb.a())
+      if (!paramr.a())
       {
         i1 = i2;
         if (n != 0)
         {
           i1 = i2;
-          if (q() > 0) {
+          if (r() > 0) {
             if (!z)
             {
               i1 = i2;
@@ -1641,22 +1693,21 @@ public class StaggeredGridLayoutManager
       p = g();
       t = null;
       return;
-      b(a, paramcb);
-      a(parambv, k, paramcb);
-      a(a, paramcb);
-      localah = k;
-      b += k.c;
-      a(parambv, k, paramcb);
+      a(1);
+      a(paramn, k, paramr);
+      a(-1);
+      k.b = (a + k.c);
+      a(paramn, k, paramr);
       break;
-      label501:
-      b(parambv, paramcb, true);
-      a(parambv, paramcb, false);
+      label511:
+      b(paramn, paramr, true);
+      a(paramn, paramr, false);
     }
   }
   
-  public int d(cb paramcb)
+  public int d(RecyclerView.r paramr)
   {
-    return h(paramcb);
+    return h(paramr);
   }
   
   public boolean d()
@@ -1664,9 +1715,9 @@ public class StaggeredGridLayoutManager
     return i == 0;
   }
   
-  public int e(cb paramcb)
+  public int e(RecyclerView.r paramr)
   {
-    return h(paramcb);
+    return h(paramr);
   }
   
   public boolean e()
@@ -1674,14 +1725,14 @@ public class StaggeredGridLayoutManager
     return i == 1;
   }
   
-  public int f(cb paramcb)
+  public int f(RecyclerView.r paramr)
   {
-    return i(paramcb);
+    return i(paramr);
   }
   
   View f()
   {
-    int i1 = q() - 1;
+    int i1 = r() - 1;
     BitSet localBitSet = new BitSet(g);
     localBitSet.set(0, g, true);
     int i2;
@@ -1700,7 +1751,7 @@ public class StaggeredGridLayoutManager
     }
     int i5;
     View localView;
-    StaggeredGridLayoutManager.LayoutParams localLayoutParams;
+    LayoutParams localLayoutParams;
     label128:
     label137:
     for (int i4 = 1;; i4 = -1)
@@ -1709,8 +1760,8 @@ public class StaggeredGridLayoutManager
       if (i5 == i3) {
         break label343;
       }
-      localView = e(i5);
-      localLayoutParams = (StaggeredGridLayoutManager.LayoutParams)localView.getLayoutParams();
+      localView = f(i5);
+      localLayoutParams = (LayoutParams)localView.getLayoutParams();
       if (!localBitSet.get(e.d)) {
         break label156;
       }
@@ -1740,7 +1791,7 @@ public class StaggeredGridLayoutManager
       break;
       if (i5 + i4 != i3)
       {
-        Object localObject = e(i5 + i4);
+        Object localObject = f(i5 + i4);
         int i6;
         if (c)
         {
@@ -1759,7 +1810,7 @@ public class StaggeredGridLayoutManager
           if (i1 == 0) {
             break label348;
           }
-          localObject = (StaggeredGridLayoutManager.LayoutParams)((View)localObject).getLayoutParams();
+          localObject = (LayoutParams)((View)localObject).getLayoutParams();
           if (e.d - e.d < 0)
           {
             i1 = 1;
@@ -1794,20 +1845,9 @@ public class StaggeredGridLayoutManager
     }
   }
   
-  public void f(int paramInt)
+  public int g(RecyclerView.r paramr)
   {
-    super.f(paramInt);
-    int i1 = 0;
-    while (i1 < g)
-    {
-      h[i1].d(paramInt);
-      i1 += 1;
-    }
-  }
-  
-  public int g(cb paramcb)
-  {
-    return i(paramcb);
+    return i(paramr);
   }
   
   public void g(int paramInt)
@@ -1823,7 +1863,7 @@ public class StaggeredGridLayoutManager
   
   boolean g()
   {
-    return o() == 1;
+    return p() == 1;
   }
   
   void h()
@@ -1842,8 +1882,12 @@ public class StaggeredGridLayoutManager
   
   public void h(int paramInt)
   {
-    if (paramInt == 0) {
-      A();
+    super.h(paramInt);
+    int i1 = 0;
+    while (i1 < g)
+    {
+      h[i1].d(paramInt);
+      i1 += 1;
     }
   }
   
@@ -1854,6 +1898,13 @@ public class StaggeredGridLayoutManager
       return -1;
     }
     return d(localView);
+  }
+  
+  public void i(int paramInt)
+  {
+    if (paramInt == 0) {
+      B();
+    }
   }
   
   boolean j()
@@ -1895,6 +1946,789 @@ public class StaggeredGridLayoutManager
         return bool1;
       }
       i1 += 1;
+    }
+  }
+  
+  public static class LayoutParams
+    extends RecyclerView.LayoutParams
+  {
+    StaggeredGridLayoutManager.b e;
+    boolean f;
+    
+    public LayoutParams(int paramInt1, int paramInt2)
+    {
+      super(paramInt2);
+    }
+    
+    public LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
+    {
+      super(paramAttributeSet);
+    }
+    
+    public LayoutParams(ViewGroup.LayoutParams paramLayoutParams)
+    {
+      super();
+    }
+    
+    public LayoutParams(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+    {
+      super();
+    }
+    
+    public final int a()
+    {
+      if (e == null) {
+        return -1;
+      }
+      return e.d;
+    }
+  }
+  
+  static class LazySpanLookup
+  {
+    int[] a;
+    List<FullSpanItem> b;
+    
+    private void c(int paramInt1, int paramInt2)
+    {
+      if (b == null) {
+        return;
+      }
+      int i = b.size() - 1;
+      label20:
+      FullSpanItem localFullSpanItem;
+      if (i >= 0)
+      {
+        localFullSpanItem = (FullSpanItem)b.get(i);
+        if (a >= paramInt1) {
+          break label55;
+        }
+      }
+      for (;;)
+      {
+        i -= 1;
+        break label20;
+        break;
+        label55:
+        if (a < paramInt1 + paramInt2) {
+          b.remove(i);
+        } else {
+          a -= paramInt2;
+        }
+      }
+    }
+    
+    private void d(int paramInt1, int paramInt2)
+    {
+      if (b == null) {
+        return;
+      }
+      int i = b.size() - 1;
+      label20:
+      FullSpanItem localFullSpanItem;
+      if (i >= 0)
+      {
+        localFullSpanItem = (FullSpanItem)b.get(i);
+        if (a >= paramInt1) {
+          break label55;
+        }
+      }
+      for (;;)
+      {
+        i -= 1;
+        break label20;
+        break;
+        label55:
+        a += paramInt2;
+      }
+    }
+    
+    private int g(int paramInt)
+    {
+      if (b == null) {
+        return -1;
+      }
+      FullSpanItem localFullSpanItem = f(paramInt);
+      if (localFullSpanItem != null) {
+        b.remove(localFullSpanItem);
+      }
+      int j = b.size();
+      int i = 0;
+      if (i < j) {
+        if (b.get(i)).a < paramInt) {}
+      }
+      for (;;)
+      {
+        if (i != -1)
+        {
+          localFullSpanItem = (FullSpanItem)b.get(i);
+          b.remove(i);
+          return a;
+          i += 1;
+          break;
+        }
+        return -1;
+        i = -1;
+      }
+    }
+    
+    int a(int paramInt)
+    {
+      if (b != null)
+      {
+        int i = b.size() - 1;
+        while (i >= 0)
+        {
+          if (b.get(i)).a >= paramInt) {
+            b.remove(i);
+          }
+          i -= 1;
+        }
+      }
+      return b(paramInt);
+    }
+    
+    public FullSpanItem a(int paramInt1, int paramInt2, int paramInt3, boolean paramBoolean)
+    {
+      Object localObject;
+      if (b == null)
+      {
+        localObject = null;
+        return (FullSpanItem)localObject;
+      }
+      int j = b.size();
+      int i = 0;
+      for (;;)
+      {
+        if (i >= j) {
+          break label117;
+        }
+        FullSpanItem localFullSpanItem = (FullSpanItem)b.get(i);
+        if (a >= paramInt2) {
+          return null;
+        }
+        if (a >= paramInt1)
+        {
+          localObject = localFullSpanItem;
+          if (paramInt3 == 0) {
+            break;
+          }
+          localObject = localFullSpanItem;
+          if (b == paramInt3) {
+            break;
+          }
+          if (paramBoolean)
+          {
+            localObject = localFullSpanItem;
+            if (d) {
+              break;
+            }
+          }
+        }
+        i += 1;
+      }
+      label117:
+      return null;
+    }
+    
+    void a()
+    {
+      if (a != null) {
+        Arrays.fill(a, -1);
+      }
+      b = null;
+    }
+    
+    void a(int paramInt1, int paramInt2)
+    {
+      if ((a == null) || (paramInt1 >= a.length)) {
+        return;
+      }
+      e(paramInt1 + paramInt2);
+      System.arraycopy(a, paramInt1 + paramInt2, a, paramInt1, a.length - paramInt1 - paramInt2);
+      Arrays.fill(a, a.length - paramInt2, a.length, -1);
+      c(paramInt1, paramInt2);
+    }
+    
+    void a(int paramInt, StaggeredGridLayoutManager.b paramb)
+    {
+      e(paramInt);
+      a[paramInt] = d;
+    }
+    
+    public void a(FullSpanItem paramFullSpanItem)
+    {
+      if (b == null) {
+        b = new ArrayList();
+      }
+      int j = b.size();
+      int i = 0;
+      while (i < j)
+      {
+        FullSpanItem localFullSpanItem = (FullSpanItem)b.get(i);
+        if (a == a) {
+          b.remove(i);
+        }
+        if (a >= a)
+        {
+          b.add(i, paramFullSpanItem);
+          return;
+        }
+        i += 1;
+      }
+      b.add(paramFullSpanItem);
+    }
+    
+    int b(int paramInt)
+    {
+      if (a == null) {}
+      while (paramInt >= a.length) {
+        return -1;
+      }
+      int i = g(paramInt);
+      if (i == -1)
+      {
+        Arrays.fill(a, paramInt, a.length, -1);
+        return a.length;
+      }
+      Arrays.fill(a, paramInt, i + 1, -1);
+      return i + 1;
+    }
+    
+    void b(int paramInt1, int paramInt2)
+    {
+      if ((a == null) || (paramInt1 >= a.length)) {
+        return;
+      }
+      e(paramInt1 + paramInt2);
+      System.arraycopy(a, paramInt1, a, paramInt1 + paramInt2, a.length - paramInt1 - paramInt2);
+      Arrays.fill(a, paramInt1, paramInt1 + paramInt2, -1);
+      d(paramInt1, paramInt2);
+    }
+    
+    int c(int paramInt)
+    {
+      if ((a == null) || (paramInt >= a.length)) {
+        return -1;
+      }
+      return a[paramInt];
+    }
+    
+    int d(int paramInt)
+    {
+      int i = a.length;
+      while (i <= paramInt) {
+        i *= 2;
+      }
+      return i;
+    }
+    
+    void e(int paramInt)
+    {
+      if (a == null)
+      {
+        a = new int[Math.max(paramInt, 10) + 1];
+        Arrays.fill(a, -1);
+      }
+      while (paramInt < a.length) {
+        return;
+      }
+      int[] arrayOfInt = a;
+      a = new int[d(paramInt)];
+      System.arraycopy(arrayOfInt, 0, a, 0, arrayOfInt.length);
+      Arrays.fill(a, arrayOfInt.length, a.length, -1);
+    }
+    
+    public FullSpanItem f(int paramInt)
+    {
+      Object localObject;
+      if (b == null)
+      {
+        localObject = null;
+        return (FullSpanItem)localObject;
+      }
+      int i = b.size() - 1;
+      for (;;)
+      {
+        if (i < 0) {
+          break label61;
+        }
+        FullSpanItem localFullSpanItem = (FullSpanItem)b.get(i);
+        localObject = localFullSpanItem;
+        if (a == paramInt) {
+          break;
+        }
+        i -= 1;
+      }
+      label61:
+      return null;
+    }
+    
+    static class FullSpanItem
+      implements Parcelable
+    {
+      public static final Parcelable.Creator<FullSpanItem> CREATOR = new Parcelable.Creator()
+      {
+        public StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem a(Parcel paramAnonymousParcel)
+        {
+          return new StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem(paramAnonymousParcel);
+        }
+        
+        public StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem[] a(int paramAnonymousInt)
+        {
+          return new StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem[paramAnonymousInt];
+        }
+      };
+      int a;
+      int b;
+      int[] c;
+      boolean d;
+      
+      public FullSpanItem() {}
+      
+      public FullSpanItem(Parcel paramParcel)
+      {
+        a = paramParcel.readInt();
+        b = paramParcel.readInt();
+        if (paramParcel.readInt() == 1) {}
+        for (;;)
+        {
+          d = bool;
+          int i = paramParcel.readInt();
+          if (i > 0)
+          {
+            c = new int[i];
+            paramParcel.readIntArray(c);
+          }
+          return;
+          bool = false;
+        }
+      }
+      
+      int a(int paramInt)
+      {
+        if (c == null) {
+          return 0;
+        }
+        return c[paramInt];
+      }
+      
+      public int describeContents()
+      {
+        return 0;
+      }
+      
+      public String toString()
+      {
+        return "FullSpanItem{mPosition=" + a + ", mGapDir=" + b + ", mHasUnwantedGapAfter=" + d + ", mGapPerSpan=" + Arrays.toString(c) + '}';
+      }
+      
+      public void writeToParcel(Parcel paramParcel, int paramInt)
+      {
+        paramParcel.writeInt(a);
+        paramParcel.writeInt(b);
+        if (d) {}
+        for (paramInt = 1;; paramInt = 0)
+        {
+          paramParcel.writeInt(paramInt);
+          if ((c == null) || (c.length <= 0)) {
+            break;
+          }
+          paramParcel.writeInt(c.length);
+          paramParcel.writeIntArray(c);
+          return;
+        }
+        paramParcel.writeInt(0);
+      }
+    }
+  }
+  
+  static class SavedState
+    implements Parcelable
+  {
+    public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+    {
+      public StaggeredGridLayoutManager.SavedState a(Parcel paramAnonymousParcel)
+      {
+        return new StaggeredGridLayoutManager.SavedState(paramAnonymousParcel);
+      }
+      
+      public StaggeredGridLayoutManager.SavedState[] a(int paramAnonymousInt)
+      {
+        return new StaggeredGridLayoutManager.SavedState[paramAnonymousInt];
+      }
+    };
+    int a;
+    int b;
+    int c;
+    int[] d;
+    int e;
+    int[] f;
+    List<StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem> g;
+    boolean h;
+    boolean i;
+    boolean j;
+    
+    public SavedState() {}
+    
+    SavedState(Parcel paramParcel)
+    {
+      a = paramParcel.readInt();
+      b = paramParcel.readInt();
+      c = paramParcel.readInt();
+      if (c > 0)
+      {
+        d = new int[c];
+        paramParcel.readIntArray(d);
+      }
+      e = paramParcel.readInt();
+      if (e > 0)
+      {
+        f = new int[e];
+        paramParcel.readIntArray(f);
+      }
+      if (paramParcel.readInt() == 1)
+      {
+        bool1 = true;
+        h = bool1;
+        if (paramParcel.readInt() != 1) {
+          break label152;
+        }
+        bool1 = true;
+        label113:
+        i = bool1;
+        if (paramParcel.readInt() != 1) {
+          break label157;
+        }
+      }
+      label152:
+      label157:
+      for (boolean bool1 = bool2;; bool1 = false)
+      {
+        j = bool1;
+        g = paramParcel.readArrayList(StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem.class.getClassLoader());
+        return;
+        bool1 = false;
+        break;
+        bool1 = false;
+        break label113;
+      }
+    }
+    
+    public SavedState(SavedState paramSavedState)
+    {
+      c = c;
+      a = a;
+      b = b;
+      d = d;
+      e = e;
+      f = f;
+      h = h;
+      i = i;
+      j = j;
+      g = g;
+    }
+    
+    void a()
+    {
+      d = null;
+      c = 0;
+      e = 0;
+      f = null;
+      g = null;
+    }
+    
+    void b()
+    {
+      d = null;
+      c = 0;
+      a = -1;
+      b = -1;
+    }
+    
+    public int describeContents()
+    {
+      return 0;
+    }
+    
+    public void writeToParcel(Parcel paramParcel, int paramInt)
+    {
+      int k = 1;
+      paramParcel.writeInt(a);
+      paramParcel.writeInt(b);
+      paramParcel.writeInt(c);
+      if (c > 0) {
+        paramParcel.writeIntArray(d);
+      }
+      paramParcel.writeInt(e);
+      if (e > 0) {
+        paramParcel.writeIntArray(f);
+      }
+      if (h)
+      {
+        paramInt = 1;
+        paramParcel.writeInt(paramInt);
+        if (!i) {
+          break label120;
+        }
+        paramInt = 1;
+        label87:
+        paramParcel.writeInt(paramInt);
+        if (!j) {
+          break label125;
+        }
+      }
+      label120:
+      label125:
+      for (paramInt = k;; paramInt = 0)
+      {
+        paramParcel.writeInt(paramInt);
+        paramParcel.writeList(g);
+        return;
+        paramInt = 0;
+        break;
+        paramInt = 0;
+        break label87;
+      }
+    }
+  }
+  
+  private class a
+  {
+    int a;
+    int b;
+    boolean c;
+    boolean d;
+    
+    void a()
+    {
+      a = -1;
+      b = Integer.MIN_VALUE;
+      c = false;
+      d = false;
+    }
+    
+    void a(int paramInt)
+    {
+      if (c)
+      {
+        b = (e.a.d() - paramInt);
+        return;
+      }
+      b = (e.a.c() + paramInt);
+    }
+    
+    void b()
+    {
+      if (c) {}
+      for (int i = e.a.d();; i = e.a.c())
+      {
+        b = i;
+        return;
+      }
+    }
+  }
+  
+  class b
+  {
+    int a;
+    int b;
+    int c;
+    final int d;
+    private ArrayList<View> f;
+    
+    int a(int paramInt)
+    {
+      if (a != Integer.MIN_VALUE) {
+        paramInt = a;
+      }
+      while (f.size() == 0) {
+        return paramInt;
+      }
+      a();
+      return a;
+    }
+    
+    void a()
+    {
+      Object localObject = (View)f.get(0);
+      StaggeredGridLayoutManager.LayoutParams localLayoutParams = c((View)localObject);
+      a = e.a.a((View)localObject);
+      if (f)
+      {
+        localObject = e.f.f(localLayoutParams.e());
+        if ((localObject != null) && (b == -1)) {
+          a -= ((StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)localObject).a(d);
+        }
+      }
+    }
+    
+    void a(View paramView)
+    {
+      StaggeredGridLayoutManager.LayoutParams localLayoutParams = c(paramView);
+      e = this;
+      f.add(0, paramView);
+      a = Integer.MIN_VALUE;
+      if (f.size() == 1) {
+        b = Integer.MIN_VALUE;
+      }
+      if ((localLayoutParams.c()) || (localLayoutParams.d())) {
+        c += e.a.c(paramView);
+      }
+    }
+    
+    void a(boolean paramBoolean, int paramInt)
+    {
+      int i;
+      if (paramBoolean)
+      {
+        i = b(Integer.MIN_VALUE);
+        e();
+        if (i != Integer.MIN_VALUE) {
+          break label32;
+        }
+      }
+      label32:
+      while (((paramBoolean) && (i < e.a.d())) || ((!paramBoolean) && (i > e.a.c())))
+      {
+        return;
+        i = a(Integer.MIN_VALUE);
+        break;
+      }
+      int j = i;
+      if (paramInt != Integer.MIN_VALUE) {
+        j = i + paramInt;
+      }
+      b = j;
+      a = j;
+    }
+    
+    int b()
+    {
+      if (a != Integer.MIN_VALUE) {
+        return a;
+      }
+      a();
+      return a;
+    }
+    
+    int b(int paramInt)
+    {
+      if (b != Integer.MIN_VALUE) {
+        paramInt = b;
+      }
+      while (f.size() == 0) {
+        return paramInt;
+      }
+      c();
+      return b;
+    }
+    
+    void b(View paramView)
+    {
+      StaggeredGridLayoutManager.LayoutParams localLayoutParams = c(paramView);
+      e = this;
+      f.add(paramView);
+      b = Integer.MIN_VALUE;
+      if (f.size() == 1) {
+        a = Integer.MIN_VALUE;
+      }
+      if ((localLayoutParams.c()) || (localLayoutParams.d())) {
+        c += e.a.c(paramView);
+      }
+    }
+    
+    StaggeredGridLayoutManager.LayoutParams c(View paramView)
+    {
+      return (StaggeredGridLayoutManager.LayoutParams)paramView.getLayoutParams();
+    }
+    
+    void c()
+    {
+      Object localObject = (View)f.get(f.size() - 1);
+      StaggeredGridLayoutManager.LayoutParams localLayoutParams = c((View)localObject);
+      b = e.a.b((View)localObject);
+      if (f)
+      {
+        localObject = e.f.f(localLayoutParams.e());
+        if ((localObject != null) && (b == 1))
+        {
+          int i = b;
+          b = (((StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem)localObject).a(d) + i);
+        }
+      }
+    }
+    
+    void c(int paramInt)
+    {
+      a = paramInt;
+      b = paramInt;
+    }
+    
+    int d()
+    {
+      if (b != Integer.MIN_VALUE) {
+        return b;
+      }
+      c();
+      return b;
+    }
+    
+    void d(int paramInt)
+    {
+      if (a != Integer.MIN_VALUE) {
+        a += paramInt;
+      }
+      if (b != Integer.MIN_VALUE) {
+        b += paramInt;
+      }
+    }
+    
+    void e()
+    {
+      f.clear();
+      f();
+      c = 0;
+    }
+    
+    void f()
+    {
+      a = Integer.MIN_VALUE;
+      b = Integer.MIN_VALUE;
+    }
+    
+    void g()
+    {
+      int i = f.size();
+      View localView = (View)f.remove(i - 1);
+      StaggeredGridLayoutManager.LayoutParams localLayoutParams = c(localView);
+      e = null;
+      if ((localLayoutParams.c()) || (localLayoutParams.d())) {
+        c -= e.a.c(localView);
+      }
+      if (i == 1) {
+        a = Integer.MIN_VALUE;
+      }
+      b = Integer.MIN_VALUE;
+    }
+    
+    void h()
+    {
+      View localView = (View)f.remove(0);
+      StaggeredGridLayoutManager.LayoutParams localLayoutParams = c(localView);
+      e = null;
+      if (f.size() == 0) {
+        b = Integer.MIN_VALUE;
+      }
+      if ((localLayoutParams.c()) || (localLayoutParams.d())) {
+        c -= e.a.c(localView);
+      }
+      a = Integer.MIN_VALUE;
+    }
+    
+    public int i()
+    {
+      return c;
     }
   }
 }

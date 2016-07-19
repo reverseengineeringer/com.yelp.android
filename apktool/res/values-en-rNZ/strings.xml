@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ad_choices_url">https://m.yelp.co.nz/static?p=privacy#third-parties</string>
-    <string name="advertiser_faq_url">https://m.yelp.co.nz/advertiser_faq</string>
-    <string name="category_banks">Banks &amp; Financial Institutions</string>
+    <string name="category_banks">Bank &amp; Building Societies</string>
     <string name="category_bars">Bars</string>
-    <string name="category_coffee">Coffee &amp; Tea</string>
-    <string name="category_drugstores">Pharmacies &amp; Chemists</string>
+    <string name="category_coffee">Coffee &amp; Tea Shops</string>
+    <string name="category_drugstores">Pharmacy &amp; Chemists</string>
     <string name="category_nightlife">Nightlife</string>
     <string name="category_restaurants">Restaurants</string>
     <string name="category_servicestations">Petrol &amp; Service Stations</string>
@@ -13,14 +11,14 @@
     <string name="compliment_cute">Nice Picture</string>
     <string name="compliment_desc_cool">"You're so cool Ice Cube puts you in his drinks."</string>
     <string name="compliment_desc_cute">Do you shoot for National Geographic?</string>
-    <string name="compliment_desc_funny">Move over Brett and Jermaine... you are heheLARIOUS!</string>
+    <string name="compliment_desc_funny">Move over Brett and Jermaine… you are heheLARIOUS!</string>
     <string name="compliment_desc_hot">"Stop, drop and roll baby, cause you're on fire!"</string>
     <string name="compliment_desc_list">That list is sweet as Bro!</string>
-    <string name="compliment_desc_more">"C'mon baby write my fire....."</string>
+    <string name="compliment_desc_more">"C'mon baby write my fire…"</string>
     <string name="compliment_desc_note" />
     <string name="compliment_desc_photos">Chur Brudda! That pic is awesome!</string>
-    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke... There aren't enough languages in the world to express my gratitude."</string>
-    <string name="compliment_desc_profile">"Hey... didn't I see your name in the dictionary under \"Shazaam\"?"</string>
+    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke… There aren't enough languages in the world to express my gratitude."</string>
+    <string name="compliment_desc_profile">"Hey… didn't I see your name in the dictionary under \"Shazaam\"?"</string>
     <string name="compliment_desc_writer">"You've got the write stuff, baby!"</string>
     <string name="compliment_funny">"You're Funny"</string>
     <string name="compliment_hot">Hot Stuff</string>
@@ -31,13 +29,6 @@
     <string name="compliment_plain">Thank You</string>
     <string name="compliment_profile">Like Your Profile</string>
     <string name="compliment_writer">Well Put!</string>
-    <string name="content_guidelines_url">https://m.yelp.co.nz/guidelines</string>
-    <string name="elite_url">https://m.yelp.co.nz/elite</string>
-    <string name="locality_string">City</string>
-    <string name="mobile_host">m.yelp.co.nz</string>
-    <string name="not_recommended_reviews_url">https://m.yelp.co.nz/not_recommended_reviews/%1$s</string>
-    <string name="privacy_policy_url">https://m.yelp.co.nz/static?p=privacy</string>
-    <string name="privacy_settings_url">https://m.yelp.co.nz/profile_privacy</string>
     <string name="remove_reason_member_request">"This Yelper's account has been closed."</string>
     <string name="remove_reason_post_by_admin">This post was removed by a Yelp admin.</string>
     <string name="remove_reason_post_by_admin_tos">This post violated the Yelp &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Terms of Service&lt;/a> and has been removed.</string>
@@ -57,12 +48,15 @@
     <string name="remove_reason_topic_tos_multiple">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_spammer">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_threat">This conversation was removed because the Yelper who started it no longer has an account.</string>
+    <string name="remove_reason_tos_bizowner">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_content">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_deals">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_general">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_multiple">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_paidreviewer">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_solicitation">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_spammer">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_threat">"This Yelper's account has been closed."</string>
-    <string name="site_name">Yelp.co.nz</string>
     <string name="talk_category_0">Other</string>
     <string name="talk_category_1">Local Questions &amp; Answers</string>
     <string name="talk_category_10">Food</string>
@@ -93,6 +87,16 @@
     <string name="talk_category_travel">Travel</string>
     <string name="talk_category_uncategorized">Other</string>
     <string name="talk_category_yelper_shout_outs">Yelper Shout-Outs</string>
+    <string name="ad_choices_url">https://m.yelp.co.nz/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.co.nz/advertiser_faq</string>
+    <string name="content_guidelines_url">https://m.yelp.co.nz/guidelines</string>
+    <string name="elite_url">https://m.yelp.co.nz/elite</string>
+    <string name="locality_string">City</string>
+    <string name="mobile_host">m.yelp.co.nz</string>
+    <string name="not_recommended_reviews_url">https://m.yelp.co.nz/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://m.yelp.co.nz/static?p=privacy</string>
+    <string name="privacy_settings_url">https://m.yelp.co.nz/profile_privacy</string>
+    <string name="site_name">Yelp.co.nz</string>
     <string name="terms_of_service_url">https://m.yelp.co.nz/static?p=tos</string>
     <string name="www_host">www.yelp.co.nz</string>
 </resources>

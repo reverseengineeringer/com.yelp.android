@@ -1,60 +1,48 @@
-.class public Lcom/yelp/android/bd/a;
+.class public final Lcom/yelp/android/bd/a;
 .super Ljava/lang/Object;
-.source "BadgeUtil.java"
+
+# interfaces
+.implements Lcom/google/ads/mediation/h;
+
+
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
+# instance fields
+.field private final a:Landroid/os/Bundle;
 
 
 # direct methods
-.method public static a(Landroid/graphics/drawable/Drawable;FFF)V
-    .locals 4
+.method public constructor <init>(Landroid/os/Bundle;)V
+    .locals 1
 
-    .prologue
-    const/high16 v2, 0x40000000    # 2.0f
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 23
-    add-float v0, p1, p3
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    new-instance v0, Landroid/os/Bundle;
 
-    move-result v1
+    invoke-direct {v0, p1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    int-to-float v1, v1
+    :goto_0
+    iput-object v0, p0, Lcom/yelp/android/bd/a;->a:Landroid/os/Bundle;
 
-    div-float/2addr v1, v2
-
-    sub-float/2addr v0, v1
-
-    float-to-int v0, v0
-
-    .line 24
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    div-float/2addr v1, v2
-
-    sub-float v1, p2, v1
-
-    float-to-int v1, v1
-
-    .line 25
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v2
-
-    add-int/2addr v2, v0
-
-    .line 26
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v3
-
-    add-int/2addr v3, v1
-
-    .line 28
-    invoke-virtual {p0, v0, v1, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    .line 29
     return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method public a()Landroid/os/Bundle;
+    .locals 1
+
+    iget-object v0, p0, Lcom/yelp/android/bd/a;->a:Landroid/os/Bundle;
+
+    return-object v0
 .end method

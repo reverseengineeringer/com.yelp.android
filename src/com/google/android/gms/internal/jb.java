@@ -1,63 +1,123 @@
 package com.google.android.gms.internal;
 
-import android.graphics.Canvas;
-import android.net.Uri;
-import android.widget.ImageView;
+import android.os.Binder;
 
-public final class jb
-  extends ImageView
+public abstract class jb<T>
 {
-  private Uri Mn;
-  private int Mo;
-  private int Mp;
-  private jb.a Mq;
-  private int Mr;
-  private float Ms;
+  private static final Object c = new Object();
+  private static a d = null;
+  private static int e = 0;
+  private static String f = "com.google.android.providers.gsf.permission.READ_GSERVICES";
+  protected final String a;
+  protected final T b;
+  private T g = null;
   
-  public void aB(int paramInt)
+  protected jb(String paramString, T paramT)
   {
-    Mo = paramInt;
+    a = paramString;
+    b = paramT;
   }
   
-  public void g(Uri paramUri)
+  public static int a()
   {
-    Mn = paramUri;
+    return e;
   }
   
-  public int hj()
+  public static jb<Float> a(String paramString, Float paramFloat)
   {
-    return Mo;
-  }
-  
-  protected void onDraw(Canvas paramCanvas)
-  {
-    if (Mq != null) {
-      paramCanvas.clipPath(Mq.g(getWidth(), getHeight()));
-    }
-    super.onDraw(paramCanvas);
-    if (Mp != 0) {
-      paramCanvas.drawColor(Mp);
-    }
-  }
-  
-  protected void onMeasure(int paramInt1, int paramInt2)
-  {
-    super.onMeasure(paramInt1, paramInt2);
-    switch (Mr)
+    new jb(paramString, paramFloat)
     {
-    default: 
-      return;
-    case 1: 
-      paramInt1 = getMeasuredHeight();
-      paramInt2 = (int)(paramInt1 * Ms);
-    }
-    for (;;)
+      protected Float b(String paramAnonymousString)
+      {
+        return jb.e().a(a, (Float)b);
+      }
+    };
+  }
+  
+  public static jb<Integer> a(String paramString, Integer paramInteger)
+  {
+    new jb(paramString, paramInteger)
     {
-      setMeasuredDimension(paramInt2, paramInt1);
-      return;
-      paramInt2 = getMeasuredWidth();
-      paramInt1 = (int)(paramInt2 / Ms);
+      protected Integer b(String paramAnonymousString)
+      {
+        return jb.e().a(a, (Integer)b);
+      }
+    };
+  }
+  
+  public static jb<Long> a(String paramString, Long paramLong)
+  {
+    new jb(paramString, paramLong)
+    {
+      protected Long b(String paramAnonymousString)
+      {
+        return jb.e().a(a, (Long)b);
+      }
+    };
+  }
+  
+  public static jb<String> a(String paramString1, String paramString2)
+  {
+    new jb(paramString1, paramString2)
+    {
+      protected String b(String paramAnonymousString)
+      {
+        return jb.e().a(a, (String)b);
+      }
+    };
+  }
+  
+  public static jb<Boolean> a(String paramString, boolean paramBoolean)
+  {
+    new jb(paramString, Boolean.valueOf(paramBoolean))
+    {
+      protected Boolean b(String paramAnonymousString)
+      {
+        return jb.e().a(a, (Boolean)b);
+      }
+    };
+  }
+  
+  public static boolean b()
+  {
+    return d != null;
+  }
+  
+  protected abstract T a(String paramString);
+  
+  public final T c()
+  {
+    if (g != null) {
+      return (T)g;
     }
+    return (T)a(a);
+  }
+  
+  public final T d()
+  {
+    long l = Binder.clearCallingIdentity();
+    try
+    {
+      Object localObject1 = c();
+      return (T)localObject1;
+    }
+    finally
+    {
+      Binder.restoreCallingIdentity(l);
+    }
+  }
+  
+  private static abstract interface a
+  {
+    public abstract Boolean a(String paramString, Boolean paramBoolean);
+    
+    public abstract Float a(String paramString, Float paramFloat);
+    
+    public abstract Integer a(String paramString, Integer paramInteger);
+    
+    public abstract Long a(String paramString, Long paramLong);
+    
+    public abstract String a(String paramString1, String paramString2);
   }
 }
 

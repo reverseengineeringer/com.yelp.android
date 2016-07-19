@@ -1,19 +1,34 @@
 package android.support.v4.widget;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
+import android.content.Context;
+import android.database.Cursor;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-final class u
-  implements Parcelable.Creator<DrawerLayout.SavedState>
+public abstract class u
+  extends g
 {
-  public DrawerLayout.SavedState a(Parcel paramParcel)
+  private int j;
+  private int k;
+  private LayoutInflater l;
+  
+  public u(Context paramContext, int paramInt, Cursor paramCursor, boolean paramBoolean)
   {
-    return new DrawerLayout.SavedState(paramParcel);
+    super(paramContext, paramCursor, paramBoolean);
+    k = paramInt;
+    j = paramInt;
+    l = ((LayoutInflater)paramContext.getSystemService("layout_inflater"));
   }
   
-  public DrawerLayout.SavedState[] a(int paramInt)
+  public View a(Context paramContext, Cursor paramCursor, ViewGroup paramViewGroup)
   {
-    return new DrawerLayout.SavedState[paramInt];
+    return l.inflate(j, paramViewGroup, false);
+  }
+  
+  public View b(Context paramContext, Cursor paramCursor, ViewGroup paramViewGroup)
+  {
+    return l.inflate(k, paramViewGroup, false);
   }
 }
 

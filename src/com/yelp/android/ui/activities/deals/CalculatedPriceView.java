@@ -7,9 +7,9 @@ import android.os.Parcelable;
 import android.text.Spanned;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.yelp.android.b;
+import com.yelp.android.b.a;
 import com.yelp.android.ui.widgets.QuantityDropDownView;
-import com.yelp.android.ui.widgets.s;
+import com.yelp.android.ui.widgets.QuantityDropDownView.a;
 import com.yelp.android.util.StringUtils;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
@@ -17,7 +17,7 @@ import java.util.Currency;
 
 public class CalculatedPriceView
   extends DealQuantityViewBase
-  implements s
+  implements QuantityDropDownView.a
 {
   private final int b;
   private NumberFormat c;
@@ -31,14 +31,14 @@ public class CalculatedPriceView
   
   public CalculatedPriceView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 2130772019);
+    this(paramContext, paramAttributeSet, 2130772031);
   }
   
   public CalculatedPriceView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.DealQuantityBaseView, paramInt, paramInt);
-    b = paramContext.getResourceId(0, 2131166382);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.DealQuantityBaseView, paramInt, paramInt);
+    b = paramContext.getResourceId(0, 2131166408);
     paramContext.recycle();
   }
   

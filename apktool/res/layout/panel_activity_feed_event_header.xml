@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/selector_white_rect" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/panel_event_short" />
+    <TextView android:textAppearance="@style/CaptionGreyText" android:ellipsize="end" android:gravity="center|right|top" android:layout_gravity="right" android:id="@id/time_ago" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip" android:layout_marginBottom="1.0dip" android:lines="1" android:includeFontPadding="false" />
+</LinearLayout>

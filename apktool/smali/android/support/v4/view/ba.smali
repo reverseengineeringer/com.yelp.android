@@ -1,206 +1,206 @@
-.class public Landroid/support/v4/view/ba;
+.class Landroid/support/v4/view/ba;
 .super Ljava/lang/Object;
-.source "MotionEventCompat.java"
-
-
-# static fields
-.field static final a:Landroid/support/v4/view/bf;
+.source "ViewPropertyAnimatorCompatICS.java"
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static a(Landroid/view/View;)J
     .locals 2
 
     .prologue
-    .line 153
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    .line 42
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    const/16 v1, 0xc
+    move-result-object v0
 
-    if-lt v0, v1, :cond_0
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->getDuration()J
 
-    .line 154
-    new-instance v0, Landroid/support/v4/view/be;
+    move-result-wide v0
 
-    invoke-direct {v0}, Landroid/support/v4/view/be;-><init>()V
+    return-wide v0
+.end method
 
-    sput-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+.method public static a(Landroid/view/View;F)V
+    .locals 1
 
-    .line 162
+    .prologue
+    .line 30
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    .line 31
+    return-void
+.end method
+
+.method public static a(Landroid/view/View;J)V
+    .locals 1
+
+    .prologue
+    .line 26
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    .line 27
+    return-void
+.end method
+
+.method public static a(Landroid/view/View;Landroid/support/v4/view/bd;)V
+    .locals 2
+
+    .prologue
+    .line 135
+    if-eqz p1, :cond_0
+
+    .line 136
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/support/v4/view/ba$1;
+
+    invoke-direct {v1, p1, p0}, Landroid/support/v4/view/ba$1;-><init>(Landroid/support/v4/view/bd;Landroid/view/View;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+
+    .line 155
     :goto_0
     return-void
 
-    .line 155
+    .line 153
     :cond_0
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    const/16 v1, 0x9
+    move-result-object v0
 
-    if-lt v0, v1, :cond_1
+    const/4 v1, 0x0
 
-    .line 156
-    new-instance v0, Landroid/support/v4/view/bd;
-
-    invoke-direct {v0}, Landroid/support/v4/view/bd;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
-
-    goto :goto_0
-
-    .line 157
-    :cond_1
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/4 v1, 0x5
-
-    if-lt v0, v1, :cond_2
-
-    .line 158
-    new-instance v0, Landroid/support/v4/view/bc;
-
-    invoke-direct {v0}, Landroid/support/v4/view/bc;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
-
-    goto :goto_0
-
-    .line 160
-    :cond_2
-    new-instance v0, Landroid/support/v4/view/bb;
-
-    invoke-direct {v0}, Landroid/support/v4/view/bb;-><init>()V
-
-    sput-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     goto :goto_0
 .end method
 
-.method public static a(Landroid/view/MotionEvent;)I
+.method public static a(Landroid/view/View;Landroid/view/animation/Interpolator;)V
     .locals 1
 
     .prologue
-    .line 426
-    invoke-virtual {p0}, Landroid/view/MotionEvent;->getAction()I
+    .line 46
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    move-result v0
+    move-result-object v0
 
-    and-int/lit16 v0, v0, 0xff
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
 
-    return v0
+    .line 47
+    return-void
 .end method
 
-.method public static a(Landroid/view/MotionEvent;I)I
+.method public static b(Landroid/view/View;)V
     .locals 1
 
     .prologue
-    .line 444
-    sget-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    .line 102
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/bf;->a(Landroid/view/MotionEvent;I)I
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
-    return v0
+    .line 103
+    return-void
 .end method
 
-.method public static b(Landroid/view/MotionEvent;)I
-    .locals 2
-
-    .prologue
-    .line 434
-    invoke-virtual {p0}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    const v1, 0xff00
-
-    and-int/2addr v0, v1
-
-    shr-int/lit8 v0, v0, 0x8
-
-    return v0
-.end method
-
-.method public static b(Landroid/view/MotionEvent;I)I
+.method public static b(Landroid/view/View;F)V
     .locals 1
 
     .prologue
-    .line 453
-    sget-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    .line 34
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/bf;->b(Landroid/view/MotionEvent;I)I
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
 
-    return v0
+    .line 35
+    return-void
 .end method
 
-.method public static c(Landroid/view/MotionEvent;I)F
+.method public static b(Landroid/view/View;J)V
     .locals 1
 
     .prologue
-    .line 462
-    sget-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    .line 50
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/bf;->c(Landroid/view/MotionEvent;I)F
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0, p1, p2}, Landroid/view/ViewPropertyAnimator;->setStartDelay(J)Landroid/view/ViewPropertyAnimator;
 
-    return v0
+    .line 51
+    return-void
 .end method
 
-.method public static c(Landroid/view/MotionEvent;)I
+.method public static c(Landroid/view/View;)V
     .locals 1
 
     .prologue
-    .line 479
-    sget-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    .line 130
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/view/bf;->a(Landroid/view/MotionEvent;)I
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    return v0
+    .line 131
+    return-void
 .end method
 
-.method public static d(Landroid/view/MotionEvent;I)F
+.method public static c(Landroid/view/View;F)V
     .locals 1
 
     .prologue
-    .line 471
-    sget-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    .line 38
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/bf;->d(Landroid/view/MotionEvent;I)F
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
 
-    return v0
+    .line 39
+    return-void
 .end method
 
-.method public static d(Landroid/view/MotionEvent;)I
+.method public static d(Landroid/view/View;F)V
     .locals 1
 
     .prologue
-    .line 488
-    sget-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    .line 86
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-interface {v0, p0}, Landroid/support/v4/view/bf;->b(Landroid/view/MotionEvent;)I
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
 
-    return v0
+    .line 87
+    return-void
 .end method
 
-.method public static e(Landroid/view/MotionEvent;I)F
+.method public static e(Landroid/view/View;F)V
     .locals 1
 
     .prologue
-    .line 501
-    sget-object v0, Landroid/support/v4/view/ba;->a:Landroid/support/v4/view/bf;
+    .line 94
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/bf;->e(Landroid/view/MotionEvent;I)F
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0, p1}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
 
-    return v0
+    .line 95
+    return-void
 .end method

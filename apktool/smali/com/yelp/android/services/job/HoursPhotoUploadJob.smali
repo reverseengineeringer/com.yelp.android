@@ -29,37 +29,37 @@
 
 
 # direct methods
-.method private constructor <init>(Lcom/yelp/android/appdata/webrequests/co;)V
+.method private constructor <init>(Lcom/yelp/android/appdata/webrequests/ce;)V
     .locals 2
 
     .prologue
-    .line 33
-    new-instance v0, Lcom/path/android/jobqueue/h;
+    .line 34
+    new-instance v0, Lcom/path/android/jobqueue/d;
 
     const/4 v1, 0x1
 
-    invoke-direct {v0, v1}, Lcom/path/android/jobqueue/h;-><init>(I)V
+    invoke-direct {v0, v1}, Lcom/path/android/jobqueue/d;-><init>(I)V
 
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/h;->a()Lcom/path/android/jobqueue/h;
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/d;->a()Lcom/path/android/jobqueue/d;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/h;->b()Lcom/path/android/jobqueue/h;
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/d;->b()Lcom/path/android/jobqueue/d;
 
     move-result-object v0
 
     const-string/jumbo v1, "HoursPhotoUploadJob"
 
-    invoke-virtual {v0, v1}, Lcom/path/android/jobqueue/h;->a(Ljava/lang/String;)Lcom/path/android/jobqueue/h;
+    invoke-virtual {v0, v1}, Lcom/path/android/jobqueue/d;->a(Ljava/lang/String;)Lcom/path/android/jobqueue/d;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/services/job/YelpJob;-><init>(Lcom/path/android/jobqueue/h;)V
+    invoke-direct {p0, v0}, Lcom/yelp/android/services/job/YelpJob;-><init>(Lcom/path/android/jobqueue/d;)V
 
-    .line 39
+    .line 37
     new-instance v0, Ljava/util/HashMap;
 
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/co;->b()Ljava/util/HashMap;
+    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/ce;->d()Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -67,33 +67,33 @@
 
     iput-object v0, p0, Lcom/yelp/android/services/job/HoursPhotoUploadJob;->mPostParams:Ljava/util/HashMap;
 
-    .line 40
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/co;->a()Ljava/util/Collection;
+    .line 38
+    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/ce;->b()Ljava/util/Collection;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/services/job/HoursPhotoUploadJob;->mChangedParams:Ljava/util/Collection;
 
-    .line 41
+    .line 39
     return-void
 .end method
 
-.method public static launchJob(Lcom/yelp/android/appdata/webrequests/co;)V
+.method public static launchJob(Lcom/yelp/android/appdata/webrequests/ce;)V
     .locals 2
 
     .prologue
-    .line 29
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->r()Lcom/path/android/jobqueue/c;
+    .line 30
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->w()Lcom/path/android/jobqueue/b;
 
     move-result-object v0
 
     new-instance v1, Lcom/yelp/android/services/job/HoursPhotoUploadJob;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/services/job/HoursPhotoUploadJob;-><init>(Lcom/yelp/android/appdata/webrequests/co;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/services/job/HoursPhotoUploadJob;-><init>(Lcom/yelp/android/appdata/webrequests/ce;)V
 
-    invoke-virtual {v0, v1}, Lcom/path/android/jobqueue/c;->a(Lcom/path/android/jobqueue/Job;)J
+    invoke-virtual {v0, v1}, Lcom/path/android/jobqueue/b;->a(Lcom/path/android/jobqueue/Job;)J
 
-    .line 30
+    .line 31
     return-void
 .end method
 
@@ -109,10 +109,18 @@
 
 .method public onRun()V
     .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Throwable;
+        }
+    .end annotation
 
     .prologue
-    .line 46
-    new-instance v2, Lcom/yelp/android/appdata/webrequests/co;
+    .line 43
+    invoke-super {p0}, Lcom/yelp/android/services/job/YelpJob;->onRun()V
+
+    .line 45
+    new-instance v2, Lcom/yelp/android/appdata/webrequests/ce;
 
     iget-object v0, p0, Lcom/yelp/android/services/job/HoursPhotoUploadJob;->mPostParams:Ljava/util/HashMap;
 
@@ -124,7 +132,7 @@
 
     check-cast v0, Ljava/lang/String;
 
-    invoke-direct {v2, v0}, Lcom/yelp/android/appdata/webrequests/co;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Lcom/yelp/android/appdata/webrequests/ce;-><init>(Ljava/lang/String;)V
 
     .line 47
     iget-object v0, p0, Lcom/yelp/android/services/job/HoursPhotoUploadJob;->mPostParams:Ljava/util/HashMap;
@@ -179,13 +187,13 @@
 
     check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {v2, v1, v0}, Lcom/yelp/android/appdata/webrequests/co;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, v1, v0}, Lcom/yelp/android/appdata/webrequests/ce;->b(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     .line 52
     :cond_1
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/webrequests/co;->executeSynchronously()Ljava/lang/Object;
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/webrequests/ce;->i()Ljava/lang/Object;
 
     .line 56
     new-instance v0, Ljava/util/TreeMap;
@@ -213,11 +221,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v2
 
-    invoke-virtual {v2, v1, v0}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-virtual {v2, v1, v0}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
     .line 60
     return-void

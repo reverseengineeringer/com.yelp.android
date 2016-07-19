@@ -1,68 +1,85 @@
-.class Lcom/yelp/android/ui/panels/businesssearch/d;
-.super Ljava/lang/Object;
-.source "BusinessAdapter.java"
+.class public Lcom/yelp/android/ui/panels/businesssearch/d;
+.super Lcom/yelp/android/ui/panels/businesssearch/b;
+.source "LocalAdSearchAdapter.java"
 
 # interfaces
-.implements Lcom/yelp/android/util/ag;
+.implements Lcom/yelp/android/ui/util/f;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/util/ag",
+        "Lcom/yelp/android/ui/panels/businesssearch/b",
         "<",
-        "Lcom/yelp/android/serializable/RecentCheckIn;",
-        ">;"
+        "Lcom/yelp/android/serializable/SearchResultLocalAd;",
+        ">;",
+        "Lcom/yelp/android/ui/util/f;"
     }
 .end annotation
 
 
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/panels/businesssearch/c;
-
-
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/panels/businesssearch/c;)V
+.method public constructor <init>(Landroid/app/Activity;)V
     .locals 0
 
     .prologue
-    .line 567
-    iput-object p1, p0, Lcom/yelp/android/ui/panels/businesssearch/d;->a:Lcom/yelp/android/ui/panels/businesssearch/c;
+    .line 25
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/panels/businesssearch/b;-><init>(Landroid/app/Activity;)V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
+    .line 26
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/serializable/RecentCheckIn;)Ljava/lang/String;
-    .locals 1
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 3
 
     .prologue
-    .line 570
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/RecentCheckIn;->getUser()Lcom/yelp/android/serializable/User;
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    .line 30
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/panels/businesssearch/d;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getNameWithoutPeriod()Ljava/lang/String;
+    check-cast v0, Lcom/yelp/android/serializable/LocalAd;
+
+    .line 33
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/LocalAd;->f()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 34
+    new-array v0, v1, [Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
+
+    sget-object v1, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->RATING:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
+
+    aput-object v1, v0, v2
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/businesssearch/d;->b([Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;)V
+
+    .line 38
+    :goto_0
+    invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/panels/businesssearch/b;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
     return-object v0
-.end method
 
-.method public bridge synthetic a(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 1
+    .line 36
+    :cond_0
+    new-array v0, v1, [Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    .prologue
-    .line 567
-    check-cast p1, Lcom/yelp/android/serializable/RecentCheckIn;
+    sget-object v1, Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;->RATING:Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/panels/businesssearch/d;->a(Lcom/yelp/android/serializable/RecentCheckIn;)Ljava/lang/String;
+    aput-object v1, v0, v2
 
-    move-result-object v0
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/businesssearch/d;->a([Lcom/yelp/android/ui/panels/businesssearch/BusinessAdapter$DisplayFeature;)V
 
-    return-object v0
+    goto :goto_0
 .end method

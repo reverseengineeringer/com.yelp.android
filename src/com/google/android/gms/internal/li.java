@@ -1,140 +1,216 @@
 package com.google.android.gms.internal;
 
-import android.text.TextUtils;
-import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.os.SystemClock;
+import android.util.Log;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
-public final class li
+public class li
 {
-  private static final Pattern Og = Pattern.compile("\\\\.");
-  private static final Pattern Oh = Pattern.compile("[\\\\\"/\b\f\n\r\t]");
+  public static String a = "Volley";
+  public static boolean b = Log.isLoggable(a, 2);
   
-  public static String bh(String paramString)
+  public static void a(String paramString, Object... paramVarArgs)
   {
-    Matcher localMatcher;
-    Object localObject1;
-    if (!TextUtils.isEmpty(paramString))
-    {
-      localMatcher = Oh.matcher(paramString);
-      localObject1 = null;
-      while (localMatcher.find())
-      {
-        Object localObject2 = localObject1;
-        if (localObject1 == null) {
-          localObject2 = new StringBuffer();
-        }
-        switch (localMatcher.group().charAt(0))
-        {
-        default: 
-          localObject1 = localObject2;
-          break;
-        case '\b': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\b");
-          localObject1 = localObject2;
-          break;
-        case '"': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\\\\"");
-          localObject1 = localObject2;
-          break;
-        case '\\': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\\\\\");
-          localObject1 = localObject2;
-          break;
-        case '/': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\/");
-          localObject1 = localObject2;
-          break;
-        case '\f': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\f");
-          localObject1 = localObject2;
-          break;
-        case '\n': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\n");
-          localObject1 = localObject2;
-          break;
-        case '\r': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\r");
-          localObject1 = localObject2;
-          break;
-        case '\t': 
-          localMatcher.appendReplacement((StringBuffer)localObject2, "\\\\t");
-          localObject1 = localObject2;
-        }
-      }
-      if (localObject1 != null) {}
+    if (b) {
+      Log.v(a, d(paramString, paramVarArgs));
     }
-    else
-    {
-      return paramString;
-    }
-    localMatcher.appendTail((StringBuffer)localObject1);
-    return ((StringBuffer)localObject1).toString();
   }
   
-  public static boolean d(Object paramObject1, Object paramObject2)
+  public static void a(Throwable paramThrowable, String paramString, Object... paramVarArgs)
   {
-    if (((paramObject1 instanceof JSONObject)) && ((paramObject2 instanceof JSONObject)))
+    Log.e(a, d(paramString, paramVarArgs), paramThrowable);
+  }
+  
+  public static void b(String paramString, Object... paramVarArgs)
+  {
+    Log.d(a, d(paramString, paramVarArgs));
+  }
+  
+  public static void c(String paramString, Object... paramVarArgs)
+  {
+    Log.e(a, d(paramString, paramVarArgs));
+  }
+  
+  private static String d(String paramString, Object... paramVarArgs)
+  {
+    int i;
+    label20:
+    String str;
+    if (paramVarArgs == null)
     {
-      paramObject1 = (JSONObject)paramObject1;
-      paramObject2 = (JSONObject)paramObject2;
-      if (((JSONObject)paramObject1).length() == ((JSONObject)paramObject2).length()) {}
+      paramVarArgs = new Throwable().fillInStackTrace().getStackTrace();
+      i = 2;
+      if (i >= paramVarArgs.length) {
+        break label154;
+      }
+      if (paramVarArgs[i].getClass().equals(li.class)) {
+        break label147;
+      }
+      str = paramVarArgs[i].getClassName();
+      str = str.substring(str.lastIndexOf('.') + 1);
+      str = str.substring(str.lastIndexOf('$') + 1);
     }
-    for (;;)
+    label147:
+    label154:
+    for (paramVarArgs = str + "." + paramVarArgs[i].getMethodName();; paramVarArgs = "<unknown>")
     {
-      return false;
-      Iterator localIterator = ((JSONObject)paramObject1).keys();
-      for (;;)
-      {
-        String str;
-        if (localIterator.hasNext())
-        {
-          str = (String)localIterator.next();
-          if (!((JSONObject)paramObject2).has(str)) {
-            break;
-          }
-        }
-        boolean bool;
-        int i;
-        try
-        {
-          bool = d(((JSONObject)paramObject1).get(str), ((JSONObject)paramObject2).get(str));
-          if (!bool) {
-            return false;
-          }
-        }
-        catch (JSONException paramObject1) {}
+      return String.format(Locale.US, "[%d] %s: %s", new Object[] { Long.valueOf(Thread.currentThread().getId()), paramVarArgs, paramString });
+      paramString = String.format(Locale.US, paramString, paramVarArgs);
+      break;
+      i += 1;
+      break label20;
+    }
+  }
+  
+  static class a
+  {
+    public static final boolean a = li.b;
+    private final List<a> b = new ArrayList();
+    private boolean c = false;
+    
+    private long a()
+    {
+      if (b.size() == 0) {
+        return 0L;
       }
-      return true;
-      if ((!(paramObject1 instanceof JSONArray)) || (!(paramObject2 instanceof JSONArray))) {
-        break label170;
-      }
-      paramObject1 = (JSONArray)paramObject1;
-      paramObject2 = (JSONArray)paramObject2;
-      if (((JSONArray)paramObject1).length() == ((JSONArray)paramObject2).length())
-      {
-        i = 0;
-        if (i >= ((JSONArray)paramObject1).length()) {}
-      }
+      long l = b.get(0)).c;
+      return b.get(b.size() - 1)).c - l;
+    }
+    
+    /* Error */
+    public void a(String paramString)
+    {
+      // Byte code:
+      //   0: aload_0
+      //   1: monitorenter
+      //   2: aload_0
+      //   3: iconst_1
+      //   4: putfield 31	com/google/android/gms/internal/li$a:c	Z
+      //   7: aload_0
+      //   8: invokespecial 48	com/google/android/gms/internal/li$a:a	()J
+      //   11: lstore 4
+      //   13: lload 4
+      //   15: lconst_0
+      //   16: lcmp
+      //   17: ifgt +6 -> 23
+      //   20: aload_0
+      //   21: monitorexit
+      //   22: return
+      //   23: aload_0
+      //   24: getfield 29	com/google/android/gms/internal/li$a:b	Ljava/util/List;
+      //   27: iconst_0
+      //   28: invokeinterface 42 2 0
+      //   33: checkcast 9	com/google/android/gms/internal/li$a$a
+      //   36: getfield 45	com/google/android/gms/internal/li$a$a:c	J
+      //   39: lstore_2
+      //   40: ldc 50
+      //   42: iconst_2
+      //   43: anewarray 4	java/lang/Object
+      //   46: dup
+      //   47: iconst_0
+      //   48: lload 4
+      //   50: invokestatic 56	java/lang/Long:valueOf	(J)Ljava/lang/Long;
+      //   53: aastore
+      //   54: dup
+      //   55: iconst_1
+      //   56: aload_1
+      //   57: aastore
+      //   58: invokestatic 59	com/google/android/gms/internal/li:b	(Ljava/lang/String;[Ljava/lang/Object;)V
+      //   61: aload_0
+      //   62: getfield 29	com/google/android/gms/internal/li$a:b	Ljava/util/List;
+      //   65: invokeinterface 63 1 0
+      //   70: astore_1
+      //   71: aload_1
+      //   72: invokeinterface 69 1 0
+      //   77: ifeq -57 -> 20
+      //   80: aload_1
+      //   81: invokeinterface 73 1 0
+      //   86: checkcast 9	com/google/android/gms/internal/li$a$a
+      //   89: astore 6
+      //   91: aload 6
+      //   93: getfield 45	com/google/android/gms/internal/li$a$a:c	J
+      //   96: lstore 4
+      //   98: ldc 75
+      //   100: iconst_3
+      //   101: anewarray 4	java/lang/Object
+      //   104: dup
+      //   105: iconst_0
+      //   106: lload 4
+      //   108: lload_2
+      //   109: lsub
+      //   110: invokestatic 56	java/lang/Long:valueOf	(J)Ljava/lang/Long;
+      //   113: aastore
+      //   114: dup
+      //   115: iconst_1
+      //   116: aload 6
+      //   118: getfield 77	com/google/android/gms/internal/li$a$a:b	J
+      //   121: invokestatic 56	java/lang/Long:valueOf	(J)Ljava/lang/Long;
+      //   124: aastore
+      //   125: dup
+      //   126: iconst_2
+      //   127: aload 6
+      //   129: getfield 80	com/google/android/gms/internal/li$a$a:a	Ljava/lang/String;
+      //   132: aastore
+      //   133: invokestatic 59	com/google/android/gms/internal/li:b	(Ljava/lang/String;[Ljava/lang/Object;)V
+      //   136: lload 4
+      //   138: lstore_2
+      //   139: goto -68 -> 71
+      //   142: astore_1
+      //   143: aload_0
+      //   144: monitorexit
+      //   145: aload_1
+      //   146: athrow
+      // Local variable table:
+      //   start	length	slot	name	signature
+      //   0	147	0	this	a
+      //   0	147	1	paramString	String
+      //   39	100	2	l1	long
+      //   11	126	4	l2	long
+      //   89	39	6	locala	a
+      // Exception table:
+      //   from	to	target	type
+      //   2	13	142	finally
+      //   23	71	142	finally
+      //   71	136	142	finally
+    }
+    
+    public void a(String paramString, long paramLong)
+    {
       try
       {
-        bool = d(((JSONArray)paramObject1).get(i), ((JSONArray)paramObject2).get(i));
-        if (bool) {
-          i += 1;
+        if (c) {
+          throw new IllegalStateException("Marker added to finished log");
         }
       }
-      catch (JSONException paramObject1)
+      finally {}
+      b.add(new a(paramString, paramLong, SystemClock.elapsedRealtime()));
+    }
+    
+    protected void finalize()
+      throws Throwable
+    {
+      if (!c)
       {
-        return false;
+        a("Request on the loose");
+        li.c("Marker log finalized without finish() - uncaught exit point for request", new Object[0]);
       }
     }
-    return true;
-    label170:
-    return paramObject1.equals(paramObject2);
-    return false;
+    
+    private static class a
+    {
+      public final String a;
+      public final long b;
+      public final long c;
+      
+      public a(String paramString, long paramLong1, long paramLong2)
+      {
+        a = paramString;
+        b = paramLong1;
+        c = paramLong2;
+      }
+    }
   }
 }
 

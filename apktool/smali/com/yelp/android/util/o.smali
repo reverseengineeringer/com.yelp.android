@@ -1,187 +1,167 @@
 .class public Lcom/yelp/android/util/o;
 .super Ljava/lang/Object;
-.source "MeasureUtils.java"
+.source "ReferenceWatcher.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;"
+    }
+.end annotation
+
+
+# instance fields
+.field private final a:Ljava/lang/ref/ReferenceQueue;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/ReferenceQueue",
+            "<-TT;>;"
+        }
+    .end annotation
+.end field
+
+.field private b:Ljava/util/HashSet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashSet",
+            "<",
+            "Ljava/lang/ref/Reference",
+            "<TT;>;>;"
+        }
+    .end annotation
+.end field
+
+.field private final c:I
+
+.field private final d:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # direct methods
-.method public static a(D)D
-    .locals 4
+.method public constructor <init>()V
+    .locals 1
 
     .prologue
-    .line 86
-    const-wide v0, 0x408f400000000000L    # 1000.0
+    .line 19
+    const/16 v0, 0x14
 
-    mul-double/2addr v0, p0
+    invoke-direct {p0, v0}, Lcom/yelp/android/util/o;-><init>(I)V
 
-    const-wide v2, 0x3fe3e245d6ab1d52L    # 0.62137119224
-
-    div-double/2addr v0, v2
-
-    return-wide v0
+    .line 20
+    return-void
 .end method
 
-.method public static a(DDDD)D
-    .locals 10
+.method public constructor <init>(I)V
+    .locals 1
 
     .prologue
-    .line 42
-    invoke-static {p0, p1}, Ljava/lang/Double;->isNaN(D)Z
+    .line 22
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-result v0
+    .line 23
+    new-instance v0, Ljava/lang/ref/ReferenceQueue;
 
-    if-nez v0, :cond_0
+    invoke-direct {v0}, Ljava/lang/ref/ReferenceQueue;-><init>()V
 
-    invoke-static {p2, p3}, Ljava/lang/Double;->isNaN(D)Z
+    iput-object v0, p0, Lcom/yelp/android/util/o;->a:Ljava/lang/ref/ReferenceQueue;
 
-    move-result v0
+    .line 24
+    new-instance v0, Ljava/util/HashSet;
 
-    if-nez v0, :cond_0
+    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
-    invoke-static {p4, p5}, Ljava/lang/Double;->isNaN(D)Z
+    iput-object v0, p0, Lcom/yelp/android/util/o;->b:Ljava/util/HashSet;
 
-    move-result v0
+    .line 25
+    iput p1, p0, Lcom/yelp/android/util/o;->c:I
 
-    if-nez v0, :cond_0
+    .line 26
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-static/range {p6 .. p7}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-direct {v0}, Ljava/util/concurrent/atomic/AtomicInteger;-><init>()V
 
-    move-result v0
+    iput-object v0, p0, Lcom/yelp/android/util/o;->d:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    .line 27
+    return-void
+.end method
+
+.method private final a()V
+    .locals 2
+
+    .prologue
+    .line 38
+    .line 39
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/yelp/android/util/o;->a:Ljava/lang/ref/ReferenceQueue;
+
+    invoke-virtual {v0}, Ljava/lang/ref/ReferenceQueue;->poll()Ljava/lang/ref/Reference;
+
+    move-result-object v0
 
     if-eqz v0, :cond_1
 
-    .line 43
-    :cond_0
-    const-wide/high16 v0, 0x7ff8000000000000L    # NaN
+    .line 40
+    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
-    .line 51
-    :goto_0
-    return-wide v0
+    move-result-object v0
 
-    .line 49
-    :cond_1
-    const/4 v0, 0x1
-
-    new-array v8, v0, [F
-
-    move-wide v0, p0
-
-    move-wide v2, p2
-
-    move-wide v4, p4
-
-    move-wide/from16 v6, p6
-
-    .line 50
-    invoke-static/range {v0 .. v8}, Landroid/location/Location;->distanceBetween(DDDD[F)V
-
-    .line 51
-    const/4 v0, 0x0
-
-    aget v0, v8, v0
-
-    const/high16 v1, 0x447a0000    # 1000.0f
-
-    div-float/2addr v0, v1
-
-    float-to-double v0, v0
-
-    goto :goto_0
-.end method
-
-.method public static final a(Landroid/location/Location;)Z
-    .locals 2
-
-    .prologue
-    .line 27
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroid/location/Location;->hasAccuracy()Z
-
-    move-result v0
-
+    .line 41
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/location/Location;->getAccuracy()F
+    .line 42
+    iget-object v1, p0, Lcom/yelp/android/util/o;->b:Ljava/util/HashSet;
+
+    invoke-virtual {v1, v0}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    .line 45
+    :cond_1
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Ljava/lang/Object;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TT;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 30
+    iget-object v0, p0, Lcom/yelp/android/util/o;->b:Ljava/util/HashSet;
+
+    new-instance v1, Ljava/lang/ref/SoftReference;
+
+    iget-object v2, p0, Lcom/yelp/android/util/o;->a:Ljava/lang/ref/ReferenceQueue;
+
+    invoke-direct {v1, p1, v2}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    .line 31
+    iget-object v0, p0, Lcom/yelp/android/util/o;->d:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->incrementAndGet()I
 
     move-result v0
 
-    const/high16 v1, 0x43710000    # 241.0f
+    iget v1, p0, Lcom/yelp/android/util/o;->c:I
 
-    cmpg-float v0, v0, v1
+    if-lt v0, v1, :cond_0
 
-    if-gez v0, :cond_0
+    .line 32
+    invoke-direct {p0}, Lcom/yelp/android/util/o;->a()V
 
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
+    .line 34
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public static b(D)D
-    .locals 2
-
-    .prologue
-    .line 90
-    const-wide v0, 0x3fe3e245d6ab1d52L    # 0.62137119224
-
-    div-double v0, p0, v0
-
-    return-wide v0
-.end method
-
-.method public static c(D)D
-    .locals 2
-
-    .prologue
-    .line 94
-    const-wide v0, 0x408f400000000000L    # 1000.0
-
-    div-double v0, p0, v0
-
-    return-wide v0
-.end method
-
-.method public static d(D)D
-    .locals 4
-
-    .prologue
-    .line 98
-    const-wide v0, 0x3fe3e245d6ab1d52L    # 0.62137119224
-
-    mul-double/2addr v0, p0
-
-    const-wide v2, 0x408f400000000000L    # 1000.0
-
-    div-double/2addr v0, v2
-
-    return-wide v0
-.end method
-
-.method public static e(D)D
-    .locals 2
-
-    .prologue
-    .line 102
-    const-wide v0, 0x3fe3e245d6ab1d52L    # 0.62137119224
-
-    mul-double/2addr v0, p0
-
-    return-wide v0
-.end method
-
-.method public static f(D)D
-    .locals 2
-
-    .prologue
-    .line 106
-    const-wide v0, 0x408f400000000000L    # 1000.0
-
-    div-double v0, p0, v0
-
-    return-wide v0
+    return-void
 .end method

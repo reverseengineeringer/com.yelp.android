@@ -1,87 +1,87 @@
 package android.support.v4.view;
 
 import android.os.Build.VERSION;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import com.yelp.android.b.b;
+import android.view.ViewConfiguration;
 
 public class as
 {
-  static final aw a = new at();
+  static final e a = new a();
   
   static
   {
-    int i = Build.VERSION.SDK_INT;
-    if (i >= 14)
+    if (Build.VERSION.SDK_INT >= 14)
     {
-      a = new av();
+      a = new d();
       return;
     }
-    if (i >= 11)
+    if (Build.VERSION.SDK_INT >= 11)
     {
-      a = new au();
+      a = new c();
+      return;
+    }
+    if (Build.VERSION.SDK_INT >= 8)
+    {
+      a = new b();
       return;
     }
   }
   
-  public static MenuItem a(MenuItem paramMenuItem, n paramn)
+  public static int a(ViewConfiguration paramViewConfiguration)
   {
-    if ((paramMenuItem instanceof b)) {
-      return ((b)paramMenuItem).a(paramn);
-    }
-    Log.w("MenuItemCompat", "setActionProvider: item does not implement SupportMenuItem; ignoring");
-    return paramMenuItem;
+    return a.a(paramViewConfiguration);
   }
   
-  public static MenuItem a(MenuItem paramMenuItem, View paramView)
+  public static boolean b(ViewConfiguration paramViewConfiguration)
   {
-    if ((paramMenuItem instanceof b)) {
-      return ((b)paramMenuItem).setActionView(paramView);
-    }
-    return a.a(paramMenuItem, paramView);
+    return a.b(paramViewConfiguration);
   }
   
-  public static View a(MenuItem paramMenuItem)
+  static class a
+    implements as.e
   {
-    if ((paramMenuItem instanceof b)) {
-      return ((b)paramMenuItem).getActionView();
-    }
-    return a.a(paramMenuItem);
-  }
-  
-  public static void a(MenuItem paramMenuItem, int paramInt)
-  {
-    if ((paramMenuItem instanceof b))
+    public int a(ViewConfiguration paramViewConfiguration)
     {
-      ((b)paramMenuItem).setShowAsAction(paramInt);
-      return;
+      return paramViewConfiguration.getScaledTouchSlop();
     }
-    a.a(paramMenuItem, paramInt);
+    
+    public boolean b(ViewConfiguration paramViewConfiguration)
+    {
+      return true;
+    }
   }
   
-  public static MenuItem b(MenuItem paramMenuItem, int paramInt)
+  static class b
+    extends as.a
   {
-    if ((paramMenuItem instanceof b)) {
-      return ((b)paramMenuItem).setActionView(paramInt);
+    public int a(ViewConfiguration paramViewConfiguration)
+    {
+      return at.a(paramViewConfiguration);
     }
-    return a.b(paramMenuItem, paramInt);
   }
   
-  public static boolean b(MenuItem paramMenuItem)
+  static class c
+    extends as.b
   {
-    if ((paramMenuItem instanceof b)) {
-      return ((b)paramMenuItem).expandActionView();
+    public boolean b(ViewConfiguration paramViewConfiguration)
+    {
+      return false;
     }
-    return a.b(paramMenuItem);
   }
   
-  public static boolean c(MenuItem paramMenuItem)
+  static class d
+    extends as.c
   {
-    if ((paramMenuItem instanceof b)) {
-      return ((b)paramMenuItem).isActionViewExpanded();
+    public boolean b(ViewConfiguration paramViewConfiguration)
+    {
+      return au.a(paramViewConfiguration);
     }
-    return a.c(paramMenuItem);
+  }
+  
+  static abstract interface e
+  {
+    public abstract int a(ViewConfiguration paramViewConfiguration);
+    
+    public abstract boolean b(ViewConfiguration paramViewConfiguration);
   }
 }
 

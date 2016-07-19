@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.serializable.UpdatePrompt;
 
@@ -26,7 +26,7 @@ public class UpdatePromptDialogFragment
     return localUpdatePromptDialogFragment;
   }
   
-  public b getIri()
+  public a getIri()
   {
     return ViewIri.UpdatePrompt;
   }
@@ -39,13 +39,13 @@ public class UpdatePromptDialogFragment
   
   public Dialog onCreateDialog(Bundle paramBundle)
   {
-    paramBundle = LayoutInflater.from(getActivity()).inflate(2130903433, null);
-    TextView localTextView = (TextView)paramBundle.findViewById(2131494082);
-    localTextView.setText(((UpdatePrompt)getArguments().getParcelable("update_prompt")).getMessage());
+    paramBundle = LayoutInflater.from(getActivity()).inflate(2130903555, null);
+    TextView localTextView = (TextView)paramBundle.findViewById(2131690952);
+    localTextView.setText(((UpdatePrompt)getArguments().getParcelable("update_prompt")).b());
     localTextView.setMovementMethod(new ScrollingMovementMethod());
-    ((TextView)paramBundle.findViewById(16908310)).setText(2131166182);
-    paramBundle.findViewById(2131493316).setOnClickListener(new bj(this));
-    paramBundle.findViewById(2131494083).setOnClickListener(new bk(this));
+    ((TextView)paramBundle.findViewById(16908310)).setText(2131166233);
+    paramBundle.findViewById(2131689972).setOnClickListener(new UpdatePromptDialogFragment.1(this));
+    paramBundle.findViewById(2131690953).setOnClickListener(new UpdatePromptDialogFragment.2(this));
     return new AlertDialog.Builder(getActivity()).setView(paramBundle).create();
   }
 }

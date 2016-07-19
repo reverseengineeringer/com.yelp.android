@@ -2,19 +2,18 @@ package com.yelp.android.ui.map;
 
 import android.content.Context;
 import android.view.View;
-import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
-import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.c.d;
+import com.google.android.gms.maps.model.c;
 import com.yelp.android.serializable.Event;
-import com.yelp.android.ui.panels.ac;
 import java.util.HashMap;
 import java.util.Map;
 
 public class d
-  implements GoogleMap.OnInfoWindowClickListener, e<Event>
+  implements c.d, e<Event>
 {
   private final Context a;
   private final Map<String, Event> b;
-  private f<Event> c;
+  private e.a<Event> c;
   
   public d(Context paramContext)
   {
@@ -22,9 +21,19 @@ public class d
     b = new HashMap();
   }
   
-  public Event a(Marker paramMarker)
+  public View a(c paramc)
   {
-    return (Event)b.get(paramMarker.getId());
+    com.yelp.android.ui.panels.d locald = new com.yelp.android.ui.panels.d(a);
+    paramc = (Event)b.get(paramc.a());
+    if (paramc != null)
+    {
+      locald.a();
+      locald.a(paramc);
+    }
+    if ((paramc != null) && (c != null)) {
+      c.b(paramc);
+    }
+    return locald;
   }
   
   public void a()
@@ -32,41 +41,31 @@ public class d
     b.clear();
   }
   
-  public void a(Event paramEvent, Marker paramMarker)
+  public void a(Event paramEvent, c paramc)
   {
-    b.put(paramMarker.getId(), paramEvent);
+    b.put(paramc.a(), paramEvent);
   }
   
-  public void a(f<Event> paramf)
+  public void a(e.a<Event> parama)
   {
-    c = paramf;
+    c = parama;
   }
   
-  public View getInfoContents(Marker paramMarker)
+  public View b(c paramc)
   {
     return null;
   }
   
-  public View getInfoWindow(Marker paramMarker)
-  {
-    ac localac = new ac(a);
-    paramMarker = (Event)b.get(paramMarker.getId());
-    if (paramMarker != null)
-    {
-      localac.a(null);
-      localac.a(paramMarker);
-    }
-    if ((paramMarker != null) && (c != null)) {
-      c.b(paramMarker);
-    }
-    return localac;
-  }
-  
-  public void onInfoWindowClick(Marker paramMarker)
+  public void c(c paramc)
   {
     if (c != null) {
-      c.a(a(paramMarker));
+      c.a(d(paramc));
     }
+  }
+  
+  public Event d(c paramc)
+  {
+    return (Event)b.get(paramc.a());
   }
 }
 

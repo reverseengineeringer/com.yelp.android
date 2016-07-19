@@ -3,17 +3,13 @@ package com.yelp.android.ui.activities.nearby;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewPropertyAnimator;
-import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout.LayoutParams;
-import com.yelp.android.appdata.n;
 
 public class AnimationFrameLayout
   extends FrameLayout
 {
-  private f a;
+  private a a;
   private int b;
   private int c;
   private boolean d = false;
@@ -37,22 +33,15 @@ public class AnimationFrameLayout
   @SuppressLint({"NewApi"})
   private void a(int paramInt, float paramFloat)
   {
-    int i = getTranslation() - paramInt;
+    int i = getTranslation();
     float f = Math.abs(paramFloat);
     paramFloat = f;
     if (f < 800.0F) {
       paramFloat = 5000.0F;
     }
     paramFloat /= 1000.0F;
-    int j = (int)Math.abs(i / paramFloat);
-    if (n.a(12))
-    {
-      animate().y(paramInt).setDuration(j).setListener(new e(this));
-      return;
-    }
-    TranslateAnimation localTranslateAnimation = new TranslateAnimation(0.0F, 0.0F, i, 0.0F);
-    localTranslateAnimation.setDuration(j);
-    startAnimation(localTranslateAnimation);
+    i = (int)Math.abs((i - paramInt) / paramFloat);
+    animate().y(paramInt).setDuration(i).setListener(new AnimationFrameLayout.1(this));
   }
   
   private void c()
@@ -117,13 +106,9 @@ public class AnimationFrameLayout
     return b;
   }
   
-  @SuppressLint({"NewApi"})
   public int getTranslation()
   {
-    if (n.a(12)) {
-      return (int)getTranslationY();
-    }
-    return getLayoutParamstopMargin;
+    return (int)getTranslationY();
   }
   
   protected void onAnimationEnd()
@@ -149,9 +134,9 @@ public class AnimationFrameLayout
     c = paramInt;
   }
   
-  public void setSlideFrameCallback(f paramf)
+  public void setSlideFrameCallback(a parama)
   {
-    a = paramf;
+    a = parama;
   }
   
   public void setTopThreshold(int paramInt)
@@ -159,17 +144,16 @@ public class AnimationFrameLayout
     b = paramInt;
   }
   
-  @SuppressLint({"NewApi"})
   public void setTranslation(int paramInt)
   {
-    if (n.a(12))
-    {
-      setTranslationY(paramInt);
-      return;
-    }
-    ViewGroup.MarginLayoutParams localMarginLayoutParams = new ViewGroup.MarginLayoutParams(getLayoutParams());
-    topMargin = paramInt;
-    setLayoutParams(new RelativeLayout.LayoutParams(localMarginLayoutParams));
+    setTranslationY(paramInt);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a();
+    
+    public abstract void b();
   }
 }
 

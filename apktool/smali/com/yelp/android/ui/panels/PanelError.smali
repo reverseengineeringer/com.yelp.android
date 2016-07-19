@@ -3,8 +3,16 @@
 .source "PanelError.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/panels/PanelError$a;
+    }
+.end annotation
+
+
 # instance fields
-.field private a:Lcom/yelp/android/ui/panels/aa;
+.field private a:Lcom/yelp/android/ui/panels/PanelError$a;
 
 .field private b:Landroid/widget/TextView;
 
@@ -14,19 +22,21 @@
 
 .field private e:Landroid/view/LayoutInflater;
 
+.field private f:Lcom/yelp/android/util/ErrorType;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     .prologue
-    .line 24
+    .line 25
     invoke-direct {p0, p1}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;)V
 
-    .line 25
+    .line 26
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/panels/PanelError;->a(Landroid/content/Context;)V
 
-    .line 26
+    .line 27
     return-void
 .end method
 
@@ -34,22 +44,22 @@
     .locals 0
 
     .prologue
-    .line 29
+    .line 30
     invoke-direct {p0, p1, p2}, Landroid/widget/ScrollView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 30
+    .line 31
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/panels/PanelError;->a(Landroid/content/Context;)V
 
-    .line 31
+    .line 32
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/panels/PanelError;)Lcom/yelp/android/ui/panels/aa;
+.method static synthetic a(Lcom/yelp/android/ui/panels/PanelError;)Lcom/yelp/android/ui/panels/PanelError$a;
     .locals 1
 
     .prologue
     .line 15
-    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/aa;
+    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/PanelError$a;
 
     return-object v0
 .end method
@@ -60,12 +70,12 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/ui/panels/aa;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/ui/panels/PanelError$a;)V
 
-    .line 39
+    .line 40
     return-void
 .end method
 
@@ -73,47 +83,47 @@
     .locals 1
 
     .prologue
-    .line 34
+    .line 35
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->e:Landroid/view/LayoutInflater;
 
-    .line 35
+    .line 36
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/ui/panels/aa;)V
+.method public a(Lcom/yelp/android/ui/panels/PanelError$a;)V
     .locals 3
 
     .prologue
     const/4 v2, -0x1
 
-    .line 42
+    .line 43
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->e:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030101
+    const v1, 0x7f030161
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 43
-    iput-object p1, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/aa;
-
     .line 44
+    iput-object p1, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/PanelError$a;
+
+    .line 45
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/PanelError;->setFillViewport(Z)V
 
-    .line 45
+    .line 46
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
     invoke-direct {v0, v2, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/PanelError;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 48
-    const v0, 0x7f0c03b1
+    .line 49
+    const v0, 0x7f0f0496
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/PanelError;->findViewById(I)Landroid/view/View;
 
@@ -123,8 +133,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->d:Landroid/widget/ImageView;
 
-    .line 49
-    const v0, 0x7f0c03b2
+    .line 50
+    const v0, 0x7f0f0497
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/PanelError;->findViewById(I)Landroid/view/View;
 
@@ -134,8 +144,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->b:Landroid/widget/TextView;
 
-    .line 50
-    const v0, 0x7f0c03b3
+    .line 51
+    const v0, 0x7f0f0498
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/PanelError;->findViewById(I)Landroid/view/View;
 
@@ -145,28 +155,28 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
-    .line 52
+    .line 53
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
-    new-instance v1, Lcom/yelp/android/ui/panels/z;
+    new-instance v1, Lcom/yelp/android/ui/panels/PanelError$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/panels/z;-><init>(Lcom/yelp/android/ui/panels/PanelError;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/panels/PanelError$1;-><init>(Lcom/yelp/android/ui/panels/PanelError;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/aa;
+    .line 63
+    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/PanelError$a;
 
     if-nez v0, :cond_0
 
-    .line 62
+    .line 64
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 64
+    .line 66
     :cond_0
     return-void
 .end method
@@ -175,16 +185,16 @@
     .locals 1
 
     .prologue
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/aa;
+    .line 69
+    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/PanelError$a;
 
-    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
+    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/panels/PanelError;->a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/PanelError$a;)V
 
-    .line 68
+    .line 70
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
+.method public a(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/PanelError$a;)V
     .locals 4
 
     .prologue
@@ -192,20 +202,23 @@
 
     const/4 v2, 0x0
 
-    .line 71
+    .line 73
+    iput-object p1, p0, Lcom/yelp/android/ui/panels/PanelError;->f:Lcom/yelp/android/util/ErrorType;
+
+    .line 74
     invoke-virtual {p1}, Lcom/yelp/android/util/ErrorType;->getImageId()I
 
     move-result v0
 
-    .line 72
+    .line 75
     if-nez v0, :cond_1
 
-    .line 73
+    .line 76
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->d:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 79
+    .line 82
     :goto_0
     iget-object v1, p0, Lcom/yelp/android/ui/panels/PanelError;->b:Landroid/widget/TextView;
 
@@ -215,20 +228,20 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f070588
+    const v0, 0x7f070591
 
     :goto_1
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(I)V
 
-    .line 82
-    iput-object p2, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/aa;
+    .line 87
+    iput-object p2, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/PanelError$a;
 
-    .line 83
+    .line 88
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
     if-eqz v0, :cond_0
 
-    .line 84
+    .line 89
     iget-object v1, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
     invoke-virtual {p1}, Lcom/yelp/android/util/ErrorType;->getButtonTextId()I
@@ -237,40 +250,40 @@
 
     if-nez v0, :cond_3
 
-    const v0, 0x7f070500
+    const v0, 0x7f070505
 
     :goto_2
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(I)V
 
-    .line 87
-    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/aa;
+    .line 94
+    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->a:Lcom/yelp/android/ui/panels/PanelError$a;
 
     if-nez v0, :cond_4
 
-    .line 88
+    .line 95
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 93
+    .line 100
     :cond_0
     :goto_3
     return-void
 
-    .line 75
+    .line 78
     :cond_1
     iget-object v1, p0, Lcom/yelp/android/ui/panels/PanelError;->d:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 76
+    .line 79
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->d:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 79
+    .line 82
     :cond_2
     invoke-virtual {p1}, Lcom/yelp/android/util/ErrorType;->getTextId()I
 
@@ -278,7 +291,7 @@
 
     goto :goto_1
 
-    .line 84
+    .line 89
     :cond_3
     invoke-virtual {p1}, Lcom/yelp/android/util/ErrorType;->getButtonTextId()I
 
@@ -286,7 +299,7 @@
 
     goto :goto_2
 
-    .line 90
+    .line 97
     :cond_4
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
@@ -299,26 +312,51 @@
     .locals 2
 
     .prologue
-    .line 100
+    .line 107
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->c:Landroid/widget/Button;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 101
+    .line 108
     return-void
+.end method
+
+.method public c()V
+    .locals 2
+
+    .prologue
+    .line 111
+    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->d:Landroid/widget/ImageView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    .line 112
+    return-void
+.end method
+
+.method public getErrorType()Lcom/yelp/android/util/ErrorType;
+    .locals 1
+
+    .prologue
+    .line 115
+    iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->f:Lcom/yelp/android/util/ErrorType;
+
+    return-object v0
 .end method
 
 .method public setText(I)V
     .locals 1
 
     .prologue
-    .line 96
+    .line 103
     iget-object v0, p0, Lcom/yelp/android/ui/panels/PanelError;->b:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 97
+    .line 104
     return-void
 .end method

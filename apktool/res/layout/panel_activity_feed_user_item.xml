@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/selector_white_rect" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/border" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/user_profile_layout" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/user_panel" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <include android:id="@id/user_badge_cell" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" layout="@layout/panel_passport_short" />
+        </RelativeLayout>
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/call_to_action" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:contentDescription="@null" />
+    </LinearLayout>
+</LinearLayout>

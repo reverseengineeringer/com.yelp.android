@@ -16,10 +16,10 @@
 
 
 # instance fields
-.field private final g:Lcom/yelp/android/v/m;
+.field private final g:Lcom/yelp/android/aa/l;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/v/m",
+            "Lcom/yelp/android/aa/l",
             "<TModelType;",
             "Ljava/io/InputStream;",
             ">;"
@@ -27,10 +27,10 @@
     .end annotation
 .end field
 
-.field private final h:Lcom/yelp/android/v/m;
+.field private final h:Lcom/yelp/android/aa/l;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/v/m",
+            "Lcom/yelp/android/aa/l",
             "<TModelType;",
             "Landroid/os/ParcelFileDescriptor;",
             ">;"
@@ -38,39 +38,39 @@
     .end annotation
 .end field
 
-.field private final i:Lcom/bumptech/glide/o;
+.field private final i:Lcom/bumptech/glide/i$d;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Class;Lcom/yelp/android/v/m;Lcom/yelp/android/v/m;Landroid/content/Context;Lcom/bumptech/glide/h;Lcom/bumptech/glide/manager/l;Lcom/bumptech/glide/manager/h;Lcom/bumptech/glide/o;)V
+.method constructor <init>(Ljava/lang/Class;Lcom/yelp/android/aa/l;Lcom/yelp/android/aa/l;Landroid/content/Context;Lcom/bumptech/glide/g;Lcom/bumptech/glide/manager/l;Lcom/bumptech/glide/manager/g;Lcom/bumptech/glide/i$d;)V
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/Class",
             "<TModelType;>;",
-            "Lcom/yelp/android/v/m",
+            "Lcom/yelp/android/aa/l",
             "<TModelType;",
             "Ljava/io/InputStream;",
             ">;",
-            "Lcom/yelp/android/v/m",
+            "Lcom/yelp/android/aa/l",
             "<TModelType;",
             "Landroid/os/ParcelFileDescriptor;",
             ">;",
             "Landroid/content/Context;",
-            "Lcom/bumptech/glide/h;",
+            "Lcom/bumptech/glide/g;",
             "Lcom/bumptech/glide/manager/l;",
-            "Lcom/bumptech/glide/manager/h;",
-            "Lcom/bumptech/glide/o;",
+            "Lcom/bumptech/glide/manager/g;",
+            "Lcom/bumptech/glide/i$d;",
             ")V"
         }
     .end annotation
 
     .prologue
     .line 57
-    const-class v3, Lcom/yelp/android/ac/a;
+    const-class v3, Lcom/yelp/android/ah/a;
 
-    const-class v4, Lcom/yelp/android/z/b;
+    const-class v4, Lcom/yelp/android/ae/b;
 
     const/4 v5, 0x0
 
@@ -80,7 +80,7 @@
 
     move-object v2, p3
 
-    invoke-static/range {v0 .. v5}, Lcom/bumptech/glide/d;->a(Lcom/bumptech/glide/h;Lcom/yelp/android/v/m;Lcom/yelp/android/v/m;Ljava/lang/Class;Ljava/lang/Class;Lcom/yelp/android/ad/c;)Lcom/yelp/android/ae/e;
+    invoke-static/range {v0 .. v5}, Lcom/bumptech/glide/d;->a(Lcom/bumptech/glide/g;Lcom/yelp/android/aa/l;Lcom/yelp/android/aa/l;Ljava/lang/Class;Ljava/lang/Class;Lcom/yelp/android/ai/c;)Lcom/yelp/android/ak/e;
 
     move-result-object v3
 
@@ -96,22 +96,22 @@
 
     move-object v6, p7
 
-    invoke-direct/range {v0 .. v6}, Lcom/bumptech/glide/c;-><init>(Landroid/content/Context;Ljava/lang/Class;Lcom/yelp/android/ae/f;Lcom/bumptech/glide/h;Lcom/bumptech/glide/manager/l;Lcom/bumptech/glide/manager/h;)V
+    invoke-direct/range {v0 .. v6}, Lcom/bumptech/glide/c;-><init>(Landroid/content/Context;Ljava/lang/Class;Lcom/yelp/android/ak/f;Lcom/bumptech/glide/g;Lcom/bumptech/glide/manager/l;Lcom/bumptech/glide/manager/g;)V
 
     .line 61
-    iput-object p2, p0, Lcom/bumptech/glide/d;->g:Lcom/yelp/android/v/m;
+    iput-object p2, p0, Lcom/bumptech/glide/d;->g:Lcom/yelp/android/aa/l;
 
     .line 62
-    iput-object p3, p0, Lcom/bumptech/glide/d;->h:Lcom/yelp/android/v/m;
+    iput-object p3, p0, Lcom/bumptech/glide/d;->h:Lcom/yelp/android/aa/l;
 
     .line 63
-    iput-object p8, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/o;
+    iput-object p8, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/i$d;
 
     .line 64
     return-void
 .end method
 
-.method private static a(Lcom/bumptech/glide/h;Lcom/yelp/android/v/m;Lcom/yelp/android/v/m;Ljava/lang/Class;Ljava/lang/Class;Lcom/yelp/android/ad/c;)Lcom/yelp/android/ae/e;
+.method private static a(Lcom/bumptech/glide/g;Lcom/yelp/android/aa/l;Lcom/yelp/android/aa/l;Ljava/lang/Class;Ljava/lang/Class;Lcom/yelp/android/ai/c;)Lcom/yelp/android/ak/e;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -122,12 +122,12 @@
             "R:",
             "Ljava/lang/Object;",
             ">(",
-            "Lcom/bumptech/glide/h;",
-            "Lcom/yelp/android/v/m",
+            "Lcom/bumptech/glide/g;",
+            "Lcom/yelp/android/aa/l",
             "<TA;",
             "Ljava/io/InputStream;",
             ">;",
-            "Lcom/yelp/android/v/m",
+            "Lcom/yelp/android/aa/l",
             "<TA;",
             "Landroid/os/ParcelFileDescriptor;",
             ">;",
@@ -135,11 +135,11 @@
             "<TZ;>;",
             "Ljava/lang/Class",
             "<TR;>;",
-            "Lcom/yelp/android/ad/c",
+            "Lcom/yelp/android/ai/c",
             "<TZ;TR;>;)",
-            "Lcom/yelp/android/ae/e",
+            "Lcom/yelp/android/ak/e",
             "<TA;",
-            "Lcom/yelp/android/v/h;",
+            "Lcom/yelp/android/aa/g;",
             "TZ;TR;>;"
         }
     .end annotation
@@ -162,34 +162,101 @@
     if-nez p5, :cond_1
 
     .line 45
-    invoke-virtual {p0, p3, p4}, Lcom/bumptech/glide/h;->a(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/ad/c;
+    invoke-virtual {p0, p3, p4}, Lcom/bumptech/glide/g;->a(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/ai/c;
 
     move-result-object p5
 
     .line 47
     :cond_1
-    const-class v0, Lcom/yelp/android/v/h;
+    const-class v0, Lcom/yelp/android/aa/g;
 
-    invoke-virtual {p0, v0, p3}, Lcom/bumptech/glide/h;->b(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/ae/b;
+    invoke-virtual {p0, v0, p3}, Lcom/bumptech/glide/g;->b(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/ak/b;
 
     move-result-object v1
 
     .line 49
-    new-instance v2, Lcom/yelp/android/v/f;
+    new-instance v2, Lcom/yelp/android/aa/f;
 
-    invoke-direct {v2, p1, p2}, Lcom/yelp/android/v/f;-><init>(Lcom/yelp/android/v/m;Lcom/yelp/android/v/m;)V
+    invoke-direct {v2, p1, p2}, Lcom/yelp/android/aa/f;-><init>(Lcom/yelp/android/aa/l;Lcom/yelp/android/aa/l;)V
 
     .line 51
-    new-instance v0, Lcom/yelp/android/ae/e;
+    new-instance v0, Lcom/yelp/android/ak/e;
 
-    invoke-direct {v0, v2, p5, v1}, Lcom/yelp/android/ae/e;-><init>(Lcom/yelp/android/v/m;Lcom/yelp/android/ad/c;Lcom/yelp/android/ae/b;)V
+    invoke-direct {v0, v2, p5, v1}, Lcom/yelp/android/ak/e;-><init>(Lcom/yelp/android/aa/l;Lcom/yelp/android/ai/c;Lcom/yelp/android/ak/b;)V
 
     goto :goto_0
 .end method
 
+.method private i()Lcom/bumptech/glide/f;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/f",
+            "<TModelType;",
+            "Ljava/io/InputStream;",
+            "Ljava/io/File;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 107
+    iget-object v7, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/i$d;
+
+    new-instance v0, Lcom/bumptech/glide/f;
+
+    const-class v1, Ljava/io/File;
+
+    iget-object v3, p0, Lcom/bumptech/glide/d;->g:Lcom/yelp/android/aa/l;
+
+    const-class v4, Ljava/io/InputStream;
+
+    const-class v5, Ljava/io/File;
+
+    iget-object v6, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/i$d;
+
+    move-object v2, p0
+
+    invoke-direct/range {v0 .. v6}, Lcom/bumptech/glide/f;-><init>(Ljava/lang/Class;Lcom/bumptech/glide/e;Lcom/yelp/android/aa/l;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/i$d;)V
+
+    invoke-virtual {v7, v0}, Lcom/bumptech/glide/i$d;->a(Lcom/bumptech/glide/e;)Lcom/bumptech/glide/e;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/bumptech/glide/f;
+
+    return-object v0
+.end method
+
 
 # virtual methods
-.method public j()Lcom/bumptech/glide/b;
+.method public c(II)Lcom/bumptech/glide/request/a;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(II)",
+            "Lcom/bumptech/glide/request/a",
+            "<",
+            "Ljava/io/File;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 103
+    invoke-direct {p0}, Lcom/bumptech/glide/d;->i()Lcom/bumptech/glide/f;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/f;->a(II)Lcom/bumptech/glide/request/a;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public h()Lcom/bumptech/glide/b;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -201,19 +268,19 @@
 
     .prologue
     .line 72
-    iget-object v0, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/o;
+    iget-object v0, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/i$d;
 
     new-instance v1, Lcom/bumptech/glide/b;
 
-    iget-object v2, p0, Lcom/bumptech/glide/d;->g:Lcom/yelp/android/v/m;
+    iget-object v2, p0, Lcom/bumptech/glide/d;->g:Lcom/yelp/android/aa/l;
 
-    iget-object v3, p0, Lcom/bumptech/glide/d;->h:Lcom/yelp/android/v/m;
+    iget-object v3, p0, Lcom/bumptech/glide/d;->h:Lcom/yelp/android/aa/l;
 
-    iget-object v4, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/o;
+    iget-object v4, p0, Lcom/bumptech/glide/d;->i:Lcom/bumptech/glide/i$d;
 
-    invoke-direct {v1, p0, v2, v3, v4}, Lcom/bumptech/glide/b;-><init>(Lcom/bumptech/glide/e;Lcom/yelp/android/v/m;Lcom/yelp/android/v/m;Lcom/bumptech/glide/o;)V
+    invoke-direct {v1, p0, v2, v3, v4}, Lcom/bumptech/glide/b;-><init>(Lcom/bumptech/glide/e;Lcom/yelp/android/aa/l;Lcom/yelp/android/aa/l;Lcom/bumptech/glide/i$d;)V
 
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/o;->a(Lcom/bumptech/glide/e;)Lcom/bumptech/glide/e;
+    invoke-virtual {v0, v1}, Lcom/bumptech/glide/i$d;->a(Lcom/bumptech/glide/e;)Lcom/bumptech/glide/e;
 
     move-result-object v0
 

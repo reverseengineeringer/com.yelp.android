@@ -1,19 +1,12 @@
 package android.support.v4.content;
 
 import android.content.Context;
-import android.content.Intent;
-import java.io.File;
 
 class f
 {
-  public static File a(Context paramContext)
+  public static int a(Context paramContext, int paramInt)
   {
-    return paramContext.getObbDir();
-  }
-  
-  static void a(Context paramContext, Intent[] paramArrayOfIntent)
-  {
-    paramContext.startActivities(paramArrayOfIntent);
+    return paramContext.getColor(paramInt);
   }
 }
 

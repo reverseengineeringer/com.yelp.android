@@ -2,7 +2,7 @@ package com.comscore.utils;
 
 import android.content.Context;
 import com.comscore.applications.EventType;
-import com.yelp.android.al.b;
+import com.yelp.android.ar.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

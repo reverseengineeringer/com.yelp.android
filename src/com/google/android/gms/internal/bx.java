@@ -1,26 +1,106 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
-import com.google.android.gms.dynamic.d;
+import android.text.TextUtils;
+import com.google.android.gms.ads.internal.s;
+import java.util.Map;
 
-public abstract interface bx
-  extends IInterface
+@fv
+public final class bx
+  implements bz
 {
-  public abstract void aw();
+  private long a(long paramLong)
+  {
+    return paramLong - s.i().a() + s.i().b();
+  }
   
-  public abstract String bB();
+  private void b(ib paramib, Map<String, String> paramMap)
+  {
+    String str2 = (String)paramMap.get("label");
+    String str1 = (String)paramMap.get("start_label");
+    paramMap = (String)paramMap.get("timestamp");
+    if (TextUtils.isEmpty(str2))
+    {
+      gz.d("No label given for CSI tick.");
+      return;
+    }
+    if (TextUtils.isEmpty(paramMap))
+    {
+      gz.d("No timestamp given for CSI tick.");
+      return;
+    }
+    try
+    {
+      long l = a(Long.parseLong(paramMap));
+      paramMap = str1;
+      if (TextUtils.isEmpty(str1)) {
+        paramMap = "native:view_load";
+      }
+      paramib.x().a(str2, paramMap, l);
+      return;
+    }
+    catch (NumberFormatException paramib)
+    {
+      gz.d("Malformed timestamp for CSI tick.", paramib);
+    }
+  }
   
-  public abstract d bC();
+  private void c(ib paramib, Map<String, String> paramMap)
+  {
+    paramMap = (String)paramMap.get("value");
+    if (TextUtils.isEmpty(paramMap))
+    {
+      gz.d("No value given for CSI experiment.");
+      return;
+    }
+    paramib = paramib.x().a();
+    if (paramib == null)
+    {
+      gz.d("No ticker for WebView, dropping experiment ID.");
+      return;
+    }
+    paramib.a("e", paramMap);
+  }
   
-  public abstract String bE();
+  private void d(ib paramib, Map<String, String> paramMap)
+  {
+    String str = (String)paramMap.get("name");
+    paramMap = (String)paramMap.get("value");
+    if (TextUtils.isEmpty(paramMap))
+    {
+      gz.d("No value given for CSI extra.");
+      return;
+    }
+    if (TextUtils.isEmpty(str))
+    {
+      gz.d("No name given for CSI extra.");
+      return;
+    }
+    paramib = paramib.x().a();
+    if (paramib == null)
+    {
+      gz.d("No ticker for WebView, dropping extra parameter.");
+      return;
+    }
+    paramib.a(str, paramMap);
+  }
   
-  public abstract d bI();
-  
-  public abstract String bJ();
-  
-  public abstract String getBody();
-  
-  public abstract void j(int paramInt);
+  public void a(ib paramib, Map<String, String> paramMap)
+  {
+    String str = (String)paramMap.get("action");
+    if ("tick".equals(str)) {
+      b(paramib, paramMap);
+    }
+    do
+    {
+      return;
+      if ("experiment".equals(str))
+      {
+        c(paramib, paramMap);
+        return;
+      }
+    } while (!"extra".equals(str));
+    d(paramib, paramMap);
+  }
 }
 
 /* Location:

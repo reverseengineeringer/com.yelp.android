@@ -6,28 +6,28 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/google/android/gms/maps/model/u;
+.field public static final CREATOR:Lcom/google/android/gms/maps/model/r;
 
 
 # instance fields
-.field private final CK:I
+.field public final a:I
 
-.field public final data:[B
+.field public final b:I
 
-.field public final height:I
+.field public final c:[B
 
-.field public final width:I
+.field private final d:I
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/maps/model/u;
+    new-instance v0, Lcom/google/android/gms/maps/model/r;
 
-    invoke-direct {v0}, Lcom/google/android/gms/maps/model/u;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/maps/model/r;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/maps/model/Tile;->CREATOR:Lcom/google/android/gms/maps/model/u;
+    sput-object v0, Lcom/google/android/gms/maps/model/Tile;->CREATOR:Lcom/google/android/gms/maps/model/r;
 
     return-void
 .end method
@@ -37,13 +37,13 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/google/android/gms/maps/model/Tile;->CK:I
+    iput p1, p0, Lcom/google/android/gms/maps/model/Tile;->d:I
 
-    iput p2, p0, Lcom/google/android/gms/maps/model/Tile;->width:I
+    iput p2, p0, Lcom/google/android/gms/maps/model/Tile;->a:I
 
-    iput p3, p0, Lcom/google/android/gms/maps/model/Tile;->height:I
+    iput p3, p0, Lcom/google/android/gms/maps/model/Tile;->b:I
 
-    iput-object p4, p0, Lcom/google/android/gms/maps/model/Tile;->data:[B
+    iput-object p4, p0, Lcom/google/android/gms/maps/model/Tile;->c:[B
 
     return-void
 .end method
@@ -60,6 +60,14 @@
 
 
 # virtual methods
+.method a()I
+    .locals 1
+
+    iget v0, p0, Lcom/google/android/gms/maps/model/Tile;->d:I
+
+    return v0
+.end method
+
 .method public describeContents()I
     .locals 1
 
@@ -68,30 +76,10 @@
     return v0
 .end method
 
-.method getVersionCode()I
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/gms/maps/model/Tile;->CK:I
-
-    return v0
-.end method
-
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 0
 
-    invoke-static {}, Lcom/google/android/gms/maps/internal/aa;->ob()Z
+    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/model/r;->a(Lcom/google/android/gms/maps/model/Tile;Landroid/os/Parcel;I)V
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/model/v;->a(Lcom/google/android/gms/maps/model/Tile;Landroid/os/Parcel;I)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/model/u;->a(Lcom/google/android/gms/maps/model/Tile;Landroid/os/Parcel;I)V
-
-    goto :goto_0
 .end method

@@ -1,77 +1,103 @@
 package com.google.android.gms.internal;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.DownloadManager;
+import android.app.DownloadManager.Request;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
+import android.net.Uri;
+import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Base64;
-import java.security.InvalidKeyException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.Signature;
-import java.security.SignatureException;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
+import android.webkit.URLUtil;
+import com.google.android.gms.ads.internal.s;
+import com.yelp.android.ba.a.e;
+import java.util.Map;
 
-@ey
+@fv
 public class el
+  extends eo
 {
-  public static PublicKey F(String paramString)
+  private final Map<String, String> a;
+  private final Context b;
+  
+  public el(ib paramib, Map<String, String> paramMap)
   {
-    try
-    {
-      paramString = Base64.decode(paramString, 0);
-      paramString = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(paramString));
-      return paramString;
-    }
-    catch (NoSuchAlgorithmException paramString)
-    {
-      throw new RuntimeException(paramString);
-    }
-    catch (InvalidKeySpecException paramString)
-    {
-      gr.T("Invalid key specification.");
-      throw new IllegalArgumentException(paramString);
-    }
+    super(paramib, "storePicture");
+    a = paramMap;
+    b = paramib.f();
   }
   
-  public static boolean a(PublicKey paramPublicKey, String paramString1, String paramString2)
+  DownloadManager.Request a(String paramString1, String paramString2)
   {
-    try
+    paramString1 = new DownloadManager.Request(Uri.parse(paramString1));
+    paramString1.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, paramString2);
+    s.g().a(paramString1);
+    return paramString1;
+  }
+  
+  String a(String paramString)
+  {
+    return Uri.parse(paramString).getLastPathSegment();
+  }
+  
+  public void a()
+  {
+    if (b == null)
     {
-      Signature localSignature = Signature.getInstance("SHA1withRSA");
-      localSignature.initVerify(paramPublicKey);
-      localSignature.update(paramString1.getBytes());
-      if (!localSignature.verify(Base64.decode(paramString2, 0)))
+      b("Activity context is not available");
+      return;
+    }
+    if (!s.e().e(b).c())
+    {
+      b("Feature is not supported by the device.");
+      return;
+    }
+    final String str1 = (String)a.get("iurl");
+    if (TextUtils.isEmpty(str1))
+    {
+      b("Image url cannot be empty.");
+      return;
+    }
+    if (!URLUtil.isValidUrl(str1))
+    {
+      b("Invalid image url: " + str1);
+      return;
+    }
+    final String str2 = a(str1);
+    if (!s.e().c(str2))
+    {
+      b("Image type not recognized: " + str2);
+      return;
+    }
+    AlertDialog.Builder localBuilder = s.e().d(b);
+    localBuilder.setTitle(s.h().a(a.e.store_picture_title, "Save image"));
+    localBuilder.setMessage(s.h().a(a.e.store_picture_message, "Allow Ad to store image in Picture gallery?"));
+    localBuilder.setPositiveButton(s.h().a(a.e.accept, "Accept"), new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
       {
-        gr.T("Signature verification failed.");
-        return false;
+        paramAnonymousDialogInterface = (DownloadManager)el.a(el.this).getSystemService("download");
+        try
+        {
+          paramAnonymousDialogInterface.enqueue(a(str1, str2));
+          return;
+        }
+        catch (IllegalStateException paramAnonymousDialogInterface)
+        {
+          b("Could not store picture.");
+        }
       }
-      return true;
-    }
-    catch (NoSuchAlgorithmException paramPublicKey)
+    });
+    localBuilder.setNegativeButton(s.h().a(a.e.decline, "Decline"), new DialogInterface.OnClickListener()
     {
-      gr.T("NoSuchAlgorithmException.");
-      return false;
-    }
-    catch (InvalidKeyException paramPublicKey)
-    {
-      gr.T("Invalid key specification.");
-      return false;
-    }
-    catch (SignatureException paramPublicKey)
-    {
-      gr.T("Signature exception.");
-    }
-    return false;
-  }
-  
-  public static boolean b(String paramString1, String paramString2, String paramString3)
-  {
-    if ((TextUtils.isEmpty(paramString2)) || (TextUtils.isEmpty(paramString1)) || (TextUtils.isEmpty(paramString3)))
-    {
-      gr.T("Purchase verification failed: missing data.");
-      return false;
-    }
-    return a(F(paramString1), paramString2, paramString3);
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        b("User canceled the download.");
+      }
+    });
+    localBuilder.create().show();
   }
 }
 

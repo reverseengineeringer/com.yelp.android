@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "RankMode"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -48,6 +57,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;->WEEK:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 
+    .line 48
     new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 
     const-string/jumbo v1, "ALL"
@@ -56,6 +66,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;->ALL:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 
+    .line 49
     new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 
     const-string/jumbo v1, "FRIENDS"
@@ -64,6 +75,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;->FRIENDS:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 
+    .line 50
     new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 
     const-string/jumbo v1, "BIZ"

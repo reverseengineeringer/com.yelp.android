@@ -1,7 +1,6 @@
 package com.yelp.android.ui.activities.videotrim;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -22,16 +21,15 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TreeMap;
 
-@TargetApi(14)
 public class VideoTrimTimelineView
   extends View
-  implements p
+  implements b.b
 {
   private final Drawable a;
   private LocalVideo b;
   private BetterMediaPlayer c;
-  private m d;
-  private final TreeMap<Integer, l> e;
+  private b d;
+  private final TreeMap<Integer, a> e;
   private final Paint f = new Paint();
   private final NinePatchDrawable g;
   private final int h;
@@ -61,19 +59,19 @@ public class VideoTrimTimelineView
     f.setStyle(Paint.Style.FILL);
     paramContext = paramContext.getResources();
     paramAttributeSet = new Rect();
-    k = ((NinePatchDrawable)paramContext.getDrawable(2130838518));
-    j = ((NinePatchDrawable)paramContext.getDrawable(2130838519));
+    k = ((NinePatchDrawable)paramContext.getDrawable(2130838927));
+    j = ((NinePatchDrawable)paramContext.getDrawable(2130838928));
     i = j;
     j.getPadding(paramAttributeSet);
     l = left;
     m = top;
     Rect localRect = new Rect();
-    g = ((NinePatchDrawable)paramContext.getDrawable(2130838517));
+    g = ((NinePatchDrawable)paramContext.getDrawable(2130838926));
     g.getPadding(localRect);
     h = (top + top);
-    a = paramContext.getDrawable(2130838516);
+    a = paramContext.getDrawable(2130838925);
     p = VideoTrimTimelineView.TouchState.NONE;
-    d = new m(2000, this);
+    d = new b(2000, this);
     e = new TreeMap();
   }
   
@@ -105,8 +103,8 @@ public class VideoTrimTimelineView
   {
     int i2 = (int)(y - x);
     int i1 = (int)(2000.0F * v) + 1;
-    if (paramInt + 2000 > b.getDuration()) {
-      i1 = (int)((b.getDuration() - paramInt) * v);
+    if (paramInt + 2000 > b.c()) {
+      i1 = (int)((b.c() - paramInt) * v);
     }
     if (i1 <= 0) {
       return;
@@ -114,7 +112,7 @@ public class VideoTrimTimelineView
     paramBitmap = ImageInputHelper.a(paramBitmap, i1, i2, true);
     do
     {
-      e.put(Integer.valueOf(paramInt), new l(paramBitmap, paramInt * v, x, i2));
+      e.put(Integer.valueOf(paramInt), new a(paramBitmap, paramInt * v, x, i2));
       i1 = paramInt - 2000;
       if (i1 < 0) {
         break;
@@ -131,7 +129,7 @@ public class VideoTrimTimelineView
       z.cancel();
     }
     z = new Timer();
-    z.schedule(new r(this), 33L, 33L);
+    z.schedule(new VideoTrimTimelineView.1(this), 33L, 33L);
   }
   
   public void b()
@@ -160,7 +158,7 @@ public class VideoTrimTimelineView
     {
       n = 0.0F;
       q = c.getCurrentPosition();
-      if ((q > r + t + 100) || (q < r + s - 100) || (q > b.getDuration() - 100)) {
+      if ((q > r + t + 100) || (q < r + s - 100) || (q > b.c() - 100)) {
         c();
       }
       d.a(r + s + (int)(getWidth() / v));
@@ -178,16 +176,16 @@ public class VideoTrimTimelineView
         if (t > u) {
           t = u;
         }
-        if (r + t > b.getDuration()) {
-          t = (b.getDuration() - r);
+        if (r + t > b.c()) {
+          t = (b.c() - r);
         }
         d();
       }
       else if (p == VideoTrimTimelineView.TouchState.PAN)
       {
         r = ((int)(r + n));
-        if (r + t > b.getDuration()) {
-          r = (b.getDuration() - t);
+        if (r + t > b.c()) {
+          r = (b.c() - t);
         }
         if (r + s < 0) {
           r = (-s);
@@ -214,7 +212,7 @@ public class VideoTrimTimelineView
     super.onDraw(paramCanvas);
     paramCanvas.translate(-r * v + w, 0.0F);
     float f1 = x;
-    float f2 = b.getDuration();
+    float f2 = b.c();
     paramCanvas.drawRect(0.0F, f1, v * f2, y, f);
     int i1 = -2;
     while ((i1 - 2) * 2000 <= u)
@@ -223,8 +221,8 @@ public class VideoTrimTimelineView
       Object localObject = e.floorEntry(Integer.valueOf(i2 + i1 * 2000));
       if ((localObject != null) && (((Map.Entry)localObject).getValue() != null))
       {
-        localObject = (l)((Map.Entry)localObject).getValue();
-        paramCanvas.drawBitmap(((l)localObject).a(), ((l)localObject).b(), f);
+        localObject = (a)((Map.Entry)localObject).getValue();
+        paramCanvas.drawBitmap(((a)localObject).a(), ((a)localObject).b(), f);
       }
       i1 += 1;
     }
@@ -265,9 +263,9 @@ public class VideoTrimTimelineView
       while (localIterator.hasNext())
       {
         Map.Entry localEntry = (Map.Entry)localIterator.next();
-        l locall = (l)localEntry.getValue();
-        if (locall != null) {
-          locall.a(((Integer)localEntry.getKey()).intValue() * v, x, f1 - f2);
+        a locala = (a)localEntry.getValue();
+        if (locala != null) {
+          locala.a(((Integer)localEntry.getKey()).intValue() * v, x, f1 - f2);
         }
       }
       v = f3;
@@ -333,7 +331,7 @@ public class VideoTrimTimelineView
     b = paramLocalVideo;
     r = 0;
     s = 0;
-    t = Math.min(b.getDuration(), 12000);
+    t = Math.min(b.c(), 12000);
     d.a(b);
     e.clear();
   }

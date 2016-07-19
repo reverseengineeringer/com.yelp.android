@@ -1,19 +1,47 @@
 package com.yelp.android.ag;
 
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
+import android.content.Context;
+import com.bumptech.glide.load.a;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.e;
+import com.yelp.android.aa.o;
+import java.io.File;
+import java.io.InputStream;
 
 public class c
-  extends e<Drawable>
+  implements com.yelp.android.ak.b<InputStream, b>
 {
-  public c(ImageView paramImageView)
+  private final i a;
+  private final j b;
+  private final o c;
+  private final com.yelp.android.af.c<b> d;
+  
+  public c(Context paramContext, com.yelp.android.x.c paramc)
   {
-    super(paramImageView);
+    a = new i(paramContext, paramc);
+    d = new com.yelp.android.af.c(a);
+    b = new j(paramc);
+    c = new o();
   }
   
-  protected void d(Drawable paramDrawable)
+  public d<File, b> a()
   {
-    ((ImageView)a).setImageDrawable(paramDrawable);
+    return d;
+  }
+  
+  public d<InputStream, b> b()
+  {
+    return a;
+  }
+  
+  public a<InputStream> c()
+  {
+    return c;
+  }
+  
+  public e<b> d()
+  {
+    return b;
   }
 }
 

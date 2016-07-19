@@ -1,14 +1,19 @@
 package com.yelp.android.ui.activities.friendcheckins;
 
+import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -16,53 +21,85 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.BusinessContributionType;
 import com.yelp.android.appdata.webrequests.ApiRequest;
 import com.yelp.android.appdata.webrequests.CheckInRankingsRequest;
 import com.yelp.android.appdata.webrequests.CheckInRankingsRequest.SearchMode;
-import com.yelp.android.appdata.webrequests.cj;
-import com.yelp.android.appdata.webrequests.ck;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.cb;
+import com.yelp.android.appdata.webrequests.cb.a;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.ek;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.CheckIn;
+import com.yelp.android.serializable.DisplayableAsUserBadge;
+import com.yelp.android.serializable.Feedback;
+import com.yelp.android.serializable.Ranking;
+import com.yelp.android.serializable.Royal;
+import com.yelp.android.serializable.YelpCheckIn;
 import com.yelp.android.services.push.CheckInPushNotificationHandler.CheckInType;
 import com.yelp.android.services.push.Notifier;
 import com.yelp.android.services.push.Notifier.NotificationType;
+import com.yelp.android.ui.activities.ActivityContributionSearch;
 import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
+import com.yelp.android.ui.activities.leaderboard.ActivityLeaderboard;
 import com.yelp.android.ui.activities.leaderboard.ActivityLeaderboard.LeaderboardType;
 import com.yelp.android.ui.activities.leaderboard.CheckinRankAdapter;
 import com.yelp.android.ui.activities.leaderboard.CheckinRankAdapter.RankMode;
+import com.yelp.android.ui.activities.profile.ActivityUserCheckIns;
+import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.activities.support.YelpActivity;
+import com.yelp.android.ui.activities.support.b.e;
 import com.yelp.android.ui.panels.LeaderboardHeader;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.panels.PanelLoading;
 import com.yelp.android.ui.panels.TitleWithSubTitleView;
-import com.yelp.android.ui.panels.aa;
-import com.yelp.android.ui.util.bf;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bv;
+import com.yelp.android.ui.util.ab;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.b;
+import com.yelp.android.ui.util.e;
 import com.yelp.android.util.ErrorType;
 import com.yelp.android.util.StringUtils;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class NearbyCheckIns
   extends YelpActivity
-  implements AdapterView.OnItemClickListener, com.yelp.android.ui.activities.support.o, com.yelp.android.ui.p, aa
+  implements AdapterView.OnItemClickListener, b.e, com.yelp.android.ui.k, PanelError.a
 {
   int[] a;
   CheckinRankAdapter b;
-  bs c;
-  bs d;
-  p e = new n(this);
+  aj c;
+  aj d;
+  a e = new a()
+  {
+    protected void a(YelpCheckIn paramAnonymousYelpCheckIn)
+    {
+      int[] arrayOfInt = a;
+      int j = arrayOfInt.length;
+      int i = 0;
+      while (i < j)
+      {
+        int k = arrayOfInt[i];
+        ((a)d.a(k).a).b(paramAnonymousYelpCheckIn);
+        i += 1;
+      }
+    }
+  };
   private View f;
-  private cj g;
+  private cb g;
   private CheckInRankingsRequest h;
-  private q i;
+  private b i;
   private LeaderboardHeader j;
   private TitleWithSubTitleView k;
   private ActivityLeaderboard.LeaderboardType l;
   private ListView m;
-  private com.yelp.android.ui.util.h n;
+  private e n;
   private ArrayList<String> o;
   private boolean p;
   private long q;
@@ -70,32 +107,113 @@ public class NearbyCheckIns
   private int s;
   private int t;
   private boolean u;
-  private final com.yelp.android.appdata.webrequests.j<ck> v = new m(this);
-  private AdapterView.OnItemClickListener w = new o(this);
+  private final k.b<cb.a> v = new k.b()
+  {
+    public void a(Location paramAnonymousLocation)
+    {
+      Log.d("NearbyFriendsActivity", "Got location, beginning API request");
+      enableLoading(NearbyCheckIns.e(NearbyCheckIns.this));
+    }
+    
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, cb.a paramAnonymousa)
+    {
+      paramAnonymousApiRequest = (cb)paramAnonymousApiRequest;
+      NearbyCheckIns.a(NearbyCheckIns.this, System.currentTimeMillis());
+      disableLoading();
+      TextView localTextView = (TextView)findViewById(2131689773);
+      localTextView.setVisibility(8);
+      if (paramAnonymousApiRequest.A() == 0)
+      {
+        paramAnonymousa = new aj();
+        paramAnonymousa.a(2131689969, "", NearbyCheckIns.b(NearbyCheckIns.this));
+        NearbyCheckIns.c(NearbyCheckIns.this).setAdapter(paramAnonymousa);
+        localTextView.setVisibility(0);
+        localTextView.setText(2131165405);
+      }
+      for (;;)
+      {
+        a(paramAnonymousApiRequest.x(), paramAnonymousApiRequest.y(), paramAnonymousApiRequest.z());
+        if (paramAnonymousApiRequest.z() > 0) {
+          NearbyCheckIns.a(NearbyCheckIns.this, ActivityLeaderboard.LeaderboardType.FRIENDS);
+        }
+        NearbyCheckIns.a(NearbyCheckIns.this, paramAnonymousApiRequest.B());
+        a(NearbyCheckIns.d(NearbyCheckIns.this));
+        return;
+        ((a)d.a(a[0]).a).a(paramAnonymousa.a());
+        ((a)d.a(a[1]).a).a(paramAnonymousa.b());
+        ((a)d.a(a[2]).a).a(paramAnonymousa.c());
+      }
+    }
+    
+    public boolean a()
+    {
+      return true;
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      Log.d("NearbyFriendsActivity", "API error: " + paramAnonymousYelpException.getMessage(NearbyCheckIns.this));
+      populateError(ErrorType.getTypeFromException(paramAnonymousYelpException));
+    }
+  };
+  private AdapterView.OnItemClickListener w = new AdapterView.OnItemClickListener()
+  {
+    public void onItemClick(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong)
+    {
+      paramAnonymousView = paramAnonymousView.getContext();
+      paramAnonymousAdapterView = paramAnonymousAdapterView.getAdapter().getItem(paramAnonymousInt);
+      if ((paramAnonymousAdapterView instanceof Royal)) {
+        paramAnonymousView.startActivity(ActivityUserProfile.a(paramAnonymousView, ((Royal)paramAnonymousAdapterView).e()));
+      }
+      while (!(paramAnonymousAdapterView instanceof DisplayableAsUserBadge)) {
+        return;
+      }
+      paramAnonymousView.startActivity(ActivityUserProfile.a(paramAnonymousView, ((DisplayableAsUserBadge)paramAnonymousAdapterView).i()));
+    }
+  };
   
   private void a(ActivityLeaderboard.LeaderboardType paramLeaderboardType)
   {
     l = paramLeaderboardType;
-    j.setOnClickListener(new l(this));
+    j.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        startActivity(ActivityLeaderboard.a(NearbyCheckIns.this, NearbyCheckIns.a(NearbyCheckIns.this)));
+      }
+    });
   }
   
-  private ViewGroup e()
+  private ViewGroup f()
   {
-    ViewGroup localViewGroup = (ViewGroup)getLayoutInflater().inflate(2130903315, m, false);
-    f = localViewGroup.findViewById(2131493071);
-    f.setOnClickListener(new j(this));
-    j = ((LeaderboardHeader)localViewGroup.findViewById(2131493859));
+    ViewGroup localViewGroup = (ViewGroup)getLayoutInflater().inflate(2130903412, m, false);
+    f = localViewGroup.findViewById(2131689755);
+    f.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        startActivity(ActivityContributionSearch.a(NearbyCheckIns.this, BusinessContributionType.CHECK_IN));
+      }
+    });
+    j = ((LeaderboardHeader)localViewGroup.findViewById(2131690698));
     a(ActivityLeaderboard.LeaderboardType.WEEK);
-    k = ((TitleWithSubTitleView)localViewGroup.findViewById(2131493860));
-    k.setVisibility(f());
-    k.getTitle().setText(2131166136);
-    k.setOnClickListener(new k(this));
+    k = ((TitleWithSubTitleView)localViewGroup.findViewById(2131690699));
+    k.setVisibility(g());
+    k.getTitle().setText(2131166190);
+    k.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        paramAnonymousView = paramAnonymousView.getContext();
+        paramAnonymousView.startActivity(ActivityUserCheckIns.a(paramAnonymousView, null));
+      }
+    });
     return localViewGroup;
   }
   
-  private int f()
+  private int g()
   {
-    if (getAppData().m().c()) {
+    if (getAppData().q().b()) {
       return 0;
     }
     return 8;
@@ -115,7 +233,7 @@ public class NearbyCheckIns
     if ((paramArrayList != null) && (!paramArrayList.isEmpty()))
     {
       paramArrayList = StringUtils.a(this, paramArrayList, 2, 0, ", ");
-      k.getSubTitle().setText(getString(2131165998, new Object[] { paramArrayList }));
+      k.getSubTitle().setText(getString(2131166053, new Object[] { paramArrayList }));
       k.getSubTitle().setVisibility(0);
     }
   }
@@ -125,41 +243,24 @@ public class NearbyCheckIns
     populateError(ErrorType.NO_LOCATION);
   }
   
-  public void a_()
-  {
-    clearError();
-    p = false;
-    if (g != null) {
-      g.cancel(true);
-    }
-    if (h != null) {
-      h.cancel(true);
-    }
-    if (getAppData().m().e()) {
-      g = new cj(v);
-    }
-    for (Object localObject = g;; localObject = h)
-    {
-      enableLoading((ApiRequest)localObject);
-      ((com.yelp.android.appdata.webrequests.h)localObject).executeWithLocation(new Void[0]);
-      return;
-      h = CheckInRankingsRequest.a(i, CheckInRankingsRequest.SearchMode.WEEK);
-    }
-  }
-  
   protected void addStatusView(View paramView)
   {
     if ((paramView instanceof PanelLoading))
     {
-      ViewGroup localViewGroup = (ViewGroup)findViewById(2131493088);
-      paramView.setId(2131493436);
+      ViewGroup localViewGroup = (ViewGroup)findViewById(2131689772);
+      paramView.setId(2131690115);
       localViewGroup.addView(paramView);
       return;
     }
     super.addStatusView(paramView);
   }
   
-  public Pair<CheckInRankingsRequest, cj> c()
+  public void b()
+  {
+    p_();
+  }
+  
+  public Pair<CheckInRankingsRequest, cb> c()
   {
     return Pair.create(h, g);
   }
@@ -171,14 +272,14 @@ public class NearbyCheckIns
       j.setVisibility(0);
     }
     if (k != null) {
-      k.setVisibility(f());
+      k.setVisibility(g());
     }
     if (f != null) {
       f.setVisibility(0);
     }
   }
   
-  public Pair<CheckInRankingsRequest, cj> d()
+  public Pair<CheckInRankingsRequest, cb> e()
   {
     return (Pair)super.getLastCustomNonConfigurationInstance();
   }
@@ -188,22 +289,12 @@ public class NearbyCheckIns
     super.enableLoading(paramApiRequest);
     d.clear();
     c.clear();
-    findViewById(2131493089).setVisibility(8);
+    findViewById(2131689773).setVisibility(8);
   }
   
   public ViewIri getIri()
   {
     return ViewIri.CheckInsFriends;
-  }
-  
-  public void k_()
-  {
-    a_();
-  }
-  
-  public void m_()
-  {
-    a_();
   }
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
@@ -216,17 +307,20 @@ public class NearbyCheckIns
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903071);
+    setContentView(2130903079);
     u = false;
-    m = ((ListView)findViewById(2131493087));
+    m = ((ListView)findViewById(2131689771));
     m.setItemsCanFocus(true);
-    n = new i(this, new View[] { e() });
-    a = new int[] { 2131165499, 2131165501, 2131165500 };
-    d = new bs();
-    d.a(2131493313, "", n);
-    Object localObject = createPendingResult(103, new Intent("like"), 0);
-    PendingIntent localPendingIntent1 = createPendingResult(102, new Intent("comment"), 0);
-    PendingIntent localPendingIntent2 = createPendingResult(104, new Intent("view_like_comment"), 0);
+    n = new e(new View[] { f() })
+    {
+      public void clear() {}
+    };
+    a = new int[] { 2131165629, 2131165631, 2131165630 };
+    d = new aj();
+    d.a(2131689969, "", n);
+    Object localObject = createPendingResult(103, new Intent("like", null, this, CommentOnCheckIn.class), 0);
+    PendingIntent localPendingIntent1 = createPendingResult(102, new Intent("comment", null, this, CommentOnCheckIn.class), 0);
+    PendingIntent localPendingIntent2 = createPendingResult(104, new Intent("view_like_comment", null, this, NearbyCheckIns.class), 0);
     int[] arrayOfInt = a;
     int i2 = arrayOfInt.length;
     int i1 = 0;
@@ -234,7 +328,7 @@ public class NearbyCheckIns
     if (i1 < i2)
     {
       i3 = arrayOfInt[i1];
-      if (i3 == 2131165500) {}
+      if (i3 == 2131165630) {}
       for (boolean bool = true;; bool = false)
       {
         a locala = new a(bool, false);
@@ -246,10 +340,10 @@ public class NearbyCheckIns
         break;
       }
     }
-    c = new bs();
-    c.a(2131493313, "", n);
+    c = new aj();
+    c.a(2131689969, "", n);
     b = new CheckinRankAdapter(this, CheckinRankAdapter.RankMode.WEEK);
-    c.a(2131493873, "", b);
+    c.a(2131690710, "", b);
     r = -1;
     s = -1;
     t = -1;
@@ -272,11 +366,11 @@ public class NearbyCheckIns
       a(o);
       a(ActivityLeaderboard.LeaderboardType.values()[paramBundle.getInt("rank_target", 0)]);
     }
-    paramBundle = d();
+    paramBundle = e();
     if (paramBundle != null)
     {
       h = ((CheckInRankingsRequest)first);
-      g = ((cj)second);
+      g = ((cb)second);
     }
   }
   
@@ -290,9 +384,9 @@ public class NearbyCheckIns
       localObject = ((AdapterView)paramView).getAdapter().getItem(i1);
     } while (!(localObject instanceof CheckIn));
     Object localObject = (CheckIn)localObject;
-    paramContextMenu.setHeaderIcon(2130837624);
-    paramContextMenu.setHeaderTitle(getString(2131165485, new Object[] { ((CheckIn)localObject).getUserName() }));
-    bf.a(this, paramContextMenu, (CheckIn)localObject);
+    paramContextMenu.setHeaderIcon(2130837646);
+    paramContextMenu.setHeaderTitle(getString(2131165612, new Object[] { ((CheckIn)localObject).a() }));
+    ab.a(this, paramContextMenu, (CheckIn)localObject);
     super.onCreateContextMenu(paramContextMenu, paramView, paramContextMenuInfo);
   }
   
@@ -300,7 +394,7 @@ public class NearbyCheckIns
   {
     paramAdapterView = paramAdapterView.getItemAtPosition(paramInt);
     if ((paramAdapterView instanceof CheckIn)) {
-      startActivity(ActivityBusinessPage.b(this, ((CheckIn)paramAdapterView).getBusiness()));
+      startActivity(ActivityBusinessPage.b(this, ((CheckIn)paramAdapterView).d()));
     }
   }
   
@@ -311,11 +405,11 @@ public class NearbyCheckIns
     d.clear();
     c.clear();
     if (h != null) {
-      h.cancel(true);
+      h.a(true);
     }
     h = null;
     if (g != null) {
-      g.cancel(true);
+      g.a(true);
     }
     g = null;
     u = false;
@@ -325,7 +419,7 @@ public class NearbyCheckIns
   {
     super.onResume();
     Notifier.a(this, Notifier.NotificationType.Checkin, Integer.valueOf(CheckInPushNotificationHandler.CheckInType.getIdForCheckInFriends()));
-    if (getAppData().m().e())
+    if (getAppData().q().d())
     {
       if (!u)
       {
@@ -338,11 +432,11 @@ public class NearbyCheckIns
           j.getSubTitle().setVisibility(0);
         }
         if (g != null) {
-          g.setCallback(v);
+          g.a(v);
         }
       }
       if (g == null) {
-        a_();
+        p_();
       }
     }
     do
@@ -352,41 +446,41 @@ public class NearbyCheckIns
         do
         {
           return;
-          if (g.isFetching())
+          if (g.u())
           {
             enableLoading(g);
             return;
           }
-          if (g.isWaitingForLocation())
+          if (g.d())
           {
-            enableLoading(g, 2131165825);
+            enableLoading(g, 2131165907);
             return;
           }
         } while ((c != null) && (c.getCount() != 0));
-        a_();
+        p_();
         return;
         u = false;
         unregisterForContextMenu(m);
         j.getSubTitle().setVisibility(8);
-        i = new q(this, b);
+        i = new b(b);
         m.setOnItemClickListener(w);
         m.setAdapter(c);
         if (h != null) {
-          h.setCallback(i);
+          h.a(i);
         }
         if (g == null) {
           break;
         }
-        if (g.isFetching())
+        if (g.u())
         {
           enableLoading(g);
           return;
         }
-      } while (!g.isWaitingForLocation());
-      enableLoading(g, 2131165825);
+      } while (!g.d());
+      enableLoading(g, 2131165907);
       return;
     } while (((!d.a(a)) || (p)) && (System.currentTimeMillis() - q <= TimeUnit.MILLISECONDS.convert(600L, TimeUnit.SECONDS)));
-    a_();
+    p_();
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)
@@ -411,6 +505,28 @@ public class NearbyCheckIns
     paramBundle.putStringArrayList("recent_locations", o);
   }
   
+  public void p_()
+  {
+    clearError();
+    p = false;
+    if (g != null) {
+      g.a(true);
+    }
+    if (h != null) {
+      h.a(true);
+    }
+    if (getAppData().q().d()) {
+      g = new cb(v);
+    }
+    for (Object localObject = g;; localObject = h)
+    {
+      enableLoading((ApiRequest)localObject);
+      ((com.yelp.android.appdata.webrequests.k)localObject).a(new Void[0]);
+      return;
+      h = CheckInRankingsRequest.a(i, CheckInRankingsRequest.SearchMode.WEEK);
+    }
+  }
+  
   public void populateError(ErrorType paramErrorType)
   {
     super.populateError(paramErrorType);
@@ -424,6 +540,126 @@ public class NearbyCheckIns
     }
     if (f != null) {
       f.setVisibility(8);
+    }
+  }
+  
+  public void q_()
+  {
+    p_();
+  }
+  
+  public static abstract class a
+  {
+    protected abstract void a(YelpCheckIn paramYelpCheckIn);
+    
+    public boolean a(Activity paramActivity, int paramInt1, int paramInt2, Intent paramIntent)
+    {
+      boolean bool2 = false;
+      YelpCheckIn localYelpCheckIn = null;
+      switch (paramInt1)
+      {
+      default: 
+        return false;
+      case 102: 
+        if (paramInt2 == -1)
+        {
+          localYelpCheckIn = (YelpCheckIn)paramIntent.getParcelableExtra("extra.data");
+          AppData.a(EventIri.CheckInComment);
+          paramActivity.startActivityForResult(CommentOnCheckIn.a(paramActivity, localYelpCheckIn, true), 101);
+        }
+        break;
+      }
+      for (;;)
+      {
+        if (localYelpCheckIn != null) {
+          a(localYelpCheckIn);
+        }
+        return true;
+        if (paramInt2 == -1)
+        {
+          localYelpCheckIn = (YelpCheckIn)paramIntent.getParcelableExtra("extra.data");
+          paramActivity = localYelpCheckIn.z();
+          boolean bool1;
+          if (!localYelpCheckIn.n().c())
+          {
+            bool1 = true;
+            label124:
+            if (!bool1) {
+              break label234;
+            }
+            localYelpCheckIn.n().a();
+          }
+          for (;;)
+          {
+            paramIntent = new HashMap();
+            paramIntent.put("business_id", localYelpCheckIn.k());
+            paramIntent.put("check_in_id", paramActivity);
+            paramIntent.put("is_positive", Boolean.valueOf(bool1));
+            paramIntent.put("source", "friends_check_ins");
+            AppData.a(EventIri.CheckInFeedback, paramIntent);
+            new ek(paramActivity, bool1).f(new Void[0]);
+            break;
+            bool1 = false;
+            break label124;
+            label234:
+            localYelpCheckIn.n().b();
+          }
+          if (paramInt2 == -1)
+          {
+            localYelpCheckIn = (YelpCheckIn)paramIntent.getParcelableExtra("extra.data");
+            AppData.a(EventIri.CheckInCommentBubble);
+            paramInt1 = localYelpCheckIn.n().d();
+            bool1 = bool2;
+            if (localYelpCheckIn.u() == 0)
+            {
+              bool1 = bool2;
+              if (paramInt1 == 0) {
+                bool1 = true;
+              }
+            }
+            paramActivity.startActivityForResult(CommentOnCheckIn.a(paramActivity, localYelpCheckIn, bool1), 101);
+            continue;
+            if (paramInt2 == -1) {
+              localYelpCheckIn = CommentOnCheckIn.a(paramIntent);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  private class b
+    extends k.b<ArrayList<Ranking>>
+  {
+    private final CheckinRankAdapter b;
+    
+    public b(CheckinRankAdapter paramCheckinRankAdapter)
+    {
+      b = paramCheckinRankAdapter;
+    }
+    
+    public void a(Location paramLocation)
+    {
+      super.a(paramLocation);
+      enableLoading(NearbyCheckIns.f(NearbyCheckIns.this));
+    }
+    
+    public void a(ApiRequest<?, ?, ?> paramApiRequest, ArrayList<Ranking> paramArrayList)
+    {
+      b.a(paramArrayList);
+      disableLoading();
+    }
+    
+    public boolean a()
+    {
+      onProvidersRequired(NearbyCheckIns.this, false, 0);
+      return false;
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+    {
+      disableLoading();
+      populateError(ErrorType.getTypeFromException(paramYelpException));
     }
   }
 }

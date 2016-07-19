@@ -1,13 +1,10 @@
 package com.google.android.gms.internal;
 
-import android.os.IBinder;
-import android.os.IInterface;
-import com.google.android.gms.dynamic.d;
-
 public abstract interface ep
-  extends IInterface
 {
-  public abstract IBinder c(d paramd);
+  public abstract void B();
+  
+  public abstract void a(int paramInt1, int paramInt2, int paramInt3, int paramInt4);
 }
 
 /* Location:

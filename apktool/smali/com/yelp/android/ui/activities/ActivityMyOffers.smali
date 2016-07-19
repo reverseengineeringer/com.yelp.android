@@ -3,25 +3,31 @@
 .source "ActivityMyOffers.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
-.implements Lcom/yelp/android/ui/p;
+.implements Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+.implements Lcom/yelp/android/ui/k;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/ActivityMyOffers$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/android/ui/util/YelpListActivity;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
         "<",
-        "Lcom/yelp/android/appdata/webrequests/dz;",
+        "Lcom/yelp/android/appdata/webrequests/db$a;",
         ">;",
-        "Lcom/yelp/android/ui/p;"
+        "Lcom/yelp/android/ui/k;"
     }
 .end annotation
 
 
 # instance fields
-.field private a:Lcom/yelp/android/ui/activities/db;
+.field private a:Lcom/yelp/android/ui/activities/ActivityMyOffers$a;
 
 .field private b:I
 
@@ -36,7 +42,7 @@
     .end annotation
 .end field
 
-.field private d:Lcom/yelp/android/appdata/webrequests/dy;
+.field private d:Lcom/yelp/android/appdata/webrequests/db;
 
 .field private final e:Landroid/content/BroadcastReceiver;
 
@@ -49,14 +55,14 @@
     .line 33
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
-    .line 148
-    new-instance v0, Lcom/yelp/android/ui/activities/da;
+    .line 150
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityMyOffers$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/da;-><init>(Lcom/yelp/android/ui/activities/ActivityMyOffers;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers$1;-><init>(Lcom/yelp/android/ui/activities/ActivityMyOffers;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->e:Landroid/content/BroadcastReceiver;
 
-    .line 161
+    .line 166
     return-void
 .end method
 
@@ -90,7 +96,7 @@
     .locals 3
 
     .prologue
-    .line 138
+    .line 139
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -99,79 +105,79 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Offer;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Offer;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Offer;->h()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-static {p0, v0}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->b(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 140
+    .line 142
     const-string/jumbo v1, "show_offer_on_biz_page_launch"
 
     const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 141
+    .line 143
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->startActivity(Landroid/content/Intent;)V
 
-    .line 142
+    .line 144
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/dz;)V
+.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/db$a;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
             "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/dz;",
+            "Lcom/yelp/android/appdata/webrequests/db$a;",
             ")V"
         }
     .end annotation
 
     .prologue
-    .line 112
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dz;->a()Ljava/util/List;
+    .line 113
+    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/db$a;->a()Ljava/util/List;
 
     move-result-object v0
 
-    .line 113
+    .line 114
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d(I)V
 
-    .line 114
+    .line 115
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->disableLoading()V
 
-    .line 115
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dz;->b()I
+    .line 116
+    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/db$a;->b()I
 
     move-result v1
 
     iput v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->b:I
 
-    .line 116
+    .line 117
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    .line 117
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/db;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/db;->notifyDataSetChanged()V
-
     .line 118
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->r()I
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/ActivityMyOffers$a;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityMyOffers$a;->notifyDataSetChanged()V
+
+    .line 119
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->s()I
 
     move-result v0
 
@@ -179,14 +185,14 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 119
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 120
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 121
+    .line 122
     :cond_0
     return-void
 .end method
@@ -195,7 +201,7 @@
     .locals 3
 
     .prologue
-    .line 124
+    .line 125
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -215,8 +221,8 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Offer;
 
-    .line 125
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Offer;->getId()Ljava/lang/String;
+    .line 126
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Offer;->i()Ljava/lang/String;
 
     move-result-object v2
 
@@ -226,18 +232,18 @@
 
     if-eqz v2, :cond_0
 
-    .line 126
+    .line 127
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 127
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/db;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/db;->notifyDataSetChanged()V
-
     .line 128
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->r()I
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/ActivityMyOffers$a;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityMyOffers$a;->notifyDataSetChanged()V
+
+    .line 129
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->s()I
 
     move-result v0
 
@@ -245,108 +251,108 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c(I)V
 
-    .line 132
+    .line 133
     :cond_1
     return-void
 .end method
 
-.method public c()Lcom/yelp/android/appdata/webrequests/dy;
+.method public b()Lcom/yelp/android/appdata/webrequests/db;
     .locals 1
 
     .prologue
-    .line 78
+    .line 79
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->getLastCustomNonConfigurationInstance()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/dy;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/db;
 
     return-object v0
 .end method
 
-.method public c_()Lcom/yelp/android/appdata/webrequests/dy;
-    .locals 1
-
-    .prologue
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
-
-    return-object v0
-.end method
-
-.method protected d()V
+.method protected c()V
     .locals 4
 
     .prologue
     const/4 v3, 0x0
 
-    .line 100
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    .line 101
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dy;->isCompleted()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/db;->v()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 108
+    .line 109
     :cond_0
     :goto_0
     return-void
 
-    .line 103
+    .line 104
     :cond_1
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/dy;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/db;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->r()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->s()I
 
     move-result v1
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->e_()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->s_()I
 
     move-result v2
 
-    invoke-direct {v0, v1, v2, v3, p0}, Lcom/yelp/android/appdata/webrequests/dy;-><init>(IIZLcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, v1, v2, v3, p0}, Lcom/yelp/android/appdata/webrequests/db;-><init>(IIZLcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
-    .line 104
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    .line 105
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
     new-array v1, v3, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dy;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/db;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 105
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->r()I
+    .line 106
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->s()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 106
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    .line 107
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->enableLoading(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
     goto :goto_0
 .end method
 
+.method public d()Lcom/yelp/android/appdata/webrequests/db;
+    .locals 1
+
+    .prologue
+    .line 96
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
+
+    return-object v0
+.end method
+
 .method public getIri()Lcom/yelp/android/analytics/iris/ViewIri;
     .locals 1
 
     .prologue
-    .line 199
+    .line 208
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->CheckInOfferListView:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -363,7 +369,7 @@
 
     .prologue
     .line 33
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c()Lcom/yelp/android/appdata/webrequests/dy;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->b()Lcom/yelp/android/appdata/webrequests/db;
 
     move-result-object v0
 
@@ -422,7 +428,7 @@
     if-gt v0, v1, :cond_0
 
     .line 56
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -431,53 +437,53 @@
     .line 61
     :cond_0
     :goto_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c()Lcom/yelp/android/appdata/webrequests/dy;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->b()Lcom/yelp/android/appdata/webrequests/db;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
     .line 62
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
     if-eqz v0, :cond_1
 
     .line 63
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/dy;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d:Lcom/yelp/android/appdata/webrequests/db;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/webrequests/dy;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/webrequests/db;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 65
+    .line 66
     :cond_1
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    .line 66
-    new-instance v1, Lcom/yelp/android/ui/activities/db;
+    .line 67
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityMyOffers$a;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c:Ljava/util/ArrayList;
 
-    invoke-direct {v1, v2, p0}, Lcom/yelp/android/ui/activities/db;-><init>(Ljava/util/List;Landroid/content/Context;)V
+    invoke-direct {v1, v2, p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers$a;-><init>(Ljava/util/List;Landroid/content/Context;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/db;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/ActivityMyOffers$a;
 
-    .line 68
-    const v1, 0x7f0706ca
+    .line 69
+    const v1, 0x7f07069a
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->setTitle(I)V
 
-    .line 70
+    .line 71
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setDividerHeight(I)V
 
-    .line 71
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/db;
+    .line 72
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a:Lcom/yelp/android/ui/activities/ActivityMyOffers$a;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 72
+    .line 73
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->e:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Landroid/content/IntentFilter;
@@ -488,7 +494,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 74
+    .line 75
     return-void
 
     .line 59
@@ -508,15 +514,15 @@
     .locals 1
 
     .prologue
-    .line 83
+    .line 84
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->onDestroy()V
 
-    .line 84
+    .line 85
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->e:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 85
+    .line 86
     return-void
 .end method
 
@@ -525,7 +531,7 @@
 
     .prologue
     .line 33
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c_()Lcom/yelp/android/appdata/webrequests/dy;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->d()Lcom/yelp/android/appdata/webrequests/db;
 
     move-result-object v0
 
@@ -536,21 +542,21 @@
     .locals 2
 
     .prologue
-    .line 89
+    .line 90
     const-string/jumbo v0, "offers"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->c:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 90
+    .line 91
     const-string/jumbo v0, "total"
 
     iget v1, p0, Lcom/yelp/android/ui/activities/ActivityMyOffers;->b:I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 91
+    .line 92
     return-void
 .end method
 
@@ -559,9 +565,9 @@
 
     .prologue
     .line 33
-    check-cast p2, Lcom/yelp/android/appdata/webrequests/dz;
+    check-cast p2, Lcom/yelp/android/appdata/webrequests/db$a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/dz;)V
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/ActivityMyOffers;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/db$a;)V
 
     return-void
 .end method

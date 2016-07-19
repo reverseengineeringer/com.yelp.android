@@ -1,121 +1,142 @@
-.class public final Lcom/yelp/android/g/d;
-.super Ljava/lang/Object;
-.source "R.java"
+.class public Lcom/yelp/android/g/d;
+.super Ljava/io/Writer;
+.source "LogWriter.java"
 
 
-# static fields
-.field public static final abc_background_cache_hint_selector_material_dark:I = 0x7f0a0103
+# instance fields
+.field private final a:Ljava/lang/String;
 
-.field public static final abc_background_cache_hint_selector_material_light:I = 0x7f0a0104
+.field private b:Ljava/lang/StringBuilder;
 
-.field public static final abc_input_method_navigation_guard:I = 0x7f0a0000
 
-.field public static final abc_primary_text_disable_only_material_dark:I = 0x7f0a0105
+# direct methods
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 2
 
-.field public static final abc_primary_text_disable_only_material_light:I = 0x7f0a0106
+    .prologue
+    .line 39
+    invoke-direct {p0}, Ljava/io/Writer;-><init>()V
 
-.field public static final abc_primary_text_material_dark:I = 0x7f0a0107
+    .line 31
+    new-instance v0, Ljava/lang/StringBuilder;
 
-.field public static final abc_primary_text_material_light:I = 0x7f0a0108
+    const/16 v1, 0x80
 
-.field public static final abc_search_url_text:I = 0x7f0a0109
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-.field public static final abc_search_url_text_normal:I = 0x7f0a0001
+    iput-object v0, p0, Lcom/yelp/android/g/d;->b:Ljava/lang/StringBuilder;
 
-.field public static final abc_search_url_text_pressed:I = 0x7f0a0002
+    .line 40
+    iput-object p1, p0, Lcom/yelp/android/g/d;->a:Ljava/lang/String;
 
-.field public static final abc_search_url_text_selected:I = 0x7f0a0003
+    .line 41
+    return-void
+.end method
 
-.field public static final abc_secondary_text_material_dark:I = 0x7f0a010a
+.method private a()V
+    .locals 3
 
-.field public static final abc_secondary_text_material_light:I = 0x7f0a010b
+    .prologue
+    .line 64
+    iget-object v0, p0, Lcom/yelp/android/g/d;->b:Ljava/lang/StringBuilder;
 
-.field public static final accent_material_dark:I = 0x7f0a0004
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
-.field public static final accent_material_light:I = 0x7f0a0005
+    move-result v0
 
-.field public static final background_floating_material_dark:I = 0x7f0a0006
+    if-lez v0, :cond_0
 
-.field public static final background_floating_material_light:I = 0x7f0a0007
+    .line 65
+    iget-object v0, p0, Lcom/yelp/android/g/d;->a:Ljava/lang/String;
 
-.field public static final background_material_dark:I = 0x7f0a0008
+    iget-object v1, p0, Lcom/yelp/android/g/d;->b:Ljava/lang/StringBuilder;
 
-.field public static final background_material_light:I = 0x7f0a0009
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-.field public static final bright_foreground_disabled_material_dark:I = 0x7f0a002e
+    move-result-object v1
 
-.field public static final bright_foreground_disabled_material_light:I = 0x7f0a002f
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-.field public static final bright_foreground_inverse_material_dark:I = 0x7f0a0030
+    .line 66
+    iget-object v0, p0, Lcom/yelp/android/g/d;->b:Ljava/lang/StringBuilder;
 
-.field public static final bright_foreground_inverse_material_light:I = 0x7f0a0031
+    const/4 v1, 0x0
 
-.field public static final bright_foreground_material_dark:I = 0x7f0a0032
+    iget-object v2, p0, Lcom/yelp/android/g/d;->b:Ljava/lang/StringBuilder;
 
-.field public static final bright_foreground_material_light:I = 0x7f0a0033
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->length()I
 
-.field public static final button_material_dark:I = 0x7f0a0034
+    move-result v2
 
-.field public static final button_material_light:I = 0x7f0a0035
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
 
-.field public static final dim_foreground_disabled_material_dark:I = 0x7f0a004c
+    .line 68
+    :cond_0
+    return-void
+.end method
 
-.field public static final dim_foreground_disabled_material_light:I = 0x7f0a004d
 
-.field public static final dim_foreground_material_dark:I = 0x7f0a004e
+# virtual methods
+.method public close()V
+    .locals 0
 
-.field public static final dim_foreground_material_light:I = 0x7f0a004f
+    .prologue
+    .line 44
+    invoke-direct {p0}, Lcom/yelp/android/g/d;->a()V
 
-.field public static final highlighted_text_material_dark:I = 0x7f0a008e
+    .line 45
+    return-void
+.end method
 
-.field public static final highlighted_text_material_light:I = 0x7f0a008f
+.method public flush()V
+    .locals 0
 
-.field public static final hint_foreground_material_dark:I = 0x7f0a0092
+    .prologue
+    .line 48
+    invoke-direct {p0}, Lcom/yelp/android/g/d;->a()V
 
-.field public static final hint_foreground_material_light:I = 0x7f0a0093
+    .line 49
+    return-void
+.end method
 
-.field public static final link_text_material_dark:I = 0x7f0a0094
+.method public write([CII)V
+    .locals 3
 
-.field public static final link_text_material_light:I = 0x7f0a0095
+    .prologue
+    .line 52
+    const/4 v0, 0x0
 
-.field public static final material_blue_grey_800:I = 0x7f0a0097
+    :goto_0
+    if-ge v0, p3, :cond_1
 
-.field public static final material_blue_grey_900:I = 0x7f0a0098
+    .line 53
+    add-int v1, p2, v0
 
-.field public static final material_blue_grey_950:I = 0x7f0a0099
+    aget-char v1, p1, v1
 
-.field public static final material_deep_teal_200:I = 0x7f0a009a
+    .line 54
+    const/16 v2, 0xa
 
-.field public static final material_deep_teal_500:I = 0x7f0a009b
+    if-ne v1, v2, :cond_0
 
-.field public static final primary_dark_material_dark:I = 0x7f0a00a7
+    .line 55
+    invoke-direct {p0}, Lcom/yelp/android/g/d;->a()V
 
-.field public static final primary_dark_material_light:I = 0x7f0a00a8
+    .line 52
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
 
-.field public static final primary_material_dark:I = 0x7f0a00a9
+    goto :goto_0
 
-.field public static final primary_material_light:I = 0x7f0a00aa
+    .line 58
+    :cond_0
+    iget-object v2, p0, Lcom/yelp/android/g/d;->b:Ljava/lang/StringBuilder;
 
-.field public static final primary_text_default_material_dark:I = 0x7f0a00ab
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-.field public static final primary_text_default_material_light:I = 0x7f0a00ac
+    goto :goto_1
 
-.field public static final primary_text_disabled_material_dark:I = 0x7f0a00ad
-
-.field public static final primary_text_disabled_material_light:I = 0x7f0a00ae
-
-.field public static final ripple_material_dark:I = 0x7f0a00cc
-
-.field public static final ripple_material_light:I = 0x7f0a00cd
-
-.field public static final secondary_text_default_material_dark:I = 0x7f0a00ce
-
-.field public static final secondary_text_default_material_light:I = 0x7f0a00cf
-
-.field public static final secondary_text_disabled_material_dark:I = 0x7f0a00d0
-
-.field public static final secondary_text_disabled_material_light:I = 0x7f0a00d1
-
-.field public static final switch_thumb_normal_material_dark:I = 0x7f0a00d4
-
-.field public static final switch_thumb_normal_material_light:I = 0x7f0a00d5
+    .line 61
+    :cond_1
+    return-void
+.end method

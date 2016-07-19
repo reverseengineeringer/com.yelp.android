@@ -2,25 +2,28 @@ package com.kahuna.sdk;
 
 import android.util.Log;
 
-final class k
+public class k
   implements Runnable
 {
-  k(String paramString, boolean paramBoolean, int paramInt1, int paramInt2) {}
+  private final Runnable a;
+  
+  public k(Runnable paramRunnable)
+  {
+    a = paramRunnable;
+  }
   
   public void run()
   {
     try
     {
-      c localc = new c(a);
-      if (b) {
-        localc.a(c, d);
-      }
-      h.a(h.a(), localc.a());
+      a.run();
       return;
     }
-    catch (Exception localException)
+    catch (RuntimeException localRuntimeException)
     {
-      Log.d("KahunaAnalytics", "Handled exception in KahunaAnalytics.trackEvent(): " + localException);
+      while (!l.a) {}
+      Log.w("Kahuna", "Exception while running background task: " + localRuntimeException);
+      localRuntimeException.printStackTrace();
     }
   }
 }

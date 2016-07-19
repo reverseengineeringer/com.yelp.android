@@ -1,32 +1,29 @@
-.class public interface abstract Landroid/support/v4/view/m;
+.class Landroid/support/v4/view/m;
 .super Ljava/lang/Object;
-.source "AccessibilityDelegateCompatJellyBean.java"
+.source "LayoutInflaterCompatLollipop.java"
 
 
-# virtual methods
-.method public abstract a(Landroid/view/View;)Ljava/lang/Object;
-.end method
+# direct methods
+.method static a(Landroid/view/LayoutInflater;Landroid/support/v4/view/n;)V
+    .locals 1
 
-.method public abstract a(Landroid/view/View;I)V
-.end method
+    .prologue
+    .line 24
+    if-eqz p1, :cond_0
 
-.method public abstract a(Landroid/view/View;Ljava/lang/Object;)V
-.end method
+    new-instance v0, Landroid/support/v4/view/l$a;
 
-.method public abstract a(Landroid/view/View;ILandroid/os/Bundle;)Z
-.end method
+    invoke-direct {v0, p1}, Landroid/support/v4/view/l$a;-><init>(Landroid/support/v4/view/n;)V
 
-.method public abstract a(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-.end method
+    :goto_0
+    invoke-virtual {p0, v0}, Landroid/view/LayoutInflater;->setFactory2(Landroid/view/LayoutInflater$Factory2;)V
 
-.method public abstract a(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-.end method
+    .line 26
+    return-void
 
-.method public abstract b(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-.end method
+    .line 24
+    :cond_0
+    const/4 v0, 0x0
 
-.method public abstract c(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-.end method
-
-.method public abstract d(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
+    goto :goto_0
 .end method

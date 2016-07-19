@@ -1,56 +1,162 @@
 .class Lcom/bumptech/glide/load/engine/h;
-.super Ljava/lang/ref/WeakReference;
-.source "Engine.java"
+.super Ljava/lang/Object;
+.source "OriginalKey.java"
 
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/ref/WeakReference",
-        "<",
-        "Lcom/bumptech/glide/load/engine/p",
-        "<*>;>;"
-    }
-.end annotation
+# interfaces
+.implements Lcom/bumptech/glide/load/b;
 
 
 # instance fields
-.field private final a:Lcom/bumptech/glide/load/b;
+.field private final a:Ljava/lang/String;
+
+.field private final b:Lcom/bumptech/glide/load/b;
 
 
 # direct methods
-.method public constructor <init>(Lcom/bumptech/glide/load/b;Lcom/bumptech/glide/load/engine/p;Ljava/lang/ref/ReferenceQueue;)V
+.method public constructor <init>(Ljava/lang/String;Lcom/bumptech/glide/load/b;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
+
+    .prologue
+    .line 16
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 17
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/h;->a:Ljava/lang/String;
+
+    .line 18
+    iput-object p2, p0, Lcom/bumptech/glide/load/engine/h;->b:Lcom/bumptech/glide/load/b;
+
+    .line 19
+    return-void
+.end method
+
+
+# virtual methods
+.method public a(Ljava/security/MessageDigest;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Lcom/bumptech/glide/load/b;",
-            "Lcom/bumptech/glide/load/engine/p",
-            "<*>;",
-            "Ljava/lang/ref/ReferenceQueue",
-            "<-",
-            "Lcom/bumptech/glide/load/engine/p",
-            "<*>;>;)V"
+            Ljava/io/UnsupportedEncodingException;
         }
     .end annotation
 
     .prologue
-    .line 267
-    invoke-direct {p0, p2, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
+    .line 51
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/h;->a:Ljava/lang/String;
 
-    .line 268
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/h;->a:Lcom/bumptech/glide/load/b;
+    const-string/jumbo v1, "UTF-8"
 
-    .line 269
+    invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/security/MessageDigest;->update([B)V
+
+    .line 52
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/h;->b:Lcom/bumptech/glide/load/b;
+
+    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/b;->a(Ljava/security/MessageDigest;)V
+
+    .line 53
     return-void
 .end method
 
-.method static synthetic a(Lcom/bumptech/glide/load/engine/h;)Lcom/bumptech/glide/load/b;
-    .locals 1
+.method public equals(Ljava/lang/Object;)Z
+    .locals 4
 
     .prologue
-    .line 263
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/h;->a:Lcom/bumptech/glide/load/b;
+    const/4 v0, 0x1
 
-    return-object v0
+    const/4 v1, 0x0
+
+    .line 23
+    if-ne p0, p1, :cond_1
+
+    .line 39
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 26
+    :cond_1
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v3
+
+    if-eq v2, v3, :cond_3
+
+    :cond_2
+    move v0, v1
+
+    .line 27
+    goto :goto_0
+
+    .line 30
+    :cond_3
+    check-cast p1, Lcom/bumptech/glide/load/engine/h;
+
+    .line 32
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/h;->a:Ljava/lang/String;
+
+    iget-object v3, p1, Lcom/bumptech/glide/load/engine/h;->a:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    move v0, v1
+
+    .line 33
+    goto :goto_0
+
+    .line 35
+    :cond_4
+    iget-object v2, p0, Lcom/bumptech/glide/load/engine/h;->b:Lcom/bumptech/glide/load/b;
+
+    iget-object v3, p1, Lcom/bumptech/glide/load/engine/h;->b:Lcom/bumptech/glide/load/b;
+
+    invoke-interface {v2, v3}, Lcom/bumptech/glide/load/b;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    move v0, v1
+
+    .line 36
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 44
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/h;->a:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
+
+    .line 45
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-object v1, p0, Lcom/bumptech/glide/load/engine/h;->b:Lcom/bumptech/glide/load/b;
+
+    invoke-interface {v1}, Lcom/bumptech/glide/load/b;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    .line 46
+    return v0
 .end method

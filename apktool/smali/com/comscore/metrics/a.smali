@@ -11,7 +11,7 @@
 
 .field protected c:Ljava/net/Proxy;
 
-.field private d:Lcom/yelp/android/al/b;
+.field private d:Lcom/yelp/android/ar/b;
 
 .field private e:Lcom/comscore/analytics/a;
 
@@ -46,7 +46,7 @@
     goto :goto_0
 .end method
 
-.method public constructor <init>(Lcom/comscore/analytics/a;Lcom/yelp/android/al/b;)V
+.method public constructor <init>(Lcom/comscore/analytics/a;Lcom/yelp/android/ar/b;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 
     iput-object v0, p0, Lcom/comscore/metrics/a;->f:Lcom/comscore/utils/m;
 
-    iput-object p2, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/al/b;
+    iput-object p2, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/ar/b;
 
     invoke-virtual {p0}, Lcom/comscore/metrics/a;->a()Ljava/net/URL;
 
@@ -197,7 +197,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/al/b;
+    iget-object v1, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/ar/b;
 
     iget-object v2, p0, Lcom/comscore/metrics/a;->e:Lcom/comscore/analytics/a;
 
@@ -205,7 +205,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/yelp/android/al/b;->a([Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ar/b;->a([Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -225,9 +225,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/al/b;
+    iget-object v1, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/ar/b;
 
-    invoke-virtual {v0, v1}, Lcom/comscore/utils/j;->a(Lcom/yelp/android/al/b;)V
+    invoke-virtual {v0, v1}, Lcom/comscore/utils/j;->a(Lcom/yelp/android/ar/b;)V
 
     return-void
 .end method
@@ -271,9 +271,9 @@
 .method public a()Ljava/net/URL;
     .locals 1
 
-    iget-object v0, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/al/b;
+    iget-object v0, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/ar/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/al/b;->c()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/ar/b;->c()Ljava/lang/String;
 
     move-result-object v0
 
@@ -293,7 +293,7 @@
 
     invoke-virtual {p0}, Lcom/comscore/metrics/a;->d()Ljava/lang/Boolean;
 
-    iget-object v0, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/al/b;
+    iget-object v0, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/ar/b;
 
     iget-object v1, p0, Lcom/comscore/metrics/a;->e:Lcom/comscore/analytics/a;
 
@@ -301,7 +301,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/al/b;->a([Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ar/b;->a([Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -996,11 +996,11 @@
     const-string/jumbo v0, "emu"
 
     :goto_0
-    iget-object v3, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/al/b;
+    iget-object v3, p0, Lcom/comscore/metrics/a;->d:Lcom/yelp/android/ar/b;
 
     const-string/jumbo v4, "ns_radio"
 
-    invoke-virtual {v3, v4, v0}, Lcom/yelp/android/al/b;->a(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v3, v4, v0}, Lcom/yelp/android/ar/b;->a(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 

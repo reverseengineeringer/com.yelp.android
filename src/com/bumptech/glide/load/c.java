@@ -1,6 +1,6 @@
 package com.bumptech.glide.load;
 
-import com.bumptech.glide.load.engine.t;
+import com.bumptech.glide.load.engine.i;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
@@ -20,18 +20,18 @@ public class c<T>
     a = Arrays.asList(paramVarArgs);
   }
   
-  public t<T> a(t<T> paramt, int paramInt1, int paramInt2)
+  public i<T> a(i<T> parami, int paramInt1, int paramInt2)
   {
     Iterator localIterator = a.iterator();
-    t localt;
-    for (Object localObject = paramt; localIterator.hasNext(); localObject = localt)
+    i locali;
+    for (Object localObject = parami; localIterator.hasNext(); localObject = locali)
     {
-      localt = ((f)localIterator.next()).a((t)localObject, paramInt1, paramInt2);
-      if ((localObject != null) && (!localObject.equals(paramt)) && (!localObject.equals(localt))) {
-        ((t)localObject).d();
+      locali = ((f)localIterator.next()).a((i)localObject, paramInt1, paramInt2);
+      if ((localObject != null) && (!localObject.equals(parami)) && (!localObject.equals(locali))) {
+        ((i)localObject).d();
       }
     }
-    return (t<T>)localObject;
+    return (i<T>)localObject;
   }
   
   public String a()

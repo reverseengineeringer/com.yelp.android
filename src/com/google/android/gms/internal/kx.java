@@ -1,57 +1,82 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.google.android.gms.measurement.f;
+import java.util.HashMap;
+import java.util.Map;
 
-public class kx
-  implements Parcelable.Creator<kv.a>
+public final class kx
+  extends f<kx>
 {
-  static void a(kv.a parama, Parcel paramParcel, int paramInt)
+  public String a;
+  public long b;
+  public String c;
+  public String d;
+  
+  public String a()
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, versionCode);
-    b.a(paramParcel, 2, className, false);
-    b.c(paramParcel, 3, NY, false);
-    b.H(paramParcel, paramInt);
+    return a;
   }
   
-  public kv.a P(Parcel paramParcel)
+  public void a(long paramLong)
   {
-    ArrayList localArrayList = null;
-    int j = a.G(paramParcel);
-    int i = 0;
-    String str = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
-      {
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 2: 
-        str = a.o(paramParcel, k);
-        break;
-      case 3: 
-        localArrayList = a.c(paramParcel, k, kv.b.CREATOR);
-      }
-    }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
-    }
-    return new kv.a(i, str, localArrayList);
+    b = paramLong;
   }
   
-  public kv.a[] aQ(int paramInt)
+  public void a(kx paramkx)
   {
-    return new kv.a[paramInt];
+    if (!TextUtils.isEmpty(a)) {
+      paramkx.a(a);
+    }
+    if (b != 0L) {
+      paramkx.a(b);
+    }
+    if (!TextUtils.isEmpty(c)) {
+      paramkx.b(c);
+    }
+    if (!TextUtils.isEmpty(d)) {
+      paramkx.c(d);
+    }
+  }
+  
+  public void a(String paramString)
+  {
+    a = paramString;
+  }
+  
+  public long b()
+  {
+    return b;
+  }
+  
+  public void b(String paramString)
+  {
+    c = paramString;
+  }
+  
+  public String c()
+  {
+    return c;
+  }
+  
+  public void c(String paramString)
+  {
+    d = paramString;
+  }
+  
+  public String d()
+  {
+    return d;
+  }
+  
+  public String toString()
+  {
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("variableName", a);
+    localHashMap.put("timeInMillis", Long.valueOf(b));
+    localHashMap.put("category", c);
+    localHashMap.put("label", d);
+    return a(localHashMap);
   }
 }
 

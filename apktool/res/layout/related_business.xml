@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/related_businesses_panel" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/business_image" android:layout_width="@dimen/medium_photo_size" android:layout_height="@dimen/medium_photo_size" android:layout_marginRight="@dimen/default_image_gap_size" />
+    <TextView android:textAppearance="@style/TitleText" android:ellipsize="end" android:id="@id/business_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="-3.0dip" android:maxLines="2" android:includeFontPadding="false" android:layout_toRightOf="@id/business_image" android:layout_alignTop="@id/business_image" />
+    <TextView android:textAppearance="@style/DeprecatedStandardText" android:ellipsize="end" android:id="@id/business_rating" android:paddingTop="4.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" android:drawableLeft="@drawable/business_stars" android:drawablePadding="9.0dip" android:layout_toRightOf="@id/business_image" android:layout_below="@id/business_name" />
+</com.yelp.android.ui.widgets.SpannableRelativeLayout>

@@ -1,8 +1,10 @@
 package com.google.android.gms.internal;
 
+import java.util.ArrayList;
+
 public abstract interface cb
 {
-  public abstract void onAppEvent(String paramString1, String paramString2);
+  public abstract void a(String paramString, ArrayList<String> paramArrayList);
 }
 
 /* Location:

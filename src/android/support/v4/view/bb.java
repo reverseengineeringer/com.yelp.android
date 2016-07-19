@@ -1,55 +1,36 @@
 package android.support.v4.view;
 
-import android.view.MotionEvent;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
+import android.view.ViewPropertyAnimator;
 
 class bb
-  implements bf
 {
-  public int a(MotionEvent paramMotionEvent)
+  public static void a(final View paramView, bd parambd)
   {
-    return 1;
-  }
-  
-  public int a(MotionEvent paramMotionEvent, int paramInt)
-  {
-    if (paramInt == 0) {
-      return 0;
+    if (parambd != null)
+    {
+      paramView.animate().setListener(new AnimatorListenerAdapter()
+      {
+        public void onAnimationCancel(Animator paramAnonymousAnimator)
+        {
+          a.c(paramView);
+        }
+        
+        public void onAnimationEnd(Animator paramAnonymousAnimator)
+        {
+          a.b(paramView);
+        }
+        
+        public void onAnimationStart(Animator paramAnonymousAnimator)
+        {
+          a.a(paramView);
+        }
+      });
+      return;
     }
-    return -1;
-  }
-  
-  public int b(MotionEvent paramMotionEvent)
-  {
-    return 0;
-  }
-  
-  public int b(MotionEvent paramMotionEvent, int paramInt)
-  {
-    if (paramInt == 0) {
-      return 0;
-    }
-    throw new IndexOutOfBoundsException("Pre-Eclair does not support multiple pointers");
-  }
-  
-  public float c(MotionEvent paramMotionEvent, int paramInt)
-  {
-    if (paramInt == 0) {
-      return paramMotionEvent.getX();
-    }
-    throw new IndexOutOfBoundsException("Pre-Eclair does not support multiple pointers");
-  }
-  
-  public float d(MotionEvent paramMotionEvent, int paramInt)
-  {
-    if (paramInt == 0) {
-      return paramMotionEvent.getY();
-    }
-    throw new IndexOutOfBoundsException("Pre-Eclair does not support multiple pointers");
-  }
-  
-  public float e(MotionEvent paramMotionEvent, int paramInt)
-  {
-    return 0.0F;
+    paramView.animate().setListener(null);
   }
 }
 

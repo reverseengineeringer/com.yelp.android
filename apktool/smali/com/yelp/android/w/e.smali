@@ -1,18 +1,13 @@
 .class public Lcom/yelp/android/w/e;
-.super Ljava/lang/Object;
-.source "FileDescriptorResourceLoader.java"
-
-# interfaces
-.implements Lcom/yelp/android/v/n;
+.super Lcom/yelp/android/w/a;
+.source "FileDescriptorAssetPathFetcher.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/v/n",
+        "Lcom/yelp/android/w/a",
         "<",
-        "Ljava/lang/Integer;",
         "Landroid/os/ParcelFileDescriptor;",
         ">;"
     }
@@ -20,55 +15,86 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
     .locals 0
 
     .prologue
-    .line 22
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 13
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/w/a;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
 
+    .line 14
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/content/Context;Lcom/yelp/android/v/c;)Lcom/yelp/android/v/m;
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
+.method protected synthetic a(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/yelp/android/v/c;",
-            ")",
-            "Lcom/yelp/android/v/m",
-            "<",
-            "Ljava/lang/Integer;",
-            "Landroid/os/ParcelFileDescriptor;",
-            ">;"
+            Ljava/io/IOException;
         }
     .end annotation
 
     .prologue
-    .line 26
-    new-instance v0, Lcom/yelp/android/w/d;
+    .line 11
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/w/e;->b(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
 
-    const-class v1, Landroid/net/Uri;
-
-    const-class v2, Landroid/os/ParcelFileDescriptor;
-
-    invoke-virtual {p2, v1, v2}, Lcom/yelp/android/v/c;->a(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/v/m;
-
-    move-result-object v1
-
-    invoke-direct {v0, p1, v1}, Lcom/yelp/android/w/d;-><init>(Landroid/content/Context;Lcom/yelp/android/v/m;)V
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public a()V
+.method protected a(Landroid/os/ParcelFileDescriptor;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    .line 33
+    .line 23
+    invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->close()V
+
+    .line 24
     return-void
+.end method
+
+.method protected bridge synthetic a(Ljava/lang/Object;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 11
+    check-cast p1, Landroid/os/ParcelFileDescriptor;
+
+    invoke-virtual {p0, p1}, Lcom/yelp/android/w/e;->a(Landroid/os/ParcelFileDescriptor;)V
+
+    return-void
+.end method
+
+.method protected b(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 18
+    invoke-virtual {p1, p2}, Landroid/content/res/AssetManager;->openFd(Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/AssetFileDescriptor;->getParcelFileDescriptor()Landroid/os/ParcelFileDescriptor;
+
+    move-result-object v0
+
+    return-object v0
 .end method

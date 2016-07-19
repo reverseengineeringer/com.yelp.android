@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="category_banks">Banks &amp; Financial Institutions</string>
+    <string name="category_banks">Bank &amp; Building Societies</string>
     <string name="category_bars">Bars</string>
-    <string name="category_coffee">Coffee &amp; Tea</string>
-    <string name="category_drugstores">Pharmacies &amp; Chemists</string>
+    <string name="category_coffee">Coffee &amp; Tea Shops</string>
+    <string name="category_drugstores">Pharmacy &amp; Chemists</string>
     <string name="category_nightlife">Nightlife</string>
     <string name="category_restaurants">Restaurants</string>
     <string name="category_servicestations">Petrol &amp; Service Stations</string>
@@ -14,10 +14,10 @@
     <string name="compliment_desc_funny">Not like Monty Python or Benny Hill funny, but up there.</string>
     <string name="compliment_desc_hot">"You're hotter than a vindaloo and twice as spicy."</string>
     <string name="compliment_desc_list">Behave, you seem very listful today!</string>
-    <string name="compliment_desc_more">"I know you must have a lot of other commitments and social activities that take away time from your Yelp reviews but I can't take it anymore...you have to write another review. It's like coffee in the morning and I've started getting headaches from your absence so please get your priorities right."</string>
+    <string name="compliment_desc_more">"I know you must have a lot of other commitments and social activities that take away time from your Yelp reviews but I can't take it anymore…you have to write another review. It's like coffee in the morning and I've started getting headaches from your absence so please get your priorities right."</string>
     <string name="compliment_desc_note" />
     <string name="compliment_desc_photos">Sharp photos, Bailey! Keep shooting!</string>
-    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke... There aren't enough languages in the world to express my gratitude."</string>
+    <string name="compliment_desc_plain">"Gracias. Merci. Arigato. Danke… There aren't enough languages in the world to express my gratitude."</string>
     <string name="compliment_desc_profile">"Now that I know so much about you, perhaps you'll consider being my Yelp Friend."</string>
     <string name="compliment_desc_writer">"You've got the write stuff, baby!"</string>
     <string name="compliment_funny">"You're Funny"</string>
@@ -29,7 +29,6 @@
     <string name="compliment_plain">Thank You</string>
     <string name="compliment_profile">Like Your Profile</string>
     <string name="compliment_writer">Well Put!</string>
-    <string name="mobile_host">en.m.yelp.com.hk</string>
     <string name="remove_reason_member_request">"This Yelper's account has been closed."</string>
     <string name="remove_reason_post_by_admin">This post was removed by a Yelp admin.</string>
     <string name="remove_reason_post_by_admin_tos">This post violated the Yelp &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Terms of Service&lt;/a> and has been removed.</string>
@@ -49,12 +48,15 @@
     <string name="remove_reason_topic_tos_multiple">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_spammer">This conversation was removed because the Yelper who started it no longer has an account.</string>
     <string name="remove_reason_topic_tos_threat">This conversation was removed because the Yelper who started it no longer has an account.</string>
+    <string name="remove_reason_tos_bizowner">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_content">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_deals">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_general">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_multiple">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_paidreviewer">"This Yelper's account has been closed."</string>
+    <string name="remove_reason_tos_solicitation">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_spammer">"This Yelper's account has been closed."</string>
     <string name="remove_reason_tos_threat">"This Yelper's account has been closed."</string>
-    <string name="site_name">Yelp.com.hk</string>
     <string name="talk_category_0">Other</string>
     <string name="talk_category_1">Local Questions &amp; Answers</string>
     <string name="talk_category_10">Food</string>
@@ -85,5 +87,7 @@
     <string name="talk_category_travel">Travel</string>
     <string name="talk_category_uncategorized">Other</string>
     <string name="talk_category_yelper_shout_outs">Yelper Shout-Outs</string>
+    <string name="mobile_host">en.m.yelp.com.hk</string>
+    <string name="site_name">Yelp.com.hk</string>
     <string name="www_host">en.yelp.com.hk</string>
 </resources>

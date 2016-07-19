@@ -1,12 +1,39 @@
 package com.google.android.gms.tagmanager;
 
-abstract interface af
+import android.content.Context;
+import android.net.Uri;
+import java.util.Map;
+
+class af
+  implements c.b
 {
-  public abstract bk pE();
+  private final Context a;
   
-  public abstract t pF();
+  public af(Context paramContext)
+  {
+    a = paramContext;
+  }
   
-  public abstract void pG();
+  public void a(Map<String, Object> paramMap)
+  {
+    Object localObject = paramMap.get("gtm.url");
+    if (localObject == null)
+    {
+      paramMap = paramMap.get("gtm");
+      if ((paramMap == null) || (!(paramMap instanceof Map))) {}
+    }
+    for (paramMap = ((Map)paramMap).get("url");; paramMap = (Map<String, Object>)localObject)
+    {
+      if ((paramMap == null) || (!(paramMap instanceof String))) {}
+      do
+      {
+        return;
+        paramMap = Uri.parse((String)paramMap).getQueryParameter("referrer");
+      } while (paramMap == null);
+      l.a(a, paramMap);
+      return;
+    }
+  }
 }
 
 /* Location:

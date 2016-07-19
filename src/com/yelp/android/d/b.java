@@ -1,10 +1,13 @@
 package com.yelp.android.d;
 
-abstract interface b
+import android.graphics.drawable.Drawable;
+
+class b
 {
-  public abstract String a(String paramString);
-  
-  public abstract String b(String paramString);
+  public static Drawable a(Drawable paramDrawable)
+  {
+    return paramDrawable;
+  }
 }
 
 /* Location:

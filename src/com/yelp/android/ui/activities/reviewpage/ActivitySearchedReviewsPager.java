@@ -3,11 +3,14 @@ package com.yelp.android.ui.activities.reviewpage;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.yelp.android.appdata.webrequests.fc;
-import com.yelp.android.appdata.webrequests.fd;
-import com.yelp.android.appdata.webrequests.m;
+import android.util.Pair;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.ea;
+import com.yelp.android.appdata.webrequests.ea.a;
 import com.yelp.android.serializable.YelpBusinessReview;
-import com.yelp.android.ui.widgets.ah;
+import com.yelp.android.ui.widgets.ReviewPagerFragment.b;
 import java.util.ArrayList;
 
 public class ActivitySearchedReviewsPager
@@ -15,8 +18,19 @@ public class ActivitySearchedReviewsPager
 {
   private int f;
   private String g;
-  private fc h;
-  private final m<fd> i = new s(this);
+  private ea h;
+  private final ApiRequest.b<ea.a> i = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, ea.a paramAnonymousa)
+    {
+      a(a);
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      a(paramAnonymousYelpException);
+    }
+  };
   
   public static Intent a(Context paramContext, ArrayList<YelpBusinessReview> paramArrayList, YelpBusinessReview paramYelpBusinessReview, String paramString1, String paramString2, String paramString3, int paramInt, String paramString4)
   {
@@ -31,14 +45,22 @@ public class ActivitySearchedReviewsPager
     return f;
   }
   
-  protected ah b()
+  protected ReviewPagerFragment.b b()
   {
-    return new r(this);
+    new ReviewPagerFragment.b()
+    {
+      public void a(boolean paramAnonymousBoolean, int paramAnonymousInt)
+      {
+        Pair localPair = a(paramAnonymousBoolean, paramAnonymousInt);
+        ActivitySearchedReviewsPager.a(ActivitySearchedReviewsPager.this, new ea(a, ActivitySearchedReviewsPager.a(ActivitySearchedReviewsPager.this), ((Integer)second).intValue(), ((Integer)first).intValue(), ActivitySearchedReviewsPager.b(ActivitySearchedReviewsPager.this)));
+        ActivitySearchedReviewsPager.c(ActivitySearchedReviewsPager.this).f(new Void[0]);
+      }
+    };
   }
   
   protected boolean e()
   {
-    if ((h != null) && (h.isFetching())) {
+    if ((h != null) && (h.u())) {
       return true;
     }
     return super.e();
@@ -61,7 +83,7 @@ public class ActivitySearchedReviewsPager
   protected void onResume()
   {
     super.onResume();
-    h = ((fc)thawRequest("search_request", h, i));
+    h = ((ea)thawRequest("search_request", h, i));
   }
 }
 

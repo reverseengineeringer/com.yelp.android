@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:id="@id/confirm_scroll_view" android:background="@color/white_dirty_snow" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/panel_confirm_account" />
+            <TextView android:textAppearance="@style/HeadlineText" android:gravity="center" android:id="@id/tagline" android:padding="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/confirm_your_email" />
+            <TextView android:textAppearance="@style/BodyText" android:gravity="center" android:id="@id/confirmed_email_required" android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <TextView android:textAppearance="@style/BodyText" android:gravity="center" android:id="@id/check_for_confirmation_email" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/check_for_confirmation_email" />
+            <TextView android:textAppearance="@style/BodyGreyText" android:gravity="center" android:id="@id/tip_check_your_spam" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_small_gap_size" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/tip_check_your_spam" />
+        </LinearLayout>
+    </ScrollView>
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <FrameLayout android:id="@id/send_email_flipper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginRight="@dimen/default_large_gap_size" android:layout_marginBottom="@dimen/default_small_gap_size">
+        <Button android:id="@id/resend_confirmation_button" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:text="@string/resend_confirmation_email" />
+        <Button android:id="@id/email_sent_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/button_height" android:text="@string/email_sent" style="@style/Widget.Button.Flat.Green" />
+    </FrameLayout>
+    <View android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <TextView android:textAppearance="@style/BodyText" android:gravity="center" android:id="@id/wrong_email_change_it" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/wrong_email_change_it" />
+</LinearLayout>

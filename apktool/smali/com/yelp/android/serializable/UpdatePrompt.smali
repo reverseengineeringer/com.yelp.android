@@ -22,9 +22,9 @@
 
     .prologue
     .line 23
-    new-instance v0, Lcom/yelp/android/serializable/dj;
+    new-instance v0, Lcom/yelp/android/serializable/UpdatePrompt$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/dj;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/UpdatePrompt$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/UpdatePrompt;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -43,6 +43,77 @@
 
 
 # virtual methods
+.method public bridge synthetic a()I
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_UpdatePrompt;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public a(I)V
+    .locals 0
+
+    .prologue
+    .line 20
+    iput p1, p0, Lcom/yelp/android/serializable/UpdatePrompt;->b:I
+
+    .line 21
+    return-void
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 13
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_UpdatePrompt;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public a(Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 16
+    iput-object p1, p0, Lcom/yelp/android/serializable/UpdatePrompt;->a:Ljava/lang/String;
+
+    .line 17
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 13
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_UpdatePrompt;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 13
+    invoke-super {p0}, Lcom/yelp/android/serializable/_UpdatePrompt;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -55,70 +126,28 @@
     return v0
 .end method
 
-.method public bridge synthetic getAppLaunchesBetweenUpdatePrompts()I
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_UpdatePrompt;->getAppLaunchesBetweenUpdatePrompts()I
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_UpdatePrompt;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic getMessage()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
     .line 13
-    invoke-super {p0}, Lcom/yelp/android/serializable/_UpdatePrompt;->getMessage()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_UpdatePrompt;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 13
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_UpdatePrompt;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 13
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_UpdatePrompt;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public setAppLaunchesBetweenUpdatePrompts(I)V
-    .locals 0
-
-    .prologue
-    .line 20
-    iput p1, p0, Lcom/yelp/android/serializable/UpdatePrompt;->mAppLaunchesBetweenUpdatePrompts:I
-
-    .line 21
-    return-void
-.end method
-
-.method public setMessage(Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 16
-    iput-object p1, p0, Lcom/yelp/android/serializable/UpdatePrompt;->mMessage:Ljava/lang/String;
-
-    .line 17
-    return-void
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

@@ -1,7 +1,7 @@
 package com.yelp.android.serializable;
 
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.Iterator;
 import java.util.List;
@@ -9,48 +9,48 @@ import java.util.List;
 public class Conversation
   extends _Conversation
 {
-  public static final JsonParser.DualCreator<Conversation> CREATOR = new ab();
+  public static final JsonParser.DualCreator<Conversation> CREATOR = new Conversation.1();
   
-  public boolean equals(Object paramObject)
+  public e a()
   {
-    if ((paramObject instanceof Conversation))
-    {
-      paramObject = (Conversation)paramObject;
-      return getId().equals(((Conversation)paramObject).getId());
+    if (a != null) {
+      return a;
     }
-    return false;
-  }
-  
-  public ConversationMessage getLatestMessage()
-  {
-    return (ConversationMessage)mLatestMessages.get(mLatestMessages.size() - 1);
-  }
-  
-  public bg getOtherUser()
-  {
-    if (mBizUser != null) {
-      return mBizUser;
-    }
-    User localUser = AppData.b().m().s();
-    Iterator localIterator = getUsers().iterator();
+    User localUser = AppData.b().q().p();
+    Iterator localIterator = i().iterator();
     while (localIterator.hasNext())
     {
       UserTiny localUserTiny = (UserTiny)localIterator.next();
-      if (!localUserTiny.getId().equals(localUser.getUserId())) {
+      if (!localUserTiny.d().equals(localUser.i())) {
         return localUserTiny;
       }
     }
     return null;
   }
   
-  public int hashCode()
+  public void a(boolean paramBoolean)
   {
-    return getId().hashCode();
+    j = paramBoolean;
   }
   
-  public void setRead(boolean paramBoolean)
+  public ConversationMessage b()
   {
-    mIsRead = paramBoolean;
+    return (ConversationMessage)c.get(c.size() - 1);
+  }
+  
+  public boolean equals(Object paramObject)
+  {
+    if ((paramObject instanceof Conversation))
+    {
+      paramObject = (Conversation)paramObject;
+      return h().equals(((Conversation)paramObject).h());
+    }
+    return false;
+  }
+  
+  public int hashCode()
+  {
+    return h().hashCode();
   }
 }
 

@@ -3,6 +3,16 @@
 .source "CheckInPushNotificationHandler.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/services/push/CheckInPushNotificationHandler$1;,
+        Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;,
+        Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInButtonType;
+    }
+.end annotation
+
+
 # static fields
 .field private static final c:Ljava/lang/String;
 
@@ -12,7 +22,7 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 45
     const/4 v0, 0x1
 
     invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -28,7 +38,7 @@
     .locals 2
 
     .prologue
-    .line 86
+    .line 87
     sget-object v0, Lcom/yelp/android/services/push/Notifier$NotificationType;->Checkin:Lcom/yelp/android/services/push/Notifier$NotificationType;
 
     invoke-static {p2}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;->getCheckinTypeFromUri(Landroid/net/Uri;)Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;
@@ -45,7 +55,7 @@
 
     invoke-direct {p0, p1, v0, v1, p2}, Lcom/yelp/android/services/push/DefaultPushNotificationHandler;-><init>(Landroid/content/Context;Lcom/yelp/android/services/push/Notifier$NotificationType;Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 88
+    .line 94
     return-void
 .end method
 
@@ -53,19 +63,19 @@
     .locals 16
 
     .prologue
-    .line 150
+    .line 177
     invoke-virtual/range {p0 .. p0}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->c()Landroid/content/Context;
 
     move-result-object v3
 
-    .line 152
+    .line 179
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v4
 
     long-to-int v8, v4
 
-    .line 154
+    .line 181
     sget-object v2, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;->COMMENTS:Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;
 
     sget-object v4, Lcom/yelp/android/services/push/DefaultPushNotificationHandler$NotificationViewType;->SINGLE:Lcom/yelp/android/services/push/DefaultPushNotificationHandler$NotificationViewType;
@@ -80,7 +90,7 @@
 
     move-result-object v14
 
-    .line 158
+    .line 190
     const/4 v12, 0x0
 
     const/4 v13, 0x0
@@ -93,11 +103,11 @@
 
     move-object/from16 v11, p4
 
-    invoke-virtual/range {v9 .. v15}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->a(Ljava/lang/String;Ljava/lang/String;ILandroid/support/v4/app/NotificationCompat$Style;Ljava/util/List;I)Landroid/app/Notification;
+    invoke-virtual/range {v9 .. v15}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->a(Ljava/lang/String;Ljava/lang/String;ILandroid/support/v4/app/x$p;Ljava/util/List;I)Landroid/app/Notification;
 
     move-result-object v4
 
-    .line 160
+    .line 198
     const-string/jumbo v7, "action.DELETED_CLEAR_NOTIFICATIONS"
 
     invoke-virtual/range {p1 .. p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
@@ -110,13 +120,13 @@
 
     move-object/from16 v11, p4
 
-    invoke-static/range {v6 .. v11}, Lcom/yelp/android/services/push/m;->a(Landroid/content/Context;Ljava/lang/String;ILcom/yelp/android/services/push/Notifier$NotificationType;Ljava/lang/String;Ljava/lang/String;)Landroid/app/PendingIntent;
+    invoke-static/range {v6 .. v11}, Lcom/yelp/android/services/push/Notifier$a;->a(Landroid/content/Context;Ljava/lang/String;ILcom/yelp/android/services/push/Notifier$NotificationType;Ljava/lang/String;Ljava/lang/String;)Landroid/app/PendingIntent;
 
     move-result-object v2
 
     iput-object v2, v4, Landroid/app/Notification;->deleteIntent:Landroid/app/PendingIntent;
 
-    .line 163
+    .line 206
     const-string/jumbo v7, "action.CLICKED_CLEAR_NOTIFICATIONS"
 
     invoke-virtual/range {p1 .. p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
@@ -129,13 +139,13 @@
 
     move-object/from16 v11, p4
 
-    invoke-static/range {v6 .. v11}, Lcom/yelp/android/services/push/m;->a(Landroid/content/Context;Ljava/lang/String;ILcom/yelp/android/services/push/Notifier$NotificationType;Ljava/lang/String;Ljava/lang/String;)Landroid/app/PendingIntent;
+    invoke-static/range {v6 .. v11}, Lcom/yelp/android/services/push/Notifier$a;->a(Landroid/content/Context;Ljava/lang/String;ILcom/yelp/android/services/push/Notifier$NotificationType;Ljava/lang/String;Ljava/lang/String;)Landroid/app/PendingIntent;
 
     move-result-object v2
 
     iput-object v2, v4, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    .line 167
+    .line 215
     const-string/jumbo v2, "notification"
 
     invoke-virtual {v3, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -144,14 +154,14 @@
 
     check-cast v2, Landroid/app/NotificationManager;
 
-    .line 169
+    .line 217
     invoke-virtual/range {p2 .. p2}, Lcom/yelp/android/services/push/Notifier$NotificationType;->name()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {v2, v3, v8, v4}, Landroid/app/NotificationManager;->notify(Ljava/lang/String;ILandroid/app/Notification;)V
 
-    .line 170
+    .line 218
     invoke-virtual/range {p2 .. p2}, Lcom/yelp/android/services/push/Notifier$NotificationType;->name()Ljava/lang/String;
 
     move-result-object v3
@@ -160,7 +170,7 @@
 
     invoke-virtual {v2, v3, v0}, Landroid/app/NotificationManager;->cancel(Ljava/lang/String;I)V
 
-    .line 171
+    .line 219
     return-void
 .end method
 
@@ -180,7 +190,7 @@
     .locals 1
 
     .prologue
-    .line 102
+    .line 108
     iget-object v0, p0, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->b:Landroid/net/Uri;
 
     invoke-static {v0}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;->getNotificationIdFromUri(Landroid/net/Uri;)I
@@ -190,12 +200,12 @@
     return v0
 .end method
 
-.method public bridge synthetic a(Lcom/yelp/android/services/push/m;)Landroid/app/Notification;
+.method public bridge synthetic a(Lcom/yelp/android/services/push/Notifier$a;)Landroid/app/Notification;
     .locals 1
 
     .prologue
     .line 32
-    invoke-super {p0, p1}, Lcom/yelp/android/services/push/DefaultPushNotificationHandler;->a(Lcom/yelp/android/services/push/m;)Landroid/app/Notification;
+    invoke-super {p0, p1}, Lcom/yelp/android/services/push/DefaultPushNotificationHandler;->a(Lcom/yelp/android/services/push/Notifier$a;)Landroid/app/Notification;
 
     move-result-object v0
 
@@ -208,10 +218,10 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 108
+    .line 117
     const/4 v1, 0x0
 
-    .line 109
+    .line 118
     const-string/jumbo v0, "extra_check_in_notification_button"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getSerializableExtra(Ljava/lang/String;)Ljava/io/Serializable;
@@ -220,8 +230,8 @@
 
     check-cast v0, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInButtonType;
 
-    .line 110
-    sget-object v2, Lcom/yelp/android/services/push/b;->b:[I
+    .line 121
+    sget-object v2, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$1;->b:[I
 
     invoke-virtual {v0}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInButtonType;->ordinal()I
 
@@ -233,29 +243,29 @@
 
     move-object v0, v1
 
-    .line 129
+    .line 147
     :goto_0
     return-object v0
 
-    .line 113
+    .line 124
     :pswitch_0
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    .line 114
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    .line 125
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 115
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/fo;
+    .line 126
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/ek;
 
     invoke-virtual {p2}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
 
@@ -263,13 +273,13 @@
 
     const/4 v3, 0x1
 
-    invoke-direct {v0, v2, v3}, Lcom/yelp/android/appdata/webrequests/fo;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v0, v2, v3}, Lcom/yelp/android/appdata/webrequests/ek;-><init>(Ljava/lang/String;Z)V
 
     new-array v2, v4, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/appdata/webrequests/fo;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v2}, Lcom/yelp/android/appdata/webrequests/ek;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 118
+    .line 130
     :cond_0
     const-string/jumbo v0, "extra_notification_message"
 
@@ -281,38 +291,38 @@
 
     move-object v0, v1
 
-    .line 120
+    .line 135
     goto :goto_0
 
-    .line 122
+    .line 137
     :pswitch_1
     invoke-virtual {p0, p2, p3}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->a(Landroid/net/Uri;Lcom/yelp/android/services/push/Notifier$NotificationType;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 123
+    .line 139
     const-string/jumbo v1, "extra_check_in_aggregated"
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 124
+    .line 140
     const-string/jumbo v1, "extra_check_in_notification_button"
 
     sget-object v2, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInButtonType;->COMMENT:Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInButtonType;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 125
+    .line 142
     invoke-virtual {p0, v0}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->a(Landroid/content/Intent;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 126
+    .line 143
     invoke-super {p0, p1, p2, p3, p4}, Lcom/yelp/android/services/push/DefaultPushNotificationHandler;->a(Landroid/content/Intent;Landroid/net/Uri;Lcom/yelp/android/services/push/Notifier$NotificationType;I)Landroid/content/Intent;
 
     goto :goto_0
 
-    .line 110
+    .line 121
     nop
 
     :pswitch_data_0
@@ -326,20 +336,20 @@
     .locals 2
 
     .prologue
-    .line 93
+    .line 99
     invoke-virtual {p0, p1, p2}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->a(Landroid/net/Uri;Lcom/yelp/android/services/push/Notifier$NotificationType;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 95
+    .line 101
     const-string/jumbo v1, "extra_check_in_aggregated"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 96
+    .line 102
     invoke-static {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->setIntentAsFromPushNotification(Landroid/content/Intent;)V
 
-    .line 97
+    .line 103
     invoke-virtual {p0, v0}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->a(Landroid/content/Intent;)Landroid/content/Intent;
 
     move-result-object v0
@@ -357,20 +367,20 @@
             ")",
             "Ljava/util/List",
             "<",
-            "Landroid/support/v4/app/NotificationCompat$Action;",
+            "Landroid/support/v4/app/x$a;",
             ">;"
         }
     .end annotation
 
     .prologue
-    .line 134
+    .line 153
     iget-object v0, p0, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->b:Landroid/net/Uri;
 
     invoke-static {v0}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;->getCheckinTypeFromUri(Landroid/net/Uri;)Lcom/yelp/android/services/push/CheckInPushNotificationHandler$CheckInType;
 
     move-result-object v0
 
-    .line 135
+    .line 154
     invoke-virtual {p0}, Lcom/yelp/android/services/push/CheckInPushNotificationHandler;->c()Landroid/content/Context;
 
     move-result-object v1
@@ -394,12 +404,12 @@
     return-object v0
 .end method
 
-.method public bridge synthetic a(Lcom/yelp/android/services/push/p;Lcom/yelp/android/services/push/n;)V
+.method public bridge synthetic a(Lcom/yelp/android/services/push/g;Lcom/yelp/android/services/push/Notifier$b;)V
     .locals 0
 
     .prologue
     .line 32
-    invoke-super {p0, p1, p2}, Lcom/yelp/android/services/push/DefaultPushNotificationHandler;->a(Lcom/yelp/android/services/push/p;Lcom/yelp/android/services/push/n;)V
+    invoke-super {p0, p1, p2}, Lcom/yelp/android/services/push/DefaultPushNotificationHandler;->a(Lcom/yelp/android/services/push/g;Lcom/yelp/android/services/push/Notifier$b;)V
 
     return-void
 .end method

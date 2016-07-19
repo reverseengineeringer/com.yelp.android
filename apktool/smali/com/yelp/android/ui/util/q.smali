@@ -1,154 +1,218 @@
 .class public Lcom/yelp/android/ui/util/q;
 .super Ljava/lang/Object;
-.source "DFPUtils.java"
+.source "GridViewSizer.java"
 
 
-# static fields
-.field private static a:Ljava/lang/String;
+# instance fields
+.field private a:I
+
+.field private b:I
+
+.field private c:I
+
+.field private d:I
+
+.field private e:Z
 
 
 # direct methods
-.method public static a(Lorg/json/JSONObject;)Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest;
-    .locals 6
-
-    .prologue
-    .line 36
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
-
-    .line 37
-    invoke-virtual {p0}, Lorg/json/JSONObject;->keys()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    .line 40
-    :cond_0
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 41
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    .line 47
-    invoke-virtual {p0, v0}, Lorg/json/JSONObject;->get(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    .line 48
-    instance-of v4, v1, Ljava/lang/String;
-
-    if-eqz v4, :cond_1
-
-    .line 49
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 50
-    :cond_1
-    instance-of v4, v1, Lorg/json/JSONArray;
-
-    if-eqz v4, :cond_0
-
-    .line 51
-    check-cast v1, Lorg/json/JSONArray;
-
-    const-string/jumbo v4, ","
-
-    invoke-virtual {v1, v4}, Lorg/json/JSONArray;->join(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v4, "\""
-
-    const-string/jumbo v5, ""
-
-    invoke-virtual {v1, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 55
-    :cond_2
-    sget-object v0, Lcom/yelp/android/ui/util/q;->a:Ljava/lang/String;
-
-    if-eqz v0, :cond_3
-
-    sget-object v0, Lcom/yelp/android/appdata/Features;->dfp_advertising_hash:Lcom/yelp/android/appdata/Features;
-
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/Features;->isEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 56
-    const-string/jumbo v0, "adid"
-
-    sget-object v1, Lcom/yelp/android/ui/util/q;->a:Ljava/lang/String;
-
-    invoke-virtual {v2, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 59
-    :cond_3
-    new-instance v0, Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest$Builder;
-
-    invoke-direct {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest$Builder;-><init>()V
-
-    new-instance v1, Lcom/google/android/gms/ads/mediation/admob/AdMobExtras;
-
-    invoke-direct {v1, v2}, Lcom/google/android/gms/ads/mediation/admob/AdMobExtras;-><init>(Landroid/os/Bundle;)V
-
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest$Builder;->addNetworkExtras(Lcom/google/android/gms/ads/mediation/NetworkExtras;)Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest$Builder;->build()Lcom/google/android/gms/ads/doubleclick/PublisherAdRequest;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic a(Ljava/lang/String;)Ljava/lang/String;
+.method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 26
-    sput-object p0, Lcom/yelp/android/ui/util/q;->a:Ljava/lang/String;
+    .line 20
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-object p0
+    return-void
 .end method
 
-.method public static a()V
+
+# virtual methods
+.method public a(II)V
     .locals 2
 
     .prologue
-    .line 67
-    new-instance v0, Lcom/yelp/android/ui/util/r;
+    .line 46
+    if-lez p1, :cond_0
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/util/r;-><init>()V
+    if-gtz p2, :cond_1
 
-    const/4 v1, 0x0
+    .line 47
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-array v1, v1, [Ljava/lang/Void;
+    const-string/jumbo v1, "Dimensions must positive."
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/r;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    .line 88
+    throw v0
+
+    .line 50
+    :cond_1
+    iput p1, p0, Lcom/yelp/android/ui/util/q;->c:I
+
+    .line 51
+    iput p2, p0, Lcom/yelp/android/ui/util/q;->d:I
+
+    .line 52
     return-void
+.end method
+
+.method public a(Landroid/view/View;Lcom/yelp/android/ui/util/at$a;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Landroid/view/View;",
+            ">(TT;",
+            "Lcom/yelp/android/ui/util/at$a",
+            "<TT;>;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 74
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/q;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 75
+    iget v0, p0, Lcom/yelp/android/ui/util/q;->c:I
+
+    iget v1, p0, Lcom/yelp/android/ui/util/q;->d:I
+
+    invoke-interface {p2, p1, v0, v1}, Lcom/yelp/android/ui/util/at$a;->a(Landroid/view/View;II)V
+
+    .line 95
+    :goto_0
+    return-void
+
+    .line 79
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/q;->c()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/q;->b()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 80
+    iget v0, p0, Lcom/yelp/android/ui/util/q;->a:I
+
+    iget v1, p0, Lcom/yelp/android/ui/util/q;->b:I
+
+    invoke-interface {p2, p1, v0, v1}, Lcom/yelp/android/ui/util/at$a;->a(Landroid/view/View;II)V
+
+    goto :goto_0
+
+    .line 85
+    :cond_1
+    new-instance v0, Lcom/yelp/android/ui/util/q$1;
+
+    invoke-direct {v0, p0, p2}, Lcom/yelp/android/ui/util/q$1;-><init>(Lcom/yelp/android/ui/util/q;Lcom/yelp/android/ui/util/at$a;)V
+
+    .line 94
+    invoke-static {p1, v0}, Lcom/yelp/android/ui/util/at;->a(Landroid/view/View;Lcom/yelp/android/ui/util/at$a;)V
+
+    goto :goto_0
+.end method
+
+.method public a(Z)V
+    .locals 0
+
+    .prologue
+    .line 70
+    iput-boolean p1, p0, Lcom/yelp/android/ui/util/q;->e:Z
+
+    .line 71
+    return-void
+.end method
+
+.method public a()Z
+    .locals 1
+
+    .prologue
+    .line 31
+    iget v0, p0, Lcom/yelp/android/ui/util/q;->c:I
+
+    if-lez v0, :cond_0
+
+    iget v0, p0, Lcom/yelp/android/ui/util/q;->d:I
+
+    if-lez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method protected b(II)V
+    .locals 0
+
+    .prologue
+    .line 57
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_1
+
+    .line 63
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 61
+    :cond_1
+    iput p1, p0, Lcom/yelp/android/ui/util/q;->a:I
+
+    .line 62
+    iput p2, p0, Lcom/yelp/android/ui/util/q;->b:I
+
+    goto :goto_0
+.end method
+
+.method public b()Z
+    .locals 1
+
+    .prologue
+    .line 35
+    iget v0, p0, Lcom/yelp/android/ui/util/q;->a:I
+
+    if-lez v0, :cond_0
+
+    iget v0, p0, Lcom/yelp/android/ui/util/q;->b:I
+
+    if-lez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public c()Z
+    .locals 1
+
+    .prologue
+    .line 66
+    iget-boolean v0, p0, Lcom/yelp/android/ui/util/q;->e:Z
+
+    return v0
 .end method

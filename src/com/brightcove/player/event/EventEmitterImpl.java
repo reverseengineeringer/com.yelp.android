@@ -19,7 +19,23 @@ public class EventEmitterImpl
   private static final String EVENT_KEY = "event";
   private static final String PROPERTY_PREFIX_KEY = "prop_";
   private String TAG = "EventEmitterImpl";
-  protected Handler handler = new EventEmitterImpl.1(this);
+  protected Handler handler = new Handler()
+  {
+    public void handleMessage(Message paramAnonymousMessage)
+    {
+      paramAnonymousMessage = (Map)obj;
+      String str = (String)paramAnonymousMessage.get("event");
+      Event localEvent = new Event(str);
+      EventEmitterImpl.this.unpackProperties(paramAnonymousMessage, localEvent);
+      EventEmitterImpl.this.invokeListenersForEventType(localEvent, "*");
+      if (str.equals("response"))
+      {
+        EventEmitterImpl.this.invokeResponseListener(localEvent);
+        return;
+      }
+      EventEmitterImpl.this.invokeListenersForEvent(localEvent);
+    }
+  };
   private boolean isEnabled = true;
   private Map<String, ArrayList<InvocationContainer>> listeners = new HashMap();
   

@@ -1,13 +1,6 @@
 package com.yelp.android.appdata.experiment;
 
-import java.util.Map;
-
-public abstract interface f
-{
-  public abstract String a(String paramString);
-  
-  public abstract void a(Map<String, String> paramMap);
-}
+public abstract class f {}
 
 /* Location:
  * Qualified Name:     com.yelp.android.appdata.experiment.f

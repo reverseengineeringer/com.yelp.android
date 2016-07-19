@@ -3,6 +3,14 @@
 .source "Constants.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/Constants$ReturnState;
+    }
+.end annotation
+
+
 # static fields
 .field public static final AD_TYPE_OOYALA:Ljava/lang/String; = "ooyala"
 

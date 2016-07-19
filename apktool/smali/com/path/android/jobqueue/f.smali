@@ -1,78 +1,126 @@
 .class public Lcom/path/android/jobqueue/f;
 .super Ljava/lang/Object;
-.source "JobManager.java"
+.source "RetryConstraint.java"
 
-# interfaces
-.implements Lcom/path/android/jobqueue/i;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/path/android/jobqueue/f$a;
+    }
+.end annotation
+
+
+# static fields
+.field public static final a:Lcom/path/android/jobqueue/f;
+
+.field public static final b:Lcom/path/android/jobqueue/f;
 
 
 # instance fields
-.field a:Lcom/path/android/jobqueue/persistentQueue/sqlite/f;
+.field private c:Z
+
+.field private d:Ljava/lang/Long;
+
+.field private e:Ljava/lang/Integer;
+
+.field private f:Z
 
 
 # direct methods
-.method public constructor <init>()V
+.method static constructor <clinit>()V
+    .locals 2
+
+    .prologue
+    .line 19
+    new-instance v0, Lcom/path/android/jobqueue/f$a;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Lcom/path/android/jobqueue/f$a;-><init>(Z)V
+
+    sput-object v0, Lcom/path/android/jobqueue/f;->a:Lcom/path/android/jobqueue/f;
+
+    .line 20
+    new-instance v0, Lcom/path/android/jobqueue/f$a;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/path/android/jobqueue/f$a;-><init>(Z)V
+
+    sput-object v0, Lcom/path/android/jobqueue/f;->b:Lcom/path/android/jobqueue/f;
+
+    return-void
+.end method
+
+.method public constructor <init>(Z)V
     .locals 1
 
     .prologue
-    .line 584
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 585
-    new-instance v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/e;
+    .line 24
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Lcom/path/android/jobqueue/persistentQueue/sqlite/e;-><init>()V
+    iput-boolean v0, p0, Lcom/path/android/jobqueue/f;->f:Z
 
-    iput-object v0, p0, Lcom/path/android/jobqueue/f;->a:Lcom/path/android/jobqueue/persistentQueue/sqlite/f;
+    .line 27
+    iput-boolean p1, p0, Lcom/path/android/jobqueue/f;->c:Z
 
-    .line 586
+    .line 28
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/content/Context;Ljava/lang/Long;Ljava/lang/String;)Lcom/path/android/jobqueue/g;
-    .locals 7
+.method public a(Ljava/lang/Long;)V
+    .locals 0
 
     .prologue
-    .line 594
-    new-instance v6, Lcom/yelp/android/ap/a;
+    .line 51
+    iput-object p1, p0, Lcom/path/android/jobqueue/f;->d:Ljava/lang/Long;
 
-    new-instance v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqliteJobQueue;
-
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    iget-object v5, p0, Lcom/path/android/jobqueue/f;->a:Lcom/path/android/jobqueue/persistentQueue/sqlite/f;
-
-    move-object v1, p1
-
-    move-object v4, p3
-
-    invoke-direct/range {v0 .. v5}, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqliteJobQueue;-><init>(Landroid/content/Context;JLjava/lang/String;Lcom/path/android/jobqueue/persistentQueue/sqlite/f;)V
-
-    invoke-direct {v6, v0}, Lcom/yelp/android/ap/a;-><init>(Lcom/path/android/jobqueue/g;)V
-
-    return-object v6
+    .line 52
+    return-void
 .end method
 
-.method public b(Landroid/content/Context;Ljava/lang/Long;Ljava/lang/String;)Lcom/path/android/jobqueue/g;
-    .locals 4
+.method public a()Z
+    .locals 1
 
     .prologue
-    .line 598
-    new-instance v0, Lcom/yelp/android/ap/a;
+    .line 31
+    iget-boolean v0, p0, Lcom/path/android/jobqueue/f;->c:Z
 
-    new-instance v1, Lcom/path/android/jobqueue/nonPersistentQueue/f;
+    return v0
+.end method
 
-    invoke-virtual {p2}, Ljava/lang/Long;->longValue()J
+.method public b()Ljava/lang/Long;
+    .locals 1
 
-    move-result-wide v2
-
-    invoke-direct {v1, v2, v3, p3}, Lcom/path/android/jobqueue/nonPersistentQueue/f;-><init>(JLjava/lang/String;)V
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/ap/a;-><init>(Lcom/path/android/jobqueue/g;)V
+    .prologue
+    .line 43
+    iget-object v0, p0, Lcom/path/android/jobqueue/f;->d:Ljava/lang/Long;
 
     return-object v0
+.end method
+
+.method public c()Ljava/lang/Integer;
+    .locals 1
+
+    .prologue
+    .line 55
+    iget-object v0, p0, Lcom/path/android/jobqueue/f;->e:Ljava/lang/Integer;
+
+    return-object v0
+.end method
+
+.method public d()Z
+    .locals 1
+
+    .prologue
+    .line 109
+    iget-boolean v0, p0, Lcom/path/android/jobqueue/f;->f:Z
+
+    return v0
 .end method

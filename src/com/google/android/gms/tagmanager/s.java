@@ -1,63 +1,50 @@
 package com.google.android.gms.tagmanager;
 
-import com.google.android.gms.internal.a;
-import com.google.android.gms.internal.b;
 import com.google.android.gms.internal.d.a;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import com.google.android.gms.internal.zzrs.a;
+import java.util.List;
 
 class s
-  extends aj
+  implements z
 {
-  private static final String ID = a.L.toString();
-  private static final String aqO = b.cV.toString();
-  private static final String aqf = b.bl.toString();
-  private final s.a aqP;
-  
-  public s(s.a parama)
+  public w a()
   {
-    super(ID, new String[] { aqO });
-    aqP = parama;
+    return new q();
   }
   
-  public d.a B(Map<String, d.a> paramMap)
+  public void a(d.a parama) {}
+  
+  public w b()
   {
-    String str = di.j((d.a)paramMap.get(aqO));
-    HashMap localHashMap = new HashMap();
-    paramMap = (d.a)paramMap.get(aqf);
-    if (paramMap != null)
-    {
-      paramMap = di.o(paramMap);
-      if (!(paramMap instanceof Map))
-      {
-        bh.W("FunctionCallMacro: expected ADDITIONAL_PARAMS to be a map.");
-        return di.rb();
-      }
-      paramMap = ((Map)paramMap).entrySet().iterator();
-      while (paramMap.hasNext())
-      {
-        Map.Entry localEntry = (Map.Entry)paramMap.next();
-        localHashMap.put(localEntry.getKey().toString(), localEntry.getValue());
-      }
-    }
-    try
-    {
-      paramMap = di.u(aqP.b(str, localHashMap));
-      return paramMap;
-    }
-    catch (Exception paramMap)
-    {
-      bh.W("Custom macro/tag " + str + " threw exception " + paramMap.getMessage());
-    }
-    return di.rb();
+    return new q();
   }
   
-  public boolean pe()
+  public x c()
   {
-    return false;
+    return new a();
+  }
+  
+  public x d()
+  {
+    return new a();
+  }
+  
+  public x e()
+  {
+    return new a();
+  }
+  
+  public x f()
+  {
+    return new a();
+  }
+  
+  public class a
+    implements x
+  {
+    public a() {}
+    
+    public void a(List<zzrs.a> paramList, List<String> paramList1) {}
   }
 }
 

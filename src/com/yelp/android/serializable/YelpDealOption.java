@@ -7,12 +7,12 @@ import java.util.Currency;
 public class YelpDealOption
   extends _YelpDealOption
 {
-  public static final JsonParser.DualCreator<YelpDealOption> CREATOR = new ek();
-  private static final BigDecimal ONE_HUNDRED = new BigDecimal(100.0D);
+  public static final JsonParser.DualCreator<YelpDealOption> CREATOR = new YelpDealOption.1();
+  private static final BigDecimal h = new BigDecimal(100.0D);
   
-  private static BigDecimal getPriceAsBigDec(Currency paramCurrency, String paramString)
+  private static BigDecimal a(Currency paramCurrency, String paramString)
   {
-    BigDecimal localBigDecimal = new BigDecimal(paramString).divide(ONE_HUNDRED).setScale(paramCurrency.getDefaultFractionDigits()).stripTrailingZeros();
+    BigDecimal localBigDecimal = new BigDecimal(paramString).divide(h).setScale(paramCurrency.getDefaultFractionDigits()).stripTrailingZeros();
     if (localBigDecimal.scale() < 0) {
       paramString = localBigDecimal.setScale(0);
     }
@@ -24,14 +24,14 @@ public class YelpDealOption
     return localBigDecimal.setScale(paramCurrency.getDefaultFractionDigits());
   }
   
-  public BigDecimal getDecimalOriginalPrice(Currency paramCurrency)
+  public BigDecimal a(Currency paramCurrency)
   {
-    return getPriceAsBigDec(paramCurrency, getOriginalPrice());
+    return a(paramCurrency, d());
   }
   
-  public BigDecimal getDecimalPrice(Currency paramCurrency)
+  public BigDecimal b(Currency paramCurrency)
   {
-    return getPriceAsBigDec(paramCurrency, getPrice());
+    return a(paramCurrency, c());
   }
 }
 

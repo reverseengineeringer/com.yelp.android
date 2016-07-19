@@ -1,19 +1,21 @@
 package com.yelp.android.bb;
 
-import android.content.Context;
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.yelp.android.serializable.Conversation;
-import com.yelp.android.ui.activities.reviewpage.ActivityReviewPager;
+import android.os.IBinder;
+import com.google.android.gms.dynamic.zzg;
+import com.google.android.gms.internal.fv;
 
-class e
-  implements View.OnClickListener
+@fv
+public class e
+  extends zzg<b>
 {
-  e(d paramd, Context paramContext) {}
-  
-  public void onClick(View paramView)
+  public e()
   {
-    a.startActivity(ActivityReviewPager.a(a, d.a(b).getReviewId(), d.a(b).getBusinessId()));
+    super("com.google.android.gms.ads.reward.RewardedVideoAdCreatorImpl");
+  }
+  
+  protected b a(IBinder paramIBinder)
+  {
+    return b.a.a(paramIBinder);
   }
 }
 

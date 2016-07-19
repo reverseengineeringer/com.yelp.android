@@ -3,8 +3,19 @@
 .source "ActivityMessaging.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/messaging/ActivityMessaging;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "MessagingActionsFragment"
+.end annotation
+
+
 # instance fields
-.field private a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
+.field private a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
 
 .field private b:Lcom/yelp/android/ui/activities/messaging/apimanagers/a;
 
@@ -14,7 +25,7 @@
     .locals 0
 
     .prologue
-    .line 406
+    .line 414
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;-><init>()V
 
     return-void
@@ -22,60 +33,60 @@
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+.method public a(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
     .locals 1
 
     .prologue
-    .line 432
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
+    .line 443
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
 
-    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;->a(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;->a(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 433
+    .line 444
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+.method public a(Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
     .locals 1
 
     .prologue
-    .line 427
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;->a(Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
-
-    .line 428
-    return-void
-.end method
-
-.method public a(Lcom/yelp/android/serializable/bg;ZLcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
-    .locals 1
-
-    .prologue
-    .line 437
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;->a(Lcom/yelp/android/serializable/bg;ZLcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
-
     .line 438
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;->a(Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
+
+    .line 439
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+.method public a(Lcom/yelp/android/serializable/e;ZLcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
     .locals 1
 
     .prologue
-    .line 421
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
+    .line 450
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;->a(Lcom/yelp/android/serializable/e;ZLcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 422
+    .line 451
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
+    .locals 1
+
+    .prologue
+    .line 430
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
+
+    .line 431
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->b:Lcom/yelp/android/ui/activities/messaging/apimanagers/a;
 
-    invoke-virtual {v0, p2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, p2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 423
+    .line 432
     return-void
 .end method
 
@@ -83,10 +94,10 @@
     .locals 1
 
     .prologue
-    .line 456
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
+    .line 473
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;->g()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;->g()Z
 
     move-result v0
 
@@ -112,42 +123,42 @@
     goto :goto_0
 .end method
 
-.method public b(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+.method public b(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
     .locals 1
 
     .prologue
-    .line 452
+    .line 469
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->b:Lcom/yelp/android/ui/activities/messaging/apimanagers/a;
 
-    invoke-virtual {v0, p2, p1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;Lcom/yelp/android/serializable/Conversation;)V
+    invoke-virtual {v0, p2, p1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;Lcom/yelp/android/serializable/Conversation;)V
 
-    .line 453
+    .line 470
     return-void
 .end method
 
-.method public b(Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+.method public b(Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
     .locals 1
 
     .prologue
-    .line 447
+    .line 464
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->b:Lcom/yelp/android/ui/activities/messaging/apimanagers/a;
 
-    invoke-virtual {v0, p3, p1, p2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;)V
+    invoke-virtual {v0, p3, p1, p2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;Lcom/yelp/android/serializable/Conversation;Ljava/lang/String;)V
 
-    .line 448
+    .line 465
     return-void
 .end method
 
-.method public b(Lcom/yelp/android/serializable/bg;ZLcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+.method public b(Lcom/yelp/android/serializable/e;ZLcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
     .locals 1
 
     .prologue
-    .line 442
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
+    .line 457
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;->b(Lcom/yelp/android/serializable/bg;ZLcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;->b(Lcom/yelp/android/serializable/e;ZLcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 443
+    .line 458
     return-void
 .end method
 
@@ -155,28 +166,28 @@
     .locals 1
 
     .prologue
-    .line 413
+    .line 421
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 414
+    .line 422
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->setRetainInstance(Z)V
 
-    .line 415
-    new-instance v0, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
+    .line 423
+    new-instance v0, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/q;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/h;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/q;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a:Lcom/yelp/android/ui/activities/messaging/apimanagers/h;
 
-    .line 416
+    .line 424
     new-instance v0, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/a;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->b:Lcom/yelp/android/ui/activities/messaging/apimanagers/a;
 
-    .line 417
+    .line 425
     return-void
 .end method

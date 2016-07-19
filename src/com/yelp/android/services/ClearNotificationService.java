@@ -3,7 +3,7 @@ package com.yelp.android.services;
 import android.app.IntentService;
 import android.content.Intent;
 import android.net.Uri;
-import com.yelp.android.analytics.iris.PushNotificationIri;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.services.push.CheckInPushNotificationHandler.CheckInButtonType;
 import com.yelp.android.services.push.Notifier;
@@ -20,7 +20,7 @@ public class ClearNotificationService
   private void a(String paramString, Uri paramUri, Notifier.NotificationType paramNotificationType)
   {
     if ((paramString.equals("action.REPLY_BUTTON_CLEAR_NOTIFICATIONS")) && (paramNotificationType == Notifier.NotificationType.Messages)) {
-      AppData.a(PushNotificationIri.PushNotificationMessageReply);
+      AppData.a(EventIri.PushNotificationMessageReply);
     }
     do
     {

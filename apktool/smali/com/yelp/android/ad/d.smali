@@ -1,21 +1,30 @@
 .class public Lcom/yelp/android/ad/d;
 .super Ljava/lang/Object;
-.source "TranscoderRegistry.java"
+.source "UnitTransformation.java"
+
+# interfaces
+.implements Lcom/bumptech/glide/load/f;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Lcom/bumptech/glide/load/f",
+        "<TT;>;"
+    }
+.end annotation
 
 
 # static fields
-.field private static final a:Lcom/yelp/android/ai/e;
-
-
-# instance fields
-.field private final b:Ljava/util/Map;
+.field private static final a:Lcom/bumptech/glide/load/f;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map",
-            "<",
-            "Lcom/yelp/android/ai/e;",
-            "Lcom/yelp/android/ad/c",
-            "<**>;>;"
+            "Lcom/bumptech/glide/load/f",
+            "<*>;"
         }
     .end annotation
 .end field
@@ -26,176 +35,72 @@
     .locals 1
 
     .prologue
-    .line 13
-    new-instance v0, Lcom/yelp/android/ai/e;
+    .line 12
+    new-instance v0, Lcom/yelp/android/ad/d;
 
-    invoke-direct {v0}, Lcom/yelp/android/ai/e;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ad/d;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/ad/d;->a:Lcom/yelp/android/ai/e;
+    sput-object v0, Lcom/yelp/android/ad/d;->a:Lcom/bumptech/glide/load/f;
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
     .prologue
-    .line 12
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 15
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ad/d;->b:Ljava/util/Map;
-
     return-void
+.end method
+
+.method public static b()Lcom/yelp/android/ad/d;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">()",
+            "Lcom/yelp/android/ad/d",
+            "<TT;>;"
+        }
+    .end annotation
+
+    .prologue
+    .line 21
+    sget-object v0, Lcom/yelp/android/ad/d;->a:Lcom/bumptech/glide/load/f;
+
+    check-cast v0, Lcom/yelp/android/ad/d;
+
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public a(Ljava/lang/Class;Ljava/lang/Class;)Lcom/yelp/android/ad/c;
-    .locals 3
+.method public a(Lcom/bumptech/glide/load/engine/i;II)Lcom/bumptech/glide/load/engine/i;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "<Z:",
-            "Ljava/lang/Object;",
-            "R:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class",
-            "<TZ;>;",
-            "Ljava/lang/Class",
-            "<TR;>;)",
-            "Lcom/yelp/android/ad/c",
-            "<TZ;TR;>;"
+            "(",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<TT;>;II)",
+            "Lcom/bumptech/glide/load/engine/i",
+            "<TT;>;"
         }
     .end annotation
 
     .prologue
-    .line 43
-    invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 45
-    invoke-static {}, Lcom/yelp/android/ad/e;->b()Lcom/yelp/android/ad/c;
-
-    move-result-object v0
-
-    .line 56
-    :cond_0
-    return-object v0
-
-    .line 48
-    :cond_1
-    sget-object v1, Lcom/yelp/android/ad/d;->a:Lcom/yelp/android/ai/e;
-
-    monitor-enter v1
-
-    .line 49
-    :try_start_0
-    sget-object v0, Lcom/yelp/android/ad/d;->a:Lcom/yelp/android/ai/e;
-
-    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/ai/e;->a(Ljava/lang/Class;Ljava/lang/Class;)V
-
-    .line 50
-    iget-object v0, p0, Lcom/yelp/android/ad/d;->b:Ljava/util/Map;
-
-    sget-object v2, Lcom/yelp/android/ad/d;->a:Lcom/yelp/android/ai/e;
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ad/c;
-
-    .line 51
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 52
-    if-nez v0, :cond_0
-
-    .line 53
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "No transcoder registered for "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string/jumbo v2, " and "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 51
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
+    .line 26
+    return-object p1
 .end method
 
-.method public a(Ljava/lang/Class;Ljava/lang/Class;Lcom/yelp/android/ad/c;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<Z:",
-            "Ljava/lang/Object;",
-            "R:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class",
-            "<TZ;>;",
-            "Ljava/lang/Class",
-            "<TR;>;",
-            "Lcom/yelp/android/ad/c",
-            "<TZ;TR;>;)V"
-        }
-    .end annotation
+.method public a()Ljava/lang/String;
+    .locals 1
 
     .prologue
-    .line 29
-    iget-object v0, p0, Lcom/yelp/android/ad/d;->b:Ljava/util/Map;
+    .line 31
+    const-string/jumbo v0, ""
 
-    new-instance v1, Lcom/yelp/android/ai/e;
-
-    invoke-direct {v1, p1, p2}, Lcom/yelp/android/ai/e;-><init>(Ljava/lang/Class;Ljava/lang/Class;)V
-
-    invoke-interface {v0, v1, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 30
-    return-void
+    return-object v0
 .end method

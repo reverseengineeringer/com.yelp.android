@@ -1,52 +1,104 @@
 package com.yelp.android.ui.activities.talk;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import com.yelp.android.appdata.aa;
-import com.yelp.android.appdata.webrequests.eq;
-import java.io.IOException;
-import java.util.List;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import com.yelp.android.ui.panels.CommonLoadingSpinner;
+import com.yelp.android.ui.panels.PanelLoading;
+import com.yelp.android.ui.util.g;
 
-class a
-  implements aa
+public class a
+  extends BaseAdapter
+  implements g
 {
-  a(ActivityTalk paramActivityTalk) {}
+  private final a a;
+  private PanelLoading b;
+  private int c;
+  private boolean d;
   
-  public void a(Location paramLocation, boolean paramBoolean)
+  public a(a parama)
   {
-    if (!paramBoolean) {}
-    for (;;)
-    {
-      return;
-      Geocoder localGeocoder = new Geocoder(ActivityTalk.a(a), aa).getResources().getConfiguration().locale);
-      try
-      {
-        paramLocation = localGeocoder.getFromLocation(paramLocation.getLatitude(), paramLocation.getLongitude(), 1);
-        if ((paramLocation != null) && (paramLocation.size() > 0))
-        {
-          paramLocation = (Address)paramLocation.get(0);
-          if (ActivityTalk.b(a) != null)
-          {
-            ActivityTalk.b(a).cancel(true);
-            ActivityTalk.b(a).setCallback(null);
-          }
-          ActivityTalk.a(a, new eq(paramLocation.getLatitude(), paramLocation.getLongitude(), ActivityTalk.c(a)));
-          ActivityTalk.b(a).execute(new Void[0]);
-          return;
-        }
-      }
-      catch (IOException paramLocation) {}
-    }
+    a = parama;
   }
   
-  public boolean a()
+  public void a(int paramInt)
   {
-    a.onProvidersRequired(a, false, 0);
-    return false;
+    c = paramInt;
+    d = false;
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    d = paramBoolean;
+    notifyDataSetChanged();
+  }
+  
+  public void clear()
+  {
+    d = false;
+    c = 0;
+  }
+  
+  public int getCount()
+  {
+    if ((d) || (c != 0)) {
+      return 1;
+    }
+    return 0;
+  }
+  
+  public Object getItem(int paramInt)
+  {
+    return null;
+  }
+  
+  public long getItemId(int paramInt)
+  {
+    return 0L;
+  }
+  
+  public int getItemViewType(int paramInt)
+  {
+    if (d) {
+      return 0;
+    }
+    return 1;
+  }
+  
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    if (d)
+    {
+      if (b == null)
+      {
+        b = new PanelLoading(paramViewGroup.getContext());
+        b.setSpinner(CommonLoadingSpinner.SMALL);
+      }
+      return b;
+    }
+    View localView = paramView;
+    if (paramView == null)
+    {
+      localView = LayoutInflater.from(paramViewGroup.getContext()).inflate(2130903468, paramViewGroup, false);
+      localView.setTag(new a.b(localView));
+    }
+    paramView = (a.b)localView.getTag();
+    a.setText(paramViewGroup.getContext().getString(2131166589, new Object[] { Integer.valueOf(Math.abs(c)) }));
+    a.setOnClickListener(new a.1(this));
+    return localView;
+  }
+  
+  public int getViewTypeCount()
+  {
+    return 2;
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(int paramInt);
   }
 }
 

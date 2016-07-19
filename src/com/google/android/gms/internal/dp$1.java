@@ -1,13 +1,22 @@
 package com.google.android.gms.internal;
 
+import java.util.concurrent.Callable;
+
 class dp$1
-  implements gv.a
+  implements Callable<dn>
 {
-  dp$1(dp paramdp) {}
+  dp$1(dp paramdp, dm paramdm) {}
   
-  public void a(gu paramgu)
+  public dn a()
+    throws Exception
   {
-    paramgu.ci();
+    synchronized (dp.a(b))
+    {
+      if (dp.b(b)) {
+        return null;
+      }
+      return a.a(dp.c(b), dp.d(b));
+    }
   }
 }
 

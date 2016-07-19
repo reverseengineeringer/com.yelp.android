@@ -2,7 +2,7 @@
 <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
     <com.yelp.android.ui.widgets.SpannableLinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/content" android:background="@drawable/selector_full_bleed" android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left">
-        <TextView android:textAppearance="@style/HeadlineText" android:gravity="left" android:id="@id/footer_text" android:paddingLeft="?largeGapSize" android:paddingTop="@dimen/see_more_button_padding" android:paddingRight="?baseGapSize" android:paddingBottom="@dimen/see_more_button_padding" android:layout_width="0.0dip" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_weight="1.0" />
-        <ImageView android:paddingRight="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:contentDescription="@null" />
+        <TextView android:textAppearance="@style/SectionText" android:gravity="left" android:id="@id/footer_text" android:paddingLeft="@dimen/default_large_gap_size" android:paddingTop="@dimen/see_more_button_padding" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/see_more_button_padding" android:layout_width="0.0dip" android:layout_height="wrap_content" android:includeFontPadding="false" android:layout_weight="1.0" />
+        <ImageView android:paddingRight="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:contentDescription="@null" />
     </com.yelp.android.ui.widgets.SpannableLinearLayout>
 </FrameLayout>

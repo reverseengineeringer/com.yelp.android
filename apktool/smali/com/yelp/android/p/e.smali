@@ -1,1297 +1,650 @@
 .class public Lcom/yelp/android/p/e;
-.super Ljava/lang/Object;
-.source "GifHeaderParser.java"
+.super Landroid/view/MenuInflater;
+.source "SupportMenuInflater.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/p/e$b;,
+        Lcom/yelp/android/p/e$a;
+    }
+.end annotation
+
+
+# static fields
+.field private static final a:[Ljava/lang/Class;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "[",
+            "Ljava/lang/Class",
+            "<*>;"
+        }
+    .end annotation
+.end field
+
+.field private static final b:[Ljava/lang/Class;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "[",
+            "Ljava/lang/Class",
+            "<*>;"
+        }
+    .end annotation
+.end field
 
 
 # instance fields
-.field private final a:[B
+.field private final c:[Ljava/lang/Object;
 
-.field private b:Ljava/nio/ByteBuffer;
+.field private final d:[Ljava/lang/Object;
 
-.field private c:Lcom/yelp/android/p/d;
+.field private e:Landroid/content/Context;
 
-.field private d:I
+.field private f:Ljava/lang/Object;
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 1
+.method static constructor <clinit>()V
+    .locals 3
 
     .prologue
-    .line 16
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 72
+    const/4 v0, 0x1
 
-    .line 26
-    const/16 v0, 0x100
+    new-array v0, v0, [Ljava/lang/Class;
 
-    new-array v0, v0, [B
+    const/4 v1, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/p/e;->a:[B
+    const-class v2, Landroid/content/Context;
 
-    .line 30
-    const/4 v0, 0x0
+    aput-object v2, v0, v1
 
-    iput v0, p0, Lcom/yelp/android/p/e;->d:I
+    sput-object v0, Lcom/yelp/android/p/e;->a:[Ljava/lang/Class;
+
+    .line 74
+    sget-object v0, Lcom/yelp/android/p/e;->a:[Ljava/lang/Class;
+
+    sput-object v0, Lcom/yelp/android/p/e;->b:[Ljava/lang/Class;
 
     return-void
 .end method
 
-.method private a(I)[I
-    .locals 10
-
-    .prologue
-    const/4 v2, 0x0
-
-    .line 274
-    mul-int/lit8 v0, p1, 0x3
-
-    .line 275
-    const/4 v1, 0x0
-
-    .line 276
-    new-array v4, v0, [B
-
-    .line 279
-    :try_start_0
-    iget-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v0, v4}, Ljava/nio/ByteBuffer;->get([B)Ljava/nio/ByteBuffer;
-
-    .line 283
-    const/16 v0, 0x100
-
-    new-array v0, v0, [I
-    :try_end_0
-    .catch Ljava/nio/BufferUnderflowException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move v1, v2
-
-    .line 286
-    :goto_0
-    if-ge v2, p1, :cond_1
-
-    .line 287
-    add-int/lit8 v3, v1, 0x1
-
-    :try_start_1
-    aget-byte v1, v4, v1
-
-    and-int/lit16 v5, v1, 0xff
-
-    .line 288
-    add-int/lit8 v6, v3, 0x1
-
-    aget-byte v1, v4, v3
-
-    and-int/lit16 v7, v1, 0xff
-
-    .line 289
-    add-int/lit8 v1, v6, 0x1
-
-    aget-byte v3, v4, v6
-
-    and-int/lit16 v6, v3, 0xff
-
-    .line 290
-    add-int/lit8 v3, v2, 0x1
-
-    const/high16 v8, -0x1000000
-
-    shl-int/lit8 v5, v5, 0x10
-
-    or-int/2addr v5, v8
-
-    shl-int/lit8 v7, v7, 0x8
-
-    or-int/2addr v5, v7
-
-    or-int/2addr v5, v6
-
-    aput v5, v0, v2
-    :try_end_1
-    .catch Ljava/nio/BufferUnderflowException; {:try_start_1 .. :try_end_1} :catch_1
-
-    move v2, v3
-
-    .line 291
-    goto :goto_0
-
-    .line 292
-    :catch_0
-    move-exception v0
-
-    move-object v9, v0
-
-    move-object v0, v1
-
-    move-object v1, v9
-
-    .line 293
-    :goto_1
-    const-string/jumbo v2, "GifHeaderParser"
-
-    const/4 v3, 0x3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    .line 294
-    const-string/jumbo v2, "GifHeaderParser"
-
-    const-string/jumbo v3, "Format Error Reading Color Table"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    .line 296
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    const/4 v2, 0x1
-
-    iput v2, v1, Lcom/yelp/android/p/d;->b:I
-
-    .line 299
-    :cond_1
-    return-object v0
-
-    .line 292
-    :catch_1
-    move-exception v1
-
-    goto :goto_1
-.end method
-
-.method private c()V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
     .prologue
+    .line 90
+    invoke-direct {p0, p1}, Landroid/view/MenuInflater;-><init>(Landroid/content/Context;)V
+
+    .line 91
+    iput-object p1, p0, Lcom/yelp/android/p/e;->e:Landroid/content/Context;
+
+    .line 92
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
     const/4 v1, 0x0
 
-    .line 51
-    const/4 v0, 0x0
+    aput-object p1, v0, v1
 
-    iput-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    iput-object v0, p0, Lcom/yelp/android/p/e;->c:[Ljava/lang/Object;
 
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/p/e;->a:[B
+    .line 93
+    iget-object v0, p0, Lcom/yelp/android/p/e;->c:[Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Ljava/util/Arrays;->fill([BB)V
+    iput-object v0, p0, Lcom/yelp/android/p/e;->d:[Ljava/lang/Object;
 
-    .line 53
-    new-instance v0, Lcom/yelp/android/p/d;
-
-    invoke-direct {v0}, Lcom/yelp/android/p/d;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    .line 54
-    iput v1, p0, Lcom/yelp/android/p/e;->d:I
-
-    .line 55
+    .line 94
     return-void
 .end method
 
-.method private d()V
-    .locals 6
+.method static synthetic a(Lcom/yelp/android/p/e;)Landroid/content/Context;
+    .locals 1
 
     .prologue
+    .line 58
+    iget-object v0, p0, Lcom/yelp/android/p/e;->e:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method private a(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 220
+    instance-of v0, p1, Landroid/app/Activity;
+
+    if-eqz v0, :cond_1
+
+    .line 226
+    :cond_0
+    :goto_0
+    return-object p1
+
+    .line 223
+    :cond_1
+    instance-of v0, p1, Landroid/content/ContextWrapper;
+
+    if-eqz v0, :cond_0
+
+    .line 224
+    check-cast p1, Landroid/content/ContextWrapper;
+
+    invoke-virtual {p1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/p/e;->a(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    goto :goto_0
+.end method
+
+.method private a(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
+    .locals 10
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/xmlpull/v1/XmlPullParserException;,
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v4, 0x0
+
     const/4 v1, 0x1
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    .line 81
-    move v0, v3
+    .line 134
+    new-instance v7, Lcom/yelp/android/p/e$b;
 
-    .line 82
-    :goto_0
-    if-nez v0, :cond_3
+    invoke-direct {v7, p0, p3}, Lcom/yelp/android/p/e$b;-><init>(Lcom/yelp/android/p/e;Landroid/view/Menu;)V
 
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->o()Z
+    .line 136
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_3
-
-    .line 83
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    move-result v2
-
-    .line 84
-    sparse-switch v2, :sswitch_data_0
-
-    .line 139
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iput v1, v2, Lcom/yelp/android/p/d;->b:I
-
-    goto :goto_0
-
-    .line 90
-    :sswitch_0
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v2, v2, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    if-nez v2, :cond_0
-
-    .line 91
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    new-instance v4, Lcom/yelp/android/p/c;
-
-    invoke-direct {v4}, Lcom/yelp/android/p/c;-><init>()V
-
-    iput-object v4, v2, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    .line 93
+    .line 143
     :cond_0
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->f()V
+    const/4 v2, 0x2
 
-    goto :goto_0
+    if-ne v0, v2, :cond_3
 
-    .line 97
-    :sswitch_1
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
+    .line 144
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result v2
+    move-result-object v0
 
-    .line 98
-    sparse-switch v2, :sswitch_data_1
+    .line 145
+    const-string/jumbo v2, "menu"
 
-    .line 129
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->k()V
-
-    goto :goto_0
-
-    .line 102
-    :sswitch_2
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    new-instance v4, Lcom/yelp/android/p/c;
-
-    invoke-direct {v4}, Lcom/yelp/android/p/c;-><init>()V
-
-    iput-object v4, v2, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    .line 103
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->e()V
-
-    goto :goto_0
-
-    .line 107
-    :sswitch_3
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->l()I
-
-    .line 108
-    const-string/jumbo v2, ""
-
-    move-object v4, v2
-
-    move v2, v3
-
-    .line 109
-    :goto_1
-    const/16 v5, 0xb
-
-    if-ge v2, v5, :cond_1
-
-    .line 110
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    iget-object v5, p0, Lcom/yelp/android/p/e;->a:[B
-
-    aget-byte v5, v5, v2
-
-    int-to-char v5, v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    .line 109
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    .line 112
-    :cond_1
-    const-string/jumbo v2, "NETSCAPE2.0"
-
-    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
     if-eqz v2, :cond_2
 
-    .line 113
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->g()V
-
-    goto :goto_0
-
-    .line 116
-    :cond_2
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->k()V
-
-    goto :goto_0
-
-    .line 121
-    :sswitch_4
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->k()V
-
-    goto :goto_0
-
-    .line 125
-    :sswitch_5
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->k()V
-
-    goto :goto_0
-
-    :sswitch_6
-    move v0, v1
-
-    .line 135
-    goto :goto_0
-
-    .line 142
-    :cond_3
-    return-void
-
-    .line 84
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        0x21 -> :sswitch_1
-        0x2c -> :sswitch_0
-        0x3b -> :sswitch_6
-    .end sparse-switch
-
-    .line 98
-    :sswitch_data_1
-    .sparse-switch
-        0x1 -> :sswitch_5
-        0xf9 -> :sswitch_2
-        0xfe -> :sswitch_4
-        0xff -> :sswitch_3
-    .end sparse-switch
-.end method
-
-.method private e()V
-    .locals 4
-
-    .prologue
-    const/4 v0, 0x1
-
-    .line 149
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    .line 151
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    move-result v1
-
-    .line 153
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v2, v2, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    and-int/lit8 v3, v1, 0x1c
-
-    shr-int/lit8 v3, v3, 0x2
-
-    iput v3, v2, Lcom/yelp/android/p/c;->g:I
-
-    .line 154
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v2, v2, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    iget v2, v2, Lcom/yelp/android/p/c;->g:I
-
-    if-nez v2, :cond_0
-
-    .line 156
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v2, v2, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    iput v0, v2, Lcom/yelp/android/p/c;->g:I
-
-    .line 158
-    :cond_0
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v2, v2, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    and-int/lit8 v1, v1, 0x1
-
-    if-eqz v1, :cond_2
-
-    :goto_0
-    iput-boolean v0, v2, Lcom/yelp/android/p/c;->f:Z
-
-    .line 160
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->n()I
+    .line 147
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v0
 
-    .line 162
-    const/4 v1, 0x3
-
-    if-ge v0, v1, :cond_1
-
-    .line 163
-    const/16 v0, 0xa
-
-    .line 165
-    :cond_1
-    iget-object v1, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v1, v1, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    mul-int/lit8 v0, v0, 0xa
-
-    iput v0, v1, Lcom/yelp/android/p/c;->i:I
-
-    .line 167
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    move-result v1
-
-    iput v1, v0, Lcom/yelp/android/p/c;->h:I
-
-    .line 169
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    .line 170
-    return-void
-
-    .line 158
-    :cond_2
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method private f()V
-    .locals 8
-
-    .prologue
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    .line 177
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->n()I
-
-    move-result v3
-
-    iput v3, v0, Lcom/yelp/android/p/c;->a:I
-
-    .line 178
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->n()I
-
-    move-result v3
-
-    iput v3, v0, Lcom/yelp/android/p/c;->b:I
-
-    .line 179
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->n()I
-
-    move-result v3
-
-    iput v3, v0, Lcom/yelp/android/p/c;->c:I
-
-    .line 180
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->n()I
-
-    move-result v3
-
-    iput v3, v0, Lcom/yelp/android/p/c;->d:I
-
-    .line 182
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    move-result v3
-
-    .line 184
-    and-int/lit16 v0, v3, 0x80
-
-    if-eqz v0, :cond_0
-
-    move v0, v1
-
-    .line 185
     :goto_0
-    const-wide/high16 v4, 0x4000000000000000L    # 2.0
+    move-object v2, v4
 
-    and-int/lit8 v6, v3, 0x7
+    move v5, v6
 
-    add-int/lit8 v6, v6, 0x1
+    move v3, v0
 
-    int-to-double v6, v6
+    move v0, v6
 
-    invoke-static {v4, v5, v6, v7}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v4
-
-    double-to-int v4, v4
-
-    .line 189
-    iget-object v5, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v5, v5, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    and-int/lit8 v3, v3, 0x40
-
-    if-eqz v3, :cond_1
-
+    .line 157
     :goto_1
-    iput-boolean v1, v5, Lcom/yelp/android/p/c;->e:Z
+    if-nez v0, :cond_c
 
-    .line 190
-    if-eqz v0, :cond_2
-
-    .line 192
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    invoke-direct {p0, v4}, Lcom/yelp/android/p/e;->a(I)[I
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/yelp/android/p/c;->k:[I
-
-    .line 199
-    :goto_2
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    iget-object v1, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->position()I
-
-    move-result v1
-
-    iput v1, v0, Lcom/yelp/android/p/c;->j:I
-
-    .line 202
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->j()V
-
-    .line 204
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->o()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 211
-    :goto_3
-    return-void
-
-    :cond_0
-    move v0, v2
-
-    .line 184
-    goto :goto_0
+    .line 158
+    packed-switch v3, :pswitch_data_0
 
     :cond_1
-    move v1, v2
-
-    .line 189
-    goto :goto_1
-
-    .line 195
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v0, v0, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    const/4 v1, 0x0
-
-    iput-object v1, v0, Lcom/yelp/android/p/c;->k:[I
-
-    goto :goto_2
+    move v3, v5
 
     .line 208
-    :cond_3
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
+    :goto_2
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    iget v1, v0, Lcom/yelp/android/p/d;->c:I
+    move-result v5
 
-    add-int/lit8 v1, v1, 0x1
+    move v9, v3
 
-    iput v1, v0, Lcom/yelp/android/p/d;->c:I
+    move v3, v5
 
-    .line 210
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
+    move v5, v9
 
-    iget-object v0, v0, Lcom/yelp/android/p/d;->e:Ljava/util/List;
+    goto :goto_1
 
-    iget-object v1, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v1, v1, Lcom/yelp/android/p/d;->d:Lcom/yelp/android/p/c;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_3
-.end method
-
-.method private g()V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x1
-
-    .line 217
-    :cond_0
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->l()I
-
-    .line 218
-    iget-object v0, p0, Lcom/yelp/android/p/e;->a:[B
-
-    const/4 v1, 0x0
-
-    aget-byte v0, v0, v1
-
-    if-ne v0, v3, :cond_1
-
-    .line 220
-    iget-object v0, p0, Lcom/yelp/android/p/e;->a:[B
-
-    aget-byte v0, v0, v3
-
-    and-int/lit16 v0, v0, 0xff
-
-    .line 221
-    iget-object v1, p0, Lcom/yelp/android/p/e;->a:[B
-
-    const/4 v2, 0x2
-
-    aget-byte v1, v1, v2
-
-    and-int/lit16 v1, v1, 0xff
-
-    .line 222
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    shl-int/lit8 v1, v1, 0x8
-
-    or-int/2addr v0, v1
-
-    iput v0, v2, Lcom/yelp/android/p/d;->m:I
-
-    .line 224
-    :cond_1
-    iget v0, p0, Lcom/yelp/android/p/e;->d:I
-
-    if-lez v0, :cond_2
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->o()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 225
+    .line 151
     :cond_2
-    return-void
-.end method
+    new-instance v1, Ljava/lang/RuntimeException;
 
-.method private h()V
-    .locals 3
-
-    .prologue
-    .line 232
-    const-string/jumbo v1, ""
-
-    .line 233
-    const/4 v0, 0x0
-
-    :goto_0
-    const/4 v2, 0x6
-
-    if-ge v0, v2, :cond_0
-
-    .line 234
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v3, "Expecting menu, got "
 
-    move-result-object v1
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
+    move-result-object v2
 
-    move-result v2
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    int-to-char v2, v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    move-result-object v1
+    throw v1
 
-    .line 233
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    .line 236
-    :cond_0
-    const-string/jumbo v0, "GIF"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    .line 153
+    :cond_3
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v0
 
-    if-nez v0, :cond_2
-
-    .line 237
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    const/4 v1, 0x1
-
-    iput v1, v0, Lcom/yelp/android/p/d;->b:I
-
-    .line 245
-    :cond_1
-    :goto_1
-    return-void
-
-    .line 240
-    :cond_2
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->i()V
-
-    .line 241
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-boolean v0, v0, Lcom/yelp/android/p/d;->h:Z
-
-    if-eqz v0, :cond_1
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->o()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 242
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v1, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget v1, v1, Lcom/yelp/android/p/d;->i:I
-
-    invoke-direct {p0, v1}, Lcom/yelp/android/p/e;->a(I)[I
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/yelp/android/p/d;->a:[I
-
-    .line 243
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v1, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget-object v1, v1, Lcom/yelp/android/p/d;->a:[I
-
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget v2, v2, Lcom/yelp/android/p/d;->j:I
-
-    aget v1, v1, v2
-
-    iput v1, v0, Lcom/yelp/android/p/d;->l:I
-
-    goto :goto_1
-.end method
-
-.method private i()V
-    .locals 3
-
-    .prologue
-    .line 251
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->n()I
-
-    move-result v1
-
-    iput v1, v0, Lcom/yelp/android/p/d;->f:I
-
-    .line 252
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->n()I
-
-    move-result v1
-
-    iput v1, v0, Lcom/yelp/android/p/d;->g:I
-
-    .line 254
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    move-result v1
-
-    .line 256
-    iget-object v2, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    and-int/lit16 v0, v1, 0x80
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    iput-boolean v0, v2, Lcom/yelp/android/p/d;->h:Z
-
-    .line 260
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    const/4 v2, 0x2
-
-    and-int/lit8 v1, v1, 0x7
-
-    shl-int v1, v2, v1
-
-    iput v1, v0, Lcom/yelp/android/p/d;->i:I
-
-    .line 262
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    move-result v1
-
-    iput v1, v0, Lcom/yelp/android/p/d;->j:I
-
-    .line 264
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
-
-    move-result v1
-
-    iput v1, v0, Lcom/yelp/android/p/d;->k:I
-
-    .line 265
-    return-void
-
-    .line 256
-    :cond_0
-    const/4 v0, 0x0
+    .line 154
+    if-ne v0, v1, :cond_0
 
     goto :goto_0
-.end method
 
-.method private j()V
-    .locals 0
+    .line 160
+    :pswitch_0
+    if-eqz v5, :cond_4
 
-    .prologue
-    .line 307
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
+    move v3, v5
 
-    .line 309
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->k()V
+    .line 161
+    goto :goto_2
 
-    .line 310
-    return-void
-.end method
+    .line 164
+    :cond_4
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-.method private k()V
-    .locals 3
+    move-result-object v3
 
-    .prologue
-    .line 318
-    :cond_0
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
+    .line 165
+    const-string/jumbo v8, "group"
 
-    move-result v0
+    invoke-virtual {v3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 319
-    iget-object v1, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    move-result v8
 
-    iget-object v2, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    if-eqz v8, :cond_5
 
-    invoke-virtual {v2}, Ljava/nio/ByteBuffer;->position()I
+    .line 166
+    invoke-virtual {v7, p2}, Lcom/yelp/android/p/e$b;->a(Landroid/util/AttributeSet;)V
 
-    move-result v2
+    move v3, v5
 
-    add-int/2addr v2, v0
+    goto :goto_2
 
-    invoke-virtual {v1, v2}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    .line 167
+    :cond_5
+    const-string/jumbo v8, "item"
 
-    .line 320
-    if-gtz v0, :cond_0
+    invoke-virtual {v3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    .line 321
-    return-void
-.end method
+    move-result v8
 
-.method private l()I
-    .locals 6
+    if-eqz v8, :cond_6
 
-    .prologue
-    const/4 v0, 0x0
+    .line 168
+    invoke-virtual {v7, p2}, Lcom/yelp/android/p/e$b;->b(Landroid/util/AttributeSet;)V
 
-    .line 329
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->m()I
+    move v3, v5
 
-    move-result v1
+    goto :goto_2
 
-    iput v1, p0, Lcom/yelp/android/p/e;->d:I
+    .line 169
+    :cond_6
+    const-string/jumbo v8, "menu"
 
-    .line 331
-    iget v1, p0, Lcom/yelp/android/p/e;->d:I
+    invoke-virtual {v3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-lez v1, :cond_1
+    move-result v8
 
-    move v2, v0
+    if-eqz v8, :cond_7
 
-    .line 334
-    :goto_0
-    :try_start_0
-    iget v1, p0, Lcom/yelp/android/p/e;->d:I
+    .line 171
+    invoke-virtual {v7}, Lcom/yelp/android/p/e$b;->c()Landroid/view/SubMenu;
 
-    if-ge v0, v1, :cond_1
+    move-result-object v3
 
-    .line 335
-    iget v1, p0, Lcom/yelp/android/p/e;->d:I
+    .line 174
+    invoke-direct {p0, p1, p2, v3}, Lcom/yelp/android/p/e;->a(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
 
-    sub-int v2, v1, v0
+    move v3, v5
 
-    .line 336
-    iget-object v1, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    .line 175
+    goto :goto_2
 
-    iget-object v3, p0, Lcom/yelp/android/p/e;->a:[B
+    :cond_7
+    move-object v2, v3
 
-    invoke-virtual {v1, v3, v0, v2}, Ljava/nio/ByteBuffer;->get([BII)Ljava/nio/ByteBuffer;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    move v3, v1
 
-    .line 338
-    add-int/2addr v0, v2
+    .line 179
+    goto :goto_2
 
-    goto :goto_0
+    .line 182
+    :pswitch_1
+    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    .line 340
-    :catch_0
-    move-exception v1
+    move-result-object v3
 
-    .line 341
-    const-string/jumbo v3, "GifHeaderParser"
+    .line 183
+    if-eqz v5, :cond_8
 
-    const/4 v4, 0x3
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v3, v4}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    move-object v2, v4
+
+    move v3, v6
+
+    .line 185
+    goto :goto_2
+
+    .line 186
+    :cond_8
+    const-string/jumbo v8, "group"
+
+    invoke-virtual {v3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_9
+
+    .line 187
+    invoke-virtual {v7}, Lcom/yelp/android/p/e$b;->a()V
+
+    move v3, v5
+
+    goto :goto_2
+
+    .line 188
+    :cond_9
+    const-string/jumbo v8, "item"
+
+    invoke-virtual {v3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_b
+
+    .line 191
+    invoke-virtual {v7}, Lcom/yelp/android/p/e$b;->d()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-nez v3, :cond_1
 
-    .line 342
-    const-string/jumbo v3, "GifHeaderParser"
+    .line 192
+    invoke-static {v7}, Lcom/yelp/android/p/e$b;->a(Lcom/yelp/android/p/e$b;)Landroid/support/v4/view/d;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v3, :cond_a
 
-    const-string/jumbo v5, "Error Reading Block n: "
+    invoke-static {v7}, Lcom/yelp/android/p/e$b;->a(Lcom/yelp/android/p/e$b;)Landroid/support/v4/view/d;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {v3}, Landroid/support/v4/view/d;->e()Z
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result v3
 
-    move-result-object v4
+    if-eqz v3, :cond_a
 
-    const-string/jumbo v5, " count: "
+    .line 194
+    invoke-virtual {v7}, Lcom/yelp/android/p/e$b;->c()Landroid/view/SubMenu;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move v3, v5
 
-    move-result-object v4
+    goto/16 :goto_2
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    .line 196
+    :cond_a
+    invoke-virtual {v7}, Lcom/yelp/android/p/e$b;->b()V
 
-    move-result-object v2
+    move v3, v5
 
-    const-string/jumbo v4, " blockSize: "
+    goto/16 :goto_2
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    .line 199
+    :cond_b
+    const-string/jumbo v8, "menu"
 
-    move-result-object v2
+    invoke-virtual {v3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget v4, p0, Lcom/yelp/android/p/e;->d:I
+    move-result v3
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    if-eqz v3, :cond_1
 
-    move-result-object v2
+    move v0, v1
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move v3, v5
 
-    move-result-object v2
+    .line 200
+    goto/16 :goto_2
 
-    invoke-static {v3, v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    .line 205
+    :pswitch_2
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    .line 344
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
+    const-string/jumbo v1, "Unexpected end of document"
 
-    const/4 v2, 0x1
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    iput v2, v1, Lcom/yelp/android/p/d;->b:I
+    throw v0
 
-    .line 347
-    :cond_1
-    return v0
+    .line 210
+    :cond_c
+    return-void
+
+    .line 158
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_2
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
-.method private m()I
-    .locals 3
-
-    .prologue
-    .line 354
-    const/4 v0, 0x0
-
-    .line 356
-    :try_start_0
-    iget-object v1, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
-
-    invoke-virtual {v1}, Ljava/nio/ByteBuffer;->get()B
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    and-int/lit16 v0, v0, 0xff
-
-    .line 360
-    :goto_0
-    return v0
-
-    .line 357
-    :catch_0
-    move-exception v1
-
-    .line 358
-    iget-object v1, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    const/4 v2, 0x1
-
-    iput v2, v1, Lcom/yelp/android/p/d;->b:I
-
-    goto :goto_0
-.end method
-
-.method private n()I
+.method static synthetic a()[Ljava/lang/Class;
     .locals 1
 
     .prologue
-    .line 368
-    iget-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    .line 58
+    sget-object v0, Lcom/yelp/android/p/e;->b:[Ljava/lang/Class;
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->getShort()S
-
-    move-result v0
-
-    return v0
+    return-object v0
 .end method
 
-.method private o()Z
+.method static synthetic b()[Ljava/lang/Class;
     .locals 1
 
     .prologue
-    .line 372
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
+    .line 58
+    sget-object v0, Lcom/yelp/android/p/e;->a:[Ljava/lang/Class;
 
-    iget v0, v0, Lcom/yelp/android/p/d;->b:I
+    return-object v0
+.end method
 
-    if-eqz v0, :cond_0
+.method static synthetic b(Lcom/yelp/android/p/e;)[Ljava/lang/Object;
+    .locals 1
 
-    const/4 v0, 0x1
+    .prologue
+    .line 58
+    iget-object v0, p0, Lcom/yelp/android/p/e;->d:[Ljava/lang/Object;
 
-    :goto_0
-    return v0
+    return-object v0
+.end method
 
+.method private c()Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 213
+    iget-object v0, p0, Lcom/yelp/android/p/e;->f:Ljava/lang/Object;
+
+    if-nez v0, :cond_0
+
+    .line 214
+    iget-object v0, p0, Lcom/yelp/android/p/e;->e:Landroid/content/Context;
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/p/e;->a(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/p/e;->f:Ljava/lang/Object;
+
+    .line 216
     :cond_0
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/yelp/android/p/e;->f:Ljava/lang/Object;
 
-    goto :goto_0
+    return-object v0
+.end method
+
+.method static synthetic c(Lcom/yelp/android/p/e;)Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 58
+    invoke-direct {p0}, Lcom/yelp/android/p/e;->c()Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic d(Lcom/yelp/android/p/e;)[Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 58
+    iget-object v0, p0, Lcom/yelp/android/p/e;->c:[Ljava/lang/Object;
+
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public a([B)Lcom/yelp/android/p/e;
-    .locals 2
+.method public inflate(ILandroid/view/Menu;)V
+    .locals 4
 
     .prologue
-    .line 33
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->c()V
+    .line 108
+    instance-of v0, p2, Lcom/yelp/android/e/a;
 
-    .line 34
-    if-eqz p1, :cond_0
+    if-nez v0, :cond_1
 
-    .line 35
-    invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
+    .line 109
+    invoke-super {p0, p1, p2}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
+
+    .line 126
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 113
+    :cond_1
+    const/4 v1, 0x0
+
+    .line 115
+    :try_start_0
+    iget-object v0, p0, Lcom/yelp/android/p/e;->e:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getLayout(I)Landroid/content/res/XmlResourceParser;
 
-    .line 36
-    iget-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    move-result-object v1
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->rewind()Ljava/nio/Buffer;
+    .line 116
+    invoke-static {v1}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
-    .line 37
-    iget-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    move-result-object v0
 
-    sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
+    .line 118
+    invoke-direct {p0, v1, v0, p2}, Lcom/yelp/android/p/e;->a(Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/view/Menu;)V
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
+    .line 124
+    if-eqz v1, :cond_0
 
-    .line 42
-    :goto_0
-    return-object p0
-
-    .line 39
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
-
-    .line 40
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    const/4 v1, 0x2
-
-    iput v1, v0, Lcom/yelp/android/p/d;->b:I
+    invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
     goto :goto_0
-.end method
 
-.method public a()V
-    .locals 1
+    .line 119
+    :catch_0
+    move-exception v0
 
-    .prologue
-    const/4 v0, 0x0
+    .line 120
+    :try_start_1
+    new-instance v2, Landroid/view/InflateException;
 
-    .line 46
-    iput-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    const-string/jumbo v3, "Error inflating menu XML"
 
-    .line 47
-    iput-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
+    invoke-direct {v2, v3, v0}, Landroid/view/InflateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 48
-    return-void
-.end method
+    throw v2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-.method public b()Lcom/yelp/android/p/d;
-    .locals 2
+    .line 124
+    :catchall_0
+    move-exception v0
 
-    .prologue
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/p/e;->b:Ljava/nio/ByteBuffer;
+    if-eqz v1, :cond_2
 
-    if-nez v0, :cond_0
+    invoke-interface {v1}, Landroid/content/res/XmlResourceParser;->close()V
 
-    .line 59
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "You must call setData() before parseHeader()"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
+    :cond_2
     throw v0
 
-    .line 61
-    :cond_0
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->o()Z
+    .line 121
+    :catch_1
+    move-exception v0
 
-    move-result v0
+    .line 122
+    :try_start_2
+    new-instance v2, Landroid/view/InflateException;
 
-    if-eqz v0, :cond_1
+    const-string/jumbo v3, "Error inflating menu XML"
 
-    .line 62
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
+    invoke-direct {v2, v3, v0}, Landroid/view/InflateException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 73
-    :goto_0
-    return-object v0
-
-    .line 65
-    :cond_1
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->h()V
-
-    .line 66
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->o()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 67
-    invoke-direct {p0}, Lcom/yelp/android/p/e;->d()V
-
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    iget v0, v0, Lcom/yelp/android/p/d;->c:I
-
-    if-gez v0, :cond_2
-
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    const/4 v1, 0x1
-
-    iput v1, v0, Lcom/yelp/android/p/d;->b:I
-
-    .line 73
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/p/e;->c:Lcom/yelp/android/p/d;
-
-    goto :goto_0
+    throw v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 .end method

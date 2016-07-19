@@ -5,13 +5,13 @@ import android.view.View;
 import android.widget.ListView;
 import com.yelp.android.appdata.webrequests.CheckInRankingsRequest;
 import com.yelp.android.appdata.webrequests.CheckInRankingsRequest.SearchMode;
-import com.yelp.android.appdata.webrequests.j;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.DisplayableAsUserBadge;
 import com.yelp.android.serializable.Ranking;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.activities.support.YelpListFragment;
-import com.yelp.android.ui.activities.support.o;
-import com.yelp.android.ui.util.cp;
+import com.yelp.android.ui.activities.support.b.e;
+import com.yelp.android.ui.util.ar;
 import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 
@@ -21,22 +21,16 @@ public abstract class RankFragment
   private CheckinRankAdapter a;
   private CheckInRankingsRequest b;
   private int c;
-  private final j<ArrayList<Ranking>> d = new d(this);
-  private final o e = new e(this);
+  private final k.b<ArrayList<Ranking>> d = new RankFragment.1(this);
+  private final b.e e = new RankFragment.2(this);
+  
+  protected abstract CheckInRankingsRequest.SearchMode D_();
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     super.a(paramListView, paramView, paramInt, paramLong);
     paramListView = (DisplayableAsUserBadge)a.getItem(paramInt);
-    startActivity(ActivityUserProfile.a(getActivity(), paramListView.getUserId()));
-  }
-  
-  public void a_()
-  {
-    super.a_();
-    a.clear();
-    b = null;
-    b();
+    startActivity(ActivityUserProfile.a(getActivity(), paramListView.i()));
   }
   
   protected void b()
@@ -44,19 +38,17 @@ public abstract class RankFragment
     super.b();
     if (b == null)
     {
-      b = CheckInRankingsRequest.a(d, d());
-      b.executeWithLocation(new Void[0]);
-      i_();
+      b = CheckInRankingsRequest.a(d, D_());
+      b.a(new Void[0]);
+      H_();
     }
   }
   
   protected abstract CheckinRankAdapter.RankMode c();
   
-  protected abstract CheckInRankingsRequest.SearchMode d();
+  protected abstract ErrorType f();
   
-  protected abstract ErrorType e();
-  
-  public String f()
+  public String g()
   {
     return getClass().getCanonicalName() + "rankings";
   }
@@ -79,20 +71,20 @@ public abstract class RankFragment
   
   public void onPause()
   {
-    a(f(), b, false);
+    a(g(), b);
     super.onPause();
   }
   
   public void onResume()
   {
     super.onResume();
-    b = ((CheckInRankingsRequest)a(f(), b, d));
-    if ((b != null) && (b.isFetching())) {
-      i_();
+    b = ((CheckInRankingsRequest)a(g(), b, d));
+    if ((b != null) && (b.u())) {
+      H_();
     }
     if (c >= 0)
     {
-      cp.a(m(), c, true);
+      ar.a(m(), c, true);
       c = -1;
     }
   }
@@ -103,6 +95,14 @@ public abstract class RankFragment
     if (a != null) {
       a.a(paramBundle);
     }
+  }
+  
+  public void p_()
+  {
+    super.p_();
+    a.clear();
+    b = null;
+    b();
   }
 }
 

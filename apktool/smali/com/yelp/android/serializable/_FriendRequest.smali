@@ -7,11 +7,11 @@
 
 
 # instance fields
-.field protected mDateModified:Ljava/util/Date;
+.field protected a:Ljava/util/Date;
 
-.field protected mMessage:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mSender:Lcom/yelp/android/serializable/User;
+.field protected c:Lcom/yelp/android/serializable/User;
 
 
 # direct methods
@@ -19,180 +19,55 @@
     .locals 0
 
     .prologue
-    .line 29
+    .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Ljava/lang/String;Lcom/yelp/android/serializable/User;)V
-    .locals 0
-
-    .prologue
-    .line 22
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_FriendRequest;-><init>()V
-
-    .line 23
-    iput-object p1, p0, Lcom/yelp/android/serializable/_FriendRequest;->mDateModified:Ljava/util/Date;
-
-    .line 24
-    iput-object p2, p0, Lcom/yelp/android/serializable/_FriendRequest;->mMessage:Ljava/lang/String;
-
-    .line 25
-    iput-object p3, p0, Lcom/yelp/android/serializable/_FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
-
-    .line 26
+    .line 31
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
-
-    .prologue
-    .line 44
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getDateModified()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 33
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mDateModified:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getMessage()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 36
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mMessage:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getSender()Lcom/yelp/android/serializable/User;
-    .locals 1
-
-    .prologue
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 2
-
-    .prologue
-    .line 63
-    const-string/jumbo v0, "time_created"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 64
-    const-string/jumbo v0, "time_created"
-
-    invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mDateModified:Ljava/util/Date;
-
-    .line 66
-    :cond_0
-    const-string/jumbo v0, "message"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 67
-    const-string/jumbo v0, "message"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mMessage:Ljava/lang/String;
-
-    .line 69
-    :cond_1
-    const-string/jumbo v0, "user"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    .line 70
-    sget-object v0, Lcom/yelp/android/serializable/User;->CREATOR:Lcom/yelp/android/serializable/ah;
-
-    const-string/jumbo v1, "user"
-
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ah;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/User;
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
-
-    .line 72
-    :cond_2
-    return-void
-.end method
-
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public a(Landroid/os/Parcel;)V
     .locals 4
 
     .prologue
-    .line 54
+    .line 88
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
-    .line 55
+    .line 89
     const-wide/32 v2, -0x80000000
 
     cmp-long v2, v0, v2
 
     if-eqz v2, :cond_0
 
-    .line 56
+    .line 90
     new-instance v2, Ljava/util/Date;
 
     invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
 
-    iput-object v2, p0, Lcom/yelp/android/serializable/_FriendRequest;->mDateModified:Ljava/util/Date;
+    iput-object v2, p0, Lcom/yelp/android/serializable/_FriendRequest;->a:Ljava/util/Date;
 
-    .line 58
+    .line 92
     :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mMessage:Ljava/lang/String;
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
 
-    .line 59
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->b:Ljava/lang/String;
+
+    .line 93
     const-class v0, Lcom/yelp/android/serializable/User;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -205,18 +80,234 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
-    .line 60
+    .line 94
     return-void
+.end method
+
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 97
+    const-string/jumbo v0, "time_created"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 98
+    const-string/jumbo v0, "time_created"
+
+    invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->a:Ljava/util/Date;
+
+    .line 100
+    :cond_0
+    const-string/jumbo v0, "message"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 101
+    const-string/jumbo v0, "message"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->b:Ljava/lang/String;
+
+    .line 103
+    :cond_1
+    const-string/jumbo v0, "user"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 104
+    sget-object v0, Lcom/yelp/android/serializable/User;->CREATOR:Lcom/yelp/android/serializable/a;
+
+    const-string/jumbo v1, "user"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/a;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/User;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->c:Lcom/yelp/android/serializable/User;
+
+    .line 106
+    :cond_2
+    return-void
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 78
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 35
+    if-nez p1, :cond_1
+
+    .line 49
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 39
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 40
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 43
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 47
+    check-cast p1, Lcom/yelp/android/serializable/_FriendRequest;
+
+    .line 49
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FriendRequest;->a:Ljava/util/Date;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FriendRequest;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FriendRequest;->b:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FriendRequest;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FriendRequest;->c:Lcom/yelp/android/serializable/User;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FriendRequest;->c:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 58
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FriendRequest;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FriendRequest;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FriendRequest;->c:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public j()Lcom/yelp/android/serializable/User;
+    .locals 1
+
+    .prologue
+    .line 74
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->c:Lcom/yelp/android/serializable/User;
+
+    return-object v0
+.end method
+
+.method public k()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 70
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->b:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
     .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mDateModified:Ljava/util/Date;
+    .line 82
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->a:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -225,24 +316,24 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mMessage:Ljava/lang/String;
+    .line 83
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 50
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mSender:Lcom/yelp/android/serializable/User;
+    .line 84
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->c:Lcom/yelp/android/serializable/User;
 
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 51
+    .line 85
     return-void
 
-    .line 48
+    .line 82
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->mDateModified:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FriendRequest;->a:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

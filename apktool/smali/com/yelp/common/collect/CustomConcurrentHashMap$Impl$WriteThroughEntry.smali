@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x10
+    name = "WriteThroughEntry"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/common/collect/a",

@@ -28,9 +28,9 @@
 
 
 # instance fields
-.field public final mCount:I
+.field public final a:Ljava/util/Locale;
 
-.field public final mLocale:Ljava/util/Locale;
+.field public final b:I
 
 
 # direct methods
@@ -38,10 +38,10 @@
     .locals 1
 
     .prologue
-    .line 29
-    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/af;
+    .line 31
+    new-instance v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/activities/reviewpage/af;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -52,16 +52,16 @@
     .locals 0
 
     .prologue
-    .line 24
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 25
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mLocale:Ljava/util/Locale;
-
-    .line 26
-    iput p2, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mCount:I
-
     .line 27
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->a:Ljava/util/Locale;
+
+    .line 28
+    iput p2, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->b:I
+
+    .line 29
     return-void
 .end method
 
@@ -79,19 +79,19 @@
     .end annotation
 
     .prologue
-    .line 19
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 20
+    .line 22
     invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/util/Locale;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mLocale:Ljava/util/Locale;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->a:Ljava/util/Locale;
 
-    .line 21
+    .line 23
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v0
@@ -102,85 +102,13 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mCount:I
+    iput v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->b:I
 
-    .line 22
+    .line 24
     return-void
 .end method
 
-.method public static listToMap(Ljava/util/ArrayList;)Ljava/util/Map;
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;",
-            ">;)",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/util/Locale;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 65
-    if-nez p0, :cond_0
-
-    .line 66
-    const/4 v0, 0x0
-
-    .line 72
-    :goto_0
-    return-object v0
-
-    .line 68
-    :cond_0
-    new-instance v1, Ljava/util/HashMap;
-
-    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
-
-    .line 69
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;
-
-    .line 70
-    iget-object v3, v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mLocale:Ljava/util/Locale;
-
-    iget v0, v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mCount:I
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-interface {v1, v3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_1
-
-    :cond_1
-    move-object v0, v1
-
-    .line 72
-    goto :goto_0
-.end method
-
-.method public static mapToList(Ljava/util/Map;)Ljava/util/ArrayList;
+.method public static a(Ljava/util/Map;)Ljava/util/ArrayList;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -198,23 +126,23 @@
     .end annotation
 
     .prologue
-    .line 54
-    if-nez p0, :cond_0
-
-    .line 55
-    const/4 v0, 0x0
-
-    .line 61
-    :goto_0
-    return-object v0
-
     .line 57
+    if-nez p0, :cond_0
+
+    .line 58
+    const/4 v0, 0x0
+
+    .line 64
+    :goto_0
+    return-object v0
+
+    .line 60
     :cond_0
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 58
+    .line 61
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -236,7 +164,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 59
+    .line 62
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;
 
     invoke-direct {v3, v0}, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;-><init>(Ljava/util/Map$Entry;)V
@@ -248,7 +176,79 @@
     :cond_1
     move-object v0, v1
 
-    .line 61
+    .line 64
+    goto :goto_0
+.end method
+
+.method public static a(Ljava/util/ArrayList;)Ljava/util/Map;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;",
+            ">;)",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/util/Locale;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 68
+    if-nez p0, :cond_0
+
+    .line 69
+    const/4 v0, 0x0
+
+    .line 75
+    :goto_0
+    return-object v0
+
+    .line 71
+    :cond_0
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    .line 72
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;
+
+    .line 73
+    iget-object v3, v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->a:Ljava/util/Locale;
+
+    iget v0, v0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->b:I
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-interface {v1, v3, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :cond_1
+    move-object v0, v1
+
+    .line 75
     goto :goto_0
 .end method
 
@@ -258,7 +258,7 @@
     .locals 1
 
     .prologue
-    .line 44
+    .line 47
     const/4 v0, 0x0
 
     return v0
@@ -268,16 +268,16 @@
     .locals 1
 
     .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mLocale:Ljava/util/Locale;
+    .line 52
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->a:Ljava/util/Locale;
 
-    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->writeLocaleToParcel(Landroid/os/Parcel;Ljava/util/Locale;)V
+    invoke-static {p1, v0}, Lcom/yelp/android/serializable/YelpBusinessReview;->a(Landroid/os/Parcel;Ljava/util/Locale;)V
 
-    .line 50
-    iget v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->mCount:I
+    .line 53
+    iget v0, p0, Lcom/yelp/android/ui/activities/reviewpage/LocaleCount;->b:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 51
+    .line 54
     return-void
 .end method

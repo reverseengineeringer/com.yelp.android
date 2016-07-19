@@ -12,7 +12,7 @@ public class LeftDrawableToggleButton
   private static final int[] d = { 16842912 };
   boolean a;
   boolean b;
-  private j c;
+  private c c;
   
   public LeftDrawableToggleButton(Context paramContext, AttributeSet paramAttributeSet)
   {
@@ -69,9 +69,9 @@ public class LeftDrawableToggleButton
     b = false;
   }
   
-  public void setOnCheckedChangeListener(j paramj)
+  public void setOnCheckedChangeListener(c paramc)
   {
-    c = paramj;
+    c = paramc;
   }
   
   public void toggle()

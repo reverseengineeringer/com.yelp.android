@@ -9,13 +9,24 @@
         value = {
             "Ljava/util/Set",
             "<",
-            "Lcom/bumptech/glide/request/a;",
+            "Lcom/bumptech/glide/request/b;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private b:Z
+.field private final b:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/bumptech/glide/request/b;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private c:Z
 
 
 # direct methods
@@ -23,10 +34,10 @@
     .locals 1
 
     .prologue
-    .line 12
+    .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 19
+    .line 22
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
@@ -37,6 +48,13 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/manager/l;->a:Ljava/util/Set;
 
+    .line 26
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/bumptech/glide/manager/l;->b:Ljava/util/List;
+
     return-void
 .end method
 
@@ -46,15 +64,19 @@
     .locals 3
 
     .prologue
-    .line 55
+    .line 67
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/manager/l;->b:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/manager/l;->c:Z
 
-    .line 56
+    .line 68
     iget-object v0, p0, Lcom/bumptech/glide/manager/l;->a:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -70,60 +92,77 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/request/a;
+    check-cast v0, Lcom/bumptech/glide/request/b;
 
-    .line 57
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->f()Z
+    .line 69
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->f()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    .line 58
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->e()V
+    .line 70
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->e()V
+
+    .line 71
+    iget-object v2, p0, Lcom/bumptech/glide/manager/l;->b:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 61
+    .line 74
     :cond_1
     return-void
 .end method
 
-.method public a(Lcom/bumptech/glide/request/a;)V
+.method public a(Lcom/bumptech/glide/request/b;)V
     .locals 1
 
     .prologue
-    .line 26
+    .line 35
     iget-object v0, p0, Lcom/bumptech/glide/manager/l;->a:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 27
-    iget-boolean v0, p0, Lcom/bumptech/glide/manager/l;->b:Z
+    .line 36
+    iget-boolean v0, p0, Lcom/bumptech/glide/manager/l;->c:Z
 
     if-nez v0, :cond_0
 
-    .line 28
-    invoke-interface {p1}, Lcom/bumptech/glide/request/a;->b()V
+    .line 37
+    invoke-interface {p1}, Lcom/bumptech/glide/request/b;->b()V
 
-    .line 30
-    :cond_0
+    .line 41
+    :goto_0
     return-void
+
+    .line 39
+    :cond_0
+    iget-object v0, p0, Lcom/bumptech/glide/manager/l;->b:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
 .end method
 
 .method public b()V
     .locals 3
 
     .prologue
-    .line 67
+    .line 80
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/bumptech/glide/manager/l;->b:Z
+    iput-boolean v0, p0, Lcom/bumptech/glide/manager/l;->c:Z
 
-    .line 68
+    .line 81
     iget-object v0, p0, Lcom/bumptech/glide/manager/l;->a:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -139,47 +178,57 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/request/a;
+    check-cast v0, Lcom/bumptech/glide/request/b;
 
-    .line 69
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->g()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->i()Z
+    .line 82
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->g()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->f()Z
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->i()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 70
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->b()V
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->f()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    .line 83
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->b()V
 
     goto :goto_0
 
-    .line 73
+    .line 86
     :cond_1
+    iget-object v0, p0, Lcom/bumptech/glide/manager/l;->b:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    .line 87
     return-void
 .end method
 
-.method public b(Lcom/bumptech/glide/request/a;)V
+.method public b(Lcom/bumptech/glide/request/b;)V
     .locals 1
 
     .prologue
-    .line 41
+    .line 52
     iget-object v0, p0, Lcom/bumptech/glide/manager/l;->a:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    .line 42
+    .line 53
+    iget-object v0, p0, Lcom/bumptech/glide/manager/l;->b:Ljava/util/List;
+
+    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    .line 54
     return-void
 .end method
 
@@ -187,10 +236,14 @@
     .locals 2
 
     .prologue
-    .line 79
+    .line 93
     iget-object v0, p0, Lcom/bumptech/glide/manager/l;->a:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -205,15 +258,20 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/request/a;
+    check-cast v0, Lcom/bumptech/glide/request/b;
 
-    .line 80
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->d()V
+    .line 94
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->d()V
 
     goto :goto_0
 
-    .line 82
+    .line 96
     :cond_0
+    iget-object v0, p0, Lcom/bumptech/glide/manager/l;->b:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    .line 97
     return-void
 .end method
 
@@ -221,10 +279,14 @@
     .locals 3
 
     .prologue
-    .line 88
+    .line 103
     iget-object v0, p0, Lcom/bumptech/glide/manager/l;->a:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -234,41 +296,49 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/request/a;
+    check-cast v0, Lcom/bumptech/glide/request/b;
 
-    .line 89
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->g()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->i()Z
+    .line 104
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->g()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
-    .line 91
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->e()V
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->i()Z
 
-    .line 92
-    iget-boolean v2, p0, Lcom/bumptech/glide/manager/l;->b:Z
+    move-result v2
 
     if-nez v2, :cond_0
 
-    .line 93
-    invoke-interface {v0}, Lcom/bumptech/glide/request/a;->b()V
+    .line 106
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->e()V
+
+    .line 107
+    iget-boolean v2, p0, Lcom/bumptech/glide/manager/l;->c:Z
+
+    if-nez v2, :cond_1
+
+    .line 108
+    invoke-interface {v0}, Lcom/bumptech/glide/request/b;->b()V
 
     goto :goto_0
 
-    .line 97
+    .line 110
     :cond_1
+    iget-object v2, p0, Lcom/bumptech/glide/manager/l;->b:Ljava/util/List;
+
+    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    .line 114
+    :cond_2
     return-void
 .end method

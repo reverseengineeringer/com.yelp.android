@@ -3,6 +3,17 @@
 .source "WidevineStuckMonitor.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/WidevineStuckMonitor;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1a
+    name = "VideoAtWallMsec"
+.end annotation
+
+
 # instance fields
 .field public final videoMsec:I
 

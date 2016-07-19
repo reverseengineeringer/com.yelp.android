@@ -1,14 +1,18 @@
 package android.support.v4.view;
 
-import android.view.LayoutInflater;
-
-class ae
-  implements ad
+public abstract interface ae
 {
-  public void a(LayoutInflater paramLayoutInflater, am paramam)
-  {
-    ah.a(paramLayoutInflater, paramam);
-  }
+  public abstract int computeHorizontalScrollExtent();
+  
+  public abstract int computeHorizontalScrollOffset();
+  
+  public abstract int computeHorizontalScrollRange();
+  
+  public abstract int computeVerticalScrollExtent();
+  
+  public abstract int computeVerticalScrollOffset();
+  
+  public abstract int computeVerticalScrollRange();
 }
 
 /* Location:

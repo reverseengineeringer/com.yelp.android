@@ -1,17 +1,73 @@
 package com.bumptech.glide.manager;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
-public class e
+class e
+  implements c
 {
-  public c a(Context paramContext, d paramd)
+  private final Context a;
+  private final c.a b;
+  private boolean c;
+  private boolean d;
+  private final BroadcastReceiver e = new BroadcastReceiver()
   {
-    if (paramContext.checkCallingOrSelfPermission("android.permission.ACCESS_NETWORK_STATE") == 0) {}
-    for (int i = 1; i != 0; i = 0) {
-      return new f(paramContext, paramd);
+    public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+    {
+      boolean bool = e.a(e.this);
+      e.a(e.this, e.a(e.this, paramAnonymousContext));
+      if (bool != e.a(e.this)) {
+        e.b(e.this).a(e.a(e.this));
+      }
     }
-    return new j();
+  };
+  
+  public e(Context paramContext, c.a parama)
+  {
+    a = paramContext.getApplicationContext();
+    b = parama;
   }
+  
+  private void a()
+  {
+    if (d) {
+      return;
+    }
+    c = a(a);
+    a.registerReceiver(e, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+    d = true;
+  }
+  
+  private boolean a(Context paramContext)
+  {
+    paramContext = ((ConnectivityManager)paramContext.getSystemService("connectivity")).getActiveNetworkInfo();
+    return (paramContext != null) && (paramContext.isConnected());
+  }
+  
+  private void b()
+  {
+    if (!d) {
+      return;
+    }
+    a.unregisterReceiver(e);
+    d = false;
+  }
+  
+  public void d()
+  {
+    a();
+  }
+  
+  public void e()
+  {
+    b();
+  }
+  
+  public void f() {}
 }
 
 /* Location:

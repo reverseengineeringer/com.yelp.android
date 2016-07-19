@@ -1,13 +1,24 @@
 package com.google.android.gms.internal;
 
 class i$a
-  extends Exception
 {
-  public i$a() {}
+  private String b;
+  private boolean c;
   
-  public i$a(Throwable paramThrowable)
+  public i$a(i parami, String paramString, boolean paramBoolean)
   {
-    super(paramThrowable);
+    b = paramString;
+    c = paramBoolean;
+  }
+  
+  public String a()
+  {
+    return b;
+  }
+  
+  public boolean b()
+  {
+    return c;
   }
 }
 

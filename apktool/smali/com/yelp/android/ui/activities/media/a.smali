@@ -4,13 +4,20 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/media/a$a;,
+        Lcom/yelp/android/ui/activities/media/a$b;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroid/os/AsyncTask",
         "<",
         "Landroid/net/Uri;",
         "Ljava/lang/Void;",
-        "Lcom/yelp/android/ui/activities/media/c;",
+        "Lcom/yelp/android/ui/activities/media/a$b;",
         ">;"
     }
 .end annotation
@@ -33,7 +40,7 @@
         value = {
             "Ljava/lang/ref/WeakReference",
             "<",
-            "Lcom/yelp/android/ui/activities/media/b;",
+            "Lcom/yelp/android/ui/activities/media/a$a;",
             ">;"
         }
     .end annotation
@@ -41,7 +48,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/ui/activities/media/b;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/ui/activities/media/a$a;)V
     .locals 1
 
     .prologue
@@ -68,7 +75,7 @@
 
 
 # virtual methods
-.method protected varargs a([Landroid/net/Uri;)Lcom/yelp/android/ui/activities/media/c;
+.method protected varargs a([Landroid/net/Uri;)Lcom/yelp/android/ui/activities/media/a$b;
     .locals 6
 
     .prologue
@@ -110,7 +117,7 @@
     move-result-object v3
 
     .line 51
-    invoke-static {}, Lcom/yelp/android/util/l;->c()Ljava/io/File;
+    invoke-static {}, Lcom/yelp/android/util/e;->c()Ljava/io/File;
 
     move-result-object v4
 
@@ -129,7 +136,7 @@
     invoke-direct {v5, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     .line 57
-    invoke-static {v3, v5}, Lcom/yelp/android/util/l;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Z
+    invoke-static {v3, v5}, Lcom/yelp/android/util/e;->a(Ljava/io/InputStream;Ljava/io/OutputStream;)Z
 
     move-result v3
 
@@ -161,7 +168,7 @@
 
     .line 67
     :cond_3
-    invoke-static {v4, v3, v0}, Lcom/yelp/android/ui/activities/media/c;->a(Ljava/io/File;Landroid/graphics/Bitmap;Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;)Lcom/yelp/android/ui/activities/media/c;
+    invoke-static {v4, v3, v0}, Lcom/yelp/android/ui/activities/media/a$b;->a(Ljava/io/File;Landroid/graphics/Bitmap;Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;)Lcom/yelp/android/ui/activities/media/a$b;
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -184,7 +191,7 @@
     goto :goto_0
 .end method
 
-.method protected a(Lcom/yelp/android/ui/activities/media/c;)V
+.method protected a(Lcom/yelp/android/ui/activities/media/a$b;)V
     .locals 2
 
     .prologue
@@ -195,7 +202,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/media/b;
+    check-cast v0, Lcom/yelp/android/ui/activities/media/a$a;
 
     .line 80
     if-nez v0, :cond_0
@@ -206,16 +213,16 @@
 
     .line 84
     :cond_0
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/media/b;->c()V
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/media/a$a;->c()V
 
     .line 86
     if-eqz p1, :cond_1
 
-    iget-object v1, p1, Lcom/yelp/android/ui/activities/media/c;->a:Ljava/io/File;
+    iget-object v1, p1, Lcom/yelp/android/ui/activities/media/a$b;->a:Ljava/io/File;
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p1, Lcom/yelp/android/ui/activities/media/c;->a:Ljava/io/File;
+    iget-object v1, p1, Lcom/yelp/android/ui/activities/media/a$b;->a:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -224,13 +231,13 @@
     if-eqz v1, :cond_1
 
     .line 87
-    invoke-interface {v0, p1}, Lcom/yelp/android/ui/activities/media/b;->a(Lcom/yelp/android/ui/activities/media/c;)V
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/activities/media/a$a;->a(Lcom/yelp/android/ui/activities/media/a$b;)V
 
     goto :goto_0
 
     .line 89
     :cond_1
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/media/b;->b()V
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/media/a$a;->b()V
 
     goto :goto_0
 .end method
@@ -242,7 +249,7 @@
     .line 29
     check-cast p1, [Landroid/net/Uri;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/media/a;->a([Landroid/net/Uri;)Lcom/yelp/android/ui/activities/media/c;
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/media/a;->a([Landroid/net/Uri;)Lcom/yelp/android/ui/activities/media/a$b;
 
     move-result-object v0
 
@@ -254,9 +261,9 @@
 
     .prologue
     .line 29
-    check-cast p1, Lcom/yelp/android/ui/activities/media/c;
+    check-cast p1, Lcom/yelp/android/ui/activities/media/a$b;
 
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/media/a;->a(Lcom/yelp/android/ui/activities/media/c;)V
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/media/a;->a(Lcom/yelp/android/ui/activities/media/a$b;)V
 
     return-void
 .end method
@@ -272,13 +279,13 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/media/b;
+    check-cast v0, Lcom/yelp/android/ui/activities/media/a$a;
 
     .line 96
     if-eqz v0, :cond_0
 
     .line 97
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/media/b;->a()V
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/media/a$a;->a()V
 
     .line 99
     :cond_0

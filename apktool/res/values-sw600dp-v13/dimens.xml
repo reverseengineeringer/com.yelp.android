@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="abc_action_bar_default_height_material">64.0dip</dimen>
+    <dimen name="abc_text_size_subtitle_material_toolbar">16.0dip</dimen>
+    <dimen name="abc_text_size_title_material_toolbar">20.0dip</dimen>
+    <dimen name="abc_config_prefDialogWidth">580.0dip</dimen>
+    <dimen name="kahuna_inapp_button_text_size">20.0sp</dimen>
+    <dimen name="kahuna_inapp_fullscreen_message_text_size">26.0sp</dimen>
+    <dimen name="kahuna_inapp_fullscreen_single_image_height">440.0dip</dimen>
+    <dimen name="kahuna_inapp_fullscreen_title_text_bottom_margin">20.0dip</dimen>
+    <dimen name="kahuna_inapp_fullscreen_title_text_size">42.0sp</dimen>
+    <dimen name="kahuna_inapp_fullscreen_two_images_height">220.0dip</dimen>
+    <dimen name="kahuna_inapp_slider_image_size">72.0dip</dimen>
+    <dimen name="kahuna_inapp_slider_message_text_size">20.0sp</dimen>
+    <dimen name="abc_action_bar_content_inset_material">24.0dip</dimen>
+    <dimen name="abc_action_bar_default_padding_end_material">8.0dip</dimen>
+    <dimen name="abc_action_bar_default_padding_start_material">8.0dip</dimen>
+    <dimen name="bottomsheet_default_sheet_width">446.0dip</dimen>
+    <dimen name="design_snackbar_action_inline_max_width">0.0dip</dimen>
+    <dimen name="design_snackbar_background_corner_radius">2.0dip</dimen>
+    <dimen name="design_snackbar_extra_spacing_horizontal">24.0dip</dimen>
+    <dimen name="design_snackbar_max_width">576.0dip</dimen>
+    <dimen name="design_snackbar_min_width">320.0dip</dimen>
+    <item type="dimen" name="design_snackbar_padding_vertical_2lines">@dimen/design_snackbar_padding_vertical</item>
+    <dimen name="design_tab_min_width">160.0dip</dimen>
+    <dimen name="kahuna_inapp_modal_button_margin">10.0dip</dimen>
+    <dimen name="kahuna_inapp_modal_message_text_size">20.0sp</dimen>
+    <dimen name="kahuna_inapp_modal_title_text_size">32.0sp</dimen>
+    <dimen name="kahuna_inapp_slider_close_box_text_size">24.0sp</dimen>
+    <dimen name="kahuna_inapp_fullscreen_center_image_top_margin">40.0dip</dimen>
+</resources>

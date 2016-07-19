@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/search_bar" layout="@layout/search_bar_shadow" />
+    <LinearLayout android:gravity="center_vertical" android:id="@id/bookmark_sort_frame" android:background="@drawable/white_cell_top_bottom_gray_separator" android:layout_width="fill_parent" android:layout_height="@dimen/bookmark_sort_type" android:layout_below="@id/search_bar">
+        <TextView android:textAppearance="@style/DeprecatedStandardGrayText" android:id="@id/sort_type" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="@dimen/bookmark_sort_type_text" />
+        <ImageView android:background="@drawable/dropdown_arrow_dark" android:layout_width="@dimen/bookmark_sort_arrow" android:layout_height="@dimen/bookmark_sort_arrow" android:contentDescription="@null" />
+    </LinearLayout>
+</RelativeLayout>

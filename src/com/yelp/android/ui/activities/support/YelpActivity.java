@@ -1,9 +1,12 @@
 package com.yelp.android.ui.activities.support;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Dialog;
+import android.app.Fragment;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -16,49 +19,58 @@ import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ce;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
+import android.support.v4.view.ai;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.DrawerLayout.f;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.p;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import com.yelp.android.analytics.iris.AutoIri;
+import com.bugsnag.android.Bugsnag;
+import com.flipboard.bottomsheet.BottomSheetLayout.State;
+import com.kahuna.sdk.p;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.ab;
-import com.yelp.android.appdata.i;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpApiWorkerFragment;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.database.q;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.k;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.b.a;
+import com.yelp.android.database.g;
+import com.yelp.android.serializable.InAppNotification;
+import com.yelp.android.services.ShareFormatter;
+import com.yelp.android.services.push.c.a;
 import com.yelp.android.ui.activities.ActivityLogin;
 import com.yelp.android.ui.activities.ActivityRateAppPrompt;
+import com.yelp.android.ui.activities.backgroundlocation.ActivityBackgroundLocationOptIn;
 import com.yelp.android.ui.activities.drawer.DrawerFragment;
-import com.yelp.android.ui.activities.ez;
+import com.yelp.android.ui.activities.drawer.DrawerFragment.a;
+import com.yelp.android.ui.activities.feed.ActivityFeed;
 import com.yelp.android.ui.activities.nearby.ActivityNearby;
 import com.yelp.android.ui.activities.search.SearchBusinessesByList;
 import com.yelp.android.ui.dialogs.PrivacyPolicyDialog;
 import com.yelp.android.ui.dialogs.UpdatePromptDialogFragment;
-import com.yelp.android.ui.k;
+import com.yelp.android.ui.dialogs.WhatsNewDialogFragment;
 import com.yelp.android.ui.panels.PanelError;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.panels.PanelLoading;
-import com.yelp.android.ui.panels.aa;
 import com.yelp.android.ui.view.KeyboardAwareLinearLayout;
-import com.yelp.android.ui.view.a;
+import com.yelp.android.ui.view.KeyboardAwareLinearLayout.a;
+import com.yelp.android.ui.widgets.InAppNotificationView;
 import com.yelp.android.util.ErrorType;
 import com.yelp.android.util.ObjectDirtyEvent;
 import java.util.Collections;
@@ -73,7 +85,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class YelpActivity
   extends ActionBarActivity
-  implements com.yelp.android.ui.activities.drawer.o, ez, n
+  implements com.yelp.android.ui.activities.b, DrawerFragment.a, b.d
 {
   public static final String API_WORKER_FRAGMENT = "API_WORKER_FRAGMENT";
   private static final int DAYS_INSTALLED_BEFORE_RATE_APP = 10;
@@ -93,19 +105,52 @@ public abstract class YelpActivity
   private String mCachedTitle;
   private long mComponentId;
   private DrawerFragment mDrawerFragment;
-  private f mDrawerLauncher;
-  private p mDrawerToggle;
+  private a mDrawerLauncher;
+  private android.support.v7.app.a mDrawerToggle;
   private ImageButton mFeedHotButton;
-  private h mHelper;
+  private b mHelper;
   private KeyboardAwareLinearLayout mHotButtons;
-  private a mKeyboardListener = new d(this);
+  private com.yelp.android.services.push.c mInAppNotificationHelper;
+  private p mKahunaInAppMessageListener = new p()
+  {
+    public void a(String paramAnonymousString, Bundle paramAnonymousBundle)
+    {
+      paramAnonymousBundle.putString("cohort", paramAnonymousString);
+      paramAnonymousString = new InAppNotification(paramAnonymousBundle);
+      if (paramAnonymousString.b() <= 1.1D)
+      {
+        com.yelp.android.services.push.c.a().b(paramAnonymousString, null);
+        AppData.a(EventIri.InAppNotificationDelivered, paramAnonymousString.a());
+      }
+    }
+  };
+  private KeyboardAwareLinearLayout.a mKeyboardListener = new KeyboardAwareLinearLayout.a()
+  {
+    public void a()
+    {
+      hideHotButtons();
+    }
+    
+    public void b()
+    {
+      showHotButtons();
+    }
+  };
   private View mNearbyHotButton;
-  BroadcastReceiver mNotificationUpdateReceiver = new e(this);
+  BroadcastReceiver mNotificationUpdateReceiver = new BroadcastReceiver()
+  {
+    public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+    {
+      YelpActivity.this.updateIconBadges();
+    }
+  };
+  private com.yelp.android.bx.a mPresenter;
   private View mSearchHotButton;
+  private a mShareSheetHelper;
   
   private ViewGroup clearContentView()
   {
-    ViewGroup localViewGroup = (ViewGroup)findViewById(2131493332);
+    ViewGroup localViewGroup = (ViewGroup)findViewById(2131689997);
     localViewGroup.removeAllViews();
     return localViewGroup;
   }
@@ -171,49 +216,60 @@ public abstract class YelpActivity
   private boolean shouldLaunchRateAppPrompt()
   {
     if ((this instanceof ActivityRateAppPrompt)) {}
-    i locali;
+    com.yelp.android.appdata.c localc;
     Date localDate;
     int i;
     do
     {
       return false;
-      locali = getAppData().f();
-      localDate = locali.h();
-      i = locali.i();
-    } while ((!"com.android.vending".equals(getPackageManager().getInstallerPackageName(getPackageName()))) || (!getAppData().m().c()) || (locali.n() < i) || (locali.j()) || (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - localDate.getTime()) / 86400L < 10L));
+      localc = getAppData().f();
+      localDate = localc.j();
+      i = localc.k();
+    } while ((!"com.android.vending".equals(getPackageManager().getInstallerPackageName(getPackageName()))) || (!getAppData().q().b()) || (localc.t() < i) || (localc.l()) || (TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - localDate.getTime()) / 86400L < 10L));
     return true;
   }
   
   private void showStartupPrompt()
   {
-    i locali = getAppData().f();
-    if (locali.C()) {
-      PrivacyPolicyDialog.a(locali.E()).show(getSupportFragmentManager(), null);
+    com.yelp.android.appdata.c localc = getAppData().f();
+    if (localc.E()) {
+      PrivacyPolicyDialog.a(localc.G()).show(getSupportFragmentManager(), null);
     }
     do
     {
       return;
-      if (locali.A())
+      if (localc.C())
       {
-        UpdatePromptDialogFragment.a(locali.B()).show(getSupportFragmentManager(), null);
+        UpdatePromptDialogFragment.a(localc.D()).show(getSupportFragmentManager(), null);
+        return;
+      }
+      if (localc.h())
+      {
+        WhatsNewDialogFragment.a().show(getSupportFragmentManager(), null);
+        localc.a(WhatsNewDialogFragment.a, false);
         return;
       }
     } while (!shouldLaunchRateAppPrompt());
-    AppData.a(AutoIri.AppRate);
+    AppData.a(EventIri.AppRate);
     startActivity(ActivityRateAppPrompt.a(this));
   }
   
   private void updateIconBadges()
   {
-    int i = 0;
-    if (AppData.b().m().c()) {
-      i = ab.a().d();
+    int i;
+    if (AppData.b().q().b()) {
+      i = com.yelp.android.appdata.j.a().e();
     }
-    if (mFeedHotButton != null) {
-      mFeedHotButton.setImageDrawable(new com.yelp.android.bd.b(this, i));
-    }
-    if (findViewById(2131493628) != null) {
-      ((Toolbar)findViewById(2131493634)).setNavigationIcon(getResources().getDrawable(2130838194));
+    for (int j = com.yelp.android.appdata.j.a().f();; j = 0)
+    {
+      if (mFeedHotButton != null) {
+        mFeedHotButton.setImageDrawable(new com.yelp.android.cm.b(this, j));
+      }
+      if (findViewById(2131690372) != null) {
+        ((Toolbar)findViewById(2131690378)).setNavigationIcon(new com.yelp.android.cm.c(this, i + j));
+      }
+      return;
+      i = 0;
     }
   }
   
@@ -229,9 +285,9 @@ public abstract class YelpActivity
   
   public void closeNavDrawer()
   {
-    DrawerLayout localDrawerLayout = (DrawerLayout)findViewById(2131493628);
+    DrawerLayout localDrawerLayout = (DrawerLayout)findViewById(2131690372);
     if (localDrawerLayout != null) {
-      localDrawerLayout.i(localDrawerLayout.findViewById(2131493635));
+      localDrawerLayout.i(localDrawerLayout.findViewById(2131690379));
     }
   }
   
@@ -282,7 +338,7 @@ public abstract class YelpActivity
     mApiWorkerFragment.a(paramString, paramRequest);
   }
   
-  public <Request extends com.yelp.android.appdata.webrequests.h<?, ?, Result>, Result> void freezeRequest(String paramString, Request paramRequest)
+  public <Request extends k<?, ?, Result>, Result> void freezeRequest(String paramString, Request paramRequest)
   {
     mApiWorkerFragment.a(paramString, paramRequest);
   }
@@ -297,7 +353,7 @@ public abstract class YelpActivity
     return mComponentId;
   }
   
-  public q getDatabase()
+  public g getDatabase()
   {
     return mHelper.n();
   }
@@ -312,9 +368,14 @@ public abstract class YelpActivity
     return mHelper.o();
   }
   
-  public h getHelper()
+  public b getHelper()
   {
     return mHelper;
+  }
+  
+  public com.yelp.android.services.push.c getInAppNotificationHelper()
+  {
+    return mInAppNotificationHelper;
   }
   
   public abstract ViewIri getIri();
@@ -324,12 +385,12 @@ public abstract class YelpActivity
     return mHelper.j();
   }
   
-  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.b paramb)
+  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.a parama)
   {
     return Collections.emptyMap();
   }
   
-  public String getRequestIdForIri(com.yelp.android.analytics.iris.b paramb)
+  public String getRequestIdForIri(com.yelp.android.analytics.iris.a parama)
   {
     return null;
   }
@@ -352,7 +413,7 @@ public abstract class YelpActivity
   
   protected List<View> getViewsToHideOnDrawerSelected()
   {
-    return Collections.singletonList(findViewById(2131493332));
+    return Collections.singletonList(findViewById(2131689997));
   }
   
   public void hideHotButtons()
@@ -369,7 +430,7 @@ public abstract class YelpActivity
   
   protected void hideLogoInToolbar()
   {
-    TypedArray localTypedArray = obtainStyledAttributes(com.yelp.android.b.TitlebarThemableComponents);
+    TypedArray localTypedArray = obtainStyledAttributes(b.a.TitlebarThemableComponents);
     Drawable localDrawable = localTypedArray.getDrawable(0);
     getSupportActionBar().a(localDrawable);
     localTypedArray.recycle();
@@ -378,21 +439,21 @@ public abstract class YelpActivity
   public void initHelper()
   {
     if (mHelper == null) {
-      mHelper = new h(this);
+      mHelper = new b(this);
     }
   }
   
   protected void initializeActionBar()
   {
-    Toolbar localToolbar = (Toolbar)findViewById(2131493634);
-    TypedArray localTypedArray1 = obtainStyledAttributes(com.yelp.android.b.ToolbarAttributes);
+    Toolbar localToolbar = (Toolbar)findViewById(2131690378);
+    TypedArray localTypedArray1 = obtainStyledAttributes(b.a.ToolbarAttributes);
     if (!localTypedArray1.getBoolean(0, true))
     {
       localToolbar.setVisibility(8);
       localTypedArray1.recycle();
       return;
     }
-    TypedArray localTypedArray2 = obtainStyledAttributes(com.yelp.android.b.TitlebarThemableComponents);
+    TypedArray localTypedArray2 = obtainStyledAttributes(b.a.TitlebarThemableComponents);
     Drawable localDrawable = localTypedArray2.getDrawable(2);
     if (localDrawable != null) {
       localToolbar.setBackgroundDrawable(localDrawable);
@@ -419,19 +480,19 @@ public abstract class YelpActivity
   
   protected void initializeHotButtons()
   {
-    mHotButtons = ((KeyboardAwareLinearLayout)findViewById(2131493630));
-    mNearbyHotButton = findViewById(2131493631);
-    mSearchHotButton = findViewById(2131493632);
-    mFeedHotButton = ((ImageButton)findViewById(2131493633));
+    mHotButtons = ((KeyboardAwareLinearLayout)findViewById(2131690374));
+    mNearbyHotButton = findViewById(2131690375);
+    mSearchHotButton = findViewById(2131690376);
+    mFeedHotButton = ((ImageButton)findViewById(2131690377));
     updateHotButtonVisibility();
   }
   
   public void onBackPressed()
   {
-    DrawerLayout localDrawerLayout = (DrawerLayout)findViewById(2131493628);
+    DrawerLayout localDrawerLayout = (DrawerLayout)findViewById(2131690372);
     if (localDrawerLayout != null)
     {
-      View localView = findViewById(2131493635);
+      View localView = findViewById(2131690379);
       if (localDrawerLayout.j(localView))
       {
         localDrawerLayout.i(localView);
@@ -447,32 +508,32 @@ public abstract class YelpActivity
     updateHotButtonVisibility();
   }
   
+  @SuppressLint({"CommitTransaction"})
   @TargetApi(21)
   protected void onCreate(Bundle paramBundle)
   {
     boolean bool1 = false;
+    Bugsnag.setContext(getLocalClassName());
     initHelper();
     mHelper.a(paramBundle);
     super.onCreate(paramBundle);
-    TypedArray localTypedArray = obtainStyledAttributes(com.yelp.android.b.YelpThemeInfo);
-    boolean bool2 = localTypedArray.getBoolean(13, true);
-    if (!bool2) {
-      super.setContentView(2130903127);
-    }
-    for (;;)
+    TypedArray localTypedArray = obtainStyledAttributes(b.a.YelpThemeInfo);
+    boolean bool2 = localTypedArray.getBoolean(14, true);
+    if (!bool2)
     {
-      if (com.yelp.android.appdata.n.a(21))
+      super.setContentView(2130903139);
+      if (com.yelp.android.appdata.f.a(21))
       {
-        int i = getStatusBarColor(localTypedArray.getColor(35, 0));
+        int i = getStatusBarColor(localTypedArray.getColor(38, 0));
         if (i != 0) {
           getWindow().setStatusBarColor(i);
         }
       }
       localTypedArray.recycle();
       long l1 = System.currentTimeMillis();
-      long l2 = AppData.b().f().K();
+      long l2 = AppData.b().f().M();
       AppData.b().f().a(l1);
-      if (l2 + TimeUnit.DAYS.toMillis(1L) < l1) {
+      if ((l2 + TimeUnit.DAYS.toMillis(1L) < l1) && (!(this instanceof ActivityBackgroundLocationOptIn))) {
         onLongTimeSinceLastLaunch();
       }
       if (bool2)
@@ -484,26 +545,32 @@ public abstract class YelpActivity
         mAreHotButtonsEnabled = bool1;
       }
       initializeActionBar();
-      mApiWorkerFragment = ((YelpApiWorkerFragment)getSupportFragmentManager().findFragmentByTag("API_WORKER_FRAGMENT"));
+      mApiWorkerFragment = ((YelpApiWorkerFragment)getSupportFragmentManager().a("API_WORKER_FRAGMENT"));
       if (mApiWorkerFragment == null)
       {
         mApiWorkerFragment = new YelpApiWorkerFragment();
-        getSupportFragmentManager().beginTransaction().add(mApiWorkerFragment, "API_WORKER_FRAGMENT").commit();
+        getSupportFragmentManager().a().a(mApiWorkerFragment, "API_WORKER_FRAGMENT").a();
       }
       if (paramBundle != null) {
-        break;
+        break label358;
       }
       mComponentId = new Random(System.currentTimeMillis()).nextLong();
-      return;
-      super.setContentView(2130903246);
-      DrawerLayout localDrawerLayout = (DrawerLayout)findViewById(2131493628);
-      mDrawerToggle = new p(this, localDrawerLayout, (Toolbar)findViewById(2131493634), 0, 0);
-      mDrawerLauncher = new f(this, null);
-      localDrawerLayout.setDrawerListener(mDrawerLauncher);
-      mDrawerFragment = ((DrawerFragment)getSupportFragmentManager().findFragmentById(2131493635));
     }
-    mComponentId = paramBundle.getLong("id");
-    mCachedTitle = paramBundle.getString("cached_title");
+    for (;;)
+    {
+      com.kahuna.sdk.j.i().a(mKahunaInAppMessageListener);
+      return;
+      super.setContentView(2130903296);
+      DrawerLayout localDrawerLayout = (DrawerLayout)findViewById(2131690372);
+      mDrawerToggle = new android.support.v7.app.a(this, localDrawerLayout, (Toolbar)findViewById(2131690378), 0, 0);
+      mDrawerLauncher = new a(null);
+      localDrawerLayout.setDrawerListener(mDrawerLauncher);
+      mDrawerFragment = ((DrawerFragment)getSupportFragmentManager().a(2131690379));
+      break;
+      label358:
+      mComponentId = paramBundle.getLong("id");
+      mCachedTitle = paramBundle.getString("cached_title");
+    }
   }
   
   protected Dialog onCreateDialog(int paramInt)
@@ -527,7 +594,7 @@ public abstract class YelpActivity
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    k.a(this, paramMenu);
+    com.yelp.android.ui.f.a(this, paramMenu);
     return true;
   }
   
@@ -541,24 +608,22 @@ public abstract class YelpActivity
       unregisterReceiver(arrayOfBroadcastReceiver[i]);
       i += 1;
     }
+    com.kahuna.sdk.j.i().g();
     super.onDestroy();
   }
   
   public void onDrawerItemSelected(Intent paramIntent, String paramString)
   {
-    ((DrawerLayout)findViewById(2131493628)).i(findViewById(2131493635));
-    f.a(mDrawerLauncher, paramIntent);
-    if ((paramIntent.getComponent() != null) && (paramIntent.getComponent().getClassName().equals(ActivityLogin.class.getName())) && (!getAppData().m().c())) {
+    ((DrawerLayout)findViewById(2131690372)).i(findViewById(2131690379));
+    a.a(mDrawerLauncher, paramIntent);
+    if ((paramIntent.getComponent() != null) && (paramIntent.getComponent().getClassName().equals(ActivityLogin.class.getName())) && (!getAppData().q().b())) {
       hideHotButtons();
-    }
-    if ((paramIntent.getComponent() != null) && (paramIntent.getComponent().getClassName().equals(ActivityNearby.class.getName()))) {
-      showLogoInToolbar();
     }
     paramIntent = getViewsToHideOnDrawerSelected().iterator();
     while (paramIntent.hasNext()) {
       ((View)paramIntent.next()).setVisibility(8);
     }
-    findViewById(2131493332).setVisibility(8);
+    findViewById(2131689997).setVisibility(8);
     if (getTitle() == null) {}
     for (paramIntent = null;; paramIntent = getTitle().toString())
     {
@@ -576,7 +641,7 @@ public abstract class YelpActivity
   
   protected void onLongTimeSinceLastLaunch()
   {
-    if ((getIntent() != null) && (!wasLaunchedFromPushNotification()))
+    if ((getIntent() != null) && (!wasLaunchedFromPushNotification()) && (!wasLaunchedFromExternalRequest()))
     {
       startActivity(ActivityNearby.a(this));
       overridePendingTransition(0, 0);
@@ -605,6 +670,9 @@ public abstract class YelpActivity
     if (mHotButtons != null) {
       mHotButtons.setKeyboardListener(null);
     }
+    if (mPresenter != null) {
+      mPresenter.c();
+    }
   }
   
   protected void onPrepareDialog(int paramInt, Dialog paramDialog)
@@ -618,21 +686,30 @@ public abstract class YelpActivity
     return mHelper.a(paramMenu);
   }
   
-  public void onProvidersRequired(o paramo, boolean paramBoolean, int paramInt)
+  public void onProvidersRequired(b.e parame, boolean paramBoolean, int paramInt)
   {
-    mHelper.a(paramo, paramBoolean, paramInt);
+    mHelper.a(parame, paramBoolean, paramInt);
+  }
+  
+  protected void onRestart()
+  {
+    super.onRestart();
+    setNearbyHotButtonSelected(false);
+    setSearchHotButtonSelected(false);
+    setFeedHotButtonSelected(false);
   }
   
   protected void onRestoreInstanceState(Bundle paramBundle)
   {
     super.onRestoreInstanceState(paramBundle);
     mHelper.c(paramBundle);
+    mShareSheetHelper = a.a(this, paramBundle);
   }
   
   protected void onResume()
   {
     super.onResume();
-    getAppData().u();
+    getAppData().z();
     if (!isLaunchFromReferral()) {
       showStartupPrompt();
     }
@@ -640,7 +717,7 @@ public abstract class YelpActivity
     registerDirtyEventReceiver("com.yelp.android.messages.count.update", mNotificationUpdateReceiver);
     registerDirtyEventReceiver("com.yelp.android.notifications.count.update", mNotificationUpdateReceiver);
     mHelper.a();
-    if (findViewById(2131493332) != null)
+    if (findViewById(2131689997) != null)
     {
       Iterator localIterator = getViewsToHideOnDrawerSelected().iterator();
       while (localIterator.hasNext()) {
@@ -654,7 +731,15 @@ public abstract class YelpActivity
       mCachedTitle = null;
     }
     supportInvalidateOptionsMenu();
+    if (mInAppNotificationHelper != null) {
+      mInAppNotificationHelper.b();
+    }
+    if (mPresenter != null) {
+      mPresenter.b();
+    }
   }
+  
+  protected void onSameActivityHotButtonClick() {}
   
   protected void onSaveInstanceState(Bundle paramBundle)
   {
@@ -663,18 +748,24 @@ public abstract class YelpActivity
     paramBundle.putString("cached_title", mCachedTitle);
     paramBundle.putBoolean("hot_buttons_disabled", mAreHotButtonsEnabled);
     mHelper.b(paramBundle);
+    if (mShareSheetHelper != null) {
+      mShareSheetHelper.a(paramBundle);
+    }
+    if (mPresenter != null) {
+      mPresenter.a(paramBundle);
+    }
   }
   
   protected void onStart()
   {
     super.onStart();
-    com.kahuna.sdk.h.c();
+    com.kahuna.sdk.j.i().a();
   }
   
   protected void onStop()
   {
     super.onStop();
-    com.kahuna.sdk.h.d();
+    com.kahuna.sdk.j.i().b();
   }
   
   protected void onTitleChanged(CharSequence paramCharSequence, int paramInt)
@@ -696,11 +787,11 @@ public abstract class YelpActivity
     mHelper.a(paramErrorType);
   }
   
-  public void populateError(ErrorType paramErrorType, aa paramaa)
+  public void populateError(ErrorType paramErrorType, PanelError.a parama)
   {
     disableLoading();
     clearError();
-    mHelper.a(paramErrorType, paramaa);
+    mHelper.a(paramErrorType, parama);
   }
   
   public void registerDirtyEventReceiver(String paramString, BroadcastReceiver paramBroadcastReceiver)
@@ -723,8 +814,8 @@ public abstract class YelpActivity
   
   public void removeToolbarElevation()
   {
-    ((FrameLayout)findViewById(2131493332)).setForeground(null);
-    ce.f(findViewById(2131493634), 0.0F);
+    ((FrameLayout)findViewById(2131689997)).setForeground(null);
+    ai.h(findViewById(2131690378), 0.0F);
   }
   
   public void setContentView(int paramInt)
@@ -747,7 +838,7 @@ public abstract class YelpActivity
     }
   }
   
-  protected void setHotButtonKeyboardListener(a parama)
+  protected void setHotButtonKeyboardListener(KeyboardAwareLinearLayout.a parama)
   {
     if (mHotButtons != null) {
       mHotButtons.setKeyboardListener(parama);
@@ -756,9 +847,9 @@ public abstract class YelpActivity
   
   protected void setHotButtonListeners()
   {
-    mNearbyHotButton.setOnClickListener(new g(this, ActivityNearby.b(this), EventIri.HotButtonNearby));
-    mSearchHotButton.setOnClickListener(new g(this, SearchBusinessesByList.a(this), EventIri.HotButtonSearch));
-    mFeedHotButton.setOnClickListener(new c(this, null, EventIri.HotButtonFeed));
+    mNearbyHotButton.setOnClickListener(new b(ActivityNearby.b(this), EventIri.HotButtonNearby));
+    mSearchHotButton.setOnClickListener(new b(SearchBusinessesByList.c(this), EventIri.HotButtonSearch));
+    mFeedHotButton.setOnClickListener(new b(ActivityFeed.a(this), EventIri.HotButtonFeed));
   }
   
   protected void setNearbyHotButtonSelected(boolean paramBoolean)
@@ -766,6 +857,11 @@ public abstract class YelpActivity
     if (mNearbyHotButton != null) {
       mNearbyHotButton.setSelected(paramBoolean);
     }
+  }
+  
+  protected void setPresenter(com.yelp.android.bx.a parama)
+  {
+    mPresenter = parama;
   }
   
   protected void setSearchHotButtonSelected(boolean paramBoolean)
@@ -784,6 +880,14 @@ public abstract class YelpActivity
   {
     initHelper();
     mHelper.a(paramInt);
+  }
+  
+  public void setupInAppNotification(Class paramClass, Context paramContext, InAppNotificationView paramInAppNotificationView, c.a parama)
+  {
+    if (mInAppNotificationHelper == null) {
+      mInAppNotificationHelper = new com.yelp.android.services.push.c();
+    }
+    mInAppNotificationHelper.a(paramClass, paramContext, paramInAppNotificationView, parama);
   }
   
   public void showHotButtons()
@@ -817,7 +921,7 @@ public abstract class YelpActivity
     mHelper.a(paramCharSequence1, paramCharSequence2);
   }
   
-  protected void showLoadingDialog()
+  public void showLoadingDialog()
   {
     showLoadingDialog(0);
   }
@@ -837,24 +941,32 @@ public abstract class YelpActivity
     showLoadingDialog(paramApiRequest, null, paramInt);
   }
   
-  public void showLoadingDialog(ApiRequest<?, ?, ?> paramApiRequest, l paraml)
+  public void showLoadingDialog(ApiRequest<?, ?, ?> paramApiRequest, b.b paramb)
   {
-    showLoadingDialog(paramApiRequest, paraml, 0);
+    showLoadingDialog(paramApiRequest, paramb, 0);
   }
   
-  public void showLoadingDialog(ApiRequest<?, ?, ?> paramApiRequest, l paraml, int paramInt)
+  public void showLoadingDialog(ApiRequest<?, ?, ?> paramApiRequest, b.b paramb, int paramInt)
   {
-    mHelper.a(paramApiRequest, paraml, paramInt);
+    mHelper.a(paramApiRequest, paramb, paramInt);
   }
   
   protected void showLogoInToolbar()
   {
-    Object localObject = obtainStyledAttributes(com.yelp.android.b.TitlebarThemableComponents);
+    Object localObject = obtainStyledAttributes(b.a.TitlebarThemableComponents);
     Drawable localDrawable1 = ((TypedArray)localObject).getDrawable(1);
     Drawable localDrawable2 = ((TypedArray)localObject).getDrawable(0);
     ((TypedArray)localObject).recycle();
     localObject = new LayerDrawable(new Drawable[] { localDrawable2, localDrawable1 });
     getSupportActionBar().a((Drawable)localObject);
+  }
+  
+  public void showShareSheet(ShareFormatter paramShareFormatter)
+  {
+    if (mShareSheetHelper == null) {
+      mShareSheetHelper = new a(this, paramShareFormatter);
+    }
+    mShareSheetHelper.a(BottomSheetLayout.State.PEEKED);
   }
   
   public void showYesNoDialog(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
@@ -867,18 +979,30 @@ public abstract class YelpActivity
     mHelper.a(paramCharSequence, paramInt1, paramInt2, paramInt3);
   }
   
-  public <Request extends ApiRequest<?, ?, Result>, Result> Request thawRequest(String paramString, Request paramRequest, m<Result> paramm)
+  public void startActivityForResult(Intent paramIntent, int paramInt, Bundle paramBundle)
   {
-    paramString = mApiWorkerFragment.a(paramString, paramm);
+    com.yelp.android.util.h.a(paramIntent);
+    super.startActivityForResult(paramIntent, paramInt, paramBundle);
+  }
+  
+  public void startActivityFromFragment(Fragment paramFragment, Intent paramIntent, int paramInt, Bundle paramBundle)
+  {
+    com.yelp.android.util.h.a(paramIntent);
+    super.startActivityFromFragment(paramFragment, paramIntent, paramInt, paramBundle);
+  }
+  
+  public <Request extends ApiRequest<?, ?, Result>, Result> Request thawRequest(String paramString, Request paramRequest, ApiRequest.b<Result> paramb)
+  {
+    paramString = mApiWorkerFragment.a(paramString, paramb);
     if (paramString != null) {
       paramRequest = paramString;
     }
     return paramRequest;
   }
   
-  public <Request extends com.yelp.android.appdata.webrequests.h<?, ?, Result>, Result> Request thawRequest(String paramString, Request paramRequest, j<Result> paramj)
+  public <Request extends k<?, ?, Result>, Result> Request thawRequest(String paramString, Request paramRequest, k.b<Result> paramb)
   {
-    paramString = mApiWorkerFragment.a(paramString, paramj);
+    paramString = mApiWorkerFragment.a(paramString, paramb);
     if (paramString != null) {
       paramRequest = paramString;
     }
@@ -897,7 +1021,7 @@ public abstract class YelpActivity
     if (mHotButtons == null) {
       return;
     }
-    if (!obtainStyledAttributes(com.yelp.android.b.YelpThemeInfo).getBoolean(14, true))
+    if (!obtainStyledAttributes(b.a.YelpThemeInfo).getBoolean(15, true))
     {
       disableHotButtons();
       return;
@@ -918,9 +1042,109 @@ public abstract class YelpActivity
     supportInvalidateOptionsMenu();
   }
   
+  protected boolean wasLaunchedFromExternalRequest()
+  {
+    return getIntent().getBooleanExtra("yelp:external_request", false);
+  }
+  
   protected boolean wasLaunchedFromPushNotification()
   {
     return getIntent().getBooleanExtra("extra.launched_from_push", false);
+  }
+  
+  public static enum IntentData
+  {
+    INSTANCE;
+    
+    private Object mData;
+    
+    private IntentData() {}
+    
+    public static Object popData()
+    {
+      Object localObject = INSTANCEmData;
+      INSTANCEmData = null;
+      return localObject;
+    }
+    
+    public static void setData(Object paramObject)
+    {
+      INSTANCEmData = paramObject;
+    }
+  }
+  
+  private class a
+    implements DrawerLayout.f
+  {
+    private boolean b;
+    private Intent c;
+    
+    private a() {}
+    
+    public void a(int paramInt)
+    {
+      if ((!b) && ((paramInt == 2) || (paramInt == 1))) {
+        mDrawerFragment.a();
+      }
+    }
+    
+    public void a(View paramView)
+    {
+      b = true;
+      mDrawerFragment.b();
+    }
+    
+    public void a(View paramView, float paramFloat) {}
+    
+    public void b(View paramView)
+    {
+      b = false;
+      if (c != null)
+      {
+        c.setFlags(c.getFlags() | 0x10000);
+        startActivity(c);
+        c = null;
+      }
+      mDrawerFragment.c();
+    }
+  }
+  
+  private class b
+    implements View.OnClickListener
+  {
+    private Intent b;
+    private com.yelp.android.analytics.iris.a c;
+    
+    public b(Intent paramIntent, com.yelp.android.analytics.iris.a parama)
+    {
+      b = paramIntent;
+      c = parama;
+    }
+    
+    public void onClick(View paramView)
+    {
+      if (paramView == mFeedHotButton) {
+        setFeedHotButtonSelected(true);
+      }
+      for (;;)
+      {
+        if (c != null) {
+          AppData.a(c);
+        }
+        if (b.getComponent().equals(new ComponentName(YelpActivity.this, getClass()))) {
+          break;
+        }
+        b.addFlags(65536);
+        startActivity(b);
+        return;
+        if (paramView == mNearbyHotButton) {
+          setNearbyHotButtonSelected(true);
+        } else if (paramView == mSearchHotButton) {
+          setSearchHotButtonSelected(true);
+        }
+      }
+      onSameActivityHotButtonClick();
+    }
   }
 }
 

@@ -3,7 +3,7 @@
 .source "ActivityFragmentLifecycle.java"
 
 # interfaces
-.implements Lcom/bumptech/glide/manager/h;
+.implements Lcom/bumptech/glide/manager/g;
 
 
 # instance fields
@@ -12,7 +12,7 @@
         value = {
             "Ljava/util/Set",
             "<",
-            "Lcom/bumptech/glide/manager/i;",
+            "Lcom/bumptech/glide/manager/h;",
             ">;"
         }
     .end annotation
@@ -28,19 +28,15 @@
     .locals 1
 
     .prologue
-    .line 11
+    .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 12
+    .line 14
     new-instance v0, Ljava/util/WeakHashMap;
 
     invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
 
     invoke-static {v0}, Ljava/util/Collections;->newSetFromMap(Ljava/util/Map;)Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/util/Collections;->synchronizedSet(Ljava/util/Set;)Ljava/util/Set;
 
     move-result-object v0
 
@@ -55,15 +51,19 @@
     .locals 2
 
     .prologue
-    .line 46
+    .line 48
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/a;->b:Z
 
-    .line 47
+    .line 49
     iget-object v0, p0, Lcom/bumptech/glide/manager/a;->a:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -78,53 +78,53 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/manager/i;
+    check-cast v0, Lcom/bumptech/glide/manager/h;
 
-    .line 48
-    invoke-interface {v0}, Lcom/bumptech/glide/manager/i;->c()V
+    .line 50
+    invoke-interface {v0}, Lcom/bumptech/glide/manager/h;->d()V
 
     goto :goto_0
 
-    .line 50
+    .line 52
     :cond_0
     return-void
 .end method
 
-.method public a(Lcom/bumptech/glide/manager/i;)V
+.method public a(Lcom/bumptech/glide/manager/h;)V
     .locals 1
 
     .prologue
-    .line 34
+    .line 36
     iget-object v0, p0, Lcom/bumptech/glide/manager/a;->a:Ljava/util/Set;
 
     invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 36
+    .line 38
     iget-boolean v0, p0, Lcom/bumptech/glide/manager/a;->c:Z
 
     if-eqz v0, :cond_0
 
-    .line 37
-    invoke-interface {p1}, Lcom/bumptech/glide/manager/i;->e()V
+    .line 39
+    invoke-interface {p1}, Lcom/bumptech/glide/manager/h;->f()V
 
-    .line 43
+    .line 45
     :goto_0
     return-void
 
-    .line 38
+    .line 40
     :cond_0
     iget-boolean v0, p0, Lcom/bumptech/glide/manager/a;->b:Z
 
     if-eqz v0, :cond_1
 
-    .line 39
-    invoke-interface {p1}, Lcom/bumptech/glide/manager/i;->c()V
+    .line 41
+    invoke-interface {p1}, Lcom/bumptech/glide/manager/h;->d()V
 
     goto :goto_0
 
-    .line 41
+    .line 43
     :cond_1
-    invoke-interface {p1}, Lcom/bumptech/glide/manager/i;->d()V
+    invoke-interface {p1}, Lcom/bumptech/glide/manager/h;->e()V
 
     goto :goto_0
 .end method
@@ -133,15 +133,19 @@
     .locals 2
 
     .prologue
-    .line 53
+    .line 55
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/a;->b:Z
 
-    .line 54
+    .line 56
     iget-object v0, p0, Lcom/bumptech/glide/manager/a;->a:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -156,14 +160,14 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/manager/i;
+    check-cast v0, Lcom/bumptech/glide/manager/h;
 
-    .line 55
-    invoke-interface {v0}, Lcom/bumptech/glide/manager/i;->d()V
+    .line 57
+    invoke-interface {v0}, Lcom/bumptech/glide/manager/h;->e()V
 
     goto :goto_0
 
-    .line 57
+    .line 59
     :cond_0
     return-void
 .end method
@@ -172,15 +176,19 @@
     .locals 2
 
     .prologue
-    .line 60
+    .line 62
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/bumptech/glide/manager/a;->c:Z
 
-    .line 61
+    .line 63
     iget-object v0, p0, Lcom/bumptech/glide/manager/a;->a:Ljava/util/Set;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -195,14 +203,14 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/bumptech/glide/manager/i;
+    check-cast v0, Lcom/bumptech/glide/manager/h;
 
-    .line 62
-    invoke-interface {v0}, Lcom/bumptech/glide/manager/i;->e()V
+    .line 64
+    invoke-interface {v0}, Lcom/bumptech/glide/manager/h;->f()V
 
     goto :goto_0
 
-    .line 64
+    .line 66
     :cond_0
     return-void
 .end method

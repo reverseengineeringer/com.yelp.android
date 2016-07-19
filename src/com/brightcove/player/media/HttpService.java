@@ -7,11 +7,14 @@ import android.util.Log;
 import com.brightcove.player.util.ErrorUtil;
 import com.brightcove.player.util.StringUtil;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
@@ -42,6 +45,7 @@ public class HttpService
   }
   
   public static URI buildURIWithQueryParameters(String paramString, Map<String, Object> paramMap)
+    throws URISyntaxException, UnsupportedEncodingException
   {
     if (paramString == null) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("baseURLRequired"));
@@ -125,6 +129,7 @@ public class HttpService
   }
   
   private static Bitmap decodeSampledBitmap(InputStream paramInputStream, int paramInt1, int paramInt2)
+    throws IOException
   {
     paramInputStream.mark(Integer.MAX_VALUE);
     BitmapFactory.Options localOptions = new BitmapFactory.Options();
@@ -136,7 +141,8 @@ public class HttpService
     return BitmapFactory.decodeStream(paramInputStream, null, localOptions);
   }
   
-  private JSONObject doJSONRequest(HttpService.Method paramMethod, URI paramURI, Map<String, String> paramMap)
+  private JSONObject doJSONRequest(Method paramMethod, URI paramURI, Map<String, String> paramMap)
+    throws IOException, JSONException
   {
     paramMethod = doRequest(paramMethod, paramURI, paramMap);
     if ((paramMethod != null) && (!paramMethod.trim().isEmpty()) && (!paramMethod.equals("null")))
@@ -149,7 +155,8 @@ public class HttpService
     return null;
   }
   
-  private String doRequest(HttpService.Method paramMethod, URI paramURI, Map<String, String> paramMap)
+  private String doRequest(Method paramMethod, URI paramURI, Map<String, String> paramMap)
+    throws IOException
   {
     if (paramURI == null) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("uriRequired"));
@@ -168,7 +175,7 @@ public class HttpService
           break label224;
         }
         HttpURLConnection localHttpURLConnection = (HttpURLConnection)paramURI;
-        if (paramMethod.equals(HttpService.Method.POST)) {
+        if (paramMethod.equals(Method.POST)) {
           localHttpURLConnection.setRequestMethod("POST");
         }
         paramMethod = paramMap.entrySet().iterator();
@@ -217,11 +224,13 @@ public class HttpService
   }
   
   public static String inputStreamToString(InputStream paramInputStream)
+    throws IOException
   {
     return readerToString(new InputStreamReader(paramInputStream));
   }
   
   public static JSONObject parseToJSONObject(String paramString)
+    throws JSONException
   {
     if ((paramString == null) || (paramString.trim().isEmpty())) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("jsonRequired"));
@@ -237,6 +246,7 @@ public class HttpService
   }
   
   public static String readerToString(Reader paramReader)
+    throws IOException
   {
     StringBuilder localStringBuilder = new StringBuilder();
     paramReader = new BufferedReader(paramReader);
@@ -259,57 +269,60 @@ public class HttpService
   }
   
   public String doGetRequest(URI paramURI)
+    throws IOException
   {
     return doGetRequest(paramURI, new HashMap());
   }
   
   public String doGetRequest(URI paramURI, Map<String, String> paramMap)
+    throws IOException
   {
-    return doRequest(HttpService.Method.GET, paramURI, paramMap);
+    return doRequest(Method.GET, paramURI, paramMap);
   }
   
   /* Error */
   public Bitmap doImageGetRequest(URI paramURI)
+    throws IOException
   {
     // Byte code:
     //   0: aload_1
     //   1: ifnonnull +16 -> 17
-    //   4: new 35	java/lang/IllegalArgumentException
+    //   4: new 42	java/lang/IllegalArgumentException
     //   7: dup
-    //   8: ldc -48
-    //   10: invokestatic 43	com/brightcove/player/util/ErrorUtil:getMessage	(Ljava/lang/String;)Ljava/lang/String;
-    //   13: invokespecial 46	java/lang/IllegalArgumentException:<init>	(Ljava/lang/String;)V
+    //   8: ldc -36
+    //   10: invokestatic 50	com/brightcove/player/util/ErrorUtil:getMessage	(Ljava/lang/String;)Ljava/lang/String;
+    //   13: invokespecial 53	java/lang/IllegalArgumentException:<init>	(Ljava/lang/String;)V
     //   16: athrow
     //   17: aload_1
-    //   18: invokevirtual 214	java/net/URI:toURL	()Ljava/net/URL;
+    //   18: invokevirtual 226	java/net/URI:toURL	()Ljava/net/URL;
     //   21: astore_1
-    //   22: getstatic 22	com/brightcove/player/media/HttpService:TAG	Ljava/lang/String;
-    //   25: new 48	java/lang/StringBuilder
+    //   22: getstatic 25	com/brightcove/player/media/HttpService:TAG	Ljava/lang/String;
+    //   25: new 55	java/lang/StringBuilder
     //   28: dup
-    //   29: invokespecial 127	java/lang/StringBuilder:<init>	()V
-    //   32: ldc_w 342
-    //   35: invokevirtual 75	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   29: invokespecial 135	java/lang/StringBuilder:<init>	()V
+    //   32: ldc_w 350
+    //   35: invokevirtual 82	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
     //   38: aload_1
-    //   39: invokevirtual 224	java/net/URL:toString	()Ljava/lang/String;
-    //   42: invokevirtual 75	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   45: invokevirtual 60	java/lang/StringBuilder:toString	()Ljava/lang/String;
-    //   48: invokestatic 201	android/util/Log:d	(Ljava/lang/String;Ljava/lang/String;)I
+    //   39: invokevirtual 236	java/net/URL:toString	()Ljava/lang/String;
+    //   42: invokevirtual 82	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   45: invokevirtual 67	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   48: invokestatic 213	android/util/Log:d	(Ljava/lang/String;Ljava/lang/String;)I
     //   51: pop
     //   52: aload_1
-    //   53: invokevirtual 228	java/net/URL:openConnection	()Ljava/net/URLConnection;
+    //   53: invokevirtual 240	java/net/URL:openConnection	()Ljava/net/URLConnection;
     //   56: astore_1
     //   57: aload_1
-    //   58: invokevirtual 259	java/net/URLConnection:getInputStream	()Ljava/io/InputStream;
-    //   61: invokestatic 345	android/graphics/BitmapFactory:decodeStream	(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    //   58: invokevirtual 269	java/net/URLConnection:getInputStream	()Ljava/io/InputStream;
+    //   61: invokestatic 353	android/graphics/BitmapFactory:decodeStream	(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
     //   64: astore_2
     //   65: aload_1
     //   66: ifnull +17 -> 83
     //   69: aload_1
-    //   70: instanceof 230
+    //   70: instanceof 242
     //   73: ifeq +10 -> 83
     //   76: aload_1
-    //   77: checkcast 230	java/net/HttpURLConnection
-    //   80: invokevirtual 253	java/net/HttpURLConnection:disconnect	()V
+    //   77: checkcast 242	java/net/HttpURLConnection
+    //   80: invokevirtual 263	java/net/HttpURLConnection:disconnect	()V
     //   83: aload_2
     //   84: areturn
     //   85: astore_2
@@ -318,11 +331,11 @@ public class HttpService
     //   88: aload_1
     //   89: ifnull +17 -> 106
     //   92: aload_1
-    //   93: instanceof 230
+    //   93: instanceof 242
     //   96: ifeq +10 -> 106
     //   99: aload_1
-    //   100: checkcast 230	java/net/HttpURLConnection
-    //   103: invokevirtual 253	java/net/HttpURLConnection:disconnect	()V
+    //   100: checkcast 242	java/net/HttpURLConnection
+    //   103: invokevirtual 263	java/net/HttpURLConnection:disconnect	()V
     //   106: aload_2
     //   107: athrow
     //   108: astore_2
@@ -342,51 +355,52 @@ public class HttpService
   
   /* Error */
   public Bitmap doImageGetRequest(URI paramURI, int paramInt1, int paramInt2)
+    throws IOException
   {
     // Byte code:
     //   0: aload_1
     //   1: ifnonnull +16 -> 17
-    //   4: new 35	java/lang/IllegalArgumentException
+    //   4: new 42	java/lang/IllegalArgumentException
     //   7: dup
-    //   8: ldc -48
-    //   10: invokestatic 43	com/brightcove/player/util/ErrorUtil:getMessage	(Ljava/lang/String;)Ljava/lang/String;
-    //   13: invokespecial 46	java/lang/IllegalArgumentException:<init>	(Ljava/lang/String;)V
+    //   8: ldc -36
+    //   10: invokestatic 50	com/brightcove/player/util/ErrorUtil:getMessage	(Ljava/lang/String;)Ljava/lang/String;
+    //   13: invokespecial 53	java/lang/IllegalArgumentException:<init>	(Ljava/lang/String;)V
     //   16: athrow
     //   17: aload_1
-    //   18: invokevirtual 214	java/net/URI:toURL	()Ljava/net/URL;
+    //   18: invokevirtual 226	java/net/URI:toURL	()Ljava/net/URL;
     //   21: astore_1
-    //   22: getstatic 22	com/brightcove/player/media/HttpService:TAG	Ljava/lang/String;
-    //   25: new 48	java/lang/StringBuilder
+    //   22: getstatic 25	com/brightcove/player/media/HttpService:TAG	Ljava/lang/String;
+    //   25: new 55	java/lang/StringBuilder
     //   28: dup
-    //   29: invokespecial 127	java/lang/StringBuilder:<init>	()V
-    //   32: ldc_w 342
-    //   35: invokevirtual 75	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   29: invokespecial 135	java/lang/StringBuilder:<init>	()V
+    //   32: ldc_w 350
+    //   35: invokevirtual 82	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
     //   38: aload_1
-    //   39: invokevirtual 224	java/net/URL:toString	()Ljava/lang/String;
-    //   42: invokevirtual 75	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   45: invokevirtual 60	java/lang/StringBuilder:toString	()Ljava/lang/String;
-    //   48: invokestatic 201	android/util/Log:d	(Ljava/lang/String;Ljava/lang/String;)I
+    //   39: invokevirtual 236	java/net/URL:toString	()Ljava/lang/String;
+    //   42: invokevirtual 82	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   45: invokevirtual 67	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   48: invokestatic 213	android/util/Log:d	(Ljava/lang/String;Ljava/lang/String;)I
     //   51: pop
     //   52: aload_1
-    //   53: invokevirtual 228	java/net/URL:openConnection	()Ljava/net/URLConnection;
+    //   53: invokevirtual 240	java/net/URL:openConnection	()Ljava/net/URLConnection;
     //   56: astore_1
-    //   57: new 348	java/io/BufferedInputStream
+    //   57: new 356	java/io/BufferedInputStream
     //   60: dup
     //   61: aload_1
-    //   62: invokevirtual 259	java/net/URLConnection:getInputStream	()Ljava/io/InputStream;
-    //   65: invokespecial 349	java/io/BufferedInputStream:<init>	(Ljava/io/InputStream;)V
+    //   62: invokevirtual 269	java/net/URLConnection:getInputStream	()Ljava/io/InputStream;
+    //   65: invokespecial 357	java/io/BufferedInputStream:<init>	(Ljava/io/InputStream;)V
     //   68: iload_2
     //   69: iload_3
-    //   70: invokestatic 351	com/brightcove/player/media/HttpService:decodeSampledBitmap	(Ljava/io/InputStream;II)Landroid/graphics/Bitmap;
+    //   70: invokestatic 359	com/brightcove/player/media/HttpService:decodeSampledBitmap	(Ljava/io/InputStream;II)Landroid/graphics/Bitmap;
     //   73: astore 4
     //   75: aload_1
     //   76: ifnull +17 -> 93
     //   79: aload_1
-    //   80: instanceof 230
+    //   80: instanceof 242
     //   83: ifeq +10 -> 93
     //   86: aload_1
-    //   87: checkcast 230	java/net/HttpURLConnection
-    //   90: invokevirtual 253	java/net/HttpURLConnection:disconnect	()V
+    //   87: checkcast 242	java/net/HttpURLConnection
+    //   90: invokevirtual 263	java/net/HttpURLConnection:disconnect	()V
     //   93: aload 4
     //   95: areturn
     //   96: astore 4
@@ -395,11 +409,11 @@ public class HttpService
     //   100: aload_1
     //   101: ifnull +17 -> 118
     //   104: aload_1
-    //   105: instanceof 230
+    //   105: instanceof 242
     //   108: ifeq +10 -> 118
     //   111: aload_1
-    //   112: checkcast 230	java/net/HttpURLConnection
-    //   115: invokevirtual 253	java/net/HttpURLConnection:disconnect	()V
+    //   112: checkcast 242	java/net/HttpURLConnection
+    //   115: invokevirtual 263	java/net/HttpURLConnection:disconnect	()V
     //   118: aload 4
     //   120: athrow
     //   121: astore 4
@@ -420,33 +434,39 @@ public class HttpService
   }
   
   public JSONObject doJSONGetRequest(URI paramURI)
+    throws IOException, JSONException
   {
     return doJSONGetRequest(paramURI, new HashMap());
   }
   
   public JSONObject doJSONGetRequest(URI paramURI, Map<String, String> paramMap)
+    throws IOException, JSONException
   {
-    return doJSONRequest(HttpService.Method.GET, paramURI, paramMap);
+    return doJSONRequest(Method.GET, paramURI, paramMap);
   }
   
   public JSONObject doJSONPostRequest(URI paramURI)
+    throws IOException, JSONException
   {
     return doJSONPostRequest(paramURI, new HashMap());
   }
   
   public JSONObject doJSONPostRequest(URI paramURI, Map<String, String> paramMap)
+    throws IOException, JSONException
   {
-    return doJSONRequest(HttpService.Method.POST, paramURI, paramMap);
+    return doJSONRequest(Method.POST, paramURI, paramMap);
   }
   
   public String doPostRequest(URI paramURI)
+    throws IOException
   {
     return doPostRequest(paramURI, new HashMap());
   }
   
   public String doPostRequest(URI paramURI, Map<String, String> paramMap)
+    throws IOException
   {
-    return doRequest(HttpService.Method.POST, paramURI, paramMap);
+    return doRequest(Method.POST, paramURI, paramMap);
   }
   
   public int getConnectTimeout()
@@ -457,6 +477,13 @@ public class HttpService
   public int getReadTimeout()
   {
     return readTimeout;
+  }
+  
+  private static enum Method
+  {
+    GET,  POST;
+    
+    private Method() {}
   }
 }
 

@@ -10,9 +10,9 @@
     </item>
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
-            <stroke android:width="@dimen/border" android:color="@color/green_accept_outline" />
+            <solid android:color="@color/white" />
+            <stroke android:width="@dimen/border" android:color="@color/green_accept_bottom_gradient_active" />
             <corners android:radius="@dimen/corner_radius" />
-            <gradient android:startColor="@color/green_accept_top_gradient_active" android:endColor="@color/green_accept_bottom_gradient_active" android:angle="@integer/gradient_start_bottom" />
         </shape>
     </item>
     <item android:state_checked="true">

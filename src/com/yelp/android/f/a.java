@@ -1,39 +1,62 @@
 package com.yelp.android.f;
 
 import android.os.Build.VERSION;
-import android.view.accessibility.AccessibilityEvent;
+import java.util.Locale;
 
 public class a
 {
-  private static final e a = new d();
+  private static final a a = new b();
   
   static
   {
-    if (Build.VERSION.SDK_INT >= 19)
+    int i = Build.VERSION.SDK_INT;
+    if (i >= 21)
+    {
+      a = new d();
+      return;
+    }
+    if (i >= 14)
     {
       a = new c();
       return;
     }
-    if (Build.VERSION.SDK_INT >= 14)
+  }
+  
+  public static String a(Locale paramLocale)
+  {
+    return a.a(paramLocale);
+  }
+  
+  static abstract interface a
+  {
+    public abstract String a(Locale paramLocale);
+  }
+  
+  static class b
+    implements a.a
+  {
+    public String a(Locale paramLocale)
     {
-      a = new b();
-      return;
+      return null;
     }
   }
   
-  public static aj a(AccessibilityEvent paramAccessibilityEvent)
+  static class c
+    implements a.a
   {
-    return new aj(paramAccessibilityEvent);
+    public String a(Locale paramLocale)
+    {
+      return c.a(paramLocale);
+    }
   }
   
-  public static void a(AccessibilityEvent paramAccessibilityEvent, int paramInt)
+  static class d
+    implements a.a
   {
-    a.a(paramAccessibilityEvent, paramInt);
-  }
-  
-  public static int b(AccessibilityEvent paramAccessibilityEvent)
-  {
-    return a.a(paramAccessibilityEvent);
+    public String a(Locale paramLocale)
+    {
+      return b.a(paramLocale);
+    }
   }
 }
 

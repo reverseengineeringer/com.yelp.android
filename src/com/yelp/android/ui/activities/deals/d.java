@@ -1,37 +1,42 @@
 package com.yelp.android.ui.activities.deals;
 
-import android.util.SparseArray;
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.bg;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.util.ErrorType;
-import java.util.ArrayList;
+import android.content.Context;
+import android.content.res.TypedArray;
+import com.yelp.android.b.a;
+import com.yelp.android.serializable.GiftRecipient;
 
-class d
-  extends j<bg>
+public class d
+  extends DealQuantityViewBase
 {
-  d(ActivityDealDetail paramActivityDealDetail) {}
+  private final GiftRecipient b;
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, bg parambg)
+  public d(Context paramContext)
   {
-    if ((ActivityDealDetail.a(a) != null) && (!parambg.b().contains(ActivityDealDetail.a(a)))) {
-      parambg.b().add(0, ActivityDealDetail.a(a));
+    this(paramContext, null, 2130772411);
+  }
+  
+  public d(Context paramContext, GiftRecipient paramGiftRecipient)
+  {
+    this(paramContext, paramGiftRecipient, 2130772410);
+  }
+  
+  private d(Context paramContext, GiftRecipient paramGiftRecipient, int paramInt)
+  {
+    super(paramContext, null, paramInt);
+    b = paramGiftRecipient;
+    if (b == null)
+    {
+      setText(paramContext.getString(2131165929));
+      return;
     }
-    ActivityDealDetail.a(a, parambg.b());
-    ActivityDealDetail.a(a, parambg.a());
-    ActivityDealDetail.e(a);
+    paramContext = paramContext.obtainStyledAttributes(null, b.a.DealQuantityBaseView, paramInt, paramInt);
+    setText(String.format(paramContext.getString(0), new Object[] { b.e() }));
+    paramContext.recycle();
   }
   
-  public boolean a()
+  public GiftRecipient getRecipient()
   {
-    return true;
-  }
-  
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
-  {
-    da).get(2131493154)).a = ErrorType.getTypeFromException(paramYelpException).buildAdapter(a);
-    da).get(2131493154)).b = null;
+    return b;
   }
 }
 

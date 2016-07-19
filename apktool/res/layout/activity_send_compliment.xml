@@ -5,6 +5,6 @@
         <TextView android:text="@string/choose_compliment_type" style="@style/Widget.TextView.ListSeparatorYelp.WhiteBackground" />
         <include android:id="@id/compliment_buttons" layout="@layout/panel_compliment_buttons" />
         <include android:id="@id/focusdummy" layout="@layout/focusdummy" />
-        <EditText android:textAppearance="@style/LargeText" android:id="@id/content" android:saveEnabled="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="?largeGapSize" android:layout_marginRight="?baseGapSize" android:hint="@string/add_a_compliment_message" android:selectAllOnFocus="true" android:inputType="textAutoCorrect|textCapSentences|textMultiLine" android:imeOptions="actionDone|flagNoEnterAction" />
+        <EditText android:textAppearance="@style/BodyText" android:id="@id/content" android:saveEnabled="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginTop="@dimen/default_large_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:hint="@string/add_a_compliment_message" android:selectAllOnFocus="true" android:inputType="textAutoCorrect|textCapSentences|textMultiLine" android:imeOptions="actionDone|flagNoEnterAction" />
     </LinearLayout>
 </ScrollView>

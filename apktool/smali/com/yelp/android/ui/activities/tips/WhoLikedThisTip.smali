@@ -3,16 +3,16 @@
 .source "WhoLikedThisTip.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
+.implements Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
         "<",
-        "Lcom/yelp/android/appdata/webrequests/cv;",
+        "Lcom/yelp/android/appdata/webrequests/cj$a;",
         ">;"
     }
 .end annotation
@@ -91,33 +91,33 @@
 
     .prologue
     .line 20
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/tips/WhoLikedThisTip;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)Lcom/yelp/android/appdata/webrequests/cu;
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/tips/WhoLikedThisTip;->b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)Lcom/yelp/android/appdata/webrequests/cj;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/cv;)V
+.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/cj$a;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
             "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/cv;",
+            "Lcom/yelp/android/appdata/webrequests/cj$a;",
             ")V"
         }
     .end annotation
 
     .prologue
     .line 69
-    iget-object v0, p2, Lcom/yelp/android/appdata/webrequests/cv;->a:Ljava/util/ArrayList;
+    iget-object v0, p2, Lcom/yelp/android/appdata/webrequests/cj$a;->a:Ljava/util/ArrayList;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/tips/WhoLikedThisTip;->a(Ljava/util/List;)V
 
     .line 70
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/tips/WhoLikedThisTip;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/tips/WhoLikedThisTip;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -130,20 +130,22 @@
     return-void
 .end method
 
-.method public b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)Lcom/yelp/android/appdata/webrequests/cu;
+.method public b(Lcom/yelp/android/appdata/webrequests/ApiRequest;)Lcom/yelp/android/appdata/webrequests/cj;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;)",
-            "Lcom/yelp/android/appdata/webrequests/cu;"
+            "<",
+            "Ljava/lang/Void;",
+            "**>;)",
+            "Lcom/yelp/android/appdata/webrequests/cj;"
         }
     .end annotation
 
     .prologue
     .line 58
-    check-cast p1, Lcom/yelp/android/appdata/webrequests/cu;
+    check-cast p1, Lcom/yelp/android/appdata/webrequests/cj;
 
     .line 59
     if-nez p1, :cond_0
@@ -160,13 +162,13 @@
     move-result-object v0
 
     .line 61
-    new-instance p1, Lcom/yelp/android/appdata/webrequests/cu;
+    new-instance p1, Lcom/yelp/android/appdata/webrequests/cj;
 
-    invoke-direct {p1, p0, v0}, Lcom/yelp/android/appdata/webrequests/cu;-><init>(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;)V
+    invoke-direct {p1, p0, v0}, Lcom/yelp/android/appdata/webrequests/cj;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Ljava/lang/String;)V
 
     .line 63
     :cond_0
-    invoke-virtual {p1, p0}, Lcom/yelp/android/appdata/webrequests/cu;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {p1, p0}, Lcom/yelp/android/appdata/webrequests/cj;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     .line 64
     return-object p1
@@ -182,7 +184,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -194,12 +196,12 @@
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -254,9 +256,9 @@
 
     .prologue
     .line 20
-    check-cast p2, Lcom/yelp/android/appdata/webrequests/cv;
+    check-cast p2, Lcom/yelp/android/appdata/webrequests/cj$a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/tips/WhoLikedThisTip;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/cv;)V
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/tips/WhoLikedThisTip;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/cj$a;)V
 
     return-void
 .end method

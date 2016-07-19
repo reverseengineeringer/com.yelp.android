@@ -1,26 +1,30 @@
 package com.yelp.android.ui.activities.categorypicker;
 
-import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
-import com.yelp.android.serializable.BusinessCategorySuggest;
-import com.yelp.android.ui.panels.p;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bw;
+import com.yelp.android.co.a.c;
+import com.yelp.android.co.a.f;
+import com.yelp.android.co.a.h;
+import com.yelp.android.serializable.CategorySuggestion;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.c;
 import java.util.ArrayList;
 
-public class CategorySuggestionsFragment
+public class CategorySuggestionsFragment<Suggest extends CategorySuggestion>
   extends ListFragment
 {
-  private p a;
-  private h b;
+  protected a<Suggest> i;
+  private a<Suggest> j;
+  private b.a k;
   
-  public static CategorySuggestionsFragment a(ArrayList<BusinessCategorySuggest> paramArrayList)
+  public static <Suggest extends CategorySuggestion> CategorySuggestionsFragment a(ArrayList<Suggest> paramArrayList)
   {
     CategorySuggestionsFragment localCategorySuggestionsFragment = new CategorySuggestionsFragment();
     Bundle localBundle = new Bundle();
@@ -29,29 +33,41 @@ public class CategorySuggestionsFragment
     return localCategorySuggestionsFragment;
   }
   
-  public void b(ArrayList<BusinessCategorySuggest> paramArrayList)
+  public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
-    a.a(paramArrayList);
+    super.a(paramListView, paramView, paramInt, paramLong);
+    k.b(paramInt);
+    j.b((CategorySuggestion)i.getItem(paramInt));
+  }
+  
+  public void b(ArrayList<Suggest> paramArrayList)
+  {
+    i.a(paramArrayList);
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    getListView().setBackgroundColor(getResources().getColor(17170445));
-    getListView().setOnScrollListener(new g(this));
-  }
-  
-  public void onAttach(Activity paramActivity)
-  {
-    super.onAttach(paramActivity);
     try
     {
-      b = ((h)paramActivity);
+      paramBundle = ((b.b)getActivity()).a();
+      j = paramBundle;
+      k = ((b.a)paramBundle);
+      a().setBackgroundColor(getResources().getColor(a.c.transparent));
+      a().setOnScrollListener(new AbsListView.OnScrollListener()
+      {
+        public void onScroll(AbsListView paramAnonymousAbsListView, int paramAnonymousInt1, int paramAnonymousInt2, int paramAnonymousInt3) {}
+        
+        public void onScrollStateChanged(AbsListView paramAnonymousAbsListView, int paramAnonymousInt)
+        {
+          CategorySuggestionsFragment.a(CategorySuggestionsFragment.this).b();
+        }
+      });
       return;
     }
-    catch (ClassCastException paramActivity)
+    catch (ClassCastException paramBundle)
     {
-      throw new ClassCastException("The corresponding activity must implement the CategorySelectedListener interface.");
+      throw new ClassCastException("The corresponding activity must implement CategoryPickerHelperInterface and the helper must implement CategorySelectedListener.");
     }
   }
   
@@ -59,23 +75,23 @@ public class CategorySuggestionsFragment
   {
     super.onCreate(paramBundle);
     paramBundle = getArguments().getParcelableArrayList("args_suggestions");
-    a = new p();
-    a.a(paramBundle);
-    paramBundle = new bs();
-    paramBundle.a(0, bw.a("", a).a(2131493338, 0, 0).a());
-    setListAdapter(paramBundle);
+    i = new a();
+    i.a(paramBundle);
+    paramBundle = new aj();
+    paramBundle.a(0, aj.c.a("", i).a(a.f.business_category_suggest_container, 0, 0).b());
+    a(paramBundle);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    return paramLayoutInflater.inflate(2130903235, paramViewGroup, false);
+    return paramLayoutInflater.inflate(a.h.simple_list_view_fragment, paramViewGroup, false);
   }
   
-  public void onListItemClick(ListView paramListView, View paramView, int paramInt, long paramLong)
+  public static abstract interface a<Suggest extends CategorySuggestion>
   {
-    super.onListItemClick(paramListView, paramView, paramInt, paramLong);
-    paramListView = (BusinessCategorySuggest)a.getItem(paramInt);
-    b.a(paramListView);
+    public abstract void b();
+    
+    public abstract void b(Suggest paramSuggest);
   }
 }
 

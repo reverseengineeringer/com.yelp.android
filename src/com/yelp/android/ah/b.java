@@ -1,18 +1,41 @@
 package com.yelp.android.ah;
 
-import java.security.MessageDigest;
+import com.bumptech.glide.load.engine.i;
 
-public final class b
-  implements com.bumptech.glide.load.b
+public class b
+  implements i<a>
 {
-  private static final b a = new b();
+  private final a a;
   
-  public static b a()
+  public b(a parama)
+  {
+    if (parama == null) {
+      throw new NullPointerException("Data must not be null");
+    }
+    a = parama;
+  }
+  
+  public a a()
   {
     return a;
   }
   
-  public void a(MessageDigest paramMessageDigest) {}
+  public int c()
+  {
+    return a.a();
+  }
+  
+  public void d()
+  {
+    i locali = a.b();
+    if (locali != null) {
+      locali.d();
+    }
+    locali = a.c();
+    if (locali != null) {
+      locali.d();
+    }
+  }
 }
 
 /* Location:

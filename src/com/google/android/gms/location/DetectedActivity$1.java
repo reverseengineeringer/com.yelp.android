@@ -7,10 +7,10 @@ final class DetectedActivity$1
 {
   public int a(DetectedActivity paramDetectedActivity1, DetectedActivity paramDetectedActivity2)
   {
-    int j = Integer.valueOf(paramDetectedActivity2.getConfidence()).compareTo(Integer.valueOf(paramDetectedActivity1.getConfidence()));
+    int j = Integer.valueOf(paramDetectedActivity2.b()).compareTo(Integer.valueOf(paramDetectedActivity1.b()));
     int i = j;
     if (j == 0) {
-      i = Integer.valueOf(paramDetectedActivity1.getType()).compareTo(Integer.valueOf(paramDetectedActivity2.getType()));
+      i = Integer.valueOf(paramDetectedActivity1.a()).compareTo(Integer.valueOf(paramDetectedActivity2.a()));
     }
     return i;
   }

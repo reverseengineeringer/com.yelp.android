@@ -1,14 +1,41 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
-public final class j
+import com.yelp.android.appdata.webrequests.ApiRequest.RequestType;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.core.b;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class j
+  extends b<Void, Void, a>
 {
-  public final String a;
-  public final boolean b;
-  
-  public j(String paramString, boolean paramBoolean)
+  public j(Set<String> paramSet, String paramString1, String paramString2, String paramString3, ApiRequest.b<a> paramb)
   {
-    a = paramString;
-    b = paramBoolean;
+    super(ApiRequest.RequestType.POST, "business/message/save_bulk_quote/v2", paramb);
+    b("business_ids", paramSet);
+    b("message", paramString1);
+    b("originating_id", paramString2);
+    b("originating_id_type", paramString3);
+  }
+  
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return new a(paramJSONObject.optString("confirmation_text_main"), paramJSONObject.optString("confirmation_text_sub"));
+  }
+  
+  public static final class a
+  {
+    public final String a;
+    public final String b;
+    
+    public a(String paramString1, String paramString2)
+    {
+      a = paramString1;
+      b = paramString2;
+    }
   }
 }
 

@@ -1,17 +1,31 @@
 package com.yelp.android.ui.panels.businesssearch;
 
-import com.yelp.android.serializable.RecentCheckIn;
-import com.yelp.android.serializable.User;
-import com.yelp.android.util.ag;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.yelp.android.serializable.LocalAd;
+import com.yelp.android.serializable.SearchResultLocalAd;
+import com.yelp.android.ui.util.f;
 
-class d
-  implements ag<RecentCheckIn>
+public class d
+  extends b<SearchResultLocalAd>
+  implements f
 {
-  d(c paramc) {}
-  
-  public String a(RecentCheckIn paramRecentCheckIn)
+  public d(Activity paramActivity)
   {
-    return paramRecentCheckIn.getUser().getNameWithoutPeriod();
+    super(paramActivity);
+  }
+  
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    if (((LocalAd)getItem(paramInt)).f()) {
+      b(new BusinessAdapter.DisplayFeature[] { BusinessAdapter.DisplayFeature.RATING });
+    }
+    for (;;)
+    {
+      return super.getView(paramInt, paramView, paramViewGroup);
+      a(new BusinessAdapter.DisplayFeature[] { BusinessAdapter.DisplayFeature.RATING });
+    }
   }
 }
 

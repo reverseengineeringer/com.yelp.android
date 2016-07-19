@@ -1,51 +1,33 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import android.os.StrictMode;
+import android.os.StrictMode.ThreadPolicy;
+import java.util.concurrent.Callable;
 
 public class kn
-  implements Parcelable.Creator<km>
 {
-  static void a(km paramkm, Parcel paramParcel, int paramInt)
+  public static <T> T a(Callable<T> paramCallable)
   {
-    int i = b.H(paramParcel);
-    b.c(paramParcel, 1, paramkm.getVersionCode());
-    b.a(paramParcel, 2, paramkm.hF(), paramInt, false);
-    b.H(paramParcel, i);
-  }
-  
-  public km J(Parcel paramParcel)
-  {
-    int j = a.G(paramParcel);
-    int i = 0;
-    ko localko = null;
-    while (paramParcel.dataPosition() < j)
+    StrictMode.ThreadPolicy localThreadPolicy = StrictMode.getThreadPolicy();
+    try
     {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
-      {
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 2: 
-        localko = (ko)a.a(paramParcel, k, ko.CREATOR);
-      }
+      StrictMode.setThreadPolicy(StrictMode.ThreadPolicy.LAX);
+      paramCallable = paramCallable.call();
+      StrictMode.setThreadPolicy(localThreadPolicy);
+      return paramCallable;
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+    catch (Throwable paramCallable)
+    {
+      paramCallable = paramCallable;
+      StrictMode.setThreadPolicy(localThreadPolicy);
+      return null;
     }
-    return new km(i, localko);
-  }
-  
-  public km[] aK(int paramInt)
-  {
-    return new km[paramInt];
+    finally
+    {
+      paramCallable = finally;
+      StrictMode.setThreadPolicy(localThreadPolicy);
+      throw paramCallable;
+    }
   }
 }
 

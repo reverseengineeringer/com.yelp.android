@@ -1,26 +1,31 @@
 package android.support.v7.widget;
 
-import android.content.Context;
-import android.support.v7.internal.view.menu.i;
-import android.support.v7.internal.view.menu.v;
 import android.view.View;
-import com.yelp.android.g.b;
 
 class g
-  extends v
 {
-  public g(ActionMenuPresenter paramActionMenuPresenter, Context paramContext, i parami, View paramView, boolean paramBoolean)
+  int a;
+  int b;
+  int c;
+  int d;
+  int e = 0;
+  int f = 0;
+  
+  View a(RecyclerView.n paramn)
   {
-    super(paramContext, parami, paramView, paramBoolean, b.actionOverflowMenuStyle);
-    a(8388613);
-    a(g);
+    paramn = paramn.c(b);
+    b += c;
+    return paramn;
   }
   
-  public void onDismiss()
+  boolean a(RecyclerView.r paramr)
   {
-    super.onDismiss();
-    ActionMenuPresenter.c(c).close();
-    ActionMenuPresenter.a(c, null);
+    return (b >= 0) && (b < paramr.e());
+  }
+  
+  public String toString()
+  {
+    return "LayoutState{mAvailable=" + a + ", mCurrentPosition=" + b + ", mItemDirection=" + c + ", mLayoutDirection=" + d + ", mStartLine=" + e + ", mEndLine=" + f + '}';
   }
 }
 

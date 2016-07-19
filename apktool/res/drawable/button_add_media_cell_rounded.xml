@@ -11,7 +11,7 @@
     <item>
         <shape>
             <corners android:radius="@dimen/corner_radius" />
-            <solid android:color="@color/gray_button_bar_pressed_color_bottom" />
+            <solid android:color="@color/gray_light_silver_divider" />
             <stroke android:width="@dimen/border" android:color="@color/gray_yoni" />
         </shape>
     </item>

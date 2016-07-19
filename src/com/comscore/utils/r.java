@@ -1,7 +1,7 @@
 package com.comscore.utils;
 
 import com.comscore.analytics.a;
-import com.yelp.android.al.b;
+import com.yelp.android.ar.b;
 
 class r
   implements Runnable

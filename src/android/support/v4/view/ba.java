@@ -1,74 +1,92 @@
 package android.support.v4.view;
 
-import android.os.Build.VERSION;
-import android.view.MotionEvent;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
+import android.view.ViewPropertyAnimator;
+import android.view.animation.Interpolator;
 
-public class ba
+class ba
 {
-  static final bf a = new bb();
-  
-  static
+  public static long a(View paramView)
   {
-    if (Build.VERSION.SDK_INT >= 12)
+    return paramView.animate().getDuration();
+  }
+  
+  public static void a(View paramView, float paramFloat)
+  {
+    paramView.animate().alpha(paramFloat);
+  }
+  
+  public static void a(View paramView, long paramLong)
+  {
+    paramView.animate().setDuration(paramLong);
+  }
+  
+  public static void a(final View paramView, bd parambd)
+  {
+    if (parambd != null)
     {
-      a = new be();
+      paramView.animate().setListener(new AnimatorListenerAdapter()
+      {
+        public void onAnimationCancel(Animator paramAnonymousAnimator)
+        {
+          a.c(paramView);
+        }
+        
+        public void onAnimationEnd(Animator paramAnonymousAnimator)
+        {
+          a.b(paramView);
+        }
+        
+        public void onAnimationStart(Animator paramAnonymousAnimator)
+        {
+          a.a(paramView);
+        }
+      });
       return;
     }
-    if (Build.VERSION.SDK_INT >= 9)
-    {
-      a = new bd();
-      return;
-    }
-    if (Build.VERSION.SDK_INT >= 5)
-    {
-      a = new bc();
-      return;
-    }
+    paramView.animate().setListener(null);
   }
   
-  public static int a(MotionEvent paramMotionEvent)
+  public static void a(View paramView, Interpolator paramInterpolator)
   {
-    return paramMotionEvent.getAction() & 0xFF;
+    paramView.animate().setInterpolator(paramInterpolator);
   }
   
-  public static int a(MotionEvent paramMotionEvent, int paramInt)
+  public static void b(View paramView)
   {
-    return a.a(paramMotionEvent, paramInt);
+    paramView.animate().cancel();
   }
   
-  public static int b(MotionEvent paramMotionEvent)
+  public static void b(View paramView, float paramFloat)
   {
-    return (paramMotionEvent.getAction() & 0xFF00) >> 8;
+    paramView.animate().translationX(paramFloat);
   }
   
-  public static int b(MotionEvent paramMotionEvent, int paramInt)
+  public static void b(View paramView, long paramLong)
   {
-    return a.b(paramMotionEvent, paramInt);
+    paramView.animate().setStartDelay(paramLong);
   }
   
-  public static float c(MotionEvent paramMotionEvent, int paramInt)
+  public static void c(View paramView)
   {
-    return a.c(paramMotionEvent, paramInt);
+    paramView.animate().start();
   }
   
-  public static int c(MotionEvent paramMotionEvent)
+  public static void c(View paramView, float paramFloat)
   {
-    return a.a(paramMotionEvent);
+    paramView.animate().translationY(paramFloat);
   }
   
-  public static float d(MotionEvent paramMotionEvent, int paramInt)
+  public static void d(View paramView, float paramFloat)
   {
-    return a.d(paramMotionEvent, paramInt);
+    paramView.animate().scaleX(paramFloat);
   }
   
-  public static int d(MotionEvent paramMotionEvent)
+  public static void e(View paramView, float paramFloat)
   {
-    return a.b(paramMotionEvent);
-  }
-  
-  public static float e(MotionEvent paramMotionEvent, int paramInt)
-  {
-    return a.e(paramMotionEvent, paramInt);
+    paramView.animate().scaleY(paramFloat);
   }
 }
 

@@ -1,27 +1,26 @@
 package com.path.android.jobqueue.nonPersistentQueue;
 
-import com.path.android.jobqueue.b;
 import java.util.Comparator;
 
 public class a
-  implements Comparator<b>
+  implements Comparator<com.path.android.jobqueue.a>
 {
-  final Comparator<b> a;
+  final Comparator<com.path.android.jobqueue.a> a;
   
-  public a(Comparator<b> paramComparator)
+  public a(Comparator<com.path.android.jobqueue.a> paramComparator)
   {
     a = paramComparator;
   }
   
-  public int a(b paramb1, b paramb2)
+  public int a(com.path.android.jobqueue.a parama1, com.path.android.jobqueue.a parama2)
   {
-    if (paramb1.g() < paramb2.g()) {
+    if (parama1.g() < parama2.g()) {
       return -1;
     }
-    if (paramb1.g() > paramb2.g()) {
+    if (parama1.g() > parama2.g()) {
       return 1;
     }
-    return a.compare(paramb1, paramb2);
+    return a.compare(parama1, parama2);
   }
 }
 

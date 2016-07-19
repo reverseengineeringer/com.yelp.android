@@ -8,46 +8,57 @@ import java.util.List;
 class StaggeredGridLayoutManager$SavedState
   implements Parcelable
 {
-  public static final Parcelable.Creator<SavedState> CREATOR = new da();
-  boolean mAnchorLayoutFromEnd;
-  int mAnchorPosition;
-  List<StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem> mFullSpanItems;
-  boolean mLastLayoutRTL;
-  boolean mReverseLayout;
-  int[] mSpanLookup;
-  int mSpanLookupSize;
-  int[] mSpanOffsets;
-  int mSpanOffsetsSize;
-  int mVisibleAnchorPosition;
+  public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+  {
+    public StaggeredGridLayoutManager.SavedState a(Parcel paramAnonymousParcel)
+    {
+      return new StaggeredGridLayoutManager.SavedState(paramAnonymousParcel);
+    }
+    
+    public StaggeredGridLayoutManager.SavedState[] a(int paramAnonymousInt)
+    {
+      return new StaggeredGridLayoutManager.SavedState[paramAnonymousInt];
+    }
+  };
+  int a;
+  int b;
+  int c;
+  int[] d;
+  int e;
+  int[] f;
+  List<StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem> g;
+  boolean h;
+  boolean i;
+  boolean j;
   
   public StaggeredGridLayoutManager$SavedState() {}
   
   StaggeredGridLayoutManager$SavedState(Parcel paramParcel)
   {
-    mAnchorPosition = paramParcel.readInt();
-    mVisibleAnchorPosition = paramParcel.readInt();
-    mSpanOffsetsSize = paramParcel.readInt();
-    if (mSpanOffsetsSize > 0)
+    a = paramParcel.readInt();
+    b = paramParcel.readInt();
+    c = paramParcel.readInt();
+    if (c > 0)
     {
-      mSpanOffsets = new int[mSpanOffsetsSize];
-      paramParcel.readIntArray(mSpanOffsets);
+      d = new int[c];
+      paramParcel.readIntArray(d);
     }
-    mSpanLookupSize = paramParcel.readInt();
-    if (mSpanLookupSize > 0)
+    e = paramParcel.readInt();
+    if (e > 0)
     {
-      mSpanLookup = new int[mSpanLookupSize];
-      paramParcel.readIntArray(mSpanLookup);
+      f = new int[e];
+      paramParcel.readIntArray(f);
     }
     if (paramParcel.readInt() == 1)
     {
       bool1 = true;
-      mReverseLayout = bool1;
+      h = bool1;
       if (paramParcel.readInt() != 1) {
         break label152;
       }
       bool1 = true;
       label113:
-      mAnchorLayoutFromEnd = bool1;
+      i = bool1;
       if (paramParcel.readInt() != 1) {
         break label157;
       }
@@ -56,8 +67,8 @@ class StaggeredGridLayoutManager$SavedState
     label157:
     for (boolean bool1 = bool2;; bool1 = false)
     {
-      mLastLayoutRTL = bool1;
-      mFullSpanItems = paramParcel.readArrayList(StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem.class.getClassLoader());
+      j = bool1;
+      g = paramParcel.readArrayList(StaggeredGridLayoutManager.LazySpanLookup.FullSpanItem.class.getClassLoader());
       return;
       bool1 = false;
       break;
@@ -68,16 +79,33 @@ class StaggeredGridLayoutManager$SavedState
   
   public StaggeredGridLayoutManager$SavedState(SavedState paramSavedState)
   {
-    mSpanOffsetsSize = mSpanOffsetsSize;
-    mAnchorPosition = mAnchorPosition;
-    mVisibleAnchorPosition = mVisibleAnchorPosition;
-    mSpanOffsets = mSpanOffsets;
-    mSpanLookupSize = mSpanLookupSize;
-    mSpanLookup = mSpanLookup;
-    mReverseLayout = mReverseLayout;
-    mAnchorLayoutFromEnd = mAnchorLayoutFromEnd;
-    mLastLayoutRTL = mLastLayoutRTL;
-    mFullSpanItems = mFullSpanItems;
+    c = c;
+    a = a;
+    b = b;
+    d = d;
+    e = e;
+    f = f;
+    h = h;
+    i = i;
+    j = j;
+    g = g;
+  }
+  
+  void a()
+  {
+    d = null;
+    c = 0;
+    e = 0;
+    f = null;
+    g = null;
+  }
+  
+  void b()
+  {
+    d = null;
+    c = 0;
+    a = -1;
+    b = -1;
   }
   
   public int describeContents()
@@ -85,56 +113,39 @@ class StaggeredGridLayoutManager$SavedState
     return 0;
   }
   
-  void invalidateAnchorPositionInfo()
-  {
-    mSpanOffsets = null;
-    mSpanOffsetsSize = 0;
-    mAnchorPosition = -1;
-    mVisibleAnchorPosition = -1;
-  }
-  
-  void invalidateSpanInfo()
-  {
-    mSpanOffsets = null;
-    mSpanOffsetsSize = 0;
-    mSpanLookupSize = 0;
-    mSpanLookup = null;
-    mFullSpanItems = null;
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    int i = 1;
-    paramParcel.writeInt(mAnchorPosition);
-    paramParcel.writeInt(mVisibleAnchorPosition);
-    paramParcel.writeInt(mSpanOffsetsSize);
-    if (mSpanOffsetsSize > 0) {
-      paramParcel.writeIntArray(mSpanOffsets);
+    int k = 1;
+    paramParcel.writeInt(a);
+    paramParcel.writeInt(b);
+    paramParcel.writeInt(c);
+    if (c > 0) {
+      paramParcel.writeIntArray(d);
     }
-    paramParcel.writeInt(mSpanLookupSize);
-    if (mSpanLookupSize > 0) {
-      paramParcel.writeIntArray(mSpanLookup);
+    paramParcel.writeInt(e);
+    if (e > 0) {
+      paramParcel.writeIntArray(f);
     }
-    if (mReverseLayout)
+    if (h)
     {
       paramInt = 1;
       paramParcel.writeInt(paramInt);
-      if (!mAnchorLayoutFromEnd) {
+      if (!i) {
         break label120;
       }
       paramInt = 1;
       label87:
       paramParcel.writeInt(paramInt);
-      if (!mLastLayoutRTL) {
+      if (!j) {
         break label125;
       }
     }
     label120:
     label125:
-    for (paramInt = i;; paramInt = 0)
+    for (paramInt = k;; paramInt = 0)
     {
       paramParcel.writeInt(paramInt);
-      paramParcel.writeList(mFullSpanItems);
+      paramParcel.writeList(g);
       return;
       paramInt = 0;
       break;

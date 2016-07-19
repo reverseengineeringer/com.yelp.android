@@ -2,51 +2,131 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Reservation
   implements Parcelable
 {
-  protected List<AttributedLabelValuePair> mAttributes;
-  protected String mCancelString;
-  protected String mConfirmationNumber;
-  protected String mConfirmationSubtitle;
-  protected String mConfirmationTitle;
-  protected boolean mCreditCardHold;
-  protected Date mDatestamp;
-  protected String mHeaderTitle;
-  protected int mPartySize;
-  protected String mQueryId;
-  protected String mSelectedTimeId;
-  protected int mTimeId;
-  protected String mTransactionLockId;
-  protected String mViewTitle;
+  protected Date a;
+  protected List<AttributedLabelValuePair> b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
+  protected boolean j;
+  protected int k;
   
-  protected _Reservation() {}
-  
-  protected _Reservation(Date paramDate, List<AttributedLabelValuePair> paramList, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, String paramString9, boolean paramBoolean, int paramInt1, int paramInt2)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mDatestamp = paramDate;
-    mAttributes = paramList;
-    mConfirmationTitle = paramString1;
-    mConfirmationSubtitle = paramString2;
-    mViewTitle = paramString3;
-    mHeaderTitle = paramString4;
-    mConfirmationNumber = paramString5;
-    mCancelString = paramString6;
-    mQueryId = paramString7;
-    mSelectedTimeId = paramString8;
-    mTransactionLockId = paramString9;
-    mCreditCardHold = paramBoolean;
-    mPartySize = paramInt1;
-    mTimeId = paramInt2;
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      a = new Date(l);
+    }
+    b = paramParcel.readArrayList(AttributedLabelValuePair.class.getClassLoader());
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = paramParcel.createBooleanArray()[0];
+    k = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("timestamp")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "timestamp");
+    }
+    if (!paramJSONObject.isNull("attributes")) {}
+    for (b = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("attributes"), AttributedLabelValuePair.CREATOR);; b = Collections.emptyList())
+    {
+      if (!paramJSONObject.isNull("confirmation_title")) {
+        c = paramJSONObject.optString("confirmation_title");
+      }
+      if (!paramJSONObject.isNull("confirmation_details_title")) {
+        d = paramJSONObject.optString("confirmation_details_title");
+      }
+      if (!paramJSONObject.isNull("view_title")) {
+        e = paramJSONObject.optString("view_title");
+      }
+      if (!paramJSONObject.isNull("header_title")) {
+        f = paramJSONObject.optString("header_title");
+      }
+      if (!paramJSONObject.isNull("confirmation_number")) {
+        g = paramJSONObject.optString("confirmation_number");
+      }
+      if (!paramJSONObject.isNull("cancel_action_title")) {
+        h = paramJSONObject.optString("cancel_action_title");
+      }
+      if (!paramJSONObject.isNull("reservation_lease_id")) {
+        i = paramJSONObject.optString("reservation_lease_id");
+      }
+      j = paramJSONObject.optBoolean("cc_hold");
+      k = paramJSONObject.optInt("party_size");
+      return;
+    }
+  }
+  
+  public JSONObject c()
+    throws JSONException
+  {
+    JSONObject localJSONObject = new JSONObject();
+    if (a != null) {
+      localJSONObject.put("timestamp", a.getTime() / 1000L);
+    }
+    if (b != null)
+    {
+      JSONArray localJSONArray = new JSONArray();
+      Iterator localIterator = b.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put(((AttributedLabelValuePair)localIterator.next()).a());
+      }
+      localJSONObject.put("attributes", localJSONArray);
+    }
+    if (c != null) {
+      localJSONObject.put("confirmation_title", c);
+    }
+    if (d != null) {
+      localJSONObject.put("confirmation_details_title", d);
+    }
+    if (e != null) {
+      localJSONObject.put("view_title", e);
+    }
+    if (f != null) {
+      localJSONObject.put("header_title", f);
+    }
+    if (g != null) {
+      localJSONObject.put("confirmation_number", g);
+    }
+    if (h != null) {
+      localJSONObject.put("cancel_action_title", h);
+    }
+    if (i != null) {
+      localJSONObject.put("reservation_lease_id", i);
+    }
+    localJSONObject.put("cc_hold", j);
+    localJSONObject.put("party_size", k);
+    return localJSONObject;
+  }
+  
+  public int d()
+  {
+    return k;
   }
   
   public int describeContents()
@@ -54,206 +134,86 @@ abstract class _Reservation
     return 0;
   }
   
-  public List<AttributedLabelValuePair> getAttributes()
+  public boolean e()
   {
-    return mAttributes;
+    return j;
   }
   
-  public String getCancelString()
+  public boolean equals(Object paramObject)
   {
-    return mCancelString;
-  }
-  
-  public String getConfirmationNumber()
-  {
-    return mConfirmationNumber;
-  }
-  
-  public String getConfirmationSubtitle()
-  {
-    return mConfirmationSubtitle;
-  }
-  
-  public String getConfirmationTitle()
-  {
-    return mConfirmationTitle;
-  }
-  
-  public boolean getCreditCardHold()
-  {
-    return mCreditCardHold;
-  }
-  
-  public Date getDatestamp()
-  {
-    return mDatestamp;
-  }
-  
-  public String getHeaderTitle()
-  {
-    return mHeaderTitle;
-  }
-  
-  public int getPartySize()
-  {
-    return mPartySize;
-  }
-  
-  public String getQueryId()
-  {
-    return mQueryId;
-  }
-  
-  public String getSelectedTimeId()
-  {
-    return mSelectedTimeId;
-  }
-  
-  public int getTimeId()
-  {
-    return mTimeId;
-  }
-  
-  public String getTransactionLockId()
-  {
-    return mTransactionLockId;
-  }
-  
-  public String getViewTitle()
-  {
-    return mViewTitle;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("timestamp")) {
-      mDatestamp = JsonUtil.parseTimestamp(paramJSONObject, "timestamp");
-    }
-    if (!paramJSONObject.isNull("attributes")) {}
-    for (mAttributes = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("attributes"), AttributedLabelValuePair.CREATOR);; mAttributes = Collections.emptyList())
+    if (paramObject == null) {}
+    do
     {
-      if (!paramJSONObject.isNull("confirmation_title")) {
-        mConfirmationTitle = paramJSONObject.optString("confirmation_title");
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      if (!paramJSONObject.isNull("confirmation_details_title")) {
-        mConfirmationSubtitle = paramJSONObject.optString("confirmation_details_title");
-      }
-      if (!paramJSONObject.isNull("view_title")) {
-        mViewTitle = paramJSONObject.optString("view_title");
-      }
-      if (!paramJSONObject.isNull("header_title")) {
-        mHeaderTitle = paramJSONObject.optString("header_title");
-      }
-      if (!paramJSONObject.isNull("confirmation_number")) {
-        mConfirmationNumber = paramJSONObject.optString("confirmation_number");
-      }
-      if (!paramJSONObject.isNull("cancel_action_title")) {
-        mCancelString = paramJSONObject.optString("cancel_action_title");
-      }
-      if (!paramJSONObject.isNull("query_id")) {
-        mQueryId = paramJSONObject.optString("query_id");
-      }
-      if (!paramJSONObject.isNull("time_id")) {
-        mSelectedTimeId = paramJSONObject.optString("time_id");
-      }
-      if (!paramJSONObject.isNull("reservation_lease_id")) {
-        mTransactionLockId = paramJSONObject.optString("reservation_lease_id");
-      }
-      mCreditCardHold = paramJSONObject.optBoolean("cc_hold");
-      mPartySize = paramJSONObject.optInt("party_size");
-      mTimeId = paramJSONObject.optInt("time_id");
-      return;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Reservation)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public String f()
   {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDatestamp = new Date(l);
-    }
-    mAttributes = paramParcel.createTypedArrayList(AttributedLabelValuePair.CREATOR);
-    mConfirmationTitle = paramParcel.readString();
-    mConfirmationSubtitle = paramParcel.readString();
-    mViewTitle = paramParcel.readString();
-    mHeaderTitle = paramParcel.readString();
-    mConfirmationNumber = paramParcel.readString();
-    mCancelString = paramParcel.readString();
-    mQueryId = paramParcel.readString();
-    mSelectedTimeId = paramParcel.readString();
-    mTransactionLockId = paramParcel.readString();
-    mCreditCardHold = paramParcel.createBooleanArray()[0];
-    mPartySize = paramParcel.readInt();
-    mTimeId = paramParcel.readInt();
+    return i;
   }
   
-  public JSONObject writeJSON()
+  public String g()
   {
-    JSONObject localJSONObject = new JSONObject();
-    if (mDatestamp != null) {
-      localJSONObject.put("timestamp", mDatestamp.getTime() / 1000L);
-    }
-    if (mAttributes != null)
-    {
-      JSONArray localJSONArray = new JSONArray();
-      Iterator localIterator = mAttributes.iterator();
-      while (localIterator.hasNext()) {
-        localJSONArray.put(((AttributedLabelValuePair)localIterator.next()).writeJSON());
-      }
-      localJSONObject.put("attributes", localJSONArray);
-    }
-    if (mConfirmationTitle != null) {
-      localJSONObject.put("confirmation_title", mConfirmationTitle);
-    }
-    if (mConfirmationSubtitle != null) {
-      localJSONObject.put("confirmation_details_title", mConfirmationSubtitle);
-    }
-    if (mViewTitle != null) {
-      localJSONObject.put("view_title", mViewTitle);
-    }
-    if (mHeaderTitle != null) {
-      localJSONObject.put("header_title", mHeaderTitle);
-    }
-    if (mConfirmationNumber != null) {
-      localJSONObject.put("confirmation_number", mConfirmationNumber);
-    }
-    if (mCancelString != null) {
-      localJSONObject.put("cancel_action_title", mCancelString);
-    }
-    if (mQueryId != null) {
-      localJSONObject.put("query_id", mQueryId);
-    }
-    if (mSelectedTimeId != null) {
-      localJSONObject.put("time_id", mSelectedTimeId);
-    }
-    if (mTransactionLockId != null) {
-      localJSONObject.put("reservation_lease_id", mTransactionLockId);
-    }
-    localJSONObject.put("cc_hold", mCreditCardHold);
-    localJSONObject.put("party_size", mPartySize);
-    localJSONObject.put("time_id", mTimeId);
-    return localJSONObject;
+    return h;
+  }
+  
+  public String h()
+  {
+    return f;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a();
+  }
+  
+  public String i()
+  {
+    return e;
+  }
+  
+  public String j()
+  {
+    return d;
+  }
+  
+  public String k()
+  {
+    return c;
+  }
+  
+  public List<AttributedLabelValuePair> l()
+  {
+    return b;
+  }
+  
+  public Date m()
+  {
+    return a;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mDatestamp == null) {}
-    for (long l = -2147483648L;; l = mDatestamp.getTime())
+    if (a == null) {}
+    for (long l = -2147483648L;; l = a.getTime())
     {
       paramParcel.writeLong(l);
-      paramParcel.writeTypedList(mAttributes);
-      paramParcel.writeString(mConfirmationTitle);
-      paramParcel.writeString(mConfirmationSubtitle);
-      paramParcel.writeString(mViewTitle);
-      paramParcel.writeString(mHeaderTitle);
-      paramParcel.writeString(mConfirmationNumber);
-      paramParcel.writeString(mCancelString);
-      paramParcel.writeString(mQueryId);
-      paramParcel.writeString(mSelectedTimeId);
-      paramParcel.writeString(mTransactionLockId);
-      paramParcel.writeBooleanArray(new boolean[] { mCreditCardHold });
-      paramParcel.writeInt(mPartySize);
-      paramParcel.writeInt(mTimeId);
+      paramParcel.writeList(b);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeBooleanArray(new boolean[] { j });
+      paramParcel.writeInt(k);
       return;
     }
   }

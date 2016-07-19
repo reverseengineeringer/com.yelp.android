@@ -20,6 +20,13 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/controller/DefaultSourceSelectionController$1;,
+        Lcom/brightcove/player/controller/DefaultSourceSelectionController$OnSelectSourceListener;
+    }
+.end annotation
+
 
 # static fields
 .field public static final TAG:Ljava/lang/String;
@@ -117,6 +124,11 @@
 # virtual methods
 .method public findBestSourceByBitRate(Lcom/brightcove/player/model/SourceCollection;Ljava/lang/Integer;)Lcom/brightcove/player/model/Source;
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/brightcove/player/controller/NoSourceFoundException;
+        }
+    .end annotation
 
     .prologue
     .line 134
@@ -282,6 +294,11 @@
 
 .method public selectSource(Lcom/brightcove/player/model/Video;)Lcom/brightcove/player/model/Source;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/brightcove/player/controller/NoSourceFoundException;
+        }
+    .end annotation
 
     .prologue
     .line 85

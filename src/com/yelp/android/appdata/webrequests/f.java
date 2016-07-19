@@ -1,41 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.util.Pair;
-import com.yelp.android.av.g;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class f
-  extends g<Void, Void, ArrayList<Pair<Integer, String>>>
+  extends c
 {
-  public f(ArrayList<String> paramArrayList1, ArrayList<String> paramArrayList2, String paramString, m<ArrayList<Pair<Integer, String>>> paramm)
+  public f(String paramString, c.a parama)
   {
-    super(ApiRequest.RequestType.POST, "user/add_friends", paramm);
-    if (paramArrayList1 != null) {
-      addPostParam("user_ids", paramArrayList1);
-    }
-    if (paramArrayList2 != null) {
-      addPostParam("ignore_user_ids", paramArrayList2);
-    }
-    if (paramString != null) {
-      addPostParam("message", paramString);
-    }
-  }
-  
-  public ArrayList<Pair<Integer, String>> a(JSONObject paramJSONObject)
-  {
-    paramJSONObject = paramJSONObject.getJSONArray("status");
-    int j = paramJSONObject.length();
-    ArrayList localArrayList = new ArrayList(j);
-    int i = 0;
-    while (i < j)
-    {
-      JSONObject localJSONObject = paramJSONObject.getJSONObject(i);
-      localArrayList.add(Pair.create(Integer.valueOf(localJSONObject.optInt("code")), localJSONObject.optString("user_id")));
-      i += 1;
-    }
-    return localArrayList;
+    super(ApiRequest.RequestType.POST, "account/locations/edit_primary", parama);
+    b("location", paramString);
   }
 }
 

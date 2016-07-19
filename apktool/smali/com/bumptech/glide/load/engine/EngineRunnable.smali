@@ -3,14 +3,23 @@
 .source "EngineRunnable.java"
 
 # interfaces
-.implements Lcom/yelp/android/t/e;
+.implements Lcom/bumptech/glide/load/engine/executor/a;
 .implements Ljava/lang/Runnable;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/bumptech/glide/load/engine/EngineRunnable$a;,
+        Lcom/bumptech/glide/load/engine/EngineRunnable$Stage;
+    }
+.end annotation
 
 
 # instance fields
 .field private final a:Lcom/bumptech/glide/Priority;
 
-.field private final b:Lcom/bumptech/glide/load/engine/r;
+.field private final b:Lcom/bumptech/glide/load/engine/EngineRunnable$a;
 
 .field private final c:Lcom/bumptech/glide/load/engine/a;
     .annotation system Ldalvik/annotation/Signature;
@@ -27,12 +36,12 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/bumptech/glide/load/engine/r;Lcom/bumptech/glide/load/engine/a;Lcom/bumptech/glide/Priority;)V
+.method public constructor <init>(Lcom/bumptech/glide/load/engine/EngineRunnable$a;Lcom/bumptech/glide/load/engine/a;Lcom/bumptech/glide/Priority;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/r;",
+            "Lcom/bumptech/glide/load/engine/EngineRunnable$a;",
             "Lcom/bumptech/glide/load/engine/a",
             "<***>;",
             "Lcom/bumptech/glide/Priority;",
@@ -45,7 +54,7 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 38
-    iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/r;
+    iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/EngineRunnable$a;
 
     .line 39
     iput-object p2, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->c:Lcom/bumptech/glide/load/engine/a;
@@ -62,14 +71,14 @@
     return-void
 .end method
 
-.method private a(Lcom/bumptech/glide/load/engine/t;)V
+.method private a(Lcom/bumptech/glide/load/engine/i;)V
     .locals 1
 
     .prologue
     .line 85
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/r;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/EngineRunnable$a;
 
-    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/r;->a(Lcom/bumptech/glide/load/engine/t;)V
+    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/EngineRunnable$a;->a(Lcom/bumptech/glide/load/engine/i;)V
 
     .line 86
     return-void
@@ -92,9 +101,9 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->d:Lcom/bumptech/glide/load/engine/EngineRunnable$Stage;
 
     .line 91
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/r;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/EngineRunnable$a;
 
-    invoke-interface {v0, p0}, Lcom/bumptech/glide/load/engine/r;->b(Lcom/bumptech/glide/load/engine/EngineRunnable;)V
+    invoke-interface {v0, p0}, Lcom/bumptech/glide/load/engine/EngineRunnable$a;->b(Lcom/bumptech/glide/load/engine/EngineRunnable;)V
 
     .line 95
     :goto_0
@@ -102,9 +111,9 @@
 
     .line 93
     :cond_0
-    iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/r;
+    iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->b:Lcom/bumptech/glide/load/engine/EngineRunnable$a;
 
-    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/r;->a(Ljava/lang/Exception;)V
+    invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/EngineRunnable$a;->a(Ljava/lang/Exception;)V
 
     goto :goto_0
 .end method
@@ -131,13 +140,19 @@
     goto :goto_0
 .end method
 
-.method private d()Lcom/bumptech/glide/load/engine/t;
+.method private d()Lcom/bumptech/glide/load/engine/i;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<*>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
         }
     .end annotation
 
@@ -150,7 +165,7 @@
     if-eqz v0, :cond_0
 
     .line 99
-    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->e()Lcom/bumptech/glide/load/engine/t;
+    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->e()Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
@@ -159,20 +174,26 @@
     return-object v0
 
     :cond_0
-    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->f()Lcom/bumptech/glide/load/engine/t;
+    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->f()Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method private e()Lcom/bumptech/glide/load/engine/t;
+.method private e()Lcom/bumptech/glide/load/engine/i;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<*>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
         }
     .end annotation
 
@@ -184,7 +205,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->c:Lcom/bumptech/glide/load/engine/a;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/a;->a()Lcom/bumptech/glide/load/engine/t;
+    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/a;->a()Lcom/bumptech/glide/load/engine/i;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -197,7 +218,7 @@
     .line 116
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->c:Lcom/bumptech/glide/load/engine/a;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/a;->b()Lcom/bumptech/glide/load/engine/t;
+    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/a;->b()Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
@@ -249,13 +270,19 @@
     goto :goto_0
 .end method
 
-.method private f()Lcom/bumptech/glide/load/engine/t;
+.method private f()Lcom/bumptech/glide/load/engine/i;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<*>;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
         }
     .end annotation
 
@@ -263,7 +290,7 @@
     .line 122
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->c:Lcom/bumptech/glide/load/engine/a;
 
-    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/a;->c()Lcom/bumptech/glide/load/engine/t;
+    invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/a;->c()Lcom/bumptech/glide/load/engine/i;
 
     move-result-object v0
 
@@ -323,7 +350,7 @@
     .line 58
     :cond_1
     :try_start_0
-    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->d()Lcom/bumptech/glide/load/engine/t;
+    invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->d()Lcom/bumptech/glide/load/engine/i;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -339,7 +366,7 @@
     if-eqz v0, :cond_0
 
     .line 68
-    invoke-interface {v0}, Lcom/bumptech/glide/load/engine/t;->d()V
+    invoke-interface {v0}, Lcom/bumptech/glide/load/engine/i;->d()V
 
     goto :goto_0
 
@@ -386,7 +413,7 @@
 
     .line 76
     :cond_4
-    invoke-direct {p0, v0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->a(Lcom/bumptech/glide/load/engine/t;)V
+    invoke-direct {p0, v0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->a(Lcom/bumptech/glide/load/engine/i;)V
 
     goto :goto_0
 .end method

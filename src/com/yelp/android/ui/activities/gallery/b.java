@@ -1,25 +1,106 @@
 package com.yelp.android.ui.activities.gallery;
 
-import com.yelp.android.ui.activities.camera.ActivityVideoCapture;
-import com.yelp.android.ui.activities.camera.TakePhoto;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+import com.yelp.android.co.a.j;
+import java.util.Iterator;
+import java.util.List;
 
-class b
-  implements i
+public class b
+  extends ArrayAdapter<a>
 {
-  b(ActivityChooseFromGallery paramActivityChooseFromGallery) {}
+  private LayoutInflater a;
   
-  public void a(ContributionButtonAdapter.ContributionButton paramContributionButton)
+  public b(Context paramContext, List<a> paramList)
   {
-    if (ContributionButtonAdapter.ContributionButton.TAKE_PHOTO == paramContributionButton)
+    super(paramContext, 0, paramList);
+    a = LayoutInflater.from(paramContext);
+  }
+  
+  protected View a(int paramInt1, ViewGroup paramViewGroup, int paramInt2)
+  {
+    paramViewGroup = a.inflate(paramInt2, paramViewGroup, false);
+    paramViewGroup.setTag(new b(paramViewGroup));
+    return paramViewGroup;
+  }
+  
+  protected void a(View paramView, int paramInt)
+  {
+    paramView = (b)paramView.getTag();
+    a locala = (a)getItem(paramInt);
+    if (e > 0)
     {
-      paramContributionButton = TakePhoto.a(a, ActivityChooseFromGallery.d(a), true, true, ActivityChooseFromGallery.e(a));
-      a.startActivityForResult(paramContributionButton, 1053);
-    }
-    while (ContributionButtonAdapter.ContributionButton.TAKE_VIDEO != paramContributionButton) {
+      a.setText(e);
       return;
     }
-    paramContributionButton = ActivityVideoCapture.a(a, ActivityChooseFromGallery.d(a), true);
-    a.startActivityForResult(paramContributionButton, 1054);
+    a.setText(d);
+  }
+  
+  public void a(List<a> paramList)
+  {
+    paramList = paramList.iterator();
+    while (paramList.hasNext()) {
+      add((a)paramList.next());
+    }
+  }
+  
+  public View getDropDownView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    View localView = paramView;
+    if (paramView == null) {
+      localView = a(paramInt, paramViewGroup, 17367049);
+    }
+    a(localView, paramInt);
+    return localView;
+  }
+  
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    View localView = paramView;
+    if (paramView == null) {
+      localView = a(paramInt, paramViewGroup, 17367048);
+    }
+    a(localView, paramInt);
+    return localView;
+  }
+  
+  public static class a
+  {
+    public static a a = a(null, a.j.all_albums);
+    public static a b = a(null, a.j.choose_source_ellipsis);
+    public String c;
+    public String d;
+    public int e;
+    
+    public static a a(String paramString, int paramInt)
+    {
+      a locala = new a();
+      c = paramString;
+      e = paramInt;
+      return locala;
+    }
+    
+    public static a a(String paramString1, String paramString2)
+    {
+      a locala = new a();
+      c = paramString1;
+      d = paramString2;
+      return locala;
+    }
+  }
+  
+  private static class b
+  {
+    TextView a;
+    
+    public b(View paramView)
+    {
+      a = ((TextView)paramView.findViewById(16908308));
+    }
   }
 }
 

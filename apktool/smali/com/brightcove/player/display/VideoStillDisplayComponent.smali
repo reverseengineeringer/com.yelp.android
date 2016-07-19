@@ -21,6 +21,14 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/display/VideoStillDisplayComponent$1;,
+        Lcom/brightcove/player/display/VideoStillDisplayComponent$OnSetVideoStill;,
+        Lcom/brightcove/player/display/VideoStillDisplayComponent$HideListener;
+    }
+.end annotation
+
 
 # static fields
 .field public static final TAG:Ljava/lang/String;

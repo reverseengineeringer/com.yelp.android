@@ -1,10 +1,18 @@
 package com.yelp.android.w;
 
-import com.yelp.android.v.m;
+import com.bumptech.glide.Priority;
 
-public abstract interface c
-  extends m
-{}
+public abstract interface c<T>
+{
+  public abstract T a(Priority paramPriority)
+    throws Exception;
+  
+  public abstract void a();
+  
+  public abstract String b();
+  
+  public abstract void c();
+}
 
 /* Location:
  * Qualified Name:     com.yelp.android.w.c

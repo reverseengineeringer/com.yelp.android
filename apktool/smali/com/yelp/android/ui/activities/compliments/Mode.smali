@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/compliments/Mode$4;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -44,7 +50,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/compliments/Mode;->LIST:Lcom/yelp/android/ui/activities/compliments/Mode;
 
-    .line 42
+    .line 45
     new-instance v0, Lcom/yelp/android/ui/activities/compliments/Mode$2;
 
     const-string/jumbo v1, "APPROVE"
@@ -53,7 +59,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/compliments/Mode;->APPROVE:Lcom/yelp/android/ui/activities/compliments/Mode;
 
-    .line 73
+    .line 79
     new-instance v0, Lcom/yelp/android/ui/activities/compliments/Mode$3;
 
     const-string/jumbo v1, "DELETE"
@@ -96,7 +102,7 @@
     .line 13
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 65
+    .line 71
     return-void
 .end method
 
@@ -147,32 +153,32 @@
 .method public abstract getLabelForState(Lcom/yelp/android/serializable/Compliment$ComplimentState;)I
 .end method
 
-.method public abstract makeActionRequest(Lcom/yelp/android/appdata/webrequests/m;Lcom/yelp/android/serializable/Compliment;)Lcom/yelp/android/appdata/webrequests/av;
+.method public abstract makeActionRequest(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Lcom/yelp/android/serializable/Compliment;)Lcom/yelp/android/appdata/webrequests/as;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Lcom/yelp/android/serializable/Compliment;",
             ">;",
             "Lcom/yelp/android/serializable/Compliment;",
             ")",
-            "Lcom/yelp/android/appdata/webrequests/av;"
+            "Lcom/yelp/android/appdata/webrequests/as;"
         }
     .end annotation
 .end method
 
-.method public abstract makeLookupRequest(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;II)Lcom/yelp/android/appdata/webrequests/az;
+.method public abstract makeLookupRequest(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Ljava/lang/String;II)Lcom/yelp/android/appdata/webrequests/at;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/bb;",
+            "Lcom/yelp/android/appdata/webrequests/at$a;",
             ">;",
             "Ljava/lang/String;",
             "II)",
-            "Lcom/yelp/android/appdata/webrequests/az;"
+            "Lcom/yelp/android/appdata/webrequests/at;"
         }
     .end annotation
 .end method

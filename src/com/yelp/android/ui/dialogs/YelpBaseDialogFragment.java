@@ -1,15 +1,17 @@
 package com.yelp.android.ui.dialogs;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import com.yelp.android.analytics.iris.b;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
+import android.support.v7.app.d.a;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpApiWorkerFragment;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import java.util.Collections;
 import java.util.Map;
@@ -20,9 +22,9 @@ public class YelpBaseDialogFragment
 {
   private YelpApiWorkerFragment a;
   
-  public <Request extends ApiRequest<?, ?, Result>, Result> Request a(String paramString, Request paramRequest, m<Result> paramm)
+  public <Request extends ApiRequest<?, ?, Result>, Result> Request a(String paramString, Request paramRequest, ApiRequest.b<Result> paramb)
   {
-    paramString = a.a(paramString, paramm);
+    paramString = a.a(paramString, paramb);
     if (paramString != null) {
       paramRequest = paramString;
     }
@@ -34,9 +36,14 @@ public class YelpBaseDialogFragment
     a.a(paramString, paramRequest);
   }
   
-  protected final YelpActivity c()
+  protected final YelpActivity d()
   {
     return (YelpActivity)getActivity();
+  }
+  
+  protected d.a e()
+  {
+    return new d.a(getActivity());
   }
   
   public long getComponentId()
@@ -44,32 +51,33 @@ public class YelpBaseDialogFragment
     return 0L;
   }
   
-  public b getIri()
+  public com.yelp.android.analytics.iris.a getIri()
   {
     return null;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.a parama)
   {
     return Collections.emptyMap();
   }
   
-  public String getRequestIdForIri(b paramb)
+  public String getRequestIdForIri(com.yelp.android.analytics.iris.a parama)
   {
     return null;
   }
   
+  @SuppressLint({"CommitTransaction"})
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     if (getParentFragment() == null) {}
     for (paramBundle = getFragmentManager();; paramBundle = getParentFragment().getFragmentManager())
     {
-      a = ((YelpApiWorkerFragment)paramBundle.findFragmentByTag("API_WORKER_FRAGMENT"));
+      a = ((YelpApiWorkerFragment)paramBundle.a("API_WORKER_FRAGMENT"));
       if (a == null)
       {
         a = new YelpApiWorkerFragment();
-        paramBundle.beginTransaction().add(a, "API_WORKER_FRAGMENT").commit();
+        paramBundle.a().a(a, "API_WORKER_FRAGMENT").a();
       }
       return;
     }
@@ -78,7 +86,7 @@ public class YelpBaseDialogFragment
   public void onResume()
   {
     super.onResume();
-    com.yelp.android.av.a.a(this, AppData.b());
+    MetricsManager.a(this, AppData.b());
   }
 }
 

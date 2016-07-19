@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "FlagType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -62,9 +71,9 @@
 
     const-string/jumbo v1, "FalseInformation"
 
-    const v3, 0x7f0702db
+    const v3, 0x7f070325
 
-    const v4, 0x7f0c02c0
+    const v4, 0x7f0f0321
 
     const-string/jumbo v5, "false_information"
 
@@ -72,14 +81,14 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->FalseInformation:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
-    .line 31
+    .line 33
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
     const-string/jumbo v4, "Affiliated"
 
-    const v6, 0x7f07048b
+    const v6, 0x7f0704a0
 
-    const v7, 0x7f0c02c1
+    const v7, 0x7f0f0322
 
     const-string/jumbo v8, "affiliated"
 
@@ -89,14 +98,14 @@
 
     sput-object v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->Affiliated:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
-    .line 33
+    .line 37
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
     const-string/jumbo v4, "Competitor"
 
-    const v6, 0x7f07048a
+    const v6, 0x7f07049f
 
-    const v7, 0x7f0c02c2
+    const v7, 0x7f0f0323
 
     const-string/jumbo v8, "competitor"
 
@@ -106,14 +115,14 @@
 
     sput-object v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->Competitor:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
-    .line 35
+    .line 41
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
     const-string/jumbo v4, "Threats"
 
-    const v6, 0x7f070489
+    const v6, 0x7f07049e
 
-    const v7, 0x7f0c02c3
+    const v7, 0x7f0f0324
 
     const-string/jumbo v8, "threats"
 
@@ -123,14 +132,14 @@
 
     sput-object v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->Threats:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
-    .line 36
+    .line 42
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
     const-string/jumbo v4, "ConsumerExperience"
 
-    const v6, 0x7f0702da
+    const v6, 0x7f070324
 
-    const v7, 0x7f0c02c4
+    const v7, 0x7f0f0325
 
     const-string/jumbo v8, "not_personal_experience"
 
@@ -140,16 +149,16 @@
 
     sput-object v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->ConsumerExperience:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
-    .line 38
+    .line 46
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
     const-string/jumbo v4, "PrivacyStandards"
 
     const/4 v5, 0x5
 
-    const v6, 0x7f0702dc
+    const v6, 0x7f070326
 
-    const v7, 0x7f0c02c5
+    const v7, 0x7f0f0326
 
     const-string/jumbo v8, "violates_privacy_standards"
 
@@ -157,16 +166,16 @@
 
     sput-object v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->PrivacyStandards:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
-    .line 40
+    .line 50
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
     const-string/jumbo v4, "PromotionalMaterial"
 
     const/4 v5, 0x6
 
-    const v6, 0x7f0702dd
+    const v6, 0x7f070327
 
-    const v7, 0x7f0c02c6
+    const v7, 0x7f0f0327
 
     const-string/jumbo v8, "promotional"
 
@@ -174,16 +183,16 @@
 
     sput-object v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->PromotionalMaterial:Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
-    .line 42
+    .line 54
     new-instance v3, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;
 
     const-string/jumbo v4, "WrongBusiness"
 
     const/4 v5, 0x7
 
-    const v6, 0x7f0702de
+    const v6, 0x7f070328
 
-    const v7, 0x7f0c02c7
+    const v7, 0x7f0f0328
 
     const-string/jumbo v8, "wrong_business"
 
@@ -250,19 +259,19 @@
     .end annotation
 
     .prologue
-    .line 48
+    .line 60
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 49
+    .line 61
     iput p3, p0, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->hintResourceId:I
 
-    .line 50
+    .line 62
     iput p4, p0, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->viewId:I
 
-    .line 51
+    .line 63
     iput-object p5, p0, Lcom/yelp/android/ui/activities/reviewpage/FlagReviewReasonsFragment$FlagType;->requestParam:Ljava/lang/String;
 
-    .line 52
+    .line 64
     return-void
 .end method
 

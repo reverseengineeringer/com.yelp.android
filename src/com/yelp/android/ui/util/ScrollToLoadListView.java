@@ -5,68 +5,71 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.AbsListView.OnScrollListener;
-import com.yelp.android.bf.f;
-import com.yelp.android.bf.m;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import com.yelp.android.co.a.e;
+import com.yelp.android.co.a.l;
 import com.yelp.android.ui.panels.CommonLoadingSpinner;
 import com.yelp.android.ui.panels.PanelLoading;
-import com.yelp.android.ui.panels.y;
+import com.yelp.android.ui.panels.c;
 
 public class ScrollToLoadListView
   extends PullDownListView
 {
   private PanelLoading a;
-  private bq b;
-  private bm c;
-  private bp d;
-  private int e = f.gray_section_background;
-  private boolean f = false;
+  private e b;
+  private a c;
+  private d d;
+  private AbsListView.OnScrollListener e;
+  private int f = a.e.gray_section_background;
   private boolean g = false;
-  private View h;
-  private boolean i = false;
+  private boolean h = false;
+  private View i;
+  private boolean j = false;
   
   public ScrollToLoadListView(Context paramContext)
   {
-    super(paramContext);
+    this(paramContext, null, 0);
   }
   
   public ScrollToLoadListView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    super(paramContext, paramAttributeSet);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, m.ScrollToLoadListView);
-    if (paramContext != null)
-    {
-      f = paramContext.getBoolean(0, false);
-      paramContext.recycle();
-    }
+    this(paramContext, paramAttributeSet, 0);
   }
   
   public ScrollToLoadListView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.l.ScrollToLoadListView);
+    if (paramContext != null)
+    {
+      g = paramContext.getBoolean(a.l.ScrollToLoadListView_topLoading, false);
+      paramContext.recycle();
+    }
+    c = new a(null);
   }
   
-  private void a(bo parambo)
+  private void a(c paramc)
   {
-    if (f)
+    if (g)
     {
       a.setVisibility(8);
-      addHeaderView(a, parambo, false);
+      addHeaderView(a, paramc, false);
       return;
     }
-    addFooterView(a, parambo, false);
+    addFooterView(a, paramc, false);
   }
   
   private void j()
   {
     if (b == null)
     {
-      b = new bq(this, this);
+      b = new e(this);
       super.setOnScrollListener(b);
-    }
-    if (c == null) {
-      c = new bm(this, null);
     }
   }
   
@@ -81,7 +84,7 @@ public class ScrollToLoadListView
   
   private void l()
   {
-    if (f)
+    if (g)
     {
       removeHeaderView(a);
       return;
@@ -93,19 +96,19 @@ public class ScrollToLoadListView
   {
     a = paramPanelLoading;
     a.setLayoutParams(new AbsListView.LayoutParams(a.getLayoutParams()));
-    a(new bo(paramRunnable));
-    super.setOnScrollListener(new bq(this, this));
+    a(new c(paramRunnable));
+    super.setOnScrollListener(new e(this));
   }
   
-  public void a(Runnable paramRunnable, y paramy)
+  public void a(Runnable paramRunnable, c paramc)
   {
     l();
     a = new PanelLoading(getContext());
     a.setLayoutParams(new AbsListView.LayoutParams(a.getLayoutParams()));
-    a.setBackgroundResource(e);
-    a.setSpinner(paramy);
+    a.setBackgroundResource(f);
+    a.setSpinner(paramc);
     if (paramRunnable != null) {}
-    for (paramRunnable = new bo(paramRunnable);; paramRunnable = null)
+    for (paramRunnable = new c(paramRunnable);; paramRunnable = null)
     {
       a(paramRunnable);
       j();
@@ -113,20 +116,42 @@ public class ScrollToLoadListView
     }
   }
   
-  public void a(boolean paramBoolean)
+  public void a(final boolean paramBoolean)
   {
     if (getCount() < 1) {
       return;
     }
-    post(new bk(this, paramBoolean));
+    post(new Runnable()
+    {
+      public void run()
+      {
+        if (paramBoolean)
+        {
+          smoothScrollToPosition(getCount() - 1);
+          return;
+        }
+        setSelection(getCount() - 1);
+      }
+    });
   }
   
-  public void b(boolean paramBoolean)
+  public void b(final boolean paramBoolean)
   {
     if (getCount() < 1) {
       return;
     }
-    post(new bl(this, paramBoolean));
+    post(new Runnable()
+    {
+      public void run()
+      {
+        if (paramBoolean)
+        {
+          smoothScrollToPosition(0);
+          return;
+        }
+        setSelection(0);
+      }
+    });
   }
   
   public void c(boolean paramBoolean)
@@ -140,29 +165,29 @@ public class ScrollToLoadListView
       }
     }
     label24:
-    for (int j = 0;; j = 8)
+    for (int k = 0;; k = 8)
     {
-      localPanelLoading.setVisibility(j);
+      localPanelLoading.setVisibility(k);
       return;
     }
   }
   
   public boolean c()
   {
-    return g;
+    return h;
   }
   
   public boolean d()
   {
-    return f;
+    return g;
   }
   
   public boolean dispatchTouchEvent(MotionEvent paramMotionEvent)
   {
-    if (h == null) {
+    if (i == null) {
       return super.dispatchTouchEvent(paramMotionEvent);
     }
-    return h.dispatchTouchEvent(paramMotionEvent);
+    return i.dispatchTouchEvent(paramMotionEvent);
   }
   
   public void e()
@@ -175,7 +200,7 @@ public class ScrollToLoadListView
     if (a != null)
     {
       if (getAdapter() == null) {
-        setAdapter(new bn(null));
+        setAdapter(new b(null));
       }
       l();
       a.c();
@@ -196,30 +221,30 @@ public class ScrollToLoadListView
   
   public boolean h()
   {
-    return i;
+    return j;
   }
   
   public void i()
   {
-    i = false;
+    j = false;
   }
   
   public boolean onTouchEvent(MotionEvent paramMotionEvent)
   {
-    int m = 0;
+    int n = 0;
     if ((b != null) && (b.a())) {}
-    for (int j = 1; d != null; j = 0)
+    for (int k = 1; d != null; k = 0)
     {
       boolean bool = d.a(paramMotionEvent);
-      int k = m;
-      if (j != 0)
+      int m = n;
+      if (k != 0)
       {
-        k = m;
+        m = n;
         if (d.b(paramMotionEvent)) {
-          k = 1;
+          m = 1;
         }
       }
-      if ((!bool) && (k == 0)) {
+      if ((!bool) && (m == 0)) {
         break;
       }
       return true;
@@ -229,7 +254,7 @@ public class ScrollToLoadListView
   
   public void setBottomReached(boolean paramBoolean)
   {
-    g = paramBoolean;
+    h = paramBoolean;
   }
   
   public void setOnLoadNeeded(Runnable paramRunnable)
@@ -237,9 +262,9 @@ public class ScrollToLoadListView
     a(paramRunnable, CommonLoadingSpinner.SMALL);
   }
   
-  public void setOnPullDownCallback(bp parambp)
+  public void setOnPullDownCallback(d paramd)
   {
-    d = parambp;
+    d = paramd;
     if (d != null)
     {
       j();
@@ -250,7 +275,7 @@ public class ScrollToLoadListView
   
   public void setOnScrollListener(AbsListView.OnScrollListener paramOnScrollListener)
   {
-    throw new UnsupportedOperationException("setOnScrollListener() not allowed for ScrollToLoadListView");
+    e = paramOnScrollListener;
   }
   
   public void setPanelLoadingBackground(int paramInt)
@@ -258,12 +283,176 @@ public class ScrollToLoadListView
     if (a != null) {
       a.setBackgroundResource(paramInt);
     }
-    e = paramInt;
+    f = paramInt;
   }
   
   public void setSendTouchesView(View paramView)
   {
-    h = paramView;
+    i = paramView;
+  }
+  
+  private class a
+    implements AbsListView.OnScrollListener
+  {
+    private a() {}
+    
+    public void onScroll(AbsListView paramAbsListView, int paramInt1, int paramInt2, int paramInt3)
+    {
+      if (ScrollToLoadListView.a(ScrollToLoadListView.this) != null) {
+        ScrollToLoadListView.a(ScrollToLoadListView.this).onScroll(paramAbsListView, paramInt1, paramInt2, paramInt3);
+      }
+    }
+    
+    public void onScrollStateChanged(AbsListView paramAbsListView, int paramInt)
+    {
+      ScrollToLoadListView.a(ScrollToLoadListView.this, true);
+      if (ScrollToLoadListView.a(ScrollToLoadListView.this) != null) {
+        ScrollToLoadListView.a(ScrollToLoadListView.this).onScrollStateChanged(paramAbsListView, paramInt);
+      }
+    }
+  }
+  
+  private static final class b
+    extends BaseAdapter
+  {
+    public boolean areAllItemsEnabled()
+    {
+      return true;
+    }
+    
+    public int getCount()
+    {
+      return 0;
+    }
+    
+    public Object getItem(int paramInt)
+    {
+      return null;
+    }
+    
+    public long getItemId(int paramInt)
+    {
+      return 0L;
+    }
+    
+    public int getItemViewType(int paramInt)
+    {
+      return 0;
+    }
+    
+    public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+    {
+      Object localObject = paramView;
+      if (paramView == null) {
+        localObject = new LinearLayout(paramViewGroup.getContext());
+      }
+      return (View)localObject;
+    }
+    
+    public int getViewTypeCount()
+    {
+      return 1;
+    }
+    
+    public boolean hasStableIds()
+    {
+      return false;
+    }
+    
+    public boolean isEmpty()
+    {
+      return true;
+    }
+    
+    public boolean isEnabled(int paramInt)
+    {
+      return true;
+    }
+  }
+  
+  private static final class c
+  {
+    private final Runnable a;
+    
+    c(Runnable paramRunnable)
+    {
+      a = paramRunnable;
+    }
+    
+    public void a()
+    {
+      a.run();
+    }
+  }
+  
+  public static abstract interface d
+  {
+    public abstract boolean a(MotionEvent paramMotionEvent);
+    
+    public abstract boolean b(MotionEvent paramMotionEvent);
+  }
+  
+  private final class e
+    extends ScrollToLoadListView.a
+  {
+    private boolean c = true;
+    private ScrollToLoadListView d;
+    
+    public e(ScrollToLoadListView paramScrollToLoadListView)
+    {
+      super(null);
+      d = paramScrollToLoadListView;
+    }
+    
+    private void a(AbsListView paramAbsListView, int paramInt)
+    {
+      paramAbsListView = paramAbsListView.getItemAtPosition(paramInt);
+      PanelLoading localPanelLoading = d.getLoadingPanel();
+      if (localPanelLoading != null)
+      {
+        localPanelLoading.setVisibility(0);
+        localPanelLoading.b();
+      }
+      if ((paramAbsListView instanceof ScrollToLoadListView.c)) {
+        ((ScrollToLoadListView.c)paramAbsListView).a();
+      }
+    }
+    
+    public boolean a()
+    {
+      return c;
+    }
+    
+    public void onScroll(AbsListView paramAbsListView, int paramInt1, int paramInt2, int paramInt3)
+    {
+      super.onScroll(paramAbsListView, paramInt1, paramInt2, paramInt3);
+      if (d.d())
+      {
+        paramInt1 = paramAbsListView.getFirstVisiblePosition();
+        if ((paramInt3 > 1) && (d.getLastVisiblePosition() + 1 == paramInt3)) {
+          d.setBottomReached(true);
+        }
+        if ((d.c()) && (paramInt1 == 0)) {
+          a(paramAbsListView, paramInt1);
+        }
+        return;
+      }
+      if ((paramInt1 == 0) && (paramAbsListView.getChildAt(0) != null) && (paramAbsListView.getChildAt(0).getTop() == 0)) {}
+      for (c = true;; c = false)
+      {
+        paramInt1 = paramAbsListView.getLastVisiblePosition();
+        if (paramInt1 >= paramAbsListView.getCount()) {
+          break;
+        }
+        a(paramAbsListView, paramInt1);
+        return;
+      }
+    }
+    
+    public void onScrollStateChanged(AbsListView paramAbsListView, int paramInt)
+    {
+      super.onScrollStateChanged(paramAbsListView, paramInt);
+    }
   }
 }
 

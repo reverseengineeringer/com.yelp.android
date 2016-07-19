@@ -1,39 +1,16 @@
 package com.google.android.gms.internal;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-@ey
-public class dk
+public abstract interface dk
 {
-  private final boolean rs;
-  private final boolean rt;
-  private final boolean ru;
-  private final boolean rv;
-  private final boolean rw;
+  public abstract void t();
   
-  private dk(dk.a parama)
-  {
-    rs = dk.a.a(parama);
-    rt = dk.a.b(parama);
-    ru = dk.a.c(parama);
-    rv = dk.a.d(parama);
-    rw = dk.a.e(parama);
-  }
+  public abstract void u();
   
-  public JSONObject toJson()
-  {
-    try
-    {
-      JSONObject localJSONObject = new JSONObject().put("sms", rs).put("tel", rt).put("calendar", ru).put("storePicture", rv).put("inlineVideo", rw);
-      return localJSONObject;
-    }
-    catch (JSONException localJSONException)
-    {
-      gr.b("Error occured while obtaining the MRAID capabilities.", localJSONException);
-    }
-    return null;
-  }
+  public abstract void v();
+  
+  public abstract void w();
+  
+  public abstract void x();
 }
 
 /* Location:

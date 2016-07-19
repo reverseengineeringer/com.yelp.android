@@ -8,19 +8,30 @@ import android.os.Parcelable.Creator;
 public class Fragment$SavedState
   implements Parcelable
 {
-  public static final Parcelable.Creator<SavedState> CREATOR = new Fragment.SavedState.1();
-  final Bundle mState;
+  public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+  {
+    public Fragment.SavedState a(Parcel paramAnonymousParcel)
+    {
+      return new Fragment.SavedState(paramAnonymousParcel, null);
+    }
+    
+    public Fragment.SavedState[] a(int paramAnonymousInt)
+    {
+      return new Fragment.SavedState[paramAnonymousInt];
+    }
+  };
+  final Bundle a;
   
   Fragment$SavedState(Bundle paramBundle)
   {
-    mState = paramBundle;
+    a = paramBundle;
   }
   
   Fragment$SavedState(Parcel paramParcel, ClassLoader paramClassLoader)
   {
-    mState = paramParcel.readBundle();
-    if ((paramClassLoader != null) && (mState != null)) {
-      mState.setClassLoader(paramClassLoader);
+    a = paramParcel.readBundle();
+    if ((paramClassLoader != null) && (a != null)) {
+      a.setClassLoader(paramClassLoader);
     }
   }
   
@@ -31,7 +42,7 @@ public class Fragment$SavedState
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeBundle(mState);
+    paramParcel.writeBundle(a);
   }
 }
 

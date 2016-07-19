@@ -1,23 +1,26 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
 import com.yelp.android.appdata.webrequests.ApiRequest.RequestType;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.core.b;
 import com.yelp.android.serializable.ConversationMessage;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class h
-  extends g<Void, Void, ConversationMessage>
+  extends b<Void, Void, ConversationMessage>
 {
-  public h(String paramString1, String paramString2, m<ConversationMessage> paramm)
+  public h(String paramString1, String paramString2, ApiRequest.b<ConversationMessage> paramb)
   {
-    super(ApiRequest.RequestType.POST, "conversation/message/save", paramm);
-    addPostParam("conversation_id", paramString1);
-    addPostParam("message", paramString2);
+    super(ApiRequest.RequestType.POST, "conversation/message/save", paramb);
+    b("conversation_id", paramString1);
+    b("message", paramString2);
   }
   
   public ConversationMessage a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
     return (ConversationMessage)ConversationMessage.CREATOR.parse(paramJSONObject.getJSONObject("conversation_message"));
   }

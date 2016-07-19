@@ -73,15 +73,15 @@
     .locals 1
 
     .prologue
-    .line 100
-    invoke-static {}, Lcom/yelp/android/ui/activities/reviews/ReviewSuggestionsPageFragment;->e()Lcom/yelp/android/ui/activities/reviews/ReviewSuggestionsPageFragment;
+    .line 110
+    invoke-static {}, Lcom/yelp/android/ui/activities/reviews/ReviewSuggestionsPageFragment;->f()Lcom/yelp/android/ui/activities/reviews/ReviewSuggestionsPageFragment;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method protected synthetic c()Lcom/yelp/android/ui/activities/support/YelpListFragment;
+.method protected synthetic d()Lcom/yelp/android/ui/activities/support/YelpListFragment;
     .locals 1
 
     .prologue
@@ -97,13 +97,13 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 87
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AddReviewPage:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -119,11 +119,11 @@
     .locals 6
 
     .prologue
-    .line 83
+    .line 92
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/ActivitySingleSearchBar;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 87
-    const/16 v0, 0x418
+    .line 96
+    const/16 v0, 0x41f
 
     if-ne p1, v0, :cond_0
 
@@ -131,7 +131,7 @@
 
     if-ne p2, v0, :cond_0
 
-    .line 88
+    .line 97
     const-string/jumbo v0, "extra.search_text"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -140,7 +140,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->b:Ljava/lang/String;
 
-    .line 89
+    .line 98
     const-string/jumbo v0, "extra.location"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -149,17 +149,17 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->c:Ljava/lang/String;
 
-    .line 90
+    .line 99
     const-string/jumbo v0, "extra.search.launch_method"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 92
+    .line 101
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->a:Landroid/widget/EditText;
 
-    const v2, 0x7f0706ab
+    const v2, 0x7f0706c3
 
     const/4 v3, 0x2
 
@@ -187,7 +187,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 94
+    .line 104
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->e()Lcom/yelp/android/ui/activities/support/YelpListFragment;
 
     move-result-object v0
@@ -200,7 +200,7 @@
 
     invoke-virtual {v0, v2, v3, v1}, Lcom/yelp/android/ui/activities/reviews/ReviewSuggestionsPageFragment;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 96
+    .line 106
     :cond_0
     return-void
 .end method
@@ -213,7 +213,7 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/ActivitySingleSearchBar;->onCreate(Landroid/os/Bundle;)V
 
     .line 45
-    const v0, 0x7f0c016a
+    const v0, 0x7f0f0589
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->findViewById(I)Landroid/view/View;
 
@@ -226,23 +226,23 @@
     .line 46
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->a:Landroid/widget/EditText;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/reviews/k;
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/k;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions$1;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 59
+    .line 67
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->a:Landroid/widget/EditText;
 
-    const v1, 0x7f0701d6
+    const v1, 0x7f070224
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
 
-    .line 61
+    .line 69
     if-eqz p1, :cond_0
 
-    .line 62
+    .line 70
     const-string/jumbo v0, "search_text"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -251,7 +251,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->b:Ljava/lang/String;
 
-    .line 63
+    .line 71
     const-string/jumbo v0, "search_location"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -260,10 +260,10 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->c:Ljava/lang/String;
 
-    .line 64
+    .line 72
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->a:Landroid/widget/EditText;
 
-    const v1, 0x7f0706ab
+    const v1, 0x7f0706c3
 
     const/4 v2, 0x2
 
@@ -291,7 +291,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 67
+    .line 76
     :cond_0
     return-void
 .end method
@@ -300,23 +300,23 @@
     .locals 2
 
     .prologue
-    .line 71
+    .line 80
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/ActivitySingleSearchBar;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 72
+    .line 81
     const-string/jumbo v0, "search_text"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->b:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 73
+    .line 82
     const-string/jumbo v0, "search_location"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityReviewSuggestions;->c:Ljava/lang/String;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 74
+    .line 83
     return-void
 .end method

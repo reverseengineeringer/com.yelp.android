@@ -1,28 +1,31 @@
 package com.yelp.android.analytics;
 
+import com.yelp.android.analytics.iris.a;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class g
   extends b
 {
-  private final com.yelp.android.analytics.iris.b a;
+  private final a a;
   private final String b;
   private Map<String, Object> c;
   
-  public g(com.yelp.android.analytics.iris.b paramb, String paramString1, String paramString2)
+  public g(a parama, String paramString1, String paramString2)
   {
-    this(paramb, paramString1, b(paramString2));
+    this(parama, paramString1, b(paramString2));
   }
   
-  public g(com.yelp.android.analytics.iris.b paramb, String paramString, Map<String, Object> paramMap)
+  public g(a parama, String paramString, Map<String, Object> paramMap)
   {
-    a(paramb.getCategory());
-    a = paramb;
+    a(parama.getCategory());
+    a = parama;
     b = paramString;
     c = paramMap;
   }
@@ -41,6 +44,7 @@ public class g
   }
   
   public JSONObject c()
+    throws JSONException
   {
     JSONObject localJSONObject1 = super.c();
     localJSONObject1.put("request_id", b);
@@ -59,7 +63,7 @@ public class g
     return localJSONObject1;
   }
   
-  public com.yelp.android.analytics.iris.b d()
+  public a d()
   {
     return a;
   }
@@ -83,6 +87,41 @@ public class g
     localStringBuilder.append(a);
     localStringBuilder.append("]");
     return localStringBuilder.toString();
+  }
+  
+  public static class a
+  {
+    TreeMap<String, String> a = new TreeMap();
+    boolean b = false;
+    private a c = null;
+    private String d;
+    
+    public a a(a parama)
+    {
+      c = parama;
+      return this;
+    }
+    
+    public a a(String paramString)
+    {
+      d = paramString;
+      return this;
+    }
+    
+    public a a(String paramString1, String paramString2)
+    {
+      a.put(paramString1, paramString2);
+      return this;
+    }
+    
+    public final g a()
+    {
+      if (b) {
+        throw new IllegalStateException("Reusing Builder ... bad");
+      }
+      b = true;
+      return new g(c, d, new TreeMap(a));
+    }
   }
 }
 

@@ -1,30 +1,89 @@
 package com.bumptech.glide.load.engine;
 
-import android.os.MessageQueue.IdleHandler;
+import android.os.Looper;
 import com.bumptech.glide.load.b;
-import java.lang.ref.ReferenceQueue;
-import java.lang.ref.WeakReference;
-import java.util.Map;
 
-class g
-  implements MessageQueue.IdleHandler
+class g<Z>
+  implements i<Z>
 {
-  private final Map<b, WeakReference<p<?>>> a;
-  private final ReferenceQueue<p<?>> b;
+  private final i<Z> a;
+  private final boolean b;
+  private a c;
+  private b d;
+  private int e;
+  private boolean f;
   
-  public g(Map<b, WeakReference<p<?>>> paramMap, ReferenceQueue<p<?>> paramReferenceQueue)
+  g(i<Z> parami, boolean paramBoolean)
   {
-    a = paramMap;
-    b = paramReferenceQueue;
+    if (parami == null) {
+      throw new NullPointerException("Wrapped resource must not be null");
+    }
+    a = parami;
+    b = paramBoolean;
   }
   
-  public boolean queueIdle()
+  void a(b paramb, a parama)
   {
-    h localh = (h)b.poll();
-    if (localh != null) {
-      a.remove(h.a(localh));
+    d = paramb;
+    c = parama;
+  }
+  
+  boolean a()
+  {
+    return b;
+  }
+  
+  public Z b()
+  {
+    return (Z)a.b();
+  }
+  
+  public int c()
+  {
+    return a.c();
+  }
+  
+  public void d()
+  {
+    if (e > 0) {
+      throw new IllegalStateException("Cannot recycle a resource while it is still acquired");
     }
-    return true;
+    if (f) {
+      throw new IllegalStateException("Cannot recycle a resource that has already been recycled");
+    }
+    f = true;
+    a.d();
+  }
+  
+  void e()
+  {
+    if (f) {
+      throw new IllegalStateException("Cannot acquire a recycled resource");
+    }
+    if (!Looper.getMainLooper().equals(Looper.myLooper())) {
+      throw new IllegalThreadStateException("Must call acquire on the main thread");
+    }
+    e += 1;
+  }
+  
+  void f()
+  {
+    if (e <= 0) {
+      throw new IllegalStateException("Cannot release a recycled or not yet acquired resource");
+    }
+    if (!Looper.getMainLooper().equals(Looper.myLooper())) {
+      throw new IllegalThreadStateException("Must call release on the main thread");
+    }
+    int i = e - 1;
+    e = i;
+    if (i == 0) {
+      c.b(d, this);
+    }
+  }
+  
+  static abstract interface a
+  {
+    public abstract void b(b paramb, g<?> paramg);
   }
 }
 

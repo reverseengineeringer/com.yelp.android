@@ -2,7 +2,8 @@ package com.google.android.gms.internal;
 
 public abstract interface dv
 {
-  public abstract void af();
+  public abstract gm a(zzk<?> paramzzk)
+    throws zzr;
 }
 
 /* Location:

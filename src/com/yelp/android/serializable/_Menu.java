@@ -2,27 +2,84 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Menu
   implements Parcelable
 {
-  protected String mActionImageUrl;
-  protected String mActionText;
-  protected String mActionTitle;
-  protected String mActionUrl;
-  protected String mViewTitle;
+  protected String a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
   
-  protected _Menu() {}
-  
-  protected _Menu(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5)
+  public JSONObject a()
+    throws JSONException
   {
-    this();
-    mActionUrl = paramString1;
-    mActionTitle = paramString2;
-    mActionText = paramString3;
-    mActionImageUrl = paramString4;
-    mViewTitle = paramString5;
+    JSONObject localJSONObject = new JSONObject();
+    if (a != null) {
+      localJSONObject.put("action_url", a);
+    }
+    if (b != null) {
+      localJSONObject.put("action_title", b);
+    }
+    if (c != null) {
+      localJSONObject.put("action_text", c);
+    }
+    if (d != null) {
+      localJSONObject.put("action_image_url", d);
+    }
+    if (e != null) {
+      localJSONObject.put("view_title", e);
+    }
+    return localJSONObject;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("action_url")) {
+      a = paramJSONObject.optString("action_url");
+    }
+    if (!paramJSONObject.isNull("action_title")) {
+      b = paramJSONObject.optString("action_title");
+    }
+    if (!paramJSONObject.isNull("action_text")) {
+      c = paramJSONObject.optString("action_text");
+    }
+    if (!paramJSONObject.isNull("action_image_url")) {
+      d = paramJSONObject.optString("action_image_url");
+    }
+    if (!paramJSONObject.isNull("view_title")) {
+      e = paramJSONObject.optString("view_title");
+    }
+  }
+  
+  public String b()
+  {
+    return e;
+  }
+  
+  public String c()
+  {
+    return d;
+  }
+  
+  public String d()
+  {
+    return c;
   }
   
   public int describeContents()
@@ -30,87 +87,42 @@ abstract class _Menu
     return 0;
   }
   
-  public String getActionImageUrl()
+  public String e()
   {
-    return mActionImageUrl;
+    return b;
   }
   
-  public String getActionText()
+  public boolean equals(Object paramObject)
   {
-    return mActionText;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Menu)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a();
   }
   
-  public String getActionTitle()
+  public String f()
   {
-    return mActionTitle;
+    return a;
   }
   
-  public String getActionUrl()
+  public int hashCode()
   {
-    return mActionUrl;
-  }
-  
-  public String getViewTitle()
-  {
-    return mViewTitle;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("action_url")) {
-      mActionUrl = paramJSONObject.optString("action_url");
-    }
-    if (!paramJSONObject.isNull("action_title")) {
-      mActionTitle = paramJSONObject.optString("action_title");
-    }
-    if (!paramJSONObject.isNull("action_text")) {
-      mActionText = paramJSONObject.optString("action_text");
-    }
-    if (!paramJSONObject.isNull("action_image_url")) {
-      mActionImageUrl = paramJSONObject.optString("action_image_url");
-    }
-    if (!paramJSONObject.isNull("view_title")) {
-      mViewTitle = paramJSONObject.optString("view_title");
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mActionUrl = paramParcel.readString();
-    mActionTitle = paramParcel.readString();
-    mActionText = paramParcel.readString();
-    mActionImageUrl = paramParcel.readString();
-    mViewTitle = paramParcel.readString();
-  }
-  
-  public JSONObject writeJSON()
-  {
-    JSONObject localJSONObject = new JSONObject();
-    if (mActionUrl != null) {
-      localJSONObject.put("action_url", mActionUrl);
-    }
-    if (mActionTitle != null) {
-      localJSONObject.put("action_title", mActionTitle);
-    }
-    if (mActionText != null) {
-      localJSONObject.put("action_text", mActionText);
-    }
-    if (mActionImageUrl != null) {
-      localJSONObject.put("action_image_url", mActionImageUrl);
-    }
-    if (mViewTitle != null) {
-      localJSONObject.put("view_title", mViewTitle);
-    }
-    return localJSONObject;
+    return new c().a(a).a(b).a(c).a(d).a(e).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeString(mActionUrl);
-    paramParcel.writeString(mActionTitle);
-    paramParcel.writeString(mActionText);
-    paramParcel.writeString(mActionImageUrl);
-    paramParcel.writeString(mViewTitle);
+    paramParcel.writeValue(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
   }
 }
 

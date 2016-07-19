@@ -2,42 +2,55 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.aa;
 
 public final class CircleOptions
   implements SafeParcelable
 {
-  public static final c CREATOR = new c();
-  private final int CK;
-  private LatLng alS = null;
-  private double alT = 0.0D;
-  private float alU = 10.0F;
-  private int alV = -16777216;
-  private int alW = 0;
-  private float alX = 0.0F;
-  private boolean alY = true;
+  public static final f CREATOR = new f();
+  private final int a;
+  private LatLng b = null;
+  private double c = 0.0D;
+  private float d = 10.0F;
+  private int e = -16777216;
+  private int f = 0;
+  private float g = 0.0F;
+  private boolean h = true;
   
   public CircleOptions()
   {
-    CK = 1;
+    a = 1;
   }
   
   CircleOptions(int paramInt1, LatLng paramLatLng, double paramDouble, float paramFloat1, int paramInt2, int paramInt3, float paramFloat2, boolean paramBoolean)
   {
-    CK = paramInt1;
-    alS = paramLatLng;
-    alT = paramDouble;
-    alU = paramFloat1;
-    alV = paramInt2;
-    alW = paramInt3;
-    alX = paramFloat2;
-    alY = paramBoolean;
+    a = paramInt1;
+    b = paramLatLng;
+    c = paramDouble;
+    d = paramFloat1;
+    e = paramInt2;
+    f = paramInt3;
+    g = paramFloat2;
+    h = paramBoolean;
   }
   
-  public CircleOptions center(LatLng paramLatLng)
+  int a()
   {
-    alS = paramLatLng;
-    return this;
+    return a;
+  }
+  
+  public LatLng b()
+  {
+    return b;
+  }
+  
+  public double c()
+  {
+    return c;
+  }
+  
+  public float d()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -45,90 +58,29 @@ public final class CircleOptions
     return 0;
   }
   
-  public CircleOptions fillColor(int paramInt)
+  public int e()
   {
-    alW = paramInt;
-    return this;
+    return e;
   }
   
-  public LatLng getCenter()
+  public int f()
   {
-    return alS;
+    return f;
   }
   
-  public int getFillColor()
+  public float g()
   {
-    return alW;
+    return g;
   }
   
-  public double getRadius()
+  public boolean h()
   {
-    return alT;
-  }
-  
-  public int getStrokeColor()
-  {
-    return alV;
-  }
-  
-  public float getStrokeWidth()
-  {
-    return alU;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
-  }
-  
-  public float getZIndex()
-  {
-    return alX;
-  }
-  
-  public boolean isVisible()
-  {
-    return alY;
-  }
-  
-  public CircleOptions radius(double paramDouble)
-  {
-    alT = paramDouble;
-    return this;
-  }
-  
-  public CircleOptions strokeColor(int paramInt)
-  {
-    alV = paramInt;
-    return this;
-  }
-  
-  public CircleOptions strokeWidth(float paramFloat)
-  {
-    alU = paramFloat;
-    return this;
-  }
-  
-  public CircleOptions visible(boolean paramBoolean)
-  {
-    alY = paramBoolean;
-    return this;
+    return h;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      d.a(this, paramParcel, paramInt);
-      return;
-    }
-    c.a(this, paramParcel, paramInt);
-  }
-  
-  public CircleOptions zIndex(float paramFloat)
-  {
-    alX = paramFloat;
-    return this;
+    f.a(this, paramParcel, paramInt);
   }
 }
 

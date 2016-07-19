@@ -12,7 +12,7 @@ public class ActivityChooserView$InnerLayout
   public ActivityChooserView$InnerLayout(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramContext = bg.a(paramContext, paramAttributeSet, a);
+    paramContext = p.a(paramContext, paramAttributeSet, a);
     setBackgroundDrawable(paramContext.a(0));
     paramContext.b();
   }

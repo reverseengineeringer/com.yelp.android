@@ -3,6 +3,14 @@
 .source "SourceFields.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/media/SourceFields$Containers;
+    }
+.end annotation
+
+
 # static fields
 .field public static final BIT_RATE:Ljava/lang/String; = "encodingRate"
 

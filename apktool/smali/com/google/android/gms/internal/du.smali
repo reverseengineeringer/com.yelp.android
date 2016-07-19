@@ -1,108 +1,71 @@
-.class public final Lcom/google/android/gms/internal/du;
-.super Landroid/widget/FrameLayout;
+.class public interface abstract Lcom/google/android/gms/internal/du;
+.super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/os/IInterface;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/du$a;
+    }
 .end annotation
 
 
-# instance fields
-.field private final nB:Landroid/app/Activity;
-
-.field private final sx:Landroid/widget/ImageButton;
-
-
-# direct methods
-.method public constructor <init>(Landroid/app/Activity;I)V
-    .locals 4
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/du;->nB:Landroid/app/Activity;
-
-    invoke-virtual {p0, p0}, Lcom/google/android/gms/internal/du;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    new-instance v0, Landroid/widget/ImageButton;
-
-    invoke-direct {v0, p1}, Landroid/widget/ImageButton;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
-
-    const v1, 0x1080017
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setImageResource(I)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
-
-    invoke-virtual {v0, v2}, Landroid/widget/ImageButton;->setBackgroundColor(I)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
-
-    invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
-
-    invoke-virtual {v0, v2, v2, v2, v2}, Landroid/widget/ImageButton;->setPadding(IIII)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
-
-    const-string/jumbo v1, "Interstitial close button"
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    invoke-static {p1, p2}, Lcom/google/android/gms/internal/gq;->a(Landroid/content/Context;I)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
-
-    new-instance v2, Landroid/widget/FrameLayout$LayoutParams;
-
-    const/16 v3, 0x11
-
-    invoke-direct {v2, v0, v0, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
-
-    invoke-virtual {p0, v1, v2}, Lcom/google/android/gms/internal/du;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
-.end method
-
-
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/du;->nB:Landroid/app/Activity;
-
-    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
-
-    return-void
+.method public abstract a()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method
 
-.method public q(Z)V
-    .locals 2
+.method public abstract a(I)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/du;->sx:Landroid/widget/ImageButton;
+.method public abstract a(Lcom/google/android/gms/internal/dw;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    if-eqz p1, :cond_0
+.method public abstract b()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    const/4 v0, 0x4
+.method public abstract c()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/widget/ImageButton;->setVisibility(I)V
+.method public abstract d()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
 
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
+.method public abstract e()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 .end method

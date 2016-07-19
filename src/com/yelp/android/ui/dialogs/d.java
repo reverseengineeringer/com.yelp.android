@@ -1,16 +1,56 @@
 package com.yelp.android.ui.dialogs;
 
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
+import android.support.v7.app.d.a;
+import android.view.View;
 
-class d
-  implements DialogInterface.OnClickListener
+public class d
 {
-  d(CheckInOfferDialog paramCheckInOfferDialog) {}
+  private d.a a;
   
-  public void onClick(DialogInterface paramDialogInterface, int paramInt)
+  @SuppressLint({"InflateParams"})
+  public d(Context paramContext)
   {
-    CheckInOfferDialog.b(a);
+    a = new d.a(paramContext);
+  }
+  
+  public Dialog a()
+  {
+    return a.b();
+  }
+  
+  public d a(int paramInt)
+  {
+    a.a(paramInt);
+    return this;
+  }
+  
+  public d a(int paramInt, DialogInterface.OnClickListener paramOnClickListener)
+  {
+    a.a(paramInt, paramOnClickListener);
+    return this;
+  }
+  
+  public d a(DialogInterface.OnCancelListener paramOnCancelListener)
+  {
+    a.a(paramOnCancelListener);
+    return this;
+  }
+  
+  public d a(View paramView)
+  {
+    a.b(paramView);
+    return this;
+  }
+  
+  public d b(int paramInt, DialogInterface.OnClickListener paramOnClickListener)
+  {
+    a.b(paramInt, paramOnClickListener);
+    return this;
   }
 }
 

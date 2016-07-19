@@ -2,7 +2,7 @@ package com.google.android.gms.internal;
 
 abstract interface f$a
 {
-  public abstract void b(byte[] paramArrayOfByte1, byte[] paramArrayOfByte2);
+  public abstract void a(byte[] paramArrayOfByte1, byte[] paramArrayOfByte2);
 }
 
 /* Location:

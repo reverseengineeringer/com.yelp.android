@@ -1,501 +1,778 @@
-.class public final Lcom/yelp/android/g/k;
+.class public Lcom/yelp/android/g/k;
 .super Ljava/lang/Object;
-.source "R.java"
+.source "TimeUtils.java"
 
 
 # static fields
-.field public static final Animation_AppCompat_DropDownUp:I = 0x7f0f0004
+.field private static final a:Ljava/lang/Object;
 
-.field public static final Base_Animation_AppCompat_DropDownUp:I = 0x7f0f0008
+.field private static b:[C
 
-.field public static final Base_TextAppearance_AppCompat:I = 0x7f0f0009
 
-.field public static final Base_TextAppearance_AppCompat_Body1:I = 0x7f0f000a
+# direct methods
+.method static constructor <clinit>()V
+    .locals 1
 
-.field public static final Base_TextAppearance_AppCompat_Body2:I = 0x7f0f000b
+    .prologue
+    .line 35
+    new-instance v0, Ljava/lang/Object;
 
-.field public static final Base_TextAppearance_AppCompat_Button:I = 0x7f0f000c
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
-.field public static final Base_TextAppearance_AppCompat_Caption:I = 0x7f0f000d
+    sput-object v0, Lcom/yelp/android/g/k;->a:Ljava/lang/Object;
 
-.field public static final Base_TextAppearance_AppCompat_Display1:I = 0x7f0f000e
+    .line 36
+    const/16 v0, 0x18
 
-.field public static final Base_TextAppearance_AppCompat_Display2:I = 0x7f0f000f
+    new-array v0, v0, [C
 
-.field public static final Base_TextAppearance_AppCompat_Display3:I = 0x7f0f0010
+    sput-object v0, Lcom/yelp/android/g/k;->b:[C
 
-.field public static final Base_TextAppearance_AppCompat_Display4:I = 0x7f0f0011
+    return-void
+.end method
 
-.field public static final Base_TextAppearance_AppCompat_Headline:I = 0x7f0f0012
+.method private static a(IIZI)I
+    .locals 1
 
-.field public static final Base_TextAppearance_AppCompat_Inverse:I = 0x7f0f0013
+    .prologue
+    .line 39
+    const/16 v0, 0x63
 
-.field public static final Base_TextAppearance_AppCompat_Large:I = 0x7f0f0014
+    if-gt p0, v0, :cond_0
 
-.field public static final Base_TextAppearance_AppCompat_Large_Inverse:I = 0x7f0f0015
+    if-eqz p2, :cond_1
 
-.field public static final Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large:I = 0x7f0f0016
+    const/4 v0, 0x3
 
-.field public static final Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small:I = 0x7f0f0017
+    if-lt p3, v0, :cond_1
 
-.field public static final Base_TextAppearance_AppCompat_Medium:I = 0x7f0f0018
+    .line 40
+    :cond_0
+    add-int/lit8 v0, p1, 0x3
 
-.field public static final Base_TextAppearance_AppCompat_Medium_Inverse:I = 0x7f0f0019
+    .line 48
+    :goto_0
+    return v0
 
-.field public static final Base_TextAppearance_AppCompat_Menu:I = 0x7f0f001a
+    .line 42
+    :cond_1
+    const/16 v0, 0x9
 
-.field public static final Base_TextAppearance_AppCompat_SearchResult:I = 0x7f0f001b
+    if-gt p0, v0, :cond_2
 
-.field public static final Base_TextAppearance_AppCompat_SearchResult_Subtitle:I = 0x7f0f001c
+    if-eqz p2, :cond_3
 
-.field public static final Base_TextAppearance_AppCompat_SearchResult_Title:I = 0x7f0f001d
+    const/4 v0, 0x2
 
-.field public static final Base_TextAppearance_AppCompat_Small:I = 0x7f0f001e
+    if-lt p3, v0, :cond_3
 
-.field public static final Base_TextAppearance_AppCompat_Small_Inverse:I = 0x7f0f001f
+    .line 43
+    :cond_2
+    add-int/lit8 v0, p1, 0x2
 
-.field public static final Base_TextAppearance_AppCompat_Subhead:I = 0x7f0f0020
+    goto :goto_0
 
-.field public static final Base_TextAppearance_AppCompat_Subhead_Inverse:I = 0x7f0f0021
+    .line 45
+    :cond_3
+    if-nez p2, :cond_4
 
-.field public static final Base_TextAppearance_AppCompat_Title:I = 0x7f0f0022
+    if-lez p0, :cond_5
 
-.field public static final Base_TextAppearance_AppCompat_Title_Inverse:I = 0x7f0f0023
+    .line 46
+    :cond_4
+    add-int/lit8 v0, p1, 0x1
 
-.field public static final Base_TextAppearance_AppCompat_Widget_ActionBar_Menu:I = 0x7f0f0024
+    goto :goto_0
 
-.field public static final Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle:I = 0x7f0f0025
+    .line 48
+    :cond_5
+    const/4 v0, 0x0
 
-.field public static final Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse:I = 0x7f0f0026
+    goto :goto_0
+.end method
 
-.field public static final Base_TextAppearance_AppCompat_Widget_ActionBar_Title:I = 0x7f0f0027
+.method private static a(JI)I
+    .locals 18
 
-.field public static final Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse:I = 0x7f0f0028
+    .prologue
+    .line 76
+    sget-object v2, Lcom/yelp/android/g/k;->b:[C
 
-.field public static final Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle:I = 0x7f0f0029
+    array-length v2, v2
 
-.field public static final Base_TextAppearance_AppCompat_Widget_ActionMode_Title:I = 0x7f0f002a
+    move/from16 v0, p2
 
-.field public static final Base_TextAppearance_AppCompat_Widget_DropDownItem:I = 0x7f0f002b
+    if-ge v2, v0, :cond_0
 
-.field public static final Base_TextAppearance_AppCompat_Widget_PopupMenu_Large:I = 0x7f0f002c
+    .line 77
+    move/from16 v0, p2
 
-.field public static final Base_TextAppearance_AppCompat_Widget_PopupMenu_Small:I = 0x7f0f002d
+    new-array v2, v0, [C
 
-.field public static final Base_TextAppearance_AppCompat_Widget_Switch:I = 0x7f0f002e
+    sput-object v2, Lcom/yelp/android/g/k;->b:[C
 
-.field public static final Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem:I = 0x7f0f002f
+    .line 80
+    :cond_0
+    sget-object v2, Lcom/yelp/android/g/k;->b:[C
 
-.field public static final Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item:I = 0x7f0f0030
+    .line 82
+    const-wide/16 v4, 0x0
 
-.field public static final Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle:I = 0x7f0f0031
+    cmp-long v3, p0, v4
 
-.field public static final Base_TextAppearance_Widget_AppCompat_Toolbar_Title:I = 0x7f0f0032
+    if-nez v3, :cond_2
 
-.field public static final Base_ThemeOverlay_AppCompat:I = 0x7f0f003d
+    .line 83
+    const/4 v3, 0x0
 
-.field public static final Base_ThemeOverlay_AppCompat_ActionBar:I = 0x7f0f003e
+    .line 84
+    add-int/lit8 v4, p2, -0x1
 
-.field public static final Base_ThemeOverlay_AppCompat_Dark:I = 0x7f0f003f
+    .line 85
+    :goto_0
+    if-ge v3, v4, :cond_1
 
-.field public static final Base_ThemeOverlay_AppCompat_Dark_ActionBar:I = 0x7f0f0040
+    .line 86
+    const/16 v5, 0x20
 
-.field public static final Base_ThemeOverlay_AppCompat_Light:I = 0x7f0f0041
+    aput-char v5, v2, v3
 
-.field public static final Base_Theme_AppCompat:I = 0x7f0f0033
+    goto :goto_0
 
-.field public static final Base_Theme_AppCompat_CompactMenu:I = 0x7f0f0034
+    .line 88
+    :cond_1
+    const/16 v4, 0x30
 
-.field public static final Base_Theme_AppCompat_Dialog:I = 0x7f0f0035
+    aput-char v4, v2, v3
 
-.field public static final Base_Theme_AppCompat_DialogWhenLarge:I = 0x7f0f0037
+    .line 89
+    const/4 v2, 0x1
 
-.field public static final Base_Theme_AppCompat_Dialog_FixedSize:I = 0x7f0f0036
+    .line 143
+    :goto_1
+    return v2
 
-.field public static final Base_Theme_AppCompat_Light:I = 0x7f0f0038
+    .line 93
+    :cond_2
+    const-wide/16 v4, 0x0
 
-.field public static final Base_Theme_AppCompat_Light_DarkActionBar:I = 0x7f0f0039
+    cmp-long v3, p0, v4
 
-.field public static final Base_Theme_AppCompat_Light_Dialog:I = 0x7f0f003a
+    if-lez v3, :cond_4
 
-.field public static final Base_Theme_AppCompat_Light_DialogWhenLarge:I = 0x7f0f003c
+    .line 94
+    const/16 v3, 0x2b
 
-.field public static final Base_Theme_AppCompat_Light_Dialog_FixedSize:I = 0x7f0f003b
+    move v4, v3
 
-.field public static final Base_V11_Theme_AppCompat:I = 0x7f0f01fe
+    .line 100
+    :goto_2
+    const-wide/16 v6, 0x3e8
 
-.field public static final Base_V11_Theme_AppCompat_Dialog:I = 0x7f0f01ff
+    rem-long v6, p0, v6
 
-.field public static final Base_V11_Theme_AppCompat_Light:I = 0x7f0f0200
+    long-to-int v0, v6
 
-.field public static final Base_V11_Theme_AppCompat_Light_Dialog:I = 0x7f0f0201
+    move/from16 v16, v0
 
-.field public static final Base_V14_Theme_AppCompat:I = 0x7f0f0202
+    .line 101
+    const-wide/16 v6, 0x3e8
 
-.field public static final Base_V14_Theme_AppCompat_Dialog:I = 0x7f0f0203
+    div-long v6, p0, v6
 
-.field public static final Base_V14_Theme_AppCompat_Light:I = 0x7f0f0204
+    long-to-double v6, v6
 
-.field public static final Base_V14_Theme_AppCompat_Light_Dialog:I = 0x7f0f0205
+    invoke-static {v6, v7}, Ljava/lang/Math;->floor(D)D
 
-.field public static final Base_V21_Theme_AppCompat:I = 0x7f0f0206
+    move-result-wide v6
 
-.field public static final Base_V21_Theme_AppCompat_Dialog:I = 0x7f0f0207
+    double-to-int v7, v6
 
-.field public static final Base_V21_Theme_AppCompat_Light:I = 0x7f0f0208
+    .line 102
+    const/4 v3, 0x0
 
-.field public static final Base_V21_Theme_AppCompat_Light_Dialog:I = 0x7f0f0209
+    const/4 v6, 0x0
 
-.field public static final Base_V7_Theme_AppCompat:I = 0x7f0f0042
+    const/4 v5, 0x0
 
-.field public static final Base_V7_Theme_AppCompat_Dialog:I = 0x7f0f0043
+    .line 104
+    const v8, 0x15180
 
-.field public static final Base_V7_Theme_AppCompat_Light:I = 0x7f0f0044
+    if-le v7, v8, :cond_3
 
-.field public static final Base_Widget_AppCompat_ActionBar:I = 0x7f0f0045
+    .line 105
+    const v3, 0x15180
 
-.field public static final Base_Widget_AppCompat_ActionBar_Solid:I = 0x7f0f0046
+    div-int v3, v7, v3
 
-.field public static final Base_Widget_AppCompat_ActionBar_TabBar:I = 0x7f0f0047
+    .line 106
+    const v8, 0x15180
 
-.field public static final Base_Widget_AppCompat_ActionBar_TabText:I = 0x7f0f0048
+    mul-int/2addr v8, v3
 
-.field public static final Base_Widget_AppCompat_ActionBar_TabView:I = 0x7f0f0049
+    sub-int/2addr v7, v8
 
-.field public static final Base_Widget_AppCompat_ActionButton:I = 0x7f0f004a
+    .line 108
+    :cond_3
+    const/16 v8, 0xe10
 
-.field public static final Base_Widget_AppCompat_ActionButton_CloseMode:I = 0x7f0f004b
+    if-le v7, v8, :cond_14
 
-.field public static final Base_Widget_AppCompat_ActionButton_Overflow:I = 0x7f0f004c
+    .line 109
+    div-int/lit16 v6, v7, 0xe10
 
-.field public static final Base_Widget_AppCompat_ActionMode:I = 0x7f0f004d
+    .line 110
+    mul-int/lit16 v8, v6, 0xe10
 
-.field public static final Base_Widget_AppCompat_ActivityChooserView:I = 0x7f0f004e
+    sub-int/2addr v7, v8
 
-.field public static final Base_Widget_AppCompat_AutoCompleteTextView:I = 0x7f0f004f
+    move v15, v6
 
-.field public static final Base_Widget_AppCompat_Button:I = 0x7f0f0050
+    move v6, v7
 
-.field public static final Base_Widget_AppCompat_Button_Small:I = 0x7f0f0051
+    .line 112
+    :goto_3
+    const/16 v7, 0x3c
 
-.field public static final Base_Widget_AppCompat_CompoundButton_Switch:I = 0x7f0f0052
+    if-le v6, v7, :cond_13
 
-.field public static final Base_Widget_AppCompat_DrawerArrowToggle:I = 0x7f0f0053
+    .line 113
+    div-int/lit8 v5, v6, 0x3c
 
-.field public static final Base_Widget_AppCompat_DrawerArrowToggle_Common:I = 0x7f0f0054
+    .line 114
+    mul-int/lit8 v7, v5, 0x3c
 
-.field public static final Base_Widget_AppCompat_DropDownItem_Spinner:I = 0x7f0f0055
+    sub-int/2addr v6, v7
 
-.field public static final Base_Widget_AppCompat_EditText:I = 0x7f0f0056
+    move v13, v5
 
-.field public static final Base_Widget_AppCompat_Light_ActionBar:I = 0x7f0f0057
+    move v14, v6
 
-.field public static final Base_Widget_AppCompat_Light_ActionBar_Solid:I = 0x7f0f0058
+    .line 117
+    :goto_4
+    const/4 v6, 0x0
 
-.field public static final Base_Widget_AppCompat_Light_ActionBar_TabBar:I = 0x7f0f0059
+    .line 119
+    if-eqz p2, :cond_9
 
-.field public static final Base_Widget_AppCompat_Light_ActionBar_TabText:I = 0x7f0f005a
+    .line 120
+    const/4 v5, 0x1
 
-.field public static final Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse:I = 0x7f0f005b
+    const/4 v7, 0x0
 
-.field public static final Base_Widget_AppCompat_Light_ActionBar_TabView:I = 0x7f0f005c
+    const/4 v8, 0x0
 
-.field public static final Base_Widget_AppCompat_Light_PopupMenu:I = 0x7f0f005d
+    invoke-static {v3, v5, v7, v8}, Lcom/yelp/android/g/k;->a(IIZI)I
 
-.field public static final Base_Widget_AppCompat_Light_PopupMenu_Overflow:I = 0x7f0f005e
+    move-result v7
 
-.field public static final Base_Widget_AppCompat_ListPopupWindow:I = 0x7f0f005f
+    .line 121
+    const/4 v8, 0x1
 
-.field public static final Base_Widget_AppCompat_ListView_DropDown:I = 0x7f0f0060
+    if-lez v7, :cond_5
 
-.field public static final Base_Widget_AppCompat_ListView_Menu:I = 0x7f0f0061
+    const/4 v5, 0x1
 
-.field public static final Base_Widget_AppCompat_PopupMenu:I = 0x7f0f0062
+    :goto_5
+    const/4 v9, 0x2
 
-.field public static final Base_Widget_AppCompat_PopupMenu_Overflow:I = 0x7f0f0063
+    invoke-static {v15, v8, v5, v9}, Lcom/yelp/android/g/k;->a(IIZI)I
 
-.field public static final Base_Widget_AppCompat_PopupWindow:I = 0x7f0f0064
+    move-result v5
 
-.field public static final Base_Widget_AppCompat_ProgressBar:I = 0x7f0f0065
+    add-int/2addr v7, v5
 
-.field public static final Base_Widget_AppCompat_ProgressBar_Horizontal:I = 0x7f0f0066
+    .line 122
+    const/4 v8, 0x1
 
-.field public static final Base_Widget_AppCompat_RatingBar:I = 0x7f0f0067
+    if-lez v7, :cond_6
 
-.field public static final Base_Widget_AppCompat_SearchView:I = 0x7f0f0068
+    const/4 v5, 0x1
 
-.field public static final Base_Widget_AppCompat_Spinner:I = 0x7f0f0069
+    :goto_6
+    const/4 v9, 0x2
 
-.field public static final Base_Widget_AppCompat_Spinner_DropDown_ActionBar:I = 0x7f0f006a
+    invoke-static {v13, v8, v5, v9}, Lcom/yelp/android/g/k;->a(IIZI)I
 
-.field public static final Base_Widget_AppCompat_Spinner_Underlined:I = 0x7f0f006b
+    move-result v5
 
-.field public static final Base_Widget_AppCompat_TextView_SpinnerItem:I = 0x7f0f006c
+    add-int/2addr v7, v5
 
-.field public static final Base_Widget_AppCompat_Toolbar:I = 0x7f0f006d
+    .line 123
+    const/4 v8, 0x1
 
-.field public static final Base_Widget_AppCompat_Toolbar_Button_Navigation:I = 0x7f0f006e
+    if-lez v7, :cond_7
 
-.field public static final Platform_AppCompat:I = 0x7f0f00b8
+    const/4 v5, 0x1
 
-.field public static final Platform_AppCompat_Dialog:I = 0x7f0f00b9
+    :goto_7
+    const/4 v9, 0x2
 
-.field public static final Platform_AppCompat_Light:I = 0x7f0f00ba
+    invoke-static {v14, v8, v5, v9}, Lcom/yelp/android/g/k;->a(IIZI)I
 
-.field public static final Platform_AppCompat_Light_Dialog:I = 0x7f0f00bb
+    move-result v5
 
-.field public static final RtlOverlay_Widget_AppCompat_ActionBar_TitleItem:I = 0x7f0f00ce
+    add-int/2addr v7, v5
 
-.field public static final RtlOverlay_Widget_AppCompat_ActionButton_CloseMode:I = 0x7f0f00cf
+    .line 124
+    const/4 v8, 0x2
 
-.field public static final RtlOverlay_Widget_AppCompat_ActionButton_Overflow:I = 0x7f0f00d0
+    const/4 v9, 0x1
 
-.field public static final RtlOverlay_Widget_AppCompat_PopupMenuItem:I = 0x7f0f00d1
+    if-lez v7, :cond_8
 
-.field public static final RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup:I = 0x7f0f00d2
+    const/4 v5, 0x3
 
-.field public static final RtlOverlay_Widget_AppCompat_PopupMenuItem_Text:I = 0x7f0f00d3
+    :goto_8
+    move/from16 v0, v16
 
-.field public static final RtlOverlay_Widget_AppCompat_SearchView_MagIcon:I = 0x7f0f00d9
+    invoke-static {v0, v8, v9, v5}, Lcom/yelp/android/g/k;->a(IIZI)I
 
-.field public static final RtlOverlay_Widget_AppCompat_Search_DropDown:I = 0x7f0f00d4
+    move-result v5
 
-.field public static final RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1:I = 0x7f0f00d5
+    add-int/lit8 v5, v5, 0x1
 
-.field public static final RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2:I = 0x7f0f00d6
+    add-int/2addr v5, v7
 
-.field public static final RtlOverlay_Widget_AppCompat_Search_DropDown_Query:I = 0x7f0f00d7
+    move/from16 v17, v5
 
-.field public static final RtlOverlay_Widget_AppCompat_Search_DropDown_Text:I = 0x7f0f00d8
+    move v5, v6
 
-.field public static final TextAppearance_AppCompat:I = 0x7f0f0105
+    move/from16 v6, v17
 
-.field public static final TextAppearance_AppCompat_Body1:I = 0x7f0f0106
+    .line 125
+    :goto_9
+    move/from16 v0, p2
 
-.field public static final TextAppearance_AppCompat_Body2:I = 0x7f0f0107
+    if-ge v6, v0, :cond_a
 
-.field public static final TextAppearance_AppCompat_Button:I = 0x7f0f0108
+    .line 126
+    const/16 v7, 0x20
 
-.field public static final TextAppearance_AppCompat_Caption:I = 0x7f0f0109
+    aput-char v7, v2, v5
 
-.field public static final TextAppearance_AppCompat_Display1:I = 0x7f0f010a
+    .line 127
+    add-int/lit8 v7, v5, 0x1
 
-.field public static final TextAppearance_AppCompat_Display2:I = 0x7f0f010b
+    .line 128
+    add-int/lit8 v5, v6, 0x1
 
-.field public static final TextAppearance_AppCompat_Display3:I = 0x7f0f010c
+    move v6, v5
 
-.field public static final TextAppearance_AppCompat_Display4:I = 0x7f0f010d
+    move v5, v7
 
-.field public static final TextAppearance_AppCompat_Headline:I = 0x7f0f010e
+    goto :goto_9
 
-.field public static final TextAppearance_AppCompat_Inverse:I = 0x7f0f010f
+    .line 96
+    :cond_4
+    const/16 v3, 0x2d
 
-.field public static final TextAppearance_AppCompat_Large:I = 0x7f0f0110
+    .line 97
+    move-wide/from16 v0, p0
 
-.field public static final TextAppearance_AppCompat_Large_Inverse:I = 0x7f0f0111
+    neg-long v0, v0
 
-.field public static final TextAppearance_AppCompat_Light_SearchResult_Subtitle:I = 0x7f0f0112
+    move-wide/from16 p0, v0
 
-.field public static final TextAppearance_AppCompat_Light_SearchResult_Title:I = 0x7f0f0113
+    move v4, v3
 
-.field public static final TextAppearance_AppCompat_Light_Widget_PopupMenu_Large:I = 0x7f0f0114
+    goto/16 :goto_2
 
-.field public static final TextAppearance_AppCompat_Light_Widget_PopupMenu_Small:I = 0x7f0f0115
+    .line 121
+    :cond_5
+    const/4 v5, 0x0
 
-.field public static final TextAppearance_AppCompat_Medium:I = 0x7f0f0116
+    goto :goto_5
 
-.field public static final TextAppearance_AppCompat_Medium_Inverse:I = 0x7f0f0117
+    .line 122
+    :cond_6
+    const/4 v5, 0x0
 
-.field public static final TextAppearance_AppCompat_Menu:I = 0x7f0f0118
+    goto :goto_6
 
-.field public static final TextAppearance_AppCompat_SearchResult_Subtitle:I = 0x7f0f0119
+    .line 123
+    :cond_7
+    const/4 v5, 0x0
 
-.field public static final TextAppearance_AppCompat_SearchResult_Title:I = 0x7f0f011a
+    goto :goto_7
 
-.field public static final TextAppearance_AppCompat_Small:I = 0x7f0f011b
+    .line 124
+    :cond_8
+    const/4 v5, 0x0
 
-.field public static final TextAppearance_AppCompat_Small_Inverse:I = 0x7f0f011c
+    goto :goto_8
 
-.field public static final TextAppearance_AppCompat_Subhead:I = 0x7f0f011d
+    :cond_9
+    move v5, v6
 
-.field public static final TextAppearance_AppCompat_Subhead_Inverse:I = 0x7f0f011e
+    .line 132
+    :cond_a
+    aput-char v4, v2, v5
 
-.field public static final TextAppearance_AppCompat_Title:I = 0x7f0f011f
+    .line 133
+    add-int/lit8 v5, v5, 0x1
 
-.field public static final TextAppearance_AppCompat_Title_Inverse:I = 0x7f0f0120
+    .line 136
+    if-eqz p2, :cond_b
 
-.field public static final TextAppearance_AppCompat_Widget_ActionBar_Menu:I = 0x7f0f0121
+    const/4 v4, 0x1
 
-.field public static final TextAppearance_AppCompat_Widget_ActionBar_Subtitle:I = 0x7f0f0122
+    move v12, v4
 
-.field public static final TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse:I = 0x7f0f0123
+    .line 137
+    :goto_a
+    const/16 v4, 0x64
 
-.field public static final TextAppearance_AppCompat_Widget_ActionBar_Title:I = 0x7f0f0124
+    const/4 v6, 0x0
 
-.field public static final TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse:I = 0x7f0f0125
+    const/4 v7, 0x0
 
-.field public static final TextAppearance_AppCompat_Widget_ActionMode_Subtitle:I = 0x7f0f0126
+    invoke-static/range {v2 .. v7}, Lcom/yelp/android/g/k;->a([CICIZI)I
 
-.field public static final TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse:I = 0x7f0f0127
+    move-result v9
 
-.field public static final TextAppearance_AppCompat_Widget_ActionMode_Title:I = 0x7f0f0128
+    .line 138
+    const/16 v8, 0x68
 
-.field public static final TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse:I = 0x7f0f0129
+    if-eq v9, v5, :cond_c
 
-.field public static final TextAppearance_AppCompat_Widget_DropDownItem:I = 0x7f0f012a
+    const/4 v10, 0x1
 
-.field public static final TextAppearance_AppCompat_Widget_PopupMenu_Large:I = 0x7f0f012b
+    :goto_b
+    if-eqz v12, :cond_d
 
-.field public static final TextAppearance_AppCompat_Widget_PopupMenu_Small:I = 0x7f0f012c
+    const/4 v11, 0x2
 
-.field public static final TextAppearance_AppCompat_Widget_Switch:I = 0x7f0f012d
+    :goto_c
+    move-object v6, v2
 
-.field public static final TextAppearance_AppCompat_Widget_TextView_SpinnerItem:I = 0x7f0f012e
+    move v7, v15
 
-.field public static final TextAppearance_Widget_AppCompat_ExpandedMenu_Item:I = 0x7f0f0132
+    invoke-static/range {v6 .. v11}, Lcom/yelp/android/g/k;->a([CICIZI)I
 
-.field public static final TextAppearance_Widget_AppCompat_Toolbar_Subtitle:I = 0x7f0f0133
+    move-result v9
 
-.field public static final TextAppearance_Widget_AppCompat_Toolbar_Title:I = 0x7f0f0134
+    .line 139
+    const/16 v8, 0x6d
 
-.field public static final ThemeOverlay_AppCompat:I = 0x7f0f0170
+    if-eq v9, v5, :cond_e
 
-.field public static final ThemeOverlay_AppCompat_ActionBar:I = 0x7f0f0171
+    const/4 v10, 0x1
 
-.field public static final ThemeOverlay_AppCompat_Dark:I = 0x7f0f0172
+    :goto_d
+    if-eqz v12, :cond_f
 
-.field public static final ThemeOverlay_AppCompat_Dark_ActionBar:I = 0x7f0f0173
+    const/4 v11, 0x2
 
-.field public static final ThemeOverlay_AppCompat_Light:I = 0x7f0f0175
+    :goto_e
+    move-object v6, v2
 
-.field public static final Theme_AppCompat:I = 0x7f0f013d
+    move v7, v13
 
-.field public static final Theme_AppCompat_CompactMenu:I = 0x7f0f013e
+    invoke-static/range {v6 .. v11}, Lcom/yelp/android/g/k;->a([CICIZI)I
 
-.field public static final Theme_AppCompat_Dialog:I = 0x7f0f013f
+    move-result v9
 
-.field public static final Theme_AppCompat_DialogWhenLarge:I = 0x7f0f0140
+    .line 140
+    const/16 v8, 0x73
 
-.field public static final Theme_AppCompat_Light:I = 0x7f0f0141
+    if-eq v9, v5, :cond_10
 
-.field public static final Theme_AppCompat_Light_DarkActionBar:I = 0x7f0f0142
+    const/4 v10, 0x1
 
-.field public static final Theme_AppCompat_Light_Dialog:I = 0x7f0f0143
+    :goto_f
+    if-eqz v12, :cond_11
 
-.field public static final Theme_AppCompat_Light_DialogWhenLarge:I = 0x7f0f0144
+    const/4 v11, 0x2
 
-.field public static final Theme_AppCompat_Light_NoActionBar:I = 0x7f0f0145
+    :goto_10
+    move-object v6, v2
 
-.field public static final Theme_AppCompat_NoActionBar:I = 0x7f0f0146
+    move v7, v14
 
-.field public static final Widget_AppCompat_ActionBar:I = 0x7f0f0192
+    invoke-static/range {v6 .. v11}, Lcom/yelp/android/g/k;->a([CICIZI)I
 
-.field public static final Widget_AppCompat_ActionBar_Solid:I = 0x7f0f0193
+    move-result v8
 
-.field public static final Widget_AppCompat_ActionBar_TabBar:I = 0x7f0f0194
+    .line 141
+    const/16 v4, 0x6d
 
-.field public static final Widget_AppCompat_ActionBar_TabText:I = 0x7f0f0195
+    const/4 v6, 0x1
 
-.field public static final Widget_AppCompat_ActionBar_TabView:I = 0x7f0f0196
+    if-eqz v12, :cond_12
 
-.field public static final Widget_AppCompat_ActionButton:I = 0x7f0f0197
+    if-eq v8, v5, :cond_12
 
-.field public static final Widget_AppCompat_ActionButton_CloseMode:I = 0x7f0f0198
+    const/4 v7, 0x3
 
-.field public static final Widget_AppCompat_ActionButton_Overflow:I = 0x7f0f0199
+    :goto_11
+    move/from16 v3, v16
 
-.field public static final Widget_AppCompat_ActionMode:I = 0x7f0f019c
+    move v5, v8
 
-.field public static final Widget_AppCompat_ActivityChooserView:I = 0x7f0f019d
+    invoke-static/range {v2 .. v7}, Lcom/yelp/android/g/k;->a([CICIZI)I
 
-.field public static final Widget_AppCompat_AutoCompleteTextView:I = 0x7f0f019e
+    move-result v3
 
-.field public static final Widget_AppCompat_Button:I = 0x7f0f019f
+    .line 142
+    const/16 v4, 0x73
 
-.field public static final Widget_AppCompat_Button_Small:I = 0x7f0f01a0
+    aput-char v4, v2, v3
 
-.field public static final Widget_AppCompat_CompoundButton_Switch:I = 0x7f0f01a1
+    .line 143
+    add-int/lit8 v2, v3, 0x1
 
-.field public static final Widget_AppCompat_DrawerArrowToggle:I = 0x7f0f01a2
+    goto/16 :goto_1
 
-.field public static final Widget_AppCompat_DropDownItem_Spinner:I = 0x7f0f01a3
+    .line 136
+    :cond_b
+    const/4 v4, 0x0
 
-.field public static final Widget_AppCompat_EditText:I = 0x7f0f01a4
+    move v12, v4
 
-.field public static final Widget_AppCompat_Light_ActionBar:I = 0x7f0f01a5
+    goto :goto_a
 
-.field public static final Widget_AppCompat_Light_ActionBar_Solid:I = 0x7f0f01a6
+    .line 138
+    :cond_c
+    const/4 v10, 0x0
 
-.field public static final Widget_AppCompat_Light_ActionBar_Solid_Inverse:I = 0x7f0f01a7
+    goto :goto_b
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabBar:I = 0x7f0f01a8
+    :cond_d
+    const/4 v11, 0x0
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabBar_Inverse:I = 0x7f0f01a9
+    goto :goto_c
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabText:I = 0x7f0f01aa
+    .line 139
+    :cond_e
+    const/4 v10, 0x0
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabText_Inverse:I = 0x7f0f01ab
+    goto :goto_d
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabView:I = 0x7f0f01ac
+    :cond_f
+    const/4 v11, 0x0
 
-.field public static final Widget_AppCompat_Light_ActionBar_TabView_Inverse:I = 0x7f0f01ad
+    goto :goto_e
 
-.field public static final Widget_AppCompat_Light_ActionButton:I = 0x7f0f01ae
+    .line 140
+    :cond_10
+    const/4 v10, 0x0
 
-.field public static final Widget_AppCompat_Light_ActionButton_CloseMode:I = 0x7f0f01af
+    goto :goto_f
 
-.field public static final Widget_AppCompat_Light_ActionButton_Overflow:I = 0x7f0f01b0
+    :cond_11
+    const/4 v11, 0x0
 
-.field public static final Widget_AppCompat_Light_ActionMode_Inverse:I = 0x7f0f01b1
+    goto :goto_10
 
-.field public static final Widget_AppCompat_Light_ActivityChooserView:I = 0x7f0f01b2
+    .line 141
+    :cond_12
+    const/4 v7, 0x0
 
-.field public static final Widget_AppCompat_Light_AutoCompleteTextView:I = 0x7f0f01b3
+    goto :goto_11
 
-.field public static final Widget_AppCompat_Light_DropDownItem_Spinner:I = 0x7f0f01b4
+    :cond_13
+    move v13, v5
 
-.field public static final Widget_AppCompat_Light_ListPopupWindow:I = 0x7f0f01b5
+    move v14, v6
 
-.field public static final Widget_AppCompat_Light_ListView_DropDown:I = 0x7f0f01b6
+    goto/16 :goto_4
 
-.field public static final Widget_AppCompat_Light_PopupMenu:I = 0x7f0f01b7
+    :cond_14
+    move v15, v6
 
-.field public static final Widget_AppCompat_Light_PopupMenu_Overflow:I = 0x7f0f01b8
+    move v6, v7
 
-.field public static final Widget_AppCompat_Light_SearchView:I = 0x7f0f01b9
+    goto/16 :goto_3
+.end method
 
-.field public static final Widget_AppCompat_Light_Spinner_DropDown_ActionBar:I = 0x7f0f01ba
+.method private static a([CICIZI)I
+    .locals 4
 
-.field public static final Widget_AppCompat_ListPopupWindow:I = 0x7f0f01bb
+    .prologue
+    .line 53
+    if-nez p4, :cond_0
 
-.field public static final Widget_AppCompat_ListView_DropDown:I = 0x7f0f01bc
+    if-lez p1, :cond_6
 
-.field public static final Widget_AppCompat_ListView_Menu:I = 0x7f0f01bd
+    .line 55
+    :cond_0
+    if-eqz p4, :cond_1
 
-.field public static final Widget_AppCompat_PopupMenu:I = 0x7f0f01be
+    const/4 v0, 0x3
 
-.field public static final Widget_AppCompat_PopupMenu_Overflow:I = 0x7f0f01bf
+    if-ge p5, v0, :cond_2
 
-.field public static final Widget_AppCompat_PopupWindow:I = 0x7f0f01c0
+    :cond_1
+    const/16 v0, 0x63
 
-.field public static final Widget_AppCompat_ProgressBar:I = 0x7f0f01c1
+    if-le p1, v0, :cond_7
 
-.field public static final Widget_AppCompat_ProgressBar_Horizontal:I = 0x7f0f01c2
+    .line 56
+    :cond_2
+    div-int/lit8 v1, p1, 0x64
 
-.field public static final Widget_AppCompat_RatingBar:I = 0x7f0f01c3
+    .line 57
+    add-int/lit8 v0, v1, 0x30
 
-.field public static final Widget_AppCompat_SearchView:I = 0x7f0f01c4
+    int-to-char v0, v0
 
-.field public static final Widget_AppCompat_Spinner:I = 0x7f0f01c5
+    aput-char v0, p0, p3
 
-.field public static final Widget_AppCompat_Spinner_DropDown:I = 0x7f0f01c6
+    .line 58
+    add-int/lit8 v0, p3, 0x1
 
-.field public static final Widget_AppCompat_Spinner_DropDown_ActionBar:I = 0x7f0f01c7
+    .line 59
+    mul-int/lit8 v1, v1, 0x64
 
-.field public static final Widget_AppCompat_Spinner_Underlined:I = 0x7f0f01c8
+    sub-int v1, p1, v1
 
-.field public static final Widget_AppCompat_TextView_SpinnerItem:I = 0x7f0f01c9
+    .line 61
+    :goto_0
+    if-eqz p4, :cond_3
 
-.field public static final Widget_AppCompat_Toolbar:I = 0x7f0f01ca
+    const/4 v2, 0x2
 
-.field public static final Widget_AppCompat_Toolbar_Button_Navigation:I = 0x7f0f01cb
+    if-ge p5, v2, :cond_4
+
+    :cond_3
+    const/16 v2, 0x9
+
+    if-gt v1, v2, :cond_4
+
+    if-eq p3, v0, :cond_5
+
+    .line 62
+    :cond_4
+    div-int/lit8 v2, v1, 0xa
+
+    .line 63
+    add-int/lit8 v3, v2, 0x30
+
+    int-to-char v3, v3
+
+    aput-char v3, p0, v0
+
+    .line 64
+    add-int/lit8 v0, v0, 0x1
+
+    .line 65
+    mul-int/lit8 v2, v2, 0xa
+
+    sub-int/2addr v1, v2
+
+    .line 67
+    :cond_5
+    add-int/lit8 v1, v1, 0x30
+
+    int-to-char v1, v1
+
+    aput-char v1, p0, v0
+
+    .line 68
+    add-int/lit8 v0, v0, 0x1
+
+    .line 69
+    aput-char p2, p0, v0
+
+    .line 70
+    add-int/lit8 p3, v0, 0x1
+
+    .line 72
+    :cond_6
+    return p3
+
+    :cond_7
+    move v0, p3
+
+    move v1, p1
+
+    goto :goto_0
+.end method
+
+.method public static a(JJLjava/io/PrintWriter;)V
+    .locals 4
+
+    .prologue
+    .line 169
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p0, v0
+
+    if-nez v0, :cond_0
+
+    .line 170
+    const-string/jumbo v0, "--"
+
+    invoke-virtual {p4, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 174
+    :goto_0
+    return-void
+
+    .line 173
+    :cond_0
+    sub-long v0, p0, p2
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, p4, v2}, Lcom/yelp/android/g/k;->a(JLjava/io/PrintWriter;I)V
+
+    goto :goto_0
+.end method
+
+.method public static a(JLjava/io/PrintWriter;)V
+    .locals 2
+
+    .prologue
+    .line 164
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, p2, v0}, Lcom/yelp/android/g/k;->a(JLjava/io/PrintWriter;I)V
+
+    .line 165
+    return-void
+.end method
+
+.method public static a(JLjava/io/PrintWriter;I)V
+    .locals 6
+
+    .prologue
+    .line 156
+    sget-object v1, Lcom/yelp/android/g/k;->a:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    .line 157
+    :try_start_0
+    invoke-static {p0, p1, p3}, Lcom/yelp/android/g/k;->a(JI)I
+
+    move-result v0
+
+    .line 158
+    new-instance v2, Ljava/lang/String;
+
+    sget-object v3, Lcom/yelp/android/g/k;->b:[C
+
+    const/4 v4, 0x0
+
+    invoke-direct {v2, v3, v4, v0}, Ljava/lang/String;-><init>([CII)V
+
+    invoke-virtual {p2, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    .line 159
+    monitor-exit v1
+
+    .line 160
+    return-void
+
+    .line 159
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+.end method

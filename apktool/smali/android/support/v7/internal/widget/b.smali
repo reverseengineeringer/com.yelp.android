@@ -1,136 +1,120 @@
-.class public Landroid/support/v7/internal/widget/b;
-.super Ljava/lang/Object;
-.source "AbsActionBarView.java"
-
-# interfaces
-.implements Landroid/support/v4/view/ex;
+.class Landroid/support/v7/internal/widget/b;
+.super Landroid/graphics/drawable/Drawable;
+.source "ActionBarBackgroundDrawable.java"
 
 
 # instance fields
-.field a:I
-
-.field final synthetic b:Landroid/support/v7/internal/widget/a;
-
-.field private c:Z
+.field final a:Landroid/support/v7/internal/widget/ActionBarContainer;
 
 
 # direct methods
-.method protected constructor <init>(Landroid/support/v7/internal/widget/a;)V
-    .locals 1
+.method public constructor <init>(Landroid/support/v7/internal/widget/ActionBarContainer;)V
+    .locals 0
 
     .prologue
-    .line 255
-    iput-object p1, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
+    .line 11
+    invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 12
+    iput-object p1, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
 
-    .line 256
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/support/v7/internal/widget/b;->c:Z
-
+    .line 13
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/support/v4/view/eh;I)Landroid/support/v7/internal/widget/b;
+.method public draw(Landroid/graphics/Canvas;)V
     .locals 1
 
     .prologue
-    .line 261
-    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
+    .line 17
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
 
-    iput-object p1, v0, Landroid/support/v7/internal/widget/a;->i:Landroid/support/v4/view/eh;
-
-    .line 262
-    iput p2, p0, Landroid/support/v7/internal/widget/b;->a:I
-
-    .line 263
-    return-object p0
-.end method
-
-.method public a(Landroid/view/View;)V
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 268
-    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
-
-    invoke-virtual {v0, v1}, Landroid/support/v7/internal/widget/a;->setVisibility(I)V
-
-    .line 269
-    iput-boolean v1, p0, Landroid/support/v7/internal/widget/b;->c:Z
-
-    .line 270
-    return-void
-.end method
-
-.method public b(Landroid/view/View;)V
-    .locals 2
-
-    .prologue
-    .line 274
-    iget-boolean v0, p0, Landroid/support/v7/internal/widget/b;->c:Z
+    iget-boolean v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->d:Z
 
     if-eqz v0, :cond_1
 
-    .line 281
+    .line 18
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
+
+    iget-object v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->c:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    .line 19
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
+
+    iget-object v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->c:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    .line 29
     :cond_0
     :goto_0
     return-void
 
-    .line 276
+    .line 22
     :cond_1
-    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->a:Landroid/graphics/drawable/Drawable;
 
-    iput-object v1, v0, Landroid/support/v7/internal/widget/a;->i:Landroid/support/v4/view/eh;
+    if-eqz v0, :cond_2
 
-    .line 277
-    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
+    .line 23
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
 
-    iget v1, p0, Landroid/support/v7/internal/widget/b;->a:I
+    iget-object v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->a:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/internal/widget/a;->setVisibility(I)V
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 278
-    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
+    .line 25
+    :cond_2
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
 
-    iget-object v0, v0, Landroid/support/v7/internal/widget/a;->e:Landroid/view/ViewGroup;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
-
-    iget-object v0, v0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
+    iget-object v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->b:Landroid/graphics/drawable/Drawable;
 
     if-eqz v0, :cond_0
 
-    .line 279
-    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->b:Landroid/support/v7/internal/widget/a;
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
 
-    iget-object v0, v0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
+    iget-boolean v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->e:Z
 
-    iget v1, p0, Landroid/support/v7/internal/widget/b;->a:I
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v1}, Landroid/support/v7/widget/ActionMenuView;->setVisibility(I)V
+    .line 26
+    iget-object v0, p0, Landroid/support/v7/internal/widget/b;->a:Landroid/support/v7/internal/widget/ActionBarContainer;
+
+    iget-object v0, v0, Landroid/support/v7/internal/widget/ActionBarContainer;->b:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 .end method
 
-.method public c(Landroid/view/View;)V
+.method public getOpacity()I
     .locals 1
 
     .prologue
-    .line 285
-    const/4 v0, 0x1
+    .line 41
+    const/4 v0, 0x0
 
-    iput-boolean v0, p0, Landroid/support/v7/internal/widget/b;->c:Z
+    return v0
+.end method
 
-    .line 286
+.method public setAlpha(I)V
+    .locals 0
+
+    .prologue
+    .line 33
+    return-void
+.end method
+
+.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+    .locals 0
+
+    .prologue
+    .line 37
     return-void
 .end method

@@ -439,7 +439,7 @@
     :cond_a
     const-string/jumbo v1, "ns_st_sv"
 
-    const-string/jumbo v2, "4.1502.26"
+    const-string/jumbo v2, "4.1508.28"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -703,13 +703,13 @@
 
     iget-object v0, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/comscore/streaming/a;->l:Lcom/comscore/streaming/k;
 
-    invoke-virtual {v0, v1, p3, p4}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, p3, p4}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method
@@ -1641,7 +1641,7 @@
 
     iget-object v0, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
@@ -1651,7 +1651,7 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 .end method
@@ -1735,13 +1735,13 @@
 
     iget-object v2, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v2}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v2}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/comscore/streaming/a;->m:Ljava/lang/Runnable;
 
-    invoke-virtual {v2, v3, v0, v1}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v2, v3, v0, v1}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 
@@ -1888,7 +1888,7 @@
 
     iget-object v0, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
@@ -1904,7 +1904,7 @@
 
     int-to-long v5, v5
 
-    invoke-virtual/range {v0 .. v6}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;JZJ)Z
+    invoke-virtual/range {v0 .. v6}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;JZJ)Z
 
     goto :goto_0
 .end method
@@ -1935,13 +1935,13 @@
 
     iget-object v0, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/comscore/streaming/a;->k:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 
@@ -1976,13 +1976,13 @@
 
     iget-object v0, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/comscore/streaming/a;->m:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 
@@ -2074,13 +2074,13 @@
 
     iget-object v0, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/comscore/streaming/a;->i:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 
@@ -2115,13 +2115,13 @@
 
     iget-object v0, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v0}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/comscore/streaming/a;->l:Lcom/comscore/streaming/k;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/an/a;->b(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/at/a;->b(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 
@@ -2527,7 +2527,7 @@
 
     iget-object v1, p0, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v1}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/an/a;
+    invoke-virtual {v1}, Lcom/comscore/analytics/a;->s()Lcom/yelp/android/at/a;
 
     move-result-object v1
 
@@ -2537,7 +2537,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/an/a;->a(Ljava/lang/Runnable;Z)Z
+    invoke-virtual {v1, v2, v0}, Lcom/yelp/android/at/a;->a(Ljava/lang/Runnable;Z)Z
 
     goto :goto_0
 .end method

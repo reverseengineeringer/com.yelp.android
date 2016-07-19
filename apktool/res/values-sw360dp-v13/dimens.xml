@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="kahuna_inapp_button_text_size">14.0sp</dimen>
+    <dimen name="kahuna_inapp_fullscreen_message_text_size">18.0sp</dimen>
+    <dimen name="kahuna_inapp_fullscreen_single_image_height">280.0dip</dimen>
+    <dimen name="kahuna_inapp_fullscreen_title_text_bottom_margin">10.0dip</dimen>
+    <dimen name="kahuna_inapp_fullscreen_title_text_size">30.0sp</dimen>
+    <dimen name="kahuna_inapp_fullscreen_two_images_height">140.0dip</dimen>
+    <dimen name="kahuna_inapp_modal_image_size">100.0dip</dimen>
+    <dimen name="kahuna_inapp_slider_image_size">50.0dip</dimen>
+    <dimen name="kahuna_inapp_slider_message_text_size">14.0sp</dimen>
+</resources>

@@ -3,6 +3,14 @@
 .source "DynamicChannel.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/DynamicChannel$1;
+    }
+.end annotation
+
+
 # instance fields
 .field protected _embedCodes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;

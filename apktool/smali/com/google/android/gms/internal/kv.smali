@@ -1,618 +1,406 @@
-.class public Lcom/google/android/gms/internal/kv;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
+.class public final Lcom/google/android/gms/internal/kv;
+.super Lcom/google/android/gms/measurement/f;
 
 
-# static fields
-.field public static final CREATOR:Lcom/google/android/gms/internal/kw;
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/android/gms/measurement/f",
+        "<",
+        "Lcom/google/android/gms/internal/kv;",
+        ">;"
+    }
+.end annotation
 
 
 # instance fields
-.field private final CK:I
+.field private a:Ljava/lang/String;
 
-.field private final NV:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Lcom/google/android/gms/internal/kr$a",
-            "<**>;>;>;"
-        }
-    .end annotation
-.end field
+.field private b:I
 
-.field private final NW:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/google/android/gms/internal/kv$a;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private c:I
 
-.field private final NX:Ljava/lang/String;
+.field private d:Ljava/lang/String;
+
+.field private e:Ljava/lang/String;
+
+.field private f:Z
+
+.field private g:Z
+
+.field private h:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public constructor <init>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/internal/kw;
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Lcom/google/android/gms/internal/kw;-><init>()V
-
-    sput-object v0, Lcom/google/android/gms/internal/kv;->CREATOR:Lcom/google/android/gms/internal/kw;
+    invoke-direct {p0, v0}, Lcom/google/android/gms/internal/kv;-><init>(Z)V
 
     return-void
 .end method
 
-.method constructor <init>(ILjava/util/ArrayList;Ljava/lang/String;)V
+.method public constructor <init>(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/google/android/gms/internal/kv$a;",
-            ">;",
-            "Ljava/lang/String;",
-            ")V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-static {}, Lcom/google/android/gms/internal/kv;->a()I
 
-    iput p1, p0, Lcom/google/android/gms/internal/kv;->CK:I
+    move-result v0
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/kv;->NW:Ljava/util/ArrayList;
-
-    invoke-static {p2}, Lcom/google/android/gms/internal/kv;->c(Ljava/util/ArrayList;)Ljava/util/HashMap;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-static {p3}, Lcom/google/android/gms/internal/jx;->i(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/kv;->NX:Ljava/lang/String;
-
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/kv;->hX()V
+    invoke-direct {p0, p1, v0}, Lcom/google/android/gms/internal/kv;-><init>(ZI)V
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/Class;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Class",
-            "<+",
-            "Lcom/google/android/gms/internal/kr;",
-            ">;)V"
-        }
-    .end annotation
+.method public constructor <init>(ZI)V
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/google/android/gms/measurement/f;-><init>()V
 
-    const/4 v0, 0x1
+    invoke-static {p2}, Lcom/google/android/gms/common/internal/zzx;->zzbV(I)I
 
-    iput v0, p0, Lcom/google/android/gms/internal/kv;->CK:I
+    iput p2, p0, Lcom/google/android/gms/internal/kv;->b:I
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/kv;->NW:Ljava/util/ArrayList;
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/kv;->NX:Ljava/lang/String;
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/kv;->g:Z
 
     return-void
 .end method
 
-.method private static c(Ljava/util/ArrayList;)Ljava/util/HashMap;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/google/android/gms/internal/kv$a;",
-            ">;)",
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Lcom/google/android/gms/internal/kr$a",
-            "<**>;>;>;"
-        }
-    .end annotation
+.method static a()I
+    .locals 6
 
-    new-instance v2, Ljava/util/HashMap;
+    const-wide/32 v4, 0x7fffffff
 
-    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
+    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
-    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
+    move-result-object v1
 
-    move-result v3
+    invoke-virtual {v1}, Ljava/util/UUID;->getLeastSignificantBits()J
 
-    const/4 v0, 0x0
+    move-result-wide v2
 
-    move v1, v0
+    and-long/2addr v2, v4
 
-    :goto_0
-    if-ge v1, v3, :cond_0
+    long-to-int v0, v2
 
-    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/internal/kv$a;
-
-    iget-object v4, v0, Lcom/google/android/gms/internal/kv$a;->className:Ljava/lang/String;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/kv$a;->ib()Ljava/util/HashMap;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    add-int/lit8 v0, v1, 0x1
-
-    move v1, v0
-
-    goto :goto_0
+    if-eqz v0, :cond_1
 
     :cond_0
-    return-object v2
+    :goto_0
+    return v0
+
+    :cond_1
+    invoke-virtual {v1}, Ljava/util/UUID;->getMostSignificantBits()J
+
+    move-result-wide v0
+
+    and-long/2addr v0, v4
+
+    long-to-int v0, v0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "GAv4"
+
+    const-string/jumbo v1, "UUID.randomUUID() returned 0."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const v0, 0x7fffffff
+
+    goto :goto_0
+.end method
+
+.method private e()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/kv;->h:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "ScreenViewInfo is immutable"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    return-void
 .end method
 
 
 # virtual methods
-.method public a(Ljava/lang/Class;Ljava/util/HashMap;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Class",
-            "<+",
-            "Lcom/google/android/gms/internal/kr;",
-            ">;",
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Lcom/google/android/gms/internal/kr$a",
-            "<**>;>;)V"
-        }
-    .end annotation
+.method public a(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
+    invoke-direct {p0}, Lcom/google/android/gms/internal/kv;->e()V
 
-    invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    iput p1, p0, Lcom/google/android/gms/internal/kv;->b:I
 
     return-void
 .end method
 
-.method public b(Ljava/lang/Class;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Class",
-            "<+",
-            "Lcom/google/android/gms/internal/kr;",
-            ">;)Z"
-        }
-    .end annotation
+.method public a(Lcom/google/android/gms/internal/kv;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->a:Ljava/lang/String;
 
-    invoke-virtual {p1}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    return v0
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->a:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/kv;->a(Ljava/lang/String;)V
+
+    :cond_0
+    iget v0, p0, Lcom/google/android/gms/internal/kv;->b:I
+
+    if-eqz v0, :cond_1
+
+    iget v0, p0, Lcom/google/android/gms/internal/kv;->b:I
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/kv;->a(I)V
+
+    :cond_1
+    iget v0, p0, Lcom/google/android/gms/internal/kv;->c:I
+
+    if-eqz v0, :cond_2
+
+    iget v0, p0, Lcom/google/android/gms/internal/kv;->c:I
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/kv;->b(I)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->d:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->d:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/kv;->b(Ljava/lang/String;)V
+
+    :cond_3
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->e:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->e:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/kv;->c(Ljava/lang/String;)V
+
+    :cond_4
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/kv;->f:Z
+
+    if-eqz v0, :cond_5
+
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/kv;->f:Z
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/kv;->b(Z)V
+
+    :cond_5
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/kv;->g:Z
+
+    if-eqz v0, :cond_6
+
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/kv;->g:Z
+
+    invoke-virtual {p1, v0}, Lcom/google/android/gms/internal/kv;->a(Z)V
+
+    :cond_6
+    return-void
 .end method
 
-.method public bg(Ljava/lang/String;)Ljava/util/HashMap;
+.method public bridge synthetic a(Lcom/google/android/gms/measurement/f;)V
+    .locals 0
+
+    check-cast p1, Lcom/google/android/gms/internal/kv;
+
+    invoke-virtual {p0, p1}, Lcom/google/android/gms/internal/kv;->a(Lcom/google/android/gms/internal/kv;)V
+
+    return-void
+.end method
+
+.method public a(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/kv;->e()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/kv;->a:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public a(Z)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/kv;->e()V
+
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/kv;->g:Z
+
+    return-void
+.end method
+
+.method public b()Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            ")",
-            "Ljava/util/HashMap",
-            "<",
-            "Ljava/lang/String;",
-            "Lcom/google/android/gms/internal/kr$a",
-            "<**>;>;"
-        }
-    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->a:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public describeContents()I
+.method public b(I)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/kv;->e()V
+
+    iput p1, p0, Lcom/google/android/gms/internal/kv;->c:I
+
+    return-void
+.end method
+
+.method public b(Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/kv;->e()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/kv;->d:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public b(Z)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/kv;->e()V
+
+    iput-boolean p1, p0, Lcom/google/android/gms/internal/kv;->f:Z
+
+    return-void
+.end method
+
+.method public c()I
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/internal/kv;->CREATOR:Lcom/google/android/gms/internal/kw;
-
-    const/4 v0, 0x0
+    iget v0, p0, Lcom/google/android/gms/internal/kv;->b:I
 
     return v0
 .end method
 
-.method getVersionCode()I
+.method public c(Ljava/lang/String;)V
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/internal/kv;->CK:I
+    invoke-direct {p0}, Lcom/google/android/gms/internal/kv;->e()V
 
-    return v0
-.end method
-
-.method public hX()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :cond_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/HashMap;
-
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/android/gms/internal/kr$a;
-
-    invoke-virtual {v1, p0}, Lcom/google/android/gms/internal/kr$a;->a(Lcom/google/android/gms/internal/kv;)V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method public hY()V
-    .locals 7
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/HashMap;
-
-    new-instance v5, Ljava/util/HashMap;
-
-    invoke-direct {v5}, Ljava/util/HashMap;-><init>()V
-
-    invoke-virtual {v1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :goto_1
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/google/android/gms/internal/kr$a;
-
-    invoke-virtual {v3}, Lcom/google/android/gms/internal/kr$a;->hN()Lcom/google/android/gms/internal/kr$a;
-
-    move-result-object v3
-
-    invoke-virtual {v5, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_1
-
-    :cond_0
-    iget-object v1, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v0, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method hZ()Ljava/util/ArrayList;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/google/android/gms/internal/kv$a;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const/4 v0, 0x0
 
-    move-result-object v0
+    iput-object v0, p0, Lcom/google/android/gms/internal/kv;->e:Ljava/lang/String;
 
-    check-cast v0, Ljava/lang/String;
-
-    new-instance v4, Lcom/google/android/gms/internal/kv$a;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/util/HashMap;
-
-    invoke-direct {v4, v0, v1}, Lcom/google/android/gms/internal/kv$a;-><init>(Ljava/lang/String;Ljava/util/HashMap;)V
-
-    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
+    :goto_0
+    return-void
 
     :cond_0
-    return-object v2
+    iput-object p1, p0, Lcom/google/android/gms/internal/kv;->e:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
-.method public ia()Ljava/lang/String;
+.method public d()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NX:Ljava/lang/String;
+    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->e:Ljava/lang/String;
 
     return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 7
+    .locals 3
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/util/HashMap;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
+    const-string/jumbo v1, "screenName"
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    iget-object v2, p0, Lcom/google/android/gms/internal/kv;->a:Ljava/lang/String;
 
-    move-result-object v0
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    const-string/jumbo v1, "interstitial"
 
-    move-result-object v3
+    iget-boolean v2, p0, Lcom/google/android/gms/internal/kv;->f:Z
 
-    :cond_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result v0
+    move-result-object v2
 
-    if-eqz v0, :cond_1
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const-string/jumbo v1, "automatic"
 
-    move-result-object v0
+    iget-boolean v2, p0, Lcom/google/android/gms/internal/kv;->g:Z
 
-    check-cast v0, Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v4, ":\n"
+    const-string/jumbo v1, "screenId"
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v2, p0, Lcom/google/android/gms/internal/kv;->b:I
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/kv;->NV:Ljava/util/HashMap;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Ljava/util/HashMap;
+    const-string/jumbo v1, "referrerScreenId"
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+    iget v2, p0, Lcom/google/android/gms/internal/kv;->c:I
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    move-result-object v2
 
-    move-result-object v4
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    const-string/jumbo v1, "referrerScreenName"
 
-    move-result v1
+    iget-object v2, p0, Lcom/google/android/gms/internal/kv;->d:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const-string/jumbo v1, "referrerUri"
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/google/android/gms/internal/kv;->e:Ljava/lang/String;
 
-    check-cast v1, Ljava/lang/String;
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string/jumbo v5, "  "
-
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string/jumbo v6, ": "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0}, Lcom/google/android/gms/internal/kv;->a(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/kv;->CREATOR:Lcom/google/android/gms/internal/kw;
-
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/internal/kw;->a(Lcom/google/android/gms/internal/kv;Landroid/os/Parcel;I)V
-
-    return-void
 .end method

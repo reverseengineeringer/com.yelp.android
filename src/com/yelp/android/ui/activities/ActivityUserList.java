@@ -3,18 +3,22 @@ package com.yelp.android.ui.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.serializable.User;
+import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
-import com.yelp.android.ui.util.cj;
+import com.yelp.android.ui.util.ap;
 import java.util.ArrayList;
 
 public class ActivityUserList
   extends YelpListActivity
 {
   private String a;
-  private cj b;
+  private ap b;
   
   public static Intent a(Context paramContext, ArrayList<User> paramArrayList, String paramString, ViewIri paramViewIri)
   {
@@ -35,11 +39,18 @@ public class ActivityUserList
     super.onCreate(paramBundle);
     setTitle(getIntent().getStringExtra("title of the activity"));
     a = getIntent().getStringExtra("iri string");
-    b = new cj();
+    b = new ap();
     b.a(getIntent().getParcelableArrayListExtra("users list"), true);
-    q().setOnItemClickListener(new eh(this));
-    q().setAdapter(b);
-    q().f();
+    r().setOnItemClickListener(new AdapterView.OnItemClickListener()
+    {
+      public void onItemClick(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong)
+      {
+        paramAnonymousAdapterView = (User)ActivityUserList.a(ActivityUserList.this).getItem(paramAnonymousInt);
+        startActivity(ActivityUserProfile.a(ActivityUserList.this, paramAnonymousAdapterView.ae()));
+      }
+    });
+    r().setAdapter(b);
+    r().f();
   }
 }
 

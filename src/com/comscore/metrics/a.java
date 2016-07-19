@@ -11,7 +11,7 @@ import com.comscore.utils.j;
 import com.comscore.utils.k;
 import com.comscore.utils.m;
 import com.comscore.utils.n;
-import com.yelp.android.al.b;
+import com.yelp.android.ar.b;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;

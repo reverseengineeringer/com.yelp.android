@@ -3,6 +3,17 @@
 .source "CustomConcurrentHashMap.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x10
+    name = "Segment"
+.end annotation
+
+
 # instance fields
 .field volatile count:I
 
@@ -121,7 +132,7 @@
     .line 842
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v2, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v2, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 843
     iget v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->count:I
@@ -137,7 +148,7 @@
     if-eqz v1, :cond_2
 
     .line 845
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v3
 
@@ -145,7 +156,7 @@
 
     .line 844
     :cond_0
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -153,7 +164,7 @@
 
     .line 849
     :cond_1
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -161,14 +172,14 @@
     if-eqz v3, :cond_0
 
     .line 854
-    invoke-interface {v2, v3, p1}, Lcom/yelp/common/collect/d;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v2, v3, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_0
 
     .line 856
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -190,7 +201,7 @@
     .line 865
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 866
     iget v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->count:I
@@ -220,7 +231,7 @@
     if-eqz v1, :cond_3
 
     .line 871
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
 
@@ -229,7 +240,7 @@
 
     .line 870
     :cond_0
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -237,7 +248,7 @@
 
     .line 880
     :cond_1
-    invoke-interface {v3, v6, p1}, Lcom/yelp/common/collect/d;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v3, v6, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -284,7 +295,7 @@
     :cond_0
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v8, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v8, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1013
     shl-int/lit8 v0, v7, 0x1
@@ -328,12 +339,12 @@
     if-eqz v4, :cond_1
 
     .line 1023
-    invoke-interface {v8, v4}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v8, v4}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     .line 1024
-    invoke-interface {v8, v4}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v8, v4}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -361,7 +372,7 @@
     if-eqz v2, :cond_3
 
     .line 1038
-    invoke-interface {v8, v2}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v8, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -374,7 +385,7 @@
 
     .line 1037
     :goto_3
-    invoke-interface {v8, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v8, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -395,7 +406,7 @@
     if-eq v0, v3, :cond_1
 
     .line 1050
-    invoke-interface {v8, v0}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v8, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -403,7 +414,7 @@
     if-eqz v1, :cond_4
 
     .line 1052
-    invoke-interface {v8, v0}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v8, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v2
 
@@ -415,7 +426,7 @@
     move-result-object v4
 
     .line 1054
-    invoke-interface {v8, v1, v0, v4}, Lcom/yelp/common/collect/d;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v8, v1, v0, v4}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -423,7 +434,7 @@
 
     .line 1049
     :cond_4
-    invoke-interface {v8, v0}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v8, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -472,9 +483,9 @@
     :cond_0
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v1, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v1, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
-    invoke-interface {v1, v0}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -495,7 +506,7 @@
     .line 811
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v1, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v1, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 812
     iget v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->count:I
@@ -511,7 +522,7 @@
     if-eqz v0, :cond_2
 
     .line 814
-    invoke-interface {v1, v0}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v2
 
@@ -519,7 +530,7 @@
 
     .line 813
     :cond_0
-    invoke-interface {v1, v0}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -527,7 +538,7 @@
 
     .line 818
     :cond_1
-    invoke-interface {v1, v0}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -535,7 +546,7 @@
     if-eqz v2, :cond_0
 
     .line 823
-    invoke-interface {v1, v2, p1}, Lcom/yelp/common/collect/d;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v1, v2, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -610,7 +621,7 @@
     .line 945
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v2, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v2, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 946
     invoke-virtual {p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->lock()V
@@ -654,12 +665,12 @@
     if-eqz v1, :cond_3
 
     .line 960
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v6
 
     .line 961
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v7
 
@@ -667,14 +678,14 @@
 
     if-eqz v6, :cond_2
 
-    invoke-interface {v2, p1, v6}, Lcom/yelp/common/collect/d;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v2, p1, v6}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v6
 
     if-eqz v6, :cond_2
 
     .line 967
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -694,7 +705,7 @@
     .line 972
     :cond_1
     :try_start_1
-    invoke-interface {v2, v1, p3}, Lcom/yelp/common/collect/d;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v2, v1, p3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -706,7 +717,7 @@
     .line 959
     :cond_2
     :try_start_2
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -721,12 +732,12 @@
     iput v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->modCount:I
 
     .line 979
-    invoke-interface {v2, p1, p2, v0}, Lcom/yelp/common/collect/d;->newEntry(Ljava/lang/Object;ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, p1, p2, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->newEntry(Ljava/lang/Object;ILjava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 980
-    invoke-interface {v2, v0, p3}, Lcom/yelp/common/collect/d;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v2, v0, p3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
 
     .line 981
     invoke-virtual {v4, v5, v0}, Ljava/util/concurrent/atomic/AtomicReferenceArray;->set(ILjava/lang/Object;)V
@@ -766,7 +777,7 @@
     .line 1066
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v4, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v4, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1067
     invoke-virtual {p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->lock()V
@@ -801,12 +812,12 @@
     if-eqz v3, :cond_3
 
     .line 1075
-    invoke-interface {v4, v3}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1076
-    invoke-interface {v4, v3}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v4, v3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v2
 
@@ -814,7 +825,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-interface {v4, v0, p1}, Lcom/yelp/common/collect/d;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v4, v0, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -823,9 +834,9 @@
     .line 1077
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
-    invoke-interface {v0, v3}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -837,7 +848,7 @@
     iput v2, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->modCount:I
 
     .line 1082
-    invoke-interface {v4, v3}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -852,7 +863,7 @@
     if-eq v2, v3, :cond_1
 
     .line 1084
-    invoke-interface {v4, v2}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v8
 
@@ -860,13 +871,13 @@
     if-eqz v8, :cond_0
 
     .line 1086
-    invoke-interface {v4, v8, v2, v1}, Lcom/yelp/common/collect/d;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v8, v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 1083
     :cond_0
-    invoke-interface {v4, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -890,7 +901,7 @@
     .line 1074
     :cond_2
     :try_start_1
-    invoke-interface {v4, v3}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -926,7 +937,7 @@
     .line 1104
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1105
     invoke-virtual {p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->lock()V
@@ -961,12 +972,12 @@
     if-eqz v2, :cond_5
 
     .line 1113
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
     .line 1114
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v8
 
@@ -974,7 +985,7 @@
 
     if-eqz v7, :cond_4
 
-    invoke-interface {v3, v7, p1}, Lcom/yelp/common/collect/d;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v3, v7, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -983,9 +994,9 @@
     .line 1115
     iget-object v7, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v7, v7, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v7, v7, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
-    invoke-interface {v7, v2}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v7, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -996,7 +1007,7 @@
 
     if-eqz v7, :cond_3
 
-    invoke-interface {v3, v7, p3}, Lcom/yelp/common/collect/d;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v3, v7, p3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -1011,7 +1022,7 @@
     iput v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->modCount:I
 
     .line 1123
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1020,7 +1031,7 @@
     if-eq v1, v2, :cond_2
 
     .line 1125
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -1028,13 +1039,13 @@
     if-eqz v7, :cond_1
 
     .line 1127
-    invoke-interface {v3, v7, v1, v0}, Lcom/yelp/common/collect/d;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v7, v1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1124
     :cond_1
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1066,7 +1077,7 @@
     .line 1112
     :cond_4
     :try_start_1
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1100,7 +1111,7 @@
     .line 1190
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v3, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v3, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1191
     invoke-virtual {p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->lock()V
@@ -1135,7 +1146,7 @@
     if-eqz v2, :cond_3
 
     .line 1199
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v1
 
@@ -1155,7 +1166,7 @@
     iput v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->modCount:I
 
     .line 1204
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1170,7 +1181,7 @@
     if-eq v1, v2, :cond_1
 
     .line 1206
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -1178,13 +1189,13 @@
     if-eqz v7, :cond_0
 
     .line 1208
-    invoke-interface {v3, v7, v1, v0}, Lcom/yelp/common/collect/d;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v7, v1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1205
     :cond_0
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1211,7 +1222,7 @@
     .line 1198
     :cond_2
     :try_start_1
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1252,7 +1263,7 @@
     .line 1148
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1149
     invoke-virtual {p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->lock()V
@@ -1287,7 +1298,7 @@
     if-eqz v2, :cond_5
 
     .line 1157
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v7
 
@@ -1300,7 +1311,7 @@
     if-eqz v7, :cond_4
 
     .line 1158
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -1309,7 +1320,7 @@
 
     if-eqz p3, :cond_3
 
-    invoke-interface {v3, v7, p3}, Lcom/yelp/common/collect/d;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v3, v7, p3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -1324,7 +1335,7 @@
     iput v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->modCount:I
 
     .line 1165
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1333,7 +1344,7 @@
     if-eq v1, v2, :cond_2
 
     .line 1167
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -1341,13 +1352,13 @@
     if-eqz v7, :cond_1
 
     .line 1169
-    invoke-interface {v3, v7, v1, v0}, Lcom/yelp/common/collect/d;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v7, v1, v0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->copyEntry(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     .line 1166
     :cond_1
-    invoke-interface {v3, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1379,7 +1390,7 @@
     .line 1156
     :cond_4
     :try_start_1
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1415,7 +1426,7 @@
     .line 919
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v3, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 920
     invoke-virtual {p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->lock()V
@@ -1432,12 +1443,12 @@
     if-eqz v2, :cond_2
 
     .line 923
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 924
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v4
 
@@ -1445,14 +1456,14 @@
 
     if-eqz v1, :cond_1
 
-    invoke-interface {v3, p1, v1}, Lcom/yelp/common/collect/d;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v3, p1, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 928
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1470,7 +1481,7 @@
     .line 933
     :cond_0
     :try_start_1
-    invoke-interface {v3, v2, p3}, Lcom/yelp/common/collect/d;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v3, v2, p3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1484,7 +1495,7 @@
     .line 922
     :cond_1
     :try_start_2
-    invoke-interface {v3, v2}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v2}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -1522,7 +1533,7 @@
     .line 891
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v2, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v2, v1, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 892
     invoke-virtual {p0}, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$Segment;->lock()V
@@ -1537,12 +1548,12 @@
     if-eqz v1, :cond_2
 
     .line 895
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
     .line 896
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v4
 
@@ -1550,14 +1561,14 @@
 
     if-eqz v3, :cond_1
 
-    invoke-interface {v2, p1, v3}, Lcom/yelp/common/collect/d;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v2, p1, v3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalKeys(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
     .line 900
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1575,14 +1586,14 @@
     .line 905
     :cond_0
     :try_start_1
-    invoke-interface {v2, v3, p3}, Lcom/yelp/common/collect/d;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-interface {v2, v3, p3}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->equalValues(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
     if-eqz v3, :cond_1
 
     .line 906
-    invoke-interface {v2, v1, p4}, Lcom/yelp/common/collect/d;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
+    invoke-interface {v2, v1, p4}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->setValue(Ljava/lang/Object;Ljava/lang/Object;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1597,7 +1608,7 @@
     .line 894
     :cond_1
     :try_start_2
-    invoke-interface {v2, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 

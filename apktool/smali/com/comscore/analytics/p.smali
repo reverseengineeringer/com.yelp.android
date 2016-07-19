@@ -6,14 +6,18 @@
 
 
 # instance fields
-.field final synthetic a:Lcom/comscore/analytics/a;
+.field final synthetic a:Lcom/comscore/utils/TransmissionMode;
+
+.field final synthetic b:Lcom/comscore/analytics/a;
 
 
 # direct methods
-.method constructor <init>(Lcom/comscore/analytics/a;)V
+.method constructor <init>(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/comscore/analytics/p;->a:Lcom/comscore/analytics/a;
+    iput-object p1, p0, Lcom/comscore/analytics/p;->b:Lcom/comscore/analytics/a;
+
+    iput-object p2, p0, Lcom/comscore/analytics/p;->a:Lcom/comscore/utils/TransmissionMode;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -23,29 +27,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/comscore/analytics/p;->a:Lcom/comscore/analytics/a;
+    iget-object v0, p0, Lcom/comscore/analytics/p;->b:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->an()Z
+    iget-object v1, p0, Lcom/comscore/analytics/p;->a:Lcom/comscore/utils/TransmissionMode;
 
-    move-result v0
+    invoke-static {v0, v1}, Lcom/comscore/analytics/a;->a(Lcom/comscore/analytics/a;Lcom/comscore/utils/TransmissionMode;)V
 
-    if-eqz v0, :cond_0
-
-    :goto_0
     return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/comscore/analytics/p;->a:Lcom/comscore/analytics/a;
-
-    iget-object v0, v0, Lcom/comscore/analytics/a;->y:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
-
-    iget-object v0, p0, Lcom/comscore/analytics/p;->a:Lcom/comscore/analytics/a;
-
-    invoke-virtual {v0}, Lcom/comscore/analytics/a;->x()V
-
-    goto :goto_0
 .end method

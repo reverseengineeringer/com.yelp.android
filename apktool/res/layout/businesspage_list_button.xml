@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:background="@android:color/white" android:paddingLeft="?leftGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<LinearLayout android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/content" android:layout_width="fill_parent" android:layout_height="fill_parent" style="?sublistCell">
-        <com.yelp.android.ui.widgets.WebImageView android:id="@id/list_button_icon" android:paddingRight="?baseGapSize" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:contentDescription="@null" />
-        <ImageView android:id="@id/disclosure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="5.0dip" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
-        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/disclosure" android:layout_toRightOf="@id/list_button_icon" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true">
-            <TextView android:textAppearance="@style/LargeDarkText" android:ellipsize="end" android:id="@id/list_button_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
-            <TextView android:textAppearance="@style/StandardLightText" android:ellipsize="end" android:linksClickable="true" android:id="@id/list_button_subtitle" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+        <LinearLayout android:orientation="vertical" android:id="@id/action_content_organizer" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/action_content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.yelp.android.ui.widgets.WebImageView android:id="@id/list_button_icon" android:paddingRight="@dimen/default_base_gap_size" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:contentDescription="@null" />
+                <ImageView android:id="@id/disclosure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_small_gap_size" android:src="@drawable/arrow_graphic" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/disclosure" android:layout_toRightOf="@id/list_button_icon" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true">
+                    <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:ellipsize="end" android:id="@id/list_button_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+                    <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:ellipsize="end" android:linksClickable="true" android:id="@id/list_button_subtitle" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" />
+                </LinearLayout>
+            </RelativeLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/search_actions" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" />
         </LinearLayout>
     </com.yelp.android.ui.widgets.SpannableRelativeLayout>
 </LinearLayout>

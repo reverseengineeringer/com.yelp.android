@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_guests">
+        <item quantity="other">Voeg maximaal %1$d gasten toe</item>
+        <item quantity="one">Voeg %1$d gast toe</item>
+    </plurals>
+    <plurals name="alert_summary_count">
+        <item quantity="other">&amp;lt;b> Je hebt %1$d nieuwe meldingen&amp;lt;/b></item>
+        <item quantity="one">&amp;lt;b>Je hebt %1$d nieuwe melding&amp;lt;/b></item>
+    </plurals>
+    <plurals name="business_hours_closes_in">
+        <item quantity="other">Sluit in %1$d min</item>
+        <item quantity="one">Sluit in %1$d min</item>
+    </plurals>
+    <plurals name="business_hours_opens_in">
+        <item quantity="other">Opent in %1$d min</item>
+        <item quantity="one">Opent in %1$d min</item>
+    </plurals>
+    <plurals name="business_page_checkin_count">
+        <item quantity="other">Je hebt hier &amp;lt;b>%1$d&amp;lt;/b> check-ins</item>
+        <item quantity="one">Je hebt hier &amp;lt;b>%1$d&amp;lt;/b> check-in</item>
+    </plurals>
+    <plurals name="checkin_count">
+        <item quantity="other">%1$d check-ins</item>
+        <item quantity="one">%1$d check-in</item>
+    </plurals>
+    <plurals name="checkins_here_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> check-ins hier</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> check in hier</item>
+    </plurals>
+    <plurals name="checkins_remaining_to_unlock_offer">
+        <item quantity="other">Nog %1$d keer hier inchecken om dit aanbod te ontgrendelen</item>
+        <item quantity="one">Nog %1$d check-in om dit aanbod te ontgrendelen</item>
+    </plurals>
+    <plurals name="checkins_this_week">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> check-ins deze week</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> check-in deze week</item>
+    </plurals>
+    <plurals name="checkins_to_unlock_offer">
+        <item quantity="other">%1$d keer hier inchecken ontgrendelt dit aanbod</item>
+        <item quantity="one">Check hier in om dit aanbod te ontgrendelen</item>
+    </plurals>
+    <plurals name="discuss_this_event">
+        <item quantity="other">%1$d Yelpers hebben gereageerd op dit evenement</item>
+        <item quantity="one">Een Yelper heeft een reactie toegevoegd</item>
+    </plurals>
+    <plurals name="dollar_signs">
+        <item quantity="other">%1$s %2$s tekens</item>
+        <item quantity="one">%1$d %2$s teken</item>
+    </plurals>
+    <plurals name="dukedoms_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> Hertogdommen</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> Hertogdom</item>
+    </plurals>
+    <plurals name="embedded_formula_for_deals">
+        <item quantity="other">Deals x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> elk = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totaal</item>
+        <item quantity="one">Deal x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> elk = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totaal</item>
+    </plurals>
+    <plurals name="filter_format">
+        <item quantity="other">%1$s, en %2$s</item>
+        <item quantity="one">%2$s</item>
+    </plurals>
+    <plurals name="formula_for_deals">
+        <item quantity="other">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> Deals x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> elk = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totaal</item>
+        <item quantity="one">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> Deal x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> elk = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> totaal</item>
+    </plurals>
+    <plurals name="friend_count">
+        <item quantity="other">%1$d vrienden</item>
+        <item quantity="one">%1$d vriend</item>
+    </plurals>
+    <plurals name="friend_count_no_param">
+        <item quantity="other">Vrienden</item>
+        <item quantity="one">Vriend</item>
+    </plurals>
+    <plurals name="friend_request_alert">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> mensen willen je vriend worden!</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> wil je vriend worden!</item>
+    </plurals>
+    <plurals name="guests">
+        <item quantity="other">Gasten</item>
+        <item quantity="one">Gast</item>
+    </plurals>
+    <plurals name="media_success">
+        <item quantity="other">"Je foto's/video's zullen binnen enkele ogenblikken klaar zijn."</item>
+        <item quantity="one">Je foto/video is binnen enkele ogenblikken klaar</item>
+    </plurals>
+    <plurals name="media_success_title">
+        <item quantity="other">"Leuke foto's!"</item>
+        <item quantity="one">Leuke foto!</item>
+    </plurals>
+    <plurals name="more_highlights_count">
+        <item quantity="other">Nog %1$d hoogtepunten</item>
+        <item quantity="one">Nog %1$d hoogtepunt</item>
+    </plurals>
+    <plurals name="more_regulars_count">
+        <item quantity="other">Nog %1$d vaste klanten</item>
+        <item quantity="one">Nog %1$d vaste klant</item>
+    </plurals>
+    <plurals name="more_reviews_count">
+        <item quantity="other">Nog %1$d reviews</item>
+        <item quantity="one">Nog %1$d meer Reviews</item>
+    </plurals>
+    <plurals name="more_suggestions">
+        <item quantity="other">Bekijk %1$d andere</item>
+        <item quantity="one">Bekijk %1$d andere</item>
+    </plurals>
+    <plurals name="more_tips_count">
+        <item quantity="other">Nog %1$d Tips</item>
+        <item quantity="one">Nog %1$d Tip</item>
+    </plurals>
+    <plurals name="my_photo_feed_count">
+        <item quantity="other">"Mijn foto's"</item>
+        <item quantity="one">Mijn foto</item>
+    </plurals>
+    <plurals name="nearby_friend">
+        <item quantity="other">Vrienden in de buurt</item>
+        <item quantity="one">Vrienden in de buurt</item>
+    </plurals>
+    <plurals name="opentable_party_size">
+        <item quantity="other">%1$d mensen</item>
+        <item quantity="one">%1$d persoon</item>
+    </plurals>
+    <plurals name="people">
+        <item quantity="other">%1$d personen</item>
+        <item quantity="one">%1$d persoon</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="other">"%1$d foto's"</item>
+        <item quantity="one">%1$d foto</item>
+    </plurals>
+    <plurals name="photo_count_no_param">
+        <item quantity="other">"Foto's"</item>
+        <item quantity="one">Foto</item>
+    </plurals>
+    <plurals name="photo_feed_count">
+        <item quantity="other">"%1$d Foto's van %2$s"</item>
+        <item quantity="one">Foto van %2$s</item>
+    </plurals>
+    <plurals name="previous_reviews_title">
+        <item quantity="other">%1$d vorige reviews</item>
+        <item quantity="one">%1$d vorige review</item>
+    </plurals>
+    <plurals name="redemption_title_count">
+        <item quantity="other">Dat zijn %1$d Check-Ins bij %2$s!</item>
+        <item quantity="one">Dat was %1$d check-in bij %2$s!</item>
+    </plurals>
+    <plurals name="requesting_quote_from_providers">
+        <item quantity="other">Offertes aanvragen bij %1$s bedrijven</item>
+        <item quantity="one">Offerte aanvragen bij %1$s bedrijf</item>
+    </plurals>
+    <plurals name="review_count">
+        <item quantity="other">%1$d reviews</item>
+        <item quantity="one">%1$d Review</item>
+    </plurals>
+    <plurals name="review_count_no_param">
+        <item quantity="other">Reviews</item>
+        <item quantity="one">Review</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals">
+        <item quantity="other">Helaas, voor deze Deal geldt dat je maar %1$d Deals kan kopen</item>
+        <item quantity="one">Helaas kan je voor deze deal slechts %1$d deal aankopen</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals_for_yourself">
+        <item quantity="other">Helaas, voor deze Deal geldt dat je maar %1$d Deals voor jezelf kan kopen</item>
+        <item quantity="one">Helaas kan je voor deze deal slechts %1$d deal aankopen voor jezelf</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_gifts">
+        <item quantity="other">Helaas, voor deze Deal geldt dat je er maar %1$d cadeau kan doen</item>
+        <item quantity="one">Helaas kan je voor deze aanbieding slechts %1$d weggeven als geschenk</item>
+    </plurals>
+    <plurals name="section_label_reviews_search">
+        <item quantity="other">%1$d reviews vermelden &amp;lt;b>%2$s&amp;lt;/b></item>
+        <item quantity="one">%1$d review vermeldt &amp;lt;b>%2$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="section_not_recommended_reviews_title">
+        <item quantity="other">%1$d reviews die momenteel niet aanbevolen worden</item>
+        <item quantity="one">%1$d review die momenteel niet wordt aanbevolen</item>
+    </plurals>
+    <plurals name="show_more_events">
+        <item quantity="other">Toon resterende %1$d</item>
+        <item quantity="one">Toon resterende %1$d</item>
+    </plurals>
+    <plurals name="star_rating">
+        <item quantity="other">Sterrenwaardering: %1$s sterren</item>
+        <item quantity="one">Sterrenwaardering: %1$s ster</item>
+    </plurals>
+    <plurals name="these_and_others">
+        <item quantity="other">%1$s en %2$s andere</item>
+        <item quantity="one">%1$s en %2$d andere</item>
+    </plurals>
+    <plurals name="translated_reviews_title">
+        <item quantity="other">Vertaalde reviews</item>
+        <item quantity="one">Vertaalde review</item>
+    </plurals>
+    <plurals name="ufc_label">
+        <item quantity="other">&amp;lt;b>%1$s&amp;lt;/b> (%2$d)</item>
+        <item quantity="one">&amp;lt;b>%1$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="using_machine_translation">
+        <item quantity="other">We gebruiken vertaalmachines om deze reviews te vertalen. Gelieve ons te verontschuldigen als het resultaat niet perfect is.</item>
+        <item quantity="one">We gebruiken een vertaalmachine om deze review te vertalen. Gelieve ons te verontschuldigen als de resultaten niet optimaal zijn.</item>
+    </plurals>
+    <plurals name="video_count">
+        <item quantity="other">"%1$d video's"</item>
+        <item quantity="one">%1$d video</item>
+    </plurals>
+    <plurals name="video_count_no_param">
+        <item quantity="other">"Video's"</item>
+        <item quantity="one">Video</item>
+    </plurals>
+    <plurals name="we_found_alternate_businesses_with_request_a_quote">
+        <item quantity="other">Het is bij %2$s niet mogelijk om via Yelp een offerte aan te vragen. We hebben echter %1$s dienstverleners gevonden die mogelijk op je vraag kunnen reageren.</item>
+        <item quantity="one">Het is bij %2$s niet mogelijk om via Yelp een offerte aan te vragen. We hebben echter %1$s dienstverlener gevonden die mogelijk op je vraag kan reageren.</item>
+    </plurals>
+    <plurals name="we_found_suggested_businesses">
+        <item quantity="other">We hebben nog %1$s bedrijven gevonden die actief zijn in je omgeving en mogelijk op je aanvraag kunnen reageren.</item>
+        <item quantity="one">We hebben nog %1$s bedrijf gevonden dat actief is in je omgeving en mogelijk op je aanvraag kan reageren.</item>
+    </plurals>
+    <plurals name="write_review_stars">
+        <item quantity="other">%1$d sterren</item>
+        <item quantity="one">%1$d ster</item>
+    </plurals>
+    <plurals name="x_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>%2$s&amp;lt;/b> en %1$d anderen vinden dit leuk</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> en %1$d andere vinden dit leuk</item>
+    </plurals>
+    <plurals name="x_comments">
+        <item quantity="other">%1$d reacties</item>
+        <item quantity="one">%1$d reactie</item>
+    </plurals>
+    <plurals name="x_comments_caps">
+        <item quantity="other">%1$d reacties</item>
+        <item quantity="one">%1$d reactie</item>
+    </plurals>
+    <plurals name="x_compliments">
+        <item quantity="other">%1$d complimenten</item>
+        <item quantity="one">%1$d compliment</item>
+    </plurals>
+    <plurals name="x_feet">
+        <item quantity="other">%1$s voeten</item>
+        <item quantity="one">%1$s voet</item>
+    </plurals>
+    <plurals name="x_feet_away">
+        <item quantity="other">%1$s voeten vederop</item>
+        <item quantity="one">%1$s voet verderop</item>
+    </plurals>
+    <plurals name="x_feet_short">
+        <item quantity="other">%1$s voeten</item>
+        <item quantity="one">%1$s voeten</item>
+    </plurals>
+    <plurals name="x_kilometers">
+        <item quantity="other">%1$s kilometers</item>
+        <item quantity="one">%1$s kilometer</item>
+    </plurals>
+    <plurals name="x_kilometers_away">
+        <item quantity="other">op %1$s kilometers afstand</item>
+        <item quantity="one">%1$s kilometer verderop</item>
+    </plurals>
+    <plurals name="x_kilometers_short">
+        <item quantity="other">%1$s km</item>
+        <item quantity="one">%1$s km</item>
+    </plurals>
+    <plurals name="x_likes">
+        <item quantity="other">%1$d vinden dit leuk</item>
+        <item quantity="one">%1$d leuk</item>
+    </plurals>
+    <plurals name="x_likes_caps">
+        <item quantity="other">%1$d keer leuk gevonden</item>
+        <item quantity="one">%1$d keer leuk gevonden</item>
+    </plurals>
+    <plurals name="x_meters">
+        <item quantity="other">%1$s meter</item>
+        <item quantity="one">%1$s meter</item>
+    </plurals>
+    <plurals name="x_meters_away">
+        <item quantity="other">%1$s meter verderop</item>
+        <item quantity="one">%1$s meter verderop</item>
+    </plurals>
+    <plurals name="x_meters_short">
+        <item quantity="other">%1$s m</item>
+        <item quantity="one">%1$s m</item>
+    </plurals>
+    <plurals name="x_miles">
+        <item quantity="other">%1$s mijlen</item>
+        <item quantity="one">%1$s mijl</item>
+    </plurals>
+    <plurals name="x_miles_away">
+        <item quantity="other">op %1$s mijlen afstand</item>
+        <item quantity="one">%1$s mijl verderop</item>
+    </plurals>
+    <plurals name="x_miles_short">
+        <item quantity="other">%1$s mi</item>
+        <item quantity="one">%1$s mi</item>
+    </plurals>
+    <plurals name="x_people_like_this">
+        <item quantity="other">%1$d mensen vinden dit leuk</item>
+        <item quantity="one">%1$d persoon vindt dit leuk</item>
+    </plurals>
+    <plurals name="you_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>Jij&amp;lt;/b> en %1$d anderen vinden dit leuk</item>
+        <item quantity="one">&amp;lt;b>Jij&amp;lt;/b> en %1$d vinden dit leuk</item>
+    </plurals>
+</resources>

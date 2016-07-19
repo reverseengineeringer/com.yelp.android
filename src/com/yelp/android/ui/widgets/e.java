@@ -1,17 +1,38 @@
 package com.yelp.android.ui.widgets;
 
+import android.graphics.Rect;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import com.yelp.android.ui.util.dd;
+import android.view.ViewStub;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.ImageView;
+import android.widget.ListView;
 
-class e
-  extends dd
+public class e
 {
-  e(b paramb, View paramView) {}
+  private Rect a;
+  private int b;
+  private View c;
+  private ImageView d;
+  private ListView e;
+  private final AbsListView.OnScrollListener f = new e.1(this);
   
-  public void onAnimationEnd(Animation paramAnimation)
+  public e(ListView paramListView, int paramInt)
   {
-    a.postDelayed(new f(this), 2000L);
+    e = paramListView;
+    a = new Rect();
+    c = LayoutInflater.from(paramListView.getContext()).inflate(2130903272, e, false);
+    paramListView = (ViewStub)c.findViewById(2131690331);
+    paramListView.setLayoutResource(paramInt);
+    paramListView.inflate();
+    e.addHeaderView(c);
+    d = ((ImageView)c.findViewById(2131689747));
+    e.setOnScrollListener(f);
+  }
+  
+  public View a()
+  {
+    return c;
   }
 }
 

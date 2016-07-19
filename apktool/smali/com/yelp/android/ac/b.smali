@@ -1,125 +1,118 @@
 .class public Lcom/yelp/android/ac/b;
 .super Ljava/lang/Object;
-.source "GifBitmapWrapperResource.java"
+.source "MediaStoreStreamLoader.java"
 
 # interfaces
-.implements Lcom/bumptech/glide/load/engine/t;
+.implements Lcom/yelp/android/aa/l;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/engine/t",
+        "Lcom/yelp/android/aa/l",
         "<",
-        "Lcom/yelp/android/ac/a;",
+        "Landroid/net/Uri;",
+        "Ljava/io/InputStream;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field private final a:Lcom/yelp/android/ac/a;
+.field private final a:Landroid/content/Context;
+
+.field private final b:Lcom/yelp/android/aa/l;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/aa/l",
+            "<",
+            "Landroid/net/Uri;",
+            "Ljava/io/InputStream;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/ac/a;)V
-    .locals 2
+.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/aa/l;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Lcom/yelp/android/aa/l",
+            "<",
+            "Landroid/net/Uri;",
+            "Ljava/io/InputStream;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
-    .line 14
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 15
-    if-nez p1, :cond_0
+    .line 25
+    iput-object p1, p0, Lcom/yelp/android/ac/b;->a:Landroid/content/Context;
 
-    .line 16
-    new-instance v0, Ljava/lang/NullPointerException;
+    .line 26
+    iput-object p2, p0, Lcom/yelp/android/ac/b;->b:Lcom/yelp/android/aa/l;
 
-    const-string/jumbo v1, "Data must not be null"
-
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 18
-    :cond_0
-    iput-object p1, p0, Lcom/yelp/android/ac/b;->a:Lcom/yelp/android/ac/a;
-
-    .line 19
+    .line 27
     return-void
 .end method
 
 
 # virtual methods
-.method public a()Lcom/yelp/android/ac/a;
-    .locals 1
+.method public a(Landroid/net/Uri;II)Lcom/yelp/android/w/c;
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/net/Uri;",
+            "II)",
+            "Lcom/yelp/android/w/c",
+            "<",
+            "Ljava/io/InputStream;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 23
-    iget-object v0, p0, Lcom/yelp/android/ac/b;->a:Lcom/yelp/android/ac/a;
+    .line 31
+    new-instance v0, Lcom/yelp/android/w/i;
+
+    iget-object v1, p0, Lcom/yelp/android/ac/b;->a:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/yelp/android/ac/b;->b:Lcom/yelp/android/aa/l;
+
+    invoke-interface {v2, p1, p2, p3}, Lcom/yelp/android/aa/l;->a(Ljava/lang/Object;II)Lcom/yelp/android/w/c;
+
+    move-result-object v3
+
+    move-object v2, p1
+
+    move v4, p2
+
+    move v5, p3
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/w/i;-><init>(Landroid/content/Context;Landroid/net/Uri;Lcom/yelp/android/w/c;II)V
 
     return-object v0
 .end method
 
-.method public synthetic b()Ljava/lang/Object;
+.method public bridge synthetic a(Ljava/lang/Object;II)Lcom/yelp/android/w/c;
     .locals 1
 
     .prologue
-    .line 11
-    invoke-virtual {p0}, Lcom/yelp/android/ac/b;->a()Lcom/yelp/android/ac/a;
+    .line 20
+    check-cast p1, Landroid/net/Uri;
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/android/ac/b;->a(Landroid/net/Uri;II)Lcom/yelp/android/w/c;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method public c()I
-    .locals 1
-
-    .prologue
-    .line 28
-    iget-object v0, p0, Lcom/yelp/android/ac/b;->a:Lcom/yelp/android/ac/a;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ac/a;->a()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public d()V
-    .locals 1
-
-    .prologue
-    .line 33
-    iget-object v0, p0, Lcom/yelp/android/ac/b;->a:Lcom/yelp/android/ac/a;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ac/a;->b()Lcom/bumptech/glide/load/engine/t;
-
-    move-result-object v0
-
-    .line 34
-    if-eqz v0, :cond_0
-
-    .line 35
-    invoke-interface {v0}, Lcom/bumptech/glide/load/engine/t;->d()V
-
-    .line 37
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ac/b;->a:Lcom/yelp/android/ac/a;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ac/a;->c()Lcom/bumptech/glide/load/engine/t;
-
-    move-result-object v0
-
-    .line 38
-    if-eqz v0, :cond_1
-
-    .line 39
-    invoke-interface {v0}, Lcom/bumptech/glide/load/engine/t;->d()V
-
-    .line 41
-    :cond_1
-    return-void
 .end method

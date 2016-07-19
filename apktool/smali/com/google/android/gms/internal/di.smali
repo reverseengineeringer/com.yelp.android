@@ -1,757 +1,333 @@
-.class public Lcom/google/android/gms/internal/di;
+.class public final Lcom/google/android/gms/internal/di;
 .super Ljava/lang/Object;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
-# static fields
-.field static final rk:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
 # instance fields
-.field private li:I
+.field public final a:Ljava/lang/String;
 
-.field private lj:I
+.field public final b:Ljava/lang/String;
 
-.field private final mContext:Landroid/content/Context;
-
-.field private final mo:Lcom/google/android/gms/internal/gu;
-
-.field private final rd:Ljava/util/Map;
+.field public final c:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Map",
+            "Ljava/util/List",
             "<",
-            "Ljava/lang/String;",
             "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private rl:I
+.field public final d:Ljava/lang/String;
 
-.field private rm:I
+.field public final e:Ljava/lang/String;
 
-.field private rn:Z
+.field public final f:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private ro:Ljava/lang/String;
+.field public final g:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final h:Ljava/lang/String;
+
+.field public final i:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final j:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final k:Ljava/lang/String;
+
+.field public final l:Ljava/lang/String;
+
+.field public final m:Ljava/lang/String;
+
+.field public final n:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final o:Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
-
-    new-instance v0, Ljava/util/HashSet;
-
-    const/4 v1, 0x7
-
-    new-array v1, v1, [Ljava/lang/String;
-
-    const/4 v2, 0x0
-
-    const-string/jumbo v3, "top-left"
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x1
-
-    const-string/jumbo v3, "top-right"
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x2
-
-    const-string/jumbo v3, "top-center"
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x3
-
-    const-string/jumbo v3, "center"
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x4
-
-    const-string/jumbo v3, "bottom-left"
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x5
-
-    const-string/jumbo v3, "bottom-right"
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x6
-
-    const-string/jumbo v3, "bottom-center"
-
-    aput-object v3, v1, v2
-
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
-
-    sput-object v0, Lcom/google/android/gms/internal/di;->rk:Ljava/util/Set;
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/google/android/gms/internal/gu;Ljava/util/Map;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
+.method public constructor <init>(Lorg/json/JSONObject;)V
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Lcom/google/android/gms/internal/gu;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;)V"
+            Lorg/json/JSONException;
         }
     .end annotation
 
     const/4 v1, 0x0
 
-    const/4 v0, -0x1
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v0, p0, Lcom/google/android/gms/internal/di;->li:I
+    const-string/jumbo v0, "id"
 
-    iput v0, p0, Lcom/google/android/gms/internal/di;->lj:I
-
-    iput v1, p0, Lcom/google/android/gms/internal/di;->rl:I
-
-    iput v1, p0, Lcom/google/android/gms/internal/di;->rm:I
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/di;->rn:Z
-
-    const-string/jumbo v0, "top-right"
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/di;->ro:Ljava/lang/String;
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
-
-    iput-object p2, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    invoke-virtual {p1}, Lcom/google/android/gms/internal/gu;->dI()Landroid/content/Context;
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->b:Ljava/lang/String;
 
-    return-void
-.end method
+    const-string/jumbo v0, "adapters"
 
-.method private bQ()V
-    .locals 3
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
+    move-result-object v2
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gi;->t(Landroid/content/Context;)[I
+    new-instance v3, Ljava/util/ArrayList;
 
-    move-result-object v1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v2, "width"
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/CharSequence;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    invoke-direct {v3, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v2, "width"
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gi;->M(Ljava/lang/String;)I
-
-    move-result v0
-
-    const/4 v2, 0x0
-
-    aget v2, v1, v2
-
-    invoke-virtual {p0, v0, v2}, Lcom/google/android/gms/internal/di;->b(II)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    iput v0, p0, Lcom/google/android/gms/internal/di;->li:I
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v2, "height"
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/CharSequence;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v2, "height"
-
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gi;->M(Ljava/lang/String;)I
-
-    move-result v0
-
-    const/4 v2, 0x1
-
-    aget v1, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Lcom/google/android/gms/internal/di;->c(II)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iput v0, p0, Lcom/google/android/gms/internal/di;->lj:I
-
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v1, "offsetX"
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/CharSequence;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v1, "offsetX"
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gi;->M(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/google/android/gms/internal/di;->rl:I
-
-    :cond_2
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v1, "offsetY"
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/CharSequence;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v1, "offsetY"
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gi;->M(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/google/android/gms/internal/di;->rm:I
-
-    :cond_3
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v1, "allowOffscreen"
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/CharSequence;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v1, "allowOffscreen"
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/di;->rn:Z
-
-    :cond_4
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->rd:Ljava/util/Map;
-
-    const-string/jumbo v1, "customClosePosition"
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_5
-
-    sget-object v1, Lcom/google/android/gms/internal/di;->rk:Ljava/util/Set;
-
-    invoke-interface {v1, v0}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/di;->ro:Ljava/lang/String;
-
-    :cond_5
-    return-void
-.end method
-
-
-# virtual methods
-.method b(II)Z
-    .locals 1
-
-    const/16 v0, 0x32
-
-    if-lt p1, v0, :cond_0
-
-    if-ge p1, p2, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_0
-.end method
-
-.method bR()Z
-    .locals 2
-
-    const/4 v1, -0x1
-
-    iget v0, p0, Lcom/google/android/gms/internal/di;->li:I
-
-    if-le v0, v1, :cond_0
-
-    iget v0, p0, Lcom/google/android/gms/internal/di;->lj:I
-
-    if-le v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
     :goto_0
-    return v0
+    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+
+    move-result v4
+
+    if-ge v0, v4, :cond_0
+
+    invoke-virtual {v2, v0}, Lorg/json/JSONArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method bS()V
-    .locals 3
-
-    :try_start_0
-    new-instance v0, Lorg/json/JSONObject;
-
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
-
-    const-string/jumbo v1, "x"
-
-    iget v2, p0, Lcom/google/android/gms/internal/di;->rl:I
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-static {v3}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
     move-result-object v0
 
-    const-string/jumbo v1, "y"
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->c:Ljava/util/List;
 
-    iget v2, p0, Lcom/google/android/gms/internal/di;->rm:I
+    const-string/jumbo v0, "allocation_id"
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "width"
-
-    iget v2, p0, Lcom/google/android/gms/internal/di;->li:I
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v1, "height"
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->d:Ljava/lang/String;
 
-    iget v2, p0, Lcom/google/android/gms/internal/di;->lj:I
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->r()Lcom/google/android/gms/internal/do;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
+    const-string/jumbo v2, "clickurl"
 
-    const-string/jumbo v2, "onSizeChanged"
-
-    invoke-virtual {v1, v2, v0}, Lcom/google/android/gms/internal/gu;->b(Ljava/lang/String;Lorg/json/JSONObject;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Error occured while dispatching size change."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    goto :goto_0
-.end method
-
-.method bT()V
-    .locals 3
-
-    :try_start_0
-    new-instance v0, Lorg/json/JSONObject;
-
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
-
-    const-string/jumbo v1, "state"
-
-    const-string/jumbo v2, "resized"
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, p1, v2}, Lcom/google/android/gms/internal/do;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->f:Ljava/util/List;
 
-    const-string/jumbo v2, "onStateChanged"
-
-    invoke-virtual {v1, v2, v0}, Lcom/google/android/gms/internal/gu;->b(Ljava/lang/String;Lorg/json/JSONObject;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return-void
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v1, "Error occured while dispatching state change."
-
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->b(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    goto :goto_0
-.end method
-
-.method c(II)Z
-    .locals 1
-
-    const/16 v0, 0x32
-
-    if-lt p1, v0, :cond_0
-
-    if-ge p1, p2, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public execute()V
-    .locals 7
-
-    const/4 v6, -0x1
-
-    const/4 v1, 0x0
-
-    const-string/jumbo v0, "PLEASE IMPLEMENT mraid.resize()"
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->U(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "Not an activity context. Cannot resize."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/gu;->ac()Lcom/google/android/gms/internal/ay;
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->r()Lcom/google/android/gms/internal/do;
 
     move-result-object v0
 
-    iget-boolean v0, v0, Lcom/google/android/gms/internal/ay;->oq:Z
+    const-string/jumbo v2, "imp_urls"
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v0, p1, v2}, Lcom/google/android/gms/internal/do;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
 
-    const-string/jumbo v0, "Is interstitial. Cannot resize an interstitial."
+    move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->g:Ljava/util/List;
 
-    goto :goto_0
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->r()Lcom/google/android/gms/internal/do;
 
-    :cond_1
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
+    move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/gu;->dH()Z
+    const-string/jumbo v2, "video_start_urls"
 
-    move-result v0
+    invoke-virtual {v0, p1, v2}, Lcom/google/android/gms/internal/do;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->i:Ljava/util/List;
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->r()Lcom/google/android/gms/internal/do;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "video_complete_urls"
+
+    invoke-virtual {v0, p1, v2}, Lcom/google/android/gms/internal/do;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->j:Ljava/util/List;
+
+    const-string/jumbo v0, "ad"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
 
     if-eqz v0, :cond_2
 
-    const-string/jumbo v0, "Is expanded. Cannot resize an expanded banner."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_2
-    invoke-direct {p0}, Lcom/google/android/gms/internal/di;->bQ()V
-
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/di;->bR()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    const-string/jumbo v0, "Invalid width and height options. Cannot resize."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_3
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
-
-    const-string/jumbo v2, "window"
-
-    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object v0
-
-    check-cast v0, Landroid/view/WindowManager;
-
-    new-instance v2, Landroid/util/DisplayMetrics;
-
-    invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V
-
-    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
-
-    iget v0, p0, Lcom/google/android/gms/internal/di;->li:I
-
-    invoke-static {v2, v0}, Lcom/google/android/gms/internal/gq;->a(Landroid/util/DisplayMetrics;I)I
-
-    move-result v0
-
-    add-int/lit8 v3, v0, 0x10
-
-    iget v0, p0, Lcom/google/android/gms/internal/di;->lj:I
-
-    invoke-static {v2, v0}, Lcom/google/android/gms/internal/gq;->a(Landroid/util/DisplayMetrics;I)I
-
-    move-result v0
-
-    add-int/lit8 v2, v0, 0x10
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/gu;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_4
-
-    instance-of v4, v0, Landroid/view/ViewGroup;
-
-    if-eqz v4, :cond_4
-
-    check-cast v0, Landroid/view/ViewGroup;
-
-    iget-object v4, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
-
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
-
-    :cond_4
-    new-instance v4, Landroid/widget/LinearLayout;
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
-
-    invoke-direct {v4, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v4, v1}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
-
-    new-instance v5, Landroid/widget/PopupWindow;
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
-
-    invoke-direct {v5, v0}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v5, v2}, Landroid/widget/PopupWindow;->setHeight(I)V
-
-    invoke-virtual {v5, v3}, Landroid/widget/PopupWindow;->setWidth(I)V
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/di;->rn:Z
-
-    if-nez v0, :cond_5
-
-    const/4 v0, 0x1
 
     :goto_1
-    invoke-virtual {v5, v0}, Landroid/widget/PopupWindow;->setClippingEnabled(Z)V
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->a:Ljava/lang/String;
 
-    invoke-virtual {v5, v4}, Landroid/widget/PopupWindow;->setContentView(Landroid/view/View;)V
+    const-string/jumbo v0, "data"
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    invoke-virtual {v4, v0, v6, v6}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;II)V
+    move-result-object v2
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
+    if-eqz v2, :cond_3
 
-    check-cast v0, Landroid/app/Activity;
-
-    invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+    :goto_2
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->h:Ljava/lang/String;
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v0, "class_name"
+
+    invoke-virtual {v2, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iget v2, p0, Lcom/google/android/gms/internal/di;->rl:I
+    :goto_3
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->e:Ljava/lang/String;
 
-    iget v3, p0, Lcom/google/android/gms/internal/di;->rm:I
+    const-string/jumbo v0, "html_template"
 
-    invoke-virtual {v5, v0, v1, v2, v3}, Landroid/widget/PopupWindow;->showAtLocation(Landroid/view/View;III)V
+    invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/di;->mo:Lcom/google/android/gms/internal/gu;
+    move-result-object v0
 
-    new-instance v1, Lcom/google/android/gms/internal/ay;
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->k:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/google/android/gms/internal/di;->mContext:Landroid/content/Context;
+    const-string/jumbo v0, "ad_base_url"
 
-    new-instance v3, Lcom/google/android/gms/ads/AdSize;
+    invoke-virtual {p1, v0, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    iget v4, p0, Lcom/google/android/gms/internal/di;->li:I
+    move-result-object v0
 
-    iget v5, p0, Lcom/google/android/gms/internal/di;->lj:I
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->l:Ljava/lang/String;
 
-    invoke-direct {v3, v4, v5}, Lcom/google/android/gms/ads/AdSize;-><init>(II)V
+    const-string/jumbo v0, "assets"
 
-    invoke-direct {v1, v2, v3}, Lcom/google/android/gms/internal/ay;-><init>(Landroid/content/Context;Lcom/google/android/gms/ads/AdSize;)V
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/gu;->a(Lcom/google/android/gms/internal/ay;)V
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/di;->bS()V
+    if-eqz v0, :cond_5
 
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/di;->bT()V
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
-    goto/16 :goto_0
+    move-result-object v0
 
-    :cond_5
-    move v0, v1
+    :goto_4
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->m:Ljava/lang/String;
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->r()Lcom/google/android/gms/internal/do;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "template_ids"
+
+    invoke-virtual {v0, p1, v2}, Lcom/google/android/gms/internal/do;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/di;->n:Ljava/util/List;
+
+    const-string/jumbo v0, "ad_loader_options"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_1
+    iput-object v1, p0, Lcom/google/android/gms/internal/di;->o:Ljava/lang/String;
+
+    return-void
+
+    :cond_2
+    move-object v0, v1
 
     goto :goto_1
+
+    :cond_3
+    move-object v0, v1
+
+    goto :goto_2
+
+    :cond_4
+    move-object v0, v1
+
+    goto :goto_3
+
+    :cond_5
+    move-object v0, v1
+
+    goto :goto_4
 .end method

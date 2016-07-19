@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.c;
-import android.support.v4.view.ax;
-import android.support.v4.view.n;
+import android.support.v4.view.q.e;
 import android.view.ActionProvider;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem;
@@ -14,7 +12,7 @@ import android.view.MenuItem.OnActionExpandListener;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.SubMenu;
 import android.view.View;
-import com.yelp.android.b.b;
+import com.yelp.android.e.b;
 
 public class a
   implements b
@@ -44,7 +42,7 @@ public class a
     e = paramCharSequence;
   }
   
-  public n a()
+  public android.support.v4.view.d a()
   {
     return null;
   }
@@ -54,14 +52,14 @@ public class a
     throw new UnsupportedOperationException();
   }
   
-  public b a(ax paramax)
-  {
-    return this;
-  }
-  
-  public b a(n paramn)
+  public b a(android.support.v4.view.d paramd)
   {
     throw new UnsupportedOperationException();
+  }
+  
+  public b a(q.e parame)
+  {
+    return this;
   }
   
   public b a(View paramView)
@@ -230,7 +228,7 @@ public class a
   public MenuItem setIcon(int paramInt)
   {
     k = paramInt;
-    j = c.getDrawable(l, paramInt);
+    j = android.support.v4.content.d.a(l, paramInt);
     return this;
   }
   

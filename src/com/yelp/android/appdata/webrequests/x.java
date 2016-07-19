@@ -1,30 +1,29 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
+import android.text.TextUtils;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.BusinessCategorySuggest;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-final class x
-  implements Parcelable.Creator<BusinessMediaRequest>
+public class x
+  extends b<Void, Void, List<BusinessCategorySuggest>>
 {
-  public BusinessMediaRequest a(Parcel paramParcel)
+  public x(String paramString1, String paramString2, ApiRequest.b paramb)
   {
-    String str1 = paramParcel.readString();
-    String str2 = paramParcel.readString();
-    String str3 = paramParcel.readString();
-    int i = paramParcel.readInt();
-    int j = paramParcel.readInt();
-    if (str2 != null) {
-      return BusinessMediaRequest.photosStartingAtSpecificPhoto(str1, str2, j);
+    super(ApiRequest.RequestType.GET, "business/category_suggest", paramb);
+    a("term", paramString1);
+    if (!TextUtils.isEmpty(paramString2)) {
+      a("country_code", paramString2);
     }
-    if (str3 != null) {
-      return BusinessMediaRequest.singleVideo(str1, str3);
-    }
-    return new BusinessMediaRequest(str1, i, j);
   }
   
-  public BusinessMediaRequest[] a(int paramInt)
+  public List<BusinessCategorySuggest> a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    return new BusinessMediaRequest[paramInt];
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("suggestions"), BusinessCategorySuggest.CREATOR);
   }
 }
 

@@ -3,14 +3,14 @@
 .source "WhoLikedThisCheckIn.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
+.implements Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/android/ui/activities/reviewpage/UserBadgeList;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
         "<",
         "Ljava/util/List",
         "<",
@@ -63,9 +63,13 @@
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;)",
+            "<",
+            "Ljava/lang/Void;",
+            "**>;)",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;"
+            "<",
+            "Ljava/lang/Void;",
+            "**>;"
         }
     .end annotation
 
@@ -75,7 +79,7 @@
 
     sget-object v0, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
 
-    invoke-virtual {p1, v0}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->is(Landroid/os/AsyncTask$Status;)Z
+    invoke-virtual {p1, v0}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->a(Landroid/os/AsyncTask$Status;)Z
 
     move-result v0
 
@@ -83,27 +87,27 @@
 
     .line 47
     :cond_0
-    new-instance p1, Lcom/yelp/android/appdata/webrequests/ct;
+    new-instance p1, Lcom/yelp/android/appdata/webrequests/ci;
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->a:Lcom/yelp/android/serializable/YelpCheckIn;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->r()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->s()I
 
     move-result v1
 
-    invoke-direct {p1, v0, p0, v1}, Lcom/yelp/android/appdata/webrequests/ct;-><init>(Lcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/appdata/webrequests/m;I)V
+    invoke-direct {p1, v0, p0, v1}, Lcom/yelp/android/appdata/webrequests/ci;-><init>(Lcom/yelp/android/serializable/YelpCheckIn;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;I)V
 
-    .line 52
+    .line 53
     :goto_0
     return-object p1
 
     :cond_1
     move-object v0, p1
 
-    .line 50
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/ct;
+    .line 51
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/ci;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/webrequests/ct;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/appdata/webrequests/ci;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     goto :goto_0
 .end method
@@ -123,27 +127,27 @@
     .end annotation
 
     .prologue
-    .line 62
+    .line 63
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->isFinishing()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 71
+    .line 72
     :cond_0
     :goto_0
     return-void
 
-    .line 65
+    .line 66
     :cond_1
     invoke-virtual {p0, p2}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->a(Ljava/util/List;)V
 
-    .line 66
+    .line 67
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->disableLoading()V
 
-    .line 67
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 68
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -153,8 +157,8 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->c(I)V
 
-    .line 68
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 69
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -164,18 +168,18 @@
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->a:Lcom/yelp/android/serializable/YelpCheckIn;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpCheckIn;->getFeedback()Lcom/yelp/android/serializable/Feedback;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpCheckIn;->n()Lcom/yelp/android/serializable/Feedback;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Feedback;->getPositiveFeedbackCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Feedback;->d()I
 
     move-result v1
 
     if-lt v0, v1, :cond_0
 
-    .line 69
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 70
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -188,13 +192,13 @@
     .locals 1
 
     .prologue
-    .line 75
+    .line 76
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->WhoLikedThisCheckIn:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -206,12 +210,12 @@
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -222,12 +226,12 @@
     .end annotation
 
     .prologue
-    .line 80
+    .line 81
     const-string/jumbo v0, "check_in_id"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->a:Lcom/yelp/android/serializable/YelpCheckIn;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpCheckIn;->getId()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpCheckIn;->z()Ljava/lang/String;
 
     move-result-object v1
 
@@ -260,11 +264,11 @@
     .line 38
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->a:Lcom/yelp/android/serializable/YelpCheckIn;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->getFeedback()Lcom/yelp/android/serializable/Feedback;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpCheckIn;->n()Lcom/yelp/android/serializable/Feedback;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->getPositiveFeedbackCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Feedback;->d()I
 
     move-result v0
 
@@ -294,10 +298,10 @@
     .end annotation
 
     .prologue
-    .line 57
+    .line 58
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friendcheckins/WhoLikedThisCheckIn;->finish()V
 
-    .line 58
+    .line 59
     return-void
 .end method
 

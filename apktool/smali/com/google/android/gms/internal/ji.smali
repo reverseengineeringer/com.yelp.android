@@ -1,191 +1,78 @@
-.class public abstract Lcom/google/android/gms/internal/ji;
+.class public final Lcom/google/android/gms/internal/ji;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/google/android/gms/common/internal/safeparcel/SafeParcelable;
 
 
 # static fields
-.field private static MA:Ljava/lang/ClassLoader;
+.field public static final a:Lcom/google/android/gms/common/api/Api$zzc;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/common/api/Api$zzc",
+            "<",
+            "Lcom/google/android/gms/internal/jm;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private static MB:Ljava/lang/Integer;
+.field public static final b:Lcom/google/android/gms/common/api/Api;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/common/api/Api",
+            "<",
+            "Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private static final Mz:Ljava/lang/Object;
+.field public static final c:Lcom/google/android/gms/internal/jj;
 
-
-# instance fields
-.field private MC:Z
+.field private static final d:Lcom/google/android/gms/common/api/Api$zza;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/android/gms/common/api/Api$zza",
+            "<",
+            "Lcom/google/android/gms/internal/jm;",
+            "Lcom/google/android/gms/common/api/Api$ApiOptions$NoOptions;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
-
-    const/4 v1, 0x0
-
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    sput-object v0, Lcom/google/android/gms/internal/ji;->Mz:Ljava/lang/Object;
-
-    sput-object v1, Lcom/google/android/gms/internal/ji;->MA:Ljava/lang/ClassLoader;
-
-    sput-object v1, Lcom/google/android/gms/internal/ji;->MB:Ljava/lang/Integer;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .locals 1
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ji;->MC:Z
-
-    return-void
-.end method
-
-.method private static a(Ljava/lang/Class;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Class",
-            "<*>;)Z"
-        }
-    .end annotation
 
-    const/4 v0, 0x0
+    new-instance v0, Lcom/google/android/gms/common/api/Api$zzc;
 
-    :try_start_0
-    const-string/jumbo v1, "NULL"
+    invoke-direct {v0}, Lcom/google/android/gms/common/api/Api$zzc;-><init>()V
 
-    invoke-virtual {p0, v1}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+    sput-object v0, Lcom/google/android/gms/internal/ji;->a:Lcom/google/android/gms/common/api/Api$zzc;
 
-    move-result-object v1
+    new-instance v0, Lcom/google/android/gms/internal/ji$1;
 
-    const-string/jumbo v2, "SAFE_PARCELABLE_NULL_STRING"
+    invoke-direct {v0}, Lcom/google/android/gms/internal/ji$1;-><init>()V
 
-    const/4 v3, 0x0
+    sput-object v0, Lcom/google/android/gms/internal/ji;->d:Lcom/google/android/gms/common/api/Api$zza;
 
-    invoke-virtual {v1, v3}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    new-instance v0, Lcom/google/android/gms/common/api/Api;
 
-    move-result-object v1
+    const-string/jumbo v1, "Common.API"
 
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    sget-object v2, Lcom/google/android/gms/internal/ji;->d:Lcom/google/android/gms/common/api/Api$zza;
 
-    move-result v0
+    sget-object v3, Lcom/google/android/gms/internal/ji;->a:Lcom/google/android/gms/common/api/Api$zzc;
 
-    :goto_0
-    return v0
+    invoke-direct {v0, v1, v2, v3}, Lcom/google/android/gms/common/api/Api;-><init>(Ljava/lang/String;Lcom/google/android/gms/common/api/Api$zza;Lcom/google/android/gms/common/api/Api$zzc;)V
 
-    :catch_0
-    move-exception v1
+    sput-object v0, Lcom/google/android/gms/internal/ji;->b:Lcom/google/android/gms/common/api/Api;
 
-    goto :goto_0
+    new-instance v0, Lcom/google/android/gms/internal/jk;
 
-    :catch_1
-    move-exception v1
+    invoke-direct {v0}, Lcom/google/android/gms/internal/jk;-><init>()V
 
-    goto :goto_0
-.end method
+    sput-object v0, Lcom/google/android/gms/internal/ji;->c:Lcom/google/android/gms/internal/jj;
 
-.method protected static aW(Ljava/lang/String;)Z
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/internal/ji;->hs()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    :try_start_0
-    invoke-virtual {v0, p0}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/ji;->a(Ljava/lang/Class;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result v0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method protected static hs()Ljava/lang/ClassLoader;
-    .locals 2
-
-    sget-object v1, Lcom/google/android/gms/internal/ji;->Mz:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/google/android/gms/internal/ji;->MA:Ljava/lang/ClassLoader;
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method protected static ht()Ljava/lang/Integer;
-    .locals 2
-
-    sget-object v1, Lcom/google/android/gms/internal/ji;->Mz:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/google/android/gms/internal/ji;->MB:Ljava/lang/Integer;
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-
-# virtual methods
-.method protected hu()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ji;->MC:Z
-
-    return v0
+    return-void
 .end method

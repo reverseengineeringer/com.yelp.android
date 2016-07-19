@@ -2,78 +2,63 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.aa;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 public final class PolygonOptions
   implements SafeParcelable
 {
-  public static final m CREATOR = new m();
-  private final int CK;
-  private float alU = 10.0F;
-  private int alV = -16777216;
-  private int alW = 0;
-  private float alX = 0.0F;
-  private boolean alY = true;
-  private final List<LatLng> amx;
-  private final List<List<LatLng>> amy;
-  private boolean amz = false;
+  public static final l CREATOR = new l();
+  private final int a;
+  private final List<LatLng> b;
+  private final List<List<LatLng>> c;
+  private float d = 10.0F;
+  private int e = -16777216;
+  private int f = 0;
+  private float g = 0.0F;
+  private boolean h = true;
+  private boolean i = false;
+  private boolean j = false;
   
   public PolygonOptions()
   {
-    CK = 1;
-    amx = new ArrayList();
-    amy = new ArrayList();
+    a = 1;
+    b = new ArrayList();
+    c = new ArrayList();
   }
   
-  PolygonOptions(int paramInt1, List<LatLng> paramList, List paramList1, float paramFloat1, int paramInt2, int paramInt3, float paramFloat2, boolean paramBoolean1, boolean paramBoolean2)
+  PolygonOptions(int paramInt1, List<LatLng> paramList, List paramList1, float paramFloat1, int paramInt2, int paramInt3, float paramFloat2, boolean paramBoolean1, boolean paramBoolean2, boolean paramBoolean3)
   {
-    CK = paramInt1;
-    amx = paramList;
-    amy = paramList1;
-    alU = paramFloat1;
-    alV = paramInt2;
-    alW = paramInt3;
-    alX = paramFloat2;
-    alY = paramBoolean1;
-    amz = paramBoolean2;
+    a = paramInt1;
+    b = paramList;
+    c = paramList1;
+    d = paramFloat1;
+    e = paramInt2;
+    f = paramInt3;
+    g = paramFloat2;
+    h = paramBoolean1;
+    i = paramBoolean2;
+    j = paramBoolean3;
   }
   
-  public PolygonOptions add(LatLng paramLatLng)
+  int a()
   {
-    amx.add(paramLatLng);
-    return this;
+    return a;
   }
   
-  public PolygonOptions add(LatLng... paramVarArgs)
+  List b()
   {
-    amx.addAll(Arrays.asList(paramVarArgs));
-    return this;
+    return c;
   }
   
-  public PolygonOptions addAll(Iterable<LatLng> paramIterable)
+  public List<LatLng> c()
   {
-    paramIterable = paramIterable.iterator();
-    while (paramIterable.hasNext())
-    {
-      LatLng localLatLng = (LatLng)paramIterable.next();
-      amx.add(localLatLng);
-    }
-    return this;
+    return b;
   }
   
-  public PolygonOptions addHole(Iterable<LatLng> paramIterable)
+  public float d()
   {
-    ArrayList localArrayList = new ArrayList();
-    paramIterable = paramIterable.iterator();
-    while (paramIterable.hasNext()) {
-      localArrayList.add((LatLng)paramIterable.next());
-    }
-    amy.add(localArrayList);
-    return this;
+    return d;
   }
   
   public int describeContents()
@@ -81,100 +66,39 @@ public final class PolygonOptions
     return 0;
   }
   
-  public PolygonOptions fillColor(int paramInt)
+  public int e()
   {
-    alW = paramInt;
-    return this;
+    return e;
   }
   
-  public PolygonOptions geodesic(boolean paramBoolean)
+  public int f()
   {
-    amz = paramBoolean;
-    return this;
+    return f;
   }
   
-  public int getFillColor()
+  public float g()
   {
-    return alW;
+    return g;
   }
   
-  public List<List<LatLng>> getHoles()
+  public boolean h()
   {
-    return amy;
+    return h;
   }
   
-  public List<LatLng> getPoints()
+  public boolean i()
   {
-    return amx;
+    return i;
   }
   
-  public int getStrokeColor()
+  public boolean j()
   {
-    return alV;
-  }
-  
-  public float getStrokeWidth()
-  {
-    return alU;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
-  }
-  
-  public float getZIndex()
-  {
-    return alX;
-  }
-  
-  public boolean isGeodesic()
-  {
-    return amz;
-  }
-  
-  public boolean isVisible()
-  {
-    return alY;
-  }
-  
-  List of()
-  {
-    return amy;
-  }
-  
-  public PolygonOptions strokeColor(int paramInt)
-  {
-    alV = paramInt;
-    return this;
-  }
-  
-  public PolygonOptions strokeWidth(float paramFloat)
-  {
-    alU = paramFloat;
-    return this;
-  }
-  
-  public PolygonOptions visible(boolean paramBoolean)
-  {
-    alY = paramBoolean;
-    return this;
+    return j;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      n.a(this, paramParcel, paramInt);
-      return;
-    }
-    m.a(this, paramParcel, paramInt);
-  }
-  
-  public PolygonOptions zIndex(float paramFloat)
-  {
-    alX = paramFloat;
-    return this;
+    l.a(this, paramParcel, paramInt);
   }
 }
 

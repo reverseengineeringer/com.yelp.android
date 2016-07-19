@@ -1,23 +1,26 @@
 package com.yelp.android.ui;
 
-import com.yelp.android.serializable.Category;
+import android.hardware.SensorManager;
+import android.view.Display;
+import android.view.WindowManager;
 
 class b
-  implements Runnable
+  extends l
 {
-  private final m b;
-  private final Category c;
-  
-  public b(ActivityMonocle paramActivityMonocle, m paramm, Category paramCategory)
+  public b(ActivityMonocle paramActivityMonocle, SensorManager paramSensorManager)
   {
-    b = paramm;
-    c = paramCategory;
+    super(paramActivityMonocle, paramSensorManager);
   }
   
-  public void run()
+  public boolean a()
   {
-    b.a(c);
-    b.b();
+    switch (a.getWindowManager().getDefaultDisplay().getRotation())
+    {
+    case 1: 
+    default: 
+      return false;
+    }
+    return true;
   }
 }
 

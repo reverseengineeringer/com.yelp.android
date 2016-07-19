@@ -3,43 +3,60 @@
 .source "ActivityCreateAccount.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/fg;
-.implements Lcom/yelp/android/ui/util/ak;
-.implements Lcom/yelp/android/ui/util/al;
+.implements Lcom/yelp/android/ui/activities/FacebookConnectManager$a;
+.implements Lcom/yelp/android/ui/util/ImageInputHelper$b;
+.implements Lcom/yelp/android/ui/util/ImageInputHelper$c;
 .implements Lcom/yelp/android/webimageview/WebImageView$ImageLoadedCallback;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/ActivityCreateAccount$24;,
+        Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;,
+        Lcom/yelp/android/ui/activities/ActivityCreateAccount$a;,
+        Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/android/ui/activities/support/YelpActivity;",
-        "Lcom/yelp/android/ui/activities/fg",
+        "Lcom/yelp/android/ui/activities/FacebookConnectManager$a",
         "<",
         "Lcom/yelp/android/ui/activities/ActivityCreateAccount;",
         ">;",
-        "Lcom/yelp/android/ui/util/ak;",
-        "Lcom/yelp/android/ui/util/al;",
+        "Lcom/yelp/android/ui/util/ImageInputHelper$b;",
+        "Lcom/yelp/android/ui/util/ImageInputHelper$c;",
         "Lcom/yelp/android/webimageview/WebImageView$ImageLoadedCallback;"
     }
 .end annotation
 
 
 # static fields
-.field private static final e:Lcom/yelp/android/appdata/webrequests/YelpException;
+.field private static final d:Lcom/yelp/android/appdata/webrequests/YelpException;
 
-.field private static f:Ljava/lang/String;
+.field private static e:Ljava/lang/String;
 
 
 # instance fields
-.field private A:Lcom/yelp/android/ui/util/ImageInputHelper;
+.field private A:[I
 
-.field private B:Z
+.field private B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
-.field private C:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field private C:Z
 
-.field private D:Ljava/lang/String;
+.field private D:Z
 
-.field private E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+.field private E:Z
+
+.field private F:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+.field private G:Lcom/yelp/android/appdata/webrequests/co;
+
+.field private H:Ljava/lang/String;
+
+.field private I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/yelp/android/ui/activities/FacebookConnectManager",
@@ -50,87 +67,106 @@
     .end annotation
 .end field
 
-.field private F:Ljava/lang/String;
+.field private J:Ljava/lang/String;
 
-.field private G:Ljava/lang/String;
+.field private K:Ljava/lang/String;
 
-.field private H:Ljava/lang/String;
+.field private L:Ljava/lang/String;
 
-.field private I:[Ljava/lang/String;
+.field private M:[Ljava/lang/String;
 
-.field private J:Z
+.field private N:Ljava/lang/String;
 
-.field private K:I
+.field private O:Ljava/lang/String;
 
-.field private L:Z
+.field private P:Ljava/lang/String;
 
-.field private M:Z
-
-.field private N:Z
-
-.field private O:Z
-
-.field private P:Landroid/content/SharedPreferences;
-
-.field private Q:Landroid/content/SharedPreferences$Editor;
+.field private Q:Z
 
 .field private R:Z
 
-.field private S:Ljava/lang/String;
+.field private S:Z
 
-.field private T:Lcom/yelp/android/ui/activities/cc;
+.field private T:Z
 
-.field private U:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+.field private U:Landroid/content/SharedPreferences;
 
-.field private V:Landroid/widget/ImageButton;
+.field private V:Landroid/content/SharedPreferences$Editor;
 
-.field private W:Ljava/util/Locale;
+.field private W:Z
 
-.field private X:Lcom/yelp/android/appdata/LocaleSettings;
+.field private X:Ljava/lang/String;
 
-.field private final Y:Landroid/app/DatePickerDialog$OnDateSetListener;
+.field private Y:Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;
 
-.field private final Z:Lcom/yelp/android/appdata/webrequests/di;
+.field private Z:Lcom/yelp/android/ui/dialogs/FlagsDialog;
 
-.field a:Lcom/yelp/android/appdata/webrequests/dc;
+.field a:Landroid/content/DialogInterface$OnClickListener;
 
-.field private final aa:Landroid/widget/AdapterView$OnItemSelectedListener;
+.field private aa:Landroid/widget/ImageButton;
 
-.field private ab:Lcom/yelp/android/ui/dialogs/ar;
+.field private ab:Landroid/widget/ImageButton;
 
-.field private ac:Lcom/yelp/android/appdata/aa;
+.field private ac:Ljava/util/Locale;
 
-.field private ad:Landroid/content/DialogInterface$OnClickListener;
+.field private ad:Lcom/yelp/android/appdata/LocaleSettings;
+
+.field private ae:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private af:Z
+
+.field private final ag:Landroid/app/DatePickerDialog$OnDateSetListener;
+
+.field private final ah:Lcom/yelp/android/appdata/webrequests/co$a;
+
+.field private final ai:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+.field private aj:Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
+
+.field private ak:Lcom/yelp/android/appdata/LocationService$a;
+
+.field private al:Landroid/content/DialogInterface$OnClickListener;
+
+.field private am:Landroid/animation/Animator$AnimatorListener;
 
 .field b:Landroid/content/DialogInterface$OnClickListener;
 
-.field c:Landroid/content/DialogInterface$OnClickListener;
+.field c:Landroid/content/DialogInterface$OnCancelListener;
 
-.field d:Landroid/content/DialogInterface$OnCancelListener;
+.field private f:Landroid/widget/RelativeLayout;
 
 .field private g:Landroid/widget/RelativeLayout;
 
-.field private h:Landroid/widget/RelativeLayout;
+.field private h:Landroid/widget/LinearLayout;
 
 .field private i:Landroid/widget/LinearLayout;
 
 .field private j:Lcom/yelp/android/webimageview/WebImageView;
 
-.field private k:Landroid/widget/LinearLayout;
+.field private k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-.field private l:Landroid/widget/Spinner;
+.field private l:Landroid/widget/Button;
 
 .field private m:Landroid/widget/Button;
 
 .field private n:Landroid/widget/Button;
 
-.field private o:Landroid/widget/Button;
+.field private o:Landroid/widget/LinearLayout;
 
 .field private p:Landroid/widget/EditText;
 
 .field private q:Landroid/widget/EditText;
 
-.field private r:Landroid/widget/EditText;
+.field private r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
 .field private s:Landroid/widget/EditText;
 
@@ -146,7 +182,7 @@
 
 .field private y:Landroid/widget/Button;
 
-.field private z:[I
+.field private z:Landroid/widget/Button;
 
 
 # direct methods
@@ -154,7 +190,7 @@
     .locals 3
 
     .prologue
-    .line 166
+    .line 174
     new-instance v0, Lcom/yelp/android/appdata/webrequests/YelpException;
 
     const/4 v1, 0x0
@@ -163,7 +199,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/YelpException;-><init>(Ljava/lang/Throwable;I)V
 
-    sput-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e:Lcom/yelp/android/appdata/webrequests/YelpException;
+    sput-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d:Lcom/yelp/android/appdata/webrequests/YelpException;
 
     return-void
 .end method
@@ -172,102 +208,149 @@
     .locals 1
 
     .prologue
-    .line 131
+    const/4 v0, 0x0
+
+    .line 139
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 717
-    new-instance v0, Lcom/yelp/android/ui/activities/bg;
+    .line 202
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Z
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bg;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .line 203
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Z
+
+    .line 946
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$10;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$10;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Landroid/content/DialogInterface$OnClickListener;
+
+    .line 976
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$11;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$11;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b:Landroid/content/DialogInterface$OnClickListener;
 
-    .line 744
-    new-instance v0, Lcom/yelp/android/ui/activities/bh;
+    .line 985
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$13;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bh;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$13;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c:Landroid/content/DialogInterface$OnClickListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c:Landroid/content/DialogInterface$OnCancelListener;
 
-    .line 753
-    new-instance v0, Lcom/yelp/android/ui/activities/bi;
+    .line 1298
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$16;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bi;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$16;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d:Landroid/content/DialogInterface$OnCancelListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ag:Landroid/app/DatePickerDialog$OnDateSetListener;
 
-    .line 989
-    new-instance v0, Lcom/yelp/android/ui/activities/bl;
+    .line 1447
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$17;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bl;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$17;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Y:Landroid/app/DatePickerDialog$OnDateSetListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ah:Lcom/yelp/android/appdata/webrequests/co$a;
 
-    .line 1116
-    new-instance v0, Lcom/yelp/android/ui/activities/bm;
+    .line 1750
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$18;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bm;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$18;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/appdata/webrequests/di;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ai:Landroid/widget/AdapterView$OnItemSelectedListener;
 
-    .line 1408
-    new-instance v0, Lcom/yelp/android/ui/activities/bo;
+    .line 1819
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$19;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bo;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$19;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aa:Landroid/widget/AdapterView$OnItemSelectedListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aj:Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
 
-    .line 1477
-    new-instance v0, Lcom/yelp/android/ui/activities/bp;
+    .line 1861
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$20;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bp;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$20;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ab:Lcom/yelp/android/ui/dialogs/ar;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ak:Lcom/yelp/android/appdata/LocationService$a;
 
-    .line 1517
-    new-instance v0, Lcom/yelp/android/ui/activities/br;
+    .line 1875
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$21;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/br;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$21;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Lcom/yelp/android/appdata/aa;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->al:Landroid/content/DialogInterface$OnClickListener;
 
-    .line 1531
-    new-instance v0, Lcom/yelp/android/ui/activities/bs;
+    .line 1883
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$22;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bs;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$22;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ad:Landroid/content/DialogInterface$OnClickListener;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->am:Landroid/animation/Animator$AnimatorListener;
 
     return-void
 .end method
 
-.method static synthetic A(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Z
-    .locals 1
+.method static synthetic A(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
 
     .prologue
-    .line 131
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->y()V
 
-    return v0
+    return-void
 .end method
 
-.method static synthetic B(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/Button;
+.method static synthetic B(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n:Landroid/widget/Button;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Y:Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;
 
     return-object v0
 .end method
 
-.method static synthetic C(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/activities/cc;
+.method static synthetic C(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->T:Lcom/yelp/android/ui/activities/cc;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
+    return-object v0
+.end method
+
+.method static synthetic D(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Z
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->af:Z
+
+    return v0
+.end method
+
+.method public static a(Landroid/content/Context;)Landroid/content/Intent;
+    .locals 3
+
+    .prologue
+    .line 264
+    const/4 v0, 0x0
+
+    invoke-static {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b(Landroid/content/Context;Z)Landroid/content/Intent;
+
+    move-result-object v0
+
+    .line 265
+    const-string/jumbo v1, "signup_from_review"
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 266
     return-object v0
 .end method
 
@@ -275,53 +358,28 @@
     .locals 2
 
     .prologue
-    .line 229
+    .line 251
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 230
-    const/high16 v1, 0x20000000
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    .line 231
-    const-string/jumbo v1, "show_skip_button"
+    .line 252
+    const-string/jumbo v1, "extra.launch_fb_signup_splash"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 232
+    .line 253
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/activities/FacebookConnectManager;
-    .locals 1
-
-    .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
-
-    return-object v0
-.end method
-
-.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Lcom/yelp/android/ui/activities/FacebookConnectManager;)Lcom/yelp/android/ui/activities/FacebookConnectManager;
+.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;)Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;
     .locals 0
 
     .prologue
-    .line 131
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
-
-    return-object p1
-.end method
-
-.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Lcom/yelp/android/ui/activities/cc;)Lcom/yelp/android/ui/activities/cc;
-    .locals 0
-
-    .prologue
-    .line 131
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->T:Lcom/yelp/android/ui/activities/cc;
+    .line 139
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Y:Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;
 
     return-object p1
 .end method
@@ -330,8 +388,8 @@
     .locals 0
 
     .prologue
-    .line 131
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    .line 139
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/ui/dialogs/FlagsDialog;
 
     return-object p1
 .end method
@@ -340,8 +398,8 @@
     .locals 0
 
     .prologue
-    .line 131
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    .line 139
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Ljava/lang/String;
 
     return-object p1
 .end method
@@ -350,8 +408,8 @@
     .locals 2
 
     .prologue
-    .line 1394
-    const v0, 0x7f0c0408
+    .line 1731
+    const v0, 0x7f0f04ee
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -361,7 +419,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1395
+    .line 1732
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
     new-instance v1, Landroid/graphics/drawable/BitmapDrawable;
@@ -370,14 +428,14 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/webimageview/WebImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 1396
+    .line 1733
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
-    const v1, 0x7f0202f2
+    const v1, 0x7f020419
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/webimageview/WebImageView;->setBackgroundResource(I)V
 
-    .line 1397
+    .line 1734
     return-void
 .end method
 
@@ -385,12 +443,12 @@
     .locals 3
 
     .prologue
-    .line 1205
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Z
+    .line 1534
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Z
 
     if-nez v0, :cond_0
 
-    .line 1212
+    .line 1541
     new-instance v0, Ljava/util/Locale;
 
     const-string/jumbo v1, ""
@@ -401,22 +459,22 @@
 
     invoke-direct {v0, v1, v2}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1213
+    .line 1542
     invoke-virtual {p1}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/lang/String;)V
 
-    .line 1214
+    .line 1543
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/util/Locale;)V
 
-    .line 1215
+    .line 1544
     new-instance v1, Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-direct {v1, v0}, Lcom/yelp/android/appdata/LocaleSettings;-><init>(Ljava/util/Locale;)V
 
-    .line 1218
+    .line 1547
     iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Lcom/yelp/android/appdata/LocaleSettings;->e()Z
@@ -432,11 +490,11 @@
     :goto_0
     invoke-virtual {v2, v0}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1222
+    .line 1552
     :cond_0
     return-void
 
-    .line 1218
+    .line 1547
     :cond_1
     invoke-virtual {p1}, Landroid/location/Address;->getLocality()Ljava/lang/String;
 
@@ -445,39 +503,79 @@
     goto :goto_0
 .end method
 
-.method private static final a(Landroid/widget/TextView;)V
-    .locals 1
+.method private a(Landroid/view/View;)V
+    .locals 3
 
     .prologue
-    .line 1192
-    invoke-virtual {p0}, Landroid/widget/TextView;->getMovementMethod()Landroid/text/method/MovementMethod;
+    const/4 v2, 0x1
+
+    const/4 v1, 0x0
+
+    .line 555
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g()[Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1193
-    if-eqz v0, :cond_0
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
 
-    instance-of v0, v0, Landroid/text/method/LinkMovementMethod;
+    .line 556
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
+
+    array-length v0, v0
 
     if-nez v0, :cond_1
 
-    .line 1194
+    .line 557
+    const v0, 0x7f070316
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/as;->a(II)V
+
+    .line 558
+    const/16 v0, 0x8
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+
+    .line 564
     :cond_0
-    invoke-virtual {p0}, Landroid/widget/TextView;->getLinksClickable()Z
+    :goto_0
+    return-void
 
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 1195
-    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
-
-    .line 1198
+    .line 559
     :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
+
+    array-length v0, v0
+
+    if-ne v0, v2, :cond_2
+
+    .line 560
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(I)V
+
+    goto :goto_0
+
+    .line 561
+    :cond_2
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
+
+    array-length v0, v0
+
+    if-le v0, v2, :cond_0
+
+    .line 562
+    const/16 v0, 0x12c
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showDialog(I)V
+
+    goto :goto_0
+.end method
+
+.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
+
+    .prologue
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j()V
+
     return-void
 .end method
 
@@ -485,69 +583,79 @@
     .locals 0
 
     .prologue
-    .line 131
+    .line 139
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Landroid/location/Address;)V
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Lcom/yelp/android/ui/dialogs/ap;)V
+.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Landroid/view/View;)V
     .locals 0
 
     .prologue
-    .line 131
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Lcom/yelp/android/ui/dialogs/ap;)V
+    .line 139
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;)V
     .locals 0
 
     .prologue
-    .line 131
-    invoke-direct/range {p0 .. p8}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .line 139
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;)V
 
     return-void
 .end method
 
-.method private a(Lcom/yelp/android/ui/dialogs/ap;)V
+.method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljp/line/android/sdk/login/LineLoginFuture;)V
+    .locals 0
+
+    .prologue
+    .line 139
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljp/line/android/sdk/login/LineLoginFuture;)V
+
+    return-void
+.end method
+
+.method private a(Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;)V
     .locals 2
 
     .prologue
-    .line 615
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->V:Landroid/widget/ImageButton;
+    .line 791
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aa:Landroid/widget/ImageButton;
 
-    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/ap;->a()I
+    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;->a()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setImageResource(I)V
 
-    .line 616
-    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/ap;->b()Ljava/util/Locale;
+    .line 792
+    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;->b()Ljava/util/Locale;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Ljava/util/Locale;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Ljava/util/Locale;
 
-    .line 617
+    .line 793
     new-instance v0, Lcom/yelp/android/appdata/LocaleSettings;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Ljava/util/Locale;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Ljava/util/Locale;
 
     invoke-direct {v0, v1}, Lcom/yelp/android/appdata/LocaleSettings;-><init>(Ljava/util/Locale;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Lcom/yelp/android/appdata/LocaleSettings;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ad:Lcom/yelp/android/appdata/LocaleSettings;
 
-    .line 618
-    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/ap;->b()Ljava/util/Locale;
+    .line 794
+    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;->b()Ljava/util/Locale;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/util/Locale;)V
 
-    .line 619
+    .line 795
     return-void
 .end method
 
@@ -555,12 +663,12 @@
     .locals 3
 
     .prologue
-    .line 622
-    invoke-static {}, Lcom/yelp/android/ui/dialogs/ao;->b()Ljava/util/ArrayList;
+    .line 798
+    invoke-static {}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a;->b()Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 623
+    .line 799
     invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
@@ -576,10 +684,10 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/dialogs/ap;
+    check-cast v0, Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;
 
-    .line 624
-    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/ap;->b()Ljava/util/Locale;
+    .line 800
+    invoke-virtual {v0}, Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;->b()Ljava/util/Locale;
 
     move-result-object v2
 
@@ -593,42 +701,46 @@
 
     if-eqz v2, :cond_0
 
-    .line 625
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Lcom/yelp/android/ui/dialogs/ap;)V
+    .line 801
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Lcom/yelp/android/ui/dialogs/FlagsDialog$a$a;)V
 
-    .line 629
+    .line 805
     :cond_1
     return-void
 .end method
 
 .method private a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 14
+    .locals 16
 
     .prologue
-    .line 1004
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    .line 1319
+    invoke-static/range {p1 .. p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    .line 1005
-    const v1, 0x7f070576
+    .line 1320
+    const v1, 0x7f07057e
 
-    const v2, 0x7f070483
+    const v2, 0x7f070497
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+    move-object/from16 v0, p0
 
-    .line 1006
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+
+    .line 1321
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 1073
+    .line 1399
     :goto_0
     return-void
 
-    .line 1010
+    .line 1325
     :cond_0
     invoke-static/range {p2 .. p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -636,77 +748,93 @@
 
     if-eqz v1, :cond_1
 
-    .line 1011
-    const v1, 0x7f070576
+    .line 1326
+    const v1, 0x7f07057e
 
-    const v2, 0x7f070484
+    const v2, 0x7f070499
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+    move-object/from16 v0, p0
 
-    .line 1012
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+
+    .line 1327
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
 
     goto :goto_0
 
-    .line 1016
+    .line 1331
     :cond_1
-    new-instance v1, Lcom/yelp/android/ui/activities/account/i;
+    new-instance v1, Lcom/yelp/android/ui/activities/account/a$b;
 
-    invoke-direct {v1}, Lcom/yelp/android/ui/activities/account/i;-><init>()V
+    invoke-direct {v1}, Lcom/yelp/android/ui/activities/account/a$b;-><init>()V
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/account/i;->a(Landroid/widget/TextView;)Z
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/account/a$b;->a(Landroid/widget/TextView;)Z
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 1018
-    const v1, 0x7f070576
+    .line 1332
+    const v1, 0x7f07057e
 
-    const v2, 0x7f070482
+    const v2, 0x7f070496
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+    move-object/from16 v0, p0
 
-    .line 1019
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
+    .line 1333
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->requestFocus()Z
 
     goto :goto_0
 
-    .line 1022
+    .line 1336
     :cond_2
-    new-instance v1, Lcom/yelp/android/ui/activities/account/h;
+    new-instance v1, Lcom/yelp/android/ui/activities/account/a$a;
 
-    invoke-direct {v1}, Lcom/yelp/android/ui/activities/account/h;-><init>()V
+    invoke-direct {v1}, Lcom/yelp/android/ui/activities/account/a$a;-><init>()V
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/account/h;->a(Landroid/widget/TextView;)Z
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/account/a$a;->a(Landroid/widget/TextView;)Z
 
     move-result v1
 
     if-nez v1, :cond_3
 
-    .line 1024
-    const v1, 0x7f070576
+    .line 1337
+    const v1, 0x7f07057e
 
-    const v2, 0x7f0702f6
+    const v2, 0x7f07033a
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+    move-object/from16 v0, p0
 
-    .line 1025
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
+    .line 1338
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    invoke-virtual {v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->requestFocus()Z
 
     goto :goto_0
 
-    .line 1029
+    .line 1342
     :cond_3
     invoke-static/range {p4 .. p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -714,21 +842,25 @@
 
     if-eqz v1, :cond_4
 
-    .line 1030
-    const v1, 0x7f070576
+    .line 1343
+    const v1, 0x7f07057e
 
-    const v2, 0x7f070485
+    const v2, 0x7f07049a
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+    move-object/from16 v0, p0
 
-    .line 1031
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+
+    .line 1344
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
 
     goto :goto_0
 
-    .line 1035
+    .line 1348
     :cond_4
     invoke-static/range {p5 .. p5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -736,8 +868,10 @@
 
     if-eqz v1, :cond_6
 
-    .line 1036
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Lcom/yelp/android/appdata/LocaleSettings;
+    .line 1349
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ad:Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-virtual {v1}, Lcom/yelp/android/appdata/LocaleSettings;->e()Z
 
@@ -745,34 +879,42 @@
 
     if-eqz v1, :cond_5
 
-    .line 1037
-    const v1, 0x7f070576
+    .line 1350
+    const v1, 0x7f07057e
 
-    const v2, 0x7f070486
+    const v2, 0x7f07049b
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+    move-object/from16 v0, p0
 
-    .line 1041
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+
+    .line 1354
     :goto_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->requestFocus()Z
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    .line 1039
+    .line 1352
     :cond_5
-    const v1, 0x7f070576
+    const v1, 0x7f07057e
 
-    const v2, 0x7f070481
+    const v2, 0x7f070495
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(II)V
 
     goto :goto_1
 
-    .line 1047
+    .line 1360
     :cond_6
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Ljava/lang/String;
 
     move-object/from16 v0, p3
 
@@ -782,7 +924,9 @@
 
     if-nez v1, :cond_7
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:[Ljava/lang/String;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
 
     invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -800,16 +944,20 @@
     const/4 v1, 0x1
 
     :goto_2
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->O:Z
+    move-object/from16 v0, p0
 
-    .line 1050
+    iput-boolean v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->T:Z
+
+    .line 1364
     const/4 v7, 0x0
 
-    .line 1051
+    .line 1365
     const/4 v6, 0x0
 
-    .line 1052
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Lcom/yelp/android/appdata/LocaleSettings;
+    .line 1366
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ad:Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-virtual {v1}, Lcom/yelp/android/appdata/LocaleSettings;->e()Z
 
@@ -819,23 +967,41 @@
 
     move-object/from16 v7, p5
 
-    .line 1059
+    .line 1373
     :goto_3
     :try_start_0
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->R:Z
+    move-object/from16 v0, p0
+
+    iget-boolean v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Z
 
     if-nez v1, :cond_a
 
-    .line 1060
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 1374
+    move-object/from16 v0, p0
 
-    iget-object v11, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Ljava/util/Locale;
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Lcom/yelp/android/appdata/webrequests/co;
 
-    iget-boolean v12, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->O:Z
+    move-object/from16 v0, p0
 
-    iget-object v13, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/appdata/webrequests/di;
+    iget-object v11, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Ljava/util/Locale;
 
-    move-object v2, p1
+    move-object/from16 v0, p0
+
+    iget-boolean v12, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->T:Z
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ah:Lcom/yelp/android/appdata/webrequests/co$a;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->P:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->O:Ljava/lang/String;
+
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -849,40 +1015,42 @@
 
     move-object/from16 v10, p8
 
-    invoke-virtual/range {v1 .. v13}, Lcom/yelp/android/appdata/webrequests/dc;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;ZLcom/yelp/android/appdata/webrequests/di;)V
+    invoke-virtual/range {v1 .. v15}, Lcom/yelp/android/appdata/webrequests/co;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;ZLcom/yelp/android/appdata/webrequests/co$a;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 1063
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getHelper()Lcom/yelp/android/ui/activities/support/h;
+    .line 1389
+    invoke-virtual/range {p0 .. p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getHelper()Lcom/yelp/android/ui/activities/support/b;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/support/h;->g()V
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/support/b;->g()V
 
-    .line 1065
-    const v1, 0x7f07057c
+    .line 1391
+    const v1, 0x7f070584
 
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showLoadingDialog(I)V
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showLoadingDialog(I)V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto/16 :goto_0
 
-    .line 1070
+    .line 1396
     :catch_0
     move-exception v1
 
-    .line 1071
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/appdata/webrequests/di;
+    .line 1397
+    move-object/from16 v0, p0
 
-    const/4 v2, 0x0
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ah:Lcom/yelp/android/appdata/webrequests/co$a;
 
-    sget-object v3, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e:Lcom/yelp/android/appdata/webrequests/YelpException;
+    sget-object v2, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d:Lcom/yelp/android/appdata/webrequests/YelpException;
 
-    invoke-interface {v1, v2, v3}, Lcom/yelp/android/appdata/webrequests/di;->a(ZLcom/yelp/android/appdata/webrequests/YelpException;)V
+    invoke-interface {v1, v2}, Lcom/yelp/android/appdata/webrequests/co$a;->a(Lcom/yelp/android/appdata/webrequests/YelpException;)V
 
     goto/16 :goto_0
 
-    .line 1047
+    .line 1360
     :cond_8
     const/4 v1, 0x0
 
@@ -891,26 +1059,36 @@
     :cond_9
     move-object/from16 v6, p5
 
-    .line 1055
+    .line 1369
     goto :goto_3
 
-    .line 1067
+    .line 1393
     :cond_a
-    const v1, 0x7f070576
+    const v1, 0x7f07057e
 
     :try_start_1
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getText(I)Ljava/lang/CharSequence;
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    iget-object v2, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Ljava/lang/String;
 
-    .line 1068
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b(Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showInfoDialog(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    .line 1394
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Ljava/lang/String;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b(Ljava/lang/String;)V
     :try_end_1
     .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -921,43 +1099,43 @@
     .locals 3
 
     .prologue
-    const v2, 0x7f0706dc
+    const v2, 0x7f0706b3
 
-    const v1, 0x7f07014c
+    const v1, 0x7f0701c9
 
-    .line 1226
+    .line 1556
     new-instance v0, Lcom/yelp/android/appdata/LocaleSettings;
 
     invoke-direct {v0, p1}, Lcom/yelp/android/appdata/LocaleSettings;-><init>(Ljava/util/Locale;)V
 
-    .line 1227
+    .line 1557
     invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->e()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 1228
+    .line 1558
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->w:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 1229
+    .line 1559
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
 
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->setHint(I)V
 
-    .line 1234
+    .line 1564
     :goto_0
     return-void
 
-    .line 1231
+    .line 1561
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->w:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 1232
+    .line 1562
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setHint(I)V
@@ -965,11 +1143,56 @@
     goto :goto_0
 .end method
 
+.method private a(Ljp/line/android/sdk/login/LineLoginFuture;)V
+    .locals 2
+
+    .prologue
+    .line 884
+    invoke-interface {p1}, Ljp/line/android/sdk/login/LineLoginFuture;->g()Lcom/yelp/android/db/a;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/yelp/android/db/a;->b:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->P:Ljava/lang/String;
+
+    .line 885
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->LineSignupSuccess:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
+
+    .line 887
+    invoke-static {}, Ljp/line/android/sdk/c;->a()Ljp/line/android/sdk/a;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljp/line/android/sdk/a;->b()Ljp/line/android/sdk/api/a;
+
+    move-result-object v0
+
+    .line 888
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$7;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$7;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-interface {v0, v1}, Ljp/line/android/sdk/api/a;->b(Ljp/line/android/sdk/api/c;)Ljp/line/android/sdk/api/b;
+
+    .line 914
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$8;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$8;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->runOnUiThread(Ljava/lang/Runnable;)V
+
+    .line 921
+    return-void
+.end method
+
 .method static synthetic a(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/util/Calendar;)Z
     .locals 1
 
     .prologue
-    .line 131
+    .line 139
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/util/Calendar;)Z
 
     move-result v0
@@ -981,8 +1204,8 @@
     .locals 0
 
     .prologue
-    .line 131
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Z
+    .line 139
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Z
 
     return p1
 .end method
@@ -997,8 +1220,8 @@
 
     const/4 v1, 0x0
 
-    .line 701
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    .line 858
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     invoke-virtual {p1, v0}, Ljava/util/Calendar;->get(I)I
 
@@ -1006,8 +1229,8 @@
 
     aput v3, v2, v1
 
-    .line 702
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    .line 859
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     invoke-virtual {p1, v4}, Ljava/util/Calendar;->get(I)I
 
@@ -1015,8 +1238,8 @@
 
     aput v3, v2, v0
 
-    .line 703
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    .line 860
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     const/4 v3, 0x5
 
@@ -1026,20 +1249,20 @@
 
     aput v3, v2, v4
 
-    .line 707
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    .line 864
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     aget v2, v2, v1
 
     if-eqz v2, :cond_0
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     aget v2, v2, v1
 
     if-eq v2, v0, :cond_0
 
-    .line 708
+    .line 865
     invoke-virtual {p1}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v2
@@ -1050,19 +1273,22 @@
 
     move-result-object v1
 
-    .line 710
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n:Landroid/widget/Button;
+    .line 868
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m:Landroid/widget/Button;
 
     invoke-virtual {v2, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 711
+    .line 869
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->v:Landroid/widget/TextView;
 
     const-string/jumbo v2, ""
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 714
+    .line 870
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->y()V
+
+    .line 874
     :goto_0
     return v0
 
@@ -1072,34 +1298,59 @@
     goto :goto_0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
-    .locals 0
+.method public static b(Landroid/content/Context;Z)Landroid/content/Intent;
+    .locals 2
 
     .prologue
-    .line 131
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j()V
+    .line 257
+    new-instance v0, Landroid/content/Intent;
 
-    return-void
+    const-class v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount;
+
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    .line 258
+    const/high16 v1, 0x20000000
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    .line 259
+    const-string/jumbo v1, "extra.show_skip_button"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    .line 260
+    return-object v0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;)V
+.method static synthetic b(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/util/ImageInputHelper;
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
+
+    return-object v0
+.end method
+
+.method static synthetic b(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     .prologue
-    .line 131
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b(Ljava/lang/String;)V
+    .line 139
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->O:Ljava/lang/String;
 
-    return-void
+    return-object p1
 .end method
 
 .method private b(Ljava/lang/String;)V
     .locals 6
 
     .prologue
-    .line 1181
+    .line 1519
     const-wide/32 v0, 0x93a80
 
-    .line 1182
+    .line 1520
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -1108,139 +1359,192 @@
 
     div-long/2addr v2, v4
 
-    .line 1183
+    .line 1521
     add-long/2addr v0, v2
 
-    .line 1184
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Q:Landroid/content/SharedPreferences$Editor;
+    .line 1522
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->V:Landroid/content/SharedPreferences$Editor;
 
     const-string/jumbo v3, "coppa_error_message"
 
     invoke-interface {v2, v3, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    .line 1185
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Q:Landroid/content/SharedPreferences$Editor;
+    .line 1523
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->V:Landroid/content/SharedPreferences$Editor;
 
     const-string/jumbo v3, "coppa_lockout"
 
     invoke-interface {v2, v3, v0, v1}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
 
-    .line 1186
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Q:Landroid/content/SharedPreferences$Editor;
+    .line 1524
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->V:Landroid/content/SharedPreferences$Editor;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    .line 1187
+    .line 1525
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->R:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Z
 
-    .line 1188
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Ljava/lang/String;
+    .line 1526
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Ljava/lang/String;
 
-    .line 1189
+    .line 1527
     return-void
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/util/ImageInputHelper;
+.method static synthetic b(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Z)Z
+    .locals 0
+
+    .prologue
+    .line 139
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Z
+
+    return p1
+.end method
+
+.method static synthetic c(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/widgets/SelectionSpinner;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
     return-object v0
 .end method
 
-.method static synthetic d(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/Spinner;
+.method static synthetic c(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .prologue
+    .line 139
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic c(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Z)Z
+    .locals 0
+
+    .prologue
+    .line 139
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->af:Z
+
+    return p1
+.end method
+
+.method static synthetic d(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/dialogs/FlagsDialog;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/ui/dialogs/FlagsDialog;
 
     return-object v0
 .end method
 
-.method static synthetic d()Lcom/yelp/android/appdata/webrequests/YelpException;
-    .locals 1
+.method static synthetic d(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;)V
+    .locals 0
 
     .prologue
-    .line 131
-    sget-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e:Lcom/yelp/android/appdata/webrequests/YelpException;
+    .line 139
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b(Ljava/lang/String;)V
 
-    return-object v0
-.end method
-
-.method private d(I)V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x0
-
-    .line 876
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Landroid/widget/LinearLayout;
-
-    .line 880
-    new-instance v1, Landroid/view/animation/TranslateAnimation;
-
-    int-to-float v2, p1
-
-    invoke-direct {v1, v3, v3, v3, v2}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
-
-    .line 881
-    sget v2, Lcom/yelp/android/ui/util/cw;->a:I
-
-    int-to-long v2, v2
-
-    invoke-virtual {v1, v2, v3}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
-
-    .line 882
-    new-instance v2, Lcom/yelp/android/ui/activities/bj;
-
-    invoke-direct {v2, p0, v0, p1}, Lcom/yelp/android/ui/activities/bj;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Landroid/view/View;I)V
-
-    invoke-virtual {v1, v2}, Landroid/view/animation/TranslateAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
-    .line 904
-    invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
-
-    .line 905
     return-void
 .end method
 
-.method static synthetic e(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/dialogs/FlagsDialog;
+.method static synthetic d(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Z)Z
+    .locals 0
+
+    .prologue
+    .line 139
+    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Z
+
+    return p1
+.end method
+
+.method static synthetic e()Lcom/yelp/android/appdata/webrequests/YelpException;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    .line 139
+    sget-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d:Lcom/yelp/android/appdata/webrequests/YelpException;
 
     return-object v0
 .end method
 
-.method private e()[Ljava/lang/String;
+.method static synthetic e(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/util/Locale;
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Ljava/util/Locale;
+
+    return-object v0
+.end method
+
+.method static synthetic f(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aj:Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
+
+    return-object v0
+.end method
+
+.method private f()Z
+    .locals 3
+
+    .prologue
+    .line 389
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "extra.launch_fb_signup_splash"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic g(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    return-object v0
+.end method
+
+.method private g()[Ljava/lang/String;
     .locals 4
 
     .prologue
-    .line 339
+    .line 393
     invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
 
     move-result-object v0
 
-    .line 340
+    .line 394
     const-string/jumbo v1, "com.google"
 
     invoke-virtual {v0, v1}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[Landroid/accounts/Account;
 
     move-result-object v1
 
-    .line 342
+    .line 395
     array-length v0, v1
 
     new-array v2, v0, [Ljava/lang/String;
 
-    .line 343
+    .line 396
     const/4 v0, 0x0
 
     :goto_0
@@ -1248,70 +1552,63 @@
 
     if-ge v0, v3, :cond_0
 
-    .line 344
+    .line 397
     aget-object v3, v1, v0
 
     iget-object v3, v3, Landroid/accounts/Account;->name:Ljava/lang/String;
 
     aput-object v3, v2, v0
 
-    .line 343
+    .line 396
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 346
+    .line 399
     :cond_0
     return-object v2
 .end method
 
-.method static synthetic f(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/util/Locale;
-    .locals 1
-
-    .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Ljava/util/Locale;
-
-    return-object v0
-.end method
-
-.method private f()V
+.method private h()V
     .locals 6
 
     .prologue
-    const/16 v4, 0x21
-
     const/4 v5, 0x0
 
-    .line 483
+    .line 568
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/bv;
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$25;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/bv;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$25;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/webimageview/WebImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 500
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m:Landroid/widget/Button;
+    .line 591
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Button;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/bw;
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$26;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/bw;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$26;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 508
+    .line 600
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/bx;
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$27;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/bx;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$27;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    .line 522
-    const v0, 0x7f0c049c
+    .line 615
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$28;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$28;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    .line 626
+    const v0, 0x7f0f00d2
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -1319,18 +1616,30 @@
 
     check-cast v0, Landroid/widget/ImageButton;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->V:Landroid/widget/ImageButton;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aa:Landroid/widget/ImageButton;
 
-    .line 523
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->V:Landroid/widget/ImageButton;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/by;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/by;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .line 627
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aa:Landroid/widget/ImageButton;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 534
+    .line 628
+    const v0, 0x7f0f05a3
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageButton;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ab:Landroid/widget/ImageButton;
+
+    .line 629
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ab:Landroid/widget/ImageButton;
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 631
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
@@ -1343,19 +1652,19 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Ljava/util/Locale;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Ljava/util/Locale;
 
-    .line 535
+    .line 632
     new-instance v0, Lcom/yelp/android/appdata/LocaleSettings;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Ljava/util/Locale;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Ljava/util/Locale;
 
     invoke-direct {v0, v1}, Lcom/yelp/android/appdata/LocaleSettings;-><init>(Ljava/util/Locale;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Lcom/yelp/android/appdata/LocaleSettings;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ad:Lcom/yelp/android/appdata/LocaleSettings;
 
-    .line 536
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Ljava/util/Locale;
+    .line 633
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Ljava/util/Locale;
 
     invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
@@ -1363,12 +1672,12 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/lang/String;)V
 
-    .line 540
+    .line 637
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->n()Lcom/yelp/android/appdata/LocationService;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->r()Lcom/yelp/android/appdata/LocationService;
 
     move-result-object v0
 
@@ -1376,121 +1685,112 @@
 
     sget-object v2, Lcom/yelp/android/appdata/LocationService$Recentness;->HOUR:Lcom/yelp/android/appdata/LocationService$Recentness;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ac:Lcom/yelp/android/appdata/aa;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ak:Lcom/yelp/android/appdata/LocationService$a;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/appdata/LocationService;->a(Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/aa;)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/appdata/LocationService;->a(Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/LocationService$a;)V
 
-    .line 543
-    new-instance v0, Lcom/yelp/android/ui/activities/cb;
+    .line 641
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ad:Lcom/yelp/android/appdata/LocaleSettings;
 
-    const v1, 0x7f080012
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/LocaleSettings;->l()Z
 
-    invoke-direct {v0, p0, p0, v1}, Lcom/yelp/android/ui/activities/cb;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Landroid/content/Context;I)V
+    move-result v0
 
-    .line 545
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v1, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+    .line 643
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o:Landroid/widget/LinearLayout;
 
-    .line 546
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->removeAllViews()V
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aa:Landroid/widget/AdapterView$OnItemSelectedListener;
+    .line 644
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
-    .line 548
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 645
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o:Landroid/widget/LinearLayout;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    .line 648
+    :cond_0
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$a;
+
+    const v1, 0x7f0d0012
+
+    invoke-direct {v0, p0, p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$a;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Landroid/content/Context;I)V
+
+    .line 649
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
+
+    .line 650
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ai:Landroid/widget/AdapterView$OnItemSelectedListener;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
+
+    .line 652
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m:Landroid/widget/Button;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$29;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$29;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 661
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n:Landroid/widget/Button;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/bz;
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$30;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/bz;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 556
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o:Landroid/widget/Button;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/ca;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ca;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$30;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 571
+    .line 670
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
 
     sget-object v1, Landroid/graphics/Typeface;->DEFAULT:Landroid/graphics/Typeface;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setTypeface(Landroid/graphics/Typeface;)V
 
-    .line 573
+    .line 672
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/bf;
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/bf;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$2;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 590
-    new-instance v1, Landroid/text/SpannableString;
+    .line 688
+    const v0, 0x7f070683
 
-    const v0, 0x7f0706b2
+    const v1, 0x7f0705c5
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getString(I)Ljava/lang/String;
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/util/StringUtils;->b(Landroid/content/Context;II)Landroid/text/Spannable;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {v1, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+    .line 691
+    const v0, 0x7f0704b3
 
-    .line 591
-    new-instance v0, Landroid/text/style/URLSpan;
+    const v2, 0x7f0704b7
 
-    const v2, 0x7f0705db
-
-    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getString(I)Ljava/lang/String;
+    invoke-static {p0, v0, v2}, Lcom/yelp/android/util/StringUtils;->b(Landroid/content/Context;II)Landroid/text/Spannable;
 
     move-result-object v2
 
-    invoke-direct {v0, v2}, Landroid/text/style/URLSpan;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Landroid/text/SpannableString;->length()I
-
-    move-result v2
-
-    invoke-virtual {v1, v0, v5, v2, v4}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    .line 594
-    new-instance v2, Landroid/text/SpannableString;
-
-    const v0, 0x7f070499
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v2, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
-
-    .line 595
-    new-instance v0, Landroid/text/style/URLSpan;
-
-    const v3, 0x7f07049d
-
-    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v0, v3}, Landroid/text/style/URLSpan;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Landroid/text/SpannableString;->length()I
-
-    move-result v3
-
-    invoke-virtual {v2, v0, v5, v3, v4}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    .line 598
-    const v0, 0x7f0c04a5
+    .line 695
+    const v0, 0x7f0f013d
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -1498,8 +1798,8 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 599
-    const v3, 0x7f0701de
+    .line 696
+    const v3, 0x7f07022c
 
     invoke-virtual {p0, v3}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getText(I)Ljava/lang/CharSequence;
 
@@ -1521,73 +1821,121 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 601
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Landroid/widget/TextView;)V
+    .line 699
+    invoke-static {v0}, Lcom/yelp/android/util/StringUtils;->a(Landroid/widget/TextView;)V
 
-    .line 603
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/RelativeLayout;
+    .line 701
+    new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$3;
 
-    invoke-virtual {v0, v5, v5}, Landroid/widget/RelativeLayout;->measure(II)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$3;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    .line 604
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/RelativeLayout;
+    .line 726
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
-    invoke-virtual {v0}, Landroid/widget/RelativeLayout;->getMeasuredHeight()I
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    move-result v0
+    .line 727
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
-    .line 606
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    invoke-virtual {v1, v5, v5}, Landroid/widget/RelativeLayout;->measure(II)V
+    .line 728
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
 
-    .line 607
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    invoke-virtual {v1}, Landroid/widget/RelativeLayout;->getMeasuredHeight()I
+    .line 730
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    move-result v1
+    new-instance v1, Landroid/widget/ArrayAdapter;
 
-    .line 609
-    sub-int v0, v1, v0
+    const v2, 0x109000a
 
-    int-to-double v0, v0
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ae:Ljava/util/ArrayList;
 
-    const-wide v2, 0x3feb333333333333L    # 0.85
+    invoke-direct {v1, p0, v2, v3}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
-    mul-double/2addr v0, v2
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    double-to-int v0, v0
+    .line 733
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    iput v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getResources()Landroid/content/res/Resources;
 
-    .line 611
-    iget v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:I
+    move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(I)V
+    const v2, 0x7f02009c
 
-    .line 612
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setDropDownBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 736
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$4;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$4;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+
+    .line 744
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$5;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$5;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+
+    .line 761
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    invoke-virtual {v0, v5}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setIsDropDownEnabled(Z)V
+
+    .line 765
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/LinearLayout;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$6;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$6;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    .line 788
     return-void
 .end method
 
-.method static synthetic g(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/dialogs/ar;
+.method static synthetic h(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
+
+    .prologue
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->x()V
+
+    return-void
+.end method
+
+.method static synthetic i(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ab:Lcom/yelp/android/ui/dialogs/ar;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
     return-object v0
 .end method
 
-.method private g()V
+.method private i()V
     .locals 3
 
     .prologue
     const/4 v2, 0x1
 
-    .line 688
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 846
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ImageInputHelper;->b()Z
 
@@ -1595,8 +1943,8 @@
 
     if-eqz v0, :cond_1
 
-    .line 689
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 847
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ImageInputHelper;->c()Landroid/graphics/Bitmap;
 
@@ -1604,14 +1952,14 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Landroid/graphics/Bitmap;)V
 
-    .line 697
+    .line 854
     :cond_0
     :goto_0
     return-void
 
-    .line 690
+    .line 848
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1619,10 +1967,10 @@
 
     if-nez v0, :cond_2
 
-    .line 691
+    .line 849
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
     invoke-static {v1}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1632,9 +1980,9 @@
 
     goto :goto_0
 
-    .line 694
+    .line 851
     :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -1642,93 +1990,153 @@
 
     if-nez v0, :cond_0
 
-    .line 695
+    .line 852
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2, p0}, Lcom/yelp/android/webimageview/WebImageView;->setImageUrl(Ljava/lang/String;ZLcom/yelp/android/webimageview/WebImageView$ImageLoadedCallback;)V
 
     goto :goto_0
 .end method
 
-.method static synthetic h(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/util/concurrent/atomic/AtomicBoolean;
+.method static synthetic j(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
     return-object v0
 .end method
 
-.method private h()V
+.method private j()V
+    .locals 2
+
+    .prologue
+    .line 924
+    invoke-static {}, Ljp/line/android/sdk/c;->a()Ljp/line/android/sdk/a;
+
+    move-result-object v0
+
+    .line 925
+    invoke-interface {v0}, Ljp/line/android/sdk/a;->c()Ljp/line/android/sdk/login/a;
+
+    move-result-object v0
+
+    .line 926
+    invoke-interface {v0, p0}, Ljp/line/android/sdk/login/a;->a(Landroid/app/Activity;)Ljp/line/android/sdk/login/LineLoginFuture;
+
+    move-result-object v0
+
+    .line 927
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$9;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$9;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-interface {v0, v1}, Ljp/line/android/sdk/login/LineLoginFuture;->a(Ljp/line/android/sdk/login/b;)Z
+
+    .line 944
+    return-void
+.end method
+
+.method static synthetic k(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
+
+    return-object v0
+.end method
+
+.method private k()V
     .locals 3
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
 
     .prologue
     const/4 v2, 0x0
 
-    .line 806
+    .line 1037
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    .line 807
+    .line 1038
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->updateOptionsMenu()V
 
-    .line 810
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
+    .line 1041
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Landroid/widget/RelativeLayout;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 811
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/RelativeLayout;
+    .line 1042
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 812
+    .line 1043
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    .line 813
+    .line 1045
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setAlpha(F)V
+
+    .line 1048
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o()V
+
+    .line 1049
     return-void
 .end method
 
-.method static synthetic i(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
-    .locals 1
-
-    .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
-
-    return-object v0
-.end method
-
-.method private i()V
+.method private l()V
     .locals 3
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
 
     .prologue
-    const/4 v2, 0x4
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
+    .line 1056
+    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    .line 817
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
-
-    .line 818
+    .line 1057
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->updateOptionsMenu()V
 
-    .line 820
-    const v0, 0x7f0c0490
+    .line 1059
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
+
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1060
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
+
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1061
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1062
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
+
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 1065
+    const v0, 0x7f0f00ec
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -1736,122 +2144,167 @@
 
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    .line 821
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
-
-    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
-
-    .line 822
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/RelativeLayout;
+    .line 1067
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, v2}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    .line 823
+    .line 1068
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+
+    .line 1069
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    const/16 v1, 0x8
 
-    .line 825
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    const-string/jumbo v1, ""
+    .line 1071
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    const/4 v1, 0x0
 
-    .line 826
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setAlpha(F)V
 
-    const-string/jumbo v1, ""
+    .line 1074
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o()V
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 827
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 828
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 829
+    .line 1075
     return-void
 .end method
 
-.method static synthetic j(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
-    .locals 1
+.method static synthetic l(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m()V
 
-    return-object v0
+    return-void
 .end method
 
-.method private j()V
+.method private m()V
     .locals 5
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
 
     .prologue
     const/4 v4, 0x0
 
-    .line 833
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    .line 1082
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
     if-eqz v0, :cond_0
 
-    .line 846
+    .line 1115
     :goto_0
     return-void
 
-    .line 837
+    .line 1086
     :cond_0
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    .line 838
+    .line 1087
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->updateOptionsMenu()V
 
-    .line 841
+    .line 1090
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Landroid/widget/RelativeLayout;
+
+    sget v1, Lcom/yelp/android/ui/util/av;->a:I
+
+    int-to-long v2, v1
+
+    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/av;->a(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+
+    .line 1091
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    sget v1, Lcom/yelp/android/ui/util/av;->a:I
 
     int-to-long v2, v1
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->a(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/av;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
 
-    .line 842
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/RelativeLayout;
+    .line 1094
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p()I
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    move-result v0
 
-    int-to-long v2, v1
+    .line 1095
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/LinearLayout;
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-virtual {v1}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
 
-    .line 843
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
+    move-result-object v1
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    sget v2, Lcom/yelp/android/ui/util/av;->a:I
 
-    int-to-long v2, v1
+    int-to-long v2, v2
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
-    .line 844
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m()V
+    move-result-object v1
 
-    .line 845
-    const v0, 0x7f0c0112
+    int-to-float v2, v0
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->am:Landroid/animation/Animator$AnimatorListener;
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    .line 1105
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    .line 1106
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    sget v2, Lcom/yelp/android/ui/util/av;->a:I
+
+    int-to-long v2, v2
+
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    int-to-float v0, v0
+
+    invoke-virtual {v1, v0}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    .line 1114
+    const v0, 0x7f0f0152
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -1864,214 +2317,342 @@
     goto :goto_0
 .end method
 
-.method static synthetic k(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
+.method static synthetic m(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Z
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    .line 139
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    return-object v0
+    return v0
 .end method
 
-.method private k()V
-    .locals 4
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
+.method private n()V
+    .locals 6
 
     .prologue
-    const v2, 0x7f0c0490
+    const/4 v5, 0x0
 
-    .line 850
-    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
+    const/4 v4, 0x0
 
-    move-result-object v0
+    .line 1122
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
+    if-nez v0, :cond_0
 
-    .line 852
-    const/4 v0, 0x0
+    .line 1168
+    :goto_0
+    return-void
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    .line 1126
+    :cond_0
+    iput-boolean v5, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    .line 853
+    .line 1127
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->updateOptionsMenu()V
 
-    .line 855
-    const v0, 0x7f0c010c
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/EditText;
+    .line 1129
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
     const-string/jumbo v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 856
-    const v0, 0x7f0c010d
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/EditText;
+    .line 1130
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
     const-string/jumbo v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 857
-    const v0, 0x7f0c0478
+    .line 1131
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
+    const-string/jumbo v1, ""
 
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setText(Ljava/lang/CharSequence;)V
 
-    check-cast v0, Landroid/widget/EditText;
+    .line 1132
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
 
     const-string/jumbo v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 858
-    const v0, 0x7f0c049a
+    .line 1135
+    const v0, 0x7f0f00ec
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/EditText;
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 860
-    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    .line 861
+    .line 1138
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Landroid/widget/RelativeLayout;
+
+    sget v1, Lcom/yelp/android/ui/util/av;->a:I
+
+    int-to-long v2, v1
+
+    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/av;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+
+    .line 1139
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    sget v1, Lcom/yelp/android/ui/util/av;->a:I
 
     int-to-long v2, v1
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->c(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/av;->a(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
 
-    .line 862
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/RelativeLayout;
+    .line 1143
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/LinearLayout;
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    sget v1, Lcom/yelp/android/ui/util/av;->a:I
 
     int-to-long v2, v1
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->a(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-virtual {v0, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
-    .line 863
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    .line 1151
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
 
-    sget v1, Lcom/yelp/android/ui/util/cw;->a:I
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    sget v1, Lcom/yelp/android/ui/util/av;->a:I
 
     int-to-long v2, v1
 
-    invoke-static {v0, v2, v3}, Lcom/yelp/android/ui/util/cw;->a(Landroid/view/View;J)Landroid/view/animation/AlphaAnimation;
+    invoke-virtual {v0, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
-    .line 864
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l()V
+    move-result-object v0
 
-    .line 865
+    invoke-virtual {v0, v4}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$14;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$14;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    .line 1167
+    const v0, 0x7f0f0152
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ScrollView;
+
+    invoke-virtual {v0, v5, v5}, Landroid/widget/ScrollView;->smoothScrollTo(II)V
+
+    goto/16 :goto_0
+.end method
+
+.method static synthetic n(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
+
+    .prologue
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o()V
+
     return-void
 .end method
 
-.method static synthetic l(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
+.method static synthetic o(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method private l()V
-    .locals 1
+.method private o()V
+    .locals 4
 
     .prologue
-    .line 868
-    iget v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:I
+    const/4 v1, 0x0
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d(I)V
+    .line 1174
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p()I
 
-    .line 869
+    move-result v2
+
+    .line 1175
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/LinearLayout;
+
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
+
+    if-eqz v0, :cond_1
+
+    int-to-float v0, v2
+
+    :goto_0
+    invoke-virtual {v3, v0}, Landroid/widget/LinearLayout;->setTranslationY(F)V
+
+    .line 1176
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
+
+    iget-boolean v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
+
+    if-eqz v3, :cond_0
+
+    int-to-float v1, v2
+
+    :cond_0
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setTranslationY(F)V
+
+    .line 1181
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    .line 1183
+    iput v2, v0, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
+
+    .line 1184
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 1185
     return-void
+
+    :cond_1
+    move v0, v1
+
+    .line 1175
+    goto :goto_0
 .end method
 
-.method static synthetic m(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/EditText;
+.method private p()I
+    .locals 3
+
+    .prologue
+    .line 1193
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getTop()I
+
+    move-result v1
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    iget v0, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
+
+    sub-int/2addr v1, v0
+
+    .line 1197
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v0}, Landroid/widget/RelativeLayout;->getBottom()I
+
+    move-result v2
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
+
+    invoke-virtual {v0}, Landroid/widget/RelativeLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/RelativeLayout$LayoutParams;
+
+    iget v0, v0, Landroid/widget/RelativeLayout$LayoutParams;->bottomMargin:I
+
+    add-int/2addr v0, v2
+
+    .line 1201
+    sub-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method static synthetic p(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/webimageview/WebImageView;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
     return-object v0
 .end method
 
-.method private m()V
-    .locals 1
-
-    .prologue
-    .line 872
-    iget v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:I
-
-    neg-int v0, v0
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d(I)V
-
-    .line 873
-    return-void
-.end method
-
-.method private n()Ljava/lang/String;
+.method private q()Ljava/lang/String;
     .locals 2
 
     .prologue
-    .line 1076
+    .line 1402
     const/4 v0, 0x0
 
-    .line 1077
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    .line 1403
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-    invoke-virtual {v1}, Landroid/widget/Spinner;->getSelectedItemPosition()I
+    invoke-virtual {v1}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->getSelectedItemPosition()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
-    .line 1085
+    .line 1411
     :goto_0
     return-object v0
 
-    .line 1079
+    .line 1405
     :pswitch_0
     const-string/jumbo v0, "m"
 
     goto :goto_0
 
-    .line 1082
+    .line 1408
     :pswitch_1
     const-string/jumbo v0, "f"
 
     goto :goto_0
 
-    .line 1077
+    .line 1403
     nop
 
     :pswitch_data_0
@@ -2081,19 +2662,17 @@
     .end packed-switch
 .end method
 
-.method static synthetic n(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/lang/String;
-    .locals 1
+.method static synthetic q(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
 
     .prologue
-    .line 131
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n()Ljava/lang/String;
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->u()V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method
 
-.method private o()Ljava/lang/String;
+.method private r()Ljava/lang/String;
     .locals 5
 
     .prologue
@@ -2101,37 +2680,37 @@
 
     const/4 v2, 0x0
 
-    .line 1089
+    .line 1415
     const/4 v0, 0x0
 
-    .line 1090
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    .line 1416
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     aget v1, v1, v2
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     aget v1, v1, v2
 
     if-eq v1, v3, :cond_0
 
-    .line 1091
+    .line 1417
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
-    .line 1092
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    .line 1418
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     aget v1, v1, v2
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     aget v2, v2, v3
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     const/4 v4, 0x2
 
@@ -2139,7 +2718,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Ljava/util/Calendar;->set(III)V
 
-    .line 1094
+    .line 1419
     new-instance v1, Ljava/text/SimpleDateFormat;
 
     const-string/jumbo v2, "yyyy,MM,dd"
@@ -2148,7 +2727,7 @@
 
     invoke-direct {v1, v2, v3}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
-    .line 1095
+    .line 1420
     invoke-virtual {v0}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
 
     move-result-object v0
@@ -2157,41 +2736,59 @@
 
     move-result-object v0
 
-    .line 1097
+    .line 1422
     :cond_0
     return-object v0
 .end method
 
-.method static synthetic o(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/lang/String;
+.method static synthetic r(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
+
+    .prologue
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l()V
+
+    return-void
+.end method
+
+.method static synthetic s(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/LinearLayout;
     .locals 1
 
     .prologue
-    .line 131
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o()Ljava/lang/String;
-
-    move-result-object v0
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
 
     return-object v0
 .end method
 
-.method private p()Ljava/lang/String;
+.method private s()Ljava/lang/String;
     .locals 2
 
     .prologue
-    .line 1101
     const/4 v0, 0x0
 
-    .line 1102
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 1427
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Z
+
+    if-eqz v1, :cond_1
+
+    .line 1444
+    :cond_0
+    :goto_0
+    return-object v0
+
+    .line 1432
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v1}, Lcom/yelp/android/ui/util/ImageInputHelper;->b()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    .line 1103
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 1433
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ImageInputHelper;->e()Ljava/io/File;
 
@@ -2201,23 +2798,20 @@
 
     move-result-object v0
 
-    .line 1113
-    :cond_0
-    :goto_0
-    return-object v0
+    goto :goto_0
 
-    .line 1105
-    :cond_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    .line 1434
+    :cond_2
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
-    .line 1106
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    .line 1435
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Ljava/lang/String;)Ljava/lang/String;
 
@@ -2233,9 +2827,32 @@
 
     goto :goto_0
 
-    .line 1109
-    :cond_2
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
+    .line 1439
+    :cond_3
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    .line 1440
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/yelp/android/webimageview/ImageLoader;->getImageFile(Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    .line 1441
+    :cond_4
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2243,7 +2860,7 @@
 
     if-nez v1, :cond_0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -2251,8 +2868,8 @@
 
     if-nez v1, :cond_0
 
-    .line 1110
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
+    .line 1442
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/yelp/android/webimageview/ImageLoader;->getImageFile(Ljava/lang/String;)Ljava/io/File;
 
@@ -2265,125 +2882,139 @@
     goto :goto_0
 .end method
 
-.method static synthetic p(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/lang/String;
+.method private t()V
     .locals 1
 
     .prologue
-    .line 131
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private q()V
-    .locals 1
-
-    .prologue
-    .line 1400
+    .line 1737
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
-
-    .line 1401
-    return-void
-.end method
-
-.method static synthetic q(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
-    .locals 0
-
-    .prologue
-    .line 131
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i()V
-
-    return-void
-.end method
-
-.method private r()V
-    .locals 1
-
-    .prologue
-    const/4 v0, 0x0
-
-    .line 1404
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
-    .line 1405
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
-
-    .line 1406
+    .line 1738
     return-void
 .end method
 
-.method static synthetic r(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+.method static synthetic t(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
     .locals 0
 
     .prologue
-    .line 131
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h()V
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k()V
 
     return-void
 .end method
 
-.method static synthetic s(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/lang/String;
+.method static synthetic u(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method private s()V
+.method private u()V
+    .locals 1
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 1741
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->P:Ljava/lang/String;
+
+    .line 1742
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->O:Ljava/lang/String;
+
+    .line 1743
+    return-void
+.end method
+
+.method private v()V
+    .locals 1
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 1746
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
+
+    .line 1747
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
+
+    .line 1748
+    return-void
+.end method
+
+.method static synthetic v(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .locals 0
+
+    .prologue
+    .line 139
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->w()V
+
+    return-void
+.end method
+
+.method static synthetic w(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/Button;
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n:Landroid/widget/Button;
+
+    return-object v0
+.end method
+
+.method private w()V
     .locals 3
 
     .prologue
-    .line 1459
+    .line 1801
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 1460
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p()Ljava/lang/String;
+    .line 1802
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s()Ljava/lang/String;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    .line 1461
+    .line 1803
     const-string/jumbo v1, "image"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1463
+    .line 1805
     :cond_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q()Ljava/lang/String;
 
     move-result-object v1
 
     if-eqz v1, :cond_1
 
-    .line 1464
+    .line 1806
     const-string/jumbo v1, "gender"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1466
+    .line 1808
     :cond_1
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r()Ljava/lang/String;
 
     move-result-object v1
 
     if-eqz v1, :cond_2
 
-    .line 1467
+    .line 1809
     const-string/jumbo v1, "birthdate"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 1469
+    .line 1811
     :cond_2
     const-string/jumbo v1, ", "
 
@@ -2391,20 +3022,20 @@
 
     move-result-object v0
 
-    .line 1470
+    .line 1812
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 1471
+    .line 1813
     const-string/jumbo v2, "provided_optional_fields"
 
     invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1472
+    .line 1814
     const-string/jumbo v0, "email_autoconfirmed"
 
-    iget-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->O:Z
+    iget-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->T:Z
 
     invoke-static {v2}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
 
@@ -2412,223 +3043,290 @@
 
     invoke-virtual {v1, v0, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 1473
+    .line 1815
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->SignedUp:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
-    .line 1474
-    sget-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->SignedUp:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+    .line 1816
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    invoke-static {v0}, Lcom/yelp/android/analytics/j;->a(Lcom/yelp/android/analytics/iris/KahunaEventIri;)V
+    move-result-object v0
 
-    .line 1475
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/analytics/i;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaEventIri;->SignedUp:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/analytics/i;->a(Lcom/yelp/android/analytics/iris/KahunaEventIri;)V
+
+    .line 1817
     return-void
 .end method
 
-.method static synthetic t(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/webimageview/WebImageView;
+.method static synthetic x(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Lcom/yelp/android/ui/activities/FacebookConnectManager;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
     return-object v0
 .end method
 
-.method static synthetic u(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
-    .locals 0
+.method private x()V
+    .locals 9
 
     .prologue
-    .line 131
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s()V
+    .line 1896
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s()Ljava/lang/String;
+
+    move-result-object v8
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v8}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1905
     return-void
 .end method
 
-.method static synthetic v(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/Button;
+.method static synthetic y(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/content/DialogInterface$OnClickListener;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o:Landroid/widget/Button;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->al:Landroid/content/DialogInterface$OnClickListener;
 
     return-object v0
 .end method
 
-.method static synthetic w(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Z
+.method private y()V
     .locals 1
 
     .prologue
-    .line 131
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Z
+    .line 1909
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getCurrentFocus()Landroid/view/View;
 
-    return v0
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 1910
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getCurrentFocus()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/ui/util/as;->b(Landroid/view/View;)V
+
+    .line 1911
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->clearFocus()V
+
+    .line 1913
+    :cond_0
+    return-void
 .end method
 
-.method static synthetic x(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/content/DialogInterface$OnClickListener;
+.method static synthetic z(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/Button;
     .locals 1
 
     .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ad:Landroid/content/DialogInterface$OnClickListener;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Button;
 
     return-object v0
-.end method
-
-.method static synthetic y(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Landroid/widget/Button;
-    .locals 1
-
-    .prologue
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m:Landroid/widget/Button;
-
-    return-object v0
-.end method
-
-.method static synthetic z(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)Z
-    .locals 1
-
-    .prologue
-    .line 131
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Z
-
-    return v0
 .end method
 
 
 # virtual methods
 .method public a()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 376
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e()[Ljava/lang/String;
+    .line 428
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->x:Landroid/widget/Button;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$1;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$1;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 437
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->y:Landroid/widget/Button;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$12;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$12;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 454
+    sget-object v0, Lcom/yelp/android/appdata/experiment/e;->l:Lcom/yelp/android/appdata/experiment/TwoBucketExperiment;
+
+    sget-object v1, Lcom/yelp/android/appdata/experiment/TwoBucketExperiment$Cohort;->enabled:Lcom/yelp/android/appdata/experiment/TwoBucketExperiment$Cohort;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/experiment/TwoBucketExperiment;->a(Ljava/lang/Enum;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v0
 
-    .line 378
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->x:Landroid/widget/Button;
+    invoke-virtual {v0}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/be;
+    move-result-object v0
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/be;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/LocaleSettings;->f(Ljava/lang/String;)Z
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-result v0
 
-    .line 391
-    array-length v0, v0
+    if-eqz v0, :cond_0
 
-    .line 392
-    if-nez v0, :cond_0
+    .line 456
+    sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->LineSignupShown:Lcom/yelp/android/analytics/iris/ViewIri;
 
-    .line 393
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->y:Landroid/widget/Button;
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
+
+    .line 457
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:Landroid/widget/Button;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$23;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$23;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 470
+    :goto_0
+    return-void
+
+    .line 468
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:Landroid/widget/Button;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 408
-    :goto_0
-    new-instance v0, Lcom/yelp/android/ui/activities/bu;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/bu;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
-
-    .line 416
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
-
-    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
-    .line 417
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
-
-    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
-    .line 418
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
-
-    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
-    .line 419
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
-
-    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
-
-    .line 420
-    return-void
-
-    .line 395
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->y:Landroid/widget/Button;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/bq;
-
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/bq;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;I)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
     goto :goto_0
 .end method
 
-.method public a(I)V
-    .locals 6
+.method protected a(I)V
+    .locals 5
 
     .prologue
-    .line 632
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Landroid/widget/LinearLayout;
+    const/4 v4, 0x0
 
-    .line 633
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    .line 962
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    array-length v0, v0
 
-    .line 636
-    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    const/4 v1, 0x1
 
-    move-result-object v0
+    if-ne v0, v1, :cond_0
 
-    check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
+    .line 963
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
 
-    .line 638
-    iget v2, v0, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
+    aget-object v0, v0, v4
 
-    neg-int v3, p1
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
 
-    iget v4, v0, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
-
-    iget v5, v0, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
-
-    invoke-virtual {v0, v2, v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
-
-    .line 639
-    invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    .line 646
+    .line 967
     :goto_0
+    new-instance v0, Lcom/yelp/android/ui/util/j;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e:Ljava/lang/String;
+
+    const/16 v3, 0x64
+
+    invoke-direct {v0, p0, v1, v2, v3}, Lcom/yelp/android/ui/util/j;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;Ljava/lang/String;I)V
+
+    new-array v1, v4, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/j;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    .line 973
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m()V
+
+    .line 974
     return-void
 
-    .line 641
+    .line 965
     :cond_0
-    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
 
-    move-result-object v0
+    aget-object v0, v0, p1
 
-    check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
-
-    .line 643
-    iget v2, v0, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
-
-    const/4 v3, 0x0
-
-    iget v4, v0, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
-
-    iget v5, v0, Landroid/widget/LinearLayout$LayoutParams;->bottomMargin:I
-
-    invoke-virtual {v0, v2, v3, v4, v5}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
-
-    .line 644
-    invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
 
     goto :goto_0
 .end method
@@ -2637,7 +3335,7 @@
     .locals 0
 
     .prologue
-    .line 1241
+    .line 1571
     return-void
 .end method
 
@@ -2645,13 +3343,13 @@
     .locals 4
 
     .prologue
-    .line 1245
+    .line 1575
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
 
-    .line 1246
-    const v0, 0x7f070047
+    .line 1576
+    const v0, 0x7f0700cf
 
-    const v1, 0x7f070620
+    const v1, 0x7f07060c
 
     const/high16 v2, 0x1040000
 
@@ -2659,50 +3357,50 @@
 
     invoke-virtual {p0, v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showYesNoDialog(IIII)V
 
-    .line 1249
+    .line 1581
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/ui/util/p;)V
+.method public a(Lcom/yelp/android/ui/util/j$a;)V
     .locals 3
 
     .prologue
     const/4 v2, 0x1
 
-    .line 1352
+    .line 1694
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->SignUpWithGoogle:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    .line 1353
+    .line 1695
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
 
-    .line 1354
+    .line 1696
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
-    iget-object v1, p1, Lcom/yelp/android/ui/util/p;->a:Ljava/lang/String;
+    iget-object v1, p1, Lcom/yelp/android/ui/util/j$a;->a:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1355
+    .line 1697
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
-    iget-object v1, p1, Lcom/yelp/android/ui/util/p;->b:Ljava/lang/String;
+    iget-object v1, p1, Lcom/yelp/android/ui/util/j$a;->b:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1356
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    .line 1698
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    iget-object v1, p1, Lcom/yelp/android/ui/util/p;->c:Ljava/lang/String;
+    iget-object v1, p1, Lcom/yelp/android/ui/util/j$a;->c:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1358
-    iget-object v0, p1, Lcom/yelp/android/ui/util/p;->e:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
+    .line 1700
+    iget-object v0, p1, Lcom/yelp/android/ui/util/j$a;->e:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
-    .line 1359
-    sget-object v1, Lcom/yelp/android/ui/activities/bt;->a:[I
+    .line 1701
+    sget-object v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$24;->c:[I
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->ordinal()I
 
@@ -2712,75 +3410,62 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 1369
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
-
-    .line 1372
+    .line 1710
     :goto_0
-    iget-object v0, p1, Lcom/yelp/android/ui/util/p;->d:Ljava/util/Calendar;
+    iget-object v0, p1, Lcom/yelp/android/ui/util/j$a;->d:Ljava/util/Calendar;
 
-    .line 1373
+    .line 1711
     if-eqz v0, :cond_0
 
-    .line 1375
+    .line 1713
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/util/Calendar;)Z
 
-    .line 1378
+    .line 1716
     :cond_0
-    iget-object v0, p1, Lcom/yelp/android/ui/util/p;->f:Ljava/lang/String;
+    iget-object v0, p1, Lcom/yelp/android/ui/util/j$a;->f:Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
-    .line 1379
-    iget-object v0, p1, Lcom/yelp/android/ui/util/p;->f:Ljava/lang/String;
+    .line 1717
+    iget-object v0, p1, Lcom/yelp/android/ui/util/j$a;->f:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
 
-    .line 1380
+    .line 1718
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
-    iget-object v1, p1, Lcom/yelp/android/ui/util/p;->f:Ljava/lang/String;
+    iget-object v1, p1, Lcom/yelp/android/ui/util/j$a;->f:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2, p0}, Lcom/yelp/android/webimageview/WebImageView;->setImageUrl(Ljava/lang/String;ZLcom/yelp/android/webimageview/WebImageView$ImageLoadedCallback;)V
 
-    .line 1383
+    .line 1721
     :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 1385
+    .line 1722
     return-void
 
-    .line 1361
+    .line 1703
     :pswitch_0
-    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Z
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-    .line 1362
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
-
-    invoke-virtual {v0, v2}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->setSelection(I)V
 
     goto :goto_0
 
-    .line 1365
+    .line 1706
     :pswitch_1
-    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Z
-
-    .line 1366
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->setSelection(I)V
 
     goto :goto_0
 
-    .line 1359
+    .line 1701
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -2792,25 +3477,25 @@
     .locals 2
 
     .prologue
-    .line 1346
+    .line 1688
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
 
-    .line 1347
-    const v0, 0x7f07009a
+    .line 1689
+    const v0, 0x7f070118
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    const v1, 0x7f07024c
+    const v1, 0x7f0702a2
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    invoke-static {p0, v0, v1}, Lcom/yelp/android/ui/util/cp;->a(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/ui/util/ar;->a(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 1349
+    .line 1691
     return-void
 .end method
 
@@ -2818,29 +3503,105 @@
     .locals 2
 
     .prologue
-    .line 1337
+    .line 1679
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->u:Landroid/widget/TextView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1338
+    .line 1680
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
 
-    .line 1339
+    .line 1681
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Landroid/graphics/Bitmap;)V
 
-    .line 1340
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q()V
+    .line 1682
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t()V
 
-    .line 1341
+    .line 1683
     const/4 v0, 0x1
 
     return v0
 .end method
 
-.method public b()Lcom/yelp/android/ui/activities/FacebookConnectManager;
+.method public b()V
+    .locals 3
+
+    .prologue
+    .line 488
+    new-instance v0, Lcom/yelp/android/ui/activities/FacebookConnectManager;
+
+    const v1, 0x7f070379
+
+    sget-object v2, Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;->DEFAULT_EMAIL_BIRTHDAY_USER_FRIEND:Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
+
+    invoke-direct {v0, p0, v1, p0, v2}, Lcom/yelp/android/ui/activities/FacebookConnectManager;-><init>(Landroid/app/Activity;ILcom/yelp/android/ui/activities/FacebookConnectManager$a;Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+
+    .line 494
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->e()V
+
+    .line 495
+    return-void
+.end method
+
+.method public b(I)V
+    .locals 2
+
+    .prologue
+    .line 1725
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 1726
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
+
+    .line 1727
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/as;->a(Ljava/lang/CharSequence;I)V
+
+    .line 1728
+    return-void
+.end method
+
+.method public b(Lcom/yelp/android/ui/activities/FacebookConnectManager;)V
+    .locals 1
+
+    .prologue
+    .line 1592
+    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->SignUpWithFacebookCanceled:Lcom/yelp/android/analytics/iris/EventIri;
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
+
+    .line 1593
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
+
+    .line 1594
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 1595
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->finish()V
+
+    .line 1597
+    :cond_0
+    return-void
+.end method
+
+.method public c()Lcom/yelp/android/ui/activities/FacebookConnectManager;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2853,7 +3614,7 @@
     .end annotation
 
     .prologue
-    .line 427
+    .line 500
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->getLastCustomNonConfigurationInstance()Ljava/lang/Object;
 
     move-result-object v0
@@ -2863,150 +3624,44 @@
     return-object v0
 .end method
 
-.method protected b(I)V
-    .locals 5
-
-    .prologue
-    const/4 v4, 0x0
-
-    .line 733
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:[Ljava/lang/String;
-
-    array-length v0, v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    .line 734
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:[Ljava/lang/String;
-
-    aget-object v0, v0, v4
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
-
-    .line 738
-    :goto_0
-    new-instance v0, Lcom/yelp/android/ui/util/n;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
-
-    sget-object v2, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Ljava/lang/String;
-
-    const/16 v3, 0x64
-
-    invoke-direct {v0, p0, v1, v2, v3}, Lcom/yelp/android/ui/util/n;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;Ljava/lang/String;I)V
-
-    new-array v1, v4, [Ljava/lang/Void;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/n;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
-
-    .line 741
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j()V
-
-    .line 742
-    return-void
-
-    .line 736
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:[Ljava/lang/String;
-
-    aget-object v0, v0, p1
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
-
-    goto :goto_0
-.end method
-
-.method public b(Lcom/yelp/android/ui/activities/FacebookConnectManager;)V
-    .locals 1
-
-    .prologue
-    .line 1253
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->SignUpWithFacebookCanceled:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
-
-    .line 1254
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
-
-    .line 1255
-    return-void
-.end method
-
-.method public c()Lcom/yelp/android/ui/activities/FacebookConnectManager;
-    .locals 1
-
-    .prologue
-    .line 986
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
-
-    return-object v0
-.end method
-
-.method public c(I)V
-    .locals 2
-
-    .prologue
-    .line 1388
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 1389
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
-
-    .line 1390
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/cr;->a(Ljava/lang/CharSequence;I)V
-
-    .line 1391
-    return-void
-.end method
-
 .method public c(Lcom/yelp/android/ui/activities/FacebookConnectManager;)V
     .locals 5
 
     .prologue
     const/4 v3, 0x1
 
-    .line 1259
+    .line 1601
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->SignUpWithFacebook:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    .line 1260
+    .line 1602
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
 
-    .line 1261
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j()V
+    .line 1603
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m()V
 
-    .line 1262
-    const v0, 0x7f070340
+    .line 1604
+    const v0, 0x7f07037b
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showLoadingDialog(I)V
 
-    .line 1263
+    .line 1605
     invoke-virtual {p1}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->c()Lcom/yelp/android/serializable/FacebookUser;
 
     move-result-object v0
 
-    .line 1264
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getId()Ljava/lang/String;
+    .line 1606
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->b()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
-    .line 1265
+    .line 1607
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
     invoke-static {v2}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Ljava/lang/String;)Ljava/lang/String;
 
@@ -3014,7 +3669,7 @@
 
     invoke-virtual {v1, v2, v3, p0}, Lcom/yelp/android/webimageview/WebImageView;->setImageUrl(Ljava/lang/String;ZLcom/yelp/android/webimageview/WebImageView$ImageLoadedCallback;)V
 
-    .line 1268
+    .line 1610
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
     invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -3027,16 +3682,16 @@
 
     if-eqz v1, :cond_0
 
-    .line 1269
+    .line 1611
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getFirstName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->f()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1272
+    .line 1614
     :cond_0
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
@@ -3050,29 +3705,29 @@
 
     if-eqz v1, :cond_1
 
-    .line 1273
+    .line 1615
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getLastName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->e()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1276
+    .line 1618
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-    invoke-virtual {v1}, Landroid/widget/Spinner;->getSelectedItemPosition()I
+    invoke-virtual {v1}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->getSelectedItemPosition()I
 
     move-result v1
 
     if-nez v1, :cond_2
 
-    .line 1277
+    .line 1619
     const-string/jumbo v1, "male"
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getGender()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->c()Ljava/lang/String;
 
     move-result-object v2
 
@@ -3082,15 +3737,12 @@
 
     if-eqz v1, :cond_5
 
-    .line 1278
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Z
+    .line 1620
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-    .line 1279
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    invoke-virtual {v1, v3}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->setSelection(I)V
 
-    invoke-virtual {v1, v3}, Landroid/widget/Spinner;->setSelection(I)V
-
-    .line 1286
+    .line 1626
     :cond_2
     :goto_0
     invoke-virtual {p1}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->d()Lcom/yelp/android/ui/activities/FacebookConnectManager$FbPermissionSet;
@@ -3101,17 +3753,17 @@
 
     if-ne v1, v2, :cond_4
 
-    .line 1287
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getEmail()Ljava/lang/String;
+    .line 1627
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/lang/String;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Ljava/lang/String;
 
-    .line 1288
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    .line 1628
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {v1}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->getText()Landroid/text/Editable;
 
     move-result-object v1
 
@@ -3121,16 +3773,16 @@
 
     if-eqz v1, :cond_3
 
-    .line 1289
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    .line 1629
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1292
+    .line 1632
     :cond_3
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getBirthday()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->d()Ljava/lang/String;
 
     move-result-object v1
 
@@ -3140,13 +3792,13 @@
 
     if-nez v1, :cond_4
 
-    .line 1294
+    .line 1634
     :try_start_0
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v1
 
-    .line 1295
+    .line 1635
     new-instance v2, Ljava/text/SimpleDateFormat;
 
     const-string/jumbo v3, "MM/dd/yyyy"
@@ -3155,7 +3807,7 @@
 
     invoke-direct {v2, v3, v4}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getBirthday()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->d()Ljava/lang/String;
 
     move-result-object v0
 
@@ -3165,12 +3817,12 @@
 
     invoke-virtual {v1, v0}, Ljava/util/Calendar;->setTime(Ljava/util/Date;)V
 
-    .line 1297
+    .line 1638
     invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/util/Calendar;)Z
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 1304
+    .line 1645
     :cond_4
     :goto_1
     const-string/jumbo v0, "FBConnect"
@@ -3185,7 +3837,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
     invoke-static {v2}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Ljava/lang/String;)Ljava/lang/String;
 
@@ -3205,14 +3857,14 @@
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/BaseYelpApplication;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 1308
+    .line 1649
     return-void
 
-    .line 1280
+    .line 1621
     :cond_5
     const-string/jumbo v1, "female"
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->getGender()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/FacebookUser;->c()Ljava/lang/String;
 
     move-result-object v2
 
@@ -3222,33 +3874,40 @@
 
     if-eqz v1, :cond_2
 
-    .line 1281
-    iput-boolean v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Z
-
-    .line 1282
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    .line 1622
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
     const/4 v2, 0x2
 
-    invoke-virtual {v1, v2}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->setSelection(I)V
 
     goto :goto_0
 
-    .line 1298
+    .line 1639
     :catch_0
     move-exception v0
 
     goto :goto_1
 .end method
 
+.method public d()Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .locals 1
+
+    .prologue
+    .line 1295
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+
+    return-object v0
+.end method
+
 .method public d(Lcom/yelp/android/ui/activities/FacebookConnectManager;)V
     .locals 0
 
     .prologue
-    .line 1319
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 1660
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
-    .line 1320
+    .line 1661
     return-void
 .end method
 
@@ -3256,17 +3915,17 @@
     .locals 1
 
     .prologue
-    .line 1324
+    .line 1665
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->SignUp:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 131
+    .line 139
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -3278,20 +3937,20 @@
     .locals 1
 
     .prologue
-    .line 131
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b()Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 139
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c()Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
-    .locals 2
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -3302,52 +3961,48 @@
     .end annotation
 
     .prologue
-    .line 1329
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Z
+    .line 1670
+    new-instance v0, Lcom/yelp/android/g/a;
 
-    if-eqz v0, :cond_0
+    invoke-direct {v0}, Lcom/yelp/android/g/a;-><init>()V
 
-    .line 1330
-    const-string/jumbo v0, "source"
+    .line 1671
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Q:Z
 
-    const-string/jumbo v1, "write_review"
+    if-eqz v1, :cond_0
 
-    invoke-static {v0, v1}, Ljava/util/Collections;->singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
+    .line 1672
+    const-string/jumbo v1, "source"
 
-    move-result-object v0
+    const-string/jumbo v2, "write_review"
 
-    .line 1332
-    :goto_0
-    return-object v0
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1674
     :cond_0
-    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
-
-    move-result-object v0
-
-    goto :goto_0
+    return-object v0
 .end method
 
 .method public imageLoaded(Lcom/yelp/android/webimageview/WebImageView;)V
     .locals 2
 
     .prologue
-    .line 1312
+    .line 1653
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->u:Landroid/widget/TextView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1313
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 1654
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ImageInputHelper;->a()V
 
-    .line 1314
+    .line 1655
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
 
-    .line 1315
+    .line 1656
     return-void
 .end method
 
@@ -3357,107 +4012,108 @@
     .prologue
     const/16 v4, 0x64
 
-    const/4 v3, 0x0
+    const/4 v1, 0x1
 
-    const/4 v1, -0x1
+    const/4 v3, -0x1
 
-    .line 910
+    const/4 v2, 0x0
+
+    .line 1207
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 912
-    const/4 v0, 0x7
-
-    if-ne p1, v0, :cond_1
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 1209
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
     if-eqz v0, :cond_1
 
-    .line 913
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(IILandroid/content/Intent;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(IILandroid/content/Intent;)Z
 
-    .line 964
-    :cond_0
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Z
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
+
+    .line 1213
     :goto_0
-    return-void
+    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Z
 
-    .line 914
-    :cond_1
-    const/16 v0, 0xb
-
-    if-ne p1, v0, :cond_2
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
-
+    .line 1215
     if-eqz v0, :cond_2
 
-    .line 915
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 1217
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(IILandroid/content/Intent;)V
+    new-instance v1, Lcom/yelp/android/ui/activities/ActivityCreateAccount$15;
 
-    .line 917
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$15;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
 
-    new-instance v1, Lcom/yelp/android/ui/activities/bk;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Lcom/yelp/android/ui/activities/FacebookConnectManager$a;)V
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/bk;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;)V
+    .line 1270
+    :cond_0
+    :goto_1
+    return-void
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Lcom/yelp/android/ui/activities/fg;)V
+    :cond_1
+    move v0, v2
 
+    .line 1209
     goto :goto_0
 
-    .line 953
+    .line 1257
     :cond_2
     const/4 v0, 0x6
 
     if-ne p1, v0, :cond_3
 
-    if-ne p2, v1, :cond_3
+    if-ne p2, v3, :cond_3
 
-    .line 954
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 1258
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
-    invoke-virtual {v0, p3, p0}, Lcom/yelp/android/ui/util/ImageInputHelper;->a(Landroid/content/Intent;Lcom/yelp/android/ui/util/al;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, p3, p0}, Lcom/yelp/android/ui/util/ImageInputHelper;->a(Landroid/content/Intent;Lcom/yelp/android/ui/util/ImageInputHelper$c;)Landroid/os/AsyncTask;
 
     move-result-object v0
 
-    const/4 v1, 0x1
-
     new-array v1, v1, [Landroid/content/Context;
 
-    aput-object p0, v1, v3
+    aput-object p0, v1, v2
 
     invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 955
+    .line 1259
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->showLoadingDialog()V
 
-    goto :goto_0
+    goto :goto_1
 
-    .line 956
+    .line 1260
     :cond_3
     if-ne p1, v4, :cond_0
 
-    .line 957
-    if-ne p2, v1, :cond_0
+    .line 1261
+    if-ne p2, v3, :cond_0
 
-    .line 958
-    new-instance v0, Lcom/yelp/android/ui/util/n;
+    .line 1262
+    new-instance v0, Lcom/yelp/android/ui/util/j;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
 
-    sget-object v2, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Ljava/lang/String;
+    sget-object v3, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e:Ljava/lang/String;
 
-    invoke-direct {v0, p0, v1, v2, v4}, Lcom/yelp/android/ui/util/n;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;Ljava/lang/String;I)V
+    invoke-direct {v0, p0, v1, v3, v4}, Lcom/yelp/android/ui/util/j;-><init>(Lcom/yelp/android/ui/activities/ActivityCreateAccount;Ljava/lang/String;Ljava/lang/String;I)V
 
-    new-array v1, v3, [Ljava/lang/Void;
+    new-array v1, v2, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/n;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/j;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public onBackPressed()V
@@ -3466,59 +4122,70 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 968
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    .line 1274
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
     if-eqz v0, :cond_0
 
-    .line 970
+    .line 1276
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;->setIsDropDownEnabled(Z)V
+
+    .line 1277
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
     invoke-virtual {v0}, Lcom/yelp/android/webimageview/WebImageView;->reset()V
 
-    .line 971
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 1278
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ImageInputHelper;->a()V
 
-    .line 972
+    .line 1279
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->u:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 973
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n:Landroid/widget/Button;
+    .line 1280
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m:Landroid/widget/Button;
 
     const-string/jumbo v1, ""
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    .line 974
+    .line 1281
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->v:Landroid/widget/TextView;
 
-    const v1, 0x7f070447
+    const v1, 0x7f07046a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 975
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    .line 1282
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Spinner;->setSelection(I)V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/SelectionSpinner;->a()V
 
-    .line 976
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r()V
+    .line 1283
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->v()V
 
-    .line 977
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q()V
+    .line 1284
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t()V
 
-    .line 978
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k()V
+    .line 1285
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->u()V
 
-    .line 982
+    .line 1286
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n()V
+
+    .line 1287
+    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Z
+
+    .line 1291
     :goto_0
     return-void
 
-    .line 980
+    .line 1289
     :cond_0
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onBackPressed()V
 
@@ -3526,7 +4193,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 8
+    .locals 9
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "CommitPrefEdits"
@@ -3534,72 +4201,84 @@
     .end annotation
 
     .prologue
-    const/4 v7, 0x1
+    const/16 v2, 0x2000
 
-    const/4 v6, 0x0
+    const/4 v8, 0x1
 
-    .line 238
+    const/4 v1, 0x0
+
+    .line 272
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 239
-    const v0, 0x7f030025
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->setContentView(I)V
-
-    .line 240
-    const v0, 0x7f07057d
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->setTitle(I)V
-
-    .line 243
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v1
-
-    .line 244
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    .line 273
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0, v2, v2}, Landroid/view/Window;->setFlags(II)V
 
-    .line 245
+    .line 278
+    const v0, 0x7f03002f
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->setContentView(I)V
+
+    .line 279
+    const v0, 0x7f070585
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->setTitle(I)V
+
+    .line 282
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v2
+
+    .line 283
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Lcom/yelp/android/appdata/webrequests/co;
+
+    .line 284
     const/4 v0, 0x3
 
     new-array v0, v0, [I
 
     fill-array-data v0, :array_0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
-    .line 248
-    iput-boolean v6, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Z
+    .line 285
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Z
 
-    .line 249
+    .line 286
+    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Z
+
+    .line 287
     new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    invoke-direct {v0, v7}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+    invoke-direct {v0, v8}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Ljava/util/concurrent/atomic/AtomicBoolean;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    .line 250
-    const v0, 0x7f0702c5
+    .line 288
+    const v0, 0x7f0706e8
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    sput-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Ljava/lang/String;
+    sput-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e:Ljava/lang/String;
 
-    .line 251
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->e()[Ljava/lang/String;
+    .line 289
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g()[Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:[Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
 
-    .line 253
-    const v0, 0x7f0c0246
+    .line 291
+    const v0, 0x7f0f025a
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3609,30 +4288,30 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
-    .line 254
-    const v0, 0x7f0c0498
+    .line 292
+    const v0, 0x7f0f05a6
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/LinearLayout;
+    check-cast v0, Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Landroid/widget/LinearLayout;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k:Lcom/yelp/android/ui/widgets/SelectionSpinner;
 
-    .line 255
-    const v0, 0x7f0c04a0
+    .line 293
+    const v0, 0x7f0f05a5
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/Spinner;
+    check-cast v0, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Spinner;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l:Landroid/widget/Button;
 
-    .line 256
-    const v0, 0x7f0c049f
+    .line 294
+    const v0, 0x7f0f05a8
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3642,8 +4321,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->m:Landroid/widget/Button;
 
-    .line 257
-    const v0, 0x7f0c04a2
+    .line 295
+    const v0, 0x7f0f05aa
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3653,19 +4332,19 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->n:Landroid/widget/Button;
 
-    .line 258
-    const v0, 0x7f0c04a4
+    .line 296
+    const v0, 0x7f0f05a0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast v0, Landroid/widget/LinearLayout;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o:Landroid/widget/Button;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->o:Landroid/widget/LinearLayout;
 
-    .line 259
-    const v0, 0x7f0c010c
+    .line 297
+    const v0, 0x7f0f0134
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3675,8 +4354,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->p:Landroid/widget/EditText;
 
-    .line 260
-    const v0, 0x7f0c010d
+    .line 298
+    const v0, 0x7f0f0135
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3686,19 +4365,19 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->q:Landroid/widget/EditText;
 
-    .line 261
-    const v0, 0x7f0c0478
+    .line 299
+    const v0, 0x7f0f0112
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/EditText;
+    check-cast v0, Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Landroid/widget/EditText;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->r:Lcom/yelp/android/ui/widgets/InstantAutoCompleteTextView;
 
-    .line 262
-    const v0, 0x7f0c049a
+    .line 300
+    const v0, 0x7f0f013c
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3708,8 +4387,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->s:Landroid/widget/EditText;
 
-    .line 263
-    const v0, 0x7f0c049d
+    .line 301
+    const v0, 0x7f0f05a2
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3719,8 +4398,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->t:Landroid/widget/EditText;
 
-    .line 264
-    const v0, 0x7f0c049e
+    .line 302
+    const v0, 0x7f0f05a4
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3730,8 +4409,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->w:Landroid/widget/TextView;
 
-    .line 265
-    const v0, 0x7f0c0408
+    .line 303
+    const v0, 0x7f0f04ee
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3741,8 +4420,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->u:Landroid/widget/TextView;
 
-    .line 266
-    const v0, 0x7f0c0492
+    .line 304
+    const v0, 0x7f0f0598
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3750,10 +4429,10 @@
 
     check-cast v0, Landroid/widget/RelativeLayout;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f:Landroid/widget/RelativeLayout;
 
-    .line 267
-    const v0, 0x7f0c04a3
+    .line 305
+    const v0, 0x7f0f05a9
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3763,8 +4442,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->v:Landroid/widget/TextView;
 
-    .line 268
-    const v0, 0x7f0c0497
+    .line 306
+    const v0, 0x7f0f059e
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3772,10 +4451,21 @@
 
     check-cast v0, Landroid/widget/RelativeLayout;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/RelativeLayout;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g:Landroid/widget/RelativeLayout;
 
-    .line 269
-    const v0, 0x7f0c049b
+    .line 307
+    const v0, 0x7f0f059f
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/LinearLayout;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h:Landroid/widget/LinearLayout;
+
+    .line 308
+    const v0, 0x7f0f05a1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3785,21 +4475,21 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i:Landroid/widget/LinearLayout;
 
-    .line 270
+    .line 309
     new-instance v0, Lcom/yelp/android/ui/util/ImageInputHelper;
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/n;
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/f;
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x6
+    const/4 v3, 0x6
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/util/ImageInputHelper;-><init>(Lcom/yelp/android/appdata/n;I)V
+    invoke-direct {v0, v2, v3}, Lcom/yelp/android/ui/util/ImageInputHelper;-><init>(Lcom/yelp/android/appdata/f;I)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
-    .line 272
-    const v0, 0x7f0c0494
+    .line 310
+    const v0, 0x7f0f059a
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3809,8 +4499,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->x:Landroid/widget/Button;
 
-    .line 273
-    const v0, 0x7f0c0493
+    .line 311
+    const v0, 0x7f0f0599
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
 
@@ -3820,7 +4510,18 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->y:Landroid/widget/Button;
 
-    .line 275
+    .line 312
+    const v0, 0x7f0f059b
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:Landroid/widget/Button;
+
+    .line 314
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -3829,168 +4530,99 @@
 
     move-result-object v0
 
-    .line 276
-    const-string/jumbo v1, "signup_from_review"
-
-    invoke-virtual {v0, v1, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    iput-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Z
-
-    .line 278
+    .line 315
     if-eqz v0, :cond_0
 
-    .line 279
-    const-string/jumbo v1, "show_skip_button"
+    .line 316
+    const-string/jumbo v2, "signup_from_review"
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Q:Z
+
+    .line 317
+    const-string/jumbo v2, "extra.show_skip_button"
+
+    invoke-virtual {v0, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->R:Z
 
-    .line 283
+    .line 321
     :cond_0
-    invoke-virtual {p0, v6}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getPreferences(I)Landroid/content/SharedPreferences;
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getPreferences(I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->P:Landroid/content/SharedPreferences;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Landroid/content/SharedPreferences;
 
-    .line 284
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->P:Landroid/content/SharedPreferences;
+    .line 322
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Landroid/content/SharedPreferences;
 
     invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Q:Landroid/content/SharedPreferences$Editor;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->V:Landroid/content/SharedPreferences$Editor;
 
-    .line 285
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->P:Landroid/content/SharedPreferences;
+    .line 323
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Landroid/content/SharedPreferences;
 
-    const-string/jumbo v1, "coppa_lockout"
+    const-string/jumbo v2, "coppa_lockout"
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v4, 0x0
 
-    invoke-interface {v0, v1, v2, v3}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v0
-
-    .line 286
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->P:Landroid/content/SharedPreferences;
-
-    const-string/jumbo v3, "coppa_error_message"
-
-    const-string/jumbo v4, ""
-
-    invoke-interface {v2, v3, v4}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Ljava/lang/String;
-
-    .line 287
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+    invoke-interface {v0, v2, v4, v5}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
 
     move-result-wide v2
 
-    const-wide/16 v4, 0x3e8
+    .line 324
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Landroid/content/SharedPreferences;
 
-    div-long/2addr v2, v4
+    const-string/jumbo v4, "coppa_error_message"
 
-    cmp-long v0, v0, v2
+    const-string/jumbo v5, ""
+
+    invoke-interface {v0, v4, v5}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->X:Ljava/lang/String;
+
+    .line 325
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    const-wide/16 v6, 0x3e8
+
+    div-long/2addr v4, v6
+
+    cmp-long v0, v2, v4
 
     if-lez v0, :cond_1
 
-    .line 288
-    iput-boolean v7, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->R:Z
+    .line 326
+    iput-boolean v8, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->W:Z
 
-    .line 291
+    .line 329
     :cond_1
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_7
 
-    .line 292
+    .line 330
     const-string/jumbo v0, "show_skip_button"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->R:Z
 
-    .line 293
+    .line 331
     const-string/jumbo v0, "FBUID_tag"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
-
-    .line 294
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object v0
-
-    .line 295
-    invoke-virtual {v0}, Ljava/util/Calendar;->clear()V
-
-    .line 296
-    const-string/jumbo v1, "birthdate"
-
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
-
-    .line 297
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
-
-    aget v1, v1, v6
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
-
-    aget v2, v2, v7
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
-
-    const/4 v4, 0x2
-
-    aget v3, v3, v4
-
-    invoke-virtual {v0, v1, v2, v3}, Ljava/util/Calendar;->set(III)V
-
-    .line 298
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/util/Calendar;)Z
-
-    .line 299
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/ImageInputHelper;->b(Landroid/os/Bundle;)V
-
-    .line 301
-    const-string/jumbo v0, "facebookEmail"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/lang/String;
-
-    .line 302
-    const-string/jumbo v0, "googleEmail"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
-
-    .line 303
-    const-string/jumbo v0, "googlePhoto"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -3998,127 +4630,248 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
-    .line 304
+    .line 332
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v0
+
+    .line 333
+    invoke-virtual {v0}, Ljava/util/Calendar;->clear()V
+
+    .line 334
+    const-string/jumbo v2, "birthdate"
+
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getIntArray(Ljava/lang/String;)[I
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
+
+    .line 335
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
+
+    aget v1, v2, v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
+
+    aget v2, v2, v8
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
+
+    const/4 v4, 0x2
+
+    aget v3, v3, v4
+
+    invoke-virtual {v0, v1, v2, v3}, Ljava/util/Calendar;->set(III)V
+
+    .line 336
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Ljava/util/Calendar;)Z
+
+    .line 337
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/ImageInputHelper;->b(Landroid/os/Bundle;)V
+
+    .line 339
+    const-string/jumbo v0, "facebookEmail"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Ljava/lang/String;
+
+    .line 340
+    const-string/jumbo v0, "googleEmail"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
+
+    .line 341
+    const-string/jumbo v0, "googlePhoto"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
+
+    .line 342
     const-string/jumbo v0, "full_form"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    .line 305
-    const-string/jumbo v0, "auto_birthdate"
+    .line 343
+    const-string/jumbo v0, "suggestion_email_list"
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    move-result v0
+    move-result-object v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Z
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ae:Ljava/util/ArrayList;
 
-    .line 309
+    .line 354
     :cond_2
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
     const-string/jumbo v1, "flags_dialog"
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/dialogs/FlagsDialog;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/ui/dialogs/FlagsDialog;
 
-    .line 311
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    .line 356
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/ui/dialogs/FlagsDialog;
 
     if-eqz v0, :cond_3
 
-    .line 312
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->U:Lcom/yelp/android/ui/dialogs/FlagsDialog;
+    .line 357
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/ui/dialogs/FlagsDialog;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ab:Lcom/yelp/android/ui/dialogs/ar;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->aj:Lcom/yelp/android/ui/dialogs/FlagsDialog$b;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a(Lcom/yelp/android/ui/dialogs/ar;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/FlagsDialog;->a(Lcom/yelp/android/ui/dialogs/FlagsDialog$b;)V
 
-    .line 315
+    .line 360
     :cond_3
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
     const-string/jumbo v1, "photo_add_dialog"
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment;
 
-    .line 317
+    .line 363
     if-eqz v0, :cond_4
 
-    .line 318
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 364
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
-    invoke-virtual {v1, p0}, Lcom/yelp/android/ui/util/ImageInputHelper;->b(Landroid/app/Activity;)Lcom/yelp/android/ui/util/an;
+    invoke-virtual {v1, p0}, Lcom/yelp/android/ui/util/ImageInputHelper;->b(Landroid/app/Activity;)Lcom/yelp/android/ui/util/ImageInputHelper$d;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment;->a(Lcom/yelp/android/ui/dialogs/as;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment;->a(Lcom/yelp/android/ui/dialogs/ListDialogFragment$a;)V
 
-    .line 321
+    .line 368
     :cond_4
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
-
-    if-eqz v0, :cond_6
-
-    .line 322
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->h()V
 
-    .line 328
-    :goto_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f()V
+    .line 370
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
-    .line 330
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b()Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    if-eqz v0, :cond_8
+
+    .line 371
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->k()V
+
+    .line 376
+    :goto_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c()Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
-    .line 331
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 377
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
     if-eqz v0, :cond_5
 
-    .line 332
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 378
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Lcom/yelp/android/ui/activities/fg;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Lcom/yelp/android/ui/activities/FacebookConnectManager$a;)V
 
-    .line 333
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->E:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 379
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
     invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->a(Landroid/app/Activity;)V
 
-    .line 335
+    .line 381
     :cond_5
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a()V
 
-    .line 336
+    .line 383
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->f()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    .line 384
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b()V
+
+    .line 386
+    :cond_6
     return-void
 
-    .line 324
-    :cond_6
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i()V
+    .line 347
+    :cond_7
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ae:Ljava/util/ArrayList;
+
+    .line 348
+    invoke-static {p0}, Landroid/accounts/AccountManager;->get(Landroid/content/Context;)Landroid/accounts/AccountManager;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "com.google"
+
+    invoke-virtual {v0, v2}, Landroid/accounts/AccountManager;->getAccountsByType(Ljava/lang/String;)[Landroid/accounts/Account;
+
+    move-result-object v2
+
+    .line 349
+    array-length v3, v2
+
+    move v0, v1
+
+    :goto_1
+    if-ge v0, v3, :cond_2
+
+    aget-object v1, v2, v0
+
+    .line 350
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ae:Ljava/util/ArrayList;
+
+    iget-object v1, v1, Landroid/accounts/Account;->name:Ljava/lang/String;
+
+    invoke-virtual {v4, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 349
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    .line 373
+    :cond_8
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->l()V
 
     goto :goto_0
 
-    .line 245
+    .line 284
     nop
 
     :array_0
@@ -4133,12 +4886,12 @@
     .locals 6
 
     .prologue
-    const v4, 0x7f0703ff
+    const v4, 0x7f070437
 
-    .line 764
+    .line 996
     sparse-switch p1, :sswitch_data_0
 
-    .line 788
+    .line 1016
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreateDialog(I)Landroid/app/Dialog;
 
     move-result-object v0
@@ -4146,11 +4899,11 @@
     :goto_0
     return-object v0
 
-    .line 766
+    .line 998
     :sswitch_0
     new-instance v0, Landroid/app/DatePickerDialog;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Y:Landroid/app/DatePickerDialog$OnDateSetListener;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ag:Landroid/app/DatePickerDialog$OnDateSetListener;
 
     const/16 v3, 0x7b7
 
@@ -4164,84 +4917,84 @@
 
     goto :goto_0
 
-    .line 768
+    .line 1000
     :sswitch_1
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 769
-    const v1, 0x7f0702ce
+    .line 1001
+    const v1, 0x7f070317
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b:Landroid/content/DialogInterface$OnClickListener;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Landroid/content/DialogInterface$OnClickListener;
 
     invoke-virtual {v1, v4, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f07059d
+    const v2, 0x7f0705ac
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c:Landroid/content/DialogInterface$OnClickListener;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b:Landroid/content/DialogInterface$OnClickListener;
 
     invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d:Landroid/content/DialogInterface$OnCancelListener;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c:Landroid/content/DialogInterface$OnCancelListener;
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 776
+    .line 1006
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 778
+    .line 1008
     :sswitch_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:[Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:[Ljava/lang/String;
 
-    .line 779
+    .line 1009
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 780
-    const v2, 0x7f070548
+    .line 1010
+    const v2, 0x7f070547
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b:Landroid/content/DialogInterface$OnClickListener;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Landroid/content/DialogInterface$OnClickListener;
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c:Landroid/content/DialogInterface$OnClickListener;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->b:Landroid/content/DialogInterface$OnClickListener;
 
     invoke-virtual {v2, v0, v3}, Landroid/app/AlertDialog$Builder;->setItems([Ljava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d:Landroid/content/DialogInterface$OnCancelListener;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c:Landroid/content/DialogInterface$OnCancelListener;
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 786
+    .line 1014
     invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     goto :goto_0
 
-    .line 764
+    .line 996
     nop
 
     :sswitch_data_0
@@ -4256,38 +5009,40 @@
     .locals 2
 
     .prologue
-    .line 475
+    .line 548
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onDestroy()V
 
-    .line 476
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->T:Lcom/yelp/android/ui/activities/cc;
+    .line 549
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Y:Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;
 
     if-eqz v0, :cond_0
 
-    .line 477
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->T:Lcom/yelp/android/ui/activities/cc;
+    .line 550
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Y:Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/cc;->cancel(Z)Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount$b;->cancel(Z)Z
 
-    .line 479
+    .line 552
     :cond_0
     return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 361
+    const/4 v0, 0x1
+
+    .line 414
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
-    move-result v0
+    move-result v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
-    .line 372
+    .line 424
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -4295,65 +5050,47 @@
     :goto_0
     return v0
 
-    .line 363
+    .line 416
     :pswitch_0
     sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->SignUpCancel:Lcom/yelp/android/analytics/iris/EventIri;
 
-    const-string/jumbo v2, "first_search_experiment"
+    invoke-static {v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    sget-object v0, Lcom/yelp/android/appdata/experiment/c;->b:Lcom/yelp/android/appdata/experiment/FirstSearchExperiment;
+    .line 417
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/experiment/FirstSearchExperiment;->a()Ljava/lang/Enum;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
 
-    check-cast v0, Lcom/yelp/android/appdata/experiment/FirstSearchExperiment$Cohort;
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/experiment/FirstSearchExperiment$Cohort;->name()Ljava/lang/String;
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/c;->k(Z)V
 
-    move-result-object v0
+    .line 418
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    invoke-static {v1, v2, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+    move-result-object v1
 
-    .line 365
-    sget-object v0, Lcom/yelp/android/appdata/experiment/c;->b:Lcom/yelp/android/appdata/experiment/FirstSearchExperiment;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/experiment/FirstSearchExperiment;->a()Ljava/lang/Enum;
+    move-result-object v1
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/c;->s()I
 
-    sget-object v1, Lcom/yelp/android/appdata/experiment/FirstSearchExperiment$Cohort;->no_search_step:Lcom/yelp/android/appdata/experiment/FirstSearchExperiment$Cohort;
+    .line 420
+    const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->setResult(I)V
 
-    .line 366
-    invoke-static {p0}, Lcom/yelp/android/ui/activities/nearby/ActivityNearby;->a(Landroid/content/Context;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->startActivity(Landroid/content/Intent;)V
-
-    .line 370
-    :goto_1
-    const/4 v0, 0x1
+    .line 421
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->finish()V
 
     goto :goto_0
 
-    .line 368
-    :cond_0
-    invoke-static {p0}, Lcom/yelp/android/ui/activities/ActivityOnboardingSearch;->a(Landroid/content/Context;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->startActivity(Landroid/content/Intent;)V
-
-    goto :goto_1
-
-    .line 361
-    nop
-
+    .line 414
     :pswitch_data_0
-    .packed-switch 0x7f0c0504
+    .packed-switch 0x7f0f060d
         :pswitch_0
     .end packed-switch
 .end method
@@ -4362,46 +5099,46 @@
     .locals 2
 
     .prologue
-    .line 460
+    .line 533
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
 
-    .line 463
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 536
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Lcom/yelp/android/appdata/webrequests/co;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/appdata/webrequests/di;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ah:Lcom/yelp/android/appdata/webrequests/co$a;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dc;->b(Lcom/yelp/android/appdata/webrequests/di;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/co;->b(Lcom/yelp/android/appdata/webrequests/co$a;)V
 
-    .line 464
+    .line 537
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->hideLoadingDialog()V
 
-    .line 466
+    .line 539
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->isFinishing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 467
+    .line 540
     iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->j:Lcom/yelp/android/webimageview/WebImageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/webimageview/WebImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 468
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 541
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ImageInputHelper;->a()V
 
-    .line 469
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->C:Ljava/util/concurrent/atomic/AtomicBoolean;
+    .line 542
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->getAndSet(Z)Z
 
-    .line 471
+    .line 544
     :cond_0
     return-void
 .end method
@@ -4410,25 +5147,25 @@
     .locals 1
 
     .prologue
-    .line 794
+    .line 1022
     invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPrepareDialog(ILandroid/app/Dialog;)V
 
-    .line 796
+    .line 1024
     packed-switch p1, :pswitch_data_0
 
-    .line 802
+    .line 1030
     :goto_0
     return-void
 
-    .line 799
+    .line 1027
     :pswitch_0
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->SignUpGooglePrompt:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
     goto :goto_0
 
-    .line 796
+    .line 1024
     nop
 
     :pswitch_data_0
@@ -4442,66 +5179,120 @@
     .locals 2
 
     .prologue
-    .line 351
+    .line 404
     invoke-interface {p1}, Landroid/view/Menu;->clear()V
 
-    .line 353
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    .line 406
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
     if-nez v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:Z
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->R:Z
 
     if-eqz v0, :cond_0
 
-    .line 354
+    .line 407
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f100020
+    const v1, 0x7f100025
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 356
+    .line 409
     :cond_0
     const/4 v0, 0x1
 
     return v0
 .end method
 
-.method protected onResume()V
+.method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
     .locals 2
 
     .prologue
-    .line 447
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
+    .line 475
+    const/16 v0, 0xfa
 
-    .line 449
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->g()V
+    if-ne v0, p1, :cond_1
 
-    .line 452
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 476
+    invoke-static {p2, p3}, Lcom/yelp/android/appdata/k;->a([Ljava/lang/String;[I)Ljava/util/Map;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->j()Z
+    move-result-object v0
+
+    .line 478
+    sget-object v1, Lcom/yelp/android/appdata/PermissionGroup;->CONTACTS:Lcom/yelp/android/appdata/PermissionGroup;
+
+    invoke-interface {v0, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Lcom/yelp/android/appdata/PermissionGroup;->CONTACTS:Lcom/yelp/android/appdata/PermissionGroup;
+
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 453
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a:Lcom/yelp/android/appdata/webrequests/dc;
+    .line 480
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->y:Landroid/widget/Button;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->Z:Lcom/yelp/android/appdata/webrequests/di;
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->a(Landroid/view/View;)V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dc;->a(Lcom/yelp/android/appdata/webrequests/di;)V
+    .line 485
+    :cond_0
+    :goto_0
+    return-void
 
-    .line 454
-    const v0, 0x7f07057c
+    .line 483
+    :cond_1
+    invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
+
+    goto :goto_0
+.end method
+
+.method protected onResume()V
+    .locals 2
+
+    .prologue
+    .line 520
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
+
+    .line 522
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->i()V
+
+    .line 525
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Lcom/yelp/android/appdata/webrequests/co;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->f()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 526
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Lcom/yelp/android/appdata/webrequests/co;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ah:Lcom/yelp/android/appdata/webrequests/co$a;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/co;->a(Lcom/yelp/android/appdata/webrequests/co$a;)V
+
+    .line 527
+    const v0, 0x7f070584
 
     invoke-super {p0, v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->showLoadingDialog(I)V
 
-    .line 456
+    .line 529
     :cond_0
     return-void
 .end method
@@ -4510,8 +5301,8 @@
     .locals 1
 
     .prologue
-    .line 131
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->c()Lcom/yelp/android/ui/activities/FacebookConnectManager;
+    .line 139
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->d()Lcom/yelp/android/ui/activities/FacebookConnectManager;
 
     move-result-object v0
 
@@ -4522,70 +5313,91 @@
     .locals 2
 
     .prologue
-    .line 433
+    .line 506
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 434
+    .line 507
     const-string/jumbo v0, "birthdate"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->z:[I
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:[I
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
-    .line 435
+    .line 508
     const-string/jumbo v0, "FBUID_tag"
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->D:Ljava/lang/String;
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
-
-    .line 436
-    const-string/jumbo v0, "facebookEmail"
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->F:Ljava/lang/String;
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 437
-    const-string/jumbo v0, "googleEmail"
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->G:Ljava/lang/String;
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 438
-    const-string/jumbo v0, "googlePhoto"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->H:Ljava/lang/String;
 
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
+
+    .line 509
+    const-string/jumbo v0, "facebookEmail"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Ljava/lang/String;
+
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 439
+    .line 510
+    const-string/jumbo v0, "googleEmail"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->K:Ljava/lang/String;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 511
+    const-string/jumbo v0, "googlePhoto"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->L:Ljava/lang/String;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 512
     const-string/jumbo v0, "full_form"
 
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->N:Z
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->S:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 440
-    const-string/jumbo v0, "auto_birthdate"
-
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->J:Z
-
-    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    .line 441
+    .line 513
     const-string/jumbo v0, "show_skip_button"
 
-    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->M:Z
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->R:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 442
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->A:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 514
+    const-string/jumbo v0, "suggestion_email_list"
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->ae:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    .line 515
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->B:Lcom/yelp/android/ui/util/ImageInputHelper;
 
     invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/ImageInputHelper;->a(Landroid/os/Bundle;)V
 
-    .line 443
+    .line 516
+    return-void
+.end method
+
+.method public onYesNoDialogSelection(ZI)V
+    .locals 1
+
+    .prologue
+    .line 1585
+    const/4 v0, 0x4
+
+    if-ne p2, v0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    .line 1586
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/ActivityCreateAccount;->I:Lcom/yelp/android/ui/activities/FacebookConnectManager;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/FacebookConnectManager;->e()V
+
+    .line 1588
+    :cond_0
     return-void
 .end method

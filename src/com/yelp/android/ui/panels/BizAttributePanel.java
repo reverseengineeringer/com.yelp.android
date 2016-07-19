@@ -1,15 +1,17 @@
 package com.yelp.android.ui.panels;
 
 import android.content.Context;
+import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.ui.util.av;
 
 public class BizAttributePanel
   extends RelativeLayout
@@ -22,39 +24,39 @@ public class BizAttributePanel
   private TextView f;
   private LinearLayout g;
   private View h;
-  private f i;
-  private final Runnable j = new b(this);
+  private a i;
+  private final Runnable j = new BizAttributePanel.1(this);
   
   public BizAttributePanel(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    a(paramContext, null);
+    a(null);
   }
   
   public BizAttributePanel(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    a(paramContext, null);
+    a(null);
   }
   
-  public BizAttributePanel(Context paramContext, f paramf)
+  public BizAttributePanel(Context paramContext, a parama)
   {
     super(paramContext);
-    a(paramContext, paramf);
+    a(parama);
   }
   
-  private void a(Context paramContext, f paramf)
+  private void a(a parama)
   {
-    i = paramf;
-    LayoutInflater.from(getContext()).inflate(2130903129, this);
-    g = ((LinearLayout)findViewById(2131492902));
-    e = ((TextView)findViewById(2131493337));
-    f = ((TextView)findViewById(2131493336));
-    e.setOnClickListener(new c(this));
-    d = cw.a(AppData.b(), null);
-    c = cw.a(AppData.b(), new d(this));
-    b = cw.b(AppData.b(), null);
-    a = cw.b(AppData.b(), new e(this));
+    i = parama;
+    LayoutInflater.from(getContext()).inflate(2130903141, this);
+    g = ((LinearLayout)findViewById(2131689514));
+    e = ((TextView)findViewById(2131690002));
+    f = ((TextView)findViewById(2131690001));
+    e.setOnClickListener(new BizAttributePanel.2(this));
+    d = av.a(AppData.b(), null);
+    c = av.a(AppData.b(), new BizAttributePanel.3(this));
+    b = av.b(AppData.b(), null);
+    a = av.b(AppData.b(), new BizAttributePanel.4(this));
     a(false);
   }
   
@@ -157,6 +159,15 @@ public class BizAttributePanel
   {
     g.startAnimation(d);
     f.startAnimation(c);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract Spanned a();
+    
+    public abstract View a(ViewGroup paramViewGroup);
+    
+    public abstract void a(boolean paramBoolean);
   }
 }
 

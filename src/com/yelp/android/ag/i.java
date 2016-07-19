@@ -1,176 +1,175 @@
 package com.yelp.android.ag;
 
-import android.annotation.TargetApi;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Drawable.Callback;
-import com.yelp.android.z.b;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.util.Log;
+import com.yelp.android.ao.h;
+import com.yelp.android.u.a.a;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Queue;
 
 public class i
-  extends b
+  implements com.bumptech.glide.load.d<InputStream, b>
 {
-  private final b a;
-  private final int b;
+  private static final b a = new b();
+  private static final a b = new a();
+  private final Context c;
+  private final b d;
+  private final com.yelp.android.x.c e;
+  private final a f;
+  private final a g;
   
-  public i(b paramb, int paramInt)
+  public i(Context paramContext, com.yelp.android.x.c paramc)
   {
-    a = paramb;
-    b = paramInt;
+    this(paramContext, paramc, a, b);
   }
   
-  public void a(int paramInt)
+  i(Context paramContext, com.yelp.android.x.c paramc, b paramb, a parama)
   {
-    a.a(paramInt);
+    c = paramContext;
+    e = paramc;
+    f = parama;
+    g = new a(paramc);
+    d = paramb;
   }
   
-  public boolean a()
+  private Bitmap a(com.yelp.android.u.a parama, com.yelp.android.u.c paramc, byte[] paramArrayOfByte)
   {
-    return a.a();
+    parama.a(paramc, paramArrayOfByte);
+    parama.a();
+    return parama.f();
   }
   
-  public void clearColorFilter()
+  private d a(byte[] paramArrayOfByte, int paramInt1, int paramInt2, com.yelp.android.u.d paramd, com.yelp.android.u.a parama)
   {
-    a.clearColorFilter();
+    paramd = paramd.b();
+    if ((paramd.a() <= 0) || (paramd.b() != 0)) {}
+    do
+    {
+      return null;
+      parama = a(parama, paramd, paramArrayOfByte);
+    } while (parama == null);
+    com.yelp.android.ad.d locald = com.yelp.android.ad.d.b();
+    return new d(new b(c, g, e, locald, paramInt1, paramInt2, paramd, paramArrayOfByte, parama));
   }
   
-  public void draw(Canvas paramCanvas)
+  private static byte[] a(InputStream paramInputStream)
   {
-    a.draw(paramCanvas);
+    ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream(16384);
+    try
+    {
+      byte[] arrayOfByte = new byte['䀀'];
+      for (;;)
+      {
+        int i = paramInputStream.read(arrayOfByte);
+        if (i == -1) {
+          break;
+        }
+        localByteArrayOutputStream.write(arrayOfByte, 0, i);
+      }
+      return localByteArrayOutputStream.toByteArray();
+    }
+    catch (IOException paramInputStream)
+    {
+      Log.w("GifResourceDecoder", "Error reading data from stream", paramInputStream);
+    }
+    for (;;)
+    {
+      localByteArrayOutputStream.flush();
+    }
   }
   
-  @TargetApi(19)
-  public int getAlpha()
+  public d a(InputStream paramInputStream, int paramInt1, int paramInt2)
   {
-    return a.getAlpha();
+    Object localObject1 = a(paramInputStream);
+    paramInputStream = d.a((byte[])localObject1);
+    com.yelp.android.u.a locala = f.a(g);
+    try
+    {
+      localObject1 = a((byte[])localObject1, paramInt1, paramInt2, paramInputStream, locala);
+      return (d)localObject1;
+    }
+    finally
+    {
+      d.a(paramInputStream);
+      f.a(locala);
+    }
   }
   
-  @TargetApi(11)
-  public Drawable.Callback getCallback()
+  public String a()
   {
-    return a.getCallback();
+    return "";
   }
   
-  public int getChangingConfigurations()
+  static class a
   {
-    return a.getChangingConfigurations();
+    private final Queue<com.yelp.android.u.a> a = h.a(0);
+    
+    public com.yelp.android.u.a a(a.a parama)
+    {
+      try
+      {
+        com.yelp.android.u.a locala2 = (com.yelp.android.u.a)a.poll();
+        com.yelp.android.u.a locala1 = locala2;
+        if (locala2 == null) {
+          locala1 = new com.yelp.android.u.a(parama);
+        }
+        return locala1;
+      }
+      finally {}
+    }
+    
+    public void a(com.yelp.android.u.a parama)
+    {
+      try
+      {
+        parama.g();
+        a.offer(parama);
+        return;
+      }
+      finally
+      {
+        parama = finally;
+        throw parama;
+      }
+    }
   }
   
-  public Drawable getCurrent()
+  static class b
   {
-    return a.getCurrent();
-  }
-  
-  public int getIntrinsicHeight()
-  {
-    return b;
-  }
-  
-  public int getIntrinsicWidth()
-  {
-    return b;
-  }
-  
-  public int getMinimumHeight()
-  {
-    return a.getMinimumHeight();
-  }
-  
-  public int getMinimumWidth()
-  {
-    return a.getMinimumWidth();
-  }
-  
-  public int getOpacity()
-  {
-    return a.getOpacity();
-  }
-  
-  public boolean getPadding(Rect paramRect)
-  {
-    return a.getPadding(paramRect);
-  }
-  
-  public void invalidateSelf()
-  {
-    super.invalidateSelf();
-    a.invalidateSelf();
-  }
-  
-  public boolean isRunning()
-  {
-    return a.isRunning();
-  }
-  
-  public void scheduleSelf(Runnable paramRunnable, long paramLong)
-  {
-    super.scheduleSelf(paramRunnable, paramLong);
-    a.scheduleSelf(paramRunnable, paramLong);
-  }
-  
-  public void setAlpha(int paramInt)
-  {
-    a.setAlpha(paramInt);
-  }
-  
-  public void setBounds(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
-  {
-    super.setBounds(paramInt1, paramInt2, paramInt3, paramInt4);
-    a.setBounds(paramInt1, paramInt2, paramInt3, paramInt4);
-  }
-  
-  public void setBounds(Rect paramRect)
-  {
-    super.setBounds(paramRect);
-    a.setBounds(paramRect);
-  }
-  
-  public void setChangingConfigurations(int paramInt)
-  {
-    a.setChangingConfigurations(paramInt);
-  }
-  
-  public void setColorFilter(int paramInt, PorterDuff.Mode paramMode)
-  {
-    a.setColorFilter(paramInt, paramMode);
-  }
-  
-  public void setColorFilter(ColorFilter paramColorFilter)
-  {
-    a.setColorFilter(paramColorFilter);
-  }
-  
-  public void setDither(boolean paramBoolean)
-  {
-    a.setDither(paramBoolean);
-  }
-  
-  public void setFilterBitmap(boolean paramBoolean)
-  {
-    a.setFilterBitmap(paramBoolean);
-  }
-  
-  public boolean setVisible(boolean paramBoolean1, boolean paramBoolean2)
-  {
-    return a.setVisible(paramBoolean1, paramBoolean2);
-  }
-  
-  public void start()
-  {
-    a.start();
-  }
-  
-  public void stop()
-  {
-    a.stop();
-  }
-  
-  public void unscheduleSelf(Runnable paramRunnable)
-  {
-    super.unscheduleSelf(paramRunnable);
-    a.unscheduleSelf(paramRunnable);
+    private final Queue<com.yelp.android.u.d> a = h.a(0);
+    
+    public com.yelp.android.u.d a(byte[] paramArrayOfByte)
+    {
+      try
+      {
+        com.yelp.android.u.d locald2 = (com.yelp.android.u.d)a.poll();
+        com.yelp.android.u.d locald1 = locald2;
+        if (locald2 == null) {
+          locald1 = new com.yelp.android.u.d();
+        }
+        paramArrayOfByte = locald1.a(paramArrayOfByte);
+        return paramArrayOfByte;
+      }
+      finally {}
+    }
+    
+    public void a(com.yelp.android.u.d paramd)
+    {
+      try
+      {
+        paramd.a();
+        a.offer(paramd);
+        return;
+      }
+      finally
+      {
+        paramd = finally;
+        throw paramd;
+      }
+    }
   }
 }
 

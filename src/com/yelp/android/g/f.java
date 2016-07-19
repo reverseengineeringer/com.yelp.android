@@ -1,62 +1,645 @@
 package com.yelp.android.g;
 
-public final class f
+import java.lang.reflect.Array;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+abstract class f<K, V>
 {
-  public static final int abc_ab_share_pack_mtrl_alpha = 2130837505;
-  public static final int abc_btn_check_material = 2130837506;
-  public static final int abc_btn_check_to_on_mtrl_000 = 2130837507;
-  public static final int abc_btn_check_to_on_mtrl_015 = 2130837508;
-  public static final int abc_btn_default_mtrl_shape = 2130837509;
-  public static final int abc_btn_radio_material = 2130837510;
-  public static final int abc_btn_radio_to_on_mtrl_000 = 2130837511;
-  public static final int abc_btn_radio_to_on_mtrl_015 = 2130837512;
-  public static final int abc_btn_rating_star_off_mtrl_alpha = 2130837513;
-  public static final int abc_btn_rating_star_on_mtrl_alpha = 2130837514;
-  public static final int abc_btn_switch_to_on_mtrl_00001 = 2130837515;
-  public static final int abc_btn_switch_to_on_mtrl_00012 = 2130837516;
-  public static final int abc_cab_background_internal_bg = 2130837517;
-  public static final int abc_cab_background_top_material = 2130837518;
-  public static final int abc_cab_background_top_mtrl_alpha = 2130837519;
-  public static final int abc_edit_text_material = 2130837520;
-  public static final int abc_ic_ab_back_mtrl_am_alpha = 2130837521;
-  public static final int abc_ic_clear_mtrl_alpha = 2130837522;
-  public static final int abc_ic_commit_search_api_mtrl_alpha = 2130837523;
-  public static final int abc_ic_go_search_api_mtrl_alpha = 2130837524;
-  public static final int abc_ic_menu_copy_mtrl_am_alpha = 2130837525;
-  public static final int abc_ic_menu_cut_mtrl_alpha = 2130837526;
-  public static final int abc_ic_menu_moreoverflow_mtrl_alpha = 2130837527;
-  public static final int abc_ic_menu_paste_mtrl_am_alpha = 2130837528;
-  public static final int abc_ic_menu_selectall_mtrl_alpha = 2130837529;
-  public static final int abc_ic_menu_share_mtrl_alpha = 2130837530;
-  public static final int abc_ic_search_api_mtrl_alpha = 2130837531;
-  public static final int abc_ic_voice_search_api_mtrl_alpha = 2130837532;
-  public static final int abc_item_background_holo_dark = 2130837533;
-  public static final int abc_item_background_holo_light = 2130837534;
-  public static final int abc_list_divider_mtrl_alpha = 2130837535;
-  public static final int abc_list_focused_holo = 2130837536;
-  public static final int abc_list_longpressed_holo = 2130837537;
-  public static final int abc_list_pressed_holo_dark = 2130837538;
-  public static final int abc_list_pressed_holo_light = 2130837539;
-  public static final int abc_list_selector_background_transition_holo_dark = 2130837540;
-  public static final int abc_list_selector_background_transition_holo_light = 2130837541;
-  public static final int abc_list_selector_disabled_holo_dark = 2130837542;
-  public static final int abc_list_selector_disabled_holo_light = 2130837543;
-  public static final int abc_list_selector_holo_dark = 2130837544;
-  public static final int abc_list_selector_holo_light = 2130837545;
-  public static final int abc_menu_hardkey_panel_mtrl_mult = 2130837546;
-  public static final int abc_popup_background_mtrl_mult = 2130837547;
-  public static final int abc_ratingbar_full_material = 2130837548;
-  public static final int abc_spinner_mtrl_am_alpha = 2130837549;
-  public static final int abc_spinner_textfield_background_material = 2130837550;
-  public static final int abc_switch_thumb_material = 2130837551;
-  public static final int abc_switch_track_mtrl_alpha = 2130837552;
-  public static final int abc_tab_indicator_material = 2130837553;
-  public static final int abc_tab_indicator_mtrl_alpha = 2130837554;
-  public static final int abc_textfield_activated_mtrl_alpha = 2130837555;
-  public static final int abc_textfield_default_mtrl_alpha = 2130837556;
-  public static final int abc_textfield_search_activated_mtrl_alpha = 2130837557;
-  public static final int abc_textfield_search_default_mtrl_alpha = 2130837558;
-  public static final int abc_textfield_search_material = 2130837559;
+  f<K, V>.b b;
+  f<K, V>.c c;
+  f<K, V>.e d;
+  
+  public static <K, V> boolean a(Map<K, V> paramMap, Collection<?> paramCollection)
+  {
+    paramCollection = paramCollection.iterator();
+    while (paramCollection.hasNext()) {
+      if (!paramMap.containsKey(paramCollection.next())) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  public static <T> boolean a(Set<T> paramSet, Object paramObject)
+  {
+    boolean bool2 = true;
+    boolean bool1 = false;
+    if (paramSet == paramObject) {
+      bool1 = true;
+    }
+    while (!(paramObject instanceof Set)) {
+      return bool1;
+    }
+    paramObject = (Set)paramObject;
+    try
+    {
+      if (paramSet.size() == ((Set)paramObject).size())
+      {
+        bool1 = paramSet.containsAll((Collection)paramObject);
+        if (!bool1) {}
+      }
+      for (bool1 = bool2;; bool1 = false) {
+        return bool1;
+      }
+      return false;
+    }
+    catch (ClassCastException paramSet)
+    {
+      return false;
+    }
+    catch (NullPointerException paramSet) {}
+  }
+  
+  public static <K, V> boolean b(Map<K, V> paramMap, Collection<?> paramCollection)
+  {
+    int i = paramMap.size();
+    paramCollection = paramCollection.iterator();
+    while (paramCollection.hasNext()) {
+      paramMap.remove(paramCollection.next());
+    }
+    return i != paramMap.size();
+  }
+  
+  public static <K, V> boolean c(Map<K, V> paramMap, Collection<?> paramCollection)
+  {
+    int i = paramMap.size();
+    Iterator localIterator = paramMap.keySet().iterator();
+    while (localIterator.hasNext()) {
+      if (!paramCollection.contains(localIterator.next())) {
+        localIterator.remove();
+      }
+    }
+    return i != paramMap.size();
+  }
+  
+  protected abstract int a();
+  
+  protected abstract int a(Object paramObject);
+  
+  protected abstract Object a(int paramInt1, int paramInt2);
+  
+  protected abstract V a(int paramInt, V paramV);
+  
+  protected abstract void a(int paramInt);
+  
+  protected abstract void a(K paramK, V paramV);
+  
+  public <T> T[] a(T[] paramArrayOfT, int paramInt)
+  {
+    int j = a();
+    if (paramArrayOfT.length < j) {
+      paramArrayOfT = (Object[])Array.newInstance(paramArrayOfT.getClass().getComponentType(), j);
+    }
+    for (;;)
+    {
+      int i = 0;
+      while (i < j)
+      {
+        paramArrayOfT[i] = a(i, paramInt);
+        i += 1;
+      }
+      if (paramArrayOfT.length > j) {
+        paramArrayOfT[j] = null;
+      }
+      return paramArrayOfT;
+    }
+  }
+  
+  protected abstract int b(Object paramObject);
+  
+  protected abstract Map<K, V> b();
+  
+  public Object[] b(int paramInt)
+  {
+    int j = a();
+    Object[] arrayOfObject = new Object[j];
+    int i = 0;
+    while (i < j)
+    {
+      arrayOfObject[i] = a(i, paramInt);
+      i += 1;
+    }
+    return arrayOfObject;
+  }
+  
+  protected abstract void c();
+  
+  public Set<Map.Entry<K, V>> d()
+  {
+    if (b == null) {
+      b = new b();
+    }
+    return b;
+  }
+  
+  public Set<K> e()
+  {
+    if (c == null) {
+      c = new c();
+    }
+    return c;
+  }
+  
+  public Collection<V> f()
+  {
+    if (d == null) {
+      d = new e();
+    }
+    return d;
+  }
+  
+  final class a<T>
+    implements Iterator<T>
+  {
+    final int a;
+    int b;
+    int c;
+    boolean d = false;
+    
+    a(int paramInt)
+    {
+      a = paramInt;
+      b = a();
+    }
+    
+    public boolean hasNext()
+    {
+      return c < b;
+    }
+    
+    public T next()
+    {
+      Object localObject = a(c, a);
+      c += 1;
+      d = true;
+      return (T)localObject;
+    }
+    
+    public void remove()
+    {
+      if (!d) {
+        throw new IllegalStateException();
+      }
+      c -= 1;
+      b -= 1;
+      d = false;
+      a(c);
+    }
+  }
+  
+  final class b
+    implements Set<Map.Entry<K, V>>
+  {
+    b() {}
+    
+    public boolean a(Map.Entry<K, V> paramEntry)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public boolean addAll(Collection<? extends Map.Entry<K, V>> paramCollection)
+    {
+      int i = a();
+      paramCollection = paramCollection.iterator();
+      while (paramCollection.hasNext())
+      {
+        Map.Entry localEntry = (Map.Entry)paramCollection.next();
+        a(localEntry.getKey(), localEntry.getValue());
+      }
+      return i != a();
+    }
+    
+    public void clear()
+    {
+      c();
+    }
+    
+    public boolean contains(Object paramObject)
+    {
+      if (!(paramObject instanceof Map.Entry)) {}
+      int i;
+      do
+      {
+        return false;
+        paramObject = (Map.Entry)paramObject;
+        i = a(((Map.Entry)paramObject).getKey());
+      } while (i < 0);
+      return b.a(a(i, 1), ((Map.Entry)paramObject).getValue());
+    }
+    
+    public boolean containsAll(Collection<?> paramCollection)
+    {
+      paramCollection = paramCollection.iterator();
+      while (paramCollection.hasNext()) {
+        if (!contains(paramCollection.next())) {
+          return false;
+        }
+      }
+      return true;
+    }
+    
+    public boolean equals(Object paramObject)
+    {
+      return f.a(this, paramObject);
+    }
+    
+    public int hashCode()
+    {
+      int j = a() - 1;
+      int i = 0;
+      if (j >= 0)
+      {
+        Object localObject1 = a(j, 0);
+        Object localObject2 = a(j, 1);
+        int k;
+        if (localObject1 == null)
+        {
+          k = 0;
+          label45:
+          if (localObject2 != null) {
+            break label76;
+          }
+        }
+        label76:
+        for (int m = 0;; m = localObject2.hashCode())
+        {
+          j -= 1;
+          i += (m ^ k);
+          break;
+          k = localObject1.hashCode();
+          break label45;
+        }
+      }
+      return i;
+    }
+    
+    public boolean isEmpty()
+    {
+      return a() == 0;
+    }
+    
+    public Iterator<Map.Entry<K, V>> iterator()
+    {
+      return new f.d(f.this);
+    }
+    
+    public boolean remove(Object paramObject)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public boolean removeAll(Collection<?> paramCollection)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public boolean retainAll(Collection<?> paramCollection)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public int size()
+    {
+      return a();
+    }
+    
+    public Object[] toArray()
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public <T> T[] toArray(T[] paramArrayOfT)
+    {
+      throw new UnsupportedOperationException();
+    }
+  }
+  
+  final class c
+    implements Set<K>
+  {
+    c() {}
+    
+    public boolean add(K paramK)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public boolean addAll(Collection<? extends K> paramCollection)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public void clear()
+    {
+      c();
+    }
+    
+    public boolean contains(Object paramObject)
+    {
+      return a(paramObject) >= 0;
+    }
+    
+    public boolean containsAll(Collection<?> paramCollection)
+    {
+      return f.a(b(), paramCollection);
+    }
+    
+    public boolean equals(Object paramObject)
+    {
+      return f.a(this, paramObject);
+    }
+    
+    public int hashCode()
+    {
+      int i = a() - 1;
+      int j = 0;
+      if (i >= 0)
+      {
+        Object localObject = a(i, 0);
+        if (localObject == null) {}
+        for (int k = 0;; k = localObject.hashCode())
+        {
+          j += k;
+          i -= 1;
+          break;
+        }
+      }
+      return j;
+    }
+    
+    public boolean isEmpty()
+    {
+      return a() == 0;
+    }
+    
+    public Iterator<K> iterator()
+    {
+      return new f.a(f.this, 0);
+    }
+    
+    public boolean remove(Object paramObject)
+    {
+      int i = a(paramObject);
+      if (i >= 0)
+      {
+        a(i);
+        return true;
+      }
+      return false;
+    }
+    
+    public boolean removeAll(Collection<?> paramCollection)
+    {
+      return f.b(b(), paramCollection);
+    }
+    
+    public boolean retainAll(Collection<?> paramCollection)
+    {
+      return f.c(b(), paramCollection);
+    }
+    
+    public int size()
+    {
+      return a();
+    }
+    
+    public Object[] toArray()
+    {
+      return b(0);
+    }
+    
+    public <T> T[] toArray(T[] paramArrayOfT)
+    {
+      return a(paramArrayOfT, 0);
+    }
+  }
+  
+  final class d
+    implements Iterator<Map.Entry<K, V>>, Map.Entry<K, V>
+  {
+    int a = a() - 1;
+    int b = -1;
+    boolean c = false;
+    
+    d() {}
+    
+    public Map.Entry<K, V> a()
+    {
+      b += 1;
+      c = true;
+      return this;
+    }
+    
+    public final boolean equals(Object paramObject)
+    {
+      boolean bool = true;
+      if (!c) {
+        throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+      }
+      if (!(paramObject instanceof Map.Entry)) {
+        return false;
+      }
+      paramObject = (Map.Entry)paramObject;
+      if ((b.a(((Map.Entry)paramObject).getKey(), a(b, 0))) && (b.a(((Map.Entry)paramObject).getValue(), a(b, 1)))) {}
+      for (;;)
+      {
+        return bool;
+        bool = false;
+      }
+    }
+    
+    public K getKey()
+    {
+      if (!c) {
+        throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+      }
+      return (K)a(b, 0);
+    }
+    
+    public V getValue()
+    {
+      if (!c) {
+        throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+      }
+      return (V)a(b, 1);
+    }
+    
+    public boolean hasNext()
+    {
+      return b < a;
+    }
+    
+    public final int hashCode()
+    {
+      int j = 0;
+      if (!c) {
+        throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+      }
+      Object localObject1 = a(b, 0);
+      Object localObject2 = a(b, 1);
+      int i;
+      if (localObject1 == null)
+      {
+        i = 0;
+        if (localObject2 != null) {
+          break label69;
+        }
+      }
+      for (;;)
+      {
+        return j ^ i;
+        i = localObject1.hashCode();
+        break;
+        label69:
+        j = localObject2.hashCode();
+      }
+    }
+    
+    public void remove()
+    {
+      if (!c) {
+        throw new IllegalStateException();
+      }
+      a(b);
+      b -= 1;
+      a -= 1;
+      c = false;
+    }
+    
+    public V setValue(V paramV)
+    {
+      if (!c) {
+        throw new IllegalStateException("This container does not support retaining Map.Entry objects");
+      }
+      return (V)a(b, paramV);
+    }
+    
+    public final String toString()
+    {
+      return getKey() + "=" + getValue();
+    }
+  }
+  
+  final class e
+    implements Collection<V>
+  {
+    e() {}
+    
+    public boolean add(V paramV)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public boolean addAll(Collection<? extends V> paramCollection)
+    {
+      throw new UnsupportedOperationException();
+    }
+    
+    public void clear()
+    {
+      c();
+    }
+    
+    public boolean contains(Object paramObject)
+    {
+      return b(paramObject) >= 0;
+    }
+    
+    public boolean containsAll(Collection<?> paramCollection)
+    {
+      paramCollection = paramCollection.iterator();
+      while (paramCollection.hasNext()) {
+        if (!contains(paramCollection.next())) {
+          return false;
+        }
+      }
+      return true;
+    }
+    
+    public boolean isEmpty()
+    {
+      return a() == 0;
+    }
+    
+    public Iterator<V> iterator()
+    {
+      return new f.a(f.this, 1);
+    }
+    
+    public boolean remove(Object paramObject)
+    {
+      int i = b(paramObject);
+      if (i >= 0)
+      {
+        a(i);
+        return true;
+      }
+      return false;
+    }
+    
+    public boolean removeAll(Collection<?> paramCollection)
+    {
+      int i = 0;
+      int j = a();
+      boolean bool = false;
+      while (i < j)
+      {
+        int m = i;
+        int k = j;
+        if (paramCollection.contains(a(i, 1)))
+        {
+          a(i);
+          m = i - 1;
+          k = j - 1;
+          bool = true;
+        }
+        i = m + 1;
+        j = k;
+      }
+      return bool;
+    }
+    
+    public boolean retainAll(Collection<?> paramCollection)
+    {
+      int i = 0;
+      int j = a();
+      boolean bool = false;
+      while (i < j)
+      {
+        int m = i;
+        int k = j;
+        if (!paramCollection.contains(a(i, 1)))
+        {
+          a(i);
+          m = i - 1;
+          k = j - 1;
+          bool = true;
+        }
+        i = m + 1;
+        j = k;
+      }
+      return bool;
+    }
+    
+    public int size()
+    {
+      return a();
+    }
+    
+    public Object[] toArray()
+    {
+      return b(1);
+    }
+    
+    public <T> T[] toArray(T[] paramArrayOfT)
+    {
+      return a(paramArrayOfT, 1);
+    }
+  }
 }
 
 /* Location:

@@ -4,56 +4,40 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.internal.bh;
+import com.google.android.gms.ads.a;
+import com.google.android.gms.ads.d;
+import com.google.android.gms.ads.internal.client.c;
 
 public final class SearchAdView
   extends ViewGroup
 {
-  private final bh ll;
-  
-  public SearchAdView(Context paramContext)
-  {
-    super(paramContext);
-    ll = new bh(this);
-  }
+  private final c a;
   
   public SearchAdView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    ll = new bh(this, paramAttributeSet, false);
+    a = new c(this, paramAttributeSet, false);
   }
   
   public SearchAdView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    ll = new bh(this, paramAttributeSet, false);
+    a = new c(this, paramAttributeSet, false);
   }
   
-  public void destroy()
+  public a getAdListener()
   {
-    ll.destroy();
+    return a.b();
   }
   
-  public AdListener getAdListener()
+  public d getAdSize()
   {
-    return ll.getAdListener();
-  }
-  
-  public AdSize getAdSize()
-  {
-    return ll.getAdSize();
+    return a.c();
   }
   
   public String getAdUnitId()
   {
-    return ll.getAdUnitId();
-  }
-  
-  public void loadAd(SearchAdRequest paramSearchAdRequest)
-  {
-    ll.a(paramSearchAdRequest.Y());
+    return a.e();
   }
   
   protected void onLayout(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
@@ -73,7 +57,6 @@ public final class SearchAdView
   {
     int i = 0;
     Object localObject = getChildAt(0);
-    AdSize localAdSize = getAdSize();
     int j;
     if ((localObject != null) && (((View)localObject).getVisibility() != 8))
     {
@@ -87,11 +70,12 @@ public final class SearchAdView
       i = Math.max(i, getSuggestedMinimumHeight());
       setMeasuredDimension(View.resolveSize(j, paramInt1), View.resolveSize(i, paramInt2));
       return;
-      if (localAdSize != null)
+      localObject = getAdSize();
+      if (localObject != null)
       {
-        localObject = getContext();
-        j = localAdSize.getWidthInPixels((Context)localObject);
-        i = localAdSize.getHeightInPixels((Context)localObject);
+        Context localContext = getContext();
+        j = ((d)localObject).b(localContext);
+        i = ((d)localObject).a(localContext);
       }
       else
       {
@@ -100,29 +84,19 @@ public final class SearchAdView
     }
   }
   
-  public void pause()
+  public void setAdListener(a parama)
   {
-    ll.pause();
+    a.a(parama);
   }
   
-  public void resume()
+  public void setAdSize(d paramd)
   {
-    ll.resume();
-  }
-  
-  public void setAdListener(AdListener paramAdListener)
-  {
-    ll.setAdListener(paramAdListener);
-  }
-  
-  public void setAdSize(AdSize paramAdSize)
-  {
-    ll.setAdSizes(new AdSize[] { paramAdSize });
+    a.a(new d[] { paramd });
   }
   
   public void setAdUnitId(String paramString)
   {
-    ll.setAdUnitId(paramString);
+    a.a(paramString);
   }
 }
 

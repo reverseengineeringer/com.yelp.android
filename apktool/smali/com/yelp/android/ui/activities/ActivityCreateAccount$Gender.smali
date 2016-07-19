@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/ActivityCreateAccount;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Gender"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -35,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 225
+    .line 241
     new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
     const-string/jumbo v1, "NOT_SPECIFIED"
@@ -44,6 +53,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->NOT_SPECIFIED:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
+    .line 242
     new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
     const-string/jumbo v1, "MALE"
@@ -52,6 +62,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->MALE:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
+    .line 243
     new-instance v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
     const-string/jumbo v1, "FEMALE"
@@ -60,7 +71,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->FEMALE:Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
-    .line 224
+    .line 240
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
@@ -91,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 224
+    .line 240
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -101,7 +112,7 @@
     .locals 1
 
     .prologue
-    .line 224
+    .line 240
     const-class v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -117,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 224
+    .line 240
     sget-object v0, Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->$VALUES:[Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;
 
     invoke-virtual {v0}, [Lcom/yelp/android/ui/activities/ActivityCreateAccount$Gender;->clone()Ljava/lang/Object;

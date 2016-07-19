@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="horizontal" android:id="@id/trending_search_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/clickable_size" style="?sublistCell"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon" android:layout_width="@dimen/category_search_suggest_icon_size" android:layout_height="@dimen/category_search_suggest_icon_size" android:layout_marginRight="@dimen/default_image_gap_size" android:layout_centerVertical="true" android:contentDescription="@null" />
+    <TextView android:textAppearance="@style/SectionText" android:ellipsize="end" android:id="@id/trending_search" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" />
+</com.yelp.android.ui.widgets.SpannableLinearLayout>

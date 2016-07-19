@@ -7,11 +7,7 @@
 
 
 # instance fields
-.field protected mCount:I
-
-.field protected mInterval:I
-
-.field protected mUsers:Ljava/util/List;
+.field protected a:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -22,212 +18,51 @@
     .end annotation
 .end field
 
+.field protected b:I
+
+.field protected c:I
+
 
 # direct methods
 .method protected constructor <init>()V
     .locals 0
 
     .prologue
-    .line 29
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/List;II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/RecentCheckIn;",
-            ">;II)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 22
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_RecentFriendCheckIns;-><init>()V
-
-    .line 23
-    iput-object p1, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
-
-    .line 24
-    iput p2, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mCount:I
-
-    .line 25
-    iput p3, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mInterval:I
-
-    .line 26
+    .line 32
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
-
-    .prologue
-    .line 44
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getCount()I
-    .locals 1
-
-    .prologue
-    .line 36
-    iget v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mCount:I
-
-    return v0
-.end method
-
-.method public getInterval()I
-    .locals 1
-
-    .prologue
-    .line 39
-    iget v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mInterval:I
-
-    return v0
-.end method
-
-.method public getUsers()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+.method public a()Lorg/json/JSONObject;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/RecentCheckIn;",
-            ">;"
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 33
-    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 2
-
-    .prologue
-    .line 60
-    const-string/jumbo v0, "users"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 61
-    const-string/jumbo v0, "users"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/yelp/android/serializable/RecentCheckIn;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
-
-    invoke-static {v0, v1}, Lcom/yelp/parcelgen/JsonUtil;->parseJsonList(Lorg/json/JSONArray;Lcom/yelp/parcelgen/JsonParser;)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
-
-    .line 65
-    :goto_0
-    const-string/jumbo v0, "count"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mCount:I
-
-    .line 66
-    const-string/jumbo v0, "interval"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mInterval:I
-
-    .line 67
-    return-void
-
-    .line 63
-    :cond_0
-    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
-
-    goto :goto_0
-.end method
-
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 1
-
-    .prologue
-    .line 54
-    sget-object v0, Lcom/yelp/android/serializable/RecentCheckIn;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
-
-    .line 55
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mCount:I
-
-    .line 56
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mInterval:I
-
-    .line 57
-    return-void
-.end method
-
-.method public writeJSON()Lorg/json/JSONObject;
-    .locals 4
-
-    .prologue
-    .line 70
+    .line 101
     new-instance v1, Lorg/json/JSONObject;
 
     invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
 
-    .line 71
-    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
+    .line 102
+    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
 
     if-eqz v0, :cond_1
 
-    .line 72
+    .line 103
     new-instance v2, Lorg/json/JSONArray;
 
     invoke-direct {v2}, Lorg/json/JSONArray;-><init>()V
 
-    .line 73
-    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
+    .line 104
+    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -246,8 +81,8 @@
 
     check-cast v0, Lcom/yelp/android/serializable/RecentCheckIn;
 
-    .line 74
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RecentCheckIn;->writeJSON()Lorg/json/JSONObject;
+    .line 105
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RecentCheckIn;->a()Lorg/json/JSONObject;
 
     move-result-object v0
 
@@ -255,50 +90,298 @@
 
     goto :goto_0
 
-    .line 76
+    .line 107
     :cond_0
     const-string/jumbo v0, "users"
 
     invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 78
+    .line 109
     :cond_1
     const-string/jumbo v0, "count"
 
-    iget v2, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mCount:I
+    iget v2, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
 
     invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 79
+    .line 110
     const-string/jumbo v0, "interval"
 
-    iget v2, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mInterval:I
+    iget v2, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->c:I
 
     invoke-virtual {v1, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
 
-    .line 80
+    .line 111
     return-object v1
+.end method
+
+.method public a(Landroid/os/Parcel;)V
+    .locals 1
+
+    .prologue
+    .line 85
+    const-class v0, Lcom/yelp/android/serializable/RecentCheckIn;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readArrayList(Ljava/lang/ClassLoader;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
+
+    .line 86
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
+
+    .line 87
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->c:I
+
+    .line 88
+    return-void
+.end method
+
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 91
+    const-string/jumbo v0, "users"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 92
+    const-string/jumbo v0, "users"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/serializable/RecentCheckIn;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
+
+    invoke-static {v0, v1}, Lcom/yelp/parcelgen/JsonUtil;->parseJsonList(Lorg/json/JSONArray;Lcom/yelp/parcelgen/JsonParser;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
+
+    .line 96
+    :goto_0
+    const-string/jumbo v0, "count"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
+
+    .line 97
+    const-string/jumbo v0, "interval"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->c:I
+
+    .line 98
+    return-void
+
+    .line 94
+    :cond_0
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
+
+    goto :goto_0
+.end method
+
+.method public b()I
+    .locals 1
+
+    .prologue
+    .line 67
+    iget v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
+
+    return v0
+.end method
+
+.method public c()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/RecentCheckIn;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 63
+    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 75
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 36
+    if-nez p1, :cond_1
+
+    .line 50
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 40
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 41
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 44
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 48
+    check-cast p1, Lcom/yelp/android/serializable/_RecentFriendCheckIns;
+
+    .line 50
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->c:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->c:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 59
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->c:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 48
-    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mUsers:Ljava/util/List;
+    .line 79
+    iget-object v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->a:Ljava/util/List;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeList(Ljava/util/List;)V
 
-    .line 49
-    iget v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mCount:I
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
-
-    .line 50
-    iget v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->mInterval:I
+    .line 80
+    iget v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->b:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 51
+    .line 81
+    iget v0, p0, Lcom/yelp/android/serializable/_RecentFriendCheckIns;->c:I
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
+
+    .line 82
     return-void
 .end method

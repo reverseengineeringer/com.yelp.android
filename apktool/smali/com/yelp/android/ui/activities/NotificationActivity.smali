@@ -42,7 +42,7 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 33
-    const v0, 0x7f03003f
+    const v0, 0x7f03004a
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->setContentView(I)V
 
@@ -54,7 +54,7 @@
     invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->setResult(ILandroid/content/Intent;)V
 
     .line 36
-    const v0, 0x7f0c00ad
+    const v0, 0x7f0f00f3
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->findViewById(I)Landroid/view/View;
 
@@ -66,13 +66,13 @@
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
 
     .line 38
-    new-instance v1, Lcom/yelp/android/ui/activities/fk;
+    new-instance v1, Lcom/yelp/android/ui/activities/NotificationActivity$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/fk;-><init>(Lcom/yelp/android/ui/activities/NotificationActivity;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/NotificationActivity$1;-><init>(Lcom/yelp/android/ui/activities/NotificationActivity;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 44
+    .line 45
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/NotificationActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -81,18 +81,18 @@
 
     move-result-object v0
 
-    .line 45
+    .line 46
     iput v2, v0, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    .line 46
+    .line 47
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/NotificationActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
-    .line 48
-    const v0, 0x7f0c0182
+    .line 49
+    const v0, 0x7f0f01b4
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->findViewById(I)Landroid/view/View;
 
@@ -102,8 +102,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/NotificationActivity;->b:Landroid/widget/RelativeLayout;
 
-    .line 49
-    const v0, 0x7f0c0181
+    .line 50
+    const v0, 0x7f0f01b3
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->findViewById(I)Landroid/view/View;
 
@@ -113,27 +113,18 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/NotificationActivity;->c:Landroid/widget/ImageView;
 
-    .line 51
+    .line 52
     iget-object v0, p0, Lcom/yelp/android/ui/activities/NotificationActivity;->c:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_0
 
-    .line 52
+    .line 53
     new-instance v0, Landroid/view/animation/AnimationSet;
 
     invoke-direct {v0, v3}, Landroid/view/animation/AnimationSet;-><init>(Z)V
 
-    .line 53
-    const v1, 0x7f040019
-
-    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
-
     .line 54
-    const v1, 0x7f040013
+    const v1, 0x7f04001f
 
     invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -142,13 +133,22 @@
     invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
     .line 55
+    const v1, 0x7f040019
+
+    invoke-static {p0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
+
+    .line 56
     iget-object v1, p0, Lcom/yelp/android/ui/activities/NotificationActivity;->c:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setAnimation(Landroid/view/animation/Animation;)V
 
-    .line 57
+    .line 58
     :cond_0
-    const v0, 0x7f0c0180
+    const v0, 0x7f0f01b2
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->findViewById(I)Landroid/view/View;
 
@@ -158,8 +158,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/NotificationActivity;->d:Landroid/widget/TextView;
 
-    .line 58
-    const v0, 0x7f0c0183
+    .line 59
+    const v0, 0x7f0f01b5
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->findViewById(I)Landroid/view/View;
 
@@ -167,8 +167,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/NotificationActivity;->e:Landroid/view/View;
 
-    .line 60
-    const v0, 0x7f0c017e
+    .line 61
+    const v0, 0x7f0f01b0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->findViewById(I)Landroid/view/View;
 
@@ -176,30 +176,30 @@
 
     check-cast v0, Landroid/view/ViewStub;
 
-    .line 61
+    .line 62
     new-instance v1, Landroid/util/TypedValue;
 
     invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
 
-    .line 62
+    .line 63
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/NotificationActivity;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v2
 
-    const v3, 0x7f010086
+    const v3, 0x7f0100bc
 
     invoke-virtual {v2, v3, v1, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 63
+    .line 64
     iget v1, v1, Landroid/util/TypedValue;->resourceId:I
 
     invoke-virtual {v0, v1}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
-    .line 64
+    .line 65
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    .line 65
-    const v0, 0x7f0c017f
+    .line 66
+    const v0, 0x7f0f01b1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->findViewById(I)Landroid/view/View;
 
@@ -207,31 +207,31 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/NotificationActivity;->a:Landroid/view/View;
 
-    .line 66
+    .line 67
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    .line 67
+    .line 68
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/NotificationActivity;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v1
 
-    const v2, 0x7f010085
+    const v2, 0x7f0100bb
 
     invoke-virtual {v1, v2, v0, v4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    .line 68
+    .line 69
     iget v1, v0, Landroid/util/TypedValue;->resourceId:I
 
     if-eqz v1, :cond_1
 
-    .line 69
+    .line 70
     iget v0, v0, Landroid/util/TypedValue;->resourceId:I
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/NotificationActivity;->setTitle(I)V
 
-    .line 71
+    .line 72
     :cond_1
     return-void
 .end method

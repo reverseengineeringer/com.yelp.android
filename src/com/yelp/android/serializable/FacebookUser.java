@@ -3,7 +3,7 @@ package com.yelp.android.serializable;
 public class FacebookUser
   extends _FacebookUser
 {
-  public static final ah<FacebookUser> CREATOR = new ao();
+  public static final a<FacebookUser> CREATOR = new FacebookUser.1();
 }
 
 /* Location:

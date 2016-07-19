@@ -3,7 +3,7 @@
 .source "BusinessInfoWindowAdapter.java"
 
 # interfaces
-.implements Lcom/google/android/gms/maps/GoogleMap$OnInfoWindowClickListener;
+.implements Lcom/google/android/gms/maps/c$d;
 .implements Lcom/yelp/android/ui/map/e;
 
 
@@ -14,42 +14,42 @@
         "Lcom/yelp/android/serializable/LocalAd;",
         ">",
         "Ljava/lang/Object;",
-        "Lcom/google/android/gms/maps/GoogleMap$OnInfoWindowClickListener;",
+        "Lcom/google/android/gms/maps/c$d;",
         "Lcom/yelp/android/ui/map/e",
         "<",
-        "Lcom/yelp/android/serializable/YelpBusiness;",
+        "Lcom/yelp/android/ui/panels/businesssearch/a;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field private final a:Landroid/content/Context;
+.field protected final a:Landroid/content/Context;
 
-.field private final b:Ljava/util/Map;
+.field protected final b:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map",
             "<",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
+            "Lcom/yelp/android/ui/panels/businesssearch/a;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private c:Lcom/yelp/android/ui/map/f;
+.field protected c:Lcom/yelp/android/ui/map/e$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ui/map/f",
+            "Lcom/yelp/android/ui/map/e$a",
             "<",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
+            "Lcom/yelp/android/ui/panels/businesssearch/a;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private d:Ljava/util/List;
+.field protected d:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -83,143 +83,21 @@
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/maps/model/Marker;)Lcom/yelp/android/serializable/YelpBusiness;
-    .locals 2
-
-    .prologue
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->b:Ljava/util/Map;
-
-    invoke-virtual {p1}, Lcom/google/android/gms/maps/model/Marker;->getId()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
-
-    return-object v0
-.end method
-
-.method public a()V
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->b:Ljava/util/Map;
-
-    invoke-interface {v0}, Ljava/util/Map;->clear()V
-
-    .line 53
-    return-void
-.end method
-
-.method public a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/google/android/gms/maps/model/Marker;)V
-    .locals 2
-
-    .prologue
-    .line 38
-    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->b:Ljava/util/Map;
-
-    invoke-virtual {p2}, Lcom/google/android/gms/maps/model/Marker;->getId()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 39
-    return-void
-.end method
-
-.method public a(Lcom/yelp/android/ui/map/f;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/ui/map/f",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 91
-    iput-object p1, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/f;
-
-    .line 92
-    return-void
-.end method
-
-.method public bridge synthetic a(Ljava/lang/Object;Lcom/google/android/gms/maps/model/Marker;)V
-    .locals 0
-
-    .prologue
-    .line 23
-    check-cast p1, Lcom/yelp/android/serializable/YelpBusiness;
-
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/map/b;->a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/google/android/gms/maps/model/Marker;)V
-
-    return-void
-.end method
-
-.method public a(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<TT;>;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 42
-    iput-object p1, p0, Lcom/yelp/android/ui/map/b;->d:Ljava/util/List;
-
-    .line 43
-    return-void
-.end method
-
-.method public synthetic b(Lcom/google/android/gms/maps/model/Marker;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 23
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/b;->a(Lcom/google/android/gms/maps/model/Marker;)Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getInfoContents(Lcom/google/android/gms/maps/model/Marker;)Landroid/view/View;
-    .locals 1
-
-    .prologue
-    .line 58
-    const/4 v0, 0x0
-
-    return-object v0
-.end method
-
-.method public getInfoWindow(Lcom/google/android/gms/maps/model/Marker;)Landroid/view/View;
+.method public a(Lcom/google/android/gms/maps/model/c;)Landroid/view/View;
     .locals 7
 
     .prologue
     .line 63
-    new-instance v3, Lcom/yelp/android/ui/panels/ac;
+    new-instance v3, Lcom/yelp/android/ui/panels/d;
 
     iget-object v0, p0, Lcom/yelp/android/ui/map/b;->a:Landroid/content/Context;
 
-    invoke-direct {v3, v0}, Lcom/yelp/android/ui/panels/ac;-><init>(Landroid/content/Context;)V
+    invoke-direct {v3, v0}, Lcom/yelp/android/ui/panels/d;-><init>(Landroid/content/Context;)V
 
     .line 64
     iget-object v0, p0, Lcom/yelp/android/ui/map/b;->b:Ljava/util/Map;
 
-    invoke-virtual {p1}, Lcom/google/android/gms/maps/model/Marker;->getId()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/google/android/gms/maps/model/c;->a()Ljava/lang/String;
 
     move-result-object v1
 
@@ -227,15 +105,13 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
+    check-cast v0, Lcom/yelp/android/ui/panels/businesssearch/a;
 
     .line 65
     if-eqz v0, :cond_1
 
     .line 66
-    const/4 v1, 0x0
-
-    invoke-virtual {v3, v1}, Lcom/yelp/android/ui/panels/ac;->a(Lcom/yelp/android/ui/panels/ae;)V
+    invoke-virtual {v3}, Lcom/yelp/android/ui/panels/d;->a()V
 
     .line 68
     const/4 v2, 0x0
@@ -266,11 +142,15 @@
     check-cast v1, Lcom/yelp/android/serializable/LocalAd;
 
     .line 71
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/ui/panels/businesssearch/a;->a()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v5
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalAd;->getBusinessId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/LocalAd;->m()Ljava/lang/String;
 
     move-result-object v6
 
@@ -280,33 +160,41 @@
 
     if-eqz v5, :cond_0
 
-    .line 72
-    invoke-virtual {v3, v0, v1}, Lcom/yelp/android/ui/panels/ac;->a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/LocalAd;)V
-
     .line 73
+    invoke-interface {v0}, Lcom/yelp/android/ui/panels/businesssearch/a;->a()Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2, v1}, Lcom/yelp/android/ui/panels/d;->a(Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/serializable/LocalAd;)V
+
+    .line 74
     const/4 v1, 0x1
 
-    .line 79
+    .line 80
     :goto_0
     if-nez v1, :cond_1
 
-    .line 80
-    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/panels/ac;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+    .line 81
+    invoke-interface {v0}, Lcom/yelp/android/ui/panels/businesssearch/a;->a()Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 83
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Lcom/yelp/android/ui/panels/d;->a(Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    .line 84
     :cond_1
     if-eqz v0, :cond_2
 
-    iget-object v1, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/f;
+    iget-object v1, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/e$a;
 
     if-eqz v1, :cond_2
 
-    .line 84
-    iget-object v1, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/f;
+    .line 85
+    iget-object v1, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/e$a;
 
-    invoke-interface {v1, v0}, Lcom/yelp/android/ui/map/f;->b(Ljava/lang/Object;)V
+    invoke-interface {v1, v0}, Lcom/yelp/android/ui/map/e$a;->b(Ljava/lang/Object;)V
 
-    .line 86
+    .line 87
     :cond_2
     return-object v3
 
@@ -316,25 +204,147 @@
     goto :goto_0
 .end method
 
-.method public onInfoWindowClick(Lcom/google/android/gms/maps/model/Marker;)V
+.method public a()V
+    .locals 1
+
+    .prologue
+    .line 52
+    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->b:Ljava/util/Map;
+
+    invoke-interface {v0}, Ljava/util/Map;->clear()V
+
+    .line 53
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/ui/map/e$a;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/yelp/android/ui/map/e$a",
+            "<",
+            "Lcom/yelp/android/ui/panels/businesssearch/a;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 92
+    iput-object p1, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/e$a;
+
+    .line 93
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/ui/panels/businesssearch/a;Lcom/google/android/gms/maps/model/c;)V
     .locals 2
 
     .prologue
-    .line 96
-    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/f;
+    .line 38
+    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->b:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
-
-    .line 97
-    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/f;
-
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/b;->a(Lcom/google/android/gms/maps/model/Marker;)Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {p2}, Lcom/google/android/gms/maps/model/c;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/map/f;->a(Ljava/lang/Object;)V
+    invoke-interface {v0, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 99
+    .line 39
+    return-void
+.end method
+
+.method public bridge synthetic a(Ljava/lang/Object;Lcom/google/android/gms/maps/model/c;)V
+    .locals 0
+
+    .prologue
+    .line 23
+    check-cast p1, Lcom/yelp/android/ui/panels/businesssearch/a;
+
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/map/b;->a(Lcom/yelp/android/ui/panels/businesssearch/a;Lcom/google/android/gms/maps/model/c;)V
+
+    return-void
+.end method
+
+.method public a(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<TT;>;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 42
+    iput-object p1, p0, Lcom/yelp/android/ui/map/b;->d:Ljava/util/List;
+
+    .line 43
+    return-void
+.end method
+
+.method public b(Lcom/google/android/gms/maps/model/c;)Landroid/view/View;
+    .locals 1
+
+    .prologue
+    .line 58
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method public c(Lcom/google/android/gms/maps/model/c;)V
+    .locals 2
+
+    .prologue
+    .line 97
+    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/e$a;
+
+    if-eqz v0, :cond_0
+
+    .line 98
+    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->c:Lcom/yelp/android/ui/map/e$a;
+
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/b;->d(Lcom/google/android/gms/maps/model/c;)Lcom/yelp/android/ui/panels/businesssearch/a;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/map/e$a;->a(Ljava/lang/Object;)V
+
+    .line 100
     :cond_0
     return-void
+.end method
+
+.method public d(Lcom/google/android/gms/maps/model/c;)Lcom/yelp/android/ui/panels/businesssearch/a;
+    .locals 2
+
+    .prologue
+    .line 47
+    iget-object v0, p0, Lcom/yelp/android/ui/map/b;->b:Ljava/util/Map;
+
+    invoke-virtual {p1}, Lcom/google/android/gms/maps/model/c;->a()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/panels/businesssearch/a;
+
+    return-object v0
+.end method
+
+.method public synthetic e(Lcom/google/android/gms/maps/model/c;)Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 23
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/map/b;->d(Lcom/google/android/gms/maps/model/c;)Lcom/yelp/android/ui/panels/businesssearch/a;
+
+    move-result-object v0
+
+    return-object v0
 .end method

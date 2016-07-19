@@ -1,115 +1,150 @@
-.class Lcom/bumptech/glide/load/resource/bitmap/q;
+.class public Lcom/bumptech/glide/load/resource/bitmap/q;
 .super Ljava/lang/Object;
-.source "ImageHeaderParser.java"
+.source "VideoBitmapDecoder.java"
+
+# interfaces
+.implements Lcom/bumptech/glide/load/resource/bitmap/a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/bumptech/glide/load/resource/bitmap/q$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/bumptech/glide/load/resource/bitmap/a",
+        "<",
+        "Landroid/os/ParcelFileDescriptor;",
+        ">;"
+    }
+.end annotation
+
+
+# static fields
+.field private static final a:Lcom/bumptech/glide/load/resource/bitmap/q$a;
 
 
 # instance fields
-.field private final a:Ljava/io/InputStream;
+.field private b:Lcom/bumptech/glide/load/resource/bitmap/q$a;
+
+.field private c:I
 
 
 # direct methods
-.method public constructor <init>(Ljava/io/InputStream;)V
+.method static constructor <clinit>()V
+    .locals 1
+
+    .prologue
+    .line 19
+    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/q$a;
+
+    invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/q$a;-><init>()V
+
+    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Lcom/bumptech/glide/load/resource/bitmap/q$a;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 2
+
+    .prologue
+    .line 25
+    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Lcom/bumptech/glide/load/resource/bitmap/q$a;
+
+    const/4 v1, -0x1
+
+    invoke-direct {p0, v0, v1}, Lcom/bumptech/glide/load/resource/bitmap/q;-><init>(Lcom/bumptech/glide/load/resource/bitmap/q$a;I)V
+
+    .line 26
+    return-void
+.end method
+
+.method constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/q$a;I)V
     .locals 0
 
     .prologue
-    .line 323
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 324
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Ljava/io/InputStream;
+    .line 37
+    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->b:Lcom/bumptech/glide/load/resource/bitmap/q$a;
 
-    .line 325
+    .line 38
+    iput p2, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->c:I
+
+    .line 39
     return-void
 .end method
 
 
 # virtual methods
-.method public a()I
-    .locals 2
+.method public a(Landroid/os/ParcelFileDescriptor;Lcom/yelp/android/x/c;IILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
     .prologue
-    .line 328
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Ljava/io/InputStream;
+    .line 45
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->b:Lcom/bumptech/glide/load/resource/bitmap/q$a;
 
-    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
+    invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/bitmap/q$a;->a()Landroid/media/MediaMetadataRetriever;
 
-    move-result v0
+    move-result-object v1
 
-    shl-int/lit8 v0, v0, 0x8
+    .line 46
+    invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
-    const v1, 0xff00
+    move-result-object v0
 
-    and-int/2addr v0, v1
+    invoke-virtual {v1, v0}, Landroid/media/MediaMetadataRetriever;->setDataSource(Ljava/io/FileDescriptor;)V
 
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Ljava/io/InputStream;
+    .line 48
+    iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->c:I
 
-    invoke-virtual {v1}, Ljava/io/InputStream;->read()I
+    if-ltz v0, :cond_0
 
-    move-result v1
+    .line 49
+    iget v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->c:I
 
-    and-int/lit16 v1, v1, 0xff
+    int-to-long v2, v0
 
-    or-int/2addr v0, v1
+    invoke-virtual {v1, v2, v3}, Landroid/media/MediaMetadataRetriever;->getFrameAtTime(J)Landroid/graphics/Bitmap;
 
-    return v0
+    move-result-object v0
+
+    .line 53
+    :goto_0
+    invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->release()V
+
+    .line 54
+    invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor;->close()V
+
+    .line 55
+    return-object v0
+
+    .line 51
+    :cond_0
+    invoke-virtual {v1}, Landroid/media/MediaMetadataRetriever;->getFrameAtTime()Landroid/graphics/Bitmap;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
-.method public a([B)I
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 340
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Ljava/io/InputStream;
+    .line 60
+    const-string/jumbo v0, "VideoBitmapDecoder.com.bumptech.glide.load.resource.bitmap"
 
-    invoke-virtual {v0, p1}, Ljava/io/InputStream;->read([B)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public a(J)J
-    .locals 3
-
-    .prologue
-    .line 336
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Ljava/io/InputStream;
-
-    invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
-.method public b()S
-    .locals 1
-
-    .prologue
-    .line 332
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Ljava/io/InputStream;
-
-    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
-
-    move-result v0
-
-    and-int/lit16 v0, v0, 0xff
-
-    int-to-short v0, v0
-
-    return v0
-.end method
-
-.method public c()I
-    .locals 1
-
-    .prologue
-    .line 344
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/q;->a:Ljava/io/InputStream;
-
-    invoke-virtual {v0}, Ljava/io/InputStream;->read()I
-
-    move-result v0
-
-    return v0
+    return-object v0
 .end method

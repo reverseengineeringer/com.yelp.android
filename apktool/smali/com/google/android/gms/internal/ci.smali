@@ -2,128 +2,130 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/gms/internal/cd;
+.implements Lcom/google/android/gms/internal/bz;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
 # instance fields
-.field private final qc:Lcom/google/android/gms/internal/ce;
-
-.field private final qd:Lcom/google/android/gms/internal/v;
+.field private final a:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Lcom/google/android/gms/internal/ib;",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/android/gms/internal/ce;Lcom/google/android/gms/internal/v;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/ci;->qc:Lcom/google/android/gms/internal/ce;
+    new-instance v0, Ljava/util/WeakHashMap;
 
-    iput-object p2, p0, Lcom/google/android/gms/internal/ci;->qd:Lcom/google/android/gms/internal/v;
+    invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ci;->a:Ljava/util/Map;
 
     return-void
 .end method
 
-.method private static b(Ljava/util/Map;)Z
-    .locals 2
+.method private static a(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;I)I
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
+            "Landroid/content/Context;",
             "Ljava/util/Map",
             "<",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
-            ">;)Z"
+            ">;",
+            "Ljava/lang/String;",
+            "I)I"
         }
     .end annotation
 
-    const-string/jumbo v0, "1"
-
-    const-string/jumbo v1, "custom_close"
-
-    invoke-interface {p0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private static c(Ljava/util/Map;)I
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;)I"
-        }
-    .end annotation
-
-    const-string/jumbo v0, "o"
-
-    invoke-interface {p0, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v1, "p"
+    :try_start_0
+    invoke-static {}, Lcom/google/android/gms/ads/internal/client/v;->a()Lcom/google/android/gms/ads/internal/util/client/a;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result-object v1
 
-    move-result v1
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    if-eqz v1, :cond_0
+    move-result v2
 
-    invoke-static {}, Lcom/google/android/gms/internal/gi;->dv()I
+    invoke-virtual {v1, p0, v2}, Lcom/google/android/gms/ads/internal/util/client/a;->a(Landroid/content/Context;I)I
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
-
-    :goto_0
-    return v0
+    move-result p3
 
     :cond_0
-    const-string/jumbo v1, "l"
+    :goto_0
+    return p3
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    :catch_0
+    move-exception v1
 
-    move-result v0
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_1
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {}, Lcom/google/android/gms/internal/gi;->du()I
+    const-string/jumbo v2, "Could not parse "
 
-    move-result v0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    move-result-object v1
 
-    :cond_1
-    const/4 v0, -0x1
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " in a video GMSG: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     goto :goto_0
 .end method
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/internal/gu;Ljava/util/Map;)V
-    .locals 9
+.method public a(Lcom/google/android/gms/internal/ib;Ljava/util/Map;)V
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/android/gms/internal/gu;",
+            "Lcom/google/android/gms/internal/ib;",
             "Ljava/util/Map",
             "<",
             "Ljava/lang/String;",
@@ -132,40 +134,91 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "a"
+    const/4 v7, -0x1
+
+    const/4 v8, 0x0
+
+    const-string/jumbo v0, "action"
 
     invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/String;
+    move-object v1, v0
 
-    if-nez v0, :cond_1
+    check-cast v1, Ljava/lang/String;
 
-    const-string/jumbo v0, "Action missing from an open GMSG."
+    if-nez v1, :cond_1
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    const-string/jumbo v0, "Action missing from video GMSG."
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    iget-object v1, p0, Lcom/google/android/gms/internal/ci;->qd:Lcom/google/android/gms/internal/v;
+    const/4 v0, 0x3
 
-    if-eqz v1, :cond_2
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->a(I)Z
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/ci;->qd:Lcom/google/android/gms/internal/v;
+    move-result v0
 
-    invoke-virtual {v1}, Lcom/google/android/gms/internal/v;->az()Z
+    if-eqz v0, :cond_2
 
-    move-result v1
+    new-instance v0, Lorg/json/JSONObject;
 
-    if-nez v1, :cond_2
+    invoke-direct {v0, p2}, Lorg/json/JSONObject;-><init>(Ljava/util/Map;)V
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/ci;->qd:Lcom/google/android/gms/internal/v;
+    const-string/jumbo v2, "google.afma.Notify_dt"
 
-    const-string/jumbo v0, "u"
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Video GMSG: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->a(Ljava/lang/String;)V
+
+    :cond_2
+    const-string/jumbo v0, "background"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    const-string/jumbo v0, "color"
 
     invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -173,212 +226,126 @@
 
     check-cast v0, Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/internal/v;->d(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {p1}, Lcom/google/android/gms/internal/gu;->dD()Lcom/google/android/gms/internal/gv;
-
-    move-result-object v8
-
-    const-string/jumbo v1, "expand"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
-    invoke-virtual {p1}, Lcom/google/android/gms/internal/gu;->dH()Z
+    const-string/jumbo v0, "Color parameter missing from color video GMSG."
 
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    const-string/jumbo v0, "Cannot expand WebView that is already expanded."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_3
-    invoke-static {p2}, Lcom/google/android/gms/internal/ci;->b(Ljava/util/Map;)Z
+    :try_start_0
+    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-static {p2}, Lcom/google/android/gms/internal/ci;->c(Ljava/util/Map;)I
+    invoke-interface {p1}, Lcom/google/android/gms/internal/ib;->v()Lcom/google/android/gms/internal/ia;
 
-    move-result v1
+    move-result-object v1
 
-    invoke-virtual {v8, v0, v1}, Lcom/google/android/gms/internal/gv;->a(ZI)V
+    if-eqz v1, :cond_4
+
+    invoke-virtual {v1}, Lcom/google/android/gms/internal/ia;->a()Lcom/google/android/gms/ads/internal/overlay/j;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_4
+
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/ads/internal/overlay/j;->setBackgroundColor(I)V
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v0, "Invalid color parameter in video GMSG."
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_4
-    const-string/jumbo v1, "webapp"
+    :try_start_1
+    iget-object v1, p0, Lcom/google/android/gms/internal/ci;->a:Ljava/util/Map;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    const-string/jumbo v0, "u"
-
-    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/String;
-
-    if-eqz v0, :cond_5
-
-    invoke-static {p2}, Lcom/google/android/gms/internal/ci;->b(Ljava/util/Map;)Z
-
-    move-result v1
-
-    invoke-static {p2}, Lcom/google/android/gms/internal/ci;->c(Ljava/util/Map;)I
-
-    move-result v2
-
-    invoke-virtual {v8, v1, v2, v0}, Lcom/google/android/gms/internal/gv;->a(ZILjava/lang/String;)V
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
 
     goto :goto_0
 
     :cond_5
-    invoke-static {p2}, Lcom/google/android/gms/internal/ci;->b(Ljava/util/Map;)Z
-
-    move-result v2
-
-    invoke-static {p2}, Lcom/google/android/gms/internal/ci;->c(Ljava/util/Map;)I
-
-    move-result v3
-
-    const-string/jumbo v0, "html"
-
-    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/android/gms/internal/ib;->v()Lcom/google/android/gms/internal/ia;
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/String;
+    if-nez v0, :cond_6
 
-    const-string/jumbo v1, "baseurl"
+    const-string/jumbo v0, "Could not get underlay container for a video GMSG."
 
-    invoke-interface {p2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {v8, v2, v3, v0, v1}, Lcom/google/android/gms/internal/gv;->a(ZILjava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_6
-    const-string/jumbo v1, "in_app_purchase"
+    const-string/jumbo v2, "new"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v6
 
-    if-eqz v0, :cond_8
+    const-string/jumbo v2, "position"
 
-    const-string/jumbo v0, "product_id"
-
-    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    const-string/jumbo v1, "report_urls"
-
-    invoke-interface {p2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/ci;->qc:Lcom/google/android/gms/internal/ce;
-
-    if-eqz v2, :cond_0
-
-    if-eqz v1, :cond_7
-
-    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v6, :cond_7
 
-    const-string/jumbo v2, " "
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/ci;->qc:Lcom/google/android/gms/internal/ce;
-
-    new-instance v3, Ljava/util/ArrayList;
-
-    invoke-static {v1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-direct {v3, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-interface {v2, v0, v3}, Lcom/google/android/gms/internal/ce;->a(Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    goto/16 :goto_0
+    if-eqz v2, :cond_9
 
     :cond_7
-    iget-object v1, p0, Lcom/google/android/gms/internal/ci;->qc:Lcom/google/android/gms/internal/ce;
-
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v1, v0, v2}, Lcom/google/android/gms/internal/ce;->a(Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    goto/16 :goto_0
-
-    :cond_8
-    new-instance v0, Lcom/google/android/gms/internal/do;
-
-    const-string/jumbo v1, "i"
-
-    invoke-interface {p2, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    const-string/jumbo v2, "u"
-
-    invoke-interface {p2, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/lang/String;
-
-    const-string/jumbo v3, "m"
-
-    invoke-interface {p2, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-
-    const-string/jumbo v4, "p"
-
-    invoke-interface {p2, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/google/android/gms/internal/ib;->getContext()Landroid/content/Context;
 
     move-result-object v4
 
-    check-cast v4, Ljava/lang/String;
+    const-string/jumbo v1, "x"
 
-    const-string/jumbo v5, "c"
+    invoke-static {v4, p2, v1, v8}, Lcom/google/android/gms/internal/ci;->a(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;I)I
+
+    move-result v1
+
+    const-string/jumbo v2, "y"
+
+    invoke-static {v4, p2, v2, v8}, Lcom/google/android/gms/internal/ci;->a(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string/jumbo v3, "w"
+
+    invoke-static {v4, p2, v3, v7}, Lcom/google/android/gms/internal/ci;->a(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;I)I
+
+    move-result v3
+
+    const-string/jumbo v5, "h"
+
+    invoke-static {v4, p2, v5, v7}, Lcom/google/android/gms/internal/ci;->a(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;I)I
+
+    move-result v4
+
+    :try_start_2
+    const-string/jumbo v5, "player"
 
     invoke-interface {p2, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -386,25 +353,429 @@
 
     check-cast v5, Ljava/lang/String;
 
-    const-string/jumbo v6, "f"
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_2
+    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_1
 
-    invoke-interface {p2, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result v5
+
+    :goto_1
+    if-eqz v6, :cond_8
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ia;->a()Lcom/google/android/gms/ads/internal/overlay/j;
 
     move-result-object v6
 
-    check-cast v6, Ljava/lang/String;
+    if-nez v6, :cond_8
 
-    const-string/jumbo v7, "e"
+    invoke-virtual/range {v0 .. v5}, Lcom/google/android/gms/internal/ia;->a(IIIII)V
 
-    invoke-interface {p2, v7}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v1, p0, Lcom/google/android/gms/internal/ci;->a:Ljava/util/Map;
 
-    move-result-object v7
+    invoke-interface {v1, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
-    check-cast v7, Ljava/lang/String;
+    move-result v1
 
-    invoke-direct/range {v0 .. v7}, Lcom/google/android/gms/internal/do;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v8, v0}, Lcom/google/android/gms/internal/gv;->a(Lcom/google/android/gms/internal/do;)V
+    iget-object v1, p0, Lcom/google/android/gms/internal/ci;->a:Ljava/util/Map;
+
+    invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ia;->a()Lcom/google/android/gms/ads/internal/overlay/j;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/ads/internal/overlay/j;->setBackgroundColor(I)V
+
+    invoke-virtual {v0}, Lcom/google/android/gms/ads/internal/overlay/j;->l()V
+
+    goto/16 :goto_0
+
+    :catch_1
+    move-exception v5
+
+    move v5, v8
+
+    goto :goto_1
+
+    :cond_8
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/google/android/gms/internal/ia;->a(IIII)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ia;->a()Lcom/google/android/gms/ads/internal/overlay/j;
+
+    move-result-object v9
+
+    if-nez v9, :cond_a
+
+    invoke-static {p1}, Lcom/google/android/gms/ads/internal/overlay/j;->a(Lcom/google/android/gms/internal/ib;)V
+
+    goto/16 :goto_0
+
+    :cond_a
+    const-string/jumbo v0, "click"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    invoke-interface {p1}, Lcom/google/android/gms/internal/ib;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "x"
+
+    invoke-static {v0, p2, v1, v8}, Lcom/google/android/gms/internal/ci;->a(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string/jumbo v1, "y"
+
+    invoke-static {v0, p2, v1, v8}, Lcom/google/android/gms/internal/ci;->a(Landroid/content/Context;Ljava/util/Map;Ljava/lang/String;I)I
+
+    move-result v3
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    int-to-float v5, v2
+
+    int-to-float v6, v3
+
+    move-wide v2, v0
+
+    move v4, v8
+
+    move v7, v8
+
+    invoke-static/range {v0 .. v7}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
+
+    move-result-object v0
+
+    invoke-virtual {v9, v0}, Lcom/google/android/gms/ads/internal/overlay/j;->a(Landroid/view/MotionEvent;)V
+
+    invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
+
+    goto/16 :goto_0
+
+    :cond_b
+    const-string/jumbo v0, "currentTime"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    const-string/jumbo v0, "time"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-nez v0, :cond_c
+
+    const-string/jumbo v0, "Time parameter missing from currentTime video GMSG."
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_c
+    :try_start_3
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v1
+
+    const/high16 v2, 0x447a0000    # 1000.0f
+
+    mul-float/2addr v1, v2
+
+    float-to-int v1, v1
+
+    invoke-virtual {v9, v1}, Lcom/google/android/gms/ads/internal/overlay/j;->a(I)V
+    :try_end_3
+    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_2
+
+    goto/16 :goto_0
+
+    :catch_2
+    move-exception v1
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Could not parse time parameter from currentTime video GMSG: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_d
+    const-string/jumbo v0, "hide"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    const/4 v0, 0x4
+
+    invoke-virtual {v9, v0}, Lcom/google/android/gms/ads/internal/overlay/j;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_e
+    const-string/jumbo v0, "load"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_f
+
+    invoke-virtual {v9}, Lcom/google/android/gms/ads/internal/overlay/j;->g()V
+
+    goto/16 :goto_0
+
+    :cond_f
+    const-string/jumbo v0, "mimetype"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
+
+    const-string/jumbo v0, "mimetype"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v9, v0}, Lcom/google/android/gms/ads/internal/overlay/j;->setMimeType(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_10
+    const-string/jumbo v0, "muted"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_12
+
+    const-string/jumbo v0, "muted"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_11
+
+    invoke-virtual {v9}, Lcom/google/android/gms/ads/internal/overlay/j;->j()V
+
+    goto/16 :goto_0
+
+    :cond_11
+    invoke-virtual {v9}, Lcom/google/android/gms/ads/internal/overlay/j;->k()V
+
+    goto/16 :goto_0
+
+    :cond_12
+    const-string/jumbo v0, "pause"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_13
+
+    invoke-virtual {v9}, Lcom/google/android/gms/ads/internal/overlay/j;->h()V
+
+    goto/16 :goto_0
+
+    :cond_13
+    const-string/jumbo v0, "play"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_14
+
+    invoke-virtual {v9}, Lcom/google/android/gms/ads/internal/overlay/j;->i()V
+
+    goto/16 :goto_0
+
+    :cond_14
+    const-string/jumbo v0, "show"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_15
+
+    invoke-virtual {v9, v8}, Lcom/google/android/gms/ads/internal/overlay/j;->setVisibility(I)V
+
+    goto/16 :goto_0
+
+    :cond_15
+    const-string/jumbo v0, "src"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_16
+
+    const-string/jumbo v0, "src"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v9, v0}, Lcom/google/android/gms/ads/internal/overlay/j;->a(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_16
+    const-string/jumbo v0, "volume"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_18
+
+    const-string/jumbo v0, "volume"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    if-nez v0, :cond_17
+
+    const-string/jumbo v0, "Level parameter missing from volume video GMSG."
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_17
+    :try_start_4
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v1
+
+    invoke-virtual {v9, v1}, Lcom/google/android/gms/ads/internal/overlay/j;->a(F)V
+    :try_end_4
+    .catch Ljava/lang/NumberFormatException; {:try_start_4 .. :try_end_4} :catch_3
+
+    goto/16 :goto_0
+
+    :catch_3
+    move-exception v1
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Could not parse volume parameter from volume video GMSG: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_18
+    const-string/jumbo v0, "watermark"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_19
+
+    invoke-virtual {v9}, Lcom/google/android/gms/ads/internal/overlay/j;->l()V
+
+    goto/16 :goto_0
+
+    :cond_19
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Unknown video action: "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     goto/16 :goto_0
 .end method

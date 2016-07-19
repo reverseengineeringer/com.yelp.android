@@ -2,13 +2,14 @@ package com.yelp.android.ui.util;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.TextView;
 import java.util.ArrayList;
 
 public class InstrumentableTextView
   extends TextView
 {
-  private ArrayList<ar> a;
+  private ArrayList<a> a;
   
   public InstrumentableTextView(Context paramContext)
   {
@@ -35,10 +36,15 @@ public class InstrumentableTextView
       int i = 0;
       while (i < j)
       {
-        ((ar)localArrayList.get(i)).a(this, paramInt1, paramInt2, paramInt3, paramInt4);
+        ((a)localArrayList.get(i)).a(this, paramInt1, paramInt2, paramInt3, paramInt4);
         i += 1;
       }
     }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(View paramView, int paramInt1, int paramInt2, int paramInt3, int paramInt4);
   }
 }
 

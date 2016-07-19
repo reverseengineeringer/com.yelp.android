@@ -1,216 +1,160 @@
 package com.facebook;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.os.Parcelable.Creator;
 import android.text.TextUtils;
-import com.facebook.internal.Utility;
-import com.facebook.internal.Validate;
-import java.io.InvalidObjectException;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
+import com.facebook.internal.u;
+import com.facebook.internal.v;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public final class AccessToken
-  implements Serializable
+  implements Parcelable
 {
-  static final String ACCESS_TOKEN_KEY = "access_token";
-  private static final Date ALREADY_EXPIRED_EXPIRATION_TIME = MIN_DATE;
-  private static final AccessTokenSource DEFAULT_ACCESS_TOKEN_SOURCE;
-  private static final Date DEFAULT_EXPIRATION_TIME;
-  private static final Date DEFAULT_LAST_REFRESH_TIME;
-  static final String EXPIRES_IN_KEY = "expires_in";
-  private static final Date MAX_DATE;
-  private static final Date MIN_DATE = new Date(Long.MIN_VALUE);
-  private static final long serialVersionUID = 1L;
-  private final List<String> declinedPermissions;
-  private final Date expires;
-  private final Date lastRefresh;
-  private final List<String> permissions;
-  private final AccessTokenSource source;
-  private final String token;
-  
-  static
+  public static final Parcelable.Creator<AccessToken> CREATOR = new Parcelable.Creator()
   {
-    MAX_DATE = new Date(Long.MAX_VALUE);
-    DEFAULT_EXPIRATION_TIME = MAX_DATE;
-    DEFAULT_LAST_REFRESH_TIME = new Date();
-    DEFAULT_ACCESS_TOKEN_SOURCE = AccessTokenSource.FACEBOOK_APPLICATION_WEB;
-  }
-  
-  AccessToken(String paramString, Date paramDate1, List<String> paramList1, List<String> paramList2, AccessTokenSource paramAccessTokenSource, Date paramDate2)
-  {
-    Object localObject = paramList1;
-    if (paramList1 == null) {
-      localObject = Collections.emptyList();
-    }
-    paramList1 = paramList2;
-    if (paramList2 == null) {
-      paramList1 = Collections.emptyList();
-    }
-    expires = paramDate1;
-    permissions = Collections.unmodifiableList((List)localObject);
-    declinedPermissions = Collections.unmodifiableList(paramList1);
-    token = paramString;
-    source = paramAccessTokenSource;
-    lastRefresh = paramDate2;
-  }
-  
-  private void appendPermissions(StringBuilder paramStringBuilder)
-  {
-    paramStringBuilder.append(" permissions:");
-    if (permissions == null)
+    public AccessToken a(Parcel paramAnonymousParcel)
     {
-      paramStringBuilder.append("null");
-      return;
+      return new AccessToken(paramAnonymousParcel);
     }
-    paramStringBuilder.append("[");
-    paramStringBuilder.append(TextUtils.join(", ", permissions));
-    paramStringBuilder.append("]");
-  }
-  
-  static AccessToken createEmptyToken()
-  {
-    return new AccessToken("", ALREADY_EXPIRED_EXPIRATION_TIME, null, null, AccessTokenSource.NONE, DEFAULT_LAST_REFRESH_TIME);
-  }
-  
-  private static AccessToken createFromBundle(List<String> paramList, Bundle paramBundle, AccessTokenSource paramAccessTokenSource, Date paramDate)
-  {
-    String str = paramBundle.getString("access_token");
-    paramBundle = getBundleLongAsDate(paramBundle, "expires_in", paramDate);
-    if ((Utility.isNullOrEmpty(str)) || (paramBundle == null)) {
-      return null;
-    }
-    return new AccessToken(str, paramBundle, paramList, null, paramAccessTokenSource, new Date());
-  }
-  
-  static AccessToken createFromCache(Bundle paramBundle)
-  {
-    List localList1 = getPermissionsFromBundle(paramBundle, "com.facebook.TokenCachingStrategy.Permissions");
-    List localList2 = getPermissionsFromBundle(paramBundle, "com.facebook.TokenCachingStrategy.DeclinedPermissions");
-    return new AccessToken(paramBundle.getString("com.facebook.TokenCachingStrategy.Token"), TokenCachingStrategy.getDate(paramBundle, "com.facebook.TokenCachingStrategy.ExpirationDate"), localList1, localList2, TokenCachingStrategy.getSource(paramBundle), TokenCachingStrategy.getDate(paramBundle, "com.facebook.TokenCachingStrategy.LastRefreshDate"));
-  }
-  
-  public static AccessToken createFromExistingAccessToken(String paramString, Date paramDate1, Date paramDate2, AccessTokenSource paramAccessTokenSource, List<String> paramList)
-  {
-    if (paramDate1 == null) {
-      paramDate1 = DEFAULT_EXPIRATION_TIME;
-    }
-    for (;;)
+    
+    public AccessToken[] a(int paramAnonymousInt)
     {
+      return new AccessToken[paramAnonymousInt];
+    }
+  };
+  private static final Date a = new Date(Long.MAX_VALUE);
+  private static final Date b = a;
+  private static final Date c = new Date();
+  private static final AccessTokenSource d = AccessTokenSource.FACEBOOK_APPLICATION_WEB;
+  private final Date e;
+  private final Set<String> f;
+  private final Set<String> g;
+  private final String h;
+  private final AccessTokenSource i;
+  private final Date j;
+  private final String k;
+  private final String l;
+  
+  AccessToken(Parcel paramParcel)
+  {
+    e = new Date(paramParcel.readLong());
+    ArrayList localArrayList = new ArrayList();
+    paramParcel.readStringList(localArrayList);
+    f = Collections.unmodifiableSet(new HashSet(localArrayList));
+    localArrayList.clear();
+    paramParcel.readStringList(localArrayList);
+    g = Collections.unmodifiableSet(new HashSet(localArrayList));
+    h = paramParcel.readString();
+    i = AccessTokenSource.valueOf(paramParcel.readString());
+    j = new Date(paramParcel.readLong());
+    k = paramParcel.readString();
+    l = paramParcel.readString();
+  }
+  
+  public AccessToken(String paramString1, String paramString2, String paramString3, Collection<String> paramCollection1, Collection<String> paramCollection2, AccessTokenSource paramAccessTokenSource, Date paramDate1, Date paramDate2)
+  {
+    v.a(paramString1, "accessToken");
+    v.a(paramString2, "applicationId");
+    v.a(paramString3, "userId");
+    if (paramDate1 != null)
+    {
+      e = paramDate1;
+      if (paramCollection1 == null) {
+        break label129;
+      }
+      paramCollection1 = new HashSet(paramCollection1);
+      label49:
+      f = Collections.unmodifiableSet(paramCollection1);
+      if (paramCollection2 == null) {
+        break label141;
+      }
+      paramCollection1 = new HashSet(paramCollection2);
+      label74:
+      g = Collections.unmodifiableSet(paramCollection1);
+      h = paramString1;
+      if (paramAccessTokenSource == null) {
+        break label153;
+      }
+      label93:
+      i = paramAccessTokenSource;
       if (paramDate2 == null) {
-        paramDate2 = DEFAULT_LAST_REFRESH_TIME;
+        break label161;
       }
-      for (;;)
-      {
-        if (paramAccessTokenSource == null) {
-          paramAccessTokenSource = DEFAULT_ACCESS_TOKEN_SOURCE;
-        }
-        for (;;)
-        {
-          return new AccessToken(paramString, paramDate1, paramList, null, paramAccessTokenSource, paramDate2);
-        }
-      }
-    }
-  }
-  
-  public static AccessToken createFromNativeLinkingIntent(Intent paramIntent)
-  {
-    Validate.notNull(paramIntent, "intent");
-    if (paramIntent.getExtras() == null) {
-      return null;
-    }
-    return createFromBundle(null, paramIntent.getExtras(), AccessTokenSource.FACEBOOK_APPLICATION_WEB, new Date());
-  }
-  
-  static AccessToken createFromNativeLogin(Bundle paramBundle, AccessTokenSource paramAccessTokenSource)
-  {
-    Date localDate = getBundleLongAsDate(paramBundle, "com.facebook.platform.extra.EXPIRES_SECONDS_SINCE_EPOCH", new Date(0L));
-    return createNew(paramBundle.getStringArrayList("com.facebook.platform.extra.PERMISSIONS"), null, paramBundle.getString("com.facebook.platform.extra.ACCESS_TOKEN"), localDate, paramAccessTokenSource);
-  }
-  
-  @SuppressLint({"FieldGetter"})
-  static AccessToken createFromRefresh(AccessToken paramAccessToken, Bundle paramBundle)
-  {
-    if ((source != AccessTokenSource.FACEBOOK_APPLICATION_WEB) && (source != AccessTokenSource.FACEBOOK_APPLICATION_NATIVE) && (source != AccessTokenSource.FACEBOOK_APPLICATION_SERVICE)) {
-      throw new FacebookException("Invalid token source: " + source);
-    }
-    Date localDate = getBundleLongAsDate(paramBundle, "expires_in", new Date(0L));
-    paramBundle = paramBundle.getString("access_token");
-    return createNew(paramAccessToken.getPermissions(), paramAccessToken.getDeclinedPermissions(), paramBundle, localDate, source);
-  }
-  
-  static AccessToken createFromString(String paramString, List<String> paramList, AccessTokenSource paramAccessTokenSource)
-  {
-    return new AccessToken(paramString, DEFAULT_EXPIRATION_TIME, paramList, null, paramAccessTokenSource, DEFAULT_LAST_REFRESH_TIME);
-  }
-  
-  static AccessToken createFromTokenWithRefreshedPermissions(AccessToken paramAccessToken, List<String> paramList1, List<String> paramList2)
-  {
-    return new AccessToken(token, expires, paramList1, paramList2, source, lastRefresh);
-  }
-  
-  static AccessToken createFromWebBundle(List<String> paramList, Bundle paramBundle, AccessTokenSource paramAccessTokenSource)
-  {
-    Date localDate = getBundleLongAsDate(paramBundle, "expires_in", new Date());
-    String str1 = paramBundle.getString("access_token");
-    String str2 = paramBundle.getString("granted_scopes");
-    if (!Utility.isNullOrEmpty(str2)) {
-      paramList = new ArrayList(Arrays.asList(str2.split(",")));
-    }
-    str2 = paramBundle.getString("denied_scopes");
-    paramBundle = null;
-    if (!Utility.isNullOrEmpty(str2)) {
-      paramBundle = new ArrayList(Arrays.asList(str2.split(",")));
-    }
-    return createNew(paramList, paramBundle, str1, localDate, paramAccessTokenSource);
-  }
-  
-  private static AccessToken createNew(List<String> paramList1, List<String> paramList2, String paramString, Date paramDate, AccessTokenSource paramAccessTokenSource)
-  {
-    if ((Utility.isNullOrEmpty(paramString)) || (paramDate == null)) {
-      return createEmptyToken();
-    }
-    return new AccessToken(paramString, paramDate, paramList1, paramList2, paramAccessTokenSource, new Date());
-  }
-  
-  private static Date getBundleLongAsDate(Bundle paramBundle, String paramString, Date paramDate)
-  {
-    if (paramBundle == null) {
-      return null;
-    }
-    paramBundle = paramBundle.get(paramString);
-    long l;
-    if ((paramBundle instanceof Long)) {
-      l = ((Long)paramBundle).longValue();
     }
     for (;;)
     {
-      if (l != 0L) {
-        break label67;
-      }
-      return new Date(Long.MAX_VALUE);
-      if ((paramBundle instanceof String)) {
-        try
-        {
-          l = Long.parseLong((String)paramBundle);
-        }
-        catch (NumberFormatException paramBundle)
-        {
-          return null;
-        }
-      }
+      j = paramDate2;
+      k = paramString2;
+      l = paramString3;
+      return;
+      paramDate1 = b;
+      break;
+      label129:
+      paramCollection1 = new HashSet();
+      break label49;
+      label141:
+      paramCollection1 = new HashSet();
+      break label74;
+      label153:
+      paramAccessTokenSource = d;
+      break label93;
+      label161:
+      paramDate2 = c;
     }
-    return null;
-    label67:
-    return new Date(l * 1000L + paramDate.getTime());
   }
   
-  static List<String> getPermissionsFromBundle(Bundle paramBundle, String paramString)
+  public static AccessToken a()
+  {
+    return b.a().b();
+  }
+  
+  static AccessToken a(Bundle paramBundle)
+  {
+    List localList1 = a(paramBundle, "com.facebook.TokenCachingStrategy.Permissions");
+    List localList2 = a(paramBundle, "com.facebook.TokenCachingStrategy.DeclinedPermissions");
+    String str2 = j.d(paramBundle);
+    String str1 = str2;
+    if (u.a(str2)) {
+      str1 = g.h();
+    }
+    str2 = j.b(paramBundle);
+    Object localObject = u.e(str2);
+    try
+    {
+      localObject = ((JSONObject)localObject).getString("id");
+      return new AccessToken(str2, str1, (String)localObject, localList1, localList2, j.c(paramBundle), j.a(paramBundle, "com.facebook.TokenCachingStrategy.ExpirationDate"), j.a(paramBundle, "com.facebook.TokenCachingStrategy.LastRefreshDate"));
+    }
+    catch (JSONException paramBundle) {}
+    return null;
+  }
+  
+  static AccessToken a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (paramJSONObject.getInt("version") > 1) {
+      throw new FacebookException("Unknown AccessToken serialization format.");
+    }
+    String str = paramJSONObject.getString("token");
+    Date localDate1 = new Date(paramJSONObject.getLong("expires_at"));
+    JSONArray localJSONArray1 = paramJSONObject.getJSONArray("permissions");
+    JSONArray localJSONArray2 = paramJSONObject.getJSONArray("declined_permissions");
+    Date localDate2 = new Date(paramJSONObject.getLong("last_refresh"));
+    AccessTokenSource localAccessTokenSource = AccessTokenSource.valueOf(paramJSONObject.getString("source"));
+    return new AccessToken(str, paramJSONObject.getString("application_id"), paramJSONObject.getString("user_id"), u.a(localJSONArray1), u.a(localJSONArray2), localAccessTokenSource, localDate1, localDate2);
+  }
+  
+  static List<String> a(Bundle paramBundle, String paramString)
   {
     paramBundle = paramBundle.getStringArrayList(paramString);
     if (paramBundle == null) {
@@ -219,82 +163,157 @@ public final class AccessToken
     return Collections.unmodifiableList(new ArrayList(paramBundle));
   }
   
-  private void readObject(ObjectInputStream paramObjectInputStream)
+  public static void a(AccessToken paramAccessToken)
   {
-    throw new InvalidObjectException("Cannot readObject, serialization proxy required");
+    b.a().a(paramAccessToken);
   }
   
-  private String tokenToString()
+  private void a(StringBuilder paramStringBuilder)
   {
-    if (token == null) {
+    paramStringBuilder.append(" permissions:");
+    if (f == null)
+    {
+      paramStringBuilder.append("null");
+      return;
+    }
+    paramStringBuilder.append("[");
+    paramStringBuilder.append(TextUtils.join(", ", f));
+    paramStringBuilder.append("]");
+  }
+  
+  private String k()
+  {
+    if (h == null) {
       return "null";
     }
-    if (Settings.isLoggingBehaviorEnabled(LoggingBehavior.INCLUDE_ACCESS_TOKENS)) {
-      return token;
+    if (g.a(LoggingBehavior.INCLUDE_ACCESS_TOKENS)) {
+      return h;
     }
     return "ACCESS_TOKEN_REMOVED";
   }
   
-  private Object writeReplace()
+  public String b()
   {
-    return new AccessToken.SerializationProxyV2(token, expires, permissions, declinedPermissions, source, lastRefresh, null);
+    return h;
   }
   
-  public List<String> getDeclinedPermissions()
+  public Date c()
   {
-    return declinedPermissions;
+    return e;
   }
   
-  public Date getExpires()
+  public Set<String> d()
   {
-    return expires;
+    return f;
   }
   
-  public Date getLastRefresh()
+  public int describeContents()
   {
-    return lastRefresh;
+    return 0;
   }
   
-  public List<String> getPermissions()
+  public Set<String> e()
   {
-    return permissions;
+    return g;
   }
   
-  public AccessTokenSource getSource()
+  public boolean equals(Object paramObject)
   {
-    return source;
+    if (this == paramObject) {}
+    for (;;)
+    {
+      return true;
+      if (!(paramObject instanceof AccessToken)) {
+        return false;
+      }
+      paramObject = (AccessToken)paramObject;
+      if ((e.equals(e)) && (f.equals(f)) && (g.equals(g)) && (h.equals(h)) && (i == i) && (j.equals(j)))
+      {
+        if (k != null) {
+          break label136;
+        }
+        if (k != null) {}
+      }
+      while (!l.equals(l)) {
+        label136:
+        do
+        {
+          return false;
+        } while (!k.equals(k));
+      }
+    }
   }
   
-  public String getToken()
+  public AccessTokenSource f()
   {
-    return token;
+    return i;
   }
   
-  boolean isInvalid()
+  public Date g()
   {
-    return (Utility.isNullOrEmpty(token)) || (new Date().after(expires));
+    return j;
   }
   
-  Bundle toCacheBundle()
+  public String h()
   {
-    Bundle localBundle = new Bundle();
-    localBundle.putString("com.facebook.TokenCachingStrategy.Token", token);
-    TokenCachingStrategy.putDate(localBundle, "com.facebook.TokenCachingStrategy.ExpirationDate", expires);
-    localBundle.putStringArrayList("com.facebook.TokenCachingStrategy.Permissions", new ArrayList(permissions));
-    localBundle.putStringArrayList("com.facebook.TokenCachingStrategy.DeclinedPermissions", new ArrayList(declinedPermissions));
-    localBundle.putSerializable("com.facebook.TokenCachingStrategy.AccessTokenSource", source);
-    TokenCachingStrategy.putDate(localBundle, "com.facebook.TokenCachingStrategy.LastRefreshDate", lastRefresh);
-    return localBundle;
+    return k;
+  }
+  
+  public int hashCode()
+  {
+    int n = e.hashCode();
+    int i1 = f.hashCode();
+    int i2 = g.hashCode();
+    int i3 = h.hashCode();
+    int i4 = i.hashCode();
+    int i5 = j.hashCode();
+    if (k == null) {}
+    for (int m = 0;; m = k.hashCode()) {
+      return (m + ((((((n + 527) * 31 + i1) * 31 + i2) * 31 + i3) * 31 + i4) * 31 + i5) * 31) * 31 + l.hashCode();
+    }
+  }
+  
+  public String i()
+  {
+    return l;
+  }
+  
+  JSONObject j()
+    throws JSONException
+  {
+    JSONObject localJSONObject = new JSONObject();
+    localJSONObject.put("version", 1);
+    localJSONObject.put("token", h);
+    localJSONObject.put("expires_at", e.getTime());
+    localJSONObject.put("permissions", new JSONArray(f));
+    localJSONObject.put("declined_permissions", new JSONArray(g));
+    localJSONObject.put("last_refresh", j.getTime());
+    localJSONObject.put("source", i.name());
+    localJSONObject.put("application_id", k);
+    localJSONObject.put("user_id", l);
+    return localJSONObject;
   }
   
   public String toString()
   {
     StringBuilder localStringBuilder = new StringBuilder();
     localStringBuilder.append("{AccessToken");
-    localStringBuilder.append(" token:").append(tokenToString());
-    appendPermissions(localStringBuilder);
+    localStringBuilder.append(" token:").append(k());
+    a(localStringBuilder);
     localStringBuilder.append("}");
     return localStringBuilder.toString();
+  }
+  
+  public void writeToParcel(Parcel paramParcel, int paramInt)
+  {
+    paramParcel.writeLong(e.getTime());
+    paramParcel.writeStringList(new ArrayList(f));
+    paramParcel.writeStringList(new ArrayList(g));
+    paramParcel.writeString(h);
+    paramParcel.writeString(i.name());
+    paramParcel.writeLong(j.getTime());
+    paramParcel.writeString(k);
+    paramParcel.writeString(l);
   }
 }
 

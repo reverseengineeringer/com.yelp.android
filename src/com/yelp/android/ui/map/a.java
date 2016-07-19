@@ -1,11 +1,10 @@
 package com.yelp.android.ui.map;
 
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.yelp.android.serializable.by;
+import com.yelp.android.serializable.f;
 
-public abstract interface a<T extends by>
+public abstract interface a<T extends f>
 {
-  public abstract BitmapDescriptor a(T paramT);
+  public abstract com.google.android.gms.maps.model.a a(T paramT);
 }
 
 /* Location:

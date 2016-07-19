@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,25 +14,33 @@ import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.SimpleAdapter.ViewBinder;
 import android.widget.TextView;
+import com.yelp.android.analytics.d;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.UserPhotoRequest;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.gw;
-import com.yelp.android.appdata.webrequests.gx;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.fk.a;
+import com.yelp.android.appdata.webrequests.fn;
 import com.yelp.android.serializable.User;
-import com.yelp.android.ui.activities.photoviewer.ActivityMediaViewer;
+import com.yelp.android.ui.activities.mediagrid.ActivityUserMediaGrid;
+import com.yelp.android.ui.activities.photoviewer.ActivityBusinessMediaViewer;
 import com.yelp.android.ui.activities.photoviewer.UserMediaViewer;
 import com.yelp.android.ui.dialogs.DlgAddPhotoCaption;
+import com.yelp.android.ui.panels.PanelError;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.panels.SpanOfPhotosView;
 import com.yelp.android.ui.util.ImageInputHelper;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
-import com.yelp.android.ui.util.bd;
-import com.yelp.android.ui.util.by;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.util.as;
+import com.yelp.android.ui.util.e;
+import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -42,13 +51,44 @@ import java.util.Set;
 
 public class MoreAboutUser
   extends YelpListActivity
+  implements PanelError.a
 {
-  private gx a;
+  private fn a;
   private View b;
   private User c;
   private Intent d;
-  private final com.yelp.android.appdata.webrequests.m<User> e = new o(this);
-  private final com.yelp.android.appdata.webrequests.m<gw> f = new p(this);
+  private final ApiRequest.b<User> e = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, User paramAnonymousUser)
+    {
+      MoreAboutUser.a(MoreAboutUser.this, paramAnonymousUser);
+      MoreAboutUser.b(MoreAboutUser.this);
+      paramAnonymousApiRequest = AppData.b().q();
+      if (paramAnonymousApiRequest.a(MoreAboutUser.a(MoreAboutUser.this))) {
+        paramAnonymousApiRequest.b(MoreAboutUser.a(MoreAboutUser.this));
+      }
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      MoreAboutUser.this.onError(paramAnonymousApiRequest, paramAnonymousYelpException);
+    }
+  };
+  private final ApiRequest.b<fk.a> f = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, fk.a paramAnonymousa)
+    {
+      hideLoadingDialog();
+      MoreAboutUser.c(MoreAboutUser.this);
+      paramAnonymousApiRequest = ActivityUserProfile.a();
+      sendBroadcast(paramAnonymousApiRequest);
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      MoreAboutUser.this.onError(paramAnonymousApiRequest, paramAnonymousYelpException);
+    }
+  };
   
   public static Intent a(Context paramContext, User paramUser)
   {
@@ -59,31 +99,51 @@ public class MoreAboutUser
   
   private View a(ViewGroup paramViewGroup)
   {
-    b = getLayoutInflater().inflate(2130903332, paramViewGroup, false);
-    f();
+    b = getLayoutInflater().inflate(2130903431, paramViewGroup, false);
+    g();
     return b;
   }
   
-  private void a(String paramString, User paramUser)
+  private void a(User paramUser)
   {
-    Object localObject = (ViewStub)findViewById(2131493311);
+    Object localObject = (ViewStub)findViewById(2131689967);
     getLayoutParamsheight = -2;
     getLayoutParamswidth = -1;
-    ((ViewStub)localObject).setLayoutResource(2130903351);
-    ((ViewStub)localObject).setInflatedId(2131493311);
+    ((ViewStub)localObject).setLayoutResource(2130903450);
+    ((ViewStub)localObject).setInflatedId(2131689967);
     localObject = (TextView)((ViewStub)localObject).inflate();
-    int i = 2131166805;
-    if (AppData.b().m().a(paramUser)) {
-      i = 2131166911;
+    int i = 2131166771;
+    if (AppData.b().q().a(paramUser)) {
+      i = 2131166863;
     }
-    ((TextView)localObject).setText(getString(i, new Object[] { paramString }));
-    q().setEmptyView((View)localObject);
+    ((TextView)localObject).setText(getString(i, new Object[] { paramUser.Z() }));
+    r().setEmptyView((View)localObject);
   }
   
-  private ArrayList<Map<String, CharSequence>> c()
+  private void b()
+  {
+    SimpleAdapter localSimpleAdapter = new SimpleAdapter(this, f(), 2130903449, new String[] { "label", "value" }, new int[] { 2131690121, 2131690122 });
+    localSimpleAdapter.setViewBinder(new a());
+    Object localObject;
+    if (localSimpleAdapter.isEmpty())
+    {
+      localObject = (ViewGroup)findViewById(16908331);
+      ((ViewGroup)localObject).addView(a((ViewGroup)localObject), 0);
+    }
+    for (;;)
+    {
+      r().setAdapter(localSimpleAdapter);
+      r().f();
+      return;
+      localObject = r();
+      ((ListView)localObject).addHeaderView(a((ViewGroup)localObject), null, false);
+    }
+  }
+  
+  private ArrayList<Map<String, CharSequence>> f()
   {
     ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = c.getProfileBio().entrySet().iterator();
+    Iterator localIterator = c.t().entrySet().iterator();
     while (localIterator.hasNext())
     {
       Map.Entry localEntry = (Map.Entry)localIterator.next();
@@ -110,65 +170,83 @@ public class MoreAboutUser
     return localArrayList;
   }
   
-  private void f()
+  private void g()
   {
-    Object localObject1 = null;
-    ImageInputHelper localImageInputHelper = new ImageInputHelper(AppData.b().h(), 1037);
-    TextView localTextView1 = (TextView)b.findViewById(2131493896);
-    localTextView1.setOnClickListener(new m(this, localImageInputHelper));
-    TextView localTextView2 = (TextView)b.findViewById(2131493897);
-    boolean bool = getAppData().m().a(c);
-    Object localObject2;
+    Object localObject = null;
+    final ImageInputHelper localImageInputHelper = new ImageInputHelper(AppData.b().h(), 1041);
+    TextView localTextView1 = (TextView)b.findViewById(2131690734);
+    localTextView1.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        AppData.a(ViewIri.UserImageUpload);
+        localImageInputHelper.a(MoreAboutUser.this);
+      }
+    });
+    TextView localTextView2 = (TextView)b.findViewById(2131690735);
+    boolean bool = getAppData().q().a(c);
+    SpanOfPhotosView localSpanOfPhotosView;
     if (bool)
     {
-      localTextView2.setText(getString(2131166114));
-      localObject2 = UserMediaGrid.a(this, c.getId(), new UserPhotoRequest(c, c.getPhotos().size(), 20, null), c.getPhotos());
-      localTextView2.setOnClickListener(new by(EventIri.ProfileMoreUserPhotos, (Intent)localObject2));
-      localObject2 = (SpanOfPhotosView)b.findViewById(2131493895);
-      ((SpanOfPhotosView)localObject2).a(createPendingResult(1041, new Intent(), 268435456), new bd(c.getPhotos()));
+      localTextView2.setText(getString(2131166175));
+      localTextView2.setOnClickListener(new d(EventIri.ProfileMoreUserPhotos)
+      {
+        public void a(View paramAnonymousView)
+        {
+          paramAnonymousView.getContext().startActivity(ActivityUserMediaGrid.a(paramAnonymousView.getContext(), MoreAboutUser.a(MoreAboutUser.this).ae(), new ArrayList(MoreAboutUser.a(MoreAboutUser.this).ag()), new UserPhotoRequest(MoreAboutUser.a(MoreAboutUser.this), MoreAboutUser.a(MoreAboutUser.this).ag().size(), 20, null), 2131166349));
+        }
+      });
+      localSpanOfPhotosView = (SpanOfPhotosView)b.findViewById(2131690733);
+      localSpanOfPhotosView.a(createPendingResult(1046, new Intent(this, MoreAboutUser.class), 268435456), null);
       if (bool) {
-        break label319;
+        break label262;
       }
-      label212:
-      ((SpanOfPhotosView)localObject2).a(c.getPhotos(), 2130837659, (View.OnClickListener)localObject1);
-      if (c.getPhotos().size() > ((SpanOfPhotosView)localObject2).getMaxPhotoCount()) {
-        break label333;
+      label155:
+      localSpanOfPhotosView.a(c.ag(), 2130837702, (View.OnClickListener)localObject);
+      if (c.ag().size() > localSpanOfPhotosView.getMaxPhotoCount()) {
+        break label276;
       }
       localTextView2.setVisibility(8);
     }
     for (;;)
     {
-      if ((bool) && ((!bool) || (c.getPhotos().size() >= ((SpanOfPhotosView)localObject2).b()))) {
-        break label342;
+      if ((bool) && ((!bool) || (c.ag().size() >= localSpanOfPhotosView.b()))) {
+        break label285;
       }
       localTextView1.setVisibility(8);
       return;
-      localTextView2.setText(getString(2131166113, new Object[] { c.getFirstName() }));
+      localTextView2.setText(getString(2131166174, new Object[] { c.Z() }));
       break;
-      label319:
-      localObject1 = new n(this, localImageInputHelper);
-      break label212;
-      label333:
+      label262:
+      localObject = new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          AppData.a(ViewIri.UserImageUpload);
+          localImageInputHelper.a(MoreAboutUser.this);
+        }
+      };
+      break label155;
+      label276:
       localTextView2.setVisibility(0);
     }
-    label342:
+    label285:
     localTextView1.setVisibility(0);
   }
   
-  private gx g()
+  private void i()
   {
-    if ((a != null) && (a.isFetching())) {
-      return a;
+    if ((a != null) && (a.u())) {
+      return;
     }
-    a = new gx(e, c.getId(), null);
-    a.execute(new Void[0]);
-    return a;
+    a = new fn(e, c.ae(), null);
+    a.f(new Void[0]);
   }
   
   public ViewIri getIri()
   {
     ViewIri localViewIri = ViewIri.MoreAboutUser;
-    if (getAppData().m().a(c)) {
+    if (getAppData().q().a(c)) {
       localViewIri = ViewIri.MoreAboutMe;
     }
     return localViewIri;
@@ -187,8 +265,8 @@ public class MoreAboutUser
       {
         return;
       } while ((paramInt2 != -1) || (paramIntent.getBooleanExtra(SpanOfPhotosView.a, false)));
-      paramInt1 = ActivityMediaViewer.b(paramIntent);
-      startActivity(UserMediaViewer.b(this, c.getPhotos(), paramInt1));
+      paramInt1 = ActivityBusinessMediaViewer.a(paramIntent);
+      startActivity(UserMediaViewer.a(this, c.ag(), paramInt1));
       return;
       if (paramInt2 == -1)
       {
@@ -196,39 +274,23 @@ public class MoreAboutUser
         return;
       }
     } while (paramInt2 != 4);
-    cr.a(getText(2131166312), 1);
+    as.a(getText(2131166342), 1);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    q().setItemsCanFocus(true);
+    r().setItemsCanFocus(true);
     c = ((User)getIntent().getParcelableExtra("I feel so used :("));
-    boolean bool = getAppData().m().a(c);
-    paramBundle = c.getFirstName();
-    Object localObject;
-    if (bool)
-    {
-      setTitle(getString(2131166104));
-      a(paramBundle, c);
-      paramBundle = new SimpleAdapter(this, c(), 2130903350, new String[] { "label", "value" }, new int[] { 2131493442, 2131493443 });
-      paramBundle.setViewBinder(new q());
-      if (!paramBundle.isEmpty()) {
-        break label198;
-      }
-      localObject = (ViewGroup)findViewById(16908331);
-      ((ViewGroup)localObject).addView(a((ViewGroup)localObject), 0);
+    if (getAppData().q().a(c)) {
+      setTitle(getString(2131166166));
     }
     for (;;)
     {
-      q().setAdapter(paramBundle);
-      q().f();
+      a(c);
+      b();
       return;
-      setTitle(getString(2131166103, new Object[] { paramBundle }));
-      break;
-      label198:
-      localObject = q();
-      ((ListView)localObject).addHeaderView(a((ViewGroup)localObject), null, false);
+      setTitle(getString(2131166165, new Object[] { c.Z() }));
     }
   }
   
@@ -237,9 +299,24 @@ public class MoreAboutUser
     super.onDestroy();
     if (a != null)
     {
-      a.cancel(true);
-      a.setCallback(null);
+      a.a(true);
+      a.a(null);
     }
+  }
+  
+  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  {
+    hideLoadingDialog();
+    paramApiRequest = new PanelError(this);
+    paramApiRequest.a(this);
+    paramApiRequest.a(ErrorType.getTypeFromException(paramYelpException));
+    r().setAdapter(new e(new View[] { paramApiRequest }));
+  }
+  
+  public void onPause()
+  {
+    super.onPause();
+    freezeRequest("update_user_request", a);
   }
   
   protected void onPostResume()
@@ -260,13 +337,39 @@ public class MoreAboutUser
   public void onResume()
   {
     super.onResume();
-    g();
+    a = ((fn)thawRequest("update_user_request", a, e));
+    if (a == null) {
+      i();
+    }
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
     paramBundle.putParcelable("I feel so used :(", c);
+  }
+  
+  public void q_()
+  {
+    ((ViewGroup)findViewById(16908331)).removeView(b);
+    i();
+    b();
+  }
+  
+  public static final class a
+    implements SimpleAdapter.ViewBinder
+  {
+    public boolean setViewValue(View paramView, Object paramObject, String paramString)
+    {
+      boolean bool = false;
+      if ((paramObject instanceof CharSequence))
+      {
+        ((TextView)paramView).setText((CharSequence)paramObject);
+        ((TextView)paramView).setMovementMethod(LinkMovementMethod.getInstance());
+        bool = true;
+      }
+      return bool;
+    }
   }
 }
 

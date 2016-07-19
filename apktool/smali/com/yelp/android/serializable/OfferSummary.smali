@@ -4,18 +4,16 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/OfferSummary;",
             ">;"
         }
     .end annotation
 .end field
-
-.field public static final JSON_KEY:Ljava/lang/String; = "check_in_offer_summary"
 
 
 # direct methods
@@ -24,11 +22,11 @@
 
     .prologue
     .line 16
-    new-instance v0, Lcom/yelp/android/serializable/bq;
+    new-instance v0, Lcom/yelp/android/serializable/OfferSummary$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/bq;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/OfferSummary$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/OfferSummary;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/OfferSummary;->CREATOR:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
@@ -45,6 +43,55 @@
 
 
 # virtual methods
+.method public bridge synthetic a()I
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_OfferSummary;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 8
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_OfferSummary;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 8
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_OfferSummary;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_OfferSummary;->b()Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -57,93 +104,28 @@
     return v0
 .end method
 
-.method public bridge synthetic getBusinessId()Ljava/lang/String;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_OfferSummary;->getBusinessId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getCount()I
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_OfferSummary;->getCount()I
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_OfferSummary;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic getNames()Ljava/util/List;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
     .line 8
-    invoke-super {p0}, Lcom/yelp/android/serializable/_OfferSummary;->getNames()Ljava/util/List;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public isEmpty()Z
-    .locals 1
-
-    .prologue
-    .line 11
-    iget v0, p0, Lcom/yelp/android/serializable/OfferSummary;->mCount:I
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/serializable/OfferSummary;->mNames:Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/yelp/android/serializable/OfferSummary;->mNames:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-super {p0}, Lcom/yelp/android/serializable/_OfferSummary;->hashCode()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
     return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_OfferSummary;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 8
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_OfferSummary;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

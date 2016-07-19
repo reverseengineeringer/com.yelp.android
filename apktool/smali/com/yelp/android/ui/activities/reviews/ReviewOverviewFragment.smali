@@ -3,6 +3,14 @@
 .source "ReviewOverviewFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$2;
+    }
+.end annotation
+
+
 # instance fields
 .field private e:Landroid/view/View;
 
@@ -59,16 +67,14 @@
 
 .field private r:Landroid/widget/ToggleButton;
 
-.field private s:Lcom/yelp/android/appdata/webrequests/fa;
+.field private s:Lcom/yelp/android/appdata/webrequests/dz;
 
-.field private t:Z
-
-.field private final u:Lcom/yelp/android/appdata/webrequests/j;
+.field private final t:Lcom/yelp/android/appdata/webrequests/k$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/fb;",
+            "Lcom/yelp/android/appdata/webrequests/dz$a;",
             ">;"
         }
     .end annotation
@@ -80,34 +86,60 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 64
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;-><init>()V
 
-    .line 527
-    new-instance v0, Lcom/yelp/android/ui/activities/reviews/ay;
+    .line 576
+    new-instance v0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$10;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviews/ay;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$10;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->u:Lcom/yelp/android/appdata/webrequests/j;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->t:Lcom/yelp/android/appdata/webrequests/k$b;
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;Lcom/yelp/android/appdata/webrequests/fa;)Lcom/yelp/android/appdata/webrequests/fa;
+.method static synthetic a(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;Lcom/yelp/android/appdata/webrequests/dz;)Lcom/yelp/android/appdata/webrequests/dz;
     .locals 0
 
     .prologue
-    .line 69
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    .line 64
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
     return-object p1
+.end method
+
+.method public static a(Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;
+    .locals 3
+
+    .prologue
+    .line 87
+    new-instance v0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;
+
+    invoke-direct {v0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;-><init>()V
+
+    .line 88
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+
+    .line 89
+    const-string/jumbo v2, "review_source"
+
+    invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putSerializable(Ljava/lang/String;Ljava/io/Serializable;)V
+
+    .line 90
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->setArguments(Landroid/os/Bundle;)V
+
+    .line 92
+    return-object v0
 .end method
 
 .method static synthetic a(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->k:Ljava/lang/String;
 
     return-object p1
@@ -117,7 +149,7 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->n:Ljava/util/ArrayList;
 
     return-object p1
@@ -127,7 +159,7 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e()V
 
     return-void
@@ -137,7 +169,7 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     iput-boolean p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->m:Z
 
     return p1
@@ -147,7 +179,7 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->l:Ljava/lang/String;
 
     return-object p1
@@ -157,7 +189,7 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->o:Ljava/util/ArrayList;
 
     return-object p1
@@ -167,7 +199,7 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 64
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h()Z
 
     move-result v0
@@ -175,12 +207,12 @@
     return v0
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Lcom/yelp/android/appdata/webrequests/j;
+.method static synthetic c(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Lcom/yelp/android/appdata/webrequests/k$b;
     .locals 1
 
     .prologue
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->u:Lcom/yelp/android/appdata/webrequests/j;
+    .line 64
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->t:Lcom/yelp/android/appdata/webrequests/k$b;
 
     return-object v0
 .end method
@@ -189,35 +221,35 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->i:Ljava/lang/String;
 
     return-object p1
 .end method
 
 .method private d()V
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 346
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    .line 381
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/fa;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dz;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 356
+    .line 388
     :cond_0
     :goto_0
     return-void
 
-    .line 350
+    .line 385
     :cond_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
@@ -225,37 +257,17 @@
 
     check-cast v0, Lcom/yelp/android/ui/activities/support/YelpActivity;
 
-    .line 351
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->getHelper()Lcom/yelp/android/ui/activities/support/h;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/support/h;->u()Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 352
-    sget-object v2, Lcom/yelp/android/analytics/iris/ReviewEventIri;->ReviewWritePost:Lcom/yelp/android/analytics/iris/ReviewEventIri;
-
-    const-string/jumbo v3, "sign_up_status"
-
-    invoke-static {v3, v1}, Ljava/util/Collections;->singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
-
-    move-result-object v1
-
-    invoke-static {v2, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 354
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    .line 386
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
     const/4 v2, 0x0
 
     new-array v2, v2, [Ljava/lang/Void;
 
-    invoke-virtual {v1, v2}, Lcom/yelp/android/appdata/webrequests/fa;->executeWithLocation([Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Lcom/yelp/android/appdata/webrequests/dz;->a([Ljava/lang/Object;)V
 
-    .line 355
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    .line 387
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->showLoadingDialog(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
@@ -266,7 +278,7 @@
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d()V
 
     return-void
@@ -276,7 +288,7 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 64
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h:Landroid/view/View;
 
     return-object v0
@@ -286,7 +298,7 @@
     .locals 4
 
     .prologue
-    .line 400
+    .line 433
     new-instance v0, Landroid/view/animation/AlphaAnimation;
 
     const/high16 v1, 0x3f800000    # 1.0f
@@ -295,63 +307,63 @@
 
     invoke-direct {v0, v1, v2}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    .line 401
-    sget v1, Lcom/yelp/android/ui/util/cw;->e:I
+    .line 434
+    sget v1, Lcom/yelp/android/ui/util/av;->e:I
 
     int-to-long v2, v1
 
     invoke-virtual {v0, v2, v3}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 402
-    new-instance v1, Lcom/yelp/android/ui/activities/reviews/aw;
+    .line 435
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$8;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/aw;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$8;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 411
+    .line 445
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->j:Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
     sget-object v2, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_NOT_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
     if-ne v1, v2, :cond_0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/ao;->o()Z
+    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/c;->o()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/ao;->p()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
-
-    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/ao;->g()I
+    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/c;->p()Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 415
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
+
+    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/c;->g()I
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 449
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->g:Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
 
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 416
+    .line 450
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 417
+    .line 451
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->c:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -360,16 +372,16 @@
 
     check-cast v0, Landroid/graphics/drawable/TransitionDrawable;
 
-    .line 419
-    sget v1, Lcom/yelp/android/ui/util/cw;->e:I
+    .line 453
+    sget v1, Lcom/yelp/android/ui/util/av;->e:I
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/TransitionDrawable;->startTransition(I)V
 
-    .line 423
+    .line 457
     :goto_0
     return-void
 
-    .line 421
+    .line 455
     :cond_1
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
@@ -382,46 +394,46 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 64
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->g:Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
 
     return-object v0
 .end method
 
 .method private f()V
-    .locals 11
+    .locals 12
 
     .prologue
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
-    .line 430
+    .line 464
     new-instance v1, Lcom/yelp/android/serializable/ReviewBroadcast;
 
     invoke-direct {v1}, Lcom/yelp/android/serializable/ReviewBroadcast;-><init>()V
 
-    .line 431
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 465
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/ao;->f()Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->f()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->setBusinessId(Ljava/lang/String;)V
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
-    .line 432
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    move-result-object v0
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/ao;->g()I
+    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->a(Ljava/lang/String;)V
+
+    .line 466
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->g()I
 
     move-result v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->setRating(I)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->a(I)V
 
-    .line 433
+    .line 467
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->m:Z
 
     if-eqz v0, :cond_2
@@ -429,28 +441,28 @@
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ReviewState;->DRAFTED:Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
     :goto_0
-    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->setReviewState(Lcom/yelp/android/ui/activities/reviews/ReviewState;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->a(Lcom/yelp/android/ui/activities/reviews/ReviewState;)V
 
-    .line 434
+    .line 468
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->m:Z
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->setConvertedToTip(Z)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->a(Z)V
 
-    .line 435
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 469
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/ao;->k()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->k()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->setText(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->b(Ljava/lang/String;)V
 
-    .line 436
+    .line 470
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->i:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->setId(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/serializable/ReviewBroadcast;->c(Ljava/lang/String;)V
 
-    .line 437
+    .line 471
     new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent;
 
     const-string/jumbo v2, "com.yelp.android.review.state.update"
@@ -463,10 +475,10 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Landroid/content/Context;)V
 
-    .line 442
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 475
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/ao;->f()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->f()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
 
@@ -478,15 +490,15 @@
 
     iget-boolean v4, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->m:Z
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v5}, Lcom/yelp/android/ui/activities/reviews/ao;->k()Ljava/lang/String;
+    invoke-interface {v5}, Lcom/yelp/android/ui/activities/reviews/c;->k()Ljava/lang/String;
 
     move-result-object v5
 
-    iget-object v6, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v6, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v6}, Lcom/yelp/android/ui/activities/reviews/ao;->g()I
+    invoke-interface {v6}, Lcom/yelp/android/ui/activities/reviews/c;->g()I
 
     move-result v6
 
@@ -498,11 +510,13 @@
 
     iget-object v9, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->o:Ljava/util/ArrayList;
 
-    invoke-static/range {v0 .. v9}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewComplete;->a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILandroid/content/Context;Ljava/util/ArrayList;Ljava/util/ArrayList;)Landroid/content/Intent;
+    iget-object v10, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->p:Ljava/util/List;
+
+    invoke-static/range {v0 .. v10}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewComplete;->a(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILandroid/content/Context;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/List;)Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 449
+    .line 490
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -521,57 +535,57 @@
 
     if-eqz v0, :cond_0
 
-    .line 451
+    .line 493
     const-string/jumbo v0, "yelp:external_request"
 
-    invoke-virtual {v1, v0, v10}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v0, v11}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 454
+    .line 496
     :cond_0
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->s()Lcom/yelp/android/serializable/User;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
 
     move-result-object v2
 
-    .line 455
+    .line 497
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/i;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
 
     move-result-object v0
 
-    .line 456
+    .line 498
     iget-boolean v3, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->m:Z
 
     if-nez v3, :cond_3
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->getReviewCount()I
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->j_()I
 
     move-result v3
 
     if-nez v3, :cond_3
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/i;->y()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->A()Z
 
     move-result v3
 
     if-eqz v3, :cond_3
 
-    .line 463
+    .line 505
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->getNameWithoutPeriod()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->ac()Ljava/lang/String;
 
     move-result-object v3
 
@@ -579,7 +593,7 @@
 
     move-object v0, v1
 
-    .line 479
+    .line 524
     :goto_1
     iget-boolean v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->m:Z
 
@@ -597,49 +611,55 @@
 
     if-eq v1, v3, :cond_1
 
-    .line 481
-    invoke-virtual {v2, v10}, Lcom/yelp/android/serializable/User;->addReviewCount(I)V
+    .line 527
+    invoke-virtual {v2, v11}, Lcom/yelp/android/serializable/User;->d(I)V
 
-    .line 484
+    .line 530
     :cond_1
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 485
+    .line 531
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentActivity;->finish()V
+    .line 532
+    const/4 v1, -0x1
 
-    .line 486
+    invoke-virtual {v0, v1}, Landroid/app/Activity;->setResult(I)V
+
+    .line 533
+    invoke-virtual {v0}, Landroid/app/Activity;->finish()V
+
+    .line 534
     return-void
 
-    .line 433
+    .line 467
     :cond_2
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
     goto/16 :goto_0
 
-    .line 465
+    .line 507
     :cond_3
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->getUserPhotoCount()I
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->J()I
 
     move-result v3
 
     if-nez v3, :cond_5
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/i;->z()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->B()Z
 
     move-result v0
 
     if-eqz v0, :cond_5
 
-    .line 472
+    .line 514
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v3
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->getNameWithoutPeriod()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/User;->ac()Ljava/lang/String;
 
     move-result-object v4
 
@@ -671,7 +691,7 @@
     .locals 4
 
     .prologue
-    .line 489
+    .line 537
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -682,12 +702,12 @@
 
     move-result-object v0
 
-    .line 490
+    .line 538
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar;->a()Landroid/view/View;
 
     move-result-object v0
 
-    .line 492
+    .line 540
     new-instance v1, Landroid/view/animation/AlphaAnimation;
 
     const/high16 v2, 0x3f800000    # 1.0f
@@ -696,24 +716,24 @@
 
     invoke-direct {v1, v2, v3}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    .line 493
-    sget v2, Lcom/yelp/android/ui/util/cw;->c:I
+    .line 541
+    sget v2, Lcom/yelp/android/ui/util/av;->c:I
 
     int-to-long v2, v2
 
     invoke-virtual {v1, v2, v3}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 495
-    new-instance v2, Lcom/yelp/android/ui/activities/reviews/ax;
+    .line 543
+    new-instance v2, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$9;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/reviews/ax;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$9;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
 
     invoke-virtual {v1, v2}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 517
+    .line 566
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 518
+    .line 567
     return-void
 .end method
 
@@ -721,7 +741,7 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 64
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->m:Z
 
     return v0
@@ -731,7 +751,7 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 64
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->j:Lcom/yelp/android/ui/activities/reviews/ReviewState;
 
     return-object v0
@@ -741,7 +761,7 @@
     .locals 2
 
     .prologue
-    .line 521
+    .line 570
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -752,12 +772,12 @@
 
     move-result-object v0
 
-    .line 522
+    .line 571
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar;->a()Landroid/view/View;
 
     move-result-object v0
 
-    .line 523
+    .line 572
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -783,32 +803,32 @@
     goto :goto_0
 .end method
 
-.method static synthetic i(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Z
+.method static synthetic i(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 69
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->t:Z
-
-    return v0
-.end method
-
-.method static synthetic j(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->p:Ljava/util/List;
+    .line 64
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->i:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic k(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Landroid/widget/ToggleButton;
+.method static synthetic j(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Landroid/widget/TextView;
     .locals 1
 
     .prologue
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
+    .line 64
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->f:Landroid/widget/TextView;
+
+    return-object v0
+.end method
+
+.method static synthetic k(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Ljava/util/List;
+    .locals 1
+
+    .prologue
+    .line 64
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->p:Ljava/util/List;
 
     return-object v0
 .end method
@@ -817,17 +837,27 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 64
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
+
+    return-object v0
+.end method
+
+.method static synthetic m(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)Landroid/widget/ToggleButton;
+    .locals 1
+
+    .prologue
+    .line 64
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->r:Landroid/widget/ToggleButton;
 
     return-object v0
 .end method
 
-.method static synthetic m(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+.method static synthetic n(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
     .locals 0
 
     .prologue
-    .line 69
+    .line 64
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->f()V
 
     return-void
@@ -835,22 +865,11 @@
 
 
 # virtual methods
-.method public a(Z)V
-    .locals 0
-
-    .prologue
-    .line 342
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->t:Z
-
-    .line 343
-    return-void
-.end method
-
 .method public b()Z
     .locals 4
 
     .prologue
-    .line 366
+    .line 398
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -859,11 +878,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->h()Lcom/yelp/android/appdata/RemoteConfigPreferences;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
 
     move-result-object v1
 
@@ -871,22 +890,22 @@
 
     const-class v3, Lcom/yelp/android/ui/activities/ActivityRetryReviewShare;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/yelp/android/util/z;->a(Landroid/content/Context;Lcom/yelp/android/appdata/RemoteConfigPreferences;Ljava/util/List;Ljava/lang/Class;)Landroid/content/Intent;
+    invoke-static {v0, v1, v2, v3}, Lcom/yelp/android/util/p;->a(Landroid/content/Context;Lcom/yelp/android/serializable/User;Ljava/util/List;Ljava/lang/Class;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 371
+    .line 406
     if-eqz v0, :cond_0
 
-    .line 372
-    const/16 v1, 0x3ea
+    .line 407
+    const/16 v1, 0x3ed
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 373
+    .line 408
     const/4 v0, 0x1
 
-    .line 375
+    .line 410
     :goto_0
     return v0
 
@@ -897,10 +916,10 @@
 .end method
 
 .method public c()V
-    .locals 6
+    .locals 4
 
     .prologue
-    .line 383
+    .line 418
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->p:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -920,8 +939,8 @@
 
     check-cast v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
-    .line 384
-    sget-object v2, Lcom/yelp/android/ui/activities/reviews/aq;->a:[I
+    .line 419
+    sget-object v2, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$2;->a:[I
 
     invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->ordinal()I
 
@@ -933,9 +952,9 @@
 
     goto :goto_0
 
-    .line 387
+    .line 422
     :pswitch_0
-    sget-object v2, Lcom/yelp/android/analytics/iris/ReviewEventIri;->ReviewWriteShare:Lcom/yelp/android/analytics/iris/ReviewEventIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->ReviewWriteShare:Lcom/yelp/android/analytics/iris/EventIri;
 
     const-string/jumbo v3, "social_network"
 
@@ -943,38 +962,15 @@
 
     move-result-object v0
 
-    invoke-static {v2, v3, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v2, v3, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
 
     goto :goto_0
 
-    .line 395
+    .line 430
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/yelp/android/services/ShareService$ShareObjectType;->REVIEW:Lcom/yelp/android/services/ShareService$ShareObjectType;
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->i:Ljava/lang/String;
-
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->p:Ljava/util/List;
-
-    const/4 v5, 0x0
-
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/yelp/android/services/ShareService;->a(Landroid/content/Context;Lcom/yelp/android/services/ShareService$ShareObjectType;Ljava/lang/String;Ljava/util/Collection;Z)Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentActivity;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
-
-    .line 397
     return-void
 
-    .line 384
+    .line 419
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -986,24 +982,24 @@
     .locals 3
 
     .prologue
-    .line 323
+    .line 359
     sparse-switch p1, :sswitch_data_0
 
-    .line 339
+    .line 378
     :cond_0
     :goto_0
     return-void
 
-    .line 325
+    .line 361
     :sswitch_0
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 326
+    .line 362
     new-instance v0, Ljava/util/LinkedList;
 
-    const-string/jumbo v1, "yelp:retry_shares"
+    const-string/jumbo v1, "retry_shares"
 
     invoke-virtual {p3, v1}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
 
@@ -1013,7 +1009,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/yelp/android/util/f;->a([I[Ljava/lang/Enum;)Ljava/util/ArrayList;
+    invoke-static {v1, v2}, Lcom/yelp/android/util/d;->a([I[Ljava/lang/Enum;)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -1021,25 +1017,25 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->p:Ljava/util/List;
 
-    .line 329
+    .line 368
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->c()V
 
-    .line 330
+    .line 369
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->f()V
 
     goto :goto_0
 
-    .line 334
+    .line 373
     :sswitch_1
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d()V
 
     goto :goto_0
 
-    .line 323
+    .line 359
     :sswitch_data_0
     .sparse-switch
-        0x3ea -> :sswitch_0
-        0x413 -> :sswitch_1
+        0x3ed -> :sswitch_0
+        0x418 -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -1047,15 +1043,15 @@
     .locals 0
 
     .prologue
-    .line 93
+    .line 97
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 94
-    check-cast p1, Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 98
+    check-cast p1, Lcom/yelp/android/ui/activities/reviews/c;
 
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    .line 95
+    .line 99
     return-void
 .end method
 
@@ -1063,10 +1059,10 @@
     .locals 2
 
     .prologue
-    .line 99
+    .line 103
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 100
+    .line 104
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x3
@@ -1075,7 +1071,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->p:Ljava/util/List;
 
-    .line 101
+    .line 105
     return-void
 .end method
 
@@ -1083,43 +1079,43 @@
     .locals 1
 
     .prologue
-    .line 243
+    .line 261
     invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    .line 244
+    .line 262
     const v0, 0x7f100001
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 245
+    .line 263
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 8
+    .locals 9
 
     .prologue
-    const/16 v7, 0x8
+    const/4 v3, 0x0
 
-    const/4 v6, 0x0
+    const/16 v8, 0x8
 
-    const/4 v5, 0x1
+    const/4 v7, 0x1
 
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    .line 106
-    const v0, 0x7f0300bb
+    .line 110
+    const v0, 0x7f0300d6
 
-    invoke-virtual {p1, v0, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p1, v0, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    .line 107
+    .line 111
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    const v1, 0x7f0c02d9
+    const v1, 0x7f0f033f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1129,10 +1125,10 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->f:Landroid/widget/TextView;
 
-    .line 108
+    .line 112
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    const v1, 0x7f0c02d5
+    const v1, 0x7f0f033b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1142,10 +1138,36 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->c:Landroid/view/ViewGroup;
 
-    .line 110
+    .line 114
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    const v1, 0x7f0c02d3
+    const v1, 0x7f0f0339
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
+
+    .line 117
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
+
+    const v1, 0x7f0f033c
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    .line 118
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
+
+    const v1, 0x7f0f033d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1153,186 +1175,170 @@
 
     check-cast v0, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
 
-    .line 112
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->g:Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
 
-    const v2, 0x7f0c02d6
+    .line 121
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v1, 0x7f0f0340
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    check-cast v1, Lcom/yelp/android/ui/activities/reviews/StarsView;
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
-
-    .line 113
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
-
-    const v2, 0x7f0c02d7
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->g:Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
-
-    .line 115
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
-
-    const v2, 0x7f0c02da
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h:Landroid/view/View;
-
-    .line 117
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
-
-    const v2, 0x7f0c02dc
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ToggleButton;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
-
-    .line 119
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
-
-    const v2, 0x7f0c02db
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ToggleButton;
-
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->r:Landroid/widget/ToggleButton;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h:Landroid/view/View;
 
     .line 122
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/reviews/ap;
+    const v1, 0x7f0f0342
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/reviews/ap;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v1, v2}, Landroid/widget/ToggleButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    move-result-object v0
 
-    .line 131
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->r:Landroid/widget/ToggleButton;
+    check-cast v0, Landroid/widget/ToggleButton;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/reviews/ar;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/reviews/ar;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+    .line 125
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    invoke-virtual {v1, v2}, Landroid/widget/ToggleButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    const v1, 0x7f0f0341
 
-    .line 140
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ToggleButton;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->r:Landroid/widget/ToggleButton;
+
+    .line 129
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$1;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$1;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->r:Landroid/widget/ToggleButton;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$3;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$3;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    .line 150
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, v4}, Landroid/support/v4/app/FragmentActivity;->getPreferences(I)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
-
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->r:Landroid/widget/ToggleButton;
-
-    invoke-static {v6, v1, v6, v2, v3}, Lcom/yelp/android/util/z;->a(Lcom/yelp/android/appdata/RemoteConfigPreferences;Landroid/content/SharedPreferences;Landroid/widget/Checkable;Landroid/widget/Checkable;Landroid/widget/Checkable;)V
-
-    .line 144
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
-
-    invoke-interface {v2}, Lcom/yelp/android/ui/activities/reviews/ao;->g()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setNumStars(I)V
-
-    .line 146
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/reviews/as;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/reviews/as;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
-
-    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setOnStarsClicked(Ljava/lang/Runnable;)V
-
-    .line 162
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->g:Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/reviews/at;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/reviews/at;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
-
-    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    .line 173
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->f:Landroid/widget/TextView;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/reviews/au;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/reviews/au;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 180
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
-
-    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/ao;->l()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->j:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
-    .line 184
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->j:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+    move-result-object v1
 
-    sget-object v2, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_NOT_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
 
-    if-ne v1, v2, :cond_2
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->q:Landroid/widget/ToggleButton;
 
-    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/ao;->o()Z
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->r:Landroid/widget/ToggleButton;
+
+    invoke-static/range {v0 .. v5}, Lcom/yelp/android/util/p;->a(Landroid/app/Activity;Lcom/yelp/android/serializable/User;ZLandroid/widget/Checkable;Landroid/widget/Checkable;Landroid/widget/Checkable;)V
+
+    .line 158
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
+
+    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/c;->g()I
 
     move-result v1
 
-    if-nez v1, :cond_2
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setNumStars(I)V
 
-    .line 186
-    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setVisibility(I)V
+    .line 160
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
 
-    .line 187
-    invoke-virtual {v0, v5}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setLeft(Z)V
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$4;
 
-    .line 201
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$4;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setOnStarsClicked(Ljava/lang/Runnable;)V
+
+    .line 178
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->g:Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$5;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$5;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    .line 190
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->f:Landroid/widget/TextView;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$6;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$6;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 198
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->l()Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->j:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    .line 202
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->j:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/reviews/ReviewState;->FINISHED_NOT_RECENTLY:Lcom/yelp/android/ui/activities/reviews/ReviewState;
+
+    if-ne v0, v1, :cond_2
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->o()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 204
+    invoke-virtual {v6, v2}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setVisibility(I)V
+
+    .line 205
+    invoke-virtual {v6, v7}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setLeft(Z)V
+
+    .line 219
     :goto_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->f:Landroid/widget/TextView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/ao;->k()Ljava/lang/String;
+    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/c;->k()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 205
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    .line 223
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/ao;->k()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->k()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1342,32 +1348,32 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/ao;->q()Z
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->q()Z
 
     move-result v0
 
     if-eqz v0, :cond_4
 
-    .line 207
+    .line 225
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h:Landroid/view/View;
 
-    invoke-virtual {v0, v7}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v8}, Landroid/view/View;->setVisibility(I)V
 
-    .line 216
+    .line 234
     :goto_1
-    invoke-virtual {p0, v5}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->setHasOptionsMenu(Z)V
+    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->setHasOptionsMenu(Z)V
 
-    .line 217
+    .line 235
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    .line 218
+    .line 236
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -1376,7 +1382,7 @@
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->updateOptionsMenu()V
 
-    .line 223
+    .line 241
     :cond_1
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h()Z
 
@@ -1384,94 +1390,94 @@
 
     if-eqz v0, :cond_5
 
-    .line 224
+    .line 242
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->g()V
 
-    .line 228
+    .line 246
     :goto_2
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
     return-object v0
 
-    .line 188
+    .line 206
     :cond_2
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/ao;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->d:Lcom/yelp/android/ui/activities/reviews/c;
 
-    invoke-interface {v1}, Lcom/yelp/android/ui/activities/reviews/ao;->p()Z
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/reviews/c;->p()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    .line 189
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
+    .line 207
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->e:Landroid/view/View;
 
-    const v2, 0x7f0c02d4
+    const v1, 0x7f0f033a
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/TextView;
+    check-cast v0, Landroid/widget/TextView;
 
-    const v2, 0x7f070115
+    const v1, 0x7f070194
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 191
-    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setVisibility(I)V
+    .line 209
+    invoke-virtual {v6, v2}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setVisibility(I)V
 
-    .line 192
-    invoke-virtual {v0, v5}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setLeft(Z)V
+    .line 210
+    invoke-virtual {v6, v7}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setLeft(Z)V
 
     goto :goto_0
 
-    .line 194
+    .line 212
     :cond_3
-    invoke-virtual {v0, v7}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setVisibility(I)V
+    invoke-virtual {v6, v8}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setVisibility(I)V
 
-    .line 195
+    .line 213
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->c:Landroid/view/ViewGroup;
 
     check-cast v0, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;
 
-    .line 196
-    invoke-virtual {v0, v5}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setLeft(Z)V
+    .line 214
+    invoke-virtual {v0, v7}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->setLeft(Z)V
 
-    .line 198
+    .line 216
     invoke-virtual {v0}, Lcom/yelp/android/ui/widgets/SpannableFrameLayout;->refreshDrawableState()V
 
     goto :goto_0
 
-    .line 210
+    .line 228
     :cond_4
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    invoke-static {v0, v6}, Lcom/yelp/android/ui/util/cw;->d(Landroid/content/Context;Lcom/yelp/android/ui/util/dd;)Landroid/view/animation/Animation;
+    invoke-static {v0, v3}, Lcom/yelp/android/ui/util/av;->d(Landroid/content/Context;Lcom/yelp/android/ui/util/av$a;)Landroid/view/animation/Animation;
 
     move-result-object v0
 
-    .line 212
-    sget v1, Lcom/yelp/android/ui/util/cw;->d:I
+    .line 230
+    sget v1, Lcom/yelp/android/ui/util/av;->d:I
 
-    int-to-long v2, v1
+    int-to-long v4, v1
 
-    invoke-virtual {v0, v2, v3}, Landroid/view/animation/Animation;->setStartOffset(J)V
+    invoke-virtual {v0, v4, v5}, Landroid/view/animation/Animation;->setStartOffset(J)V
 
-    .line 213
+    .line 231
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->h:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
     goto :goto_1
 
-    .line 226
+    .line 244
     :cond_5
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->a:Lcom/yelp/android/ui/activities/reviews/StarsView;
 
-    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/activities/reviews/StarsView;->setVisibility(I)V
 
     goto :goto_2
 .end method
@@ -1480,30 +1486,30 @@
     .locals 2
 
     .prologue
-    .line 233
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    .line 251
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
     if-eqz v0, :cond_0
 
-    .line 234
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    .line 252
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fa;->cancel(Z)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dz;->a(Z)V
 
-    .line 235
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/fa;
+    .line 253
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->s:Lcom/yelp/android/appdata/webrequests/dz;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fa;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dz;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 238
+    .line 256
     :cond_0
     invoke-super {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewBaseFragment;->onDestroy()V
 
-    .line 239
+    .line 257
     return-void
 .end method
 
@@ -1511,15 +1517,27 @@
     .locals 2
 
     .prologue
-    .line 255
-    const v0, 0x7f0c04e6
+    .line 269
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->isAdded()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 355
+    :goto_0
+    return-void
+
+    .line 272
+    :cond_0
+    const v0, 0x7f0f05f0
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 256
-    const v1, 0x7f070490
+    .line 273
+    const v1, 0x7f0704a7
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;->getString(I)Ljava/lang/String;
 
@@ -1527,13 +1545,12 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    .line 257
-    new-instance v1, Lcom/yelp/android/ui/activities/reviews/av;
+    .line 274
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$7;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/av;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment$7;-><init>(Lcom/yelp/android/ui/activities/reviews/ReviewOverviewFragment;)V
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 319
-    return-void
+    goto :goto_0
 .end method

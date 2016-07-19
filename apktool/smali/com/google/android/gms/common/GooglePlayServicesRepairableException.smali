@@ -3,7 +3,7 @@
 
 
 # instance fields
-.field private final Eo:I
+.field private final zzVn:I
 
 
 # direct methods
@@ -12,7 +12,7 @@
 
     invoke-direct {p0, p2, p3}, Lcom/google/android/gms/common/UserRecoverableException;-><init>(Ljava/lang/String;Landroid/content/Intent;)V
 
-    iput p1, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->Eo:I
+    iput p1, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->zzVn:I
 
     return-void
 .end method
@@ -22,7 +22,7 @@
 .method public getConnectionStatusCode()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->Eo:I
+    iget v0, p0, Lcom/google/android/gms/common/GooglePlayServicesRepairableException;->zzVn:I
 
     return v0
 .end method

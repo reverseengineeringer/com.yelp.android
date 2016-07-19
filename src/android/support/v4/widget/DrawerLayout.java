@@ -2,76 +2,107 @@ package android.support.v4.widget;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
+import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.Parcelable.Creator;
 import android.os.SystemClock;
-import android.support.v4.content.c;
-import android.support.v4.view.ba;
-import android.support.v4.view.ce;
-import android.support.v4.view.df;
+import android.support.v4.content.d;
+import android.support.v4.view.ai;
+import android.support.v4.view.av;
+import android.support.v4.view.e;
+import android.support.v4.view.g;
+import android.support.v4.view.t;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.BaseSavedState;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
+import android.view.ViewParent;
+import android.view.accessibility.AccessibilityEvent;
+import com.yelp.android.h.c;
+import com.yelp.android.h.c.a;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DrawerLayout
   extends ViewGroup
-  implements z
+  implements j
 {
-  static final q a = new s();
+  static final c a;
   private static final int[] b;
   private static final boolean c;
-  private CharSequence A;
-  private Object B;
-  private boolean C;
-  private final p d = new p(this);
-  private int e;
-  private int f = -1728053248;
-  private float g;
-  private Paint h = new Paint();
-  private final bx i;
-  private final bx j;
-  private final v k;
-  private final v l;
-  private int m;
-  private boolean n;
-  private boolean o = true;
-  private int p;
-  private int q;
-  private boolean r;
-  private boolean s;
-  private t t;
-  private float u;
-  private float v;
-  private Drawable w;
-  private Drawable x;
+  private static final boolean d;
+  private Drawable A;
+  private CharSequence B;
+  private CharSequence C;
+  private Object D;
+  private boolean E;
+  private Drawable F = null;
+  private Drawable G = null;
+  private Drawable H = null;
+  private Drawable I = null;
+  private final ArrayList<View> J;
+  private final b e = new b();
+  private float f;
+  private int g;
+  private int h = -1728053248;
+  private float i;
+  private Paint j = new Paint();
+  private final ac k;
+  private final ac l;
+  private final g m;
+  private final g n;
+  private int o;
+  private boolean p;
+  private boolean q = true;
+  private int r;
+  private int s;
+  private boolean t;
+  private boolean u;
+  private f v;
+  private float w;
+  private float x;
   private Drawable y;
-  private CharSequence z;
+  private Drawable z;
   
   static
   {
-    boolean bool = true;
+    boolean bool2 = true;
     b = new int[] { 16842931 };
-    if (Build.VERSION.SDK_INT >= 19) {}
-    for (;;)
+    if (Build.VERSION.SDK_INT >= 19)
     {
-      c = bool;
+      bool1 = true;
+      c = bool1;
       if (Build.VERSION.SDK_INT < 21) {
-        break;
+        break label65;
       }
-      a = new r();
-      return;
-      bool = false;
     }
+    label65:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      d = bool1;
+      if (Build.VERSION.SDK_INT < 21) {
+        break label70;
+      }
+      a = new d();
+      return;
+      bool1 = false;
+      break;
+    }
+    label70:
+    a = new e();
   }
   
   public DrawerLayout(Context paramContext)
@@ -89,27 +120,29 @@ public class DrawerLayout
     super(paramContext, paramAttributeSet, paramInt);
     setDescendantFocusability(262144);
     float f1 = getResourcesgetDisplayMetricsdensity;
-    e = ((int)(64.0F * f1 + 0.5F));
-    f1 *= 400.0F;
-    k = new v(this, 3);
-    l = new v(this, 5);
-    i = bx.a(this, 1.0F, k);
-    i.a(1);
-    i.a(f1);
-    k.a(i);
-    j = bx.a(this, 1.0F, l);
-    j.a(2);
-    j.a(f1);
-    l.a(j);
+    g = ((int)(64.0F * f1 + 0.5F));
+    float f2 = 400.0F * f1;
+    m = new g(3);
+    n = new g(5);
+    k = ac.a(this, 1.0F, m);
+    k.a(1);
+    k.a(f2);
+    m.a(k);
+    l = ac.a(this, 1.0F, n);
+    l.a(2);
+    l.a(f2);
+    n.a(l);
     setFocusableInTouchMode(true);
-    ce.c(this, 1);
-    ce.a(this, new o(this));
-    df.a(this, false);
-    if (ce.u(this))
+    ai.c(this, 1);
+    ai.a(this, new a());
+    av.a(this, false);
+    if (ai.x(this))
     {
       a.a(this);
       y = a.a(paramContext);
     }
+    f = (f1 * 10.0F);
+    J = new ArrayList();
   }
   
   private void a(View paramView, boolean paramBoolean)
@@ -120,15 +153,24 @@ public class DrawerLayout
     {
       View localView = getChildAt(i1);
       if (((!paramBoolean) && (!g(localView))) || ((paramBoolean) && (localView == paramView))) {
-        ce.c(localView, 1);
+        ai.c(localView, 1);
       }
       for (;;)
       {
         i1 += 1;
         break;
-        ce.c(localView, 4);
+        ai.c(localView, 4);
       }
     }
+  }
+  
+  private boolean a(Drawable paramDrawable, int paramInt)
+  {
+    if ((paramDrawable == null) || (!com.yelp.android.d.a.b(paramDrawable))) {
+      return false;
+    }
+    com.yelp.android.d.a.b(paramDrawable, paramInt);
+    return true;
   }
   
   static String c(int paramInt)
@@ -142,7 +184,54 @@ public class DrawerLayout
     return Integer.toHexString(paramInt);
   }
   
-  private boolean f()
+  private void f()
+  {
+    if (d) {
+      return;
+    }
+    z = g();
+    A = h();
+  }
+  
+  private Drawable g()
+  {
+    int i1 = ai.h(this);
+    if (i1 == 0)
+    {
+      if (F != null)
+      {
+        a(F, i1);
+        return F;
+      }
+    }
+    else if (G != null)
+    {
+      a(G, i1);
+      return G;
+    }
+    return H;
+  }
+  
+  private Drawable h()
+  {
+    int i1 = ai.h(this);
+    if (i1 == 0)
+    {
+      if (G != null)
+      {
+        a(G, i1);
+        return G;
+      }
+    }
+    else if (F != null)
+    {
+      a(F, i1);
+      return F;
+    }
+    return I;
+  }
+  
+  private boolean i()
   {
     int i2 = getChildCount();
     int i1 = 0;
@@ -156,12 +245,12 @@ public class DrawerLayout
     return false;
   }
   
-  private boolean g()
+  private boolean j()
   {
-    return h() != null;
+    return k() != null;
   }
   
-  private View h()
+  private View k()
   {
     int i2 = getChildCount();
     int i1 = 0;
@@ -193,17 +282,17 @@ public class DrawerLayout
   
   private static boolean n(View paramView)
   {
-    return (ce.e(paramView) != 4) && (ce.e(paramView) != 2);
+    return (ai.e(paramView) != 4) && (ai.e(paramView) != 2);
   }
   
   public int a(View paramView)
   {
     int i1 = e(paramView);
     if (i1 == 3) {
-      return p;
+      return r;
     }
     if (i1 == 5) {
-      return q;
+      return s;
     }
     return 0;
   }
@@ -225,31 +314,31 @@ public class DrawerLayout
   
   public CharSequence a(int paramInt)
   {
-    paramInt = android.support.v4.view.q.a(paramInt, ce.h(this));
+    paramInt = e.a(paramInt, ai.h(this));
     if (paramInt == 3) {
-      return z;
+      return B;
     }
     if (paramInt == 5) {
-      return A;
+      return C;
     }
     return null;
   }
   
   public void a(int paramInt1, int paramInt2)
   {
-    paramInt2 = android.support.v4.view.q.a(paramInt2, ce.h(this));
+    paramInt2 = e.a(paramInt2, ai.h(this));
     Object localObject;
     if (paramInt2 == 3)
     {
-      p = paramInt1;
+      r = paramInt1;
       if (paramInt1 != 0)
       {
         if (paramInt2 != 3) {
           break label74;
         }
-        localObject = i;
+        localObject = k;
         label33:
-        ((bx)localObject).e();
+        ((ac)localObject).e();
       }
       switch (paramInt1)
       {
@@ -264,9 +353,9 @@ public class DrawerLayout
         if (paramInt2 != 5) {
           break;
         }
-        q = paramInt1;
+        s = paramInt1;
         break;
-        localObject = j;
+        localObject = l;
         break label33;
         localObject = b(paramInt2);
       } while (localObject == null);
@@ -280,10 +369,10 @@ public class DrawerLayout
   void a(int paramInt1, int paramInt2, View paramView)
   {
     int i1 = 1;
-    int i2 = i.a();
-    int i3 = j.a();
+    int i2 = k.a();
+    int i3 = l.a();
     paramInt1 = i1;
-    DrawerLayout.LayoutParams localLayoutParams;
+    LayoutParams localLayoutParams;
     if (i2 != 1)
     {
       if (i3 == 1) {
@@ -292,7 +381,7 @@ public class DrawerLayout
     }
     else if ((paramView != null) && (paramInt2 == 0))
     {
-      localLayoutParams = (DrawerLayout.LayoutParams)paramView.getLayoutParams();
+      localLayoutParams = (LayoutParams)paramView.getLayoutParams();
       if (b != 0.0F) {
         break label124;
       }
@@ -300,11 +389,11 @@ public class DrawerLayout
     }
     for (;;)
     {
-      if (paramInt1 != m)
+      if (paramInt1 != o)
       {
-        m = paramInt1;
-        if (t != null) {
-          t.onDrawerStateChanged(paramInt1);
+        o = paramInt1;
+        if (v != null) {
+          v.a(paramInt1);
         }
       }
       return;
@@ -324,15 +413,15 @@ public class DrawerLayout
   
   void a(View paramView, float paramFloat)
   {
-    if (t != null) {
-      t.onDrawerSlide(paramView, paramFloat);
+    if (v != null) {
+      v.a(paramView, paramFloat);
     }
   }
   
   public void a(Object paramObject, boolean paramBoolean)
   {
-    B = paramObject;
-    C = paramBoolean;
+    D = paramObject;
+    E = paramBoolean;
     if ((!paramBoolean) && (getBackground() == null)) {}
     for (paramBoolean = true;; paramBoolean = false)
     {
@@ -350,7 +439,7 @@ public class DrawerLayout
     while (i2 < i5)
     {
       View localView = getChildAt(i2);
-      DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)localView.getLayoutParams();
+      LayoutParams localLayoutParams = (LayoutParams)localView.getLayoutParams();
       int i3 = i1;
       if (g(localView))
       {
@@ -366,18 +455,18 @@ public class DrawerLayout
       }
       int i4 = localView.getWidth();
       if (a(localView, 3)) {
-        i1 |= i.a(localView, -i4, localView.getTop());
+        i1 |= k.a(localView, -i4, localView.getTop());
       }
       for (;;)
       {
         c = false;
         i4 = i1;
         break;
-        i1 |= j.a(localView, getWidth(), localView.getTop());
+        i1 |= l.a(localView, getWidth(), localView.getTop());
       }
     }
-    k.a();
-    l.a();
+    m.a();
+    n.a();
     if (i1 != 0) {
       invalidate();
     }
@@ -388,25 +477,68 @@ public class DrawerLayout
     return (e(paramView) & paramInt) == paramInt;
   }
   
+  public void addFocusables(ArrayList<View> paramArrayList, int paramInt1, int paramInt2)
+  {
+    int i3 = 0;
+    if (getDescendantFocusability() == 393216) {
+      return;
+    }
+    int i4 = getChildCount();
+    int i1 = 0;
+    int i2 = 0;
+    View localView;
+    if (i1 < i4)
+    {
+      localView = getChildAt(i1);
+      if (g(localView)) {
+        if (j(localView))
+        {
+          i2 = 1;
+          localView.addFocusables(paramArrayList, paramInt1, paramInt2);
+        }
+      }
+      for (;;)
+      {
+        i1 += 1;
+        break;
+        J.add(localView);
+      }
+    }
+    if (i2 == 0)
+    {
+      i2 = J.size();
+      i1 = i3;
+      while (i1 < i2)
+      {
+        localView = (View)J.get(i1);
+        if (localView.getVisibility() == 0) {
+          localView.addFocusables(paramArrayList, paramInt1, paramInt2);
+        }
+        i1 += 1;
+      }
+    }
+    J.clear();
+  }
+  
   public void addView(View paramView, int paramInt, ViewGroup.LayoutParams paramLayoutParams)
   {
     super.addView(paramView, paramInt, paramLayoutParams);
     if ((a() != null) || (g(paramView))) {
-      ce.c(paramView, 4);
+      ai.c(paramView, 4);
     }
     for (;;)
     {
       if (!c) {
-        ce.a(paramView, d);
+        ai.a(paramView, e);
       }
       return;
-      ce.c(paramView, 1);
+      ai.c(paramView, 1);
     }
   }
   
   View b(int paramInt)
   {
-    int i1 = android.support.v4.view.q.a(paramInt, ce.h(this));
+    int i1 = e.a(paramInt, ai.h(this));
     int i2 = getChildCount();
     paramInt = 0;
     while (paramInt < i2)
@@ -427,12 +559,12 @@ public class DrawerLayout
   
   void b(View paramView)
   {
-    DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)paramView.getLayoutParams();
+    LayoutParams localLayoutParams = (LayoutParams)paramView.getLayoutParams();
     if (d)
     {
       d = false;
-      if (t != null) {
-        t.onDrawerClosed(paramView);
+      if (v != null) {
+        v.b(paramView);
       }
       a(paramView, false);
       if (hasWindowFocus())
@@ -447,7 +579,7 @@ public class DrawerLayout
   
   void b(View paramView, float paramFloat)
   {
-    DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)paramView.getLayoutParams();
+    LayoutParams localLayoutParams = (LayoutParams)paramView.getLayoutParams();
     if (paramFloat == b) {
       return;
     }
@@ -458,7 +590,7 @@ public class DrawerLayout
   void c()
   {
     int i1 = 0;
-    if (!s)
+    if (!u)
     {
       long l1 = SystemClock.uptimeMillis();
       MotionEvent localMotionEvent = MotionEvent.obtain(l1, l1, 3, 0.0F, 0.0F, 0);
@@ -469,18 +601,18 @@ public class DrawerLayout
         i1 += 1;
       }
       localMotionEvent.recycle();
-      s = true;
+      u = true;
     }
   }
   
   void c(View paramView)
   {
-    DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)paramView.getLayoutParams();
+    LayoutParams localLayoutParams = (LayoutParams)paramView.getLayoutParams();
     if (!d)
     {
       d = true;
-      if (t != null) {
-        t.onDrawerOpened(paramView);
+      if (v != null) {
+        v.a(paramView);
       }
       a(paramView, true);
       if (hasWindowFocus()) {
@@ -492,7 +624,7 @@ public class DrawerLayout
   
   protected boolean checkLayoutParams(ViewGroup.LayoutParams paramLayoutParams)
   {
-    return ((paramLayoutParams instanceof DrawerLayout.LayoutParams)) && (super.checkLayoutParams(paramLayoutParams));
+    return ((paramLayoutParams instanceof LayoutParams)) && (super.checkLayoutParams(paramLayoutParams));
   }
   
   public void computeScroll()
@@ -505,9 +637,9 @@ public class DrawerLayout
       f1 = Math.max(f1, getChildAtgetLayoutParamsb);
       i1 += 1;
     }
-    g = f1;
-    if ((i.a(true) | j.a(true))) {
-      ce.d(this);
+    i = f1;
+    if ((k.a(true) | l.a(true))) {
+      ai.d(this);
     }
   }
   
@@ -586,36 +718,36 @@ public class DrawerLayout
       i2 = i1;
       boolean bool2 = super.drawChild(paramCanvas, paramView, paramLong);
       paramCanvas.restoreToCount(i8);
-      if ((g > 0.0F) && (bool1))
+      if ((i > 0.0F) && (bool1))
       {
-        i1 = (int)(((f & 0xFF000000) >>> 24) * g);
-        i4 = f;
-        h.setColor(i1 << 24 | i4 & 0xFFFFFF);
-        paramCanvas.drawRect(i3, 0.0F, i2, getHeight(), h);
+        i1 = (int)(((h & 0xFF000000) >>> 24) * i);
+        i4 = h;
+        j.setColor(i1 << 24 | i4 & 0xFFFFFF);
+        paramCanvas.drawRect(i3, 0.0F, i2, getHeight(), j);
       }
       do
       {
         return bool2;
-        if ((w != null) && (a(paramView, 3)))
+        if ((z != null) && (a(paramView, 3)))
         {
-          i1 = w.getIntrinsicWidth();
+          i1 = z.getIntrinsicWidth();
           i2 = paramView.getRight();
-          i3 = i.b();
+          i3 = k.b();
           f1 = Math.max(0.0F, Math.min(i2 / i3, 1.0F));
-          w.setBounds(i2, paramView.getTop(), i1 + i2, paramView.getBottom());
-          w.setAlpha((int)(255.0F * f1));
-          w.draw(paramCanvas);
+          z.setBounds(i2, paramView.getTop(), i1 + i2, paramView.getBottom());
+          z.setAlpha((int)(255.0F * f1));
+          z.draw(paramCanvas);
           return bool2;
         }
-      } while ((x == null) || (!a(paramView, 5)));
-      i1 = x.getIntrinsicWidth();
+      } while ((A == null) || (!a(paramView, 5)));
+      i1 = A.getIntrinsicWidth();
       i2 = paramView.getLeft();
       i3 = getWidth();
-      i4 = j.b();
+      i4 = l.b();
       float f1 = Math.max(0.0F, Math.min((i3 - i2) / i4, 1.0F));
-      x.setBounds(i2 - i1, paramView.getTop(), i2, paramView.getBottom());
-      x.setAlpha((int)(255.0F * f1));
-      x.draw(paramCanvas);
+      A.setBounds(i2 - i1, paramView.getTop(), i2, paramView.getBottom());
+      A.setAlpha((int)(255.0F * f1));
+      A.draw(paramCanvas);
       return bool2;
       label534:
       i2 = i3;
@@ -624,7 +756,7 @@ public class DrawerLayout
   
   int e(View paramView)
   {
-    return android.support.v4.view.q.a(getLayoutParamsa, ce.h(this));
+    return e.a(getLayoutParamsa, ai.h(this));
   }
   
   public void e(int paramInt)
@@ -640,7 +772,7 @@ public class DrawerLayout
   {
     View localView = b(paramInt);
     if (localView != null) {
-      return j(localView);
+      return k(localView);
     }
     return false;
   }
@@ -650,39 +782,38 @@ public class DrawerLayout
     return getLayoutParamsa == 0;
   }
   
-  public boolean g(int paramInt)
-  {
-    View localView = b(paramInt);
-    if (localView != null) {
-      return k(localView);
-    }
-    return false;
-  }
-  
   boolean g(View paramView)
   {
-    return (android.support.v4.view.q.a(getLayoutParamsa, ce.h(paramView)) & 0x7) != 0;
+    return (e.a(getLayoutParamsa, ai.h(paramView)) & 0x7) != 0;
   }
   
   protected ViewGroup.LayoutParams generateDefaultLayoutParams()
   {
-    return new DrawerLayout.LayoutParams(-1, -1);
+    return new LayoutParams(-1, -1);
   }
   
   public ViewGroup.LayoutParams generateLayoutParams(AttributeSet paramAttributeSet)
   {
-    return new DrawerLayout.LayoutParams(getContext(), paramAttributeSet);
+    return new LayoutParams(getContext(), paramAttributeSet);
   }
   
   protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams paramLayoutParams)
   {
-    if ((paramLayoutParams instanceof DrawerLayout.LayoutParams)) {
-      return new DrawerLayout.LayoutParams((DrawerLayout.LayoutParams)paramLayoutParams);
+    if ((paramLayoutParams instanceof LayoutParams)) {
+      return new LayoutParams((LayoutParams)paramLayoutParams);
     }
     if ((paramLayoutParams instanceof ViewGroup.MarginLayoutParams)) {
-      return new DrawerLayout.LayoutParams((ViewGroup.MarginLayoutParams)paramLayoutParams);
+      return new LayoutParams((ViewGroup.MarginLayoutParams)paramLayoutParams);
     }
-    return new DrawerLayout.LayoutParams(paramLayoutParams);
+    return new LayoutParams(paramLayoutParams);
+  }
+  
+  public float getDrawerElevation()
+  {
+    if (d) {
+      return f;
+    }
+    return 0.0F;
   }
   
   public Drawable getStatusBarBackgroundDrawable()
@@ -695,9 +826,9 @@ public class DrawerLayout
     if (!g(paramView)) {
       throw new IllegalArgumentException("View " + paramView + " is not a sliding drawer");
     }
-    if (o)
+    if (q)
     {
-      DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)paramView.getLayoutParams();
+      LayoutParams localLayoutParams = (LayoutParams)paramView.getLayoutParams();
       b = 1.0F;
       d = true;
       a(paramView, true);
@@ -707,9 +838,9 @@ public class DrawerLayout
       invalidate();
       return;
       if (a(paramView, 3)) {
-        i.a(paramView, 0, paramView.getTop());
+        k.a(paramView, 0, paramView.getTop());
       } else {
-        j.a(paramView, getWidth() - paramView.getWidth(), paramView.getTop());
+        l.a(paramView, getWidth() - paramView.getWidth(), paramView.getTop());
       }
     }
   }
@@ -719,9 +850,9 @@ public class DrawerLayout
     if (!g(paramView)) {
       throw new IllegalArgumentException("View " + paramView + " is not a sliding drawer");
     }
-    if (o)
+    if (q)
     {
-      paramView = (DrawerLayout.LayoutParams)paramView.getLayoutParams();
+      paramView = (LayoutParams)paramView.getLayoutParams();
       b = 0.0F;
       d = false;
     }
@@ -730,9 +861,9 @@ public class DrawerLayout
       invalidate();
       return;
       if (a(paramView, 3)) {
-        i.a(paramView, -paramView.getWidth(), paramView.getTop());
+        k.a(paramView, -paramView.getWidth(), paramView.getTop());
       } else {
-        j.a(paramView, getWidth(), paramView.getTop());
+        l.a(paramView, getWidth(), paramView.getTop());
       }
     }
   }
@@ -756,21 +887,21 @@ public class DrawerLayout
   protected void onAttachedToWindow()
   {
     super.onAttachedToWindow();
-    o = true;
+    q = true;
   }
   
   protected void onDetachedFromWindow()
   {
     super.onDetachedFromWindow();
-    o = true;
+    q = true;
   }
   
   public void onDraw(Canvas paramCanvas)
   {
     super.onDraw(paramCanvas);
-    if ((C) && (y != null))
+    if ((E) && (y != null))
     {
-      int i1 = a.a(B);
+      int i1 = a.a(D);
       if (i1 > 0)
       {
         y.setBounds(0, 0, getWidth(), i1);
@@ -782,14 +913,14 @@ public class DrawerLayout
   public boolean onInterceptTouchEvent(MotionEvent paramMotionEvent)
   {
     boolean bool1 = false;
-    int i1 = ba.a(paramMotionEvent);
-    boolean bool2 = i.a(paramMotionEvent);
-    boolean bool3 = j.a(paramMotionEvent);
+    int i1 = t.a(paramMotionEvent);
+    boolean bool2 = k.a(paramMotionEvent);
+    boolean bool3 = l.a(paramMotionEvent);
     switch (i1)
     {
     default: 
       i1 = 0;
-      if (((bool2 | bool3)) || (i1 != 0) || (f()) || (s)) {
+      if (((bool2 | bool3)) || (i1 != 0) || (i()) || (u)) {
         bool1 = true;
       }
       return bool1;
@@ -797,11 +928,11 @@ public class DrawerLayout
       label63:
       float f1 = paramMotionEvent.getX();
       float f2 = paramMotionEvent.getY();
-      u = f1;
-      v = f2;
-      if (g > 0.0F)
+      w = f1;
+      x = f2;
+      if (i > 0.0F)
       {
-        paramMotionEvent = i.d((int)f1, (int)f2);
+        paramMotionEvent = k.d((int)f1, (int)f2);
         if ((paramMotionEvent == null) || (!f(paramMotionEvent))) {
           break;
         }
@@ -810,28 +941,28 @@ public class DrawerLayout
     }
     for (i1 = 1;; i1 = 0)
     {
-      r = false;
-      s = false;
+      t = false;
+      u = false;
       break label63;
-      if (!i.d(3)) {
+      if (!k.d(3)) {
         break;
       }
-      k.a();
-      l.a();
+      m.a();
+      n.a();
       i1 = 0;
       break label63;
       a(true);
-      r = false;
-      s = false;
+      t = false;
+      u = false;
       break;
     }
   }
   
   public boolean onKeyDown(int paramInt, KeyEvent paramKeyEvent)
   {
-    if ((paramInt == 4) && (g()))
+    if ((paramInt == 4) && (j()))
     {
-      android.support.v4.view.v.b(paramKeyEvent);
+      g.b(paramKeyEvent);
       return true;
     }
     return super.onKeyDown(paramInt, paramKeyEvent);
@@ -841,7 +972,7 @@ public class DrawerLayout
   {
     if (paramInt == 4)
     {
-      paramKeyEvent = h();
+      paramKeyEvent = k();
       if ((paramKeyEvent != null) && (a(paramKeyEvent) == 0)) {
         b();
       }
@@ -852,7 +983,7 @@ public class DrawerLayout
   
   protected void onLayout(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    n = true;
+    p = true;
     int i4 = paramInt3 - paramInt1;
     int i5 = getChildCount();
     paramInt3 = 0;
@@ -860,12 +991,12 @@ public class DrawerLayout
     {
       View localView = getChildAt(paramInt3);
       if (localView.getVisibility() == 8) {}
-      DrawerLayout.LayoutParams localLayoutParams;
+      LayoutParams localLayoutParams;
       for (;;)
       {
         paramInt3 += 1;
         break;
-        localLayoutParams = (DrawerLayout.LayoutParams)localView.getLayoutParams();
+        localLayoutParams = (LayoutParams)localView.getLayoutParams();
         if (!f(localView)) {
           break label113;
         }
@@ -930,8 +1061,8 @@ public class DrawerLayout
         }
       }
     }
-    n = false;
-    o = false;
+    p = false;
+    q = false;
   }
   
   protected void onMeasure(int paramInt1, int paramInt2)
@@ -965,11 +1096,11 @@ public class DrawerLayout
         i2 = i4;
         i3 = i1;
         setMeasuredDimension(i3, i2);
-        if ((B == null) || (!ce.u(this))) {
+        if ((D == null) || (!ai.x(this))) {
           break label202;
         }
         i1 = 1;
-        i5 = ce.h(this);
+        i5 = ai.h(this);
         i6 = getChildCount();
         i4 = 0;
         if (i4 >= i6) {
@@ -1006,14 +1137,14 @@ public class DrawerLayout
       i1 = 0;
       break label105;
       label207:
-      DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)localView.getLayoutParams();
+      LayoutParams localLayoutParams = (LayoutParams)localView.getLayoutParams();
       if (i1 != 0)
       {
-        i7 = android.support.v4.view.q.a(a, i5);
-        if (!ce.u(localView)) {
+        i7 = e.a(a, i5);
+        if (!ai.x(localView)) {
           break label314;
         }
-        a.a(localView, B, i7);
+        a.a(localView, D, i7);
       }
       for (;;)
       {
@@ -1023,53 +1154,61 @@ public class DrawerLayout
         localView.measure(View.MeasureSpec.makeMeasureSpec(i3 - leftMargin - rightMargin, 1073741824), View.MeasureSpec.makeMeasureSpec(i2 - topMargin - bottomMargin, 1073741824));
         break;
         label314:
-        a.a(localLayoutParams, B, i7);
+        a.a(localLayoutParams, D, i7);
       }
       label333:
       if (!g(localView)) {
-        break label469;
+        break label497;
+      }
+      if ((d) && (ai.u(localView) != f)) {
+        ai.h(localView, f);
       }
       int i7 = e(localView) & 0x7;
       if ((0x0 & i7) != 0) {
         throw new IllegalStateException("Child drawer has absolute gravity " + c(i7) + " but this " + "DrawerLayout" + " already has a " + "drawer view along that edge");
       }
-      localView.measure(getChildMeasureSpec(paramInt1, e + leftMargin + rightMargin, width), getChildMeasureSpec(paramInt2, topMargin + bottomMargin, height));
+      localView.measure(getChildMeasureSpec(paramInt1, g + leftMargin + rightMargin, width), getChildMeasureSpec(paramInt2, topMargin + bottomMargin, height));
     }
-    label469:
+    label497:
     throw new IllegalStateException("Child " + localView + " at index " + i4 + " does not have a valid layout_gravity - must be Gravity.LEFT, " + "Gravity.RIGHT or Gravity.NO_GRAVITY");
   }
   
   protected void onRestoreInstanceState(Parcelable paramParcelable)
   {
-    paramParcelable = (DrawerLayout.SavedState)paramParcelable;
+    paramParcelable = (SavedState)paramParcelable;
     super.onRestoreInstanceState(paramParcelable.getSuperState());
-    if (openDrawerGravity != 0)
+    if (a != 0)
     {
-      View localView = b(openDrawerGravity);
+      View localView = b(a);
       if (localView != null) {
         h(localView);
       }
     }
-    a(lockModeLeft, 3);
-    a(lockModeRight, 5);
+    a(b, 3);
+    a(c, 5);
+  }
+  
+  public void onRtlPropertiesChanged(int paramInt)
+  {
+    f();
   }
   
   protected Parcelable onSaveInstanceState()
   {
-    DrawerLayout.SavedState localSavedState = new DrawerLayout.SavedState(super.onSaveInstanceState());
+    SavedState localSavedState = new SavedState(super.onSaveInstanceState());
     View localView = a();
     if (localView != null) {
-      openDrawerGravity = getLayoutParamsa;
+      a = getLayoutParamsa;
     }
-    lockModeLeft = p;
-    lockModeRight = q;
+    b = r;
+    c = s;
     return localSavedState;
   }
   
   public boolean onTouchEvent(MotionEvent paramMotionEvent)
   {
-    i.b(paramMotionEvent);
-    j.b(paramMotionEvent);
+    k.b(paramMotionEvent);
+    l.b(paramMotionEvent);
     float f1;
     float f2;
     boolean bool;
@@ -1081,20 +1220,20 @@ public class DrawerLayout
     case 0: 
       f1 = paramMotionEvent.getX();
       f2 = paramMotionEvent.getY();
-      u = f1;
-      v = f2;
-      r = false;
-      s = false;
+      w = f1;
+      x = f2;
+      t = false;
+      u = false;
       return true;
     case 1: 
       f2 = paramMotionEvent.getX();
       f1 = paramMotionEvent.getY();
-      paramMotionEvent = i.d((int)f2, (int)f1);
+      paramMotionEvent = k.d((int)f2, (int)f1);
       if ((paramMotionEvent != null) && (f(paramMotionEvent)))
       {
-        f2 -= u;
-        f1 -= v;
-        int i1 = i.d();
+        f2 -= w;
+        f1 -= x;
+        int i1 = k.d();
         if (f2 * f2 + f1 * f1 < i1 * i1)
         {
           paramMotionEvent = a();
@@ -1110,13 +1249,13 @@ public class DrawerLayout
     for (;;)
     {
       a(bool);
-      r = false;
+      t = false;
       return true;
       bool = false;
       continue;
       a(true);
-      r = false;
-      s = false;
+      t = false;
+      u = false;
       return true;
       bool = true;
     }
@@ -1125,7 +1264,7 @@ public class DrawerLayout
   public void requestDisallowInterceptTouchEvent(boolean paramBoolean)
   {
     super.requestDisallowInterceptTouchEvent(paramBoolean);
-    r = paramBoolean;
+    t = paramBoolean;
     if (paramBoolean) {
       a(true);
     }
@@ -1133,14 +1272,28 @@ public class DrawerLayout
   
   public void requestLayout()
   {
-    if (!n) {
+    if (!p) {
       super.requestLayout();
     }
   }
   
-  public void setDrawerListener(t paramt)
+  public void setDrawerElevation(float paramFloat)
   {
-    t = paramt;
+    f = paramFloat;
+    int i1 = 0;
+    while (i1 < getChildCount())
+    {
+      View localView = getChildAt(i1);
+      if (g(localView)) {
+        ai.h(localView, f);
+      }
+      i1 += 1;
+    }
+  }
+  
+  public void setDrawerListener(f paramf)
+  {
+    v = paramf;
   }
   
   public void setDrawerLockMode(int paramInt)
@@ -1151,14 +1304,14 @@ public class DrawerLayout
   
   public void setScrimColor(int paramInt)
   {
-    f = paramInt;
+    h = paramInt;
     invalidate();
   }
   
   public void setStatusBarBackground(int paramInt)
   {
     if (paramInt != 0) {}
-    for (Drawable localDrawable = c.getDrawable(getContext(), paramInt);; localDrawable = null)
+    for (Drawable localDrawable = d.a(getContext(), paramInt);; localDrawable = null)
     {
       y = localDrawable;
       invalidate();
@@ -1176,6 +1329,467 @@ public class DrawerLayout
   {
     y = new ColorDrawable(paramInt);
     invalidate();
+  }
+  
+  public static class LayoutParams
+    extends ViewGroup.MarginLayoutParams
+  {
+    public int a = 0;
+    float b;
+    boolean c;
+    boolean d;
+    
+    public LayoutParams(int paramInt1, int paramInt2)
+    {
+      super(paramInt2);
+    }
+    
+    public LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
+    {
+      super(paramAttributeSet);
+      paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, DrawerLayout.d());
+      a = paramContext.getInt(0, 0);
+      paramContext.recycle();
+    }
+    
+    public LayoutParams(LayoutParams paramLayoutParams)
+    {
+      super();
+      a = a;
+    }
+    
+    public LayoutParams(ViewGroup.LayoutParams paramLayoutParams)
+    {
+      super();
+    }
+    
+    public LayoutParams(ViewGroup.MarginLayoutParams paramMarginLayoutParams)
+    {
+      super();
+    }
+  }
+  
+  protected static class SavedState
+    extends View.BaseSavedState
+  {
+    public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+    {
+      public DrawerLayout.SavedState a(Parcel paramAnonymousParcel)
+      {
+        return new DrawerLayout.SavedState(paramAnonymousParcel);
+      }
+      
+      public DrawerLayout.SavedState[] a(int paramAnonymousInt)
+      {
+        return new DrawerLayout.SavedState[paramAnonymousInt];
+      }
+    };
+    int a = 0;
+    int b = 0;
+    int c = 0;
+    
+    public SavedState(Parcel paramParcel)
+    {
+      super();
+      a = paramParcel.readInt();
+    }
+    
+    public SavedState(Parcelable paramParcelable)
+    {
+      super();
+    }
+    
+    public void writeToParcel(Parcel paramParcel, int paramInt)
+    {
+      super.writeToParcel(paramParcel, paramInt);
+      paramParcel.writeInt(a);
+    }
+  }
+  
+  class a
+    extends android.support.v4.view.a
+  {
+    private final Rect c = new Rect();
+    
+    a() {}
+    
+    private void a(c paramc, ViewGroup paramViewGroup)
+    {
+      int j = paramViewGroup.getChildCount();
+      int i = 0;
+      while (i < j)
+      {
+        View localView = paramViewGroup.getChildAt(i);
+        if (DrawerLayout.l(localView)) {
+          paramc.b(localView);
+        }
+        i += 1;
+      }
+    }
+    
+    private void a(c paramc1, c paramc2)
+    {
+      Rect localRect = c;
+      paramc2.a(localRect);
+      paramc1.b(localRect);
+      paramc2.c(localRect);
+      paramc1.d(localRect);
+      paramc1.c(paramc2.h());
+      paramc1.a(paramc2.p());
+      paramc1.b(paramc2.q());
+      paramc1.d(paramc2.s());
+      paramc1.h(paramc2.m());
+      paramc1.f(paramc2.k());
+      paramc1.a(paramc2.f());
+      paramc1.b(paramc2.g());
+      paramc1.d(paramc2.i());
+      paramc1.e(paramc2.j());
+      paramc1.g(paramc2.l());
+      paramc1.a(paramc2.b());
+    }
+    
+    public void a(View paramView, AccessibilityEvent paramAccessibilityEvent)
+    {
+      super.a(paramView, paramAccessibilityEvent);
+      paramAccessibilityEvent.setClassName(DrawerLayout.class.getName());
+    }
+    
+    public void a(View paramView, c paramc)
+    {
+      if (DrawerLayout.e()) {
+        super.a(paramView, paramc);
+      }
+      for (;;)
+      {
+        paramc.b(DrawerLayout.class.getName());
+        paramc.a(false);
+        paramc.b(false);
+        paramc.a(c.a.a);
+        paramc.a(c.a.b);
+        return;
+        c localc = c.a(paramc);
+        super.a(paramView, localc);
+        paramc.a(paramView);
+        ViewParent localViewParent = ai.i(paramView);
+        if ((localViewParent instanceof View)) {
+          paramc.c((View)localViewParent);
+        }
+        a(paramc, localc);
+        localc.t();
+        a(paramc, (ViewGroup)paramView);
+      }
+    }
+    
+    public boolean a(ViewGroup paramViewGroup, View paramView, AccessibilityEvent paramAccessibilityEvent)
+    {
+      if ((DrawerLayout.e()) || (DrawerLayout.l(paramView))) {
+        return super.a(paramViewGroup, paramView, paramAccessibilityEvent);
+      }
+      return false;
+    }
+    
+    public boolean d(View paramView, AccessibilityEvent paramAccessibilityEvent)
+    {
+      if (paramAccessibilityEvent.getEventType() == 32)
+      {
+        paramView = paramAccessibilityEvent.getText();
+        paramAccessibilityEvent = DrawerLayout.a(DrawerLayout.this);
+        if (paramAccessibilityEvent != null)
+        {
+          int i = e(paramAccessibilityEvent);
+          paramAccessibilityEvent = a(i);
+          if (paramAccessibilityEvent != null) {
+            paramView.add(paramAccessibilityEvent);
+          }
+        }
+        return true;
+      }
+      return super.d(paramView, paramAccessibilityEvent);
+    }
+  }
+  
+  final class b
+    extends android.support.v4.view.a
+  {
+    b() {}
+    
+    public void a(View paramView, c paramc)
+    {
+      super.a(paramView, paramc);
+      if (!DrawerLayout.l(paramView)) {
+        paramc.c(null);
+      }
+    }
+  }
+  
+  static abstract interface c
+  {
+    public abstract int a(Object paramObject);
+    
+    public abstract Drawable a(Context paramContext);
+    
+    public abstract void a(View paramView);
+    
+    public abstract void a(View paramView, Object paramObject, int paramInt);
+    
+    public abstract void a(ViewGroup.MarginLayoutParams paramMarginLayoutParams, Object paramObject, int paramInt);
+  }
+  
+  static class d
+    implements DrawerLayout.c
+  {
+    public int a(Object paramObject)
+    {
+      return i.a(paramObject);
+    }
+    
+    public Drawable a(Context paramContext)
+    {
+      return i.a(paramContext);
+    }
+    
+    public void a(View paramView)
+    {
+      i.a(paramView);
+    }
+    
+    public void a(View paramView, Object paramObject, int paramInt)
+    {
+      i.a(paramView, paramObject, paramInt);
+    }
+    
+    public void a(ViewGroup.MarginLayoutParams paramMarginLayoutParams, Object paramObject, int paramInt)
+    {
+      i.a(paramMarginLayoutParams, paramObject, paramInt);
+    }
+  }
+  
+  static class e
+    implements DrawerLayout.c
+  {
+    public int a(Object paramObject)
+    {
+      return 0;
+    }
+    
+    public Drawable a(Context paramContext)
+    {
+      return null;
+    }
+    
+    public void a(View paramView) {}
+    
+    public void a(View paramView, Object paramObject, int paramInt) {}
+    
+    public void a(ViewGroup.MarginLayoutParams paramMarginLayoutParams, Object paramObject, int paramInt) {}
+  }
+  
+  public static abstract interface f
+  {
+    public abstract void a(int paramInt);
+    
+    public abstract void a(View paramView);
+    
+    public abstract void a(View paramView, float paramFloat);
+    
+    public abstract void b(View paramView);
+  }
+  
+  private class g
+    extends ac.a
+  {
+    private final int b;
+    private ac c;
+    private final Runnable d = new Runnable()
+    {
+      public void run()
+      {
+        DrawerLayout.g.a(DrawerLayout.g.this);
+      }
+    };
+    
+    public g(int paramInt)
+    {
+      b = paramInt;
+    }
+    
+    private void b()
+    {
+      int i = 3;
+      if (b == 3) {
+        i = 5;
+      }
+      View localView = b(i);
+      if (localView != null) {
+        i(localView);
+      }
+    }
+    
+    private void c()
+    {
+      int j = 0;
+      int k = c.b();
+      int i;
+      View localView;
+      if (b == 3)
+      {
+        i = 1;
+        if (i == 0) {
+          break label149;
+        }
+        localView = b(3);
+        if (localView != null) {
+          j = -localView.getWidth();
+        }
+        j += k;
+      }
+      for (;;)
+      {
+        if ((localView != null) && (((i != 0) && (localView.getLeft() < j)) || ((i == 0) && (localView.getLeft() > j) && (DrawerLayout.this.a(localView) == 0))))
+        {
+          DrawerLayout.LayoutParams localLayoutParams = (DrawerLayout.LayoutParams)localView.getLayoutParams();
+          c.a(localView, j, localView.getTop());
+          c = true;
+          invalidate();
+          b();
+          DrawerLayout.this.c();
+        }
+        return;
+        i = 0;
+        break;
+        label149:
+        localView = b(5);
+        j = getWidth();
+        j -= k;
+      }
+    }
+    
+    public int a(View paramView)
+    {
+      if (g(paramView)) {
+        return paramView.getWidth();
+      }
+      return 0;
+    }
+    
+    public int a(View paramView, int paramInt1, int paramInt2)
+    {
+      if (DrawerLayout.this.a(paramView, 3)) {
+        return Math.max(-paramView.getWidth(), Math.min(paramInt1, 0));
+      }
+      paramInt2 = getWidth();
+      return Math.max(paramInt2 - paramView.getWidth(), Math.min(paramInt1, paramInt2));
+    }
+    
+    public void a()
+    {
+      removeCallbacks(d);
+    }
+    
+    public void a(int paramInt)
+    {
+      a(b, paramInt, c.c());
+    }
+    
+    public void a(int paramInt1, int paramInt2)
+    {
+      postDelayed(d, 160L);
+    }
+    
+    public void a(ac paramac)
+    {
+      c = paramac;
+    }
+    
+    public void a(View paramView, float paramFloat1, float paramFloat2)
+    {
+      paramFloat2 = d(paramView);
+      int k = paramView.getWidth();
+      int i;
+      if (DrawerLayout.this.a(paramView, 3)) {
+        if ((paramFloat1 > 0.0F) || ((paramFloat1 == 0.0F) && (paramFloat2 > 0.5F))) {
+          i = 0;
+        }
+      }
+      for (;;)
+      {
+        c.a(i, paramView.getTop());
+        invalidate();
+        return;
+        i = -k;
+        continue;
+        int j = getWidth();
+        if (paramFloat1 >= 0.0F)
+        {
+          i = j;
+          if (paramFloat1 == 0.0F)
+          {
+            i = j;
+            if (paramFloat2 <= 0.5F) {}
+          }
+        }
+        else
+        {
+          i = j - k;
+        }
+      }
+    }
+    
+    public void a(View paramView, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+    {
+      paramInt2 = paramView.getWidth();
+      float f;
+      if (DrawerLayout.this.a(paramView, 3))
+      {
+        f = (paramInt2 + paramInt1) / paramInt2;
+        b(paramView, f);
+        if (f != 0.0F) {
+          break label76;
+        }
+      }
+      label76:
+      for (paramInt1 = 4;; paramInt1 = 0)
+      {
+        paramView.setVisibility(paramInt1);
+        invalidate();
+        return;
+        f = (getWidth() - paramInt1) / paramInt2;
+        break;
+      }
+    }
+    
+    public boolean a(View paramView, int paramInt)
+    {
+      return (g(paramView)) && (DrawerLayout.this.a(paramView, b)) && (DrawerLayout.this.a(paramView) == 0);
+    }
+    
+    public int b(View paramView, int paramInt1, int paramInt2)
+    {
+      return paramView.getTop();
+    }
+    
+    public void b(int paramInt1, int paramInt2)
+    {
+      if ((paramInt1 & 0x1) == 1) {}
+      for (View localView = b(3);; localView = b(5))
+      {
+        if ((localView != null) && (DrawerLayout.this.a(localView) == 0)) {
+          c.a(localView, paramInt2);
+        }
+        return;
+      }
+    }
+    
+    public void b(View paramView, int paramInt)
+    {
+      getLayoutParamsc = false;
+      b();
+    }
+    
+    public boolean b(int paramInt)
+    {
+      return false;
+    }
   }
 }
 

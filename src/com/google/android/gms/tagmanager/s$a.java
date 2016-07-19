@@ -1,10 +1,14 @@
 package com.google.android.gms.tagmanager;
 
-import java.util.Map;
+import com.google.android.gms.internal.zzrs.a;
+import java.util.List;
 
-public abstract interface s$a
+public class s$a
+  implements x
 {
-  public abstract Object b(String paramString, Map<String, Object> paramMap);
+  public s$a(s params) {}
+  
+  public void a(List<zzrs.a> paramList, List<String> paramList1) {}
 }
 
 /* Location:

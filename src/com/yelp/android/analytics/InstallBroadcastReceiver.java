@@ -3,7 +3,7 @@ package com.yelp.android.analytics;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.adjust.sdk.ReferrerReceiver;
+import com.adjust.sdk.AdjustReferrerReceiver;
 import com.google.android.gms.analytics.CampaignTrackingReceiver;
 
 public class InstallBroadcastReceiver
@@ -11,7 +11,10 @@ public class InstallBroadcastReceiver
 {
   public void onReceive(Context paramContext, Intent paramIntent)
   {
-    new ReferrerReceiver().onReceive(paramContext, paramIntent);
+    if (!"com.android.vending.INSTALL_REFERRER".equals(paramIntent.getAction())) {
+      return;
+    }
+    new AdjustReferrerReceiver().onReceive(paramContext, paramIntent);
     new CampaignTrackingReceiver().onReceive(paramContext, paramIntent);
   }
 }

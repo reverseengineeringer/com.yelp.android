@@ -7,8 +7,8 @@ import android.widget.SimpleAdapter;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.ef;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.di;
 import com.yelp.android.serializable.User;
 import com.yelp.android.serializable.YelpCheckIn;
 import java.util.List;
@@ -23,17 +23,12 @@ public class ActivityRegularBusinesses
     return paramContext;
   }
   
-  protected ApiRequest<?, ?, List<YelpCheckIn>> b_()
+  protected ApiRequest<Void, ?, List<YelpCheckIn>> d()
   {
-    if (AppData.b().m().a(g())) {}
-    for (String str = null;; str = g().getId()) {
-      return new ef(this, str, b.getCount());
+    if (AppData.b().q().a(f())) {}
+    for (String str = null;; str = f().ae()) {
+      return new di(this, str, b.getCount());
     }
-  }
-  
-  protected int f()
-  {
-    return g().getRegularCount();
   }
   
   public ViewIri getIri()
@@ -41,16 +36,21 @@ public class ActivityRegularBusinesses
     return ViewIri.UserRankingsBusinesses;
   }
   
+  protected int o_()
+  {
+    return f().x();
+  }
+  
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    if (AppData.b().m().a(g())) {}
-    for (paramBundle = null; paramBundle != null; paramBundle = g().getId())
+    if (AppData.b().q().a(f())) {}
+    for (paramBundle = null; paramBundle != null; paramBundle = f().ae())
     {
-      setTitle(getString(2131166157, new Object[] { g().getFirstName() }));
+      setTitle(getString(2131166207, new Object[] { f().Z() }));
       return;
     }
-    setTitle(2131165937);
+    setTitle(2131166004);
   }
 }
 

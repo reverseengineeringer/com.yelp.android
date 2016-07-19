@@ -1,18 +1,91 @@
 package com.yelp.android.f;
 
-import android.view.accessibility.AccessibilityEvent;
+import android.util.Log;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Locale;
 
 class c
-  extends b
 {
-  public int a(AccessibilityEvent paramAccessibilityEvent)
+  private static Method a;
+  private static Method b;
+  
+  static
   {
-    return f.a(paramAccessibilityEvent);
+    try
+    {
+      Class localClass = Class.forName("libcore.icu.ICU");
+      if (localClass != null)
+      {
+        a = localClass.getMethod("getScript", new Class[] { String.class });
+        b = localClass.getMethod("addLikelySubtags", new Class[] { String.class });
+      }
+      return;
+    }
+    catch (Exception localException)
+    {
+      a = null;
+      b = null;
+      Log.w("ICUCompatIcs", localException);
+    }
   }
   
-  public void a(AccessibilityEvent paramAccessibilityEvent, int paramInt)
+  private static String a(String paramString)
   {
-    f.a(paramAccessibilityEvent, paramInt);
+    try
+    {
+      if (a != null)
+      {
+        paramString = (String)a.invoke(null, new Object[] { paramString });
+        return paramString;
+      }
+    }
+    catch (IllegalAccessException paramString)
+    {
+      Log.w("ICUCompatIcs", paramString);
+      return null;
+    }
+    catch (InvocationTargetException paramString)
+    {
+      for (;;)
+      {
+        Log.w("ICUCompatIcs", paramString);
+      }
+    }
+  }
+  
+  public static String a(Locale paramLocale)
+  {
+    paramLocale = b(paramLocale);
+    if (paramLocale != null) {
+      return a(paramLocale);
+    }
+    return null;
+  }
+  
+  private static String b(Locale paramLocale)
+  {
+    paramLocale = paramLocale.toString();
+    try
+    {
+      if (b != null)
+      {
+        String str = (String)b.invoke(null, new Object[] { paramLocale });
+        return str;
+      }
+    }
+    catch (IllegalAccessException localIllegalAccessException)
+    {
+      Log.w("ICUCompatIcs", localIllegalAccessException);
+      return paramLocale;
+    }
+    catch (InvocationTargetException localInvocationTargetException)
+    {
+      for (;;)
+      {
+        Log.w("ICUCompatIcs", localInvocationTargetException);
+      }
+    }
   }
 }
 

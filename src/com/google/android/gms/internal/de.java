@@ -1,178 +1,60 @@
 package com.google.android.gms.internal;
 
-import android.app.Activity;
-import android.os.RemoteException;
-import com.google.ads.mediation.MediationAdapter;
-import com.google.ads.mediation.MediationBannerAdapter;
-import com.google.ads.mediation.MediationInterstitialAdapter;
-import com.google.ads.mediation.MediationServerParameters;
-import com.google.ads.mediation.NetworkExtras;
-import com.google.android.gms.dynamic.d;
-import com.google.android.gms.dynamic.e;
-import java.util.HashMap;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
 import org.json.JSONObject;
 
-@ey
-public final class de<NETWORK_EXTRAS extends NetworkExtras, SERVER_PARAMETERS extends MediationServerParameters>
-  extends cz.a
+@fv
+public class de
+  implements dd
 {
-  private final MediationAdapter<NETWORK_EXTRAS, SERVER_PARAMETERS> qX;
-  private final NETWORK_EXTRAS qY;
+  private final dc a;
+  private final HashSet<AbstractMap.SimpleEntry<String, bz>> b;
   
-  public de(MediationAdapter<NETWORK_EXTRAS, SERVER_PARAMETERS> paramMediationAdapter, NETWORK_EXTRAS paramNETWORK_EXTRAS)
+  public de(dc paramdc)
   {
-    qX = paramMediationAdapter;
-    qY = paramNETWORK_EXTRAS;
+    a = paramdc;
+    b = new HashSet();
   }
   
-  private SERVER_PARAMETERS b(String paramString1, int paramInt, String paramString2)
+  public void a()
   {
-    if (paramString1 != null) {
-      try
-      {
-        localObject = new JSONObject(paramString1);
-        paramString2 = new HashMap(((JSONObject)localObject).length());
-        Iterator localIterator = ((JSONObject)localObject).keys();
-        for (;;)
-        {
-          paramString1 = paramString2;
-          if (!localIterator.hasNext()) {
-            break;
-          }
-          paramString1 = (String)localIterator.next();
-          paramString2.put(paramString1, ((JSONObject)localObject).getString(paramString1));
-        }
-        paramString1 = new HashMap(0);
-      }
-      catch (Throwable paramString1)
-      {
-        gr.d("Could not get MediationServerParameters.", paramString1);
-        throw new RemoteException();
-      }
-    }
-    Object localObject = qX.getServerParametersType();
-    paramString2 = null;
-    if (localObject != null)
+    Iterator localIterator = b.iterator();
+    while (localIterator.hasNext())
     {
-      paramString2 = (MediationServerParameters)((Class)localObject).newInstance();
-      paramString2.load(paramString1);
+      AbstractMap.SimpleEntry localSimpleEntry = (AbstractMap.SimpleEntry)localIterator.next();
+      gz.e("Unregistering eventhandler: " + ((bz)localSimpleEntry.getValue()).toString());
+      a.b((String)localSimpleEntry.getKey(), (bz)localSimpleEntry.getValue());
     }
-    return paramString2;
+    b.clear();
   }
   
-  public void a(d paramd, av paramav, String paramString, da paramda)
+  public void a(String paramString, bz parambz)
   {
-    a(paramd, paramav, paramString, null, paramda);
+    a.a(paramString, parambz);
+    b.add(new AbstractMap.SimpleEntry(paramString, parambz));
   }
   
-  public void a(d paramd, av paramav, String paramString1, String paramString2, da paramda)
+  public void a(String paramString1, String paramString2)
   {
-    if (!(qX instanceof MediationInterstitialAdapter))
-    {
-      gr.W("MediationAdapter is not a MediationInterstitialAdapter: " + qX.getClass().getCanonicalName());
-      throw new RemoteException();
-    }
-    gr.S("Requesting interstitial ad from adapter.");
-    try
-    {
-      ((MediationInterstitialAdapter)qX).requestInterstitialAd(new df(paramda), (Activity)e.f(paramd), b(paramString1, oh, paramString2), dg.d(paramav), qY);
-      return;
-    }
-    catch (Throwable paramd)
-    {
-      gr.d("Could not request interstitial ad from adapter.", paramd);
-      throw new RemoteException();
-    }
+    a.a(paramString1, paramString2);
   }
   
-  public void a(d paramd, ay paramay, av paramav, String paramString, da paramda)
+  public void a(String paramString, JSONObject paramJSONObject)
   {
-    a(paramd, paramay, paramav, paramString, null, paramda);
+    a.a(paramString, paramJSONObject);
   }
   
-  public void a(d paramd, ay paramay, av paramav, String paramString1, String paramString2, da paramda)
+  public void b(String paramString, bz parambz)
   {
-    if (!(qX instanceof MediationBannerAdapter))
-    {
-      gr.W("MediationAdapter is not a MediationBannerAdapter: " + qX.getClass().getCanonicalName());
-      throw new RemoteException();
-    }
-    gr.S("Requesting banner ad from adapter.");
-    try
-    {
-      ((MediationBannerAdapter)qX).requestBannerAd(new df(paramda), (Activity)e.f(paramd), b(paramString1, oh, paramString2), dg.b(paramay), dg.d(paramav), qY);
-      return;
-    }
-    catch (Throwable paramd)
-    {
-      gr.d("Could not request banner ad from adapter.", paramd);
-      throw new RemoteException();
-    }
+    a.b(paramString, parambz);
+    b.remove(new AbstractMap.SimpleEntry(paramString, parambz));
   }
   
-  public void destroy()
+  public void b(String paramString, JSONObject paramJSONObject)
   {
-    try
-    {
-      qX.destroy();
-      return;
-    }
-    catch (Throwable localThrowable)
-    {
-      gr.d("Could not destroy adapter.", localThrowable);
-      throw new RemoteException();
-    }
-  }
-  
-  public d getView()
-  {
-    if (!(qX instanceof MediationBannerAdapter))
-    {
-      gr.W("MediationAdapter is not a MediationBannerAdapter: " + qX.getClass().getCanonicalName());
-      throw new RemoteException();
-    }
-    try
-    {
-      d locald = e.k(((MediationBannerAdapter)qX).getBannerView());
-      return locald;
-    }
-    catch (Throwable localThrowable)
-    {
-      gr.d("Could not get banner view from adapter.", localThrowable);
-      throw new RemoteException();
-    }
-  }
-  
-  public void pause()
-  {
-    throw new RemoteException();
-  }
-  
-  public void resume()
-  {
-    throw new RemoteException();
-  }
-  
-  public void showInterstitial()
-  {
-    if (!(qX instanceof MediationInterstitialAdapter))
-    {
-      gr.W("MediationAdapter is not a MediationInterstitialAdapter: " + qX.getClass().getCanonicalName());
-      throw new RemoteException();
-    }
-    gr.S("Showing interstitial from adapter.");
-    try
-    {
-      ((MediationInterstitialAdapter)qX).showInterstitial();
-      return;
-    }
-    catch (Throwable localThrowable)
-    {
-      gr.d("Could not show interstitial from adapter.", localThrowable);
-      throw new RemoteException();
-    }
+    a.b(paramString, paramJSONObject);
   }
 }
 

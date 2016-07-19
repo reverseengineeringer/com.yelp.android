@@ -4,23 +4,22 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 
 public class ReviewDraft
   extends _ReviewDraft
-  implements m
 {
-  public static final JsonParser.DualCreator<ReviewDraft> CREATOR = new cp();
+  public static final JsonParser.DualCreator<ReviewDraft> CREATOR = new ReviewDraft.1();
   
-  public int getRating()
+  public int a()
   {
-    return mNumHalfstars / 2;
+    return h / 2;
   }
   
-  public void setHalfStars(int paramInt)
+  public void a(int paramInt)
   {
-    mNumHalfstars = paramInt;
+    h = paramInt;
   }
   
-  public void setText(String paramString)
+  public void a(String paramString)
   {
-    mText = paramString;
+    f = paramString;
   }
 }
 

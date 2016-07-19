@@ -5,11 +5,11 @@ import android.support.v4.app.DialogFragment;
 public class UserFeedbackDialog
   extends DialogFragment
 {
-  protected r a;
+  protected b a;
   
-  public void a(r paramr)
+  public void a(b paramb)
   {
-    a = paramr;
+    a = paramb;
   }
 }
 

@@ -4,12 +4,12 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)V
+.method public constructor <init>(Lcom/yelp/android/x/c;)V
     .locals 0
 
     .prologue
     .line 21
-    invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/d;-><init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;)V
+    invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/d;-><init>(Lcom/yelp/android/x/c;)V
 
     .line 22
     return-void
@@ -17,7 +17,7 @@
 
 
 # virtual methods
-.method protected a(Lcom/bumptech/glide/load/engine/bitmap_recycle/e;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
+.method protected a(Lcom/yelp/android/x/c;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
     .locals 3
 
     .prologue
@@ -33,12 +33,12 @@
     move-result-object v0
 
     :goto_0
-    invoke-interface {p1, p3, p4, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/e;->a(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-interface {p1, p3, p4, v0}, Lcom/yelp/android/x/c;->a(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
     .line 30
-    invoke-static {v0, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/v;->a(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
+    invoke-static {v0, p2, p3, p4}, Lcom/bumptech/glide/load/resource/bitmap/p;->a(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
@@ -47,7 +47,7 @@
 
     if-eq v0, v1, :cond_0
 
-    invoke-interface {p1, v0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/e;->a(Landroid/graphics/Bitmap;)Z
+    invoke-interface {p1, v0}, Lcom/yelp/android/x/c;->a(Landroid/graphics/Bitmap;)Z
 
     move-result v2
 

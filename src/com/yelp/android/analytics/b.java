@@ -2,8 +2,9 @@ package com.yelp.android.analytics;
 
 import android.text.TextUtils;
 import com.yelp.android.analytics.iris.AnalyticCategory;
-import com.yelp.android.appdata.BaseYelpApplication;
-import com.yelp.android.appdata.j;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.c;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public abstract class b
@@ -11,7 +12,7 @@ public abstract class b
   private final long a = System.currentTimeMillis();
   private int b;
   private String c;
-  private String d = BaseYelpApplication.z().x().ab();
+  private String d = AppData.b().f().Z();
   private AnalyticCategory e;
   
   public long a()
@@ -40,6 +41,7 @@ public abstract class b
   }
   
   public JSONObject c()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
     localJSONObject.put("index", b);

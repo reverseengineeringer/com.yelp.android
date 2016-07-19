@@ -1,340 +1,187 @@
-.class public final Lcom/google/android/gms/internal/jz;
-.super Landroid/widget/Button;
+.class public Lcom/google/android/gms/internal/jz;
+.super Ljava/lang/Object;
+
+
+# static fields
+.field private static final a:Ljava/util/regex/Pattern;
+
+.field private static final b:Ljava/util/regex/Pattern;
+
+.field private static final c:Ljava/util/regex/Pattern;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
+.method static constructor <clinit>()V
     .locals 1
 
-    const/4 v0, 0x0
+    const-string/jumbo v0, "^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$"
 
-    invoke-direct {p0, p1, v0}, Lcom/google/android/gms/internal/jz;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/android/gms/internal/jz;->a:Ljava/util/regex/Pattern;
+
+    const-string/jumbo v0, "^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$"
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/android/gms/internal/jz;->b:Ljava/util/regex/Pattern;
+
+    const-string/jumbo v0, "^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$"
+
+    invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/google/android/gms/internal/jz;->c:Ljava/util/regex/Pattern;
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+.method private static a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
 
-    const v0, 0x1010048
-
-    invoke-direct {p0, p1, p2, v0}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    return-void
-.end method
-
-.method private b(III)I
-    .locals 3
-
-    packed-switch p1, :pswitch_data_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Unknown color scheme: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :pswitch_0
-    move p2, p3
-
-    :pswitch_1
-    return p2
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
-.method private b(Landroid/content/res/Resources;II)V
-    .locals 3
-
-    packed-switch p2, :pswitch_data_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "Unknown button size: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :pswitch_0
-    sget v0, Lcom/google/android/gms/R$drawable;->common_signin_btn_text_dark:I
-
-    sget v1, Lcom/google/android/gms/R$drawable;->common_signin_btn_text_light:I
-
-    invoke-direct {p0, p3, v0, v1}, Lcom/google/android/gms/internal/jz;->b(III)I
-
-    move-result v0
+    if-eqz p1, :cond_0
 
     :goto_0
-    const/4 v1, -0x1
+    :try_start_0
+    invoke-static {p0, p1}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    if-ne v0, v1, :cond_0
+    move-result-object v0
 
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "Could not find background resource!"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :pswitch_1
-    sget v0, Lcom/google/android/gms/R$drawable;->common_signin_btn_icon_dark:I
-
-    sget v1, Lcom/google/android/gms/R$drawable;->common_signin_btn_icon_light:I
-
-    invoke-direct {p0, p3, v0, v1}, Lcom/google/android/gms/internal/jz;->b(III)I
-
-    move-result v0
-
-    goto :goto_0
+    return-object v0
 
     :cond_0
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    const-string/jumbo p1, "ISO-8859-1"
+    :try_end_0
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v1
+.end method
+
+.method public static a(Ljava/net/URI;Ljava/lang/String;)Ljava/util/Map;
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/net/URI;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    const/4 v6, 0x2
+
+    invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0}, Ljava/net/URI;->getRawQuery()Ljava/lang/String;
 
-    return-void
+    move-result-object v2
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
-.end method
+    if-eqz v2, :cond_4
 
-.method private c(Landroid/content/res/Resources;)V
-    .locals 4
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    const/high16 v3, 0x42400000    # 48.0f
+    move-result v1
 
-    const/high16 v2, 0x3f000000    # 0.5f
+    if-lez v1, :cond_4
 
-    sget-object v0, Landroid/graphics/Typeface;->DEFAULT_BOLD:Landroid/graphics/Typeface;
+    new-instance v1, Ljava/util/HashMap;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setTypeface(Landroid/graphics/Typeface;)V
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    const/high16 v0, 0x41600000    # 14.0f
+    new-instance v3, Ljava/util/Scanner;
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setTextSize(F)V
+    invoke-direct {v3, v2}, Ljava/util/Scanner;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    const-string/jumbo v0, "&"
 
-    move-result-object v0
+    invoke-virtual {v3, v0}, Ljava/util/Scanner;->useDelimiter(Ljava/lang/String;)Ljava/util/Scanner;
 
-    iget v0, v0, Landroid/util/DisplayMetrics;->density:F
-
-    mul-float v1, v0, v3
-
-    add-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    invoke-virtual {p0, v1}, Lcom/google/android/gms/internal/jz;->setMinHeight(I)V
-
-    mul-float/2addr v0, v3
-
-    add-float/2addr v0, v2
-
-    float-to-int v0, v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setMinWidth(I)V
-
-    return-void
-.end method
-
-.method private c(Landroid/content/res/Resources;II)V
-    .locals 3
-
-    sget v0, Lcom/google/android/gms/R$color;->common_signin_btn_text_dark:I
-
-    sget v1, Lcom/google/android/gms/R$color;->common_signin_btn_text_light:I
-
-    invoke-direct {p0, p3, v0, v1}, Lcom/google/android/gms/internal/jz;->b(III)I
+    :goto_0
+    invoke-virtual {v3}, Ljava/util/Scanner;->hasNext()Z
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v3}, Ljava/util/Scanner;->next()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setTextColor(Landroid/content/res/ColorStateList;)V
+    const-string/jumbo v2, "="
 
-    packed-switch p2, :pswitch_data_0
+    invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    move-result-object v2
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    array-length v0, v2
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v2, "Unknown button size: "
+    array-length v0, v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-le v0, v6, :cond_1
 
-    move-result-object v1
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "bad parameter"
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    :pswitch_0
-    sget v0, Lcom/google/android/gms/R$string;->common_signin_button_text:I
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setText(Ljava/lang/CharSequence;)V
-
-    :goto_0
-    return-void
-
-    :pswitch_1
-    sget v0, Lcom/google/android/gms/R$string;->common_signin_button_text_long:I
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setText(Ljava/lang/CharSequence;)V
-
-    goto :goto_0
-
-    :pswitch_2
+    :cond_1
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/jz;->setText(Ljava/lang/CharSequence;)V
+    aget-object v0, v2, v0
 
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
-.end method
-
-
-# virtual methods
-.method public a(Landroid/content/res/Resources;II)V
-    .locals 6
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-ltz p2, :cond_0
-
-    const/4 v0, 0x3
-
-    if-ge p2, v0, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    const-string/jumbo v3, "Unknown button size %d"
-
-    new-array v4, v1, [Ljava/lang/Object;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    aput-object v5, v4, v2
-
-    invoke-static {v0, v3, v4}, Lcom/google/android/gms/internal/jx;->a(ZLjava/lang/String;[Ljava/lang/Object;)V
-
-    if-ltz p3, :cond_1
-
-    const/4 v0, 0x2
-
-    if-ge p3, v0, :cond_1
-
-    move v0, v1
-
-    :goto_1
-    const-string/jumbo v3, "Unknown color scheme %s"
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0, p1}, Lcom/google/android/gms/internal/jz;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    aput-object v4, v1, v2
+    const/4 v0, 0x0
 
-    invoke-static {v0, v3, v1}, Lcom/google/android/gms/internal/jx;->a(ZLjava/lang/String;[Ljava/lang/Object;)V
+    array-length v5, v2
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/jz;->c(Landroid/content/res/Resources;)V
+    if-ne v5, v6, :cond_2
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/gms/internal/jz;->b(Landroid/content/res/Resources;II)V
+    const/4 v0, 0x1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/gms/internal/jz;->c(Landroid/content/res/Resources;II)V
+    aget-object v0, v2, v0
 
-    return-void
+    invoke-static {v0, p1}, Lcom/google/android/gms/internal/jz;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_0
-    move v0, v2
+    move-result-object v0
+
+    :cond_2
+    invoke-interface {v1, v4, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
-    :cond_1
-    move v0, v2
+    :cond_3
+    move-object v0, v1
 
-    goto :goto_1
+    :cond_4
+    return-object v0
 .end method

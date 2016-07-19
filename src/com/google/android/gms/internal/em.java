@@ -1,15 +1,83 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public abstract interface em
-  extends IInterface
+@fv
+public class em
 {
-  public abstract String getProductId();
+  private final boolean a;
+  private final boolean b;
+  private final boolean c;
+  private final boolean d;
+  private final boolean e;
   
-  public abstract void recordPlayBillingResolution(int paramInt);
+  private em(a parama)
+  {
+    a = a.a(parama);
+    b = a.b(parama);
+    c = a.c(parama);
+    d = a.d(parama);
+    e = a.e(parama);
+  }
   
-  public abstract void recordResolution(int paramInt);
+  public JSONObject a()
+  {
+    try
+    {
+      JSONObject localJSONObject = new JSONObject().put("sms", a).put("tel", b).put("calendar", c).put("storePicture", d).put("inlineVideo", e);
+      return localJSONObject;
+    }
+    catch (JSONException localJSONException)
+    {
+      gz.b("Error occured while obtaining the MRAID capabilities.", localJSONException);
+    }
+    return null;
+  }
+  
+  public static final class a
+  {
+    private boolean a;
+    private boolean b;
+    private boolean c;
+    private boolean d;
+    private boolean e;
+    
+    public a a(boolean paramBoolean)
+    {
+      a = paramBoolean;
+      return this;
+    }
+    
+    public em a()
+    {
+      return new em(this, null);
+    }
+    
+    public a b(boolean paramBoolean)
+    {
+      b = paramBoolean;
+      return this;
+    }
+    
+    public a c(boolean paramBoolean)
+    {
+      c = paramBoolean;
+      return this;
+    }
+    
+    public a d(boolean paramBoolean)
+    {
+      d = paramBoolean;
+      return this;
+    }
+    
+    public a e(boolean paramBoolean)
+    {
+      e = paramBoolean;
+      return this;
+    }
+  }
 }
 
 /* Location:

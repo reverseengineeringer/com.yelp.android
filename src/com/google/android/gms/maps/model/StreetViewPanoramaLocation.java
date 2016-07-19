@@ -2,29 +2,29 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
-import com.google.android.gms.internal.jv.a;
+import com.google.android.gms.common.internal.zzw;
+import com.google.android.gms.common.internal.zzw.zza;
 
 public class StreetViewPanoramaLocation
   implements SafeParcelable
 {
-  public static final s CREATOR = new s();
-  private final int CK;
-  public final StreetViewPanoramaLink[] links;
-  public final String panoId;
-  public final LatLng position;
+  public static final p CREATOR = new p();
+  public final StreetViewPanoramaLink[] a;
+  public final LatLng b;
+  public final String c;
+  private final int d;
   
   StreetViewPanoramaLocation(int paramInt, StreetViewPanoramaLink[] paramArrayOfStreetViewPanoramaLink, LatLng paramLatLng, String paramString)
   {
-    CK = paramInt;
-    links = paramArrayOfStreetViewPanoramaLink;
-    position = paramLatLng;
-    panoId = paramString;
+    d = paramInt;
+    a = paramArrayOfStreetViewPanoramaLink;
+    b = paramLatLng;
+    c = paramString;
   }
   
-  public StreetViewPanoramaLocation(StreetViewPanoramaLink[] paramArrayOfStreetViewPanoramaLink, LatLng paramLatLng, String paramString)
+  int a()
   {
-    this(1, paramArrayOfStreetViewPanoramaLink, paramLatLng, paramString);
+    return d;
   }
   
   public int describeContents()
@@ -42,28 +42,23 @@ public class StreetViewPanoramaLocation
         return false;
       }
       paramObject = (StreetViewPanoramaLocation)paramObject;
-    } while ((panoId.equals(panoId)) && (position.equals(position)));
+    } while ((c.equals(c)) && (b.equals(b)));
     return false;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { position, panoId });
+    return zzw.hashCode(new Object[] { b, c });
   }
   
   public String toString()
   {
-    return jv.h(this).a("panoId", panoId).a("position", position.toString()).toString();
+    return zzw.zzy(this).zzg("panoId", c).zzg("position", b.toString()).toString();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    s.a(this, paramParcel, paramInt);
+    p.a(this, paramParcel, paramInt);
   }
 }
 

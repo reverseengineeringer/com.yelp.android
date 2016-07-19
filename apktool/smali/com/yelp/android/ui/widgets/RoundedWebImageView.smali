@@ -3,6 +3,15 @@
 .source "RoundedWebImageView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/widgets/RoundedWebImageView$1;,
+        Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
+    }
+.end annotation
+
+
 # static fields
 .field private static b:Landroid/graphics/drawable/Drawable;
 
@@ -22,21 +31,21 @@
     .locals 2
 
     .prologue
-    .line 90
-    sget v0, Lcom/yelp/android/appdata/ao;->m:I
+    .line 91
+    sget v0, Lcom/yelp/android/appdata/n;->m:I
 
     int-to-float v0, v0
 
     sput v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->c:F
 
-    .line 91
+    .line 92
     new-instance v0, Landroid/graphics/RectF;
 
     invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
 
     sput-object v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->d:Landroid/graphics/RectF;
 
-    .line 92
+    .line 93
     new-instance v0, Landroid/graphics/PorterDuffXfermode;
 
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
@@ -52,36 +61,38 @@
     .locals 1
 
     .prologue
-    .line 96
+    .line 97
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 97
+    .line 98
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 3
 
     .prologue
-    const/4 v1, 0x0
-
-    .line 100
+    .line 101
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/webimageview/WebImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 101
-    sget-object v0, Lcom/yelp/android/bf/m;->RoundedWebImageView:[I
+    .line 102
+    sget-object v0, Lcom/yelp/android/co/a$l;->RoundedWebImageView:[I
 
     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 102
+    .line 104
     if-eqz v0, :cond_0
 
-    .line 103
-    invoke-virtual {v0, v1, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    .line 105
+    sget v1, Lcom/yelp/android/co/a$l;->RoundedWebImageView_forceRoundingMode:I
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result v1
 
@@ -91,27 +102,32 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
-    .line 105
+    .line 108
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 107
+    .line 110
     :cond_0
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->setup(Landroid/content/Context;)V
 
-    .line 108
+    .line 111
     return-void
 .end method
 
-.method private a(Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;)V
+.method private a(Landroid/graphics/Canvas;)V
     .locals 4
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "WrongCall"
+        }
+    .end annotation
 
     .prologue
     const/4 v3, 0x0
 
-    .line 159
-    invoke-super {p0, p2}, Lcom/yelp/android/webimageview/WebImageView;->onDraw(Landroid/graphics/Canvas;)V
+    .line 164
+    invoke-super {p0, p1}, Lcom/yelp/android/webimageview/WebImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 160
+    .line 165
     sget-object v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->b:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->getWidth()I
@@ -124,22 +140,27 @@
 
     invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 161
+    .line 166
     sget-object v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->b:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, p2}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 162
+    .line 167
     return-void
 .end method
 
-.method private b(Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;)V
+.method private a(Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;)V
     .locals 5
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "WrongCall"
+        }
+    .end annotation
 
     .prologue
     const/4 v4, 0x0
 
-    .line 165
+    .line 172
     move-object v0, p1
 
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
@@ -148,17 +169,17 @@
 
     move-result-object v0
 
-    .line 167
+    .line 174
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v1
 
-    .line 168
+    .line 175
     sget-object v2, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->d:Landroid/graphics/RectF;
 
     invoke-virtual {v2, v1}, Landroid/graphics/RectF;->set(Landroid/graphics/Rect;)V
 
-    .line 173
+    .line 180
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->getImageMatrix()Landroid/graphics/Matrix;
 
     move-result-object v1
@@ -167,7 +188,7 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Matrix;->mapRect(Landroid/graphics/RectF;)Z
 
-    .line 177
+    .line 184
     sget-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->d:Landroid/graphics/RectF;
 
     const/4 v2, 0x0
@@ -178,20 +199,20 @@
 
     move-result v1
 
-    .line 181
+    .line 194
     const/4 v2, 0x1
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    .line 182
+    .line 195
     invoke-virtual {p2, v4, v4, v4, v4}, Landroid/graphics/Canvas;->drawARGB(IIII)V
 
-    .line 183
+    .line 196
     const/high16 v2, -0x1000000
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
 
-    .line 184
+    .line 197
     sget-object v2, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->d:Landroid/graphics/RectF;
 
     sget v3, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->c:F
@@ -200,26 +221,26 @@
 
     invoke-virtual {p2, v2, v3, v4, v0}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    .line 185
+    .line 198
     invoke-virtual {v0}, Landroid/graphics/Paint;->getXfermode()Landroid/graphics/Xfermode;
 
     move-result-object v2
 
-    .line 186
+    .line 199
     sget-object v3, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->e:Landroid/graphics/PorterDuffXfermode;
 
     invoke-virtual {v0, v3}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    .line 187
+    .line 200
     invoke-super {p0, p2}, Lcom/yelp/android/webimageview/WebImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 188
+    .line 201
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    .line 189
+    .line 202
     invoke-virtual {p2, v1}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    .line 190
+    .line 203
     return-void
 .end method
 
@@ -227,17 +248,17 @@
     .locals 2
 
     .prologue
-    .line 111
+    .line 114
     sget-object v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->b:Landroid/graphics/drawable/Drawable;
 
     if-nez v0, :cond_0
 
-    .line 112
+    .line 115
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v1, Lcom/yelp/android/bf/f;->corners:I
+    sget v1, Lcom/yelp/android/co/a$e;->corners:I
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -245,7 +266,7 @@
 
     sput-object v0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->b:Landroid/graphics/drawable/Drawable;
 
-    .line 114
+    .line 117
     :cond_0
     return-void
 .end method
@@ -256,13 +277,13 @@
     .locals 0
 
     .prologue
-    .line 194
+    .line 207
     invoke-super {p0}, Lcom/yelp/android/webimageview/WebImageView;->drawableStateChanged()V
 
-    .line 197
+    .line 210
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->invalidate()V
 
-    .line 198
+    .line 211
     return-void
 .end method
 
@@ -270,37 +291,37 @@
     .locals 3
 
     .prologue
-    .line 125
+    .line 128
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     sget-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;->NONE:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     if-ne v0, v1, :cond_0
 
-    .line 126
+    .line 129
     invoke-super {p0, p1}, Lcom/yelp/android/webimageview/WebImageView;->onDraw(Landroid/graphics/Canvas;)V
 
-    .line 156
+    .line 159
     :goto_0
     return-void
 
-    .line 130
+    .line 133
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    .line 131
+    .line 134
     instance-of v1, v0, Landroid/graphics/drawable/GradientDrawable;
 
     if-eqz v1, :cond_1
 
-    .line 134
+    .line 137
     invoke-super {p0, p1}, Lcom/yelp/android/webimageview/WebImageView;->onDraw(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
-    .line 135
+    .line 138
     :cond_1
     instance-of v1, v0, Landroid/graphics/drawable/BitmapDrawable;
 
@@ -314,8 +335,8 @@
 
     if-lez v1, :cond_4
 
-    .line 136
-    sget-object v1, Lcom/yelp/android/ui/widgets/aj;->a:[I
+    .line 139
+    sget-object v1, Lcom/yelp/android/ui/widgets/RoundedWebImageView$1;->a:[I
 
     iget-object v2, p0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
@@ -327,7 +348,7 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 144
+    .line 147
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->isEnabled()Z
 
     move-result v1
@@ -352,37 +373,37 @@
 
     if-eqz v1, :cond_3
 
-    .line 147
+    .line 150
     :cond_2
-    invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->b(Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;)V
-
-    goto :goto_0
-
-    .line 138
-    :pswitch_0
     invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a(Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
     .line 141
-    :pswitch_1
-    invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->b(Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;)V
+    :pswitch_0
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
-    .line 150
-    :cond_3
+    .line 144
+    :pswitch_1
     invoke-direct {p0, v0, p1}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a(Landroid/graphics/drawable/Drawable;Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
-    .line 154
+    .line 153
+    :cond_3
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a(Landroid/graphics/Canvas;)V
+
+    goto :goto_0
+
+    .line 157
     :cond_4
     invoke-super {p0, p1}, Lcom/yelp/android/webimageview/WebImageView;->onDraw(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
-    .line 136
+    .line 139
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -394,18 +415,18 @@
     .locals 1
 
     .prologue
-    .line 117
+    .line 120
     iget-object v0, p0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
     if-eq p1, v0, :cond_0
 
-    .line 118
+    .line 121
     invoke-virtual {p0}, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->invalidate()V
 
-    .line 120
+    .line 123
     :cond_0
     iput-object p1, p0, Lcom/yelp/android/ui/widgets/RoundedWebImageView;->a:Lcom/yelp/android/ui/widgets/RoundedWebImageView$RoundingMode;
 
-    .line 121
+    .line 124
     return-void
 .end method

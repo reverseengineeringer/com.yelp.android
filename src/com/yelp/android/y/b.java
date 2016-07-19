@@ -1,28 +1,18 @@
 package com.yelp.android.y;
 
-import com.bumptech.glide.load.e;
-import com.bumptech.glide.load.engine.t;
-import java.io.OutputStream;
+import java.io.File;
 
-public class b<T>
-  implements e<T>
+public class b
+  implements a
 {
-  private static final b<?> a = new b();
-  
-  public static <T> b<T> b()
+  public File a(com.bumptech.glide.load.b paramb)
   {
-    return a;
+    return null;
   }
   
-  public String a()
-  {
-    return "";
-  }
+  public void a(com.bumptech.glide.load.b paramb, a.b paramb1) {}
   
-  public boolean a(t<T> paramt, OutputStream paramOutputStream)
-  {
-    return false;
-  }
+  public void b(com.bumptech.glide.load.b paramb) {}
 }
 
 /* Location:

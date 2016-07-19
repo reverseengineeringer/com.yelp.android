@@ -1,22 +1,10 @@
 package com.yelp.android.ui.activities;
 
-import android.os.Message;
-import android.view.View;
-import com.yelp.android.webimageview.ImageLoaderHandler;
-
-class b
-  extends ImageLoaderHandler
+public abstract interface b
 {
-  b(ActivityBadge paramActivityBadge, Object paramObject)
-  {
-    super(paramObject);
-  }
+  public abstract void hideLoadingDialog();
   
-  public void handleMessage(Message paramMessage)
-  {
-    ActivityBadge.a(a).setVisibility(8);
-    super.handleMessage(paramMessage);
-  }
+  public abstract void showLoadingDialog(int paramInt);
 }
 
 /* Location:

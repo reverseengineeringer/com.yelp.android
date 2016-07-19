@@ -3,8 +3,8 @@ package com.yelp.android.ui.activities.events;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.serializable.Event;
 import com.yelp.android.ui.activities.support.YelpActivity;
@@ -27,10 +27,10 @@ public class ActivityEventDetails
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    if ((EventDetailFragment)getSupportFragmentManager().findFragmentById(2131493332) == null)
+    if ((EventDetailFragment)getSupportFragmentManager().a(2131689997) == null)
     {
       paramBundle = EventDetailFragment.a((Event)getIntent().getParcelableExtra("extra.event"));
-      getSupportFragmentManager().beginTransaction().replace(2131493332, paramBundle).commit();
+      getSupportFragmentManager().a().b(2131689997, paramBundle).a();
     }
   }
 }

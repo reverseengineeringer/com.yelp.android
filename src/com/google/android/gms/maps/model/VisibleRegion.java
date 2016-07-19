@@ -2,34 +2,33 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
-import com.google.android.gms.internal.jv.a;
-import com.google.android.gms.maps.internal.aa;
+import com.google.android.gms.common.internal.zzw;
+import com.google.android.gms.common.internal.zzw.zza;
 
 public final class VisibleRegion
   implements SafeParcelable
 {
-  public static final y CREATOR = new y();
-  private final int CK;
-  public final LatLng farLeft;
-  public final LatLng farRight;
-  public final LatLngBounds latLngBounds;
-  public final LatLng nearLeft;
-  public final LatLng nearRight;
+  public static final t CREATOR = new t();
+  public final LatLng a;
+  public final LatLng b;
+  public final LatLng c;
+  public final LatLng d;
+  public final LatLngBounds e;
+  private final int f;
   
   VisibleRegion(int paramInt, LatLng paramLatLng1, LatLng paramLatLng2, LatLng paramLatLng3, LatLng paramLatLng4, LatLngBounds paramLatLngBounds)
   {
-    CK = paramInt;
-    nearLeft = paramLatLng1;
-    nearRight = paramLatLng2;
-    farLeft = paramLatLng3;
-    farRight = paramLatLng4;
-    latLngBounds = paramLatLngBounds;
+    f = paramInt;
+    a = paramLatLng1;
+    b = paramLatLng2;
+    c = paramLatLng3;
+    d = paramLatLng4;
+    e = paramLatLngBounds;
   }
   
-  public VisibleRegion(LatLng paramLatLng1, LatLng paramLatLng2, LatLng paramLatLng3, LatLng paramLatLng4, LatLngBounds paramLatLngBounds)
+  int a()
   {
-    this(1, paramLatLng1, paramLatLng2, paramLatLng3, paramLatLng4, paramLatLngBounds);
+    return f;
   }
   
   public int describeContents()
@@ -47,33 +46,23 @@ public final class VisibleRegion
         return false;
       }
       paramObject = (VisibleRegion)paramObject;
-    } while ((nearLeft.equals(nearLeft)) && (nearRight.equals(nearRight)) && (farLeft.equals(farLeft)) && (farRight.equals(farRight)) && (latLngBounds.equals(latLngBounds)));
+    } while ((a.equals(a)) && (b.equals(b)) && (c.equals(c)) && (d.equals(d)) && (e.equals(e)));
     return false;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { nearLeft, nearRight, farLeft, farRight, latLngBounds });
+    return zzw.hashCode(new Object[] { a, b, c, d, e });
   }
   
   public String toString()
   {
-    return jv.h(this).a("nearLeft", nearLeft).a("nearRight", nearRight).a("farLeft", farLeft).a("farRight", farRight).a("latLngBounds", latLngBounds).toString();
+    return zzw.zzy(this).zzg("nearLeft", a).zzg("nearRight", b).zzg("farLeft", c).zzg("farRight", d).zzg("latLngBounds", e).toString();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      z.a(this, paramParcel, paramInt);
-      return;
-    }
-    y.a(this, paramParcel, paramInt);
+    t.a(this, paramParcel, paramInt);
   }
 }
 

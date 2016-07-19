@@ -36,7 +36,7 @@ public class SimpleListDialogFragment
       localHashMap.put("data", localEntry.getValue());
       paramBundle.add(localHashMap);
     }
-    paramBuilder.setAdapter(new SimpleAdapter(getActivity(), paramBundle, 17367043, new String[] { "text" }, new int[] { 16908308 }), new bf(this, paramBundle));
+    paramBuilder.setAdapter(new SimpleAdapter(getActivity(), paramBundle, 17367043, new String[] { "text" }, new int[] { 16908308 }), new SimpleListDialogFragment.1(this, paramBundle));
     return paramBuilder;
   }
   

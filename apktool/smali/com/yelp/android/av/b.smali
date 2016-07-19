@@ -1,48 +1,53 @@
 .class Lcom/yelp/android/av/b;
-.super Ljava/lang/Object;
-.source "MetricsManager.java"
+.super Lcom/yelp/android/av/a;
+.source "ActivityLifecycleCheckForUpdatesController.java"
 
-# interfaces
-.implements Ljava/lang/Runnable;
+
+# annotations
+.annotation build Landroid/annotation/TargetApi;
+    value = 0xe
+.end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/av/a;
+.field private final a:Lio/fabric/sdk/android/a$b;
+
+.field private final b:Ljava/util/concurrent/ExecutorService;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/av/a;)V
-    .locals 0
-
-    .prologue
-    .line 294
-    iput-object p1, p0, Lcom/yelp/android/av/b;->a:Lcom/yelp/android/av/a;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public run()V
+.method public constructor <init>(Lio/fabric/sdk/android/a;Ljava/util/concurrent/ExecutorService;)V
     .locals 1
 
     .prologue
-    .line 297
-    iget-object v0, p0, Lcom/yelp/android/av/b;->a:Lcom/yelp/android/av/a;
+    .line 37
+    invoke-direct {p0}, Lcom/yelp/android/av/a;-><init>()V
 
-    invoke-static {v0}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/av/a;)Landroid/os/Handler;
+    .line 18
+    new-instance v0, Lcom/yelp/android/av/b$1;
 
-    move-result-object v0
+    invoke-direct {v0, p0}, Lcom/yelp/android/av/b$1;-><init>(Lcom/yelp/android/av/b;)V
 
-    invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    iput-object v0, p0, Lcom/yelp/android/av/b;->a:Lio/fabric/sdk/android/a$b;
 
-    .line 298
-    iget-object v0, p0, Lcom/yelp/android/av/b;->a:Lcom/yelp/android/av/a;
+    .line 38
+    iput-object p2, p0, Lcom/yelp/android/av/b;->b:Ljava/util/concurrent/ExecutorService;
 
-    invoke-virtual {v0}, Lcom/yelp/android/av/a;->b()V
+    .line 39
+    iget-object v0, p0, Lcom/yelp/android/av/b;->a:Lio/fabric/sdk/android/a$b;
 
-    .line 299
+    invoke-virtual {p1, v0}, Lio/fabric/sdk/android/a;->a(Lio/fabric/sdk/android/a$b;)Z
+
+    .line 40
     return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/av/b;)Ljava/util/concurrent/ExecutorService;
+    .locals 1
+
+    .prologue
+    .line 16
+    iget-object v0, p0, Lcom/yelp/android/av/b;->b:Ljava/util/concurrent/ExecutorService;
+
+    return-object v0
 .end method

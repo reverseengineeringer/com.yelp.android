@@ -15,7 +15,7 @@
         "Ljava/lang/Object;",
         "Lcom/bumptech/glide/load/a",
         "<",
-        "Lcom/bumptech/glide/load/engine/t",
+        "Lcom/bumptech/glide/load/engine/i",
         "<TT;>;>;"
     }
 .end annotation

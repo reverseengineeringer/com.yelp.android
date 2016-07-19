@@ -1,33 +1,16 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Review;
-import com.yelp.android.serializable.ReviewDraft;
-import com.yelp.android.serializable.ReviewThreshold;
-import com.yelp.android.ui.activities.reviews.ReviewState;
-import com.yelp.parcelgen.JsonParser.DualCreator;
-import com.yelp.parcelgen.JsonUtil;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.serializable.User;
 
 public class ff
-  extends g<Void, Void, fg>
+  extends c
 {
-  public ff(String paramString, m<fg> paramm)
+  public ff(User paramUser, c.a parama)
   {
-    super(ApiRequest.RequestType.GET, "review/start", paramm);
-    addUrlParam("business_id", paramString);
-  }
-  
-  public fg a(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("draft")) {}
-    for (ReviewDraft localReviewDraft = (ReviewDraft)ReviewDraft.CREATOR.parse(paramJSONObject.getJSONObject("draft"));; localReviewDraft = null)
-    {
-      if (!paramJSONObject.isNull("review")) {}
-      for (Review localReview = (Review)Review.CREATOR.parse(paramJSONObject.getJSONObject("review"));; localReview = null) {
-        return new fg(this, ReviewState.fromDescription(paramJSONObject.getString("review_activity")), JsonUtil.parseJsonList(paramJSONObject.getJSONArray("review_thresholds"), ReviewThreshold.CREATOR), localReviewDraft, localReview);
-      }
-    }
+    super(ApiRequest.RequestType.POST, "user/follow", parama);
+    b("user_id", paramUser.i());
   }
 }
 

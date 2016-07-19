@@ -1,55 +1,98 @@
 package com.google.android.gms.internal;
 
-import android.location.Location;
-import android.os.Bundle;
-import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import java.util.List;
+import android.os.Process;
+import java.util.concurrent.BlockingQueue;
 
-@ey
-public final class av
-  implements SafeParcelable
+public class av
+  extends Thread
 {
-  public static final aw CREATOR = new aw();
-  public final Bundle extras;
-  public final long od;
-  public final int oe;
-  public final List<String> of;
-  public final boolean og;
-  public final int oh;
-  public final boolean oi;
-  public final String oj;
-  public final bj ok;
-  public final Location ol;
-  public final String om;
-  public final Bundle on;
-  public final int versionCode;
+  private static final boolean a = li.b;
+  private final BlockingQueue<zzk<?>> b;
+  private final BlockingQueue<zzk<?>> c;
+  private final u d;
+  private final ka e;
+  private volatile boolean f = false;
   
-  public av(int paramInt1, long paramLong, Bundle paramBundle1, int paramInt2, List<String> paramList, boolean paramBoolean1, int paramInt3, boolean paramBoolean2, String paramString1, bj parambj, Location paramLocation, String paramString2, Bundle paramBundle2)
+  public av(BlockingQueue<zzk<?>> paramBlockingQueue1, BlockingQueue<zzk<?>> paramBlockingQueue2, u paramu, ka paramka)
   {
-    versionCode = paramInt1;
-    od = paramLong;
-    extras = paramBundle1;
-    oe = paramInt2;
-    of = paramList;
-    og = paramBoolean1;
-    oh = paramInt3;
-    oi = paramBoolean2;
-    oj = paramString1;
-    ok = parambj;
-    ol = paramLocation;
-    om = paramString2;
-    on = paramBundle2;
+    b = paramBlockingQueue1;
+    c = paramBlockingQueue2;
+    d = paramu;
+    e = paramka;
   }
   
-  public int describeContents()
+  public void a()
   {
-    return 0;
+    f = true;
+    interrupt();
   }
   
-  public void writeToParcel(Parcel paramParcel, int paramInt)
+  public void run()
   {
-    aw.a(this, paramParcel, paramInt);
+    if (a) {
+      li.a("start new dispatcher", new Object[0]);
+    }
+    Process.setThreadPriority(10);
+    d.a();
+    for (;;)
+    {
+      try
+      {
+        zzk localzzk = (zzk)b.take();
+        localzzk.b("cache-queue-take");
+        if (!localzzk.g()) {
+          break label73;
+        }
+        localzzk.c("cache-discard-canceled");
+        continue;
+        if (!f) {
+          continue;
+        }
+      }
+      catch (InterruptedException localInterruptedException) {}
+      return;
+      label73:
+      u.a locala = d.a(localInterruptedException.e());
+      if (locala == null)
+      {
+        localInterruptedException.b("cache-miss");
+        c.put(localInterruptedException);
+      }
+      else if (locala.a())
+      {
+        localInterruptedException.b("cache-hit-expired");
+        localInterruptedException.a(locala);
+        c.put(localInterruptedException);
+      }
+      else
+      {
+        localInterruptedException.b("cache-hit");
+        jc localjc = localInterruptedException.a(new gm(a, g));
+        localInterruptedException.b("cache-hit-parsed");
+        if (!locala.b())
+        {
+          e.a(localInterruptedException, localjc);
+        }
+        else
+        {
+          localInterruptedException.b("cache-hit-refresh-needed");
+          localInterruptedException.a(locala);
+          d = true;
+          e.a(localInterruptedException, localjc, new Runnable()
+          {
+            public void run()
+            {
+              try
+              {
+                av.a(av.this).put(localInterruptedException);
+                return;
+              }
+              catch (InterruptedException localInterruptedException) {}
+            }
+          });
+        }
+      }
+    }
   }
 }
 

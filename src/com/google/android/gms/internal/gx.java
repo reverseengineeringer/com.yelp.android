@@ -1,74 +1,64 @@
 package com.google.android.gms.internal;
 
 import android.content.Context;
-import android.webkit.WebResourceResponse;
-import android.webkit.WebView;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import android.text.TextUtils;
+import com.google.android.gms.ads.internal.s;
+import java.math.BigInteger;
+import java.util.Locale;
 
-@ey
-public class gx
-  extends gv
+@fv
+public final class gx
 {
-  public gx(gu paramgu, boolean paramBoolean)
+  private static final Object a = new Object();
+  private static String b;
+  
+  public static String a()
   {
-    super(paramgu, paramBoolean);
+    synchronized (a)
+    {
+      String str = b;
+      return str;
+    }
   }
   
-  protected WebResourceResponse d(Context paramContext, String paramString1, String paramString2)
+  public static String a(Context paramContext, String paramString1, String paramString2)
   {
-    paramString2 = (HttpURLConnection)new URL(paramString2).openConnection();
-    try
+    synchronized (a)
     {
-      gi.a(paramContext, paramString1, true, paramString2, true);
-      paramString2.addRequestProperty("Cache-Control", "max-stale=3600");
-      paramString2.connect();
-      paramContext = new WebResourceResponse("application/javascript", "UTF-8", new ByteArrayInputStream(gi.a(new InputStreamReader(paramString2.getInputStream())).getBytes("UTF-8")));
+      if ((b == null) && (!TextUtils.isEmpty(paramString1))) {
+        b(paramContext, paramString1, paramString2);
+      }
+      paramContext = b;
       return paramContext;
     }
-    finally
-    {
-      paramString2.disconnect();
-    }
   }
   
-  public WebResourceResponse shouldInterceptRequest(WebView paramWebView, String paramString)
+  private static void b(Context paramContext, String paramString1, String paramString2)
   {
     try
     {
-      if (!"mraid.js".equalsIgnoreCase(new File(paramString).getName())) {
-        return super.shouldInterceptRequest(paramWebView, paramString);
-      }
-      if (!(paramWebView instanceof gu))
+      paramString2 = paramContext.createPackageContext(paramString2, 3).getClassLoader();
+      Class localClass = Class.forName("com.google.ads.mediation.MediationAdapter", false, paramString2);
+      paramContext = new BigInteger(new byte[1]);
+      String[] arrayOfString = paramString1.split(",");
+      int i = 0;
+      while (i < arrayOfString.length)
       {
-        gr.W("Tried to intercept request from a WebView that wasn't an AdWebView.");
-        return super.shouldInterceptRequest(paramWebView, paramString);
+        paramString1 = paramContext;
+        if (s.e().a(paramString2, localClass, arrayOfString[i])) {
+          paramString1 = paramContext.setBit(i);
+        }
+        i += 1;
+        paramContext = paramString1;
       }
-      Object localObject = (gu)paramWebView;
-      ((gu)localObject).dD().cg();
-      if (acoq)
-      {
-        gr.V("shouldInterceptRequest(https://googleads.g.doubleclick.net/mads/static/mad/sdk/native/mraid/v2/mraid_app_interstitial.js)");
-        return d(((gu)localObject).getContext(), mo.dG().wS, "https://googleads.g.doubleclick.net/mads/static/mad/sdk/native/mraid/v2/mraid_app_interstitial.js");
-      }
-      if (((gu)localObject).dH())
-      {
-        gr.V("shouldInterceptRequest(https://googleads.g.doubleclick.net/mads/static/mad/sdk/native/mraid/v2/mraid_app_expanded_banner.js)");
-        return d(((gu)localObject).getContext(), mo.dG().wS, "https://googleads.g.doubleclick.net/mads/static/mad/sdk/native/mraid/v2/mraid_app_expanded_banner.js");
-      }
-      gr.V("shouldInterceptRequest(https://googleads.g.doubleclick.net/mads/static/mad/sdk/native/mraid/v2/mraid_app_banner.js)");
-      localObject = d(((gu)localObject).getContext(), mo.dG().wS, "https://googleads.g.doubleclick.net/mads/static/mad/sdk/native/mraid/v2/mraid_app_banner.js");
-      return (WebResourceResponse)localObject;
     }
-    catch (IOException localIOException)
+    catch (Throwable paramContext)
     {
-      gr.W("Could not fetch MRAID JS. " + localIOException.getMessage());
+      b = "err";
+      return;
     }
-    return super.shouldInterceptRequest(paramWebView, paramString);
+    tmp96_93[0] = paramContext;
+    b = String.format(Locale.US, "%X", tmp96_93);
   }
 }
 

@@ -1,91 +1,88 @@
 package com.google.android.gms.internal;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
-import java.util.HashSet;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 
-final class jn$a
+public abstract class jn$a
+  extends Binder
+  implements jn
 {
-  private final String Ng;
-  private final jn.a.a Nh;
-  private final HashSet<jl<?>.f> Ni;
-  private boolean Nj;
-  private IBinder Nk;
-  private ComponentName Nl;
-  private int mState;
-  
-  public jn$a(jn paramjn, String paramString)
+  public jn$a()
   {
-    Ng = paramString;
-    Nh = new jn.a.a(this);
-    Ni = new HashSet();
-    mState = 2;
+    attachInterface(this, "com.google.android.gms.common.internal.service.ICommonCallbacks");
   }
   
-  public void a(jl<?>.f paramjl)
+  public static jn a(IBinder paramIBinder)
   {
-    Ni.add(paramjl);
-  }
-  
-  public void b(jl<?>.f paramjl)
-  {
-    Ni.remove(paramjl);
-  }
-  
-  public boolean c(jl<?>.f paramjl)
-  {
-    return Ni.contains(paramjl);
-  }
-  
-  public IBinder getBinder()
-  {
-    return Nk;
-  }
-  
-  public ComponentName getComponentName()
-  {
-    return Nl;
-  }
-  
-  public int getState()
-  {
-    return mState;
-  }
-  
-  public void hA()
-  {
-    Intent localIntent = new Intent(Ng).setPackage("com.google.android.gms");
-    Nj = jn.b(Nm).bindService(localIntent, Nh, 129);
-    if (Nj)
-    {
-      mState = 3;
-      return;
+    if (paramIBinder == null) {
+      return null;
     }
-    jn.b(Nm).unbindService(Nh);
+    IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.common.internal.service.ICommonCallbacks");
+    if ((localIInterface != null) && ((localIInterface instanceof jn))) {
+      return (jn)localIInterface;
+    }
+    return new a(paramIBinder);
   }
   
-  public void hB()
+  public IBinder asBinder()
   {
-    jn.b(Nm).unbindService(Nh);
-    Nj = false;
-    mState = 2;
+    return this;
   }
   
-  public String hC()
+  public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+    throws RemoteException
   {
-    return Ng;
+    switch (paramInt1)
+    {
+    default: 
+      return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+    case 1598968902: 
+      paramParcel2.writeString("com.google.android.gms.common.internal.service.ICommonCallbacks");
+      return true;
+    }
+    paramParcel1.enforceInterface("com.google.android.gms.common.internal.service.ICommonCallbacks");
+    a(paramParcel1.readInt());
+    paramParcel2.writeNoException();
+    return true;
   }
   
-  public boolean hD()
+  private static class a
+    implements jn
   {
-    return Ni.isEmpty();
-  }
-  
-  public boolean isBound()
-  {
-    return Nj;
+    private IBinder a;
+    
+    a(IBinder paramIBinder)
+    {
+      a = paramIBinder;
+    }
+    
+    public void a(int paramInt)
+      throws RemoteException
+    {
+      Parcel localParcel1 = Parcel.obtain();
+      Parcel localParcel2 = Parcel.obtain();
+      try
+      {
+        localParcel1.writeInterfaceToken("com.google.android.gms.common.internal.service.ICommonCallbacks");
+        localParcel1.writeInt(paramInt);
+        a.transact(1, localParcel1, localParcel2, 0);
+        localParcel2.readException();
+        return;
+      }
+      finally
+      {
+        localParcel2.recycle();
+        localParcel1.recycle();
+      }
+    }
+    
+    public IBinder asBinder()
+    {
+      return a;
+    }
   }
 }
 

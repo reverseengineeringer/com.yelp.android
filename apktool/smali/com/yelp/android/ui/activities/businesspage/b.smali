@@ -1,41 +1,29 @@
-.class Lcom/yelp/android/ui/activities/businesspage/b;
+.class public interface abstract Lcom/yelp/android/ui/activities/businesspage/b;
 .super Ljava/lang/Object;
-.source "ActivityBusinessPage.java"
-
-# interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
-
-
-# direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;)V
-    .locals 0
-
-    .prologue
-    .line 462
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/businesspage/b;->a:Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+.source "BusinessListButton.java"
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public abstract getIcon(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)I
+.end method
 
-    .prologue
-    .line 466
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/businesspage/b;->a:Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;
+.method public abstract getIconUrl(Lcom/yelp/android/serializable/YelpBusiness;)Ljava/lang/String;
+.end method
 
-    const/16 v1, 0x133
+.method public abstract getSubtitle(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Ljava/lang/CharSequence;
+.end method
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/businesspage/ActivityBusinessPage;->removeDialog(I)V
+.method public abstract getTintColor()I
+.end method
 
-    .line 467
-    return-void
+.method public abstract getTitle(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;)Ljava/lang/CharSequence;
+.end method
+
+.method public abstract getTitleColor()I
+.end method
+
+.method public abstract isSubtitleExpanded()Z
+.end method
+
+.method public abstract shouldShow(Lcom/yelp/android/serializable/YelpBusiness;)Z
 .end method

@@ -1,11 +1,17 @@
 package android.support.v4.view;
 
+import android.view.MenuItem;
+
 class s
-  implements r
 {
-  public int a(int paramInt1, int paramInt2)
+  public static boolean a(MenuItem paramMenuItem)
   {
-    return 0xFF7FFFFF & paramInt1;
+    return paramMenuItem.expandActionView();
+  }
+  
+  public static boolean b(MenuItem paramMenuItem)
+  {
+    return paramMenuItem.isActionViewExpanded();
   }
 }
 

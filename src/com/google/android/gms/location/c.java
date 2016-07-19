@@ -1,64 +1,73 @@
 package com.google.android.gms.location;
 
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;
-import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener;
-import com.google.android.gms.internal.nk;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+import com.google.android.gms.common.internal.safeparcel.zza;
+import com.google.android.gms.common.internal.safeparcel.zza.zza;
+import com.google.android.gms.common.internal.safeparcel.zzb;
+import java.util.ArrayList;
 
-@Deprecated
 public class c
-  implements GooglePlayServicesClient
+  implements Parcelable.Creator<ActivityRecognitionResult>
 {
-  private final nk agq;
-  
-  public void connect()
+  static void a(ActivityRecognitionResult paramActivityRecognitionResult, Parcel paramParcel, int paramInt)
   {
-    agq.connect();
+    paramInt = zzb.zzav(paramParcel);
+    zzb.zzc(paramParcel, 1, a, false);
+    zzb.zzc(paramParcel, 1000, paramActivityRecognitionResult.b());
+    zzb.zza(paramParcel, 2, b);
+    zzb.zza(paramParcel, 3, c);
+    zzb.zzc(paramParcel, 4, d);
+    zzb.zza(paramParcel, 5, e, false);
+    zzb.zzI(paramParcel, paramInt);
   }
   
-  public void disconnect()
+  public ActivityRecognitionResult a(Parcel paramParcel)
   {
-    agq.disconnect();
+    long l1 = 0L;
+    Bundle localBundle = null;
+    int i = 0;
+    int k = zza.zzau(paramParcel);
+    long l2 = 0L;
+    ArrayList localArrayList = null;
+    int j = 0;
+    while (paramParcel.dataPosition() < k)
+    {
+      int m = zza.zzat(paramParcel);
+      switch (zza.zzca(m))
+      {
+      default: 
+        zza.zzb(paramParcel, m);
+        break;
+      case 1: 
+        localArrayList = zza.zzc(paramParcel, m, DetectedActivity.CREATOR);
+        break;
+      case 1000: 
+        j = zza.zzg(paramParcel, m);
+        break;
+      case 2: 
+        l2 = zza.zzi(paramParcel, m);
+        break;
+      case 3: 
+        l1 = zza.zzi(paramParcel, m);
+        break;
+      case 4: 
+        i = zza.zzg(paramParcel, m);
+        break;
+      case 5: 
+        localBundle = zza.zzr(paramParcel, m);
+      }
+    }
+    if (paramParcel.dataPosition() != k) {
+      throw new zza.zza("Overread allowed size end=" + k, paramParcel);
+    }
+    return new ActivityRecognitionResult(j, localArrayList, l2, l1, i, localBundle);
   }
   
-  public boolean isConnected()
+  public ActivityRecognitionResult[] a(int paramInt)
   {
-    return agq.isConnected();
-  }
-  
-  public boolean isConnecting()
-  {
-    return agq.isConnecting();
-  }
-  
-  public boolean isConnectionCallbacksRegistered(GooglePlayServicesClient.ConnectionCallbacks paramConnectionCallbacks)
-  {
-    return agq.isConnectionCallbacksRegistered(paramConnectionCallbacks);
-  }
-  
-  public boolean isConnectionFailedListenerRegistered(GooglePlayServicesClient.OnConnectionFailedListener paramOnConnectionFailedListener)
-  {
-    return agq.isConnectionFailedListenerRegistered(paramOnConnectionFailedListener);
-  }
-  
-  public void registerConnectionCallbacks(GooglePlayServicesClient.ConnectionCallbacks paramConnectionCallbacks)
-  {
-    agq.registerConnectionCallbacks(paramConnectionCallbacks);
-  }
-  
-  public void registerConnectionFailedListener(GooglePlayServicesClient.OnConnectionFailedListener paramOnConnectionFailedListener)
-  {
-    agq.registerConnectionFailedListener(paramOnConnectionFailedListener);
-  }
-  
-  public void unregisterConnectionCallbacks(GooglePlayServicesClient.ConnectionCallbacks paramConnectionCallbacks)
-  {
-    agq.unregisterConnectionCallbacks(paramConnectionCallbacks);
-  }
-  
-  public void unregisterConnectionFailedListener(GooglePlayServicesClient.OnConnectionFailedListener paramOnConnectionFailedListener)
-  {
-    agq.unregisterConnectionFailedListener(paramOnConnectionFailedListener);
+    return new ActivityRecognitionResult[paramInt];
   }
 }
 

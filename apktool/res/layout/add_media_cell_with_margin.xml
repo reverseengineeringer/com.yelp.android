@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.yelp.android.ui.util.SquareRelativeLayout android:id="@id/add_media_cell_button" android:background="@drawable/button_add_media_cell_rounded" android:layout_width="@dimen/scroll_photo_size" android:layout_height="@dimen/scroll_photo_size" android:layout_margin="8.0dip" style="?android:attr/buttonStyle"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/LargeBoldLightText" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add" android:includeFontPadding="false" android:drawableTop="@drawable/camera_big_gray" android:drawablePadding="?baseGapSize" />
+    <TextView android:textAppearance="@style/DeprecatedLargeBoldLightText" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add" android:includeFontPadding="false" android:drawableTop="@drawable/camera_big_gray" android:drawablePadding="@dimen/default_base_gap_size" />
 </com.yelp.android.ui.util.SquareRelativeLayout>

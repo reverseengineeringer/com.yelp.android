@@ -2,42 +2,49 @@ package com.bumptech.glide;
 
 import android.content.Context;
 import android.os.ParcelFileDescriptor;
-import com.bumptech.glide.manager.l;
-import com.yelp.android.ac.a;
-import com.yelp.android.ae.e;
-import com.yelp.android.v.f;
-import com.yelp.android.v.m;
+import com.yelp.android.ak.e;
+import java.io.File;
 import java.io.InputStream;
 
 public class d<ModelType>
   extends c<ModelType>
 {
-  private final m<ModelType, InputStream> g;
-  private final m<ModelType, ParcelFileDescriptor> h;
-  private final o i;
+  private final com.yelp.android.aa.l<ModelType, InputStream> g;
+  private final com.yelp.android.aa.l<ModelType, ParcelFileDescriptor> h;
+  private final i.d i;
   
-  d(Class<ModelType> paramClass, m<ModelType, InputStream> paramm, m<ModelType, ParcelFileDescriptor> paramm1, Context paramContext, h paramh, l paraml, com.bumptech.glide.manager.h paramh1, o paramo)
+  d(Class<ModelType> paramClass, com.yelp.android.aa.l<ModelType, InputStream> paraml, com.yelp.android.aa.l<ModelType, ParcelFileDescriptor> paraml1, Context paramContext, g paramg, com.bumptech.glide.manager.l paraml2, com.bumptech.glide.manager.g paramg1, i.d paramd)
   {
-    super(paramContext, paramClass, a(paramh, paramm, paramm1, a.class, com.yelp.android.z.b.class, null), paramh, paraml, paramh1);
-    g = paramm;
-    h = paramm1;
-    i = paramo;
+    super(paramContext, paramClass, a(paramg, paraml, paraml1, com.yelp.android.ah.a.class, com.yelp.android.ae.b.class, null), paramg, paraml2, paramg1);
+    g = paraml;
+    h = paraml1;
+    i = paramd;
   }
   
-  private static <A, Z, R> e<A, com.yelp.android.v.h, Z, R> a(h paramh, m<A, InputStream> paramm, m<A, ParcelFileDescriptor> paramm1, Class<Z> paramClass, Class<R> paramClass1, com.yelp.android.ad.c<Z, R> paramc)
+  private static <A, Z, R> e<A, com.yelp.android.aa.g, Z, R> a(g paramg, com.yelp.android.aa.l<A, InputStream> paraml, com.yelp.android.aa.l<A, ParcelFileDescriptor> paraml1, Class<Z> paramClass, Class<R> paramClass1, com.yelp.android.ai.c<Z, R> paramc)
   {
-    if ((paramm == null) && (paramm1 == null)) {
+    if ((paraml == null) && (paraml1 == null)) {
       return null;
     }
     Object localObject = paramc;
     if (paramc == null) {
-      localObject = paramh.a(paramClass, paramClass1);
+      localObject = paramg.a(paramClass, paramClass1);
     }
-    paramh = paramh.b(com.yelp.android.v.h.class, paramClass);
-    return new e(new f(paramm, paramm1), (com.yelp.android.ad.c)localObject, paramh);
+    paramg = paramg.b(com.yelp.android.aa.g.class, paramClass);
+    return new e(new com.yelp.android.aa.f(paraml, paraml1), (com.yelp.android.ai.c)localObject, paramg);
   }
   
-  public b<ModelType> j()
+  private f<ModelType, InputStream, File> i()
+  {
+    return (f)i.a(new f(File.class, this, g, InputStream.class, File.class, i));
+  }
+  
+  public com.bumptech.glide.request.a<File> c(int paramInt1, int paramInt2)
+  {
+    return i().a(paramInt1, paramInt2);
+  }
+  
+  public b<ModelType> h()
   {
     return (b)i.a(new b(this, g, h, i));
   }

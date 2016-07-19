@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white_cream" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.MessageAlertBox android:id="@id/notification" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" style="@style/MessageAlertBox.Green.MessageTheBusiness" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/info_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_large_gap_size">
+        <Button android:textAppearance="@style/ButtonText" android:textColor="@color/GreyText" android:id="@id/edit_button" android:layout_width="0.0dip" android:layout_height="@dimen/businesspage_review_page_button" android:layout_marginRight="@dimen/default_base_gap_size" android:text="@string/edit_message" android:layout_weight="1.0" android:textAllCaps="true" />
+        <Button android:textAppearance="@style/ButtonText" android:textColor="@color/GreyText" android:id="@id/select_button" android:layout_width="0.0dip" android:layout_height="@dimen/businesspage_review_page_button" android:text="@string/select_all" android:layout_weight="1.0" android:textAllCaps="true" />
+    </LinearLayout>
+    <View android:background="@drawable/gray_border_rect" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <ListView android:id="@id/message_business_list" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@color/gray_silver_divider" android:dividerHeight="@dimen/separator_line_width" />
+</LinearLayout>

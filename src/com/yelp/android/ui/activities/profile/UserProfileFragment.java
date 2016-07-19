@@ -11,38 +11,44 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.Features;
-import com.yelp.android.appdata.ao;
-import com.yelp.android.appdata.n;
-import com.yelp.android.appdata.webrequests.ce;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.gx;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.f;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.bx;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.appdata.webrequests.ff;
+import com.yelp.android.appdata.webrequests.fn;
+import com.yelp.android.appdata.webrequests.fq;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.b.a;
 import com.yelp.android.serializable.FeatureSet.Feature;
 import com.yelp.android.serializable.User;
 import com.yelp.android.serializable.User.EliteYear;
 import com.yelp.android.serializable.User.EliteYear.TYPE;
+import com.yelp.android.services.UserProfileShareFormatter;
 import com.yelp.android.ui.activities.ActivityLogin;
 import com.yelp.android.ui.activities.compliments.SendCompliment;
 import com.yelp.android.ui.activities.feed.CurrentUserFeedFragment;
 import com.yelp.android.ui.activities.feed.FeedRequestResult;
 import com.yelp.android.ui.activities.feed.FeedType;
-import com.yelp.android.ui.activities.feed.aq;
 import com.yelp.android.ui.activities.friends.ActivityFindFriends;
 import com.yelp.android.ui.activities.friends.SendFriendRequestForm;
 import com.yelp.android.ui.activities.messaging.ActivityComposeMessage;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.panels.aa;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.au;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bv;
-import com.yelp.android.ui.util.bw;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.b;
+import com.yelp.android.ui.util.aj.c;
+import com.yelp.android.ui.util.w;
 import com.yelp.android.util.YelpLog;
 import java.util.Collection;
 import java.util.Collections;
@@ -50,39 +56,41 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
 public class UserProfileFragment
   extends CurrentUserFeedFragment
-  implements aa
+  implements PanelError.a
 {
-  private String c;
-  private String d;
-  private boolean e;
-  private User g;
-  private gx h;
-  private ce i;
-  private bs j;
-  private UserProfileView k;
-  private Queue<Runnable> l;
-  private z m;
-  private final m<User> n = new w(this);
-  private final com.yelp.android.appdata.webrequests.j<FeedRequestResult> o = new x(this);
+  private String j;
+  private String k;
+  private boolean l;
+  private User m;
+  private fn n;
+  private bx o;
+  private aj p;
+  private UserProfileView q;
+  private Queue<Runnable> r;
+  private b s;
+  private final View.OnClickListener t = new UserProfileFragment.1(this);
+  private final c.a u = new UserProfileFragment.2(this);
+  private final c.a v = new UserProfileFragment.3(this);
+  private final ApiRequest.b<User> w = new UserProfileFragment.4(this);
+  private final k.b<FeedRequestResult> x = new UserProfileFragment.5(this);
   
   public static UserProfileFragment a(User paramUser)
   {
-    if (paramUser.isFullUser())
+    if (paramUser.n())
     {
       UserProfileFragment localUserProfileFragment = new UserProfileFragment();
       Bundle localBundle = new Bundle();
       localBundle.putParcelable("user", paramUser);
-      localBundle.putBoolean("about_me", AppData.b().m().a(paramUser));
+      localBundle.putBoolean("about_me", AppData.b().q().a(paramUser));
       localUserProfileFragment.setArguments(localBundle);
       return localUserProfileFragment;
     }
-    return a(paramUser.getId(), null);
+    return a(paramUser.ae(), null);
   }
   
   public static UserProfileFragment a(String paramString1, String paramString2)
@@ -90,118 +98,160 @@ public class UserProfileFragment
     UserProfileFragment localUserProfileFragment = new UserProfileFragment();
     Bundle localBundle = new Bundle();
     localBundle.putString("user_id", paramString1);
-    localBundle.putBoolean("about_me", AppData.b().m().a(paramString1));
+    localBundle.putBoolean("about_me", AppData.b().q().a(paramString1));
     localBundle.putString("check_in_id", paramString2);
     localUserProfileFragment.setArguments(localBundle);
     return localUserProfileFragment;
   }
   
-  @TargetApi(21)
-  private void l()
+  private void t()
   {
-    int i1 = u();
-    TypedArray localTypedArray = getActivity().obtainStyledAttributes(null, com.yelp.android.b.UserProfileView, i1, i1);
+    u();
+    if ((q == null) && (getActivity() != null))
+    {
+      q = new UserProfileView(getActivity(), null, w());
+      q.a(m, l);
+    }
+    for (;;)
+    {
+      if (q.getFollowButton() != null) {
+        q.getFollowButton().setOnClickListener(t);
+      }
+      if (getView() != null) {
+        h();
+      }
+      v();
+      return;
+      q.b(m, l);
+      q.a(m);
+      q.setUpHeaderButtons(m);
+    }
+  }
+  
+  private void u()
+  {
+    ViewIri localViewIri;
+    if (l)
+    {
+      localViewIri = ViewIri.Profile;
+      if (!l) {
+        break label35;
+      }
+    }
+    label35:
+    for (Map localMap = Collections.emptyMap();; localMap = Collections.singletonMap("user_id", j))
+    {
+      AppData.a(localViewIri, localMap);
+      return;
+      localViewIri = ViewIri.UserProfile;
+      break;
+    }
+  }
+  
+  @TargetApi(21)
+  private void v()
+  {
+    int i = w();
+    TypedArray localTypedArray = getActivity().obtainStyledAttributes(null, b.a.UserProfileView, i, i);
     Drawable localDrawable = localTypedArray.getDrawable(8);
     if (localDrawable != null) {
       ((YelpActivity)getActivity()).getSupportActionBar().a(localDrawable);
     }
-    if (n.a(21))
+    if (f.a(21))
     {
-      i1 = localTypedArray.getColor(9, 0);
-      getActivity().getWindow().setStatusBarColor(i1);
+      i = localTypedArray.getColor(9, 0);
+      getActivity().getWindow().setStatusBarColor(i);
     }
     localTypedArray.recycle();
   }
   
-  private int u()
+  private int w()
   {
-    if (g.isEliteUser()) {
-      return g.getMostRecentEliteYear().type.getUserProfileStyle();
+    if (m.h()) {
+      return m.v().b.getUserProfileStyle();
     }
-    return 2131689854;
+    return 2131296750;
+  }
+  
+  private void x()
+  {
+    if (m.T())
+    {
+      new fq(m, v).f(new Void[0]);
+      return;
+    }
+    new ff(m, u).f(new Void[0]);
   }
   
   public void a(int paramInt)
   {
-    g.setUnreadMessageCount(paramInt);
-    j.notifyDataSetChanged();
+    m.g(paramInt);
+    p.notifyDataSetChanged();
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
-    super.a(paramListView, paramView, paramInt, paramLong);
     paramListView = paramListView.getItemAtPosition(paramInt);
     if ((paramListView instanceof ContributionAwardType))
     {
       paramListView = (ContributionAwardType)paramListView;
       AppData.a(iri);
-      startActivity(paramListView.getViewIntent(getActivity(), g));
+      startActivity(paramListView.getViewIntent(getActivity(), m));
     }
     while (!(paramListView instanceof ActionToTry)) {
       return;
     }
     paramListView = (ActionToTry)paramListView;
-    paramView = paramListView.intentToStartAction(getActivity(), g);
+    paramView = paramListView.intentToStartAction(getActivity(), m);
     AppData.a(iri);
-    s locals = (s)j.a(2131166698).a;
-    l.add(new y(locals.a(), paramListView));
+    e locale = (e)p.a(2131166674).a;
+    r.add(new UserProfileFragment.a(locale.a(), paramListView));
     startActivity(paramView);
   }
   
-  public void a(j paramj)
+  public void a(ActivityUserProfile.a parama)
   {
-    g.addComplimentCount(b);
-    g.addFriendCount(d);
+    m.f(b);
   }
   
   public void b()
   {
-    if (g != null) {
-      if (!e) {
-        break label54;
+    if ((m != null) && ((o == null) || (!o.u()))) {
+      if (!l) {
+        break label75;
       }
     }
-    label54:
+    label75:
     for (FeedType localFeedType = FeedType.ME;; localFeedType = FeedType.USER)
     {
-      i = new ce(g.getId(), localFeedType, o);
-      i.execute(new Void[0]);
+      o = new bx(m.ae(), localFeedType, x, e);
+      o.f(new Void[0]);
       return;
     }
   }
   
   public void b(User paramUser)
   {
-    g = paramUser;
-    if (AppData.b().m().a(paramUser)) {
-      e = true;
+    m = paramUser;
+    if (AppData.b().q().a(paramUser)) {
+      l = true;
     }
-    if ((k == null) && (getActivity() != null))
+    t();
+  }
+  
+  public void h()
+  {
+    if (m().getHeaderViewsCount() == 0)
     {
-      k = new UserProfileView(getActivity(), null, u());
-      k.a(paramUser, e);
-      l();
-      if ((getView() == null) || (m().getHeaderViewsCount() != 0)) {
-        break label439;
-      }
       m().setHeaderDividersEnabled(false);
-      m().addHeaderView(k, null, false);
-      if (!e) {
-        break label239;
-      }
+      m().addHeaderView(q, null, false);
     }
-    aq localaq;
-    label239:
-    for (Object localObject1 = FeedType.ME;; localObject1 = FeedType.USER)
+    com.yelp.android.ui.activities.feed.a locala = c();
+    p = new aj();
+    Object localObject2 = ContributionAwardType.CONTRIBUTIONS_AND_AWARDS;
+    Object localObject1 = localObject2;
+    if (!l)
     {
-      a((FeedType)localObject1);
-      localaq = f();
-      j = new bs();
-      Object localObject2 = ContributionAwardType.CONTRIBUTIONS_AND_AWARDS;
-      localObject1 = localObject2;
-      if (e) {
-        break label246;
-      }
       localObject1 = new LinkedHashSet((Collection)localObject2);
       ((Collection)localObject1).retainAll(ContributionAwardType.AWARDS);
       localObject2 = ((Collection)localObject1).iterator();
@@ -210,95 +260,68 @@ public class UserProfileFragment
           ((Iterator)localObject2).remove();
         }
       }
-      k.b(paramUser, e);
-      k.a(paramUser);
-      break;
     }
-    label246:
-    localObject1 = new k((Collection)localObject1, paramUser, k.getBoldTitleColor());
-    if ((e) && (!Features.messaging.isEnabled())) {
-      ((au)localObject1).b(ContributionAwardType.MESSAGES);
+    localObject1 = new b((Collection)localObject1, m, q.getBoldTitleColor());
+    if ((l) && (!Features.messaging.isEnabled())) {
+      ((w)localObject1).c(ContributionAwardType.MESSAGES);
     }
-    j.a(2131165387, bw.a((BaseAdapter)localObject1).a(2131492893, ao.f, ao.f).a());
-    if (e)
+    p.a(2131165518, aj.c.a((BaseAdapter)localObject1).b(2131689503).b());
+    if (l)
     {
-      localObject1 = new a(EnumSet.allOf(ActionToTry.class), paramUser, k.getBoldTitleColor());
-      j.a(2131166698, bw.a(getText(2131166698), (BaseAdapter)localObject1).a(2130772318).a(2131492893, ao.f, ao.f).a());
+      localObject1 = new a(EnumSet.allOf(ActionToTry.class), m, q.getBoldTitleColor());
+      p.a(2131166674, aj.c.a(getText(2131166674), (BaseAdapter)localObject1).a(2130772428).b(2131689503).b());
     }
-    if (e)
+    if (l) {}
+    for (localObject1 = getText(2131166196);; localObject1 = getString(2131166773, new Object[] { m.ac() }))
     {
-      paramUser = getText(2131166142);
-      j.a(2131166807, paramUser, localaq);
-      if (!d().isEmpty()) {
-        break label462;
+      p.a(2131166773, aj.c.a((CharSequence)localObject1, locala).a(2130772428).b());
+      if (a.getCount() == 0) {
+        p_();
       }
-      a_();
-    }
-    for (;;)
-    {
-      a(j);
-      w();
-      label439:
-      return;
-      paramUser = getString(2131166807, new Object[] { paramUser.getNameWithoutPeriod() });
-      break;
-      label462:
-      b(d());
-    }
-  }
-  
-  public ViewIri g()
-  {
-    if (e) {
-      return ViewIri.Profile;
-    }
-    return ViewIri.UserProfile;
-  }
-  
-  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.b paramb)
-  {
-    if (e) {
-      return Collections.emptyMap();
-    }
-    return Collections.singletonMap("user_id", c);
-  }
-  
-  public void h()
-  {
-    if (h != null)
-    {
-      h.cancel(true);
-      h.setCallback(null);
-    }
-    if (e) {}
-    for (h = new gx(n, null, null);; h = new gx(n, c, d))
-    {
-      h.execute(new Void[0]);
-      a(h);
+      a(p);
+      y();
       return;
     }
   }
   
-  public void m_()
+  public void i()
   {
-    h();
+    if (n != null)
+    {
+      n.a(true);
+      n.a(null);
+    }
+    if (l) {
+      if (!AppData.b().q().b()) {}
+    }
+    for (n = new fn(w, null, null);; n = new fn(w, j, k))
+    {
+      n.f(new Void[0]);
+      a(n);
+      return;
+      YelpLog.remoteError("UserProfileFragment", "User not logged in");
+      return;
+    }
   }
   
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    l = new LinkedList();
-    if ((g != null) && (g.isFullUser()))
+    r = new LinkedList();
+    if (l) {}
+    for (paramBundle = FeedType.ME;; paramBundle = FeedType.USER)
     {
-      j();
-      C();
-      b(g);
-      m.a(g);
+      a(paramBundle);
+      if ((m == null) || (!m.n())) {
+        break;
+      }
+      t();
+      s.a(m);
       return;
     }
-    if ((c != null) || (d != null))
+    if ((j != null) || (k != null))
     {
-      h();
+      i();
       return;
     }
     YelpLog.e("UserProfileFragment", "Tried to start UserProfileFragment without a check-in, user, or user id");
@@ -310,7 +333,7 @@ public class UserProfileFragment
     super.onAttach(paramActivity);
     try
     {
-      m = ((z)paramActivity);
+      s = ((b)paramActivity);
       return;
     }
     catch (ClassCastException paramActivity)
@@ -322,15 +345,17 @@ public class UserProfileFragment
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    g = ((User)getArguments().getParcelable("user"));
-    c = getArguments().getString("user_id");
-    d = getArguments().getString("check_in_id");
-    e = getArguments().getBoolean("about_me", false);
-    if (paramBundle != null) {
-      g = ((User)paramBundle.getParcelable("saved_user"));
+    m = ((User)getArguments().getParcelable("user"));
+    j = getArguments().getString("user_id");
+    k = getArguments().getString("check_in_id");
+    l = getArguments().getBoolean("about_me", false);
+    if (paramBundle != null)
+    {
+      m = ((User)paramBundle.getParcelable("saved_user"));
+      l = paramBundle.getBoolean("about_me");
     }
-    if ((g != null) && (c == null)) {
-      c = g.getId();
+    if ((m != null) && (j == null)) {
+      j = m.ae();
     }
     setHasOptionsMenu(true);
   }
@@ -338,10 +363,24 @@ public class UserProfileFragment
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-    if (e) {}
-    for (int i1 = 2131755008;; i1 = 2131755044)
+    if (l) {}
+    for (int i = 2131755008;; i = 2131755048)
     {
-      paramMenuInflater.inflate(i1, paramMenu);
+      paramMenuInflater.inflate(i, paramMenu);
+      if (i == 2131755048)
+      {
+        paramMenu = paramMenu.findItem(2131691044);
+        if (m != null) {
+          break;
+        }
+        paramMenu.setVisible(false);
+      }
+      return;
+    }
+    if (m.T()) {}
+    for (i = 2131166750;; i = 2131165925)
+    {
+      paramMenu.setTitle(i);
       return;
     }
   }
@@ -349,7 +388,7 @@ public class UserProfileFragment
   public void onDetach()
   {
     super.onDetach();
-    m = null;
+    s = null;
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -358,85 +397,115 @@ public class UserProfileFragment
     {
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
-    case 2131493194: 
-      startActivity(ActivityLogin.a(getActivity(), 2131166769, 2131166769, ActivityFindFriends.a(getActivity(), false, false)));
+    case 2131689722: 
+      startActivity(ActivityLogin.a(getActivity(), 2131165700, 2131166099, ActivityFindFriends.a(getActivity(), false)));
       return true;
-    case 2131494095: 
-      startActivityForResult(ActivityComposeMessage.a(getActivity(), g), 1030);
+    case 2131690965: 
+      startActivityForResult(ActivityComposeMessage.a(getActivity(), m), 1033);
       return true;
-    case 2131494168: 
-      startActivityForResult(ActivityLogin.a(getActivity(), 2131166040, SendFriendRequestForm.a(getActivity(), g)), 1001);
+    case 2131691042: 
+      startActivityForResult(ActivityLogin.a(getActivity(), 2131166099, SendFriendRequestForm.a(getActivity(), m)), 1003);
+    case 2131691043: 
+      startActivity(ActivityLogin.a(getActivity(), 2131166098, SendCompliment.a(getActivity(), m)));
+      return true;
+    case 2131691044: 
+      x();
+      return true;
     }
-    startActivity(ActivityLogin.a(getActivity(), 2131166038, SendCompliment.a(getActivity(), g)));
+    a(new UserProfileShareFormatter(m));
     return true;
   }
   
   public void onPause()
   {
     super.onPause();
-    a("feed", i);
-    a("user_profile", h);
+    a("feed", o);
+    a("user_profile", n);
   }
   
   public void onPrepareOptionsMenu(Menu paramMenu)
   {
+    boolean bool2 = true;
     super.onPrepareOptionsMenu(paramMenu);
-    MenuItem localMenuItem = paramMenu.findItem(2131494169);
-    if ((localMenuItem != null) && (g != null) && (g.isFeatureDisabled(FeatureSet.Feature.SEND_COMPLIMENT))) {
+    MenuItem localMenuItem = paramMenu.findItem(2131691043);
+    if ((localMenuItem != null) && (m != null) && (m.a(FeatureSet.Feature.SEND_COMPLIMENT))) {
       localMenuItem.setVisible(false);
     }
-    localMenuItem = paramMenu.findItem(2131494095);
-    if ((localMenuItem != null) && (g != null) && (g.isFeatureDisabled(FeatureSet.Feature.SEND_MESSAGE))) {
+    localMenuItem = paramMenu.findItem(2131690965);
+    if ((localMenuItem != null) && (m != null) && (m.a(FeatureSet.Feature.SEND_MESSAGE))) {
       localMenuItem.setVisible(false);
     }
-    paramMenu = paramMenu.findItem(2131494168);
-    boolean bool;
-    if (paramMenu != null)
+    localMenuItem = paramMenu.findItem(2131691042);
+    int i;
+    if (localMenuItem != null)
     {
-      if ((g == null) || (g.isFriend())) {
-        break label194;
+      if ((m == null) || (m.V())) {
+        break label234;
       }
-      bool = true;
-      paramMenu.setVisible(bool);
-      if ((g == null) || (!g.isMale())) {
-        break label199;
+      bool1 = true;
+      localMenuItem.setVisible(bool1);
+      if ((m == null) || (!m.w())) {
+        break label239;
+      }
+      i = 2131165445;
+      label163:
+      localMenuItem.setTitle(i);
+      if ((m != null) && (m.a(FeatureSet.Feature.ADD_FRIEND))) {
+        localMenuItem.setVisible(false);
       }
     }
-    label194:
-    label199:
-    for (int i1 = 2131165322;; i1 = 2131165321)
-    {
-      paramMenu.setTitle(i1);
-      if ((g != null) && (g.isFeatureDisabled(FeatureSet.Feature.ADD_FRIEND))) {
-        paramMenu.setVisible(false);
+    paramMenu = paramMenu.findItem(2131691045);
+    if (paramMenu != null) {
+      if (m == null) {
+        break label246;
       }
+    }
+    label234:
+    label239:
+    label246:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      paramMenu.setVisible(bool1);
       return;
-      bool = false;
+      bool1 = false;
       break;
+      i = 2131165444;
+      break label163;
     }
   }
   
   public void onResume()
   {
     super.onResume();
-    a("feed", i, o);
-    a("user_profile", h, n);
-    while (!l.isEmpty()) {
-      ((Runnable)l.poll()).run();
+    o = ((bx)a("feed", o, x));
+    n = ((fn)a("user_profile", n, w));
+    while (!r.isEmpty()) {
+      ((Runnable)r.poll()).run();
     }
-    if ((h != null) && (h.isFetching())) {
-      a(h);
+    if ((n != null) && (n.u())) {
+      a(n);
     }
-    while ((m().getCount() != 0) || (g == null) || (i != null)) {
+    while ((m().getCount() != 0) || (m == null) || (o != null)) {
       return;
     }
-    a_();
+    p_();
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putParcelable("saved_user", g);
+    paramBundle.putParcelable("saved_user", m);
+    paramBundle.putBoolean("about_me", l);
+  }
+  
+  public void q_()
+  {
+    i();
+  }
+  
+  public static abstract interface b
+  {
+    public abstract void a(User paramUser);
   }
 }
 

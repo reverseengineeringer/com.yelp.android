@@ -1,151 +1,163 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import android.util.Log;
+import com.google.android.gms.common.internal.zzx;
+import com.google.android.gms.measurement.f;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.Map;
+import java.util.UUID;
 
-public class kv
-  implements SafeParcelable
+public final class kv
+  extends f<kv>
 {
-  public static final kw CREATOR = new kw();
-  private final int CK;
-  private final HashMap<String, HashMap<String, kr.a<?, ?>>> NV;
-  private final ArrayList<kv.a> NW;
-  private final String NX;
+  private String a;
+  private int b;
+  private int c;
+  private String d;
+  private String e;
+  private boolean f;
+  private boolean g;
+  private boolean h;
   
-  kv(int paramInt, ArrayList<kv.a> paramArrayList, String paramString)
+  public kv()
   {
-    CK = paramInt;
-    NW = null;
-    NV = c(paramArrayList);
-    NX = ((String)jx.i(paramString));
-    hX();
+    this(false);
   }
   
-  public kv(Class<? extends kr> paramClass)
+  public kv(boolean paramBoolean)
   {
-    CK = 1;
-    NW = null;
-    NV = new HashMap();
-    NX = paramClass.getCanonicalName();
+    this(paramBoolean, a());
   }
   
-  private static HashMap<String, HashMap<String, kr.a<?, ?>>> c(ArrayList<kv.a> paramArrayList)
+  public kv(boolean paramBoolean, int paramInt)
   {
-    HashMap localHashMap = new HashMap();
-    int j = paramArrayList.size();
-    int i = 0;
-    while (i < j)
+    zzx.zzbV(paramInt);
+    b = paramInt;
+    g = paramBoolean;
+  }
+  
+  static int a()
+  {
+    UUID localUUID = UUID.randomUUID();
+    int i = (int)(localUUID.getLeastSignificantBits() & 0x7FFFFFFF);
+    if (i != 0) {}
+    int j;
+    do
     {
-      kv.a locala = (kv.a)paramArrayList.get(i);
-      localHashMap.put(className, locala.ib());
-      i += 1;
-    }
-    return localHashMap;
+      return i;
+      j = (int)(localUUID.getMostSignificantBits() & 0x7FFFFFFF);
+      i = j;
+    } while (j != 0);
+    Log.e("GAv4", "UUID.randomUUID() returned 0.");
+    return Integer.MAX_VALUE;
   }
   
-  public void a(Class<? extends kr> paramClass, HashMap<String, kr.a<?, ?>> paramHashMap)
+  private void e()
   {
-    NV.put(paramClass.getCanonicalName(), paramHashMap);
-  }
-  
-  public boolean b(Class<? extends kr> paramClass)
-  {
-    return NV.containsKey(paramClass.getCanonicalName());
-  }
-  
-  public HashMap<String, kr.a<?, ?>> bg(String paramString)
-  {
-    return (HashMap)NV.get(paramString);
-  }
-  
-  public int describeContents()
-  {
-    kw localkw = CREATOR;
-    return 0;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
-  }
-  
-  public void hX()
-  {
-    Iterator localIterator1 = NV.keySet().iterator();
-    while (localIterator1.hasNext())
-    {
-      Object localObject = (String)localIterator1.next();
-      localObject = (HashMap)NV.get(localObject);
-      Iterator localIterator2 = ((HashMap)localObject).keySet().iterator();
-      while (localIterator2.hasNext()) {
-        ((kr.a)((HashMap)localObject).get((String)localIterator2.next())).a(this);
-      }
+    if (h) {
+      throw new IllegalStateException("ScreenViewInfo is immutable");
     }
   }
   
-  public void hY()
+  public void a(int paramInt)
   {
-    Iterator localIterator1 = NV.keySet().iterator();
-    while (localIterator1.hasNext())
-    {
-      String str1 = (String)localIterator1.next();
-      HashMap localHashMap1 = (HashMap)NV.get(str1);
-      HashMap localHashMap2 = new HashMap();
-      Iterator localIterator2 = localHashMap1.keySet().iterator();
-      while (localIterator2.hasNext())
-      {
-        String str2 = (String)localIterator2.next();
-        localHashMap2.put(str2, ((kr.a)localHashMap1.get(str2)).hN());
-      }
-      NV.put(str1, localHashMap2);
+    e();
+    b = paramInt;
+  }
+  
+  public void a(kv paramkv)
+  {
+    if (!TextUtils.isEmpty(a)) {
+      paramkv.a(a);
+    }
+    if (b != 0) {
+      paramkv.a(b);
+    }
+    if (c != 0) {
+      paramkv.b(c);
+    }
+    if (!TextUtils.isEmpty(d)) {
+      paramkv.b(d);
+    }
+    if (!TextUtils.isEmpty(e)) {
+      paramkv.c(e);
+    }
+    if (f) {
+      paramkv.b(f);
+    }
+    if (g) {
+      paramkv.a(g);
     }
   }
   
-  ArrayList<kv.a> hZ()
+  public void a(String paramString)
   {
-    ArrayList localArrayList = new ArrayList();
-    Iterator localIterator = NV.keySet().iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      localArrayList.add(new kv.a(str, (HashMap)NV.get(str)));
-    }
-    return localArrayList;
+    e();
+    a = paramString;
   }
   
-  public String ia()
+  public void a(boolean paramBoolean)
   {
-    return NX;
+    e();
+    g = paramBoolean;
+  }
+  
+  public String b()
+  {
+    return a;
+  }
+  
+  public void b(int paramInt)
+  {
+    e();
+    c = paramInt;
+  }
+  
+  public void b(String paramString)
+  {
+    e();
+    d = paramString;
+  }
+  
+  public void b(boolean paramBoolean)
+  {
+    e();
+    f = paramBoolean;
+  }
+  
+  public int c()
+  {
+    return b;
+  }
+  
+  public void c(String paramString)
+  {
+    e();
+    if (TextUtils.isEmpty(paramString))
+    {
+      e = null;
+      return;
+    }
+    e = paramString;
+  }
+  
+  public String d()
+  {
+    return e;
   }
   
   public String toString()
   {
-    StringBuilder localStringBuilder = new StringBuilder();
-    Iterator localIterator1 = NV.keySet().iterator();
-    while (localIterator1.hasNext())
-    {
-      Object localObject = (String)localIterator1.next();
-      localStringBuilder.append((String)localObject).append(":\n");
-      localObject = (HashMap)NV.get(localObject);
-      Iterator localIterator2 = ((HashMap)localObject).keySet().iterator();
-      while (localIterator2.hasNext())
-      {
-        String str = (String)localIterator2.next();
-        localStringBuilder.append("  ").append(str).append(": ");
-        localStringBuilder.append(((HashMap)localObject).get(str));
-      }
-    }
-    return localStringBuilder.toString();
-  }
-  
-  public void writeToParcel(Parcel paramParcel, int paramInt)
-  {
-    kw localkw = CREATOR;
-    kw.a(this, paramParcel, paramInt);
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("screenName", a);
+    localHashMap.put("interstitial", Boolean.valueOf(f));
+    localHashMap.put("automatic", Boolean.valueOf(g));
+    localHashMap.put("screenId", Integer.valueOf(b));
+    localHashMap.put("referrerScreenId", Integer.valueOf(c));
+    localHashMap.put("referrerScreenName", d);
+    localHashMap.put("referrerUri", e);
+    return a(localHashMap);
   }
 }
 

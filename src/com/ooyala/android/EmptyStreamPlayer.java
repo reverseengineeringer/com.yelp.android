@@ -54,7 +54,7 @@ public class EmptyStreamPlayer
   
   public void play()
   {
-    switch (EmptyStreamPlayer.1.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     default: 
       return;

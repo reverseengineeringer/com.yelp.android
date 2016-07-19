@@ -1,24 +1,63 @@
 package android.support.v4.view;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityEvent;
+import android.os.Build.VERSION;
+import android.view.LayoutInflater;
 
-public abstract interface j
+public class j
 {
-  public abstract void a(View paramView, int paramInt);
+  static final a a = new b();
   
-  public abstract void a(View paramView, Object paramObject);
+  static
+  {
+    int i = Build.VERSION.SDK_INT;
+    if (i >= 21)
+    {
+      a = new d();
+      return;
+    }
+    if (i >= 11)
+    {
+      a = new c();
+      return;
+    }
+  }
   
-  public abstract boolean a(View paramView, AccessibilityEvent paramAccessibilityEvent);
+  public static void a(LayoutInflater paramLayoutInflater, n paramn)
+  {
+    a.a(paramLayoutInflater, paramn);
+  }
   
-  public abstract boolean a(ViewGroup paramViewGroup, View paramView, AccessibilityEvent paramAccessibilityEvent);
+  static abstract interface a
+  {
+    public abstract void a(LayoutInflater paramLayoutInflater, n paramn);
+  }
   
-  public abstract void b(View paramView, AccessibilityEvent paramAccessibilityEvent);
+  static class b
+    implements j.a
+  {
+    public void a(LayoutInflater paramLayoutInflater, n paramn)
+    {
+      k.a(paramLayoutInflater, paramn);
+    }
+  }
   
-  public abstract void c(View paramView, AccessibilityEvent paramAccessibilityEvent);
+  static class c
+    extends j.b
+  {
+    public void a(LayoutInflater paramLayoutInflater, n paramn)
+    {
+      l.a(paramLayoutInflater, paramn);
+    }
+  }
   
-  public abstract void d(View paramView, AccessibilityEvent paramAccessibilityEvent);
+  static class d
+    extends j.c
+  {
+    public void a(LayoutInflater paramLayoutInflater, n paramn)
+    {
+      m.a(paramLayoutInflater, paramn);
+    }
+  }
 }
 
 /* Location:

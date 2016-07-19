@@ -1,185 +1,171 @@
 package com.yelp.android.ui.activities.events;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.bumptech.glide.c;
-import com.bumptech.glide.h;
-import com.bumptech.glide.j;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.serializable.Event;
-import com.yelp.android.serializable.Event.EventType;
-import com.yelp.android.serializable.Event.SubscriptionStatus;
-import com.yelp.android.serializable.EventRsvp;
-import com.yelp.android.serializable.EventSection;
-import com.yelp.android.serializable.Photo;
-import com.yelp.android.ui.util.au;
-import com.yelp.android.ui.widgets.RoundedImageView;
+import com.yelp.android.serializable.EventAttendees;
+import com.yelp.android.serializable.User;
+import com.yelp.android.ui.util.ap.b;
+import com.yelp.android.ui.util.w;
+import com.yelp.android.ui.widgets.SpannedTextView;
 import java.util.ArrayList;
 import java.util.List;
 
 public class b
-  extends au<Event>
+  extends w<User>
 {
-  private static final Event a = new Event();
-  private boolean b;
-  private int[] c;
-  private int d;
-  private EventSection e;
-  private j f;
+  private EventAttendees a;
   
-  public b(Bundle paramBundle, Fragment paramFragment)
+  public b(EventAttendees paramEventAttendees, Bundle paramBundle)
   {
-    f = h.a(paramFragment);
-    b = true;
-    d = 0;
-    if ((paramBundle != null) && (paramBundle.containsKey("saved_events"))) {
-      a(paramBundle.getParcelableArrayList("saved_events"));
+    a = paramEventAttendees;
+    if (paramBundle != null)
+    {
+      a(paramBundle.getParcelableArrayList("adapter_attendees_list"));
+      return;
     }
+    a(a.c());
   }
   
-  public b(EventSection paramEventSection, Fragment paramFragment)
+  private View a(int paramInt, ViewGroup paramViewGroup)
   {
-    f = h.a(paramFragment);
-    e = paramEventSection;
-    b = false;
-    c = paramEventSection.getItemsToShow();
-    d = c.length;
+    if (b(paramInt))
+    {
+      View localView = LayoutInflater.from(paramViewGroup.getContext()).inflate(2130903396, paramViewGroup, false);
+      ((SpannedTextView)localView).setTextAppearance(paramViewGroup.getContext(), 2131296596);
+      return localView;
+    }
+    paramViewGroup = LayoutInflater.from(paramViewGroup.getContext()).inflate(2130903483, paramViewGroup, false);
+    paramViewGroup.setTag(new ap.b(paramViewGroup, false));
+    return paramViewGroup;
   }
   
-  private void a(int paramInt, d paramd, Context paramContext)
+  private boolean b(int paramInt)
+  {
+    if (paramInt == 0) {
+      return true;
+    }
+    int j = a.a()[0];
+    int i = 1;
+    for (;;)
+    {
+      if (i >= d()) {
+        break label54;
+      }
+      if (paramInt == j + 1) {
+        break;
+      }
+      j += a.a()[i] + 1;
+      i += 1;
+    }
+    label54:
+    return false;
+  }
+  
+  private String c(int paramInt)
   {
     int i = 0;
-    Event localEvent = a(paramInt);
-    Object localObject;
-    if (localEvent.getPhoto() != null)
+    int j = 0;
+    while (i < d())
     {
-      f.a(localEvent.getPhoto().getThumbnailUrl()).b(2130837656).a(d.a(paramd));
-      d.b(paramd).setText(localEvent.getName());
-      d.c(paramd).setText(localEvent.getFormattedTimeRange(paramContext));
-      localObject = localEvent.getRsvp();
-      if (localObject == null) {
-        break label179;
+      j = a.a()[i] + j;
+      if (paramInt <= j)
+      {
+        String str1 = (String)a.d().get(i);
+        String str2 = Integer.toString(a.a()[i]);
+        return AppData.b().getString(2131166922, new Object[] { str1, str2 });
       }
-      if (!((EventRsvp)localObject).getUserHasReplied()) {
-        break label239;
-      }
+      i += 1;
     }
-    label111:
-    label128:
-    label179:
-    label233:
-    label239:
-    for (paramContext = AppData.b().getString(2131166587);; paramContext = null)
+    return null;
+  }
+  
+  private int d()
+  {
+    return d(a().size());
+  }
+  
+  private int d(int paramInt)
+  {
+    int i = 0;
+    int j = 1;
+    int k = 0;
+    while (i < a.a().length)
     {
-      d.d(paramd).setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
-      localObject = d.d(paramd);
-      if (a(localEvent))
-      {
-        paramInt = 0;
-        ((TextView)localObject).setVisibility(paramInt);
-        d.d(paramd).setText(paramContext);
-        paramd = d.e(paramd);
-        if (localEvent.getType() != Event.EventType.ELITE) {
-          break label233;
-        }
-      }
-      for (paramInt = i;; paramInt = 8)
-      {
-        paramd.setVisibility(paramInt);
-        return;
-        d.a(paramd).setImageResource(2130837656);
+      k += a.a()[i];
+      if (paramInt <= k + i) {
         break;
-        localObject = paramContext.getString(2131166921, new Object[] { localEvent.getSubscriptionStatusEnum().toString() });
-        d.d(paramd).setCompoundDrawablesWithIntrinsicBounds(paramContext.getResources().getDrawable(2130838301), null, null, null);
-        paramContext = (Context)localObject;
-        break label111;
-        paramInt = 8;
-        break label128;
       }
+      j += 1;
+      i += 1;
     }
+    return j;
   }
   
-  private boolean a(Event paramEvent)
+  public User a(int paramInt)
   {
-    return (!TextUtils.isEmpty(paramEvent.getSubscriptionStatus())) || ((paramEvent.getRsvp() != null) && (paramEvent.getRsvp().getUserHasReplied()));
-  }
-  
-  public Event a(int paramInt)
-  {
-    if (!b)
-    {
-      if ((paramInt < a().size()) && (paramInt < d)) {
-        return (Event)a().get(c[paramInt]);
-      }
-      a.setId(e.getAlias());
-      return a;
+    if (!b(paramInt)) {
+      return (User)super.getItem(paramInt - d(paramInt));
     }
-    return (Event)a().get(paramInt);
-  }
-  
-  public List<Event> a()
-  {
-    return super.a();
+    return null;
   }
   
   public void a(Bundle paramBundle)
   {
-    if (!isEmpty()) {
-      paramBundle.putParcelableArrayList("saved_events", (ArrayList)a());
-    }
+    paramBundle.putParcelableArrayList("adapter_attendees_list", new ArrayList(a()));
   }
   
-  public EventSection b()
+  public List<String> b()
   {
-    return e;
+    int i = a().size();
+    int j = Math.min(20 + i, a.e().size());
+    ArrayList localArrayList = new ArrayList();
+    while (i < j)
+    {
+      localArrayList.add(a.e().get(i));
+      i += 1;
+    }
+    return localArrayList;
+  }
+  
+  public boolean c()
+  {
+    return a().size() == a.e().size();
   }
   
   public int getCount()
   {
-    if (d == 0) {
-      return a().size();
-    }
-    return Math.min(e.getTotal(), d + 1);
+    return super.getCount() + d();
   }
   
   public int getItemViewType(int paramInt)
   {
-    if ((!b) && (d == paramInt)) {
-      return 0;
+    if (b(paramInt)) {
+      return 1;
     }
-    return 1;
+    return 0;
   }
   
   public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
   {
-    Context localContext = paramViewGroup.getContext();
-    if (getItemViewType(paramInt) == 0)
-    {
-      paramView = LayoutInflater.from(localContext).inflate(2130903254, paramViewGroup, false);
-      paramView.findViewById(2131492893).setId(2131493812);
-      paramInt = e.getTotal() - d;
-      paramViewGroup = localContext.getResources().getQuantityString(2131623977, paramInt, new Object[] { Integer.valueOf(paramInt) });
-      ((TextView)paramView.findViewById(2131493668)).setText(paramViewGroup);
-      return paramView;
-    }
-    if (paramView == null)
-    {
-      paramView = LayoutInflater.from(localContext).inflate(2130903298, paramViewGroup, false);
-      paramViewGroup = new d(paramView, null);
-      paramView.setTag(paramViewGroup);
+    if (paramView == null) {
+      paramView = a(paramInt, paramViewGroup);
     }
     for (;;)
     {
-      a(paramInt, paramViewGroup, localContext);
+      if (b(paramInt))
+      {
+        ((SpannedTextView)paramView).setText(c(paramInt));
+        return paramView;
+      }
+      paramViewGroup = (ap.b)paramView.getTag();
+      n.setVisibility(8);
+      paramViewGroup.a(a(paramInt));
       return paramView;
-      paramViewGroup = (d)paramView.getTag();
     }
   }
   

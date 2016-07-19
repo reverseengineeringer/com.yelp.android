@@ -1,76 +1,76 @@
-.class final Landroid/support/v4/widget/u;
-.super Ljava/lang/Object;
-.source "DrawerLayout.java"
-
-# interfaces
-.implements Landroid/os/Parcelable$Creator;
+.class public abstract Landroid/support/v4/widget/u;
+.super Landroid/support/v4/widget/g;
+.source "ResourceCursorAdapter.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Landroid/os/Parcelable$Creator",
-        "<",
-        "Landroid/support/v4/widget/DrawerLayout$SavedState;",
-        ">;"
-    }
-.end annotation
+# instance fields
+.field private j:I
+
+.field private k:I
+
+.field private l:Landroid/view/LayoutInflater;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;Z)V
+    .locals 1
 
     .prologue
-    .line 1611
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 76
+    invoke-direct {p0, p1, p3, p4}, Landroid/support/v4/widget/g;-><init>(Landroid/content/Context;Landroid/database/Cursor;Z)V
 
+    .line 77
+    iput p2, p0, Landroid/support/v4/widget/u;->k:I
+
+    iput p2, p0, Landroid/support/v4/widget/u;->j:I
+
+    .line 78
+    const-string/jumbo v0, "layout_inflater"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/LayoutInflater;
+
+    iput-object v0, p0, Landroid/support/v4/widget/u;->l:Landroid/view/LayoutInflater;
+
+    .line 79
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/os/Parcel;)Landroid/support/v4/widget/DrawerLayout$SavedState;
-    .locals 1
+.method public a(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 3
 
     .prologue
-    .line 1614
-    new-instance v0, Landroid/support/v4/widget/DrawerLayout$SavedState;
+    .line 106
+    iget-object v0, p0, Landroid/support/v4/widget/u;->l:Landroid/view/LayoutInflater;
 
-    invoke-direct {v0, p1}, Landroid/support/v4/widget/DrawerLayout$SavedState;-><init>(Landroid/os/Parcel;)V
+    iget v1, p0, Landroid/support/v4/widget/u;->j:I
 
-    return-object v0
-.end method
+    const/4 v2, 0x0
 
-.method public a(I)[Landroid/support/v4/widget/DrawerLayout$SavedState;
-    .locals 1
-
-    .prologue
-    .line 1619
-    new-array v0, p1, [Landroid/support/v4/widget/DrawerLayout$SavedState;
-
-    return-object v0
-.end method
-
-.method public synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 1611
-    invoke-virtual {p0, p1}, Landroid/support/v4/widget/u;->a(Landroid/os/Parcel;)Landroid/support/v4/widget/DrawerLayout$SavedState;
+    invoke-virtual {v0, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public synthetic newArray(I)[Ljava/lang/Object;
-    .locals 1
+.method public b(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 3
 
     .prologue
-    .line 1611
-    invoke-virtual {p0, p1}, Landroid/support/v4/widget/u;->a(I)[Landroid/support/v4/widget/DrawerLayout$SavedState;
+    .line 111
+    iget-object v0, p0, Landroid/support/v4/widget/u;->l:Landroid/view/LayoutInflater;
+
+    iget v1, p0, Landroid/support/v4/widget/u;->k:I
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 

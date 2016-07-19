@@ -1,8 +1,8 @@
 package com.kahuna.sdk.location;
 
-import com.google.android.gms.location.Geofence;
-import com.google.android.gms.location.Geofence.Builder;
-import com.kahuna.sdk.aj;
+import com.google.android.gms.location.f;
+import com.google.android.gms.location.f.a;
+import com.kahuna.sdk.w;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,7 +17,7 @@ public class d
   
   public d(String paramString, double paramDouble1, double paramDouble2, float paramFloat, long paramLong, int paramInt)
   {
-    if (aj.a(paramString)) {
+    if (w.a(paramString)) {
       throw new IllegalArgumentException("Cannot create Geofence with null or empty regionId");
     }
     if ((paramDouble1 < -90.0D) || (paramDouble1 > 90.0D)) {
@@ -80,9 +80,9 @@ public class d
     return e;
   }
   
-  protected Geofence f()
+  protected f f()
   {
-    return new Geofence.Builder().setRequestId(a()).setTransitionTypes(f).setCircularRegion(b(), c(), d()).setExpirationDuration(e).build();
+    return new f.a().a(a()).a(f).a(b(), c(), d()).a(e).a();
   }
   
   public JSONObject g()

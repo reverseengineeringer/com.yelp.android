@@ -4,23 +4,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
-import com.google.android.gms.internal.eo;
-import com.google.android.gms.internal.et;
-import com.google.android.gms.internal.gr;
+import com.google.android.gms.internal.fa;
+import com.google.android.gms.internal.gz;
+import com.google.android.gms.internal.zzgj;
 
-public final class InAppPurchaseActivity
+public class InAppPurchaseActivity
   extends Activity
 {
-  public static final String CLASS_NAME = "com.google.android.gms.ads.purchase.InAppPurchaseActivity";
-  public static final String SIMPLE_CLASS_NAME = "InAppPurchaseActivity";
-  private eo xz;
+  private fa a;
   
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     try
     {
-      if (xz != null) {
-        xz.onActivityResult(paramInt1, paramInt2, paramIntent);
+      if (a != null) {
+        a.a(paramInt1, paramInt2, paramIntent);
       }
       super.onActivityResult(paramInt1, paramInt2, paramIntent);
       return;
@@ -29,7 +27,7 @@ public final class InAppPurchaseActivity
     {
       for (;;)
       {
-        gr.d("Could not forward onActivityResult to in-app purchase manager:", localRemoteException);
+        gz.d("Could not forward onActivityResult to in-app purchase manager:", localRemoteException);
       }
     }
   }
@@ -37,21 +35,21 @@ public final class InAppPurchaseActivity
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    xz = et.e(this);
-    if (xz == null)
+    a = zzgj.a(this);
+    if (a == null)
     {
-      gr.W("Could not create in-app purchase manager.");
+      gz.d("Could not create in-app purchase manager.");
       finish();
       return;
     }
     try
     {
-      xz.onCreate();
+      a.a();
       return;
     }
     catch (RemoteException paramBundle)
     {
-      gr.d("Could not forward onCreate to in-app purchase manager:", paramBundle);
+      gz.d("Could not forward onCreate to in-app purchase manager:", paramBundle);
       finish();
     }
   }
@@ -60,8 +58,8 @@ public final class InAppPurchaseActivity
   {
     try
     {
-      if (xz != null) {
-        xz.onDestroy();
+      if (a != null) {
+        a.b();
       }
       super.onDestroy();
       return;
@@ -70,7 +68,7 @@ public final class InAppPurchaseActivity
     {
       for (;;)
       {
-        gr.d("Could not forward onDestroy to in-app purchase manager:", localRemoteException);
+        gz.d("Could not forward onDestroy to in-app purchase manager:", localRemoteException);
       }
     }
   }

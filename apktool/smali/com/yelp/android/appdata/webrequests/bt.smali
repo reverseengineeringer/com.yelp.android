@@ -1,82 +1,57 @@
 .class public Lcom/yelp/android/appdata/webrequests/bt;
-.super Lcom/yelp/android/av/g;
-.source "EventFlagRequest.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/yelp/android/av/g",
-        "<",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        "Ljava/lang/String;",
-        ">;"
-    }
-.end annotation
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "FacebookAccountSaveRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/concurrent/TimeUnit;JLcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 4
 
     .prologue
-    .line 11
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+    .line 29
+    const-string/jumbo v0, "account/facebook/save"
 
-    const-string/jumbo v1, "event/flag"
+    invoke-direct {p0, v0, p8}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    invoke-direct {p0, v0, v1, p3}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    .line 30
+    const-wide/16 v0, 0x0
 
-    .line 12
-    const-string/jumbo v0, "event_id"
+    cmp-long v0, p6, v0
 
-    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/bt;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    if-lez v0, :cond_0
 
-    .line 13
-    const-string/jumbo v0, "message"
+    .line 31
+    const-string/jumbo v0, "access_token_expiry"
 
-    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/bt;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    .line 14
+    invoke-virtual {v1, p6, p7, p5}, Ljava/util/concurrent/TimeUnit;->convert(JLjava/util/concurrent/TimeUnit;)J
+
+    move-result-wide v2
+
+    invoke-virtual {p0, v0, v2, v3}, Lcom/yelp/android/appdata/webrequests/bt;->b(Ljava/lang/String;J)V
+
+    .line 35
+    :cond_0
+    const-string/jumbo v0, "permissions"
+
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/bt;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 36
+    const-string/jumbo v0, "api_key"
+
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/bt;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 37
+    const-string/jumbo v0, "access_token"
+
+    invoke-virtual {p0, v0, p4}, Lcom/yelp/android/appdata/webrequests/bt;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 38
+    const-string/jumbo v0, "fbuid"
+
+    invoke-virtual {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/bt;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 39
     return-void
-.end method
-
-
-# virtual methods
-.method public a(Lorg/json/JSONObject;)Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 18
-    const-string/jumbo v0, "success_title"
-
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 8
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/bt;->a(Lorg/json/JSONObject;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
 .end method

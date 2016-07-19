@@ -1,9 +1,12 @@
 package com.yelp.android.util;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import com.yelp.android.appdata.BaseYelpApplication;
-import com.yelp.android.appdata.j;
+import com.yelp.android.appdata.d;
 import java.util.Collection;
+import java.util.Locale;
 
 public enum PlatformQualifier
 {
@@ -15,7 +18,7 @@ public enum PlatformQualifier
   
   public final boolean qualifies(Context paramContext)
   {
-    if (BaseYelpApplication.d(paramContext).x().a(paramContext).contains(name())) {
+    if (BaseYelpApplication.d(paramContext).I().a(paramContext).contains(name())) {
       return true;
     }
     return isQualified(paramContext);

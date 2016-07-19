@@ -1,9 +1,9 @@
 package com.yelp.android.ui.dialogs;
 
-import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.support.v7.app.d.a;
 
 public class AlertDialogFragment
   extends YelpAlertDialogFragment
@@ -47,7 +47,7 @@ public class AlertDialogFragment
     }
     for (;;)
     {
-      return c(str2, str1).setPositiveButton(paramBundle, new a(this)).create();
+      return c(str2, str1).a(paramBundle, new AlertDialogFragment.1(this)).b();
       paramBundle = localBundle.getString("button_message");
       continue;
       str1 = null;

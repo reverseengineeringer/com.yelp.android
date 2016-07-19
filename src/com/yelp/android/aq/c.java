@@ -1,58 +1,45 @@
 package com.yelp.android.aq;
 
-import android.content.Context;
-import com.path.android.jobqueue.f;
-import com.yelp.android.au.d;
-
-public final class c
+public class c
 {
-  private a a = new a(null);
-  private Context b;
+  private String a;
+  private String b;
+  private int c;
+  private int d;
   
-  public c(Context paramContext)
+  public c(String paramString)
   {
-    b = paramContext.getApplicationContext();
+    b = paramString;
+    c = 0;
+    d = 0;
   }
   
-  public a a()
+  public c(String paramString1, String paramString2, int paramInt1, int paramInt2)
   {
-    if (a.a(a) == null) {
-      a.a(a, new f());
-    }
-    if (a.b(a) == null) {
-      a.a(a, new d(b));
-    }
-    return a;
+    a = paramString1;
+    b = paramString2;
+    c = paramInt1;
+    d = paramInt2;
   }
   
-  public c a(int paramInt)
+  public String a()
   {
-    a.a(a, paramInt);
-    return this;
+    return b;
   }
   
-  public c a(com.yelp.android.at.a parama)
+  public int b()
   {
-    a.a(a, parama);
-    return this;
+    return c;
   }
   
-  public c b(int paramInt)
+  public int c()
   {
-    a.b(a, paramInt);
-    return this;
+    return d;
   }
   
-  public c c(int paramInt)
+  public String d()
   {
-    a.c(a, paramInt);
-    return this;
-  }
-  
-  public c d(int paramInt)
-  {
-    a.d(a, paramInt);
-    return this;
+    return b() + "" + c();
   }
 }
 

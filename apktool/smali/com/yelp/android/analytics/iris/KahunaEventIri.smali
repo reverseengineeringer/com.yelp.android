@@ -23,6 +23,14 @@
 
 .field public static final enum BusinessPhotoSave:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
+.field public static final enum FriendFinderSelectSources:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+.field public static final enum NotificationOpen:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+.field public static final enum OnboardingBegan:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+.field public static final enum OnboardingCompleted:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
 .field public static final enum ReservationConfirm:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
 .field public static final enum ReviewSaved:Lcom/yelp/android/analytics/iris/KahunaEventIri;
@@ -51,7 +59,7 @@
 
     const/4 v4, 0x0
 
-    .line 5
+    .line 4
     new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
     const-string/jumbo v1, "Business"
@@ -62,7 +70,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->Business:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
-    .line 6
+    .line 5
     new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
     const-string/jumbo v1, "BusinessPhoto"
@@ -73,7 +81,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->BusinessPhoto:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
-    .line 7
+    .line 6
     new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
     const-string/jumbo v1, "BusinessPhotoSave"
@@ -84,6 +92,17 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->BusinessPhotoSave:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
+    .line 7
+    new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    const-string/jumbo v1, "FriendFinderSelectSources"
+
+    const-string/jumbo v2, "friend_finder/select_sources"
+
+    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->FriendFinderSelectSources:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
     .line 8
     new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
@@ -91,7 +110,7 @@
 
     const-string/jumbo v2, "review/saved"
 
-    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v8, v2}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->ReviewSaved:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
@@ -100,9 +119,11 @@
 
     const-string/jumbo v1, "ReservationConfirm"
 
-    const-string/jumbo v2, "reservation/confirm"
+    const/4 v2, 0x5
 
-    invoke-direct {v0, v1, v8, v2}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    const-string/jumbo v3, "reservation/confirm"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->ReservationConfirm:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
@@ -111,7 +132,7 @@
 
     const-string/jumbo v1, "Search"
 
-    const/4 v2, 0x5
+    const/4 v2, 0x6
 
     const-string/jumbo v3, "search"
 
@@ -124,7 +145,7 @@
 
     const-string/jumbo v1, "SignedUp"
 
-    const/4 v2, 0x6
+    const/4 v2, 0x7
 
     const-string/jumbo v3, "signed_up"
 
@@ -132,8 +153,47 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->SignedUp:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
+    .line 12
+    new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    const-string/jumbo v1, "NotificationOpen"
+
+    const/16 v2, 0x8
+
+    const-string/jumbo v3, "notification_open"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->NotificationOpen:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    .line 13
+    new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    const-string/jumbo v1, "OnboardingBegan"
+
+    const/16 v2, 0x9
+
+    const-string/jumbo v3, "onboarding/began"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->OnboardingBegan:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    .line 14
+    new-instance v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    const-string/jumbo v1, "OnboardingCompleted"
+
+    const/16 v2, 0xa
+
+    const-string/jumbo v3, "onboarding/completed"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/KahunaEventIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->OnboardingCompleted:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
     .line 3
-    const/4 v0, 0x7
+    const/16 v0, 0xb
 
     new-array v0, v0, [Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
@@ -149,23 +209,47 @@
 
     aput-object v1, v0, v6
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaEventIri;->ReviewSaved:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaEventIri;->FriendFinderSelectSources:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
     aput-object v1, v0, v7
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaEventIri;->ReservationConfirm:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaEventIri;->ReviewSaved:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
     aput-object v1, v0, v8
 
     const/4 v1, 0x5
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaEventIri;->Search:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaEventIri;->ReservationConfirm:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
     aput-object v2, v0, v1
 
     const/4 v1, 0x6
 
+    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaEventIri;->Search:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
     sget-object v2, Lcom/yelp/android/analytics/iris/KahunaEventIri;->SignedUp:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x8
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaEventIri;->NotificationOpen:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x9
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaEventIri;->OnboardingBegan:Lcom/yelp/android/analytics/iris/KahunaEventIri;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xa
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaEventIri;->OnboardingCompleted:Lcom/yelp/android/analytics/iris/KahunaEventIri;
 
     aput-object v2, v0, v1
 
@@ -185,13 +269,13 @@
     .end annotation
 
     .prologue
-    .line 15
+    .line 18
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 16
+    .line 19
     iput-object p3, p0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->mEventName:Ljava/lang/String;
 
-    .line 17
+    .line 20
     return-void
 .end method
 
@@ -233,7 +317,7 @@
     .locals 1
 
     .prologue
-    .line 20
+    .line 23
     iget-object v0, p0, Lcom/yelp/android/analytics/iris/KahunaEventIri;->mEventName:Ljava/lang/String;
 
     return-object v0

@@ -1,21 +1,13 @@
 package android.support.v4.view;
 
-import android.view.MenuItem;
-import android.view.View;
+import android.view.ViewGroup;
 
-abstract interface aw
+class aw
 {
-  public abstract MenuItem a(MenuItem paramMenuItem, View paramView);
-  
-  public abstract View a(MenuItem paramMenuItem);
-  
-  public abstract void a(MenuItem paramMenuItem, int paramInt);
-  
-  public abstract MenuItem b(MenuItem paramMenuItem, int paramInt);
-  
-  public abstract boolean b(MenuItem paramMenuItem);
-  
-  public abstract boolean c(MenuItem paramMenuItem);
+  public static void a(ViewGroup paramViewGroup, boolean paramBoolean)
+  {
+    paramViewGroup.setMotionEventSplittingEnabled(paramBoolean);
+  }
 }
 
 /* Location:

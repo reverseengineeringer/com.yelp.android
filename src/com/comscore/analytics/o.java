@@ -1,15 +1,13 @@
 package com.comscore.analytics;
 
-import com.comscore.utils.j;
-
 class o
   implements Runnable
 {
-  o(a parama) {}
+  o(a parama, String paramString) {}
   
   public void run()
   {
-    a.a.f();
+    a.c(b, a);
   }
 }
 

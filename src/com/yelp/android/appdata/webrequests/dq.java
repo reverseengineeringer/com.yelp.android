@@ -1,24 +1,36 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.OfferSummary;
-import com.yelp.android.serializable.YelpCheckIn;
-import java.util.List;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
 
-public final class dq
+public abstract class dq<Progress, Result>
+  extends k<Void, Progress, Result>
 {
-  public final int a;
-  public final int b;
-  public final int c;
-  public final OfferSummary d;
-  public final List<YelpCheckIn> e;
-  
-  public dq(List<YelpCheckIn> paramList, OfferSummary paramOfferSummary, int paramInt1, int paramInt2, int paramInt3)
+  protected dq(ApiRequest.RequestType paramRequestType, String paramString, LocationService.Accuracies paramAccuracies, LocationService.Recentness paramRecentness, LocationService.AccuracyUnit paramAccuracyUnit, a<Progress, Result> parama)
   {
-    e = paramList;
-    d = paramOfferSummary;
-    a = paramInt1;
-    b = paramInt2;
-    c = paramInt3;
+    super(paramRequestType, paramString, paramAccuracies, paramRecentness, parama, paramAccuracyUnit);
+  }
+  
+  protected void b(Result paramResult)
+  {
+    if (n() != null) {
+      n().onSuccess(this, paramResult);
+    }
+  }
+  
+  protected void d(Progress... paramVarArgs)
+  {
+    a locala = (a)n();
+    if ((locala != null) && (paramVarArgs != null) && (paramVarArgs.length > 0)) {
+      locala.a(paramVarArgs[0]);
+    }
+  }
+  
+  public static abstract class a<Progress, Result>
+    extends k.b<Result>
+  {
+    public abstract void a(Progress paramProgress);
   }
 }
 

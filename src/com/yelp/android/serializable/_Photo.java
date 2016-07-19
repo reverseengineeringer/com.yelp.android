@@ -2,6 +2,8 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
@@ -9,37 +11,102 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Photo
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected String mCaption;
-  protected int mFeedbackPositiveCount;
-  protected String mId;
-  protected int mIndex;
-  protected List<String> mPrivateFeedback;
-  protected Date mTimeCreated;
-  protected String mUrlPrefix;
-  protected String mUrlSuffix;
-  protected Passport mUserPassport;
+  protected Date d;
+  protected List<String> e;
+  protected List<String> f;
+  protected Passport g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected String k;
+  protected String l;
+  protected String m;
+  protected String n;
+  protected int o;
+  protected int p;
   
-  protected _Photo() {}
-  
-  protected _Photo(Date paramDate, List<String> paramList, Passport paramPassport, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, int paramInt1, int paramInt2)
+  public String a()
   {
-    this();
-    mTimeCreated = paramDate;
-    mPrivateFeedback = paramList;
-    mUserPassport = paramPassport;
-    mId = paramString1;
-    mCaption = paramString2;
-    mUrlPrefix = paramString3;
-    mUrlSuffix = paramString4;
-    mBusinessId = paramString5;
-    mFeedbackPositiveCount = paramInt1;
-    mIndex = paramInt2;
+    return h;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      d = new Date(l1);
+    }
+    e = paramParcel.createStringArrayList();
+    f = paramParcel.createStringArrayList();
+    g = ((Passport)paramParcel.readParcelable(Passport.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    l = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    m = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    n = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    o = paramParcel.readInt();
+    p = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      d = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("feedback"))
+    {
+      e = JsonUtil.getStringList(paramJSONObject.optJSONArray("feedback"));
+      if (paramJSONObject.isNull("votes")) {
+        break label255;
+      }
+    }
+    label255:
+    for (f = JsonUtil.getStringList(paramJSONObject.optJSONArray("votes"));; f = Collections.emptyList())
+    {
+      if (!paramJSONObject.isNull("user_passport")) {
+        g = ((Passport)Passport.CREATOR.parse(paramJSONObject.getJSONObject("user_passport")));
+      }
+      if (!paramJSONObject.isNull("id")) {
+        h = paramJSONObject.optString("id");
+      }
+      if (!paramJSONObject.isNull("type")) {
+        i = paramJSONObject.optString("type");
+      }
+      if (!paramJSONObject.isNull("caption")) {
+        j = paramJSONObject.optString("caption");
+      }
+      if (!paramJSONObject.isNull("url_prefix")) {
+        k = paramJSONObject.optString("url_prefix");
+      }
+      if (!paramJSONObject.isNull("url_suffix")) {
+        l = paramJSONObject.optString("url_suffix");
+      }
+      if (!paramJSONObject.isNull("business_id")) {
+        m = paramJSONObject.optString("business_id");
+      }
+      if (!paramJSONObject.isNull("share_url")) {
+        n = paramJSONObject.optString("share_url");
+      }
+      o = paramJSONObject.optInt("feedback_positive_count");
+      p = paramJSONObject.optInt("index");
+      return;
+      e = Collections.emptyList();
+      break;
+    }
+  }
+  
+  public int d()
+  {
+    return o;
   }
   
   public int describeContents()
@@ -47,160 +114,141 @@ abstract class _Photo
     return 0;
   }
   
-  public String getBusinessId()
+  public int e()
   {
-    return mBusinessId;
+    return p;
   }
   
-  public String getCaption()
+  public boolean equals(Object paramObject)
   {
-    return mCaption;
-  }
-  
-  public int getFeedbackPositiveCount()
-  {
-    return mFeedbackPositiveCount;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public int getIndex()
-  {
-    return mIndex;
-  }
-  
-  public List<String> getPrivateFeedback()
-  {
-    return mPrivateFeedback;
-  }
-  
-  public Date getTimeCreated()
-  {
-    return mTimeCreated;
-  }
-  
-  public String getUrlPrefix()
-  {
-    return mUrlPrefix;
-  }
-  
-  public String getUrlSuffix()
-  {
-    return mUrlSuffix;
-  }
-  
-  public Passport getUserPassport()
-  {
-    return mUserPassport;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_created")) {
-      mTimeCreated = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("feedback")) {}
-    for (mPrivateFeedback = JsonUtil.getStringList(paramJSONObject.optJSONArray("feedback"));; mPrivateFeedback = Collections.emptyList())
+    if (paramObject == null) {}
+    do
     {
-      if (!paramJSONObject.isNull("user_passport")) {
-        mUserPassport = ((Passport)Passport.CREATOR.parse(paramJSONObject.getJSONObject("user_passport")));
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      if (!paramJSONObject.isNull("id")) {
-        mId = paramJSONObject.optString("id");
-      }
-      if (!paramJSONObject.isNull("caption")) {
-        mCaption = paramJSONObject.optString("caption");
-      }
-      if (!paramJSONObject.isNull("url_prefix")) {
-        mUrlPrefix = paramJSONObject.optString("url_prefix");
-      }
-      if (!paramJSONObject.isNull("url_suffix")) {
-        mUrlSuffix = paramJSONObject.optString("url_suffix");
-      }
-      if (!paramJSONObject.isNull("business_id")) {
-        mBusinessId = paramJSONObject.optString("business_id");
-      }
-      mFeedbackPositiveCount = paramJSONObject.optInt("feedback_positive_count");
-      mIndex = paramJSONObject.optInt("index");
-      return;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Photo)paramObject;
+    return new b().a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a(n, n).a(o, o).a(p, p).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public String g()
   {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mTimeCreated = new Date(l);
-    }
-    mPrivateFeedback = paramParcel.createStringArrayList();
-    mUserPassport = ((Passport)paramParcel.readParcelable(Passport.class.getClassLoader()));
-    mId = paramParcel.readString();
-    mCaption = paramParcel.readString();
-    mUrlPrefix = paramParcel.readString();
-    mUrlSuffix = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mFeedbackPositiveCount = paramParcel.readInt();
-    mIndex = paramParcel.readInt();
+    return j;
   }
   
-  public JSONObject writeJSON()
+  public Date h()
+  {
+    return d;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a(n).a(o).a(p).a();
+  }
+  
+  public Passport i()
+  {
+    return g;
+  }
+  
+  public String k()
+  {
+    return m;
+  }
+  
+  public String l()
+  {
+    return n;
+  }
+  
+  public JSONObject w()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
-    if (mTimeCreated != null) {
-      localJSONObject.put("time_created", mTimeCreated.getTime() / 1000L);
+    if (d != null) {
+      localJSONObject.put("time_created", d.getTime() / 1000L);
     }
-    if (mPrivateFeedback != null)
+    JSONArray localJSONArray;
+    Iterator localIterator;
+    if (e != null)
     {
-      JSONArray localJSONArray = new JSONArray();
-      Iterator localIterator = mPrivateFeedback.iterator();
+      localJSONArray = new JSONArray();
+      localIterator = e.iterator();
       while (localIterator.hasNext()) {
         localJSONArray.put((String)localIterator.next());
       }
       localJSONObject.put("feedback", localJSONArray);
     }
-    if (mUserPassport != null) {
-      localJSONObject.put("user_passport", mUserPassport.writeJSON());
+    if (f != null)
+    {
+      localJSONArray = new JSONArray();
+      localIterator = f.iterator();
+      while (localIterator.hasNext()) {
+        localJSONArray.put((String)localIterator.next());
+      }
+      localJSONObject.put("votes", localJSONArray);
     }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
+    if (g != null) {
+      localJSONObject.put("user_passport", g.k());
     }
-    if (mCaption != null) {
-      localJSONObject.put("caption", mCaption);
+    if (h != null) {
+      localJSONObject.put("id", h);
     }
-    if (mUrlPrefix != null) {
-      localJSONObject.put("url_prefix", mUrlPrefix);
+    if (i != null) {
+      localJSONObject.put("type", i);
     }
-    if (mUrlSuffix != null) {
-      localJSONObject.put("url_suffix", mUrlSuffix);
+    if (j != null) {
+      localJSONObject.put("caption", j);
     }
-    if (mBusinessId != null) {
-      localJSONObject.put("business_id", mBusinessId);
+    if (k != null) {
+      localJSONObject.put("url_prefix", k);
     }
-    localJSONObject.put("feedback_positive_count", mFeedbackPositiveCount);
-    localJSONObject.put("index", mIndex);
+    if (l != null) {
+      localJSONObject.put("url_suffix", l);
+    }
+    if (m != null) {
+      localJSONObject.put("business_id", m);
+    }
+    if (n != null) {
+      localJSONObject.put("share_url", n);
+    }
+    localJSONObject.put("feedback_positive_count", o);
+    localJSONObject.put("index", p);
     return localJSONObject;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mTimeCreated == null) {}
-    for (long l = -2147483648L;; l = mTimeCreated.getTime())
+    if (d == null) {}
+    for (long l1 = -2147483648L;; l1 = d.getTime())
     {
-      paramParcel.writeLong(l);
-      paramParcel.writeStringList(mPrivateFeedback);
-      paramParcel.writeParcelable(mUserPassport, 0);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mCaption);
-      paramParcel.writeString(mUrlPrefix);
-      paramParcel.writeString(mUrlSuffix);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeInt(mFeedbackPositiveCount);
-      paramParcel.writeInt(mIndex);
+      paramParcel.writeLong(l1);
+      paramParcel.writeStringList(e);
+      paramParcel.writeStringList(f);
+      paramParcel.writeParcelable(g, 0);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeValue(j);
+      paramParcel.writeValue(k);
+      paramParcel.writeValue(l);
+      paramParcel.writeValue(m);
+      paramParcel.writeValue(n);
+      paramParcel.writeInt(o);
+      paramParcel.writeInt(p);
       return;
     }
+  }
+  
+  public String x()
+  {
+    return i;
+  }
+  
+  public List<String> y()
+  {
+    return e;
   }
 }
 

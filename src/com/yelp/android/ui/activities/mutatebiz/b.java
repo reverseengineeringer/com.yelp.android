@@ -1,26 +1,79 @@
 package com.yelp.android.ui.activities.mutatebiz;
 
-import android.view.View;
-import android.view.View.OnClickListener;
-import com.yelp.android.appdata.AppData;
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.util.Pair;
 import com.yelp.android.appdata.LocationService;
-import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.util.BackgroundTaskFragment;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.NoProvidersException;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.util.YelpLog;
+import com.yelp.android.util.q;
+import java.io.IOException;
+import java.util.List;
 
-class b
-  implements View.OnClickListener
+public class b
+  extends q<Void, Void, String>
 {
-  b(AddAddressFragment paramAddAddressFragment) {}
+  private final Geocoder a;
+  private final LocationService b;
+  private final a d;
   
-  public void onClick(View paramView)
+  public b(Context paramContext, LocationService paramLocationService, a parama)
   {
-    if (!AppData.b().n().a()) {
-      ((YelpActivity)a.getActivity()).onProvidersRequired(a, true, 2131166195);
+    a = new Geocoder(paramContext);
+    b = paramLocationService;
+    d = parama;
+  }
+  
+  protected String a(Void... paramVarArgs)
+  {
+    try
+    {
+      paramVarArgs = b.a(LocationService.Accuracies.FINE, LocationService.Recentness.MINUTE);
+      if ((paramVarArgs == null) || (first == null)) {
+        return null;
+      }
     }
-    a.a(null);
-    if (!AddAddressFragment.a(a).a()) {
-      AddAddressFragment.a(a).b();
+    catch (LocationService.NoProvidersException paramVarArgs)
+    {
+      return null;
     }
+    paramVarArgs = (Location)first;
+    try
+    {
+      Object localObject = a.getFromLocation(paramVarArgs.getLatitude(), paramVarArgs.getLongitude(), 1);
+      if ((localObject != null) && (!((List)localObject).isEmpty()))
+      {
+        localObject = ((Address)((List)localObject).get(0)).getCountryCode();
+        return (String)localObject;
+      }
+    }
+    catch (IOException localIOException)
+    {
+      YelpLog.e("CountryCodeTask", "Ran into an error while geocoding " + paramVarArgs.toString(), localIOException);
+    }
+    return null;
+  }
+  
+  protected void a(String paramString)
+  {
+    super.onPostExecute(paramString);
+    if (paramString != null)
+    {
+      d.a(paramString);
+      return;
+    }
+    d.a();
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a();
+    
+    public abstract void a(String paramString);
   }
 }
 

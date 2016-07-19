@@ -27,8 +27,8 @@ public class ActivityFirstTranslation
   {
     super.onCreate(paramBundle);
     setResult(-1, getIntent());
-    ((TextView)a).setText(StringUtils.a(this, 2131623982, getIntent().getIntExtra("extra_count", 1), new Object[0]));
-    ((TextView)a).setTextColor(getResources().getColor(2131361907));
+    ((TextView)a).setText(StringUtils.a(this, 2131230769, getIntent().getIntExtra("extra_count", 1), new Object[0]));
+    ((TextView)a).setTextColor(getResources().getColor(2131624108));
   }
 }
 

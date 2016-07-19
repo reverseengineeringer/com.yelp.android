@@ -8,8 +8,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
-import com.yelp.android.bf.e;
-import com.yelp.android.bf.f;
+import com.yelp.android.co.a.d;
+import com.yelp.android.co.a.e;
 import com.yelp.android.webimageview.WebImageView;
 
 public class ShadowWebImageView
@@ -41,8 +41,8 @@ public class ShadowWebImageView
       j = (int)(f2 * j);
       int k = (int)localObject[2];
       int m = (int)localObject[5];
-      int n = (int)getResources().getDimension(e.shadow_radius);
-      localObject = (NinePatchDrawable)getResources().getDrawable(f.shadow_black);
+      int n = (int)getResources().getDimension(a.d.shadow_radius);
+      localObject = (NinePatchDrawable)getResources().getDrawable(a.e.shadow_black);
       a.set(k - n, m - n, i + k + n, j + m + n);
       ((NinePatchDrawable)localObject).setBounds(a);
       ((NinePatchDrawable)localObject).draw(paramCanvas);

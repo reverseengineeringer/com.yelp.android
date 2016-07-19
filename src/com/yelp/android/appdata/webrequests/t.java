@@ -1,23 +1,62 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.ArrayList;
-import org.json.JSONObject;
+import android.location.Address;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.yelp.android.serializable.Category;
+import com.yelp.android.serializable.YelpBusiness;
+import java.util.Collection;
 
 public class t
-  extends g<Void, Void, ArrayList<String>>
+  extends y
 {
-  public t(String paramString, ArrayList<String> paramArrayList, m<ArrayList<String>> paramm)
+  public t(ApiRequest.b<Pair<String, YelpBusiness>> paramb, CharSequence paramCharSequence, Address paramAddress, boolean paramBoolean)
   {
-    super(ApiRequest.RequestType.POST, "/business/survey/vote", paramm);
-    addUrlParam("business_id", paramString);
-    addUrlParam("answer_identifiers", paramArrayList);
+    super("business/add", paramb);
+    d(paramCharSequence);
+    a(paramAddress, paramBoolean);
   }
   
-  public ArrayList<String> a(JSONObject paramJSONObject)
+  public void a(CharSequence paramCharSequence)
   {
-    return new ArrayList(JsonUtil.getStringList(paramJSONObject.optJSONArray("failed_votes")));
+    if (!TextUtils.isEmpty(paramCharSequence)) {
+      super.a(paramCharSequence);
+    }
+  }
+  
+  protected void a(String paramString)
+  {
+    if (!TextUtils.isEmpty(paramString)) {
+      super.a(paramString);
+    }
+  }
+  
+  public void a(Collection<Category> paramCollection)
+  {
+    if (!paramCollection.isEmpty()) {
+      super.a(paramCollection);
+    }
+  }
+  
+  public void b(CharSequence paramCharSequence)
+  {
+    if (!TextUtils.isEmpty(paramCharSequence)) {
+      super.b(paramCharSequence);
+    }
+  }
+  
+  protected void b(String paramString)
+  {
+    if (!TextUtils.isEmpty(paramString)) {
+      super.b(paramString);
+    }
+  }
+  
+  public void c(CharSequence paramCharSequence)
+  {
+    if (!TextUtils.isEmpty(paramCharSequence)) {
+      super.c(paramCharSequence);
+    }
   }
 }
 

@@ -1,16 +1,15 @@
 package com.comscore.analytics;
 
-import com.comscore.applications.EventType;
-import java.util.HashMap;
-
 class r
   implements Runnable
 {
-  r(a parama, EventType paramEventType, HashMap paramHashMap) {}
+  r(a parama, boolean paramBoolean) {}
   
   public void run()
   {
-    c.a(a, b);
+    if (b.ae() != a) {
+      b.ah = a;
+    }
   }
 }
 

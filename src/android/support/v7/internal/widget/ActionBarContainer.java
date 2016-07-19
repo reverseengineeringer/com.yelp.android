@@ -13,9 +13,9 @@ import android.view.View.MeasureSpec;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
-import com.yelp.android.g.g;
-import com.yelp.android.g.l;
-import com.yelp.android.h.a;
+import com.yelp.android.j.a.f;
+import com.yelp.android.j.a.k;
+import com.yelp.android.l.a;
 
 public class ActionBarContainer
   extends FrameLayout
@@ -43,16 +43,16 @@ public class ActionBarContainer
     boolean bool;
     if (a.a())
     {
-      localObject = new f(this);
+      localObject = new c(this);
       setBackgroundDrawable((Drawable)localObject);
-      paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, l.ActionBar);
-      a = paramContext.getDrawable(l.ActionBar_background);
-      b = paramContext.getDrawable(l.ActionBar_backgroundStacked);
-      j = paramContext.getDimensionPixelSize(l.ActionBar_height, -1);
-      if (getId() == g.split_action_bar)
+      paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.k.ActionBar);
+      a = paramContext.getDrawable(a.k.ActionBar_background);
+      b = paramContext.getDrawable(a.k.ActionBar_backgroundStacked);
+      j = paramContext.getDimensionPixelSize(a.k.ActionBar_height, -1);
+      if (getId() == a.f.split_action_bar)
       {
         d = true;
-        c = paramContext.getDrawable(l.ActionBar_backgroundSplit);
+        c = paramContext.getDrawable(a.k.ActionBar_backgroundSplit);
       }
       paramContext.recycle();
       if (!d) {
@@ -67,7 +67,7 @@ public class ActionBarContainer
     {
       setWillNotDraw(bool);
       return;
-      localObject = new e(this);
+      localObject = new b(this);
       break;
       label136:
       bool = false;
@@ -133,8 +133,8 @@ public class ActionBarContainer
   public void onFinishInflate()
   {
     super.onFinishInflate();
-    h = findViewById(g.action_bar);
-    i = findViewById(g.action_context_bar);
+    h = findViewById(a.f.action_bar);
+    i = findViewById(a.f.action_context_bar);
   }
   
   public boolean onInterceptTouchEvent(MotionEvent paramMotionEvent)
@@ -348,19 +348,19 @@ public class ActionBarContainer
     }
   }
   
-  public void setTabContainer(ap paramap)
+  public void setTabContainer(k paramk)
   {
     if (g != null) {
       removeView(g);
     }
-    g = paramap;
-    if (paramap != null)
+    g = paramk;
+    if (paramk != null)
     {
-      addView(paramap);
-      ViewGroup.LayoutParams localLayoutParams = paramap.getLayoutParams();
+      addView(paramk);
+      ViewGroup.LayoutParams localLayoutParams = paramk.getLayoutParams();
       width = -1;
       height = -2;
-      paramap.setAllowCollapse(false);
+      paramk.setAllowCollapse(false);
     }
   }
   

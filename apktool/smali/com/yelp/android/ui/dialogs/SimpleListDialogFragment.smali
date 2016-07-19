@@ -53,12 +53,12 @@
 
     const/4 v7, 0x0
 
-    .line 32
+    .line 33
     invoke-virtual {p0}, Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment;->a()Ljava/util/Map;
 
     move-result-object v0
 
-    .line 33
+    .line 34
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -67,7 +67,7 @@
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 38
+    .line 39
     invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v0
@@ -89,12 +89,12 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 39
+    .line 40
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
 
-    .line 40
+    .line 41
     const-string/jumbo v4, "text"
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -103,7 +103,7 @@
 
     invoke-interface {v3, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 41
+    .line 42
     const-string/jumbo v4, "data"
 
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
@@ -112,12 +112,12 @@
 
     invoke-interface {v3, v4, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 42
+    .line 43
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 45
+    .line 46
     :cond_0
     new-instance v0, Landroid/widget/SimpleAdapter;
 
@@ -141,14 +141,14 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/widget/SimpleAdapter;-><init>(Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V
 
-    .line 50
-    new-instance v1, Lcom/yelp/android/ui/dialogs/bf;
+    .line 54
+    new-instance v1, Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment$1;
 
-    invoke-direct {v1, p0, v2}, Lcom/yelp/android/ui/dialogs/bf;-><init>(Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment;Ljava/util/ArrayList;)V
+    invoke-direct {v1, p0, v2}, Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment$1;-><init>(Lcom/yelp/android/ui/dialogs/SimpleListDialogFragment;Ljava/util/ArrayList;)V
 
     invoke-virtual {p2, v0, v1}, Landroid/app/AlertDialog$Builder;->setAdapter(Landroid/widget/ListAdapter;Landroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 61
+    .line 67
     return-object p2
 .end method
 
@@ -156,6 +156,6 @@
     .locals 0
 
     .prologue
-    .line 66
+    .line 71
     return-void
 .end method

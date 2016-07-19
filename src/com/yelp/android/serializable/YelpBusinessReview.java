@@ -3,31 +3,85 @@ package com.yelp.android.serializable;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.services.r;
-import com.yelp.android.ui.util.cr;
-import com.yelp.android.util.o;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.ui.util.as;
+import com.yelp.android.util.i;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class YelpBusinessReview
   extends _YelpBusinessReview
-  implements Complimentable, m
+  implements Complimentable, SingleFeedEntry
 {
-  public static final ah<YelpBusinessReview> CREATOR = new ea();
-  private List<IdentifiableMedia> mAttachedMedia;
-  private FeatureSet mDisabledFeatureSet = new FeatureSet();
-  private boolean mDisplayTranslatedText = false;
-  private YelpBusinessReview.ReviewFeedback mFeedback = new YelpBusinessReview.ReviewFeedback(0, 0, 0);
-  private boolean mIsUserElite = false;
-  private Locale mLocale = null;
-  private YelpBusinessReview.UserFeedback mUserFeedback = new YelpBusinessReview.UserFeedback(false, false, false);
+  public static final a<YelpBusinessReview> CREATOR = new YelpBusinessReview.2();
+  private YelpBusinessReview.ReviewFeedback H = new YelpBusinessReview.ReviewFeedback(0, 0, 0);
+  private YelpBusinessReview.UserFeedback I = new YelpBusinessReview.UserFeedback(false, false, false);
+  private FeatureSet J = new FeatureSet();
+  private Locale K = null;
+  private boolean L = false;
+  private boolean M = false;
+  private boolean N = false;
+  private List<IdentifiableMedia> O;
   
-  public static Locale readLocaleFromParcel(Parcel paramParcel)
+  private List<IdentifiableMedia> Y()
+  {
+    O = new ArrayList();
+    O.addAll(d);
+    O.addAll(h);
+    Collections.sort(O, new YelpBusinessReview.1(this));
+    return O;
+  }
+  
+  public static YelpBusinessReview a(YelpBusinessReview paramYelpBusinessReview, PreviousReview paramPreviousReview)
+  {
+    YelpBusinessReview localYelpBusinessReview = new YelpBusinessReview();
+    k = paramYelpBusinessReview.Q();
+    p = paramYelpBusinessReview.M();
+    q = paramYelpBusinessReview.L();
+    y = paramYelpBusinessReview.D();
+    t = paramYelpBusinessReview.I();
+    c = paramYelpBusinessReview.V();
+    u = paramYelpBusinessReview.H();
+    C = paramYelpBusinessReview.z();
+    f = paramYelpBusinessReview.S();
+    F = paramYelpBusinessReview.w();
+    B = paramYelpBusinessReview.A();
+    x = paramYelpBusinessReview.E();
+    w = paramYelpBusinessReview.F();
+    n = paramYelpBusinessReview.O();
+    j = paramYelpBusinessReview.b();
+    r = paramYelpBusinessReview.K();
+    D = paramYelpBusinessReview.y();
+    E = paramYelpBusinessReview.x();
+    o = paramYelpBusinessReview.N();
+    M = paramYelpBusinessReview.r();
+    A = paramYelpBusinessReview.B();
+    D = paramYelpBusinessReview.y();
+    E = paramYelpBusinessReview.x();
+    i = paramPreviousReview.i();
+    b = paramPreviousReview.l();
+    l = paramPreviousReview.h();
+    z = paramPreviousReview.e();
+    m = paramPreviousReview.g();
+    H.a(paramPreviousReview.d());
+    H.c(paramPreviousReview.b());
+    H.b(paramPreviousReview.c());
+    I.a(paramPreviousReview.f());
+    I.b(i);
+    I.c(j);
+    d = paramPreviousReview.k();
+    h = paramPreviousReview.j();
+    a = paramPreviousReview.m();
+    N = true;
+    return localYelpBusinessReview;
+  }
+  
+  public static Locale a(Parcel paramParcel)
   {
     String str = paramParcel.readString();
     if (str == null) {
@@ -36,16 +90,7 @@ public class YelpBusinessReview
     return new Locale(str, paramParcel.readString(), paramParcel.readString());
   }
   
-  private List<IdentifiableMedia> setupAttachedMediaSorted()
-  {
-    mAttachedMedia = new ArrayList();
-    mAttachedMedia.addAll(mPhotos);
-    mAttachedMedia.addAll(mVideos);
-    Collections.sort(mAttachedMedia, new dz(this));
-    return mAttachedMedia;
-  }
-  
-  public static void writeLocaleToParcel(Parcel paramParcel, Locale paramLocale)
+  public static void a(Parcel paramParcel, Locale paramLocale)
   {
     if (paramLocale == null)
     {
@@ -57,9 +102,108 @@ public class YelpBusinessReview
     paramParcel.writeString(paramLocale.getVariant());
   }
   
-  public boolean arePhotosPopulated()
+  public void a(int paramInt)
   {
-    return getPhotos() != Collections.EMPTY_LIST;
+    z = paramInt;
+  }
+  
+  public void a(Photo paramPhoto)
+  {
+    if (t())
+    {
+      int i = as.a(d, paramPhoto);
+      if (i >= 0) {
+        d.set(i, paramPhoto);
+      }
+    }
+  }
+  
+  public void a(TranslatedReview paramTranslatedReview)
+  {
+    v = paramTranslatedReview;
+  }
+  
+  public void a(User paramUser)
+  {
+    B = paramUser.k_();
+    A = paramUser.j_();
+    M = paramUser.h();
+    j = paramUser.ae();
+    n = paramUser.ad();
+    o = paramUser.c();
+  }
+  
+  public void a(YelpBusinessReview.ReviewFeedback paramReviewFeedback)
+  {
+    H = paramReviewFeedback;
+  }
+  
+  public void a(YelpBusinessReview.UserFeedback paramUserFeedback)
+  {
+    I = paramUserFeedback;
+  }
+  
+  public void a(String paramString)
+  {
+    l = paramString;
+  }
+  
+  public void a(Locale paramLocale)
+  {
+    K = paramLocale;
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    super.a(paramJSONObject);
+    JSONObject localJSONObject = paramJSONObject.optJSONObject("feedback");
+    if (localJSONObject != null) {
+      H = new YelpBusinessReview.ReviewFeedback(Math.max(0, localJSONObject.optInt("useful")), Math.max(0, localJSONObject.optInt("funny")), Math.max(0, localJSONObject.optInt("cool")));
+    }
+    paramJSONObject = paramJSONObject.optJSONObject("user_feedback");
+    if (paramJSONObject != null) {
+      I = new YelpBusinessReview.UserFeedback(paramJSONObject.optBoolean("useful"), paramJSONObject.optBoolean("funny"), paramJSONObject.optBoolean("cool"));
+    }
+    if (w() != null) {}
+    for (M = User.a(w());; M = false)
+    {
+      J.a(f);
+      return;
+    }
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    L = paramBoolean;
+  }
+  
+  public boolean a(FeatureSet.Feature paramFeature)
+  {
+    return J.a(paramFeature);
+  }
+  
+  public void b(Parcel paramParcel)
+  {
+    super.b(paramParcel);
+    H = ((YelpBusinessReview.ReviewFeedback)YelpBusinessReview.ReviewFeedback.CREATOR.createFromParcel(paramParcel));
+    I = ((YelpBusinessReview.UserFeedback)YelpBusinessReview.UserFeedback.CREATOR.createFromParcel(paramParcel));
+    J = ((FeatureSet)paramParcel.readParcelable(FeatureSet.class.getClassLoader()));
+    K = a(paramParcel);
+    paramParcel = paramParcel.createBooleanArray();
+    L = paramParcel[0];
+    N = paramParcel[1];
+    M = paramParcel[2];
+  }
+  
+  public Compliment.ComplimentableItemType c()
+  {
+    return Compliment.ComplimentableItemType.REVIEW;
+  }
+  
+  public Date d()
+  {
+    return b;
   }
   
   public boolean equals(Object paramObject)
@@ -77,204 +221,122 @@ public class YelpBusinessReview
           return false;
         }
         paramObject = (YelpBusinessReview)paramObject;
-        if (mId != null) {
+        if (i != null) {
           break;
         }
-      } while (mId == null);
+      } while (i == null);
       return false;
-    } while (mId.equals(mId));
+    } while (i.equals(i));
     return false;
   }
   
-  public int getAttachedMediaCount()
+  public boolean f()
   {
-    return mPhotos.size() + mVideos.size();
+    return N;
   }
   
-  public List<IdentifiableMedia> getAttachedMediaSorted()
+  public int g()
   {
-    if (mAttachedMedia == null) {
-      setupAttachedMediaSorted();
-    }
-    return mAttachedMedia;
+    return x() + y();
   }
   
-  public int getAttachedPhotoCount()
+  public int h()
   {
-    return mPhotos.size();
-  }
-  
-  public int getAttachedVideoCount()
-  {
-    return mVideos.size();
-  }
-  
-  public YelpBusinessReview.ReviewFeedback getFeedback()
-  {
-    return mFeedback;
-  }
-  
-  public Locale getLocale()
-  {
-    return mLocale;
-  }
-  
-  public Compliment.ComplimentableItemType getType()
-  {
-    return Compliment.ComplimentableItemType.REVIEW;
-  }
-  
-  public YelpBusinessReview.UserFeedback getUserFeedback()
-  {
-    return mUserFeedback;
-  }
-  
-  public RankTitle.Rank getUserLocationRank()
-  {
-    return RankTitle.Rank.rankForString(getUserRankTitleText());
-  }
-  
-  public int getUserMediaCount()
-  {
-    return getUserVideoCount() + getUserPhotoCount();
+    return d.size();
   }
   
   public int hashCode()
   {
-    if (mId == null) {}
-    for (int i = 0;; i = mId.hashCode()) {
+    if (this.i == null) {}
+    for (int i = 0;; i = this.i.hashCode()) {
       return i + 31;
     }
   }
   
-  public boolean isFeatureDisabled(FeatureSet.Feature paramFeature)
+  public int i()
   {
-    return mDisabledFeatureSet.contains(paramFeature);
+    return h.size();
   }
   
-  public boolean isUpdatableByCurrentUser()
+  public int j()
   {
-    return (AppData.b().m().a(mUserId)) && (getUpdatableAfter() < o.f(System.currentTimeMillis()));
+    return d.size() + h.size();
   }
   
-  public boolean isUserElite()
+  public List<IdentifiableMedia> k()
   {
-    return mIsUserElite;
-  }
-  
-  public void populateDataFromUser(User paramUser)
-  {
-    mUserFriendCount = paramUser.getFriendCount();
-    mUserReviewCount = paramUser.getReviewCount();
-    mIsUserElite = paramUser.isEliteUser();
-    mUserId = paramUser.getId();
-    mUserName = paramUser.getName();
-    mUserPhotoUrl = paramUser.getUserPhotoUrl();
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    super.readFromJson(paramJSONObject);
-    JSONObject localJSONObject = paramJSONObject.optJSONObject("feedback");
-    if (localJSONObject != null) {
-      mFeedback = new YelpBusinessReview.ReviewFeedback(Math.max(0, localJSONObject.optInt("useful")), Math.max(0, localJSONObject.optInt("funny")), Math.max(0, localJSONObject.optInt("cool")));
+    if (O == null) {
+      Y();
     }
-    paramJSONObject = paramJSONObject.optJSONObject("user_feedback");
-    if (paramJSONObject != null) {
-      mUserFeedback = new YelpBusinessReview.UserFeedback(paramJSONObject.optBoolean("useful"), paramJSONObject.optBoolean("funny"), paramJSONObject.optBoolean("cool"));
+    return O;
+  }
+  
+  public YelpBusinessReview.ReviewFeedback l()
+  {
+    return H;
+  }
+  
+  public YelpBusinessReview.UserFeedback m()
+  {
+    return I;
+  }
+  
+  public RankTitle.Rank n()
+  {
+    return RankTitle.Rank.rankForString(K());
+  }
+  
+  public Locale o()
+  {
+    return K;
+  }
+  
+  public boolean p()
+  {
+    return L;
+  }
+  
+  public boolean q()
+  {
+    return (AppData.b().q().a(j)) && (v() < i.f(System.currentTimeMillis()));
+  }
+  
+  public boolean r()
+  {
+    return M;
+  }
+  
+  public JSONObject s()
+    throws JSONException
+  {
+    JSONObject localJSONObject = super.s();
+    if (I != null) {
+      localJSONObject.put("user_feedback", I.d());
     }
-    mIsUserElite = r.a(getUserEliteYears());
-    mDisabledFeatureSet.setFeatures(mUserDisabledFeatures);
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    super.readFromParcel(paramParcel);
-    mFeedback = ((YelpBusinessReview.ReviewFeedback)YelpBusinessReview.ReviewFeedback.CREATOR.createFromParcel(paramParcel));
-    mUserFeedback = ((YelpBusinessReview.UserFeedback)YelpBusinessReview.UserFeedback.CREATOR.createFromParcel(paramParcel));
-    mDisabledFeatureSet = ((FeatureSet)paramParcel.readParcelable(FeatureSet.class.getClassLoader()));
-    mLocale = readLocaleFromParcel(paramParcel);
-    paramParcel = paramParcel.createBooleanArray();
-    mDisplayTranslatedText = paramParcel[0];
-    mIsUserElite = paramParcel[1];
-  }
-  
-  public void setDateModified(Date paramDate)
-  {
-    mDateModified = paramDate;
-  }
-  
-  public void setDisplayTranslatedText(boolean paramBoolean)
-  {
-    mDisplayTranslatedText = paramBoolean;
-  }
-  
-  public void setFeedback(YelpBusinessReview.ReviewFeedback paramReviewFeedback)
-  {
-    mFeedback = paramReviewFeedback;
-  }
-  
-  public void setFirstToReview(boolean paramBoolean)
-  {
-    mIsFirstReview = paramBoolean;
-  }
-  
-  public void setLocale(Locale paramLocale)
-  {
-    mLocale = paramLocale;
-  }
-  
-  public void setText(String paramString)
-  {
-    mText = paramString;
-  }
-  
-  public void setTranslatedText(String paramString)
-  {
-    mTranslatedText = paramString;
-  }
-  
-  public void setUserFeedback(YelpBusinessReview.UserFeedback paramUserFeedback)
-  {
-    mUserFeedback = paramUserFeedback;
-  }
-  
-  public boolean shouldDisplayTranslation()
-  {
-    return mDisplayTranslatedText;
-  }
-  
-  public void updatePhoto(Photo paramPhoto)
-  {
-    if (arePhotosPopulated())
-    {
-      int i = cr.a(mPhotos, paramPhoto);
-      if (i >= 0) {
-        mPhotos.set(i, paramPhoto);
-      }
-    }
-  }
-  
-  public JSONObject writeJSON()
-  {
-    JSONObject localJSONObject = super.writeJSON();
-    if (mUserFeedback != null) {
-      localJSONObject.put("user_feedback", mUserFeedback.writeJSON());
-    }
-    if (mFeedback != null) {
-      localJSONObject.put("feedback", mFeedback.writeJSON());
+    if (H != null) {
+      localJSONObject.put("feedback", H.e());
     }
     return localJSONObject;
+  }
+  
+  public boolean t()
+  {
+    return U() != Collections.EMPTY_LIST;
+  }
+  
+  public boolean u()
+  {
+    return (g != null) && (g.contains("100millionth"));
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    mFeedback.writeToParcel(paramParcel, 0);
-    mUserFeedback.writeToParcel(paramParcel, 0);
-    paramParcel.writeParcelable(mDisabledFeatureSet, paramInt);
-    writeLocaleToParcel(paramParcel, mLocale);
-    paramParcel.writeBooleanArray(new boolean[] { mDisplayTranslatedText, mIsUserElite });
+    H.writeToParcel(paramParcel, 0);
+    I.writeToParcel(paramParcel, 0);
+    paramParcel.writeParcelable(J, paramInt);
+    a(paramParcel, K);
+    paramParcel.writeBooleanArray(new boolean[] { L, N, M });
   }
 }
 

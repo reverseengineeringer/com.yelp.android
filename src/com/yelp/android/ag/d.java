@@ -1,64 +1,26 @@
 package com.yelp.android.ag;
 
-import android.widget.ImageView;
-import com.yelp.android.z.b;
+import com.yelp.android.ae.a;
+import com.yelp.android.ao.h;
 
 public class d
-  extends e<b>
+  extends a<b>
 {
-  private int b;
-  private b c;
-  
-  public d(ImageView paramImageView)
+  public d(b paramb)
   {
-    this(paramImageView, -1);
+    super(paramb);
   }
   
-  public d(ImageView paramImageView, int paramInt)
+  public int c()
   {
-    super(paramImageView);
-    b = paramInt;
-  }
-  
-  protected void a(b paramb)
-  {
-    ((ImageView)a).setImageDrawable(paramb);
-  }
-  
-  public void a(b paramb, com.yelp.android.af.e<? super b> parame)
-  {
-    Object localObject = paramb;
-    if (!paramb.a())
-    {
-      float f1 = ((ImageView)a).getWidth() / ((ImageView)a).getHeight();
-      float f2 = paramb.getIntrinsicWidth() / paramb.getIntrinsicHeight();
-      localObject = paramb;
-      if (Math.abs(f1 - 1.0F) <= 0.05F)
-      {
-        localObject = paramb;
-        if (Math.abs(f2 - 1.0F) <= 0.05F) {
-          localObject = new i(paramb, ((ImageView)a).getWidth());
-        }
-      }
-    }
-    super.a(localObject, parame);
-    c = ((b)localObject);
-    ((b)localObject).a(b);
-    ((b)localObject).start();
-  }
-  
-  public void c()
-  {
-    if (c != null) {
-      c.start();
-    }
+    int i = ((b)a).d().length;
+    return h.a(((b)a).b()) + i;
   }
   
   public void d()
   {
-    if (c != null) {
-      c.stop();
-    }
+    ((b)a).stop();
+    ((b)a).f();
   }
 }
 

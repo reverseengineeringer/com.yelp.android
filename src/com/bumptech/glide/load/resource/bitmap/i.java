@@ -1,16 +1,24 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-final class i
-  extends f
+import android.graphics.Bitmap;
+import com.yelp.android.x.c;
+
+public class i
+  extends d
 {
-  protected int a(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+  public i(c paramc)
   {
-    return 0;
+    super(paramc);
+  }
+  
+  protected Bitmap a(c paramc, Bitmap paramBitmap, int paramInt1, int paramInt2)
+  {
+    return p.a(paramBitmap, paramc, paramInt1, paramInt2);
   }
   
   public String a()
   {
-    return "NONE.com.bumptech.glide.load.data.bitmap";
+    return "FitCenter.com.bumptech.glide.load.resource.bitmap";
   }
 }
 

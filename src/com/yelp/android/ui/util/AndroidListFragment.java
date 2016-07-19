@@ -16,12 +16,12 @@ public abstract class AndroidListFragment
   extends YelpFragment
 {
   private final Handler a = new Handler();
-  private final Runnable b = new c(this);
-  private final AdapterView.OnItemClickListener c = new d(this);
+  private final Runnable b = new AndroidListFragment.1(this);
+  private final AdapterView.OnItemClickListener c = new AndroidListFragment.2(this);
   private ListAdapter d;
   private ListView e;
-  private View g;
-  private TextView h;
+  private View f;
+  private TextView g;
   private View i;
   private View j;
   private CharSequence k;
@@ -93,35 +93,35 @@ public abstract class AndroidListFragment
     {
       a.post(b);
       return;
-      h = ((TextView)((View)localObject).findViewById(2131492898));
-      if (h == null) {
-        g = ((View)localObject).findViewById(16908292);
+      g = ((TextView)((View)localObject).findViewById(2131689509));
+      if (g == null) {
+        f = ((View)localObject).findViewById(16908292);
       }
       for (;;)
       {
-        i = ((View)localObject).findViewById(2131492913);
-        j = ((View)localObject).findViewById(2131492903);
+        i = ((View)localObject).findViewById(2131689528);
+        j = ((View)localObject).findViewById(2131689516);
         localObject = ((View)localObject).findViewById(16908298);
         if ((localObject instanceof ListView)) {
           break;
         }
         throw new RuntimeException("Content has view with id attribute 'android.R.id.list' that is not a ListView class");
-        h.setVisibility(8);
+        g.setVisibility(8);
       }
       e = ((ListView)localObject);
       if (e == null) {
         throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
       }
-      if (g != null)
+      if (f != null)
       {
-        e.setEmptyView(g);
+        e.setEmptyView(f);
         break;
       }
       if (k == null) {
         break;
       }
-      h.setText(k);
-      e.setEmptyView(h);
+      g.setText(k);
+      e.setEmptyView(g);
       break;
       label257:
       if (i != null) {
@@ -162,7 +162,7 @@ public abstract class AndroidListFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    return paramLayoutInflater.inflate(2130903214, paramViewGroup, false);
+    return paramLayoutInflater.inflate(2130903239, paramViewGroup, false);
   }
   
   public void onDestroyView()
@@ -172,8 +172,8 @@ public abstract class AndroidListFragment
     l = false;
     j = null;
     i = null;
+    f = null;
     g = null;
-    h = null;
     super.onDestroyView();
   }
   
@@ -183,12 +183,12 @@ public abstract class AndroidListFragment
     b();
   }
   
-  public ListAdapter r()
+  public ListAdapter q()
   {
     return d;
   }
   
-  public ListView t()
+  public ListView s()
   {
     b();
     return e;

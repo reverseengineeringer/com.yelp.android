@@ -1,1191 +1,1518 @@
-.class public Lcom/google/android/gms/internal/ga;
+.class public final Lcom/google/android/gms/internal/ga;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/google/android/gms/internal/ck$b;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
-# static fields
-.field private static final vX:Lcom/google/android/gms/internal/ga;
-
-.field public static final vY:Ljava/lang/String;
-
-
 # instance fields
-.field private mContext:Landroid/content/Context;
+.field private a:Ljava/lang/String;
 
-.field private final mH:Ljava/lang/Object;
+.field private b:Ljava/lang/String;
 
-.field private nE:Lcom/google/android/gms/internal/am;
+.field private c:Ljava/lang/String;
 
-.field private nF:Lcom/google/android/gms/internal/al;
-
-.field private nG:Lcom/google/android/gms/internal/ex;
-
-.field private qJ:Lcom/google/android/gms/internal/gs;
-
-.field private uV:Z
-
-.field private uW:Z
-
-.field public final vZ:Ljava/lang/String;
-
-.field private final wa:Lcom/google/android/gms/internal/gb;
-
-.field private wb:Lcom/google/android/gms/internal/ld;
-
-.field private wc:Ljava/math/BigInteger;
-
-.field private final wd:Ljava/util/HashSet;
+.field private d:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/HashSet",
-            "<",
-            "Lcom/google/android/gms/internal/fz;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final we:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap",
+            "Ljava/util/List",
             "<",
             "Ljava/lang/String;",
-            "Lcom/google/android/gms/internal/gd;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private wf:Z
+.field private e:Ljava/lang/String;
 
-.field private wg:Z
+.field private f:Ljava/lang/String;
 
-.field private wh:Lcom/google/android/gms/internal/an;
-
-.field private wi:Ljava/util/LinkedList;
+.field private g:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/LinkedList",
+            "Ljava/util/List",
             "<",
-            "Ljava/lang/Thread;",
+            "Ljava/lang/String;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private wj:Z
+.field private h:J
 
-.field private wk:Landroid/os/Bundle;
+.field private i:Z
 
-.field private wl:Ljava/lang/String;
+.field private final j:J
+
+.field private k:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private l:J
+
+.field private m:I
+
+.field private n:Z
+
+.field private o:Z
+
+.field private p:Z
+
+.field private q:Z
+
+.field private r:I
+
+.field private s:Ljava/lang/String;
+
+.field private t:Z
+
+.field private u:Z
+
+.field private v:Lcom/google/android/gms/ads/internal/reward/mediation/client/RewardItemParcel;
+
+.field private w:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private x:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private y:Z
+
+.field private final z:Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/google/android/gms/internal/ga;
-
-    invoke-direct {v0}, Lcom/google/android/gms/internal/ga;-><init>()V
-
-    sput-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->vZ:Ljava/lang/String;
-
-    sput-object v0, Lcom/google/android/gms/internal/ga;->vY:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method private constructor <init>()V
+.method public constructor <init>(Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;)V
     .locals 4
 
-    const/4 v3, 0x1
-
-    const/4 v2, 0x0
+    const-wide/16 v2, -0x1
 
     const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/lang/Object;
+    iput-wide v2, p0, Lcom/google/android/gms/internal/ga;->h:J
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    iput-boolean v1, p0, Lcom/google/android/gms/internal/ga;->i:Z
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
+    iput-wide v2, p0, Lcom/google/android/gms/internal/ga;->j:J
 
-    sget-object v0, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
+    iput-wide v2, p0, Lcom/google/android/gms/internal/ga;->l:J
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wc:Ljava/math/BigInteger;
+    const/4 v0, -0x1
 
-    new-instance v0, Ljava/util/HashSet;
+    iput v0, p0, Lcom/google/android/gms/internal/ga;->m:I
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    iput-boolean v1, p0, Lcom/google/android/gms/internal/ga;->n:Z
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wd:Ljava/util/HashSet;
+    iput-boolean v1, p0, Lcom/google/android/gms/internal/ga;->o:Z
 
-    new-instance v0, Ljava/util/HashMap;
+    iput-boolean v1, p0, Lcom/google/android/gms/internal/ga;->p:Z
 
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+    const/4 v0, 0x1
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->we:Ljava/util/HashMap;
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->q:Z
 
-    iput-boolean v2, p0, Lcom/google/android/gms/internal/ga;->wf:Z
+    iput v1, p0, Lcom/google/android/gms/internal/ga;->r:I
 
-    iput-boolean v3, p0, Lcom/google/android/gms/internal/ga;->uV:Z
+    const-string/jumbo v0, ""
 
-    iput-boolean v2, p0, Lcom/google/android/gms/internal/ga;->wg:Z
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->s:Ljava/lang/String;
 
-    iput-boolean v3, p0, Lcom/google/android/gms/internal/ga;->uW:Z
+    iput-boolean v1, p0, Lcom/google/android/gms/internal/ga;->t:Z
 
-    iput-object v1, p0, Lcom/google/android/gms/internal/ga;->nE:Lcom/google/android/gms/internal/am;
+    iput-boolean v1, p0, Lcom/google/android/gms/internal/ga;->u:Z
 
-    iput-object v1, p0, Lcom/google/android/gms/internal/ga;->wh:Lcom/google/android/gms/internal/an;
+    iput-boolean v1, p0, Lcom/google/android/gms/internal/ga;->y:Z
 
-    iput-object v1, p0, Lcom/google/android/gms/internal/ga;->nF:Lcom/google/android/gms/internal/al;
-
-    new-instance v0, Ljava/util/LinkedList;
-
-    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wi:Ljava/util/LinkedList;
-
-    iput-boolean v2, p0, Lcom/google/android/gms/internal/ga;->wj:Z
-
-    invoke-static {}, Lcom/google/android/gms/internal/bn;->by()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wk:Landroid/os/Bundle;
-
-    iput-object v1, p0, Lcom/google/android/gms/internal/ga;->nG:Lcom/google/android/gms/internal/ex;
-
-    invoke-static {}, Lcom/google/android/gms/internal/gi;->dx()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->vZ:Ljava/lang/String;
-
-    new-instance v0, Lcom/google/android/gms/internal/gb;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->vZ:Ljava/lang/String;
-
-    invoke-direct {v0, v1}, Lcom/google/android/gms/internal/gb;-><init>(Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wa:Lcom/google/android/gms/internal/gb;
+    iput-object p1, p0, Lcom/google/android/gms/internal/ga;->z:Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;
 
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;Lcom/google/android/gms/internal/gc;Ljava/lang/String;)Landroid/os/Bundle;
-    .locals 1
+.method static a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/lang/String;"
+        }
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    invoke-virtual {v0, p0, p1, p2}, Lcom/google/android/gms/internal/ga;->b(Landroid/content/Context;Lcom/google/android/gms/internal/gc;Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    :goto_0
     return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
-.method public static a(Landroid/content/Context;Lcom/google/android/gms/internal/gs;)V
-    .locals 1
+.method static b(Ljava/util/Map;Ljava/lang/String;)J
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/lang/String;",
+            ")J"
+        }
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v0, p0, p1}, Lcom/google/android/gms/internal/ga;->b(Landroid/content/Context;Lcom/google/android/gms/internal/gs;)V
+    move-result-object v0
 
-    return-void
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    :try_start_0
+    invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v0
+
+    const/high16 v1, 0x447a0000    # 1000.0f
+
+    mul-float/2addr v0, v1
+
+    float-to-long v0, v0
+
+    :goto_0
+    return-wide v0
+
+    :catch_0
+    move-exception v1
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Could not parse float from "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, " header: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
+
+    :cond_0
+    const-wide/16 v0, -0x1
+
+    goto :goto_0
 .end method
 
-.method public static a(Landroid/content/Context;Z)V
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    invoke-virtual {v0, p0, p1}, Lcom/google/android/gms/internal/ga;->b(Landroid/content/Context;Z)V
-
-    return-void
-.end method
-
-.method public static b(Ljava/util/HashSet;)V
+.method private b(Ljava/util/Map;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/HashSet",
+            "Ljava/util/Map",
             "<",
-            "Lcom/google/android/gms/internal/fz;",
-            ">;)V"
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
         }
     .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
+    const-string/jumbo v0, "X-Afma-Ad-Size"
 
-    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/HashSet;)V
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->a:Ljava/lang/String;
 
     return-void
 .end method
 
-.method public static bN()Landroid/os/Bundle;
-    .locals 1
+.method static c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/ga;->dp()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static c(ILjava/lang/String;)Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    invoke-virtual {v0, p0, p1}, Lcom/google/android/gms/internal/ga;->d(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static dc()Lcom/google/android/gms/internal/ga;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    return-object v0
-.end method
-
-.method public static df()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/ga;->dg()Ljava/lang/String;
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    check-cast v0, Ljava/util/List;
 
-.method public static dh()Lcom/google/android/gms/internal/gb;
-    .locals 1
+    if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/ga;->di()Lcom/google/android/gms/internal/gb;
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "\\s+"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    :goto_0
     return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
-.method public static dj()Z
+.method private c(Ljava/util/Map;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
+    const-string/jumbo v0, "X-Afma-Click-Tracking-Urls"
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/ga;->dk()Z
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->d:Ljava/util/List;
+
+    :cond_0
+    return-void
+.end method
+
+.method private d(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Debug-Dialog"
+
+    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->e:Ljava/lang/String;
+
+    :cond_0
+    return-void
+.end method
+
+.method private d(Ljava/util/Map;Ljava/lang/String;)Z
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/lang/String;",
+            ")Z"
+        }
+    .end annotation
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
     return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
 .end method
 
-.method public static dl()Z
+.method private e(Ljava/util/Map;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
+    const-string/jumbo v0, "X-Afma-Tracking-Urls"
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/ga;->dm()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public static dn()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/ga;->do()Ljava/lang/String;
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
-    return-object v0
+    if-eqz v0, :cond_0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->g:Ljava/util/List;
+
+    :cond_0
+    return-void
 .end method
 
-.method public static e(Ljava/lang/Throwable;)V
+.method private f(Ljava/util/Map;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Interstitial-Timeout"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->b(Ljava/util/Map;Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    const-wide/16 v2, -0x1
+
+    cmp-long v2, v0, v2
+
+    if-eqz v2, :cond_0
+
+    iput-wide v0, p0, Lcom/google/android/gms/internal/ga;->h:J
+
+    :cond_0
+    return-void
+.end method
+
+.method private g(Ljava/util/Map;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
 
-    sget-object v0, Lcom/google/android/gms/internal/ga;->vX:Lcom/google/android/gms/internal/ga;
+    const-string/jumbo v0, "X-Afma-ActiveView"
 
-    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/ga;->f(Ljava/lang/Throwable;)V
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->f:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method private h(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Ad-Format"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "native"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->o:Z
+
+    return-void
+.end method
+
+.method private i(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->n:Z
+
+    const-string/jumbo v1, "X-Afma-Custom-Rendering-Allowed"
+
+    invoke-direct {p0, p1, v1}, Lcom/google/android/gms/internal/ga;->d(Ljava/util/Map;Ljava/lang/String;)Z
+
+    move-result v1
+
+    or-int/2addr v0, v1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->n:Z
+
+    return-void
+.end method
+
+.method private j(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->i:Z
+
+    const-string/jumbo v1, "X-Afma-Mediation"
+
+    invoke-direct {p0, p1, v1}, Lcom/google/android/gms/internal/ga;->d(Ljava/util/Map;Ljava/lang/String;)Z
+
+    move-result v1
+
+    or-int/2addr v0, v1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->i:Z
+
+    return-void
+.end method
+
+.method private k(Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Manual-Tracking-Urls"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->k:Ljava/util/List;
+
+    :cond_0
+    return-void
+.end method
+
+.method private l(Ljava/util/Map;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Refresh-Rate"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->b(Ljava/util/Map;Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    const-wide/16 v2, -0x1
+
+    cmp-long v2, v0, v2
+
+    if-eqz v2, :cond_0
+
+    iput-wide v0, p0, Lcom/google/android/gms/internal/ga;->l:J
+
+    :cond_0
+    return-void
+.end method
+
+.method private m(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Orientation"
+
+    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    const-string/jumbo v1, "portrait"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->g()Lcom/google/android/gms/internal/he;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/he;->b()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/google/android/gms/internal/ga;->m:I
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    const-string/jumbo v1, "landscape"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->g()Lcom/google/android/gms/internal/he;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/he;->a()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/google/android/gms/internal/ga;->m:I
+
+    goto :goto_0
+.end method
+
+.method private n(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Use-HTTPS"
+
+    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->p:Z
+
+    :cond_0
+    return-void
+.end method
+
+.method private o(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Content-Url-Opted-Out"
+
+    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Ljava/lang/String;)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->q:Z
+
+    :cond_0
+    return-void
+.end method
+
+.method private p(Ljava/util/Map;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const/4 v3, 0x0
+
+    const-string/jumbo v0, "X-Afma-OAuth-Token-Status"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput v3, p0, Lcom/google/android/gms/internal/ga;->r:I
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_2
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    const-string/jumbo v2, "Clear"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    const/4 v0, 0x1
+
+    iput v0, p0, Lcom/google/android/gms/internal/ga;->r:I
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v2, "No-Op"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iput v3, p0, Lcom/google/android/gms/internal/ga;->r:I
+
+    goto :goto_0
+.end method
+
+.method private q(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Gws-Query-Id"
+
+    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->s:Ljava/lang/String;
+
+    :cond_0
+    return-void
+.end method
+
+.method private r(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Fluid"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v1, "height"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->t:Z
+
+    :cond_0
+    return-void
+.end method
+
+.method private s(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Ad-Format"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "native_express"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->u:Z
+
+    return-void
+.end method
+
+.method private t(Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string/jumbo v0, "X-Afma-Rewards"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->a(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/google/android/gms/ads/internal/reward/mediation/client/RewardItemParcel;->a(Ljava/lang/String;)Lcom/google/android/gms/ads/internal/reward/mediation/client/RewardItemParcel;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->v:Lcom/google/android/gms/ads/internal/reward/mediation/client/RewardItemParcel;
+
+    return-void
+.end method
+
+.method private u(Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->w:Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "X-Afma-Reward-Video-Start-Urls"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->w:Ljava/util/List;
+
+    goto :goto_0
+.end method
+
+.method private v(Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->x:Ljava/util/List;
+
+    if-eqz v0, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "X-Afma-Reward-Video-Complete-Urls"
+
+    invoke-static {p1, v0}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/Map;Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->x:Ljava/util/List;
+
+    goto :goto_0
+.end method
+
+.method private w(Ljava/util/Map;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->y:Z
+
+    const-string/jumbo v1, "X-Afma-Use-Displayed-Impression"
+
+    invoke-direct {p0, p1, v1}, Lcom/google/android/gms/internal/ga;->d(Ljava/util/Map;Ljava/lang/String;)Z
+
+    move-result v1
+
+    or-int/2addr v0, v1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->y:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/os/Bundle;)V
-    .locals 4
+.method public a(J)Lcom/google/android/gms/ads/internal/request/AdResponseParcel;
+    .locals 35
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
+    new-instance v2, Lcom/google/android/gms/ads/internal/request/AdResponseParcel;
 
-    monitor-enter v1
+    move-object/from16 v0, p0
 
-    const/4 v0, 0x1
+    iget-object v3, v0, Lcom/google/android/gms/internal/ga;->z:Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;
 
-    :try_start_0
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->wj:Z
+    move-object/from16 v0, p0
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/ga;->wk:Landroid/os/Bundle;
+    iget-object v4, v0, Lcom/google/android/gms/internal/ga;->b:Ljava/lang/String;
 
-    :goto_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wi:Ljava/util/LinkedList;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->isEmpty()Z
+    iget-object v5, v0, Lcom/google/android/gms/internal/ga;->c:Ljava/lang/String;
 
-    move-result v0
+    move-object/from16 v0, p0
 
-    if-nez v0, :cond_0
+    iget-object v6, v0, Lcom/google/android/gms/internal/ga;->d:Ljava/util/List;
 
-    iget-object v2, p0, Lcom/google/android/gms/internal/ga;->mContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wi:Ljava/util/LinkedList;
+    iget-object v7, v0, Lcom/google/android/gms/internal/ga;->g:Ljava/util/List;
 
-    const/4 v3, 0x0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Ljava/util/LinkedList;->remove(I)Ljava/lang/Object;
+    iget-wide v8, v0, Lcom/google/android/gms/internal/ga;->h:J
 
-    move-result-object v0
+    move-object/from16 v0, p0
 
-    check-cast v0, Ljava/lang/Thread;
+    iget-boolean v10, v0, Lcom/google/android/gms/internal/ga;->i:Z
 
-    iget-object v3, p0, Lcom/google/android/gms/internal/ga;->qJ:Lcom/google/android/gms/internal/gs;
+    const-wide/16 v11, -0x1
 
-    invoke-static {v2, v0, v3}, Lcom/google/android/gms/internal/ex;->a(Landroid/content/Context;Ljava/lang/Thread;Lcom/google/android/gms/internal/gs;)Lcom/google/android/gms/internal/ex;
+    move-object/from16 v0, p0
 
-    goto :goto_0
+    iget-object v13, v0, Lcom/google/android/gms/internal/ga;->k:Ljava/util/List;
 
-    :catchall_0
-    move-exception v0
+    move-object/from16 v0, p0
 
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    iget-wide v14, v0, Lcom/google/android/gms/internal/ga;->l:J
 
-    throw v0
+    move-object/from16 v0, p0
 
-    :cond_0
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    iget v0, v0, Lcom/google/android/gms/internal/ga;->m:I
 
-    return-void
+    move/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->a:Ljava/lang/String;
+
+    move-object/from16 v17, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->e:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->f:Ljava/lang/String;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/google/android/gms/internal/ga;->n:Z
+
+    move/from16 v22, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/google/android/gms/internal/ga;->o:Z
+
+    move/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/google/android/gms/internal/ga;->p:Z
+
+    move/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/google/android/gms/internal/ga;->q:Z
+
+    move/from16 v25, v0
+
+    const/16 v26, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/google/android/gms/internal/ga;->r:I
+
+    move/from16 v27, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->s:Ljava/lang/String;
+
+    move-object/from16 v28, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/google/android/gms/internal/ga;->t:Z
+
+    move/from16 v29, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/google/android/gms/internal/ga;->u:Z
+
+    move/from16 v30, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->v:Lcom/google/android/gms/ads/internal/reward/mediation/client/RewardItemParcel;
+
+    move-object/from16 v31, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->w:Ljava/util/List;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/google/android/gms/internal/ga;->x:Ljava/util/List;
+
+    move-object/from16 v33, v0
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/google/android/gms/internal/ga;->y:Z
+
+    move/from16 v34, v0
+
+    move-wide/from16 v18, p1
+
+    invoke-direct/range {v2 .. v34}, Lcom/google/android/gms/ads/internal/request/AdResponseParcel;-><init>(Lcom/google/android/gms/ads/internal/request/AdRequestInfoParcel;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;JZJLjava/util/List;JILjava/lang/String;JLjava/lang/String;Ljava/lang/String;ZZZZZILjava/lang/String;ZZLcom/google/android/gms/ads/internal/reward/mediation/client/RewardItemParcel;Ljava/util/List;Ljava/util/List;Z)V
+
+    return-object v2
 .end method
 
-.method public a(Lcom/google/android/gms/internal/fz;)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wd:Ljava/util/HashSet;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public a(Ljava/lang/String;Lcom/google/android/gms/internal/gd;)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->we:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public a(Ljava/lang/Thread;)V
-    .locals 3
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->wj:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/ga;->qJ:Lcom/google/android/gms/internal/gs;
-
-    invoke-static {v0, p1, v2}, Lcom/google/android/gms/internal/ex;->a(Landroid/content/Context;Ljava/lang/Thread;Lcom/google/android/gms/internal/gs;)Lcom/google/android/gms/internal/ex;
-
-    :goto_0
-    monitor-exit v1
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wi:Ljava/util/LinkedList;
-
-    invoke-virtual {v0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public b(Landroid/content/Context;Lcom/google/android/gms/internal/gc;Ljava/lang/String;)Landroid/os/Bundle;
-    .locals 6
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v2
-
-    :try_start_0
-    new-instance v3, Landroid/os/Bundle;
-
-    invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
-
-    const-string/jumbo v0, "app"
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->wa:Lcom/google/android/gms/internal/gb;
-
-    invoke-virtual {v1, p1, p3}, Lcom/google/android/gms/internal/gb;->b(Landroid/content/Context;Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object v1
-
-    invoke-virtual {v3, v0, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    new-instance v4, Landroid/os/Bundle;
-
-    invoke-direct {v4}, Landroid/os/Bundle;-><init>()V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->we:Ljava/util/HashMap;
-
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->we:Ljava/util/HashMap;
-
-    invoke-virtual {v1, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/google/android/gms/internal/gd;
-
-    invoke-virtual {v1}, Lcom/google/android/gms/internal/gd;->toBundle()Landroid/os/Bundle;
-
-    move-result-object v1
-
-    invoke-virtual {v4, v0, v1}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-
-    :cond_0
-    :try_start_1
-    const-string/jumbo v0, "slots"
-
-    invoke-virtual {v3, v0, v4}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wd:Ljava/util/HashSet;
-
-    invoke-virtual {v0}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/internal/fz;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/fz;->toBundle()Landroid/os/Bundle;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    :cond_1
-    const-string/jumbo v0, "ads"
-
-    invoke-virtual {v3, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wd:Ljava/util/HashSet;
-
-    invoke-interface {p2, v0}, Lcom/google/android/gms/internal/gc;->a(Ljava/util/HashSet;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wd:Ljava/util/HashSet;
-
-    invoke-virtual {v0}, Ljava/util/HashSet;->clear()V
-
-    monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    return-object v3
-.end method
-
-.method public b(Landroid/content/Context;Lcom/google/android/gms/internal/gs;)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->wg:Z
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->mContext:Landroid/content/Context;
-
-    iput-object p2, p0, Lcom/google/android/gms/internal/ga;->qJ:Lcom/google/android/gms/internal/gs;
-
-    invoke-static {p1}, Lcom/google/android/gms/internal/gg;->o(Landroid/content/Context;)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->uV:Z
-
-    invoke-static {p1}, Lcom/google/android/gms/internal/iy;->H(Landroid/content/Context;)V
-
-    invoke-static {p1, p0}, Lcom/google/android/gms/internal/ck;->a(Landroid/content/Context;Lcom/google/android/gms/internal/ck$b;)V
-
-    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/ga;->a(Ljava/lang/Thread;)V
-
-    iget-object v0, p2, Lcom/google/android/gms/internal/gs;->wS:Ljava/lang/String;
-
-    invoke-static {p1, v0}, Lcom/google/android/gms/internal/gi;->c(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wl:Ljava/lang/String;
-
-    new-instance v0, Lcom/google/android/gms/internal/lf;
-
-    invoke-direct {v0}, Lcom/google/android/gms/internal/lf;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wb:Lcom/google/android/gms/internal/ld;
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/android/gms/internal/ga;->wg:Z
-
-    :cond_0
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public b(Landroid/content/Context;Z)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->uV:Z
-
-    if-eq p2, v0, :cond_0
-
-    iput-boolean p2, p0, Lcom/google/android/gms/internal/ga;->uV:Z
-
-    invoke-static {p1, p2}, Lcom/google/android/gms/internal/gg;->a(Landroid/content/Context;Z)V
-
-    :cond_0
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public c(Ljava/util/HashSet;)V
-    .locals 2
+.method public a(Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/HashSet",
+            "Ljava/lang/String;",
+            "Ljava/util/Map",
             "<",
-            "Lcom/google/android/gms/internal/fz;",
-            ">;)V"
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;",
+            "Ljava/lang/String;",
+            ")V"
         }
     .end annotation
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/google/android/gms/internal/ga;->b:Ljava/lang/String;
 
-    monitor-enter v1
+    iput-object p3, p0, Lcom/google/android/gms/internal/ga;->c:Ljava/lang/String;
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wd:Ljava/util/HashSet;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
-
-    monitor-exit v1
+    invoke-virtual {p0, p2}, Lcom/google/android/gms/internal/ga;->a(Ljava/util/Map;)V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method
 
-.method public d(ILjava/lang/String;)Ljava/lang/String;
-    .locals 1
+.method public a(Ljava/util/Map;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->qJ:Lcom/google/android/gms/internal/gs;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->b(Ljava/util/Map;)V
 
-    iget-boolean v0, v0, Lcom/google/android/gms/internal/gs;->wV:Z
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->c(Ljava/util/Map;)V
 
-    if-eqz v0, :cond_0
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->d(Ljava/util/Map;)V
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->mContext:Landroid/content/Context;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->e(Ljava/util/Map;)V
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->f(Ljava/util/Map;)V
 
-    move-result-object v0
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->j(Ljava/util/Map;)V
 
-    :goto_0
-    if-nez v0, :cond_1
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->k(Ljava/util/Map;)V
 
-    :goto_1
-    return-object p2
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->l(Ljava/util/Map;)V
 
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->mContext:Landroid/content/Context;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->m(Ljava/util/Map;)V
 
-    invoke-static {v0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->getRemoteResource(Landroid/content/Context;)Landroid/content/res/Resources;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->g(Ljava/util/Map;)V
 
-    move-result-object v0
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->n(Ljava/util/Map;)V
 
-    goto :goto_0
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->i(Ljava/util/Map;)V
 
-    :cond_1
-    invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->h(Ljava/util/Map;)V
 
-    move-result-object p2
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->o(Ljava/util/Map;)V
 
-    goto :goto_1
-.end method
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->p(Ljava/util/Map;)V
 
-.method public dd()Lcom/google/android/gms/internal/ld;
-    .locals 2
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->q(Ljava/util/Map;)V
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->r(Ljava/util/Map;)V
 
-    monitor-enter v1
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->s(Ljava/util/Map;)V
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wb:Lcom/google/android/gms/internal/ld;
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->t(Ljava/util/Map;)V
 
-    monitor-exit v1
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->u(Ljava/util/Map;)V
 
-    return-object v0
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->v(Ljava/util/Map;)V
 
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public de()Z
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->uW:Z
-
-    monitor-exit v1
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public dg()Ljava/lang/String;
-    .locals 4
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wc:Ljava/math/BigInteger;
-
-    invoke-virtual {v0}, Ljava/math/BigInteger;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/ga;->wc:Ljava/math/BigInteger;
-
-    sget-object v3, Ljava/math/BigInteger;->ONE:Ljava/math/BigInteger;
-
-    invoke-virtual {v2, v3}, Ljava/math/BigInteger;->add(Ljava/math/BigInteger;)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/google/android/gms/internal/ga;->wc:Ljava/math/BigInteger;
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public di()Lcom/google/android/gms/internal/gb;
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wa:Lcom/google/android/gms/internal/gb;
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public dk()Z
-    .locals 3
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->wf:Z
-
-    const/4 v2, 0x1
-
-    iput-boolean v2, p0, Lcom/google/android/gms/internal/ga;->wf:Z
-
-    monitor-exit v1
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public dm()Z
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->uV:Z
-
-    monitor-exit v1
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public do()Ljava/lang/String;
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wl:Ljava/lang/String;
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public dp()Landroid/os/Bundle;
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wk:Landroid/os/Bundle;
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public f(Ljava/lang/Throwable;)V
-    .locals 4
-
-    const/4 v3, 0x0
-
-    iget-boolean v0, p0, Lcom/google/android/gms/internal/ga;->wg:Z
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Lcom/google/android/gms/internal/ex;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/ga;->qJ:Lcom/google/android/gms/internal/gs;
-
-    invoke-direct {v0, v1, v2, v3, v3}, Lcom/google/android/gms/internal/ex;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/gs;Ljava/lang/Thread$UncaughtExceptionHandler;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/internal/ex;->b(Ljava/lang/Throwable;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public l(Landroid/content/Context;)Lcom/google/android/gms/internal/an;
-    .locals 10
-
-    const/4 v0, 0x0
-
-    invoke-static {}, Lcom/google/android/gms/internal/ga;->bN()Landroid/os/Bundle;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/google/android/gms/internal/bn;->pp:Lcom/google/android/gms/internal/iy;
-
-    invoke-virtual {v2}, Lcom/google/android/gms/internal/iy;->getKey()Ljava/lang/String;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-static {}, Lcom/google/android/gms/internal/ll;->ij()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/google/android/gms/internal/ga;->de()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return-object v0
-
-    :cond_1
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v2, p0, Lcom/google/android/gms/internal/ga;->nE:Lcom/google/android/gms/internal/am;
-
-    if-nez v2, :cond_3
-
-    instance-of v2, p1, Landroid/app/Activity;
-
-    if-nez v2, :cond_2
-
-    monitor-exit v1
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-
-    :cond_2
-    :try_start_1
-    new-instance v2, Lcom/google/android/gms/internal/am;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/Application;
-
-    check-cast p1, Landroid/app/Activity;
-
-    invoke-direct {v2, v0, p1}, Lcom/google/android/gms/internal/am;-><init>(Landroid/app/Application;Landroid/app/Activity;)V
-
-    iput-object v2, p0, Lcom/google/android/gms/internal/ga;->nE:Lcom/google/android/gms/internal/am;
-
-    :cond_3
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->nF:Lcom/google/android/gms/internal/al;
-
-    if-nez v0, :cond_4
-
-    new-instance v0, Lcom/google/android/gms/internal/al;
-
-    invoke-direct {v0}, Lcom/google/android/gms/internal/al;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->nF:Lcom/google/android/gms/internal/al;
-
-    :cond_4
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wh:Lcom/google/android/gms/internal/an;
-
-    if-nez v0, :cond_5
-
-    new-instance v0, Lcom/google/android/gms/internal/an;
-
-    iget-object v2, p0, Lcom/google/android/gms/internal/ga;->nE:Lcom/google/android/gms/internal/am;
-
-    iget-object v3, p0, Lcom/google/android/gms/internal/ga;->nF:Lcom/google/android/gms/internal/al;
-
-    iget-object v4, p0, Lcom/google/android/gms/internal/ga;->wk:Landroid/os/Bundle;
-
-    new-instance v5, Lcom/google/android/gms/internal/ex;
-
-    iget-object v6, p0, Lcom/google/android/gms/internal/ga;->mContext:Landroid/content/Context;
-
-    iget-object v7, p0, Lcom/google/android/gms/internal/ga;->qJ:Lcom/google/android/gms/internal/gs;
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    invoke-direct {v5, v6, v7, v8, v9}, Lcom/google/android/gms/internal/ex;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/gs;Ljava/lang/Thread$UncaughtExceptionHandler;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-
-    invoke-direct {v0, v2, v3, v4, v5}, Lcom/google/android/gms/internal/an;-><init>(Lcom/google/android/gms/internal/am;Lcom/google/android/gms/internal/al;Landroid/os/Bundle;Lcom/google/android/gms/internal/ex;)V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ga;->wh:Lcom/google/android/gms/internal/an;
-
-    :cond_5
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wh:Lcom/google/android/gms/internal/an;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/an;->ba()V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ga;->wh:Lcom/google/android/gms/internal/an;
-
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-.end method
-
-.method public x(Z)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ga;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iput-boolean p1, p0, Lcom/google/android/gms/internal/ga;->uW:Z
-
-    monitor-exit v1
+    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ga;->w(Ljava/util/Map;)V
 
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method

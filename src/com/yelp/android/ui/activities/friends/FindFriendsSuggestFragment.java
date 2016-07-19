@@ -6,14 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import com.yelp.android.analytics.i;
+import com.yelp.android.analytics.iris.KahunaEventIri;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.appdata.AppData;
 import com.yelp.android.ui.activities.support.YelpFragment;
 
 public class FindFriendsSuggestFragment
   extends YelpFragment
 {
-  private p a;
-  private final View.OnClickListener b = new o(this);
+  private a a;
+  private final View.OnClickListener b = new FindFriendsSuggestFragment.1(this);
   
   public static FindFriendsSuggestFragment a()
   {
@@ -22,21 +25,27 @@ public class FindFriendsSuggestFragment
   
   public ViewIri b()
   {
+    AppData.b().m().a(KahunaEventIri.FriendFinderSelectSources);
     return ViewIri.FriendFinderSelectSources;
   }
   
   public void onAttach(Activity paramActivity)
   {
     super.onAttach(paramActivity);
-    a = ((p)paramActivity);
+    a = ((a)paramActivity);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903218, paramViewGroup, false);
-    paramLayoutInflater.findViewById(2131493563).setOnClickListener(b);
-    paramLayoutInflater.findViewById(2131493564).setOnClickListener(b);
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903244, paramViewGroup, false);
+    paramLayoutInflater.findViewById(2131690267).setOnClickListener(b);
+    paramLayoutInflater.findViewById(2131690268).setOnClickListener(b);
     return paramLayoutInflater;
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(String paramString);
   }
 }
 

@@ -3,6 +3,14 @@
 .source "Stream.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/Stream$DefaultStreamSelector;
+    }
+.end annotation
+
+
 # static fields
 .field private static _selector:Lcom/ooyala/android/StreamSelector;
 

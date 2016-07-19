@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="horizontal" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center|left" android:id="@id/list_cell_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:contentDescription="@null" />
-    <TextView android:textAppearance="@style/LargeDarkText" android:layout_gravity="center_vertical" android:id="@id/list_cell_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginRight="?baseGapSize" android:layout_weight="1.0" />
-    <com.yelp.android.ui.widgets.YelpToggleButton android:layout_gravity="center|right" android:id="@id/list_cell_toggle" android:background="@drawable/switch_toggle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textOn="@string/on" android:textOff="@string/off" />
-</com.yelp.android.ui.widgets.SpannableLinearLayout>

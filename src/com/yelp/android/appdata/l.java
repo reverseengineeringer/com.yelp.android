@@ -1,28 +1,44 @@
 package com.yelp.android.appdata;
 
 import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.AsyncTask;
-import java.util.ArrayList;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import com.yelp.android.util.q;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
-class l
-  extends AsyncTask<Context, Void, Sensor>
+public class l
+  extends q<Context, Void, Void>
 {
-  l(k paramk) {}
+  private final String a;
+  private final Map<String, String> b;
   
-  protected Sensor a(Context... paramVarArgs)
+  public l(String paramString, Map<String, String> paramMap)
   {
-    k.a(a, (SensorManager)paramVarArgs[0].getSystemService("sensor"));
-    return k.a(a).getDefaultSensor(3);
+    a = paramString;
+    b = paramMap;
   }
   
-  protected void a(Sensor paramSensor)
+  protected Void a(Context... paramVarArgs)
   {
-    k.a(a, paramSensor);
-    k.a(a, new ArrayList());
-    k.a(a, false);
-    k.a(a, -1L);
+    int j = paramVarArgs.length;
+    int i = 0;
+    while (i < j)
+    {
+      SharedPreferences.Editor localEditor = paramVarArgs[i].getSharedPreferences(a, 0).edit();
+      localEditor.clear();
+      Iterator localIterator = b.entrySet().iterator();
+      while (localIterator.hasNext())
+      {
+        Map.Entry localEntry = (Map.Entry)localIterator.next();
+        localEditor.putString((String)localEntry.getKey(), (String)localEntry.getValue());
+      }
+      localEditor.commit();
+      i += 1;
+    }
+    return null;
   }
 }
 

@@ -1,6 +1,21 @@
 package com.facebook;
 
-class AccessToken$1 {}
+import android.os.Parcel;
+import android.os.Parcelable.Creator;
+
+final class AccessToken$1
+  implements Parcelable.Creator
+{
+  public AccessToken a(Parcel paramParcel)
+  {
+    return new AccessToken(paramParcel);
+  }
+  
+  public AccessToken[] a(int paramInt)
+  {
+    return new AccessToken[paramInt];
+  }
+}
 
 /* Location:
  * Qualified Name:     com.facebook.AccessToken.1

@@ -1,173 +1,54 @@
-.class public Lcom/yelp/android/aa/e;
+.class public interface abstract Lcom/yelp/android/aa/e;
 .super Ljava/lang/Object;
-.source "StreamFileDataLoadProvider.java"
-
-# interfaces
-.implements Lcom/yelp/android/ae/b;
-
-
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/ae/b",
-        "<",
-        "Ljava/io/InputStream;",
-        "Ljava/io/File;",
-        ">;"
-    }
-.end annotation
+.source "Headers.java"
 
 
 # static fields
-.field private static final a:Lcom/yelp/android/aa/g;
-
-
-# instance fields
-.field private final b:Lcom/bumptech/glide/load/d;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/bumptech/glide/load/d",
-            "<",
-            "Ljava/io/File;",
-            "Ljava/io/File;",
-            ">;"
-        }
+.field public static final a:Lcom/yelp/android/aa/e;
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
 
-.field private final c:Lcom/bumptech/glide/load/a;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/bumptech/glide/load/a",
-            "<",
-            "Ljava/io/InputStream;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public static final b:Lcom/yelp/android/aa/e;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
-
-    .prologue
-    .line 19
-    new-instance v0, Lcom/yelp/android/aa/g;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/aa/g;-><init>(Lcom/yelp/android/aa/f;)V
-
-    sput-object v0, Lcom/yelp/android/aa/e;->a:Lcom/yelp/android/aa/g;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
     .locals 1
 
     .prologue
-    .line 24
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 18
+    new-instance v0, Lcom/yelp/android/aa/e$1;
 
-    .line 25
-    new-instance v0, Lcom/yelp/android/aa/a;
+    invoke-direct {v0}, Lcom/yelp/android/aa/e$1;-><init>()V
 
-    invoke-direct {v0}, Lcom/yelp/android/aa/a;-><init>()V
+    sput-object v0, Lcom/yelp/android/aa/e;->a:Lcom/yelp/android/aa/e;
 
-    iput-object v0, p0, Lcom/yelp/android/aa/e;->b:Lcom/bumptech/glide/load/d;
+    .line 29
+    new-instance v0, Lcom/yelp/android/aa/j$a;
 
-    .line 26
-    new-instance v0, Lcom/yelp/android/v/p;
+    invoke-direct {v0}, Lcom/yelp/android/aa/j$a;-><init>()V
 
-    invoke-direct {v0}, Lcom/yelp/android/v/p;-><init>()V
+    invoke-virtual {v0}, Lcom/yelp/android/aa/j$a;->a()Lcom/yelp/android/aa/j;
 
-    iput-object v0, p0, Lcom/yelp/android/aa/e;->c:Lcom/bumptech/glide/load/a;
+    move-result-object v0
 
-    .line 27
+    sput-object v0, Lcom/yelp/android/aa/e;->b:Lcom/yelp/android/aa/e;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public a()Lcom/bumptech/glide/load/d;
-    .locals 1
+.method public abstract a()Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/bumptech/glide/load/d",
+            "Ljava/util/Map",
             "<",
-            "Ljava/io/File;",
-            "Ljava/io/File;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
             ">;"
         }
     .end annotation
-
-    .prologue
-    .line 31
-    iget-object v0, p0, Lcom/yelp/android/aa/e;->b:Lcom/bumptech/glide/load/d;
-
-    return-object v0
-.end method
-
-.method public b()Lcom/bumptech/glide/load/d;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/bumptech/glide/load/d",
-            "<",
-            "Ljava/io/InputStream;",
-            "Ljava/io/File;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 36
-    sget-object v0, Lcom/yelp/android/aa/e;->a:Lcom/yelp/android/aa/g;
-
-    return-object v0
-.end method
-
-.method public c()Lcom/bumptech/glide/load/a;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/bumptech/glide/load/a",
-            "<",
-            "Ljava/io/InputStream;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 41
-    iget-object v0, p0, Lcom/yelp/android/aa/e;->c:Lcom/bumptech/glide/load/a;
-
-    return-object v0
-.end method
-
-.method public d()Lcom/bumptech/glide/load/e;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/bumptech/glide/load/e",
-            "<",
-            "Ljava/io/File;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 46
-    invoke-static {}, Lcom/yelp/android/y/b;->b()Lcom/yelp/android/y/b;
-
-    move-result-object v0
-
-    return-object v0
 .end method

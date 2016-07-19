@@ -1,32 +1,24 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.content.Intent;
-import com.yelp.android.appdata.AppData;
-import com.yelp.android.serializable.User;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Offer;
+import com.yelp.android.serializable.a;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-class dh
-  implements m<User>
+public class dh
+  extends b<Void, Void, Offer>
 {
-  dh(dc paramdc) {}
-  
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, User paramUser)
+  public dh(String paramString, ApiRequest.b<Offer> paramb)
   {
-    a.b(paramUser);
+    super(ApiRequest.RequestType.POST, "check_ins/offer/redeem", paramb);
+    b("offer_id", paramString);
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public Offer a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    if (dc.b(a) < 3)
-    {
-      dc.c(a);
-      dc.d(a);
-    }
-    do
-    {
-      return;
-      dc.a(a, 0);
-    } while ((dc.e(a) == null) || (dc.e(a).isFullUser()));
-    AppData.b().sendBroadcast(new Intent("user_failed_to_fetch"));
+    return (Offer)Offer.CREATOR.parse(paramJSONObject.getJSONObject("offer"));
   }
 }
 

@@ -1,81 +1,15 @@
 package com.google.android.gms.internal;
 
-import android.app.Activity;
-import android.app.Application;
-import android.app.Application.ActivityLifecycleCallbacks;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 
-@ey
+@fv
 public class am
-  implements Application.ActivityLifecycleCallbacks
 {
-  private Context mContext;
-  private final Object mH = new Object();
-  private Activity nB;
-  
-  public am(Application paramApplication, Activity paramActivity)
+  public SharedPreferences a(Context paramContext)
   {
-    paramApplication.registerActivityLifecycleCallbacks(this);
-    setActivity(paramActivity);
-    mContext = paramApplication.getApplicationContext();
+    return paramContext.getSharedPreferences("google_ads_flags", 1);
   }
-  
-  private void setActivity(Activity paramActivity)
-  {
-    synchronized (mH)
-    {
-      if (!paramActivity.getClass().getName().startsWith("com.google.android.gms.ads")) {
-        nB = paramActivity;
-      }
-      return;
-    }
-  }
-  
-  public Activity getActivity()
-  {
-    return nB;
-  }
-  
-  public Context getContext()
-  {
-    return mContext;
-  }
-  
-  public void onActivityCreated(Activity paramActivity, Bundle paramBundle) {}
-  
-  public void onActivityDestroyed(Activity paramActivity)
-  {
-    synchronized (mH)
-    {
-      if (nB == null) {
-        return;
-      }
-      if (nB.equals(paramActivity)) {
-        nB = null;
-      }
-      return;
-    }
-  }
-  
-  public void onActivityPaused(Activity paramActivity)
-  {
-    setActivity(paramActivity);
-  }
-  
-  public void onActivityResumed(Activity paramActivity)
-  {
-    setActivity(paramActivity);
-  }
-  
-  public void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
-  
-  public void onActivityStarted(Activity paramActivity)
-  {
-    setActivity(paramActivity);
-  }
-  
-  public void onActivityStopped(Activity paramActivity) {}
 }
 
 /* Location:

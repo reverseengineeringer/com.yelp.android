@@ -2,15 +2,15 @@ package android.support.v7.widget;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v7.internal.widget.TintAutoCompleteTextView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.KeyEvent.DispatcherState;
 import android.view.inputmethod.InputMethodManager;
+import com.yelp.android.j.a.a;
 
 public class SearchView$SearchAutoComplete
-  extends TintAutoCompleteTextView
+  extends AppCompatAutoCompleteTextView
 {
   private int a = getThreshold();
   private SearchView b;
@@ -22,7 +22,7 @@ public class SearchView$SearchAutoComplete
   
   public SearchView$SearchAutoComplete(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 16842859);
+    this(paramContext, paramAttributeSet, a.a.autoCompleteTextViewStyle);
   }
   
   public SearchView$SearchAutoComplete(Context paramContext, AttributeSet paramAttributeSet, int paramInt)

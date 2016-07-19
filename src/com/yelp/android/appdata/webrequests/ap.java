@@ -1,19 +1,14 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Comment;
-import com.yelp.android.serializable.YelpCheckIn;
+import com.yelp.android.appdata.webrequests.core.c;
 
 public class ap
-  extends am
+  extends c
 {
-  public ap(m<an> paramm, YelpCheckIn paramYelpCheckIn, Comment paramComment, String paramString)
+  public ap(String paramString, ApiRequest.b<Void> paramb)
   {
-    super(ApiRequest.RequestType.POST, "check_in/save_comment", paramm);
-    addPostParam("check_in_id", paramYelpCheckIn.getId());
-    addPostParam("text", paramString);
-    if (paramComment != null) {
-      addPostParam("revision", paramComment.getId());
-    }
+    super("user/alerts_v2/clear", paramb);
+    b("revision", paramString);
   }
 }
 

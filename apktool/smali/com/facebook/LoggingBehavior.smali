@@ -23,14 +23,13 @@
 
 .field public static final enum DEVELOPER_ERRORS:Lcom/facebook/LoggingBehavior;
 
+.field public static final enum GRAPH_API_DEBUG_INFO:Lcom/facebook/LoggingBehavior;
+
+.field public static final enum GRAPH_API_DEBUG_WARNING:Lcom/facebook/LoggingBehavior;
+
 .field public static final enum INCLUDE_ACCESS_TOKENS:Lcom/facebook/LoggingBehavior;
 
 .field public static final enum INCLUDE_RAW_RESPONSES:Lcom/facebook/LoggingBehavior;
-
-.field public static final INSIGHTS:Lcom/facebook/LoggingBehavior;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 
 .field public static final enum REQUESTS:Lcom/facebook/LoggingBehavior;
 
@@ -50,7 +49,7 @@
 
     const/4 v3, 0x0
 
-    .line 28
+    .line 32
     new-instance v0, Lcom/facebook/LoggingBehavior;
 
     const-string/jumbo v1, "REQUESTS"
@@ -59,7 +58,7 @@
 
     sput-object v0, Lcom/facebook/LoggingBehavior;->REQUESTS:Lcom/facebook/LoggingBehavior;
 
-    .line 32
+    .line 37
     new-instance v0, Lcom/facebook/LoggingBehavior;
 
     const-string/jumbo v1, "INCLUDE_ACCESS_TOKENS"
@@ -68,7 +67,7 @@
 
     sput-object v0, Lcom/facebook/LoggingBehavior;->INCLUDE_ACCESS_TOKENS:Lcom/facebook/LoggingBehavior;
 
-    .line 36
+    .line 41
     new-instance v0, Lcom/facebook/LoggingBehavior;
 
     const-string/jumbo v1, "INCLUDE_RAW_RESPONSES"
@@ -77,7 +76,7 @@
 
     sput-object v0, Lcom/facebook/LoggingBehavior;->INCLUDE_RAW_RESPONSES:Lcom/facebook/LoggingBehavior;
 
-    .line 40
+    .line 45
     new-instance v0, Lcom/facebook/LoggingBehavior;
 
     const-string/jumbo v1, "CACHE"
@@ -86,7 +85,7 @@
 
     sput-object v0, Lcom/facebook/LoggingBehavior;->CACHE:Lcom/facebook/LoggingBehavior;
 
-    .line 44
+    .line 49
     new-instance v0, Lcom/facebook/LoggingBehavior;
 
     const-string/jumbo v1, "APP_EVENTS"
@@ -95,7 +94,7 @@
 
     sput-object v0, Lcom/facebook/LoggingBehavior;->APP_EVENTS:Lcom/facebook/LoggingBehavior;
 
-    .line 48
+    .line 54
     new-instance v0, Lcom/facebook/LoggingBehavior;
 
     const-string/jumbo v1, "DEVELOPER_ERRORS"
@@ -106,8 +105,30 @@
 
     sput-object v0, Lcom/facebook/LoggingBehavior;->DEVELOPER_ERRORS:Lcom/facebook/LoggingBehavior;
 
-    .line 24
-    const/4 v0, 0x6
+    .line 60
+    new-instance v0, Lcom/facebook/LoggingBehavior;
+
+    const-string/jumbo v1, "GRAPH_API_DEBUG_WARNING"
+
+    const/4 v2, 0x6
+
+    invoke-direct {v0, v1, v2}, Lcom/facebook/LoggingBehavior;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/facebook/LoggingBehavior;->GRAPH_API_DEBUG_WARNING:Lcom/facebook/LoggingBehavior;
+
+    .line 67
+    new-instance v0, Lcom/facebook/LoggingBehavior;
+
+    const-string/jumbo v1, "GRAPH_API_DEBUG_INFO"
+
+    const/4 v2, 0x7
+
+    invoke-direct {v0, v1, v2}, Lcom/facebook/LoggingBehavior;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lcom/facebook/LoggingBehavior;->GRAPH_API_DEBUG_INFO:Lcom/facebook/LoggingBehavior;
+
+    .line 28
+    const/16 v0, 0x8
 
     new-array v0, v0, [Lcom/facebook/LoggingBehavior;
 
@@ -137,12 +158,19 @@
 
     aput-object v2, v0, v1
 
+    const/4 v1, 0x6
+
+    sget-object v2, Lcom/facebook/LoggingBehavior;->GRAPH_API_DEBUG_WARNING:Lcom/facebook/LoggingBehavior;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    sget-object v2, Lcom/facebook/LoggingBehavior;->GRAPH_API_DEBUG_INFO:Lcom/facebook/LoggingBehavior;
+
+    aput-object v2, v0, v1
+
     sput-object v0, Lcom/facebook/LoggingBehavior;->$VALUES:[Lcom/facebook/LoggingBehavior;
-
-    .line 52
-    sget-object v0, Lcom/facebook/LoggingBehavior;->APP_EVENTS:Lcom/facebook/LoggingBehavior;
-
-    sput-object v0, Lcom/facebook/LoggingBehavior;->INSIGHTS:Lcom/facebook/LoggingBehavior;
 
     return-void
 .end method
@@ -156,7 +184,7 @@
     .end annotation
 
     .prologue
-    .line 24
+    .line 28
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -166,7 +194,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 28
     const-class v0, Lcom/facebook/LoggingBehavior;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -182,7 +210,7 @@
     .locals 1
 
     .prologue
-    .line 24
+    .line 28
     sget-object v0, Lcom/facebook/LoggingBehavior;->$VALUES:[Lcom/facebook/LoggingBehavior;
 
     invoke-virtual {v0}, [Lcom/facebook/LoggingBehavior;->clone()Ljava/lang/Object;

@@ -1,19 +1,58 @@
 package com.yelp.android.ui.activities.reservations;
 
-import android.content.DialogInterface;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
 import android.content.DialogInterface.OnClickListener;
+import android.text.TextUtils;
+import com.yelp.android.appdata.webrequests.YelpException;
 
-class a
-  implements DialogInterface.OnClickListener
+public class a
 {
-  a(ChooseReservation paramChooseReservation) {}
+  private CharSequence a;
+  private final int b;
+  private final DialogInterface.OnClickListener c;
   
-  public void onClick(DialogInterface paramDialogInterface, int paramInt)
+  public a(int paramInt)
   {
-    paramDialogInterface.dismiss();
-    if (ChooseReservation.a(a)) {
-      a.finish();
+    this(paramInt, new a.1());
+  }
+  
+  public a(int paramInt, DialogInterface.OnClickListener paramOnClickListener)
+  {
+    b = paramInt;
+    c = paramOnClickListener;
+  }
+  
+  public AlertDialog a(Activity paramActivity)
+  {
+    return new AlertDialog.Builder(paramActivity).setMessage(a).setPositiveButton(2131166290, c).create();
+  }
+  
+  public void a(Activity paramActivity, Dialog paramDialog, DialogInterface.OnClickListener paramOnClickListener)
+  {
+    if ((paramDialog instanceof AlertDialog))
+    {
+      paramDialog = (AlertDialog)paramDialog;
+      paramDialog.setMessage(a);
+      String str = paramActivity.getString(2131166290);
+      paramActivity = paramOnClickListener;
+      if (paramOnClickListener == null) {
+        paramActivity = c;
+      }
+      paramDialog.setButton(-3, str, paramActivity);
     }
+  }
+  
+  public final boolean a(Activity paramActivity, YelpException paramYelpException)
+  {
+    a = paramYelpException.getMessage(paramActivity);
+    if (TextUtils.isEmpty(a)) {
+      a = paramActivity.getText(2131165591);
+    }
+    paramActivity.showDialog(b);
+    return true;
   }
 }
 

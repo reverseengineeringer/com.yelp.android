@@ -1,18 +1,18 @@
-.class public interface abstract Lcom/yelp/android/av/i;
-.super Ljava/lang/Object;
-.source "YelpResultlessApiRequest.java"
-
-# interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
+.class Lcom/yelp/android/av/i;
+.super Lcom/yelp/android/av/a;
+.source "ImmediateCheckForUpdatesController.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/appdata/webrequests/m",
-        "<",
-        "Ljava/lang/Void;",
-        ">;"
-    }
-.end annotation
+# direct methods
+.method public constructor <init>()V
+    .locals 1
+
+    .prologue
+    .line 9
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/av/a;-><init>(Z)V
+
+    .line 10
+    return-void
+.end method

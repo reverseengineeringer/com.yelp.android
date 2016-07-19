@@ -3,6 +3,17 @@
 .source "Analytics.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/ooyala/android/Analytics;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = null
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/ooyala/android/Analytics;
 

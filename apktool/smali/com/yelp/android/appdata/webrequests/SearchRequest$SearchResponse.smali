@@ -6,20 +6,25 @@
 .implements Landroid/os/Parcelable;
 
 
-# virtual methods
-.method public abstract getAdBusinessSearchResults()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/BusinessSearchResult;",
-            ">;"
-        }
-    .end annotation
-.end method
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/SearchRequest;
+.end annotation
 
-.method public abstract getAmbiguousLocations()Ljava/util/List;
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "SearchResponse"
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+    }
+.end annotation
+
+
+# virtual methods
+.method public abstract a()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -31,10 +36,7 @@
     .end annotation
 .end method
 
-.method public abstract getAttribution()Ljava/lang/String;
-.end method
-
-.method public abstract getBusinessSearchResults()Ljava/util/List;
+.method public abstract b()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -46,7 +48,28 @@
     .end annotation
 .end method
 
-.method public abstract getLocalAds()Ljava/util/List;
+.method public abstract c()Landroid/location/Address;
+.end method
+
+.method public abstract d()Ljava/lang/String;
+.end method
+
+.method public abstract e()Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+.end method
+
+.method public abstract f()I
+.end method
+
+.method public abstract g()I
+.end method
+
+.method public abstract h()Ljava/lang/String;
+.end method
+
+.method public abstract i()Ljava/lang/String;
+.end method
+
+.method public abstract j()Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -58,29 +81,38 @@
     .end annotation
 .end method
 
-.method public abstract getLocation()Landroid/location/Address;
+.method public abstract k()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/BusinessSearchResult;",
+            ">;"
+        }
+    .end annotation
 .end method
 
-.method public abstract getOffset()I
+.method public abstract l()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/DisplayGenericSearchFilter;",
+            ">;"
+        }
+    .end annotation
 .end method
 
-.method public abstract getPromotedFilter()Lcom/yelp/android/serializable/PromotedFilter;
-.end method
-
-.method public abstract getRegion()[D
-.end method
-
-.method public abstract getRequestId()Ljava/lang/String;
-.end method
-
-.method public abstract getSpellingSuggestion()Ljava/lang/String;
-.end method
-
-.method public abstract getSuggestedFilters()Lcom/yelp/android/serializable/AttributeFilters;
-.end method
-
-.method public abstract getTotal()I
-.end method
-
-.method public abstract isFolded()Lcom/yelp/android/appdata/webrequests/SearchRequest$SearchResponse$Foldability;
+.method public abstract m()Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/SearchSeparator;",
+            ">;"
+        }
+    .end annotation
 .end method

@@ -1,20 +1,12 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.webkit.WebSettings;
-
-@ey
+@fv
 public final class go
+  implements gn
 {
-  public static void a(Context paramContext, WebSettings paramWebSettings)
+  public String a(String paramString)
   {
-    gm.a(paramContext, paramWebSettings);
-    paramWebSettings.setMediaPlaybackRequiresUserGesture(false);
-  }
-  
-  public static String getDefaultUserAgent(Context paramContext)
-  {
-    return WebSettings.getDefaultUserAgent(paramContext);
+    return null;
   }
 }
 

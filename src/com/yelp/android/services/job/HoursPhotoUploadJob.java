@@ -1,13 +1,13 @@
 package com.yelp.android.services.job;
 
 import android.text.TextUtils;
-import com.path.android.jobqueue.c;
-import com.path.android.jobqueue.h;
+import com.path.android.jobqueue.b;
+import com.path.android.jobqueue.d;
 import com.yelp.android.analytics.iris.EventIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.co;
-import com.yelp.android.av.a;
+import com.yelp.android.appdata.webrequests.ce;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,36 +22,38 @@ public class HoursPhotoUploadJob
   private final Collection<String> mChangedParams;
   private final HashMap<String, String> mPostParams;
   
-  private HoursPhotoUploadJob(co paramco)
+  private HoursPhotoUploadJob(ce paramce)
   {
-    super(new h(1).a().b().a("HoursPhotoUploadJob"));
-    mPostParams = new HashMap(paramco.b());
-    mChangedParams = paramco.a();
+    super(new d(1).a().b().a("HoursPhotoUploadJob"));
+    mPostParams = new HashMap(paramce.d());
+    mChangedParams = paramce.b();
   }
   
-  public static void launchJob(co paramco)
+  public static void launchJob(ce paramce)
   {
-    AppData.r().a(new HoursPhotoUploadJob(paramco));
+    AppData.w().a(new HoursPhotoUploadJob(paramce));
   }
   
   public void onCancel() {}
   
   public void onRun()
+    throws Throwable
   {
-    Object localObject1 = new co((String)mPostParams.get("image_path"));
+    super.onRun();
+    Object localObject1 = new ce((String)mPostParams.get("image_path"));
     Object localObject2 = mPostParams.entrySet().iterator();
     while (((Iterator)localObject2).hasNext())
     {
       Map.Entry localEntry = (Map.Entry)((Iterator)localObject2).next();
       if (!((String)localEntry.getKey()).equalsIgnoreCase("image_path")) {
-        ((co)localObject1).addPostParam((String)localEntry.getKey(), (String)localEntry.getValue());
+        ((ce)localObject1).b((String)localEntry.getKey(), (String)localEntry.getValue());
       }
     }
-    ((co)localObject1).executeSynchronously();
+    ((ce)localObject1).i();
     localObject1 = new TreeMap();
     ((Map)localObject1).put("changed", TextUtils.join(",", mChangedParams));
     localObject2 = EventIri.BusinessUpdateSuccess;
-    AppData.b().k().a((b)localObject2, (Map)localObject1);
+    AppData.b().k().a((a)localObject2, (Map)localObject1);
   }
 }
 

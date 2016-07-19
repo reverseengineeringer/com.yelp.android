@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include layout="@layout/panel_activity_feed_user_profile_header" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/feed_description" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/FeedItemBorder">
+        <include layout="@layout/panel_activity_feed_business_fullcontent_segment" />
+        <LinearLayout android:orientation="vertical" android:id="@id/user_review_draft_layout" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size">
+            <ImageView android:id="@id/star_rating" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginBottom="@dimen/default_small_gap_size" android:src="@drawable/business_stars" android:contentDescription="@null" />
+            <TextView android:textAppearance="@style/BodyText" android:ellipsize="end" android:id="@id/review_draft_text" android:background="@drawable/selector_white_rect" android:paddingTop="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="3" android:drawableRight="@drawable/arrow_graphic" android:lineSpacingExtra="@dimen/default_small_gap_size" />
+        </LinearLayout>
+    </LinearLayout>
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/default_base_gap_size" />
+</LinearLayout>

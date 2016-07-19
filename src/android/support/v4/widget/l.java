@@ -1,22 +1,53 @@
 package android.support.v4.widget;
 
-import android.database.DataSetObserver;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.widget.EdgeEffect;
 
 class l
-  extends DataSetObserver
 {
-  private l(i parami) {}
-  
-  public void onChanged()
+  public static Object a(Context paramContext)
   {
-    a.a = true;
-    a.notifyDataSetChanged();
+    return new EdgeEffect(paramContext);
   }
   
-  public void onInvalidated()
+  public static void a(Object paramObject, int paramInt1, int paramInt2)
   {
-    a.a = false;
-    a.notifyDataSetInvalidated();
+    ((EdgeEffect)paramObject).setSize(paramInt1, paramInt2);
+  }
+  
+  public static boolean a(Object paramObject)
+  {
+    return ((EdgeEffect)paramObject).isFinished();
+  }
+  
+  public static boolean a(Object paramObject, float paramFloat)
+  {
+    ((EdgeEffect)paramObject).onPull(paramFloat);
+    return true;
+  }
+  
+  public static boolean a(Object paramObject, int paramInt)
+  {
+    ((EdgeEffect)paramObject).onAbsorb(paramInt);
+    return true;
+  }
+  
+  public static boolean a(Object paramObject, Canvas paramCanvas)
+  {
+    return ((EdgeEffect)paramObject).draw(paramCanvas);
+  }
+  
+  public static void b(Object paramObject)
+  {
+    ((EdgeEffect)paramObject).finish();
+  }
+  
+  public static boolean c(Object paramObject)
+  {
+    paramObject = (EdgeEffect)paramObject;
+    ((EdgeEffect)paramObject).onRelease();
+    return ((EdgeEffect)paramObject).isFinished();
   }
 }
 

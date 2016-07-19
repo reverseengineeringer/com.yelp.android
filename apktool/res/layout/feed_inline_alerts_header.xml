@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/inline_notifications_header" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include android:id="@id/inline_notification_item_1" layout="@layout/list_alert" />
+    <include android:id="@id/inline_notification_item_2" layout="@layout/list_alert" />
+    <TextView android:id="@id/all_notifications_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/all_notifications" android:drawableLeft="@drawable/nav_notifications" style="@style/FeedHeaderItem" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+</LinearLayout>

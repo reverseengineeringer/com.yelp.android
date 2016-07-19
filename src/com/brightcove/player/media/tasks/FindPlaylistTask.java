@@ -4,6 +4,8 @@ import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
 import com.brightcove.player.media.MediaService;
 import com.brightcove.player.util.ErrorUtil;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
@@ -18,11 +20,13 @@ public class FindPlaylistTask
   }
   
   public void findPlaylistById(String paramString)
+    throws URISyntaxException, UnsupportedEncodingException
   {
     executeWithCommand("find_playlist_by_id", "playlist_id", paramString);
   }
   
   public void findPlaylistByReferenceId(String paramString)
+    throws URISyntaxException, UnsupportedEncodingException
   {
     executeWithCommand("find_playlist_by_reference_id", "reference_id", paramString);
   }

@@ -1,11 +1,11 @@
 package com.bumptech.glide.manager;
 
 class b
-  implements h
+  implements g
 {
-  public void a(i parami)
+  public void a(h paramh)
   {
-    parami.c();
+    paramh.d();
   }
 }
 

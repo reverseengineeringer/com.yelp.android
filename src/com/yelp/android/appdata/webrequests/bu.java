@@ -1,28 +1,21 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Event;
-import com.yelp.android.serializable.Event.EventType;
-import com.yelp.android.serializable.User;
-import com.yelp.android.util.StringUtils;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class bu
-  extends g<Void, Void, List<User>>
+  extends b<String, Void, Boolean>
 {
-  public bu(List<String> paramList, Event paramEvent, m<List<User>> paramm)
+  public bu(ApiRequest.b paramb)
   {
-    super(ApiRequest.RequestType.GET, "/event/attendees/users", paramm);
-    addUrlParam("attendee_ids", StringUtils.a(paramList));
-    addUrlParam("event_id", paramEvent.getId());
-    addUrlParam("event_type", paramEvent.getType().toString());
+    super(ApiRequest.RequestType.GET, "account/facebook/auto_friend", paramb);
   }
   
-  public List<User> a(JSONObject paramJSONObject)
+  public Boolean a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("attendees"), User.CREATOR);
+    return Boolean.valueOf(paramJSONObject.optBoolean("enabled"));
   }
 }
 

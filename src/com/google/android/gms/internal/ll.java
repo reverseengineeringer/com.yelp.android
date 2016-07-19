@@ -1,58 +1,81 @@
 package com.google.android.gms.internal;
 
-import android.os.Build.VERSION;
+import java.io.IOException;
 
-public final class ll
+public abstract class ll<M extends ll<M>>
+  extends lq
 {
-  private static boolean aW(int paramInt)
+  protected ln m;
+  
+  public void a(zzsn paramzzsn)
+    throws IOException
   {
-    return Build.VERSION.SDK_INT >= paramInt;
+    if (m == null) {}
+    for (;;)
+    {
+      return;
+      int i = 0;
+      while (i < m.a())
+      {
+        m.b(i).a(paramzzsn);
+        i += 1;
+      }
+    }
   }
   
-  public static boolean ig()
+  protected final boolean a(lk paramlk, int paramInt)
+    throws IOException
   {
-    return aW(11);
+    int i = paramlk.q();
+    if (!paramlk.b(paramInt)) {
+      return false;
+    }
+    int j = lt.b(paramInt);
+    ls localls = new ls(paramInt, paramlk.a(i, paramlk.q() - i));
+    paramlk = null;
+    if (m == null) {
+      m = new ln();
+    }
+    for (;;)
+    {
+      Object localObject = paramlk;
+      if (paramlk == null)
+      {
+        localObject = new lo();
+        m.a(j, (lo)localObject);
+      }
+      ((lo)localObject).a(localls);
+      return true;
+      paramlk = m.a(j);
+    }
   }
   
-  public static boolean ih()
+  protected int b()
   {
-    return aW(12);
+    int j = 0;
+    if (m != null)
+    {
+      int i = 0;
+      for (;;)
+      {
+        k = i;
+        if (j >= m.a()) {
+          break;
+        }
+        i += m.b(j).a();
+        j += 1;
+      }
+    }
+    int k = 0;
+    return k;
   }
   
-  public static boolean ii()
+  public M d()
+    throws CloneNotSupportedException
   {
-    return aW(13);
-  }
-  
-  public static boolean ij()
-  {
-    return aW(14);
-  }
-  
-  public static boolean ik()
-  {
-    return aW(16);
-  }
-  
-  public static boolean il()
-  {
-    return aW(17);
-  }
-  
-  public static boolean im()
-  {
-    return aW(19);
-  }
-  
-  @Deprecated
-  public static boolean in()
-  {
-    return io();
-  }
-  
-  public static boolean io()
-  {
-    return aW(21);
+    ll localll = (ll)super.e();
+    lp.a(this, localll);
+    return localll;
   }
 }
 

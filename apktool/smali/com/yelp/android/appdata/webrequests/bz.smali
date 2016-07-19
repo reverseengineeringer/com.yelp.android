@@ -1,46 +1,23 @@
 .class public Lcom/yelp/android/appdata/webrequests/bz;
-.super Ljava/lang/Object;
-.source "EventsSectionRequest.java"
-
-
-# instance fields
-.field public final a:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/Event;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field public final b:I
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "ForceDirtySessionRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/List;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Lcom/yelp/android/serializable/Event;",
-            ">;I)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 1
 
     .prologue
-    .line 37
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 19
+    const-string/jumbo v0, "client/force_dirty_session"
 
-    .line 38
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/bz;->a:Ljava/util/List;
+    invoke-direct {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 39
-    iput p2, p0, Lcom/yelp/android/appdata/webrequests/bz;->b:I
+    .line 20
+    const-string/jumbo v0, "context"
 
-    .line 40
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/bz;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 21
     return-void
 .end method

@@ -1,34 +1,19 @@
 package com.google.android.gms.internal;
 
-import android.os.SystemClock;
+import com.google.android.gms.common.api.Api.zzb;
+import com.google.android.gms.common.internal.zzp;
+import com.google.android.gms.signin.internal.d;
 
-public final class lf
-  implements ld
+public abstract interface lf
+  extends Api.zzb
 {
-  private static lf Of;
+  public abstract void a();
   
-  public static ld jdMethod_if()
-  {
-    try
-    {
-      if (Of == null) {
-        Of = new lf();
-      }
-      lf locallf = Of;
-      return locallf;
-    }
-    finally {}
-  }
+  public abstract void a(zzp paramzzp, boolean paramBoolean);
   
-  public long currentTimeMillis()
-  {
-    return System.currentTimeMillis();
-  }
+  public abstract void a(d paramd);
   
-  public long elapsedRealtime()
-  {
-    return SystemClock.elapsedRealtime();
-  }
+  public abstract void b();
 }
 
 /* Location:

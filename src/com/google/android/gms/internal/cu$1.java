@@ -1,26 +1,16 @@
 package com.google.android.gms.internal;
 
+import android.os.Handler;
+import java.util.concurrent.Executor;
+
 class cu$1
-  implements Runnable
+  implements Executor
 {
-  cu$1(cu paramcu, ct paramct) {}
+  cu$1(cu paramcu, Handler paramHandler) {}
   
-  public void run()
+  public void execute(Runnable paramRunnable)
   {
-    synchronized (cu.a(qN))
-    {
-      if (cu.b(qN) != -2) {
-        return;
-      }
-      cu.a(qN, cu.c(qN));
-      if (cu.d(qN) == null)
-      {
-        qN.k(4);
-        return;
-      }
-    }
-    qM.a(qN);
-    cu.a(qN, qM);
+    a.post(paramRunnable);
   }
 }
 

@@ -1,18 +1,25 @@
 package com.yelp.android.ui.map;
 
-import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
-import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.c.b;
+import com.google.android.gms.maps.model.c;
 
 public abstract interface e<T>
-  extends GoogleMap.InfoWindowAdapter
+  extends c.b
 {
   public abstract void a();
   
-  public abstract void a(f<T> paramf);
+  public abstract void a(a<T> parama);
   
-  public abstract void a(T paramT, Marker paramMarker);
+  public abstract void a(T paramT, c paramc);
   
-  public abstract T b(Marker paramMarker);
+  public abstract T e(c paramc);
+  
+  public static abstract interface a<T>
+  {
+    public abstract void a(T paramT);
+    
+    public abstract void b(T paramT);
+  }
 }
 
 /* Location:

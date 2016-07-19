@@ -1,29 +1,29 @@
 .class public Lcom/yelp/android/appdata/webrequests/messaging/c;
-.super Lcom/yelp/android/av/h;
+.super Lcom/yelp/android/appdata/webrequests/core/c;
 .source "ConversationFlagRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/av/i;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
     .locals 1
 
     .prologue
-    .line 10
+    .line 9
     const-string/jumbo v0, "conversation/flag"
 
-    invoke-direct {p0, v0, p3}, Lcom/yelp/android/av/h;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 11
+    .line 10
     const-string/jumbo v0, "conversation_id"
 
-    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/messaging/c;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/messaging/c;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 12
+    .line 11
     const-string/jumbo v0, "message"
 
-    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/messaging/c;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/messaging/c;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 13
+    .line 12
     return-void
 .end method
 
@@ -33,7 +33,7 @@
     .locals 1
 
     .prologue
-    .line 17
+    .line 16
     const-string/jumbo v0, "ConversationFlagRequest"
 
     return-object v0

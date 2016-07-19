@@ -2,32 +2,77 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Collections;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _MenuItem
   implements Parcelable
 {
-  protected String mAlias;
-  protected String mDescription;
-  protected String mName;
-  protected List<Photo> mPhotos;
-  protected String mPrice;
-  protected String mReviewSnippet;
+  protected List<Photo> a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
   
-  protected _MenuItem() {}
-  
-  protected _MenuItem(List<Photo> paramList, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5)
+  public String a()
   {
-    this();
-    mPhotos = paramList;
-    mAlias = paramString1;
-    mName = paramString2;
-    mReviewSnippet = paramString3;
-    mPrice = paramString4;
-    mDescription = paramString5;
+    return f;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = paramParcel.readArrayList(Photo.class.getClassLoader());
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("photos")) {}
+    for (a = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("photos"), Photo.CREATOR);; a = Collections.emptyList())
+    {
+      if (!paramJSONObject.isNull("alias")) {
+        b = paramJSONObject.optString("alias");
+      }
+      if (!paramJSONObject.isNull("name")) {
+        c = paramJSONObject.optString("name");
+      }
+      if (!paramJSONObject.isNull("review_snippet")) {
+        d = paramJSONObject.optString("review_snippet");
+      }
+      if (!paramJSONObject.isNull("price")) {
+        e = paramJSONObject.optString("price");
+      }
+      if (!paramJSONObject.isNull("description")) {
+        f = paramJSONObject.optString("description");
+      }
+      return;
+    }
+  }
+  
+  public String b()
+  {
+    return e;
+  }
+  
+  public String c()
+  {
+    return c;
+  }
+  
+  public List<Photo> d()
+  {
+    return a;
   }
   
   public int describeContents()
@@ -35,78 +80,33 @@ abstract class _MenuItem
     return 0;
   }
   
-  public String getAlias()
+  public boolean equals(Object paramObject)
   {
-    return mAlias;
-  }
-  
-  public String getDescription()
-  {
-    return mDescription;
-  }
-  
-  public String getName()
-  {
-    return mName;
-  }
-  
-  public List<Photo> getPhotos()
-  {
-    return mPhotos;
-  }
-  
-  public String getPrice()
-  {
-    return mPrice;
-  }
-  
-  public String getReviewSnippet()
-  {
-    return mReviewSnippet;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("photos")) {}
-    for (mPhotos = JsonUtil.parseJsonList(paramJSONObject.optJSONArray("photos"), Photo.CREATOR);; mPhotos = Collections.emptyList())
+    if (paramObject == null) {}
+    do
     {
-      if (!paramJSONObject.isNull("alias")) {
-        mAlias = paramJSONObject.optString("alias");
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-      if (!paramJSONObject.isNull("name")) {
-        mName = paramJSONObject.optString("name");
-      }
-      if (!paramJSONObject.isNull("review_snippet")) {
-        mReviewSnippet = paramJSONObject.optString("review_snippet");
-      }
-      if (!paramJSONObject.isNull("price")) {
-        mPrice = paramJSONObject.optString("price");
-      }
-      if (!paramJSONObject.isNull("description")) {
-        mDescription = paramJSONObject.optString("description");
-      }
-      return;
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_MenuItem)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int hashCode()
   {
-    mPhotos = paramParcel.createTypedArrayList(Photo.CREATOR);
-    mAlias = paramParcel.readString();
-    mName = paramParcel.readString();
-    mReviewSnippet = paramParcel.readString();
-    mPrice = paramParcel.readString();
-    mDescription = paramParcel.readString();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeTypedList(mPhotos);
-    paramParcel.writeString(mAlias);
-    paramParcel.writeString(mName);
-    paramParcel.writeString(mReviewSnippet);
-    paramParcel.writeString(mPrice);
-    paramParcel.writeString(mDescription);
+    paramParcel.writeList(a);
+    paramParcel.writeValue(b);
+    paramParcel.writeValue(c);
+    paramParcel.writeValue(d);
+    paramParcel.writeValue(e);
+    paramParcel.writeValue(f);
   }
 }
 

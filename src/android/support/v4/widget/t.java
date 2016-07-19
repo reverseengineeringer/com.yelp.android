@@ -1,16 +1,14 @@
 package android.support.v4.widget;
 
 import android.view.View;
+import android.widget.PopupWindow;
 
-public abstract interface t
+class t
 {
-  public abstract void onDrawerClosed(View paramView);
-  
-  public abstract void onDrawerOpened(View paramView);
-  
-  public abstract void onDrawerSlide(View paramView, float paramFloat);
-  
-  public abstract void onDrawerStateChanged(int paramInt);
+  public static void a(PopupWindow paramPopupWindow, View paramView, int paramInt1, int paramInt2, int paramInt3)
+  {
+    paramPopupWindow.showAsDropDown(paramView, paramInt1, paramInt2, paramInt3);
+  }
 }
 
 /* Location:

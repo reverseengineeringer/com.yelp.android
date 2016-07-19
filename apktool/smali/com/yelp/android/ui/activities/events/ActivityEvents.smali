@@ -3,7 +3,7 @@
 .source "ActivityEvents.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/events/av;
+.implements Lcom/yelp/android/ui/activities/events/EventsFragment$a;
 
 
 # direct methods
@@ -37,52 +37,52 @@
     .locals 3
 
     .prologue
-    .line 34
+    .line 35
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->EventSectionsMore:Lcom/yelp/android/analytics/iris/EventIri;
 
     const-string/jumbo v1, "section_alias"
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/EventSection;->getAlias()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/EventSection;->d()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
 
-    .line 35
+    .line 36
     invoke-static {p1}, Lcom/yelp/android/ui/activities/events/MoreEventsFragment;->a(Lcom/yelp/android/serializable/EventSection;)Lcom/yelp/android/ui/activities/events/MoreEventsFragment;
 
     move-result-object v0
 
-    .line 36
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEvents;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 37
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEvents;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v1}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v1
 
-    const v2, 0x7f0c01d4
+    const v2, 0x7f0f020d
 
-    invoke-virtual {v1, v2, v0}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v1, v2, v0}, Landroid/support/v4/app/o;->a(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
     const/16 v1, 0x1001
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentTransaction;->setTransition(I)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/o;->a(I)Landroid/support/v4/app/o;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/o;->a(Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 41
+    .line 43
     return-void
 .end method
 
@@ -90,13 +90,13 @@
     .locals 1
 
     .prologue
-    .line 45
+    .line 47
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -112,28 +112,28 @@
     .locals 3
 
     .prologue
-    const v2, 0x7f0c01d4
+    const v2, 0x7f0f020d
 
     .line 24
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 25
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEvents;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEvents;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentById(I)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v2}, Landroid/support/v4/app/l;->a(I)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
     .line 26
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEvents;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityEvents;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
@@ -141,13 +141,13 @@
 
     invoke-direct {v1}, Lcom/yelp/android/ui/activities/events/EventsFragment;-><init>()V
 
-    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/o;->a(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 30
+    .line 31
     :cond_0
     return-void
 .end method

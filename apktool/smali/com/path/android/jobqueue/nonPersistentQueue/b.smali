@@ -136,6 +136,7 @@
     :goto_2
     move v1, v0
 
+    .line 37
     goto :goto_1
 
     .line 38

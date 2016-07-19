@@ -1,165 +1,161 @@
-.class Lcom/bumptech/glide/load/resource/bitmap/n;
-.super Landroid/graphics/drawable/Drawable$ConstantState;
-.source "GlideBitmapDrawable.java"
+.class public Lcom/bumptech/glide/load/resource/bitmap/n;
+.super Ljava/lang/Object;
+.source "StreamBitmapDataLoadProvider.java"
+
+# interfaces
+.implements Lcom/yelp/android/ak/b;
 
 
-# static fields
-.field private static final d:Landroid/graphics/Paint;
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/yelp/android/ak/b",
+        "<",
+        "Ljava/io/InputStream;",
+        "Landroid/graphics/Bitmap;",
+        ">;"
+    }
+.end annotation
 
 
 # instance fields
-.field final a:Landroid/graphics/Bitmap;
+.field private final a:Lcom/bumptech/glide/load/resource/bitmap/o;
 
-.field b:I
+.field private final b:Lcom/bumptech/glide/load/resource/bitmap/b;
 
-.field c:Landroid/graphics/Paint;
+.field private final c:Lcom/yelp/android/aa/o;
+
+.field private final d:Lcom/yelp/android/af/c;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/af/c",
+            "<",
+            "Landroid/graphics/Bitmap;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public constructor <init>(Lcom/yelp/android/x/c;Lcom/bumptech/glide/load/DecodeFormat;)V
     .locals 2
 
     .prologue
-    .line 141
-    new-instance v0, Landroid/graphics/Paint;
+    .line 27
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v1, 0x6
+    .line 28
+    new-instance v0, Lcom/yelp/android/aa/o;
 
-    invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
+    invoke-direct {v0}, Lcom/yelp/android/aa/o;-><init>()V
 
-    sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/n;->d:Landroid/graphics/Paint;
+    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->c:Lcom/yelp/android/aa/o;
 
-    return-void
-.end method
+    .line 29
+    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/o;
 
-.method public constructor <init>(Landroid/graphics/Bitmap;)V
-    .locals 1
+    invoke-direct {v0, p1, p2}, Lcom/bumptech/glide/load/resource/bitmap/o;-><init>(Lcom/yelp/android/x/c;Lcom/bumptech/glide/load/DecodeFormat;)V
 
-    .prologue
-    .line 149
-    invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
+    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->a:Lcom/bumptech/glide/load/resource/bitmap/o;
 
-    .line 147
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/n;->d:Landroid/graphics/Paint;
+    .line 30
+    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/b;
 
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->c:Landroid/graphics/Paint;
+    invoke-direct {v0}, Lcom/bumptech/glide/load/resource/bitmap/b;-><init>()V
 
-    .line 150
-    iput-object p1, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->a:Landroid/graphics/Bitmap;
+    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->b:Lcom/bumptech/glide/load/resource/bitmap/b;
 
-    .line 151
-    return-void
-.end method
+    .line 31
+    new-instance v0, Lcom/yelp/android/af/c;
 
-.method constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/n;)V
-    .locals 1
+    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->a:Lcom/bumptech/glide/load/resource/bitmap/o;
 
-    .prologue
-    .line 155
-    iget-object v0, p1, Lcom/bumptech/glide/load/resource/bitmap/n;->a:Landroid/graphics/Bitmap;
+    invoke-direct {v0, v1}, Lcom/yelp/android/af/c;-><init>(Lcom/bumptech/glide/load/d;)V
 
-    invoke-direct {p0, v0}, Lcom/bumptech/glide/load/resource/bitmap/n;-><init>(Landroid/graphics/Bitmap;)V
+    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->d:Lcom/yelp/android/af/c;
 
-    .line 156
-    iget v0, p1, Lcom/bumptech/glide/load/resource/bitmap/n;->b:I
-
-    iput v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->b:I
-
-    .line 157
+    .line 32
     return-void
 .end method
 
 
 # virtual methods
-.method a()V
-    .locals 2
-
-    .prologue
-    .line 172
-    sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/n;->d:Landroid/graphics/Paint;
-
-    iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->c:Landroid/graphics/Paint;
-
-    if-ne v0, v1, :cond_0
-
-    .line 173
-    new-instance v0, Landroid/graphics/Paint;
-
-    const/4 v1, 0x6
-
-    invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
-
-    iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->c:Landroid/graphics/Paint;
-
-    .line 175
-    :cond_0
-    return-void
-.end method
-
-.method a(I)V
+.method public a()Lcom/bumptech/glide/load/d;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/d",
+            "<",
+            "Ljava/io/File;",
+            "Landroid/graphics/Bitmap;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 165
-    invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/bitmap/n;->a()V
-
-    .line 166
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->c:Landroid/graphics/Paint;
-
-    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    .line 167
-    return-void
-.end method
-
-.method a(Landroid/graphics/ColorFilter;)V
-    .locals 1
-
-    .prologue
-    .line 160
-    invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/bitmap/n;->a()V
-
-    .line 161
-    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->c:Landroid/graphics/Paint;
-
-    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
-
-    .line 162
-    return-void
-.end method
-
-.method public getChangingConfigurations()I
-    .locals 1
-
-    .prologue
-    .line 189
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
-
-    .prologue
-    .line 179
-    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/m;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1, p0}, Lcom/bumptech/glide/load/resource/bitmap/m;-><init>(Landroid/content/res/Resources;Lcom/bumptech/glide/load/resource/bitmap/n;)V
+    .line 36
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->d:Lcom/yelp/android/af/c;
 
     return-object v0
 .end method
 
-.method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
+.method public b()Lcom/bumptech/glide/load/d;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/d",
+            "<",
+            "Ljava/io/InputStream;",
+            "Landroid/graphics/Bitmap;",
+            ">;"
+        }
+    .end annotation
 
     .prologue
-    .line 184
-    new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/m;
+    .line 41
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->a:Lcom/bumptech/glide/load/resource/bitmap/o;
 
-    invoke-direct {v0, p1, p0}, Lcom/bumptech/glide/load/resource/bitmap/m;-><init>(Landroid/content/res/Resources;Lcom/bumptech/glide/load/resource/bitmap/n;)V
+    return-object v0
+.end method
+
+.method public c()Lcom/bumptech/glide/load/a;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/a",
+            "<",
+            "Ljava/io/InputStream;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 46
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->c:Lcom/yelp/android/aa/o;
+
+    return-object v0
+.end method
+
+.method public d()Lcom/bumptech/glide/load/e;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lcom/bumptech/glide/load/e",
+            "<",
+            "Landroid/graphics/Bitmap;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 51
+    iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/n;->b:Lcom/bumptech/glide/load/resource/bitmap/b;
 
     return-object v0
 .end method

@@ -1,430 +1,383 @@
 .class public Lcom/yelp/android/util/p;
-.super Lorg/apache/http/entity/AbstractHttpEntity;
-.source "MultipartEntity.java"
-
-
-# instance fields
-.field private final a:Ljava/util/Collection;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Collection",
-            "<+",
-            "Lorg/apache/http/NameValuePair;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final b:Ljava/util/Collection;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Collection",
-            "<",
-            "Lcom/yelp/android/util/q;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final c:Lcom/yelp/android/util/n;
+.super Ljava/lang/Object;
+.source "ShareActivityUtils.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/Collection;Ljava/util/Collection;Lcom/yelp/android/util/n;)V
+.method public static a(Landroid/content/Context;Lcom/yelp/android/serializable/User;Ljava/util/List;Ljava/lang/Class;)Landroid/content/Intent;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Collection",
-            "<+",
-            "Lorg/apache/http/NameValuePair;",
-            ">;",
-            "Ljava/util/Collection",
+            "Landroid/content/Context;",
+            "Lcom/yelp/android/serializable/User;",
+            "Ljava/util/List",
             "<",
-            "Lcom/yelp/android/util/q;",
+            "Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;",
             ">;",
-            "Lcom/yelp/android/util/n;",
-            ")V"
+            "Ljava/lang/Class",
+            "<+",
+            "Lcom/yelp/android/ui/activities/ActivityRetryShare;",
+            ">;)",
+            "Landroid/content/Intent;"
         }
     .end annotation
 
     .prologue
-    .line 71
-    invoke-direct {p0}, Lorg/apache/http/entity/AbstractHttpEntity;-><init>()V
+    .line 45
+    new-instance v0, Ljava/util/ArrayList;
 
-    .line 72
-    if-nez p1, :cond_0
+    invoke-direct {v0, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
+    .line 47
+    new-instance v1, Ljava/util/ArrayList;
 
-    move-result-object p1
+    const/4 v2, 0x3
 
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+
+    .line 48
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->o()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    sget-object v2, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->FACEBOOK:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+
+    invoke-interface {p2, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    .line 49
+    sget-object v2, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->FACEBOOK:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 50
+    sget-object v2, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->FACEBOOK:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+
+    invoke-interface {v0, v2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    .line 55
     :cond_0
-    iput-object p1, p0, Lcom/yelp/android/util/p;->a:Ljava/util/Collection;
+    :goto_0
+    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
-    .line 74
-    if-nez p2, :cond_1
+    move-result v2
 
-    invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
+    if-nez v2, :cond_2
 
-    move-result-object p2
+    .line 56
+    invoke-static {p0, v1, v0}, Lcom/yelp/android/ui/activities/ActivityRetryShare;->a(Landroid/content/Context;Ljava/util/Collection;Ljava/util/Collection;)Landroid/content/Intent;
 
+    move-result-object v0
+
+    .line 59
+    invoke-virtual {v0, p0, p3}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+
+    .line 62
+    :goto_1
+    return-object v0
+
+    .line 51
     :cond_1
-    iput-object p2, p0, Lcom/yelp/android/util/p;->b:Ljava/util/Collection;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->p()Z
 
-    .line 76
-    iput-object p3, p0, Lcom/yelp/android/util/p;->c:Lcom/yelp/android/util/n;
+    move-result v2
 
-    .line 77
-    new-instance v0, Ljava/lang/StringBuilder;
+    if-nez v2, :cond_0
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    sget-object v2, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->TWITTER:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
-    const-string/jumbo v1, "multipart/form-data; boundary="
+    invoke-interface {p2, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    move-result-object v0
+    if-eqz v2, :cond_0
 
-    new-instance v1, Ljava/lang/String;
+    .line 52
+    sget-object v2, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->TWITTER:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
-    sget-object v2, Lcom/yelp/android/util/m;->b:[B
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {v1, v2}, Ljava/lang/String;-><init>([B)V
+    .line 53
+    sget-object v2, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->TWITTER:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0, v2}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    goto :goto_0
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-super {p0, v0}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentType(Ljava/lang/String;)V
-
-    .line 79
+    .line 62
+    :cond_2
     const/4 v0, 0x0
 
-    invoke-super {p0, v0}, Lorg/apache/http/entity/AbstractHttpEntity;->setChunked(Z)V
-
-    .line 80
-    return-void
+    goto :goto_1
 .end method
 
+.method public static a(Landroid/widget/Checkable;Landroid/widget/Checkable;Landroid/widget/Checkable;)Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/widget/Checkable;",
+            "Landroid/widget/Checkable;",
+            "Landroid/widget/Checkable;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;",
+            ">;"
+        }
+    .end annotation
 
-# virtual methods
-.method public getContent()Ljava/io/InputStream;
+    .prologue
+    .line 73
+    new-instance v0, Ljava/util/ArrayList;
+
+    const/4 v1, 0x3
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    .line 74
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Landroid/widget/Checkable;->isChecked()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 75
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->YELP:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 77
+    :cond_0
+    if-eqz p1, :cond_1
+
+    invoke-interface {p1}, Landroid/widget/Checkable;->isChecked()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 78
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->FACEBOOK:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 80
+    :cond_1
+    if-eqz p2, :cond_2
+
+    invoke-interface {p2}, Landroid/widget/Checkable;->isChecked()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 81
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->TWITTER:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    .line 83
+    :cond_2
+    return-object v0
+.end method
+
+.method public static a(Landroid/app/Activity;Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;Z)V
     .locals 2
 
     .prologue
-    .line 87
-    new-instance v0, Ljava/io/ByteArrayOutputStream;
+    .line 132
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Ljava/io/ByteArrayOutputStream;-><init>()V
-
-    .line 88
-    invoke-virtual {p0, v0}, Lcom/yelp/android/util/p;->writeTo(Ljava/io/OutputStream;)V
-
-    .line 89
-    new-instance v1, Ljava/io/ByteArrayInputStream;
-
-    invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->getPreferences(I)Landroid/content/SharedPreferences;
 
     move-result-object v0
 
-    invoke-direct {v1, v0}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    .line 90
-    return-object v1
-.end method
-
-.method public getContentLength()J
-    .locals 8
-
-    .prologue
-    .line 95
-    const-wide/16 v0, 0x0
-
-    .line 96
-    iget-object v2, p0, Lcom/yelp/android/util/p;->a:Ljava/util/Collection;
-
-    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    move-wide v2, v0
-
-    :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    check-cast v0, Lorg/apache/http/NameValuePair;
-
-    .line 97
-    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->name()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
-
-    move-result v1
-
-    const/4 v5, 0x0
-
-    sget-object v6, Lcom/yelp/android/util/m;->h:[B
-
-    invoke-static {v1, v5, v6}, Lcom/yelp/android/util/m;->a(I[B[B)I
-
-    move-result v1
-
-    int-to-long v6, v1
-
-    add-long/2addr v2, v6
-
-    .line 100
-    :try_start_0
-    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getValue()Ljava/lang/String;
+    invoke-interface {v0, v1, p2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
     move-result-object v0
 
-    const-string/jumbo v1, "UTF-8"
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-
-    move-result-object v0
-
-    array-length v0, v0
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
-
-    int-to-long v0, v0
-
-    add-long/2addr v0, v2
-
-    :goto_1
-    move-wide v2, v0
-
-    .line 106
-    goto :goto_0
-
-    .line 101
-    :catch_0
-    move-exception v0
-
-    move-wide v0, v2
-
-    goto :goto_1
-
-    .line 107
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/util/p;->b:Ljava/util/Collection;
-
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_2
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/util/q;
-
-    .line 108
-    iget-object v4, v0, Lcom/yelp/android/util/q;->a:[B
-
-    array-length v4, v4
-
-    iget-object v5, v0, Lcom/yelp/android/util/q;->b:[B
-
-    iget-object v6, v0, Lcom/yelp/android/util/q;->c:[B
-
-    invoke-static {v4, v5, v6}, Lcom/yelp/android/util/m;->a(I[B[B)I
-
-    move-result v4
-
-    int-to-long v4, v4
-
-    add-long/2addr v2, v4
-
-    .line 109
-    iget-wide v4, v0, Lcom/yelp/android/util/q;->e:J
-
-    add-long/2addr v2, v4
-
-    .line 110
-    goto :goto_2
-
-    .line 111
-    :cond_1
-    invoke-static {}, Lcom/yelp/android/util/m;->a()I
-
-    move-result v0
-
-    int-to-long v0, v0
-
-    add-long/2addr v0, v2
-
-    .line 112
-    return-wide v0
+    .line 136
+    return-void
 .end method
 
-.method public isChunked()Z
-    .locals 1
-
-    .prologue
-    .line 127
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public isRepeatable()Z
-    .locals 1
-
-    .prologue
-    .line 117
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public isStreaming()Z
-    .locals 1
-
-    .prologue
-    .line 122
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public writeTo(Ljava/io/OutputStream;)V
+.method public static a(Landroid/app/Activity;Lcom/yelp/android/serializable/User;ZLandroid/widget/Checkable;Landroid/widget/Checkable;Landroid/widget/Checkable;)V
     .locals 7
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v1, 0x1
 
-    .line 132
-    iget-object v0, p0, Lcom/yelp/android/util/p;->a:Ljava/util/Collection;
+    const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    .line 100
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getPreferences(I)Landroid/content/SharedPreferences;
 
-    .line 133
-    iget-object v0, p0, Lcom/yelp/android/util/p;->a:Ljava/util/Collection;
+    move-result-object v4
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    .line 105
+    if-eqz p1, :cond_5
 
-    move-result-object v6
+    .line 106
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->o()Z
 
-    :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    move-result v3
+
+    .line 107
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/User;->p()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    move v6, v0
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move v0, v3
 
-    move-result-object v0
+    move v3, v6
 
-    check-cast v0, Lorg/apache/http/NameValuePair;
+    .line 110
+    :goto_0
+    if-eqz p3, :cond_0
 
-    .line 134
-    new-instance v1, Ljava/io/ByteArrayInputStream;
+    .line 111
+    sget-object v5, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->YELP:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
-    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getValue()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->name()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
-    const-string/jumbo v4, "UTF-8"
+    invoke-interface {v4, v5, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-virtual {v2, v4}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
+    move-result v5
 
-    move-result-object v2
+    invoke-interface {p3, v5}, Landroid/widget/Checkable;->setChecked(Z)V
 
-    invoke-direct {v1, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
-
-    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "UTF-8"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
-
-    move-result-object v2
-
-    sget-object v4, Lcom/yelp/android/util/m;->h:[B
-
-    move-object v0, p1
-
-    move-object v5, v3
-
-    invoke-static/range {v0 .. v5}, Lcom/yelp/android/util/m;->a(Ljava/io/OutputStream;Ljava/io/InputStream;[B[B[BLcom/yelp/android/util/n;)V
-
-    goto :goto_0
-
-    .line 140
+    .line 116
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/util/p;->b:Ljava/util/Collection;
+    if-eqz p4, :cond_1
 
-    if-eqz v0, :cond_1
+    .line 117
+    if-eqz v0, :cond_3
 
-    .line 141
-    iget-object v0, p0, Lcom/yelp/android/util/p;->b:Ljava/util/Collection;
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->FACEBOOK:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
 
-    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->name()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
+
+    invoke-interface {v4, v0, p2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    move v0, v1
 
     :goto_1
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p4, v0}, Landroid/widget/Checkable;->setChecked(Z)V
 
-    move-result v0
+    .line 122
+    :cond_1
+    if-eqz p5, :cond_2
 
-    if-eqz v0, :cond_1
+    .line 123
+    if-eqz v3, :cond_4
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->TWITTER:Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;->name()Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/util/q;
+    invoke-interface {v4, v0, p2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    .line 142
-    iget-object v1, v0, Lcom/yelp/android/util/q;->d:Ljava/io/InputStream;
+    move-result v0
 
-    iget-object v2, v0, Lcom/yelp/android/util/q;->a:[B
+    if-eqz v0, :cond_4
 
-    iget-object v3, v0, Lcom/yelp/android/util/q;->b:[B
+    :goto_2
+    invoke-interface {p5, v1}, Landroid/widget/Checkable;->setChecked(Z)V
 
-    iget-object v4, v0, Lcom/yelp/android/util/q;->c:[B
+    .line 128
+    :cond_2
+    return-void
 
-    iget-object v5, p0, Lcom/yelp/android/util/p;->c:Lcom/yelp/android/util/n;
+    :cond_3
+    move v0, v2
 
-    move-object v0, p1
-
-    invoke-static/range {v0 .. v5}, Lcom/yelp/android/util/m;->a(Ljava/io/OutputStream;Ljava/io/InputStream;[B[B[BLcom/yelp/android/util/n;)V
-
+    .line 117
     goto :goto_1
 
-    .line 146
-    :cond_1
-    invoke-static {p1}, Lcom/yelp/android/util/m;->a(Ljava/io/OutputStream;)V
+    :cond_4
+    move v1, v2
 
-    .line 147
-    return-void
+    .line 123
+    goto :goto_2
+
+    :cond_5
+    move v3, v2
+
+    move v0, v2
+
+    goto :goto_0
+.end method
+
+.method public static a(Landroid/app/Activity;Lcom/yelp/android/serializable/User;Ljava/util/List;)Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/app/Activity;",
+            "Lcom/yelp/android/serializable/User;",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;",
+            ">;)Z"
+        }
+    .end annotation
+
+    .prologue
+    .line 148
+    const-class v0, Lcom/yelp/android/ui/activities/ActivityRetryCheckInShare;
+
+    invoke-static {p0, p1, p2, v0}, Lcom/yelp/android/util/p;->a(Landroid/content/Context;Lcom/yelp/android/serializable/User;Ljava/util/List;Ljava/lang/Class;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    .line 151
+    if-nez v0, :cond_0
+
+    .line 152
+    const/4 v0, 0x0
+
+    .line 155
+    :goto_0
+    return v0
+
+    .line 154
+    :cond_0
+    const/16 v1, 0x3ed
+
+    invoke-virtual {p0, v0, v1}, Landroid/app/Activity;->startActivityForResult(Landroid/content/Intent;I)V
+
+    .line 155
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method

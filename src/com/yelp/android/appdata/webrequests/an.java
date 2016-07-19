@@ -1,24 +1,14 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.CheckInFeedback;
-import com.yelp.android.serializable.Comment;
-import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.serializable.YelpCheckIn;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class an
+  extends c
 {
-  public final List<Comment> a;
-  public final List<CheckInFeedback> b;
-  public final YelpCheckIn c;
-  public final YelpBusiness d;
-  
-  public an(List<Comment> paramList, YelpCheckIn paramYelpCheckIn, YelpBusiness paramYelpBusiness, List<CheckInFeedback> paramList1)
+  public an(c.a parama)
   {
-    a = paramList;
-    c = paramYelpCheckIn;
-    d = paramYelpBusiness;
-    b = paramList1;
+    super("account/facebook/clear", parama);
   }
 }
 

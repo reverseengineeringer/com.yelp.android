@@ -27,7 +27,7 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 20
+    .line 19
     new-instance v0, Lcom/yelp/android/util/PlatformQualifier$1;
 
     const-string/jumbo v1, "SensisYellowPages"
@@ -36,7 +36,7 @@
 
     sput-object v0, Lcom/yelp/android/util/PlatformQualifier;->SensisYellowPages:Lcom/yelp/android/util/PlatformQualifier;
 
-    .line 13
+    .line 12
     const/4 v0, 0x1
 
     new-array v0, v0, [Lcom/yelp/android/util/PlatformQualifier;
@@ -59,7 +59,7 @@
     .end annotation
 
     .prologue
-    .line 13
+    .line 12
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -69,7 +69,7 @@
     .locals 0
 
     .prologue
-    .line 13
+    .line 12
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/util/PlatformQualifier;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -79,7 +79,7 @@
     .locals 1
 
     .prologue
-    .line 13
+    .line 12
     const-class v0, Lcom/yelp/android/util/PlatformQualifier;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -95,7 +95,7 @@
     .locals 1
 
     .prologue
-    .line 13
+    .line 12
     sget-object v0, Lcom/yelp/android/util/PlatformQualifier;->$VALUES:[Lcom/yelp/android/util/PlatformQualifier;
 
     invoke-virtual {v0}, [Lcom/yelp/android/util/PlatformQualifier;->clone()Ljava/lang/Object;
@@ -116,16 +116,16 @@
     .locals 2
 
     .prologue
-    .line 30
+    .line 29
     invoke-static {p1}, Lcom/yelp/android/appdata/BaseYelpApplication;->d(Landroid/content/Context;)Lcom/yelp/android/appdata/BaseYelpApplication;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/BaseYelpApplication;->x()Lcom/yelp/android/appdata/j;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/BaseYelpApplication;->I()Lcom/yelp/android/appdata/d;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/j;->a(Landroid/content/Context;)Ljava/util/Collection;
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/d;->a(Landroid/content/Context;)Ljava/util/Collection;
 
     move-result-object v0
 
@@ -139,10 +139,10 @@
 
     if-eqz v0, :cond_0
 
-    .line 32
+    .line 33
     const/4 v0, 0x1
 
-    .line 34
+    .line 35
     :goto_0
     return v0
 

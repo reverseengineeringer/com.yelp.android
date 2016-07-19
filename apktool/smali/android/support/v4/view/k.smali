@@ -1,45 +1,37 @@
 .class Landroid/support/v4/view/k;
 .super Ljava/lang/Object;
-.source "AccessibilityDelegateCompatJellyBean.java"
+.source "LayoutInflaterCompatBase.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/view/k$a;
+    }
+.end annotation
 
 
 # direct methods
-.method public static a(Landroid/support/v4/view/m;)Ljava/lang/Object;
+.method static a(Landroid/view/LayoutInflater;Landroid/support/v4/view/n;)V
     .locals 1
 
     .prologue
-    .line 47
-    new-instance v0, Landroid/support/v4/view/l;
+    .line 45
+    if-eqz p1, :cond_0
 
-    invoke-direct {v0, p0}, Landroid/support/v4/view/l;-><init>(Landroid/support/v4/view/m;)V
+    new-instance v0, Landroid/support/v4/view/k$a;
 
-    return-object v0
-.end method
+    invoke-direct {v0, p1}, Landroid/support/v4/view/k$a;-><init>(Landroid/support/v4/view/n;)V
 
-.method public static a(Ljava/lang/Object;Landroid/view/View;)Ljava/lang/Object;
-    .locals 1
+    :goto_0
+    invoke-virtual {p0, v0}, Landroid/view/LayoutInflater;->setFactory(Landroid/view/LayoutInflater$Factory;)V
 
-    .prologue
-    .line 99
-    check-cast p0, Landroid/view/View$AccessibilityDelegate;
+    .line 46
+    return-void
 
-    invoke-virtual {p0, p1}, Landroid/view/View$AccessibilityDelegate;->getAccessibilityNodeProvider(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeProvider;
+    .line 45
+    :cond_0
+    const/4 v0, 0x0
 
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static a(Ljava/lang/Object;Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
-
-    .prologue
-    .line 104
-    check-cast p0, Landroid/view/View$AccessibilityDelegate;
-
-    invoke-virtual {p0, p1, p2, p3}, Landroid/view/View$AccessibilityDelegate;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-
-    move-result v0
-
-    return v0
+    goto :goto_0
 .end method

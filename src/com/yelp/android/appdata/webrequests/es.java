@@ -1,21 +1,47 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.ui.activities.reviews.ReviewState;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.TalkTopic;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.ArrayList;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class es
-  extends g<Void, Void, ReviewState>
+  extends b<Void, Void, a>
 {
-  public es(String paramString, m<ReviewState> paramm)
+  public es(int paramInt, ApiRequest.b<a> paramb)
   {
-    super(ApiRequest.RequestType.POST, "reviews/draft/delete", paramm);
-    addUrlParam("business_id", paramString);
+    super(ApiRequest.RequestType.GET, "talk/topics/subscribed", paramb);
+    a("offset", paramInt);
+    a("limit", 20);
   }
   
-  public ReviewState a(JSONObject paramJSONObject)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return ReviewState.fromDescription(paramJSONObject.getString("user_review_activity"));
+    ArrayList localArrayList = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("topics"), TalkTopic.CREATOR);
+    int i = paramJSONObject.getInt("total");
+    return new a(localArrayList, paramJSONObject.getString("revision"), i);
+  }
+  
+  public static final class a
+  {
+    final ArrayList<TalkTopic> a;
+    final String b;
+    final int c;
+    
+    public a(ArrayList<TalkTopic> paramArrayList, String paramString, int paramInt)
+    {
+      b = paramString;
+      a = paramArrayList;
+      c = paramInt;
+    }
+    
+    public ArrayList<TalkTopic> a()
+    {
+      return a;
+    }
   }
 }
 

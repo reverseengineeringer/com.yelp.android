@@ -1,19 +1,24 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
-import com.yelp.android.serializable.Conversation;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.ApiRequest.RequestType;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public final class g
+public class g
+  extends b<Void, Void, Boolean>
 {
-  public final List<Conversation> a;
-  public final int b;
-  public final int c;
-  
-  public g(List<Conversation> paramList, int paramInt1, int paramInt2)
+  public g(String paramString, ApiRequest.b<Boolean> paramb)
   {
-    a = paramList;
-    b = paramInt1;
-    c = paramInt2;
+    super(ApiRequest.RequestType.GET, "/business/info/messaging_other_biz", paramb);
+    a("business_id", paramString);
+  }
+  
+  public Boolean a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    return Boolean.valueOf(paramJSONObject.getBoolean("is_eligible"));
   }
 }
 

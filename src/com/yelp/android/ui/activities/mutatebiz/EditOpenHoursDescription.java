@@ -36,7 +36,7 @@ public class EditOpenHoursDescription
   
   void a()
   {
-    a = ((TextView)findViewById(2131493145));
+    a = ((TextView)findViewById(2131689711));
     a.setText(getIntent().getStringExtra("DESCRIPTION"));
   }
   
@@ -45,10 +45,10 @@ public class EditOpenHoursDescription
     CharSequence localCharSequence = getIntent().getCharSequenceExtra("LISTED_KEY");
     if (!TextUtils.isEmpty(localCharSequence))
     {
-      ((TextView)findViewById(2131493169)).setText(2131166680);
-      a.setHint(2131165738);
-      findViewById(2131493178).setVisibility(0);
-      ((TextView)findViewById(2131493179)).setText(localCharSequence);
+      ((TextView)findViewById(2131689843)).setText(2131166658);
+      a.setHint(2131165818);
+      findViewById(2131689847).setVisibility(0);
+      ((TextView)findViewById(2131689848)).setText(localCharSequence);
     }
   }
   
@@ -60,7 +60,7 @@ public class EditOpenHoursDescription
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903086);
+    setContentView(2130903096);
     a();
     b();
   }
@@ -68,13 +68,13 @@ public class EditOpenHoursDescription
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755019, paramMenu);
+    getMenuInflater().inflate(2131755021, paramMenu);
     return true;
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494141)
+    if (paramMenuItem.getItemId() == 2131691015)
     {
       paramMenuItem = new Intent(getIntent());
       paramMenuItem.putExtra("DESCRIPTION", String.valueOf(a.getText()));

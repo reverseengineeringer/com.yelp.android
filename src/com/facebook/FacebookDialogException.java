@@ -23,6 +23,11 @@ public class FacebookDialogException
   {
     return failingUrl;
   }
+  
+  public final String toString()
+  {
+    return "{FacebookDialogException: " + "errorCode: " + getErrorCode() + ", message: " + getMessage() + ", url: " + getFailingUrl() + "}";
+  }
 }
 
 /* Location:

@@ -1,11 +1,11 @@
 package com.yelp.android.appdata;
 
 import android.content.Context;
-import com.yelp.android.bf.k;
+import com.yelp.android.co.a.j;
 
 public enum LocaleSettings$DISTANCE_UNIT
 {
-  AUTOMATIC(k.distance_unit_automatic),  KILOMETERS(k.distance_unit_kilometers),  MILES(k.distance_unit_miles);
+  AUTOMATIC(a.j.distance_unit_automatic),  KILOMETERS(a.j.distance_unit_kilometers),  MILES(a.j.distance_unit_miles);
   
   private int mResourceName;
   

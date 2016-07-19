@@ -17,17 +17,17 @@
 
 
 # instance fields
-.field private final mBusinessId:Ljava/lang/String;
+.field private final a:Ljava/lang/String;
 
-.field private mLastPageSize:I
+.field private final g:Ljava/lang/String;
 
-.field private final mLimit:I
+.field private final h:I
 
-.field private mOffset:I
+.field private i:I
 
-.field private mPhotoId:Ljava/lang/String;
+.field private j:Ljava/lang/String;
 
-.field private mVideoId:Ljava/lang/String;
+.field private k:Ljava/lang/String;
 
 
 # direct methods
@@ -35,224 +35,371 @@
     .locals 1
 
     .prologue
-    .line 152
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/x;
+    .line 239
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/x;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->CREATOR:Landroid/os/Parcelable$Creator;
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;II)V
-    .locals 7
+.method public constructor <init>(Ljava/lang/String;I)V
+    .locals 6
 
     .prologue
-    const/4 v4, 0x0
+    const/4 v2, 0x0
 
-    .line 70
+    .line 75
+    const/4 v3, -0x1
+
     move-object v0, p0
 
     move-object v1, p1
 
-    move v2, p2
+    move v4, p2
 
-    move v3, p3
+    move-object v5, v2
 
-    move-object v5, v4
-
-    move-object v6, v4
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-
-    .line 71
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "II",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/dm;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 53
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
-
-    const-string/jumbo v1, "/business/media"
-
-    invoke-direct {p0, v0, v1, p4}, Lcom/yelp/android/appdata/webrequests/MediaRequest;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-
-    .line 54
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mBusinessId:Ljava/lang/String;
-
-    .line 55
-    const/16 v0, 0x32
-
-    invoke-static {p3, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLimit:I
-
-    .line 56
-    iput p2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
-
-    .line 57
-    const-string/jumbo v0, "biz_id"
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mBusinessId:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 58
-    const-string/jumbo v0, "limit"
-
-    iget v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLimit:I
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->addUrlParam(Ljava/lang/String;I)V
-
-    .line 59
-    const-string/jumbo v0, "offset"
-
-    iget v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->addUrlParam(Ljava/lang/String;I)V
-
-    .line 60
-    return-void
-.end method
-
-.method private constructor <init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "II",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/dm;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 75
-    invoke-direct {p0, p1, p2, p3, p6}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     .line 76
-    iput-object p4, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mPhotoId:Ljava/lang/String;
-
-    .line 77
-    iput-object p5, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mVideoId:Ljava/lang/String;
-
-    .line 78
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mPhotoId:Ljava/lang/String;
-
-    if-eqz v0, :cond_0
-
-    .line 79
-    const-string/jumbo v0, "photo_id"
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mPhotoId:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 81
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mVideoId:Ljava/lang/String;
-
-    if-eqz v0, :cond_1
-
-    .line 82
-    const-string/jumbo v0, "video_id"
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mVideoId:Ljava/lang/String;
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 84
-    :cond_1
     return-void
 .end method
 
-.method public static photosStartingAtSpecificPhoto(Ljava/lang/String;Ljava/lang/String;I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-    .locals 7
+.method public constructor <init>(Ljava/lang/String;II)V
+    .locals 6
 
     .prologue
+    .line 101
+    const-string/jumbo v2, "all_media"
+
     const/4 v5, 0x0
 
-    .line 40
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    move-object v0, p0
 
-    const/4 v2, 0x0
-
-    move-object v1, p0
+    move-object v1, p1
 
     move v3, p2
 
-    move-object v4, p1
+    move v4, p3
 
-    move-object v6, v5
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    .line 102
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "II",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/MediaPayload;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 116
+    const-string/jumbo v2, "all_media"
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v3, p2
+
+    move v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 117
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "I",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/MediaPayload;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 88
+    const/4 v2, 0x0
+
+    const/4 v3, -0x1
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v4, p2
+
+    move-object v5, p3
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 89
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "II",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/MediaPayload;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 64
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v4, v3
+
+    move v5, p3
+
+    move v6, p4
+
+    move-object v7, p5
+
+    invoke-direct/range {v0 .. v7}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 65
+    return-void
+.end method
+
+.method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 8
+
+    .prologue
+    .line 146
+    const-string/jumbo v2, "all_media"
+
+    const/4 v5, -0x1
+
+    const/4 v7, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move v6, p4
+
+    invoke-direct/range {v0 .. v7}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 154
+    return-void
+.end method
+
+.method private constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "II",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/MediaPayload;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 127
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+
+    const-string/jumbo v1, "/business/media/v2"
+
+    invoke-direct {p0, v0, v1, p7}, Lcom/yelp/android/appdata/webrequests/MediaRequest;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 128
+    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a:Ljava/lang/String;
+
+    .line 129
+    iput-object p2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
+
+    .line 130
+    const/16 v0, 0x32
+
+    invoke-static {p6, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->h:I
+
+    .line 131
+    iput p5, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
+
+    .line 132
+    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->j:Ljava/lang/String;
+
+    .line 133
+    iput-object p4, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->k:Ljava/lang/String;
+
+    .line 135
+    const-string/jumbo v0, "biz_id"
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a:Ljava/lang/String;
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 136
+    const-string/jumbo v0, "limit"
+
+    iget v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->h:I
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Ljava/lang/String;I)V
+
+    .line 137
+    const-string/jumbo v0, "tab"
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 138
+    const-string/jumbo v0, "photo_id"
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->j:Ljava/lang/String;
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 139
+    const-string/jumbo v0, "video_id"
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->k:Ljava/lang/String;
+
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 140
+    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    .line 141
+    const-string/jumbo v0, "offset"
+
+    iget v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Ljava/lang/String;I)V
+
+    .line 143
+    :cond_0
+    return-void
+.end method
+
+.method synthetic constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest$1;)V
+    .locals 0
+
+    .prologue
+    .line 16
+    invoke-direct/range {p0 .. p7}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    return-void
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/String;I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .locals 2
+
+    .prologue
+    .line 43
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, p1, v1, p2}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
     return-object v0
 .end method
 
-.method public static singlePhoto(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+.method public static c(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .locals 3
+
+    .prologue
+    .line 34
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    invoke-direct {v0, p0, v1, p1, v2}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+
+    return-object v0
+.end method
+
+.method public static d(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
     .locals 1
 
     .prologue
-    .line 35
+    .line 38
     const/4 v0, 0x1
 
-    invoke-static {p0, p1, v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->photosStartingAtSpecificPhoto(Ljava/lang/String;Ljava/lang/String;I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    invoke-static {p0, p1, v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Ljava/lang/String;Ljava/lang/String;I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static singleVideo(Ljava/lang/String;Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-    .locals 7
+.method private e(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
 
     .prologue
-    const/4 v4, 0x0
+    .line 234
+    if-eqz p2, :cond_0
 
-    .line 31
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .line 235
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    move-object v1, p0
-
-    move-object v5, p1
-
-    move-object v6, v4
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-
-    return-object v0
+    .line 237
+    :cond_0
+    return-void
 .end method
 
 
 # virtual methods
-.method public countMedia(Ljava/util/List;)I
+.method public a(Ljava/util/List;)I
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -265,7 +412,7 @@
     .end annotation
 
     .prologue
-    .line 88
+    .line 158
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -273,245 +420,241 @@
     return v0
 .end method
 
-.method public getBusinessId()Ljava/lang/String;
-    .locals 1
+.method public a(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .locals 6
 
     .prologue
-    .line 137
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mBusinessId:Ljava/lang/String;
+    .line 186
+    const/4 v0, 0x1
 
+    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Z)V
+
+    .line 187
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
+
+    iget v3, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
+
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->n()Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    move-result-object v5
+
+    move v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 189
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 190
     return-object v0
 .end method
 
-.method public getLimit()I
-    .locals 1
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/MediaPayload;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 141
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLimit:I
+    .line 163
+    sget-object v0, Lcom/yelp/android/serializable/MediaPayload;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
-    return v0
-.end method
+    invoke-virtual {v0, p1}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
 
-.method public getOffset()I
-    .locals 1
+    move-result-object v0
 
-    .prologue
-    .line 145
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
+    check-cast v0, Lcom/yelp/android/serializable/MediaPayload;
 
-    return v0
-.end method
+    .line 166
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
 
-.method public isSingleMediaRequest()Z
-    .locals 2
+    if-eqz v1, :cond_0
 
-    .prologue
-    const/4 v0, 0x1
+    .line 167
+    iget v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
 
-    .line 149
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mPhotoId:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    invoke-virtual {v0, v2}, Lcom/yelp/android/serializable/MediaPayload;->c(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mVideoId:Ljava/lang/String;
+    move-result-object v2
 
-    if-eqz v1, :cond_1
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    :cond_0
-    iget v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLimit:I
+    move-result v2
 
-    if-ne v1, v0, :cond_1
+    add-int/2addr v1, v2
 
+    iput v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
+
+    .line 171
     :goto_0
-    return v0
+    return-object v0
 
-    :cond_1
-    const/4 v0, 0x0
+    .line 169
+    :cond_0
+    iget v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/MediaPayload;->a()I
+
+    move-result v2
+
+    add-int/2addr v1, v2
+
+    iput v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
 
     goto :goto_0
 .end method
 
-.method public next(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-    .locals 4
+.method public b()Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .locals 8
 
     .prologue
-    .line 110
+    .line 195
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->cancel(Z)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Z)V
 
-    .line 111
+    .line 196
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mBusinessId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a:Ljava/lang/String;
 
-    iget v2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
+    iget-object v2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
 
-    iget v3, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLastPageSize:I
+    iget-object v3, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->j:Ljava/lang/String;
 
-    add-int/2addr v2, v3
+    iget-object v4, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->k:Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->getCallback()Lcom/yelp/android/appdata/webrequests/m;
+    iget v5, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
 
-    move-result-object v3
+    iget v6, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->h:I
 
-    invoke-direct {v0, v1, v2, p1, v3}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->n()Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    .line 113
+    move-result-object v7
+
+    invoke-direct/range {v0 .. v7}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 199
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 114
+    .line 200
     return-object v0
 .end method
 
-.method public bridge synthetic next(I)Lcom/yelp/android/appdata/webrequests/MediaRequest;
-    .locals 1
+.method public b(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .locals 6
 
     .prologue
-    .line 15
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->next(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public process(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/dm;
-    .locals 2
-
-    .prologue
-    .line 93
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
-
-    invoke-static {p1, v0}, Lcom/yelp/android/appdata/webrequests/dm;->a(Lorg/json/JSONObject;I)Lcom/yelp/android/appdata/webrequests/dm;
-
-    move-result-object v0
-
-    .line 94
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dm;->f()I
-
-    move-result v1
-
-    iput v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLastPageSize:I
-
-    .line 95
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dm;->e()I
-
-    move-result v1
-
-    iput v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
-
-    .line 96
-    return-object v0
-.end method
-
-.method public bridge synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->process(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/dm;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public resetWithOffset(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-    .locals 4
-
-    .prologue
-    .line 128
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mPhotoId:Ljava/lang/String;
+    .line 205
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->j:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mVideoId:Ljava/lang/String;
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->k:Ljava/lang/String;
 
     if-nez v0, :cond_0
 
-    .line 129
+    .line 206
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mBusinessId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a:Ljava/lang/String;
 
-    iget v2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLimit:I
+    iget-object v2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->getCallback()Lcom/yelp/android/appdata/webrequests/m;
+    iget v4, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->h:I
 
-    move-result-object v3
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->n()Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-direct {v0, v1, p1, v2, v3}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/m;)V
+    move-result-object v5
 
-    move-object p0, v0
+    move v3, p1
 
-    .line 132
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    .line 209
+    :goto_0
+    return-object v0
+
     :cond_0
-    return-object p0
+    move-object v0, p0
+
+    goto :goto_0
 .end method
 
-.method public bridge synthetic resetWithOffset(I)Lcom/yelp/android/appdata/webrequests/MediaRequest;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 15
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->resetWithOffset(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .line 16
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/MediaPayload;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public retry()Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-    .locals 7
-
-    .prologue
-    .line 119
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->cancel(Z)V
-
-    .line 120
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mBusinessId:Ljava/lang/String;
-
-    iget v2, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
-
-    iget v3, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLimit:I
-
-    iget-object v4, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mPhotoId:Ljava/lang/String;
-
-    iget-object v5, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mVideoId:Ljava/lang/String;
-
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->getCallback()Lcom/yelp/android/appdata/webrequests/m;
-
-    move-result-object v6
-
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;-><init>(Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
-
-    .line 122
-    const/4 v1, 0x0
-
-    new-array v1, v1, [Ljava/lang/Void;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    .line 123
-    return-object v0
-.end method
-
-.method public bridge synthetic retry()Lcom/yelp/android/appdata/webrequests/MediaRequest;
+.method public synthetic c(I)Lcom/yelp/android/appdata/webrequests/MediaRequest;
     .locals 1
 
     .prologue
-    .line 15
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->retry()Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+    .line 16
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->b(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic d(I)Lcom/yelp/android/appdata/webrequests/MediaRequest;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a(I)Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 214
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public synthetic f()Lcom/yelp/android/appdata/webrequests/MediaRequest;
+    .locals 1
+
+    .prologue
+    .line 16
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->b()Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;
 
     move-result-object v0
 
@@ -522,31 +665,36 @@
     .locals 1
 
     .prologue
-    .line 101
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mBusinessId:Ljava/lang/String;
+    .line 176
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->a:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 102
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mPhotoId:Ljava/lang/String;
+    .line 177
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->g:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 103
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mVideoId:Ljava/lang/String;
+    .line 178
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->j:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    .line 104
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mOffset:I
+    .line 179
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->k:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+
+    .line 180
+    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->i:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 105
-    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->mLimit:I
+    .line 181
+    iget v0, p0, Lcom/yelp/android/appdata/webrequests/BusinessMediaRequest;->h:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 106
+    .line 182
     return-void
 .end method

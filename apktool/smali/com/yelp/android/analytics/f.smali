@@ -40,6 +40,11 @@
 # virtual methods
 .method public c()Lorg/json/JSONObject;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 25

@@ -1,12 +1,31 @@
 package android.support.v4.view;
 
-import android.view.KeyEvent;
+import android.view.View;
+import android.view.ViewGroup;
 
-class aa
+public class aa
 {
-  public static void a(KeyEvent paramKeyEvent)
+  private final ViewGroup a;
+  private int b;
+  
+  public aa(ViewGroup paramViewGroup)
   {
-    paramKeyEvent.startTracking();
+    a = paramViewGroup;
+  }
+  
+  public int a()
+  {
+    return b;
+  }
+  
+  public void a(View paramView)
+  {
+    b = 0;
+  }
+  
+  public void a(View paramView1, View paramView2, int paramInt)
+  {
+    b = paramInt;
   }
 }
 

@@ -1,21 +1,20 @@
 package com.yelp.android.ui.activities.camera;
 
-import android.annotation.TargetApi;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import android.view.MenuItem;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.util.ImageInputHelper.ImageSource;
 import java.io.File;
 
-@TargetApi(14)
 public class ActivityVideoCapture
   extends YelpActivity
-  implements ab, x
+  implements VideoCaptureFragment.a, VideoPreviewFragment.a
 {
   private VideoPreviewFragment a;
   private String b;
@@ -34,21 +33,22 @@ public class ActivityVideoCapture
     return paramContext;
   }
   
+  @SuppressLint({"CommitTransaction"})
   public void a(String paramString)
   {
     c = paramString;
     a = VideoPreviewFragment.a(paramString, b);
-    getSupportFragmentManager().beginTransaction().replace(2131493332, a, "preview").addToBackStack(null).commit();
+    getSupportFragmentManager().a().b(2131689997, a, "preview").a(null).a();
     supportInvalidateOptionsMenu();
   }
   
-  public void b()
+  public void c()
   {
     setResult(-1, TakePhoto.a(new File(c), ImageInputHelper.ImageSource.CAMERA, true));
     finish();
   }
   
-  public void c()
+  public void d()
   {
     new File(c).delete();
   }
@@ -58,6 +58,7 @@ public class ActivityVideoCapture
     return null;
   }
   
+  @SuppressLint({"CommitTransaction"})
   protected void onCreate(Bundle paramBundle)
   {
     supportRequestWindowFeature(9);
@@ -66,15 +67,15 @@ public class ActivityVideoCapture
     b = ((Intent)localObject).getStringExtra("business_id");
     boolean bool = ((Intent)localObject).getBooleanExtra("extra_started_from_gallery", false);
     localObject = getSupportFragmentManager();
-    if (((FragmentManager)localObject).findFragmentByTag("capture") == null)
+    if (((l)localObject).a("capture") == null)
     {
       VideoCaptureFragment localVideoCaptureFragment = VideoCaptureFragment.a(b, bool);
-      ((FragmentManager)localObject).beginTransaction().replace(2131493332, localVideoCaptureFragment, "capture").commit();
+      ((l)localObject).a().b(2131689997, localVideoCaptureFragment, "capture").a();
     }
     if (paramBundle != null)
     {
       c = paramBundle.getString("video_file_path");
-      a = ((VideoPreviewFragment)((FragmentManager)localObject).findFragmentByTag("preview"));
+      a = ((VideoPreviewFragment)((l)localObject).a("preview"));
     }
   }
   

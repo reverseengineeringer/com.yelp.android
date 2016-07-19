@@ -1,11 +1,16 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
+import com.google.android.gms.common.internal.zze;
+import java.util.regex.Pattern;
 
-public abstract interface kh
-  extends IInterface
+public class kh
 {
-  public abstract void aI(int paramInt);
+  private static final Pattern a = Pattern.compile("\\$\\{(.*?)\\}");
+  
+  public static boolean a(String paramString)
+  {
+    return (paramString == null) || (zze.zzakF.zzb(paramString));
+  }
 }
 
 /* Location:

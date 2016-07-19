@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.ListView;
 import com.yelp.android.analytics.g;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.ab;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.ae;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.Ranking;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.leaderboard.CheckinRankAdapter;
@@ -21,24 +21,24 @@ import com.yelp.android.ui.activities.leaderboard.CheckinRankAdapter.RankMode;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
-import com.yelp.android.ui.util.cp;
+import com.yelp.android.ui.util.ar;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class ActivityRegularUsers
   extends YelpListActivity
-  implements m<ArrayList<Ranking>>
+  implements ApiRequest.b<ArrayList<Ranking>>
 {
   private ArrayList<Ranking> a;
   private CheckinRankAdapter b;
-  private ab c;
+  private ae c;
   private String d;
   
   public static Intent a(Context paramContext, YelpBusiness paramYelpBusiness)
   {
     paramContext = new Intent(paramContext, ActivityRegularUsers.class);
-    paramContext.putExtra("business_name", paramYelpBusiness.getDisplayName());
-    paramContext.putExtra("business_id", paramYelpBusiness.getId());
+    paramContext.putExtra("business_name", paramYelpBusiness.z());
+    paramContext.putExtra("business_id", paramYelpBusiness.aD());
     return paramContext;
   }
   
@@ -46,7 +46,7 @@ public class ActivityRegularUsers
   {
     paramListView = paramListView.getItemAtPosition(paramInt);
     if ((paramListView instanceof Ranking)) {
-      startActivity(ActivityUserProfile.a(this, ((Ranking)paramListView).getUserId()));
+      startActivity(ActivityUserProfile.a(this, ((Ranking)paramListView).i()));
     }
   }
   
@@ -55,19 +55,14 @@ public class ActivityRegularUsers
     d(paramArrayList.size());
     b.a(paramArrayList);
     a.addAll(paramArrayList);
-    q().f();
-    cp.a(q(), CheckinRankAdapter.a(paramArrayList, AppData.b().m().b()), true);
+    r().f();
+    ar.a(r(), CheckinRankAdapter.a(paramArrayList, AppData.b().q().a()), true);
     disableLoading();
   }
   
-  public ab c()
+  public ae b()
   {
-    return (ab)super.getLastCustomNonConfigurationInstance();
-  }
-  
-  public int e_()
-  {
-    return 40;
+    return (ae)super.getLastCustomNonConfigurationInstance();
   }
   
   public ViewIri getIri()
@@ -75,7 +70,7 @@ public class ActivityRegularUsers
     return ViewIri.BusinessRegulars;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
     return g.b(getIntent().getStringExtra("business_id"));
   }
@@ -95,30 +90,30 @@ public class ActivityRegularUsers
     {
       a = paramBundle.getParcelableArrayList("rankings");
       b.a(a);
-      q().f();
-      q().setAdapter(b);
-      setTitle(2131165492);
+      r().f();
+      r().setAdapter(b);
+      setTitle(2131165620);
       return;
     }
     a = new ArrayList();
-    c = c();
-    if ((c != null) && (c.isFetching())) {
-      c.setCallback(this);
+    c = b();
+    if ((c != null) && (c.u())) {
+      c.a(this);
     }
     for (;;)
     {
       enableLoading(c);
       break;
-      c = new ab(d, r(), e_(), this);
-      c.execute(new Void[0]);
+      c = new ae(d, s(), s_(), this);
+      c.f(new Void[0]);
     }
   }
   
   protected void onPause()
   {
     super.onPause();
-    if ((isFinishing()) && (c != null) && (!c.isCompleted())) {
-      c.cancel(true);
+    if ((isFinishing()) && (c != null) && (!c.v())) {
+      c.a(true);
     }
   }
   
@@ -131,6 +126,11 @@ public class ActivityRegularUsers
   {
     super.onSaveInstanceState(paramBundle);
     paramBundle.putParcelableArrayList("rankings", a);
+  }
+  
+  public int s_()
+  {
+    return 40;
   }
 }
 

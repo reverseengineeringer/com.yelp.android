@@ -19,7 +19,11 @@
 
 .field public static final enum BusinessCategory:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
+.field public static final enum Country:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
 .field public static final enum FirstName:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
+.field public static final enum FriendCount:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
 .field public static final enum KahunaEnabled:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
@@ -49,7 +53,7 @@
 
     const/4 v4, 0x0
 
-    .line 5
+    .line 4
     new-instance v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
     const-string/jumbo v1, "FirstName"
@@ -60,6 +64,17 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->FirstName:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
+    .line 5
+    new-instance v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
+    const-string/jumbo v1, "FriendCount"
+
+    const-string/jumbo v2, "friend_count"
+
+    invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->FriendCount:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
     .line 6
     new-instance v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
@@ -67,7 +82,7 @@
 
     const-string/jumbo v2, "kahuna_enabled"
 
-    invoke-direct {v0, v1, v5, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v6, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->KahunaEnabled:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
@@ -78,7 +93,7 @@
 
     const-string/jumbo v2, "last_biz_view_category"
 
-    invoke-direct {v0, v1, v6, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->BusinessCategory:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
@@ -89,7 +104,7 @@
 
     const-string/jumbo v2, "last_search_category"
 
-    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v0, v1, v8, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->LastSearchCategory:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
@@ -98,9 +113,11 @@
 
     const-string/jumbo v1, "Location"
 
-    const-string/jumbo v2, "location"
+    const/4 v2, 0x5
 
-    invoke-direct {v0, v1, v8, v2}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    const-string/jumbo v3, "location"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->Location:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
@@ -109,7 +126,7 @@
 
     const-string/jumbo v1, "ReviewDraftBusinessId"
 
-    const/4 v2, 0x5
+    const/4 v2, 0x6
 
     const-string/jumbo v3, "review_draft_biz_id"
 
@@ -117,8 +134,21 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->ReviewDraftBusinessId:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
+    .line 11
+    new-instance v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
+    const-string/jumbo v1, "Country"
+
+    const/4 v2, 0x7
+
+    const-string/jumbo v3, "country"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->Country:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
     .line 3
-    const/4 v0, 0x6
+    const/16 v0, 0x8
 
     new-array v0, v0, [Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
@@ -126,25 +156,37 @@
 
     aput-object v1, v0, v4
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->KahunaEnabled:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->FriendCount:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
     aput-object v1, v0, v5
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->BusinessCategory:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->KahunaEnabled:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
     aput-object v1, v0, v6
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->LastSearchCategory:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->BusinessCategory:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
     aput-object v1, v0, v7
 
-    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->Location:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+    sget-object v1, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->LastSearchCategory:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
     aput-object v1, v0, v8
 
     const/4 v1, 0x5
 
+    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->Location:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
     sget-object v2, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->ReviewDraftBusinessId:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->Country:Lcom/yelp/android/analytics/iris/KahunaAttributeIri;
 
     aput-object v2, v0, v1
 
@@ -164,13 +206,13 @@
     .end annotation
 
     .prologue
-    .line 14
+    .line 15
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 15
+    .line 16
     iput-object p3, p0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->mAttribute:Ljava/lang/String;
 
-    .line 16
+    .line 17
     return-void
 .end method
 
@@ -212,7 +254,7 @@
     .locals 1
 
     .prologue
-    .line 19
+    .line 20
     iget-object v0, p0, Lcom/yelp/android/analytics/iris/KahunaAttributeIri;->mAttribute:Ljava/lang/String;
 
     return-object v0

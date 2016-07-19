@@ -3,20 +3,19 @@ package com.google.android.gms.ads.mediation.customevent;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.mediation.MediationAdRequest;
-import com.google.android.gms.ads.mediation.MediationBannerAdapter;
-import com.google.android.gms.ads.mediation.MediationBannerListener;
-import com.google.android.gms.ads.mediation.MediationInterstitialAdapter;
-import com.google.android.gms.ads.mediation.MediationInterstitialListener;
-import com.google.android.gms.internal.gr;
+import com.google.android.gms.common.annotation.KeepName;
+import com.google.android.gms.internal.gz;
+import com.yelp.android.bc.a;
+import com.yelp.android.bc.l;
 
+@KeepName
 public final class CustomEventAdapter
-  implements MediationBannerAdapter, MediationInterstitialAdapter
+  implements com.yelp.android.bc.c, com.yelp.android.bc.e, com.yelp.android.bc.g
 {
-  private View n;
-  private CustomEventBanner xu;
-  private CustomEventInterstitial xv;
+  b a;
+  e b;
+  g c;
+  private View d;
   
   private static <T> T a(String paramString)
   {
@@ -27,86 +26,150 @@ public final class CustomEventAdapter
     }
     catch (Throwable localThrowable)
     {
-      gr.W("Could not instantiate custom event adapter: " + paramString + ". " + localThrowable.getMessage());
+      gz.d("Could not instantiate custom event adapter: " + paramString + ". " + localThrowable.getMessage());
     }
     return null;
   }
   
-  private void a(View paramView)
+  b a(com.yelp.android.bc.f paramf)
   {
-    n = paramView;
+    return new b(this, paramf);
   }
   
-  public View getBannerView()
+  public void a()
   {
-    return n;
-  }
-  
-  public void onDestroy()
-  {
-    if (xu != null) {
-      xu.onDestroy();
+    if (a != null) {
+      a.a();
     }
-    if (xv != null) {
-      xv.onDestroy();
+    if (b != null) {
+      b.a();
     }
-  }
-  
-  public void onPause()
-  {
-    if (xu != null) {
-      xu.onPause();
-    }
-    if (xv != null) {
-      xv.onPause();
+    if (c != null) {
+      c.a();
     }
   }
   
-  public void onResume()
+  public void a(Context paramContext, com.yelp.android.bc.d paramd, Bundle paramBundle1, com.google.android.gms.ads.d paramd1, a parama, Bundle paramBundle2)
   {
-    if (xu != null) {
-      xu.onResume();
-    }
-    if (xv != null) {
-      xv.onResume();
-    }
-  }
-  
-  public void requestBannerAd(Context paramContext, MediationBannerListener paramMediationBannerListener, Bundle paramBundle1, AdSize paramAdSize, MediationAdRequest paramMediationAdRequest, Bundle paramBundle2)
-  {
-    xu = ((CustomEventBanner)a(paramBundle1.getString("class_name")));
-    if (xu == null)
+    a = ((b)a(paramBundle1.getString("class_name")));
+    if (a == null)
     {
-      paramMediationBannerListener.onAdFailedToLoad(this, 0);
+      paramd.a(this, 0);
       return;
     }
     if (paramBundle2 == null) {}
     for (paramBundle2 = null;; paramBundle2 = paramBundle2.getBundle(paramBundle1.getString("class_name")))
     {
-      xu.requestBannerAd(paramContext, new CustomEventAdapter.a(this, paramMediationBannerListener), paramBundle1.getString("parameter"), paramAdSize, paramMediationAdRequest, paramBundle2);
+      a.a(paramContext, new a(this, paramd), paramBundle1.getString("parameter"), paramd1, parama, paramBundle2);
       return;
     }
   }
   
-  public void requestInterstitialAd(Context paramContext, MediationInterstitialListener paramMediationInterstitialListener, Bundle paramBundle1, MediationAdRequest paramMediationAdRequest, Bundle paramBundle2)
+  public void a(Context paramContext, com.yelp.android.bc.f paramf, Bundle paramBundle1, a parama, Bundle paramBundle2)
   {
-    xv = ((CustomEventInterstitial)a(paramBundle1.getString("class_name")));
-    if (xv == null)
+    b = ((e)a(paramBundle1.getString("class_name")));
+    if (b == null)
     {
-      paramMediationInterstitialListener.onAdFailedToLoad(this, 0);
+      paramf.a(this, 0);
       return;
     }
     if (paramBundle2 == null) {}
     for (paramBundle2 = null;; paramBundle2 = paramBundle2.getBundle(paramBundle1.getString("class_name")))
     {
-      xv.requestInterstitialAd(paramContext, new CustomEventAdapter.b(this, this, paramMediationInterstitialListener), paramBundle1.getString("parameter"), paramMediationAdRequest, paramBundle2);
+      b.a(paramContext, a(paramf), paramBundle1.getString("parameter"), parama, paramBundle2);
       return;
     }
   }
   
-  public void showInterstitial()
+  public void a(Context paramContext, com.yelp.android.bc.h paramh, Bundle paramBundle1, l paraml, Bundle paramBundle2)
   {
-    xv.showInterstitial();
+    c = ((g)a(paramBundle1.getString("class_name")));
+    if (c == null)
+    {
+      paramh.a(this, 0);
+      return;
+    }
+    if (paramBundle2 == null) {}
+    for (paramBundle2 = null;; paramBundle2 = paramBundle2.getBundle(paramBundle1.getString("class_name")))
+    {
+      c.a(paramContext, new c(this, paramh), paramBundle1.getString("parameter"), paraml, paramBundle2);
+      return;
+    }
+  }
+  
+  public void b()
+  {
+    if (a != null) {
+      a.b();
+    }
+    if (b != null) {
+      b.b();
+    }
+    if (c != null) {
+      c.b();
+    }
+  }
+  
+  public void c()
+  {
+    if (a != null) {
+      a.c();
+    }
+    if (b != null) {
+      b.c();
+    }
+    if (c != null) {
+      c.c();
+    }
+  }
+  
+  public View d()
+  {
+    return d;
+  }
+  
+  public void e()
+  {
+    b.d();
+  }
+  
+  static final class a
+    implements c
+  {
+    private final CustomEventAdapter a;
+    private final com.yelp.android.bc.d b;
+    
+    public a(CustomEventAdapter paramCustomEventAdapter, com.yelp.android.bc.d paramd)
+    {
+      a = paramCustomEventAdapter;
+      b = paramd;
+    }
+  }
+  
+  class b
+    implements f
+  {
+    private final CustomEventAdapter b;
+    private final com.yelp.android.bc.f c;
+    
+    public b(CustomEventAdapter paramCustomEventAdapter, com.yelp.android.bc.f paramf)
+    {
+      b = paramCustomEventAdapter;
+      c = paramf;
+    }
+  }
+  
+  static class c
+    implements h
+  {
+    private final CustomEventAdapter a;
+    private final com.yelp.android.bc.h b;
+    
+    public c(CustomEventAdapter paramCustomEventAdapter, com.yelp.android.bc.h paramh)
+    {
+      a = paramCustomEventAdapter;
+      b = paramh;
+    }
   }
 }
 

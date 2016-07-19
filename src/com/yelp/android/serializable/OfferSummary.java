@@ -1,17 +1,9 @@
 package com.yelp.android.serializable;
 
-import java.util.List;
-
 public class OfferSummary
   extends _OfferSummary
 {
-  public static final ah<OfferSummary> CREATOR = new bq();
-  public static final String JSON_KEY = "check_in_offer_summary";
-  
-  public boolean isEmpty()
-  {
-    return (mCount == 0) || (mNames == null) || (mNames.isEmpty());
-  }
+  public static final a<OfferSummary> CREATOR = new OfferSummary.1();
 }
 
 /* Location:

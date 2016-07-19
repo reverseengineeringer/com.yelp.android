@@ -1,7 +1,7 @@
 package com.yelp.common.collect;
 
 class MapMaker$ComputationExceptionReference<K, V>
-  implements g<K, V>
+  implements MapMaker.b<K, V>
 {
   final Throwable t;
   
@@ -10,7 +10,7 @@ class MapMaker$ComputationExceptionReference<K, V>
     t = paramThrowable;
   }
   
-  public g<K, V> copyFor(f<K, V> paramf)
+  public MapMaker.b<K, V> copyFor(MapMaker.a<K, V> parama)
   {
     return this;
   }

@@ -60,18 +60,18 @@ public class DialogFragment
     mViewDestroyed = true;
     if (mBackStackId >= 0)
     {
-      getFragmentManager().popBackStack(mBackStackId, 1);
+      getFragmentManager().a(mBackStackId, 1);
       mBackStackId = -1;
       return;
     }
-    FragmentTransaction localFragmentTransaction = getFragmentManager().beginTransaction();
-    localFragmentTransaction.remove(this);
+    o localo = getFragmentManager().a();
+    localo.a(this);
     if (paramBoolean)
     {
-      localFragmentTransaction.commitAllowingStateLoss();
+      localo.b();
       return;
     }
-    localFragmentTransaction.commit();
+    localo.a();
   }
   
   public Dialog getDialog()
@@ -85,16 +85,12 @@ public class DialogFragment
       return super.getLayoutInflater(paramBundle);
     }
     mDialog = onCreateDialog(paramBundle);
-    switch (mStyle)
+    if (mDialog != null)
     {
-    }
-    while (mDialog != null)
-    {
+      setupDialog(mDialog, mStyle);
       return (LayoutInflater)mDialog.getContext().getSystemService("layout_inflater");
-      mDialog.getWindow().addFlags(24);
-      mDialog.requestWindowFeature(1);
     }
-    return (LayoutInflater)mActivity.getSystemService("layout_inflater");
+    return (LayoutInflater)mHost.i().getSystemService("layout_inflater");
   }
   
   public boolean getShowsDialog()
@@ -268,23 +264,35 @@ public class DialogFragment
     }
   }
   
-  public int show(FragmentTransaction paramFragmentTransaction, String paramString)
+  public void setupDialog(Dialog paramDialog, int paramInt)
+  {
+    switch (paramInt)
+    {
+    default: 
+      return;
+    case 3: 
+      paramDialog.getWindow().addFlags(24);
+    }
+    paramDialog.requestWindowFeature(1);
+  }
+  
+  public int show(o paramo, String paramString)
   {
     mDismissed = false;
     mShownByMe = true;
-    paramFragmentTransaction.add(this, paramString);
+    paramo.a(this, paramString);
     mViewDestroyed = false;
-    mBackStackId = paramFragmentTransaction.commit();
+    mBackStackId = paramo.a();
     return mBackStackId;
   }
   
-  public void show(FragmentManager paramFragmentManager, String paramString)
+  public void show(l paraml, String paramString)
   {
     mDismissed = false;
     mShownByMe = true;
-    paramFragmentManager = paramFragmentManager.beginTransaction();
-    paramFragmentManager.add(this, paramString);
-    paramFragmentManager.commit();
+    paraml = paraml.a();
+    paraml.a(this, paramString);
+    paraml.a();
   }
 }
 

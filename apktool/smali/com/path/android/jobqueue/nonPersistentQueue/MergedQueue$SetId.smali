@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x401c
+    name = "SetId"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -31,7 +40,7 @@
 
     const/4 v2, 0x0
 
-    .line 221
+    .line 229
     new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
 
     const-string/jumbo v1, "S0"
@@ -40,7 +49,7 @@
 
     sput-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S0:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
 
-    .line 222
+    .line 230
     new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
 
     const-string/jumbo v1, "S1"
@@ -49,7 +58,7 @@
 
     sput-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->S1:Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
 
-    .line 220
+    .line 228
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
@@ -76,7 +85,7 @@
     .end annotation
 
     .prologue
-    .line 220
+    .line 228
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -86,7 +95,7 @@
     .locals 1
 
     .prologue
-    .line 220
+    .line 228
     const-class v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -102,7 +111,7 @@
     .locals 1
 
     .prologue
-    .line 220
+    .line 228
     sget-object v0, Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->$VALUES:[Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;
 
     invoke-virtual {v0}, [Lcom/path/android/jobqueue/nonPersistentQueue/MergedQueue$SetId;->clone()Ljava/lang/Object;

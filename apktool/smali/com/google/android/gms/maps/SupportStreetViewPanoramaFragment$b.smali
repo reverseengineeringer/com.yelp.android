@@ -1,11 +1,20 @@
 .class Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;
-.super Lcom/google/android/gms/dynamic/a;
+.super Lcom/google/android/gms/dynamic/b;
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "b"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/google/android/gms/dynamic/a",
+        "Lcom/google/android/gms/dynamic/b",
         "<",
         "Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;",
         ">;"
@@ -14,12 +23,10 @@
 
 
 # instance fields
-.field private final Mx:Landroid/support/v4/app/Fragment;
-
-.field protected akW:Lcom/google/android/gms/dynamic/f;
+.field protected a:Lcom/google/android/gms/dynamic/e;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/google/android/gms/dynamic/f",
+            "Lcom/google/android/gms/dynamic/e",
             "<",
             "Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;",
             ">;"
@@ -27,33 +34,45 @@
     .end annotation
 .end field
 
-.field private final alq:Ljava/util/List;
+.field private final b:Landroid/support/v4/app/Fragment;
+
+.field private c:Landroid/app/Activity;
+
+.field private final d:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
             "<",
-            "Lcom/google/android/gms/maps/OnStreetViewPanoramaReadyCallback;",
+            "Lcom/google/android/gms/maps/f;",
             ">;"
         }
     .end annotation
 .end field
-
-.field private nB:Landroid/app/Activity;
 
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/Fragment;)V
     .locals 1
 
-    invoke-direct {p0}, Lcom/google/android/gms/dynamic/a;-><init>()V
+    invoke-direct {p0}, Lcom/google/android/gms/dynamic/b;-><init>()V
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->alq:Ljava/util/List;
+    iput-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->d:Ljava/util/List;
 
-    iput-object p1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->Mx:Landroid/support/v4/app/Fragment;
+    iput-object p1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->b:Landroid/support/v4/app/Fragment;
+
+    return-void
+.end method
+
+.method private a(Landroid/app/Activity;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->c:Landroid/app/Activity;
+
+    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->g()V
 
     return-void
 .end method
@@ -61,119 +80,81 @@
 .method static synthetic a(Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;Landroid/app/Activity;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->setActivity(Landroid/app/Activity;)V
-
-    return-void
-.end method
-
-.method private setActivity(Landroid/app/Activity;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->nB:Landroid/app/Activity;
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->nO()V
+    invoke-direct {p0, p1}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->a(Landroid/app/Activity;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected a(Lcom/google/android/gms/dynamic/f;)V
+.method protected a(Lcom/google/android/gms/dynamic/e;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/google/android/gms/dynamic/f",
+            "Lcom/google/android/gms/dynamic/e",
             "<",
             "Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;",
             ">;)V"
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->akW:Lcom/google/android/gms/dynamic/f;
+    iput-object p1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->a:Lcom/google/android/gms/dynamic/e;
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->nO()V
+    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->g()V
 
     return-void
 .end method
 
-.method public getStreetViewPanoramaAsync(Lcom/google/android/gms/maps/OnStreetViewPanoramaReadyCallback;)V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->je()Lcom/google/android/gms/dynamic/LifecycleDelegate;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->je()Lcom/google/android/gms/dynamic/LifecycleDelegate;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;
-
-    invoke-virtual {v0, p1}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;->getStreetViewPanoramaAsync(Lcom/google/android/gms/maps/OnStreetViewPanoramaReadyCallback;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->alq:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-.end method
-
-.method public nO()V
+.method public g()V
     .locals 4
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->nB:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->c:Landroid/app/Activity;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->akW:Lcom/google/android/gms/dynamic/f;
+    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->a:Lcom/google/android/gms/dynamic/e;
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->je()Lcom/google/android/gms/dynamic/LifecycleDelegate;
+    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->a()Lcom/google/android/gms/dynamic/a;
 
     move-result-object v0
 
     if-nez v0, :cond_1
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->nB:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->c:Landroid/app/Activity;
 
-    invoke-static {v0}, Lcom/google/android/gms/maps/MapsInitializer;->initialize(Landroid/content/Context;)I
+    invoke-static {v0}, Lcom/google/android/gms/maps/d;->a(Landroid/content/Context;)I
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->nB:Landroid/app/Activity;
+    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->c:Landroid/app/Activity;
 
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/x;->S(Landroid/content/Context;)Lcom/google/android/gms/maps/internal/c;
+    invoke-static {v0}, Lcom/yelp/android/bj/q;->a(Landroid/content/Context;)Lcom/yelp/android/bj/s;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->nB:Landroid/app/Activity;
+    iget-object v1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->c:Landroid/app/Activity;
 
-    invoke-static {v1}, Lcom/google/android/gms/dynamic/e;->k(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/d;
+    invoke-static {v1}, Lcom/google/android/gms/dynamic/d;->a(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/c;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/google/android/gms/maps/internal/c;->k(Lcom/google/android/gms/dynamic/d;)Lcom/google/android/gms/maps/internal/IStreetViewPanoramaFragmentDelegate;
+    invoke-interface {v0, v1}, Lcom/yelp/android/bj/s;->c(Lcom/google/android/gms/dynamic/c;)Lcom/yelp/android/bj/h;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->akW:Lcom/google/android/gms/dynamic/f;
+    iget-object v1, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->a:Lcom/google/android/gms/dynamic/e;
 
     new-instance v2, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;
 
-    iget-object v3, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->Mx:Landroid/support/v4/app/Fragment;
+    iget-object v3, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->b:Landroid/support/v4/app/Fragment;
 
-    invoke-direct {v2, v3, v0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;-><init>(Landroid/support/v4/app/Fragment;Lcom/google/android/gms/maps/internal/IStreetViewPanoramaFragmentDelegate;)V
+    invoke-direct {v2, v3, v0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;-><init>(Landroid/support/v4/app/Fragment;Lcom/yelp/android/bj/h;)V
 
-    invoke-interface {v1, v2}, Lcom/google/android/gms/dynamic/f;->a(Lcom/google/android/gms/dynamic/LifecycleDelegate;)V
+    invoke-interface {v1, v2}, Lcom/google/android/gms/dynamic/e;->a(Lcom/google/android/gms/dynamic/a;)V
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->alq:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->d:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -190,15 +171,15 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/gms/maps/OnStreetViewPanoramaReadyCallback;
+    check-cast v0, Lcom/google/android/gms/maps/f;
 
-    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->je()Lcom/google/android/gms/dynamic/LifecycleDelegate;
+    invoke-virtual {p0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->a()Lcom/google/android/gms/dynamic/a;
 
     move-result-object v1
 
     check-cast v1, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;
 
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;->getStreetViewPanoramaAsync(Lcom/google/android/gms/maps/OnStreetViewPanoramaReadyCallback;)V
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$a;->a(Lcom/google/android/gms/maps/f;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lcom/google/android/gms/common/GooglePlayServicesNotAvailableException; {:try_start_0 .. :try_end_0} :catch_1
@@ -216,7 +197,7 @@
 
     :cond_0
     :try_start_1
-    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->alq:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/maps/SupportStreetViewPanoramaFragment$b;->d:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->clear()V
     :try_end_1

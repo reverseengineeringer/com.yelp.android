@@ -3,6 +3,8 @@ package com.ooyala.android;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build.VERSION;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
@@ -32,7 +34,13 @@ public class AdsLearnMoreButton
     if (Build.VERSION.SDK_INT >= 11) {
       _learnMore.setAlpha(0.7F);
     }
-    _learnMore.setOnClickListener(new AdsLearnMoreButton.1(this));
+    _learnMore.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        _adPlayer.processClickThrough();
+      }
+    });
     paramContext = new RelativeLayout.LayoutParams(-2, -2);
     paramContext.addRule(11, -1);
     addView(_learnMore, paramContext);

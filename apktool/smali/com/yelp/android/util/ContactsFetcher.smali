@@ -3,6 +3,15 @@
 .source "ContactsFetcher.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/util/ContactsFetcher$a;,
+        Lcom/yelp/android/util/ContactsFetcher$Contact;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -11,7 +20,7 @@
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 159
+    .line 160
     return-void
 .end method
 
@@ -19,8 +28,8 @@
     .locals 1
 
     .prologue
-    .line 156
-    invoke-static {}, Lcom/yelp/android/util/e;->a()Lcom/yelp/android/util/ContactsFetcher;
+    .line 157
+    invoke-static {}, Lcom/yelp/android/util/ContactsFetcher$a;->a()Lcom/yelp/android/util/ContactsFetcher;
 
     move-result-object v0
 

@@ -1,53 +1,27 @@
 package com.google.android.gms.internal;
 
-import java.security.MessageDigest;
+import android.text.TextUtils;
 
+@fv
 public class ar
-  extends ao
 {
-  private MessageDigest nZ;
-  
-  byte[] a(String[] paramArrayOfString)
+  public aq a(ap paramap)
   {
-    byte[] arrayOfByte = new byte[paramArrayOfString.length];
-    int i = 0;
-    while (i < paramArrayOfString.length)
-    {
-      arrayOfByte[i] = e(aq.o(paramArrayOfString[i]));
-      i += 1;
+    if (paramap == null) {
+      throw new IllegalArgumentException("CSI configuration can't be null. ");
     }
-    return arrayOfByte;
-  }
-  
-  byte e(int paramInt)
-  {
-    return (byte)(paramInt & 0xFF ^ (0xFF00 & paramInt) >> 8 ^ (0xFF0000 & paramInt) >> 16 ^ (0xFF000000 & paramInt) >> 24);
-  }
-  
-  public byte[] l(String arg1)
-  {
-    byte[] arrayOfByte1 = a(???.split(" "));
-    nZ = bf();
-    for (;;)
+    if (!paramap.a())
     {
-      synchronized (mH)
-      {
-        if (nZ == null) {
-          return new byte[0];
-        }
-        nZ.reset();
-        nZ.update(arrayOfByte1);
-        arrayOfByte1 = nZ.digest();
-        i = 4;
-        if (arrayOfByte1.length > 4)
-        {
-          byte[] arrayOfByte2 = new byte[i];
-          System.arraycopy(arrayOfByte1, 0, arrayOfByte2, 0, arrayOfByte2.length);
-          return arrayOfByte2;
-        }
-      }
-      int i = localObject.length;
+      gz.e("CsiReporterFactory: CSI is not enabled. No CSI reporter created.");
+      return null;
     }
+    if (paramap.c() == null) {
+      throw new IllegalArgumentException("Context can't be null. Please set up context in CsiConfiguration.");
+    }
+    if (TextUtils.isEmpty(paramap.d())) {
+      throw new IllegalArgumentException("AfmaVersion can't be null or empty. Please set up afmaVersion in CsiConfiguration.");
+    }
+    return new aq(paramap.c(), paramap.d(), paramap.b(), paramap.e());
   }
 }
 

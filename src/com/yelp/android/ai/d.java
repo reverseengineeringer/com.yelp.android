@@ -1,88 +1,38 @@
 package com.yelp.android.ai;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map.Entry;
-import java.util.Set;
+import com.yelp.android.ao.g;
+import java.util.HashMap;
+import java.util.Map;
 
-public class d<T, Y>
+public class d
 {
-  private final LinkedHashMap<T, Y> a = new LinkedHashMap(100, 0.75F, true);
-  private int b;
-  private final int c;
-  private int d = 0;
+  private static final g a = new g();
+  private final Map<g, c<?, ?>> b = new HashMap();
   
-  public d(int paramInt)
+  public <Z, R> c<Z, R> a(Class<Z> paramClass, Class<R> paramClass1)
   {
-    c = paramInt;
-    b = paramInt;
-  }
-  
-  private void c()
-  {
-    b(b);
-  }
-  
-  protected int a(Y paramY)
-  {
-    return 1;
-  }
-  
-  public void a()
-  {
-    b(0);
-  }
-  
-  protected void a(T paramT, Y paramY) {}
-  
-  public int b()
-  {
-    return d;
-  }
-  
-  public Y b(T paramT)
-  {
-    return (Y)a.get(paramT);
-  }
-  
-  public Y b(T paramT, Y paramY)
-  {
-    if (a(paramY) >= b)
+    if (paramClass.equals(paramClass1)) {
+      ??? = e.b();
+    }
+    for (;;)
     {
-      a(paramT, paramY);
-      return null;
-    }
-    paramT = a.put(paramT, paramY);
-    if (paramY != null) {
-      d += a(paramY);
-    }
-    if (paramT != null) {
-      d -= a(paramT);
-    }
-    c();
-    return paramT;
-  }
-  
-  protected void b(int paramInt)
-  {
-    while (d > paramInt)
-    {
-      Object localObject2 = (Map.Entry)a.entrySet().iterator().next();
-      Object localObject1 = ((Map.Entry)localObject2).getValue();
-      d -= a(localObject1);
-      localObject2 = ((Map.Entry)localObject2).getKey();
-      a.remove(localObject2);
-      a(localObject2, localObject1);
+      return (c<Z, R>)???;
+      synchronized (a)
+      {
+        a.a(paramClass, paramClass1);
+        c localc = (c)b.get(a);
+        ??? = localc;
+        if (localc != null) {
+          continue;
+        }
+        throw new IllegalArgumentException("No transcoder registered for " + paramClass + " and " + paramClass1);
+      }
     }
   }
   
-  public Y c(T paramT)
+  public <Z, R> void a(Class<Z> paramClass, Class<R> paramClass1, c<Z, R> paramc)
   {
-    paramT = a.remove(paramT);
-    if (paramT != null) {
-      d -= a(paramT);
-    }
-    return paramT;
+    b.put(new g(paramClass, paramClass1), paramc);
   }
 }
 

@@ -6,46 +6,48 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/google/android/gms/maps/a;
+.field public static final CREATOR:Lcom/google/android/gms/maps/j;
 
 
 # instance fields
-.field private final CK:I
+.field private final a:I
 
-.field private akF:Ljava/lang/Boolean;
+.field private b:Ljava/lang/Boolean;
 
-.field private akG:Ljava/lang/Boolean;
+.field private c:Ljava/lang/Boolean;
 
-.field private akH:I
+.field private d:I
 
-.field private akI:Lcom/google/android/gms/maps/model/CameraPosition;
+.field private e:Lcom/google/android/gms/maps/model/CameraPosition;
 
-.field private akJ:Ljava/lang/Boolean;
+.field private f:Ljava/lang/Boolean;
 
-.field private akK:Ljava/lang/Boolean;
+.field private g:Ljava/lang/Boolean;
 
-.field private akL:Ljava/lang/Boolean;
+.field private h:Ljava/lang/Boolean;
 
-.field private akM:Ljava/lang/Boolean;
+.field private i:Ljava/lang/Boolean;
 
-.field private akN:Ljava/lang/Boolean;
+.field private j:Ljava/lang/Boolean;
 
-.field private akO:Ljava/lang/Boolean;
+.field private k:Ljava/lang/Boolean;
 
-.field private akP:Ljava/lang/Boolean;
+.field private l:Ljava/lang/Boolean;
 
-.field private akQ:Ljava/lang/Boolean;
+.field private m:Ljava/lang/Boolean;
+
+.field private n:Ljava/lang/Boolean;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/maps/a;
+    new-instance v0, Lcom/google/android/gms/maps/j;
 
-    invoke-direct {v0}, Lcom/google/android/gms/maps/a;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/maps/j;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/maps/GoogleMapOptions;->CREATOR:Lcom/google/android/gms/maps/a;
+    sput-object v0, Lcom/google/android/gms/maps/GoogleMapOptions;->CREATOR:Lcom/google/android/gms/maps/j;
 
     return-void
 .end method
@@ -57,94 +59,100 @@
 
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akH:I
+    iput v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->d:I
 
     const/4 v0, 0x1
 
-    iput v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->CK:I
+    iput v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->a:I
 
     return-void
 .end method
 
-.method constructor <init>(IBBILcom/google/android/gms/maps/model/CameraPosition;BBBBBBBB)V
+.method constructor <init>(IBBILcom/google/android/gms/maps/model/CameraPosition;BBBBBBBBB)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, -0x1
 
-    iput v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akH:I
+    iput v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->d:I
 
-    iput p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->CK:I
+    iput p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->a:I
 
-    invoke-static {p2}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akF:Ljava/lang/Boolean;
-
-    invoke-static {p3}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
+    invoke-static {p2}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akG:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->b:Ljava/lang/Boolean;
 
-    iput p4, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akH:I
-
-    iput-object p5, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akI:Lcom/google/android/gms/maps/model/CameraPosition;
-
-    invoke-static {p6}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
+    invoke-static {p3}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akJ:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->c:Ljava/lang/Boolean;
 
-    invoke-static {p7}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
+    iput p4, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->d:I
 
-    move-result-object v0
+    iput-object p5, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->e:Lcom/google/android/gms/maps/model/CameraPosition;
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akK:Ljava/lang/Boolean;
-
-    invoke-static {p8}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
+    invoke-static {p6}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akL:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->f:Ljava/lang/Boolean;
 
-    invoke-static {p9}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akM:Ljava/lang/Boolean;
-
-    invoke-static {p10}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
+    invoke-static {p7}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akN:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->g:Ljava/lang/Boolean;
 
-    invoke-static {p11}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akO:Ljava/lang/Boolean;
-
-    invoke-static {p12}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
+    invoke-static {p8}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akP:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->h:Ljava/lang/Boolean;
 
-    invoke-static {p13}, Lcom/google/android/gms/maps/internal/a;->a(B)Ljava/lang/Boolean;
+    invoke-static {p9}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akQ:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->i:Ljava/lang/Boolean;
+
+    invoke-static {p10}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->j:Ljava/lang/Boolean;
+
+    invoke-static {p11}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->k:Ljava/lang/Boolean;
+
+    invoke-static {p12}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->l:Ljava/lang/Boolean;
+
+    invoke-static {p13}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->m:Ljava/lang/Boolean;
+
+    invoke-static {p14}, Lcom/yelp/android/bj/m;->a(B)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->n:Ljava/lang/Boolean;
 
     return-void
 .end method
 
-.method public static createFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method public static a(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 6
 
     const/4 v5, 0x0
@@ -163,7 +171,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/google/android/gms/R$styleable;->MapAttrs:[I
+    sget-object v1, Lcom/yelp/android/ba/a$f;->MapAttrs:[I
 
     invoke-virtual {v0, p1, v1}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
@@ -173,7 +181,7 @@
 
     invoke-direct {v0}, Lcom/google/android/gms/maps/GoogleMapOptions;-><init>()V
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_mapType:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_mapType:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -181,7 +189,7 @@
 
     if-eqz v2, :cond_1
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_mapType:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_mapType:I
 
     const/4 v3, -0x1
 
@@ -189,10 +197,10 @@
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->mapType(I)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->a(I)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_1
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_zOrderOnTop:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_zOrderOnTop:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -200,16 +208,16 @@
 
     if-eqz v2, :cond_2
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_zOrderOnTop:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_zOrderOnTop:I
 
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->zOrderOnTop(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->a(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_2
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_useViewLifecycle:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_useViewLifecycle:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -217,16 +225,16 @@
 
     if-eqz v2, :cond_3
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_useViewLifecycle:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_useViewLifecycle:I
 
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->useViewLifecycleInFragment(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->b(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_3
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiCompass:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiCompass:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -234,16 +242,16 @@
 
     if-eqz v2, :cond_4
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiCompass:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiCompass:I
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->compassEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->d(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_4
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiRotateGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiRotateGestures:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -251,16 +259,16 @@
 
     if-eqz v2, :cond_5
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiRotateGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiRotateGestures:I
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->rotateGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->h(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_5
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiScrollGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiScrollGestures:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -268,16 +276,16 @@
 
     if-eqz v2, :cond_6
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiScrollGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiScrollGestures:I
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->scrollGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->e(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_6
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiTiltGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiTiltGestures:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -285,16 +293,16 @@
 
     if-eqz v2, :cond_7
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiTiltGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiTiltGestures:I
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->tiltGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->g(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_7
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiZoomGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiZoomGestures:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -302,16 +310,16 @@
 
     if-eqz v2, :cond_8
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiZoomGestures:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiZoomGestures:I
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->zoomGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->f(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_8
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiZoomControls:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiZoomControls:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -319,16 +327,16 @@
 
     if-eqz v2, :cond_9
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiZoomControls:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiZoomControls:I
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->zoomControlsEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->c(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_9
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_liteMode:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_liteMode:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -336,16 +344,16 @@
 
     if-eqz v2, :cond_a
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_liteMode:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_liteMode:I
 
     invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->liteMode(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->i(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_a
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiMapToolbar:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiMapToolbar:I
 
     invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -353,20 +361,37 @@
 
     if-eqz v2, :cond_b
 
-    sget v2, Lcom/google/android/gms/R$styleable;->MapAttrs_uiMapToolbar:I
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_uiMapToolbar:I
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->mapToolbarEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->j(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     :cond_b
-    invoke-static {p0, p1}, Lcom/google/android/gms/maps/model/CameraPosition;->createFromAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/gms/maps/model/CameraPosition;
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_ambientEnabled:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/TypedArray;->hasValue(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_c
+
+    sget v2, Lcom/yelp/android/ba/a$f;->MapAttrs_ambientEnabled:I
+
+    invoke-virtual {v1, v2, v5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->k(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+
+    :cond_c
+    invoke-static {p0, p1}, Lcom/google/android/gms/maps/model/CameraPosition;->a(Landroid/content/Context;Landroid/util/AttributeSet;)Lcom/google/android/gms/maps/model/CameraPosition;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->camera(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-virtual {v0, v2}, Lcom/google/android/gms/maps/GoogleMapOptions;->a(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -375,22 +400,110 @@
 
 
 # virtual methods
-.method public camera(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method a()I
+    .locals 1
+
+    iget v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->a:I
+
+    return v0
+.end method
+
+.method public a(I)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 0
 
-    iput-object p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akI:Lcom/google/android/gms/maps/model/CameraPosition;
+    iput p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->d:I
 
     return-object p0
 .end method
 
-.method public compassEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method public a(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
+    .locals 0
+
+    iput-object p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->e:Lcom/google/android/gms/maps/model/CameraPosition;
+
+    return-object p0
+.end method
+
+.method public a(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akK:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->b:Ljava/lang/Boolean;
+
+    return-object p0
+.end method
+
+.method b()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->b:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public b(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    .locals 1
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->c:Ljava/lang/Boolean;
+
+    return-object p0
+.end method
+
+.method c()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->c:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public c(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    .locals 1
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->f:Ljava/lang/Boolean;
+
+    return-object p0
+.end method
+
+.method d()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->f:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public d(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    .locals 1
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->g:Ljava/lang/Boolean;
 
     return-object p0
 .end method
@@ -403,362 +516,206 @@
     return v0
 .end method
 
-.method public getCamera()Lcom/google/android/gms/maps/model/CameraPosition;
+.method e()B
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akI:Lcom/google/android/gms/maps/model/CameraPosition;
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->g:Ljava/lang/Boolean;
 
-    return-object v0
-.end method
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
 
-.method public getCompassEnabled()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akK:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getLiteMode()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akP:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getMapToolbarEnabled()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akQ:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getMapType()I
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akH:I
+    move-result v0
 
     return v0
 .end method
 
-.method public getRotateGesturesEnabled()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akO:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getScrollGesturesEnabled()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akL:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getTiltGesturesEnabled()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akN:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getUseViewLifecycleInFragment()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akG:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method getVersionCode()I
-    .locals 1
-
-    iget v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->CK:I
-
-    return v0
-.end method
-
-.method public getZOrderOnTop()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akF:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getZoomControlsEnabled()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akJ:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public getZoomGesturesEnabled()Ljava/lang/Boolean;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akM:Ljava/lang/Boolean;
-
-    return-object v0
-.end method
-
-.method public liteMode(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method public e(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akP:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->h:Ljava/lang/Boolean;
 
     return-object p0
 .end method
 
-.method public mapToolbarEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method f()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->h:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public f(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akQ:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->i:Ljava/lang/Boolean;
 
     return-object p0
 .end method
 
-.method public mapType(I)Lcom/google/android/gms/maps/GoogleMapOptions;
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akH:I
-
-    return-object p0
-.end method
-
-.method nD()B
+.method g()B
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akF:Ljava/lang/Boolean;
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->i:Ljava/lang/Boolean;
 
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
 
     move-result v0
 
     return v0
 .end method
 
-.method nE()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akG:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nF()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akJ:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nG()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akK:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nH()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akL:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nI()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akM:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nJ()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akN:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nK()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akO:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nL()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akP:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method nM()B
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akQ:Ljava/lang/Boolean;
-
-    invoke-static {v0}, Lcom/google/android/gms/maps/internal/a;->c(Ljava/lang/Boolean;)B
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public rotateGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method public g(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akO:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->j:Ljava/lang/Boolean;
 
     return-object p0
 .end method
 
-.method public scrollGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method h()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->j:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public h(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akL:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->k:Ljava/lang/Boolean;
 
     return-object p0
 .end method
 
-.method public tiltGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method i()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->k:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akN:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->l:Ljava/lang/Boolean;
 
     return-object p0
 .end method
 
-.method public useViewLifecycleInFragment(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+.method j()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->l:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public j(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
     .locals 1
 
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akG:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->m:Ljava/lang/Boolean;
 
     return-object p0
+.end method
+
+.method k()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->m:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public k(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
+    .locals 1
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->n:Ljava/lang/Boolean;
+
+    return-object p0
+.end method
+
+.method l()B
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->n:Ljava/lang/Boolean;
+
+    invoke-static {v0}, Lcom/yelp/android/bj/m;->a(Ljava/lang/Boolean;)B
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public m()I
+    .locals 1
+
+    iget v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->d:I
+
+    return v0
+.end method
+
+.method public n()Lcom/google/android/gms/maps/model/CameraPosition;
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->e:Lcom/google/android/gms/maps/model/CameraPosition;
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .locals 0
 
-    invoke-static {}, Lcom/google/android/gms/maps/internal/aa;->ob()Z
+    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/j;->a(Lcom/google/android/gms/maps/GoogleMapOptions;Landroid/os/Parcel;I)V
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/b;->a(Lcom/google/android/gms/maps/GoogleMapOptions;Landroid/os/Parcel;I)V
-
-    :goto_0
     return-void
-
-    :cond_0
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/a;->a(Lcom/google/android/gms/maps/GoogleMapOptions;Landroid/os/Parcel;I)V
-
-    goto :goto_0
-.end method
-
-.method public zOrderOnTop(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-    .locals 1
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akF:Ljava/lang/Boolean;
-
-    return-object p0
-.end method
-
-.method public zoomControlsEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-    .locals 1
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akJ:Ljava/lang/Boolean;
-
-    return-object p0
-.end method
-
-.method public zoomGesturesEnabled(Z)Lcom/google/android/gms/maps/GoogleMapOptions;
-    .locals 1
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/maps/GoogleMapOptions;->akM:Ljava/lang/Boolean;
-
-    return-object p0
 .end method

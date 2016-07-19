@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class Movie
   extends _Movie
 {
-  public static final JsonParser.DualCreator<Movie> CREATOR = new bi();
+  public static final JsonParser.DualCreator<Movie> CREATOR = new Movie.1();
 }
 
 /* Location:

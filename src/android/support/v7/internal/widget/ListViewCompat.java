@@ -11,7 +11,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import com.yelp.android.a.a;
+import com.yelp.android.d.a;
+import com.yelp.android.k.b;
 import java.lang.reflect.Field;
 
 public class ListViewCompat
@@ -24,7 +25,7 @@ public class ListViewCompat
   int d = 0;
   int e = 0;
   private Field g;
-  private al h;
+  private a h;
   
   public ListViewCompat(Context paramContext, AttributeSet paramAttributeSet)
   {
@@ -200,8 +201,11 @@ public class ListViewCompat
     if (!a.isEmpty())
     {
       Drawable localDrawable = getSelector();
-      localDrawable.setBounds(a);
-      localDrawable.draw(paramCanvas);
+      if (localDrawable != null)
+      {
+        localDrawable.setBounds(a);
+        localDrawable.draw(paramCanvas);
+      }
     }
   }
   
@@ -259,25 +263,87 @@ public class ListViewCompat
   protected void drawableStateChanged()
   {
     super.drawableStateChanged();
-    h.a(true);
+    setSelectorEnabled(true);
     a();
   }
   
   public void setSelector(Drawable paramDrawable)
   {
-    h = new al(paramDrawable);
-    super.setSelector(h);
-    Rect localRect = new Rect();
-    paramDrawable.getPadding(localRect);
-    b = left;
-    c = top;
-    d = right;
-    e = bottom;
+    if (paramDrawable != null) {}
+    for (Object localObject = new a(paramDrawable);; localObject = null)
+    {
+      h = ((a)localObject);
+      super.setSelector(h);
+      localObject = new Rect();
+      if (paramDrawable != null) {
+        paramDrawable.getPadding((Rect)localObject);
+      }
+      b = left;
+      c = top;
+      d = right;
+      e = bottom;
+      return;
+    }
   }
   
   protected void setSelectorEnabled(boolean paramBoolean)
   {
-    h.a(paramBoolean);
+    if (h != null) {
+      h.a(paramBoolean);
+    }
+  }
+  
+  private static class a
+    extends b
+  {
+    private boolean a = true;
+    
+    public a(Drawable paramDrawable)
+    {
+      super();
+    }
+    
+    void a(boolean paramBoolean)
+    {
+      a = paramBoolean;
+    }
+    
+    public void draw(Canvas paramCanvas)
+    {
+      if (a) {
+        super.draw(paramCanvas);
+      }
+    }
+    
+    public void setHotspot(float paramFloat1, float paramFloat2)
+    {
+      if (a) {
+        super.setHotspot(paramFloat1, paramFloat2);
+      }
+    }
+    
+    public void setHotspotBounds(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
+    {
+      if (a) {
+        super.setHotspotBounds(paramInt1, paramInt2, paramInt3, paramInt4);
+      }
+    }
+    
+    public boolean setState(int[] paramArrayOfInt)
+    {
+      if (a) {
+        return super.setState(paramArrayOfInt);
+      }
+      return false;
+    }
+    
+    public boolean setVisible(boolean paramBoolean1, boolean paramBoolean2)
+    {
+      if (a) {
+        return super.setVisible(paramBoolean1, paramBoolean2);
+      }
+      return false;
+    }
   }
 }
 

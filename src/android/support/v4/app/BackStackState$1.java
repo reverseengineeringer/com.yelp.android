@@ -6,12 +6,12 @@ import android.os.Parcelable.Creator;
 final class BackStackState$1
   implements Parcelable.Creator<BackStackState>
 {
-  public BackStackState createFromParcel(Parcel paramParcel)
+  public BackStackState a(Parcel paramParcel)
   {
     return new BackStackState(paramParcel);
   }
   
-  public BackStackState[] newArray(int paramInt)
+  public BackStackState[] a(int paramInt)
   {
     return new BackStackState[paramInt];
   }

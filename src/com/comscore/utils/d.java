@@ -183,7 +183,7 @@ public class d
     try
     {
       c.a(this, "run(): Flushing the cache");
-      a.r(false);
+      a.s(false);
       a(-1L);
       c();
       return;

@@ -3,6 +3,14 @@
 .source "CreditCardSelector.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -15,7 +23,7 @@
     .end annotation
 .end field
 
-.field private b:Lcom/yelp/android/ui/activities/account/e;
+.field private b:Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;
 
 .field private c:Z
 
@@ -25,10 +33,10 @@
     .locals 0
 
     .prologue
-    .line 56
+    .line 55
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
-    .line 217
+    .line 214
     return-void
 .end method
 
@@ -36,7 +44,7 @@
     .locals 2
 
     .prologue
-    .line 82
+    .line 79
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/account/CreditCardSelector;
@@ -61,19 +69,19 @@
     .end annotation
 
     .prologue
-    .line 76
+    .line 73
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/account/CreditCardSelector;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 77
+    .line 74
     const-string/jumbo v1, "extra.cards"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 78
+    .line 75
     return-object v0
 .end method
 
@@ -97,10 +105,10 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 94
+    .line 91
     if-nez p0, :cond_0
 
-    .line 96
+    .line 93
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -109,11 +117,11 @@
 
     move-result-object v0
 
-    .line 103
+    .line 100
     :goto_0
     return-object v0
 
-    .line 98
+    .line 95
     :cond_0
     const-string/jumbo v0, "extra.cards"
 
@@ -121,7 +129,7 @@
 
     move-result-object v0
 
-    .line 99
+    .line 96
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
@@ -130,7 +138,7 @@
 
     if-eqz v1, :cond_2
 
-    .line 101
+    .line 98
     :cond_1
     new-instance v0, Ljava/util/ArrayList;
 
@@ -142,7 +150,7 @@
 
     goto :goto_0
 
-    .line 103
+    .line 100
     :cond_2
     const/4 v1, 0x0
 
@@ -161,7 +169,7 @@
     .locals 2
 
     .prologue
-    .line 205
+    .line 202
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
@@ -170,18 +178,18 @@
 
     check-cast v0, Lcom/yelp/android/serializable/PaymentMethod;
 
-    .line 206
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/bl;
+    .line 203
+    new-instance v1, Lcom/yelp/android/appdata/webrequests/bc;
 
-    invoke-direct {v1, v0}, Lcom/yelp/android/appdata/webrequests/bl;-><init>(Lcom/yelp/android/serializable/PaymentMethod;)V
+    invoke-direct {v1, v0}, Lcom/yelp/android/appdata/webrequests/bc;-><init>(Lcom/yelp/android/serializable/PaymentMethod;)V
 
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Void;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/bl;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/bc;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 208
+    .line 205
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
@@ -190,30 +198,30 @@
 
     if-eqz v0, :cond_0
 
-    .line 209
+    .line 206
     const/4 v0, -0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->setResult(I)V
 
-    .line 210
+    .line 207
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->f()V
 
-    .line 215
+    .line 212
     :goto_0
     return-void
 
-    .line 212
+    .line 209
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/account/e;->a(Ljava/util/List;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;->a(Ljava/util/List;)V
 
-    .line 213
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/e;
+    .line 210
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/account/e;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;->notifyDataSetChanged()V
 
     goto :goto_0
 .end method
@@ -222,22 +230,22 @@
     .locals 2
 
     .prologue
-    .line 297
+    .line 284
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 298
+    .line 285
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    .line 299
+    .line 286
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->f()V
 
-    .line 300
+    .line 287
     return-void
 .end method
 
@@ -245,8 +253,8 @@
     .locals 0
 
     .prologue
-    .line 56
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->c()V
+    .line 55
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b()V
 
     return-void
 .end method
@@ -255,45 +263,17 @@
     .locals 0
 
     .prologue
-    .line 56
+    .line 55
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a(I)V
 
     return-void
 .end method
 
-.method public static b(Landroid/content/Intent;)Z
-    .locals 2
+.method private b()V
+    .locals 6
 
     .prologue
-    const/4 v0, 0x0
-
-    .line 115
-    if-eqz p0, :cond_0
-
-    .line 116
-    const-string/jumbo v1, "extra.card_added"
-
-    invoke-virtual {p0, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    .line 118
-    :cond_0
-    return v0
-.end method
-
-.method private c()V
-    .locals 5
-
-    .prologue
-    .line 265
-    invoke-static {}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->isEventsFeatureSupported()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 266
+    .line 262
     new-instance v0, Landroid/net/Uri$Builder;
 
     invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
@@ -304,7 +284,7 @@
 
     move-result-object v0
 
-    invoke-static {p0}, Lcom/yelp/android/services/x;->a(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/yelp/android/services/i;->a(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -328,65 +308,68 @@
 
     invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
-    move-result-object v0
-
-    .line 273
-    const v1, 0x7f07008e
-
-    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getString(I)Ljava/lang/String;
-
     move-result-object v1
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/ViewIri;->AccountAddCreditCard:Lcom/yelp/android/analytics/iris/ViewIri;
+    .line 270
+    const v0, 0x7f07010b
 
-    sget-object v3, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/yelp/android/analytics/iris/ViewIri;->AccountAddCreditCard:Lcom/yelp/android/analytics/iris/ViewIri;
+
+    sget-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
     sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-    invoke-static {v3, v4}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;
+    invoke-static {v0, v4}, Ljava/util/EnumSet;->of(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {p0, v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;)Landroid/content/Intent;
+    sget-object v5, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->NONE:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    move-object v0, p0
+
+    invoke-static/range {v0 .. v5}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 276
-    const/16 v1, 0x408
+    .line 279
+    const/16 v1, 0x40c
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 293
-    :goto_0
+    .line 280
     return-void
+.end method
 
-    .line 278
+.method public static b(Landroid/content/Intent;)Z
+    .locals 2
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 112
+    if-eqz p0, :cond_0
+
+    .line 113
+    const-string/jumbo v1, "extra.card_added"
+
+    invoke-virtual {p0, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    .line 115
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
-    move-result-object v0
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setVisibility(I)V
-
-    .line 279
-    sget-object v0, Lcom/yelp/android/util/ErrorType;->ADD_CREDIT_CARD_NOT_SUPPORTED:Lcom/yelp/android/util/ErrorType;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/account/b;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/account/b;-><init>(Lcom/yelp/android/ui/activities/account/CreditCardSelector;)V
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->populateError(Lcom/yelp/android/util/ErrorType;Lcom/yelp/android/ui/panels/aa;)V
-
-    goto :goto_0
+    return v0
 .end method
 
 .method private f()V
     .locals 3
 
     .prologue
-    .line 303
+    .line 290
     new-instance v0, Landroid/content/Intent;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getIntent()Landroid/content/Intent;
@@ -395,7 +378,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
-    .line 304
+    .line 291
     iget-object v1, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
@@ -404,14 +387,14 @@
 
     if-nez v1, :cond_0
 
-    .line 305
+    .line 292
     const-string/jumbo v1, "extra.cards"
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 307
+    .line 294
     :cond_0
     const-string/jumbo v1, "extra.card_added"
 
@@ -419,15 +402,15 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 308
+    .line 295
     const/4 v1, -0x1
 
     invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->setResult(ILandroid/content/Intent;)V
 
-    .line 309
+    .line 296
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->finish()V
 
-    .line 310
+    .line 297
     return-void
 .end method
 
@@ -435,12 +418,12 @@
     .locals 5
 
     .prologue
-    .line 365
+    .line 351
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 366
+    .line 352
     const/4 v0, 0x0
 
     move v1, v0
@@ -454,7 +437,7 @@
 
     if-ge v1, v0, :cond_0
 
-    .line 367
+    .line 353
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -463,10 +446,10 @@
 
     check-cast v0, Lcom/yelp/android/serializable/PaymentMethod;
 
-    .line 368
+    .line 354
     new-instance v3, Landroid/util/Pair;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/PaymentMethod;->getDescription()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/PaymentMethod;->c()Ljava/lang/String;
 
     move-result-object v4
 
@@ -474,27 +457,23 @@
 
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 366
+    .line 352
     add-int/lit8 v0, v1, 0x1
 
     move v1, v0
 
     goto :goto_0
 
-    .line 371
+    .line 357
     :cond_0
-    new-instance v0, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;
-
-    invoke-direct {v0}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;-><init>()V
-
-    const v0, 0x7f0701f7
+    const v0, 0x7f070241
 
     invoke-static {v0, v2}, Lcom/yelp/android/ui/dialogs/SingleChoiceListDialogFragment;->b(ILjava/util/List;)Lcom/yelp/android/ui/dialogs/ListDialogFragment;
 
     move-result-object v0
 
-    .line 373
-    const v1, 0x7f070488
+    .line 359
+    const v1, 0x7f07049d
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getString(I)Ljava/lang/String;
 
@@ -502,23 +481,23 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->a(Ljava/lang/String;)V
 
-    .line 374
-    new-instance v1, Lcom/yelp/android/ui/activities/account/d;
+    .line 360
+    new-instance v1, Lcom/yelp/android/ui/activities/account/CreditCardSelector$3;
 
-    invoke-direct {v1, p0, v2}, Lcom/yelp/android/ui/activities/account/d;-><init>(Lcom/yelp/android/ui/activities/account/CreditCardSelector;Ljava/util/List;)V
+    invoke-direct {v1, p0, v2}, Lcom/yelp/android/ui/activities/account/CreditCardSelector$3;-><init>(Lcom/yelp/android/ui/activities/account/CreditCardSelector;Ljava/util/List;)V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->a(Lcom/yelp/android/ui/dialogs/as;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->a(Lcom/yelp/android/ui/dialogs/ListDialogFragment$a;)V
 
-    .line 381
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 368
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
     const-string/jumbo v2, "dialog"
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->show(Landroid/support/v4/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/dialogs/ListDialogFragment;->show(Landroid/support/v4/app/l;Ljava/lang/String;)V
 
-    .line 382
+    .line 369
     return-void
 .end method
 
@@ -528,7 +507,7 @@
     .locals 1
 
     .prologue
-    .line 258
+    .line 255
     invoke-virtual {p1}, Landroid/widget/ListView;->getAdapter()Landroid/widget/ListAdapter;
 
     move-result-object v0
@@ -539,13 +518,13 @@
 
     check-cast v0, Lcom/yelp/android/serializable/PaymentMethod;
 
-    .line 259
+    .line 256
     if-eqz v0, :cond_0
 
-    .line 260
+    .line 257
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a(Lcom/yelp/android/serializable/PaymentMethod;)V
 
-    .line 262
+    .line 259
     :cond_0
     return-void
 .end method
@@ -554,17 +533,17 @@
     .locals 1
 
     .prologue
-    .line 386
+    .line 373
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AccountPaymentMethods:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 56
+    .line 55
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -576,23 +555,22 @@
     .locals 1
 
     .prologue
-    .line 166
-    sparse-switch p1, :sswitch_data_0
+    .line 169
+    packed-switch p1, :pswitch_data_0
 
-    .line 189
+    .line 186
     :cond_0
     :goto_0
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/YelpListActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 190
-    :cond_1
+    .line 187
     return-void
 
-    .line 168
-    :sswitch_0
-    if-nez p2, :cond_2
+    .line 171
+    :pswitch_0
+    if-nez p2, :cond_1
 
-    .line 170
+    .line 173
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
@@ -601,91 +579,86 @@
 
     if-eqz v0, :cond_0
 
-    .line 172
+    .line 175
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->f()V
 
     goto :goto_0
 
-    .line 178
-    :cond_2
+    .line 181
+    :cond_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->c:Z
 
-    .line 179
+    .line 182
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->f()V
 
     goto :goto_0
 
-    .line 183
-    :sswitch_1
-    if-eqz p2, :cond_1
-
-    .line 186
-    invoke-static {p3}, Lcom/yelp/android/ui/dialogs/ChoiceDialog;->a(Landroid/content/Intent;)I
-
-    move-result v0
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a(I)V
-
-    goto :goto_0
-
-    .line 166
-    :sswitch_data_0
-    .sparse-switch
-        0x12c -> :sswitch_1
-        0x408 -> :sswitch_0
-    .end sparse-switch
+    .line 169
+    :pswitch_data_0
+    .packed-switch 0x40c
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
 
     .prologue
-    .line 123
+    const/16 v1, 0x2000
+
+    .line 120
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 124
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 121
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/account/e;->a(Landroid/view/ViewGroup;)Lcom/yelp/android/ui/panels/ButtonWithIcon;
+    invoke-virtual {v0, v1, v1}, Landroid/view/Window;->setFlags(II)V
+
+    .line 126
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    .line 125
+    invoke-static {v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;->a(Landroid/view/ViewGroup;)Lcom/yelp/android/ui/panels/ButtonWithIcon;
+
+    move-result-object v0
+
+    .line 127
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/ButtonWithIcon;->getTextView()Landroid/widget/TextView;
 
     move-result-object v1
 
-    const v2, 0x7f070098
+    const v2, 0x7f070116
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 126
+    .line 128
     invoke-virtual {v0}, Lcom/yelp/android/ui/panels/ButtonWithIcon;->getImageView()Lcom/yelp/android/ui/widgets/WebImageView;
 
     move-result-object v1
 
-    const v2, 0x7f020266
+    const v2, 0x7f020333
 
     invoke-virtual {v1, v2}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageResource(I)V
 
-    .line 127
-    new-instance v1, Lcom/yelp/android/ui/activities/account/a;
+    .line 129
+    new-instance v1, Lcom/yelp/android/ui/activities/account/CreditCardSelector$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/account/a;-><init>(Lcom/yelp/android/ui/activities/account/CreditCardSelector;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector$1;-><init>(Lcom/yelp/android/ui/activities/account/CreditCardSelector;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/ButtonWithIcon;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 133
+    .line 136
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->c:Z
 
-    .line 135
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 138
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -695,10 +668,10 @@
 
     invoke-virtual {v1, v0, v2, v3}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addFooterView(Landroid/view/View;Ljava/lang/Object;Z)V
 
-    .line 137
+    .line 140
     if-nez p1, :cond_2
 
-    .line 138
+    .line 141
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -711,53 +684,53 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
-    .line 143
+    .line 146
     :goto_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
-    .line 144
+    .line 147
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
-    .line 147
+    .line 150
     :cond_0
-    new-instance v0, Lcom/yelp/android/ui/activities/account/e;
+    new-instance v0, Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/ui/activities/account/e;-><init>(Ljava/util/ArrayList;)V
+    invoke-direct {v0, v1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;-><init>(Ljava/util/ArrayList;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/e;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;
 
-    .line 148
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 151
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/e;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b:Lcom/yelp/android/ui/activities/account/CreditCardSelector$a;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 150
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 153
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->registerForContextMenu(Landroid/view/View;)V
 
-    .line 151
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 154
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 153
+    .line 156
     iget-object v0, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
@@ -766,14 +739,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 154
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->c()V
+    .line 157
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b()V
 
-    .line 156
+    .line 159
     :cond_1
     return-void
 
-    .line 140
+    .line 143
     :cond_2
     const-string/jumbo v0, "extra.cards"
 
@@ -792,20 +765,20 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 342
+    .line 328
     move-object v0, p3
 
     check-cast v0, Landroid/widget/AdapterView$AdapterContextMenuInfo;
 
-    .line 343
+    .line 329
     iget v1, v0, Landroid/widget/AdapterView$AdapterContextMenuInfo;->position:I
 
     move-object v0, p2
 
-    .line 345
+    .line 331
     check-cast v0, Landroid/widget/AdapterView;
 
-    .line 346
+    .line 332
     invoke-virtual {v0}, Landroid/widget/AdapterView;->getAdapter()Landroid/widget/Adapter;
 
     move-result-object v0
@@ -816,42 +789,42 @@
 
     check-cast v0, Lcom/yelp/android/serializable/PaymentMethod;
 
-    .line 347
+    .line 333
     if-eqz v0, :cond_0
 
-    .line 348
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/PaymentMethod;->getDescription()Ljava/lang/String;
+    .line 334
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/PaymentMethod;->c()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
-    .line 349
+    .line 335
     const v0, 0x1080027
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->setHeaderIcon(I)Landroid/view/ContextMenu;
 
-    .line 350
-    const v0, 0x7f0c04fc
+    .line 336
+    const v0, 0x7f0f0606
 
-    const v2, 0x7f0701f6
+    const v2, 0x7f070240
 
     invoke-interface {p1, v3, v0, v3, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 351
-    new-instance v2, Lcom/yelp/android/ui/activities/account/c;
+    .line 337
+    new-instance v2, Lcom/yelp/android/ui/activities/account/CreditCardSelector$2;
 
-    invoke-direct {v2, p0, v1}, Lcom/yelp/android/ui/activities/account/c;-><init>(Lcom/yelp/android/ui/activities/account/CreditCardSelector;I)V
+    invoke-direct {v2, p0, v1}, Lcom/yelp/android/ui/activities/account/CreditCardSelector$2;-><init>(Lcom/yelp/android/ui/activities/account/CreditCardSelector;I)V
 
     invoke-interface {v0, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 361
+    .line 347
     :cond_0
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
 
-    .line 362
+    .line 348
     return-void
 .end method
 
@@ -859,16 +832,16 @@
     .locals 2
 
     .prologue
-    .line 314
+    .line 301
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f10000a
+    const v1, 0x7f10000c
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 315
+    .line 302
     const/4 v0, 0x1
 
     return v0
@@ -878,18 +851,18 @@
     .locals 1
 
     .prologue
-    .line 197
+    .line 194
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_0
 
-    .line 198
+    .line 195
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->f()V
 
-    .line 199
+    .line 196
     const/4 v0, 0x1
 
-    .line 201
+    .line 198
     :goto_0
     return v0
 
@@ -907,14 +880,14 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 325
+    .line 312
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 336
+    .line 323
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -922,32 +895,32 @@
     :goto_0
     return v0
 
-    .line 327
+    .line 314
     :sswitch_0
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->f()V
 
     goto :goto_0
 
-    .line 330
+    .line 317
     :sswitch_1
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->c()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->b()V
 
     goto :goto_0
 
-    .line 333
+    .line 320
     :sswitch_2
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->g()V
 
     goto :goto_0
 
-    .line 325
+    .line 312
     nop
 
     :sswitch_data_0
     .sparse-switch
         0x102002c -> :sswitch_0
-        0x7f0c04fb -> :sswitch_1
-        0x7f0c04fc -> :sswitch_2
+        0x7f0f0605 -> :sswitch_1
+        0x7f0f0606 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -955,7 +928,7 @@
     .locals 1
 
     .prologue
-    .line 320
+    .line 307
     const/4 v0, 0x1
 
     return v0
@@ -965,16 +938,16 @@
     .locals 2
 
     .prologue
-    .line 160
+    .line 163
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 161
+    .line 164
     const-string/jumbo v0, "extra.cards"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/account/CreditCardSelector;->a:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 162
+    .line 165
     return-void
 .end method

@@ -1,35 +1,86 @@
 package android.support.v4.view;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityEvent;
-import com.yelp.android.f.g;
-import com.yelp.android.f.w;
 
-abstract interface d
+public abstract class d
 {
-  public abstract w a(Object paramObject, View paramView);
+  private final Context a;
+  private a b;
+  private b c;
   
-  public abstract Object a();
+  public d(Context paramContext)
+  {
+    a = paramContext;
+  }
   
-  public abstract Object a(a parama);
+  public abstract View a();
   
-  public abstract void a(Object paramObject, View paramView, int paramInt);
+  public View a(MenuItem paramMenuItem)
+  {
+    return a();
+  }
   
-  public abstract void a(Object paramObject, View paramView, g paramg);
+  public void a(a parama)
+  {
+    b = parama;
+  }
   
-  public abstract boolean a(Object paramObject, View paramView, int paramInt, Bundle paramBundle);
+  public void a(b paramb)
+  {
+    if ((c != null) && (paramb != null)) {
+      Log.w("ActionProvider(support)", "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
+    }
+    c = paramb;
+  }
   
-  public abstract boolean a(Object paramObject, View paramView, AccessibilityEvent paramAccessibilityEvent);
+  public void a(SubMenu paramSubMenu) {}
   
-  public abstract boolean a(Object paramObject, ViewGroup paramViewGroup, View paramView, AccessibilityEvent paramAccessibilityEvent);
+  public void a(boolean paramBoolean)
+  {
+    if (b != null) {
+      b.b(paramBoolean);
+    }
+  }
   
-  public abstract void b(Object paramObject, View paramView, AccessibilityEvent paramAccessibilityEvent);
+  public boolean b()
+  {
+    return false;
+  }
   
-  public abstract void c(Object paramObject, View paramView, AccessibilityEvent paramAccessibilityEvent);
+  public boolean c()
+  {
+    return true;
+  }
   
-  public abstract void d(Object paramObject, View paramView, AccessibilityEvent paramAccessibilityEvent);
+  public boolean d()
+  {
+    return false;
+  }
+  
+  public boolean e()
+  {
+    return false;
+  }
+  
+  public void f()
+  {
+    c = null;
+    b = null;
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void b(boolean paramBoolean);
+  }
+  
+  public static abstract interface b
+  {
+    public abstract void a(boolean paramBoolean);
+  }
 }
 
 /* Location:

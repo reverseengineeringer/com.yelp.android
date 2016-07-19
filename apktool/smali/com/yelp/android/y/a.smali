@@ -1,104 +1,23 @@
-.class public Lcom/yelp/android/y/a;
+.class public interface abstract Lcom/yelp/android/y/a;
 .super Ljava/lang/Object;
-.source "NullEncoder.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/load/a;
+.source "DiskCache.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/Signature;
+.annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        "<T:",
-        "Ljava/lang/Object;",
-        ">",
-        "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/a",
-        "<TT;>;"
+        Lcom/yelp/android/y/a$b;,
+        Lcom/yelp/android/y/a$a;
     }
 .end annotation
 
 
-# static fields
-.field private static final a:Lcom/yelp/android/y/a;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/y/a",
-            "<*>;"
-        }
-    .end annotation
-.end field
-
-
-# direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    .line 13
-    new-instance v0, Lcom/yelp/android/y/a;
-
-    invoke-direct {v0}, Lcom/yelp/android/y/a;-><init>()V
-
-    sput-object v0, Lcom/yelp/android/y/a;->a:Lcom/yelp/android/y/a;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 12
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public static b()Lcom/bumptech/glide/load/a;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Lcom/bumptech/glide/load/a",
-            "<TT;>;"
-        }
-    .end annotation
-
-    .prologue
-    .line 22
-    sget-object v0, Lcom/yelp/android/y/a;->a:Lcom/yelp/android/y/a;
-
-    return-object v0
-.end method
-
-
 # virtual methods
-.method public a()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 33
-    const-string/jumbo v0, ""
-
-    return-object v0
+.method public abstract a(Lcom/bumptech/glide/load/b;)Ljava/io/File;
 .end method
 
-.method public a(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;",
-            "Ljava/io/OutputStream;",
-            ")Z"
-        }
-    .end annotation
+.method public abstract a(Lcom/bumptech/glide/load/b;Lcom/yelp/android/y/a$b;)V
+.end method
 
-    .prologue
-    .line 28
-    const/4 v0, 0x0
-
-    return v0
+.method public abstract b(Lcom/bumptech/glide/load/b;)V
 .end method

@@ -6,23 +6,13 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/google/android/gms/maps/model/m;
+.field public static final CREATOR:Lcom/google/android/gms/maps/model/l;
 
 
 # instance fields
-.field private final CK:I
+.field private final a:I
 
-.field private alU:F
-
-.field private alV:I
-
-.field private alW:I
-
-.field private alX:F
-
-.field private alY:Z
-
-.field private final amx:Ljava/util/List;
+.field private final b:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -33,7 +23,7 @@
     .end annotation
 .end field
 
-.field private final amy:Ljava/util/List;
+.field private final c:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
@@ -46,18 +36,30 @@
     .end annotation
 .end field
 
-.field private amz:Z
+.field private d:F
+
+.field private e:I
+
+.field private f:I
+
+.field private g:F
+
+.field private h:Z
+
+.field private i:Z
+
+.field private j:Z
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Lcom/google/android/gms/maps/model/m;
+    new-instance v0, Lcom/google/android/gms/maps/model/l;
 
-    invoke-direct {v0}, Lcom/google/android/gms/maps/model/m;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/maps/model/l;-><init>()V
 
-    sput-object v0, Lcom/google/android/gms/maps/model/PolygonOptions;->CREATOR:Lcom/google/android/gms/maps/model/m;
+    sput-object v0, Lcom/google/android/gms/maps/model/PolygonOptions;->CREATOR:Lcom/google/android/gms/maps/model/l;
 
     return-void
 .end method
@@ -73,40 +75,42 @@
 
     const/high16 v0, 0x41200000    # 10.0f
 
-    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alU:F
+    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->d:F
 
     const/high16 v0, -0x1000000
 
-    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alV:I
+    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->e:I
 
-    iput v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alW:I
+    iput v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->f:I
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alX:F
+    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->g:F
 
-    iput-boolean v2, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alY:Z
+    iput-boolean v2, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->h:Z
 
-    iput-boolean v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amz:Z
+    iput-boolean v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->i:Z
 
-    iput v2, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->CK:I
+    iput-boolean v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->j:Z
 
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amx:Ljava/util/List;
+    iput v2, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->a:I
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amy:Ljava/util/List;
+    iput-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->b:Ljava/util/List;
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->c:Ljava/util/List;
 
     return-void
 .end method
 
-.method constructor <init>(ILjava/util/List;Ljava/util/List;FIIFZZ)V
+.method constructor <init>(ILjava/util/List;Ljava/util/List;FIIFZZZ)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -116,7 +120,7 @@
             "Lcom/google/android/gms/maps/model/LatLng;",
             ">;",
             "Ljava/util/List;",
-            "FIIFZZ)V"
+            "FIIFZZZ)V"
         }
     .end annotation
 
@@ -126,209 +130,68 @@
 
     const/high16 v0, 0x41200000    # 10.0f
 
-    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alU:F
+    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->d:F
 
     const/high16 v0, -0x1000000
 
-    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alV:I
+    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->e:I
 
-    iput v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alW:I
+    iput v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->f:I
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alX:F
+    iput v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->g:F
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alY:Z
+    iput-boolean v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->h:Z
 
-    iput-boolean v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amz:Z
+    iput-boolean v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->i:Z
 
-    iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->CK:I
+    iput-boolean v1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->j:Z
 
-    iput-object p2, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amx:Ljava/util/List;
+    iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->a:I
 
-    iput-object p3, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amy:Ljava/util/List;
+    iput-object p2, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->b:Ljava/util/List;
 
-    iput p4, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alU:F
+    iput-object p3, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->c:Ljava/util/List;
 
-    iput p5, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alV:I
+    iput p4, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->d:F
 
-    iput p6, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alW:I
+    iput p5, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->e:I
 
-    iput p7, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alX:F
+    iput p6, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->f:I
 
-    iput-boolean p8, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alY:Z
+    iput p7, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->g:F
 
-    iput-boolean p9, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amz:Z
+    iput-boolean p8, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->h:Z
+
+    iput-boolean p9, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->i:Z
+
+    iput-boolean p10, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->j:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public add(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/PolygonOptions;
+.method a()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amx:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-object p0
-.end method
-
-.method public varargs add([Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amx:Ljava/util/List;
-
-    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    return-object p0
-.end method
-
-.method public addAll(Ljava/lang/Iterable;)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Iterable",
-            "<",
-            "Lcom/google/android/gms/maps/model/LatLng;",
-            ">;)",
-            "Lcom/google/android/gms/maps/model/PolygonOptions;"
-        }
-    .end annotation
-
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/maps/model/LatLng;
-
-    iget-object v2, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amx:Ljava/util/List;
-
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_0
-    return-object p0
-.end method
-
-.method public addHole(Ljava/lang/Iterable;)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Iterable",
-            "<",
-            "Lcom/google/android/gms/maps/model/LatLng;",
-            ">;)",
-            "Lcom/google/android/gms/maps/model/PolygonOptions;"
-        }
-    .end annotation
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/maps/model/LatLng;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amy:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-object p0
-.end method
-
-.method public describeContents()I
-    .locals 1
-
-    const/4 v0, 0x0
+    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->a:I
 
     return v0
 .end method
 
-.method public fillColor(I)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alW:I
-
-    return-object p0
-.end method
-
-.method public geodesic(Z)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amz:Z
-
-    return-object p0
-.end method
-
-.method public getFillColor()I
+.method b()Ljava/util/List;
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alW:I
-
-    return v0
-.end method
-
-.method public getHoles()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/util/List",
-            "<",
-            "Lcom/google/android/gms/maps/model/LatLng;",
-            ">;>;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amy:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->c:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getPoints()Ljava/util/List;
+.method public c()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -340,115 +203,79 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amx:Ljava/util/List;
+    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->b:Ljava/util/List;
 
     return-object v0
 .end method
 
-.method public getStrokeColor()I
+.method public d()F
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alV:I
+    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->d:F
 
     return v0
 .end method
 
-.method public getStrokeWidth()F
+.method public describeContents()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alU:F
+    const/4 v0, 0x0
 
     return v0
 .end method
 
-.method getVersionCode()I
+.method public e()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->CK:I
+    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->e:I
 
     return v0
 .end method
 
-.method public getZIndex()F
+.method public f()I
     .locals 1
 
-    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alX:F
+    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->f:I
 
     return v0
 .end method
 
-.method public isGeodesic()Z
+.method public g()F
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amz:Z
+    iget v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->g:F
 
     return v0
 .end method
 
-.method public isVisible()Z
+.method public h()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alY:Z
+    iget-boolean v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->h:Z
 
     return v0
 .end method
 
-.method of()Ljava/util/List;
+.method public i()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->amy:Ljava/util/List;
+    iget-boolean v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->i:Z
 
-    return-object v0
+    return v0
 .end method
 
-.method public strokeColor(I)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 0
+.method public j()Z
+    .locals 1
 
-    iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alV:I
+    iget-boolean v0, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->j:Z
 
-    return-object p0
-.end method
-
-.method public strokeWidth(F)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alU:F
-
-    return-object p0
-.end method
-
-.method public visible(Z)Lcom/google/android/gms/maps/model/PolygonOptions;
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alY:Z
-
-    return-object p0
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/maps/internal/aa;->ob()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/model/n;->a(Lcom/google/android/gms/maps/model/PolygonOptions;Landroid/os/Parcel;I)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/model/m;->a(Lcom/google/android/gms/maps/model/PolygonOptions;Landroid/os/Parcel;I)V
-
-    goto :goto_0
-.end method
-
-.method public zIndex(F)Lcom/google/android/gms/maps/model/PolygonOptions;
     .locals 0
 
-    iput p1, p0, Lcom/google/android/gms/maps/model/PolygonOptions;->alX:F
+    invoke-static {p0, p1, p2}, Lcom/google/android/gms/maps/model/l;->a(Lcom/google/android/gms/maps/model/PolygonOptions;Landroid/os/Parcel;I)V
 
-    return-object p0
+    return-void
 .end method

@@ -1,24 +1,60 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
+import android.os.ParcelFileDescriptor;
+import android.util.Log;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.engine.i;
+import com.yelp.android.aa.g;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class l
-  extends d
+  implements d<g, Bitmap>
 {
-  public l(e parame)
+  private final d<InputStream, Bitmap> a;
+  private final d<ParcelFileDescriptor, Bitmap> b;
+  
+  public l(d<InputStream, Bitmap> paramd, d<ParcelFileDescriptor, Bitmap> paramd1)
   {
-    super(parame);
+    a = paramd;
+    b = paramd1;
   }
   
-  protected Bitmap a(e parame, Bitmap paramBitmap, int paramInt1, int paramInt2)
+  public i<Bitmap> a(g paramg, int paramInt1, int paramInt2)
+    throws IOException
   {
-    return v.a(paramBitmap, parame, paramInt1, paramInt2);
+    Object localObject1 = paramg.a();
+    if (localObject1 != null) {}
+    for (;;)
+    {
+      try
+      {
+        localObject1 = a.a(localObject1, paramInt1, paramInt2);
+        Object localObject3 = localObject1;
+        if (localObject1 == null)
+        {
+          paramg = paramg.b();
+          localObject3 = localObject1;
+          if (paramg != null) {
+            localObject3 = b.a(paramg, paramInt1, paramInt2);
+          }
+        }
+        return (i<Bitmap>)localObject3;
+      }
+      catch (IOException localIOException)
+      {
+        if (Log.isLoggable("ImageVideoDecoder", 2)) {
+          Log.v("ImageVideoDecoder", "Failed to load image from stream, trying FileDescriptor", localIOException);
+        }
+      }
+      Object localObject2 = null;
+    }
   }
   
   public String a()
   {
-    return "FitCenter.com.bumptech.glide.load.resource.bitmap";
+    return "ImageVideoBitmapDecoder.com.bumptech.glide.load.resource.bitmap";
   }
 }
 

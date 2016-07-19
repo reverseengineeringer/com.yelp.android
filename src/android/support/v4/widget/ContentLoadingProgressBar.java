@@ -11,8 +11,27 @@ public class ContentLoadingProgressBar
   private boolean b = false;
   private boolean c = false;
   private boolean d = false;
-  private final Runnable e = new g(this);
-  private final Runnable f = new h(this);
+  private final Runnable e = new Runnable()
+  {
+    public void run()
+    {
+      ContentLoadingProgressBar.a(ContentLoadingProgressBar.this, false);
+      ContentLoadingProgressBar.a(ContentLoadingProgressBar.this, -1L);
+      setVisibility(8);
+    }
+  };
+  private final Runnable f = new Runnable()
+  {
+    public void run()
+    {
+      ContentLoadingProgressBar.b(ContentLoadingProgressBar.this, false);
+      if (!ContentLoadingProgressBar.a(ContentLoadingProgressBar.this))
+      {
+        ContentLoadingProgressBar.a(ContentLoadingProgressBar.this, System.currentTimeMillis());
+        setVisibility(0);
+      }
+    }
+  };
   
   public ContentLoadingProgressBar(Context paramContext, AttributeSet paramAttributeSet)
   {

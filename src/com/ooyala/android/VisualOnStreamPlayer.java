@@ -4,10 +4,13 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Message;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
+import android.view.View.MeasureSpec;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import com.visualon.OSMPBasePlayer.voOSBasePlayer;
@@ -26,6 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.Timer;
+import java.util.TimerTask;
 
 class VisualOnStreamPlayer
   extends StreamPlayer
@@ -42,7 +46,15 @@ class VisualOnStreamPlayer
   private boolean _playQueued = false;
   protected voOSBasePlayer _player = null;
   protected Timer _playheadUpdateTimer = null;
-  private final Handler _playheadUpdateTimerHandler = new Handler(new VisualOnStreamPlayer.1(this));
+  private final Handler _playheadUpdateTimerHandler = new Handler(new Handler.Callback()
+  {
+    public boolean handleMessage(Message paramAnonymousMessage)
+    {
+      setChanged();
+      notifyObservers("timeChanged");
+      return false;
+    }
+  });
   private OoyalaPlayer.State _stateBeforeSuspend = OoyalaPlayer.State.INIT;
   protected String _streamUrl = "";
   private int _timeBeforeSuspend = -1;
@@ -95,7 +107,7 @@ class VisualOnStreamPlayer
   private void dequeuePlay()
   {
     if (_playQueued) {}
-    switch (VisualOnStreamPlayer.3.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     default: 
       return;
@@ -134,7 +146,30 @@ class VisualOnStreamPlayer
       Log.e("VisualOnStreamPlayer", "DANGER DANGER: setupView while we still have a view");
       return;
     }
-    _view = new VisualOnStreamPlayer.2(this, _parent.getLayout().getContext());
+    _view = new SurfaceView(_parent.getLayout().getContext())
+    {
+      protected void onMeasure(int paramAnonymousInt1, int paramAnonymousInt2)
+      {
+        Log.v("VisualOnStreamPlayer", "MEASURE SPEC: " + View.MeasureSpec.toString(paramAnonymousInt1) + "," + View.MeasureSpec.toString(paramAnonymousInt2));
+        int i = View.MeasureSpec.getSize(paramAnonymousInt1);
+        paramAnonymousInt1 = View.MeasureSpec.getSize(paramAnonymousInt2);
+        Log.v("VisualOnStreamPlayer", "MEASURE PARENT: " + _parent.getLayout().getMeasuredWidth() + "," + _parent.getLayout().getMeasuredHeight());
+        paramAnonymousInt2 = _videoHeight * i / _videoWidth;
+        if ((paramAnonymousInt1 - paramAnonymousInt2) / 2 < 0)
+        {
+          paramAnonymousInt2 = _videoWidth * paramAnonymousInt1 / _videoHeight;
+          i = (i - paramAnonymousInt2) / 2;
+        }
+        for (;;)
+        {
+          setMeasuredDimension(paramAnonymousInt2, paramAnonymousInt1);
+          Log.v("VisualOnStreamPlayer", "MEASURED: " + paramAnonymousInt2 + "," + paramAnonymousInt1);
+          return;
+          paramAnonymousInt1 = paramAnonymousInt2;
+          paramAnonymousInt2 = i;
+        }
+      }
+    };
     _view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1, 17));
     _parent.getLayout().addView(_view);
     _holder = _view.getHolder();
@@ -219,218 +254,218 @@ class VisualOnStreamPlayer
   {
     // Byte code:
     //   0: aload_0
-    //   1: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   1: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   4: ifnonnull +370 -> 374
     //   7: aload_0
-    //   8: new 336	com/visualon/OSMPBasePlayer/voOSBasePlayer
+    //   8: new 339	com/visualon/OSMPBasePlayer/voOSBasePlayer
     //   11: dup
-    //   12: invokespecial 337	com/visualon/OSMPBasePlayer/voOSBasePlayer:<init>	()V
-    //   15: putfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
-    //   18: new 122	java/lang/StringBuilder
+    //   12: invokespecial 340	com/visualon/OSMPBasePlayer/voOSBasePlayer:<init>	()V
+    //   15: putfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   18: new 129	java/lang/StringBuilder
     //   21: dup
-    //   22: invokespecial 123	java/lang/StringBuilder:<init>	()V
+    //   22: invokespecial 130	java/lang/StringBuilder:<init>	()V
     //   25: aload_0
-    //   26: getfield 211	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
-    //   29: invokevirtual 217	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
-    //   32: invokevirtual 250	android/widget/FrameLayout:getContext	()Landroid/content/Context;
-    //   35: invokevirtual 127	android/content/Context:getFilesDir	()Ljava/io/File;
-    //   38: invokevirtual 130	java/io/File:getParentFile	()Ljava/io/File;
-    //   41: invokevirtual 134	java/io/File:getPath	()Ljava/lang/String;
-    //   44: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   47: ldc_w 339
-    //   50: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   53: invokevirtual 143	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   26: getfield 216	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
+    //   29: invokevirtual 222	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
+    //   32: invokevirtual 253	android/widget/FrameLayout:getContext	()Landroid/content/Context;
+    //   35: invokevirtual 134	android/content/Context:getFilesDir	()Ljava/io/File;
+    //   38: invokevirtual 137	java/io/File:getParentFile	()Ljava/io/File;
+    //   41: invokevirtual 141	java/io/File:getPath	()Ljava/lang/String;
+    //   44: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   47: ldc_w 342
+    //   50: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   53: invokevirtual 150	java/lang/StringBuilder:toString	()Ljava/lang/String;
     //   56: astore_2
     //   57: aload_0
-    //   58: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   58: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   61: aload_0
-    //   62: getfield 211	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
-    //   65: invokevirtual 217	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
-    //   68: invokevirtual 250	android/widget/FrameLayout:getContext	()Landroid/content/Context;
+    //   62: getfield 216	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
+    //   65: invokevirtual 222	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
+    //   68: invokevirtual 253	android/widget/FrameLayout:getContext	()Landroid/content/Context;
     //   71: aload_2
     //   72: aconst_null
     //   73: iconst_0
     //   74: iconst_0
     //   75: iconst_0
-    //   76: invokevirtual 343	com/visualon/OSMPBasePlayer/voOSBasePlayer:Init	(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;III)I
+    //   76: invokevirtual 346	com/visualon/OSMPBasePlayer/voOSBasePlayer:Init	(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;III)I
     //   79: istore_1
     //   80: iload_1
     //   81: ifne +317 -> 398
-    //   84: ldc 14
-    //   86: ldc_w 345
-    //   89: invokestatic 348	android/util/Log:v	(Ljava/lang/String;Ljava/lang/String;)I
+    //   84: ldc 23
+    //   86: ldc_w 348
+    //   89: invokestatic 351	android/util/Log:v	(Ljava/lang/String;Ljava/lang/String;)I
     //   92: pop
-    //   93: new 350	android/util/DisplayMetrics
+    //   93: new 353	android/util/DisplayMetrics
     //   96: dup
-    //   97: invokespecial 351	android/util/DisplayMetrics:<init>	()V
+    //   97: invokespecial 354	android/util/DisplayMetrics:<init>	()V
     //   100: astore_2
     //   101: aload_0
-    //   102: getfield 221	com/ooyala/android/VisualOnStreamPlayer:_view	Landroid/view/SurfaceView;
-    //   105: invokevirtual 352	android/view/SurfaceView:getContext	()Landroid/content/Context;
-    //   108: ldc_w 354
-    //   111: invokevirtual 358	android/content/Context:getSystemService	(Ljava/lang/String;)Ljava/lang/Object;
-    //   114: checkcast 360	android/view/WindowManager
-    //   117: invokeinterface 364 1 0
+    //   102: getfield 226	com/ooyala/android/VisualOnStreamPlayer:_view	Landroid/view/SurfaceView;
+    //   105: invokevirtual 355	android/view/SurfaceView:getContext	()Landroid/content/Context;
+    //   108: ldc_w 357
+    //   111: invokevirtual 361	android/content/Context:getSystemService	(Ljava/lang/String;)Ljava/lang/Object;
+    //   114: checkcast 363	android/view/WindowManager
+    //   117: invokeinterface 367 1 0
     //   122: aload_2
-    //   123: invokevirtual 370	android/view/Display:getMetrics	(Landroid/util/DisplayMetrics;)V
+    //   123: invokevirtual 373	android/view/Display:getMetrics	(Landroid/util/DisplayMetrics;)V
     //   126: aload_0
-    //   127: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   127: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   130: aload_2
-    //   131: getfield 373	android/util/DisplayMetrics:widthPixels	I
+    //   131: getfield 376	android/util/DisplayMetrics:widthPixels	I
     //   134: aload_2
-    //   135: getfield 376	android/util/DisplayMetrics:heightPixels	I
-    //   138: invokevirtual 380	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetDisplaySize	(II)V
+    //   135: getfield 379	android/util/DisplayMetrics:heightPixels	I
+    //   138: invokevirtual 383	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetDisplaySize	(II)V
     //   141: aload_0
-    //   142: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   142: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   145: aload_0
-    //   146: getfield 221	com/ooyala/android/VisualOnStreamPlayer:_view	Landroid/view/SurfaceView;
-    //   149: invokevirtual 384	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetView	(Landroid/view/SurfaceView;)V
+    //   146: getfield 226	com/ooyala/android/VisualOnStreamPlayer:_view	Landroid/view/SurfaceView;
+    //   149: invokevirtual 387	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetView	(Landroid/view/SurfaceView;)V
     //   152: aload_0
-    //   153: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   153: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   156: aload_0
-    //   157: invokevirtual 388	com/visualon/OSMPBasePlayer/voOSBasePlayer:setEventListener	(Lcom/visualon/OSMPBasePlayer/voOSBasePlayer$onEventListener;)V
+    //   157: invokevirtual 391	com/visualon/OSMPBasePlayer/voOSBasePlayer:setEventListener	(Lcom/visualon/OSMPBasePlayer/voOSBasePlayer$onEventListener;)V
     //   160: aload_0
-    //   161: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
-    //   164: ldc_w 389
-    //   167: ldc_w 391
-    //   170: invokevirtual 395	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
+    //   161: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   164: ldc_w 392
+    //   167: ldc_w 394
+    //   170: invokevirtual 398	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
     //   173: pop
     //   174: aload_0
-    //   175: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
-    //   178: ldc_w 396
-    //   181: ldc_w 398
-    //   184: invokevirtual 395	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
+    //   175: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   178: ldc_w 399
+    //   181: ldc_w 401
+    //   184: invokevirtual 398	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
     //   187: pop
     //   188: aload_0
-    //   189: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   189: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   192: bipush 9
-    //   194: ldc_w 400
-    //   197: invokevirtual 395	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
+    //   194: ldc_w 403
+    //   197: invokevirtual 398	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
     //   200: pop
-    //   201: ldc_w 401
+    //   201: ldc_w 404
     //   204: newarray <illegal type>
     //   206: astore_2
     //   207: aload_0
-    //   208: getfield 221	com/ooyala/android/VisualOnStreamPlayer:_view	Landroid/view/SurfaceView;
-    //   211: invokevirtual 352	android/view/SurfaceView:getContext	()Landroid/content/Context;
-    //   214: invokevirtual 112	android/content/Context:getAssets	()Landroid/content/res/AssetManager;
-    //   217: ldc_w 403
-    //   220: invokevirtual 118	android/content/res/AssetManager:open	(Ljava/lang/String;)Ljava/io/InputStream;
+    //   208: getfield 226	com/ooyala/android/VisualOnStreamPlayer:_view	Landroid/view/SurfaceView;
+    //   211: invokevirtual 355	android/view/SurfaceView:getContext	()Landroid/content/Context;
+    //   214: invokevirtual 119	android/content/Context:getAssets	()Landroid/content/res/AssetManager;
+    //   217: ldc_w 406
+    //   220: invokevirtual 125	android/content/res/AssetManager:open	(Ljava/lang/String;)Ljava/io/InputStream;
     //   223: astore_3
     //   224: aload_3
     //   225: aload_2
-    //   226: invokevirtual 161	java/io/InputStream:read	([B)I
+    //   226: invokevirtual 168	java/io/InputStream:read	([B)I
     //   229: pop
     //   230: aload_3
-    //   231: invokevirtual 404	java/io/InputStream:close	()V
+    //   231: invokevirtual 407	java/io/InputStream:close	()V
     //   234: aload_0
-    //   235: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   235: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   238: bipush 43
     //   240: aload_2
-    //   241: invokevirtual 395	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
+    //   241: invokevirtual 398	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
     //   244: pop
     //   245: aload_0
-    //   246: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   246: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   249: bipush 8
     //   251: iconst_0
-    //   252: invokestatic 410	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
-    //   255: invokevirtual 395	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
+    //   252: invokestatic 413	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
+    //   255: invokevirtual 398	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
     //   258: pop
     //   259: aload_0
-    //   260: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   260: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   263: sipush 10496
     //   266: iconst_1
-    //   267: invokestatic 410	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
-    //   270: invokevirtual 395	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
+    //   267: invokestatic 413	java/lang/Integer:valueOf	(I)Ljava/lang/Integer;
+    //   270: invokevirtual 398	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
     //   273: pop
-    //   274: new 122	java/lang/StringBuilder
+    //   274: new 129	java/lang/StringBuilder
     //   277: dup
-    //   278: invokespecial 123	java/lang/StringBuilder:<init>	()V
+    //   278: invokespecial 130	java/lang/StringBuilder:<init>	()V
     //   281: aload_0
-    //   282: getfield 211	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
-    //   285: invokevirtual 217	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
-    //   288: invokevirtual 250	android/widget/FrameLayout:getContext	()Landroid/content/Context;
-    //   291: invokevirtual 127	android/content/Context:getFilesDir	()Ljava/io/File;
-    //   294: invokevirtual 130	java/io/File:getParentFile	()Ljava/io/File;
-    //   297: invokevirtual 134	java/io/File:getPath	()Ljava/lang/String;
-    //   300: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   303: ldc -116
-    //   305: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   308: invokevirtual 143	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   282: getfield 216	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
+    //   285: invokevirtual 222	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
+    //   288: invokevirtual 253	android/widget/FrameLayout:getContext	()Landroid/content/Context;
+    //   291: invokevirtual 134	android/content/Context:getFilesDir	()Ljava/io/File;
+    //   294: invokevirtual 137	java/io/File:getParentFile	()Ljava/io/File;
+    //   297: invokevirtual 141	java/io/File:getPath	()Ljava/lang/String;
+    //   300: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   303: ldc -109
+    //   305: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   308: invokevirtual 150	java/lang/StringBuilder:toString	()Ljava/lang/String;
     //   311: astore_2
-    //   312: new 122	java/lang/StringBuilder
+    //   312: new 129	java/lang/StringBuilder
     //   315: dup
-    //   316: invokespecial 123	java/lang/StringBuilder:<init>	()V
+    //   316: invokespecial 130	java/lang/StringBuilder:<init>	()V
     //   319: aload_2
-    //   320: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   323: ldc_w 412
-    //   326: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   329: invokevirtual 143	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   320: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   323: ldc_w 415
+    //   326: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   329: invokevirtual 150	java/lang/StringBuilder:toString	()Ljava/lang/String;
     //   332: astore_2
     //   333: aload_0
-    //   334: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
-    //   337: ldc_w 413
+    //   334: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   337: ldc_w 416
     //   340: aload_2
-    //   341: invokevirtual 395	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
+    //   341: invokevirtual 398	com/visualon/OSMPBasePlayer/voOSBasePlayer:SetParam	(ILjava/lang/Object;)I
     //   344: pop
     //   345: aload_0
-    //   346: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   346: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   349: aload_0
-    //   350: getfield 54	com/ooyala/android/VisualOnStreamPlayer:_streamUrl	Ljava/lang/String;
+    //   350: getfield 63	com/ooyala/android/VisualOnStreamPlayer:_streamUrl	Ljava/lang/String;
     //   353: bipush 33
     //   355: iconst_0
     //   356: iconst_0
     //   357: iconst_0
-    //   358: invokevirtual 417	com/visualon/OSMPBasePlayer/voOSBasePlayer:Open	(Ljava/lang/Object;IIII)I
+    //   358: invokevirtual 420	com/visualon/OSMPBasePlayer/voOSBasePlayer:Open	(Ljava/lang/Object;IIII)I
     //   361: ifne +57 -> 418
-    //   364: ldc 14
-    //   366: ldc_w 419
-    //   369: invokestatic 348	android/util/Log:v	(Ljava/lang/String;Ljava/lang/String;)I
+    //   364: ldc 23
+    //   366: ldc_w 422
+    //   369: invokestatic 351	android/util/Log:v	(Ljava/lang/String;Ljava/lang/String;)I
     //   372: pop
     //   373: return
-    //   374: ldc 14
-    //   376: ldc_w 421
-    //   379: invokestatic 244	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;)I
+    //   374: ldc 23
+    //   376: ldc_w 424
+    //   379: invokestatic 249	android/util/Log:e	(Ljava/lang/String;Ljava/lang/String;)I
     //   382: pop
     //   383: aload_0
-    //   384: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
-    //   387: invokevirtual 424	com/visualon/OSMPBasePlayer/voOSBasePlayer:Uninit	()I
+    //   384: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   387: invokevirtual 427	com/visualon/OSMPBasePlayer/voOSBasePlayer:Uninit	()I
     //   390: pop
     //   391: return
     //   392: astore_2
     //   393: aload_2
-    //   394: invokevirtual 425	java/lang/Throwable:printStackTrace	()V
+    //   394: invokevirtual 428	java/lang/Throwable:printStackTrace	()V
     //   397: return
     //   398: aload_0
     //   399: aload_0
-    //   400: getfield 48	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
+    //   400: getfield 57	com/ooyala/android/VisualOnStreamPlayer:_player	Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;
     //   403: iload_1
     //   404: iconst_0
-    //   405: invokevirtual 429	com/ooyala/android/VisualOnStreamPlayer:onError	(Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;II)Z
+    //   405: invokevirtual 432	com/ooyala/android/VisualOnStreamPlayer:onError	(Lcom/visualon/OSMPBasePlayer/voOSBasePlayer;II)Z
     //   408: pop
     //   409: return
     //   410: astore_3
     //   411: aload_3
-    //   412: invokevirtual 168	java/io/IOException:printStackTrace	()V
+    //   412: invokevirtual 175	java/io/IOException:printStackTrace	()V
     //   415: goto -181 -> 234
     //   418: aload_0
-    //   419: getfield 211	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
-    //   422: invokevirtual 217	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
-    //   425: invokevirtual 250	android/widget/FrameLayout:getContext	()Landroid/content/Context;
-    //   428: new 122	java/lang/StringBuilder
+    //   419: getfield 216	com/ooyala/android/VisualOnStreamPlayer:_parent	Lcom/ooyala/android/OoyalaPlayer;
+    //   422: invokevirtual 222	com/ooyala/android/OoyalaPlayer:getLayout	()Landroid/widget/FrameLayout;
+    //   425: invokevirtual 253	android/widget/FrameLayout:getContext	()Landroid/content/Context;
+    //   428: new 129	java/lang/StringBuilder
     //   431: dup
-    //   432: invokespecial 123	java/lang/StringBuilder:<init>	()V
-    //   435: ldc_w 431
-    //   438: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   432: invokespecial 130	java/lang/StringBuilder:<init>	()V
+    //   435: ldc_w 434
+    //   438: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
     //   441: aload_0
-    //   442: getfield 54	com/ooyala/android/VisualOnStreamPlayer:_streamUrl	Ljava/lang/String;
-    //   445: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   448: ldc_w 433
-    //   451: invokevirtual 138	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    //   454: invokevirtual 143	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   442: getfield 63	com/ooyala/android/VisualOnStreamPlayer:_streamUrl	Ljava/lang/String;
+    //   445: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   448: ldc_w 436
+    //   451: invokevirtual 145	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   454: invokevirtual 150	java/lang/StringBuilder:toString	()Ljava/lang/String;
     //   457: iconst_1
-    //   458: invokestatic 439	android/widget/Toast:makeText	(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-    //   461: invokevirtual 442	android/widget/Toast:show	()V
+    //   458: invokestatic 442	android/widget/Toast:makeText	(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    //   461: invokevirtual 445	android/widget/Toast:show	()V
     //   464: return
     // Local variable table:
     //   start	length	slot	name	signature
@@ -464,7 +499,7 @@ class VisualOnStreamPlayer
     if (_player == null) {
       return 0;
     }
-    switch (VisualOnStreamPlayer.3.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     }
     return _player.GetPos();
@@ -490,7 +525,7 @@ class VisualOnStreamPlayer
     if (_player == null) {
       return 0;
     }
-    switch (VisualOnStreamPlayer.3.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     }
     return _player.GetDuration();
@@ -661,7 +696,7 @@ class VisualOnStreamPlayer
   public void pause()
   {
     _playQueued = false;
-    switch (VisualOnStreamPlayer.3.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     default: 
       return;
@@ -674,19 +709,19 @@ class VisualOnStreamPlayer
   public void play()
   {
     _playQueued = false;
-    switch (VisualOnStreamPlayer.3.$SwitchMap$com$ooyala$android$OoyalaPlayer$State[_state.ordinal()])
+    switch (_state)
     {
     default: 
       Log.v("VisualOnStreamPlayer", "Play: invalid status?" + _state);
       return;
-    case 2: 
-    case 3: 
+    case ???: 
+    case ???: 
       queuePlay();
       Log.v("VisualOnStreamPlayer", "Play: still laoding, queued");
       return;
-    case 4: 
-    case 5: 
-    case 6: 
+    case ???: 
+    case ???: 
+    case ???: 
       Log.v("VisualOnStreamPlayer", "Play: ready - about to run");
       if (_timeBeforeSuspend >= 0)
       {
@@ -767,7 +802,7 @@ class VisualOnStreamPlayer
       stopPlayheadTimer();
     }
     _playheadUpdateTimer = new Timer();
-    _playheadUpdateTimer.scheduleAtFixedRate(new VisualOnStreamPlayer.PlayheadUpdateTimerTask(this), 0L, 250L);
+    _playheadUpdateTimer.scheduleAtFixedRate(new PlayheadUpdateTimerTask(), 0L, 250L);
   }
   
   public void stop()
@@ -849,6 +884,23 @@ class VisualOnStreamPlayer
     _buffer = 0;
     _playQueued = false;
     setState(OoyalaPlayer.State.SUSPENDED);
+  }
+  
+  protected class PlayheadUpdateTimerTask
+    extends TimerTask
+  {
+    protected PlayheadUpdateTimerTask() {}
+    
+    public void run()
+    {
+      if (_player == null) {
+        return;
+      }
+      if (_lastPlayhead != _player.GetPos()) {
+        _playheadUpdateTimerHandler.sendEmptyMessage(0);
+      }
+      VisualOnStreamPlayer.access$002(VisualOnStreamPlayer.this, _player.GetPos());
+    }
   }
 }
 

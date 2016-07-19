@@ -1,5 +1,6 @@
 package android.support.v4.app;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,36 +10,47 @@ import android.util.Log;
 final class FragmentState
   implements Parcelable
 {
-  public static final Parcelable.Creator<FragmentState> CREATOR = new FragmentState.1();
-  final Bundle mArguments;
-  final String mClassName;
-  final int mContainerId;
-  final boolean mDetached;
-  final int mFragmentId;
-  final boolean mFromLayout;
-  final int mIndex;
-  Fragment mInstance;
-  final boolean mRetainInstance;
-  Bundle mSavedFragmentState;
-  final String mTag;
+  public static final Parcelable.Creator<FragmentState> CREATOR = new Parcelable.Creator()
+  {
+    public FragmentState a(Parcel paramAnonymousParcel)
+    {
+      return new FragmentState(paramAnonymousParcel);
+    }
+    
+    public FragmentState[] a(int paramAnonymousInt)
+    {
+      return new FragmentState[paramAnonymousInt];
+    }
+  };
+  final String a;
+  final int b;
+  final boolean c;
+  final int d;
+  final int e;
+  final String f;
+  final boolean g;
+  final boolean h;
+  final Bundle i;
+  Bundle j;
+  Fragment k;
   
   public FragmentState(Parcel paramParcel)
   {
-    mClassName = paramParcel.readString();
-    mIndex = paramParcel.readInt();
+    a = paramParcel.readString();
+    b = paramParcel.readInt();
     if (paramParcel.readInt() != 0)
     {
       bool1 = true;
-      mFromLayout = bool1;
-      mFragmentId = paramParcel.readInt();
-      mContainerId = paramParcel.readInt();
-      mTag = paramParcel.readString();
+      c = bool1;
+      d = paramParcel.readInt();
+      e = paramParcel.readInt();
+      f = paramParcel.readString();
       if (paramParcel.readInt() == 0) {
         break label110;
       }
       bool1 = true;
       label69:
-      mRetainInstance = bool1;
+      g = bool1;
       if (paramParcel.readInt() == 0) {
         break label115;
       }
@@ -47,9 +59,9 @@ final class FragmentState
     label115:
     for (boolean bool1 = bool2;; bool1 = false)
     {
-      mDetached = bool1;
-      mArguments = paramParcel.readBundle();
-      mSavedFragmentState = paramParcel.readBundle();
+      h = bool1;
+      i = paramParcel.readBundle();
+      j = paramParcel.readBundle();
       return;
       bool1 = false;
       break;
@@ -60,15 +72,45 @@ final class FragmentState
   
   public FragmentState(Fragment paramFragment)
   {
-    mClassName = paramFragment.getClass().getName();
-    mIndex = mIndex;
-    mFromLayout = mFromLayout;
-    mFragmentId = mFragmentId;
-    mContainerId = mContainerId;
-    mTag = mTag;
-    mRetainInstance = mRetainInstance;
-    mDetached = mDetached;
-    mArguments = mArguments;
+    a = paramFragment.getClass().getName();
+    b = mIndex;
+    c = mFromLayout;
+    d = mFragmentId;
+    e = mContainerId;
+    f = mTag;
+    g = mRetainInstance;
+    h = mDetached;
+    i = mArguments;
+  }
+  
+  public Fragment a(k paramk, Fragment paramFragment)
+  {
+    if (k != null) {
+      return k;
+    }
+    Context localContext = paramk.i();
+    if (i != null) {
+      i.setClassLoader(localContext.getClassLoader());
+    }
+    k = Fragment.instantiate(localContext, a, i);
+    if (j != null)
+    {
+      j.setClassLoader(localContext.getClassLoader());
+      k.mSavedFragmentState = j;
+    }
+    k.setIndex(b, paramFragment);
+    k.mFromLayout = c;
+    k.mRestored = true;
+    k.mFragmentId = d;
+    k.mContainerId = e;
+    k.mTag = f;
+    k.mRetainInstance = g;
+    k.mDetached = h;
+    k.mFragmentManager = d;
+    if (m.a) {
+      Log.v("FragmentManager", "Instantiated fragment " + k);
+    }
+    return k;
   }
   
   public int describeContents()
@@ -76,64 +118,35 @@ final class FragmentState
     return 0;
   }
   
-  public Fragment instantiate(FragmentActivity paramFragmentActivity, Fragment paramFragment)
-  {
-    if (mInstance != null) {
-      return mInstance;
-    }
-    if (mArguments != null) {
-      mArguments.setClassLoader(paramFragmentActivity.getClassLoader());
-    }
-    mInstance = Fragment.instantiate(paramFragmentActivity, mClassName, mArguments);
-    if (mSavedFragmentState != null)
-    {
-      mSavedFragmentState.setClassLoader(paramFragmentActivity.getClassLoader());
-      mInstance.mSavedFragmentState = mSavedFragmentState;
-    }
-    mInstance.setIndex(mIndex, paramFragment);
-    mInstance.mFromLayout = mFromLayout;
-    mInstance.mRestored = true;
-    mInstance.mFragmentId = mFragmentId;
-    mInstance.mContainerId = mContainerId;
-    mInstance.mTag = mTag;
-    mInstance.mRetainInstance = mRetainInstance;
-    mInstance.mDetached = mDetached;
-    mInstance.mFragmentManager = mFragments;
-    if (FragmentManagerImpl.DEBUG) {
-      Log.v("FragmentManager", "Instantiated fragment " + mInstance);
-    }
-    return mInstance;
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    int i = 1;
-    paramParcel.writeString(mClassName);
-    paramParcel.writeInt(mIndex);
-    if (mFromLayout)
+    int m = 1;
+    paramParcel.writeString(a);
+    paramParcel.writeInt(b);
+    if (c)
     {
       paramInt = 1;
       paramParcel.writeInt(paramInt);
-      paramParcel.writeInt(mFragmentId);
-      paramParcel.writeInt(mContainerId);
-      paramParcel.writeString(mTag);
-      if (!mRetainInstance) {
+      paramParcel.writeInt(d);
+      paramParcel.writeInt(e);
+      paramParcel.writeString(f);
+      if (!g) {
         break label106;
       }
       paramInt = 1;
       label65:
       paramParcel.writeInt(paramInt);
-      if (!mDetached) {
+      if (!h) {
         break label111;
       }
     }
     label106:
     label111:
-    for (paramInt = i;; paramInt = 0)
+    for (paramInt = m;; paramInt = 0)
     {
       paramParcel.writeInt(paramInt);
-      paramParcel.writeBundle(mArguments);
-      paramParcel.writeBundle(mSavedFragmentState);
+      paramParcel.writeBundle(i);
+      paramParcel.writeBundle(j);
       return;
       paramInt = 0;
       break;

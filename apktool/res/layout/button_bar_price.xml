@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:gravity="center" android:paddingLeft="?leftGapSize" android:paddingTop="?baseGapSize" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<FrameLayout android:gravity="center" android:paddingLeft="?leftGapSize" android:paddingTop="@dimen/default_base_gap_size" android:paddingRight="?rightGapSize" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
-    <com.yelp.android.ui.widgets.WidgetSpan android:layout_gravity="center" android:id="@id/button_bar" android:background="@drawable/gray_rounded_rect" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_1" android:background="@drawable/button_background_price" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
-        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_2" android:background="@drawable/button_background_price" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
-        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_3" android:background="@drawable/button_background_price" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
-        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_4" android:background="@drawable/button_background_price" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
+    <com.yelp.android.ui.widgets.WidgetSpan android:layout_gravity="center" android:id="@id/button_bar" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_1" android:background="@drawable/segmented_control_button_background" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
+        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_2" android:background="@drawable/segmented_control_button_background" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
+        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_3" android:background="@drawable/segmented_control_button_background" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
+        <com.yelp.android.ui.widgets.TwoTierButton android:id="@id/price_4" android:background="@drawable/segmented_control_button_background" android:layout_width="0.0dip" android:layout_height="50.0dip" android:layout_weight="1.0" yelp:checkable="true" />
     </com.yelp.android.ui.widgets.WidgetSpan>
 </FrameLayout>

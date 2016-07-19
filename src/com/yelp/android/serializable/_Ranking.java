@@ -2,44 +2,95 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Ranking
   implements Parcelable
 {
-  protected String mBusinessName;
-  protected int mCount;
-  protected Date mDateCreated;
-  protected int mRank;
-  protected int[] mUserEliteYears;
-  protected int mUserFriendCount;
-  protected String mUserId;
-  protected String mUserName;
-  protected int mUserPhotoCount;
-  protected String mUserPhotoUrl;
-  protected int mUserReviewCount;
-  protected int mUserVideoCount;
+  protected Date a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected int f;
+  protected int g;
+  protected int h;
+  protected int i;
+  protected int j;
+  protected int k;
+  protected int[] l;
   
-  protected _Ranking() {}
-  
-  protected _Ranking(Date paramDate, String paramString1, String paramString2, String paramString3, String paramString4, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6, int[] paramArrayOfInt)
+  public String a()
   {
-    this();
-    mDateCreated = paramDate;
-    mUserId = paramString1;
-    mUserName = paramString2;
-    mUserPhotoUrl = paramString3;
-    mBusinessName = paramString4;
-    mUserFriendCount = paramInt1;
-    mUserReviewCount = paramInt2;
-    mUserVideoCount = paramInt3;
-    mUserPhotoCount = paramInt4;
-    mRank = paramInt5;
-    mCount = paramInt6;
-    mUserEliteYears = paramArrayOfInt;
+    return c;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      a = new Date(l1);
+    }
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = paramParcel.readInt();
+    g = paramParcel.readInt();
+    h = paramParcel.readInt();
+    i = paramParcel.readInt();
+    j = paramParcel.readInt();
+    k = paramParcel.readInt();
+    l = paramParcel.createIntArray();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("user_id")) {
+      b = paramJSONObject.optString("user_id");
+    }
+    if (!paramJSONObject.isNull("user_name")) {
+      c = paramJSONObject.optString("user_name");
+    }
+    if (!paramJSONObject.isNull("user_photo_url")) {
+      d = paramJSONObject.optString("user_photo_url");
+    }
+    if (!paramJSONObject.isNull("business_name")) {
+      e = paramJSONObject.optString("business_name");
+    }
+    f = paramJSONObject.optInt("user_friend_count");
+    g = paramJSONObject.optInt("user_review_count");
+    h = paramJSONObject.optInt("user_video_count");
+    i = paramJSONObject.optInt("user_photo_count");
+    j = paramJSONObject.optInt("rank");
+    k = paramJSONObject.optInt("count");
+    if (!paramJSONObject.isNull("user_elite_years"))
+    {
+      paramJSONObject = paramJSONObject.getJSONArray("user_elite_years");
+      int n = paramJSONObject.length();
+      l = new int[n];
+      int m = 0;
+      while (m < n)
+      {
+        l[m] = paramJSONObject.getInt(m);
+        m += 1;
+      }
+    }
+  }
+  
+  public String c()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -47,139 +98,62 @@ abstract class _Ranking
     return 0;
   }
   
-  public String getBusinessName()
+  public boolean equals(Object paramObject)
   {
-    return mBusinessName;
-  }
-  
-  public int getCount()
-  {
-    return mCount;
-  }
-  
-  public Date getDateCreated()
-  {
-    return mDateCreated;
-  }
-  
-  public int getRank()
-  {
-    return mRank;
-  }
-  
-  public int[] getUserEliteYears()
-  {
-    return mUserEliteYears;
-  }
-  
-  public int getUserFriendCount()
-  {
-    return mUserFriendCount;
-  }
-  
-  public String getUserId()
-  {
-    return mUserId;
-  }
-  
-  public String getUserName()
-  {
-    return mUserName;
-  }
-  
-  public int getUserPhotoCount()
-  {
-    return mUserPhotoCount;
-  }
-  
-  public String getUserPhotoUrl()
-  {
-    return mUserPhotoUrl;
-  }
-  
-  public int getUserReviewCount()
-  {
-    return mUserReviewCount;
-  }
-  
-  public int getUserVideoCount()
-  {
-    return mUserVideoCount;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_created")) {
-      mDateCreated = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("user_id")) {
-      mUserId = paramJSONObject.optString("user_id");
-    }
-    if (!paramJSONObject.isNull("user_name")) {
-      mUserName = paramJSONObject.optString("user_name");
-    }
-    if (!paramJSONObject.isNull("user_photo_url")) {
-      mUserPhotoUrl = paramJSONObject.optString("user_photo_url");
-    }
-    if (!paramJSONObject.isNull("business_name")) {
-      mBusinessName = paramJSONObject.optString("business_name");
-    }
-    mUserFriendCount = paramJSONObject.optInt("user_friend_count");
-    mUserReviewCount = paramJSONObject.optInt("user_review_count");
-    mUserVideoCount = paramJSONObject.optInt("user_video_count");
-    mUserPhotoCount = paramJSONObject.optInt("user_photo_count");
-    mRank = paramJSONObject.optInt("rank");
-    mCount = paramJSONObject.optInt("count");
-    if (!paramJSONObject.isNull("user_elite_years"))
+    if (paramObject == null) {}
+    do
     {
-      paramJSONObject = paramJSONObject.getJSONArray("user_elite_years");
-      int j = paramJSONObject.length();
-      mUserEliteYears = new int[j];
-      int i = 0;
-      while (i < j)
-      {
-        mUserEliteYears[i] = paramJSONObject.getInt(i);
-        i += 1;
+      return false;
+      if (paramObject == this) {
+        return true;
       }
-    }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Ranking)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a();
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int hashCode()
   {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateCreated = new Date(l);
-    }
-    mUserId = paramParcel.readString();
-    mUserName = paramParcel.readString();
-    mUserPhotoUrl = paramParcel.readString();
-    mBusinessName = paramParcel.readString();
-    mUserFriendCount = paramParcel.readInt();
-    mUserReviewCount = paramParcel.readInt();
-    mUserVideoCount = paramParcel.readInt();
-    mUserPhotoCount = paramParcel.readInt();
-    mRank = paramParcel.readInt();
-    mCount = paramParcel.readInt();
-    mUserEliteYears = paramParcel.createIntArray();
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a();
+  }
+  
+  public String i()
+  {
+    return b;
+  }
+  
+  public int[] l()
+  {
+    return l;
+  }
+  
+  public int m()
+  {
+    return k;
+  }
+  
+  public int n()
+  {
+    return j;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mDateCreated == null) {}
-    for (long l = -2147483648L;; l = mDateCreated.getTime())
+    if (a == null) {}
+    for (long l1 = -2147483648L;; l1 = a.getTime())
     {
-      paramParcel.writeLong(l);
-      paramParcel.writeString(mUserId);
-      paramParcel.writeString(mUserName);
-      paramParcel.writeString(mUserPhotoUrl);
-      paramParcel.writeString(mBusinessName);
-      paramParcel.writeInt(mUserFriendCount);
-      paramParcel.writeInt(mUserReviewCount);
-      paramParcel.writeInt(mUserVideoCount);
-      paramParcel.writeInt(mUserPhotoCount);
-      paramParcel.writeInt(mRank);
-      paramParcel.writeInt(mCount);
-      paramParcel.writeIntArray(mUserEliteYears);
+      paramParcel.writeLong(l1);
+      paramParcel.writeValue(b);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeInt(f);
+      paramParcel.writeInt(g);
+      paramParcel.writeInt(h);
+      paramParcel.writeInt(i);
+      paramParcel.writeInt(j);
+      paramParcel.writeInt(k);
+      paramParcel.writeIntArray(l);
       return;
     }
   }

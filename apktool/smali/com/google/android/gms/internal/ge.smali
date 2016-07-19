@@ -3,180 +3,109 @@
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/internal/ge$a;
+    }
 .end annotation
 
 
-# static fields
-.field private static final ut:Ljava/lang/Object;
-
-.field private static wt:Ljava/lang/String;
+# instance fields
+.field private a:Ljava/util/WeakHashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/WeakHashMap",
+            "<",
+            "Landroid/content/Context;",
+            "Lcom/google/android/gms/internal/ge$a;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public constructor <init>()V
     .locals 1
 
-    new-instance v0, Ljava/lang/Object;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    new-instance v0, Ljava/util/WeakHashMap;
 
-    sput-object v0, Lcom/google/android/gms/internal/ge;->ut:Ljava/lang/Object;
+    invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ge;->a:Ljava/util/WeakHashMap;
 
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
 
-    sget-object v1, Lcom/google/android/gms/internal/ge;->ut:Ljava/lang/Object;
+# virtual methods
+.method public a(Landroid/content/Context;)Lcom/google/android/gms/internal/gd;
+    .locals 3
 
-    monitor-enter v1
+    iget-object v0, p0, Lcom/google/android/gms/internal/ge;->a:Ljava/util/WeakHashMap;
 
-    :try_start_0
-    sget-object v0, Lcom/google/android/gms/internal/ge;->wt:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-static {p0, p1, p2}, Lcom/google/android/gms/internal/ge;->b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_0
-    sget-object v0, Lcom/google/android/gms/internal/ge;->wt:Ljava/lang/String;
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method private static b(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 8
-
-    const/4 v7, 0x1
-
-    const/4 v1, 0x0
-
-    const/4 v0, 0x3
-
-    :try_start_0
-    invoke-virtual {p0, p2, v0}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+    invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
+    check-cast v0, Lcom/google/android/gms/internal/ge$a;
 
-    move-result-object v3
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v0, "com.google.ads.mediation.MediationAdapter"
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/ge$a;->a()Z
 
-    const/4 v2, 0x0
+    move-result v1
 
-    invoke-static {v0, v2, v3}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    if-nez v1, :cond_0
 
-    move-result-object v4
+    sget-object v1, Lcom/google/android/gms/internal/ao;->al:Lcom/google/android/gms/internal/ak;
 
-    new-instance v0, Ljava/math/BigInteger;
+    invoke-virtual {v1}, Lcom/google/android/gms/internal/ak;->c()Ljava/lang/Object;
 
-    new-array v2, v7, [B
+    move-result-object v1
 
-    invoke-direct {v0, v2}, Ljava/math/BigInteger;-><init>([B)V
+    check-cast v1, Ljava/lang/Boolean;
 
-    const-string/jumbo v2, ","
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-result v1
 
-    move-result-object v5
+    if-eqz v1, :cond_0
 
-    move-object v2, v0
+    new-instance v1, Lcom/google/android/gms/internal/gd$a;
 
-    move v0, v1
+    iget-object v0, v0, Lcom/google/android/gms/internal/ge$a;->b:Lcom/google/android/gms/internal/gd;
+
+    invoke-direct {v1, p1, v0}, Lcom/google/android/gms/internal/gd$a;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/gd;)V
+
+    invoke-virtual {v1}, Lcom/google/android/gms/internal/gd$a;->a()Lcom/google/android/gms/internal/gd;
+
+    move-result-object v0
 
     :goto_0
-    array-length v6, v5
+    iget-object v1, p0, Lcom/google/android/gms/internal/ge;->a:Ljava/util/WeakHashMap;
 
-    if-ge v0, v6, :cond_1
+    new-instance v2, Lcom/google/android/gms/internal/ge$a;
 
-    aget-object v6, v5, v0
+    invoke-direct {v2, p0, v0}, Lcom/google/android/gms/internal/ge$a;-><init>(Lcom/google/android/gms/internal/ge;Lcom/google/android/gms/internal/gd;)V
 
-    invoke-static {v3, v4, v6}, Lcom/google/android/gms/internal/gi;->a(Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    invoke-virtual {v2, v0}, Ljava/math/BigInteger;->setBit(I)Ljava/math/BigInteger;
-
-    move-result-object v2
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v0, "err"
-
-    sput-object v0, Lcom/google/android/gms/internal/ge;->wt:Ljava/lang/String;
-
-    :goto_1
-    return-void
-
-    :cond_1
-    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    const-string/jumbo v3, "%X"
-
-    new-array v4, v7, [Ljava/lang/Object;
-
-    aput-object v2, v4, v1
-
-    invoke-static {v0, v3, v4}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/google/android/gms/internal/ge;->wt:Ljava/lang/String;
-
-    goto :goto_1
-.end method
-
-.method public static dr()Ljava/lang/String;
-    .locals 2
-
-    sget-object v1, Lcom/google/android/gms/internal/ge;->ut:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/google/android/gms/internal/ge;->wt:Ljava/lang/String;
-
-    monitor-exit v1
+    invoke-virtual {v1, p1, v2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-object v0
 
-    :catchall_0
-    move-exception v0
+    :cond_0
+    new-instance v0, Lcom/google/android/gms/internal/gd$a;
 
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-direct {v0, p1}, Lcom/google/android/gms/internal/gd$a;-><init>(Landroid/content/Context;)V
 
-    throw v0
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/gd$a;->a()Lcom/google/android/gms/internal/gd;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method

@@ -4,4 +4,4 @@
 
 # interfaces
 .implements Lcom/yelp/android/serializable/Media;
-.implements Lcom/yelp/android/serializable/ay;
+.implements Lcom/yelp/android/serializable/b;

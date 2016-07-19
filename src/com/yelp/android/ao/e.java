@@ -1,128 +1,88 @@
 package com.yelp.android.ao;
 
-import java.io.IOException;
-import java.net.ConnectException;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpRequestRetryHandler;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.impl.client.AbstractHttpClient;
-import org.apache.http.protocol.HttpContext;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
-class e
-  implements Runnable
+public class e<T, Y>
 {
-  private final AbstractHttpClient a;
-  private final HttpContext b;
-  private final HttpUriRequest c;
-  private final f d;
-  private boolean e;
-  private int f;
+  private final LinkedHashMap<T, Y> a = new LinkedHashMap(100, 0.75F, true);
+  private int b;
+  private final int c;
+  private int d = 0;
   
-  public e(AbstractHttpClient paramAbstractHttpClient, HttpContext paramHttpContext, HttpUriRequest paramHttpUriRequest, f paramf)
+  public e(int paramInt)
   {
-    a = paramAbstractHttpClient;
-    b = paramHttpContext;
-    c = paramHttpUriRequest;
-    d = paramf;
-    if ((paramf instanceof h)) {
-      e = true;
+    c = paramInt;
+    b = paramInt;
+  }
+  
+  private void c()
+  {
+    b(b);
+  }
+  
+  protected int a(Y paramY)
+  {
+    return 1;
+  }
+  
+  public void a()
+  {
+    b(0);
+  }
+  
+  protected void a(T paramT, Y paramY) {}
+  
+  public int b()
+  {
+    return d;
+  }
+  
+  public Y b(T paramT)
+  {
+    return (Y)a.get(paramT);
+  }
+  
+  public Y b(T paramT, Y paramY)
+  {
+    if (a(paramY) >= b)
+    {
+      a(paramT, paramY);
+      return null;
+    }
+    paramT = a.put(paramT, paramY);
+    if (paramY != null) {
+      d += a(paramY);
+    }
+    if (paramT != null) {
+      d -= a(paramT);
+    }
+    c();
+    return paramT;
+  }
+  
+  protected void b(int paramInt)
+  {
+    while (d > paramInt)
+    {
+      Object localObject2 = (Map.Entry)a.entrySet().iterator().next();
+      Object localObject1 = ((Map.Entry)localObject2).getValue();
+      d -= a(localObject1);
+      localObject2 = ((Map.Entry)localObject2).getKey();
+      a.remove(localObject2);
+      a(localObject2, localObject1);
     }
   }
   
-  private void a()
+  public Y c(T paramT)
   {
-    if (!Thread.currentThread().isInterrupted()) {}
-    try
-    {
-      HttpResponse localHttpResponse = a.execute(c, b);
-      if ((!Thread.currentThread().isInterrupted()) && (d != null)) {
-        d.a(localHttpResponse);
-      }
-      return;
+    paramT = a.remove(paramT);
+    if (paramT != null) {
+      d -= a(paramT);
     }
-    catch (IOException localIOException)
-    {
-      while (Thread.currentThread().isInterrupted()) {}
-      throw localIOException;
-    }
-  }
-  
-  private void b()
-  {
-    boolean bool = true;
-    Object localObject1 = null;
-    Object localObject2 = a.getHttpRequestRetryHandler();
-    IOException localIOException2;
-    while (bool) {
-      try
-      {
-        a();
-        return;
-      }
-      catch (UnknownHostException localUnknownHostException)
-      {
-        while (d == null) {}
-        d.b(localUnknownHostException, "can't resolve host");
-        return;
-      }
-      catch (SocketException localSocketException)
-      {
-        while (d == null) {}
-        d.b(localSocketException, "can't resolve host");
-        return;
-      }
-      catch (SocketTimeoutException localSocketTimeoutException)
-      {
-        while (d == null) {}
-        d.b(localSocketTimeoutException, "socket time out");
-        return;
-      }
-      catch (IOException localIOException1)
-      {
-        i = f + 1;
-        f = i;
-        bool = ((HttpRequestRetryHandler)localObject2).retryRequest(localIOException1, i, b);
-      }
-      catch (NullPointerException localNullPointerException)
-      {
-        localIOException2 = new IOException("NPE in HttpClient" + localNullPointerException.getMessage());
-        int i = f + 1;
-        f = i;
-        bool = ((HttpRequestRetryHandler)localObject2).retryRequest(localIOException2, i, b);
-      }
-    }
-    localObject2 = new ConnectException();
-    ((ConnectException)localObject2).initCause(localIOException2);
-    throw ((Throwable)localObject2);
-  }
-  
-  public void run()
-  {
-    try
-    {
-      if (d != null) {
-        d.c();
-      }
-      b();
-      if (d != null) {
-        d.d();
-      }
-      return;
-    }
-    catch (IOException localIOException)
-    {
-      while (d == null) {}
-      d.d();
-      if (e)
-      {
-        d.a(localIOException, (byte[])null);
-        return;
-      }
-      d.b(localIOException, (String)null);
-    }
+    return paramT;
   }
 }
 

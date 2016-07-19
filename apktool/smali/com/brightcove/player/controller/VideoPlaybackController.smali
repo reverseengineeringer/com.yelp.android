@@ -37,6 +37,24 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/controller/VideoPlaybackController$1;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnSetCuePointsListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnSetCuePointListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnRemoveCuePointListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnDidSeekToListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnVideoCompletedListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnProgressUpdateListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnWillChangeVideoListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnPlayerReadyListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnDidSetSourceListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnSourceSelectedListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnSetVideoListener;,
+        Lcom/brightcove/player/controller/VideoPlaybackController$OnPlayListener;
+    }
+.end annotation
+
 
 # static fields
 .field public static final TAG:Ljava/lang/String;

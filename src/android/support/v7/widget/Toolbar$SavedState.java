@@ -5,21 +5,32 @@ import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.view.View.BaseSavedState;
 
-class Toolbar$SavedState
+public class Toolbar$SavedState
   extends View.BaseSavedState
 {
-  public static final Parcelable.Creator<SavedState> CREATOR = new dk();
-  public int expandedMenuItemId;
-  public boolean isOverflowOpen;
+  public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+  {
+    public Toolbar.SavedState a(Parcel paramAnonymousParcel)
+    {
+      return new Toolbar.SavedState(paramAnonymousParcel);
+    }
+    
+    public Toolbar.SavedState[] a(int paramAnonymousInt)
+    {
+      return new Toolbar.SavedState[paramAnonymousInt];
+    }
+  };
+  int a;
+  boolean b;
   
   public Toolbar$SavedState(Parcel paramParcel)
   {
     super(paramParcel);
-    expandedMenuItemId = paramParcel.readInt();
+    a = paramParcel.readInt();
     if (paramParcel.readInt() != 0) {}
     for (boolean bool = true;; bool = false)
     {
-      isOverflowOpen = bool;
+      b = bool;
       return;
     }
   }
@@ -32,8 +43,8 @@ class Toolbar$SavedState
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeInt(expandedMenuItemId);
-    if (isOverflowOpen) {}
+    paramParcel.writeInt(a);
+    if (b) {}
     for (paramInt = 1;; paramInt = 0)
     {
       paramParcel.writeInt(paramInt);

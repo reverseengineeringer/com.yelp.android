@@ -4,72 +4,61 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.os.RemoteException;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.dynamic.a;
+import com.google.android.gms.dynamic.b;
 import com.google.android.gms.dynamic.e;
-import com.google.android.gms.dynamic.f;
-import com.google.android.gms.maps.internal.IStreetViewPanoramaFragmentDelegate;
-import com.google.android.gms.maps.internal.c;
-import com.google.android.gms.maps.internal.x;
 import com.google.android.gms.maps.model.RuntimeRemoteException;
+import com.yelp.android.bj.h;
+import com.yelp.android.bj.q;
+import com.yelp.android.bj.s;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 class StreetViewPanoramaFragment$b
-  extends a<StreetViewPanoramaFragment.a>
+  extends b<StreetViewPanoramaFragment.a>
 {
-  private final Fragment TG;
-  protected f<StreetViewPanoramaFragment.a> akW;
-  private final List<OnStreetViewPanoramaReadyCallback> alq = new ArrayList();
-  private Activity nB;
+  protected e<StreetViewPanoramaFragment.a> a;
+  private final Fragment b;
+  private Activity c;
+  private final List<f> d = new ArrayList();
   
   StreetViewPanoramaFragment$b(Fragment paramFragment)
   {
-    TG = paramFragment;
+    b = paramFragment;
   }
   
-  private void setActivity(Activity paramActivity)
+  private void a(Activity paramActivity)
   {
-    nB = paramActivity;
-    nO();
+    c = paramActivity;
+    g();
   }
   
-  protected void a(f<StreetViewPanoramaFragment.a> paramf)
+  protected void a(e<StreetViewPanoramaFragment.a> parame)
   {
-    akW = paramf;
-    nO();
+    a = parame;
+    g();
   }
   
-  public void getStreetViewPanoramaAsync(OnStreetViewPanoramaReadyCallback paramOnStreetViewPanoramaReadyCallback)
+  public void g()
   {
-    if (je() != null)
-    {
-      ((StreetViewPanoramaFragment.a)je()).getStreetViewPanoramaAsync(paramOnStreetViewPanoramaReadyCallback);
-      return;
-    }
-    alq.add(paramOnStreetViewPanoramaReadyCallback);
-  }
-  
-  public void nO()
-  {
-    if ((nB != null) && (akW != null) && (je() == null)) {}
+    if ((c != null) && (a != null) && (a() == null)) {}
     try
     {
-      MapsInitializer.initialize(nB);
-      Object localObject = x.S(nB).k(e.k(nB));
-      akW.a(new StreetViewPanoramaFragment.a(TG, (IStreetViewPanoramaFragmentDelegate)localObject));
-      localObject = alq.iterator();
+      d.a(c);
+      Object localObject = q.a(c).c(com.google.android.gms.dynamic.d.a(c));
+      a.a(new StreetViewPanoramaFragment.a(b, (h)localObject));
+      localObject = d.iterator();
       while (((Iterator)localObject).hasNext())
       {
-        OnStreetViewPanoramaReadyCallback localOnStreetViewPanoramaReadyCallback = (OnStreetViewPanoramaReadyCallback)((Iterator)localObject).next();
-        ((StreetViewPanoramaFragment.a)je()).getStreetViewPanoramaAsync(localOnStreetViewPanoramaReadyCallback);
+        f localf = (f)((Iterator)localObject).next();
+        ((StreetViewPanoramaFragment.a)a()).a(localf);
       }
       return;
     }
     catch (RemoteException localRemoteException)
     {
       throw new RuntimeRemoteException(localRemoteException);
-      alq.clear();
+      d.clear();
       return;
     }
     catch (GooglePlayServicesNotAvailableException localGooglePlayServicesNotAvailableException) {}

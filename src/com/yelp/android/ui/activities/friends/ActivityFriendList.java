@@ -1,13 +1,14 @@
 package com.yelp.android.ui.activities.friends;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.support.YelpActivity;
 
@@ -27,7 +28,7 @@ public class ActivityFriendList
   
   public boolean a()
   {
-    return getAppData().m().a((User)getIntent().getParcelableExtra(a));
+    return getAppData().q().a((User)getIntent().getParcelableExtra(a));
   }
   
   public ViewIri getIri()
@@ -35,23 +36,24 @@ public class ActivityFriendList
     return null;
   }
   
+  @SuppressLint({"CommitTransaction"})
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     paramBundle = (User)getIntent().getParcelableExtra(a);
-    if (getAppData().m().a(paramBundle)) {
-      setTitle(2131165871);
+    if (getAppData().q().a(paramBundle)) {
+      setTitle(2131165948);
     }
     for (;;)
     {
-      c = ((FriendsListFragment)getSupportFragmentManager().findFragmentByTag(b));
+      c = ((FriendsListFragment)getSupportFragmentManager().a(b));
       if (c == null)
       {
         c = FriendsListFragment.a(paramBundle);
-        getSupportFragmentManager().beginTransaction().add(2131493332, c, b).commit();
+        getSupportFragmentManager().a().a(2131689997, c, b).a();
       }
       return;
-      setTitle(getString(2131166808, new Object[] { paramBundle.getFirstName() }));
+      setTitle(getString(2131166774, new Object[] { paramBundle.Z() }));
     }
   }
 }

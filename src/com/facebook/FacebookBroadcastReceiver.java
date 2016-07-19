@@ -4,12 +4,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.facebook.internal.NativeProtocol;
+import com.facebook.internal.p;
 
 public class FacebookBroadcastReceiver
   extends BroadcastReceiver
 {
-  protected void onFailedAppCall(String paramString1, String paramString2, Bundle paramBundle) {}
+  protected void a(String paramString1, String paramString2, Bundle paramBundle) {}
+  
+  protected void b(String paramString1, String paramString2, Bundle paramBundle) {}
   
   public void onReceive(Context paramContext, Intent paramIntent)
   {
@@ -19,18 +21,16 @@ public class FacebookBroadcastReceiver
     if ((paramContext != null) && (str != null))
     {
       localBundle = paramIntent.getExtras();
-      if (NativeProtocol.isErrorResult(paramIntent)) {
-        onFailedAppCall(paramContext, str, localBundle);
+      if (p.f(paramIntent)) {
+        b(paramContext, str, localBundle);
       }
     }
     else
     {
       return;
     }
-    onSuccessfulAppCall(paramContext, str, localBundle);
+    a(paramContext, str, localBundle);
   }
-  
-  protected void onSuccessfulAppCall(String paramString1, String paramString2, Bundle paramBundle) {}
 }
 
 /* Location:

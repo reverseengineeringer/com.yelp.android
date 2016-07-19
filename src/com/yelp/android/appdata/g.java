@@ -1,21 +1,40 @@
 package com.yelp.android.appdata;
 
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.serializable.PrivacyPolicy;
+import android.content.Context;
+import android.os.AsyncTask;
+import java.lang.ref.WeakReference;
 
-class g
-  implements m<PrivacyPolicy>
+public class g
+  extends AsyncTask<Void, Void, Boolean>
 {
-  g(AppData paramAppData) {}
+  private final WeakReference<Context> a;
+  private final WeakReference<Features.a> b;
+  private final Features c;
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, PrivacyPolicy paramPrivacyPolicy)
+  public g(Features paramFeatures, Context paramContext, Features.a parama)
   {
-    AppData.b().f().a(paramPrivacyPolicy);
+    c = paramFeatures;
+    a = new WeakReference(paramContext);
+    b = new WeakReference(parama);
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException) {}
+  protected Boolean a(Void... paramVarArgs)
+  {
+    paramVarArgs = (Context)a.get();
+    if (paramVarArgs == null) {
+      return null;
+    }
+    return Boolean.valueOf(c.isEnabled(paramVarArgs));
+  }
+  
+  protected void a(Boolean paramBoolean)
+  {
+    Features.a locala = (Features.a)b.get();
+    if ((locala == null) || (paramBoolean == null)) {
+      return;
+    }
+    locala.a(paramBoolean.booleanValue());
+  }
 }
 
 /* Location:

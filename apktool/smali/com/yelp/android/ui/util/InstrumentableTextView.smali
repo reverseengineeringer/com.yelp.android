@@ -3,13 +3,21 @@
 .source "InstrumentableTextView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/util/InstrumentableTextView$a;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList",
             "<",
-            "Lcom/yelp/android/ui/util/ar;",
+            "Lcom/yelp/android/ui/util/InstrumentableTextView$a;",
             ">;"
         }
     .end annotation
@@ -21,10 +29,10 @@
     .locals 0
 
     .prologue
-    .line 46
+    .line 47
     invoke-direct {p0, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
 
-    .line 47
+    .line 48
     return-void
 .end method
 
@@ -32,10 +40,10 @@
     .locals 0
 
     .prologue
-    .line 50
+    .line 51
     invoke-direct {p0, p1, p2}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 51
+    .line 52
     return-void
 .end method
 
@@ -95,7 +103,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/util/ar;
+    check-cast v0, Lcom/yelp/android/ui/util/InstrumentableTextView$a;
 
     move-object v1, p0
 
@@ -107,7 +115,7 @@
 
     move v5, p5
 
-    invoke-interface/range {v0 .. v5}, Lcom/yelp/android/ui/util/ar;->a(Landroid/view/View;IIII)V
+    invoke-interface/range {v0 .. v5}, Lcom/yelp/android/ui/util/InstrumentableTextView$a;->a(Landroid/view/View;IIII)V
 
     .line 93
     add-int/lit8 v0, v7, 0x1

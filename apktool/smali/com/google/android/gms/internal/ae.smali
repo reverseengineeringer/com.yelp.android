@@ -1,309 +1,131 @@
-.class public final Lcom/google/android/gms/internal/ae;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/google/android/gms/internal/ag;
+.class public Lcom/google/android/gms/internal/ae;
+.super Lcom/google/android/gms/internal/ab;
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
 # instance fields
-.field private final mH:Ljava/lang/Object;
-
-.field private final mI:Ljava/util/WeakHashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/WeakHashMap",
-            "<",
-            "Lcom/google/android/gms/internal/fy;",
-            "Lcom/google/android/gms/internal/af;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mJ:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/google/android/gms/internal/af;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private b:Ljava/security/MessageDigest;
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
-
-    new-instance v0, Ljava/util/WeakHashMap;
-
-    invoke-direct {v0}, Ljava/util/WeakHashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ae;->mI:Ljava/util/WeakHashMap;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ae;->mJ:Ljava/util/ArrayList;
+    invoke-direct {p0}, Lcom/google/android/gms/internal/ab;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Landroid/content/Context;Lcom/google/android/gms/internal/ay;Lcom/google/android/gms/internal/fy;Landroid/view/View;Lcom/google/android/gms/internal/gs;)Lcom/google/android/gms/internal/af;
-    .locals 7
+.method a(I)B
+    .locals 2
 
-    iget-object v6, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
+    and-int/lit16 v0, p1, 0xff
 
-    monitor-enter v6
+    const v1, 0xff00
 
-    :try_start_0
-    invoke-virtual {p0, p3}, Lcom/google/android/gms/internal/ae;->c(Lcom/google/android/gms/internal/fy;)Z
+    and-int/2addr v1, p1
 
-    move-result v0
+    shr-int/lit8 v1, v1, 0x8
 
-    if-eqz v0, :cond_0
+    xor-int/2addr v0, v1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->mI:Ljava/util/WeakHashMap;
+    const/high16 v1, 0xff0000
 
-    invoke-virtual {v0, p3}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    and-int/2addr v1, p1
+
+    shr-int/lit8 v1, v1, 0x10
+
+    xor-int/2addr v0, v1
+
+    const/high16 v1, -0x1000000
+
+    and-int/2addr v1, p1
+
+    shr-int/lit8 v1, v1, 0x18
+
+    xor-int/2addr v0, v1
+
+    int-to-byte v0, v0
+
+    return v0
+.end method
+
+.method public a(Ljava/lang/String;)[B
+    .locals 6
+
+    const-string/jumbo v0, " "
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Lcom/google/android/gms/internal/af;
+    invoke-virtual {p0, v0}, Lcom/google/android/gms/internal/ae;->a([Ljava/lang/String;)[B
 
-    monitor-exit v6
+    move-result-object v0
 
-    :goto_0
-    return-object v0
-
-    :cond_0
-    new-instance v0, Lcom/google/android/gms/internal/af;
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move-object v5, p5
-
-    invoke-direct/range {v0 .. v5}, Lcom/google/android/gms/internal/af;-><init>(Landroid/content/Context;Lcom/google/android/gms/internal/ay;Lcom/google/android/gms/internal/fy;Landroid/view/View;Lcom/google/android/gms/internal/gs;)V
-
-    invoke-virtual {v0, p0}, Lcom/google/android/gms/internal/af;->a(Lcom/google/android/gms/internal/ag;)V
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mI:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v1, p3, v0}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mJ:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    monitor-exit v6
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v6
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public a(Lcom/google/android/gms/internal/ay;Lcom/google/android/gms/internal/fy;)Lcom/google/android/gms/internal/af;
-    .locals 6
-
-    iget-object v0, p2, Lcom/google/android/gms/internal/fy;->se:Lcom/google/android/gms/internal/gu;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/gu;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/ae;->a()Ljava/security/MessageDigest;
 
     move-result-object v1
 
-    iget-object v4, p2, Lcom/google/android/gms/internal/fy;->se:Lcom/google/android/gms/internal/gu;
+    iput-object v1, p0, Lcom/google/android/gms/internal/ae;->b:Ljava/security/MessageDigest;
 
-    iget-object v0, p2, Lcom/google/android/gms/internal/fy;->se:Lcom/google/android/gms/internal/gu;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/gu;->dG()Lcom/google/android/gms/internal/gs;
-
-    move-result-object v5
-
-    move-object v0, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    invoke-virtual/range {v0 .. v5}, Lcom/google/android/gms/internal/ae;->a(Landroid/content/Context;Lcom/google/android/gms/internal/ay;Lcom/google/android/gms/internal/fy;Landroid/view/View;Lcom/google/android/gms/internal/gs;)Lcom/google/android/gms/internal/af;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public a(Lcom/google/android/gms/internal/af;)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->a:Ljava/lang/Object;
 
     monitor-enter v1
 
     :try_start_0
-    invoke-virtual {p1}, Lcom/google/android/gms/internal/af;->aM()Z
+    iget-object v2, p0, Lcom/google/android/gms/internal/ae;->b:Ljava/security/MessageDigest;
 
-    move-result v0
+    if-nez v2, :cond_0
 
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->mJ:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    :cond_0
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public c(Lcom/google/android/gms/internal/fy;)Z
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->mI:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/internal/af;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/af;->aM()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    monitor-exit v1
-
-    return v0
-
-    :cond_0
     const/4 v0, 0x0
 
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
+    new-array v0, v0, [B
 
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v0
-.end method
-
-.method public d(Lcom/google/android/gms/internal/fy;)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->mI:Ljava/util/WeakHashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/internal/af;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/af;->aK()V
+    :goto_0
+    return-object v0
 
     :cond_0
-    monitor-exit v1
+    iget-object v2, p0, Lcom/google/android/gms/internal/ae;->b:Ljava/security/MessageDigest;
 
-    return-void
+    invoke-virtual {v2}, Ljava/security/MessageDigest;->reset()V
 
-    :catchall_0
-    move-exception v0
+    iget-object v2, p0, Lcom/google/android/gms/internal/ae;->b:Ljava/security/MessageDigest;
 
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-virtual {v2, v0}, Ljava/security/MessageDigest;->update([B)V
 
-    throw v0
-.end method
+    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->b:Ljava/security/MessageDigest;
 
-.method public pause()V
-    .locals 3
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->mJ:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
 
     move-result-object v2
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    const/4 v0, 0x4
 
-    move-result v0
+    array-length v3, v2
 
-    if-eqz v0, :cond_0
+    if-le v3, v0, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :goto_1
+    new-array v0, v0, [B
 
-    move-result-object v0
+    const/4 v3, 0x0
 
-    check-cast v0, Lcom/google/android/gms/internal/af;
+    const/4 v4, 0x0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/af;->pause()V
+    array-length v5, v0
+
+    invoke-static {v2, v3, v0, v4, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    monitor-exit v1
 
     goto :goto_0
 
@@ -316,109 +138,45 @@
 
     throw v0
 
-    :cond_0
+    :cond_1
     :try_start_1
-    monitor-exit v1
+    array-length v0, v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    return-void
+    goto :goto_1
 .end method
 
-.method public resume()V
+.method a([Ljava/lang/String;)[B
     .locals 3
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
+    array-length v0, p1
 
-    monitor-enter v1
+    new-array v1, v0, [B
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->mJ:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
+    const/4 v0, 0x0
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    array-length v2, p1
 
-    move-result v0
+    if-ge v0, v2, :cond_0
 
-    if-eqz v0, :cond_0
+    aget-object v2, p1, v0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {v2}, Lcom/google/android/gms/internal/ad;->a(Ljava/lang/String;)I
 
-    move-result-object v0
+    move-result v2
 
-    check-cast v0, Lcom/google/android/gms/internal/af;
+    invoke-virtual {p0, v2}, Lcom/google/android/gms/internal/ae;->a(I)B
 
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/af;->resume()V
+    move-result v2
+
+    aput-byte v2, v1, v0
+
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-
     :cond_0
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    return-void
-.end method
-
-.method public stop()V
-    .locals 3
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/ae;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/ae;->mJ:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/google/android/gms/internal/af;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/af;->stop()V
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-
-    :cond_0
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    return-void
+    return-object v1
 .end method

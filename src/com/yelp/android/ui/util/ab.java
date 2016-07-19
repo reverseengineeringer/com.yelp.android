@@ -1,136 +1,150 @@
 package com.yelp.android.ui.util;
 
-import android.animation.ValueAnimator;
-import android.content.res.Resources;
-import android.view.MotionEvent;
-import android.view.View;
-import com.yelp.android.appdata.AppData;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import android.content.Context;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.view.ContextMenu;
+import android.view.MenuItem;
+import com.yelp.android.serializable.BusinessSearchResult;
+import com.yelp.android.serializable.CheckIn;
+import com.yelp.android.serializable.Compliment;
+import com.yelp.android.serializable.Compliment.ComplimentableItemType;
+import com.yelp.android.serializable.User;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.android.serializable.YelpBusinessReview;
+import com.yelp.android.serializable.YelpCheckIn;
+import com.yelp.android.ui.activities.ActivityCheckIn;
+import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
+import com.yelp.android.ui.activities.profile.ActivityUserProfile;
+import com.yelp.android.ui.activities.reviewpage.ActivityReviewPager;
+import com.yelp.android.ui.activities.reviews.ActivityReviewWrite;
+import com.yelp.android.ui.activities.reviews.ReviewSource;
+import com.yelp.android.ui.activities.tips.WriteTip;
+import com.yelp.android.util.StringUtils;
+import com.yelp.android.util.k;
 
 public class ab
-  extends bh
 {
-  private List<View> a;
-  private float b = AppData.b().getResources().getDimension(2131427370);
-  private boolean c;
-  private float d;
-  
-  public ab(View paramView1, View paramView2, View... paramVarArgs)
+  public static MenuItem a(Context paramContext, ContextMenu paramContextMenu, YelpBusinessReview paramYelpBusinessReview)
   {
-    super(paramView1, paramView2);
-    a = Arrays.asList(paramVarArgs);
-    d = o.getTranslationY();
+    paramYelpBusinessReview = paramYelpBusinessReview.O();
+    paramContextMenu = paramContextMenu.setHeaderIcon(2130837646);
+    paramContext = StringUtils.a(paramContext, 2131165728, new Object[] { paramYelpBusinessReview });
+    paramContextMenu = paramContextMenu.add(paramContext);
+    paramContextMenu.setTitleCondensed(paramContext.toString());
+    return paramContextMenu;
   }
   
-  protected void a()
+  public static void a(Context paramContext, ContextMenu paramContextMenu, BusinessSearchResult paramBusinessSearchResult)
   {
-    c = false;
+    YelpBusiness localYelpBusiness = paramBusinessSearchResult.a();
+    paramContextMenu.add(2131165725).setIntent(ActivityBusinessPage.a(paramContext, paramBusinessSearchResult, null));
+    c(paramContext, paramContextMenu, localYelpBusiness);
   }
   
-  protected void a(float paramFloat)
+  public static void a(Context paramContext, ContextMenu paramContextMenu, CheckIn paramCheckIn)
   {
-    o.setTranslationY(-paramFloat);
-    Iterator localIterator = a.iterator();
-    while (localIterator.hasNext()) {
-      ((View)localIterator.next()).setTranslationY(-paramFloat);
+    if ((paramCheckIn instanceof YelpCheckIn)) {
+      a(paramContext, paramContextMenu, ((YelpCheckIn)paramCheckIn).i(), paramCheckIn.a());
+    }
+    b(paramContext, paramContextMenu, paramCheckIn.d());
+  }
+  
+  public static void a(Context paramContext, ContextMenu paramContextMenu, Compliment paramCompliment, String paramString, boolean paramBoolean)
+  {
+    if (paramCompliment.j() == Compliment.ComplimentableItemType.REVIEW)
+    {
+      a(paramContext, paramContextMenu, paramCompliment.n(), paramString, paramBoolean, paramCompliment.o(), paramCompliment.p());
+      b(paramContext, paramContextMenu, paramCompliment.o(), paramCompliment.p());
+    }
+    if (paramCompliment.j() == Compliment.ComplimentableItemType.BIZ_PHOTO) {
+      b(paramContext, paramContextMenu, paramCompliment.o(), paramCompliment.p());
     }
   }
   
-  public void b()
+  public static void a(Context paramContext, ContextMenu paramContextMenu, User paramUser)
   {
-    a(0.0F);
-    d();
+    a(paramContext, paramContextMenu, paramUser.ae(), paramUser.ad());
   }
   
-  public void b(float paramFloat)
+  public static void a(Context paramContext, ContextMenu paramContextMenu, YelpBusiness paramYelpBusiness)
   {
-    if (o.getTranslationY() == -b) {}
-    do
+    paramContextMenu.add(2131165725).setIntent(ActivityBusinessPage.b(paramContext, paramYelpBusiness));
+    c(paramContext, paramContextMenu, paramYelpBusiness);
+  }
+  
+  public static void a(Context paramContext, ContextMenu paramContextMenu, String paramString1, String paramString2)
+  {
+    paramString2 = StringUtils.a(paramContext, 2131165727, new Object[] { paramString2 });
+    paramContextMenu = paramContextMenu.add(paramString2);
+    paramContextMenu.setIntent(ActivityUserProfile.a(paramContext, paramString1));
+    paramContextMenu.setTitleCondensed(paramString2.toString());
+  }
+  
+  public static void a(Context paramContext, ContextMenu paramContextMenu, String paramString1, String paramString2, boolean paramBoolean, String paramString3, String paramString4)
+  {
+    if (paramBoolean) {}
+    for (int i = 2131165729;; i = 2131165728)
     {
-      return;
-      if (o.getTranslationY() > -b) {
-        a(Math.abs(d - paramFloat));
-      }
-    } while (o.getTranslationY() > -b);
-    a(b);
-    a();
-    d = o.getTranslationY();
-  }
-  
-  public void c()
-  {
-    a(b);
-    a();
-  }
-  
-  public void c(float paramFloat)
-  {
-    if (o.getTranslationY() == 0.0F) {}
-    do
-    {
-      return;
-      if (o.getTranslationY() < 0.0F) {
-        a(-d - paramFloat);
-      }
-    } while (o.getTranslationY() < 0.0F);
-    a(0.0F);
-    d();
-  }
-  
-  protected void d()
-  {
-    c = false;
-  }
-  
-  protected void e()
-  {
-    if (c) {
+      paramString2 = StringUtils.a(paramContext, i, new Object[] { paramString2 });
+      paramContextMenu = paramContextMenu.add(paramString2);
+      paramContextMenu.setIntent(ActivityReviewPager.a(paramContext, paramString1, paramString3, paramString4));
+      paramContextMenu.setTitleCondensed(paramString2.toString());
       return;
     }
-    ValueAnimator localValueAnimator = ValueAnimator.ofFloat(new float[] { -o.getTranslationY(), b }).setDuration(cw.a);
-    localValueAnimator.addUpdateListener(new ac(this));
-    localValueAnimator.addListener(new ad(this));
-    c = true;
-    localValueAnimator.start();
   }
   
-  public void f()
+  public static void b(Context paramContext, ContextMenu paramContextMenu, YelpBusiness paramYelpBusiness)
   {
-    if (c) {
+    if (TextUtils.isEmpty(paramYelpBusiness.z())) {}
+    for (int i = 2131165725;; i = 2131165726)
+    {
+      Spanned localSpanned = StringUtils.a(paramContext, i, new Object[] { paramYelpBusiness.z() });
+      paramContextMenu = paramContextMenu.add(localSpanned);
+      paramContextMenu.setIntent(ActivityBusinessPage.b(paramContext, paramYelpBusiness));
+      paramContextMenu.setTitleCondensed(localSpanned.toString());
       return;
     }
-    ValueAnimator localValueAnimator = ValueAnimator.ofFloat(new float[] { -o.getTranslationY(), 0.0F }).setDuration(cw.a);
-    localValueAnimator.addUpdateListener(new ae(this));
-    localValueAnimator.addListener(new af(this));
-    c = true;
-    localValueAnimator.start();
   }
   
-  protected void g()
+  public static void b(Context paramContext, ContextMenu paramContextMenu, String paramString1, String paramString2)
   {
-    d = o.getTranslationY();
-  }
-  
-  public boolean onTouch(View paramView, MotionEvent paramMotionEvent)
-  {
-    switch (paramMotionEvent.getAction())
+    if (TextUtils.isEmpty(paramString2)) {}
+    for (int i = 2131165725;; i = 2131165726)
     {
+      paramString2 = StringUtils.a(paramContext, i, new Object[] { paramString2 });
+      paramContextMenu = paramContextMenu.add(paramString2);
+      paramContextMenu.setIntent(ActivityBusinessPage.b(paramContext, paramString1));
+      paramContextMenu.setTitleCondensed(paramString2.toString());
+      return;
     }
-    for (;;)
+  }
+  
+  private static void c(Context paramContext, ContextMenu paramContextMenu, YelpBusiness paramYelpBusiness)
+  {
+    boolean bool2 = true;
+    paramContextMenu.add(2131165423).setIntent(ActivityCheckIn.a(paramContext, paramYelpBusiness));
+    paramContextMenu.add(2131165467).setIntent(WriteTip.a(paramContext, paramYelpBusiness));
+    paramContextMenu.add(2131166820).setIntent(ActivityReviewWrite.a(paramContext, paramYelpBusiness, ReviewSource.BizListLongPress));
+    MenuItem localMenuItem = paramContextMenu.add(2131165959);
+    localMenuItem.setOnMenuItemClickListener(new ab.a(paramContext, paramYelpBusiness));
+    if (!TextUtils.isEmpty(paramYelpBusiness.j()))
     {
-      return super.onTouch(paramView, paramMotionEvent);
-      if ((-o.getTranslationY() > b / 1.25D) && (-o.getTranslationY() != b))
-      {
-        e();
+      bool1 = true;
+      localMenuItem.setEnabled(bool1);
+      paramContext = paramContextMenu.add(2131165581);
+      paramContext.setIntent(k.a(paramYelpBusiness.ao()));
+      if (TextUtils.isEmpty(paramYelpBusiness.ao())) {
+        break label161;
       }
-      else if ((-o.getTranslationY() != b) && (o.getTranslationY() != 0.0F))
-      {
-        f();
-        continue;
-        d = o.getTranslationY();
-      }
+    }
+    label161:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      paramContext.setEnabled(bool1);
+      return;
+      bool1 = false;
+      break;
     }
   }
 }

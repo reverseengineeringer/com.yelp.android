@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field protected mAnswerIdentifier:Ljava/lang/String;
+.field protected a:Ljava/lang/String;
 
-.field protected mSuccessMessage:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mText:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mTitle:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
 
 # direct methods
@@ -21,93 +21,163 @@
     .locals 0
 
     .prologue
-    .line 29
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 30
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 21
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_SurveyAnswer;-><init>()V
-
-    .line 22
-    iput-object p1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mTitle:Ljava/lang/String;
-
-    .line 23
-    iput-object p2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mText:Ljava/lang/String;
-
-    .line 24
-    iput-object p3, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mAnswerIdentifier:Ljava/lang/String;
-
-    .line 25
-    iput-object p4, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mSuccessMessage:Ljava/lang/String;
-
-    .line 26
+    .line 32
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a()Lorg/json/JSONObject;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 47
-    const/4 v0, 0x0
+    .line 118
+    new-instance v0, Lorg/json/JSONObject;
 
-    return v0
-.end method
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-.method public getAnswerIdentifier()Ljava/lang/String;
-    .locals 1
+    .line 119
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
 
-    .prologue
-    .line 39
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mAnswerIdentifier:Ljava/lang/String;
+    if-eqz v1, :cond_0
 
+    .line 120
+    const-string/jumbo v1, "title"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 122
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
+
+    if-eqz v1, :cond_1
+
+    .line 123
+    const-string/jumbo v1, "text"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 125
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
+
+    if-eqz v1, :cond_2
+
+    .line 126
+    const-string/jumbo v1, "answer_identifier"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 128
+    :cond_2
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
+
+    if-eqz v1, :cond_3
+
+    .line 129
+    const-string/jumbo v1, "success_message"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 131
+    :cond_3
     return-object v0
 .end method
 
-.method public getSuccessMessage()Ljava/lang/String;
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 42
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mSuccessMessage:Ljava/lang/String;
+    .line 96
+    const-class v0, Ljava/lang/String;
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
+
+    .line 97
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
+
+    .line 98
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
+
+    .line 99
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
+
+    .line 100
+    return-void
 .end method
 
-.method public getText()Ljava/lang/String;
+.method public a(Lorg/json/JSONObject;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 36
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mText:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTitle()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 33
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mTitle:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 1
-
-    .prologue
-    .line 65
+    .line 103
     const-string/jumbo v0, "title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -116,16 +186,16 @@
 
     if-nez v0, :cond_0
 
-    .line 66
+    .line 104
     const-string/jumbo v0, "title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mTitle:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
 
-    .line 68
+    .line 106
     :cond_0
     const-string/jumbo v0, "text"
 
@@ -135,16 +205,16 @@
 
     if-nez v0, :cond_1
 
-    .line 69
+    .line 107
     const-string/jumbo v0, "text"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mText:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
 
-    .line 71
+    .line 109
     :cond_1
     const-string/jumbo v0, "answer_identifier"
 
@@ -154,16 +224,16 @@
 
     if-nez v0, :cond_2
 
-    .line 72
+    .line 110
     const-string/jumbo v0, "answer_identifier"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mAnswerIdentifier:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
 
-    .line 74
+    .line 112
     :cond_2
     const-string/jumbo v0, "success_message"
 
@@ -173,145 +243,216 @@
 
     if-nez v0, :cond_3
 
-    .line 75
+    .line 113
     const-string/jumbo v0, "success_message"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mSuccessMessage:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
 
-    .line 77
+    .line 115
     :cond_3
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 58
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 81
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mTitle:Ljava/lang/String;
-
-    .line 59
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mText:Ljava/lang/String;
-
-    .line 60
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mAnswerIdentifier:Ljava/lang/String;
-
-    .line 61
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mSuccessMessage:Ljava/lang/String;
-
-    .line 62
-    return-void
+    return-object v0
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 77
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 73
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 85
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 69
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
     .locals 3
 
     .prologue
-    .line 80
-    new-instance v0, Lorg/json/JSONObject;
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    .line 36
+    if-nez p1, :cond_1
 
-    .line 81
-    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mTitle:Ljava/lang/String;
-
-    if-eqz v1, :cond_0
-
-    .line 82
-    const-string/jumbo v1, "title"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mTitle:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 84
+    .line 50
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mText:Ljava/lang/String;
+    :goto_0
+    return v0
 
-    if-eqz v1, :cond_1
-
-    .line 85
-    const-string/jumbo v1, "text"
-
-    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mText:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 87
+    .line 40
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mAnswerIdentifier:Ljava/lang/String;
+    if-ne p1, p0, :cond_2
 
-    if-eqz v1, :cond_2
+    .line 41
+    const/4 v0, 0x1
 
-    .line 88
-    const-string/jumbo v1, "answer_identifier"
+    goto :goto_0
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mAnswerIdentifier:Ljava/lang/String;
-
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
-
-    .line 90
+    .line 44
     :cond_2
-    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mSuccessMessage:Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-eqz v1, :cond_3
+    move-result-object v1
 
-    .line 91
-    const-string/jumbo v1, "success_message"
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mSuccessMessage:Ljava/lang/String;
+    move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    if-ne v1, v2, :cond_0
 
-    .line 93
-    :cond_3
-    return-object v0
+    .line 48
+    check-cast p1, Lcom/yelp/android/serializable/_SurveyAnswer;
+
+    .line 50
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 60
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mTitle:Ljava/lang/String;
+    .line 89
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->a:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mText:Ljava/lang/String;
+    .line 90
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 53
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mAnswerIdentifier:Ljava/lang/String;
+    .line 91
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->mSuccessMessage:Ljava/lang/String;
+    .line 92
+    iget-object v0, p0, Lcom/yelp/android/serializable/_SurveyAnswer;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 55
+    .line 93
     return-void
 .end method

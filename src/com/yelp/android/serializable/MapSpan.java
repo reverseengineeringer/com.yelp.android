@@ -3,25 +3,76 @@ package com.yelp.android.serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MapSpan
   implements Parcelable
 {
-  public static final JsonParser.DualCreator<MapSpan> CREATOR = new bd();
-  protected double mLat;
-  protected double mLatDelta;
-  protected double mLon;
-  protected double mLonDelta;
-  
-  protected MapSpan() {}
-  
-  protected MapSpan(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4)
+  public static final JsonParser.DualCreator<MapSpan> CREATOR = new JsonParser.DualCreator()
   {
-    mLat = paramDouble1;
-    mLon = paramDouble2;
-    mLonDelta = paramDouble3;
-    mLatDelta = paramDouble4;
+    public MapSpan a(Parcel paramAnonymousParcel)
+    {
+      MapSpan localMapSpan = new MapSpan(null);
+      localMapSpan.a(paramAnonymousParcel);
+      return localMapSpan;
+    }
+    
+    public MapSpan a(JSONObject paramAnonymousJSONObject)
+      throws JSONException
+    {
+      MapSpan localMapSpan = new MapSpan(null);
+      localMapSpan.a(paramAnonymousJSONObject);
+      return localMapSpan;
+    }
+    
+    public MapSpan[] a(int paramAnonymousInt)
+    {
+      return new MapSpan[paramAnonymousInt];
+    }
+  };
+  private double a;
+  private double b;
+  private double c;
+  private double d;
+  
+  public double a()
+  {
+    return a;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    a = paramParcel.readDouble();
+    b = paramParcel.readDouble();
+    c = paramParcel.readDouble();
+    d = paramParcel.readDouble();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    JSONObject localJSONObject = paramJSONObject.getJSONObject("center");
+    paramJSONObject = paramJSONObject.getJSONObject("span");
+    a = localJSONObject.optDouble("latitude");
+    b = localJSONObject.optDouble("longitude");
+    c = paramJSONObject.optDouble("longitude_delta");
+    d = paramJSONObject.optDouble("latitude_delta");
+  }
+  
+  public double b()
+  {
+    return b;
+  }
+  
+  public double c()
+  {
+    return c;
+  }
+  
+  public double d()
+  {
+    return d;
   }
   
   public int describeContents()
@@ -29,50 +80,12 @@ public class MapSpan
     return 0;
   }
   
-  public double getLat()
-  {
-    return mLat;
-  }
-  
-  public double getLatDelta()
-  {
-    return mLatDelta;
-  }
-  
-  public double getLon()
-  {
-    return mLon;
-  }
-  
-  public double getLonDelta()
-  {
-    return mLonDelta;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    JSONObject localJSONObject = paramJSONObject.getJSONObject("center");
-    paramJSONObject = paramJSONObject.getJSONObject("span");
-    mLat = localJSONObject.optDouble("latitude");
-    mLon = localJSONObject.optDouble("longitude");
-    mLonDelta = paramJSONObject.optDouble("longitude_delta");
-    mLatDelta = paramJSONObject.optDouble("latitude_delta");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    mLat = paramParcel.readDouble();
-    mLon = paramParcel.readDouble();
-    mLonDelta = paramParcel.readDouble();
-    mLatDelta = paramParcel.readDouble();
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeDouble(mLat);
-    paramParcel.writeDouble(mLon);
-    paramParcel.writeDouble(mLonDelta);
-    paramParcel.writeDouble(mLatDelta);
+    paramParcel.writeDouble(a);
+    paramParcel.writeDouble(b);
+    paramParcel.writeDouble(c);
+    paramParcel.writeDouble(d);
   }
 }
 

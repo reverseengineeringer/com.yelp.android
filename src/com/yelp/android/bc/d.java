@@ -1,18 +1,18 @@
 package com.yelp.android.bc;
 
-import android.animation.ValueAnimator;
-import android.animation.ValueAnimator.AnimatorUpdateListener;
-
-class d
-  implements ValueAnimator.AnimatorUpdateListener
+public abstract interface d
 {
-  d(c paramc) {}
+  public abstract void a(c paramc);
   
-  public void onAnimationUpdate(ValueAnimator paramValueAnimator)
-  {
-    c.a(a, ((Float)paramValueAnimator.getAnimatedValue()).floatValue());
-    a.invalidate();
-  }
+  public abstract void a(c paramc, int paramInt);
+  
+  public abstract void b(c paramc);
+  
+  public abstract void c(c paramc);
+  
+  public abstract void d(c paramc);
+  
+  public abstract void e(c paramc);
 }
 
 /* Location:

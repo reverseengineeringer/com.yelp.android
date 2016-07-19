@@ -1,13 +1,29 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
+import com.google.android.gms.ads.internal.client.a;
+import com.google.android.gms.ads.internal.overlay.o;
 
 public abstract interface cy
-  extends IInterface
+  extends dc
 {
-  public abstract cz x(String paramString);
+  public abstract void a();
   
-  public abstract boolean y(String paramString);
+  public abstract void a(a parama, com.google.android.gms.ads.internal.overlay.f paramf, bv parambv, o paramo, boolean paramBoolean, cb paramcb, cd paramcd, com.google.android.gms.ads.internal.f paramf1, ep paramep);
+  
+  public abstract void a(a parama);
+  
+  public abstract void a(String paramString);
+  
+  public abstract dd b();
+  
+  public abstract void b(String paramString);
+  
+  public abstract void c(String paramString);
+  
+  public static abstract interface a
+  {
+    public abstract void a();
+  }
 }
 
 /* Location:

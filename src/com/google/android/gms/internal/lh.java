@@ -1,84 +1,185 @@
 package com.google.android.gms.internal;
 
-import android.os.ParcelFileDescriptor;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
+import android.os.WorkSource;
+import android.text.TextUtils;
+import android.util.Log;
+import com.google.android.gms.common.internal.zzd;
+import com.google.android.gms.common.internal.zzx;
+import com.google.android.gms.common.stats.zzg;
+import com.google.android.gms.common.stats.zzi;
 
-public final class lh
+public class lh
 {
-  public static long a(InputStream paramInputStream, OutputStream paramOutputStream, boolean paramBoolean)
-  {
-    return a(paramInputStream, paramOutputStream, paramBoolean, 1024);
-  }
+  private static String a = "WakeLock";
+  private static String b = "*gcore*:";
+  private static boolean c = false;
+  private final PowerManager.WakeLock d;
+  private WorkSource e;
+  private final int f;
+  private final String g;
+  private final String h;
+  private final Context i;
+  private boolean j = true;
+  private int k;
+  private int l;
   
-  public static long a(InputStream paramInputStream, OutputStream paramOutputStream, boolean paramBoolean, int paramInt)
+  public lh(Context paramContext, int paramInt, String paramString) {}
+  
+  @SuppressLint({"UnwrappedWakeLock"})
+  public lh(Context paramContext, int paramInt, String paramString1, String paramString2, String paramString3)
   {
-    byte[] arrayOfByte = new byte[paramInt];
-    long l = 0L;
-    try
+    zzx.zzh(paramString1, "Wake lock name can NOT be empty");
+    f = paramInt;
+    h = paramString2;
+    i = paramContext.getApplicationContext();
+    if ((!kh.a(paramString3)) && ("com.google.android.gms" != paramString3))
     {
-      for (;;)
+      g = (b + paramString1);
+      d = ((PowerManager)paramContext.getSystemService("power")).newWakeLock(paramInt, paramString1);
+      if (ki.a(i))
       {
-        paramInt = paramInputStream.read(arrayOfByte, 0, arrayOfByte.length);
-        if (paramInt == -1) {
-          break;
+        paramString1 = paramString3;
+        if (kh.a(paramString3))
+        {
+          if ((!zzd.zzakE) || (!jb.b())) {
+            break label195;
+          }
+          Log.e(a, "callingPackage is not supposed to be empty for wakelock " + g + "!", new IllegalArgumentException());
         }
-        l += paramInt;
-        paramOutputStream.write(arrayOfByte, 0, paramInt);
-      }
-      if (!paramBoolean) {
-        break label71;
       }
     }
-    finally
+    label195:
+    for (paramString1 = "com.google.android.gms";; paramString1 = paramContext.getPackageName())
     {
-      if (paramBoolean)
+      e = ki.a(paramContext, paramString1);
+      a(e);
+      return;
+      g = paramString1;
+      break;
+    }
+  }
+  
+  private String a(String paramString, boolean paramBoolean)
+  {
+    if (j)
+    {
+      if (paramBoolean) {
+        return paramString;
+      }
+      return h;
+    }
+    return h;
+  }
+  
+  private void a(String paramString)
+  {
+    boolean bool = b(paramString);
+    String str = a(paramString, bool);
+    if (c) {
+      Log.d(a, "Release:\n mWakeLockName: " + g + "\n mSecondaryName: " + h + "\nmReferenceCounted: " + j + "\nreason: " + paramString + "\n mOpenEventCount" + l + "\nuseWithReason: " + bool + "\ntrackingName: " + str);
+    }
+    try
+    {
+      if (j)
       {
-        b(paramInputStream);
-        b(paramOutputStream);
+        int m = k - 1;
+        k = m;
+        if ((m == 0) || (bool)) {}
       }
-    }
-    b(paramInputStream);
-    b(paramOutputStream);
-    label71:
-    return l;
-  }
-  
-  public static void a(ParcelFileDescriptor paramParcelFileDescriptor)
-  {
-    if (paramParcelFileDescriptor != null) {}
-    try
-    {
-      paramParcelFileDescriptor.close();
+      else
+      {
+        if ((j) || (l != 1)) {
+          break label205;
+        }
+      }
+      zzi.zzrZ().zza(i, zzg.zza(d, str), 8, g, str, f, ki.b(e));
+      l -= 1;
+      label205:
       return;
     }
-    catch (IOException paramParcelFileDescriptor) {}
+    finally {}
   }
   
-  public static byte[] a(InputStream paramInputStream, boolean paramBoolean)
+  private void a(String paramString, long paramLong)
   {
-    ByteArrayOutputStream localByteArrayOutputStream = new ByteArrayOutputStream();
-    a(paramInputStream, localByteArrayOutputStream, paramBoolean);
-    return localByteArrayOutputStream.toByteArray();
-  }
-  
-  public static void b(Closeable paramCloseable)
-  {
-    if (paramCloseable != null) {}
+    boolean bool = b(paramString);
+    String str = a(paramString, bool);
+    if (c) {
+      Log.d(a, "Acquire:\n mWakeLockName: " + g + "\n mSecondaryName: " + h + "\nmReferenceCounted: " + j + "\nreason: " + paramString + "\nmOpenEventCount" + l + "\nuseWithReason: " + bool + "\ntrackingName: " + str + "\ntimeout: " + paramLong);
+    }
     try
     {
-      paramCloseable.close();
+      if (j)
+      {
+        int m = k;
+        k = (m + 1);
+        if ((m == 0) || (bool)) {}
+      }
+      else
+      {
+        if ((j) || (l != 0)) {
+          break label221;
+        }
+      }
+      zzi.zzrZ().zza(i, zzg.zza(d, str), 7, g, str, f, ki.b(e), paramLong);
+      l += 1;
+      label221:
       return;
     }
-    catch (IOException paramCloseable) {}
+    finally {}
   }
   
-  public static byte[] d(InputStream paramInputStream)
+  private boolean b(String paramString)
   {
-    return a(paramInputStream, true);
+    return (!TextUtils.isEmpty(paramString)) && (!paramString.equals(h));
+  }
+  
+  public void a()
+  {
+    a(null);
+    d.release();
+  }
+  
+  public void a(long paramLong)
+  {
+    if ((!kf.c()) && (j)) {
+      Log.wtf(a, "Do not acquire with timeout on reference counted WakeLocks before ICS. wakelock: " + g);
+    }
+    a(null, paramLong);
+    d.acquire(paramLong);
+  }
+  
+  public void a(WorkSource paramWorkSource)
+  {
+    if ((ki.a(i)) && (paramWorkSource != null))
+    {
+      if (e == null) {
+        break label42;
+      }
+      e.add(paramWorkSource);
+    }
+    for (;;)
+    {
+      d.setWorkSource(e);
+      return;
+      label42:
+      e = paramWorkSource;
+    }
+  }
+  
+  public void a(boolean paramBoolean)
+  {
+    d.setReferenceCounted(paramBoolean);
+    j = paramBoolean;
+  }
+  
+  public boolean b()
+  {
+    return d.isHeld();
   }
 }
 

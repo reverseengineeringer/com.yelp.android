@@ -105,12 +105,12 @@
     return-object v0
 .end method
 
-.method public a(Lcom/bumptech/glide/load/engine/t;Ljava/io/OutputStream;)Z
+.method public a(Lcom/bumptech/glide/load/engine/i;Ljava/io/OutputStream;)Z
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/engine/t",
+            "Lcom/bumptech/glide/load/engine/i",
             "<",
             "Landroid/graphics/Bitmap;",
             ">;",
@@ -121,14 +121,14 @@
 
     .prologue
     .line 42
-    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/t;->b()Ljava/lang/Object;
+    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/i;->b()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/graphics/Bitmap;
 
     .line 44
-    invoke-static {}, Lcom/yelp/android/ai/c;->a()J
+    invoke-static {}, Lcom/yelp/android/ao/d;->a()J
 
     move-result-wide v2
 
@@ -176,7 +176,7 @@
 
     move-result-object v1
 
-    invoke-static {v0}, Lcom/yelp/android/ai/f;->a(Landroid/graphics/Bitmap;)I
+    invoke-static {v0}, Lcom/yelp/android/ao/h;->a(Landroid/graphics/Bitmap;)I
 
     move-result v0
 
@@ -190,7 +190,7 @@
 
     move-result-object v0
 
-    invoke-static {v2, v3}, Lcom/yelp/android/ai/c;->a(J)D
+    invoke-static {v2, v3}, Lcom/yelp/android/ao/d;->a(J)D
 
     move-result-wide v2
 
@@ -216,9 +216,9 @@
 
     .prologue
     .line 25
-    check-cast p1, Lcom/bumptech/glide/load/engine/t;
+    check-cast p1, Lcom/bumptech/glide/load/engine/i;
 
-    invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/load/resource/bitmap/b;->a(Lcom/bumptech/glide/load/engine/t;Ljava/io/OutputStream;)Z
+    invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/load/resource/bitmap/b;->a(Lcom/bumptech/glide/load/engine/i;Ljava/io/OutputStream;)Z
 
     move-result v0
 

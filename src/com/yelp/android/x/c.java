@@ -1,27 +1,19 @@
 package com.yelp.android.x;
 
-import android.content.Context;
-import android.net.Uri;
-import com.yelp.android.r.k;
-import com.yelp.android.v.m;
-import java.io.InputStream;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 
-public class c
-  implements m<Uri, InputStream>
+public abstract interface c
 {
-  private final Context a;
-  private final m<Uri, InputStream> b;
+  public abstract Bitmap a(int paramInt1, int paramInt2, Bitmap.Config paramConfig);
   
-  public c(Context paramContext, m<Uri, InputStream> paramm)
-  {
-    a = paramContext;
-    b = paramm;
-  }
+  public abstract void a();
   
-  public com.yelp.android.r.c<InputStream> a(Uri paramUri, int paramInt1, int paramInt2)
-  {
-    return new k(a, paramUri, b.a(paramUri, paramInt1, paramInt2), paramInt1, paramInt2);
-  }
+  public abstract void a(int paramInt);
+  
+  public abstract boolean a(Bitmap paramBitmap);
+  
+  public abstract Bitmap b(int paramInt1, int paramInt2, Bitmap.Config paramConfig);
 }
 
 /* Location:

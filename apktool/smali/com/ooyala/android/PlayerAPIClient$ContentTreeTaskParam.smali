@@ -3,6 +3,17 @@
 .source "PlayerAPIClient.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/PlayerAPIClient;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "ContentTreeTaskParam"
+.end annotation
+
+
 # instance fields
 .field public adSetCode:Ljava/lang/String;
 

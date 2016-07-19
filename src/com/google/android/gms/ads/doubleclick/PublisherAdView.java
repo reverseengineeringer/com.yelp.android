@@ -4,71 +4,84 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.internal.bh;
+import com.google.android.gms.ads.e;
 
 public final class PublisherAdView
   extends ViewGroup
 {
-  private final bh ll;
+  private final com.google.android.gms.ads.internal.client.c a;
   
   public PublisherAdView(Context paramContext)
   {
     super(paramContext);
-    ll = new bh(this);
+    a = new com.google.android.gms.ads.internal.client.c(this);
   }
   
   public PublisherAdView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    ll = new bh(this, paramAttributeSet, true);
+    a = new com.google.android.gms.ads.internal.client.c(this, paramAttributeSet, true);
   }
   
   public PublisherAdView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    ll = new bh(this, paramAttributeSet, true);
+    a = new com.google.android.gms.ads.internal.client.c(this, paramAttributeSet, true);
   }
   
-  public void destroy()
+  public void a()
   {
-    ll.destroy();
+    a.a();
   }
   
-  public AdListener getAdListener()
+  public void a(d paramd)
   {
-    return ll.getAdListener();
+    a.a(paramd.a());
   }
   
-  public AdSize getAdSize()
+  public void b()
   {
-    return ll.getAdSize();
+    a.i();
   }
   
-  public AdSize[] getAdSizes()
+  public void c()
   {
-    return ll.getAdSizes();
+    a.j();
+  }
+  
+  public com.google.android.gms.ads.a getAdListener()
+  {
+    return a.b();
+  }
+  
+  public com.google.android.gms.ads.d getAdSize()
+  {
+    return a.c();
+  }
+  
+  public com.google.android.gms.ads.d[] getAdSizes()
+  {
+    return a.d();
   }
   
   public String getAdUnitId()
   {
-    return ll.getAdUnitId();
+    return a.e();
   }
   
-  public AppEventListener getAppEventListener()
+  public a getAppEventListener()
   {
-    return ll.getAppEventListener();
+    return a.f();
   }
   
   public String getMediationAdapterClassName()
   {
-    return ll.getMediationAdapterClassName();
+    return a.k();
   }
   
-  public void loadAd(PublisherAdRequest paramPublisherAdRequest)
+  public c getOnCustomRenderedAdLoadedListener()
   {
-    ll.a(paramPublisherAdRequest.Y());
+    return a.h();
   }
   
   protected void onLayout(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
@@ -88,7 +101,6 @@ public final class PublisherAdView
   {
     int i = 0;
     Object localObject = getChildAt(0);
-    AdSize localAdSize = getAdSize();
     int j;
     if ((localObject != null) && (((View)localObject).getVisibility() != 8))
     {
@@ -102,11 +114,12 @@ public final class PublisherAdView
       i = Math.max(i, getSuggestedMinimumHeight());
       setMeasuredDimension(View.resolveSize(j, paramInt1), View.resolveSize(i, paramInt2));
       return;
-      if (localAdSize != null)
+      localObject = getAdSize();
+      if (localObject != null)
       {
-        localObject = getContext();
-        j = localAdSize.getWidthInPixels((Context)localObject);
-        i = localAdSize.getHeightInPixels((Context)localObject);
+        Context localContext = getContext();
+        j = ((com.google.android.gms.ads.d)localObject).b(localContext);
+        i = ((com.google.android.gms.ads.d)localObject).a(localContext);
       }
       else
       {
@@ -115,42 +128,42 @@ public final class PublisherAdView
     }
   }
   
-  public void pause()
+  public void setAdListener(com.google.android.gms.ads.a parama)
   {
-    ll.pause();
+    a.a(parama);
   }
   
-  public void recordManualImpression()
-  {
-    ll.recordManualImpression();
-  }
-  
-  public void resume()
-  {
-    ll.resume();
-  }
-  
-  public void setAdListener(AdListener paramAdListener)
-  {
-    ll.setAdListener(paramAdListener);
-  }
-  
-  public void setAdSizes(AdSize... paramVarArgs)
+  public void setAdSizes(com.google.android.gms.ads.d... paramVarArgs)
   {
     if ((paramVarArgs == null) || (paramVarArgs.length < 1)) {
       throw new IllegalArgumentException("The supported ad sizes must contain at least one valid ad size.");
     }
-    ll.a(paramVarArgs);
+    a.b(paramVarArgs);
   }
   
   public void setAdUnitId(String paramString)
   {
-    ll.setAdUnitId(paramString);
+    a.a(paramString);
   }
   
-  public void setAppEventListener(AppEventListener paramAppEventListener)
+  public void setAppEventListener(a parama)
   {
-    ll.setAppEventListener(paramAppEventListener);
+    a.a(parama);
+  }
+  
+  public void setCorrelator(e parame)
+  {
+    a.a(parame);
+  }
+  
+  public void setManualImpressionsEnabled(boolean paramBoolean)
+  {
+    a.a(paramBoolean);
+  }
+  
+  public void setOnCustomRenderedAdLoadedListener(c paramc)
+  {
+    a.a(paramc);
   }
 }
 

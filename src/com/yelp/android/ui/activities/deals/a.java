@@ -1,16 +1,51 @@
 package com.yelp.android.ui.activities.deals;
 
-import android.view.View;
-import android.view.View.OnClickListener;
+import com.yelp.android.serializable.YelpDeal;
+import com.yelp.android.serializable.YelpDealOption;
 
-class a
-  implements View.OnClickListener
+public class a
 {
-  a(ActivityDealDetail paramActivityDealDetail) {}
+  private YelpDeal a;
+  private YelpDealOption b;
   
-  public void onClick(View paramView)
+  public a(YelpDeal paramYelpDeal, YelpDealOption paramYelpDealOption)
   {
-    a.startActivity(ChooseDealOption.a(a, ActivityDealDetail.a(a), ActivityDealDetail.b(a)));
+    a = paramYelpDeal;
+    b = paramYelpDealOption;
+  }
+  
+  public int a()
+  {
+    return Math.min(a.n(), a.m());
+  }
+  
+  public int a(int paramInt)
+  {
+    if (paramInt <= 0) {}
+    for (paramInt = a(); b.b() < 0; paramInt = a.l()) {
+      return paramInt;
+    }
+    return Math.min(paramInt, b.b());
+  }
+  
+  public boolean a(int paramInt1, int paramInt2)
+  {
+    return (b(paramInt2 + 1)) && (d(paramInt1 + 1));
+  }
+  
+  public boolean b(int paramInt)
+  {
+    return paramInt <= a.l();
+  }
+  
+  public boolean c(int paramInt)
+  {
+    return paramInt <= a.n();
+  }
+  
+  public boolean d(int paramInt)
+  {
+    return paramInt <= a.m();
   }
 }
 

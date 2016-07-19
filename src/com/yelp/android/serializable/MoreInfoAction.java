@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class MoreInfoAction
   extends _MoreInfoAction
 {
-  public static final JsonParser.DualCreator<MoreInfoAction> CREATOR = new bh();
+  public static final JsonParser.DualCreator<MoreInfoAction> CREATOR = new MoreInfoAction.1();
 }
 
 /* Location:

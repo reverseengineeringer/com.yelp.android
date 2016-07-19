@@ -3,6 +3,17 @@
 .source "MapMaker.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/MapMaker$StrategyImpl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "Fields"
+.end annotation
+
+
 # static fields
 .field static final expirationNanos:Ljava/lang/reflect/Field;
 

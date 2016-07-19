@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "Type"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -31,7 +40,7 @@
 
     const/4 v2, 0x0
 
-    .line 197
+    .line 328
     new-instance v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;
 
     const-string/jumbo v1, "ASC"
@@ -40,7 +49,7 @@
 
     sput-object v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;->ASC:Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;
 
-    .line 198
+    .line 329
     new-instance v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;
 
     const-string/jumbo v1, "DESC"
@@ -49,7 +58,7 @@
 
     sput-object v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;->DESC:Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;
 
-    .line 196
+    .line 327
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;
@@ -76,7 +85,7 @@
     .end annotation
 
     .prologue
-    .line 196
+    .line 327
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -86,7 +95,7 @@
     .locals 1
 
     .prologue
-    .line 196
+    .line 327
     const-class v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -102,7 +111,7 @@
     .locals 1
 
     .prologue
-    .line 196
+    .line 327
     sget-object v0, Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;->$VALUES:[Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;
 
     invoke-virtual {v0}, [Lcom/path/android/jobqueue/persistentQueue/sqlite/SqlHelper$Order$Type;->clone()Ljava/lang/Object;

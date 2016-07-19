@@ -2,15 +2,14 @@ package com.google.android.gms.maps.model;
 
 import android.os.Parcel;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.maps.internal.aa;
 
 public final class LatLng
   implements SafeParcelable
 {
   public static final i CREATOR = new i();
-  private final int CK;
-  public final double latitude;
-  public final double longitude;
+  public final double a;
+  public final double b;
+  private final int c;
   
   public LatLng(double paramDouble1, double paramDouble2)
   {
@@ -19,13 +18,18 @@ public final class LatLng
   
   LatLng(int paramInt, double paramDouble1, double paramDouble2)
   {
-    CK = paramInt;
+    c = paramInt;
     if ((-180.0D <= paramDouble2) && (paramDouble2 < 180.0D)) {}
-    for (longitude = paramDouble2;; longitude = (((paramDouble2 - 180.0D) % 360.0D + 360.0D) % 360.0D - 180.0D))
+    for (b = paramDouble2;; b = (((paramDouble2 - 180.0D) % 360.0D + 360.0D) % 360.0D - 180.0D))
     {
-      latitude = Math.max(-90.0D, Math.min(90.0D, paramDouble1));
+      a = Math.max(-90.0D, Math.min(90.0D, paramDouble1));
       return;
     }
+  }
+  
+  int a()
+  {
+    return c;
   }
   
   public int describeContents()
@@ -43,35 +47,25 @@ public final class LatLng
         return false;
       }
       paramObject = (LatLng)paramObject;
-    } while ((Double.doubleToLongBits(latitude) == Double.doubleToLongBits(latitude)) && (Double.doubleToLongBits(longitude) == Double.doubleToLongBits(longitude)));
+    } while ((Double.doubleToLongBits(a) == Double.doubleToLongBits(a)) && (Double.doubleToLongBits(b) == Double.doubleToLongBits(b)));
     return false;
-  }
-  
-  int getVersionCode()
-  {
-    return CK;
   }
   
   public int hashCode()
   {
-    long l = Double.doubleToLongBits(latitude);
+    long l = Double.doubleToLongBits(a);
     int i = (int)(l ^ l >>> 32);
-    l = Double.doubleToLongBits(longitude);
+    l = Double.doubleToLongBits(b);
     return (i + 31) * 31 + (int)(l ^ l >>> 32);
   }
   
   public String toString()
   {
-    return "lat/lng: (" + latitude + "," + longitude + ")";
+    return "lat/lng: (" + a + "," + b + ")";
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (aa.ob())
-    {
-      j.a(this, paramParcel, paramInt);
-      return;
-    }
     i.a(this, paramParcel, paramInt);
   }
 }

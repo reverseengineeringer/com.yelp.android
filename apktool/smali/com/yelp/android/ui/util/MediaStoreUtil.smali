@@ -3,6 +3,14 @@
 .source "MediaStoreUtil.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;
+    }
+.end annotation
+
+
 # static fields
 .field private static final a:[Ljava/lang/String;
 
@@ -41,7 +49,7 @@
     .end annotation
 
     .prologue
-    .line 151
+    .line 152
     sget-object v0, Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;->PHOTO:Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;
 
     invoke-virtual {v0, p0}, Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;->equals(Ljava/lang/Object;)Z
@@ -50,14 +58,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 152
+    .line 153
     sget-object v0, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
-    .line 160
+    .line 163
     :goto_0
     return-object v0
 
-    .line 153
+    .line 154
     :cond_0
     sget-object v0, Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;->VIDEO:Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;
 
@@ -67,22 +75,22 @@
 
     if-eqz v0, :cond_1
 
-    .line 154
+    .line 155
     sget-object v0, Landroid/provider/MediaStore$Video$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     goto :goto_0
 
-    .line 156
+    .line 157
     :cond_1
     const/16 v0, 0xb
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)Z
+    invoke-static {v0}, Lcom/yelp/android/appdata/f;->a(I)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    .line 157
+    .line 158
     const-string/jumbo v0, "external"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Files;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -91,7 +99,7 @@
 
     goto :goto_0
 
-    .line 159
+    .line 160
     :cond_2
     const-string/jumbo v0, "MediaStoreUtil"
 
@@ -99,7 +107,7 @@
 
     invoke-static {v0, v1}, Lcom/yelp/android/util/YelpLog;->e(Ljava/lang/Object;Ljava/lang/String;)I
 
-    .line 160
+    .line 163
     sget-object v0, Landroid/provider/MediaStore$Images$Media;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
 
     goto :goto_0
@@ -123,7 +131,7 @@
     .locals 7
 
     .prologue
-    .line 101
+    .line 102
     new-instance v0, Landroid/support/v4/content/i;
 
     invoke-static {p1}, Lcom/yelp/android/ui/util/MediaStoreUtil;->a(Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;)Landroid/net/Uri;
@@ -157,7 +165,7 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 116
+    .line 117
     new-instance v0, Landroid/support/v4/content/i;
 
     invoke-static {p1}, Lcom/yelp/android/ui/util/MediaStoreUtil;->a(Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;)Landroid/net/Uri;
@@ -195,24 +203,24 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 79
+    .line 78
     invoke-virtual {p1, p0}, Landroid/content/ContentResolver;->getType(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 81
+    .line 80
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    .line 89
+    .line 88
     :cond_0
     :goto_0
     return-object v0
 
-    .line 83
+    .line 82
     :cond_1
     const-string/jumbo v2, "video/"
 
@@ -222,12 +230,12 @@
 
     if-eqz v2, :cond_2
 
-    .line 84
+    .line 83
     sget-object v0, Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;->VIDEO:Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;
 
     goto :goto_0
 
-    .line 85
+    .line 84
     :cond_2
     const-string/jumbo v2, "image/"
 
@@ -237,7 +245,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 86
+    .line 85
     sget-object v0, Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;->PHOTO:Lcom/yelp/android/ui/util/MediaStoreUtil$MediaType;
 
     goto :goto_0
@@ -247,13 +255,13 @@
     .locals 2
 
     .prologue
-    .line 233
+    .line 242
     if-nez p0, :cond_0
 
-    .line 234
+    .line 243
     const-string/jumbo v0, "date_added DESC"
 
-    .line 236
+    .line 245
     :goto_0
     return-object v0
 
@@ -322,30 +330,30 @@
     .end annotation
 
     .prologue
-    .line 173
+    .line 177
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 174
+    .line 178
     const-string/jumbo v1, "_id"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 175
+    .line 179
     const-string/jumbo v1, "date_added"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 178
+    .line 182
     const-string/jumbo v1, "bucket_id"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 180
+    .line 184
     const/16 v1, 0xb
 
-    invoke-static {v1}, Lcom/yelp/android/appdata/n;->a(I)Z
+    invoke-static {v1}, Lcom/yelp/android/appdata/f;->a(I)Z
 
     move-result v1
 
@@ -359,12 +367,12 @@
 
     if-eqz v1, :cond_0
 
-    .line 182
+    .line 186
     const-string/jumbo v1, "media_type"
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 185
+    .line 189
     :cond_0
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -388,10 +396,10 @@
     .end annotation
 
     .prologue
-    .line 196
+    .line 201
     const/16 v0, 0xb
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->b(I)Z
+    invoke-static {v0}, Lcom/yelp/android/appdata/f;->b(I)Z
 
     move-result v0
 
@@ -405,11 +413,11 @@
 
     if-nez v0, :cond_1
 
-    .line 198
+    .line 203
     :cond_0
     const/4 v0, 0x0
 
-    .line 203
+    .line 208
     :goto_0
     return-object v0
 
@@ -423,10 +431,10 @@
     .locals 2
 
     .prologue
-    .line 216
+    .line 226
     const/16 v0, 0xb
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->b(I)Z
+    invoke-static {v0}, Lcom/yelp/android/appdata/f;->b(I)Z
 
     move-result v0
 
@@ -440,11 +448,11 @@
 
     if-nez v0, :cond_1
 
-    .line 218
+    .line 228
     :cond_0
     const-string/jumbo v0, "bucket_id=?"
 
-    .line 221
+    .line 231
     :goto_0
     return-object v0
 

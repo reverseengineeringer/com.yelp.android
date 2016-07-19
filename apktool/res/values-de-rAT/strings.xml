@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ad_choices_url">https://m.yelp.at/static?p=privacy#third-parties</string>
-    <string name="advertiser_faq_url">https://m.yelp.at/advertiser_faq</string>
-    <string name="category_banks">Banken &amp; Sparkassen</string>
-    <string name="category_bars">Bars</string>
-    <string name="category_coffee">Kaffee &amp; Teeläden</string>
-    <string name="category_drugstores">Drogerien</string>
+    <string name="category_banks">Bank &amp; Sparkasse</string>
+    <string name="category_bars">Bar</string>
+    <string name="category_coffee">Coffee Shop</string>
+    <string name="category_drugstores">Drogerie</string>
     <string name="category_nightlife">Nightlife</string>
-    <string name="category_restaurants">Restaurants</string>
-    <string name="category_servicestations">Tankstellen</string>
+    <string name="category_restaurants">Restaurant</string>
+    <string name="category_servicestations">Tankstelle</string>
     <string name="compliment_cool">Du bist leiwand!</string>
-    <string name="compliment_cute">Wie niedlich!</string>
+    <string name="compliment_cute">Süß!</string>
     <string name="compliment_desc_cool">Du bist so leiwand wie ein Wiener Bier!</string>
     <string name="compliment_desc_cute">Wow. Einfach nur wow.</string>
     <string name="compliment_desc_funny">Stell dich als Comedian in die Fußgängerzone und ich höre dir zu und lach mich schlapp, bis mir die Finger abfrieren.</string>
@@ -22,23 +20,16 @@
     <string name="compliment_desc_plain">Ohne dich hätte ich das hier nie entdeckt, also… Danke!</string>
     <string name="compliment_desc_profile">Beim Anblick deines Profils fliegen Herzchen aus meinen Augen!</string>
     <string name="compliment_desc_writer">Du schreibst nicht zum ersten Mal, oder?</string>
-    <string name="compliment_funny">Lustig</string>
-    <string name="compliment_hot">Heiß!</string>
-    <string name="compliment_list">Klasse Listen</string>
-    <string name="compliment_more">Noch mehr!</string>
-    <string name="compliment_note">Nur so...</string>
-    <string name="compliment_photos">Tolles Foto</string>
+    <string name="compliment_funny">Lustig!</string>
+    <string name="compliment_hot">Heißer Tipp!</string>
+    <string name="compliment_list">Klasse Listen!</string>
+    <string name="compliment_more">Nachschlag, bitte!</string>
+    <string name="compliment_note">nur mal so</string>
+    <string name="compliment_photos">Tolles Foto!</string>
     <string name="compliment_plain">Danke</string>
-    <string name="compliment_profile">Super Profil</string>
-    <string name="compliment_writer">Super Autor</string>
-    <string name="content_guidelines_url">https://m.yelp.at/guidelines</string>
-    <string name="elite_url">https://m.yelp.at/elite</string>
-    <string name="locality_string">Stadt, Bundesland</string>
-    <string name="mobile_host">m.yelp.at</string>
-    <string name="not_recommended_reviews_url">https://m.yelp.at/not_recommended_reviews/%1$s</string>
-    <string name="privacy_policy_url">https://m.yelp.at/static?p=privacy</string>
-    <string name="privacy_settings_url">https://m.yelp.at/profile_privacy</string>
-    <string name="remove_reason_member_request">Dieses Yelper-Konto wurde gelöscht.</string>
+    <string name="compliment_profile">Spannendes Profil!</string>
+    <string name="compliment_writer">Toll geschrieben!</string>
+    <string name="remove_reason_member_request">Dieses Yelp-Profil wurde gelöscht.</string>
     <string name="remove_reason_post_by_admin">Dieser Beitrag wurde von einem Yelp-Administrator entfernt.</string>
     <string name="remove_reason_post_by_admin_tos">Dieser Beitrag hat die &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Geschäftsbedingungen&lt;/a> von Yelp verletzt und wurde entfernt.</string>
     <string name="remove_reason_post_by_popular_demand">Dieser Beitrag wurde von der Community als bedenklich befunden und wurde entfernt.</string>
@@ -50,19 +41,22 @@
     <string name="remove_reason_post_tos_threat">Dieser Beitrag wurde entfernt, da der Verfasser kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_by_admin">Diese Unterhaltung wurde von einem Yelp-Administrator entfernt.</string>
     <string name="remove_reason_topic_by_admin_tos">Diese Unterhaltung hat die &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Geschäftsbedingungen&lt;/a> von Yelp verletzt und wurde entfernt.</string>
-    <string name="remove_reason_topic_by_popular_demand">Diese Unterhaltung wurde von der Community als bedenklich befunden und wurde entfernt.</string>
+    <string name="remove_reason_topic_by_popular_demand">Diese Unterhaltung wurde von der Community als bedenklich gemeldet und wurde daher entfernt.</string>
     <string name="remove_reason_topic_member_request">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_content">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_general">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_multiple">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_spammer">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_threat">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
-    <string name="remove_reason_tos_content">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_general">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_multiple">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_spammer">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_threat">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="site_name">Yelp.at</string>
+    <string name="remove_reason_tos_bizowner">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_content">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_deals">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_general">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_multiple">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_paidreviewer">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_solicitation">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_spammer">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_threat">Dieses Yelp-Profil wurde gelöscht.</string>
     <string name="talk_category_0">Andere</string>
     <string name="talk_category_1">Lokale Fragen &amp; Antworten</string>
     <string name="talk_category_10">Essen &amp; Trinken</string>
@@ -93,6 +87,16 @@
     <string name="talk_category_travel">Reisen</string>
     <string name="talk_category_uncategorized">Andere</string>
     <string name="talk_category_yelper_shout_outs">Applaus von Yelpern</string>
+    <string name="ad_choices_url">https://m.yelp.at/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.at/advertiser_faq</string>
+    <string name="content_guidelines_url">https://m.yelp.at/guidelines</string>
+    <string name="elite_url">https://m.yelp.at/elite</string>
+    <string name="locality_string">Stadt, Bundesland</string>
+    <string name="mobile_host">m.yelp.at</string>
+    <string name="not_recommended_reviews_url">https://m.yelp.at/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://m.yelp.at/static?p=privacy</string>
+    <string name="privacy_settings_url">https://m.yelp.at/profile_privacy</string>
+    <string name="site_name">Yelp.at</string>
     <string name="terms_of_service_url">https://m.yelp.at/static?p=tos</string>
     <string name="www_host">www.yelp.at</string>
 </resources>

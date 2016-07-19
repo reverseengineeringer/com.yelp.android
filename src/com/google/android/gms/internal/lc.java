@@ -1,31 +1,70 @@
 package com.google.android.gms.internal;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import java.util.regex.Pattern;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.util.Log;
+import com.google.android.gms.common.internal.zzf;
+import com.google.android.gms.playlog.internal.LogEvent;
+import com.google.android.gms.playlog.internal.PlayLoggerContext;
+import com.google.android.gms.playlog.internal.d;
+import com.google.android.gms.playlog.internal.f;
 
-public final class lc
+@Deprecated
+public class lc
 {
-  private static Pattern Oe = null;
+  private final f a;
+  private PlayLoggerContext b;
   
-  public static boolean K(Context paramContext)
+  public lc(Context paramContext, int paramInt, String paramString1, String paramString2, a parama, boolean paramBoolean, String paramString3)
   {
-    return paramContext.getPackageManager().hasSystemFeature("android.hardware.type.watch");
+    String str = paramContext.getPackageName();
+    int i = 0;
+    try
+    {
+      int j = getPackageManagergetPackageInfo0versionCode;
+      i = j;
+    }
+    catch (PackageManager.NameNotFoundException localNameNotFoundException)
+    {
+      for (;;)
+      {
+        Log.wtf("PlayLogger", "This can't happen.", localNameNotFoundException);
+      }
+    }
+    b = new PlayLoggerContext(str, i, paramInt, paramString1, paramString2, paramBoolean);
+    a = new f(paramContext, paramContext.getMainLooper(), new d(parama), new zzf(null, null, null, 49, null, str, paramString3, null));
   }
   
-  public static int aS(int paramInt)
+  public void a()
   {
-    return paramInt / 1000;
+    a.a();
   }
   
-  public static int aT(int paramInt)
+  public void a(long paramLong, String paramString, byte[] paramArrayOfByte, String... paramVarArgs)
   {
-    return paramInt % 1000 / 100;
+    a.a(b, new LogEvent(paramLong, 0L, paramString, paramArrayOfByte, paramVarArgs));
   }
   
-  public static boolean aU(int paramInt)
+  public void a(String paramString, byte[] paramArrayOfByte, String... paramVarArgs)
   {
-    return aT(paramInt) == 3;
+    a(System.currentTimeMillis(), paramString, paramArrayOfByte, paramVarArgs);
+  }
+  
+  public void b()
+  {
+    a.b();
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(PendingIntent paramPendingIntent);
+    
+    public abstract void b();
+    
+    public abstract void c();
   }
 }
 

@@ -1,67 +1,246 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build.VERSION;
-import android.os.Environment;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
-@ey
-public class bl
+public abstract interface bl
+  extends IInterface
 {
-  private final Context mContext;
+  public abstract String a(String paramString)
+    throws RemoteException;
   
-  public bl(Context paramContext)
-  {
-    jx.b(paramContext, "Context can not be null");
-    mContext = paramContext;
-  }
+  public abstract List<String> a()
+    throws RemoteException;
   
-  public static boolean bs()
-  {
-    return "mounted".equals(Environment.getExternalStorageState());
-  }
+  public abstract bd b(String paramString)
+    throws RemoteException;
   
-  public boolean a(Intent paramIntent)
+  public abstract void b()
+    throws RemoteException;
+  
+  public abstract void c(String paramString)
+    throws RemoteException;
+  
+  public abstract String k()
+    throws RemoteException;
+  
+  public static abstract class a
+    extends Binder
+    implements bl
   {
-    boolean bool = false;
-    jx.b(paramIntent, "Intent can not be null");
-    if (!mContext.getPackageManager().queryIntentActivities(paramIntent, 0).isEmpty()) {
-      bool = true;
+    public a()
+    {
+      attachInterface(this, "com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
     }
-    return bool;
-  }
-  
-  public boolean bo()
-  {
-    Intent localIntent = new Intent("android.intent.action.DIAL");
-    localIntent.setData(Uri.parse("tel:"));
-    return a(localIntent);
-  }
-  
-  public boolean bp()
-  {
-    Intent localIntent = new Intent("android.intent.action.VIEW");
-    localIntent.setData(Uri.parse("sms:"));
-    return a(localIntent);
-  }
-  
-  public boolean bq()
-  {
-    return (bs()) && (mContext.checkCallingOrSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0);
-  }
-  
-  public boolean br()
-  {
-    return false;
-  }
-  
-  public boolean bt()
-  {
-    Intent localIntent = new Intent("android.intent.action.INSERT").setType("vnd.android.cursor.dir/event");
-    return (Build.VERSION.SDK_INT >= 14) && (a(localIntent));
+    
+    public static bl a(IBinder paramIBinder)
+    {
+      if (paramIBinder == null) {
+        return null;
+      }
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+      if ((localIInterface != null) && ((localIInterface instanceof bl))) {
+        return (bl)localIInterface;
+      }
+      return new a(paramIBinder);
+    }
+    
+    public IBinder asBinder()
+    {
+      return this;
+    }
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
+    {
+      switch (paramInt1)
+      {
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+        return true;
+      case 1: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+        paramParcel1 = a(paramParcel1.readString());
+        paramParcel2.writeNoException();
+        paramParcel2.writeString(paramParcel1);
+        return true;
+      case 2: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+        paramParcel1 = b(paramParcel1.readString());
+        paramParcel2.writeNoException();
+        if (paramParcel1 != null) {}
+        for (paramParcel1 = paramParcel1.asBinder();; paramParcel1 = null)
+        {
+          paramParcel2.writeStrongBinder(paramParcel1);
+          return true;
+        }
+      case 3: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+        paramParcel1 = a();
+        paramParcel2.writeNoException();
+        paramParcel2.writeStringList(paramParcel1);
+        return true;
+      case 4: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+        paramParcel1 = k();
+        paramParcel2.writeNoException();
+        paramParcel2.writeString(paramParcel1);
+        return true;
+      case 5: 
+        paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+        c(paramParcel1.readString());
+        paramParcel2.writeNoException();
+        return true;
+      }
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+      b();
+      paramParcel2.writeNoException();
+      return true;
+    }
+    
+    private static class a
+      implements bl
+    {
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
+      {
+        a = paramIBinder;
+      }
+      
+      public String a(String paramString)
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+          localParcel1.writeString(paramString);
+          a.transact(1, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          paramString = localParcel2.readString();
+          return paramString;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public List<String> a()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+          a.transact(3, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          ArrayList localArrayList = localParcel2.createStringArrayList();
+          return localArrayList;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
+      
+      public bd b(String paramString)
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+          localParcel1.writeString(paramString);
+          a.transact(2, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          paramString = bd.a.a(localParcel2.readStrongBinder());
+          return paramString;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public void b()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+          a.transact(6, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          return;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public void c(String paramString)
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+          localParcel1.writeString(paramString);
+          a.transact(5, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          return;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public String k()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.formats.client.INativeCustomTemplateAd");
+          a.transact(4, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          String str = localParcel2.readString();
+          return str;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+    }
   }
 }
 

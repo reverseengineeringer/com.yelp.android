@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/alternate_name_title" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Widget.TextView.ListSeparatorYelp.GrayBackground" />
+    <com.yelp.android.ui.widgets.SpannableLinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" yelp:position="bottom|left" style="@style/ButtonFullBleed">
+        <EditText android:id="@id/alternate_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:selectAllOnFocus="true" android:inputType="text" />
+    </com.yelp.android.ui.widgets.SpannableLinearLayout>
+</merge>

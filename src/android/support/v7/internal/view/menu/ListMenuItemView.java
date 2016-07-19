@@ -13,15 +13,15 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import com.yelp.android.g.g;
-import com.yelp.android.g.i;
-import com.yelp.android.g.l;
+import com.yelp.android.j.a.f;
+import com.yelp.android.j.a.h;
+import com.yelp.android.j.a.k;
 
 public class ListMenuItemView
   extends LinearLayout
-  implements aa
+  implements m.a
 {
-  private m a;
+  private h a;
   private ImageView b;
   private RadioButton c;
   private TextView d;
@@ -45,29 +45,29 @@ public class ListMenuItemView
   {
     super(paramContext, paramAttributeSet);
     l = paramContext;
-    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, l.MenuView, paramInt, 0);
-    g = paramAttributeSet.getDrawable(l.MenuView_android_itemBackground);
-    h = paramAttributeSet.getResourceId(l.MenuView_android_itemTextAppearance, -1);
-    j = paramAttributeSet.getBoolean(l.MenuView_preserveIconSpacing, false);
+    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, a.k.MenuView, paramInt, 0);
+    g = paramAttributeSet.getDrawable(a.k.MenuView_android_itemBackground);
+    h = paramAttributeSet.getResourceId(a.k.MenuView_android_itemTextAppearance, -1);
+    j = paramAttributeSet.getBoolean(a.k.MenuView_preserveIconSpacing, false);
     i = paramContext;
     paramAttributeSet.recycle();
   }
   
   private void b()
   {
-    b = ((ImageView)getInflater().inflate(i.abc_list_menu_item_icon, this, false));
+    b = ((ImageView)getInflater().inflate(a.h.abc_list_menu_item_icon, this, false));
     addView(b, 0);
   }
   
   private void c()
   {
-    c = ((RadioButton)getInflater().inflate(i.abc_list_menu_item_radio, this, false));
+    c = ((RadioButton)getInflater().inflate(a.h.abc_list_menu_item_radio, this, false));
     addView(c);
   }
   
   private void d()
   {
-    e = ((CheckBox)getInflater().inflate(i.abc_list_menu_item_checkbox, this, false));
+    e = ((CheckBox)getInflater().inflate(a.h.abc_list_menu_item_checkbox, this, false));
     addView(e);
   }
   
@@ -79,19 +79,19 @@ public class ListMenuItemView
     return m;
   }
   
-  public void a(m paramm, int paramInt)
+  public void a(h paramh, int paramInt)
   {
-    a = paramm;
+    a = paramh;
     k = paramInt;
-    if (paramm.isVisible()) {}
+    if (paramh.isVisible()) {}
     for (paramInt = 0;; paramInt = 8)
     {
       setVisibility(paramInt);
-      setTitle(paramm.a(this));
-      setCheckable(paramm.isCheckable());
-      a(paramm.f(), paramm.d());
-      setIcon(paramm.getIcon());
-      setEnabled(paramm.isEnabled());
+      setTitle(paramh.a(this));
+      setCheckable(paramh.isCheckable());
+      a(paramh.f(), paramh.d());
+      setIcon(paramh.getIcon());
+      setEnabled(paramh.isEnabled());
       return;
     }
   }
@@ -116,7 +116,7 @@ public class ListMenuItemView
     return false;
   }
   
-  public m getItemData()
+  public h getItemData()
   {
     return a;
   }
@@ -125,11 +125,11 @@ public class ListMenuItemView
   {
     super.onFinishInflate();
     setBackgroundDrawable(g);
-    d = ((TextView)findViewById(g.title));
+    d = ((TextView)findViewById(a.f.title));
     if (h != -1) {
       d.setTextAppearance(i, h);
     }
-    f = ((TextView)findViewById(g.shortcut));
+    f = ((TextView)findViewById(a.f.shortcut));
   }
   
   protected void onMeasure(int paramInt1, int paramInt2)

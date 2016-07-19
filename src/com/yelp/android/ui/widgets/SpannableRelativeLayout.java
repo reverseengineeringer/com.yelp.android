@@ -81,9 +81,9 @@ public class SpannableRelativeLayout
     mUtil.setMiddle(paramBoolean);
   }
   
-  public void setOnCheckedChangeListener(j paramj)
+  public void setOnCheckedChangeListener(c paramc)
   {
-    mUtil.setOnCheckedChangeListener(paramj);
+    mUtil.a(paramc);
     refreshDrawableState();
   }
   

@@ -28,6 +28,8 @@
         <item>restaurants</item>
         <item>bars</item>
         <item>coffee</item>
+        <item>shopping</item>
+        <item>NewBusiness</item>
         <item>MoreCategories</item>
     </string-array>
     <string-array name="category_aliases_popular">
@@ -201,8 +203,10 @@
         <item>Yelp.com.br</item>
         <item>Yelp.com.hk</item>
         <item>Yelp.com.mx</item>
+        <item>Yelp.com.ph</item>
         <item>Yelp.com.sg</item>
         <item>Yelp.com.tr</item>
+        <item>Yelp.com.tw</item>
         <item>Yelp.com</item>
         <item>Yelp.cz</item>
         <item>Yelp.de</item>
@@ -212,6 +216,7 @@
         <item>Yelp.fr</item>
         <item>Yelp.ie</item>
         <item>Yelp.it</item>
+        <item>Yelp.my</item>
         <item>Yelp.nl</item>
         <item>Yelp.no</item>
         <item>Yelp.pl</item>

@@ -1,131 +1,125 @@
 .class public Lcom/yelp/android/appdata/webrequests/cz;
-.super Lcom/yelp/android/appdata/webrequests/ek;
-.source "LocationRequestStore.java"
+.super Lcom/yelp/android/appdata/webrequests/k;
+.source "NearbySuggestRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "<Request:",
-        "Lcom/yelp/android/appdata/webrequests/h",
-        "<**TResult;>;Result:",
-        "Ljava/lang/Object;",
-        ">",
-        "Lcom/yelp/android/appdata/webrequests/ek",
-        "<TRequest;TResult;",
-        "Lcom/yelp/android/appdata/webrequests/j",
-        "<TResult;>;>;"
+        "Lcom/yelp/android/appdata/webrequests/k",
+        "<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/util/List",
+        "<",
+        "Lcom/yelp/android/serializable/NearbyRow;",
+        ">;>;"
     }
 .end annotation
 
 
-# instance fields
-.field private e:Z
-
-
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/h;Z)V
-    .locals 2
+.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/k$b;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(TRequest;Z)V"
+            "(",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
+            "<",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/NearbyRow;",
+            ">;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 14
-    invoke-direct {p0, p1}, Lcom/yelp/android/appdata/webrequests/ek;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
-
-    .line 15
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/cz;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
     .line 16
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/h;
+    const-string/jumbo v2, "nearby/suggest"
 
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/da;
+    sget-object v3, Lcom/yelp/android/appdata/LocationService$Accuracies;->MEDIUM_KM:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
-    invoke-direct {v1, p0, p2}, Lcom/yelp/android/appdata/webrequests/da;-><init>(Lcom/yelp/android/appdata/webrequests/cz;Z)V
+    sget-object v4, Lcom/yelp/android/appdata/LocationService$Recentness;->MINUTE_15:Lcom/yelp/android/appdata/LocationService$Recentness;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/h;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    sget-object v6, Lcom/yelp/android/appdata/LocationService$AccuracyUnit;->MILES:Lcom/yelp/android/appdata/LocationService$AccuracyUnit;
 
-    .line 34
+    move-object v0, p0
+
+    move-object v5, p1
+
+    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/k;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/webrequests/k$b;Lcom/yelp/android/appdata/LocationService$AccuracyUnit;)V
+
+    .line 23
     return-void
-.end method
-
-.method static synthetic a(Lcom/yelp/android/appdata/webrequests/cz;Z)Z
-    .locals 0
-
-    .prologue
-    .line 8
-    iput-boolean p1, p0, Lcom/yelp/android/appdata/webrequests/cz;->e:Z
-
-    return p1
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/h;
+.method public a(Lorg/json/JSONObject;)Ljava/util/List;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/j",
-            "<TResult;>;)TRequest;"
+            "Lorg/json/JSONObject;",
+            ")",
+            "Ljava/util/List",
+            "<",
+            "Lcom/yelp/android/serializable/NearbyRow;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;
         }
     .end annotation
 
     .prologue
-    .line 38
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    .line 28
+    :try_start_0
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/cz;->i_()Ljava/lang/String;
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/h;
+    move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/h;->setCallback(Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-static {p1, v0}, Lcom/yelp/android/serializable/NearbyRow;->a(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/ArrayList;
+    :try_end_0
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 39
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->e:Z
-
-    if-eqz v0, :cond_0
-
-    .line 40
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/j;->a()Z
-
-    .line 44
-    :cond_0
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->c:Z
-
-    if-eqz v0, :cond_2
-
-    .line 45
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/cz;->b:Ljava/lang/Object;
-
-    invoke-virtual {p1, v0, v1}, Lcom/yelp/android/appdata/webrequests/j;->onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
-
-    .line 49
-    :cond_1
-    :goto_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
-
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/h;
+    move-result-object v0
 
     return-object v0
 
-    .line 46
-    :cond_2
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->d:Lcom/yelp/android/appdata/webrequests/YelpException;
+    .line 29
+    :catch_0
+    move-exception v0
 
-    if-eqz v0, :cond_1
+    .line 30
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/YelpException;
 
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cz;->a:Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    sget v1, Lcom/yelp/android/appdata/webrequests/YelpException;->YPErrorInvalidData:I
 
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/cz;->d:Lcom/yelp/android/appdata/webrequests/YelpException;
+    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/YelpException;-><init>(I)V
 
-    invoke-virtual {p1, v0, v1}, Lcom/yelp/android/appdata/webrequests/j;->onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
+    throw v0
+.end method
 
-    goto :goto_0
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 13
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/cz;->a(Lorg/json/JSONObject;)Ljava/util/List;
+
+    move-result-object v0
+
+    return-object v0
 .end method

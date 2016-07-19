@@ -1,68 +1,27 @@
 package com.google.android.gms.internal;
 
-import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import java.lang.reflect.Field;
+import android.content.Context;
+import android.os.Looper;
+import com.google.android.gms.common.api.Api;
+import com.google.android.gms.common.api.Api.ApiOptions.NoOptions;
+import com.google.android.gms.common.api.Api.zza;
+import com.google.android.gms.common.api.Api.zzc;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.common.internal.zzf;
 
-public abstract class ji
-  implements SafeParcelable
+public final class ji
 {
-  private static ClassLoader MA = null;
-  private static Integer MB = null;
-  private static final Object Mz = new Object();
-  private boolean MC = false;
-  
-  private static boolean a(Class<?> paramClass)
+  public static final Api.zzc<jm> a = new Api.zzc();
+  public static final Api<Api.ApiOptions.NoOptions> b = new Api("Common.API", d, a);
+  public static final jj c = new jk();
+  private static final Api.zza<jm, Api.ApiOptions.NoOptions> d = new Api.zza()
   {
-    try
+    public jm a(Context paramAnonymousContext, Looper paramAnonymousLooper, zzf paramAnonymouszzf, Api.ApiOptions.NoOptions paramAnonymousNoOptions, GoogleApiClient.ConnectionCallbacks paramAnonymousConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener paramAnonymousOnConnectionFailedListener)
     {
-      boolean bool = "SAFE_PARCELABLE_NULL_STRING".equals(paramClass.getField("NULL").get(null));
-      return bool;
+      return new jm(paramAnonymousContext, paramAnonymousLooper, paramAnonymouszzf, paramAnonymousConnectionCallbacks, paramAnonymousOnConnectionFailedListener);
     }
-    catch (IllegalAccessException paramClass)
-    {
-      return false;
-    }
-    catch (NoSuchFieldException paramClass) {}
-    return false;
-  }
-  
-  protected static boolean aW(String paramString)
-  {
-    ClassLoader localClassLoader = hs();
-    if (localClassLoader == null) {
-      return true;
-    }
-    try
-    {
-      boolean bool = a(localClassLoader.loadClass(paramString));
-      return bool;
-    }
-    catch (Exception paramString) {}
-    return false;
-  }
-  
-  protected static ClassLoader hs()
-  {
-    synchronized (Mz)
-    {
-      ClassLoader localClassLoader = MA;
-      return localClassLoader;
-    }
-  }
-  
-  protected static Integer ht()
-  {
-    synchronized (Mz)
-    {
-      Integer localInteger = MB;
-      return localInteger;
-    }
-  }
-  
-  protected boolean hu()
-  {
-    return MC;
-  }
+  };
 }
 
 /* Location:

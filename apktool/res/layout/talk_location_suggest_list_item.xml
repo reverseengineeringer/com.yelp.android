@@ -1,3 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView android:textAppearance="@style/LargeText" android:gravity="center_vertical" android:background="@drawable/selector_list_cell_white_gutter" android:paddingLeft="20.0dip" android:paddingTop="?baseGapSize" android:paddingBottom="?baseGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content"
+<TextView android:textAppearance="@style/BodyText" android:gravity="center_vertical" android:background="@drawable/selector_list_cell_white_gutter" android:paddingLeft="20.0dip" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android" />

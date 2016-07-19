@@ -1,6 +1,6 @@
 package com.yelp.common.collect;
 
-import com.yelp.common.base.h;
+import com.yelp.common.base.e;
 import java.util.Map.Entry;
 
 abstract class a<K, V>
@@ -14,10 +14,10 @@ abstract class a<K, V>
     {
       paramObject = (Map.Entry)paramObject;
       bool1 = bool2;
-      if (h.a(getKey(), ((Map.Entry)paramObject).getKey()))
+      if (e.a(getKey(), ((Map.Entry)paramObject).getKey()))
       {
         bool1 = bool2;
-        if (h.a(getValue(), ((Map.Entry)paramObject).getValue())) {
+        if (e.a(getValue(), ((Map.Entry)paramObject).getValue())) {
           bool1 = true;
         }
       }

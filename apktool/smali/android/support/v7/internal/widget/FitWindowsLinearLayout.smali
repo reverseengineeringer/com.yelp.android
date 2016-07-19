@@ -3,11 +3,11 @@
 .source "FitWindowsLinearLayout.java"
 
 # interfaces
-.implements Landroid/support/v7/internal/widget/aj;
+.implements Landroid/support/v7/internal/widget/h;
 
 
 # instance fields
-.field private a:Landroid/support/v7/internal/widget/ak;
+.field private a:Landroid/support/v7/internal/widget/h$a;
 
 
 # direct methods
@@ -40,14 +40,14 @@
 
     .prologue
     .line 45
-    iget-object v0, p0, Landroid/support/v7/internal/widget/FitWindowsLinearLayout;->a:Landroid/support/v7/internal/widget/ak;
+    iget-object v0, p0, Landroid/support/v7/internal/widget/FitWindowsLinearLayout;->a:Landroid/support/v7/internal/widget/h$a;
 
     if-eqz v0, :cond_0
 
     .line 46
-    iget-object v0, p0, Landroid/support/v7/internal/widget/FitWindowsLinearLayout;->a:Landroid/support/v7/internal/widget/ak;
+    iget-object v0, p0, Landroid/support/v7/internal/widget/FitWindowsLinearLayout;->a:Landroid/support/v7/internal/widget/h$a;
 
-    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/ak;->a(Landroid/graphics/Rect;)V
+    invoke-interface {v0, p1}, Landroid/support/v7/internal/widget/h$a;->a(Landroid/graphics/Rect;)V
 
     .line 48
     :cond_0
@@ -58,12 +58,12 @@
     return v0
 .end method
 
-.method public setOnFitSystemWindowsListener(Landroid/support/v7/internal/widget/ak;)V
+.method public setOnFitSystemWindowsListener(Landroid/support/v7/internal/widget/h$a;)V
     .locals 0
 
     .prologue
     .line 40
-    iput-object p1, p0, Landroid/support/v7/internal/widget/FitWindowsLinearLayout;->a:Landroid/support/v7/internal/widget/ak;
+    iput-object p1, p0, Landroid/support/v7/internal/widget/FitWindowsLinearLayout;->a:Landroid/support/v7/internal/widget/h$a;
 
     .line 41
     return-void

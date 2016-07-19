@@ -2,6 +2,7 @@ package com.yelp.android.ui.activities.drawer;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -12,327 +13,378 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
 import com.yelp.android.DinoListView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.appdata.ApiPreferences;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.BusinessContributionType;
+import com.yelp.android.appdata.Features;
 import com.yelp.android.appdata.LocaleSettings;
-import com.yelp.android.appdata.ab;
-import com.yelp.android.appdata.experiment.NavForAnonymousUsersExperiment;
-import com.yelp.android.appdata.experiment.NavForAnonymousUsersExperiment.Cohort;
-import com.yelp.android.appdata.experiment.c;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.j;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.Passport;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.ActivityMonocle;
-import com.yelp.android.ui.activities.ActivityBookmarks;
 import com.yelp.android.ui.activities.ActivityContributionSearch;
 import com.yelp.android.ui.activities.ActivityRecents;
+import com.yelp.android.ui.activities.bookmarks.ActivityBookmarks;
 import com.yelp.android.ui.activities.bugreport.ActivityReportABug;
 import com.yelp.android.ui.activities.events.ActivityEvents;
 import com.yelp.android.ui.activities.feed.ActivityFeed;
-import com.yelp.android.ui.activities.feed.SingleFeedFragmentActivity;
 import com.yelp.android.ui.activities.friendcheckins.NearbyCheckIns;
 import com.yelp.android.ui.activities.friends.ActivityFindFriends;
 import com.yelp.android.ui.activities.friends.ActivityFriendList;
+import com.yelp.android.ui.activities.localissue.ActivityLocalIssue;
+import com.yelp.android.ui.activities.mediagrid.ActivityUserBizMediaGrid;
 import com.yelp.android.ui.activities.messaging.ActivityMessaging;
 import com.yelp.android.ui.activities.mutatebiz.AddBusiness;
 import com.yelp.android.ui.activities.nearby.ActivityNearby;
 import com.yelp.android.ui.activities.notifications.ActivityNotifications;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
-import com.yelp.android.ui.activities.profile.UserBizMediaGrid;
+import com.yelp.android.ui.activities.profile.reviews.ActivityUserReviews;
 import com.yelp.android.ui.activities.reviews.ActivityReviewSuggestions;
 import com.yelp.android.ui.activities.search.SearchBusinessesByList;
 import com.yelp.android.ui.activities.search.SearchBusinessesByMap;
 import com.yelp.android.ui.activities.settings.ChangeSettings;
+import com.yelp.android.ui.activities.support.ActivitySupportCenter;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.activities.talk.ActivityTalk;
-import com.yelp.android.ui.activities.weekly.ActivityWeeklyIssue;
 import com.yelp.android.ui.panels.PanelLoading;
-import com.yelp.android.ui.util.bs;
-import com.yelp.android.ui.util.bw;
-import com.yelp.android.ui.util.cr;
-import com.yelp.android.ui.util.cs;
+import com.yelp.android.ui.util.ac;
+import com.yelp.android.ui.util.aj;
+import com.yelp.android.ui.util.aj.c;
+import com.yelp.android.ui.util.as;
+import com.yelp.android.ui.util.at;
+import com.yelp.android.ui.util.e;
 import com.yelp.android.ui.widgets.WebImageView;
 import com.yelp.android.util.StringUtils;
 import com.yelp.android.util.YelpLog;
+import java.util.List;
 import java.util.Locale;
 
 public class DrawerFragment
   extends YelpFragment
 {
-  BroadcastReceiver a = new m(this);
-  private o b;
+  BroadcastReceiver a = new DrawerFragment.6(this);
+  private a b;
   private TextView c;
-  private TextView d;
-  private TextView e;
-  private View g;
-  private View h;
-  private View i;
-  private View j;
-  private DinoListView k;
-  private View l;
-  private ImageView m;
+  private View d;
+  private View e;
+  private TextView f;
+  private TextView g;
+  private TextView i;
+  private com.yelp.android.cm.d j;
+  private com.yelp.android.cm.d k;
+  private DinoListView l;
+  private View m;
   private ImageView n;
-  private Button o;
-  private com.yelp.android.ui.h p;
-  private a q;
-  private final View.OnClickListener r = new l(this);
+  private ImageView o;
+  private Button p;
+  private com.yelp.android.ui.d q;
+  private a r;
+  private final View.OnClickListener s = new DrawerFragment.5(this);
   
-  private void e()
+  private boolean f()
   {
-    g.setVisibility(8);
-    h.setVisibility(8);
-    j();
-  }
-  
-  private void f()
-  {
-    int i1 = ab.a().e();
-    if (i1 == 0)
-    {
-      e.setVisibility(8);
-      return;
-    }
-    e.setVisibility(0);
-    e.setText(String.valueOf(i1));
+    return Features.support_center_feature_release.isEnabled();
   }
   
   private void g()
   {
-    int i1 = ab.a().f();
-    if (i1 == 0)
-    {
-      d.setVisibility(8);
-      return;
-    }
-    d.setVisibility(0);
-    d.setText(String.valueOf(i1));
+    d.setVisibility(8);
+    e.setVisibility(8);
+    l();
   }
   
   private void h()
   {
-    int i2 = 0;
-    boolean bool = AppData.b().m().c();
-    Object localObject = c;
-    if (bool)
+    int i1 = j.a().e();
+    k.a(i1, getActivity().getResources());
+    if (i1 > 0)
     {
-      i1 = 2131165850;
-      ((TextView)localObject).setText(i1);
-      localObject = i;
-      if (!bool) {
-        break label74;
-      }
-      i1 = 0;
-      label43:
-      ((View)localObject).setVisibility(i1);
-      localObject = j;
-      if (!bool) {
-        break label80;
-      }
-    }
-    label74:
-    label80:
-    for (int i1 = i2;; i1 = 8)
-    {
-      ((View)localObject).setVisibility(i1);
+      g.setCompoundDrawables(g.getCompoundDrawables()[0], null, k, null);
       return;
-      i1 = 2131165504;
-      break;
-      i1 = 8;
-      break label43;
     }
+    g.setCompoundDrawables(g.getCompoundDrawables()[0], null, null, null);
   }
   
   private void i()
   {
-    View localView = l;
-    dc localdc = AppData.b().m();
-    User localUser = localdc.s();
-    if ((localdc.c()) && (localUser != null) && (localUser.isFullUser()))
+    int i1 = j.a().f();
+    j.a(i1, getActivity().getResources());
+    if (i1 > 0)
     {
-      g.setVisibility(0);
-      h.setVisibility(8);
-      j();
+      f.setCompoundDrawables(f.getCompoundDrawables()[0], null, j, null);
+      return;
+    }
+    f.setCompoundDrawables(f.getCompoundDrawables()[0], null, null, null);
+  }
+  
+  private void j()
+  {
+    int i2 = 0;
+    Object localObject2 = AppData.b().q();
+    Object localObject1 = ((co)localObject2).p();
+    boolean bool = ((co)localObject2).b();
+    localObject2 = c;
+    if (bool)
+    {
+      i1 = 2131165933;
+      ((TextView)localObject2).setText(i1);
+      localObject2 = g;
+      if (!bool) {
+        break label122;
+      }
+      i1 = 0;
+      label54:
+      ((TextView)localObject2).setVisibility(i1);
+      localObject2 = f;
+      if (!bool) {
+        break label128;
+      }
+      i1 = 0;
+      label72:
+      ((TextView)localObject2).setVisibility(i1);
+      if ((!bool) || (localObject1 == null) || (((User)localObject1).k() <= 0)) {
+        break label134;
+      }
+      i1 = 1;
+      label97:
+      localObject1 = i;
+      if (i1 == 0) {
+        break label139;
+      }
+    }
+    label122:
+    label128:
+    label134:
+    label139:
+    for (int i1 = i2;; i1 = 8)
+    {
+      ((TextView)localObject1).setVisibility(i1);
+      return;
+      i1 = 2131165635;
+      break;
+      i1 = 8;
+      break label54;
+      i1 = 8;
+      break label72;
+      i1 = 0;
+      break label97;
+    }
+  }
+  
+  private void k()
+  {
+    co localco = AppData.b().q();
+    User localUser = localco.p();
+    if ((localco.b()) && (localUser != null) && (localUser.n()))
+    {
+      d.setVisibility(0);
+      e.setVisibility(8);
       l();
+      n();
     }
     for (;;)
     {
-      cs.a(l, new k(this));
+      at.a(m, new DrawerFragment.4(this));
       return;
-      if ((localdc.c()) && (localdc.x()))
+      if ((localco.b()) && (localco.t()))
       {
-        g.setVisibility(4);
-        h.setVisibility(8);
-        i_();
+        d.setVisibility(4);
+        e.setVisibility(8);
+        H_();
       }
-      else if (localdc.c())
+      else if (localco.b())
       {
-        e();
+        g();
       }
       else
       {
-        g.setVisibility(8);
-        h.setVisibility(0);
-        localView.findViewById(2131493637).setOnClickListener(r);
+        d.setVisibility(8);
+        e.setVisibility(0);
+        e.setOnClickListener(s);
       }
     }
   }
   
-  private int k()
+  private int m()
   {
     Object localObject = getActivity();
     if (((localObject instanceof ActivityFriendList)) && (((ActivityFriendList)localObject).a())) {
-      return 2131493644;
+      return 2131690385;
     }
-    if (((localObject instanceof SingleFeedFragmentActivity)) && (((SingleFeedFragmentActivity)localObject).a())) {
-      return 2131493645;
+    if (((localObject instanceof ActivityUserReviews)) && (((ActivityUserReviews)localObject).b())) {
+      return 2131690386;
     }
-    if (((localObject instanceof UserBizMediaGrid)) && (((UserBizMediaGrid)localObject).a())) {
-      return 2131493646;
+    if (((localObject instanceof ActivityUserBizMediaGrid)) && (((ActivityUserBizMediaGrid)localObject).a())) {
+      return 2131690387;
     }
     if ((localObject instanceof ActivityReviewSuggestions)) {
-      return 2131493480;
+      return 2131690162;
     }
     if ((localObject instanceof ActivityContributionSearch))
     {
       localObject = ((ActivityContributionSearch)localObject).b();
       if (localObject == BusinessContributionType.CHECK_IN) {
-        return 2131493482;
+        return 2131690164;
       }
       if (localObject == BusinessContributionType.BUSINESS_PHOTO) {
-        return 2131493481;
+        return 2131690163;
       }
     }
     else
     {
       if ((localObject instanceof ActivityNearby)) {
-        return 2131493483;
+        return 2131690165;
       }
       if (((localObject instanceof SearchBusinessesByList)) || ((localObject instanceof SearchBusinessesByMap))) {
-        return 2131493484;
+        return 2131690166;
       }
       if ((localObject instanceof ActivityFeed)) {
-        return 2131493485;
+        return 2131690167;
       }
       if ((localObject instanceof ActivityNotifications)) {
-        return 2131493486;
+        return 2131690168;
       }
       if ((localObject instanceof ActivityBookmarks)) {
-        return 2131493489;
+        return 2131690169;
       }
       if ((localObject instanceof ActivityEvents)) {
-        return 2131493491;
+        return 2131690171;
       }
       if ((localObject instanceof ActivityRecents)) {
-        return 2131493490;
+        return 2131690170;
       }
       if ((localObject instanceof ActivityMessaging)) {
-        return 2131493492;
+        return 2131690173;
       }
       if ((localObject instanceof NearbyCheckIns)) {
-        return 2131493495;
+        return 2131690174;
       }
       if ((localObject instanceof ActivityTalk)) {
-        return 2131493496;
+        return 2131690175;
       }
       if (((localObject instanceof ActivityUserProfile)) && (((ActivityUserProfile)localObject).b())) {
-        return 2131493497;
+        return 2131690176;
       }
-      if ((localObject instanceof ActivityWeeklyIssue)) {
-        return 2131493498;
+      if ((localObject instanceof ActivityLocalIssue)) {
+        return 2131690177;
       }
       if ((localObject instanceof ActivityMonocle)) {
-        return 2131493499;
+        return 2131690178;
       }
       if ((localObject instanceof ActivityFindFriends)) {
-        return 2131493500;
+        return 2131690179;
       }
       if ((localObject instanceof AddBusiness)) {
-        return 2131493501;
+        return 2131690180;
       }
       if ((localObject instanceof ChangeSettings)) {
-        return 2131493502;
+        return 2131690181;
       }
       if ((localObject instanceof ActivityReportABug)) {
-        return 2131493503;
+        return 2131690182;
+      }
+      if ((localObject instanceof ActivitySupportCenter)) {
+        return 2131690183;
       }
     }
     return 0;
   }
   
-  private void l()
+  private void n()
   {
-    User localUser = AppData.b().m().s();
-    Object localObject = l.findViewById(2131493638);
-    TextView localTextView1 = (TextView)((View)localObject).findViewById(2131493644);
-    TextView localTextView2 = (TextView)((View)localObject).findViewById(2131493645);
-    TextView localTextView3 = (TextView)((View)localObject).findViewById(2131493646);
-    TextView localTextView4 = (TextView)((View)localObject).findViewById(2131493643);
-    localObject = (WebImageView)((View)localObject).findViewById(2131493641);
-    localTextView1.setText(StringUtils.a(getActivity(), 2131623952, localUser.getFriendCount(), new Object[] { Boolean.valueOf(true) }));
-    localTextView2.setText(StringUtils.a(getActivity(), 2131623970, localUser.getReviewCount(), new Object[] { Boolean.valueOf(true) }));
-    int i1 = localUser.getVideoCount();
-    int i2 = localUser.getLocalPhotoCount();
-    localTextView3.setText(Passport.getMediaQuantityString(true, i2, i1, i1 + i2, getResources()));
-    localTextView4.setText(localUser.getFullName());
-    ((WebImageView)localObject).setImageUrl(localUser.getUserPhotoUrl(), 2130837659);
+    boolean bool2 = true;
+    User localUser = AppData.b().q().p();
+    Object localObject = m.findViewById(2131690380);
+    TextView localTextView1 = (TextView)((View)localObject).findViewById(2131690385);
+    TextView localTextView2 = (TextView)((View)localObject).findViewById(2131690386);
+    TextView localTextView3 = (TextView)((View)localObject).findViewById(2131690387);
+    TextView localTextView4 = (TextView)((View)localObject).findViewById(2131690384);
+    localObject = (WebImageView)((View)localObject).findViewById(2131690383);
+    localTextView1.setText(StringUtils.a(getActivity(), 2131230736, localUser.k_(), new Object[] { Boolean.valueOf(true) }));
+    localTextView2.setText(StringUtils.a(getActivity(), 2131230757, localUser.j_(), new Object[] { Boolean.valueOf(true) }));
+    if (localUser.j_() > 0)
+    {
+      bool1 = true;
+      localTextView2.setClickable(bool1);
+      int i1 = localUser.m_();
+      int i2 = localUser.M();
+      int i3 = i1 + i2;
+      localTextView3.setText(Passport.a(true, i2, i1, i3, getResources()));
+      if (i3 <= 0) {
+        break label245;
+      }
+    }
+    label245:
+    for (boolean bool1 = bool2;; bool1 = false)
+    {
+      localTextView3.setClickable(bool1);
+      localTextView4.setText(localUser.ad());
+      ((WebImageView)localObject).setImageUrl(localUser.c(), 2130837702);
+      return;
+      bool1 = false;
+      break;
+    }
   }
   
-  private void m()
+  private void o()
   {
-    com.yelp.android.ui.util.h localh = new com.yelp.android.ui.util.h(new View[0]);
-    localh.b(l);
-    localh.b(m);
-    p = new com.yelp.android.ui.h(getActivity(), k);
+    e locale = new e(new View[0]);
+    locale.b(m);
+    locale.b(n);
+    q = new com.yelp.android.ui.d(getActivity(), l);
     if (getResourcesgetConfigurationorientation == 2) {
-      p.b();
+      q.c();
     }
-    bs localbs = new bs();
-    localbs.a(0, bw.a(localh).a());
-    localbs.a(1, bw.a(p).a());
-    k.setAdapter(localbs);
+    aj localaj = new aj();
+    localaj.a(0, aj.c.a(locale).b());
+    localaj.a(1, aj.c.a(q).b());
+    l.setAdapter(localaj);
   }
   
   public void a()
   {
     if (getView() != null)
     {
-      q.a();
-      cr.b(getView());
+      r.a();
+      as.b(getView());
     }
   }
   
   protected void a(View paramView)
   {
-    ((ViewGroup)l.findViewById(2131493638)).addView(paramView);
+    ((ViewGroup)m.findViewById(2131690380)).addView(paramView);
   }
   
   public void b()
   {
-    if (g.getVisibility() == 4) {
-      B().b();
+    if (d.getVisibility() == 4) {
+      C().b();
     }
-    AppData.a(ViewIri.Drawer, "growth_android_dino_nav", ((NavForAnonymousUsersExperiment.Cohort)c.a.a()).name());
+    AppData.a(ViewIri.Drawer);
+    ApiPreferences localApiPreferences = AppData.b().o();
+    if ((localApiPreferences.e().isEmpty()) && (localApiPreferences.d().isEmpty())) {
+      localApiPreferences.a();
+    }
   }
   
   protected void b(View paramView)
   {
-    ((ViewGroup)l.findViewById(2131493638)).removeView(paramView);
+    ((ViewGroup)m.findViewById(2131690380)).removeView(paramView);
   }
   
   public void c()
   {
-    q.b();
+    r.b();
   }
   
-  public b getIri()
+  public com.yelp.android.analytics.iris.a getIri()
   {
     return null;
   }
@@ -340,13 +392,14 @@ public class DrawerFragment
   public void onActivityCreated(Bundle paramBundle)
   {
     super.onActivityCreated(paramBundle);
-    a(dc.b, new i(this));
-    a(dc.c, new j(this));
+    a(co.b, new DrawerFragment.2(this));
+    a(co.c, new DrawerFragment.3(this));
     b("com.yelp.android.messages.count.update", a);
     b("com.yelp.android.notifications.count.update", a);
-    int i1 = k();
+    b("user", a);
+    int i1 = m();
     if (i1 != 0) {
-      l.findViewById(i1).setSelected(true);
+      m.findViewById(i1).setSelected(true);
     }
   }
   
@@ -355,7 +408,7 @@ public class DrawerFragment
     super.onAttach(paramActivity);
     try
     {
-      b = ((o)paramActivity);
+      b = ((a)paramActivity);
       return;
     }
     catch (ClassCastException paramActivity)
@@ -366,71 +419,80 @@ public class DrawerFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    l = paramLayoutInflater.inflate(2130903193, paramViewGroup, false);
-    c = ((TextView)l.findViewById(2131493495));
-    g = l.findViewById(2131493639);
-    paramBundle = (ViewStub)l.findViewById(2131493647);
-    switch (n.a[((NavForAnonymousUsersExperiment.Cohort)c.a.a()).ordinal()])
+    m = paramLayoutInflater.inflate(2130903216, paramViewGroup, false);
+    c = ((TextView)m.findViewById(2131690174));
+    d = m.findViewById(2131690381);
+    e = m.findViewById(2131690388);
+    f = ((TextView)m.findViewById(2131690168));
+    g = ((TextView)m.findViewById(2131690173));
+    i = ((TextView)m.findViewById(2131690172));
+    int i1 = j.a().f();
+    int i2 = j.a().e();
+    j = new com.yelp.android.cm.d(getActivity(), 2130838368, i1);
+    k = new com.yelp.android.cm.d(getActivity(), 2130838368, i2);
+    j.setBounds(0, 0, j.getIntrinsicWidth(), j.getIntrinsicHeight());
+    k.setBounds(0, 0, k.getIntrinsicWidth(), k.getIntrinsicHeight());
+    m.findViewById(2131690382).setOnClickListener(s);
+    m.findViewById(2131690385).setOnClickListener(s);
+    m.findViewById(2131690386).setOnClickListener(s);
+    m.findViewById(2131690387).setOnClickListener(s);
+    m.findViewById(2131690162).setOnClickListener(s);
+    m.findViewById(2131690163).setOnClickListener(s);
+    m.findViewById(2131690164).setOnClickListener(s);
+    m.findViewById(2131690165).setOnClickListener(s);
+    m.findViewById(2131690166).setOnClickListener(s);
+    m.findViewById(2131690167).setOnClickListener(s);
+    f.setOnClickListener(s);
+    m.findViewById(2131690169).setOnClickListener(s);
+    m.findViewById(2131690170).setOnClickListener(s);
+    m.findViewById(2131690171).setOnClickListener(s);
+    g.setOnClickListener(s);
+    c.setOnClickListener(s);
+    i.setOnClickListener(s);
+    m.findViewById(2131690175).setOnClickListener(s);
+    m.findViewById(2131690176).setOnClickListener(s);
+    if (ac.a())
     {
-    default: 
-      paramBundle.setLayoutResource(2130903248);
-      paramBundle.inflate();
-      h = l.findViewById(2131493636);
-      d = ((TextView)l.findViewById(2131493487));
-      j = l.findViewById(2131493486);
-      i = l.findViewById(2131493492);
-      e = ((TextView)l.findViewById(2131493493));
-      l.findViewById(2131493640).setOnClickListener(r);
-      l.findViewById(2131493644).setOnClickListener(r);
-      l.findViewById(2131493645).setOnClickListener(r);
-      l.findViewById(2131493646).setOnClickListener(r);
-      l.findViewById(2131493480).setOnClickListener(r);
-      l.findViewById(2131493481).setOnClickListener(r);
-      l.findViewById(2131493482).setOnClickListener(r);
-      l.findViewById(2131493483).setOnClickListener(r);
-      l.findViewById(2131493484).setOnClickListener(r);
-      l.findViewById(2131493485).setOnClickListener(r);
-      l.findViewById(2131493488).setOnClickListener(r);
-      l.findViewById(2131493489).setOnClickListener(r);
-      l.findViewById(2131493490).setOnClickListener(r);
-      l.findViewById(2131493491).setOnClickListener(r);
-      l.findViewById(2131493494).setOnClickListener(r);
-      c.setOnClickListener(r);
-      l.findViewById(2131493496).setOnClickListener(r);
-      l.findViewById(2131493497).setOnClickListener(r);
-      l.findViewById(2131493499).setOnClickListener(r);
-      l.findViewById(2131493500).setOnClickListener(r);
-      l.findViewById(2131493501).setOnClickListener(r);
-      l.findViewById(2131493502).setOnClickListener(r);
-      l.findViewById(2131493503).setOnClickListener(r);
-      paramBundle = l.findViewById(2131493498);
+      m.findViewById(2131690178).setOnClickListener(s);
+      m.findViewById(2131690179).setOnClickListener(s);
+      m.findViewById(2131690180).setOnClickListener(s);
+      m.findViewById(2131690181).setOnClickListener(s);
+      m.findViewById(2131690182).setOnClickListener(s);
+      m.findViewById(2131690183).setOnClickListener(s);
+      if (!f()) {
+        break label878;
+      }
+      m.findViewById(2131690182).setVisibility(8);
+      m.findViewById(2131690183).setVisibility(0);
+      label642:
+      paramBundle = m.findViewById(2131690177);
       String str1 = ((TelephonyManager)getActivity().getSystemService("phone")).getNetworkCountryIso();
       String str2 = AppData.b().g().h().getCountry();
-      if (((!TextUtils.isEmpty(str1)) && ("US".equals(str1.toUpperCase()))) || ((TextUtils.isEmpty(str1)) && ("US".equals(str2)))) {
-        paramBundle.setOnClickListener(r);
+      if (((TextUtils.isEmpty(str1)) || (!"US".equals(str1.toUpperCase(Locale.US)))) && ((!TextUtils.isEmpty(str1)) || (!"US".equals(str2)))) {
+        break label910;
       }
-      break;
+      paramBundle.setOnClickListener(s);
     }
     for (;;)
     {
-      paramLayoutInflater = paramLayoutInflater.inflate(2130903192, paramViewGroup, false);
-      m = new ImageView(getActivity());
-      m.setImageDrawable(getResources().getDrawable(2130837911));
-      m.setScaleType(ImageView.ScaleType.FIT_XY);
-      k = ((DinoListView)paramLayoutInflater.findViewById(2131493477));
-      k.setClickable(false);
-      n = ((ImageView)paramLayoutInflater.findViewById(2131493478));
-      o = ((Button)paramLayoutInflater.findViewById(2131493479));
-      m();
-      cs.a(l, new h(this));
+      paramLayoutInflater = paramLayoutInflater.inflate(2130903215, paramViewGroup, false);
+      n = new ImageView(getActivity());
+      n.setImageDrawable(getResources().getDrawable(2130838039));
+      n.setScaleType(ImageView.ScaleType.FIT_XY);
+      l = ((DinoListView)paramLayoutInflater.findViewById(2131690158));
+      l.setClickable(false);
+      o = ((ImageView)paramLayoutInflater.findViewById(2131690159));
+      p = ((Button)paramLayoutInflater.findViewById(2131690160));
+      o();
+      at.a(m, new DrawerFragment.1(this));
       return paramLayoutInflater;
-      paramBundle.setLayoutResource(2130903247);
-      paramBundle.inflate();
-      ((Button)l.findViewById(2131493637)).setText(2131165663);
+      m.findViewById(2131690178).setVisibility(8);
       break;
-      paramBundle.setLayoutResource(2130903247);
-      paramBundle.inflate();
-      break;
+      label878:
+      m.findViewById(2131690182).setVisibility(0);
+      m.findViewById(2131690183).setVisibility(8);
+      break label642;
+      label910:
       paramBundle.setVisibility(8);
     }
   }
@@ -438,10 +500,17 @@ public class DrawerFragment
   public void onResume()
   {
     super.onResume();
-    i();
+    k();
+    j();
     h();
-    f();
-    g();
+    i();
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void closeNavDrawer();
+    
+    public abstract void onDrawerItemSelected(Intent paramIntent, String paramString);
   }
 }
 

@@ -1,13 +1,16 @@
 package com.google.android.gms.internal;
 
-final class fq$2
+import com.google.android.gms.ads.internal.q;
+import com.yelp.android.g.i;
+
+class fq$2
   implements Runnable
 {
-  fq$2(fs paramfs) {}
+  fq$2(fq paramfq, hp paramhp, String paramString) {}
   
   public void run()
   {
-    uz.cS();
+    a.b(fq.a(c).z().get(b));
   }
 }
 

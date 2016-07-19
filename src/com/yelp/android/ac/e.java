@@ -1,16 +1,11 @@
 package com.yelp.android.ac;
 
-import com.bumptech.glide.load.resource.bitmap.ImageHeaderParser;
-import com.bumptech.glide.load.resource.bitmap.ImageHeaderParser.ImageType;
+import com.yelp.android.aa.l;
 import java.io.InputStream;
 
-class e
-{
-  public ImageHeaderParser.ImageType a(InputStream paramInputStream)
-  {
-    return new ImageHeaderParser(paramInputStream).b();
-  }
-}
+public abstract interface e<T>
+  extends l<T, InputStream>
+{}
 
 /* Location:
  * Qualified Name:     com.yelp.android.ac.e

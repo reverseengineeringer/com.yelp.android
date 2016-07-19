@@ -1,18 +1,35 @@
 package com.path.android.jobqueue.nonPersistentQueue;
 
+import com.path.android.jobqueue.a;
+import com.path.android.jobqueue.c;
 import java.util.Collection;
 import java.util.Comparator;
 
 public class f
-  implements com.path.android.jobqueue.g
+  implements c
 {
-  public final Comparator<com.path.android.jobqueue.b> a = new g(this);
+  public final Comparator<a> a = new Comparator()
+  {
+    public int a(a paramAnonymousa1, a paramAnonymousa2)
+    {
+      int i = f.a(paramAnonymousa1.c(), paramAnonymousa2.c());
+      if (i != 0) {}
+      int j;
+      do
+      {
+        return i;
+        j = -f.a(paramAnonymousa1.e(), paramAnonymousa2.e());
+        i = j;
+      } while (j != 0);
+      return -f.a(paramAnonymousa1.a().longValue(), paramAnonymousa2.a().longValue());
+    }
+  };
   private long b = -2147483648L;
   private d c;
   private final String d;
   private final long e;
   
-  public f(long paramLong, String paramString)
+  public f(long paramLong, String paramString, boolean paramBoolean)
   {
     d = paramString;
     e = paramLong;
@@ -51,62 +68,62 @@ public class f
     return c.b(paramBoolean, paramCollection).a();
   }
   
-  public long a(com.path.android.jobqueue.b paramb)
+  public long a(a parama)
   {
     try
     {
       b += 1L;
-      paramb.a(Long.valueOf(b));
-      c.a(paramb);
-      long l = paramb.a().longValue();
+      parama.a(Long.valueOf(b));
+      c.a(parama);
+      long l = parama.a().longValue();
       return l;
     }
     finally
     {
-      paramb = finally;
-      throw paramb;
+      parama = finally;
+      throw parama;
     }
   }
   
-  public Long a(boolean paramBoolean)
+  public long b(a parama)
   {
-    com.path.android.jobqueue.b localb = c.a(paramBoolean, null);
-    if (localb == null) {
-      return null;
-    }
-    return Long.valueOf(localb.g());
+    c(parama);
+    parama.b(Long.MIN_VALUE);
+    c.a(parama);
+    return parama.a().longValue();
   }
   
-  public long b(com.path.android.jobqueue.b paramb)
+  public a b(boolean paramBoolean, Collection<String> paramCollection)
   {
-    c(paramb);
-    paramb.a(Long.MIN_VALUE);
-    c.a(paramb);
-    return paramb.a().longValue();
-  }
-  
-  public com.path.android.jobqueue.b b(boolean paramBoolean, Collection<String> paramCollection)
-  {
-    com.path.android.jobqueue.b localb = c.a(paramBoolean, paramCollection);
-    paramCollection = localb;
-    if (localb != null)
+    a locala = c.a(paramBoolean, paramCollection);
+    paramCollection = locala;
+    if (locala != null)
     {
-      if (localb.g() > System.nanoTime()) {
+      if (locala.g() > System.nanoTime()) {
         paramCollection = null;
       }
     }
     else {
       return paramCollection;
     }
-    localb.a(e);
-    localb.b(localb.d() + 1);
-    c.b(localb);
-    return localb;
+    locala.b(e);
+    locala.c(locala.d() + 1);
+    c.b(locala);
+    return locala;
   }
   
-  public void c(com.path.android.jobqueue.b paramb)
+  public Long c(boolean paramBoolean, Collection<String> paramCollection)
   {
-    c.b(paramb);
+    paramCollection = c.a(paramBoolean, paramCollection);
+    if (paramCollection == null) {
+      return null;
+    }
+    return Long.valueOf(paramCollection.g());
+  }
+  
+  public void c(a parama)
+  {
+    c.b(parama);
   }
 }
 

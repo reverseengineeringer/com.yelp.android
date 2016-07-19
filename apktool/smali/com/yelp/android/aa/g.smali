@@ -1,92 +1,50 @@
-.class Lcom/yelp/android/aa/g;
+.class public Lcom/yelp/android/aa/g;
 .super Ljava/lang/Object;
-.source "StreamFileDataLoadProvider.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/load/d;
+.source "ImageVideoWrapper.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/d",
-        "<",
-        "Ljava/io/InputStream;",
-        "Ljava/io/File;",
-        ">;"
-    }
-.end annotation
+# instance fields
+.field private final a:Ljava/io/InputStream;
+
+.field private final b:Landroid/os/ParcelFileDescriptor;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>(Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
     .locals 0
 
     .prologue
-    .line 49
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-void
-.end method
+    .line 15
+    iput-object p1, p0, Lcom/yelp/android/aa/g;->a:Ljava/io/InputStream;
 
-.method synthetic constructor <init>(Lcom/yelp/android/aa/f;)V
-    .locals 0
+    .line 16
+    iput-object p2, p0, Lcom/yelp/android/aa/g;->b:Landroid/os/ParcelFileDescriptor;
 
-    .prologue
-    .line 49
-    invoke-direct {p0}, Lcom/yelp/android/aa/g;-><init>()V
-
+    .line 17
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Ljava/io/InputStream;II)Lcom/bumptech/glide/load/engine/t;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/io/InputStream;",
-            "II)",
-            "Lcom/bumptech/glide/load/engine/t",
-            "<",
-            "Ljava/io/File;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 52
-    new-instance v0, Ljava/lang/Error;
-
-    const-string/jumbo v1, "You cannot decode a File from an InputStream by default, try either #diskCacheStratey(DiskCacheStrategy.SOURCE) to avoid this call or #decoder(ResourceDecoder) to replace this Decoder"
-
-    invoke-direct {v0, v1}, Ljava/lang/Error;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public bridge synthetic a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/t;
+.method public a()Ljava/io/InputStream;
     .locals 1
 
     .prologue
-    .line 49
-    check-cast p1, Ljava/io/InputStream;
-
-    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/android/aa/g;->a(Ljava/io/InputStream;II)Lcom/bumptech/glide/load/engine/t;
-
-    move-result-object v0
+    .line 20
+    iget-object v0, p0, Lcom/yelp/android/aa/g;->a:Ljava/io/InputStream;
 
     return-object v0
 .end method
 
-.method public a()Ljava/lang/String;
+.method public b()Landroid/os/ParcelFileDescriptor;
     .locals 1
 
     .prologue
-    .line 59
-    const-string/jumbo v0, ""
+    .line 24
+    iget-object v0, p0, Lcom/yelp/android/aa/g;->b:Landroid/os/ParcelFileDescriptor;
 
     return-object v0
 .end method

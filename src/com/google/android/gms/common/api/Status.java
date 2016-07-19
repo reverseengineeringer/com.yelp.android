@@ -2,30 +2,26 @@ package com.google.android.gms.common.api;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.IntentSender.SendIntentException;
 import android.os.Parcel;
-import com.google.android.gms.common.ConnectionResult;
+import android.os.Parcelable.Creator;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
-import com.google.android.gms.internal.jv.a;
+import com.google.android.gms.common.internal.zzw;
+import com.google.android.gms.common.internal.zzw.zza;
 
 public final class Status
   implements Result, SafeParcelable
 {
-  public static final StatusCreator CREATOR = new StatusCreator();
-  public static final Status KA;
-  public static final Status Kw = new Status(0);
-  public static final Status Kx = new Status(14);
-  public static final Status Ky = new Status(8);
-  public static final Status Kz = new Status(15);
-  private final int CK;
-  private final int Iv;
-  private final String KB;
+  public static final Parcelable.Creator<Status> CREATOR = new zzc();
+  public static final Status zzagC = new Status(0);
+  public static final Status zzagD = new Status(14);
+  public static final Status zzagE = new Status(8);
+  public static final Status zzagF = new Status(15);
+  public static final Status zzagG = new Status(16);
   private final PendingIntent mPendingIntent;
-  
-  static
-  {
-    KA = new Status(16);
-  }
+  private final int mVersionCode;
+  private final int zzade;
+  private final String zzafC;
   
   public Status(int paramInt)
   {
@@ -34,9 +30,9 @@ public final class Status
   
   Status(int paramInt1, int paramInt2, String paramString, PendingIntent paramPendingIntent)
   {
-    CK = paramInt1;
-    Iv = paramInt2;
-    KB = paramString;
+    mVersionCode = paramInt1;
+    zzade = paramInt2;
+    zzafC = paramString;
     mPendingIntent = paramPendingIntent;
   }
   
@@ -50,12 +46,12 @@ public final class Status
     this(1, paramInt, paramString, paramPendingIntent);
   }
   
-  private String gt()
+  private String zzpd()
   {
-    if (KB != null) {
-      return KB;
+    if (zzafC != null) {
+      return zzafC;
     }
-    return CommonStatusCodes.getStatusCodeString(Iv);
+    return CommonStatusCodes.getStatusCodeString(zzade);
   }
   
   public int describeContents()
@@ -70,19 +66,8 @@ public final class Status
     {
       return false;
       paramObject = (Status)paramObject;
-    } while ((CK != CK) || (Iv != Iv) || (!jv.equal(KB, KB)) || (!jv.equal(mPendingIntent, mPendingIntent)));
+    } while ((mVersionCode != mVersionCode) || (zzade != zzade) || (!zzw.equal(zzafC, zzafC)) || (!zzw.equal(mPendingIntent, mPendingIntent)));
     return true;
-  }
-  
-  PendingIntent gP()
-  {
-    return mPendingIntent;
-  }
-  
-  @Deprecated
-  public ConnectionResult gQ()
-  {
-    return new ConnectionResult(Iv, mPendingIntent);
   }
   
   public PendingIntent getResolution()
@@ -97,17 +82,17 @@ public final class Status
   
   public int getStatusCode()
   {
-    return Iv;
+    return zzade;
   }
   
   public String getStatusMessage()
   {
-    return KB;
+    return zzafC;
   }
   
   int getVersionCode()
   {
-    return CK;
+    return mVersionCode;
   }
   
   public boolean hasResolution()
@@ -117,25 +102,26 @@ public final class Status
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { Integer.valueOf(CK), Integer.valueOf(Iv), KB, mPendingIntent });
+    return zzw.hashCode(new Object[] { Integer.valueOf(mVersionCode), Integer.valueOf(zzade), zzafC, mPendingIntent });
   }
   
   public boolean isCanceled()
   {
-    return Iv == 16;
+    return zzade == 16;
   }
   
   public boolean isInterrupted()
   {
-    return Iv == 14;
+    return zzade == 14;
   }
   
   public boolean isSuccess()
   {
-    return Iv <= 0;
+    return zzade <= 0;
   }
   
   public void startResolutionForResult(Activity paramActivity, int paramInt)
+    throws IntentSender.SendIntentException
   {
     if (!hasResolution()) {
       return;
@@ -145,12 +131,17 @@ public final class Status
   
   public String toString()
   {
-    return jv.h(this).a("statusCode", gt()).a("resolution", mPendingIntent).toString();
+    return zzw.zzy(this).zzg("statusCode", zzpd()).zzg("resolution", mPendingIntent).toString();
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    StatusCreator.a(this, paramParcel, paramInt);
+    zzc.zza(this, paramParcel, paramInt);
+  }
+  
+  PendingIntent zzpc()
+  {
+    return mPendingIntent;
   }
 }
 

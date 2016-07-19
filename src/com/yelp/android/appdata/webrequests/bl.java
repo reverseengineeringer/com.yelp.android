@@ -1,15 +1,20 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.serializable.PaymentMethod;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class bl
-  extends h
+  extends c
 {
-  public bl(PaymentMethod paramPaymentMethod)
+  public bl(String paramString, c.a parama)
   {
-    super("account/payment_method/remove", null);
-    addPostParam("payment_method_id", paramPaymentMethod.getId());
+    super("event/reminder/enable", parama);
+    b("event_id", paramString);
+  }
+  
+  public String toString()
+  {
+    return "EventEnableReminderRequest";
   }
 }
 

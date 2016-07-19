@@ -3,7 +3,7 @@ package com.yelp.android.ui.widgets;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
-import android.support.v4.view.du;
+import android.support.v4.view.ViewPager.e;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +12,12 @@ import android.widget.ImageView;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ReviewVoteRequest;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c.a;
 import com.yelp.android.serializable.YelpBusinessReview;
 import com.yelp.android.ui.activities.reviewpage.ReviewFragment;
-import com.yelp.android.ui.activities.reviewpage.av;
+import com.yelp.android.ui.activities.reviewpage.ReviewFragment.a;
 import com.yelp.android.ui.activities.support.YelpFragment;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.ui.util.av;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -30,10 +30,10 @@ public class ReviewPagerFragment
   private ArrayList<YelpBusinessReview> a;
   private String b;
   private String c;
-  private ag d;
-  private ah e;
-  private ViewPager g;
-  private FrameLayout h;
+  private ReviewPagerFragment.a d;
+  private b e;
+  private ViewPager f;
+  private FrameLayout g;
   private ImageView i;
   private ImageView j;
   private int k;
@@ -42,12 +42,12 @@ public class ReviewPagerFragment
   private boolean n;
   private List<ReviewVoteRequest> o;
   private int p;
-  private final i q = new ab(this);
-  private final av r = new ac(this);
-  private final du s = new ad(this);
-  private final Runnable t = new ae(this);
+  private final c.a q = new ReviewPagerFragment.1(this);
+  private final ReviewFragment.a r = new ReviewPagerFragment.2(this);
+  private final ViewPager.e s = new ReviewPagerFragment.3(this);
+  private final Runnable t = new ReviewPagerFragment.4(this);
   
-  public static ReviewPagerFragment a(String paramString1, ArrayList<YelpBusinessReview> paramArrayList, int paramInt1, int paramInt2, String paramString2)
+  public static ReviewPagerFragment a(String paramString1, ArrayList<YelpBusinessReview> paramArrayList, int paramInt1, int paramInt2, String paramString2, String paramString3)
   {
     ReviewPagerFragment localReviewPagerFragment = new ReviewPagerFragment();
     Bundle localBundle = new Bundle();
@@ -56,6 +56,7 @@ public class ReviewPagerFragment
     localBundle.putInt("start_index", paramInt1);
     localBundle.putInt("total", paramInt2);
     localBundle.putString("business_name", paramString2);
+    localBundle.putString("business_country", paramString3);
     localReviewPagerFragment.setArguments(localBundle);
     return localReviewPagerFragment;
   }
@@ -85,7 +86,7 @@ public class ReviewPagerFragment
   
   private ReviewFragment b(YelpBusinessReview paramYelpBusinessReview)
   {
-    paramYelpBusinessReview = ReviewFragment.a(paramYelpBusinessReview, b, c);
+    paramYelpBusinessReview = ReviewFragment.a(paramYelpBusinessReview, b, c, getArguments().getString("business_country"));
     paramYelpBusinessReview.a(r);
     return paramYelpBusinessReview;
   }
@@ -93,70 +94,70 @@ public class ReviewPagerFragment
   private void c(YelpBusinessReview paramYelpBusinessReview)
   {
     HashMap localHashMap = new HashMap(2);
-    localHashMap.put("review_id", paramYelpBusinessReview.getId());
+    localHashMap.put("review_id", paramYelpBusinessReview.a());
     localHashMap.put("business_id", b);
-    localHashMap.put("user_id", paramYelpBusinessReview.getUserId());
+    localHashMap.put("user_id", paramYelpBusinessReview.b());
     AppData.a(ViewIri.ReviewFullPage, localHashMap);
-  }
-  
-  private boolean g()
-  {
-    return l == k - 1;
   }
   
   private boolean h()
   {
+    return l == k - 1;
+  }
+  
+  private boolean i()
+  {
     return m == 0;
   }
   
-  private ag i()
+  private ReviewPagerFragment.a j()
   {
-    if ((g()) && (h())) {
-      return new ag(this, getFragmentManager(), ReviewPagerFragment.AdapterState.DEFAULT);
-    }
-    if (g()) {
-      return new ag(this, getFragmentManager(), ReviewPagerFragment.AdapterState.LOADING_BACKWARDS);
+    if ((h()) && (i())) {
+      return new ReviewPagerFragment.a(this, getFragmentManager(), ReviewPagerFragment.AdapterState.DEFAULT);
     }
     if (h()) {
-      return new ag(this, getFragmentManager(), ReviewPagerFragment.AdapterState.LOADING_FORWARDS);
+      return new ReviewPagerFragment.a(this, getFragmentManager(), ReviewPagerFragment.AdapterState.LOADING_BACKWARDS);
     }
-    return new ag(this, getFragmentManager(), ReviewPagerFragment.AdapterState.LOADING);
+    if (i()) {
+      return new ReviewPagerFragment.a(this, getFragmentManager(), ReviewPagerFragment.AdapterState.LOADING_FORWARDS);
+    }
+    return new ReviewPagerFragment.a(this, getFragmentManager(), ReviewPagerFragment.AdapterState.LOADING);
   }
   
   public void a()
   {
-    if ((d.getItem(c()) instanceof ReviewPagerFragment.LoadingFragment))
+    if ((d.a(c()) instanceof ReviewPagerFragment.LoadingFragment))
     {
-      if (g.getCurrentItem() == -1) {
-        g.setCurrentItem(0);
+      if (f.getCurrentItem() == -1) {
+        f.setCurrentItem(0);
       }
     }
     else {
       return;
     }
-    switch (af.a[d.a().ordinal()])
+    switch (ReviewPagerFragment.5.a[d.d().ordinal()])
     {
     default: 
       return;
     case 1: 
     case 2: 
-      g.setCurrentItem(a.size());
+      f.setCurrentItem(a.size());
       return;
     }
-    g.setCurrentItem(a.size() - 1);
+    f.setCurrentItem(a.size() - 1);
   }
   
   public void a(int paramInt)
   {
-    if ((d.a() == ReviewPagerFragment.AdapterState.LOADING_BACKWARDS) || (d.a() == ReviewPagerFragment.AdapterState.LOADING)) {
-      g.setCurrentItem(paramInt + 1);
+    if ((d.d() == ReviewPagerFragment.AdapterState.LOADING_BACKWARDS) || (d.d() == ReviewPagerFragment.AdapterState.LOADING)) {
+      f.setCurrentItem(paramInt + 1);
     }
     do
     {
       return;
-      g.setCurrentItem(paramInt);
+      f.setCurrentItem(paramInt);
     } while (paramInt != 0);
-    s.a(0);
+    s.b(0);
   }
   
   public void a(YelpBusinessReview paramYelpBusinessReview)
@@ -167,9 +168,9 @@ public class ReviewPagerFragment
     }
   }
   
-  public void a(ah paramah)
+  public void a(b paramb)
   {
-    e = paramah;
+    e = paramb;
   }
   
   public void a(List<YelpBusinessReview> paramList)
@@ -185,12 +186,13 @@ public class ReviewPagerFragment
         i1 = 1;
       }
       l = (i4 - i1 + i3);
-      f();
+      d = j();
+      f.setAdapter(d);
       if (!n) {
-        break label104;
+        break label119;
       }
     }
-    label104:
+    label119:
     for (i1 = i2;; i1 = paramList.size() - 1)
     {
       a(i1);
@@ -206,49 +208,49 @@ public class ReviewPagerFragment
     if ((a == null) || (a.size() == 0)) {
       return null;
     }
-    switch (af.a[d.a().ordinal()])
+    switch (ReviewPagerFragment.5.a[d.d().ordinal()])
     {
     default: 
       return null;
     case 1: 
-      return (YelpBusinessReview)a.get(g.getCurrentItem() - 1);
+      return (YelpBusinessReview)a.get(f.getCurrentItem() - 1);
     case 4: 
-      return (YelpBusinessReview)a.get(g.getCurrentItem());
+      return (YelpBusinessReview)a.get(f.getCurrentItem());
     case 2: 
-      return (YelpBusinessReview)a.get(g.getCurrentItem() - 1);
+      return (YelpBusinessReview)a.get(f.getCurrentItem() - 1);
     }
-    return (YelpBusinessReview)a.get(g.getCurrentItem());
+    return (YelpBusinessReview)a.get(f.getCurrentItem());
   }
   
   public int c()
   {
-    return g.getCurrentItem();
+    return f.getCurrentItem();
   }
   
-  public void e()
+  public void f()
   {
     Handler localHandler = new Handler();
     localHandler.removeCallbacks(t);
     if (a.size() != 0)
     {
-      if (h.getVisibility() == 0)
+      if (g.getVisibility() == 0)
       {
-        cw.b(h, 5000L);
+        av.b(g, 5000L);
         return;
       }
-      cw.c(h, 5000L);
-      h.setVisibility(0);
+      av.c(g, 5000L);
+      g.setVisibility(0);
       localHandler.postDelayed(t, 5000L);
       return;
     }
-    h.setVisibility(8);
+    g.setVisibility(8);
   }
   
-  public void f()
+  public void g()
   {
-    int i1 = g.getCurrentItem();
-    d = i();
-    g.setAdapter(d);
+    int i1 = f.getCurrentItem();
+    d = j();
+    f.setAdapter(d);
     a(i1);
   }
   
@@ -264,11 +266,11 @@ public class ReviewPagerFragment
     }
     for (;;)
     {
-      e();
+      f();
       return;
       a = paramBundle.getParcelableArrayList("reviews");
-      d = i();
-      g.setAdapter(d);
+      d = j();
+      f.setAdapter(d);
       n = paramBundle.getBoolean("is_loading_forward", n);
     }
   }
@@ -298,12 +300,12 @@ public class ReviewPagerFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903408, paramViewGroup, false);
-    g = ((ViewPager)paramLayoutInflater.findViewById(2131494011));
-    g.setOnPageChangeListener(s);
-    h = ((FrameLayout)paramLayoutInflater.findViewById(2131494012));
-    i = ((ImageView)h.findViewById(2131494013));
-    j = ((ImageView)h.findViewById(2131494014));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903519, paramViewGroup, false);
+    f = ((ViewPager)paramLayoutInflater.findViewById(2131690427));
+    f.setOnPageChangeListener(s);
+    g = ((FrameLayout)paramLayoutInflater.findViewById(2131690882));
+    i = ((ImageView)g.findViewById(2131690883));
+    j = ((ImageView)g.findViewById(2131690884));
     return paramLayoutInflater;
   }
   
@@ -315,7 +317,7 @@ public class ReviewPagerFragment
     if (localIterator.hasNext())
     {
       ReviewVoteRequest localReviewVoteRequest = (ReviewVoteRequest)localIterator.next();
-      if (localReviewVoteRequest.isCompleted()) {
+      if (localReviewVoteRequest.v()) {
         break label80;
       }
       a("vote_request" + i1, localReviewVoteRequest);
@@ -350,6 +352,11 @@ public class ReviewPagerFragment
     paramBundle.putInt("backwards_index", m);
     paramBundle.putBoolean("is_loading_forward", n);
     paramBundle.putInt("review_votes_count", p);
+  }
+  
+  public static abstract interface b
+  {
+    public abstract void a(boolean paramBoolean, int paramInt);
   }
 }
 

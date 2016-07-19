@@ -1,15 +1,27 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Event;
+import com.yelp.android.serializable.Event.EventType;
+import com.yelp.android.serializable.EventAttendees;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class bi
-  extends h
+  extends b<Void, Void, EventAttendees>
 {
-  public bi(String paramString, i parami)
+  public bi(Event paramEvent, ApiRequest.b<EventAttendees> paramb)
   {
-    super("deal/redeem", parami);
-    addPostParam("deal_purchase_id", paramString);
+    super(ApiRequest.RequestType.GET, "/event/attendees", paramb);
+    a("event_id", paramEvent.I());
+    a("event_type", paramEvent.K().toString());
+  }
+  
+  public EventAttendees a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return (EventAttendees)EventAttendees.CREATOR.parse(paramJSONObject);
   }
 }
 

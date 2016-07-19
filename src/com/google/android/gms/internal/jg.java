@@ -1,53 +1,55 @@
 package com.google.android.gms.internal;
 
-import android.view.View;
-import java.util.Collection;
-import java.util.List;
+import android.graphics.drawable.Drawable;
+import com.google.android.gms.common.internal.zzw;
+import com.yelp.android.g.e;
 
 public final class jg
+  extends e<a, Drawable>
 {
-  private final View JJ;
-  private final jg.a Mw;
-  
-  public jg(String paramString1, Collection<String> paramCollection, int paramInt, View paramView, String paramString2)
+  public jg()
   {
-    Mw = new jg.a(paramString1, paramCollection, paramInt, paramString2);
-    JJ = paramView;
+    super(10);
   }
   
-  public String getAccountName()
+  public static final class a
   {
-    return Mw.getAccountName();
-  }
-  
-  public String hm()
-  {
-    return Mw.hm();
-  }
-  
-  public int hn()
-  {
-    return Mw.hn();
-  }
-  
-  public List<String> ho()
-  {
-    return Mw.ho();
-  }
-  
-  public String[] hp()
-  {
-    return (String[])Mw.ho().toArray(new String[0]);
-  }
-  
-  public String hq()
-  {
-    return Mw.hq();
-  }
-  
-  public View hr()
-  {
-    return JJ;
+    public final int a;
+    public final int b;
+    
+    public a(int paramInt1, int paramInt2)
+    {
+      a = paramInt1;
+      b = paramInt2;
+    }
+    
+    public boolean equals(Object paramObject)
+    {
+      boolean bool2 = true;
+      boolean bool1;
+      if (!(paramObject instanceof a)) {
+        bool1 = false;
+      }
+      do
+      {
+        do
+        {
+          return bool1;
+          bool1 = bool2;
+        } while (this == paramObject);
+        paramObject = (a)paramObject;
+        if (a != a) {
+          break;
+        }
+        bool1 = bool2;
+      } while (b == b);
+      return false;
+    }
+    
+    public int hashCode()
+    {
+      return zzw.hashCode(new Object[] { Integer.valueOf(a), Integer.valueOf(b) });
+    }
   }
 }
 

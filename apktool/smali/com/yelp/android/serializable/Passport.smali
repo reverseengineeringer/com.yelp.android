@@ -2,6 +2,9 @@
 .super Lcom/yelp/android/serializable/_Passport;
 .source "Passport.java"
 
+# interfaces
+.implements Lcom/yelp/android/serializable/DisplayableAsUserBadge;
+
 
 # static fields
 .field public static final CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
@@ -17,9 +20,9 @@
 
 
 # instance fields
-.field private mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+.field private l:Lcom/yelp/android/serializable/FeatureSet;
 
-.field private mProfilePhotoPlaceholder:Ljava/lang/String;
+.field private m:Ljava/lang/String;
 
 
 # direct methods
@@ -28,9 +31,9 @@
 
     .prologue
     .line 50
-    new-instance v0, Lcom/yelp/android/serializable/br;
+    new-instance v0, Lcom/yelp/android/serializable/Passport$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/br;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/Passport$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/Passport;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -49,13 +52,13 @@
 
     invoke-direct {v0}, Lcom/yelp/android/serializable/FeatureSet;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Passport;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+    iput-object v0, p0, Lcom/yelp/android/serializable/Passport;->l:Lcom/yelp/android/serializable/FeatureSet;
 
     .line 22
     return-void
 .end method
 
-.method protected static fromLoginManager(Lcom/yelp/android/appdata/webrequests/dc;)Lcom/yelp/android/serializable/Passport;
+.method protected static a(Lcom/yelp/android/appdata/webrequests/co;)Lcom/yelp/android/serializable/Passport;
     .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -67,24 +70,24 @@
     invoke-direct {v0}, Lcom/yelp/android/serializable/Passport;-><init>()V
 
     .line 31
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/dc;->b()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/co;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/yelp/android/serializable/Passport;->mId:Ljava/lang/String;
+    iput-object v1, v0, Lcom/yelp/android/serializable/Passport;->c:Ljava/lang/String;
 
     .line 32
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/dc;->v()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/co;->r()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/yelp/android/serializable/Passport;->mProfilePhotoPlaceholder:Ljava/lang/String;
+    iput-object v1, v0, Lcom/yelp/android/serializable/Passport;->m:Ljava/lang/String;
 
     .line 33
     return-object v0
 .end method
 
-.method public static getMediaQuantityString(ZIIILandroid/content/res/Resources;)Ljava/lang/String;
+.method public static a(ZIIILandroid/content/res/Resources;)Ljava/lang/String;
     .locals 4
 
     .prologue
@@ -92,27 +95,27 @@
 
     const/4 v3, 0x0
 
-    .line 130
+    .line 156
     const-string/jumbo v0, ""
 
-    .line 132
+    .line 158
     if-nez p0, :cond_0
 
-    .line 133
+    .line 159
     invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 150
+    .line 176
     :goto_0
     return-object v0
 
-    .line 136
+    .line 162
     :cond_0
     if-nez p2, :cond_1
 
-    .line 139
-    const v0, 0x7f0e001d
+    .line 165
+    const v0, 0x7f08001f
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -128,14 +131,14 @@
 
     goto :goto_0
 
-    .line 141
+    .line 167
     :cond_1
     if-nez p1, :cond_2
 
     if-lez p2, :cond_2
 
-    .line 143
-    const v0, 0x7f0e002f
+    .line 169
+    const v0, 0x7f080032
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -151,9 +154,9 @@
 
     goto :goto_0
 
-    .line 147
+    .line 173
     :cond_2
-    const v0, 0x7f070460
+    const v0, 0x7f070482
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -170,54 +173,27 @@
     goto :goto_0
 .end method
 
-.method public static getMediaQuantityString(ZLcom/yelp/android/serializable/DisplayableAsUserBadge;Landroid/content/res/Resources;)Ljava/lang/String;
+.method public static a(ZLcom/yelp/android/serializable/YelpBusinessReview;Landroid/content/res/Resources;)Ljava/lang/String;
     .locals 3
 
     .prologue
-    .line 97
-    invoke-interface {p1}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getPhotoCount()I
+    .line 133
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->y()I
 
     move-result v0
 
-    .line 98
-    invoke-interface {p1}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getVideoCount()I
+    .line 134
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->x()I
 
     move-result v1
 
-    .line 99
-    invoke-interface {p1}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getMediaCount()I
+    .line 135
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->g()I
 
     move-result v2
 
-    .line 101
-    invoke-static {p0, v0, v1, v2, p2}, Lcom/yelp/android/serializable/Passport;->getMediaQuantityString(ZIIILandroid/content/res/Resources;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static getMediaQuantityString(ZLcom/yelp/android/serializable/YelpBusinessReview;Landroid/content/res/Resources;)Ljava/lang/String;
-    .locals 3
-
-    .prologue
-    .line 107
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserPhotoCount()I
-
-    move-result v0
-
-    .line 108
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserVideoCount()I
-
-    move-result v1
-
-    .line 109
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpBusinessReview;->getUserMediaCount()I
-
-    move-result v2
-
-    .line 111
-    invoke-static {p0, v0, v1, v2, p2}, Lcom/yelp/android/serializable/Passport;->getMediaQuantityString(ZIIILandroid/content/res/Resources;)Ljava/lang/String;
+    .line 137
+    invoke-static {p0, v0, v1, v2, p2}, Lcom/yelp/android/serializable/Passport;->a(ZIIILandroid/content/res/Resources;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -226,238 +202,24 @@
 
 
 # virtual methods
-.method public bridge synthetic describeContents()I
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->describeContents()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getDisabledFeatures()Ljava/util/List;
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getDisabledFeatures()Ljava/util/List;
-
-    move-result-object v0
+    .line 93
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->d:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getEliteYears()[I
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getEliteYears()[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getFirstName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getFirstName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getFriendCount()I
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getFriendCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getLastInitial()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getLastInitial()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getMediaCount()I
-    .locals 2
-
-    .prologue
-    .line 91
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->getVideoCount()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->getPhotoCount()I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    return v0
-.end method
-
-.method public bridge synthetic getName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getPhotoCount()I
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getPhotoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getProfilePhoto()Lcom/yelp/android/serializable/Photo;
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getProfilePhoto()Lcom/yelp/android/serializable/Photo;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getProfileThumbnail()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 37
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->getProfilePhoto()Lcom/yelp/android/serializable/Photo;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    .line 38
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->getProfilePhoto()Lcom/yelp/android/serializable/Photo;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->getThumbnailUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 43
-    :goto_0
-    return-object v0
-
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->mProfilePhotoPlaceholder:Ljava/lang/String;
-
-    goto :goto_0
-.end method
-
-.method public bridge synthetic getReviewCount()I
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getReviewCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->getVideoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isFeatureDisabled(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
-    .locals 1
-
-    .prologue
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/serializable/FeatureSet;->contains(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 2
-
-    .prologue
-    .line 86
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Passport;->readFromJson(Lorg/json/JSONObject;)V
-
-    .line 87
-    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
-
-    iget-object v1, p0, Lcom/yelp/android/serializable/Passport;->mDisabledFeatures:Ljava/util/List;
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/FeatureSet;->setFeatures(Ljava/util/List;)V
-
-    .line 88
-    return-void
-.end method
-
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 1
-
-    .prologue
-    .line 80
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Passport;->readFromParcel(Landroid/os/Parcel;)V
-
     .line 81
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Passport;->a(Landroid/os/Parcel;)V
+
+    .line 82
     const-class v0, Lcom/yelp/android/serializable/FeatureSet;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -470,18 +232,316 @@
 
     check-cast v0, Lcom/yelp/android/serializable/FeatureSet;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/Passport;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+    iput-object v0, p0, Lcom/yelp/android/serializable/Passport;->l:Lcom/yelp/android/serializable/FeatureSet;
 
-    .line 82
+    .line 83
     return-void
 .end method
 
-.method public bridge synthetic writeJSON()Lorg/json/JSONObject;
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 87
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Passport;->a(Lorg/json/JSONObject;)V
+
+    .line 88
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->l:Lcom/yelp/android/serializable/FeatureSet;
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/Passport;->a:Ljava/util/List;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/FeatureSet;->a(Ljava/util/List;)V
+
+    .line 89
+    return-void
+.end method
+
+.method public a(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
+    .locals 1
+
+    .prologue
+    .line 47
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->l:Lcom/yelp/android/serializable/FeatureSet;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/serializable/FeatureSet;->a(Lcom/yelp/android/serializable/FeatureSet$Feature;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 98
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->b:Lcom/yelp/android/serializable/Photo;
+
+    if-eqz v0, :cond_0
+
+    .line 99
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->b:Lcom/yelp/android/serializable/Photo;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->f()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 102
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public bridge synthetic describeContents()I
     .locals 1
 
     .prologue
     .line 15
-    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->writeJSON()Lorg/json/JSONObject;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->describeContents()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_Passport;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public h()Z
+    .locals 1
+
+    .prologue
+    .line 112
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->l()[I
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/services/f;->a([I)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic hashCode()I
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->hashCode()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 117
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public j()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 37
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->q()Lcom/yelp/android/serializable/Photo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 38
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->q()Lcom/yelp/android/serializable/Photo;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Photo;->f()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 43
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->m:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
+.method public bridge synthetic j_()I
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->j_()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic k()Lorg/json/JSONObject;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->k()Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic k_()I
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->k_()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic l()[I
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->l()[I
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic l_()I
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->l_()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic m()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->m()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic m_()I
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->m_()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic n()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->n()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public n_()I
+    .locals 2
+
+    .prologue
+    .line 107
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->m_()I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Passport;->l_()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public bridge synthetic o()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->o()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic p()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->p()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic q()Lcom/yelp/android/serializable/Photo;
+    .locals 1
+
+    .prologue
+    .line 15
+    invoke-super {p0}, Lcom/yelp/android/serializable/_Passport;->q()Lcom/yelp/android/serializable/Photo;
 
     move-result-object v0
 
@@ -492,14 +552,14 @@
     .locals 1
 
     .prologue
-    .line 74
+    .line 75
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/_Passport;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 75
-    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->mDisabledFeatureSet:Lcom/yelp/android/serializable/FeatureSet;
+    .line 76
+    iget-object v0, p0, Lcom/yelp/android/serializable/Passport;->l:Lcom/yelp/android/serializable/FeatureSet;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 76
+    .line 77
     return-void
 .end method

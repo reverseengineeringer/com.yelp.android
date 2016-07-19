@@ -4,10 +4,10 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/TalkTopic;",
             ">;"
@@ -17,7 +17,7 @@
 
 
 # instance fields
-.field private mIsUserElite:Z
+.field private p:Z
 
 
 # direct methods
@@ -25,12 +25,12 @@
     .locals 1
 
     .prologue
-    .line 34
-    new-instance v0, Lcom/yelp/android/serializable/df;
+    .line 35
+    new-instance v0, Lcom/yelp/android/serializable/TalkTopic$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/df;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/TalkTopic$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/TalkTopic;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/TalkTopic;->CREATOR:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
@@ -39,202 +39,146 @@
     .locals 1
 
     .prologue
-    .line 11
+    .line 8
     invoke-direct {p0}, Lcom/yelp/android/serializable/_TalkTopic;-><init>()V
 
-    .line 13
+    .line 10
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->mIsUserElite:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->p:Z
 
     return-void
 .end method
 
-.method public static fromEvent(Lcom/yelp/android/serializable/Event;)Lcom/yelp/android/serializable/TalkTopic;
+.method public static a(Lcom/yelp/android/serializable/Event;)Lcom/yelp/android/serializable/TalkTopic;
     .locals 2
 
     .prologue
-    .line 55
+    .line 57
     new-instance v0, Lcom/yelp/android/serializable/TalkTopic;
 
     invoke-direct {v0}, Lcom/yelp/android/serializable/TalkTopic;-><init>()V
 
-    .line 56
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->getCategoryName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->mCategoryName:Ljava/lang/String;
-
-    .line 57
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->getTalkTopicId()Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->mId:Ljava/lang/String;
-
     .line 58
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->getDescription()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->C()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->mText:Ljava/lang/String;
+    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->f:Ljava/lang/String;
 
     .line 59
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->getName()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->v()Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->mTitle:Ljava/lang/String;
+    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->d:Ljava/lang/String;
 
     .line 60
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->B()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->e:Ljava/lang/String;
+
+    .line 61
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/Event;->G()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/yelp/android/serializable/TalkTopic;->c:Ljava/lang/String;
+
+    .line 62
     return-object v0
 .end method
 
 
 # virtual methods
-.method public bridge synthetic describeContents()I
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->describeContents()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getCategoryName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getCategoryName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getReplyCount()I
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getReplyCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getText()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTimeCreated()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getTimeCreated()Ljava/util/Date;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTimeModified()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getTimeModified()Ljava/util/Date;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getTitle()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getTitle()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserEliteYears()[I
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserEliteYears()[I
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUserFriendCount()I
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserFriendCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserMediaCount()I
+.method public a(Landroid/os/Parcel;)V
     .locals 2
 
     .prologue
-    .line 73
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/TalkTopic;->getUserVideoCount()I
+    .line 20
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_TalkTopic;->a(Landroid/os/Parcel;)V
+
+    .line 21
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+
+    move-result-object v0
+
+    .line 22
+    const/4 v1, 0x0
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->p:Z
+
+    .line 23
+    return-void
+.end method
+
+.method public a(Lorg/json/JSONObject;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 27
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_TalkTopic;->a(Lorg/json/JSONObject;)V
+
+    .line 28
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/TalkTopic;->c()[I
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    .line 29
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/TalkTopic;->c()[I
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/yelp/android/serializable/User;->a([I)Z
 
     move-result v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/TalkTopic;->getUserPhotoCount()I
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->p:Z
+
+    .line 33
+    :goto_0
+    return-void
+
+    .line 31
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->p:Z
+
+    goto :goto_0
+.end method
+
+.method public a()Z
+    .locals 1
+
+    .prologue
+    .line 71
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->p:Z
+
+    return v0
+.end method
+
+.method public b()I
+    .locals 2
+
+    .prologue
+    .line 75
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/TalkTopic;->f()I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/yelp/android/serializable/TalkTopic;->e()I
 
     move-result v1
 
@@ -243,126 +187,227 @@
     return v0
 .end method
 
-.method public bridge synthetic getUserName()Ljava/lang/String;
+.method public bridge synthetic c()[I
     .locals 1
 
     .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserName()Ljava/lang/String;
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->c()[I
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getUserPhotoCount()I
+.method public bridge synthetic d()I
     .locals 1
 
     .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserPhotoCount()I
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->d()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic getUserPhotoUrl()Ljava/lang/String;
+.method public bridge synthetic describeContents()I
     .locals 1
 
     .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserPhotoUrl()Ljava/lang/String;
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->describeContents()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic e()I
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->e()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_TalkTopic;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic f()I
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->f()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic g()I
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->g()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic h()I
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->h()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic hashCode()I
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->hashCode()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->i()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getUserReviewCount()I
+.method public bridge synthetic j()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserReviewCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getUserVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 11
-    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->getUserVideoCount()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public isUserElite()Z
-    .locals 1
-
-    .prologue
-    .line 69
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->mIsUserElite:Z
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 1
-
-    .prologue
-    .line 30
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_TalkTopic;->readFromJson(Lorg/json/JSONObject;)V
-
-    .line 31
-    invoke-virtual {p0}, Lcom/yelp/android/serializable/TalkTopic;->getUserEliteYears()[I
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->j()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/services/r;->a([I)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->mIsUserElite:Z
-
-    .line 32
-    return-void
+    return-object v0
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 2
+.method public bridge synthetic k()Ljava/lang/String;
+    .locals 1
 
     .prologue
-    .line 23
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_TalkTopic;->readFromParcel(Landroid/os/Parcel;)V
-
-    .line 24
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->k()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 25
-    const/4 v1, 0x0
+    return-object v0
+.end method
 
-    aget-boolean v0, v0, v1
+.method public bridge synthetic l()Ljava/lang/String;
+    .locals 1
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/TalkTopic;->mIsUserElite:Z
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->l()Ljava/lang/String;
 
-    .line 26
-    return-void
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic m()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->m()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic n()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->n()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic o()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->o()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic p()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->p()Ljava/util/Date;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic q()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 8
+    invoke-super {p0}, Lcom/yelp/android/serializable/_TalkTopic;->q()Ljava/util/Date;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
     .prologue
-    .line 65
+    .line 67
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -373,7 +418,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/serializable/TalkTopic;->mId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/TalkTopic;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -385,7 +430,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/serializable/TalkTopic;->mCategoryName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/TalkTopic;->f:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -397,7 +442,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/serializable/TalkTopic;->mText:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/TalkTopic;->e:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -414,22 +459,22 @@
     .locals 3
 
     .prologue
-    .line 17
+    .line 14
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/_TalkTopic;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 18
+    .line 15
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
     const/4 v1, 0x0
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/TalkTopic;->mIsUserElite:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/TalkTopic;->p:Z
 
     aput-boolean v2, v0, v1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 19
+    .line 16
     return-void
 .end method

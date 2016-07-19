@@ -1,15 +1,15 @@
 package com.google.android.gms.internal;
 
-import android.view.View;
+import java.util.concurrent.Callable;
 
 class an$1
-  implements Runnable
+  implements Callable<T>
 {
-  an$1(an paraman, View paramView) {}
+  an$1(an paraman, ak paramak) {}
   
-  public void run()
+  public T call()
   {
-    nL.h(nK);
+    return (T)a.a(an.a(b));
   }
 }
 

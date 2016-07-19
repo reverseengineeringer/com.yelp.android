@@ -4,6 +4,13 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/util/ObjectDirtyEvent$1;,
+        Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<DirtyObject::",
@@ -44,21 +51,21 @@
     .locals 1
 
     .prologue
-    .line 69
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 70
+    .line 75
     iput p1, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->c:I
 
-    .line 71
+    .line 76
     iput-object p2, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->d:Ljava/lang/String;
 
-    .line 72
+    .line 77
     sget-object v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->INTEGER:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     iput-object v0, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->e:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
-    .line 73
+    .line 78
     return-void
 .end method
 
@@ -73,21 +80,21 @@
     .end annotation
 
     .prologue
-    .line 63
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 64
+    .line 69
     iput-object p1, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->a:Landroid/os/Parcelable;
 
-    .line 65
+    .line 70
     iput-object p2, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->d:Ljava/lang/String;
 
-    .line 66
+    .line 71
     sget-object v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->PARCELABLE:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     iput-object v0, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->e:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
-    .line 67
+    .line 72
     return-void
 .end method
 
@@ -104,25 +111,25 @@
     .end annotation
 
     .prologue
-    .line 75
+    .line 80
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 76
+    .line 81
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     iput-object v0, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->b:Ljava/util/ArrayList;
 
-    .line 77
+    .line 82
     iput-object p2, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->d:Ljava/lang/String;
 
-    .line 78
+    .line 83
     sget-object v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->PARCELABLE_LIST:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     iput-object v0, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->e:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
-    .line 79
+    .line 84
     return-void
 .end method
 
@@ -130,17 +137,17 @@
     .locals 2
 
     .prologue
-    .line 100
+    .line 105
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string/jumbo v1, "android.intent.action.EDIT"
 
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 101
+    .line 106
     invoke-virtual {v0, p0}, Landroid/content/IntentFilter;->addCategory(Ljava/lang/String;)V
 
-    .line 102
+    .line 107
     return-object v0
 .end method
 
@@ -157,7 +164,7 @@
     .end annotation
 
     .prologue
-    .line 106
+    .line 111
     const-string/jumbo v0, "object"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -166,7 +173,7 @@
 
     if-nez v0, :cond_0
 
-    .line 107
+    .line 112
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "The intent doesn\'t contain the parcelable object that you were expecting!"
@@ -175,7 +182,7 @@
 
     throw v0
 
-    .line 110
+    .line 115
     :cond_0
     const-string/jumbo v0, "object"
 
@@ -190,7 +197,7 @@
     .locals 2
 
     .prologue
-    .line 114
+    .line 119
     const-string/jumbo v0, "integer"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -199,7 +206,7 @@
 
     if-nez v0, :cond_0
 
-    .line 115
+    .line 120
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "The intent doesn\'t contain the int value that you were expecting!"
@@ -208,7 +215,7 @@
 
     throw v0
 
-    .line 118
+    .line 123
     :cond_0
     const-string/jumbo v0, "integer"
 
@@ -236,7 +243,7 @@
     .end annotation
 
     .prologue
-    .line 122
+    .line 128
     const-string/jumbo v0, "object_list"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -245,7 +252,7 @@
 
     if-nez v0, :cond_0
 
-    .line 123
+    .line 129
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string/jumbo v1, "The intent doesn\'t contain the parcelable object list that you were expecting!"
@@ -254,7 +261,7 @@
 
     throw v0
 
-    .line 126
+    .line 132
     :cond_0
     const-string/jumbo v0, "object_list"
 
@@ -271,20 +278,20 @@
     .locals 3
 
     .prologue
-    .line 82
+    .line 87
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v1, "android.intent.action.EDIT"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 83
+    .line 88
     iget-object v1, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 84
-    sget-object v1, Lcom/yelp/android/util/t;->a:[I
+    .line 89
+    sget-object v1, Lcom/yelp/android/util/ObjectDirtyEvent$1;->a:[I
 
     iget-object v2, p0, Lcom/yelp/android/util/ObjectDirtyEvent;->e:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
@@ -296,14 +303,14 @@
 
     packed-switch v1, :pswitch_data_0
 
-    .line 96
+    .line 101
     :goto_0
     invoke-virtual {p1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 97
+    .line 102
     return-void
 
-    .line 86
+    .line 91
     :pswitch_0
     const-string/jumbo v1, "object"
 
@@ -313,7 +320,7 @@
 
     goto :goto_0
 
-    .line 89
+    .line 94
     :pswitch_1
     const-string/jumbo v1, "integer"
 
@@ -323,7 +330,7 @@
 
     goto :goto_0
 
-    .line 92
+    .line 97
     :pswitch_2
     const-string/jumbo v1, "object_list"
 
@@ -333,7 +340,7 @@
 
     goto :goto_0
 
-    .line 84
+    .line 89
     nop
 
     :pswitch_data_0

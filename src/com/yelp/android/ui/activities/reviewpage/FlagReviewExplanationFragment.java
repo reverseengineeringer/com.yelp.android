@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.et;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.dv;
 import com.yelp.android.serializable.YelpBusinessReview;
 import com.yelp.android.ui.activities.support.YelpFragment;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.util.StringUtils;
 
 public class FlagReviewExplanationFragment
@@ -26,9 +26,9 @@ public class FlagReviewExplanationFragment
   private String b;
   private YelpBusinessReview c;
   private EditText d;
-  private et e;
-  private y g;
-  private final m<String> h = new x(this);
+  private dv e;
+  private a f;
+  private final ApiRequest.b<String> g = new FlagReviewExplanationFragment.1(this);
   
   public static FlagReviewExplanationFragment a(FlagReviewReasonsFragment.FlagType paramFlagType, YelpBusinessReview paramYelpBusinessReview)
   {
@@ -42,11 +42,11 @@ public class FlagReviewExplanationFragment
   
   public void a(String paramString1, String paramString2, String paramString3)
   {
-    if ((e != null) && (e.isFetching())) {
+    if ((e != null) && (e.u())) {
       return;
     }
-    e = new et(paramString1, paramString2, paramString3, h);
-    e.execute(new Void[0]);
+    e = new dv(paramString1, paramString2, paramString3, g);
+    e.f(new Void[0]);
   }
   
   public void onAttach(Activity paramActivity)
@@ -54,7 +54,7 @@ public class FlagReviewExplanationFragment
     super.onAttach(paramActivity);
     try
     {
-      g = ((y)paramActivity);
+      f = ((a)paramActivity);
       return;
     }
     catch (ClassCastException paramActivity)
@@ -76,13 +76,13 @@ public class FlagReviewExplanationFragment
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-    paramMenuInflater.inflate(2131755022, paramMenu);
+    paramMenuInflater.inflate(2131755026, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903219, paramViewGroup, false);
-    d = ((EditText)paramLayoutInflater.findViewById(2131493565));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903245, paramViewGroup, false);
+    d = ((EditText)paramLayoutInflater.findViewById(2131690270));
     d.setHint(a);
     return paramLayoutInflater;
   }
@@ -90,24 +90,31 @@ public class FlagReviewExplanationFragment
   public void onDetach()
   {
     super.onDetach();
-    g = null;
+    f = null;
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494145)
+    if (paramMenuItem.getItemId() == 2131691020)
     {
       String str = d.getText().toString();
       if (TextUtils.isEmpty(StringUtils.a(str)))
       {
-        cr.a(getString(2131166451), 1);
+        as.a(getString(2131166453), 1);
         return true;
       }
-      a(c.getId(), b, str);
+      a(c.a(), b, str);
       AppData.a(EventIri.FlagReview);
-      g.a();
+      f.a();
     }
     return super.onOptionsItemSelected(paramMenuItem);
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a();
+    
+    public abstract void a(String paramString);
   }
 }
 

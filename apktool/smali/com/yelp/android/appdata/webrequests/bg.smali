@@ -1,83 +1,30 @@
 .class public Lcom/yelp/android/appdata/webrequests/bg;
-.super Ljava/lang/Object;
-.source "DealBusinessesRequest.java"
-
-
-# instance fields
-.field final a:I
-
-.field final b:Lcom/yelp/android/serializable/MapSpan;
-
-.field final c:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            ">;"
-        }
-    .end annotation
-.end field
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "EditCaptionRequest.java"
 
 
 # direct methods
-.method public constructor <init>(ILcom/yelp/android/serializable/MapSpan;Ljava/util/ArrayList;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Lcom/yelp/android/serializable/MapSpan;",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            ">;)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
+    .locals 2
 
     .prologue
-    .line 50
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 8
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    .line 51
-    iput p1, p0, Lcom/yelp/android/appdata/webrequests/bg;->a:I
+    const-string/jumbo v1, "/business/photo/caption/edit"
 
-    .line 52
-    iput-object p2, p0, Lcom/yelp/android/appdata/webrequests/bg;->b:Lcom/yelp/android/serializable/MapSpan;
+    invoke-direct {p0, v0, v1, p3}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 53
-    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/bg;->c:Ljava/util/ArrayList;
+    .line 9
+    const-string/jumbo v0, "photo_id"
 
-    .line 54
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/bg;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 10
+    const-string/jumbo v0, "caption"
+
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/bg;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 11
     return-void
-.end method
-
-
-# virtual methods
-.method public a()Lcom/yelp/android/serializable/MapSpan;
-    .locals 1
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/bg;->b:Lcom/yelp/android/serializable/MapSpan;
-
-    return-object v0
-.end method
-
-.method public b()Ljava/util/ArrayList;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            ">;"
-        }
-    .end annotation
-
-    .prologue
-    .line 65
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/bg;->c:Ljava/util/ArrayList;
-
-    return-object v0
 .end method

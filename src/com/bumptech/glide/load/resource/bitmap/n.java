@@ -1,63 +1,46 @@
 package com.bumptech.glide.load.resource.bitmap;
 
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Drawable.ConstantState;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.a;
+import com.bumptech.glide.load.d;
+import com.bumptech.glide.load.e;
+import java.io.File;
+import java.io.InputStream;
 
-class n
-  extends Drawable.ConstantState
+public class n
+  implements com.yelp.android.ak.b<InputStream, Bitmap>
 {
-  private static final Paint d = new Paint(6);
-  final Bitmap a;
-  int b;
-  Paint c = d;
+  private final o a;
+  private final b b;
+  private final com.yelp.android.aa.o c = new com.yelp.android.aa.o();
+  private final com.yelp.android.af.c<Bitmap> d;
   
-  public n(Bitmap paramBitmap)
+  public n(com.yelp.android.x.c paramc, DecodeFormat paramDecodeFormat)
   {
-    a = paramBitmap;
+    a = new o(paramc, paramDecodeFormat);
+    b = new b();
+    d = new com.yelp.android.af.c(a);
   }
   
-  n(n paramn)
+  public d<File, Bitmap> a()
   {
-    this(a);
-    b = b;
+    return d;
   }
   
-  void a()
+  public d<InputStream, Bitmap> b()
   {
-    if (d == c) {
-      c = new Paint(6);
-    }
+    return a;
   }
   
-  void a(int paramInt)
+  public a<InputStream> c()
   {
-    a();
-    c.setAlpha(paramInt);
+    return c;
   }
   
-  void a(ColorFilter paramColorFilter)
+  public e<Bitmap> d()
   {
-    a();
-    c.setColorFilter(paramColorFilter);
-  }
-  
-  public int getChangingConfigurations()
-  {
-    return 0;
-  }
-  
-  public Drawable newDrawable()
-  {
-    return new m(null, this);
-  }
-  
-  public Drawable newDrawable(Resources paramResources)
-  {
-    return new m(paramResources, this);
+    return b;
   }
 }
 

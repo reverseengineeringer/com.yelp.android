@@ -1,37 +1,54 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
 import com.yelp.android.appdata.webrequests.ApiRequest.RequestType;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.core.b;
 import com.yelp.android.serializable.Conversation;
 import com.yelp.parcelgen.JsonUtil;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class f
-  extends com.yelp.android.av.g<Void, Void, g>
+  extends b<Void, Void, a>
 {
   private final MessagingRequestType a;
   
-  public f(MessagingRequestType paramMessagingRequestType, String paramString, m<g> paramm)
+  public f(MessagingRequestType paramMessagingRequestType, String paramString, ApiRequest.b<a> paramb)
   {
-    super(ApiRequest.RequestType.GET, "conversations/", paramm);
+    super(ApiRequest.RequestType.GET, "conversations", paramb);
     a = paramMessagingRequestType;
     a.addParameter(this, paramString);
-    addUrlParam("limit", 20);
+    a("limit", 20);
   }
   
-  public MessagingRequestType a()
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    return new a(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("conversations"), Conversation.CREATOR), paramJSONObject.optInt("unread_message_count"));
+  }
+  
+  public MessagingRequestType b()
   {
     return a;
-  }
-  
-  public g a(JSONObject paramJSONObject)
-  {
-    return new g(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("conversations"), Conversation.CREATOR), paramJSONObject.getInt("total"), paramJSONObject.optInt("unread_message_count"));
   }
   
   public String toString()
   {
     return "ConversationsRequest";
+  }
+  
+  public static final class a
+  {
+    public final List<Conversation> a;
+    public final int b;
+    
+    public a(List<Conversation> paramList, int paramInt)
+    {
+      a = paramList;
+      b = paramInt;
+    }
   }
 }
 

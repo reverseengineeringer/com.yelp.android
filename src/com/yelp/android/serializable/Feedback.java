@@ -2,7 +2,7 @@ package com.yelp.android.serializable;
 
 import android.os.Parcelable;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,9 +12,7 @@ public class Feedback
   extends _Feedback
   implements Parcelable
 {
-  public static JsonParser.DualCreator<Feedback> CREATOR = new ar();
-  public static final String NONE_FEEDBACK = "NONE";
-  public static final String POSITIVE_FEEDBACK = "POSITIVE";
+  public static JsonParser.DualCreator<Feedback> CREATOR = new Feedback.1();
   
   public Feedback()
   {
@@ -26,33 +24,33 @@ public class Feedback
     super(paramList, paramInt);
   }
   
-  public void addPositiveFeedback()
+  public void a()
   {
-    setFeedbackPositiveCount(mPositiveFeedbackCount + 1);
+    a(b + 1);
   }
   
-  public boolean isLikedByUser()
+  public void a(int paramInt)
   {
-    return (AppData.b().m().c()) && (mFeedbackByUser.contains("POSITIVE"));
-  }
-  
-  public void removePositiveFeedback()
-  {
-    setFeedbackPositiveCount(mPositiveFeedbackCount - 1);
-  }
-  
-  public void setFeedbackPositiveCount(int paramInt)
-  {
-    mFeedbackByUser = new ArrayList();
-    if (mPositiveFeedbackCount < paramInt) {
-      mFeedbackByUser.add("POSITIVE");
+    a = new ArrayList();
+    if (b < paramInt) {
+      a.add("POSITIVE");
     }
     for (;;)
     {
-      mPositiveFeedbackCount = paramInt;
+      b = paramInt;
       return;
-      mFeedbackByUser.add("NONE");
+      a.add("NONE");
     }
+  }
+  
+  public void b()
+  {
+    a(b - 1);
+  }
+  
+  public boolean c()
+  {
+    return (AppData.b().q().b()) && (a.contains("POSITIVE"));
   }
 }
 

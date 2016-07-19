@@ -2,44 +2,97 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Video
   implements Parcelable
 {
-  protected String mBusinessId;
-  protected String mCaption;
-  protected boolean mCurrentUserLiked;
-  protected String mEmbedCode;
-  protected int mFeedbackPositiveCount;
-  protected String mId;
-  protected int mIndex;
-  protected String mPlayerCode;
-  protected String mThumbnailUrl;
-  protected Date mTimeCreated;
-  protected Passport mUserPassport;
-  protected String mVideoSource;
+  protected Date a;
+  protected Passport b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected boolean k;
+  protected int l;
+  protected int m;
   
-  protected _Video() {}
-  
-  protected _Video(Date paramDate, Passport paramPassport, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, boolean paramBoolean, int paramInt1, int paramInt2)
+  public String a()
   {
-    this();
-    mTimeCreated = paramDate;
-    mUserPassport = paramPassport;
-    mId = paramString1;
-    mPlayerCode = paramString2;
-    mEmbedCode = paramString3;
-    mThumbnailUrl = paramString4;
-    mVideoSource = paramString5;
-    mBusinessId = paramString6;
-    mCaption = paramString7;
-    mCurrentUserLiked = paramBoolean;
-    mFeedbackPositiveCount = paramInt1;
-    mIndex = paramInt2;
+    return c;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    long l1 = paramParcel.readLong();
+    if (l1 != -2147483648L) {
+      a = new Date(l1);
+    }
+    b = ((Passport)paramParcel.readParcelable(Passport.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = paramParcel.createBooleanArray()[0];
+    l = paramParcel.readInt();
+    m = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("user_passport")) {
+      b = ((Passport)Passport.CREATOR.parse(paramJSONObject.getJSONObject("user_passport")));
+    }
+    if (!paramJSONObject.isNull("id")) {
+      c = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("player_code")) {
+      d = paramJSONObject.optString("player_code");
+    }
+    if (!paramJSONObject.isNull("embed_code")) {
+      e = paramJSONObject.optString("embed_code");
+    }
+    if (!paramJSONObject.isNull("thumbnail_url")) {
+      f = paramJSONObject.optString("thumbnail_url");
+    }
+    if (!paramJSONObject.isNull("video_source")) {
+      g = paramJSONObject.optString("video_source");
+    }
+    if (!paramJSONObject.isNull("business_id")) {
+      h = paramJSONObject.optString("business_id");
+    }
+    if (!paramJSONObject.isNull("caption")) {
+      i = paramJSONObject.optString("caption");
+    }
+    if (!paramJSONObject.isNull("share_url")) {
+      j = paramJSONObject.optString("share_url");
+    }
+    k = paramJSONObject.optBoolean("current_user_liked");
+    l = paramJSONObject.optInt("feedback_positive_count");
+    m = paramJSONObject.optInt("index");
+  }
+  
+  public int d()
+  {
+    return l;
   }
   
   public int describeContents()
@@ -47,172 +100,138 @@ abstract class _Video
     return 0;
   }
   
-  public String getBusinessId()
+  public int e()
   {
-    return mBusinessId;
+    return m;
   }
   
-  public String getCaption()
+  public boolean equals(Object paramObject)
   {
-    return mCaption;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Video)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a(l, l).a(m, m).a();
   }
   
-  public boolean getCurrentUserLiked()
+  public String f()
   {
-    return mCurrentUserLiked;
+    return f;
   }
   
-  public String getEmbedCode()
+  public String g()
   {
-    return mEmbedCode;
+    return i;
   }
   
-  public int getFeedbackPositiveCount()
+  public Date h()
   {
-    return mFeedbackPositiveCount;
+    return a;
   }
   
-  public String getId()
+  public int hashCode()
   {
-    return mId;
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a(l).a(m).a();
   }
   
-  public int getIndex()
+  public Passport i()
   {
-    return mIndex;
+    return b;
   }
   
-  public String getPlayerCode()
+  public String k()
   {
-    return mPlayerCode;
+    return h;
   }
   
-  public String getThumbnailUrl()
+  public String l()
   {
-    return mThumbnailUrl;
+    return j;
   }
   
-  public Date getTimeCreated()
-  {
-    return mTimeCreated;
-  }
-  
-  public Passport getUserPassport()
-  {
-    return mUserPassport;
-  }
-  
-  public String getVideoSource()
-  {
-    return mVideoSource;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_created")) {
-      mTimeCreated = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("user_passport")) {
-      mUserPassport = ((Passport)Passport.CREATOR.parse(paramJSONObject.getJSONObject("user_passport")));
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("player_code")) {
-      mPlayerCode = paramJSONObject.optString("player_code");
-    }
-    if (!paramJSONObject.isNull("embed_code")) {
-      mEmbedCode = paramJSONObject.optString("embed_code");
-    }
-    if (!paramJSONObject.isNull("thumbnail_url")) {
-      mThumbnailUrl = paramJSONObject.optString("thumbnail_url");
-    }
-    if (!paramJSONObject.isNull("video_source")) {
-      mVideoSource = paramJSONObject.optString("video_source");
-    }
-    if (!paramJSONObject.isNull("business_id")) {
-      mBusinessId = paramJSONObject.optString("business_id");
-    }
-    if (!paramJSONObject.isNull("caption")) {
-      mCaption = paramJSONObject.optString("caption");
-    }
-    mCurrentUserLiked = paramJSONObject.optBoolean("current_user_liked");
-    mFeedbackPositiveCount = paramJSONObject.optInt("feedback_positive_count");
-    mIndex = paramJSONObject.optInt("index");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mTimeCreated = new Date(l);
-    }
-    mUserPassport = ((Passport)paramParcel.readParcelable(Passport.class.getClassLoader()));
-    mId = paramParcel.readString();
-    mPlayerCode = paramParcel.readString();
-    mEmbedCode = paramParcel.readString();
-    mThumbnailUrl = paramParcel.readString();
-    mVideoSource = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mCaption = paramParcel.readString();
-    mCurrentUserLiked = paramParcel.createBooleanArray()[0];
-    mFeedbackPositiveCount = paramParcel.readInt();
-    mIndex = paramParcel.readInt();
-  }
-  
-  public JSONObject writeJSON()
+  public JSONObject n()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
-    if (mTimeCreated != null) {
-      localJSONObject.put("time_created", mTimeCreated.getTime() / 1000L);
+    if (a != null) {
+      localJSONObject.put("time_created", a.getTime() / 1000L);
     }
-    if (mUserPassport != null) {
-      localJSONObject.put("user_passport", mUserPassport.writeJSON());
+    if (b != null) {
+      localJSONObject.put("user_passport", b.k());
     }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
+    if (c != null) {
+      localJSONObject.put("id", c);
     }
-    if (mPlayerCode != null) {
-      localJSONObject.put("player_code", mPlayerCode);
+    if (d != null) {
+      localJSONObject.put("player_code", d);
     }
-    if (mEmbedCode != null) {
-      localJSONObject.put("embed_code", mEmbedCode);
+    if (e != null) {
+      localJSONObject.put("embed_code", e);
     }
-    if (mThumbnailUrl != null) {
-      localJSONObject.put("thumbnail_url", mThumbnailUrl);
+    if (f != null) {
+      localJSONObject.put("thumbnail_url", f);
     }
-    if (mVideoSource != null) {
-      localJSONObject.put("video_source", mVideoSource);
+    if (g != null) {
+      localJSONObject.put("video_source", g);
     }
-    if (mBusinessId != null) {
-      localJSONObject.put("business_id", mBusinessId);
+    if (h != null) {
+      localJSONObject.put("business_id", h);
     }
-    if (mCaption != null) {
-      localJSONObject.put("caption", mCaption);
+    if (i != null) {
+      localJSONObject.put("caption", i);
     }
-    localJSONObject.put("current_user_liked", mCurrentUserLiked);
-    localJSONObject.put("feedback_positive_count", mFeedbackPositiveCount);
-    localJSONObject.put("index", mIndex);
+    if (j != null) {
+      localJSONObject.put("share_url", j);
+    }
+    localJSONObject.put("current_user_liked", k);
+    localJSONObject.put("feedback_positive_count", l);
+    localJSONObject.put("index", m);
     return localJSONObject;
+  }
+  
+  public boolean o()
+  {
+    return k;
+  }
+  
+  public String p()
+  {
+    return g;
+  }
+  
+  public String q()
+  {
+    return e;
+  }
+  
+  public String r()
+  {
+    return d;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mTimeCreated == null) {}
-    for (long l = -2147483648L;; l = mTimeCreated.getTime())
+    if (a == null) {}
+    for (long l1 = -2147483648L;; l1 = a.getTime())
     {
-      paramParcel.writeLong(l);
-      paramParcel.writeParcelable(mUserPassport, 0);
-      paramParcel.writeString(mId);
-      paramParcel.writeString(mPlayerCode);
-      paramParcel.writeString(mEmbedCode);
-      paramParcel.writeString(mThumbnailUrl);
-      paramParcel.writeString(mVideoSource);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeString(mCaption);
-      paramParcel.writeBooleanArray(new boolean[] { mCurrentUserLiked });
-      paramParcel.writeInt(mFeedbackPositiveCount);
-      paramParcel.writeInt(mIndex);
+      paramParcel.writeLong(l1);
+      paramParcel.writeParcelable(b, 0);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeValue(j);
+      paramParcel.writeBooleanArray(new boolean[] { k });
+      paramParcel.writeInt(l);
+      paramParcel.writeInt(m);
       return;
     }
   }

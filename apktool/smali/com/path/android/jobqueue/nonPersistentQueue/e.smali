@@ -12,7 +12,7 @@
         value = {
             "Ljava/util/TreeSet",
             "<",
-            "Lcom/path/android/jobqueue/b;",
+            "Lcom/path/android/jobqueue/a;",
             ">;"
         }
     .end annotation
@@ -36,8 +36,22 @@
             "Ljava/util/Map",
             "<",
             "Ljava/lang/Long;",
-            "Lcom/path/android/jobqueue/b;",
+            "Lcom/path/android/jobqueue/a;",
             ">;"
+        }
+    .end annotation
+.end field
+
+.field private final d:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Lcom/path/android/jobqueue/a;",
+            ">;>;"
         }
     .end annotation
 .end field
@@ -51,37 +65,44 @@
             "(",
             "Ljava/util/Comparator",
             "<",
-            "Lcom/path/android/jobqueue/b;",
+            "Lcom/path/android/jobqueue/a;",
             ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 25
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
+    .line 32
     new-instance v0, Ljava/util/TreeSet;
 
     invoke-direct {v0, p1}, Ljava/util/TreeSet;-><init>(Ljava/util/Comparator;)V
 
     iput-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
-    .line 27
+    .line 33
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
-    .line 28
+    .line 34
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->c:Ljava/util/Map;
 
-    .line 29
+    .line 35
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->d:Ljava/util/Map;
+
+    .line 36
     return-void
 .end method
 
@@ -89,7 +110,7 @@
     .locals 2
 
     .prologue
-    .line 100
+    .line 198
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
@@ -98,7 +119,7 @@
 
     if-nez v0, :cond_0
 
-    .line 101
+    .line 199
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
     const/4 v1, 0x1
@@ -109,11 +130,11 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 105
+    .line 203
     :goto_0
     return-void
 
-    .line 103
+    .line 201
     :cond_0
     iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
@@ -140,11 +161,11 @@
     goto :goto_0
 .end method
 
-.method private b()Lcom/path/android/jobqueue/b;
+.method private b()Lcom/path/android/jobqueue/a;
     .locals 2
 
     .prologue
-    .line 32
+    .line 39
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
     invoke-virtual {v0}, Ljava/util/TreeSet;->size()I
@@ -155,10 +176,10 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 33
+    .line 40
     const/4 v0, 0x0
 
-    .line 35
+    .line 42
     :goto_0
     return-object v0
 
@@ -169,7 +190,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/path/android/jobqueue/b;
+    check-cast v0, Lcom/path/android/jobqueue/a;
 
     goto :goto_0
 .end method
@@ -178,7 +199,7 @@
     .locals 2
 
     .prologue
-    .line 108
+    .line 206
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -187,32 +208,36 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 109
+    .line 207
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-gtz v1, :cond_1
 
-    .line 111
+    .line 209
     :cond_0
-    const-string/jumbo v0, "detected inconsistency in NonPersistentJobSet\'s group id hash"
+    const-string/jumbo v0, "detected inconsistency in NonPersistentJobSet\'s group id hash. Please report a bug"
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/at/b;->b(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v0, v1}, Lcom/yelp/android/bp/b;->b(Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 118
-    :cond_1
+    .line 211
+    iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
+
+    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 220
     :goto_0
     return-void
 
-    .line 114
-    :cond_2
+    .line 214
+    :cond_1
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -223,19 +248,196 @@
 
     move-result-object v0
 
-    .line 115
+    .line 215
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_2
 
-    .line 116
+    .line 216
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
+
+    .line 218
+    :cond_2
+    iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
+
+    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+.end method
+
+.method private c(Lcom/path/android/jobqueue/a;)V
+    .locals 4
+
+    .prologue
+    .line 162
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->j()Ljava/util/Set;
+
+    move-result-object v0
+
+    .line 163
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Set;->size()I
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 174
+    :cond_0
+    return-void
+
+    .line 166
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 167
+    iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->d:Ljava/util/Map;
+
+    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/List;
+
+    .line 168
+    if-nez v1, :cond_2
+
+    .line 169
+    new-instance v1, Ljava/util/LinkedList;
+
+    invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
+
+    .line 170
+    iget-object v3, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->d:Ljava/util/Map;
+
+    invoke-interface {v3, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 172
+    :cond_2
+    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+.end method
+
+.method private d(Lcom/path/android/jobqueue/a;)V
+    .locals 5
+
+    .prologue
+    const/4 v4, 0x0
+
+    .line 177
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->j()Ljava/util/Set;
+
+    move-result-object v0
+
+    .line 178
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Set;->size()I
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 194
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 181
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_2
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 182
+    iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->d:Ljava/util/Map;
+
+    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/List;
+
+    .line 183
+    if-nez v1, :cond_3
+
+    .line 184
+    const-string/jumbo v0, "trying to remove job from tag cache but cannot find the tag cache"
+
+    new-array v1, v4, [Ljava/lang/Object;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/bp/b;->b(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    .line 187
+    :cond_3
+    invoke-interface {v1, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    .line 188
+    const-string/jumbo v0, "trying to remove job from tag cache but cannot find it in the cache"
+
+    new-array v1, v4, [Ljava/lang/Object;
+
+    invoke-static {v0, v1}, Lcom/yelp/android/bp/b;->b(Ljava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_1
+
+    .line 189
+    :cond_4
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    .line 190
+    iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->d:Ljava/util/Map;
+
+    invoke-interface {v1, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
 .end method
 
 
@@ -244,7 +446,7 @@
     .locals 1
 
     .prologue
-    .line 143
+    .line 247
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
     invoke-virtual {v0}, Ljava/util/TreeSet;->size()I
@@ -254,7 +456,7 @@
     return v0
 .end method
 
-.method public a(Ljava/util/Collection;)Lcom/path/android/jobqueue/b;
+.method public a(Ljava/util/Collection;)Lcom/path/android/jobqueue/a;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -263,12 +465,12 @@
             "<",
             "Ljava/lang/String;",
             ">;)",
-            "Lcom/path/android/jobqueue/b;"
+            "Lcom/path/android/jobqueue/a;"
         }
     .end annotation
 
     .prologue
-    .line 40
+    .line 47
     if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/Collection;->size()I
@@ -277,18 +479,18 @@
 
     if-nez v0, :cond_2
 
-    .line 41
+    .line 48
     :cond_0
-    invoke-direct {p0}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b()Lcom/path/android/jobqueue/b;
+    invoke-direct {p0}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b()Lcom/path/android/jobqueue/a;
 
     move-result-object v0
 
-    .line 54
+    .line 61
     :cond_1
     :goto_0
     return-object v0
 
-    .line 44
+    .line 51
     :cond_2
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
@@ -307,17 +509,17 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/path/android/jobqueue/b;
+    check-cast v0, Lcom/path/android/jobqueue/a;
 
-    .line 45
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 52
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v2
 
     if-eqz v2, :cond_1
 
-    .line 49
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 56
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v2
 
@@ -329,7 +531,7 @@
 
     goto :goto_1
 
-    .line 54
+    .line 61
     :cond_3
     const/4 v0, 0x0
 
@@ -350,10 +552,10 @@
     .end annotation
 
     .prologue
-    .line 149
+    .line 253
     const/4 v2, 0x0
 
-    .line 150
+    .line 254
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -364,20 +566,20 @@
 
     move-result v3
 
-    .line 151
+    .line 255
     const/4 v0, 0x0
 
-    .line 152
+    .line 256
     if-lez v3, :cond_5
 
-    .line 153
+    .line 257
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     move-object v1, v0
 
-    .line 155
+    .line 259
     :goto_0
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
@@ -397,10 +599,10 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/path/android/jobqueue/b;
+    check-cast v0, Lcom/path/android/jobqueue/a;
 
-    .line 156
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->g()J
+    .line 260
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->g()J
 
     move-result-wide v6
 
@@ -408,17 +610,17 @@
 
     if-gez v5, :cond_4
 
-    .line 159
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 263
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v5
 
     if-eqz v5, :cond_2
 
-    .line 160
+    .line 264
     if-eqz p3, :cond_1
 
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v5
 
@@ -428,12 +630,12 @@
 
     if-nez v5, :cond_0
 
-    .line 165
+    .line 269
     :cond_1
     if-lez v3, :cond_4
 
-    .line 166
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 270
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v0
 
@@ -443,7 +645,7 @@
 
     if-eqz v0, :cond_4
 
-    .line 167
+    .line 271
     add-int/lit8 v2, v2, 0x1
 
     move v0, v2
@@ -451,9 +653,10 @@
     :goto_2
     move v2, v0
 
-    .line 172
+    .line 279
     goto :goto_1
 
+    .line 276
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
@@ -461,7 +664,7 @@
 
     goto :goto_2
 
-    .line 176
+    .line 280
     :cond_3
     new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/b;
 
@@ -480,18 +683,18 @@
     goto :goto_0
 .end method
 
-.method public a(Lcom/path/android/jobqueue/b;)Z
+.method public a(Lcom/path/android/jobqueue/a;)Z
     .locals 3
 
     .prologue
-    .line 80
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->a()Ljava/lang/Long;
+    .line 141
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->a()Ljava/lang/Long;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    .line 81
+    .line 142
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "cannot add job holder w/o an ID"
@@ -500,7 +703,7 @@
 
     throw v0
 
-    .line 83
+    .line 144
     :cond_0
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
@@ -508,47 +711,50 @@
 
     move-result v0
 
-    .line 84
+    .line 145
     if-nez v0, :cond_1
 
-    .line 86
-    invoke-virtual {p0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b(Lcom/path/android/jobqueue/b;)Z
+    .line 147
+    invoke-virtual {p0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b(Lcom/path/android/jobqueue/a;)Z
 
-    .line 87
+    .line 148
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
     invoke-virtual {v0, p1}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
 
     move-result v0
 
-    .line 89
+    .line 150
     :cond_1
     if-eqz v0, :cond_2
 
-    .line 90
+    .line 151
     iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->c:Ljava/util/Map;
 
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->a()Ljava/lang/Long;
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->a()Ljava/lang/Long;
 
     move-result-object v2
 
     invoke-interface {v1, v2, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 91
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 152
+    invoke-direct {p0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->c(Lcom/path/android/jobqueue/a;)V
+
+    .line 153
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v1
 
     if-eqz v1, :cond_2
 
-    .line 92
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 154
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-direct {p0, v1}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a(Ljava/lang/String;)V
 
-    .line 96
+    .line 158
     :cond_2
     return v0
 .end method
@@ -569,7 +775,7 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 181
+    .line 285
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->size()I
@@ -578,7 +784,7 @@
 
     if-nez v0, :cond_0
 
-    .line 182
+    .line 286
     new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/b;
 
     iget-object v2, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
@@ -589,15 +795,15 @@
 
     invoke-direct {v0, v2, v1}, Lcom/path/android/jobqueue/nonPersistentQueue/b;-><init>(ILjava/util/Set;)V
 
-    .line 201
+    .line 305
     :goto_0
     return-object v0
 
-    .line 185
+    .line 289
     :cond_0
     const/4 v0, 0x0
 
-    .line 187
+    .line 291
     iget-object v2, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
     invoke-virtual {v2}, Ljava/util/TreeSet;->iterator()Ljava/util/Iterator;
@@ -618,19 +824,19 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/path/android/jobqueue/b;
+    check-cast v0, Lcom/path/android/jobqueue/a;
 
-    .line 188
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 292
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v4
 
     if-eqz v4, :cond_4
 
-    .line 189
+    .line 293
     if-eqz p1, :cond_2
 
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v4
 
@@ -640,17 +846,17 @@
 
     if-nez v4, :cond_1
 
-    .line 191
+    .line 295
     :cond_2
     if-nez v1, :cond_3
 
-    .line 192
+    .line 296
     new-instance v1, Ljava/util/HashSet;
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
-    .line 193
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 297
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v0
 
@@ -658,7 +864,7 @@
 
     move-object v0, v1
 
-    .line 199
+    .line 303
     :goto_2
     add-int/lit8 v1, v2, 0x1
 
@@ -666,11 +872,12 @@
 
     move-object v1, v0
 
+    .line 304
     goto :goto_1
 
-    .line 194
+    .line 298
     :cond_3
-    invoke-virtual {v0}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v0
 
@@ -685,7 +892,7 @@
 
     goto :goto_2
 
-    .line 201
+    .line 305
     :cond_5
     new-instance v0, Lcom/path/android/jobqueue/nonPersistentQueue/b;
 
@@ -694,44 +901,47 @@
     goto :goto_0
 .end method
 
-.method public b(Lcom/path/android/jobqueue/b;)Z
+.method public b(Lcom/path/android/jobqueue/a;)Z
     .locals 3
 
     .prologue
-    .line 122
+    .line 224
     iget-object v0, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->a:Ljava/util/TreeSet;
 
     invoke-virtual {v0, p1}, Ljava/util/TreeSet;->remove(Ljava/lang/Object;)Z
 
     move-result v0
 
-    .line 123
+    .line 225
     if-eqz v0, :cond_0
 
-    .line 124
+    .line 226
     iget-object v1, p0, Lcom/path/android/jobqueue/nonPersistentQueue/e;->c:Ljava/util/Map;
 
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->a()Ljava/lang/Long;
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->a()Ljava/lang/Long;
 
     move-result-object v2
 
     invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 125
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 227
+    invoke-direct {p0, p1}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->d(Lcom/path/android/jobqueue/a;)V
+
+    .line 228
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v1
 
     if-eqz v1, :cond_0
 
-    .line 126
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->i()Ljava/lang/String;
+    .line 229
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->i()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-direct {p0, v1}, Lcom/path/android/jobqueue/nonPersistentQueue/e;->b(Ljava/lang/String;)V
 
-    .line 129
+    .line 232
     :cond_0
     return v0
 .end method

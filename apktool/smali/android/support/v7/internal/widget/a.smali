@@ -3,12 +3,16 @@
 .source "AbsActionBarView.java"
 
 
-# static fields
-.field private static final j:Landroid/view/animation/Interpolator;
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v7/internal/widget/a$a;
+    }
+.end annotation
 
 
 # instance fields
-.field protected final a:Landroid/support/v7/internal/widget/b;
+.field protected final a:Landroid/support/v7/internal/widget/a$a;
 
 .field protected final b:Landroid/content/Context;
 
@@ -16,42 +20,26 @@
 
 .field protected d:Landroid/support/v7/widget/ActionMenuPresenter;
 
-.field protected e:Landroid/view/ViewGroup;
+.field protected e:I
 
-.field protected f:Z
+.field protected f:Landroid/support/v4/view/az;
 
-.field protected g:Z
+.field private g:Z
 
-.field protected h:I
-
-.field protected i:Landroid/support/v4/view/eh;
+.field private h:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    .prologue
-    .line 38
-    new-instance v0, Landroid/view/animation/DecelerateInterpolator;
-
-    invoke-direct {v0}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
-
-    sput-object v0, Landroid/support/v7/internal/widget/a;->j:Landroid/view/animation/Interpolator;
-
-    return-void
-.end method
-
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     .prologue
-    .line 57
+    .line 55
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Landroid/support/v7/internal/widget/a;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 58
+    .line 56
     return-void
 .end method
 
@@ -59,12 +47,12 @@
     .locals 1
 
     .prologue
-    .line 61
+    .line 59
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Landroid/support/v7/internal/widget/a;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 62
+    .line 60
     return-void
 .end method
 
@@ -72,27 +60,27 @@
     .locals 4
 
     .prologue
-    .line 65
+    .line 63
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 42
-    new-instance v0, Landroid/support/v7/internal/widget/b;
+    .line 40
+    new-instance v0, Landroid/support/v7/internal/widget/a$a;
 
-    invoke-direct {v0, p0}, Landroid/support/v7/internal/widget/b;-><init>(Landroid/support/v7/internal/widget/a;)V
+    invoke-direct {v0, p0}, Landroid/support/v7/internal/widget/a$a;-><init>(Landroid/support/v7/internal/widget/a;)V
 
-    iput-object v0, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/b;
+    iput-object v0, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/a$a;
 
-    .line 67
+    .line 65
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
 
-    .line 68
+    .line 66
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v1
 
-    sget v2, Lcom/yelp/android/g/b;->actionBarPopupTheme:I
+    sget v2, Lcom/yelp/android/j/a$a;->actionBarPopupTheme:I
 
     const/4 v3, 0x1
 
@@ -106,7 +94,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 70
+    .line 68
     new-instance v1, Landroid/view/ContextThemeWrapper;
 
     iget v0, v0, Landroid/util/TypedValue;->resourceId:I
@@ -115,11 +103,11 @@
 
     iput-object v1, p0, Landroid/support/v7/internal/widget/a;->b:Landroid/content/Context;
 
-    .line 74
+    .line 72
     :goto_0
     return-void
 
-    .line 72
+    .line 70
     :cond_0
     iput-object p1, p0, Landroid/support/v7/internal/widget/a;->b:Landroid/content/Context;
 
@@ -130,7 +118,7 @@
     .locals 1
 
     .prologue
-    .line 238
+    .line 260
     if-eqz p2, :cond_0
 
     sub-int v0, p0, p1
@@ -144,13 +132,33 @@
     goto :goto_0
 .end method
 
+.method static synthetic a(Landroid/support/v7/internal/widget/a;I)V
+    .locals 0
+
+    .prologue
+    .line 37
+    invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
+
+    return-void
+.end method
+
+.method static synthetic b(Landroid/support/v7/internal/widget/a;I)V
+    .locals 0
+
+    .prologue
+    .line 37
+    invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method protected a(Landroid/view/View;III)I
     .locals 2
 
     .prologue
-    .line 228
+    .line 250
     const/high16 v0, -0x80000000
 
     invoke-static {p2, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
@@ -159,17 +167,17 @@
 
     invoke-virtual {p1, v0, p3}, Landroid/view/View;->measure(II)V
 
-    .line 231
+    .line 253
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v0
 
     sub-int v0, p2, v0
 
-    .line 232
+    .line 254
     sub-int/2addr v0, p4
 
-    .line 234
+    .line 256
     const/4 v1, 0x0
 
     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
@@ -183,34 +191,34 @@
     .locals 4
 
     .prologue
-    .line 242
+    .line 264
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v0
 
-    .line 243
+    .line 265
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v1
 
-    .line 244
+    .line 266
     sub-int v2, p4, v1
 
     div-int/lit8 v2, v2, 0x2
 
     add-int/2addr v2, p3
 
-    .line 246
+    .line 268
     if-eqz p5, :cond_1
 
-    .line 247
+    .line 269
     sub-int v3, p2, v0
 
     add-int/2addr v1, v2
 
     invoke-virtual {p1, v3, v2, p2, v1}, Landroid/view/View;->layout(IIII)V
 
-    .line 252
+    .line 274
     :goto_0
     if-eqz p5, :cond_0
 
@@ -219,7 +227,7 @@
     :cond_0
     return v0
 
-    .line 249
+    .line 271
     :cond_1
     add-int v3, p2, v0
 
@@ -230,217 +238,85 @@
     goto :goto_0
 .end method
 
-.method public a(I)V
-    .locals 7
+.method public a(IJ)Landroid/support/v4/view/az;
+    .locals 2
 
     .prologue
-    const/high16 v6, 0x3f800000    # 1.0f
+    const/4 v1, 0x0
 
-    const-wide/16 v4, 0xc8
-
-    const/4 v3, 0x0
-
-    .line 134
-    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->i:Landroid/support/v4/view/eh;
+    .line 163
+    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->f:Landroid/support/v4/view/az;
 
     if-eqz v0, :cond_0
 
-    .line 135
-    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->i:Landroid/support/v4/view/eh;
+    .line 164
+    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->f:Landroid/support/v4/view/az;
 
-    invoke-virtual {v0}, Landroid/support/v4/view/eh;->a()V
+    invoke-virtual {v0}, Landroid/support/v4/view/az;->b()V
 
-    .line 137
+    .line 167
     :cond_0
-    if-nez p1, :cond_3
+    if-nez p1, :cond_2
 
-    .line 138
+    .line 168
     invoke-virtual {p0}, Landroid/support/v7/internal/widget/a;->getVisibility()I
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 139
-    invoke-static {p0, v3}, Landroid/support/v4/view/ce;->c(Landroid/view/View;F)V
-
-    .line 140
-    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->e:Landroid/view/ViewGroup;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
-
-    if-eqz v0, :cond_1
-
-    .line 141
-    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
-
-    invoke-static {v0, v3}, Landroid/support/v4/view/ce;->c(Landroid/view/View;F)V
-
-    .line 144
-    :cond_1
-    invoke-static {p0}, Landroid/support/v4/view/ce;->q(Landroid/view/View;)Landroid/support/v4/view/eh;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v6}, Landroid/support/v4/view/eh;->a(F)Landroid/support/v4/view/eh;
-
-    move-result-object v0
-
-    .line 145
-    invoke-virtual {v0, v4, v5}, Landroid/support/v4/view/eh;->a(J)Landroid/support/v4/view/eh;
-
-    .line 146
-    sget-object v1, Landroid/support/v7/internal/widget/a;->j:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/eh;->a(Landroid/view/animation/Interpolator;)Landroid/support/v4/view/eh;
-
-    .line 147
-    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->e:Landroid/view/ViewGroup;
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
-
-    if-eqz v1, :cond_2
-
-    .line 148
-    new-instance v1, Lcom/yelp/android/l/h;
-
-    invoke-direct {v1}, Lcom/yelp/android/l/h;-><init>()V
-
-    .line 149
-    iget-object v2, p0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
-
-    invoke-static {v2}, Landroid/support/v4/view/ce;->q(Landroid/view/View;)Landroid/support/v4/view/eh;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v6}, Landroid/support/v4/view/eh;->a(F)Landroid/support/v4/view/eh;
-
-    move-result-object v2
-
-    .line 150
-    invoke-virtual {v2, v4, v5}, Landroid/support/v4/view/eh;->a(J)Landroid/support/v4/view/eh;
-
-    .line 151
-    iget-object v3, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/b;
-
-    invoke-virtual {v3, v0, p1}, Landroid/support/v7/internal/widget/b;->a(Landroid/support/v4/view/eh;I)Landroid/support/v7/internal/widget/b;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Lcom/yelp/android/l/h;->a(Landroid/support/v4/view/ex;)Lcom/yelp/android/l/h;
-
-    .line 152
-    invoke-virtual {v1, v0}, Lcom/yelp/android/l/h;->a(Landroid/support/v4/view/eh;)Lcom/yelp/android/l/h;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/l/h;->a(Landroid/support/v4/view/eh;)Lcom/yelp/android/l/h;
-
-    .line 153
-    invoke-virtual {v1}, Lcom/yelp/android/l/h;->a()V
-
-    .line 174
-    :goto_0
-    return-void
-
-    .line 155
-    :cond_2
-    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/b;
-
-    invoke-virtual {v1, v0, p1}, Landroid/support/v7/internal/widget/b;->a(Landroid/support/v4/view/eh;I)Landroid/support/v7/internal/widget/b;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/eh;->a(Landroid/support/v4/view/ex;)Landroid/support/v4/view/eh;
-
-    .line 156
-    invoke-virtual {v0}, Landroid/support/v4/view/eh;->b()V
-
-    goto :goto_0
-
-    .line 159
-    :cond_3
-    invoke-static {p0}, Landroid/support/v4/view/ce;->q(Landroid/view/View;)Landroid/support/v4/view/eh;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v3}, Landroid/support/v4/view/eh;->a(F)Landroid/support/v4/view/eh;
-
-    move-result-object v0
-
-    .line 160
-    invoke-virtual {v0, v4, v5}, Landroid/support/v4/view/eh;->a(J)Landroid/support/v4/view/eh;
-
-    .line 161
-    sget-object v1, Landroid/support/v7/internal/widget/a;->j:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/eh;->a(Landroid/view/animation/Interpolator;)Landroid/support/v4/view/eh;
-
-    .line 162
-    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->e:Landroid/view/ViewGroup;
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
-
-    if-eqz v1, :cond_4
-
-    .line 163
-    new-instance v1, Lcom/yelp/android/l/h;
-
-    invoke-direct {v1}, Lcom/yelp/android/l/h;-><init>()V
-
-    .line 164
-    iget-object v2, p0, Landroid/support/v7/internal/widget/a;->c:Landroid/support/v7/widget/ActionMenuView;
-
-    invoke-static {v2}, Landroid/support/v4/view/ce;->q(Landroid/view/View;)Landroid/support/v4/view/eh;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v3}, Landroid/support/v4/view/eh;->a(F)Landroid/support/v4/view/eh;
-
-    move-result-object v2
-
-    .line 165
-    invoke-virtual {v2, v4, v5}, Landroid/support/v4/view/eh;->a(J)Landroid/support/v4/view/eh;
-
-    .line 166
-    iget-object v3, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/b;
-
-    invoke-virtual {v3, v0, p1}, Landroid/support/v7/internal/widget/b;->a(Landroid/support/v4/view/eh;I)Landroid/support/v7/internal/widget/b;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Lcom/yelp/android/l/h;->a(Landroid/support/v4/view/ex;)Lcom/yelp/android/l/h;
-
-    .line 167
-    invoke-virtual {v1, v0}, Lcom/yelp/android/l/h;->a(Landroid/support/v4/view/eh;)Lcom/yelp/android/l/h;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/l/h;->a(Landroid/support/v4/view/eh;)Lcom/yelp/android/l/h;
-
-    .line 168
-    invoke-virtual {v1}, Lcom/yelp/android/l/h;->a()V
-
-    goto :goto_0
-
-    .line 170
-    :cond_4
-    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/b;
-
-    invoke-virtual {v1, v0, p1}, Landroid/support/v7/internal/widget/b;->a(Landroid/support/v4/view/eh;I)Landroid/support/v7/internal/widget/b;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/eh;->a(Landroid/support/v4/view/ex;)Landroid/support/v4/view/eh;
+    .line 169
+    invoke-static {p0, v1}, Landroid/support/v4/view/ai;->c(Landroid/view/View;F)V
 
     .line 171
-    invoke-virtual {v0}, Landroid/support/v4/view/eh;->b()V
+    :cond_1
+    invoke-static {p0}, Landroid/support/v4/view/ai;->s(Landroid/view/View;)Landroid/support/v4/view/az;
+
+    move-result-object v0
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/az;->a(F)Landroid/support/v4/view/az;
+
+    move-result-object v0
+
+    .line 172
+    invoke-virtual {v0, p2, p3}, Landroid/support/v4/view/az;->a(J)Landroid/support/v4/view/az;
+
+    .line 173
+    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/a$a;
+
+    invoke-virtual {v1, v0, p1}, Landroid/support/v7/internal/widget/a$a;->a(Landroid/support/v4/view/az;I)Landroid/support/v7/internal/widget/a$a;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/az;->a(Landroid/support/v4/view/bd;)Landroid/support/v4/view/az;
+
+    .line 179
+    :goto_0
+    return-object v0
+
+    .line 176
+    :cond_2
+    invoke-static {p0}, Landroid/support/v4/view/ai;->s(Landroid/view/View;)Landroid/support/v4/view/az;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/az;->a(F)Landroid/support/v4/view/az;
+
+    move-result-object v0
+
+    .line 177
+    invoke-virtual {v0, p2, p3}, Landroid/support/v4/view/az;->a(J)Landroid/support/v4/view/az;
+
+    .line 178
+    iget-object v1, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/a$a;
+
+    invoke-virtual {v1, v0, p1}, Landroid/support/v7/internal/widget/a$a;->a(Landroid/support/v4/view/az;I)Landroid/support/v7/internal/widget/a$a;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/az;->a(Landroid/support/v4/view/bd;)Landroid/support/v4/view/az;
 
     goto :goto_0
 .end method
@@ -449,19 +325,19 @@
     .locals 1
 
     .prologue
-    .line 177
+    .line 199
     iget-object v0, p0, Landroid/support/v7/internal/widget/a;->d:Landroid/support/v7/widget/ActionMenuPresenter;
 
     if-eqz v0, :cond_0
 
-    .line 178
+    .line 200
     iget-object v0, p0, Landroid/support/v7/internal/widget/a;->d:Landroid/support/v7/widget/ActionMenuPresenter;
 
-    invoke-virtual {v0}, Landroid/support/v7/widget/ActionMenuPresenter;->c()Z
+    invoke-virtual {v0}, Landroid/support/v7/widget/ActionMenuPresenter;->f()Z
 
     move-result v0
 
-    .line 180
+    .line 202
     :goto_0
     return v0
 
@@ -475,17 +351,17 @@
     .locals 1
 
     .prologue
-    .line 127
-    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->i:Landroid/support/v4/view/eh;
+    .line 156
+    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->f:Landroid/support/v4/view/az;
 
     if-eqz v0, :cond_0
 
-    .line 128
-    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/b;
+    .line 157
+    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->a:Landroid/support/v7/internal/widget/a$a;
 
-    iget v0, v0, Landroid/support/v7/internal/widget/b;->a:I
+    iget v0, v0, Landroid/support/v7/internal/widget/a$a;->a:I
 
-    .line 130
+    .line 159
     :goto_0
     return v0
 
@@ -501,8 +377,8 @@
     .locals 1
 
     .prologue
-    .line 116
-    iget v0, p0, Landroid/support/v7/internal/widget/a;->h:I
+    .line 149
+    iget v0, p0, Landroid/support/v7/internal/widget/a;->e:I
 
     return v0
 .end method
@@ -513,17 +389,17 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 78
+    .line 76
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x8
 
     if-lt v0, v1, :cond_0
 
-    .line 79
+    .line 77
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 84
+    .line 82
     :cond_0
     invoke-virtual {p0}, Landroid/support/v7/internal/widget/a;->getContext()Landroid/content/Context;
 
@@ -531,16 +407,16 @@
 
     const/4 v1, 0x0
 
-    sget-object v2, Lcom/yelp/android/g/l;->ActionBar:[I
+    sget-object v2, Lcom/yelp/android/j/a$k;->ActionBar:[I
 
-    sget v3, Lcom/yelp/android/g/b;->actionBarStyle:I
+    sget v3, Lcom/yelp/android/j/a$a;->actionBarStyle:I
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 86
-    sget v1, Lcom/yelp/android/g/l;->ActionBar_height:I
+    .line 84
+    sget v1, Lcom/yelp/android/j/a$k;->ActionBar_height:I
 
     invoke-virtual {v0, v1, v4}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
 
@@ -548,67 +424,178 @@
 
     invoke-virtual {p0, v1}, Landroid/support/v7/internal/widget/a;->setContentHeight(I)V
 
-    .line 87
+    .line 85
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 89
+    .line 87
     iget-object v0, p0, Landroid/support/v7/internal/widget/a;->d:Landroid/support/v7/widget/ActionMenuPresenter;
 
     if-eqz v0, :cond_1
 
-    .line 90
+    .line 88
     iget-object v0, p0, Landroid/support/v7/internal/widget/a;->d:Landroid/support/v7/widget/ActionMenuPresenter;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/ActionMenuPresenter;->a(Landroid/content/res/Configuration;)V
 
-    .line 92
+    .line 90
     :cond_1
     return-void
+.end method
+
+.method public onHoverEvent(Landroid/view/MotionEvent;)Z
+    .locals 5
+
+    .prologue
+    const/16 v4, 0x9
+
+    const/4 v3, 0x1
+
+    const/4 v2, 0x0
+
+    .line 123
+    invoke-static {p1}, Landroid/support/v4/view/t;->a(Landroid/view/MotionEvent;)I
+
+    move-result v0
+
+    .line 124
+    if-ne v0, v4, :cond_0
+
+    .line 125
+    iput-boolean v2, p0, Landroid/support/v7/internal/widget/a;->h:Z
+
+    .line 128
+    :cond_0
+    iget-boolean v1, p0, Landroid/support/v7/internal/widget/a;->h:Z
+
+    if-nez v1, :cond_1
+
+    .line 129
+    invoke-super {p0, p1}, Landroid/view/ViewGroup;->onHoverEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v1
+
+    .line 130
+    if-ne v0, v4, :cond_1
+
+    if-nez v1, :cond_1
+
+    .line 131
+    iput-boolean v3, p0, Landroid/support/v7/internal/widget/a;->h:Z
+
+    .line 135
+    :cond_1
+    const/16 v1, 0xa
+
+    if-eq v0, v1, :cond_2
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_3
+
+    .line 137
+    :cond_2
+    iput-boolean v2, p0, Landroid/support/v7/internal/widget/a;->h:Z
+
+    .line 140
+    :cond_3
+    return v3
+.end method
+
+.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 4
+
+    .prologue
+    const/4 v3, 0x0
+
+    const/4 v2, 0x1
+
+    .line 99
+    invoke-static {p1}, Landroid/support/v4/view/t;->a(Landroid/view/MotionEvent;)I
+
+    move-result v0
+
+    .line 100
+    if-nez v0, :cond_0
+
+    .line 101
+    iput-boolean v3, p0, Landroid/support/v7/internal/widget/a;->g:Z
+
+    .line 104
+    :cond_0
+    iget-boolean v1, p0, Landroid/support/v7/internal/widget/a;->g:Z
+
+    if-nez v1, :cond_1
+
+    .line 105
+    invoke-super {p0, p1}, Landroid/view/ViewGroup;->onTouchEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v1
+
+    .line 106
+    if-nez v0, :cond_1
+
+    if-nez v1, :cond_1
+
+    .line 107
+    iput-boolean v2, p0, Landroid/support/v7/internal/widget/a;->g:Z
+
+    .line 111
+    :cond_1
+    if-eq v0, v2, :cond_2
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_3
+
+    .line 112
+    :cond_2
+    iput-boolean v3, p0, Landroid/support/v7/internal/widget/a;->g:Z
+
+    .line 115
+    :cond_3
+    return v2
 .end method
 
 .method public setContentHeight(I)V
     .locals 0
 
     .prologue
-    .line 111
-    iput p1, p0, Landroid/support/v7/internal/widget/a;->h:I
+    .line 144
+    iput p1, p0, Landroid/support/v7/internal/widget/a;->e:I
 
-    .line 112
+    .line 145
     invoke-virtual {p0}, Landroid/support/v7/internal/widget/a;->requestLayout()V
 
-    .line 113
+    .line 146
     return-void
 .end method
 
-.method public setSplitToolbar(Z)V
-    .locals 0
+.method public setVisibility(I)V
+    .locals 1
 
     .prologue
-    .line 99
-    iput-boolean p1, p0, Landroid/support/v7/internal/widget/a;->f:Z
+    .line 190
+    invoke-virtual {p0}, Landroid/support/v7/internal/widget/a;->getVisibility()I
 
-    .line 100
-    return-void
-.end method
+    move-result v0
 
-.method public setSplitView(Landroid/view/ViewGroup;)V
-    .locals 0
+    if-eq p1, v0, :cond_1
 
-    .prologue
-    .line 120
-    iput-object p1, p0, Landroid/support/v7/internal/widget/a;->e:Landroid/view/ViewGroup;
+    .line 191
+    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->f:Landroid/support/v4/view/az;
 
-    .line 121
-    return-void
-.end method
+    if-eqz v0, :cond_0
 
-.method public setSplitWhenNarrow(Z)V
-    .locals 0
+    .line 192
+    iget-object v0, p0, Landroid/support/v7/internal/widget/a;->f:Landroid/support/v4/view/az;
 
-    .prologue
-    .line 107
-    iput-boolean p1, p0, Landroid/support/v7/internal/widget/a;->g:Z
+    invoke-virtual {v0}, Landroid/support/v4/view/az;->b()V
 
-    .line 108
+    .line 194
+    :cond_0
+    invoke-super {p0, p1}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    .line 196
+    :cond_1
     return-void
 .end method

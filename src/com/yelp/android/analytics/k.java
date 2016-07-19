@@ -1,30 +1,43 @@
 package com.yelp.android.analytics;
 
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.YelpException;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-final class k
-  extends com.yelp.android.appdata.webrequests.j<Map<String, String>>
+public class k
+  extends b
 {
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, Map<String, String> paramMap)
+  private String a;
+  
+  public k(String paramString)
   {
-    paramApiRequest = paramMap.keySet().iterator();
-    while (paramApiRequest.hasNext())
-    {
-      String str = (String)paramApiRequest.next();
-      j.a(str, (String)paramMap.get(str));
+    a = paramString;
+  }
+  
+  public JSONObject c()
+    throws JSONException
+  {
+    JSONObject localJSONObject = super.c();
+    localJSONObject.put("start", a());
+    if (!TextUtils.isEmpty(a)) {
+      localJSONObject.put("user_id", a);
     }
+    localJSONObject.put("version", 2);
+    return localJSONObject;
   }
   
-  public boolean a()
+  public String toString()
   {
-    return false;
+    StringBuilder localStringBuilder = new StringBuilder(256);
+    localStringBuilder.append("[MetricsSessionStart:");
+    localStringBuilder.append("index=");
+    localStringBuilder.append(b());
+    localStringBuilder.append(", ");
+    localStringBuilder.append("start=");
+    localStringBuilder.append(a());
+    localStringBuilder.append("]");
+    return localStringBuilder.toString();
   }
-  
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException) {}
 }
 
 /* Location:

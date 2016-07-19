@@ -1,6 +1,15 @@
 package android.support.v7.internal.widget;
 
-class n {}
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff.Mode;
+
+public class n
+{
+  public ColorStateList a;
+  public PorterDuff.Mode b;
+  public boolean c;
+  public boolean d;
+}
 
 /* Location:
  * Qualified Name:     android.support.v7.internal.widget.n

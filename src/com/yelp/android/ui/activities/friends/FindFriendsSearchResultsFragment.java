@@ -6,13 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.yelp.android.appdata.webrequests.dn;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.cs;
 import com.yelp.android.serializable.User;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.activities.support.YelpListFragment;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.cj;
+import com.yelp.android.ui.util.ap;
 import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,30 +20,30 @@ import java.util.List;
 public class FindFriendsSearchResultsFragment
   extends YelpListFragment
 {
-  private cj a;
+  private ap a;
   private TextView b;
-  private dn c;
+  private cs c;
   private boolean d;
-  private final m<List<User>> e = new n(this);
+  private final ApiRequest.b<List<User>> e = new FindFriendsSearchResultsFragment.1(this);
   
   public static FindFriendsSearchResultsFragment c()
   {
     return new FindFriendsSearchResultsFragment();
   }
   
-  private void e()
+  private void f()
   {
     a(c);
     a.clear();
-    a(false);
+    b(false);
     b();
   }
   
   public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     super.a(paramListView, paramView, paramInt, paramLong);
-    paramListView = (User)c.a().get(paramInt);
-    startActivity(ActivityUserProfile.a(getActivity(), paramListView.getId()));
+    paramListView = (User)c.b().get(paramInt);
+    startActivity(ActivityUserProfile.a(getActivity(), paramListView.ae()));
   }
   
   public void a(ErrorType paramErrorType)
@@ -56,15 +56,15 @@ public class FindFriendsSearchResultsFragment
   public void a(String paramString)
   {
     if (c == null) {
-      c = new dn(e, paramString, 0);
+      c = new cs(e, paramString, 0);
     }
     while (getView() != null)
     {
-      e();
+      f();
       return;
       c.a(paramString);
-      if (c.isFetching()) {
-        c.cancel(true);
+      if (c.u()) {
+        c.a(true);
       }
     }
     d = true;
@@ -73,8 +73,8 @@ public class FindFriendsSearchResultsFragment
   protected void b()
   {
     super.b();
-    if ((c != null) && (!c.isFetching())) {
-      c.b();
+    if ((c != null) && (!c.u())) {
+      c.d();
     }
   }
   
@@ -83,38 +83,38 @@ public class FindFriendsSearchResultsFragment
     super.onActivityCreated(paramBundle);
     if (paramBundle != null)
     {
-      a = cj.a(paramBundle);
-      c = dn.a(paramBundle, e);
+      a = ap.a(paramBundle);
+      c = cs.a(paramBundle, e);
     }
     for (;;)
     {
       a(a);
       return;
-      a = new cj();
+      a = new ap();
     }
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903217, paramViewGroup, false);
-    b = ((TextView)paramLayoutInflater.findViewById(2131493562));
+    paramLayoutInflater = paramLayoutInflater.inflate(2130903243, paramViewGroup, false);
+    b = ((TextView)paramLayoutInflater.findViewById(2131690266));
     return paramLayoutInflater;
   }
   
   public void onPause()
   {
     super.onPause();
-    j();
+    l();
     a("member_search", c);
   }
   
   public void onResume()
   {
     super.onResume();
-    c = ((dn)a("member_search", c, e));
+    c = ((cs)a("member_search", c, e));
     if (c != null)
     {
-      if (!c.isFetching()) {
+      if (!c.u()) {
         break label51;
       }
       a(c);
@@ -123,7 +123,7 @@ public class FindFriendsSearchResultsFragment
     while (!d) {
       return;
     }
-    e();
+    f();
     d = false;
   }
   

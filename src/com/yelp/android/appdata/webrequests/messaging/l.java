@@ -1,38 +1,38 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
 import com.yelp.android.appdata.webrequests.ApiRequest.RequestType;
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.ConversationMessage;
-import com.yelp.parcelgen.JsonUtil;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class l
-  extends g<Void, Void, m>
+  extends b<Void, Void, a>
 {
-  private final MessagingRequestType a;
-  
-  public l(String paramString1, MessagingRequestType paramMessagingRequestType, String paramString2, com.yelp.android.appdata.webrequests.m<m> paramm)
+  public l(String paramString1, String paramString2, ApiRequest.b<a> paramb)
   {
-    super(ApiRequest.RequestType.GET, "conversation/messages", paramm);
-    a = paramMessagingRequestType;
-    a.addParameter(this, paramString2);
-    addUrlParam("conversation_id", paramString1);
-    addUrlParam("limit", 20);
+    super(ApiRequest.RequestType.POST, "business/message/save", paramb);
+    b("business_id", paramString1);
+    b("message", paramString2);
   }
   
-  public MessagingRequestType a()
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return a;
+    return new a(paramJSONObject.optString("confirmation_text"), paramJSONObject.optString("message_id"));
   }
   
-  public m a(JSONObject paramJSONObject)
+  public static final class a
   {
-    return new m(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("conversation_messages"), ConversationMessage.CREATOR), paramJSONObject.getInt("total"));
-  }
-  
-  public String toString()
-  {
-    return "MessagesRequest";
+    public final String a;
+    public final String b;
+    
+    public a(String paramString1, String paramString2)
+    {
+      a = paramString1;
+      b = paramString2;
+    }
   }
 }
 

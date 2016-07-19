@@ -1,80 +1,94 @@
-.class public Lcom/yelp/android/aa/a;
+.class final Lcom/yelp/android/aa/a;
 .super Ljava/lang/Object;
-.source "FileDecoder.java"
-
-# interfaces
-.implements Lcom/bumptech/glide/load/d;
+.source "AssetUriParser.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/d",
-        "<",
-        "Ljava/io/File;",
-        "Ljava/io/File;",
-        ">;"
-    }
-.end annotation
+# static fields
+.field private static final a:I
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
     .prologue
-    .line 11
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 12
+    const-string/jumbo v0, "file:///android_asset/"
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    sput v0, Lcom/yelp/android/aa/a;->a:I
 
     return-void
 .end method
 
-
-# virtual methods
-.method public a(Ljava/io/File;II)Lcom/bumptech/glide/load/engine/t;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/io/File;",
-            "II)",
-            "Lcom/bumptech/glide/load/engine/t",
-            "<",
-            "Ljava/io/File;",
-            ">;"
-        }
-    .end annotation
+.method public static a(Landroid/net/Uri;)Z
+    .locals 3
 
     .prologue
-    .line 15
-    new-instance v0, Lcom/yelp/android/aa/b;
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p1}, Lcom/yelp/android/aa/b;-><init>(Ljava/io/File;)V
+    .line 22
+    const-string/jumbo v1, "file"
 
-    return-object v0
+    invoke-virtual {p0}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string/jumbo v1, "android_asset"
+
+    invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
-.method public bridge synthetic a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/t;
-    .locals 1
+.method public static b(Landroid/net/Uri;)Ljava/lang/String;
+    .locals 2
 
     .prologue
-    .line 11
-    check-cast p1, Ljava/io/File;
-
-    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/android/aa/a;->a(Ljava/io/File;II)Lcom/bumptech/glide/load/engine/t;
+    .line 34
+    invoke-virtual {p0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    sget v1, Lcom/yelp/android/aa/a;->a:I
 
-.method public a()Ljava/lang/String;
-    .locals 1
+    invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    .prologue
-    .line 20
-    const-string/jumbo v0, ""
+    move-result-object v0
 
     return-object v0
 .end method

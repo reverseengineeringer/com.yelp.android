@@ -1,433 +1,364 @@
 .class public Lcom/yelp/android/ag/i;
-.super Lcom/yelp/android/z/b;
-.source "SquaringDrawable.java"
+.super Ljava/lang/Object;
+.source "GifResourceDecoder.java"
+
+# interfaces
+.implements Lcom/bumptech/glide/load/d;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ag/i$b;,
+        Lcom/yelp/android/ag/i$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Lcom/bumptech/glide/load/d",
+        "<",
+        "Ljava/io/InputStream;",
+        "Lcom/yelp/android/ag/b;",
+        ">;"
+    }
+.end annotation
+
+
+# static fields
+.field private static final a:Lcom/yelp/android/ag/i$b;
+
+.field private static final b:Lcom/yelp/android/ag/i$a;
 
 
 # instance fields
-.field private final a:Lcom/yelp/android/z/b;
+.field private final c:Landroid/content/Context;
 
-.field private final b:I
+.field private final d:Lcom/yelp/android/ag/i$b;
+
+.field private final e:Lcom/yelp/android/x/c;
+
+.field private final f:Lcom/yelp/android/ag/i$a;
+
+.field private final g:Lcom/yelp/android/ag/a;
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/z/b;I)V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 1
 
     .prologue
-    .line 23
-    invoke-direct {p0}, Lcom/yelp/android/z/b;-><init>()V
+    .line 28
+    new-instance v0, Lcom/yelp/android/ag/i$b;
 
-    .line 24
-    iput-object p1, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
+    invoke-direct {v0}, Lcom/yelp/android/ag/i$b;-><init>()V
 
-    .line 25
-    iput p2, p0, Lcom/yelp/android/ag/i;->b:I
+    sput-object v0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/ag/i$b;
 
-    .line 26
+    .line 29
+    new-instance v0, Lcom/yelp/android/ag/i$a;
+
+    invoke-direct {v0}, Lcom/yelp/android/ag/i$a;-><init>()V
+
+    sput-object v0, Lcom/yelp/android/ag/i;->b:Lcom/yelp/android/ag/i$a;
+
     return-void
 .end method
 
-
-# virtual methods
-.method public a(I)V
-    .locals 1
-
-    .prologue
-    .line 162
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->a(I)V
-
-    .line 163
-    return-void
-.end method
-
-.method public a()Z
-    .locals 1
-
-    .prologue
-    .line 157
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->a()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public clearColorFilter()V
-    .locals 1
-
-    .prologue
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->clearColorFilter()V
-
-    .line 80
-    return-void
-.end method
-
-.method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
-
-    .prologue
-    .line 137
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->draw(Landroid/graphics/Canvas;)V
-
-    .line 138
-    return-void
-.end method
-
-.method public getAlpha()I
-    .locals 1
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x13
-    .end annotation
-
-    .prologue
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->getAlpha()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getCallback()Landroid/graphics/drawable/Drawable$Callback;
-    .locals 1
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
-
-    .prologue
-    .line 63
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->getCallback()Landroid/graphics/drawable/Drawable$Callback;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getChangingConfigurations()I
-    .locals 1
-
-    .prologue
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->getChangingConfigurations()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getCurrent()Landroid/graphics/drawable/Drawable;
-    .locals 1
-
-    .prologue
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->getCurrent()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getIntrinsicHeight()I
-    .locals 1
-
-    .prologue
-    .line 99
-    iget v0, p0, Lcom/yelp/android/ag/i;->b:I
-
-    return v0
-.end method
-
-.method public getIntrinsicWidth()I
-    .locals 1
-
-    .prologue
-    .line 94
-    iget v0, p0, Lcom/yelp/android/ag/i;->b:I
-
-    return v0
-.end method
-
-.method public getMinimumHeight()I
-    .locals 1
-
-    .prologue
-    .line 109
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->getMinimumHeight()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getMinimumWidth()I
-    .locals 1
-
-    .prologue
-    .line 104
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->getMinimumWidth()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getOpacity()I
-    .locals 1
-
-    .prologue
-    .line 152
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->getOpacity()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getPadding(Landroid/graphics/Rect;)Z
-    .locals 1
-
-    .prologue
-    .line 114
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->getPadding(Landroid/graphics/Rect;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public invalidateSelf()V
-    .locals 1
-
-    .prologue
-    .line 119
-    invoke-super {p0}, Lcom/yelp/android/z/b;->invalidateSelf()V
-
-    .line 120
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->invalidateSelf()V
-
-    .line 121
-    return-void
-.end method
-
-.method public isRunning()Z
-    .locals 1
-
-    .prologue
-    .line 177
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->isRunning()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public scheduleSelf(Ljava/lang/Runnable;J)V
+.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/x/c;)V
     .locals 2
 
     .prologue
-    .line 131
-    invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/z/b;->scheduleSelf(Ljava/lang/Runnable;J)V
-
-    .line 132
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/z/b;->scheduleSelf(Ljava/lang/Runnable;J)V
-
-    .line 133
-    return-void
-.end method
-
-.method public setAlpha(I)V
-    .locals 1
-
-    .prologue
-    .line 142
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->setAlpha(I)V
-
-    .line 143
-    return-void
-.end method
-
-.method public setBounds(IIII)V
-    .locals 1
-
-    .prologue
-    .line 30
-    invoke-super {p0, p1, p2, p3, p4}, Lcom/yelp/android/z/b;->setBounds(IIII)V
-
-    .line 31
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/yelp/android/z/b;->setBounds(IIII)V
-
-    .line 32
-    return-void
-.end method
-
-.method public setBounds(Landroid/graphics/Rect;)V
-    .locals 1
-
-    .prologue
-    .line 36
-    invoke-super {p0, p1}, Lcom/yelp/android/z/b;->setBounds(Landroid/graphics/Rect;)V
-
-    .line 37
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->setBounds(Landroid/graphics/Rect;)V
-
-    .line 38
-    return-void
-.end method
-
-.method public setChangingConfigurations(I)V
-    .locals 1
-
-    .prologue
     .line 42
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
+    sget-object v0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/ag/i$b;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->setChangingConfigurations(I)V
+    sget-object v1, Lcom/yelp/android/ag/i;->b:Lcom/yelp/android/ag/i$a;
+
+    invoke-direct {p0, p1, p2, v0, v1}, Lcom/yelp/android/ag/i;-><init>(Landroid/content/Context;Lcom/yelp/android/x/c;Lcom/yelp/android/ag/i$b;Lcom/yelp/android/ag/i$a;)V
 
     .line 43
     return-void
 .end method
 
-.method public setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+.method constructor <init>(Landroid/content/Context;Lcom/yelp/android/x/c;Lcom/yelp/android/ag/i$b;Lcom/yelp/android/ag/i$a;)V
     .locals 1
 
     .prologue
-    .line 74
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
+    .line 47
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/z/b;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    .line 48
+    iput-object p1, p0, Lcom/yelp/android/ag/i;->c:Landroid/content/Context;
 
-    .line 75
-    return-void
-.end method
+    .line 49
+    iput-object p2, p0, Lcom/yelp/android/ag/i;->e:Lcom/yelp/android/x/c;
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
+    .line 50
+    iput-object p4, p0, Lcom/yelp/android/ag/i;->f:Lcom/yelp/android/ag/i$a;
 
-    .prologue
-    .line 147
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
+    .line 51
+    new-instance v0, Lcom/yelp/android/ag/a;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->setColorFilter(Landroid/graphics/ColorFilter;)V
+    invoke-direct {v0, p2}, Lcom/yelp/android/ag/a;-><init>(Lcom/yelp/android/x/c;)V
 
-    .line 148
-    return-void
-.end method
+    iput-object v0, p0, Lcom/yelp/android/ag/i;->g:Lcom/yelp/android/ag/a;
 
-.method public setDither(Z)V
-    .locals 1
-
-    .prologue
     .line 52
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->setDither(Z)V
+    iput-object p3, p0, Lcom/yelp/android/ag/i;->d:Lcom/yelp/android/ag/i$b;
 
     .line 53
     return-void
 .end method
 
-.method public setFilterBitmap(Z)V
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->setFilterBitmap(Z)V
-
-    .line 58
-    return-void
-.end method
-
-.method public setVisible(ZZ)Z
+.method private a(Lcom/yelp/android/u/a;Lcom/yelp/android/u/c;[B)Landroid/graphics/Bitmap;
     .locals 1
 
     .prologue
     .line 89
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
+    invoke-virtual {p1, p2, p3}, Lcom/yelp/android/u/a;->a(Lcom/yelp/android/u/c;[B)V
 
-    invoke-virtual {v0, p1, p2}, Lcom/yelp/android/z/b;->setVisible(ZZ)Z
+    .line 90
+    invoke-virtual {p1}, Lcom/yelp/android/u/a;->a()V
 
-    move-result v0
+    .line 91
+    invoke-virtual {p1}, Lcom/yelp/android/u/a;->f()Landroid/graphics/Bitmap;
 
-    return v0
+    move-result-object v0
+
+    return-object v0
 .end method
 
-.method public start()V
+.method private a([BIILcom/yelp/android/u/d;Lcom/yelp/android/u/a;)Lcom/yelp/android/ag/d;
+    .locals 10
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 69
+    invoke-virtual {p4}, Lcom/yelp/android/u/d;->b()Lcom/yelp/android/u/c;
+
+    move-result-object v7
+
+    .line 70
+    invoke-virtual {v7}, Lcom/yelp/android/u/c;->a()I
+
+    move-result v1
+
+    if-lez v1, :cond_0
+
+    invoke-virtual {v7}, Lcom/yelp/android/u/c;->b()I
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 85
+    :cond_0
+    :goto_0
+    return-object v0
+
+    .line 75
+    :cond_1
+    invoke-direct {p0, p5, v7, p1}, Lcom/yelp/android/ag/i;->a(Lcom/yelp/android/u/a;Lcom/yelp/android/u/c;[B)Landroid/graphics/Bitmap;
+
+    move-result-object v9
+
+    .line 76
+    if-eqz v9, :cond_0
+
+    .line 80
+    invoke-static {}, Lcom/yelp/android/ad/d;->b()Lcom/yelp/android/ad/d;
+
+    move-result-object v4
+
+    .line 82
+    new-instance v0, Lcom/yelp/android/ag/b;
+
+    iget-object v1, p0, Lcom/yelp/android/ag/i;->c:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/yelp/android/ag/i;->g:Lcom/yelp/android/ag/a;
+
+    iget-object v3, p0, Lcom/yelp/android/ag/i;->e:Lcom/yelp/android/x/c;
+
+    move v5, p2
+
+    move v6, p3
+
+    move-object v8, p1
+
+    invoke-direct/range {v0 .. v9}, Lcom/yelp/android/ag/b;-><init>(Landroid/content/Context;Lcom/yelp/android/u/a$a;Lcom/yelp/android/x/c;Lcom/bumptech/glide/load/f;IILcom/yelp/android/u/c;[BLandroid/graphics/Bitmap;)V
+
+    .line 85
+    new-instance v1, Lcom/yelp/android/ag/d;
+
+    invoke-direct {v1, v0}, Lcom/yelp/android/ag/d;-><init>(Lcom/yelp/android/ag/b;)V
+
+    move-object v0, v1
+
+    goto :goto_0
+.end method
+
+.method private static a(Ljava/io/InputStream;)[B
+    .locals 4
+
+    .prologue
+    const/16 v0, 0x4000
+
+    .line 100
+    .line 101
+    new-instance v1, Ljava/io/ByteArrayOutputStream;
+
+    invoke-direct {v1, v0}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
+
+    .line 104
+    const/16 v0, 0x4000
+
+    :try_start_0
+    new-array v0, v0, [B
+
+    .line 105
+    :goto_0
+    invoke-virtual {p0, v0}, Ljava/io/InputStream;->read([B)I
+
+    move-result v2
+
+    const/4 v3, -0x1
+
+    if-eq v2, v3, :cond_0
+
+    .line 106
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v0, v3, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    .line 109
+    :catch_0
+    move-exception v0
+
+    .line 110
+    const-string/jumbo v2, "GifResourceDecoder"
+
+    const-string/jumbo v3, "Error reading data from stream"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    .line 113
+    :goto_1
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 108
+    :cond_0
+    :try_start_1
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->flush()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
+.end method
+
+
+# virtual methods
+.method public bridge synthetic a(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/i;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 26
+    check-cast p1, Ljava/io/InputStream;
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/yelp/android/ag/i;->a(Ljava/io/InputStream;II)Lcom/yelp/android/ag/d;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public a(Ljava/io/InputStream;II)Lcom/yelp/android/ag/d;
+    .locals 6
+
+    .prologue
+    .line 57
+    invoke-static {p1}, Lcom/yelp/android/ag/i;->a(Ljava/io/InputStream;)[B
+
+    move-result-object v1
+
+    .line 58
+    iget-object v0, p0, Lcom/yelp/android/ag/i;->d:Lcom/yelp/android/ag/i$b;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ag/i$b;->a([B)Lcom/yelp/android/u/d;
+
+    move-result-object v4
+
+    .line 59
+    iget-object v0, p0, Lcom/yelp/android/ag/i;->f:Lcom/yelp/android/ag/i$a;
+
+    iget-object v2, p0, Lcom/yelp/android/ag/i;->g:Lcom/yelp/android/ag/a;
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ag/i$a;->a(Lcom/yelp/android/u/a$a;)Lcom/yelp/android/u/a;
+
+    move-result-object v5
+
+    move-object v0, p0
+
+    move v2, p2
+
+    move v3, p3
+
+    .line 61
+    :try_start_0
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ag/i;->a([BIILcom/yelp/android/u/d;Lcom/yelp/android/u/a;)Lcom/yelp/android/ag/d;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v0
+
+    .line 63
+    iget-object v1, p0, Lcom/yelp/android/ag/i;->d:Lcom/yelp/android/ag/i$b;
+
+    invoke-virtual {v1, v4}, Lcom/yelp/android/ag/i$b;->a(Lcom/yelp/android/u/d;)V
+
+    .line 64
+    iget-object v1, p0, Lcom/yelp/android/ag/i;->f:Lcom/yelp/android/ag/i$a;
+
+    invoke-virtual {v1, v5}, Lcom/yelp/android/ag/i$a;->a(Lcom/yelp/android/u/a;)V
+
+    return-object v0
+
+    .line 63
+    :catchall_0
+    move-exception v0
+
+    iget-object v1, p0, Lcom/yelp/android/ag/i;->d:Lcom/yelp/android/ag/i$b;
+
+    invoke-virtual {v1, v4}, Lcom/yelp/android/ag/i$b;->a(Lcom/yelp/android/u/d;)V
+
+    .line 64
+    iget-object v1, p0, Lcom/yelp/android/ag/i;->f:Lcom/yelp/android/ag/i$a;
+
+    invoke-virtual {v1, v5}, Lcom/yelp/android/ag/i$a;->a(Lcom/yelp/android/u/a;)V
+
+    throw v0
+.end method
+
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 167
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
+    .line 96
+    const-string/jumbo v0, ""
 
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->start()V
-
-    .line 168
-    return-void
-.end method
-
-.method public stop()V
-    .locals 1
-
-    .prologue
-    .line 172
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0}, Lcom/yelp/android/z/b;->stop()V
-
-    .line 173
-    return-void
-.end method
-
-.method public unscheduleSelf(Ljava/lang/Runnable;)V
-    .locals 1
-
-    .prologue
-    .line 125
-    invoke-super {p0, p1}, Lcom/yelp/android/z/b;->unscheduleSelf(Ljava/lang/Runnable;)V
-
-    .line 126
-    iget-object v0, p0, Lcom/yelp/android/ag/i;->a:Lcom/yelp/android/z/b;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/z/b;->unscheduleSelf(Ljava/lang/Runnable;)V
-
-    .line 127
-    return-void
+    return-object v0
 .end method

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import com.yelp.android.analytics.iris.IriSource;
 import com.yelp.android.serializable.ReviewSuggestion;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.ui.util.av;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -20,10 +20,10 @@ public class YourNextReviewAwaitsFragment
   extends Fragment
 {
   private ArrayList<ReviewSuggestion> a;
-  private aj b;
-  private List<ak> c;
+  private a b;
+  private List<g> c;
   private int d = -1;
-  private final at e = new ah(this);
+  private final g.a e = new YourNextReviewAwaitsFragment.3(this);
   
   public static YourNextReviewAwaitsFragment a(ArrayList<ReviewSuggestion> paramArrayList)
   {
@@ -36,13 +36,13 @@ public class YourNextReviewAwaitsFragment
   
   private void a(ReviewSuggestion paramReviewSuggestion, ViewGroup paramViewGroup, boolean paramBoolean)
   {
-    paramReviewSuggestion = new ak(getActivity(), paramReviewSuggestion, e, IriSource.PostReviewYNRA);
+    paramReviewSuggestion = new g(getActivity(), paramReviewSuggestion, e, IriSource.PostReviewYNRA);
     c.add(paramReviewSuggestion);
     paramViewGroup.addView(paramReviewSuggestion);
     if (paramBoolean)
     {
       paramReviewSuggestion.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-      cw.a(paramReviewSuggestion, cw.c, new ag(this, paramReviewSuggestion));
+      av.a(paramReviewSuggestion, av.c, new YourNextReviewAwaitsFragment.2(this, paramReviewSuggestion));
     }
   }
   
@@ -51,7 +51,7 @@ public class YourNextReviewAwaitsFragment
     super.onAttach(paramActivity);
     try
     {
-      b = ((aj)paramActivity);
+      b = ((a)paramActivity);
       return;
     }
     catch (ClassCastException localClassCastException)
@@ -80,10 +80,10 @@ public class YourNextReviewAwaitsFragment
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    paramLayoutInflater = (LinearLayout)paramLayoutInflater.inflate(2130903386, paramViewGroup, false);
-    paramViewGroup = (LinearLayout)paramLayoutInflater.findViewById(2131493971);
-    paramBundle = (Button)paramLayoutInflater.findViewById(2131493972);
-    paramBundle.setOnClickListener(new af(this, paramViewGroup, paramBundle));
+    paramLayoutInflater = (LinearLayout)paramLayoutInflater.inflate(2130903489, paramViewGroup, false);
+    paramViewGroup = (LinearLayout)paramLayoutInflater.findViewById(2131690820);
+    paramBundle = (Button)paramLayoutInflater.findViewById(2131690821);
+    paramBundle.setOnClickListener(new YourNextReviewAwaitsFragment.1(this, paramViewGroup, paramBundle));
     if (d == -1) {}
     for (int i = Math.min(a.size(), 3);; i = d)
     {
@@ -105,7 +105,7 @@ public class YourNextReviewAwaitsFragment
     super.onDestroy();
     Iterator localIterator = c.iterator();
     while (localIterator.hasNext()) {
-      ((ak)localIterator.next()).setCallback(null);
+      ((g)localIterator.next()).setCallback(null);
     }
   }
   
@@ -114,6 +114,11 @@ public class YourNextReviewAwaitsFragment
     super.onSaveInstanceState(paramBundle);
     paramBundle.putParcelableArrayList("saved_suggestion_list", a);
     paramBundle.putInt("saved_num_suggestions", c.size());
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void f();
   }
 }
 

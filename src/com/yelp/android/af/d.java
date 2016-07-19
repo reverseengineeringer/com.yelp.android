@@ -1,33 +1,50 @@
 package com.yelp.android.af;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.TransitionDrawable;
+import com.bumptech.glide.load.e;
+import com.bumptech.glide.load.engine.i;
+import com.yelp.android.aa.o;
+import java.io.File;
+import java.io.InputStream;
 
-public class d<T extends Drawable>
-  implements e<T>
+public class d
+  implements com.yelp.android.ak.b<InputStream, File>
 {
-  private final e<T> a;
-  private final int b;
+  private static final a a = new a(null);
+  private final com.bumptech.glide.load.d<File, File> b = new a();
+  private final com.bumptech.glide.load.a<InputStream> c = new o();
   
-  public d(e<T> parame, int paramInt)
+  public com.bumptech.glide.load.d<File, File> a()
   {
-    a = parame;
-    b = paramInt;
+    return b;
   }
   
-  public boolean a(T paramT, f paramf)
+  public com.bumptech.glide.load.d<InputStream, File> b()
   {
-    Drawable localDrawable = paramf.b();
-    if (localDrawable != null)
+    return a;
+  }
+  
+  public com.bumptech.glide.load.a<InputStream> c()
+  {
+    return c;
+  }
+  
+  public e<File> d()
+  {
+    return com.yelp.android.ad.b.b();
+  }
+  
+  private static class a
+    implements com.bumptech.glide.load.d<InputStream, File>
+  {
+    public i<File> a(InputStream paramInputStream, int paramInt1, int paramInt2)
     {
-      paramT = new TransitionDrawable(new Drawable[] { localDrawable, paramT });
-      paramT.setCrossFadeEnabled(true);
-      paramT.startTransition(b);
-      paramf.b(paramT);
-      return true;
+      throw new Error("You cannot decode a File from an InputStream by default, try either #diskCacheStratey(DiskCacheStrategy.SOURCE) to avoid this call or #decoder(ResourceDecoder) to replace this Decoder");
     }
-    a.a(paramT, paramf);
-    return false;
+    
+    public String a()
+    {
+      return "";
+    }
   }
 }
 

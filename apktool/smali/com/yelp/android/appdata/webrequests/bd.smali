@@ -1,43 +1,23 @@
-.class public final Lcom/yelp/android/appdata/webrequests/bd;
-.super Lcom/yelp/android/appdata/webrequests/az;
-.source "ComplimentsRequest.java"
+.class public Lcom/yelp/android/appdata/webrequests/bd;
+.super Lcom/yelp/android/appdata/webrequests/core/c;
+.source "DeleteTipRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/m;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
-            "<",
-            "Lcom/yelp/android/appdata/webrequests/bb;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 48
-    const-string/jumbo v0, "user/requests/compliments"
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, p1, v0, v1}, Lcom/yelp/android/appdata/webrequests/az;-><init>(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;Z)V
-
-    .line 49
-    return-void
-.end method
-
-
-# virtual methods
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/core/c$a;)V
     .locals 1
 
     .prologue
-    .line 46
-    invoke-super {p0, p1}, Lcom/yelp/android/appdata/webrequests/az;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/bb;
+    .line 9
+    const-string/jumbo v0, "quicktips/delete"
 
-    move-result-object v0
+    invoke-direct {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    return-object v0
+    .line 10
+    const-string/jumbo v0, "quicktip_id"
+
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/bd;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 11
+    return-void
 .end method

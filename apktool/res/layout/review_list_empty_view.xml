@@ -2,5 +2,5 @@
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <include android:id="@id/review_list_empty_view_search_panel" layout="@layout/search_bar_shadow" />
-    <TextView android:textAppearance="@style/LargeDarkText" android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_results" />
+    <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:gravity="center" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/no_results" />
 </LinearLayout>

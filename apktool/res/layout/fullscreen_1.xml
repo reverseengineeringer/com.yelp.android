@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image" android:layout_width="fill_parent" android:layout_height="@dimen/kahuna_inapp_fullscreen_single_image_height" android:scaleType="centerCrop" android:layout_alignParentTop="true" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/buttonsLayout" android:layout_below="@id/image">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/kahuna_inapp_fullscreen_title_text_size" android:textColor="@color/kahuna_inapp_title" android:layout_gravity="center_horizontal" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="@dimen/kahuna_inapp_fullscreen_title_text_bottom_margin" android:text="Here's a sneak peek..." android:maxLines="1" android:fontFamily="sans-serif-light" />
+            <TextView android:textSize="@dimen/kahuna_inapp_fullscreen_message_text_size" android:textColor="@color/kahuna_inapp_full_screen_msg" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip" android:text="...of our new in-app messages! This is the modla (partial-screen) format. A full-screen format will be available as well." android:maxLines="@integer/kahuna_inapp_message_fullscreen_text_max_lines" android:lineSpacingMultiplier="1.2" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/buttonsLayout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_alignParentBottom="true">
+        <Button android:textSize="@dimen/kahuna_inapp_button_text_size" android:textColor="#ffffffff" android:id="@id/leftButton" android:background="#ff052717" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="Love It!" android:layout_weight="1.0" />
+        <Button android:textSize="@dimen/kahuna_inapp_button_text_size" android:textColor="#ffffffff" android:id="@id/rightButton" android:background="#ff338b9a" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="Super awesome!" android:layout_weight="1.0" />
+    </LinearLayout>
+</RelativeLayout>

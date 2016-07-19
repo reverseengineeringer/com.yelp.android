@@ -2,56 +2,57 @@ package com.bumptech.glide.manager;
 
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
 
 class a
-  implements h
+  implements g
 {
-  private final Set<i> a = Collections.synchronizedSet(Collections.newSetFromMap(new WeakHashMap()));
+  private final Set<h> a = Collections.newSetFromMap(new WeakHashMap());
   private boolean b;
   private boolean c;
   
   void a()
   {
     b = true;
-    Iterator localIterator = a.iterator();
+    Iterator localIterator = com.yelp.android.ao.h.a(a).iterator();
     while (localIterator.hasNext()) {
-      ((i)localIterator.next()).c();
+      ((h)localIterator.next()).d();
     }
   }
   
-  public void a(i parami)
+  public void a(h paramh)
   {
-    a.add(parami);
+    a.add(paramh);
     if (c)
     {
-      parami.e();
+      paramh.f();
       return;
     }
     if (b)
     {
-      parami.c();
+      paramh.d();
       return;
     }
-    parami.d();
+    paramh.e();
   }
   
   void b()
   {
     b = false;
-    Iterator localIterator = a.iterator();
+    Iterator localIterator = com.yelp.android.ao.h.a(a).iterator();
     while (localIterator.hasNext()) {
-      ((i)localIterator.next()).d();
+      ((h)localIterator.next()).e();
     }
   }
   
   void c()
   {
     c = true;
-    Iterator localIterator = a.iterator();
+    Iterator localIterator = com.yelp.android.ao.h.a(a).iterator();
     while (localIterator.hasNext()) {
-      ((i)localIterator.next()).e();
+      ((h)localIterator.next()).f();
     }
   }
 }

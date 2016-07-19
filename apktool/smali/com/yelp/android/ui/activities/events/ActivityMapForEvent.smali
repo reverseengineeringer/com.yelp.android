@@ -17,32 +17,14 @@
 
 .field private b:Lcom/yelp/android/serializable/Event;
 
-.field private final c:Lcom/yelp/android/ui/map/f;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/yelp/android/ui/map/f",
-            "<",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
     .prologue
-    .line 38
+    .line 35
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpMapActivity;-><init>()V
-
-    .line 87
-    new-instance v0, Lcom/yelp/android/ui/activities/events/a;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/events/a;-><init>(Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->c:Lcom/yelp/android/ui/map/f;
 
     return-void
 .end method
@@ -51,19 +33,19 @@
     .locals 2
 
     .prologue
-    .line 50
+    .line 47
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 51
+    .line 48
     const-string/jumbo v1, "extra.event"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 52
+    .line 49
     return-object v0
 .end method
 
@@ -71,17 +53,17 @@
     .locals 1
 
     .prologue
-    .line 124
+    .line 108
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
     if-eqz v0, :cond_0
 
-    .line 125
+    .line 109
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
-    invoke-static {p0, v0}, Lcom/yelp/android/util/r;->a(Landroid/content/Context;Lcom/yelp/android/serializable/Event;)V
+    invoke-static {p0, v0}, Lcom/yelp/android/util/k;->a(Landroid/content/Context;Lcom/yelp/android/serializable/Event;)V
 
-    .line 127
+    .line 111
     :cond_0
     return-void
 .end method
@@ -90,15 +72,15 @@
     .locals 7
 
     .prologue
-    .line 133
+    .line 117
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
-    .line 134
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getAddress()Ljava/lang/String;
+    .line 118
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->A()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 136
+    .line 120
     :try_start_0
     new-instance v2, Landroid/content/Intent;
 
@@ -106,7 +88,7 @@
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 137
+    .line 121
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
@@ -115,7 +97,7 @@
 
     if-nez v3, :cond_1
 
-    .line 138
+    .line 122
     :cond_0
     const-string/jumbo v1, "ActivityMapForEvent"
 
@@ -127,7 +109,7 @@
 
     invoke-static {v1, v3, v4}, Lcom/yelp/android/appdata/BaseYelpApplication;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 140
+    .line 124
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -138,7 +120,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getLatitude()D
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->o()D
 
     move-result-wide v4
 
@@ -152,7 +134,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getLongitude()D
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->n()D
 
     move-result-wide v4
 
@@ -176,22 +158,22 @@
 
     move-result-object v0
 
-    .line 142
+    .line 131
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
     invoke-virtual {v2, v0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 152
+    .line 149
     :goto_0
     invoke-virtual {p0, v2}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->startActivity(Landroid/content/Intent;)V
 
-    .line 158
+    .line 155
     :goto_1
     return-void
 
-    .line 145
+    .line 133
     :cond_1
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -203,7 +185,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getLatitude()D
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->o()D
 
     move-result-wide v4
 
@@ -217,7 +199,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getLongitude()D
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->n()D
 
     move-result-wide v4
 
@@ -251,14 +233,14 @@
 
     move-result-object v0
 
-    .line 147
+    .line 142
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v3
 
     invoke-virtual {v2, v3}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
-    .line 148
+    .line 143
     const-string/jumbo v3, "ActivityMapForEvent"
 
     const-string/jumbo v4, "Using address for event with geo location: [%s], uri follows.\n%s"
@@ -281,11 +263,11 @@
 
     goto :goto_0
 
-    .line 153
+    .line 150
     :catch_0
     move-exception v0
 
-    .line 154
+    .line 151
     const-string/jumbo v1, "ActivityMapForEvent"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -312,20 +294,20 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    .line 155
-    const v0, 0x7f0702c7
+    .line 152
+    const v0, 0x7f070312
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0702ca
+    const v1, 0x7f070313
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {p0, v0, v1}, Lcom/yelp/android/ui/util/cp;->a(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-static {p0, v0, v1}, Lcom/yelp/android/ui/util/ar;->a(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
     goto/16 :goto_1
 .end method
@@ -336,7 +318,7 @@
     .locals 4
 
     .prologue
-    .line 83
+    .line 81
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->a:Lcom/yelp/android/ui/map/YelpMap;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
@@ -345,15 +327,15 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/yelp/android/ui/map/r;
+    new-instance v2, Lcom/yelp/android/ui/map/m;
 
-    const v3, 0x7f02028c
+    const v3, 0x7f020379
 
-    invoke-direct {v2, v3}, Lcom/yelp/android/ui/map/r;-><init>(I)V
+    invoke-direct {v2, v3}, Lcom/yelp/android/ui/map/m;-><init>(I)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/util/List;Lcom/yelp/android/ui/map/a;)Ljava/lang/Runnable;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/util/List;Lcom/yelp/android/ui/map/a;)V
 
-    .line 85
+    .line 83
     return-void
 .end method
 
@@ -361,17 +343,17 @@
     .locals 1
 
     .prologue
-    .line 162
+    .line 159
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Map:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 38
+    .line 35
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -383,10 +365,10 @@
     .locals 6
 
     .prologue
-    .line 58
+    .line 55
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 59
+    .line 56
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -401,73 +383,73 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
-    .line 61
+    .line 58
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
     if-nez v0, :cond_0
 
-    .line 63
+    .line 60
     const-string/jumbo v0, "ActivityMapForEvent"
 
     const-string/jumbo v1, "Event could not be recovered from intent."
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 64
+    .line 61
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->finish()V
 
-    .line 67
+    .line 64
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->G()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 70
-    const v0, 0x7f030037
+    .line 67
+    const v0, 0x7f030044
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->setContentView(I)V
 
-    .line 71
-    new-instance v0, Lcom/google/android/gms/maps/model/CameraPosition$Builder;
+    .line 68
+    new-instance v0, Lcom/google/android/gms/maps/model/CameraPosition$a;
 
-    invoke-direct {v0}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;-><init>()V
+    invoke-direct {v0}, Lcom/google/android/gms/maps/model/CameraPosition$a;-><init>()V
 
     new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Event;->getLatitude()D
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Event;->o()D
 
     move-result-wide v2
 
     iget-object v4, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/Event;->getLongitude()D
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/Event;->n()D
 
     move-result-wide v4
 
     invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->target(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/CameraPosition$a;
 
     move-result-object v0
 
     const/high16 v1, 0x41800000    # 16.0f
 
-    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->zoom(F)Lcom/google/android/gms/maps/model/CameraPosition$Builder;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a(F)Lcom/google/android/gms/maps/model/CameraPosition$a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/google/android/gms/maps/model/CameraPosition$Builder;->build()Lcom/google/android/gms/maps/model/CameraPosition;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a()Lcom/google/android/gms/maps/model/CameraPosition;
 
     move-result-object v1
 
-    .line 76
-    const v0, 0x7f0c0165
+    .line 74
+    const v0, 0x7f0f01a1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->findViewById(I)Landroid/view/View;
 
@@ -477,16 +459,16 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->a:Lcom/yelp/android/ui/map/YelpMap;
 
-    .line 77
+    .line 75
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->a:Lcom/yelp/android/ui/map/YelpMap;
 
-    invoke-static {p0, v1}, Lcom/yelp/android/ui/map/YelpMap;->a(Landroid/content/Context;Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
+    invoke-static {v1}, Lcom/yelp/android/ui/map/YelpMap;->b(Lcom/google/android/gms/maps/model/CameraPosition;)Lcom/google/android/gms/maps/GoogleMapOptions;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/YelpMap;->setOptions(Lcom/google/android/gms/maps/GoogleMapOptions;)V
 
-    .line 78
+    .line 76
     iget-object v0, p0, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->a:Lcom/yelp/android/ui/map/YelpMap;
 
     new-instance v1, Lcom/yelp/android/ui/map/d;
@@ -495,7 +477,7 @@
 
     invoke-virtual {v0, p1, v1}, Lcom/yelp/android/ui/map/YelpMap;->a(Landroid/os/Bundle;Lcom/yelp/android/ui/map/e;)V
 
-    .line 79
+    .line 77
     return-void
 .end method
 
@@ -503,19 +485,19 @@
     .locals 2
 
     .prologue
-    .line 103
+    .line 87
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 104
+    .line 88
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f100012
+    const v1, 0x7f100016
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 105
+    .line 89
     const/4 v0, 0x1
 
     return v0
@@ -525,44 +507,44 @@
     .locals 1
 
     .prologue
-    .line 110
+    .line 94
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 118
+    .line 102
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpMapActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
 
-    .line 120
+    .line 104
     :goto_0
     return v0
 
-    .line 112
+    .line 96
     :sswitch_0
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->c()V
 
-    .line 120
+    .line 104
     :goto_1
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 115
+    .line 99
     :sswitch_1
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/events/ActivityMapForEvent;->b()V
 
     goto :goto_1
 
-    .line 110
+    .line 94
     nop
 
     :sswitch_data_0
     .sparse-switch
-        0x7f0c02f1 -> :sswitch_0
-        0x7f0c03b6 -> :sswitch_1
+        0x7f0f036f -> :sswitch_0
+        0x7f0f049a -> :sswitch_1
     .end sparse-switch
 .end method

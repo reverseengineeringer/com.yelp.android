@@ -6,47 +6,52 @@ import android.util.Pair;
 import com.yelp.android.serializable.Category;
 import com.yelp.android.serializable.YelpBusiness;
 import java.util.Collection;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ah
-  extends w
+  extends y
 {
-  private final YelpBusiness b;
-  private final Address c;
+  private final YelpBusiness g;
+  private final Address h;
   
   protected ah()
   {
     super("business/update", null);
-    b = null;
-    c = null;
+    g = null;
+    h = null;
   }
   
-  public ah(m<Pair<String, YelpBusiness>> paramm, YelpBusiness paramYelpBusiness, boolean paramBoolean)
+  public ah(ApiRequest.b<Pair<String, YelpBusiness>> paramb, YelpBusiness paramYelpBusiness, boolean paramBoolean1, boolean paramBoolean2)
   {
-    super("business/update", paramm);
-    addPostParam("business_id", paramYelpBusiness.getId());
-    if (paramYelpBusiness.isClosed() != paramBoolean)
+    super("business/update", paramb);
+    b("business_id", paramYelpBusiness.aD());
+    if (paramYelpBusiness.r() != paramBoolean1)
     {
-      addPostParam("is_closed", paramBoolean);
+      b("is_closed", paramBoolean1);
       a.add("is_closed");
     }
-    b = paramYelpBusiness;
-    c = paramYelpBusiness.getAddress();
+    if (paramBoolean2) {
+      b("is_duplicate", paramBoolean2);
+    }
+    g = paramYelpBusiness;
+    h = paramYelpBusiness.f();
   }
   
   public Pair<String, YelpBusiness> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
     Pair localPair = super.a(paramJSONObject);
     paramJSONObject = localPair;
     if (second == null) {
-      paramJSONObject = Pair.create(first, b);
+      paramJSONObject = Pair.create(first, g);
     }
     return paramJSONObject;
   }
   
   protected void a(double paramDouble)
   {
-    if (b.getLongitude() != paramDouble) {
+    if (g.Q() != paramDouble) {
       super.a(paramDouble);
     }
   }
@@ -54,63 +59,63 @@ public class ah
   protected void a(int paramInt, String paramString)
   {
     int i = paramInt - 1;
-    if ((c.getMaxAddressLineIndex() < i) || (!TextUtils.equals(c.getAddressLine(i), paramString))) {
+    if ((h.getMaxAddressLineIndex() < i) || (!TextUtils.equals(h.getAddressLine(i), paramString))) {
       super.a(paramInt, paramString);
     }
   }
   
   public void a(CharSequence paramCharSequence)
   {
-    if (!TextUtils.equals(b.getLocalizedPhone(), paramCharSequence)) {
+    if (!TextUtils.equals(g.as(), paramCharSequence)) {
       super.a(paramCharSequence);
     }
   }
   
   protected void a(String paramString)
   {
-    if (!TextUtils.equals(b.getLocality(), paramString)) {
+    if (!TextUtils.equals(g.av(), paramString)) {
       super.a(paramString);
     }
   }
   
   public void a(Collection<Category> paramCollection)
   {
-    if (!paramCollection.equals(b.getCategories())) {
+    if (!paramCollection.equals(g.aV())) {
       super.a(paramCollection);
     }
   }
   
   protected void b(double paramDouble)
   {
-    if (b.getLatitude() != paramDouble) {
+    if (g.R() != paramDouble) {
       super.b(paramDouble);
     }
   }
   
   public void b(CharSequence paramCharSequence)
   {
-    if (!TextUtils.equals(b.getBestUrl(), paramCharSequence)) {
+    if (!TextUtils.equals(g.y(), paramCharSequence)) {
       super.b(paramCharSequence);
     }
   }
   
   protected void b(String paramString)
   {
-    if (!TextUtils.equals(b.getCountry(), paramString)) {
+    if (!TextUtils.equals(g.aw(), paramString)) {
       super.b(paramString);
     }
   }
   
   public void c(CharSequence paramCharSequence)
   {
-    if (!TextUtils.equals(b.getMenuUrl(), paramCharSequence)) {
+    if (!TextUtils.equals(g.aj(), paramCharSequence)) {
       super.c(paramCharSequence);
     }
   }
   
   public void d(CharSequence paramCharSequence)
   {
-    if (!TextUtils.equals(b.getName(), paramCharSequence)) {
+    if (!TextUtils.equals(g.aq(), paramCharSequence)) {
       super.d(paramCharSequence);
     }
   }

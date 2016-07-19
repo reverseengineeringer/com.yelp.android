@@ -1,42 +1,14 @@
 package com.google.android.gms.internal;
 
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
 
-@ey
-public class gk<T>
-  implements Future<T>
+@fv
+public final class gk
+  implements gh
 {
-  private final T wF;
-  
-  public gk(T paramT)
+  public gh.a a(Context paramContext)
   {
-    wF = paramT;
-  }
-  
-  public boolean cancel(boolean paramBoolean)
-  {
-    return false;
-  }
-  
-  public T get()
-  {
-    return (T)wF;
-  }
-  
-  public T get(long paramLong, TimeUnit paramTimeUnit)
-  {
-    return (T)wF;
-  }
-  
-  public boolean isCancelled()
-  {
-    return false;
-  }
-  
-  public boolean isDone()
-  {
-    return true;
+    return null;
   }
 }
 

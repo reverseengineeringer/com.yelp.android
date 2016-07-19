@@ -1,16 +1,21 @@
 package com.brightcove.player.controller;
 
 import android.os.Build.VERSION;
+import android.util.Log;
 import com.brightcove.player.event.AbstractComponent;
 import com.brightcove.player.event.Component;
+import com.brightcove.player.event.Default;
 import com.brightcove.player.event.Emits;
+import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
+import com.brightcove.player.event.EventListener;
 import com.brightcove.player.event.ListensFor;
 import com.brightcove.player.media.DeliveryType;
 import com.brightcove.player.model.Source;
 import com.brightcove.player.model.SourceCollection;
 import com.brightcove.player.model.Video;
 import com.brightcove.player.util.ErrorUtil;
+import com.brightcove.player.util.EventUtil;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -38,6 +43,7 @@ public class DefaultSourceSelectionController
   }
   
   public Source findBestSourceByBitRate(SourceCollection paramSourceCollection, Integer paramInteger)
+    throws NoSourceFoundException
   {
     if ((paramSourceCollection.getSources() == null) || (paramSourceCollection.getSources().size() == 0)) {
       throw new NoSourceFoundException();
@@ -74,10 +80,11 @@ public class DefaultSourceSelectionController
   
   protected void initializeListeners()
   {
-    addListener("selectSource", new DefaultSourceSelectionController.OnSelectSourceListener(this, null));
+    addListener("selectSource", new OnSelectSourceListener(null));
   }
   
   public Source selectSource(Video paramVideo)
+    throws NoSourceFoundException
   {
     Object localObject = null;
     if (paramVideo == null) {
@@ -127,6 +134,30 @@ public class DefaultSourceSelectionController
         throw new NoSourceFoundException();
       }
       return paramVideo;
+    }
+  }
+  
+  private class OnSelectSourceListener
+    implements EventListener
+  {
+    private OnSelectSourceListener() {}
+    
+    @Default
+    public void processEvent(Event paramEvent)
+    {
+      Video localVideo = (Video)properties.get("video");
+      try
+      {
+        Source localSource = selectSource(localVideo);
+        properties.put("source", localSource);
+        eventEmitter.respond(paramEvent);
+        return;
+      }
+      catch (NoSourceFoundException paramEvent)
+      {
+        Log.e(DefaultSourceSelectionController.TAG, "no usable Source could be found for Video: " + localVideo.toString());
+        EventUtil.emit(eventEmitter, "sourceNotFound", localVideo);
+      }
     }
   }
 }

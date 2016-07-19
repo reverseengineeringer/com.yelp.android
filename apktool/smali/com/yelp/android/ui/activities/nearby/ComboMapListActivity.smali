@@ -3,20 +3,28 @@
 .source "ComboMapListActivity.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/nearby/h;
-.implements Lcom/yelp/android/ui/activities/nearby/l;
+.implements Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;
+.implements Lcom/yelp/android/ui/activities/nearby/ComboMapFragment$a;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;,
+        Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$a;,
+        Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
-        "Lcom/yelp/android/serializable/by;",
+        "Lcom/yelp/android/serializable/f;",
         ">",
         "Lcom/yelp/android/ui/activities/support/YelpActivity;",
-        "Lcom/yelp/android/ui/activities/nearby/h",
+        "Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a",
         "<TT;>;",
-        "Lcom/yelp/android/ui/activities/nearby/l",
+        "Lcom/yelp/android/ui/activities/nearby/ComboMapFragment$a",
         "<TT;>;"
     }
 .end annotation
@@ -42,29 +50,29 @@
 
 .field private f:Z
 
-.field private g:Lcom/yelp/android/ui/activities/nearby/q;
+.field private g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity",
-            "<TT;>.com/yelp/android/ui/activities/nearby/q;"
+            "<TT;>.b;"
         }
     .end annotation
 .end field
 
-.field private h:Lcom/yelp/android/ui/activities/nearby/p;
+.field private h:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity",
-            "<TT;>.com/yelp/android/ui/activities/nearby/p;"
+            "<TT;>.a;"
         }
     .end annotation
 .end field
 
-.field private i:Lcom/yelp/android/ui/activities/nearby/r;
+.field private i:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity",
-            "<TT;>.com/yelp/android/ui/activities/nearby/r;"
+            "<TT;>.c;"
         }
     .end annotation
 .end field
@@ -83,16 +91,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 38
+    .line 39
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 48
+    .line 49
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
-    .line 53
+    .line 54
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->k:Z
 
-    .line 334
+    .line 341
     return-void
 .end method
 
@@ -100,7 +108,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     return-object v0
@@ -110,18 +118,18 @@
     .locals 0
 
     .prologue
-    .line 38
+    .line 39
     iput-boolean p1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
     return p1
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)Lcom/yelp/android/ui/activities/nearby/q;
+.method static synthetic b(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
     .locals 1
 
     .prologue
-    .line 38
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/q;
+    .line 39
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
     return-object v0
 .end method
@@ -130,7 +138,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
     return v0
@@ -140,7 +148,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
     return-object v0
@@ -150,7 +158,7 @@
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->j:Landroid/view/View;
 
     return-object v0
@@ -158,17 +166,17 @@
 
 
 # virtual methods
-.method protected abstract a(I)Lcom/yelp/android/ui/util/au;
+.method protected abstract a(I)Lcom/yelp/android/ui/util/w;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
-            "Lcom/yelp/android/ui/util/au",
+            "Lcom/yelp/android/ui/util/w",
             "<*>;"
         }
     .end annotation
 .end method
 
-.method protected abstract a(Lcom/yelp/android/serializable/by;)V
+.method protected abstract a(Lcom/yelp/android/serializable/f;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -187,20 +195,20 @@
     .end annotation
 
     .prologue
-    .line 220
+    .line 229
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->k:Z
 
     if-nez v0, :cond_0
 
-    .line 221
+    .line 230
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->h()V
 
-    .line 222
+    .line 231
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->k:Z
 
-    .line 224
+    .line 233
     :cond_0
     return-void
 .end method
@@ -221,35 +229,35 @@
     .locals 2
 
     .prologue
-    .line 276
+    .line 283
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->l()Lcom/yelp/android/ui/activities/nearby/ComboListFragment;
 
     move-result-object v0
 
-    .line 277
+    .line 284
     if-eqz v0, :cond_0
 
-    .line 278
+    .line 285
     iget-boolean v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
     if-eqz v1, :cond_1
 
-    .line 279
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h()V
+    .line 286
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->i()V
 
-    .line 284
+    .line 291
     :cond_0
     :goto_0
     return-void
 
-    .line 281
+    .line 288
     :cond_1
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->i()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->j()V
 
     goto :goto_0
 .end method
 
-.method protected abstract b(Lcom/yelp/android/serializable/by;)V
+.method protected abstract b(Lcom/yelp/android/serializable/f;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -268,19 +276,19 @@
     .end annotation
 
     .prologue
-    .line 243
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->e()I
+    .line 250
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->f()I
 
     move-result v0
 
-    .line 244
+    .line 251
     iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setTopThreshold(I)V
 
-    .line 245
+    .line 252
     iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->d:Landroid/widget/RelativeLayout;
@@ -293,17 +301,17 @@
 
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setBottomThreshold(I)V
 
-    .line 247
+    .line 254
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
     if-eqz v0, :cond_0
 
-    .line 248
+    .line 255
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->a()V
 
-    .line 253
+    .line 260
     :goto_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->d:Landroid/widget/RelativeLayout;
 
@@ -311,13 +319,13 @@
 
     move-result v0
 
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->f()I
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g()I
 
     move-result v1
 
     sub-int/2addr v0, v1
 
-    .line 254
+    .line 261
     iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->j:Landroid/view/View;
 
     new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
@@ -328,16 +336,16 @@
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 256
+    .line 264
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g()I
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h()I
 
     move-result v1
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;->a(I)V
 
-    .line 257
+    .line 265
     new-instance v0, Landroid/view/ViewGroup$MarginLayoutParams;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->l:Lcom/yelp/android/ui/panels/PanelLoading;
@@ -348,14 +356,14 @@
 
     invoke-direct {v0, v1}, Landroid/view/ViewGroup$MarginLayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 259
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->g()I
+    .line 267
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->h()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    .line 260
+    .line 268
     iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->l:Lcom/yelp/android/ui/panels/PanelLoading;
 
     new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
@@ -364,10 +372,10 @@
 
     invoke-virtual {v1, v2}, Lcom/yelp/android/ui/panels/PanelLoading;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 262
+    .line 269
     return-void
 
-    .line 250
+    .line 257
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
@@ -388,12 +396,12 @@
     .end annotation
 
     .prologue
-    .line 266
-    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->d()I
+    .line 273
+    invoke-virtual {p1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->e()I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a(I)Lcom/yelp/android/ui/util/au;
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a(I)Lcom/yelp/android/ui/util/w;
 
     move-result-object v0
 
@@ -404,7 +412,7 @@
     .locals 0
 
     .prologue
-    .line 214
+    .line 223
     return-void
 .end method
 
@@ -412,7 +420,7 @@
     .locals 0
 
     .prologue
-    .line 288
+    .line 295
     return-void
 .end method
 
@@ -420,7 +428,7 @@
     .locals 1
 
     .prologue
-    .line 271
+    .line 278
     const/4 v0, 0x1
 
     return v0
@@ -430,17 +438,17 @@
     .locals 1
 
     .prologue
-    .line 174
+    .line 183
     const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 38
+    .line 39
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -452,23 +460,23 @@
     .locals 0
 
     .prologue
-    .line 230
+    .line 237
     return-void
 .end method
 
-.method public i()Lcom/yelp/android/ui/map/f;
+.method public i()Lcom/yelp/android/ui/map/e$a;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
-            "Lcom/yelp/android/ui/map/f",
+            "Lcom/yelp/android/ui/map/e$a",
             "<TT;>;"
         }
     .end annotation
 
     .prologue
-    .line 208
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->h:Lcom/yelp/android/ui/activities/nearby/p;
+    .line 217
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->h:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$a;
 
     return-object v0
 .end method
@@ -484,7 +492,7 @@
     .end annotation
 
     .prologue
-    .line 187
+    .line 196
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     return-object v0
@@ -494,7 +502,7 @@
     .locals 1
 
     .prologue
-    .line 191
+    .line 200
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->e:Landroid/support/v4/view/ViewPager;
 
     return-object v0
@@ -513,20 +521,20 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 195
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/r;
+    .line 204
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;
 
     if-nez v0, :cond_0
 
     move-object v0, v1
 
-    .line 203
+    .line 212
     :goto_0
     return-object v0
 
-    .line 199
+    .line 208
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/r;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->e:Landroid/support/v4/view/ViewPager;
 
@@ -536,16 +544,16 @@
 
     move-result v3
 
-    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/ui/activities/nearby/r;->instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;->a(Landroid/view/ViewGroup;I)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 200
+    .line 209
     instance-of v2, v0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;
 
     if-eqz v2, :cond_1
 
-    .line 201
+    .line 210
     check-cast v0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;
 
     goto :goto_0
@@ -553,7 +561,7 @@
     :cond_1
     move-object v0, v1
 
-    .line 203
+    .line 212
     goto :goto_0
 .end method
 
@@ -561,21 +569,21 @@
     .locals 2
 
     .prologue
-    .line 233
+    .line 240
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
     const v1, 0x459c4000    # 5000.0f
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->b(F)V
 
-    .line 234
+    .line 241
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->l:Lcom/yelp/android/ui/panels/PanelLoading;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
 
-    .line 235
+    .line 242
     return-void
 .end method
 
@@ -583,14 +591,14 @@
     .locals 2
 
     .prologue
-    .line 238
+    .line 245
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->l:Lcom/yelp/android/ui/panels/PanelLoading;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/PanelLoading;->setVisibility(I)V
 
-    .line 239
+    .line 246
     return-void
 .end method
 
@@ -598,63 +606,63 @@
     .locals 2
 
     .prologue
-    .line 152
+    .line 161
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onAttachFragment(Landroid/support/v4/app/Fragment;)V
 
-    .line 153
+    .line 162
     instance-of v0, p1, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     if-eqz v0, :cond_1
 
-    .line 154
+    .line 163
     check-cast p1, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     iput-object p1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
-    .line 155
+    .line 164
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;->a(Lcom/yelp/android/ui/activities/nearby/l;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;->a(Lcom/yelp/android/ui/activities/nearby/ComboMapFragment$a;)V
 
-    .line 163
+    .line 172
     :cond_0
     :goto_0
     return-void
 
-    .line 156
+    .line 165
     :cond_1
     instance-of v0, p1, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;
 
     if-eqz v0, :cond_0
 
-    .line 157
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/q;
+    .line 166
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
     if-nez v0, :cond_2
 
-    .line 158
-    new-instance v0, Lcom/yelp/android/ui/activities/nearby/q;
+    .line 167
+    new-instance v0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/q;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Lcom/yelp/android/ui/activities/nearby/m;)V
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$1;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/q;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
     :cond_2
     move-object v0, p1
 
-    .line 160
+    .line 169
     check-cast v0, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/q;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a(Lcom/yelp/android/ui/activities/nearby/i;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment$b;)V
 
-    .line 161
+    .line 170
     check-cast p1, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;
 
-    invoke-virtual {p1, p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a(Lcom/yelp/android/ui/activities/nearby/h;)V
+    invoke-virtual {p1, p0}, Lcom/yelp/android/ui/activities/nearby/ComboListFragment;->a(Lcom/yelp/android/ui/activities/nearby/ComboListFragment$a;)V
 
     goto :goto_0
 .end method
@@ -663,23 +671,23 @@
     .locals 2
 
     .prologue
-    .line 179
+    .line 188
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
     if-eqz v0, :cond_0
 
-    .line 180
+    .line 189
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
     const v1, 0x459c4000    # 5000.0f
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->b(F)V
 
-    .line 184
+    .line 193
     :goto_0
     return-void
 
-    .line 182
+    .line 191
     :cond_0
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onBackPressed()V
 
@@ -692,18 +700,18 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 71
+    .line 72
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 73
-    const v0, 0x7f030087
+    .line 74
+    const v0, 0x7f030090
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->setContentView(I)V
 
-    .line 75
+    .line 76
     if-eqz p1, :cond_0
 
-    .line 76
+    .line 77
     const-string/jumbo v0, "map_expanded"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -712,29 +720,29 @@
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
-    .line 79
+    .line 80
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/q;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
     if-nez v0, :cond_1
 
-    .line 80
-    new-instance v0, Lcom/yelp/android/ui/activities/nearby/q;
+    .line 81
+    new-instance v0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/q;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Lcom/yelp/android/ui/activities/nearby/m;)V
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$1;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/q;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
-    .line 82
+    .line 83
     :cond_1
-    new-instance v0, Lcom/yelp/android/ui/activities/nearby/p;
+    new-instance v0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$a;
 
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/p;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Lcom/yelp/android/ui/activities/nearby/m;)V
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$a;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$1;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->h:Lcom/yelp/android/ui/activities/nearby/p;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->h:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$a;
 
-    .line 84
-    const v0, 0x7f0c023a
+    .line 85
+    const v0, 0x7f0f0281
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->findViewById(I)Landroid/view/View;
 
@@ -744,8 +752,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
-    .line 85
-    const v0, 0x7f0c023b
+    .line 86
+    const v0, 0x7f0f0282
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->findViewById(I)Landroid/view/View;
 
@@ -755,8 +763,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->e:Landroid/support/v4/view/ViewPager;
 
-    .line 86
-    const v0, 0x7f0c001d
+    .line 87
+    const v0, 0x7f0f001f
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->findViewById(I)Landroid/view/View;
 
@@ -766,8 +774,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->d:Landroid/widget/RelativeLayout;
 
-    .line 87
-    const v0, 0x7f0c023d
+    .line 88
+    const v0, 0x7f0f0284
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->findViewById(I)Landroid/view/View;
 
@@ -775,8 +783,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->j:Landroid/view/View;
 
-    .line 88
-    const v0, 0x7f0c023c
+    .line 89
+    const v0, 0x7f0f0283
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->findViewById(I)Landroid/view/View;
 
@@ -786,82 +794,87 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->l:Lcom/yelp/android/ui/panels/PanelLoading;
 
-    .line 98
+    .line 99
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->j:Landroid/view/View;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/nearby/m;
+    new-instance v1, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/m;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$1;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 112
-    new-instance v0, Lcom/yelp/android/ui/activities/nearby/r;
+    .line 115
+    new-instance v0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/r;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Landroid/support/v4/app/FragmentManager;)V
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;Landroid/support/v4/app/l;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/r;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;
 
-    .line 113
+    .line 116
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->e:Landroid/support/v4/view/ViewPager;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/r;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->i:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$c;
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/bo;)V
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setAdapter(Landroid/support/v4/view/ac;)V
 
-    .line 114
+    .line 117
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->e:Landroid/support/v4/view/ViewPager;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/nearby/n;
+    new-instance v1, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/n;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$2;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)V
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setOnPageChangeListener(Landroid/support/v4/view/du;)V
+    invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setOnPageChangeListener(Landroid/support/v4/view/ViewPager$e;)V
 
-    .line 122
+    .line 126
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->e:Landroid/support/v4/view/ViewPager;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/nearby/o;
+    new-instance v1, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$3;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/o;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$3;-><init>(Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;)V
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPager;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 131
+    .line 136
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->c:Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/q;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->g:Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity$b;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setSlideFrameCallback(Lcom/yelp/android/ui/activities/nearby/f;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout;->setSlideFrameCallback(Lcom/yelp/android/ui/activities/nearby/AnimationFrameLayout$a;)V
 
-    .line 132
+    .line 137
     return-void
 .end method
 
 .method protected onResumeFragments()V
     .locals 4
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "CommitTransaction"
+        }
+    .end annotation
 
     .prologue
-    .line 136
+    .line 143
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResumeFragments()V
 
-    .line 137
+    .line 144
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     if-nez v0, :cond_0
 
-    .line 138
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 145
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
     const-string/jumbo v1, "map_tag"
 
-    invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/l;->a(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -869,45 +882,45 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
-    .line 140
+    .line 148
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     if-nez v0, :cond_0
 
-    .line 141
+    .line 149
     new-instance v0, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
-    .line 142
+    .line 150
     iget-object v0, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
-    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;->a(Lcom/yelp/android/ui/activities/nearby/l;)V
+    invoke-virtual {v0, p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;->a(Lcom/yelp/android/ui/activities/nearby/ComboMapFragment$a;)V
 
-    .line 143
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    .line 151
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    const v1, 0x7f0c0239
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
+
+    move-result-object v0
+
+    const v1, 0x7f0f0280
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->a:Lcom/yelp/android/ui/activities/nearby/ComboMapFragment;
 
     const-string/jumbo v3, "map_tag"
 
-    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v1, v2, v3}, Landroid/support/v4/app/o;->a(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 148
+    .line 157
     :cond_0
     return-void
 .end method
@@ -916,16 +929,16 @@
     .locals 2
 
     .prologue
-    .line 167
+    .line 176
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 168
+    .line 177
     const-string/jumbo v0, "map_expanded"
 
     iget-boolean v1, p0, Lcom/yelp/android/ui/activities/nearby/ComboMapListActivity;->f:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 169
+    .line 178
     return-void
 .end method

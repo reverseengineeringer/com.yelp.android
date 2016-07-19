@@ -8,6 +8,15 @@
 .implements Lcom/visualon/OSMPBasePlayer/voOSBasePlayer$onRequestListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/VisualOnStreamPlayer$3;,
+        Lcom/ooyala/android/VisualOnStreamPlayer$PlayheadUpdateTimerTask;
+    }
+.end annotation
+
+
 # static fields
 .field private static final TAG:Ljava/lang/String; = "VisualOnStreamPlayer"
 

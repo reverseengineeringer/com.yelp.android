@@ -1,39 +1,33 @@
 package bolts;
 
-import android.annotation.SuppressLint;
-import android.os.Build.VERSION;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 
-final class a
+public final class a
 {
-  static final int a = e + 1;
-  static final int b = e * 2 + 1;
-  private static final a c = new a();
-  private static final int e = Runtime.getRuntime().availableProcessors();
-  private final Executor d = new c(null);
-  
-  public static ExecutorService a()
+  public static Uri a(Context paramContext, Intent paramIntent)
   {
-    ThreadPoolExecutor localThreadPoolExecutor = new ThreadPoolExecutor(a, b, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-    a(localThreadPoolExecutor, true);
-    return localThreadPoolExecutor;
-  }
-  
-  @SuppressLint({"NewApi"})
-  public static void a(ThreadPoolExecutor paramThreadPoolExecutor, boolean paramBoolean)
-  {
-    if (Build.VERSION.SDK_INT >= 9) {
-      paramThreadPoolExecutor.allowCoreThreadTimeOut(paramBoolean);
+    Object localObject2 = null;
+    Object localObject3 = a(paramIntent);
+    Object localObject1 = localObject2;
+    if (localObject3 != null)
+    {
+      localObject3 = ((Bundle)localObject3).getString("target_url");
+      localObject1 = localObject2;
+      if (localObject3 != null)
+      {
+        b.a(paramContext, "al_nav_in", paramIntent, null);
+        localObject1 = Uri.parse((String)localObject3);
+      }
     }
+    return (Uri)localObject1;
   }
   
-  public static Executor b()
+  public static Bundle a(Intent paramIntent)
   {
-    return cd;
+    return paramIntent.getBundleExtra("al_applink_data");
   }
 }
 

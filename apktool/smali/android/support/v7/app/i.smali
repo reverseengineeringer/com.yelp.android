@@ -1,49 +1,57 @@
 .class Landroid/support/v7/app/i;
-.super Ljava/lang/Object;
-.source "ActionBarActivityDelegateBase.java"
+.super Landroid/support/v7/app/h;
+.source "AppCompatDelegateImplV14.java"
 
-# interfaces
-.implements Ljava/lang/Runnable;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v7/app/i$a;
+    }
+.end annotation
 
 
 # instance fields
-.field final synthetic a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+.field private r:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/support/v7/app/ActionBarActivityDelegateBase;)V
-    .locals 0
+.method constructor <init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/e;)V
+    .locals 1
 
     .prologue
-    .line 615
-    iput-object p1, p0, Landroid/support/v7/app/i;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+    .line 29
+    invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/app/h;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/e;)V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 26
+    const/4 v0, 0x1
 
+    iput-boolean v0, p0, Landroid/support/v7/app/i;->r:Z
+
+    .line 30
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method a(Landroid/view/Window$Callback;)Landroid/view/Window$Callback;
+    .locals 1
 
     .prologue
-    const/4 v3, 0x0
+    .line 36
+    new-instance v0, Landroid/support/v7/app/i$a;
 
-    .line 617
-    iget-object v0, p0, Landroid/support/v7/app/i;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+    invoke-direct {v0, p0, p1}, Landroid/support/v7/app/i$a;-><init>(Landroid/support/v7/app/i;Landroid/view/Window$Callback;)V
 
-    iget-object v0, v0, Landroid/support/v7/app/ActionBarActivityDelegateBase;->i:Landroid/widget/PopupWindow;
+    return-object v0
+.end method
 
-    iget-object v1, p0, Landroid/support/v7/app/i;->a:Landroid/support/v7/app/ActionBarActivityDelegateBase;
+.method public l()Z
+    .locals 1
 
-    iget-object v1, v1, Landroid/support/v7/app/ActionBarActivityDelegateBase;->h:Landroid/support/v7/internal/widget/ActionBarContextView;
+    .prologue
+    .line 46
+    iget-boolean v0, p0, Landroid/support/v7/app/i;->r:Z
 
-    const/16 v2, 0x37
-
-    invoke-virtual {v0, v1, v2, v3, v3}, Landroid/widget/PopupWindow;->showAtLocation(Landroid/view/View;III)V
-
-    .line 620
-    return-void
+    return v0
 .end method

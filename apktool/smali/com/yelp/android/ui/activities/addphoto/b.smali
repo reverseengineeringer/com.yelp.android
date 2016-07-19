@@ -1,90 +1,220 @@
-.class synthetic Lcom/yelp/android/ui/activities/addphoto/b;
-.super Ljava/lang/Object;
-.source "AddBusinessPhoto.java"
+.class public Lcom/yelp/android/ui/activities/addphoto/b;
+.super Landroid/os/AsyncTask;
+.source "VerifyVideoSupportedTask.java"
 
 
-# static fields
-.field static final synthetic a:[I
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/addphoto/b$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/os/AsyncTask",
+        "<",
+        "Landroid/net/Uri;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/String;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field a:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field b:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Lcom/yelp/android/ui/activities/addphoto/b$a;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/ui/activities/addphoto/b$a;)V
+    .locals 1
+
+    .prologue
+    .line 22
+    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
+
+    .line 23
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/addphoto/b;->a:Ljava/lang/ref/WeakReference;
+
+    .line 24
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/addphoto/b;->b:Ljava/lang/ref/WeakReference;
+
+    .line 25
+    return-void
+.end method
+
+
+# virtual methods
+.method protected varargs a([Landroid/net/Uri;)Ljava/lang/String;
     .locals 3
 
     .prologue
-    .line 427
-    invoke-static {}, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->values()[Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
+    const/4 v1, 0x0
+
+    .line 37
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/addphoto/b;->a:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    array-length v0, v0
+    check-cast v0, Landroid/content/Context;
 
-    new-array v0, v0, [I
+    .line 38
+    if-nez v0, :cond_1
 
-    sput-object v0, Lcom/yelp/android/ui/activities/addphoto/b;->a:[I
+    move-object v0, v1
 
-    :try_start_0
-    sget-object v0, Lcom/yelp/android/ui/activities/addphoto/b;->a:[I
-
-    sget-object v1, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->GALLERY:Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
-
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_2
-
+    .line 49
+    :cond_0
     :goto_0
-    :try_start_1
-    sget-object v0, Lcom/yelp/android/ui/activities/addphoto/b;->a:[I
+    return-object v0
 
-    sget-object v1, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->CAMERA:Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
+    .line 42
+    :cond_1
+    const/4 v2, 0x0
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->ordinal()I
+    aget-object v2, p1, v2
 
-    move-result v1
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    const/4 v2, 0x2
+    move-result-object v0
 
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    invoke-static {v2, v0}, Lcom/yelp/android/util/e;->a(Landroid/net/Uri;Landroid/content/ContentResolver;)Ljava/lang/String;
 
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/yelp/android/ui/activities/addphoto/b;->a:[I
+    move-result-object v0
 
-    sget-object v1, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->FRONT_CAMERA:Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
+    .line 46
+    new-instance v2, Ljava/io/File;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;->ordinal()I
+    invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    move-result v1
+    invoke-static {v2}, Lcom/yelp/android/util/ffmpeg/FFmpeg;->a(Ljava/io/File;)Z
 
-    const/4 v2, 0x3
+    move-result v2
 
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_0
+    if-nez v2, :cond_0
 
-    :goto_2
+    move-object v0, v1
+
+    .line 49
+    goto :goto_0
+.end method
+
+.method protected a(Ljava/lang/String;)V
+    .locals 1
+
+    .prologue
+    .line 55
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/addphoto/b;->b:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/addphoto/b$a;
+
+    .line 56
+    if-nez v0, :cond_0
+
+    .line 67
+    :goto_0
     return-void
 
-    :catch_0
-    move-exception v0
+    .line 60
+    :cond_0
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/addphoto/b$a;->c()V
 
-    goto :goto_2
+    .line 62
+    if-nez p1, :cond_1
 
-    :catch_1
-    move-exception v0
-
-    goto :goto_1
-
-    :catch_2
-    move-exception v0
+    .line 63
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/addphoto/b$a;->b()V
 
     goto :goto_0
+
+    .line 65
+    :cond_1
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/activities/addphoto/b$a;->a(Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
+.method protected synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
+
+    .prologue
+    .line 17
+    check-cast p1, [Landroid/net/Uri;
+
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/addphoto/b;->a([Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected synthetic onPostExecute(Ljava/lang/Object;)V
+    .locals 0
+
+    .prologue
+    .line 17
+    check-cast p1, Ljava/lang/String;
+
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/addphoto/b;->a(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method protected onPreExecute()V
+    .locals 1
+
+    .prologue
+    .line 29
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/addphoto/b;->b:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/addphoto/b$a;
+
+    .line 30
+    if-eqz v0, :cond_0
+
+    .line 31
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/addphoto/b$a;->a()V
+
+    .line 33
+    :cond_0
+    return-void
 .end method

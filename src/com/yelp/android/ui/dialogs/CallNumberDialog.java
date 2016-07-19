@@ -2,6 +2,8 @@ package com.yelp.android.ui.dialogs;
 
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
@@ -9,6 +11,8 @@ import android.text.TextUtils;
 public class CallNumberDialog
   extends DialogFragment
 {
+  private DialogInterface.OnDismissListener a;
+  
   public static CallNumberDialog a(String paramString)
   {
     CallNumberDialog localCallNumberDialog = new CallNumberDialog();
@@ -20,9 +24,22 @@ public class CallNumberDialog
     return localCallNumberDialog;
   }
   
+  public void a(DialogInterface.OnDismissListener paramOnDismissListener)
+  {
+    a = paramOnDismissListener;
+  }
+  
   public Dialog onCreateDialog(Bundle paramBundle)
   {
-    return new AlertDialog.Builder(getActivity()).setMessage(2131166462).setPositiveButton(2131165455, new b(this)).setNegativeButton(2131165456, null).create();
+    return new AlertDialog.Builder(getActivity()).setMessage(2131166466).setPositiveButton(2131165581, new CallNumberDialog.1(this)).setNegativeButton(2131166925, null).create();
+  }
+  
+  public void onDismiss(DialogInterface paramDialogInterface)
+  {
+    super.onDismiss(paramDialogInterface);
+    if (a != null) {
+      a.onDismiss(paramDialogInterface);
+    }
   }
 }
 

@@ -8,14 +8,14 @@
 
 .field private b:Lcom/yelp/android/serializable/EventAttendees;
 
-.field private c:Lcom/yelp/android/ui/activities/events/e;
+.field private c:Lcom/yelp/android/ui/activities/events/b;
 
-.field private d:Lcom/yelp/android/appdata/webrequests/bu;
+.field private d:Lcom/yelp/android/appdata/webrequests/bn;
 
-.field private final e:Lcom/yelp/android/appdata/webrequests/m;
+.field private final e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Ljava/util/List",
             "<",
@@ -34,32 +34,32 @@
     .line 23
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;-><init>()V
 
-    .line 111
-    new-instance v0, Lcom/yelp/android/ui/activities/events/g;
+    .line 116
+    new-instance v0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/events/g;-><init>(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment$2;-><init>(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->e:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)Lcom/yelp/android/appdata/webrequests/bu;
+.method static synthetic a(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)Lcom/yelp/android/appdata/webrequests/bn;
     .locals 1
 
     .prologue
     .line 23
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bu;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bn;
 
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;Lcom/yelp/android/appdata/webrequests/bu;)Lcom/yelp/android/appdata/webrequests/bu;
+.method static synthetic a(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;Lcom/yelp/android/appdata/webrequests/bn;)Lcom/yelp/android/appdata/webrequests/bn;
     .locals 0
 
     .prologue
     .line 23
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bu;
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bn;
 
     return-object p1
 .end method
@@ -100,32 +100,32 @@
 
     .prologue
     .line 93
-    new-instance v0, Lcom/yelp/android/ui/activities/events/e;
+    new-instance v0, Lcom/yelp/android/ui/activities/events/b;
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->b:Lcom/yelp/android/serializable/EventAttendees;
 
-    invoke-direct {v0, v1, p1}, Lcom/yelp/android/ui/activities/events/e;-><init>(Lcom/yelp/android/serializable/EventAttendees;Landroid/os/Bundle;)V
+    invoke-direct {v0, v1, p1}, Lcom/yelp/android/ui/activities/events/b;-><init>(Lcom/yelp/android/serializable/EventAttendees;Landroid/os/Bundle;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/e;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/b;
 
     .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/b;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->a(Landroid/widget/ListAdapter;)V
 
     .line 95
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/events/e;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/events/b;->c()Z
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->a(Z)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->b(Z)V
 
     .line 96
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/events/e;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/events/b;->c()Z
 
     move-result v0
 
@@ -136,13 +136,13 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/ui/activities/events/f;
+    new-instance v1, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/events/f;-><init>(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment$1;-><init>(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnLoadNeeded(Ljava/lang/Runnable;)V
 
-    .line 109
+    .line 114
     :cond_0
     return-void
 .end method
@@ -157,12 +157,12 @@
     return-void
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)Lcom/yelp/android/ui/activities/events/e;
+.method static synthetic b(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)Lcom/yelp/android/ui/activities/events/b;
     .locals 1
 
     .prologue
     .line 23
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/b;
 
     return-object v0
 .end method
@@ -177,12 +177,12 @@
     return-object v0
 .end method
 
-.method static synthetic d(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)Lcom/yelp/android/appdata/webrequests/m;
+.method static synthetic d(Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;)Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .locals 1
 
     .prologue
     .line 23
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->e:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-object v0
 .end method
@@ -194,9 +194,9 @@
 
     .prologue
     .line 79
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/b;
 
-    invoke-virtual {v0, p3}, Lcom/yelp/android/ui/activities/events/e;->a(I)Lcom/yelp/android/serializable/User;
+    invoke-virtual {v0, p3}, Lcom/yelp/android/ui/activities/events/b;->a(I)Lcom/yelp/android/serializable/User;
 
     move-result-object v0
 
@@ -210,11 +210,11 @@
 
     iget-object v3, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->a:Lcom/yelp/android/serializable/Event;
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/Event;->getId()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/Event;->I()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-static {v1, v2, v3}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/lang/String;Ljava/lang/Object;)V
 
     .line 83
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
@@ -232,7 +232,7 @@
     return-void
 .end method
 
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -307,7 +307,7 @@
     .line 68
     const-string/jumbo v0, "event_more_attendees_request"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bu;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bn;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
@@ -327,15 +327,15 @@
 
     const/4 v1, 0x0
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->e:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/bu;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/bn;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bu;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->d:Lcom/yelp/android/appdata/webrequests/bn;
 
     .line 63
     return-void
@@ -349,9 +349,9 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
     .line 74
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/events/EventAttendeesFragment;->c:Lcom/yelp/android/ui/activities/events/b;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/events/e;->a(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/events/b;->a(Landroid/os/Bundle;)V
 
     .line 75
     return-void

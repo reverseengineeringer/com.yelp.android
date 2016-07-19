@@ -51,13 +51,13 @@
 
     iget-object v1, v1, Lcom/comscore/streaming/a;->a:Lcom/comscore/analytics/a;
 
-    invoke-virtual {v1}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/al/c;
+    invoke-virtual {v1}, Lcom/comscore/analytics/a;->t()Lcom/yelp/android/ar/c;
 
     move-result-object v1
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/al/c;->a(Lcom/yelp/android/al/b;Z)Z
+    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ar/c;->a(Lcom/yelp/android/ar/b;Z)Z
 
     return-void
 .end method

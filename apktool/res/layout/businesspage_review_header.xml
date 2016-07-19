@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/businesspage_review_header" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
+    <TextView android:id="@id/header_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/recommended_reviews" style="?minorListSeparatorTextViewStyle" />
+    <com.yelp.android.ui.widgets.SpannableRelativeLayout android:id="@id/review_entrypoint" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_base_gap_size" android:layout_below="@id/header_title" yelp:position="bottom|left" style="?sublistCell">
+        <include layout="@layout/panel_passport_short" />
+        <View android:id="@id/user_panel_divider" android:background="@color/gray_silver_divider" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" android:layout_below="@id/user_friend_count" />
+        <TextView android:textAppearance="@style/DeprecatedLargeLightGrayText" android:gravity="center_vertical" android:id="@id/copy_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableTop="@drawable/business_stars_medium" android:drawablePadding="@dimen/default_base_gap_size" android:layout_below="@id/user_panel_divider" android:layout_alignParentLeft="true" />
+    </com.yelp.android.ui.widgets.SpannableRelativeLayout>
+</RelativeLayout>

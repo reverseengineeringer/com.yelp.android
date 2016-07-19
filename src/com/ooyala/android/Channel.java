@@ -58,7 +58,7 @@ public class Channel
       return false;
     }
     _isFetchingMoreChildren = true;
-    new Thread(new Channel.NextChildrenRunner(this, paramPaginatedItemListener)).start();
+    new Thread(new NextChildrenRunner(paramPaginatedItemListener)).start();
     return true;
   }
   
@@ -149,7 +149,7 @@ public class Channel
     {
       try
       {
-        i = Channel.1.$SwitchMap$com$ooyala$android$Constants$ReturnState[super.update(paramJSONObject).ordinal()];
+        i = 1.$SwitchMap$com$ooyala$android$Constants$ReturnState[super.update(paramJSONObject).ordinal()];
         switch (i)
         {
         default: 
@@ -263,6 +263,54 @@ public class Channel
   public Video videoFromEmbedCode(String paramString, Video paramVideo)
   {
     return (Video)_videos.get(paramString);
+  }
+  
+  private class NextChildrenRunner
+    implements Runnable
+  {
+    private PaginatedItemListener _listener = null;
+    
+    public NextChildrenRunner(PaginatedItemListener paramPaginatedItemListener)
+    {
+      _listener = paramPaginatedItemListener;
+    }
+    
+    public void run()
+    {
+      PaginatedItemResponse localPaginatedItemResponse = _api.contentTreeNext(Channel.this);
+      if (localPaginatedItemResponse == null)
+      {
+        _listener.onItemsFetched(-1, 0, new OoyalaException(OoyalaException.OoyalaErrorCode.ERROR_CONTENT_TREE_NEXT_FAILED, "Null response"));
+        _isFetchingMoreChildren = false;
+        return;
+      }
+      if (firstIndex < 0)
+      {
+        _listener.onItemsFetched(firstIndex, count, new OoyalaException(OoyalaException.OoyalaErrorCode.ERROR_CONTENT_TREE_NEXT_FAILED, "No additional children found"));
+        _isFetchingMoreChildren = false;
+        return;
+      }
+      List localList = ContentItem.getEmbedCodes(_videos.subList(firstIndex, firstIndex + count));
+      try
+      {
+        if ((_api.authorizeEmbedCodes(localList, Channel.this)) && (_api.fetchMetadataForEmbedCodes(localList, Channel.this))) {
+          _listener.onItemsFetched(firstIndex, count, null);
+        }
+        for (;;)
+        {
+          _isFetchingMoreChildren = false;
+          return;
+          _listener.onItemsFetched(firstIndex, count, new OoyalaException(OoyalaException.OoyalaErrorCode.ERROR_AUTHORIZATION_FAILED, "Additional child authorization failed"));
+        }
+      }
+      catch (OoyalaException localOoyalaException)
+      {
+        for (;;)
+        {
+          _listener.onItemsFetched(firstIndex, count, localOoyalaException);
+        }
+      }
+    }
   }
 }
 

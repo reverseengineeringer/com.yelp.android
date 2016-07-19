@@ -1,95 +1,169 @@
-.class Lcom/yelp/android/appdata/g;
-.super Ljava/lang/Object;
-.source "AppData.java"
-
-# interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
+.class public Lcom/yelp/android/appdata/g;
+.super Landroid/os/AsyncTask;
+.source "FeatureStatusTask.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Landroid/os/AsyncTask",
         "<",
-        "Lcom/yelp/android/serializable/PrivacyPolicy;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Boolean;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic a:Lcom/yelp/android/appdata/AppData;
+.field private final a:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final b:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Lcom/yelp/android/appdata/Features$a;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final c:Lcom/yelp/android/appdata/Features;
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/appdata/AppData;)V
-    .locals 0
+.method public constructor <init>(Lcom/yelp/android/appdata/Features;Landroid/content/Context;Lcom/yelp/android/appdata/Features$a;)V
+    .locals 1
 
     .prologue
-    .line 720
-    iput-object p1, p0, Lcom/yelp/android/appdata/g;->a:Lcom/yelp/android/appdata/AppData;
+    .line 22
+    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 23
+    iput-object p1, p0, Lcom/yelp/android/appdata/g;->c:Lcom/yelp/android/appdata/Features;
 
+    .line 24
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/g;->a:Ljava/lang/ref/WeakReference;
+
+    .line 25
+    new-instance v0, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v0, p3}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/g;->b:Ljava/lang/ref/WeakReference;
+
+    .line 26
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/serializable/PrivacyPolicy;)V
+.method protected varargs a([Ljava/lang/Void;)Ljava/lang/Boolean;
+    .locals 2
+
+    .prologue
+    .line 30
+    iget-object v0, p0, Lcom/yelp/android/appdata/g;->a:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    .line 31
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/appdata/g;->c:Lcom/yelp/android/appdata/Features;
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/Features;->isEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method protected a(Ljava/lang/Boolean;)V
+    .locals 2
+
+    .prologue
+    .line 36
+    iget-object v0, p0, Lcom/yelp/android/appdata/g;->b:Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/appdata/Features$a;
+
+    .line 39
+    if-eqz v0, :cond_0
+
+    if-nez p1, :cond_1
+
+    .line 44
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 43
+    :cond_1
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/appdata/Features$a;->a(Z)V
+
+    goto :goto_0
+.end method
+
+.method protected synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/serializable/PrivacyPolicy;",
-            ")V"
-        }
-    .end annotation
 
     .prologue
-    .line 729
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+    .line 16
+    check-cast p1, [Ljava/lang/Void;
+
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/g;->a([Ljava/lang/Void;)Ljava/lang/Boolean;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/i;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Lcom/yelp/android/appdata/i;->a(Lcom/yelp/android/serializable/PrivacyPolicy;)V
-
-    .line 730
-    return-void
+    return-object v0
 .end method
 
-.method public onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ")V"
-        }
-    .end annotation
-
-    .prologue
-    .line 725
-    return-void
-.end method
-
-.method public synthetic onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
+.method protected synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
     .prologue
-    .line 720
-    check-cast p2, Lcom/yelp/android/serializable/PrivacyPolicy;
+    .line 16
+    check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/appdata/g;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/serializable/PrivacyPolicy;)V
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/g;->a(Ljava/lang/Boolean;)V
 
     return-void
 .end method

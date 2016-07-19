@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/ui/activities/mutatebiz/EditField;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4009
+    name = "InputType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -31,23 +40,21 @@
 # instance fields
 .field public final editTextInputType:I
 
-.field public final hint:I
-
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 8
 
     .prologue
-    const/4 v8, 0x4
+    const/4 v7, 0x4
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    const/4 v6, 0x1
-
-    const/4 v5, 0x3
+    const/4 v5, 0x1
 
     const/4 v4, 0x0
+
+    const/4 v3, 0x3
 
     .line 33
     new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
@@ -56,48 +63,42 @@
 
     const/16 v2, 0x2001
 
-    const v3, 0x7f0700ff
-
-    invoke-direct {v0, v1, v4, v2, v3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v4, v2}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->NAME:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    .line 35
+    .line 36
     new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType$1;
 
     const-string/jumbo v1, "PHONE"
 
-    const v2, 0x7f07045b
-
-    invoke-direct {v0, v1, v6, v5, v2}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType$1;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v5, v3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType$1;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->PHONE:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    .line 42
+    .line 43
     new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType$2;
 
     const-string/jumbo v1, "MULTILINE_TEXT"
 
     const v2, 0x20001
 
-    invoke-direct {v0, v1, v7, v2, v4}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType$2;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v6, v2}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType$2;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MULTILINE_TEXT:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    .line 50
+    .line 52
     new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
     const-string/jumbo v1, "URI"
 
     const/16 v2, 0x11
 
-    const v3, 0x7f070673
-
-    invoke-direct {v0, v1, v5, v2, v3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v3, v2}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    .line 53
+    .line 55
     new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
     const-string/jumbo v1, "MENU_URI"
@@ -106,9 +107,7 @@
 
     iget v2, v2, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->editTextInputType:I
 
-    const v3, 0x7f07037f
-
-    invoke-direct {v0, v1, v8, v2, v3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;III)V
+    invoke-direct {v0, v1, v7, v2}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;II)V
 
     sput-object v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MENU_URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
@@ -123,53 +122,50 @@
 
     sget-object v1, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->PHONE:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    aput-object v1, v0, v6
+    aput-object v1, v0, v5
 
     sget-object v1, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MULTILINE_TEXT:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    aput-object v1, v0, v7
+    aput-object v1, v0, v6
 
     sget-object v1, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    aput-object v1, v0, v5
+    aput-object v1, v0, v3
 
     sget-object v1, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MENU_URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    aput-object v1, v0, v8
+    aput-object v1, v0, v7
 
     sput-object v0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->$VALUES:[Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;III)V
+.method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(II)V"
+            "(I)V"
         }
     .end annotation
 
     .prologue
-    .line 59
+    .line 60
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 60
-    iput p3, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->editTextInputType:I
-
     .line 61
-    iput p4, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->hint:I
+    iput p3, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->editTextInputType:I
 
     .line 62
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/String;IIILcom/yelp/android/ui/activities/mutatebiz/t;)V
+.method synthetic constructor <init>(Ljava/lang/String;IILcom/yelp/android/ui/activities/mutatebiz/EditField$1;)V
     .locals 0
 
     .prologue
     .line 32
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;III)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;-><init>(Ljava/lang/String;II)V
 
     return-void
 .end method
@@ -218,16 +214,5 @@
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setInputType(I)V
 
     .line 72
-    iget v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->hint:I
-
-    if-eqz v0, :cond_0
-
-    .line 73
-    iget v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->hint:I
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
-
-    .line 75
-    :cond_0
     return-void
 .end method

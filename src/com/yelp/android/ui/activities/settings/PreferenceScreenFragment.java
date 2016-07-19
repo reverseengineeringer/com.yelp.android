@@ -1,28 +1,30 @@
 package com.yelp.android.ui.activities.settings;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.OnHierarchyChangeListener;
-import android.view.animation.AlphaAnimation;
+import android.view.ViewParent;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Checkable;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
-import com.yelp.android.ui.util.cw;
+import com.yelp.android.appdata.ApiPreferences;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.cj.i;
+import com.yelp.android.serializable.PreferenceSection;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -33,18 +35,16 @@ public class PreferenceScreenFragment
   implements View.OnClickListener, ViewGroup.OnHierarchyChangeListener, TextView.OnEditorActionListener
 {
   private CharSequence a;
-  private an b;
-  private SharedPreferences c;
-  private ao d;
-  private final Map<String, PreferenceView> e = new TreeMap();
-  private final Map<String, List<PreferenceView>> f = new TreeMap();
-  private final SparseArray<ao> g = new SparseArray();
-  private View h;
+  private b b;
+  private i c;
+  private final Map<String, PreferenceView> d = new TreeMap();
+  private Map<String, i> e = new HashMap();
+  private View f;
   
   public static PreferenceScreenFragment a(int paramInt1, CharSequence paramCharSequence, int paramInt2)
   {
     Bundle localBundle = new Bundle();
-    localBundle.putInt("screenref", paramInt1);
+    localBundle.putInt("layout", paramInt1);
     localBundle.putCharSequence("title", paramCharSequence);
     localBundle.putInt("footer", paramInt2);
     paramCharSequence = new PreferenceScreenFragment();
@@ -52,202 +52,181 @@ public class PreferenceScreenFragment
     return paramCharSequence;
   }
   
+  public static PreferenceScreenFragment a(List<PreferenceSection> paramList, String paramString)
+  {
+    Bundle localBundle = new Bundle();
+    localBundle.putParcelableArrayList("preference_sections", new ArrayList(paramList));
+    localBundle.putString("title", paramString);
+    paramList = new PreferenceScreenFragment();
+    paramList.setArguments(localBundle);
+    return paramList;
+  }
+  
   public void a()
   {
-    Iterator localIterator = e.values().iterator();
+    Iterator localIterator = d.values().iterator();
     while (localIterator.hasNext()) {
-      b((PreferenceView)localIterator.next());
+      a((PreferenceView)localIterator.next());
     }
   }
   
-  public void a(SparseArray<ao> paramSparseArray)
+  public void a(b paramb)
   {
-    g.clear();
-    int i = 0;
-    int j = paramSparseArray.size();
-    while (i < j)
-    {
-      int k = paramSparseArray.keyAt(i);
-      g.put(k, paramSparseArray.get(k));
-      i += 1;
-    }
+    b = paramb;
   }
   
-  void a(PreferenceView paramPreferenceView)
+  public void a(PreferenceView paramPreferenceView)
   {
-    String str = paramPreferenceView.getKey();
-    Map localMap = f;
-    Object localObject = str;
-    if (TextUtils.isEmpty(str)) {
-      localObject = "";
+    i locali2 = (i)e.get(paramPreferenceView.getKey());
+    i locali1 = locali2;
+    if (locali2 == null) {
+      locali1 = c;
     }
-    localObject = (List)localMap.get(localObject);
-    if (localObject != null) {
-      paramPreferenceView.post(new ai(this, (List)localObject));
-    }
-  }
-  
-  public void a(an paraman)
-  {
-    b = paraman;
+    locali1.a(paramPreferenceView);
   }
   
   public void a(String paramString)
   {
-    paramString = (PreferenceView)e.get(paramString);
+    paramString = (PreferenceView)d.get(paramString);
     if (paramString != null) {
-      b(paramString);
+      a(paramString);
     }
+  }
+  
+  public void a(Map<String, i> paramMap)
+  {
+    e = paramMap;
   }
   
   public View b()
   {
-    return h;
-  }
-  
-  public void b(PreferenceView paramPreferenceView)
-  {
-    ao localao = (ao)g.get(paramPreferenceView.getId());
-    Object localObject = localao;
-    if (localao == null) {
-      localObject = d;
-    }
-    ((ao)localObject).a(paramPreferenceView);
-    paramPreferenceView = paramPreferenceView.getKey();
-    if ((!TextUtils.isEmpty(paramPreferenceView)) && (f.containsKey(paramPreferenceView)))
-    {
-      boolean bool = c.getBoolean(paramPreferenceView, false);
-      paramPreferenceView = ((List)f.get(paramPreferenceView)).iterator();
-      while (paramPreferenceView.hasNext())
-      {
-        localObject = (PreferenceView)paramPreferenceView.next();
-        if (bool != ((PreferenceView)localObject).isClickable()) {}
-        for (int i = 1;; i = 0)
-        {
-          localao = (ao)g.get(((PreferenceView)localObject).getId());
-          if (localao != null) {
-            localao.a((PreferenceView)localObject);
-          }
-          if (i == 0) {
-            break;
-          }
-          if (!bool) {
-            break label194;
-          }
-          cw.c((View)localObject, cw.a).setAnimationListener(new al((View)localObject));
-          break;
-        }
-        label194:
-        cw.b((View)localObject, cw.a).setAnimationListener(new am((View)localObject));
-      }
-    }
+    return f;
   }
   
   public void onChildViewAdded(View paramView1, View paramView2)
   {
-    PreferenceView localPreferenceView;
-    if ((paramView2 instanceof PreferenceView))
-    {
-      localPreferenceView = (PreferenceView)paramView2;
-      if (TextUtils.isEmpty(localPreferenceView.getKey())) {
-        break label142;
-      }
-      e.put(localPreferenceView.getKey(), localPreferenceView);
-    }
-    for (;;)
-    {
-      localPreferenceView.setOnClickListener(this);
-      b.setOnEditorActionListener(this);
-      b.setOnItemClickListener(new aj(this, localPreferenceView));
-      if (localPreferenceView.getDependency() != 0)
-      {
-        String str = localPreferenceView.getContext().getString(localPreferenceView.getDependency());
-        paramView2 = (List)f.get(str);
-        paramView1 = paramView2;
-        if (paramView2 == null)
-        {
-          paramView1 = new ArrayList();
-          f.put(str, paramView1);
-        }
-        paramView1.add(localPreferenceView);
-      }
-      b(localPreferenceView);
-      return;
-      label142:
-      e.put(localPreferenceView.toString(), localPreferenceView);
-    }
-  }
-  
-  public void onChildViewRemoved(View paramView1, View paramView2)
-  {
     if ((paramView2 instanceof PreferenceView))
     {
       paramView1 = (PreferenceView)paramView2;
-      f.remove(paramView1.getKey());
-      if (paramView1.getDependency() != 0) {
-        ((List)f.get(paramView1.getContext().getString(paramView1.getDependency()))).remove(paramView1);
+      if (TextUtils.isEmpty(paramView1.getKey())) {
+        break label72;
       }
+      d.put(paramView1.getKey(), paramView1);
+    }
+    for (;;)
+    {
+      paramView1.setOnClickListener(this);
+      b.setOnEditorActionListener(this);
+      b.setOnItemClickListener(new PreferenceScreenFragment.1(this, paramView1));
+      a(paramView1);
+      return;
+      label72:
+      d.put(paramView1.toString(), paramView1);
     }
   }
+  
+  public void onChildViewRemoved(View paramView1, View paramView2) {}
   
   public void onClick(View paramView)
   {
     PreferenceView localPreferenceView = (PreferenceView)paramView;
+    String str = localPreferenceView.getKey();
+    Object localObject = AppData.b().o();
+    if (!TextUtils.isEmpty(str))
+    {
+      if (str.equals(getString(2131166975))) {
+        b.a(((ApiPreferences)localObject).e(), getString(2131166407));
+      }
+      if (str.equals(getString(2131166965))) {
+        b.a(((ApiPreferences)localObject).d(), getString(2131165837));
+      }
+    }
     if (localPreferenceView.getReference() != 0) {
       b.a(localPreferenceView.getReference(), localPreferenceView.getTitle());
     }
-    if ((!TextUtils.isEmpty(localPreferenceView.getKey())) && ((paramView instanceof PreferenceToggleView))) {
-      b.a(localPreferenceView.getKey(), ((Checkable)paramView).isChecked());
+    if ((paramView instanceof PreferenceToggleView))
+    {
+      localObject = b;
+      if (!((Checkable)paramView).isChecked()) {
+        break label237;
+      }
     }
-    if ((!TextUtils.isEmpty(localPreferenceView.getKey())) && ((paramView instanceof LocationPreference))) {
-      b.a(localPreferenceView.getKey(), null, false, null);
+    label237:
+    for (int i = 1;; i = 0)
+    {
+      ((b)localObject).a(str, i);
+      if (((paramView instanceof PreferenceRadioView)) && (((Checkable)paramView).isChecked())) {
+        b.a(str, ((PreferenceRadioView)paramView).getValue());
+      }
+      if ((!TextUtils.isEmpty(localPreferenceView.getKey())) && ((paramView instanceof LocationPreference))) {
+        b.a(localPreferenceView.getKey(), null, false, null);
+      }
+      b.a(localPreferenceView);
+      return;
     }
-    b.a(localPreferenceView);
-    a(localPreferenceView);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    f.clear();
-    e.clear();
-    if (c == null) {}
-    for (paramBundle = PreferenceManager.getDefaultSharedPreferences(paramViewGroup.getContext());; paramBundle = c)
+    d.clear();
+    c = new PreferenceScreenFragment.a();
+    paramViewGroup = (ViewGroup)paramLayoutInflater.inflate(2130903504, paramViewGroup, false);
+    paramBundle = (ViewGroup)paramViewGroup.findViewById(2131690853);
+    paramBundle.setOnHierarchyChangeListener(this);
+    Bundle localBundle = getArguments();
+    a = localBundle.getCharSequence("title");
+    int i = localBundle.getInt("layout");
+    if (i != 0)
     {
-      c = paramBundle;
-      d = new ak(c);
-      paramViewGroup = (ViewGroup)paramLayoutInflater.inflate(2130903393, paramViewGroup, false);
-      paramBundle = (ViewGroup)paramViewGroup.findViewById(2131493986);
-      paramBundle.setOnHierarchyChangeListener(this);
-      Bundle localBundle = getArguments();
-      int i = localBundle.getInt("screenref");
-      a = localBundle.getCharSequence("title");
       paramLayoutInflater.inflate(i, paramBundle);
       i = localBundle.getInt("footer");
       if (i != 0)
       {
-        h = paramLayoutInflater.inflate(i, paramBundle, false);
-        paramBundle.addView(h);
+        f = paramLayoutInflater.inflate(i, paramBundle, false);
+        paramBundle.addView(f);
       }
       return paramViewGroup;
     }
+    paramLayoutInflater = localBundle.getParcelableArrayList("preference_sections");
+    paramLayoutInflater = new a(getContext(), paramLayoutInflater).a().iterator();
+    while (paramLayoutInflater.hasNext()) {
+      paramBundle.addView((View)paramLayoutInflater.next());
+    }
+    paramBundle.setBackgroundColor(getResources().getColor(2131624261));
+    return paramViewGroup;
   }
   
   public boolean onEditorAction(TextView paramTextView, int paramInt, KeyEvent paramKeyEvent)
   {
-    paramKeyEvent = (AutoCompleteTextView)paramTextView;
+    AutoCompleteTextView localAutoCompleteTextView = (AutoCompleteTextView)paramTextView;
     if ((paramInt == 0) || (paramInt == 6) || (paramInt == 5))
     {
       ((InputMethodManager)paramTextView.getContext().getSystemService("input_method")).hideSoftInputFromWindow(paramTextView.getWindowToken(), 0);
-      paramTextView = (ArrayAdapter)paramKeyEvent.getAdapter();
-      if ((paramTextView == null) || (paramTextView.getCount() <= 0)) {
-        break label99;
+      paramKeyEvent = (ArrayAdapter)localAutoCompleteTextView.getAdapter();
+      if ((paramKeyEvent == null) || (paramKeyEvent.getCount() <= 0)) {
+        break label172;
       }
     }
-    label99:
-    for (paramTextView = (String)paramTextView.getItem(0);; paramTextView = null)
+    label134:
+    label172:
+    for (paramKeyEvent = (String)paramKeyEvent.getItem(0);; paramKeyEvent = null)
     {
-      b.a(getString(2131165978), paramKeyEvent.getText().toString(), false, paramTextView);
-      return true;
+      ViewParent localViewParent = paramTextView.getParent();
+      paramTextView = "";
+      if ((localViewParent instanceof LocationPreference)) {
+        if (((LocationPreference)localViewParent).getId() != 2131690866) {
+          break label134;
+        }
+      }
+      for (paramTextView = getString(2131166647);; paramTextView = getString(2131166386))
+      {
+        b.a(paramTextView, localAutoCompleteTextView.getText().toString(), false, paramKeyEvent);
+        return true;
+        if (((LocationPreference)localViewParent).getId() != 2131690865) {
+          break;
+        }
+      }
+      throw new IllegalStateException("Invalid parent location type");
       return false;
     }
   }
@@ -256,6 +235,19 @@ public class PreferenceScreenFragment
   {
     super.onResume();
     a();
+  }
+  
+  public static abstract interface b
+  {
+    public abstract void a(int paramInt, CharSequence paramCharSequence);
+    
+    public abstract void a(PreferenceView paramPreferenceView);
+    
+    public abstract void a(String paramString, int paramInt);
+    
+    public abstract void a(String paramString1, String paramString2, boolean paramBoolean, String paramString3);
+    
+    public abstract void a(List<PreferenceSection> paramList, String paramString);
   }
 }
 

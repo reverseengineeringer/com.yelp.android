@@ -2,6 +2,14 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/common/data/DataBufferObserver$Observable;
+    }
+.end annotation
+
+
 # virtual methods
 .method public abstract onDataChanged()V
 .end method

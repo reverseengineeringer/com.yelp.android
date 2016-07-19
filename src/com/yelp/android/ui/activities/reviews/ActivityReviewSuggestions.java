@@ -2,11 +2,18 @@ package com.yelp.android.ui.activities.reviews;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.EditText;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.appdata.BusinessContributionType;
+import com.yelp.android.ui.activities.search.SearchOverlay;
 import com.yelp.android.ui.activities.support.ActivitySingleSearchBar;
+import com.yelp.android.ui.util.SuggestionFilter.SuggestionType;
+import java.util.Collections;
 
 public class ActivityReviewSuggestions
   extends ActivitySingleSearchBar<ReviewSuggestionsPageFragment>
@@ -22,7 +29,7 @@ public class ActivityReviewSuggestions
   
   protected ReviewSuggestionsPageFragment a()
   {
-    return ReviewSuggestionsPageFragment.e();
+    return ReviewSuggestionsPageFragment.f();
   }
   
   public ViewIri getIri()
@@ -33,12 +40,12 @@ public class ActivityReviewSuggestions
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
-    if ((paramInt1 == 1048) && (paramInt2 == -1))
+    if ((paramInt1 == 1055) && (paramInt2 == -1))
     {
       b = paramIntent.getStringExtra("extra.search_text");
       c = paramIntent.getStringExtra("extra.location");
       paramIntent = paramIntent.getStringExtra("extra.search.launch_method");
-      a.setText(Html.fromHtml(getString(2131166891, new Object[] { b, c })));
+      a.setText(Html.fromHtml(getString(2131166915, new Object[] { b, c })));
       ((ReviewSuggestionsPageFragment)e()).a(b, c, paramIntent);
     }
   }
@@ -46,14 +53,21 @@ public class ActivityReviewSuggestions
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    a = ((EditText)findViewById(2131493226));
-    a.setOnClickListener(new k(this));
-    a.setHint(2131165654);
+    a = ((EditText)findViewById(2131690889));
+    a.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        paramAnonymousView = SearchOverlay.a(ActivityReviewSuggestions.this, Collections.singletonList(getResources().getString(2131165745)), ActivityReviewSuggestions.a(ActivityReviewSuggestions.this), ActivityReviewSuggestions.b(ActivityReviewSuggestions.this), false, BusinessContributionType.REVIEW, SuggestionFilter.SuggestionType.CONTRIBUTION);
+        startActivityForResult(paramAnonymousView, 1055);
+      }
+    });
+    a.setHint(2131165732);
     if (paramBundle != null)
     {
       b = paramBundle.getString("search_text");
       c = paramBundle.getString("search_location");
-      a.setText(Html.fromHtml(getString(2131166891, new Object[] { b, c })));
+      a.setText(Html.fromHtml(getString(2131166915, new Object[] { b, c })));
     }
   }
   

@@ -1,28 +1,31 @@
 package android.support.v7.widget;
 
 import android.content.Context;
+import android.os.Parcel;
 import android.os.Parcelable;
+import android.os.Parcelable.Creator;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
-import com.yelp.android.f.a;
+import com.yelp.android.h.a;
+import com.yelp.android.h.m;
 import java.util.List;
 
 public class LinearLayoutManager
-  extends br
+  extends RecyclerView.i
 {
-  private ak a;
+  private c a;
   private boolean b;
   private boolean c = false;
   private boolean d = false;
   private boolean e = true;
   private boolean f;
   int j;
-  ba k;
+  i k;
   boolean l = false;
   int m = -1;
   int n = Integer.MIN_VALUE;
-  LinearLayoutManager.SavedState o = null;
-  final ai p = new ai(this);
+  SavedState o = null;
+  final a p = new a();
   
   public LinearLayoutManager(Context paramContext, int paramInt, boolean paramBoolean)
   {
@@ -30,7 +33,7 @@ public class LinearLayoutManager
     a(paramBoolean);
   }
   
-  private void A()
+  private void B()
   {
     boolean bool = true;
     if ((j == 1) || (!g()))
@@ -47,28 +50,28 @@ public class LinearLayoutManager
     }
   }
   
-  private View B()
-  {
-    if (l) {}
-    for (int i = q() - 1;; i = 0) {
-      return e(i);
-    }
-  }
-  
   private View C()
   {
     if (l) {}
-    for (int i = 0;; i = q() - 1) {
-      return e(i);
+    for (int i = r() - 1;; i = 0) {
+      return f(i);
     }
   }
   
-  private int a(int paramInt, bv parambv, cb paramcb, boolean paramBoolean)
+  private View D()
+  {
+    if (l) {}
+    for (int i = 0;; i = r() - 1) {
+      return f(i);
+    }
+  }
+  
+  private int a(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr, boolean paramBoolean)
   {
     int i = k.d() - paramInt;
     if (i > 0)
     {
-      int i1 = -c(-i, parambv, paramcb);
+      int i1 = -c(-i, paramn, paramr);
       i = i1;
       if (paramBoolean)
       {
@@ -88,67 +91,67 @@ public class LinearLayoutManager
   private View a(boolean paramBoolean1, boolean paramBoolean2)
   {
     if (l) {
-      return a(q() - 1, -1, paramBoolean1, paramBoolean2);
+      return a(r() - 1, -1, paramBoolean1, paramBoolean2);
     }
-    return a(0, q(), paramBoolean1, paramBoolean2);
+    return a(0, r(), paramBoolean1, paramBoolean2);
   }
   
-  private void a(int paramInt1, int paramInt2, boolean paramBoolean, cb paramcb)
+  private void a(int paramInt1, int paramInt2, boolean paramBoolean, RecyclerView.r paramr)
   {
     int i = -1;
     int i1 = 1;
-    a.h = a(paramcb);
+    a.h = a(paramr);
     a.f = paramInt1;
     if (paramInt1 == 1)
     {
-      paramcb = a;
+      paramr = a;
       h += k.g();
-      paramcb = C();
-      localak = a;
+      paramr = D();
+      localc = a;
       if (l) {}
       for (paramInt1 = i;; paramInt1 = 1)
       {
         e = paramInt1;
-        a.d = (d(paramcb) + a.e);
-        a.b = k.b(paramcb);
-        paramInt1 = k.b(paramcb) - k.d();
+        a.d = (d(paramr) + a.e);
+        a.b = k.b(paramr);
+        paramInt1 = k.b(paramr) - k.d();
         a.c = paramInt2;
         if (paramBoolean)
         {
-          paramcb = a;
+          paramr = a;
           c -= paramInt1;
         }
         a.g = paramInt1;
         return;
       }
     }
-    paramcb = B();
-    ak localak = a;
+    paramr = C();
+    c localc = a;
     h += k.c();
-    localak = a;
+    localc = a;
     if (l) {}
     for (paramInt1 = i1;; paramInt1 = -1)
     {
       e = paramInt1;
-      a.d = (d(paramcb) + a.e);
-      a.b = k.a(paramcb);
-      paramInt1 = -k.a(paramcb) + k.c();
+      a.d = (d(paramr) + a.e);
+      a.b = k.a(paramr);
+      paramInt1 = -k.a(paramr) + k.c();
       break;
     }
   }
   
-  private void a(ai paramai)
+  private void a(a parama)
   {
     b(a, b);
   }
   
-  private void a(bv parambv, int paramInt)
+  private void a(RecyclerView.n paramn, int paramInt)
   {
     if (paramInt < 0) {}
     for (;;)
     {
       return;
-      int i1 = q();
+      int i1 = r();
       int i;
       View localView;
       if (l)
@@ -156,10 +159,10 @@ public class LinearLayoutManager
         i = i1 - 1;
         while (i >= 0)
         {
-          localView = e(i);
+          localView = f(i);
           if (k.b(localView) > paramInt)
           {
-            a(parambv, i1 - 1, i);
+            a(paramn, i1 - 1, i);
             return;
           }
           i -= 1;
@@ -170,10 +173,10 @@ public class LinearLayoutManager
         i = 0;
         while (i < i1)
         {
-          localView = e(i);
+          localView = f(i);
           if (k.b(localView) > paramInt)
           {
-            a(parambv, 0, i);
+            a(paramn, 0, i);
             return;
           }
           i += 1;
@@ -182,7 +185,7 @@ public class LinearLayoutManager
     }
   }
   
-  private void a(bv parambv, int paramInt1, int paramInt2)
+  private void a(RecyclerView.n paramn, int paramInt1, int paramInt2)
   {
     if (paramInt1 == paramInt2) {}
     for (;;)
@@ -194,7 +197,7 @@ public class LinearLayoutManager
         paramInt2 -= 1;
         while (paramInt2 >= paramInt1)
         {
-          a(paramInt2, parambv);
+          a(paramInt2, paramn);
           paramInt2 -= 1;
         }
       }
@@ -202,32 +205,114 @@ public class LinearLayoutManager
       {
         while (i > paramInt2)
         {
-          a(i, parambv);
+          a(i, paramn);
           i -= 1;
         }
       }
     }
   }
   
-  private void a(bv parambv, ak paramak)
+  private void a(RecyclerView.n paramn, c paramc)
   {
     if (!a) {
       return;
     }
     if (f == -1)
     {
-      b(parambv, g);
+      b(paramn, g);
       return;
     }
-    a(parambv, g);
+    a(paramn, g);
   }
   
-  private int b(int paramInt, bv parambv, cb paramcb, boolean paramBoolean)
+  private boolean a(RecyclerView.r paramr, a parama)
+  {
+    boolean bool = false;
+    if ((paramr.a()) || (m == -1)) {
+      return false;
+    }
+    if ((m < 0) || (m >= paramr.e()))
+    {
+      m = -1;
+      n = Integer.MIN_VALUE;
+      return false;
+    }
+    a = m;
+    if ((o != null) && (o.a()))
+    {
+      c = o.c;
+      if (c)
+      {
+        b = (k.d() - o.b);
+        return true;
+      }
+      b = (k.c() + o.b);
+      return true;
+    }
+    if (n == Integer.MIN_VALUE)
+    {
+      paramr = b(m);
+      int i;
+      if (paramr != null)
+      {
+        if (k.c(paramr) > k.f())
+        {
+          parama.b();
+          return true;
+        }
+        if (k.a(paramr) - k.c() < 0)
+        {
+          b = k.c();
+          c = false;
+          return true;
+        }
+        if (k.d() - k.b(paramr) < 0)
+        {
+          b = k.d();
+          c = true;
+          return true;
+        }
+        if (c) {}
+        for (i = k.b(paramr) + k.b();; i = k.a(paramr))
+        {
+          b = i;
+          return true;
+        }
+      }
+      if (r() > 0)
+      {
+        i = d(f(0));
+        if (m >= i) {
+          break label351;
+        }
+      }
+      label351:
+      for (int i1 = 1;; i1 = 0)
+      {
+        if (i1 == l) {
+          bool = true;
+        }
+        c = bool;
+        parama.b();
+        return true;
+      }
+    }
+    c = l;
+    if (l)
+    {
+      b = (k.d() - n);
+      return true;
+    }
+    b = (k.c() + n);
+    return true;
+  }
+  
+  private int b(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr, boolean paramBoolean)
   {
     int i = paramInt - k.c();
     if (i > 0)
     {
-      int i1 = -c(i, parambv, paramcb);
+      int i1 = -c(i, paramn, paramr);
       i = i1;
       if (paramBoolean)
       {
@@ -247,15 +332,15 @@ public class LinearLayoutManager
   private View b(boolean paramBoolean1, boolean paramBoolean2)
   {
     if (l) {
-      return a(0, q(), paramBoolean1, paramBoolean2);
+      return a(0, r(), paramBoolean1, paramBoolean2);
     }
-    return a(q() - 1, -1, paramBoolean1, paramBoolean2);
+    return a(r() - 1, -1, paramBoolean1, paramBoolean2);
   }
   
   private void b(int paramInt1, int paramInt2)
   {
     a.c = (k.d() - paramInt2);
-    ak localak = a;
+    c localc = a;
     if (l) {}
     for (int i = -1;; i = 1)
     {
@@ -268,14 +353,14 @@ public class LinearLayoutManager
     }
   }
   
-  private void b(ai paramai)
+  private void b(a parama)
   {
     c(a, b);
   }
   
-  private void b(bv parambv, int paramInt)
+  private void b(RecyclerView.n paramn, int paramInt)
   {
-    int i = q();
+    int i = r();
     if (paramInt < 0) {}
     for (;;)
     {
@@ -287,10 +372,10 @@ public class LinearLayoutManager
         paramInt = 0;
         while (paramInt < i)
         {
-          localView = e(paramInt);
+          localView = f(paramInt);
           if (k.a(localView) < i1)
           {
-            a(parambv, 0, paramInt);
+            a(paramn, 0, paramInt);
             return;
           }
           paramInt += 1;
@@ -301,10 +386,10 @@ public class LinearLayoutManager
         paramInt = i - 1;
         while (paramInt >= 0)
         {
-          localView = e(paramInt);
+          localView = f(paramInt);
           if (k.a(localView) < i1)
           {
-            a(parambv, i - 1, paramInt);
+            a(paramn, i - 1, paramInt);
             return;
           }
           paramInt -= 1;
@@ -313,22 +398,22 @@ public class LinearLayoutManager
     }
   }
   
-  private void b(bv parambv, cb paramcb, int paramInt1, int paramInt2)
+  private void b(RecyclerView.n paramn, RecyclerView.r paramr, int paramInt1, int paramInt2)
   {
-    if ((!paramcb.b()) || (q() == 0) || (paramcb.a()) || (!b())) {
+    if ((!paramr.b()) || (r() == 0) || (paramr.a()) || (!b())) {
       return;
     }
     int i = 0;
     int i1 = 0;
-    List localList = parambv.b();
+    List localList = paramn.b();
     int i4 = localList.size();
-    int i5 = d(e(0));
+    int i5 = d(f(0));
     int i2 = 0;
     if (i2 < i4)
     {
-      ce localce = (ce)localList.get(i2);
+      RecyclerView.u localu = (RecyclerView.u)localList.get(i2);
       int i3;
-      if (localce.p())
+      if (localu.p())
       {
         i3 = i1;
         i1 = i;
@@ -343,7 +428,7 @@ public class LinearLayoutManager
         i2 = i3;
         break;
         int i6;
-        if (localce.d() < i5)
+        if (localu.d() < i5)
         {
           i6 = 1;
           label143:
@@ -373,32 +458,32 @@ public class LinearLayoutManager
     a.k = localList;
     if (i > 0)
     {
-      c(d(B()), paramInt1);
+      c(d(C()), paramInt1);
       a.h = i;
       a.c = 0;
       a.a();
-      a(parambv, a, paramcb, false);
+      a(paramn, a, paramr, false);
     }
     if (i1 > 0)
     {
-      b(d(C()), paramInt2);
+      b(d(D()), paramInt2);
       a.h = i1;
       a.c = 0;
       a.a();
-      a(parambv, a, paramcb, false);
+      a(paramn, a, paramr, false);
     }
     a.k = null;
   }
   
-  private void b(cb paramcb, ai paramai)
+  private void b(RecyclerView.n paramn, RecyclerView.r paramr, a parama)
   {
-    if (d(paramcb, paramai)) {}
-    while (c(paramcb, paramai)) {
+    if (a(paramr, parama)) {}
+    while (c(paramn, paramr, parama)) {
       return;
     }
-    paramai.b();
+    parama.b();
     if (d) {}
-    for (int i = paramcb.e() - 1;; i = 0)
+    for (int i = paramr.e() - 1;; i = 0)
     {
       a = i;
       return;
@@ -409,7 +494,7 @@ public class LinearLayoutManager
   {
     a.c = (paramInt2 - k.c());
     a.d = paramInt1;
-    ak localak = a;
+    c localc = a;
     if (l) {}
     for (paramInt1 = 1;; paramInt1 = -1)
     {
@@ -421,143 +506,76 @@ public class LinearLayoutManager
     }
   }
   
-  private boolean c(cb paramcb, ai paramai)
+  private boolean c(RecyclerView.n paramn, RecyclerView.r paramr, a parama)
   {
     int i = 0;
-    if (q() == 0) {}
-    View localView;
+    if (r() == 0) {}
     do
     {
       return false;
-      localView = x();
-      if ((localView != null) && (ai.a(paramai, localView, paramcb)))
+      View localView = y();
+      if ((localView != null) && (a.a(parama, localView, paramr)))
       {
-        paramai.a(localView);
+        parama.a(localView);
         return true;
       }
     } while (b != d);
     if (c)
     {
-      localView = k(paramcb);
-      label65:
-      if (localView == null) {
-        break label164;
+      paramn = f(paramn, paramr);
+      label66:
+      if (paramn == null) {
+        break label165;
       }
-      paramai.b(localView);
-      if ((!paramcb.a()) && (b()))
+      parama.b(paramn);
+      if ((!paramr.a()) && (b()))
       {
-        if ((k.a(localView) >= k.d()) || (k.b(localView) < k.c())) {
+        if ((k.a(paramn) >= k.d()) || (k.b(paramn) < k.c())) {
           i = 1;
         }
         if (i != 0) {
           if (!c) {
-            break label166;
+            break label167;
           }
         }
       }
     }
-    label164:
-    label166:
+    label165:
+    label167:
     for (i = k.d();; i = k.c())
     {
       b = i;
       return true;
-      localView = l(paramcb);
-      break label65;
+      paramn = g(paramn, paramr);
+      break label66;
       break;
     }
   }
   
-  private boolean d(cb paramcb, ai paramai)
+  private View f(RecyclerView.n paramn, RecyclerView.r paramr)
   {
-    boolean bool = false;
-    if ((paramcb.a()) || (m == -1)) {
-      return false;
+    if (l) {
+      return h(paramn, paramr);
     }
-    if ((m < 0) || (m >= paramcb.e()))
-    {
-      m = -1;
-      n = Integer.MIN_VALUE;
-      return false;
-    }
-    a = m;
-    if ((o != null) && (o.hasValidAnchor()))
-    {
-      c = o.mAnchorLayoutFromEnd;
-      if (c)
-      {
-        b = (k.d() - o.mAnchorOffset);
-        return true;
-      }
-      b = (k.c() + o.mAnchorOffset);
-      return true;
-    }
-    if (n == Integer.MIN_VALUE)
-    {
-      paramcb = b(m);
-      int i;
-      if (paramcb != null)
-      {
-        if (k.c(paramcb) > k.f())
-        {
-          paramai.b();
-          return true;
-        }
-        if (k.a(paramcb) - k.c() < 0)
-        {
-          b = k.c();
-          c = false;
-          return true;
-        }
-        if (k.d() - k.b(paramcb) < 0)
-        {
-          b = k.d();
-          c = true;
-          return true;
-        }
-        if (c) {}
-        for (i = k.b(paramcb) + k.b();; i = k.a(paramcb))
-        {
-          b = i;
-          return true;
-        }
-      }
-      if (q() > 0)
-      {
-        i = d(e(0));
-        if (m >= i) {
-          break label351;
-        }
-      }
-      label351:
-      for (int i1 = 1;; i1 = 0)
-      {
-        if (i1 == l) {
-          bool = true;
-        }
-        c = bool;
-        paramai.b();
-        return true;
-      }
-    }
-    c = l;
-    if (l)
-    {
-      b = (k.d() - n);
-      return true;
-    }
-    b = (k.c() + n);
-    return true;
+    return i(paramn, paramr);
   }
   
-  private int h(cb paramcb)
+  private View g(RecyclerView.n paramn, RecyclerView.r paramr)
+  {
+    if (l) {
+      return i(paramn, paramr);
+    }
+    return h(paramn, paramr);
+  }
+  
+  private int h(RecyclerView.r paramr)
   {
     boolean bool2 = false;
-    if (q() == 0) {
+    if (r() == 0) {
       return 0;
     }
     h();
-    ba localba = k;
+    i locali = k;
     if (!e) {}
     for (boolean bool1 = true;; bool1 = false)
     {
@@ -566,11 +584,41 @@ public class LinearLayoutManager
       if (!e) {
         bool1 = true;
       }
-      return ch.a(paramcb, localba, localView, b(bool1, true), this, e, l);
+      return k.a(paramr, locali, localView, b(bool1, true), this, e, l);
     }
   }
   
-  private int i(int paramInt)
+  private View h(RecyclerView.n paramn, RecyclerView.r paramr)
+  {
+    return a(paramn, paramr, 0, r(), paramr.e());
+  }
+  
+  private int i(RecyclerView.r paramr)
+  {
+    boolean bool2 = false;
+    if (r() == 0) {
+      return 0;
+    }
+    h();
+    i locali = k;
+    if (!e) {}
+    for (boolean bool1 = true;; bool1 = false)
+    {
+      View localView = a(bool1, true);
+      bool1 = bool2;
+      if (!e) {
+        bool1 = true;
+      }
+      return k.a(paramr, locali, localView, b(bool1, true), this, e);
+    }
+  }
+  
+  private View i(RecyclerView.n paramn, RecyclerView.r paramr)
+  {
+    return a(paramn, paramr, r() - 1, -1, paramr.e());
+  }
+  
+  private int j(int paramInt)
   {
     int i1 = -1;
     int i2 = 1;
@@ -609,14 +657,14 @@ public class LinearLayoutManager
     }
   }
   
-  private int i(cb paramcb)
+  private int j(RecyclerView.r paramr)
   {
     boolean bool2 = false;
-    if (q() == 0) {
+    if (r() == 0) {
       return 0;
     }
     h();
-    ba localba = k;
+    i locali = k;
     if (!e) {}
     for (boolean bool1 = true;; bool1 = false)
     {
@@ -625,65 +673,19 @@ public class LinearLayoutManager
       if (!e) {
         bool1 = true;
       }
-      return ch.a(paramcb, localba, localView, b(bool1, true), this, e);
+      return k.b(paramr, locali, localView, b(bool1, true), this, e);
     }
   }
   
-  private int j(cb paramcb)
-  {
-    boolean bool2 = false;
-    if (q() == 0) {
-      return 0;
-    }
-    h();
-    ba localba = k;
-    if (!e) {}
-    for (boolean bool1 = true;; bool1 = false)
-    {
-      View localView = a(bool1, true);
-      bool1 = bool2;
-      if (!e) {
-        bool1 = true;
-      }
-      return ch.b(paramcb, localba, localView, b(bool1, true), this, e);
-    }
-  }
-  
-  private View j(int paramInt)
-  {
-    return a(0, q(), paramInt);
-  }
-  
-  private View k(int paramInt)
-  {
-    return a(q() - 1, -1, paramInt);
-  }
-  
-  private View k(cb paramcb)
-  {
-    if (l) {
-      return j(paramcb.e());
-    }
-    return k(paramcb.e());
-  }
-  
-  private View l(cb paramcb)
-  {
-    if (l) {
-      return k(paramcb.e());
-    }
-    return j(paramcb.e());
-  }
-  
-  public int a(int paramInt, bv parambv, cb paramcb)
+  public int a(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr)
   {
     if (j == 1) {
       return 0;
     }
-    return c(paramInt, parambv, paramcb);
+    return c(paramInt, paramn, paramr);
   }
   
-  int a(bv parambv, ak paramak, cb paramcb, boolean paramBoolean)
+  int a(RecyclerView.n paramn, c paramc, RecyclerView.r paramr, boolean paramBoolean)
   {
     int i2 = c;
     if (g != Integer.MIN_VALUE)
@@ -691,14 +693,14 @@ public class LinearLayoutManager
       if (c < 0) {
         g += c;
       }
-      a(parambv, paramak);
+      a(paramn, paramc);
     }
     int i = c + h;
-    aj localaj = new aj();
-    if ((i > 0) && (paramak.a(paramcb)))
+    b localb = new b();
+    if ((i > 0) && (paramc.a(paramr)))
     {
-      localaj.a();
-      a(parambv, paramcb, paramak, localaj);
+      localb.a();
+      a(paramn, paramr, paramc, localb);
       if (!b) {
         break label104;
       }
@@ -712,7 +714,7 @@ public class LinearLayoutManager
       if ((c) && (a.k == null))
       {
         i1 = i;
-        if (paramcb.a()) {}
+        if (paramr.a()) {}
       }
       else
       {
@@ -725,7 +727,7 @@ public class LinearLayoutManager
         if (c < 0) {
           g += c;
         }
-        a(parambv, paramak);
+        a(paramn, paramc);
       }
       i = i1;
       if (!paramBoolean) {
@@ -738,9 +740,9 @@ public class LinearLayoutManager
     }
   }
   
-  protected int a(cb paramcb)
+  protected int a(RecyclerView.r paramr)
   {
-    if (paramcb.d()) {
+    if (paramr.d()) {
       return k.f();
     }
     return 0;
@@ -749,80 +751,6 @@ public class LinearLayoutManager
   public RecyclerView.LayoutParams a()
   {
     return new RecyclerView.LayoutParams(-2, -2);
-  }
-  
-  View a(int paramInt1, int paramInt2, int paramInt3)
-  {
-    Object localObject2 = null;
-    h();
-    int i1 = k.c();
-    int i2 = k.d();
-    int i;
-    Object localObject1;
-    label36:
-    Object localObject3;
-    if (paramInt2 > paramInt1)
-    {
-      i = 1;
-      localObject1 = null;
-      if (paramInt1 == paramInt2) {
-        break label168;
-      }
-      localObject3 = e(paramInt1);
-      int i3 = d((View)localObject3);
-      if ((i3 < 0) || (i3 >= paramInt3)) {
-        break label187;
-      }
-      if (!((RecyclerView.LayoutParams)((View)localObject3).getLayoutParams()).c()) {
-        break label120;
-      }
-      if (localObject1 != null) {
-        break label187;
-      }
-      localObject1 = localObject2;
-      localObject2 = localObject3;
-    }
-    for (;;)
-    {
-      paramInt1 += i;
-      localObject3 = localObject2;
-      localObject2 = localObject1;
-      localObject1 = localObject3;
-      break label36;
-      i = -1;
-      break;
-      label120:
-      Object localObject4;
-      if (k.a((View)localObject3) < i2)
-      {
-        localObject4 = localObject3;
-        if (k.b((View)localObject3) >= i1) {}
-      }
-      else
-      {
-        if (localObject2 != null) {
-          break label187;
-        }
-        localObject2 = localObject1;
-        localObject1 = localObject3;
-        continue;
-        label168:
-        if (localObject2 == null) {
-          break label180;
-        }
-      }
-      for (;;)
-      {
-        localObject4 = localObject2;
-        return (View)localObject4;
-        label180:
-        localObject2 = localObject1;
-      }
-      label187:
-      localObject3 = localObject1;
-      localObject1 = localObject2;
-      localObject2 = localObject3;
-    }
   }
   
   View a(int paramInt1, int paramInt2, boolean paramBoolean1, boolean paramBoolean2)
@@ -839,7 +767,7 @@ public class LinearLayoutManager
       if (paramInt1 == paramInt2) {
         break label130;
       }
-      localView = e(paramInt1);
+      localView = f(paramInt1);
       int i3 = k.a(localView);
       int i4 = k.b(localView);
       if ((i3 >= i2) || (i4 <= i1)) {
@@ -863,44 +791,117 @@ public class LinearLayoutManager
     }
   }
   
-  public View a(View paramView, int paramInt, bv parambv, cb paramcb)
+  View a(RecyclerView.n paramn, RecyclerView.r paramr, int paramInt1, int paramInt2, int paramInt3)
   {
-    A();
-    if (q() == 0) {}
-    label41:
-    label132:
+    paramr = null;
+    h();
+    int i1 = k.c();
+    int i2 = k.d();
+    int i;
+    label35:
+    Object localObject1;
+    if (paramInt2 > paramInt1)
+    {
+      i = 1;
+      paramn = null;
+      if (paramInt1 == paramInt2) {
+        break label157;
+      }
+      localObject1 = f(paramInt1);
+      int i3 = d((View)localObject1);
+      if ((i3 < 0) || (i3 >= paramInt3)) {
+        break label172;
+      }
+      if (!((RecyclerView.LayoutParams)((View)localObject1).getLayoutParams()).c()) {
+        break label113;
+      }
+      if (paramn != null) {
+        break label172;
+      }
+      paramn = paramr;
+      paramr = (RecyclerView.r)localObject1;
+    }
+    for (;;)
+    {
+      paramInt1 += i;
+      localObject1 = paramr;
+      paramr = paramn;
+      paramn = (RecyclerView.n)localObject1;
+      break label35;
+      i = -1;
+      break;
+      label113:
+      Object localObject2;
+      if (k.a((View)localObject1) < i2)
+      {
+        localObject2 = localObject1;
+        if (k.b((View)localObject1) >= i1) {}
+      }
+      else
+      {
+        if (paramr != null) {
+          break label172;
+        }
+        paramr = paramn;
+        paramn = (RecyclerView.n)localObject1;
+        continue;
+        label157:
+        if (paramr == null) {
+          break label167;
+        }
+      }
+      for (;;)
+      {
+        localObject2 = paramr;
+        return (View)localObject2;
+        label167:
+        paramr = paramn;
+      }
+      label172:
+      localObject1 = paramn;
+      paramn = paramr;
+      paramr = (RecyclerView.r)localObject1;
+    }
+  }
+  
+  public View a(View paramView, int paramInt, RecyclerView.n paramn, RecyclerView.r paramr)
+  {
+    B();
+    if (r() == 0) {}
+    label42:
     label134:
-    label140:
+    label136:
+    label142:
     for (;;)
     {
       return null;
-      paramInt = i(paramInt);
+      paramInt = j(paramInt);
       if (paramInt != Integer.MIN_VALUE)
       {
         h();
         if (paramInt == -1)
         {
-          paramView = l(paramcb);
+          paramView = g(paramn, paramr);
           if (paramView == null) {
-            break label132;
-          }
-          h();
-          a(paramInt, (int)(0.33F * k.f()), false, paramcb);
-          a.g = Integer.MIN_VALUE;
-          a.a = false;
-          a(parambv, a, paramcb, true);
-          if (paramInt != -1) {
             break label134;
           }
-        }
-        for (parambv = B();; parambv = C())
-        {
-          if ((parambv == paramView) || (!parambv.isFocusable())) {
-            break label140;
+          h();
+          a(paramInt, (int)(0.33F * k.f()), false, paramr);
+          a.g = Integer.MIN_VALUE;
+          a.a = false;
+          a(paramn, a, paramr, true);
+          if (paramInt != -1) {
+            break label136;
           }
-          return parambv;
-          paramView = k(paramcb);
-          break label41;
+        }
+        for (paramn = C();; paramn = D())
+        {
+          if ((paramn == paramView) || (!paramn.isFocusable())) {
+            break label142;
+          }
+          return paramn;
+          paramView = f(paramn, paramr);
+          break label42;
           break;
         }
       }
@@ -923,32 +924,24 @@ public class LinearLayoutManager
   
   public void a(Parcelable paramParcelable)
   {
-    if ((paramParcelable instanceof LinearLayoutManager.SavedState))
+    if ((paramParcelable instanceof SavedState))
     {
-      o = ((LinearLayoutManager.SavedState)paramParcelable);
+      o = ((SavedState)paramParcelable);
       l();
     }
   }
   
-  public void a(RecyclerView paramRecyclerView, bv parambv)
-  {
-    super.a(paramRecyclerView, parambv);
-    if (f)
-    {
-      c(parambv);
-      parambv.a();
-    }
-  }
+  void a(RecyclerView.n paramn, RecyclerView.r paramr, a parama) {}
   
-  void a(bv parambv, cb paramcb, ak paramak, aj paramaj)
+  void a(RecyclerView.n paramn, RecyclerView.r paramr, c paramc, b paramb)
   {
-    parambv = paramak.a(parambv);
-    if (parambv == null)
+    paramn = paramc.a(paramn);
+    if (paramn == null)
     {
       b = true;
       return;
     }
-    paramcb = (RecyclerView.LayoutParams)parambv.getLayoutParams();
+    paramr = (RecyclerView.LayoutParams)paramn.getLayoutParams();
     boolean bool2;
     boolean bool1;
     label61:
@@ -966,17 +959,17 @@ public class LinearLayoutManager
         if (bool2 != bool1) {
           break label215;
         }
-        b(parambv);
-        a(parambv, 0, 0);
-        a = k.c(parambv);
+        b(paramn);
+        a(paramn, 0, 0);
+        a = k.c(paramn);
         if (j != 1) {
           break label322;
         }
         if (!g()) {
           break label271;
         }
-        i = r() - v();
-        i1 = i - k.d(parambv);
+        i = s() - w();
+        i1 = i - k.d(paramn);
         if (f != -1) {
           break label293;
         }
@@ -986,16 +979,16 @@ public class LinearLayoutManager
     }
     for (;;)
     {
-      a(parambv, i1 + leftMargin, i3 + topMargin, i - rightMargin, i2 - bottomMargin);
-      if ((paramcb.c()) || (paramcb.d())) {
+      a(paramn, i1 + leftMargin, i3 + topMargin, i - rightMargin, i2 - bottomMargin);
+      if ((paramr.c()) || (paramr.d())) {
         c = true;
       }
-      d = parambv.isFocusable();
+      d = paramn.isFocusable();
       return;
       bool1 = false;
       break;
       label215:
-      b(parambv, 0);
+      b(paramn, 0);
       break label61;
       bool2 = l;
       if (f == -1) {}
@@ -1004,15 +997,15 @@ public class LinearLayoutManager
         if (bool2 != bool1) {
           break label262;
         }
-        a(parambv);
+        a(paramn);
         break;
       }
       label262:
-      a(parambv, 0);
+      a(paramn, 0);
       break label61;
       label271:
-      i1 = t();
-      i = k.d(parambv) + i1;
+      i1 = u();
+      i = k.d(paramn) + i1;
       break label120;
       label293:
       i3 = b;
@@ -1021,8 +1014,8 @@ public class LinearLayoutManager
       i2 += i4;
       continue;
       label322:
-      i3 = u();
-      i2 = k.d(parambv) + i3;
+      i3 = v();
+      i2 = k.d(paramn) + i3;
       if (f == -1)
       {
         i = b;
@@ -1038,12 +1031,20 @@ public class LinearLayoutManager
     }
   }
   
-  void a(cb paramcb, ai paramai) {}
+  public void a(RecyclerView paramRecyclerView, RecyclerView.n paramn)
+  {
+    super.a(paramRecyclerView, paramn);
+    if (f)
+    {
+      c(paramn);
+      paramn.a();
+    }
+  }
   
   public void a(AccessibilityEvent paramAccessibilityEvent)
   {
     super.a(paramAccessibilityEvent);
-    if (q() > 0)
+    if (r() > 0)
     {
       paramAccessibilityEvent = a.a(paramAccessibilityEvent);
       paramAccessibilityEvent.b(j());
@@ -1068,29 +1069,38 @@ public class LinearLayoutManager
     l();
   }
   
-  public int b(int paramInt, bv parambv, cb paramcb)
+  public int b(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr)
   {
     if (j == 0) {
       return 0;
     }
-    return c(paramInt, parambv, paramcb);
+    return c(paramInt, paramn, paramr);
   }
   
-  public int b(cb paramcb)
+  public int b(RecyclerView.r paramr)
   {
-    return h(paramcb);
+    return h(paramr);
   }
   
   public View b(int paramInt)
   {
-    int i = q();
-    if (i == 0) {}
+    int i = r();
+    Object localObject;
+    if (i == 0) {
+      localObject = null;
+    }
+    View localView;
     do
     {
-      return null;
-      paramInt -= d(e(0));
-    } while ((paramInt < 0) || (paramInt >= i));
-    return e(paramInt);
+      return (View)localObject;
+      int i1 = paramInt - d(f(0));
+      if ((i1 < 0) || (i1 >= i)) {
+        break;
+      }
+      localView = f(i1);
+      localObject = localView;
+    } while (d(localView) == paramInt);
+    return super.b(paramInt);
   }
   
   public boolean b()
@@ -1098,9 +1108,9 @@ public class LinearLayoutManager
     return (o == null) && (b == d);
   }
   
-  int c(int paramInt, bv parambv, cb paramcb)
+  int c(int paramInt, RecyclerView.n paramn, RecyclerView.r paramr)
   {
-    if ((q() == 0) || (paramInt == 0)) {
+    if ((r() == 0) || (paramInt == 0)) {
       return 0;
     }
     a.a = true;
@@ -1111,8 +1121,8 @@ public class LinearLayoutManager
     for (int i = 1;; i = -1)
     {
       i1 = Math.abs(paramInt);
-      a(i, i1, true, paramcb);
-      i2 = a.g + a(parambv, a, paramcb, false);
+      a(i, i1, true, paramr);
+      i2 = a.g + a(paramn, a, paramr, false);
       if (i2 >= 0) {
         break;
       }
@@ -1126,56 +1136,71 @@ public class LinearLayoutManager
     return paramInt;
   }
   
-  public int c(cb paramcb)
+  public int c(RecyclerView.r paramr)
   {
-    return h(paramcb);
+    return h(paramr);
   }
   
   public Parcelable c()
   {
     if (o != null) {
-      return new LinearLayoutManager.SavedState(o);
+      return new SavedState(o);
     }
-    LinearLayoutManager.SavedState localSavedState = new LinearLayoutManager.SavedState();
-    if (q() > 0)
+    SavedState localSavedState = new SavedState();
+    if (r() > 0)
     {
       h();
       boolean bool = b ^ l;
-      mAnchorLayoutFromEnd = bool;
+      c = bool;
       if (bool)
       {
-        localView = C();
-        mAnchorOffset = (k.d() - k.b(localView));
-        mAnchorPosition = d(localView);
+        localView = D();
+        b = (k.d() - k.b(localView));
+        a = d(localView);
         return localSavedState;
       }
-      View localView = B();
-      mAnchorPosition = d(localView);
-      mAnchorOffset = (k.a(localView) - k.c());
+      View localView = C();
+      a = d(localView);
+      b = (k.a(localView) - k.c());
       return localSavedState;
     }
-    localSavedState.invalidateAnchor();
+    localSavedState.b();
     return localSavedState;
   }
   
-  public void c(bv parambv, cb paramcb)
+  public void c(int paramInt)
   {
-    if ((o != null) && (o.hasValidAnchor())) {
-      m = o.mAnchorPosition;
+    m = paramInt;
+    n = Integer.MIN_VALUE;
+    if (o != null) {
+      o.b();
+    }
+    l();
+  }
+  
+  public void c(RecyclerView.n paramn, RecyclerView.r paramr)
+  {
+    if (((o != null) || (m != -1)) && (paramr.e() == 0))
+    {
+      c(paramn);
+      return;
+    }
+    if ((o != null) && (o.a())) {
+      m = o.a;
     }
     h();
     a.a = false;
-    A();
+    B();
     p.a();
     p.c = (l ^ d);
-    b(paramcb, p);
-    int i = a(paramcb);
+    b(paramn, paramr, p);
+    int i = a(paramr);
     int i1;
     int i2;
     int i3;
     Object localObject;
-    label215:
-    label228:
+    label244:
+    label257:
     int i4;
     if (a.j >= 0)
     {
@@ -1184,7 +1209,7 @@ public class LinearLayoutManager
       i3 = i + k.g();
       i = i3;
       i1 = i2;
-      if (paramcb.a())
+      if (paramr.a())
       {
         i = i3;
         i1 = i2;
@@ -1200,11 +1225,11 @@ public class LinearLayoutManager
             if (localObject != null)
             {
               if (!l) {
-                break label583;
+                break label613;
               }
               i = k.d() - k.b((View)localObject) - n;
               if (i <= 0) {
-                break label615;
+                break label645;
               }
               i1 = i2 + i;
               i = i3;
@@ -1212,15 +1237,15 @@ public class LinearLayoutManager
           }
         }
       }
-      a(paramcb, p);
-      a(parambv);
-      a.i = paramcb.a();
+      a(paramn, paramr, p);
+      a(paramn);
+      a.i = paramr.a();
       if (!p.c) {
-        break label627;
+        break label657;
       }
       b(p);
       a.h = i1;
-      a(parambv, a, paramcb, false);
+      a(paramn, a, paramr, false);
       i3 = a.b;
       i4 = a.d;
       i1 = i;
@@ -1231,42 +1256,42 @@ public class LinearLayoutManager
       a.h = i1;
       localObject = a;
       d += a.e;
-      a(parambv, a, paramcb, false);
+      a(paramn, a, paramr, false);
       i2 = a.b;
       if (a.c <= 0) {
-        break label871;
+        break label901;
       }
       i = a.c;
       c(i4, i3);
       a.h = i;
-      a(parambv, a, paramcb, false);
+      a(paramn, a, paramr, false);
     }
-    label456:
-    label583:
-    label615:
-    label627:
-    label826:
-    label871:
+    label486:
+    label613:
+    label645:
+    label657:
+    label856:
+    label901:
     for (i = a.b;; i = i3)
     {
       i1 = i;
       i = i2;
       i2 = i;
       i3 = i1;
-      if (q() > 0)
+      if (r() > 0)
       {
         if (!(l ^ d)) {
-          break label826;
+          break label856;
         }
-        i2 = a(i, parambv, paramcb, true);
+        i2 = a(i, paramn, paramr, true);
         i3 = i1 + i2;
-        i1 = b(i3, parambv, paramcb, false);
+        i1 = b(i3, paramn, paramr, false);
         i3 += i1;
       }
       for (i2 = i + i2 + i1;; i2 = i + i4)
       {
-        b(parambv, paramcb, i3, i2);
-        if (!paramcb.a())
+        b(paramn, paramr, i3, i2);
+        if (!paramr.a())
         {
           m = -1;
           n = Integer.MIN_VALUE;
@@ -1281,13 +1306,13 @@ public class LinearLayoutManager
         i = k.a((View)localObject);
         i1 = k.c();
         i = n - (i - i1);
-        break label215;
+        break label244;
         i = i3 - i;
         i1 = i2;
-        break label228;
+        break label257;
         a(p);
         a.h = i;
-        a(parambv, a, paramcb, false);
+        a(paramn, a, paramr, false);
         i2 = a.b;
         i4 = a.d;
         i = i1;
@@ -1298,31 +1323,31 @@ public class LinearLayoutManager
         a.h = i;
         localObject = a;
         d += a.e;
-        a(parambv, a, paramcb, false);
+        a(paramn, a, paramr, false);
         i3 = a.b;
         i = i2;
         i1 = i3;
         if (a.c <= 0) {
-          break label456;
+          break label486;
         }
         i = a.c;
         b(i4, i2);
         a.h = i;
-        a(parambv, a, paramcb, false);
+        a(paramn, a, paramr, false);
         i = a.b;
         i1 = i3;
-        break label456;
-        i2 = b(i1, parambv, paramcb, true);
+        break label486;
+        i2 = b(i1, paramn, paramr, true);
         i += i2;
-        i4 = a(i, parambv, paramcb, false);
+        i4 = a(i, paramn, paramr, false);
         i3 = i1 + i2 + i4;
       }
     }
   }
   
-  public int d(cb paramcb)
+  public int d(RecyclerView.r paramr)
   {
-    return i(paramcb);
+    return i(paramr);
   }
   
   public boolean d()
@@ -1330,9 +1355,9 @@ public class LinearLayoutManager
     return j == 0;
   }
   
-  public int e(cb paramcb)
+  public int e(RecyclerView.r paramr)
   {
-    return i(paramcb);
+    return i(paramr);
   }
   
   public boolean e()
@@ -1345,19 +1370,19 @@ public class LinearLayoutManager
     return j;
   }
   
-  public int f(cb paramcb)
+  public int f(RecyclerView.r paramr)
   {
-    return j(paramcb);
+    return j(paramr);
   }
   
-  public int g(cb paramcb)
+  public int g(RecyclerView.r paramr)
   {
-    return j(paramcb);
+    return j(paramr);
   }
   
   protected boolean g()
   {
-    return o() == 1;
+    return p() == 1;
   }
   
   void h()
@@ -1366,18 +1391,18 @@ public class LinearLayoutManager
       a = i();
     }
     if (k == null) {
-      k = ba.a(this, j);
+      k = i.a(this, j);
     }
   }
   
-  ak i()
+  c i()
   {
-    return new ak();
+    return new c();
   }
   
   public int j()
   {
-    View localView = a(0, q(), false, true);
+    View localView = a(0, r(), false, true);
     if (localView == null) {
       return -1;
     }
@@ -1386,11 +1411,286 @@ public class LinearLayoutManager
   
   public int k()
   {
-    View localView = a(q() - 1, -1, false, true);
+    View localView = a(r() - 1, -1, false, true);
     if (localView == null) {
       return -1;
     }
     return d(localView);
+  }
+  
+  static class SavedState
+    implements Parcelable
+  {
+    public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator()
+    {
+      public LinearLayoutManager.SavedState a(Parcel paramAnonymousParcel)
+      {
+        return new LinearLayoutManager.SavedState(paramAnonymousParcel);
+      }
+      
+      public LinearLayoutManager.SavedState[] a(int paramAnonymousInt)
+      {
+        return new LinearLayoutManager.SavedState[paramAnonymousInt];
+      }
+    };
+    int a;
+    int b;
+    boolean c;
+    
+    public SavedState() {}
+    
+    SavedState(Parcel paramParcel)
+    {
+      a = paramParcel.readInt();
+      b = paramParcel.readInt();
+      if (paramParcel.readInt() == 1) {}
+      for (;;)
+      {
+        c = bool;
+        return;
+        bool = false;
+      }
+    }
+    
+    public SavedState(SavedState paramSavedState)
+    {
+      a = a;
+      b = b;
+      c = c;
+    }
+    
+    boolean a()
+    {
+      return a >= 0;
+    }
+    
+    void b()
+    {
+      a = -1;
+    }
+    
+    public int describeContents()
+    {
+      return 0;
+    }
+    
+    public void writeToParcel(Parcel paramParcel, int paramInt)
+    {
+      paramParcel.writeInt(a);
+      paramParcel.writeInt(b);
+      if (c) {}
+      for (paramInt = 1;; paramInt = 0)
+      {
+        paramParcel.writeInt(paramInt);
+        return;
+      }
+    }
+  }
+  
+  class a
+  {
+    int a;
+    int b;
+    boolean c;
+    
+    a() {}
+    
+    private boolean a(View paramView, RecyclerView.r paramr)
+    {
+      paramView = (RecyclerView.LayoutParams)paramView.getLayoutParams();
+      return (!paramView.c()) && (paramView.e() >= 0) && (paramView.e() < paramr.e());
+    }
+    
+    void a()
+    {
+      a = -1;
+      b = Integer.MIN_VALUE;
+      c = false;
+    }
+    
+    public void a(View paramView)
+    {
+      int j = LinearLayoutManager.this.k.b();
+      if (j >= 0) {
+        b(paramView);
+      }
+      int i;
+      do
+      {
+        int k;
+        do
+        {
+          do
+          {
+            do
+            {
+              return;
+              a = d(paramView);
+              if (!c) {
+                break;
+              }
+              i = LinearLayoutManager.this.k.d() - j - LinearLayoutManager.this.k.b(paramView);
+              b = (LinearLayoutManager.this.k.d() - i);
+            } while (i <= 0);
+            j = LinearLayoutManager.this.k.c(paramView);
+            k = b;
+            m = LinearLayoutManager.this.k.c();
+            j = k - j - (m + Math.min(LinearLayoutManager.this.k.a(paramView) - m, 0));
+          } while (j >= 0);
+          k = b;
+          b = (Math.min(i, -j) + k);
+          return;
+          k = LinearLayoutManager.this.k.a(paramView);
+          i = k - LinearLayoutManager.this.k.c();
+          b = k;
+        } while (i <= 0);
+        int m = LinearLayoutManager.this.k.c(paramView);
+        int n = LinearLayoutManager.this.k.d();
+        int i1 = LinearLayoutManager.this.k.b(paramView);
+        j = LinearLayoutManager.this.k.d() - Math.min(0, n - j - i1) - (k + m);
+      } while (j >= 0);
+      b -= Math.min(i, -j);
+    }
+    
+    void b()
+    {
+      if (c) {}
+      for (int i = k.d();; i = k.c())
+      {
+        b = i;
+        return;
+      }
+    }
+    
+    public void b(View paramView)
+    {
+      if (c) {}
+      for (b = (k.b(paramView) + k.b());; b = k.a(paramView))
+      {
+        a = d(paramView);
+        return;
+      }
+    }
+    
+    public String toString()
+    {
+      return "AnchorInfo{mPosition=" + a + ", mCoordinate=" + b + ", mLayoutFromEnd=" + c + '}';
+    }
+  }
+  
+  protected static class b
+  {
+    public int a;
+    public boolean b;
+    public boolean c;
+    public boolean d;
+    
+    void a()
+    {
+      a = 0;
+      b = false;
+      c = false;
+      d = false;
+    }
+  }
+  
+  static class c
+  {
+    boolean a = true;
+    int b;
+    int c;
+    int d;
+    int e;
+    int f;
+    int g;
+    int h = 0;
+    boolean i = false;
+    int j;
+    List<RecyclerView.u> k = null;
+    
+    private View b()
+    {
+      int n = k.size();
+      int m = 0;
+      if (m < n)
+      {
+        View localView = k.get(m)).a;
+        RecyclerView.LayoutParams localLayoutParams = (RecyclerView.LayoutParams)localView.getLayoutParams();
+        if (localLayoutParams.c()) {}
+        while (d != localLayoutParams.e())
+        {
+          m += 1;
+          break;
+        }
+        a(localView);
+        return localView;
+      }
+      return null;
+    }
+    
+    View a(RecyclerView.n paramn)
+    {
+      if (k != null) {
+        return b();
+      }
+      paramn = paramn.c(d);
+      d += e;
+      return paramn;
+    }
+    
+    public void a()
+    {
+      a(null);
+    }
+    
+    public void a(View paramView)
+    {
+      paramView = b(paramView);
+      if (paramView == null)
+      {
+        d = -1;
+        return;
+      }
+      d = ((RecyclerView.LayoutParams)paramView.getLayoutParams()).e();
+    }
+    
+    boolean a(RecyclerView.r paramr)
+    {
+      return (d >= 0) && (d < paramr.e());
+    }
+    
+    public View b(View paramView)
+    {
+      int i2 = k.size();
+      Object localObject = null;
+      int m = Integer.MAX_VALUE;
+      int n = 0;
+      if (n < i2)
+      {
+        View localView = k.get(n)).a;
+        RecyclerView.LayoutParams localLayoutParams = (RecyclerView.LayoutParams)localView.getLayoutParams();
+        if (localView != paramView) {
+          if (!localLayoutParams.c()) {}
+        }
+        for (;;)
+        {
+          n += 1;
+          break;
+          int i1 = (localLayoutParams.e() - d) * e;
+          if (i1 >= 0) {
+            if (i1 < m)
+            {
+              if (i1 == 0) {
+                return localView;
+              }
+              localObject = localView;
+              m = i1;
+            }
+          }
+        }
+      }
+      return (View)localObject;
+    }
   }
 }
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup.MarginLayoutParams;
 public class StaggeredGridLayoutManager$LayoutParams
   extends RecyclerView.LayoutParams
 {
-  db e;
+  StaggeredGridLayoutManager.b e;
   boolean f;
   
   public StaggeredGridLayoutManager$LayoutParams(int paramInt1, int paramInt2)

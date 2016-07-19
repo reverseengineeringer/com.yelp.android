@@ -3,6 +3,15 @@
 .source "FileProvider.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/content/FileProvider$b;,
+        Landroid/support/v4/content/FileProvider$a;
+    }
+.end annotation
+
+
 # static fields
 .field private static final a:[Ljava/lang/String;
 
@@ -14,7 +23,7 @@
             "Ljava/util/HashMap",
             "<",
             "Ljava/lang/String;",
-            "Landroid/support/v4/content/j;",
+            "Landroid/support/v4/content/FileProvider$a;",
             ">;"
         }
     .end annotation
@@ -22,7 +31,7 @@
 
 
 # instance fields
-.field private d:Landroid/support/v4/content/j;
+.field private d:Landroid/support/v4/content/FileProvider$a;
 
 
 # direct methods
@@ -195,7 +204,7 @@
     throw v0
 .end method
 
-.method private static a(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/j;
+.method private static a(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/FileProvider$a;
     .locals 4
 
     .prologue
@@ -212,7 +221,7 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/support/v4/content/j;
+    check-cast v0, Landroid/support/v4/content/FileProvider$a;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -221,7 +230,7 @@
 
     .line 534
     :try_start_1
-    invoke-static {p0, p1}, Landroid/support/v4/content/FileProvider;->b(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/j;
+    invoke-static {p0, p1}, Landroid/support/v4/content/FileProvider;->b(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/FileProvider$a;
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
@@ -361,8 +370,14 @@
     return-object v0
 .end method
 
-.method private static b(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/j;
+.method private static b(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/FileProvider$a;
     .locals 9
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/xmlpull/v1/XmlPullParserException;
+        }
+    .end annotation
 
     .prologue
     const/4 v1, 0x0
@@ -372,9 +387,9 @@
     const/4 v7, 0x1
 
     .line 556
-    new-instance v2, Landroid/support/v4/content/k;
+    new-instance v2, Landroid/support/v4/content/FileProvider$b;
 
-    invoke-direct {v2, p1}, Landroid/support/v4/content/k;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, p1}, Landroid/support/v4/content/FileProvider$b;-><init>(Ljava/lang/String;)V
 
     .line 558
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -468,7 +483,7 @@
     if-eqz v0, :cond_0
 
     .line 587
-    invoke-virtual {v2, v4, v0}, Landroid/support/v4/content/k;->a(Ljava/lang/String;Ljava/io/File;)V
+    invoke-virtual {v2, v4, v0}, Landroid/support/v4/content/FileProvider$b;->a(Ljava/lang/String;Ljava/io/File;)V
 
     goto :goto_0
 
@@ -599,11 +614,11 @@
     :cond_1
     iget-object v0, p2, Landroid/content/pm/ProviderInfo;->authority:Ljava/lang/String;
 
-    invoke-static {p1, v0}, Landroid/support/v4/content/FileProvider;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/j;
+    invoke-static {p1, v0}, Landroid/support/v4/content/FileProvider;->a(Landroid/content/Context;Ljava/lang/String;)Landroid/support/v4/content/FileProvider$a;
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/j;
+    iput-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/FileProvider$a;
 
     .line 353
     return-void
@@ -614,9 +629,9 @@
 
     .prologue
     .line 497
-    iget-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/j;
+    iget-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/FileProvider$a;
 
-    invoke-interface {v0, p1}, Landroid/support/v4/content/j;->a(Landroid/net/Uri;)Ljava/io/File;
+    invoke-interface {v0, p1}, Landroid/support/v4/content/FileProvider$a;->a(Landroid/net/Uri;)Ljava/io/File;
 
     move-result-object v0
 
@@ -643,9 +658,9 @@
 
     .prologue
     .line 451
-    iget-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/j;
+    iget-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/FileProvider$a;
 
-    invoke-interface {v0, p1}, Landroid/support/v4/content/j;->a(Landroid/net/Uri;)Ljava/io/File;
+    invoke-interface {v0, p1}, Landroid/support/v4/content/FileProvider$a;->a(Landroid/net/Uri;)Ljava/io/File;
 
     move-result-object v0
 
@@ -722,12 +737,17 @@
 
 .method public openFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
 
     .prologue
     .line 519
-    iget-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/j;
+    iget-object v0, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/FileProvider$a;
 
-    invoke-interface {v0, p1}, Landroid/support/v4/content/j;->a(Landroid/net/Uri;)Ljava/io/File;
+    invoke-interface {v0, p1}, Landroid/support/v4/content/FileProvider$a;->a(Landroid/net/Uri;)Ljava/io/File;
 
     move-result-object v0
 
@@ -751,9 +771,9 @@
     const/4 v0, 0x0
 
     .line 412
-    iget-object v1, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/j;
+    iget-object v1, p0, Landroid/support/v4/content/FileProvider;->d:Landroid/support/v4/content/FileProvider$a;
 
-    invoke-interface {v1, p1}, Landroid/support/v4/content/j;->a(Landroid/net/Uri;)Ljava/io/File;
+    invoke-interface {v1, p1}, Landroid/support/v4/content/FileProvider$a;->a(Landroid/net/Uri;)Ljava/io/File;
 
     move-result-object v3
 

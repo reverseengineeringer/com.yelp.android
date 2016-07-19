@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HeadlineText">
+        <item name="android:textSize">26.0sp</item>
+        <item name="android:textColor">@color/BlackText</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+</resources>

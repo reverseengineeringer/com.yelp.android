@@ -1,8 +1,12 @@
-.class public interface abstract Lcom/kahuna/sdk/z;
+.class public final Lcom/kahuna/sdk/z;
 .super Ljava/lang/Object;
-.source "KahunaInAppMessageListener.java"
+.source "R.java"
 
 
-# virtual methods
-.method public abstract a(Ljava/lang/String;Landroid/os/Bundle;)V
-.end method
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/kahuna/sdk/z$b;,
+        Lcom/kahuna/sdk/z$a;
+    }
+.end annotation

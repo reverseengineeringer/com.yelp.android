@@ -2,33 +2,44 @@ package com.yelp.android.ui.activities.reviewpage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.LocationService;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.ew;
-import com.yelp.android.appdata.webrequests.ex;
-import com.yelp.android.appdata.webrequests.ey;
+import com.yelp.android.appdata.webrequests.dx;
+import com.yelp.android.appdata.webrequests.dx.a;
+import com.yelp.android.appdata.webrequests.dy;
 import com.yelp.android.serializable.MenuItem;
 import com.yelp.android.serializable.MoreInfoAction;
 import com.yelp.android.serializable.Photo;
 import com.yelp.android.serializable.ReviewHighlight;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpBusinessReview;
+import com.yelp.android.ui.activities.support.WebViewActivity;
+import com.yelp.android.ui.activities.support.WebViewActivity.BackBehavior;
+import com.yelp.android.ui.activities.support.WebViewActivity.Feature;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.bs;
+import com.yelp.android.ui.util.aj;
 import com.yelp.android.ui.widgets.WebImageView;
 import com.yelp.android.util.YelpLog;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -62,34 +73,34 @@ public class ActivityReviewsFilteredByHighlightPage
   {
     if (paramMenuItem == null)
     {
-      YelpLog.error(this, "Cannot obtain menu for review highlight " + k.getIdentifier());
+      YelpLog.remoteError(this, "Cannot obtain menu for review highlight " + k.f());
       return;
     }
     if (m == null)
     {
-      m = getLayoutInflater().inflate(2130903329, q(), false);
-      q().addHeaderView(m, null, false);
-      n = ((TextView)findViewById(2131493889));
-      o = ((TextView)findViewById(2131493888));
-      p = ((TextView)findViewById(2131493890));
-      q = ((WebImageView)findViewById(2131493887));
+      m = getLayoutInflater().inflate(2130903428, r(), false);
+      r().addHeaderView(m, null, false);
+      n = ((TextView)findViewById(2131690727));
+      o = ((TextView)findViewById(2131690726));
+      p = ((TextView)findViewById(2131690728));
+      q = ((WebImageView)findViewById(2131690725));
     }
-    n.setText(paramMenuItem.getName());
-    Object localObject = paramMenuItem.getPrice();
+    n.setText(paramMenuItem.c());
+    Object localObject = paramMenuItem.b();
     if (!TextUtils.isEmpty((CharSequence)localObject))
     {
       o.setText((CharSequence)localObject);
       o.setVisibility(0);
-      localObject = paramMenuItem.getPhotos();
+      localObject = paramMenuItem.d();
       if ((localObject == null) || (((List)localObject).size() <= 0)) {
         break label250;
       }
-      q.setImageUrl(((Photo)((List)localObject).get(0)).getThumbnailUrl());
+      q.setImageUrl(((Photo)((List)localObject).get(0)).f());
       q.setVisibility(0);
     }
     for (;;)
     {
-      paramMenuItem = paramMenuItem.getDescription();
+      paramMenuItem = paramMenuItem.a();
       if (TextUtils.isEmpty(paramMenuItem)) {
         break label262;
       }
@@ -105,39 +116,47 @@ public class ActivityReviewsFilteredByHighlightPage
     p.setVisibility(8);
   }
   
-  private void a(MoreInfoAction paramMoreInfoAction)
+  private void a(final MoreInfoAction paramMoreInfoAction)
   {
     if (paramMoreInfoAction == null) {
-      YelpLog.error(this, "Cannot obtain more info action for review highlight " + k.getIdentifier());
+      YelpLog.remoteError(this, "Cannot obtain more info action for review highlight " + k.f());
     }
-    String str;
+    final String str;
     do
     {
       return;
       if (r == null)
       {
-        r = getLayoutInflater().inflate(2130903331, q(), false);
-        q().addHeaderView(r, null, false);
-        s = ((TextView)findViewById(2131493894));
-        t = ((WebImageView)findViewById(2131493893));
-        u = findViewById(2131493892);
+        r = getLayoutInflater().inflate(2130903430, r(), false);
+        r().addHeaderView(r, null, false);
+        s = ((TextView)findViewById(2131690732));
+        t = ((WebImageView)findViewById(2131690731));
+        u = findViewById(2131690730);
       }
-      s.setText(paramMoreInfoAction.getTitle());
-      str = paramMoreInfoAction.getImageUrl();
+      s.setText(paramMoreInfoAction.c());
+      str = paramMoreInfoAction.a();
       if (!TextUtils.isEmpty(str))
       {
         t.setImageUrl(str);
         t.setVisibility(0);
       }
-      str = paramMoreInfoAction.getOpenUrl();
+      str = paramMoreInfoAction.b();
     } while (TextUtils.isEmpty(str));
     u.setClickable(true);
-    u.setOnClickListener(new o(this, str, paramMoreInfoAction));
+    u.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        AppData.a(EventIri.BusinessHighlightReviewsMoreInfo);
+        paramAnonymousView = WebViewActivity.getWebIntent(ActivityReviewsFilteredByHighlightPage.this, Uri.parse(str), paramMoreInfoAction.c(), ViewIri.BusinessMenu, EnumSet.noneOf(WebViewActivity.Feature.class), WebViewActivity.BackBehavior.NONE);
+        startActivity(paramAnonymousView);
+      }
+    });
   }
   
   protected Intent a(YelpBusinessReview paramYelpBusinessReview, ArrayList<YelpBusinessReview> paramArrayList)
   {
-    return ActivityReviewPager.a(this, e.getId(), e.getDisplayName(), e.getCountry(), paramArrayList, paramArrayList.indexOf(paramYelpBusinessReview), h, i, true, true, k.getIdentifier(), k.getReviewHighlightType(), k.getReviewId());
+    return ActivityReviewPager.a(this, e.aD(), e.z(), e.aw(), paramArrayList, paramArrayList.indexOf(paramYelpBusinessReview), h, i, true, true, k.f(), k.a(), k.d());
   }
   
   protected void a(Bundle paramBundle)
@@ -146,20 +165,31 @@ public class ActivityReviewsFilteredByHighlightPage
     l = paramBundle.getCharSequence("extra.param.highlight_description");
   }
   
-  protected void a(SparseArray<ApiRequest<?, ?, ?>> paramSparseArray)
+  protected void a(SparseArray<ApiRequest<Void, ?, ?>> paramSparseArray)
   {
     c = ((ApiRequest)paramSparseArray.get(0));
   }
   
-  protected void a(ey paramey, YelpException paramYelpException) {}
+  protected void a(dy paramdy, YelpException paramYelpException) {}
   
   protected void a(YelpBusinessReview paramYelpBusinessReview) {}
   
   protected void a(Locale paramLocale, Collection<Locale> paramCollection)
   {
-    paramLocale = (bi)b.get(d);
+    paramLocale = (e)b.get(d);
     paramLocale.a(true);
-    a.a(2131492917, l, paramLocale);
+    a.a(2131689533, l, paramLocale);
+  }
+  
+  protected ApiRequest<Void, ?, ?> b()
+  {
+    e locale = (e)b.get(d);
+    int i = 0;
+    if (locale != null) {
+      i = 0 + locale.getCount();
+    }
+    int j = Math.min(a.getCount() / 10 * 10 + 10, 50);
+    return new dx(e.aD(), k.f(), k.a(), k.d(), i, j, new a(this));
   }
   
   protected void b(Bundle paramBundle)
@@ -168,35 +198,24 @@ public class ActivityReviewsFilteredByHighlightPage
     paramBundle.putCharSequence("extra.param.highlight_description", l);
   }
   
-  public void b(ex paramex)
+  public void b(dx.a parama)
   {
     h = new HashMap();
     h.put(d, Integer.valueOf(b));
-    switch (p.a[k.getReviewHighlightType().ordinal()])
+    switch (2.a[k.a().ordinal()])
     {
     }
     for (;;)
     {
       l = Html.fromHtml(e);
-      if (a.a(2131492917) == null) {
-        a(paramex);
+      if (a.a(2131689533) == null) {
+        a(parama);
       }
       a(a, Collections.singletonMap(d, Integer.valueOf(b)), d);
       return;
       a(c);
       a(d);
     }
-  }
-  
-  protected ApiRequest<?, ?, ?> c()
-  {
-    bi localbi = (bi)b.get(d);
-    int i = 0;
-    if (localbi != null) {
-      i = 0 + localbi.getCount();
-    }
-    int j = Math.min(a.getCount() / 10 * 10 + 10, 50);
-    return new ew(e.getId(), k.getIdentifier(), k.getReviewHighlightType(), k.getReviewId(), i, j, new q(this));
   }
   
   protected void f()
@@ -209,25 +228,56 @@ public class ActivityReviewsFilteredByHighlightPage
     return ViewIri.BusinessHighlightReviews;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    paramb = new TreeMap();
-    paramb.put("business_id", e.getId());
-    paramb.put("type", k.getType());
-    return paramb;
+    parama = AppData.b().r().c();
+    TreeMap localTreeMap = new TreeMap();
+    localTreeMap.put("business_id", e.aD());
+    localTreeMap.put("type", k.g());
+    if (!Double.isNaN(e.a(parama))) {
+      localTreeMap.put("distanceFromBusiness", Double.valueOf(e.a(parama)));
+    }
+    return localTreeMap;
   }
   
-  protected void h()
+  protected void i()
   {
-    super.h();
-    if ((c instanceof ew)) {
-      ((ew)c).setCallback(new q(this));
+    super.i();
+    if ((c instanceof dx)) {
+      ((dx)c).a(new a(this));
     }
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
+  }
+  
+  private static class a
+    implements ApiRequest.b<dx.a>
+  {
+    private final WeakReference<ActivityReviewsFilteredByHighlightPage> a;
+    
+    public a(ActivityReviewsFilteredByHighlightPage paramActivityReviewsFilteredByHighlightPage)
+    {
+      a = new WeakReference(paramActivityReviewsFilteredByHighlightPage);
+    }
+    
+    public void a(ApiRequest<?, ?, ?> paramApiRequest, dx.a parama)
+    {
+      paramApiRequest = (ActivityReviewsFilteredByHighlightPage)a.get();
+      if (paramApiRequest != null) {
+        paramApiRequest.b(parama);
+      }
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+    {
+      ActivityReviewsFilteredByHighlightPage localActivityReviewsFilteredByHighlightPage = (ActivityReviewsFilteredByHighlightPage)a.get();
+      if (localActivityReviewsFilteredByHighlightPage != null) {
+        localActivityReviewsFilteredByHighlightPage.onError(paramApiRequest, paramYelpException);
+      }
+    }
   }
 }
 

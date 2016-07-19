@@ -3,8 +3,8 @@
 .source "BackgroundTaskFragment.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/mutatebiz/af;
-.implements Lcom/yelp/android/ui/activities/mutatebiz/ag;
+.implements Lcom/yelp/android/ui/activities/mutatebiz/c$a;
+.implements Lcom/yelp/android/ui/activities/mutatebiz/c$b;
 
 
 # annotations
@@ -16,13 +16,16 @@
         "Ljava/lang/Object;",
         ">",
         "Landroid/support/v4/app/Fragment;",
-        "Lcom/yelp/android/ui/activities/mutatebiz/af",
+        "Lcom/yelp/android/ui/activities/mutatebiz/c$a",
         "<TResultType;>;",
-        "Lcom/yelp/android/ui/activities/mutatebiz/ag",
+        "Lcom/yelp/android/ui/activities/mutatebiz/c$b",
         "<",
         "Ljava/lang/Void;",
         "TResultType;>;"
     }
+.end annotation
+
+.annotation runtime Ljava/lang/Deprecated;
 .end annotation
 
 
@@ -35,10 +38,10 @@
     .end annotation
 .end field
 
-.field private b:Lcom/yelp/android/ui/util/g;
+.field private b:Lcom/yelp/android/ui/util/d$a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/ui/util/g",
+            "Lcom/yelp/android/ui/util/d$a",
             "<TResultType;>;"
         }
     .end annotation
@@ -64,7 +67,7 @@
     .locals 0
 
     .prologue
-    .line 17
+    .line 25
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;-><init>()V
 
     return-void
@@ -76,7 +79,7 @@
     .locals 1
 
     .prologue
-    .line 17
+    .line 24
     check-cast p1, [Ljava/lang/Void;
 
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->c([Ljava/lang/Void;)Ljava/lang/Object;
@@ -86,32 +89,21 @@
     return-object v0
 .end method
 
-.method public a(Landroid/support/v4/app/Fragment;)V
-    .locals 1
+.method public a(Lcom/yelp/android/ui/util/d$a;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "<T:",
-            "Landroid/support/v4/app/Fragment;",
-            ":",
-            "Lcom/yelp/android/ui/util/g",
+            "<T::",
+            "Lcom/yelp/android/ui/util/d$a",
             "<TResultType;>;>(TT;)V"
         }
     .end annotation
 
     .prologue
-    .line 43
-    move-object v0, p1
+    .line 51
+    iput-object p1, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/d$a;
 
-    check-cast v0, Lcom/yelp/android/ui/util/g;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/g;
-
-    .line 44
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->setTargetFragment(Landroid/support/v4/app/Fragment;I)V
-
-    .line 45
+    .line 52
     return-void
 .end method
 
@@ -124,25 +116,25 @@
     .end annotation
 
     .prologue
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/g;
+    .line 74
+    iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/d$a;
 
     if-nez v0, :cond_0
 
-    .line 68
+    .line 75
     iput-object p1, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->a:Ljava/lang/Object;
 
-    .line 73
+    .line 80
     :goto_0
     return-void
 
-    .line 70
+    .line 77
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/g;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/d$a;
 
-    invoke-interface {v0, p1}, Lcom/yelp/android/ui/util/g;->a(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/yelp/android/ui/util/d$a;->a(Ljava/lang/Object;)V
 
-    .line 71
+    .line 78
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->a:Ljava/lang/Object;
@@ -154,7 +146,7 @@
     .locals 1
 
     .prologue
-    .line 54
+    .line 61
     iget-boolean v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->d:Z
 
     return v0
@@ -176,25 +168,25 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 76
-    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/ae;
+    .line 83
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/c;
 
     const/4 v1, 0x0
 
     new-array v2, v3, [Landroid/view/View;
 
-    invoke-direct {v0, p0, p0, v1, v2}, Lcom/yelp/android/ui/activities/mutatebiz/ae;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ag;Lcom/yelp/android/ui/activities/mutatebiz/af;Landroid/view/View;[Landroid/view/View;)V
+    invoke-direct {v0, p0, p0, v1, v2}, Lcom/yelp/android/ui/activities/mutatebiz/c;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/c$b;Lcom/yelp/android/ui/activities/mutatebiz/c$a;Landroid/view/View;[Landroid/view/View;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->c:Landroid/os/AsyncTask;
 
-    .line 77
+    .line 84
     iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->c:Landroid/os/AsyncTask;
 
     new-array v1, v3, [Ljava/lang/Void;
 
     invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 78
+    .line 85
     return-void
 .end method
 
@@ -209,22 +201,22 @@
     .end annotation
 
     .prologue
-    .line 59
+    .line 66
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->d:Z
 
-    .line 60
+    .line 67
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b([Ljava/lang/Void;)Ljava/lang/Object;
 
     move-result-object v0
 
-    .line 61
+    .line 68
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->d:Z
 
-    .line 62
+    .line 69
     return-object v0
 .end method
 
@@ -232,27 +224,27 @@
     .locals 2
 
     .prologue
-    .line 35
+    .line 43
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 36
+    .line 44
     iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->a:Ljava/lang/Object;
 
     if-eqz v0, :cond_0
 
-    .line 37
-    iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/g;
+    .line 45
+    iget-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/d$a;
 
     iget-object v1, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->a:Ljava/lang/Object;
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/util/g;->a(Ljava/lang/Object;)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/util/d$a;->a(Ljava/lang/Object;)V
 
-    .line 38
+    .line 46
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->a:Ljava/lang/Object;
 
-    .line 40
+    .line 48
     :cond_0
     return-void
 .end method
@@ -261,15 +253,15 @@
     .locals 1
 
     .prologue
-    .line 29
+    .line 37
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 30
+    .line 38
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->setRetainInstance(Z)V
 
-    .line 31
+    .line 39
     return-void
 .end method
 
@@ -277,14 +269,14 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 56
     invoke-super {p0}, Landroid/support/v4/app/Fragment;->onDetach()V
 
-    .line 50
+    .line 57
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/g;
+    iput-object v0, p0, Lcom/yelp/android/ui/util/BackgroundTaskFragment;->b:Lcom/yelp/android/ui/util/d$a;
 
-    .line 51
+    .line 58
     return-void
 .end method

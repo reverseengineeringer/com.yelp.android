@@ -1,43 +1,31 @@
 package com.yelp.android.ak;
 
+import com.yelp.android.ao.g;
+import java.util.HashMap;
+import java.util.Map;
+
 public class c
 {
-  private String a;
-  private int b;
-  private int c;
+  private static final g a = new g();
+  private final Map<g, b<?, ?>> b = new HashMap();
   
-  public c(String paramString)
+  public <T, Z> b<T, Z> a(Class<T> paramClass, Class<Z> paramClass1)
   {
-    a = paramString;
-    b = 0;
-    c = 0;
+    synchronized (a)
+    {
+      a.a(paramClass, paramClass1);
+      paramClass1 = (b)b.get(a);
+      paramClass = paramClass1;
+      if (paramClass1 == null) {
+        paramClass = d.e();
+      }
+      return paramClass;
+    }
   }
   
-  public c(String paramString, int paramInt1, int paramInt2)
+  public <T, Z> void a(Class<T> paramClass, Class<Z> paramClass1, b<T, Z> paramb)
   {
-    a = paramString;
-    b = paramInt1;
-    c = paramInt2;
-  }
-  
-  public String a()
-  {
-    return a;
-  }
-  
-  public int b()
-  {
-    return b;
-  }
-  
-  public int c()
-  {
-    return c;
-  }
-  
-  public String d()
-  {
-    return b() + "" + c();
+    b.put(new g(paramClass, paramClass1), paramb);
   }
 }
 

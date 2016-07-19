@@ -3,32 +3,30 @@ package com.yelp.android.ui.util;
 import android.os.Bundle;
 import android.view.View;
 import com.google.android.gms.maps.MapView;
-import com.yelp.android.serializable.by;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.ui.map.YelpMap;
-import com.yelp.android.ui.map.g;
-import com.yelp.android.ui.map.i;
+import com.yelp.android.ui.map.f.a;
 
-public abstract class YelpMapFragment<T extends by>
+public abstract class YelpMapFragment<T extends com.yelp.android.serializable.f>
   extends YelpFragment
-  implements i
+  implements f.a
 {
   protected YelpMap<T> a;
-  private g b;
+  private com.yelp.android.ui.map.f b;
   
   public void a(MapView paramMapView) {}
   
   protected final void c(View paramView)
   {
-    a = ((YelpMap)paramView.findViewById(2131493617));
+    a = ((YelpMap)paramView.findViewById(2131690351));
   }
   
-  public g e()
+  public com.yelp.android.ui.map.f f()
   {
     return b;
   }
   
-  protected void f()
+  protected void g()
   {
     b.a(a.getMapView());
   }
@@ -40,14 +38,14 @@ public abstract class YelpMapFragment<T extends by>
     {
       c(getView());
       a.a(paramBundle, null);
-      f();
+      g();
     }
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    b = new g(getActivity(), this);
+    b = new com.yelp.android.ui.map.f(getActivity(), this);
   }
   
   public void onDestroy()

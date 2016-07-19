@@ -1,16 +1,35 @@
 package com.yelp.android.av;
 
-import android.os.Handler;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import io.fabric.sdk.android.a.b;
+import java.util.concurrent.ExecutorService;
 
+@TargetApi(14)
 class b
-  implements Runnable
+  extends a
 {
-  b(a parama) {}
-  
-  public void run()
+  private final a.b a = new a.b()
   {
-    a.a(a).removeCallbacks(this);
-    a.b();
+    public void a(Activity paramAnonymousActivity)
+    {
+      if (a()) {
+        b.a(b.this).submit(new Runnable()
+        {
+          public void run()
+          {
+            c();
+          }
+        });
+      }
+    }
+  };
+  private final ExecutorService b;
+  
+  public b(io.fabric.sdk.android.a parama, ExecutorService paramExecutorService)
+  {
+    b = paramExecutorService;
+    parama.a(a);
   }
 }
 

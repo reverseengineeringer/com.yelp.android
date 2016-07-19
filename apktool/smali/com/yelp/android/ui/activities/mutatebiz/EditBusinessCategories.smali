@@ -14,7 +14,7 @@
     .locals 0
 
     .prologue
-    .line 41
+    .line 38
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
     return-void
@@ -36,24 +36,24 @@
     .end annotation
 
     .prologue
-    .line 51
+    .line 46
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 52
-    const-string/jumbo v1, "extra.categories"
+    .line 47
+    const-string/jumbo v1, "extra.category"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 53
+    .line 48
     const-string/jumbo v1, "extra.business"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 54
+    .line 49
     return-object v0
 .end method
 
@@ -61,7 +61,7 @@
     .locals 3
 
     .prologue
-    .line 208
+    .line 211
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
     if-nez v0, :cond_0
@@ -72,51 +72,51 @@
 
     if-eqz v0, :cond_0
 
-    .line 209
-    invoke-static {p1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
+    .line 212
+    invoke-static {p1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    .line 220
+    .line 223
     :goto_0
     return-void
 
-    .line 211
+    .line 214
     :cond_0
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 212
+    .line 215
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
-    .line 213
+    .line 216
     const-string/jumbo v1, "category_id"
 
     invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 215
+    .line 218
     :cond_1
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
     if-eqz v1, :cond_2
 
-    .line 216
+    .line 219
     const-string/jumbo v1, "business_id"
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 218
+    .line 221
     :cond_2
-    invoke-static {p1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-static {p1, v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
     goto :goto_0
 .end method
@@ -125,7 +125,7 @@
     .locals 0
 
     .prologue
-    .line 41
+    .line 38
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
     return-void
@@ -139,40 +139,40 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 122
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->c()Ljava/util/List;
+    .line 121
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->b()Ljava/util/List;
 
     move-result-object v2
 
-    .line 124
+    .line 123
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->b:Landroid/view/View;
 
     if-eq p2, v0, :cond_0
 
-    .line 125
+    .line 124
     invoke-virtual {p1, p3}, Landroid/widget/ListView;->getItemAtPosition(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/Category;
 
-    .line 128
+    .line 127
     :goto_0
     invoke-static {p0, v1, v2}, Lcom/yelp/android/ui/activities/mutatebiz/PickCategory;->a(Landroid/content/Context;Lcom/yelp/android/serializable/Category;Ljava/util/List;)Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 129
-    const-string/jumbo v2, "extra.categories"
+    .line 128
+    const-string/jumbo v2, "extra.category"
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 130
+    .line 129
     const/4 v0, 0x3
 
     invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->startActivityForResult(Landroid/content/Intent;I)V
 
-    .line 131
+    .line 130
     return-void
 
     :cond_0
@@ -181,7 +181,7 @@
     goto :goto_0
 .end method
 
-.method c()Ljava/util/List;
+.method b()Ljava/util/List;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,12 +194,12 @@
     .end annotation
 
     .prologue
-    .line 140
+    .line 139
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string/jumbo v1, "extra.categories"
+    const-string/jumbo v1, "extra.category"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
@@ -227,9 +227,9 @@
 
     move-result-object v0
 
-    const v1, 0x7f03009a
+    const v1, 0x7f0300b1
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v2
 
@@ -242,7 +242,7 @@
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->b:Landroid/view/View;
 
     .line 149
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -262,17 +262,17 @@
     .locals 1
 
     .prologue
-    .line 224
+    .line 227
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditCategory:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 41
+    .line 38
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -286,38 +286,38 @@
     .prologue
     const/4 v4, 0x3
 
-    .line 85
+    .line 83
     new-instance v1, Ljava/util/ArrayList;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->c()Ljava/util/List;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->b()Ljava/util/List;
 
     move-result-object v0
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    .line 86
+    .line 84
     packed-switch p1, :pswitch_data_0
 
     .line 115
     :goto_0
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/YelpListActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 118
+    .line 117
     return-void
 
-    .line 88
+    .line 86
     :pswitch_0
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    .line 89
+    .line 87
     invoke-static {p3}, Lcom/yelp/android/ui/activities/mutatebiz/PickCategory;->a(Landroid/content/Intent;)Lcom/yelp/android/serializable/Category;
 
     move-result-object v2
 
-    .line 90
-    const-string/jumbo v0, "extra.categories"
+    .line 88
+    const-string/jumbo v0, "extra.category"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -325,20 +325,20 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Category;
 
-    .line 91
+    .line 89
     if-eqz v0, :cond_2
 
-    .line 92
+    .line 90
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result v3
 
     invoke-virtual {v1, v3, v2}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 93
+    .line 91
     sget-object v3, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCategoriesRemoved:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Category;->getDatabaseId()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Category;->e()I
 
     move-result v0
 
@@ -348,20 +348,20 @@
 
     invoke-direct {p0, v3, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 99
+    .line 98
     :goto_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string/jumbo v3, "extra.categories"
+    const-string/jumbo v3, "extra.category"
 
     invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
-    .line 100
+    .line 99
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCategoriesAdded:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Category;->getDatabaseId()I
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Category;->e()I
 
     move-result v2
 
@@ -385,17 +385,17 @@
     .line 111
     :cond_1
     :goto_2
-    new-instance v0, Lcom/yelp/android/ui/activities/ei;
+    new-instance v0, Lcom/yelp/android/ui/activities/a;
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v2}, Lcom/yelp/android/ui/activities/ei;-><init>(Z)V
+    invoke-direct {v0, v2}, Lcom/yelp/android/ui/activities/a;-><init>(Z)V
 
     .line 112
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/ei;->a(Ljava/util/List;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/a;->a(Ljava/util/List;)V
 
     .line 113
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -403,11 +403,11 @@
 
     goto :goto_0
 
-    .line 96
+    .line 95
     :cond_2
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    .line 97
+    .line 96
     invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
@@ -420,7 +420,7 @@
 
     if-ge v0, v4, :cond_4
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -444,7 +444,7 @@
     if-lt v0, v4, :cond_1
 
     .line 109
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -454,7 +454,7 @@
 
     goto :goto_2
 
-    .line 86
+    .line 84
     nop
 
     :pswitch_data_0
@@ -467,17 +467,17 @@
     .locals 2
 
     .prologue
-    .line 135
+    .line 134
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->onBackPressed()V
 
-    .line 136
+    .line 135
     sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessCategoriesCanceled:Lcom/yelp/android/analytics/iris/EventIri;
 
     const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->a(Lcom/yelp/android/analytics/iris/EventIri;Ljava/lang/String;)V
 
-    .line 137
+    .line 136
     return-void
 .end method
 
@@ -487,17 +487,34 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 61
+    .line 56
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 62
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 58
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0e0145
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setBackgroundColor(I)V
+
+    .line 60
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->registerForContextMenu(Landroid/view/View;)V
 
-    .line 63
+    .line 61
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -512,19 +529,19 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 64
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->c()Ljava/util/List;
+    .line 62
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->b()Ljava/util/List;
 
     move-result-object v0
 
-    .line 65
+    .line 63
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    const v2, 0x7f03009b
+    const v2, 0x7f0300b2
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v3
 
@@ -532,8 +549,8 @@
 
     move-result-object v1
 
-    .line 67
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 65
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v2
 
@@ -541,16 +558,16 @@
 
     invoke-virtual {v2, v1, v3, v4}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->addHeaderView(Landroid/view/View;Ljava/lang/Object;Z)V
 
+    .line 66
+    new-instance v1, Lcom/yelp/android/ui/activities/a;
+
+    invoke-direct {v1, v4}, Lcom/yelp/android/ui/activities/a;-><init>(Z)V
+
+    .line 67
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/a;->a(Ljava/util/List;)V
+
     .line 68
-    new-instance v1, Lcom/yelp/android/ui/activities/ei;
-
-    invoke-direct {v1, v4}, Lcom/yelp/android/ui/activities/ei;-><init>(Z)V
-
-    .line 69
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/ei;->a(Ljava/util/List;)V
-
-    .line 70
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/ei;->getCount()I
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/a;->getCount()I
 
     move-result v2
 
@@ -558,39 +575,39 @@
 
     if-ge v2, v3, :cond_0
 
-    .line 71
+    .line 69
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->f()V
 
-    .line 73
+    .line 71
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 74
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 72
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 78
+    .line 76
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 79
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 77
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->b:Landroid/view/View;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v2
 
@@ -604,7 +621,7 @@
 
     invoke-virtual {v0, v1, v2, v4, v5}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->performItemClick(Landroid/view/View;IJ)Z
 
-    .line 81
+    .line 79
     :cond_1
     return-void
 .end method
@@ -623,7 +640,7 @@
     iget v0, p3, Landroid/widget/AdapterView$AdapterContextMenuInfo;->position:I
 
     .line 177
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -633,7 +650,7 @@
 
     if-lt v0, v1, :cond_0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -641,7 +658,7 @@
 
     move-result v1
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v2
 
@@ -654,7 +671,7 @@
     if-ge v0, v1, :cond_0
 
     .line 179
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -669,32 +686,32 @@
 
     move-result-object v1
 
-    const v2, 0x7f100006
+    const v2, 0x7f100008
 
     invoke-virtual {v1, v2, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
     .line 181
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Category;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Category;->a()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-interface {p1, v1}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
     .line 182
-    const v1, 0x7f0c04f3
+    const v1, 0x7f0f05fd
 
     invoke-interface {p1, v1}, Landroid/view/ContextMenu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
     .line 184
-    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/s;
+    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories$1;
 
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/s;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;Lcom/yelp/android/serializable/Category;)V
+    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories$1;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditBusinessCategories;Lcom/yelp/android/serializable/Category;)V
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setOnMenuItemClickListener(Landroid/view/MenuItem$OnMenuItemClickListener;)Landroid/view/MenuItem;
 
-    .line 205
+    .line 208
     :cond_0
     return-void
 .end method
@@ -711,7 +728,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -732,7 +749,7 @@
 
     move-result v0
 
-    const v1, 0x7f0c04fd
+    const v1, 0x7f0f0607
 
     if-ne v0, v1, :cond_0
 

@@ -1,22 +1,26 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Compliment;
-import com.yelp.android.serializable.Tip;
-import com.yelp.android.serializable.TipFeedback;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class cv
+  extends k<Void, Void, ArrayList<YelpBusiness>>
 {
-  public final ArrayList<TipFeedback> a;
-  public final ArrayList<Compliment> b;
-  public final Tip c;
-  
-  public cv(ArrayList<TipFeedback> paramArrayList, ArrayList<Compliment> paramArrayList1, Tip paramTip)
+  public cv(k.b<ArrayList<YelpBusiness>> paramb)
   {
-    a = paramArrayList1;
-    b = paramTip;
-    Tip localTip;
-    c = localTip;
+    super(ApiRequest.RequestType.GET, "nearby/suggest", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.MILES);
+  }
+  
+  public ArrayList<YelpBusiness> a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("businesses"), YelpBusiness.CREATOR);
   }
 }
 

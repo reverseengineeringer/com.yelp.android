@@ -1,23 +1,25 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.webrequests.core.b;
 import com.yelp.android.serializable.Video;
 import com.yelp.android.serializable.VideoFeedback;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ai
-  extends g<Void, Void, List<VideoFeedback>>
+  extends b<Void, Void, List<VideoFeedback>>
 {
-  public ai(m<List<VideoFeedback>> paramm, Video paramVideo)
+  public ai(ApiRequest.b<List<VideoFeedback>> paramb, Video paramVideo)
   {
-    super(ApiRequest.RequestType.GET, "/business/videos/list_feedbacks", paramm);
-    addUrlParam("video_id", paramVideo.getId());
-    addUrlParam("video_source", paramVideo.getVideoSource());
+    super(ApiRequest.RequestType.GET, "/business/videos/list_feedbacks", paramb);
+    a("video_id", paramVideo.a());
+    a("video_source", paramVideo.p());
   }
   
   public List<VideoFeedback> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
     return JsonUtil.parseJsonList(paramJSONObject.getJSONArray("feedbacks"), VideoFeedback.CREATOR);
   }

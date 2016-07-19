@@ -1,8 +1,14 @@
-.class public interface abstract Lcom/google/android/gms/common/api/PendingResult;
+.class public abstract Lcom/google/android/gms/common/api/PendingResult;
 .super Ljava/lang/Object;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/common/api/PendingResult$zza;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<R::",
@@ -13,10 +19,17 @@
 .end annotation
 
 
-# virtual methods
-.method public abstract a(Lcom/google/android/gms/common/api/PendingResult$a;)V
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
 .end method
 
+
+# virtual methods
 .method public abstract await()Lcom/google/android/gms/common/api/Result;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,7 +59,7 @@
         value = {
             "(",
             "Lcom/google/android/gms/common/api/ResultCallback",
-            "<TR;>;)V"
+            "<-TR;>;)V"
         }
     .end annotation
 .end method
@@ -56,9 +69,50 @@
         value = {
             "(",
             "Lcom/google/android/gms/common/api/ResultCallback",
-            "<TR;>;J",
+            "<-TR;>;J",
             "Ljava/util/concurrent/TimeUnit;",
             ")V"
         }
     .end annotation
+.end method
+
+.method public then(Lcom/google/android/gms/common/api/ResultTransform;)Lcom/google/android/gms/common/api/TransformedResult;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<S::",
+            "Lcom/google/android/gms/common/api/Result;",
+            ">(",
+            "Lcom/google/android/gms/common/api/ResultTransform",
+            "<-TR;+TS;>;)",
+            "Lcom/google/android/gms/common/api/TransformedResult",
+            "<TS;>;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    throw v0
+.end method
+
+.method public zza(Lcom/google/android/gms/common/api/PendingResult$zza;)V
+    .locals 1
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    throw v0
+.end method
+
+.method public zzpa()Ljava/lang/Integer;
+    .locals 1
+
+    new-instance v0, Ljava/lang/UnsupportedOperationException;
+
+    invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
+
+    throw v0
 .end method

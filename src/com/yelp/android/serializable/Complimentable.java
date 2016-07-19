@@ -5,11 +5,11 @@ import android.os.Parcelable;
 public abstract interface Complimentable
   extends Parcelable
 {
-  public abstract String getId();
+  public abstract String a();
   
-  public abstract Compliment.ComplimentableItemType getType();
+  public abstract String b();
   
-  public abstract String getUserId();
+  public abstract Compliment.ComplimentableItemType c();
 }
 
 /* Location:

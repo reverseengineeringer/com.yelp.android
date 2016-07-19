@@ -3,47 +3,114 @@ package android.support.v4.content;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
-import com.yelp.android.e.s;
+import android.support.v4.os.OperationCanceledException;
+import com.yelp.android.g.k;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executor;
 
 public abstract class a<D>
-  extends r<D>
+  extends l<D>
 {
-  volatile a<D>.b a;
-  volatile a<D>.b b;
+  volatile a<D>.a a;
+  volatile a<D>.a b;
   long c;
   long d = -10000L;
   Handler e;
+  private final Executor f;
   
   public a(Context paramContext)
   {
-    super(paramContext);
+    this(paramContext, ModernAsyncTask.c);
   }
   
-  void a(a<D>.b parama, D paramD)
+  private a(Context paramContext, Executor paramExecutor)
+  {
+    super(paramContext);
+    f = paramExecutor;
+  }
+  
+  protected void a()
+  {
+    super.a();
+    s();
+    a = new a();
+    c();
+  }
+  
+  void a(a<D>.a parama, D paramD)
   {
     a(paramD);
     if (b == parama)
     {
-      rollbackContentChanged();
+      A();
       d = SystemClock.uptimeMillis();
       b = null;
-      b();
+      l();
+      c();
     }
   }
   
   public void a(D paramD) {}
   
-  public boolean a()
+  public void a(String paramString, FileDescriptor paramFileDescriptor, PrintWriter paramPrintWriter, String[] paramArrayOfString)
+  {
+    super.a(paramString, paramFileDescriptor, paramPrintWriter, paramArrayOfString);
+    if (a != null)
+    {
+      paramPrintWriter.print(paramString);
+      paramPrintWriter.print("mTask=");
+      paramPrintWriter.print(a);
+      paramPrintWriter.print(" waiting=");
+      paramPrintWriter.println(a.a);
+    }
+    if (b != null)
+    {
+      paramPrintWriter.print(paramString);
+      paramPrintWriter.print("mCancellingTask=");
+      paramPrintWriter.print(b);
+      paramPrintWriter.print(" waiting=");
+      paramPrintWriter.println(b.a);
+    }
+    if (c != 0L)
+    {
+      paramPrintWriter.print(paramString);
+      paramPrintWriter.print("mUpdateThrottle=");
+      k.a(c, paramPrintWriter);
+      paramPrintWriter.print(" mLastLoadCompleteTime=");
+      k.a(d, SystemClock.uptimeMillis(), paramPrintWriter);
+      paramPrintWriter.println();
+    }
+  }
+  
+  void b(a<D>.a parama, D paramD)
+  {
+    if (a != parama)
+    {
+      a(parama, paramD);
+      return;
+    }
+    if (p())
+    {
+      a(paramD);
+      return;
+    }
+    z();
+    d = SystemClock.uptimeMillis();
+    a = null;
+    b(paramD);
+  }
+  
+  protected boolean b()
   {
     if (a != null)
     {
       if (b != null)
       {
-        if (a.b)
+        if (a.a)
         {
-          a.b = false;
+          a.a = false;
           e.removeCallbacks(a);
         }
         a = null;
@@ -52,33 +119,35 @@ public abstract class a<D>
     else {
       return false;
     }
-    if (a.b)
+    if (a.a)
     {
-      a.b = false;
+      a.a = false;
       e.removeCallbacks(a);
       a = null;
       return false;
     }
     boolean bool = a.a(false);
-    if (bool) {
+    if (bool)
+    {
       b = a;
+      f();
     }
     a = null;
     return bool;
   }
   
-  void b()
+  void c()
   {
     if ((b == null) && (a != null))
     {
-      if (a.b)
+      if (a.a)
       {
-        a.b = false;
+        a.a = false;
         e.removeCallbacks(a);
       }
       if ((c > 0L) && (SystemClock.uptimeMillis() < d + c))
       {
-        a.b = true;
+        a.a = true;
         e.postAtTime(a, d + c);
       }
     }
@@ -86,70 +155,79 @@ public abstract class a<D>
     {
       return;
     }
-    a.a(ModernAsyncTask.d, (Void[])null);
+    a.a(f, (Void[])null);
   }
   
-  void b(a<D>.b parama, D paramD)
+  public abstract D d();
+  
+  protected D e()
   {
-    if (a != parama)
-    {
-      a(parama, paramD);
-      return;
-    }
-    if (isAbandoned())
-    {
-      a(paramD);
-      return;
-    }
-    commitContentChanged();
-    d = SystemClock.uptimeMillis();
-    a = null;
-    deliverResult(paramD);
+    return (D)d();
   }
   
-  public abstract D c();
+  public void f() {}
   
-  protected D d()
+  public boolean g()
   {
-    return (D)c();
+    return b != null;
   }
   
-  public void dump(String paramString, FileDescriptor paramFileDescriptor, PrintWriter paramPrintWriter, String[] paramArrayOfString)
+  final class a
+    extends ModernAsyncTask<Void, Void, D>
+    implements Runnable
   {
-    super.dump(paramString, paramFileDescriptor, paramPrintWriter, paramArrayOfString);
-    if (a != null)
+    boolean a;
+    private final CountDownLatch d = new CountDownLatch(1);
+    
+    a() {}
+    
+    protected D a(Void... paramVarArgs)
     {
-      paramPrintWriter.print(paramString);
-      paramPrintWriter.print("mTask=");
-      paramPrintWriter.print(a);
-      paramPrintWriter.print(" waiting=");
-      paramPrintWriter.println(a.b);
+      try
+      {
+        paramVarArgs = e();
+        return paramVarArgs;
+      }
+      catch (OperationCanceledException paramVarArgs)
+      {
+        if (!c()) {
+          throw paramVarArgs;
+        }
+      }
+      return null;
     }
-    if (b != null)
+    
+    protected void a(D paramD)
     {
-      paramPrintWriter.print(paramString);
-      paramPrintWriter.print("mCancellingTask=");
-      paramPrintWriter.print(b);
-      paramPrintWriter.print(" waiting=");
-      paramPrintWriter.println(b.b);
+      try
+      {
+        b(this, paramD);
+        return;
+      }
+      finally
+      {
+        d.countDown();
+      }
     }
-    if (c != 0L)
+    
+    protected void b(D paramD)
     {
-      paramPrintWriter.print(paramString);
-      paramPrintWriter.print("mUpdateThrottle=");
-      s.a(c, paramPrintWriter);
-      paramPrintWriter.print(" mLastLoadCompleteTime=");
-      s.a(d, SystemClock.uptimeMillis(), paramPrintWriter);
-      paramPrintWriter.println();
+      try
+      {
+        a(this, paramD);
+        return;
+      }
+      finally
+      {
+        d.countDown();
+      }
     }
-  }
-  
-  protected void onForceLoad()
-  {
-    super.onForceLoad();
-    a();
-    a = new b(this);
-    b();
+    
+    public void run()
+    {
+      a = false;
+      c();
+    }
   }
 }
 

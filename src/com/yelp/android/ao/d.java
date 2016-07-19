@@ -1,26 +1,34 @@
 package com.yelp.android.ao;
 
-import java.io.InputStream;
-import java.util.zip.GZIPInputStream;
-import org.apache.http.HttpEntity;
-import org.apache.http.entity.HttpEntityWrapper;
+import android.annotation.TargetApi;
+import android.os.Build.VERSION;
+import android.os.SystemClock;
 
-class d
-  extends HttpEntityWrapper
+public final class d
 {
-  public d(HttpEntity paramHttpEntity)
+  private static final double a;
+  
+  static
   {
-    super(paramHttpEntity);
+    double d = 1.0D;
+    if (17 <= Build.VERSION.SDK_INT) {
+      d = 1.0D / Math.pow(10.0D, 6.0D);
+    }
+    a = d;
   }
   
-  public InputStream getContent()
+  public static double a(long paramLong)
   {
-    return new GZIPInputStream(wrappedEntity.getContent());
+    return (a() - paramLong) * a;
   }
   
-  public long getContentLength()
+  @TargetApi(17)
+  public static long a()
   {
-    return -1L;
+    if (17 <= Build.VERSION.SDK_INT) {
+      return SystemClock.elapsedRealtimeNanos();
+    }
+    return System.currentTimeMillis();
   }
 }
 

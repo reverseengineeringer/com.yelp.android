@@ -1,5 +1,6 @@
 package com.ooyala.android;
 
+import android.os.AsyncTask;
 import java.io.PrintStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class OoyalaAdSpot
   
   public Object fetchPlaybackInfo(FetchPlaybackInfoCallback paramFetchPlaybackInfoCallback)
   {
-    paramFetchPlaybackInfoCallback = new OoyalaAdSpot.FetchPlaybackInfoTask(this, paramFetchPlaybackInfoCallback);
+    paramFetchPlaybackInfoCallback = new FetchPlaybackInfoTask(paramFetchPlaybackInfoCallback);
     paramFetchPlaybackInfoCallback.execute(new Void[0]);
     return paramFetchPlaybackInfoCallback;
   }
@@ -94,7 +95,7 @@ public class OoyalaAdSpot
   
   public Constants.ReturnState update(JSONObject paramJSONObject)
   {
-    switch (OoyalaAdSpot.1.$SwitchMap$com$ooyala$android$Constants$ReturnState[super.update(paramJSONObject).ordinal()])
+    switch (super.update(paramJSONObject))
     {
     }
     try
@@ -145,6 +146,27 @@ public class OoyalaAdSpot
       System.out.println("JSONException: " + paramJSONObject);
     }
     return Constants.ReturnState.STATE_FAIL;
+  }
+  
+  private class FetchPlaybackInfoTask
+    extends AsyncTask<Void, Integer, Boolean>
+  {
+    protected FetchPlaybackInfoCallback _callback = null;
+    
+    public FetchPlaybackInfoTask(FetchPlaybackInfoCallback paramFetchPlaybackInfoCallback)
+    {
+      _callback = paramFetchPlaybackInfoCallback;
+    }
+    
+    protected Boolean doInBackground(Void... paramVarArgs)
+    {
+      return Boolean.valueOf(fetchPlaybackInfo());
+    }
+    
+    protected void onPostExecute(Boolean paramBoolean)
+    {
+      _callback.callback(paramBoolean.booleanValue());
+    }
   }
 }
 

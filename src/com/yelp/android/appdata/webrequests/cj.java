@@ -1,77 +1,43 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.CheckIn;
-import com.yelp.android.serializable.ExternalCheckIn;
-import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Compliment;
+import com.yelp.android.serializable.Tip;
+import com.yelp.android.serializable.TipFeedback;
+import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class cj
-  extends h<Void, Void, ck>
+  extends b<Void, Void, a>
 {
-  ArrayList<CheckIn> a;
-  ArrayList<CheckIn> b;
-  ArrayList<CheckIn> c;
-  ArrayList<String> d;
-  int e = -1;
-  int f = -1;
-  int g = 0;
-  
-  public cj(j<ck> paramj)
+  public cj(ApiRequest.b<a> paramb, String paramString)
   {
-    super(ApiRequest.RequestType.GET, "check_ins/friends", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
+    super(ApiRequest.RequestType.GET, "quicktips/list_feedbacks", paramb);
+    a("quicktip_id", paramString);
   }
   
-  public int a()
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return e;
+    return new a(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("feedbacks"), TipFeedback.CREATOR), JsonUtil.parseJsonList(paramJSONObject.getJSONArray("compliments"), Compliment.CREATOR), (Tip)Tip.CREATOR.parse(paramJSONObject.getJSONObject("quicktip")));
   }
   
-  public ck a(JSONObject paramJSONObject)
+  public class a
   {
-    HashMap localHashMap = YelpBusiness.jsonBusinessesToMap(paramJSONObject.getJSONArray("businesses"), getRequestId(), BusinessSearchRequest.FormatMode.FULL);
-    a = ExternalCheckIn.mixedCheckInsFromJSONArray(paramJSONObject.getJSONArray("nearby_check_ins"), localHashMap);
-    b = ExternalCheckIn.mixedCheckInsFromJSONArray(paramJSONObject.getJSONArray("city_check_ins"), localHashMap);
-    c = ExternalCheckIn.mixedCheckInsFromJSONArray(paramJSONObject.getJSONArray("other_check_ins"), localHashMap);
-    e = paramJSONObject.optInt("weekly_check_in_rank", -1);
-    f = paramJSONObject.optInt("friend_check_in_rank", -1);
-    g = paramJSONObject.optInt("friend_active_count", 0);
-    d = new ArrayList();
-    if (!paramJSONObject.isNull("location_names")) {
-      Collections.addAll(d, JsonUtil.getStringArray(paramJSONObject.getJSONArray("location_names")));
+    public final ArrayList<TipFeedback> a;
+    public final ArrayList<Compliment> b;
+    public final Tip c;
+    
+    public a(ArrayList<Compliment> paramArrayList, Tip paramTip)
+    {
+      a = paramArrayList;
+      b = paramTip;
+      Tip localTip;
+      c = localTip;
     }
-    return new ck(a, b, c);
-  }
-  
-  public int b()
-  {
-    return f;
-  }
-  
-  public int c()
-  {
-    return g;
-  }
-  
-  public int d()
-  {
-    return a.size() + b.size() + c.size();
-  }
-  
-  public ArrayList<String> e()
-  {
-    return d;
-  }
-  
-  public boolean isLocationAbsolutelyRequired()
-  {
-    return false;
   }
 }
 

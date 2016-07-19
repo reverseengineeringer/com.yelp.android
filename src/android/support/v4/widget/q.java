@@ -1,21 +1,40 @@
 package android.support.v4.widget;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.view.ViewGroup.MarginLayoutParams;
+import android.util.Log;
+import android.widget.PopupWindow;
+import java.lang.reflect.Field;
 
-abstract interface q
+class q
 {
-  public abstract int a(Object paramObject);
+  private static Field a;
   
-  public abstract Drawable a(Context paramContext);
+  static
+  {
+    try
+    {
+      a = PopupWindow.class.getDeclaredField("mOverlapAnchor");
+      a.setAccessible(true);
+      return;
+    }
+    catch (NoSuchFieldException localNoSuchFieldException)
+    {
+      Log.i("PopupWindowCompatApi21", "Could not fetch mOverlapAnchor field from PopupWindow", localNoSuchFieldException);
+    }
+  }
   
-  public abstract void a(View paramView);
-  
-  public abstract void a(View paramView, Object paramObject, int paramInt);
-  
-  public abstract void a(ViewGroup.MarginLayoutParams paramMarginLayoutParams, Object paramObject, int paramInt);
+  static void a(PopupWindow paramPopupWindow, boolean paramBoolean)
+  {
+    if (a != null) {}
+    try
+    {
+      a.set(paramPopupWindow, Boolean.valueOf(paramBoolean));
+      return;
+    }
+    catch (IllegalAccessException paramPopupWindow)
+    {
+      Log.i("PopupWindowCompatApi21", "Could not set overlap anchor field in PopupWindow", paramPopupWindow);
+    }
+  }
 }
 
 /* Location:

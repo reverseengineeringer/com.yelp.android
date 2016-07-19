@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.serializable.Event;
 import com.yelp.android.ui.activities.support.YelpFragment;
 import com.yelp.android.util.StringUtils;
@@ -30,22 +30,22 @@ public class EventDetailFragment
   
   private void a(View paramView, Event paramEvent)
   {
-    TextView localTextView = (TextView)paramView.findViewById(2131493276);
-    localTextView.setText(Html.fromHtml(paramEvent.getDescription()));
+    TextView localTextView = (TextView)paramView.findViewById(2131689933);
+    localTextView.setText(Html.fromHtml(paramEvent.B()));
     localTextView.setMovementMethod(LinkMovementMethod.getInstance());
-    if ((!TextUtils.isEmpty(paramEvent.getTicketsUrl())) || (!TextUtils.isEmpty(paramEvent.getEventUrl())))
+    if ((!TextUtils.isEmpty(paramEvent.D())) || (!TextUtils.isEmpty(paramEvent.F())))
     {
-      paramView.findViewById(2131493050).setVisibility(0);
-      localTextView = (TextView)paramView.findViewById(2131493505);
-      if (!TextUtils.isEmpty(paramEvent.getTicketsUrl()))
+      paramView.findViewById(2131689719).setVisibility(0);
+      localTextView = (TextView)paramView.findViewById(2131690200);
+      if (!TextUtils.isEmpty(paramEvent.D()))
       {
-        StringUtils.a(localTextView, 2131166706, paramEvent.getTicketsUrl());
+        StringUtils.a(localTextView, 2131166684, paramEvent.D());
         localTextView.setVisibility(0);
       }
-      if (!TextUtils.isEmpty(paramEvent.getEventUrl()))
+      if (!TextUtils.isEmpty(paramEvent.F()))
       {
-        paramView = (TextView)paramView.findViewById(2131493504);
-        StringUtils.a(paramView, 2131166232, paramEvent.getEventUrl());
+        paramView = (TextView)paramView.findViewById(2131690199);
+        StringUtils.a(paramView, 2131166286, paramEvent.F());
         paramView.setVisibility(0);
       }
     }
@@ -56,20 +56,20 @@ public class EventDetailFragment
     localTextView.setPadding(0, 0, 0, 0);
   }
   
-  public b getIri()
+  public a getIri()
   {
     return ViewIri.EventDetails;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    return Collections.singletonMap("event_id", ((Event)getArguments().getParcelable("args_event")).getId());
+    return Collections.singletonMap("event_id", ((Event)getArguments().getParcelable("args_event")).I());
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     paramViewGroup = (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
-    paramLayoutInflater.inflate(2130903196, paramViewGroup);
+    paramLayoutInflater.inflate(2130903220, paramViewGroup);
     a(paramViewGroup, (Event)getArguments().getParcelable("args_event"));
     return paramViewGroup;
   }

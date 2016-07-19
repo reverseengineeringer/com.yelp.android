@@ -2,9 +2,9 @@ package com.yelp.android.ui.util;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v4.view.ba;
-import android.support.v4.view.ce;
-import android.support.v4.widget.ax;
+import android.support.v4.view.ai;
+import android.support.v4.view.t;
+import android.support.v4.widget.v;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
@@ -23,10 +23,10 @@ public class PullDownListView
   private boolean e;
   private boolean f;
   private boolean g;
-  private ax h;
+  private v h;
   private int i;
   private float j;
-  private bi k;
+  private a k;
   
   public PullDownListView(Context paramContext)
   {
@@ -68,7 +68,7 @@ public class PullDownListView
     g = false;
     c = null;
     b = -1;
-    h = ax.a(paramContext, new DecelerateInterpolator());
+    h = v.a(paramContext, new DecelerateInterpolator());
     i = ViewConfiguration.get(paramContext).getScaledTouchSlop();
     j = getResourcesgetDisplayMetricsdensity;
   }
@@ -114,7 +114,7 @@ public class PullDownListView
     if ((g) && (h.g()))
     {
       a(h.c());
-      ce.d(this);
+      ai.d(this);
       return;
     }
     g = false;
@@ -125,7 +125,7 @@ public class PullDownListView
     if ((!e) || (c == null)) {
       return super.onInterceptTouchEvent(paramMotionEvent);
     }
-    if (ba.a(paramMotionEvent) == 0)
+    if (t.a(paramMotionEvent) == 0)
     {
       a = paramMotionEvent.getRawY();
       b = -1;
@@ -139,7 +139,7 @@ public class PullDownListView
     if ((!e) || (c == null)) {
       return super.onTouchEvent(paramMotionEvent);
     }
-    switch (ba.a(paramMotionEvent))
+    switch (t.a(paramMotionEvent))
     {
     }
     for (;;)
@@ -184,16 +184,16 @@ public class PullDownListView
             int i1 = Math.round(n / 1.2F);
             h.a(0, m, 0, -n, i1);
             g = true;
-            ce.d(this);
+            ai.d(this);
           }
         }
       }
     }
   }
   
-  public void setOnPullDownListener(bi parambi)
+  public void setOnPullDownListener(a parama)
   {
-    k = parambi;
+    k = parama;
   }
   
   public void setPullDownEnabled(boolean paramBoolean)
@@ -207,6 +207,13 @@ public class PullDownListView
     if (paramView != null) {
       d = paramView.getPaddingTop();
     }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(float paramFloat);
+    
+    public abstract boolean b(float paramFloat);
   }
 }
 

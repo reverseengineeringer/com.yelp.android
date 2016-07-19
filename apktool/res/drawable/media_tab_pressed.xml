@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/selected_bar" android:top="@dimen/separator_line_width">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/red_shirley_temple" />
+        </shape>
+    </item>
+    <item android:bottom="@dimen/tab_divider">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+</layer-list>

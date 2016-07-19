@@ -2,23 +2,24 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
+import com.yelp.android.x.c;
 
 public class e
   extends d
 {
-  public e(com.bumptech.glide.load.engine.bitmap_recycle.e parame)
+  public e(c paramc)
   {
-    super(parame);
+    super(paramc);
   }
   
-  protected Bitmap a(com.bumptech.glide.load.engine.bitmap_recycle.e parame, Bitmap paramBitmap, int paramInt1, int paramInt2)
+  protected Bitmap a(c paramc, Bitmap paramBitmap, int paramInt1, int paramInt2)
   {
     if (paramBitmap.getConfig() != null) {}
     for (Object localObject = paramBitmap.getConfig();; localObject = Bitmap.Config.ARGB_8888)
     {
-      localObject = parame.a(paramInt1, paramInt2, (Bitmap.Config)localObject);
-      paramBitmap = v.a((Bitmap)localObject, paramBitmap, paramInt1, paramInt2);
-      if ((localObject != null) && (localObject != paramBitmap) && (!parame.a((Bitmap)localObject))) {
+      localObject = paramc.a(paramInt1, paramInt2, (Bitmap.Config)localObject);
+      paramBitmap = p.a((Bitmap)localObject, paramBitmap, paramInt1, paramInt2);
+      if ((localObject != null) && (localObject != paramBitmap) && (!paramc.a((Bitmap)localObject))) {
         ((Bitmap)localObject).recycle();
       }
       return paramBitmap;

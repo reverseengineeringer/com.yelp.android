@@ -1,74 +1,88 @@
 package com.bumptech.glide.manager;
 
-import com.bumptech.glide.request.a;
+import com.bumptech.glide.request.b;
+import com.yelp.android.ao.h;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
 
 public class l
 {
-  private final Set<a> a = Collections.newSetFromMap(new WeakHashMap());
-  private boolean b;
+  private final Set<b> a = Collections.newSetFromMap(new WeakHashMap());
+  private final List<b> b = new ArrayList();
+  private boolean c;
   
   public void a()
   {
-    b = true;
-    Iterator localIterator = a.iterator();
+    c = true;
+    Iterator localIterator = h.a(a).iterator();
     while (localIterator.hasNext())
     {
-      a locala = (a)localIterator.next();
-      if (locala.f()) {
-        locala.e();
+      b localb = (b)localIterator.next();
+      if (localb.f())
+      {
+        localb.e();
+        b.add(localb);
       }
     }
   }
   
-  public void a(a parama)
+  public void a(b paramb)
   {
-    a.add(parama);
-    if (!b) {
-      parama.b();
+    a.add(paramb);
+    if (!c)
+    {
+      paramb.b();
+      return;
     }
+    b.add(paramb);
   }
   
   public void b()
   {
-    b = false;
-    Iterator localIterator = a.iterator();
+    c = false;
+    Iterator localIterator = h.a(a).iterator();
     while (localIterator.hasNext())
     {
-      a locala = (a)localIterator.next();
-      if ((!locala.g()) && (!locala.i()) && (!locala.f())) {
-        locala.b();
+      b localb = (b)localIterator.next();
+      if ((!localb.g()) && (!localb.i()) && (!localb.f())) {
+        localb.b();
       }
     }
+    b.clear();
   }
   
-  public void b(a parama)
+  public void b(b paramb)
   {
-    a.remove(parama);
+    a.remove(paramb);
+    b.remove(paramb);
   }
   
   public void c()
   {
-    Iterator localIterator = a.iterator();
+    Iterator localIterator = h.a(a).iterator();
     while (localIterator.hasNext()) {
-      ((a)localIterator.next()).d();
+      ((b)localIterator.next()).d();
     }
+    b.clear();
   }
   
   public void d()
   {
-    Iterator localIterator = a.iterator();
+    Iterator localIterator = h.a(a).iterator();
     while (localIterator.hasNext())
     {
-      a locala = (a)localIterator.next();
-      if ((!locala.g()) && (!locala.i()))
+      b localb = (b)localIterator.next();
+      if ((!localb.g()) && (!localb.i()))
       {
-        locala.e();
-        if (!b) {
-          locala.b();
+        localb.e();
+        if (!c) {
+          localb.b();
+        } else {
+          b.add(localb);
         }
       }
     }

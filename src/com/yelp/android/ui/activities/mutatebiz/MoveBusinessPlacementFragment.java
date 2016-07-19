@@ -1,12 +1,11 @@
 package com.yelp.android.ui.activities.mutatebiz;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,31 +18,41 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.CameraPosition.Builder;
+import com.google.android.gms.maps.model.CameraPosition.a;
 import com.google.android.gms.maps.model.LatLng;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.LocationService;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.cn;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.cd;
 import com.yelp.android.serializable.Location;
-import com.yelp.android.serializable.by;
 import com.yelp.android.ui.map.YelpMap;
 import com.yelp.android.ui.util.YelpMapFragment;
-import com.yelp.android.ui.util.cr;
-import com.yelp.android.util.ErrorType;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.util.StringUtils;
 
 public class MoveBusinessPlacementFragment
-  extends YelpMapFragment<by>
-  implements com.yelp.android.ui.util.g<Location>
+  extends YelpMapFragment<com.yelp.android.serializable.f>
 {
-  private boolean b;
-  private Address c;
-  private ad d;
-  private MoveBusinessPlacementFragment.GeocodeRequestFragment e;
+  private Address b;
+  private a c;
+  private cd d;
+  private final ApiRequest.b<Location> e = new MoveBusinessPlacementFragment.2(this);
   
-  public static Bundle a(Address paramAddress, String paramString)
+  public static MoveBusinessPlacementFragment a(Address paramAddress, String paramString)
+  {
+    MoveBusinessPlacementFragment localMoveBusinessPlacementFragment = new MoveBusinessPlacementFragment();
+    localMoveBusinessPlacementFragment.setArguments(b(paramAddress, paramString));
+    return localMoveBusinessPlacementFragment;
+  }
+  
+  private void a(LatLng paramLatLng)
+  {
+    paramLatLng = CameraPosition.b().a(paramLatLng).a(19.0F).a();
+    a.a(paramLatLng, null);
+  }
+  
+  public static Bundle b(Address paramAddress, String paramString)
   {
     Bundle localBundle = new Bundle();
     localBundle.putParcelable("address", paramAddress);
@@ -51,22 +60,10 @@ public class MoveBusinessPlacementFragment
     return localBundle;
   }
   
-  private void a(LatLng paramLatLng)
-  {
-    paramLatLng = CameraPosition.builder().target(paramLatLng).zoom(19.0F).build();
-    a.a(paramLatLng, new aa(this));
-  }
-  
-  private void g()
-  {
-    b = false;
-    a.setOnCameraUpdate(new ab(this));
-  }
-  
   public void a()
   {
-    ((CompoundButton)getView().findViewById(2131493997)).setOnCheckedChangeListener(new z(this));
-    a(c);
+    ((CompoundButton)getView().findViewById(2131690868)).setOnCheckedChangeListener(new MoveBusinessPlacementFragment.1(this));
+    a(b);
   }
   
   public void a(Address paramAddress)
@@ -74,52 +71,31 @@ public class MoveBusinessPlacementFragment
     getArguments().putParcelable("address", paramAddress);
     if ((paramAddress.hasLatitude()) && (paramAddress.hasLongitude()))
     {
-      j();
+      l();
       a(new LatLng(paramAddress.getLatitude(), paramAddress.getLongitude()));
       return;
     }
-    paramAddress = f.b(", ", paramAddress).toString();
-    if (MoveBusinessPlacementFragment.GeocodeRequestFragment.a(e)) {
-      MoveBusinessPlacementFragment.GeocodeRequestFragment.b(e).cancel(true);
+    paramAddress = a.b(", ", paramAddress).toString();
+    if ((d != null) && (d.u())) {
+      d.a(true);
     }
-    MoveBusinessPlacementFragment.GeocodeRequestFragment.a(e, paramAddress);
-    a(MoveBusinessPlacementFragment.GeocodeRequestFragment.b(e));
-  }
-  
-  public void a(Location paramLocation)
-  {
-    j();
-    if (paramLocation != null)
-    {
-      a(paramLocation.getLatLng());
-      c.setLatitude(paramLocation.getLatitude());
-      c.setLongitude(paramLocation.getLongitude());
-      getArguments().putParcelable("address", c);
-      return;
-    }
-    g();
+    d = new cd(paramAddress, e);
+    d.f(new Void[0]);
+    a(d);
   }
   
   Address b()
   {
-    LatLng localLatLng = a.getCurrentCamera().target;
-    c.setLatitude(latitude);
-    c.setLongitude(longitude);
-    return c;
-  }
-  
-  public void b(YelpException paramYelpException)
-  {
-    j();
-    cr.a(ErrorType.getTypeFromException(paramYelpException).getTextId(), 1);
-  }
-  
-  public boolean c()
-  {
+    if (a.getCurrentCamera() == null) {
+      return null;
+    }
+    LatLng localLatLng = a.getCurrentCamera().a;
+    b.setLatitude(a);
+    b.setLongitude(b);
     return b;
   }
   
-  public ViewIri d()
+  public ViewIri c()
   {
     return ViewIri.BusinessEditAddressPosition;
   }
@@ -128,7 +104,7 @@ public class MoveBusinessPlacementFragment
   {
     super.onActivityCreated(paramBundle);
     a(null);
-    cr.b(getView());
+    as.b(getView());
   }
   
   public void onAttach(Activity paramActivity)
@@ -136,7 +112,7 @@ public class MoveBusinessPlacementFragment
     super.onAttach(paramActivity);
     try
     {
-      d = ((ad)paramActivity);
+      c = ((a)paramActivity);
       return;
     }
     catch (ClassCastException paramActivity)
@@ -145,61 +121,53 @@ public class MoveBusinessPlacementFragment
     }
   }
   
+  @SuppressLint({"CommitTransaction"})
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    e = ((MoveBusinessPlacementFragment.GeocodeRequestFragment)getFragmentManager().findFragmentByTag("tag_geocode_request_fragment"));
-    if (e == null)
-    {
-      e = new MoveBusinessPlacementFragment.GeocodeRequestFragment();
-      getFragmentManager().beginTransaction().add(e, "tag_geocode_request_fragment").commit();
-    }
-    e.setTargetFragment(this, 0);
     setHasOptionsMenu(true);
   }
   
   public void onCreateOptionsMenu(Menu paramMenu, MenuInflater paramMenuInflater)
   {
     super.onCreateOptionsMenu(paramMenu, paramMenuInflater);
-    paramMenuInflater.inflate(2131755030, paramMenu);
+    paramMenuInflater.inflate(2131755034, paramMenu);
   }
   
   public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
     ViewGroup localViewGroup = (ViewGroup)super.onCreateView(paramLayoutInflater, paramViewGroup, paramBundle);
-    paramLayoutInflater.inflate(2130903425, localViewGroup);
+    paramLayoutInflater.inflate(2130903548, localViewGroup);
     c(localViewGroup);
-    paramLayoutInflater = (TextView)localViewGroup.findViewById(2131494065);
+    paramLayoutInflater = (TextView)localViewGroup.findViewById(2131690940);
     paramViewGroup = getArguments().getString("business_name");
-    c = ((Address)getArguments().getParcelable("address"));
-    Address localAddress = d.b();
+    b = ((Address)getArguments().getParcelable("address"));
+    Address localAddress = c.c();
     if (localAddress != null) {
-      c = localAddress;
+      b = localAddress;
     }
     if (TextUtils.isEmpty(paramViewGroup)) {}
-    for (int i = 2131166349;; i = 2131166350)
+    for (int i = 2131166373;; i = 2131166372)
     {
-      paramLayoutInflater.setText(StringUtils.a(getActivity(), i, new Object[] { paramViewGroup, f.a(", ", c) }));
-      paramViewGroup = YelpMap.a(getActivity(), AppData.b().n().c());
+      paramLayoutInflater.setText(StringUtils.a(getActivity(), i, new Object[] { paramViewGroup, a.a(", ", b) }));
+      paramViewGroup = YelpMap.a(AppData.b().r().c());
       paramLayoutInflater = paramViewGroup;
-      if (c.hasLatitude())
+      if (b.hasLatitude())
       {
         paramLayoutInflater = paramViewGroup;
-        if (c.hasLongitude())
-        {
-          paramLayoutInflater = CameraPosition.builder().target(new LatLng(c.getLatitude(), c.getLongitude())).build();
-          paramLayoutInflater = YelpMap.a(getActivity(), paramLayoutInflater);
+        if (b.hasLongitude()) {
+          paramLayoutInflater = YelpMap.b(CameraPosition.b().a(new LatLng(b.getLatitude(), b.getLongitude())).a());
         }
       }
-      CameraPosition.builder();
-      if (paramLayoutInflater.getCamera() != null) {
-        paramLayoutInflater.camera(CameraPosition.builder(paramLayoutInflater.getCamera()).zoom(19.0F).build());
+      CameraPosition.b();
+      if (paramLayoutInflater.n() != null) {
+        paramLayoutInflater.a(CameraPosition.a(paramLayoutInflater.n()).a(19.0F).a());
       }
       a.setOptions(paramLayoutInflater);
       a.a(paramBundle, null);
-      f();
-      paramLayoutInflater = (ImageView)a.findViewById(2131492957);
-      paramViewGroup = getResources().getDrawable(2130838155);
+      g();
+      paramLayoutInflater = (ImageView)a.findViewById(2131689600);
+      paramViewGroup = getResources().getDrawable(2130838392);
       paramLayoutInflater.setImageDrawable(paramViewGroup);
       paramLayoutInflater.setPadding(0, 0, 0, paramViewGroup.getIntrinsicHeight());
       return localViewGroup;
@@ -209,6 +177,7 @@ public class MoveBusinessPlacementFragment
   public void onDetach()
   {
     super.onDetach();
+    a("request_geocode_request", d);
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
@@ -217,24 +186,25 @@ public class MoveBusinessPlacementFragment
     {
     default: 
       return super.onOptionsItemSelected(paramMenuItem);
-    case 2131494156: 
-      if (b)
-      {
-        d.a(b());
-        return true;
-      }
-      break;
     }
-    d.a(null);
+    c.b();
     return true;
   }
   
   public void onResume()
   {
     super.onResume();
-    if (e().e()) {
-      a(c);
+    d = ((cd)a("request_geocode_request", null, e));
+    if (f().e()) {
+      a(b);
     }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void b();
+    
+    public abstract Address c();
   }
 }
 

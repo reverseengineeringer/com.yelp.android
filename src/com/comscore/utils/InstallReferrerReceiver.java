@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import com.comscore.analytics.a;
-import com.comscore.analytics.h;
+import com.comscore.analytics.k;
 import com.comscore.applications.EventType;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -22,7 +22,7 @@ public class InstallReferrerReceiver
     {
       paramContext = ((SharedPreferences)localObject).edit();
       localObject = ((SharedPreferences)localObject).getString("CS_REFERRER_PREF_KEY", "CS_NONE");
-      c.a(h.d().toString(), "referrer was set as: '" + (String)localObject + "'");
+      c.a(k.c().toString(), "referrer was set as: '" + (String)localObject + "'");
       paramContext.remove("CS_REFERRER_PREF_KEY");
       paramContext.commit();
       if ((localObject != null) && (((String)localObject).length() > 0) && (!((String)localObject).equals("CS_NONE"))) {
@@ -108,7 +108,7 @@ public class InstallReferrerReceiver
     c.a("InstallReferrerReceiver", "Received referrer: '" + (String)localObject2 + "'");
     if (localObject2 != "CS_NONE")
     {
-      paramIntent = h.e();
+      paramIntent = k.d();
       if ((paramIntent != null) && (paramIntent.N() != null) && (paramIntent.J() > 0)) {
         paramIntent.a(EventType.HIDDEN, a((String)localObject2), true);
       }

@@ -1,39 +1,12 @@
 package android.support.v4.view;
 
-import android.view.MenuItem;
-import android.view.View;
+import android.view.ViewConfiguration;
 
 class au
-  implements aw
 {
-  public MenuItem a(MenuItem paramMenuItem, View paramView)
+  static boolean a(ViewConfiguration paramViewConfiguration)
   {
-    return ay.a(paramMenuItem, paramView);
-  }
-  
-  public View a(MenuItem paramMenuItem)
-  {
-    return ay.a(paramMenuItem);
-  }
-  
-  public void a(MenuItem paramMenuItem, int paramInt)
-  {
-    ay.a(paramMenuItem, paramInt);
-  }
-  
-  public MenuItem b(MenuItem paramMenuItem, int paramInt)
-  {
-    return ay.b(paramMenuItem, paramInt);
-  }
-  
-  public boolean b(MenuItem paramMenuItem)
-  {
-    return false;
-  }
-  
-  public boolean c(MenuItem paramMenuItem)
-  {
-    return false;
+    return paramViewConfiguration.hasPermanentMenuKey();
   }
 }
 

@@ -7,14 +7,16 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.graphics.Region.Op;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
-import android.support.v4.view.ba;
-import android.support.v4.view.ce;
-import android.support.v7.internal.widget.bd;
-import android.support.v7.internal.widget.bg;
-import android.support.v7.internal.widget.bm;
+import android.support.v4.view.ai;
+import android.support.v4.view.t;
+import android.support.v7.internal.widget.g;
+import android.support.v7.internal.widget.o;
+import android.support.v7.internal.widget.p;
+import android.support.v7.internal.widget.r;
 import android.text.Layout;
 import android.text.Layout.Alignment;
 import android.text.StaticLayout;
@@ -30,9 +32,10 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.CompoundButton;
-import com.yelp.android.g.b;
-import com.yelp.android.g.l;
+import com.yelp.android.j.a.a;
+import com.yelp.android.j.a.k;
 import java.util.List;
 
 public class SwitchCompat
@@ -41,9 +44,9 @@ public class SwitchCompat
   private static final int[] F = { 16842912 };
   private Layout A;
   private TransformationMethod B;
-  private Animation C;
+  private a C;
   private final Rect D = new Rect();
-  private final bd E;
+  private final o E;
   private Drawable a;
   private Drawable b;
   private int c;
@@ -73,7 +76,7 @@ public class SwitchCompat
   
   public SwitchCompat(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, b.switchStyle);
+    this(paramContext, paramAttributeSet, a.a.switchStyle);
   }
   
   public SwitchCompat(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
@@ -81,17 +84,23 @@ public class SwitchCompat
     super(paramContext, paramAttributeSet, paramInt);
     Resources localResources = getResources();
     x.density = getDisplayMetricsdensity;
-    paramAttributeSet = bg.a(paramContext, paramAttributeSet, l.SwitchCompat, paramInt, 0);
-    a = paramAttributeSet.a(l.SwitchCompat_android_thumb);
-    b = paramAttributeSet.a(l.SwitchCompat_track);
-    g = paramAttributeSet.b(l.SwitchCompat_android_textOn);
-    h = paramAttributeSet.b(l.SwitchCompat_android_textOff);
-    i = paramAttributeSet.a(l.SwitchCompat_showText, true);
-    c = paramAttributeSet.d(l.SwitchCompat_thumbTextPadding, 0);
-    d = paramAttributeSet.d(l.SwitchCompat_switchMinWidth, 0);
-    e = paramAttributeSet.d(l.SwitchCompat_switchPadding, 0);
-    f = paramAttributeSet.a(l.SwitchCompat_splitTrack, false);
-    paramInt = paramAttributeSet.f(l.SwitchCompat_switchTextAppearance, 0);
+    paramAttributeSet = p.a(paramContext, paramAttributeSet, a.k.SwitchCompat, paramInt, 0);
+    a = paramAttributeSet.a(a.k.SwitchCompat_android_thumb);
+    if (a != null) {
+      a.setCallback(this);
+    }
+    b = paramAttributeSet.a(a.k.SwitchCompat_track);
+    if (b != null) {
+      b.setCallback(this);
+    }
+    g = paramAttributeSet.c(a.k.SwitchCompat_android_textOn);
+    h = paramAttributeSet.c(a.k.SwitchCompat_android_textOff);
+    i = paramAttributeSet.a(a.k.SwitchCompat_showText, true);
+    c = paramAttributeSet.e(a.k.SwitchCompat_thumbTextPadding, 0);
+    d = paramAttributeSet.e(a.k.SwitchCompat_switchMinWidth, 0);
+    e = paramAttributeSet.e(a.k.SwitchCompat_switchPadding, 0);
+    f = paramAttributeSet.a(a.k.SwitchCompat_splitTrack, false);
+    paramInt = paramAttributeSet.g(a.k.SwitchCompat_switchTextAppearance, 0);
     if (paramInt != 0) {
       a(paramContext, paramInt);
     }
@@ -117,12 +126,20 @@ public class SwitchCompat
   
   private Layout a(CharSequence paramCharSequence)
   {
-    if (B != null) {
-      paramCharSequence = B.getTransformation(paramCharSequence, this);
-    }
-    for (;;)
+    TextPaint localTextPaint;
+    if (B != null)
     {
-      return new StaticLayout(paramCharSequence, x, (int)Math.ceil(Layout.getDesiredWidth(paramCharSequence, x)), Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
+      paramCharSequence = B.getTransformation(paramCharSequence, this);
+      localTextPaint = x;
+      if (paramCharSequence == null) {
+        break label62;
+      }
+    }
+    label62:
+    for (int i1 = (int)Math.ceil(Layout.getDesiredWidth(paramCharSequence, x));; i1 = 0)
+    {
+      return new StaticLayout(paramCharSequence, localTextPaint, i1, Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, true);
+      break;
     }
   }
   
@@ -132,6 +149,24 @@ public class SwitchCompat
     {
       clearAnimation();
       C = null;
+    }
+  }
+  
+  private void a(int paramInt1, int paramInt2)
+  {
+    Typeface localTypeface = null;
+    switch (paramInt1)
+    {
+    }
+    for (;;)
+    {
+      a(localTypeface, paramInt2);
+      return;
+      localTypeface = Typeface.SANS_SERIF;
+      continue;
+      localTypeface = Typeface.SERIF;
+      continue;
+      localTypeface = Typeface.MONOSPACE;
     }
   }
   
@@ -149,7 +184,7 @@ public class SwitchCompat
     if (paramBoolean) {}
     for (float f1 = 1.0F;; f1 = 0.0F)
     {
-      C = new de(this, f2, f1 - f2);
+      C = new a(f2, f1, null);
       C.setDuration(250L);
       startAnimation(C);
       return;
@@ -158,18 +193,32 @@ public class SwitchCompat
   
   private boolean a(float paramFloat1, float paramFloat2)
   {
-    int i3 = getThumbOffset();
-    a.getPadding(D);
-    int i1 = u;
-    int i2 = k;
-    i3 = i3 + t - k;
-    int i4 = s;
-    int i5 = D.left;
-    int i6 = D.right;
-    int i7 = k;
-    int i8 = w;
-    int i9 = k;
-    return (paramFloat1 > i3) && (paramFloat1 < i4 + i3 + i5 + i6 + i7) && (paramFloat2 > i1 - i2) && (paramFloat2 < i8 + i9);
+    if (a == null) {}
+    int i3;
+    int i1;
+    int i2;
+    int i4;
+    int i5;
+    int i6;
+    int i7;
+    int i8;
+    int i9;
+    do
+    {
+      return false;
+      i3 = getThumbOffset();
+      a.getPadding(D);
+      i1 = u;
+      i2 = k;
+      i3 = i3 + t - k;
+      i4 = s;
+      i5 = D.left;
+      i6 = D.right;
+      i7 = k;
+      i8 = w;
+      i9 = k;
+    } while ((paramFloat1 <= i3) || (paramFloat1 >= i4 + i3 + i5 + i6 + i7) || (paramFloat2 <= i1 - i2) || (paramFloat2 >= i8 + i9));
+    return true;
   }
   
   private void b(MotionEvent paramMotionEvent)
@@ -191,7 +240,7 @@ public class SwitchCompat
       if (Math.abs(f1) <= o) {
         break label126;
       }
-      if (!bm.a(this)) {
+      if (!r.a(this)) {
         break label114;
       }
       if (f1 >= 0.0F) {
@@ -233,7 +282,7 @@ public class SwitchCompat
   
   private int getThumbOffset()
   {
-    if (bm.a(this)) {}
+    if (r.a(this)) {}
     for (float f1 = 1.0F - p;; f1 = p) {
       return (int)(f1 * getThumbScrollRange() + 0.5F);
     }
@@ -243,9 +292,12 @@ public class SwitchCompat
   {
     if (b != null)
     {
-      Rect localRect = D;
-      b.getPadding(localRect);
-      return q - s - left - right;
+      Rect localRect2 = D;
+      b.getPadding(localRect2);
+      if (a != null) {}
+      for (Rect localRect1 = g.a(a);; localRect1 = g.a) {
+        return q - s - left - right - left - right;
+      }
     }
     return 0;
   }
@@ -258,23 +310,24 @@ public class SwitchCompat
   
   public void a(Context paramContext, int paramInt)
   {
-    paramContext = paramContext.obtainStyledAttributes(paramInt, l.SwitchCompatTextAppearance);
-    ColorStateList localColorStateList = paramContext.getColorStateList(l.SwitchCompatTextAppearance_android_textColor);
+    paramContext = paramContext.obtainStyledAttributes(paramInt, a.k.TextAppearance);
+    ColorStateList localColorStateList = paramContext.getColorStateList(a.k.TextAppearance_android_textColor);
     if (localColorStateList != null)
     {
       y = localColorStateList;
-      paramInt = paramContext.getDimensionPixelSize(l.SwitchCompatTextAppearance_android_textSize, 0);
+      paramInt = paramContext.getDimensionPixelSize(a.k.TextAppearance_android_textSize, 0);
       if ((paramInt != 0) && (paramInt != x.getTextSize()))
       {
         x.setTextSize(paramInt);
         requestLayout();
       }
-      if (!paramContext.getBoolean(l.SwitchCompatTextAppearance_textAllCaps, false)) {
-        break label107;
+      a(paramContext.getInt(a.k.TextAppearance_android_typeface, -1), paramContext.getInt(a.k.TextAppearance_android_textStyle, -1));
+      if (!paramContext.getBoolean(a.k.TextAppearance_textAllCaps, false)) {
+        break label127;
       }
     }
-    label107:
-    for (B = new com.yelp.android.j.a(getContext());; B = null)
+    label127:
+    for (B = new com.yelp.android.n.a(getContext());; B = null)
     {
       paramContext.recycle();
       return;
@@ -283,33 +336,124 @@ public class SwitchCompat
     }
   }
   
-  public void draw(Canvas paramCanvas)
+  public void a(Typeface paramTypeface, int paramInt)
   {
-    Object localObject = D;
-    int i5 = t;
-    int i3 = u;
-    int i6 = v;
-    int i4 = w;
-    int i2 = getThumbOffset() + i5;
-    int i1 = i2;
-    if (b != null)
+    boolean bool = false;
+    if (paramInt > 0)
     {
-      b.getPadding((Rect)localObject);
-      i1 = i2 + left;
-      b.setBounds(i5, i3, i6, i4);
-    }
-    if (a != null)
-    {
-      a.getPadding((Rect)localObject);
-      i2 = i1 - left;
-      i1 = i1 + s + right;
-      a.setBounds(i2, i3, i1, i4);
-      localObject = getBackground();
-      if (localObject != null) {
-        com.yelp.android.a.a.a((Drawable)localObject, i2, i3, i1, i4);
+      int i1;
+      if (paramTypeface == null)
+      {
+        paramTypeface = Typeface.defaultFromStyle(paramInt);
+        setSwitchTypeface(paramTypeface);
+        if (paramTypeface == null) {
+          break label88;
+        }
+        i1 = paramTypeface.getStyle();
+        label31:
+        paramInt = (i1 ^ 0xFFFFFFFF) & paramInt;
+        paramTypeface = x;
+        if ((paramInt & 0x1) != 0) {
+          bool = true;
+        }
+        paramTypeface.setFakeBoldText(bool);
+        paramTypeface = x;
+        if ((paramInt & 0x2) == 0) {
+          break label94;
+        }
+      }
+      label88:
+      label94:
+      for (float f1 = -0.25F;; f1 = 0.0F)
+      {
+        paramTypeface.setTextSkewX(f1);
+        return;
+        paramTypeface = Typeface.create(paramTypeface, paramInt);
+        break;
+        i1 = 0;
+        break label31;
       }
     }
-    super.draw(paramCanvas);
+    x.setFakeBoldText(false);
+    x.setTextSkewX(0.0F);
+    setSwitchTypeface(paramTypeface);
+  }
+  
+  public void draw(Canvas paramCanvas)
+  {
+    Rect localRect = D;
+    int i2 = t;
+    int i5 = u;
+    int i7 = v;
+    int i6 = w;
+    int i8 = i2 + getThumbOffset();
+    Object localObject;
+    int i9;
+    label147:
+    int i4;
+    int i3;
+    if (a != null)
+    {
+      localObject = g.a(a);
+      if (b == null) {
+        break label348;
+      }
+      b.getPadding(localRect);
+      i9 = left;
+      if ((localObject == null) || (((Rect)localObject).isEmpty())) {
+        break label328;
+      }
+      i1 = i2;
+      if (left > left) {
+        i1 = i2 + (left - left);
+      }
+      if (top <= top) {
+        break label322;
+      }
+      i2 = top - top + i5;
+      i4 = i7;
+      if (right > right) {
+        i4 = i7 - (right - right);
+      }
+      if (bottom <= bottom) {
+        break label315;
+      }
+      i3 = i6 - (bottom - bottom);
+      label209:
+      b.setBounds(i1, i2, i4, i3);
+    }
+    label315:
+    label322:
+    label328:
+    label348:
+    for (int i1 = i9 + i8;; i1 = i8)
+    {
+      if (a != null)
+      {
+        a.getPadding(localRect);
+        i2 = i1 - left;
+        i1 = i1 + s + right;
+        a.setBounds(i2, i5, i1, i6);
+        localObject = getBackground();
+        if (localObject != null) {
+          com.yelp.android.d.a.a((Drawable)localObject, i2, i5, i1, i6);
+        }
+      }
+      super.draw(paramCanvas);
+      return;
+      localObject = g.a;
+      break;
+      i3 = i6;
+      break label209;
+      i2 = i5;
+      break label147;
+      i3 = i6;
+      i4 = i5;
+      i1 = i2;
+      i2 = i4;
+      i4 = i7;
+      break label209;
+    }
   }
   
   public void drawableHotspotChanged(float paramFloat1, float paramFloat2)
@@ -318,10 +462,10 @@ public class SwitchCompat
       super.drawableHotspotChanged(paramFloat1, paramFloat2);
     }
     if (a != null) {
-      com.yelp.android.a.a.a(a, paramFloat1, paramFloat2);
+      com.yelp.android.d.a.a(a, paramFloat1, paramFloat2);
     }
     if (b != null) {
-      com.yelp.android.a.a.a(b, paramFloat1, paramFloat2);
+      com.yelp.android.d.a.a(b, paramFloat1, paramFloat2);
     }
   }
   
@@ -341,7 +485,7 @@ public class SwitchCompat
   public int getCompoundPaddingLeft()
   {
     int i1;
-    if (!bm.a(this)) {
+    if (!r.a(this)) {
       i1 = super.getCompoundPaddingLeft();
     }
     int i2;
@@ -357,7 +501,7 @@ public class SwitchCompat
   public int getCompoundPaddingRight()
   {
     int i1;
-    if (bm.a(this)) {
+    if (r.a(this)) {
       i1 = super.getCompoundPaddingRight();
     }
     int i2;
@@ -426,9 +570,10 @@ public class SwitchCompat
       if (b != null) {
         b.jumpToCurrentState();
       }
-      if ((C != null) && (C.hasStarted()) && (!C.hasEnded()))
+      if ((C != null) && (!C.hasEnded()))
       {
         clearAnimation();
+        setThumbPosition(C.b);
         C = null;
       }
     }
@@ -446,49 +591,63 @@ public class SwitchCompat
   protected void onDraw(Canvas paramCanvas)
   {
     super.onDraw(paramCanvas);
-    Object localObject2 = D;
-    Object localObject1 = b;
+    Object localObject1 = D;
+    Object localObject3 = b;
     int i3;
     int i4;
     int i5;
     int i6;
+    Object localObject2;
+    label151:
     int i2;
-    if (localObject1 != null)
+    if (localObject3 != null)
     {
-      ((Drawable)localObject1).getPadding((Rect)localObject2);
+      ((Drawable)localObject3).getPadding((Rect)localObject1);
       i3 = u;
       i4 = w;
       i5 = top;
       i6 = bottom;
       localObject2 = a;
-      if (localObject1 != null) {
-        ((Drawable)localObject1).draw(paramCanvas);
+      if (localObject3 != null)
+      {
+        if ((!f) || (localObject2 == null)) {
+          break label322;
+        }
+        Rect localRect = g.a((Drawable)localObject2);
+        ((Drawable)localObject2).copyBounds((Rect)localObject1);
+        left += left;
+        right -= right;
+        i1 = paramCanvas.save();
+        paramCanvas.clipRect((Rect)localObject1, Region.Op.DIFFERENCE);
+        ((Drawable)localObject3).draw(paramCanvas);
+        paramCanvas.restoreToCount(i1);
       }
       i2 = paramCanvas.save();
       if (localObject2 != null) {
         ((Drawable)localObject2).draw(paramCanvas);
       }
       if (!getTargetCheckedState()) {
-        break label244;
+        break label331;
       }
       localObject1 = z;
-      label102:
+      label180:
       if (localObject1 != null)
       {
-        int[] arrayOfInt = getDrawableState();
+        localObject3 = getDrawableState();
         if (y != null) {
-          x.setColor(y.getColorForState(arrayOfInt, 0));
+          x.setColor(y.getColorForState((int[])localObject3, 0));
         }
-        x.drawableState = arrayOfInt;
+        x.drawableState = ((int[])localObject3);
         if (localObject2 == null) {
-          break label253;
+          break label340;
         }
         localObject2 = ((Drawable)localObject2).getBounds();
         i1 = left;
       }
     }
-    label244:
-    label253:
+    label322:
+    label331:
+    label340:
     for (int i1 = right + i1;; i1 = getWidth())
     {
       i1 /= 2;
@@ -499,10 +658,12 @@ public class SwitchCompat
       ((Layout)localObject1).draw(paramCanvas);
       paramCanvas.restoreToCount(i2);
       return;
-      ((Rect)localObject2).setEmpty();
+      ((Rect)localObject1).setEmpty();
       break;
+      ((Drawable)localObject3).draw(paramCanvas);
+      break label151;
       localObject1 = A;
-      break label102;
+      break label180;
     }
   }
   
@@ -510,7 +671,7 @@ public class SwitchCompat
   public void onInitializeAccessibilityEvent(AccessibilityEvent paramAccessibilityEvent)
   {
     super.onInitializeAccessibilityEvent(paramAccessibilityEvent);
-    paramAccessibilityEvent.setClassName(SwitchCompat.class.getName());
+    paramAccessibilityEvent.setClassName("android.widget.Switch");
   }
   
   public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo paramAccessibilityNodeInfo)
@@ -518,13 +679,13 @@ public class SwitchCompat
     if (Build.VERSION.SDK_INT >= 14)
     {
       super.onInitializeAccessibilityNodeInfo(paramAccessibilityNodeInfo);
-      paramAccessibilityNodeInfo.setClassName(SwitchCompat.class.getName());
+      paramAccessibilityNodeInfo.setClassName("android.widget.Switch");
       if (!isChecked()) {
-        break label59;
+        break label57;
       }
     }
     CharSequence localCharSequence2;
-    label59:
+    label57:
     for (CharSequence localCharSequence1 = g;; localCharSequence1 = h)
     {
       if (!TextUtils.isEmpty(localCharSequence1))
@@ -544,48 +705,53 @@ public class SwitchCompat
   
   protected void onLayout(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
+    int i1 = 0;
     super.onLayout(paramBoolean, paramInt1, paramInt2, paramInt3, paramInt4);
-    Rect localRect;
+    Rect localRect1;
+    Rect localRect2;
     if (a != null)
     {
-      localRect = D;
-      if (b != null) {
-        b.getPadding(localRect);
-      }
-    }
-    else
-    {
-      if (!bm.a(this)) {
-        break label147;
-      }
-      paramInt3 = getPaddingLeft() + 0;
-      paramInt4 = q + paramInt3 + 0 + 0;
-      label69:
-      switch (getGravity() & 0x70)
+      localRect1 = D;
+      if (b != null)
       {
-      default: 
-        paramInt2 = getPaddingTop();
-        paramInt1 = r + paramInt2;
+        b.getPadding(localRect1);
+        localRect2 = g.a(a);
+        paramInt2 = Math.max(0, left - left);
       }
     }
-    for (;;)
+    for (paramInt1 = Math.max(0, right - right);; paramInt1 = i1)
     {
-      t = paramInt3;
-      u = paramInt2;
-      w = paramInt1;
-      v = paramInt4;
-      return;
-      localRect.setEmpty();
-      break;
-      label147:
-      paramInt4 = getWidth() - getPaddingRight() + 0;
-      paramInt3 = paramInt4 - q + 0 + 0;
-      break label69;
-      paramInt2 = (getPaddingTop() + getHeight() - getPaddingBottom()) / 2 - r / 2;
-      paramInt1 = r + paramInt2;
-      continue;
-      paramInt1 = getHeight() - getPaddingBottom();
-      paramInt2 = paramInt1 - r;
+      if (r.a(this))
+      {
+        paramInt3 = getPaddingLeft() + paramInt2;
+        paramInt4 = q + paramInt3 - paramInt2 - paramInt1;
+        label113:
+        switch (getGravity() & 0x70)
+        {
+        default: 
+          paramInt2 = getPaddingTop();
+          paramInt1 = r + paramInt2;
+        }
+      }
+      for (;;)
+      {
+        t = paramInt3;
+        u = paramInt2;
+        w = paramInt1;
+        v = paramInt4;
+        return;
+        localRect1.setEmpty();
+        break;
+        paramInt4 = getWidth() - getPaddingRight() - paramInt1;
+        paramInt3 = paramInt1 + (paramInt2 + (paramInt4 - q));
+        break label113;
+        paramInt2 = (getPaddingTop() + getHeight() - getPaddingBottom()) / 2 - r / 2;
+        paramInt1 = r + paramInt2;
+        continue;
+        paramInt1 = getHeight() - getPaddingBottom();
+        paramInt2 = paramInt1 - r;
+      }
+      paramInt2 = 0;
     }
   }
   
@@ -610,36 +776,44 @@ public class SwitchCompat
       i2 = a.getIntrinsicWidth() - left - right;
       i1 = a.getIntrinsicHeight();
       if (!i) {
-        break label255;
+        break label303;
       }
       i3 = Math.max(z.getWidth(), A.getWidth()) + c * 2;
       label133:
       s = Math.max(i3, i2);
       if (b == null) {
-        break label261;
+        break label309;
       }
       b.getPadding(localRect);
     }
     for (int i2 = b.getIntrinsicHeight();; i2 = i4)
     {
-      i3 = left;
-      i4 = right;
-      i3 = Math.max(d, i3 + s * 2 + i4);
+      int i6 = left;
+      int i5 = right;
+      i4 = i5;
+      i3 = i6;
+      if (a != null)
+      {
+        localRect = g.a(a);
+        i3 = Math.max(i6, left);
+        i4 = Math.max(i5, right);
+      }
+      i3 = Math.max(d, i4 + (i3 + s * 2));
       i1 = Math.max(i2, i1);
       q = i3;
       r = i1;
       super.onMeasure(paramInt1, paramInt2);
       if (getMeasuredHeight() < i1) {
-        setMeasuredDimension(ce.k(this), i1);
+        setMeasuredDimension(ai.k(this), i1);
       }
       return;
       i1 = 0;
       i2 = 0;
       break;
-      label255:
+      label303:
       i3 = 0;
       break label133;
-      label261:
+      label309:
       localRect.setEmpty();
     }
   }
@@ -661,7 +835,7 @@ public class SwitchCompat
   public boolean onTouchEvent(MotionEvent paramMotionEvent)
   {
     n.addMovement(paramMotionEvent);
-    switch (ba.a(paramMotionEvent))
+    switch (t.a(paramMotionEvent))
     {
     }
     for (;;)
@@ -702,7 +876,7 @@ public class SwitchCompat
           for (;;)
           {
             f2 = f1;
-            if (bm.a(this)) {
+            if (r.a(this)) {
               f2 = -f1;
             }
             f1 = a(f2 + p, 0.0F, 1.0F);
@@ -735,7 +909,7 @@ public class SwitchCompat
   {
     super.setChecked(paramBoolean);
     paramBoolean = isChecked();
-    if (getWindowToken() != null)
+    if ((getWindowToken() != null) && (ai.D(this)))
     {
       a(paramBoolean);
       return;
@@ -839,6 +1013,26 @@ public class SwitchCompat
   protected boolean verifyDrawable(Drawable paramDrawable)
   {
     return (super.verifyDrawable(paramDrawable)) || (paramDrawable == a) || (paramDrawable == b);
+  }
+  
+  private class a
+    extends Animation
+  {
+    final float a;
+    final float b;
+    final float c;
+    
+    private a(float paramFloat1, float paramFloat2)
+    {
+      a = paramFloat1;
+      b = paramFloat2;
+      c = (paramFloat2 - paramFloat1);
+    }
+    
+    protected void applyTransformation(float paramFloat, Transformation paramTransformation)
+    {
+      SwitchCompat.a(SwitchCompat.this, a + c * paramFloat);
+    }
   }
 }
 

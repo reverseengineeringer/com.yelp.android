@@ -1,6 +1,6 @@
 package com.comscore.utils;
 
-import com.yelp.android.al.b;
+import com.yelp.android.ar.b;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 @Deprecated
@@ -38,7 +38,7 @@ public class DispatchQueue
       b.b((TransmissionMode)paramObject, true);
       return;
     case 2: 
-      b.a(((Boolean)paramObject).booleanValue(), true);
+      b.b(((Boolean)paramObject).booleanValue(), true);
       return;
     }
     b.a((String[])paramObject, true);

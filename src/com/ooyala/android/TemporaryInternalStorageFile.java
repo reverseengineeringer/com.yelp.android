@@ -2,6 +2,8 @@ package com.ooyala.android;
 
 import android.content.Context;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 public final class TemporaryInternalStorageFile
@@ -9,6 +11,7 @@ public final class TemporaryInternalStorageFile
   private final File tmpFile;
   
   public TemporaryInternalStorageFile(Context paramContext, String paramString1, String paramString2)
+    throws IOException
   {
     tmpFile = File.createTempFile(paramString1, paramString2, paramContext.getCacheDir());
     if ((tmpFile != null) && (!tmpFile.exists())) {
@@ -30,6 +33,7 @@ public final class TemporaryInternalStorageFile
   }
   
   public void write(String paramString)
+    throws FileNotFoundException
   {
     if (tmpFile != null)
     {

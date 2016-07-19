@@ -3,36 +3,36 @@ package com.yelp.android.ui.activities.messaging;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import com.yelp.android.serializable.Conversation;
-import com.yelp.android.serializable.bg;
+import com.yelp.android.serializable.e;
 import com.yelp.android.ui.activities.messaging.apimanagers.a;
-import com.yelp.android.ui.activities.messaging.apimanagers.p;
-import com.yelp.android.ui.activities.messaging.apimanagers.q;
+import com.yelp.android.ui.activities.messaging.apimanagers.g.a;
+import com.yelp.android.ui.activities.messaging.apimanagers.h;
 
 public class ActivityMessaging$MessagingActionsFragment
   extends Fragment
 {
-  private q a;
+  private h a;
   private a b;
   
-  public void a(Conversation paramConversation, p paramp)
+  public void a(Conversation paramConversation, g.a parama)
   {
-    a.a(paramConversation, paramp);
+    a.a(paramConversation, parama);
   }
   
-  public void a(Conversation paramConversation, String paramString, p paramp)
+  public void a(Conversation paramConversation, String paramString, g.a parama)
   {
-    a.a(paramConversation, paramString, paramp);
+    a.a(paramConversation, paramString, parama);
   }
   
-  public void a(bg parambg, boolean paramBoolean, p paramp)
+  public void a(e parame, boolean paramBoolean, g.a parama)
   {
-    a.a(parambg, paramBoolean, paramp);
+    a.a(parame, paramBoolean, parama);
   }
   
-  public void a(p paramp1, p paramp2)
+  public void a(g.a parama1, g.a parama2)
   {
-    a.a(paramp1);
-    b.a(paramp2);
+    a.a(parama1);
+    b.a(parama2);
   }
   
   public boolean a()
@@ -40,26 +40,26 @@ public class ActivityMessaging$MessagingActionsFragment
     return (a.g()) || (b.g());
   }
   
-  public void b(Conversation paramConversation, p paramp)
+  public void b(Conversation paramConversation, g.a parama)
   {
-    b.a(paramp, paramConversation);
+    b.a(parama, paramConversation);
   }
   
-  public void b(Conversation paramConversation, String paramString, p paramp)
+  public void b(Conversation paramConversation, String paramString, g.a parama)
   {
-    b.a(paramp, paramConversation, paramString);
+    b.a(parama, paramConversation, paramString);
   }
   
-  public void b(bg parambg, boolean paramBoolean, p paramp)
+  public void b(e parame, boolean paramBoolean, g.a parama)
   {
-    a.b(parambg, paramBoolean, paramp);
+    a.b(parame, paramBoolean, parama);
   }
   
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     setRetainInstance(true);
-    a = new q();
+    a = new h();
     b = new a();
   }
 }

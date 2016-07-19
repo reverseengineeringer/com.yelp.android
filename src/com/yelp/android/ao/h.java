@@ -1,112 +1,127 @@
 package com.yelp.android.ao;
 
-import android.os.Message;
-import java.io.IOException;
-import java.util.regex.Pattern;
-import org.apache.http.Header;
-import org.apache.http.HttpResponse;
-import org.apache.http.StatusLine;
-import org.apache.http.client.HttpResponseException;
-import org.apache.http.entity.BufferedHttpEntity;
-import org.apache.http.util.EntityUtils;
+import android.annotation.TargetApi;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.os.Build.VERSION;
+import android.os.Looper;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Queue;
 
-public class h
-  extends f
+public final class h
 {
-  private static String[] a = { "image/jpeg", "image/png" };
+  private static final char[] a = "0123456789abcdef".toCharArray();
+  private static final char[] b = new char[64];
+  private static final char[] c = new char[40];
   
-  public void a(int paramInt, byte[] paramArrayOfByte)
+  public static int a(int paramInt1, int paramInt2, Bitmap.Config paramConfig)
   {
-    a(paramArrayOfByte);
+    return paramInt1 * paramInt2 * a(paramConfig);
   }
   
-  protected void a(Message paramMessage)
+  private static int a(Bitmap.Config paramConfig)
   {
-    switch (what)
+    Bitmap.Config localConfig = paramConfig;
+    if (paramConfig == null) {
+      localConfig = Bitmap.Config.ARGB_8888;
+    }
+    switch (1.a[localConfig.ordinal()])
     {
     default: 
-      super.a(paramMessage);
-      return;
-    case 0: 
-      paramMessage = (Object[])obj;
-      c(((Integer)paramMessage[0]).intValue(), (byte[])paramMessage[1]);
-      return;
+      return 4;
+    case 1: 
+      return 1;
     }
-    paramMessage = (Object[])obj;
-    c((Throwable)paramMessage[0], paramMessage[1].toString());
+    return 2;
   }
   
-  protected void a(Throwable paramThrowable, byte[] paramArrayOfByte)
+  @TargetApi(19)
+  public static int a(Bitmap paramBitmap)
   {
-    b(a(1, new Object[] { paramThrowable, paramArrayOfByte }));
-  }
-  
-  void a(HttpResponse paramHttpResponse)
-  {
-    Object localObject1 = null;
-    int j = 0;
-    StatusLine localStatusLine = paramHttpResponse.getStatusLine();
-    Object localObject2 = paramHttpResponse.getHeaders("Content-Type");
-    if (localObject2.length != 1)
-    {
-      a(new HttpResponseException(localStatusLine.getStatusCode(), "None, or more than one, Content-Type Header found!"), null);
-      return;
-    }
-    localObject2 = localObject2[0];
-    String[] arrayOfString = a;
-    int k = arrayOfString.length;
-    int i = 0;
-    while (i < k)
-    {
-      if (Pattern.matches(arrayOfString[i], ((Header)localObject2).getValue())) {
-        j = 1;
-      }
-      i += 1;
-    }
-    if (j == 0)
-    {
-      a(new HttpResponseException(localStatusLine.getStatusCode(), "Content-Type not allowed!"), null);
-      return;
-    }
-    for (;;)
-    {
+    if (Build.VERSION.SDK_INT >= 19) {
       try
       {
-        paramHttpResponse = paramHttpResponse.getEntity();
-        if (paramHttpResponse == null) {
-          break label222;
-        }
-        paramHttpResponse = new BufferedHttpEntity(paramHttpResponse);
-        paramHttpResponse = EntityUtils.toByteArray(paramHttpResponse);
+        int i = paramBitmap.getAllocationByteCount();
+        return i;
       }
-      catch (IOException paramHttpResponse)
-      {
-        a(paramHttpResponse, (byte[])null);
-        paramHttpResponse = (HttpResponse)localObject1;
-        continue;
-        b(localStatusLine.getStatusCode(), paramHttpResponse);
-        return;
-      }
-      if (localStatusLine.getStatusCode() >= 300)
-      {
-        a(new HttpResponseException(localStatusLine.getStatusCode(), localStatusLine.getReasonPhrase()), paramHttpResponse);
-        return;
-      }
-      label222:
-      paramHttpResponse = null;
+      catch (NullPointerException localNullPointerException) {}
+    }
+    return paramBitmap.getHeight() * paramBitmap.getRowBytes();
+  }
+  
+  public static String a(byte[] paramArrayOfByte)
+  {
+    synchronized (b)
+    {
+      paramArrayOfByte = a(paramArrayOfByte, b);
+      return paramArrayOfByte;
     }
   }
   
-  public void a(byte[] paramArrayOfByte) {}
-  
-  protected void b(int paramInt, byte[] paramArrayOfByte)
+  private static String a(byte[] paramArrayOfByte, char[] paramArrayOfChar)
   {
-    b(a(0, new Object[] { Integer.valueOf(paramInt), paramArrayOfByte }));
+    int i = 0;
+    while (i < paramArrayOfByte.length)
+    {
+      int j = paramArrayOfByte[i] & 0xFF;
+      paramArrayOfChar[(i * 2)] = a[(j >>> 4)];
+      paramArrayOfChar[(i * 2 + 1)] = a[(j & 0xF)];
+      i += 1;
+    }
+    return new String(paramArrayOfChar);
   }
   
-  protected void c(int paramInt, byte[] paramArrayOfByte)
+  public static <T> List<T> a(Collection<T> paramCollection)
   {
-    a(paramInt, paramArrayOfByte);
+    ArrayList localArrayList = new ArrayList(paramCollection.size());
+    paramCollection = paramCollection.iterator();
+    while (paramCollection.hasNext()) {
+      localArrayList.add(paramCollection.next());
+    }
+    return localArrayList;
+  }
+  
+  public static <T> Queue<T> a(int paramInt)
+  {
+    return new ArrayDeque(paramInt);
+  }
+  
+  public static void a()
+  {
+    if (!c()) {
+      throw new IllegalArgumentException("You must call this method on the main thread");
+    }
+  }
+  
+  public static boolean a(int paramInt1, int paramInt2)
+  {
+    return (b(paramInt1)) && (b(paramInt2));
+  }
+  
+  public static void b()
+  {
+    if (!d()) {
+      throw new IllegalArgumentException("YOu must call this method on a background thread");
+    }
+  }
+  
+  private static boolean b(int paramInt)
+  {
+    return (paramInt > 0) || (paramInt == Integer.MIN_VALUE);
+  }
+  
+  public static boolean c()
+  {
+    return Looper.myLooper() == Looper.getMainLooper();
+  }
+  
+  public static boolean d()
+  {
+    return !c();
   }
 }
 

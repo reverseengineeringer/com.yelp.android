@@ -1,46 +1,143 @@
 package com.yelp.android.appdata;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.yelp.android.appdata.experiment.g;
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.appdata.webrequests.o;
-import com.yelp.android.av.a;
-import java.util.Map;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.AsyncTask;
+import android.os.AsyncTask.Status;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-class e
-  implements m<o>
+public class e
+  implements SensorEventListener, StateBroadcastReceiver.a
 {
-  boolean a = false;
-  
-  e(AppData paramAppData) {}
-  
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, o paramo)
+  private final int a = 10000;
+  private final float[] b = new float[3];
+  private ArrayList<WeakReference<a>> c;
+  private SensorManager d;
+  private Sensor e;
+  private double f;
+  private boolean g;
+  private long h;
+  private final StateBroadcastReceiver i;
+  private final AsyncTask<Context, Void, Sensor> j = new AsyncTask()
   {
-    AppData.a(b, a);
-    g.a().a(b);
-    Features.data().a(a);
-    if (a.containsKey(Features.mobile_google_analytics.getKey())) {}
-    for (paramApiRequest = (String)a.get(Features.mobile_google_analytics.getKey());; paramApiRequest = String.valueOf(Features.mobile_google_analytics.isEnabled()))
+    protected Sensor a(Context... paramAnonymousVarArgs)
     {
-      a locala = AppData.b().k();
-      if ("false".equals(paramApiRequest)) {
-        locala.a(false);
-      }
-      AppData.b().f().f(d);
-      if (d) {
-        AppData.a(b);
-      }
-      AppData.b().f().a(c);
+      e.a(e.this, (SensorManager)paramAnonymousVarArgs[0].getSystemService("sensor"));
+      return e.a(e.this).getDefaultSensor(3);
+    }
+    
+    protected void a(Sensor paramAnonymousSensor)
+    {
+      e.a(e.this, paramAnonymousSensor);
+      e.a(e.this, new ArrayList());
+      e.a(e.this, false);
+      e.a(e.this, -1L);
+    }
+  };
+  
+  public e(Context paramContext)
+  {
+    j.execute(new Context[] { paramContext });
+    i = StateBroadcastReceiver.a(paramContext, this);
+  }
+  
+  private void c()
+  {
+    if (c.isEmpty())
+    {
+      b();
       return;
+    }
+    a();
+  }
+  
+  public void a()
+  {
+    if ((!g) && (e != null) && (!c.isEmpty())) {
+      g = d.registerListener(this, e, 2);
     }
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public void a(Context paramContext)
   {
-    new Handler(Looper.getMainLooper()).postDelayed(new f(this), 5000L);
+    a();
+  }
+  
+  public boolean a(a parama)
+  {
+    if (e == null)
+    {
+      if (j.getStatus().equals(AsyncTask.Status.RUNNING)) {
+        j.cancel(true);
+      }
+      return false;
+    }
+    c.add(new WeakReference(parama));
+    c();
+    return true;
+  }
+  
+  public void b()
+  {
+    if ((g) && (e != null))
+    {
+      d.unregisterListener(this);
+      g = false;
+    }
+  }
+  
+  public void b(Context paramContext)
+  {
+    b();
+  }
+  
+  public void onAccuracyChanged(Sensor paramSensor, int paramInt) {}
+  
+  public void onSensorChanged(SensorEvent paramSensorEvent)
+  {
+    if (sensor.getType() != 3) {}
+    label148:
+    do
+    {
+      return;
+      Iterator localIterator;
+      if ((accuracy == 0) && (System.currentTimeMillis() - 10000L > h))
+      {
+        f = NaN.0D;
+        paramSensorEvent = new ArrayList();
+        localIterator = c.iterator();
+      }
+      for (;;)
+      {
+        if (!localIterator.hasNext()) {
+          break label148;
+        }
+        WeakReference localWeakReference = (WeakReference)localIterator.next();
+        a locala = (a)localWeakReference.get();
+        if (locala != null)
+        {
+          locala.a(f);
+          continue;
+          System.arraycopy(values, 0, b, 0, 3);
+          f = b[0];
+          h = System.currentTimeMillis();
+          break;
+        }
+        paramSensorEvent.add(localWeakReference);
+      }
+    } while (paramSensorEvent.isEmpty());
+    c.removeAll(paramSensorEvent);
+    c();
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(double paramDouble);
   }
 }
 

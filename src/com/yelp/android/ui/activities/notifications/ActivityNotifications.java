@@ -3,8 +3,8 @@ package com.yelp.android.ui.activities.notifications;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.ui.activities.support.YelpActivity;
 
@@ -24,8 +24,8 @@ public class ActivityNotifications
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    if (getSupportFragmentManager().findFragmentById(2131493332) == null) {
-      getSupportFragmentManager().beginTransaction().add(2131493332, new NotificationsFragment()).commit();
+    if (getSupportFragmentManager().a(2131689997) == null) {
+      getSupportFragmentManager().a().a(2131689997, new NotificationsFragment()).a();
     }
   }
 }

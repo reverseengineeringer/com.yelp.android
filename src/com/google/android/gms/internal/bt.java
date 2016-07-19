@@ -1,112 +1,48 @@
 package com.google.android.gms.internal;
 
-import android.graphics.drawable.Drawable;
-import com.google.android.gms.dynamic.d;
-import com.google.android.gms.dynamic.e;
-
-@ey
 public class bt
-  extends bw.a
-  implements bv.a
+  implements kl
 {
-  private final Object mH = new Object();
-  private final String pB;
-  private final Drawable pC;
-  private final String pD;
-  private final Drawable pE;
-  private final String pF;
-  private final double pG;
-  private final String pH;
-  private final String pI;
-  private bv pJ;
+  private int a;
+  private int b;
+  private final int c;
+  private final float d;
   
-  public bt(String paramString1, Drawable paramDrawable1, String paramString2, Drawable paramDrawable2, String paramString3, double paramDouble, String paramString4, String paramString5)
+  public bt()
   {
-    pB = paramString1;
-    pC = paramDrawable1;
-    pD = paramString2;
-    pE = paramDrawable2;
-    pF = paramString3;
-    pG = paramDouble;
-    pH = paramString4;
-    pI = paramString5;
+    this(2500, 1, 1.0F);
   }
   
-  public void a(bv parambv)
+  public bt(int paramInt1, int paramInt2, float paramFloat)
   {
-    synchronized (mH)
-    {
-      pJ = parambv;
-      return;
+    a = paramInt1;
+    c = paramInt2;
+    d = paramFloat;
+  }
+  
+  public int a()
+  {
+    return a;
+  }
+  
+  public void a(zzr paramzzr)
+    throws zzr
+  {
+    b += 1;
+    a = ((int)(a + a * d));
+    if (!c()) {
+      throw paramzzr;
     }
   }
   
-  public void aw()
+  public int b()
   {
-    synchronized (mH)
-    {
-      if (pJ == null)
-      {
-        gr.T("Attempt to record impression before app install ad initialized.");
-        return;
-      }
-      pJ.aw();
-      return;
-    }
+    return b;
   }
   
-  public String bB()
+  protected boolean c()
   {
-    return pB;
-  }
-  
-  public d bC()
-  {
-    return e.k(pC);
-  }
-  
-  public d bD()
-  {
-    return e.k(pE);
-  }
-  
-  public String bE()
-  {
-    return pF;
-  }
-  
-  public double bF()
-  {
-    return pG;
-  }
-  
-  public String bG()
-  {
-    return pH;
-  }
-  
-  public String bH()
-  {
-    return pI;
-  }
-  
-  public String getBody()
-  {
-    return pD;
-  }
-  
-  public void j(int paramInt)
-  {
-    synchronized (mH)
-    {
-      if (pJ == null)
-      {
-        gr.T("Attempt to perform click before app install ad initialized.");
-        return;
-      }
-      pJ.b("2", paramInt);
-      return;
-    }
+    return b <= c;
   }
 }
 

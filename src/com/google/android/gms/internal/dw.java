@@ -1,76 +1,96 @@
 package com.google.android.gms.internal;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
 import android.os.RemoteException;
-import com.google.android.gms.dynamic.d;
-import com.google.android.gms.dynamic.e;
-import com.google.android.gms.dynamic.g;
-import com.google.android.gms.dynamic.g.a;
 
-@ey
-public final class dw
-  extends g<dy>
+public abstract interface dw
+  extends IInterface
 {
-  private static final dw sy = new dw();
+  public abstract int a()
+    throws RemoteException;
   
-  private dw()
+  public static abstract class a
+    extends Binder
+    implements dw
   {
-    super("com.google.android.gms.ads.AdOverlayCreatorImpl");
-  }
-  
-  public static dx b(Activity paramActivity)
-  {
-    try
+    public a()
     {
-      if (c(paramActivity))
-      {
-        gr.S("Using AdOverlay from the client jar.");
-        return new dp(paramActivity);
+      attachInterface(this, "com.google.android.gms.ads.internal.mediation.client.IMediationResponseMetadata");
+    }
+    
+    public static dw a(IBinder paramIBinder)
+    {
+      if (paramIBinder == null) {
+        return null;
       }
-      paramActivity = sy.d(paramActivity);
-      return paramActivity;
+      IInterface localIInterface = paramIBinder.queryLocalInterface("com.google.android.gms.ads.internal.mediation.client.IMediationResponseMetadata");
+      if ((localIInterface != null) && ((localIInterface instanceof dw))) {
+        return (dw)localIInterface;
+      }
+      return new a(paramIBinder);
     }
-    catch (dw.a paramActivity)
+    
+    public IBinder asBinder()
     {
-      gr.W(paramActivity.getMessage());
+      return this;
     }
-    return null;
-  }
-  
-  private static boolean c(Activity paramActivity)
-  {
-    paramActivity = paramActivity.getIntent();
-    if (!paramActivity.hasExtra("com.google.android.gms.ads.internal.overlay.useClientJar")) {
-      throw new dw.a("Ad overlay requires the useClientJar flag in intent extras.");
-    }
-    return paramActivity.getBooleanExtra("com.google.android.gms.ads.internal.overlay.useClientJar", false);
-  }
-  
-  private dx d(Activity paramActivity)
-  {
-    try
+    
+    public boolean onTransact(int paramInt1, Parcel paramParcel1, Parcel paramParcel2, int paramInt2)
+      throws RemoteException
     {
-      d locald = e.k(paramActivity);
-      paramActivity = dx.a.r(((dy)L(paramActivity)).b(locald));
-      return paramActivity;
+      switch (paramInt1)
+      {
+      default: 
+        return super.onTransact(paramInt1, paramParcel1, paramParcel2, paramInt2);
+      case 1598968902: 
+        paramParcel2.writeString("com.google.android.gms.ads.internal.mediation.client.IMediationResponseMetadata");
+        return true;
+      }
+      paramParcel1.enforceInterface("com.google.android.gms.ads.internal.mediation.client.IMediationResponseMetadata");
+      paramInt1 = a();
+      paramParcel2.writeNoException();
+      paramParcel2.writeInt(paramInt1);
+      return true;
     }
-    catch (RemoteException paramActivity)
+    
+    private static class a
+      implements dw
     {
-      gr.d("Could not create remote AdOverlay.", paramActivity);
-      return null;
+      private IBinder a;
+      
+      a(IBinder paramIBinder)
+      {
+        a = paramIBinder;
+      }
+      
+      public int a()
+        throws RemoteException
+      {
+        Parcel localParcel1 = Parcel.obtain();
+        Parcel localParcel2 = Parcel.obtain();
+        try
+        {
+          localParcel1.writeInterfaceToken("com.google.android.gms.ads.internal.mediation.client.IMediationResponseMetadata");
+          a.transact(1, localParcel1, localParcel2, 0);
+          localParcel2.readException();
+          int i = localParcel2.readInt();
+          return i;
+        }
+        finally
+        {
+          localParcel2.recycle();
+          localParcel1.recycle();
+        }
+      }
+      
+      public IBinder asBinder()
+      {
+        return a;
+      }
     }
-    catch (g.a paramActivity)
-    {
-      gr.d("Could not create remote AdOverlay.", paramActivity);
-    }
-    return null;
-  }
-  
-  protected dy q(IBinder paramIBinder)
-  {
-    return dy.a.s(paramIBinder);
   }
 }
 

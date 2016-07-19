@@ -5,10 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import com.google.android.gms.location.ActivityRecognitionResult;
-import com.google.android.gms.location.Geofence;
-import com.google.android.gms.location.GeofencingEvent;
+import com.google.android.gms.location.f;
+import com.google.android.gms.location.h;
 import com.kahuna.sdk.location.c;
-import com.kahuna.sdk.location.m;
+import com.kahuna.sdk.location.i;
 import java.util.List;
 
 public class KahunaCoreReceiver
@@ -28,18 +28,18 @@ public class KahunaCoreReceiver
   
   private void a(Context paramContext, Intent paramIntent)
   {
-    paramContext = GeofencingEvent.fromIntent(paramIntent);
+    paramContext = h.a(paramIntent);
     if (paramContext == null) {
-      if (h.a) {
-        Log.d("KahunaAnalytics", "Unable to create a Geofence Intent for: " + paramIntent.toString());
+      if (l.a) {
+        Log.d("Kahuna", "Unable to create a Geofence Intent for: " + paramIntent.toString());
       }
     }
     int j;
     label135:
-    label349:
-    label354:
     label356:
-    label365:
+    label361:
+    label363:
+    label372:
     do
     {
       int i;
@@ -49,63 +49,64 @@ public class KahunaCoreReceiver
         do
         {
           return;
-          if (!paramContext.hasError()) {
+          if (!paramContext.a()) {
             break;
           }
-        } while (!h.a);
-        Log.d("KahunaAnalytics", "Geofence Intent processing has an error. Code:" + paramContext.getErrorCode());
+        } while (!l.a);
+        Log.d("Kahuna", "Geofence Intent processing has an error. Code:" + paramContext.b());
         return;
-        j = paramContext.getGeofenceTransition();
+        j = paramContext.c();
         if ((j != 1) && (j != 2)) {
-          break label365;
+          break label372;
         }
-        if (h.a) {
-          Log.d("KahunaAnalytics", "Recevied Kahuna Geofence update!");
+        if (l.a) {
+          Log.d("Kahuna", "Recevied Kahuna Geofence update!");
         }
-        paramContext = paramContext.getTriggeringGeofences();
+        paramContext = paramContext.d();
         paramIntent = new String[paramContext.size()];
         i = 0;
         if (i >= paramContext.size()) {
-          break label354;
+          break label361;
         }
-        str1 = ((Geofence)paramContext.get(i)).getRequestId();
+        str1 = ((f)paramContext.get(i)).a();
         paramIntent[i] = str1;
-        if (h.a) {
-          Log.d("KahunaAnalytics", "GeofenceId: " + str1 + " Transition: " + a(j));
+        if (l.a) {
+          Log.d("Kahuna", "GeofenceId: " + str1 + " Transition: " + a(j));
         }
         if (!str1.contains("KahunaEngineRegion_")) {
-          break label349;
-        }
-        if (j != 1) {
           break label356;
         }
-        if (ai.a(true))
+        if (j != 1) {
+          break label363;
+        }
+        if (u.a(true))
         {
-          if (h.a) {
-            Log.d("KahunaAnalytics", "Updated existing regions registered from before 516, ignoring false first enter event");
+          if (l.a) {
+            Log.d("Kahuna", "Updated existing regions registered from before 516, ignoring false first enter event");
           }
-          m.a(h.a(), str1);
+          i.a(l.j(), str1);
           return;
         }
-        String str2 = m.b(h.a());
+        String str2 = i.c(l.j());
         if ((str2 == null) || (!str2.equals(str1))) {
           break;
         }
-      } while (!h.a);
-      Log.d("KahunaAnalytics", "Received Geofence enter again even though we are already in region for id:" + str1);
-      Log.d("KahunaAnalytics", "Not tracking geofence enter event.");
+      } while (!l.a);
+      Log.d("Kahuna", "Received Geofence enter again even though we are already in region for id:" + str1);
+      Log.d("Kahuna", "Not tracking geofence enter event.");
       return;
-      m.a(h.a(), str1);
+      i.a(l.j(), str1);
       for (;;)
       {
-        h.b(str1.replace("KahunaEngineRegion_", ""), a(j));
+        str1 = str1.replace("KahunaEngineRegion_", "");
+        l.j().a(str1, a(j));
         i += 1;
         break label135;
         break;
-        m.c(h.a());
+        i.d(l.j());
       }
-    } while (!h.a);
-    Log.d("KahunaAnalytics", "Received Unknown Geofence transition state:" + j);
+    } while (!l.a);
+    Log.d("Kahuna", "Received Unknown Geofence transition state:" + j);
   }
   
   public void onReceive(Context paramContext, Intent paramIntent)
@@ -115,7 +116,7 @@ public class KahunaCoreReceiver
       String str = paramIntent.getAction();
       if ("KAHUNA_PUSH_CLICKED".equals(str))
       {
-        ak.a(paramContext, paramIntent);
+        y.a(paramContext, paramIntent);
         return;
       }
       if ("KAHUNA_GEOFENCES_UPDATED".equals(str))
@@ -126,11 +127,12 @@ public class KahunaCoreReceiver
     }
     catch (Exception paramContext)
     {
-      Log.d("KahunaAnalytics", "Handled exception in CoreReceiver.onReceive(): " + paramContext);
+      Log.d("Kahuna", "Handled exception in CoreReceiver.onReceive(): " + paramContext);
+      paramContext.printStackTrace();
       return;
     }
-    if (ActivityRecognitionResult.hasResult(paramIntent)) {
-      c.a(h.a(), paramContext, paramIntent);
+    if (ActivityRecognitionResult.a(paramIntent)) {
+      c.a(paramContext, paramIntent);
     }
   }
 }

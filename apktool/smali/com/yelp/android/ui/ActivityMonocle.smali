@@ -3,7 +3,16 @@
 .source "ActivityMonocle.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/activities/support/o;
+.implements Lcom/yelp/android/ui/activities/support/b$e;
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/ActivityMonocle$MonocleButton;,
+        Lcom/yelp/android/ui/ActivityMonocle$b;
+    }
+.end annotation
 
 
 # static fields
@@ -11,27 +20,27 @@
 
 
 # instance fields
-.field public b:Lcom/yelp/android/ui/e;
+.field public b:Lcom/yelp/android/ui/a;
 
 .field public c:Landroid/widget/ImageView;
 
 .field public d:I
 
-.field private e:Lcom/yelp/android/ui/o;
+.field private e:Lcom/yelp/android/ui/j;
 
 .field private f:Landroid/opengl/GLSurfaceView;
 
 .field private g:Landroid/view/ViewGroup;
 
-.field private h:Lcom/yelp/android/ui/q;
+.field private h:Lcom/yelp/android/ui/l;
 
 .field private i:Lcom/yelp/android/ui/MonocleEngine;
 
-.field private j:Lcom/yelp/android/ui/m;
+.field private j:Lcom/yelp/android/ui/h;
 
-.field private k:Lcom/yelp/android/ui/l;
+.field private k:Lcom/yelp/android/ui/g;
 
-.field private l:Lcom/yelp/android/ui/d;
+.field private l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
 .field private m:Landroid/hardware/Camera;
 
@@ -41,7 +50,7 @@
     .locals 0
 
     .prologue
-    .line 91
+    .line 86
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
     .line 413
@@ -52,28 +61,28 @@
     .locals 0
 
     .prologue
-    .line 91
+    .line 86
     iput-object p1, p0, Lcom/yelp/android/ui/ActivityMonocle;->m:Landroid/hardware/Camera;
 
     return-object p1
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/ActivityMonocle;)Lcom/yelp/android/ui/m;
+.method static synthetic a(Lcom/yelp/android/ui/ActivityMonocle;)Lcom/yelp/android/ui/h;
     .locals 1
 
     .prologue
-    .line 91
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    .line 86
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
     return-object v0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/ActivityMonocle;)Lcom/yelp/android/ui/o;
+.method static synthetic b(Lcom/yelp/android/ui/ActivityMonocle;)Lcom/yelp/android/ui/j;
     .locals 1
 
     .prologue
-    .line 91
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/o;
+    .line 86
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/j;
 
     return-object v0
 .end method
@@ -82,7 +91,7 @@
     .locals 1
 
     .prologue
-    .line 91
+    .line 86
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->m:Landroid/hardware/Camera;
 
     return-object v0
@@ -96,22 +105,22 @@
     invoke-direct {p0}, Lcom/yelp/android/ui/ActivityMonocle;->d()V
 
     .line 324
-    new-instance v0, Lcom/yelp/android/ui/d;
+    new-instance v0, Lcom/yelp/android/ui/ActivityMonocle$b;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/d;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/a;)V
+    invoke-direct {v0, p0, v1}, Lcom/yelp/android/ui/ActivityMonocle$b;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/ActivityMonocle$1;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/d;
+    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
     .line 325
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/d;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/d;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/ActivityMonocle$b;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     .line 326
     return-void
@@ -124,9 +133,9 @@
     const/4 v1, 0x0
 
     .line 329
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/o;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/j;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/o;->a(Landroid/hardware/Camera;)Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/j;->a(Landroid/hardware/Camera;)Z
 
     .line 330
     invoke-direct {p0}, Lcom/yelp/android/ui/ActivityMonocle;->e()V
@@ -154,13 +163,13 @@
 
     .prologue
     .line 339
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/d;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/d;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/d;->getStatus()Landroid/os/AsyncTask$Status;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/ActivityMonocle$b;->getStatus()Landroid/os/AsyncTask$Status;
 
     move-result-object v0
 
@@ -177,20 +186,20 @@
 
     .line 342
     :try_start_0
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/d;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/d;->cancel(Z)Z
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/ActivityMonocle$b;->cancel(Z)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
     .line 343
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/d;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/d;->get()Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/ActivityMonocle$b;->get()Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
@@ -201,7 +210,7 @@
     :goto_0
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/d;
+    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->l:Lcom/yelp/android/ui/ActivityMonocle$b;
 
     .line 356
     return-void
@@ -248,7 +257,7 @@
     const/4 v0, 0x0
 
     .line 359
-    invoke-virtual {p0, p0, v0, v0}, Lcom/yelp/android/ui/ActivityMonocle;->onProvidersRequired(Lcom/yelp/android/ui/activities/support/o;ZI)V
+    invoke-virtual {p0, p0, v0, v0}, Lcom/yelp/android/ui/ActivityMonocle;->onProvidersRequired(Lcom/yelp/android/ui/activities/support/b$e;ZI)V
 
     .line 360
     return-void
@@ -265,21 +274,34 @@
     return-void
 .end method
 
+.method public b()V
+    .locals 1
+
+    .prologue
+    .line 369
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/h;->b()V
+
+    .line 370
+    return-void
+.end method
+
 .method public getIri()Lcom/yelp/android/analytics/iris/ViewIri;
     .locals 1
 
     .prologue
-    .line 419
+    .line 420
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->Monocle:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 91
+    .line 86
     invoke-virtual {p0}, Lcom/yelp/android/ui/ActivityMonocle;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -287,27 +309,35 @@
     return-object v0
 .end method
 
-.method public k_()V
-    .locals 1
-
-    .prologue
-    .line 369
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/m;->b()V
-
-    .line 370
-    return-void
-.end method
-
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 8
+    .locals 11
 
     .prologue
-    .line 116
+    const/4 v10, -0x2
+
+    const/16 v1, 0x8
+
+    const/4 v9, 0x2
+
+    const/4 v6, 0x0
+
+    const/4 v8, 0x1
+
+    .line 111
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 119
+    .line 113
+    const/16 v0, 0xfa
+
+    new-array v2, v8, [Lcom/yelp/android/appdata/PermissionGroup;
+
+    sget-object v3, Lcom/yelp/android/appdata/PermissionGroup;->CAMERA:Lcom/yelp/android/appdata/PermissionGroup;
+
+    aput-object v3, v2, v6
+
+    invoke-static {p0, v0, v2}, Lcom/yelp/android/appdata/k;->a(Landroid/app/Activity;I[Lcom/yelp/android/appdata/PermissionGroup;)Z
+
+    .line 117
     :try_start_0
     new-instance v0, Lcom/yelp/android/ui/MonocleEngine;
 
@@ -315,7 +345,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->i:Lcom/yelp/android/ui/MonocleEngine;
 
-    .line 122
+    .line 120
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->i:Lcom/yelp/android/ui/MonocleEngine;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/MonocleEngine;->ClearObjects()V
@@ -327,65 +357,61 @@
 
     move-result-object v0
 
-    const/16 v1, 0x480
-
     const/16 v2, 0x480
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/Window;->setFlags(II)V
+    const/16 v3, 0x480
 
-    .line 150
-    new-instance v0, Lcom/yelp/android/ui/o;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/o;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/o;
+    invoke-virtual {v0, v2, v3}, Landroid/view/Window;->setFlags(II)V
 
     .line 151
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/o;
-
-    const/16 v1, 0x3e9
-
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/u;->b(Landroid/view/SurfaceView;I)V
-
-    .line 155
     new-instance v0, Lcom/yelp/android/ui/j;
 
     invoke-direct {v0, p0}, Lcom/yelp/android/ui/j;-><init>(Landroid/content/Context;)V
 
+    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/j;
+
+    .line 152
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/j;
+
+    const/16 v2, 0x3e9
+
+    invoke-static {v0, v2}, Lcom/yelp/android/ui/m;->b(Landroid/view/SurfaceView;I)V
+
+    .line 156
+    new-instance v0, Lcom/yelp/android/ui/e;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/e;-><init>(Landroid/content/Context;)V
+
     iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
 
-    .line 157
+    .line 158
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
-
-    const/16 v1, 0x8
-
-    const/16 v2, 0x8
-
-    const/16 v3, 0x8
-
-    const/16 v4, 0x8
 
     const/16 v5, 0x10
 
-    const/4 v6, 0x0
+    move v2, v1
+
+    move v3, v1
+
+    move v4, v1
 
     invoke-virtual/range {v0 .. v6}, Landroid/opengl/GLSurfaceView;->setEGLConfigChooser(IIIIII)V
 
-    .line 158
-    new-instance v0, Lcom/yelp/android/ui/l;
-
-    invoke-direct {v0}, Lcom/yelp/android/ui/l;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->k:Lcom/yelp/android/ui/l;
-
     .line 159
+    new-instance v0, Lcom/yelp/android/ui/g;
+
+    invoke-direct {v0}, Lcom/yelp/android/ui/g;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->k:Lcom/yelp/android/ui/g;
+
+    .line 160
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->k:Lcom/yelp/android/ui/l;
+    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->k:Lcom/yelp/android/ui/g;
 
     invoke-virtual {v0, v1}, Landroid/opengl/GLSurfaceView;->setRenderer(Landroid/opengl/GLSurfaceView$Renderer;)V
 
-    .line 160
+    .line 161
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
 
     invoke-virtual {v0}, Landroid/opengl/GLSurfaceView;->getHolder()Landroid/view/SurfaceHolder;
@@ -396,91 +422,79 @@
 
     invoke-interface {v0, v1}, Landroid/view/SurfaceHolder;->setFormat(I)V
 
-    .line 161
+    .line 162
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
 
     const/16 v1, 0x3ec
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/u;->b(Landroid/view/SurfaceView;I)V
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/m;->b(Landroid/view/SurfaceView;I)V
 
-    .line 163
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    .line 164
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
     if-nez v0, :cond_0
 
-    .line 164
-    new-instance v0, Lcom/yelp/android/ui/m;
+    .line 165
+    new-instance v0, Lcom/yelp/android/ui/h;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/ActivityMonocle;->i:Lcom/yelp/android/ui/MonocleEngine;
+    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->i:Lcom/yelp/android/ui/MonocleEngine;
 
-    iget-object v3, p0, Lcom/yelp/android/ui/ActivityMonocle;->k:Lcom/yelp/android/ui/l;
+    iget-object v2, p0, Lcom/yelp/android/ui/ActivityMonocle;->k:Lcom/yelp/android/ui/g;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
+    iget-object v3, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
 
-    iget-object v5, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/o;
+    invoke-direct {v0, p0, v1, v2, v3}, Lcom/yelp/android/ui/h;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/MonocleEngine;Lcom/yelp/android/ui/g;Landroid/view/SurfaceView;)V
 
-    move-object v1, p0
+    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
-    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/ui/m;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/MonocleEngine;Lcom/yelp/android/ui/l;Landroid/view/SurfaceView;Landroid/view/SurfaceView;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
-
-    .line 184
+    .line 185
     :cond_0
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->j()Lcom/yelp/android/database/m;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->j()Lcom/yelp/android/database/e;
 
     move-result-object v0
 
-    .line 185
+    .line 186
     const/4 v1, 0x3
 
     new-array v1, v1, [Ljava/lang/String;
 
-    const/4 v2, 0x0
+    const v2, 0x7f0706b5
 
-    const v3, 0x7f070126
-
-    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/ActivityMonocle;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x1
-
-    const v3, 0x7f070120
-
-    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/ActivityMonocle;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x2
-
-    const v3, 0x7f070123
-
-    invoke-virtual {p0, v3}, Lcom/yelp/android/ui/ActivityMonocle;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    .line 189
-    const-string/jumbo v2, "restaurants"
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/database/m;->a(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/ActivityMonocle;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 190
-    const/4 v3, 0x0
+    aput-object v2, v1, v6
 
-    aget-object v3, v1, v3
+    const v2, 0x7f0706ce
+
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/ActivityMonocle;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v8
+
+    const v2, 0x7f0701a5
+
+    invoke-virtual {p0, v2}, Lcom/yelp/android/ui/ActivityMonocle;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    aput-object v2, v1, v9
+
+    .line 191
+    const-string/jumbo v2, "restaurants"
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/database/e;->a(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
+
+    move-result-object v2
+
+    .line 192
+    aget-object v3, v1, v6
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -488,27 +502,23 @@
 
     if-eqz v3, :cond_1
 
-    .line 191
-    const/4 v3, 0x0
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Category;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v1, v3
-
     .line 193
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/Category;->a()Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v1, v6
+
+    .line 195
     :cond_1
     const-string/jumbo v3, "bars"
 
-    invoke-virtual {v0, v3}, Lcom/yelp/android/database/m;->a(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
+    invoke-virtual {v0, v3}, Lcom/yelp/android/database/e;->a(Ljava/lang/String;)Lcom/yelp/android/serializable/Category;
 
     move-result-object v0
 
-    .line 194
-    const/4 v3, 0x1
-
-    aget-object v3, v1, v3
+    .line 196
+    aget-object v3, v1, v8
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -516,140 +526,122 @@
 
     if-eqz v3, :cond_2
 
-    .line 195
-    const/4 v3, 0x1
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Category;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    aput-object v4, v1, v3
-
     .line 197
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Category;->a()Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v1, v8
+
+    .line 199
     :cond_2
-    new-instance v3, Lcom/yelp/android/ui/e;
+    new-instance v3, Lcom/yelp/android/ui/a;
 
     const/4 v4, 0x3
 
     new-array v4, v4, [Ljava/lang/Runnable;
 
-    const/4 v5, 0x0
+    new-instance v5, Lcom/yelp/android/ui/ActivityMonocle$a;
 
-    new-instance v6, Lcom/yelp/android/ui/b;
+    iget-object v7, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
-    iget-object v7, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    invoke-direct {v5, p0, v7, v2}, Lcom/yelp/android/ui/ActivityMonocle$a;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/h;Lcom/yelp/android/serializable/Category;)V
 
-    invoke-direct {v6, p0, v7, v2}, Lcom/yelp/android/ui/b;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/m;Lcom/yelp/android/serializable/Category;)V
+    aput-object v5, v4, v6
 
-    aput-object v6, v4, v5
+    new-instance v5, Lcom/yelp/android/ui/ActivityMonocle$a;
 
-    const/4 v5, 0x1
+    iget-object v7, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
-    new-instance v6, Lcom/yelp/android/ui/b;
+    invoke-direct {v5, p0, v7, v0}, Lcom/yelp/android/ui/ActivityMonocle$a;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/h;Lcom/yelp/android/serializable/Category;)V
 
-    iget-object v7, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    aput-object v5, v4, v8
 
-    invoke-direct {v6, p0, v7, v0}, Lcom/yelp/android/ui/b;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/m;Lcom/yelp/android/serializable/Category;)V
+    new-instance v0, Lcom/yelp/android/ui/ActivityMonocle$a;
 
-    aput-object v6, v4, v5
-
-    const/4 v0, 0x2
-
-    new-instance v5, Lcom/yelp/android/ui/b;
-
-    iget-object v6, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    iget-object v5, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
     const/4 v7, 0x0
 
-    invoke-direct {v5, p0, v6, v7}, Lcom/yelp/android/ui/b;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/m;Lcom/yelp/android/serializable/Category;)V
+    invoke-direct {v0, p0, v5, v7}, Lcom/yelp/android/ui/ActivityMonocle$a;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Lcom/yelp/android/ui/h;Lcom/yelp/android/serializable/Category;)V
 
-    aput-object v5, v4, v0
+    aput-object v0, v4, v9
 
-    invoke-direct {v3, p0, v1, v4}, Lcom/yelp/android/ui/e;-><init>(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/Runnable;)V
+    invoke-direct {v3, p0, v1, v4}, Lcom/yelp/android/ui/a;-><init>(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/Runnable;)V
 
-    iput-object v3, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/e;
+    iput-object v3, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/a;
 
-    .line 205
+    .line 210
     new-instance v0, Landroid/widget/FrameLayout;
 
     invoke-direct {v0, p0}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
-    .line 206
+    .line 211
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/ActivityMonocle;->setContentView(Landroid/view/View;)V
 
-    .line 209
+    .line 214
     new-instance v0, Landroid/widget/ImageView;
 
     invoke-direct {v0, p0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->c:Landroid/widget/ImageView;
 
-    .line 210
+    .line 215
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->c:Landroid/widget/ImageView;
 
-    const v1, 0x7f020280
+    const v1, 0x7f020369
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 211
+    .line 216
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->c:Landroid/widget/ImageView;
 
-    const/4 v1, 0x1
+    invoke-virtual {v0, v8}, Landroid/widget/ImageView;->setAdjustViewBounds(Z)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAdjustViewBounds(Z)V
-
-    .line 213
+    .line 218
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    const/4 v1, -0x2
+    invoke-direct {v0, v10, v10}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    const/4 v3, -0x2
-
-    invoke-direct {v0, v1, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    .line 215
+    .line 220
     const/16 v1, 0x55
 
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 216
+    .line 221
     const/16 v1, 0xc
 
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    .line 217
+    .line 222
     const/16 v1, 0xc
 
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
-    .line 218
+    .line 223
     iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->c:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 219
+    .line 224
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->c:Landroid/widget/ImageView;
 
     const/4 v1, 0x4
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 238
-    const/4 v0, 0x1
+    .line 243
+    new-array v0, v8, [Ljava/lang/Class;
 
-    new-array v0, v0, [Ljava/lang/Class;
+    sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    aput-object v1, v0, v6
 
-    sget-object v3, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
-
-    aput-object v3, v0, v1
-
-    .line 242
+    .line 245
     :try_start_1
     const-class v1, Landroid/view/SurfaceView;
 
@@ -657,16 +649,16 @@
 
     invoke-virtual {v1, v3, v0}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    .line 243
+    .line 246
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/o;
+    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/j;
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    .line 244
+    .line 247
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
     iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
@@ -678,36 +670,32 @@
     .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_2
 
-    .line 252
+    .line 255
     :goto_0
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
     const/4 v1, -0x1
 
-    const/4 v3, -0x2
+    invoke-direct {v0, v1, v10}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    invoke-direct {v0, v1, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    .line 254
+    .line 257
     const/16 v1, 0x50
 
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    .line 255
-    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/e;
+    .line 258
+    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/a;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/e;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/a;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 256
+    .line 259
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/e;
+    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/a;
 
-    const/4 v3, 0x2
+    invoke-virtual {v0, v1, v9}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    invoke-virtual {v0, v1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
-
-    .line 257
+    .line 260
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
     iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->c:Landroid/widget/ImageView;
@@ -716,17 +704,8 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    .line 260
-    const/16 v0, 0x8
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 261
-    new-instance v1, Lcom/yelp/android/ui/f;
+    .line 263
+    new-instance v1, Lcom/yelp/android/ui/b;
 
     const-string/jumbo v0, "sensor"
 
@@ -736,33 +715,30 @@
 
     check-cast v0, Landroid/hardware/SensorManager;
 
-    invoke-direct {v1, p0, v0}, Lcom/yelp/android/ui/f;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
+    invoke-direct {v1, p0, v0}, Lcom/yelp/android/ui/b;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
 
-    iput-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->h:Lcom/yelp/android/ui/q;
+    iput-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->h:Lcom/yelp/android/ui/l;
 
-    .line 270
-    :goto_1
-    new-instance v0, Lcom/yelp/android/ui/dialogs/bn;
+    .line 269
+    new-instance v0, Lcom/yelp/android/ui/dialogs/e;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/bn;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/dialogs/e;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
 
-    .line 271
+    .line 270
     sget-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
 
-    new-instance v1, Lcom/yelp/android/ui/c;
+    new-instance v1, Lcom/yelp/android/ui/ActivityMonocle$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/c;-><init>(Lcom/yelp/android/ui/ActivityMonocle;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/ActivityMonocle$2;-><init>(Lcom/yelp/android/ui/ActivityMonocle;)V
 
     invoke-virtual {v0, v1}, Landroid/app/Dialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
 
     .line 278
     sget-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
 
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/app/Dialog;->setCancelable(Z)V
+    invoke-virtual {v0, v8}, Landroid/app/Dialog;->setCancelable(Z)V
 
     .line 279
     sget-object v0, Lcom/yelp/android/ui/ActivityMonocle;->a:Landroid/app/Dialog;
@@ -770,57 +746,55 @@
     invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     .line 282
-    const/4 v0, 0x2
-
-    iput v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->d:I
+    iput v9, p0, Lcom/yelp/android/ui/ActivityMonocle;->d:I
 
     .line 283
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/e;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->b:Lcom/yelp/android/ui/a;
 
     iget v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->d:I
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/e;->a(I)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/a;->a(I)V
 
     .line 284
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/m;->a(Lcom/yelp/android/serializable/Category;)V
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/h;->a(Lcom/yelp/android/serializable/Category;)V
 
     .line 287
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/m;->b()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/h;->b()V
 
     .line 288
-    :goto_2
+    :goto_1
     return-void
 
-    .line 123
+    .line 121
     :catch_0
     move-exception v0
 
-    .line 124
+    .line 122
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->i:Lcom/yelp/android/ui/MonocleEngine;
 
-    .line 127
+    .line 125
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 128
-    const v1, 0x7f0703ce
+    .line 126
+    const v1, 0x7f070400
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f07041b
+    const v2, 0x7f07070e
 
-    new-instance v3, Lcom/yelp/android/ui/a;
+    new-instance v3, Lcom/yelp/android/ui/ActivityMonocle$1;
 
-    invoke-direct {v3, p0}, Lcom/yelp/android/ui/a;-><init>(Lcom/yelp/android/ui/ActivityMonocle;)V
+    invoke-direct {v3, p0}, Lcom/yelp/android/ui/ActivityMonocle$1;-><init>(Lcom/yelp/android/ui/ActivityMonocle;)V
 
     invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -839,65 +813,43 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 245
+    .line 248
     :catch_1
     move-exception v0
 
-    .line 246
-    invoke-static {v0}, Lcom/yelp/android/util/YelpLog;->error(Ljava/lang/Exception;)V
+    .line 249
+    invoke-static {v0}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Throwable;)V
 
     goto/16 :goto_0
 
-    .line 247
+    .line 250
     :catch_2
     move-exception v0
 
-    .line 249
+    .line 252
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
     iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;
 
-    const/4 v3, 0x0
+    invoke-virtual {v0, v1, v6}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    invoke-virtual {v0, v1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
-
-    .line 250
+    .line 253
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->g:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/o;
+    iget-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->e:Lcom/yelp/android/ui/j;
 
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+    invoke-virtual {v0, v1, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
     goto/16 :goto_0
-
-    .line 264
-    :cond_3
-    new-instance v1, Lcom/yelp/android/ui/q;
-
-    const-string/jumbo v0, "sensor"
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/ActivityMonocle;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/hardware/SensorManager;
-
-    invoke-direct {v1, p0, v0}, Lcom/yelp/android/ui/q;-><init>(Lcom/yelp/android/ui/ActivityMonocle;Landroid/hardware/SensorManager;)V
-
-    iput-object v1, p0, Lcom/yelp/android/ui/ActivityMonocle;->h:Lcom/yelp/android/ui/q;
-
-    goto/16 :goto_1
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
     .locals 1
 
     .prologue
-    .line 111
+    .line 106
     const/4 v0, 0x0
 
     return v0
@@ -927,14 +879,14 @@
 
     .line 317
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
     if-eqz v0, :cond_1
 
     .line 318
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/m;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->j:Lcom/yelp/android/ui/h;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/m;->c()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/h;->c()V
 
     .line 320
     :cond_1
@@ -962,9 +914,9 @@
     invoke-virtual {v0}, Landroid/opengl/GLSurfaceView;->onPause()V
 
     .line 306
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->h:Lcom/yelp/android/ui/q;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->h:Lcom/yelp/android/ui/l;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/q;->c()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/l;->c()V
 
     .line 308
     :cond_0
@@ -987,9 +939,9 @@
     invoke-direct {p0}, Lcom/yelp/android/ui/ActivityMonocle;->c()V
 
     .line 295
-    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->h:Lcom/yelp/android/ui/q;
+    iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->h:Lcom/yelp/android/ui/l;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/q;->b()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/l;->b()V
 
     .line 296
     iget-object v0, p0, Lcom/yelp/android/ui/ActivityMonocle;->f:Landroid/opengl/GLSurfaceView;

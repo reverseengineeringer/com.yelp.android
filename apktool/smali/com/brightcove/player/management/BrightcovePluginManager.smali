@@ -14,6 +14,12 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/management/BrightcovePluginManager$OnRegisterPluginListener;
+    }
+.end annotation
+
 
 # static fields
 .field private static final CRASHLYTICS_LOG:Ljava/lang/String; = "log"
@@ -223,7 +229,7 @@
     .prologue
     .line 109
     :try_start_0
-    const-string/jumbo v0, "com.crashlytics.android.d"
+    const-string/jumbo v0, "com.yelp.android.au.a"
 
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 

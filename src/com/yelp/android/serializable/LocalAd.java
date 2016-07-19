@@ -1,46 +1,46 @@
 package com.yelp.android.serializable;
 
 import android.os.Parcelable;
-import com.yelp.android.ui.panels.businesssearch.f;
+import com.yelp.android.ui.panels.businesssearch.a;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
 public abstract class LocalAd
   extends _LocalAd
-  implements Parcelable, f, Comparable<LocalAd>
+  implements Parcelable, a, Comparable<LocalAd>
 {
-  public int compareTo(LocalAd paramLocalAd)
+  public int a(LocalAd paramLocalAd)
   {
-    return getSlot() - paramLocalAd.getSlot();
+    return d() - paramLocalAd.d();
   }
   
-  public Map<String, Object> getIriParams(YelpBusiness paramYelpBusiness, boolean paramBoolean)
+  public Map<String, Object> a(YelpBusiness paramYelpBusiness, boolean paramBoolean)
   {
     HashMap localHashMap = new HashMap(5);
-    localHashMap.put("ad_request_id", getRequestId());
-    localHashMap.put("ad_business_id", getBusinessId());
-    localHashMap.put("placement", getPlacement());
-    localHashMap.put("slot", Integer.valueOf(getSlot()));
+    localHashMap.put("ad_request_id", l());
+    localHashMap.put("ad_business_id", m());
+    localHashMap.put("placement", h());
+    localHashMap.put("slot", Integer.valueOf(d()));
     if (paramYelpBusiness != null) {
-      localHashMap.put("business_id", paramYelpBusiness.getId());
+      localHashMap.put("business_id", paramYelpBusiness.aD());
     }
     return localHashMap;
   }
   
-  public Map<String, Object> getIriParams(boolean paramBoolean)
+  public Map<String, Object> a(boolean paramBoolean)
   {
-    return getIriParams(null, paramBoolean);
+    return a(null, paramBoolean);
   }
   
-  public LocalAdPlacement getLocalAdPlacement()
+  public LocalAdType b()
   {
-    return LocalAdPlacement.valueOf(getPlacement().toUpperCase(Locale.US));
+    return LocalAdType.valueOf(k().toUpperCase(Locale.US));
   }
   
-  public LocalAdType getLocalAdType()
+  public LocalAdPlacement c()
   {
-    return LocalAdType.valueOf(getType().toUpperCase(Locale.US));
+    return LocalAdPlacement.valueOf(h().toUpperCase(Locale.US));
   }
 }
 

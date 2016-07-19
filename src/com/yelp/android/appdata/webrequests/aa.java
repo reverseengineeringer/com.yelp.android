@@ -1,36 +1,25 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Photo;
-import com.yelp.android.util.StringUtils;
-import com.yelp.android.util.l;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.PhotoAdsResponse;
 import com.yelp.parcelgen.JsonParser.DualCreator;
-import org.apache.http.HttpEntity;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class aa
-  extends g<Void, Void, Photo>
+  extends b<Void, Void, PhotoAdsResponse>
 {
-  private final String a;
-  
-  public aa(String paramString1, String paramString2, String paramString3)
+  public aa(String paramString, ApiRequest.b<PhotoAdsResponse> paramb)
   {
-    super(ApiRequest.RequestType.POST, "business/add_image", null);
-    a = paramString3;
-    addUrlParam("biz_id", paramString1);
-    if (!StringUtils.e(paramString2)) {
-      addUrlParam("caption", paramString2);
-    }
+    super(ApiRequest.RequestType.GET, "business/photo_ads", paramb);
+    a("biz_id", paramString);
+    a("photo_before_ad_index", 0);
   }
   
-  public Photo a(JSONObject paramJSONObject)
+  public PhotoAdsResponse a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return (Photo)Photo.CREATOR.parse(paramJSONObject.getJSONObject("photo"));
-  }
-  
-  protected HttpEntity getPostEntity()
-  {
-    return l.a("image", a, getPostParameters());
+    return (PhotoAdsResponse)PhotoAdsResponse.CREATOR.parse(paramJSONObject);
   }
 }
 

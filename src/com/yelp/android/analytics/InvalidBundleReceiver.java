@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.av.a;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
 
 public class InvalidBundleReceiver
   extends BroadcastReceiver

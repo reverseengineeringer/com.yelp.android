@@ -7,27 +7,29 @@
 
 
 # instance fields
-.field protected mBorderColor:[I
+.field protected a:Ljava/util/Date;
 
-.field protected mDefaultColorBottom:[I
+.field protected b:Ljava/lang/String;
 
-.field protected mDefaultColorTop:[I
+.field protected c:Ljava/lang/String;
 
-.field protected mIsDisabled:Z
+.field protected d:Ljava/lang/String;
 
-.field protected mPartySize:I
+.field protected e:Z
 
-.field protected mSelectedColorBottom:[I
+.field protected f:I
 
-.field protected mSelectedColorTop:[I
+.field protected g:[I
 
-.field protected mText:Ljava/lang/String;
+.field protected h:[I
 
-.field protected mTextColor:[I
+.field protected i:[I
 
-.field protected mTime:Ljava/util/Date;
+.field protected j:[I
 
-.field protected mType:Ljava/lang/String;
+.field protected k:[I
+
+.field protected l:[I
 
 
 # direct methods
@@ -35,186 +37,161 @@
     .locals 0
 
     .prologue
-    .line 45
+    .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 46
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Ljava/lang/String;Ljava/lang/String;ZI[I[I[I[I[I[I)V
-    .locals 0
-
-    .prologue
-    .line 30
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_ReservationSearchAction;-><init>()V
-
-    .line 31
-    iput-object p1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTime:Ljava/util/Date;
-
-    .line 32
-    iput-object p2, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mType:Ljava/lang/String;
-
-    .line 33
-    iput-object p3, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mText:Ljava/lang/String;
-
-    .line 34
-    iput-boolean p4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mIsDisabled:Z
-
-    .line 35
-    iput p5, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mPartySize:I
-
-    .line 36
-    iput-object p6, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTextColor:[I
-
-    .line 37
-    iput-object p7, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorTop:[I
-
-    .line 38
-    iput-object p8, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorBottom:[I
-
-    .line 39
-    iput-object p9, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorTop:[I
-
-    .line 40
-    iput-object p10, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorBottom:[I
-
-    .line 41
-    iput-object p11, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mBorderColor:[I
-
-    .line 42
+    .line 63
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a(Landroid/os/Parcel;)V
+    .locals 4
 
     .prologue
-    .line 84
-    const/4 v0, 0x0
+    .line 183
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
-    return v0
+    move-result-wide v0
+
+    .line 184
+    const-wide/32 v2, -0x80000000
+
+    cmp-long v2, v0, v2
+
+    if-eqz v2, :cond_0
+
+    .line 185
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
+
+    .line 187
+    :cond_0
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->b:Ljava/lang/String;
+
+    .line 188
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->c:Ljava/lang/String;
+
+    .line 189
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->d:Ljava/lang/String;
+
+    .line 190
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+
+    move-result-object v0
+
+    .line 191
+    const/4 v1, 0x0
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->e:Z
+
+    .line 192
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->f:I
+
+    .line 193
+    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
+
+    .line 195
+    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
+
+    .line 197
+    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
+
+    .line 199
+    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
+
+    .line 201
+    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
+
+    .line 203
+    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
+
+    .line 204
+    return-void
 .end method
 
-.method public getBorderColor()[I
-    .locals 1
-
-    .prologue
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mBorderColor:[I
-
-    return-object v0
-.end method
-
-.method public getDefaultColorBottom()[I
-    .locals 1
-
-    .prologue
-    .line 70
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorBottom:[I
-
-    return-object v0
-.end method
-
-.method public getDefaultColorTop()[I
-    .locals 1
-
-    .prologue
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorTop:[I
-
-    return-object v0
-.end method
-
-.method public getPartySize()I
-    .locals 1
-
-    .prologue
-    .line 61
-    iget v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mPartySize:I
-
-    return v0
-.end method
-
-.method public getSelectedColorBottom()[I
-    .locals 1
-
-    .prologue
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorBottom:[I
-
-    return-object v0
-.end method
-
-.method public getSelectedColorTop()[I
-    .locals 1
-
-    .prologue
-    .line 73
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorTop:[I
-
-    return-object v0
-.end method
-
-.method public getText()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 55
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mText:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTextColor()[I
-    .locals 1
-
-    .prologue
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTextColor:[I
-
-    return-object v0
-.end method
-
-.method public getTime()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTime:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getType()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mType:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public isDisabled()Z
-    .locals 1
-
-    .prologue
-    .line 58
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mIsDisabled:Z
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const/4 v0, 0x0
 
-    .line 126
+    .line 207
     const-string/jumbo v1, "time"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -223,16 +200,16 @@
 
     if-nez v1, :cond_0
 
-    .line 127
+    .line 208
     const-string/jumbo v1, "time"
 
     invoke-static {p1, v1}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTime:Ljava/util/Date;
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
 
-    .line 129
+    .line 210
     :cond_0
     const-string/jumbo v1, "type"
 
@@ -242,16 +219,16 @@
 
     if-nez v1, :cond_1
 
-    .line 130
+    .line 211
     const-string/jumbo v1, "type"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mType:Ljava/lang/String;
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->b:Ljava/lang/String;
 
-    .line 132
+    .line 213
     :cond_1
     const-string/jumbo v1, "text"
 
@@ -261,36 +238,18 @@
 
     if-nez v1, :cond_2
 
-    .line 133
+    .line 214
     const-string/jumbo v1, "text"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mText:Ljava/lang/String;
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->c:Ljava/lang/String;
 
-    .line 135
+    .line 216
     :cond_2
-    const-string/jumbo v1, "is_disabled"
-
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
-
-    move-result v1
-
-    iput-boolean v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mIsDisabled:Z
-
-    .line 136
-    const-string/jumbo v1, "party_size"
-
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mPartySize:I
-
-    .line 137
-    const-string/jumbo v1, "text_color"
+    const-string/jumbo v1, "biz_action_text"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
@@ -298,46 +257,36 @@
 
     if-nez v1, :cond_3
 
-    .line 138
-    const-string/jumbo v1, "text_color"
+    .line 217
+    const-string/jumbo v1, "biz_action_text"
 
-    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    .line 139
-    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->d:Ljava/lang/String;
 
-    move-result v3
-
-    .line 140
-    new-array v1, v3, [I
-
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTextColor:[I
-
-    move v1, v0
-
-    .line 141
-    :goto_0
-    if-ge v1, v3, :cond_3
-
-    .line 142
-    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTextColor:[I
-
-    invoke-virtual {v2, v1}, Lorg/json/JSONArray;->getInt(I)I
-
-    move-result v5
-
-    aput v5, v4, v1
-
-    .line 141
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    .line 145
+    .line 219
     :cond_3
-    const-string/jumbo v1, "default_color_top"
+    const-string/jumbo v1, "is_disabled"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->e:Z
+
+    .line 220
+    const-string/jumbo v1, "party_size"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->f:I
+
+    .line 221
+    const-string/jumbo v1, "text_color"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
@@ -345,31 +294,31 @@
 
     if-nez v1, :cond_4
 
-    .line 146
-    const-string/jumbo v1, "default_color_top"
+    .line 222
+    const-string/jumbo v1, "text_color"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v2
 
-    .line 147
+    .line 223
     invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
 
     move-result v3
 
-    .line 148
+    .line 224
     new-array v1, v3, [I
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorTop:[I
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
 
     move v1, v0
 
-    .line 149
-    :goto_1
+    .line 225
+    :goto_0
     if-ge v1, v3, :cond_4
 
-    .line 150
-    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorTop:[I
+    .line 226
+    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
 
     invoke-virtual {v2, v1}, Lorg/json/JSONArray;->getInt(I)I
 
@@ -377,14 +326,14 @@
 
     aput v5, v4, v1
 
-    .line 149
+    .line 225
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 153
+    .line 229
     :cond_4
-    const-string/jumbo v1, "default_color_bottom"
+    const-string/jumbo v1, "default_color_top"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
@@ -392,31 +341,31 @@
 
     if-nez v1, :cond_5
 
-    .line 154
-    const-string/jumbo v1, "default_color_bottom"
+    .line 230
+    const-string/jumbo v1, "default_color_top"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v2
 
-    .line 155
+    .line 231
     invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
 
     move-result v3
 
-    .line 156
+    .line 232
     new-array v1, v3, [I
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorBottom:[I
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
 
     move v1, v0
 
-    .line 157
-    :goto_2
+    .line 233
+    :goto_1
     if-ge v1, v3, :cond_5
 
-    .line 158
-    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorBottom:[I
+    .line 234
+    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
 
     invoke-virtual {v2, v1}, Lorg/json/JSONArray;->getInt(I)I
 
@@ -424,14 +373,14 @@
 
     aput v5, v4, v1
 
-    .line 157
+    .line 233
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 161
+    .line 237
     :cond_5
-    const-string/jumbo v1, "selected_color_top"
+    const-string/jumbo v1, "default_color_bottom"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
@@ -439,31 +388,31 @@
 
     if-nez v1, :cond_6
 
-    .line 162
-    const-string/jumbo v1, "selected_color_top"
+    .line 238
+    const-string/jumbo v1, "default_color_bottom"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v2
 
-    .line 163
+    .line 239
     invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
 
     move-result v3
 
-    .line 164
+    .line 240
     new-array v1, v3, [I
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorTop:[I
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
 
     move v1, v0
 
-    .line 165
-    :goto_3
+    .line 241
+    :goto_2
     if-ge v1, v3, :cond_6
 
-    .line 166
-    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorTop:[I
+    .line 242
+    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
 
     invoke-virtual {v2, v1}, Lorg/json/JSONArray;->getInt(I)I
 
@@ -471,14 +420,14 @@
 
     aput v5, v4, v1
 
-    .line 165
+    .line 241
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
-    .line 169
+    .line 245
     :cond_6
-    const-string/jumbo v1, "selected_color_bottom"
+    const-string/jumbo v1, "selected_color_top"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
@@ -486,31 +435,31 @@
 
     if-nez v1, :cond_7
 
-    .line 170
-    const-string/jumbo v1, "selected_color_bottom"
+    .line 246
+    const-string/jumbo v1, "selected_color_top"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v2
 
-    .line 171
+    .line 247
     invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
 
     move-result v3
 
-    .line 172
+    .line 248
     new-array v1, v3, [I
 
-    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorBottom:[I
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
 
     move v1, v0
 
-    .line 173
-    :goto_4
+    .line 249
+    :goto_3
     if-ge v1, v3, :cond_7
 
-    .line 174
-    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorBottom:[I
+    .line 250
+    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
 
     invoke-virtual {v2, v1}, Lorg/json/JSONArray;->getInt(I)I
 
@@ -518,14 +467,14 @@
 
     aput v5, v4, v1
 
-    .line 173
+    .line 249
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_3
 
-    .line 177
+    .line 253
     :cond_7
-    const-string/jumbo v1, "border_color"
+    const-string/jumbo v1, "selected_color_bottom"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
 
@@ -533,29 +482,76 @@
 
     if-nez v1, :cond_8
 
-    .line 178
+    .line 254
+    const-string/jumbo v1, "selected_color_bottom"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v2
+
+    .line 255
+    invoke-virtual {v2}, Lorg/json/JSONArray;->length()I
+
+    move-result v3
+
+    .line 256
+    new-array v1, v3, [I
+
+    iput-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
+
+    move v1, v0
+
+    .line 257
+    :goto_4
+    if-ge v1, v3, :cond_8
+
+    .line 258
+    iget-object v4, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
+
+    invoke-virtual {v2, v1}, Lorg/json/JSONArray;->getInt(I)I
+
+    move-result v5
+
+    aput v5, v4, v1
+
+    .line 257
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_4
+
+    .line 261
+    :cond_8
+    const-string/jumbo v1, "border_color"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    .line 262
     const-string/jumbo v1, "border_color"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 
     move-result-object v1
 
-    .line 179
+    .line 263
     invoke-virtual {v1}, Lorg/json/JSONArray;->length()I
 
     move-result v2
 
-    .line 180
+    .line 264
     new-array v3, v2, [I
 
-    iput-object v3, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mBorderColor:[I
+    iput-object v3, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
 
-    .line 181
+    .line 265
     :goto_5
-    if-ge v0, v2, :cond_8
+    if-ge v0, v2, :cond_9
 
-    .line 182
-    iget-object v3, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mBorderColor:[I
+    .line 266
+    iget-object v3, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
 
     invoke-virtual {v1, v0}, Lorg/json/JSONArray;->getInt(I)I
 
@@ -563,125 +559,386 @@
 
     aput v4, v3, v0
 
-    .line 181
+    .line 265
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_5
 
-    .line 185
-    :cond_8
+    .line 269
+    :cond_9
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 4
+.method public b()Z
+    .locals 1
 
     .prologue
-    .line 102
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+    .line 132
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->e:Z
 
-    move-result-wide v0
+    return v0
+.end method
 
-    .line 103
-    const-wide/32 v2, -0x80000000
+.method public c()Ljava/lang/String;
+    .locals 1
 
-    cmp-long v2, v0, v2
+    .prologue
+    .line 128
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->d:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    return-object v0
+.end method
 
-    .line 104
-    new-instance v2, Ljava/util/Date;
+.method public describeContents()I
+    .locals 1
 
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+    .prologue
+    .line 164
+    const/4 v0, 0x0
 
-    iput-object v2, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTime:Ljava/util/Date;
+    return v0
+.end method
 
-    .line 106
+.method public e()[I
+    .locals 1
+
+    .prologue
+    .line 160
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 67
+    if-nez p1, :cond_1
+
+    .line 81
     :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    :goto_0
+    return v0
+
+    .line 71
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 72
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 75
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 79
+    check-cast p1, Lcom/yelp/android/serializable/_ReservationSearchAction;
+
+    .line 81
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mType:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->b:Ljava/lang/String;
 
-    .line 107
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->b:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mText:Ljava/lang/String;
-
-    .line 108
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    .line 109
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->c:Ljava/lang/String;
 
-    aget-boolean v0, v0, v1
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->c:Ljava/lang/String;
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mIsDisabled:Z
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    .line 110
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->e:Z
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->e:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(ZZ)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->f:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->f:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a([I[I)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a([I[I)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a([I[I)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a([I[I)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a([I[I)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a([I[I)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mPartySize:I
+    goto :goto_0
+.end method
 
-    .line 111
-    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+.method public f()[I
+    .locals 1
+
+    .prologue
+    .line 156
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
+
+    return-object v0
+.end method
+
+.method public g()[I
+    .locals 1
+
+    .prologue
+    .line 152
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
+
+    return-object v0
+.end method
+
+.method public h()[I
+    .locals 1
+
+    .prologue
+    .line 148
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 99
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTextColor:[I
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->b:Ljava/lang/String;
 
-    .line 113
-    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorTop:[I
-
-    .line 115
-    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorBottom:[I
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->c:Ljava/lang/String;
 
-    .line 117
-    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorTop:[I
-
-    .line 119
-    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorBottom:[I
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->d:Ljava/lang/String;
 
-    .line 121
-    invoke-virtual {p1}, Landroid/os/Parcel;->createIntArray()[I
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mBorderColor:[I
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->e:Z
 
-    .line 123
-    return-void
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Z)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->f:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a([I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a([I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a([I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a([I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a([I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a([I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()[I
+    .locals 1
+
+    .prologue
+    .line 144
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
+
+    return-object v0
+.end method
+
+.method public j()[I
+    .locals 1
+
+    .prologue
+    .line 140
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
+
+    return-object v0
+.end method
+
+.method public k()I
+    .locals 1
+
+    .prologue
+    .line 136
+    iget v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->f:I
+
+    return v0
+.end method
+
+.method public l()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public m()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 120
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public o()Ljava/util/Date;
+    .locals 1
+
+    .prologue
+    .line 116
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 3
 
     .prologue
-    .line 88
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTime:Ljava/util/Date;
+    .line 168
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -690,70 +947,75 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 89
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mType:Ljava/lang/String;
+    .line 169
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 90
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mText:Ljava/lang/String;
+    .line 170
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 91
+    .line 171
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->d:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
+
+    .line 172
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
     const/4 v1, 0x0
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mIsDisabled:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->e:Z
 
     aput-boolean v2, v0, v1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 92
-    iget v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mPartySize:I
+    .line 173
+    iget v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->f:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTextColor:[I
+    .line 174
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->g:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorTop:[I
+    .line 175
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->h:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mDefaultColorBottom:[I
+    .line 176
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->i:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 96
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorTop:[I
+    .line 177
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->j:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 97
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mSelectedColorBottom:[I
+    .line 178
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->k:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mBorderColor:[I
+    .line 179
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->l:[I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeIntArray([I)V
 
-    .line 99
+    .line 180
     return-void
 
-    .line 88
+    .line 168
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->mTime:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_ReservationSearchAction;->a:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

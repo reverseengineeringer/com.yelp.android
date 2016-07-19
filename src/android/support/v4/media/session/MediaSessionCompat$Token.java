@@ -9,20 +9,31 @@ import android.os.Parcelable.Creator;
 public final class MediaSessionCompat$Token
   implements Parcelable
 {
-  public static final Parcelable.Creator<Token> CREATOR = new d();
-  private final Object mInner;
+  public static final Parcelable.Creator<Token> CREATOR = new Parcelable.Creator()
+  {
+    public MediaSessionCompat.Token a(Parcel paramAnonymousParcel)
+    {
+      if (Build.VERSION.SDK_INT >= 21) {}
+      for (paramAnonymousParcel = paramAnonymousParcel.readParcelable(null);; paramAnonymousParcel = paramAnonymousParcel.readStrongBinder()) {
+        return new MediaSessionCompat.Token(paramAnonymousParcel);
+      }
+    }
+    
+    public MediaSessionCompat.Token[] a(int paramAnonymousInt)
+    {
+      return new MediaSessionCompat.Token[paramAnonymousInt];
+    }
+  };
+  private final Object a;
   
   MediaSessionCompat$Token(Object paramObject)
   {
-    mInner = paramObject;
+    a = paramObject;
   }
   
-  public static Token fromToken(Object paramObject)
+  public Object a()
   {
-    if ((paramObject == null) || (Build.VERSION.SDK_INT < 21)) {
-      return null;
-    }
-    return new Token(e.a(paramObject));
+    return a;
   }
   
   public int describeContents()
@@ -30,19 +41,14 @@ public final class MediaSessionCompat$Token
     return 0;
   }
   
-  public Object getToken()
-  {
-    return mInner;
-  }
-  
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     if (Build.VERSION.SDK_INT >= 21)
     {
-      paramParcel.writeParcelable((Parcelable)mInner, paramInt);
+      paramParcel.writeParcelable((Parcelable)a, paramInt);
       return;
     }
-    paramParcel.writeStrongBinder((IBinder)mInner);
+    paramParcel.writeStrongBinder((IBinder)a);
   }
 }
 

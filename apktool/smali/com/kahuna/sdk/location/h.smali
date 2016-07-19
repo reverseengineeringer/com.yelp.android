@@ -1,87 +1,176 @@
-.class Lcom/kahuna/sdk/location/h;
-.super Ljava/util/TimerTask;
-.source "KahunaGeofenceRequester.java"
-
-
-# instance fields
-.field final synthetic a:Lcom/kahuna/sdk/location/f;
+.class public Lcom/kahuna/sdk/location/h;
+.super Ljava/lang/Object;
+.source "KahunaLocationUtils.java"
 
 
 # direct methods
-.method constructor <init>(Lcom/kahuna/sdk/location/f;)V
-    .locals 0
-
-    .prologue
-    .line 280
-    iput-object p1, p0, Lcom/kahuna/sdk/location/h;->a:Lcom/kahuna/sdk/location/f;
-
-    invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public run()V
+.method protected static a(Landroid/content/Context;)Z
     .locals 4
 
     .prologue
-    .line 285
-    :try_start_0
-    sget-object v0, Lcom/google/android/gms/location/LocationServices;->FusedLocationApi:Lcom/google/android/gms/location/FusedLocationProviderApi;
+    .line 43
+    invoke-static {p0}, Lcom/google/android/gms/common/GooglePlayServicesUtil;->isGooglePlayServicesAvailable(Landroid/content/Context;)I
 
-    iget-object v1, p0, Lcom/kahuna/sdk/location/h;->a:Lcom/kahuna/sdk/location/f;
+    move-result v0
 
-    invoke-static {v1}, Lcom/kahuna/sdk/location/f;->a(Lcom/kahuna/sdk/location/f;)Lcom/google/android/gms/common/api/GoogleApiClient;
+    .line 47
+    if-nez v0, :cond_1
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/kahuna/sdk/location/h;->a:Lcom/kahuna/sdk/location/f;
-
-    invoke-static {v2}, Lcom/kahuna/sdk/location/f;->b(Lcom/kahuna/sdk/location/f;)Lcom/google/android/gms/location/LocationListener;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/google/android/gms/location/FusedLocationProviderApi;->removeLocationUpdates(Lcom/google/android/gms/common/api/GoogleApiClient;Lcom/google/android/gms/location/LocationListener;)Lcom/google/android/gms/common/api/PendingResult;
-
-    move-result-object v0
-
-    .line 286
-    const-wide/16 v2, 0x1388
-
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
-
-    invoke-interface {v0, v2, v3, v1}, Lcom/google/android/gms/common/api/PendingResult;->await(JLjava/util/concurrent/TimeUnit;)Lcom/google/android/gms/common/api/Result;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 291
-    :goto_0
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    .line 48
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 292
-    const-string/jumbo v0, "KahunaEngine"
+    .line 49
+    const-string/jumbo v0, "Kahuna"
 
-    const-string/jumbo v1, "Finished requesting for gps updates for geofences."
+    const-string/jumbo v1, "Google Play services is available. yay!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 294
+    .line 51
     :cond_0
-    iget-object v0, p0, Lcom/kahuna/sdk/location/h;->a:Lcom/kahuna/sdk/location/f;
+    const/4 v0, 0x1
 
-    invoke-static {v0}, Lcom/kahuna/sdk/location/f;->c(Lcom/kahuna/sdk/location/f;)V
+    .line 59
+    :goto_0
+    return v0
 
-    .line 295
-    return-void
+    .line 53
+    :cond_1
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
-    .line 288
-    :catch_0
-    move-exception v0
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 54
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Google Play services is NOT available. Code: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 56
+    :cond_2
+    const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method protected static a(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 4
+
+    .prologue
+    .line 63
+    invoke-virtual {p0, p1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    .line 64
+    if-nez v0, :cond_1
+
+    const/4 v0, 0x1
+
+    .line 66
+    :goto_0
+    if-eqz v0, :cond_2
+
+    .line 67
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 68
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " permission available."
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 74
+    :cond_0
+    :goto_1
+    return v0
+
+    .line 64
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    .line 71
+    :cond_2
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 72
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Permission "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string/jumbo v3, " NOT available"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 .end method

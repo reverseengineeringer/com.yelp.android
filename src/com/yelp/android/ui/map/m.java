@@ -1,18 +1,21 @@
 package com.yelp.android.ui.map;
 
-import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.b;
+import com.yelp.android.serializable.f;
 
-class m
-  implements GoogleMap.OnMapClickListener
+public class m<T extends f>
+  implements a<T>
 {
-  m(l paraml, GoogleMap.OnMapClickListener paramOnMapClickListener) {}
+  final int a;
   
-  public void onMapClick(LatLng paramLatLng)
+  public m(int paramInt)
   {
-    a.onMapClick(paramLatLng);
-    l.a(b).showInfoWindow();
+    a = paramInt;
+  }
+  
+  public com.google.android.gms.maps.model.a a(T paramT)
+  {
+    return b.a(a);
   }
 }
 

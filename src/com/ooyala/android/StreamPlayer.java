@@ -1,7 +1,10 @@
 package com.ooyala.android;
 
 import android.os.Handler;
+import android.os.Message;
+import java.lang.ref.WeakReference;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public abstract class StreamPlayer
   extends Player
@@ -10,7 +13,7 @@ public abstract class StreamPlayer
   protected static final long TIMER_PERIOD = 250L;
   public static PlayerInfo defaultPlayerInfo = new DefaultPlayerInfo();
   protected Timer _playheadUpdateTimer = null;
-  private final Handler _playheadUpdateTimerHandler = new StreamPlayer.TimerHandler(this);
+  private final Handler _playheadUpdateTimerHandler = new TimerHandler(this);
   private PlayerInfo customPlayerInfo;
   
   public PlayerInfo getPlayerInfo()
@@ -38,7 +41,13 @@ public abstract class StreamPlayer
       stopPlayheadTimer();
     }
     _playheadUpdateTimer = new Timer();
-    _playheadUpdateTimer.scheduleAtFixedRate(new StreamPlayer.1(this), 0L, 250L);
+    _playheadUpdateTimer.scheduleAtFixedRate(new TimerTask()
+    {
+      public void run()
+      {
+        _playheadUpdateTimerHandler.sendEmptyMessage(0);
+      }
+    }, 0L, 250L);
   }
   
   protected void stopPlayheadTimer()
@@ -47,6 +56,26 @@ public abstract class StreamPlayer
     {
       _playheadUpdateTimer.cancel();
       _playheadUpdateTimer = null;
+    }
+  }
+  
+  private static class TimerHandler
+    extends Handler
+  {
+    private int _lastPlayhead = -1;
+    private WeakReference<StreamPlayer> _player;
+    
+    public TimerHandler(StreamPlayer paramStreamPlayer)
+    {
+      _player = new WeakReference(paramStreamPlayer);
+    }
+    
+    public void handleMessage(Message paramMessage)
+    {
+      paramMessage = (StreamPlayer)_player.get();
+      if ((paramMessage != null) && (_lastPlayhead != paramMessage.currentTime()) && (paramMessage.isPlaying())) {
+        paramMessage.notifyTimeChanged();
+      }
     }
   }
 }

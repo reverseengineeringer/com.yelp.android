@@ -6,77 +6,77 @@ import com.yelp.android.ui.activities.reviews.ReviewState;
 public class ReviewBroadcast
   extends Review
 {
-  public static final ah<ReviewBroadcast> CREATOR = new co();
-  private String mBusinessId;
-  private boolean mConvertedToTip = false;
-  private String mUserReviewStatus;
+  public static final a<ReviewBroadcast> CREATOR = new ReviewBroadcast.1();
+  private String d;
+  private String e;
+  private boolean f = false;
   
-  public String getBusinessId()
+  public void a(int paramInt)
   {
-    return mBusinessId;
+    c = paramInt;
   }
   
-  public ReviewState getReviewState()
-  {
-    return ReviewState.fromDescription(mUserReviewStatus);
-  }
-  
-  public boolean isConvertedToTip()
-  {
-    return mConvertedToTip;
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
+  public void a(Parcel paramParcel)
   {
     boolean bool = true;
-    super.readFromParcel(paramParcel);
-    mBusinessId = paramParcel.readString();
-    mUserReviewStatus = paramParcel.readString();
+    super.a(paramParcel);
+    d = paramParcel.readString();
+    e = paramParcel.readString();
     if (paramParcel.readByte() == 1) {}
     for (;;)
     {
-      mConvertedToTip = bool;
+      f = bool;
       return;
       bool = false;
     }
   }
   
-  public void setBusinessId(String paramString)
+  public void a(ReviewState paramReviewState)
   {
-    mBusinessId = paramString;
+    e = paramReviewState.getDescription();
   }
   
-  public void setConvertedToTip(boolean paramBoolean)
+  public void a(String paramString)
   {
-    mConvertedToTip = paramBoolean;
+    d = paramString;
   }
   
-  public void setId(String paramString)
+  public void a(boolean paramBoolean)
   {
-    mId = paramString;
+    f = paramBoolean;
   }
   
-  public void setRating(int paramInt)
+  public void b(String paramString)
   {
-    mRating = paramInt;
+    b = paramString;
   }
   
-  public void setReviewState(ReviewState paramReviewState)
+  public void c(String paramString)
   {
-    mUserReviewStatus = paramReviewState.getDescription();
+    a = paramString;
   }
   
-  public void setText(String paramString)
+  public String d()
   {
-    mText = paramString;
+    return d;
+  }
+  
+  public ReviewState e()
+  {
+    return ReviewState.fromDescription(e);
+  }
+  
+  public boolean f()
+  {
+    return f;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeString(mBusinessId);
-    paramParcel.writeString(mUserReviewStatus);
-    if (mConvertedToTip) {}
+    paramParcel.writeString(d);
+    paramParcel.writeString(e);
+    if (f) {}
     for (paramInt = 1;; paramInt = 0)
     {
       paramParcel.writeByte((byte)paramInt);

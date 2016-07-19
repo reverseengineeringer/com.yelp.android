@@ -10,10 +10,10 @@
 
 .field private c:I
 
-.field private final d:Lcom/yelp/android/appdata/webrequests/j;
+.field private final d:Lcom/yelp/android/appdata/webrequests/k$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<",
             "Ljava/util/ArrayList",
             "<",
@@ -23,7 +23,7 @@
     .end annotation
 .end field
 
-.field private final e:Lcom/yelp/android/ui/activities/support/o;
+.field private final e:Lcom/yelp/android/ui/activities/support/b$e;
 
 
 # direct methods
@@ -31,22 +31,22 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;-><init>()V
 
     .line 127
-    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/d;
+    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/d;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RankFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment$1;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RankFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->d:Lcom/yelp/android/appdata/webrequests/j;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->d:Lcom/yelp/android/appdata/webrequests/k$b;
 
-    .line 161
-    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/e;
+    .line 164
+    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/e;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RankFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment$2;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RankFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->e:Lcom/yelp/android/ui/activities/support/o;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->e:Lcom/yelp/android/ui/activities/support/b$e;
 
     return-void
 .end method
@@ -55,18 +55,18 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 29
     iput p1, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->c:I
 
     return p1
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/leaderboard/RankFragment;)Lcom/yelp/android/ui/activities/support/o;
+.method static synthetic a(Lcom/yelp/android/ui/activities/leaderboard/RankFragment;)Lcom/yelp/android/ui/activities/support/b$e;
     .locals 1
 
     .prologue
-    .line 30
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->e:Lcom/yelp/android/ui/activities/support/o;
+    .line 29
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->e:Lcom/yelp/android/ui/activities/support/b$e;
 
     return-object v0
 .end method
@@ -75,7 +75,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 29
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     return-object v0
@@ -83,6 +83,9 @@
 
 
 # virtual methods
+.method protected abstract D_()Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+.end method
+
 .method public a(Landroid/widget/ListView;Landroid/view/View;IJ)V
     .locals 2
 
@@ -104,7 +107,7 @@
 
     move-result-object v1
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->getUserId()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/DisplayableAsUserBadge;->i()Ljava/lang/String;
 
     move-result-object v0
 
@@ -118,50 +121,26 @@
     return-void
 .end method
 
-.method public a_()V
-    .locals 1
-
-    .prologue
-    .line 90
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->a_()V
-
-    .line 91
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->clear()V
-
-    .line 92
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
-
-    .line 93
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b()V
-
-    .line 94
-    return-void
-.end method
-
 .method protected b()V
     .locals 2
 
     .prologue
-    .line 98
+    .line 97
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->b()V
 
-    .line 99
+    .line 98
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
     if-nez v0, :cond_0
 
-    .line 100
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->d:Lcom/yelp/android/appdata/webrequests/j;
+    .line 99
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->d:Lcom/yelp/android/appdata/webrequests/k$b;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->d()Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->D_()Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->a(Lcom/yelp/android/appdata/webrequests/j;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
+    invoke-static {v0, v1}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->a(Lcom/yelp/android/appdata/webrequests/k$b;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
     move-result-object v0
 
@@ -174,10 +153,10 @@
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->executeWithLocation([Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->a([Ljava/lang/Object;)V
 
     .line 104
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->i_()V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->H_()V
 
     .line 106
     :cond_0
@@ -187,13 +166,10 @@
 .method protected abstract c()Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter$RankMode;
 .end method
 
-.method protected abstract d()Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+.method protected abstract f()Lcom/yelp/android/util/ErrorType;
 .end method
 
-.method protected abstract e()Lcom/yelp/android/util/ErrorType;
-.end method
-
-.method public f()Ljava/lang/String;
+.method public g()Ljava/lang/String;
     .locals 2
 
     .prologue
@@ -231,18 +207,18 @@
     .locals 3
 
     .prologue
-    .line 48
+    .line 47
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     if-nez v0, :cond_0
 
-    .line 50
+    .line 49
     if-nez p1, :cond_1
 
-    .line 51
+    .line 50
     new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -257,17 +233,17 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
-    .line 56
+    .line 55
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a(Landroid/widget/ListAdapter;)V
 
-    .line 57
+    .line 56
     return-void
 
-    .line 53
+    .line 52
     :cond_1
     new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
@@ -283,24 +259,22 @@
 .end method
 
 .method public onPause()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 76
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->f()Ljava/lang/String;
+    .line 75
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->g()Ljava/lang/String;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
-    const/4 v2, 0x0
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;)V
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Z)V
-
-    .line 77
+    .line 76
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onPause()V
 
-    .line 78
+    .line 77
     return-void
 .end method
 
@@ -308,19 +282,19 @@
     .locals 3
 
     .prologue
-    .line 61
+    .line 60
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onResume()V
 
-    .line 62
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->f()Ljava/lang/String;
+    .line 61
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->g()Ljava/lang/String;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->d:Lcom/yelp/android/appdata/webrequests/j;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->d:Lcom/yelp/android/appdata/webrequests/k$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/h;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/k;
 
     move-result-object v0
 
@@ -328,29 +302,29 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
-    .line 64
+    .line 63
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 65
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->i_()V
+    .line 64
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->H_()V
 
-    .line 68
+    .line 67
     :cond_0
     iget v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->c:I
 
     if-ltz v0, :cond_1
 
-    .line 69
+    .line 68
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
@@ -359,14 +333,14 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/cp;->a(Landroid/widget/ListView;IZ)V
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/ar;->a(Landroid/widget/ListView;IZ)V
 
-    .line 70
+    .line 69
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->c:I
 
-    .line 72
+    .line 71
     :cond_1
     return-void
 .end method
@@ -375,20 +349,44 @@
     .locals 1
 
     .prologue
-    .line 82
+    .line 81
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 83
+    .line 82
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     if-eqz v0, :cond_0
 
-    .line 84
+    .line 83
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
 
     invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->a(Landroid/os/Bundle;)V
 
-    .line 86
+    .line 85
     :cond_0
+    return-void
+.end method
+
+.method public p_()V
+    .locals 1
+
+    .prologue
+    .line 89
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->p_()V
+
+    .line 90
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->a:Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/leaderboard/CheckinRankAdapter;->clear()V
+
+    .line 91
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
+
+    .line 92
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RankFragment;->b()V
+
+    .line 93
     return-void
 .end method

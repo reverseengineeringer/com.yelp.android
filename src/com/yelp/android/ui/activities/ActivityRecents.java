@@ -2,12 +2,16 @@ package com.yelp.android.ui.activities;
 
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.AsyncTask.Status;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -17,20 +21,23 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.ao;
-import com.yelp.android.appdata.k;
-import com.yelp.android.database.d;
-import com.yelp.android.database.q;
+import com.yelp.android.appdata.e;
+import com.yelp.android.appdata.f;
+import com.yelp.android.appdata.n;
+import com.yelp.android.database.b;
+import com.yelp.android.database.g;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter.DisplayFeature;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
-import com.yelp.android.ui.util.bf;
-import com.yelp.android.ui.util.cp;
+import com.yelp.android.ui.util.ab;
+import com.yelp.android.ui.util.ar;
+import com.yelp.android.util.q;
 import java.util.ArrayList;
 
 public class ActivityRecents
@@ -39,26 +46,26 @@ public class ActivityRecents
   private static final BusinessAdapter.DisplayFeature[] a = { BusinessAdapter.DisplayFeature.ALTERNATE_NAMES, BusinessAdapter.DisplayFeature.RATING, BusinessAdapter.DisplayFeature.ADDRESS, BusinessAdapter.DisplayFeature.CATEGORY, BusinessAdapter.DisplayFeature.DISTANCE, BusinessAdapter.DisplayFeature.BOOKMARK, BusinessAdapter.DisplayFeature.PRICE };
   private BusinessAdapter<YelpBusiness> b;
   private ArrayList<YelpBusiness> c;
-  private dr d;
+  private a d;
   private boolean e;
   
   private void a(YelpBusiness paramYelpBusiness)
   {
     if (c != null)
     {
-      String str = paramYelpBusiness.getId();
+      String str = paramYelpBusiness.aD();
       int j = c.size();
       int i = 0;
       while (i < j)
       {
-        if (((YelpBusiness)c.get(i)).getId().equals(str)) {
+        if (((YelpBusiness)c.get(i)).aD().equals(str)) {
           c.set(i, paramYelpBusiness);
         }
         i += 1;
       }
       b.notifyDataSetChanged();
     }
-    AppData.b().i().f().a(paramYelpBusiness);
+    AppData.b().i().d().a(paramYelpBusiness);
   }
   
   private final View f()
@@ -68,16 +75,29 @@ public class ActivityRecents
     Button localButton = new Button(this);
     localButton.setGravity(17);
     LinearLayout.LayoutParams localLayoutParams = new LinearLayout.LayoutParams(-1, -2);
-    int i = ao.e;
+    int i = n.e;
     topMargin = i;
     rightMargin = i;
     leftMargin = i;
     bottomMargin = i;
     localButton.setLayoutParams(localLayoutParams);
-    localButton.setText(2131165519);
-    localButton.setOnClickListener(new dq(this));
-    localLinearLayout.addView(localButton);
-    return localLinearLayout;
+    localButton.setText(2131165649);
+    if (f.a(21)) {
+      localButton.setBackground(getResources().getDrawable(2130838661));
+    }
+    for (;;)
+    {
+      localButton.setOnClickListener(new View.OnClickListener()
+      {
+        public void onClick(View paramAnonymousView)
+        {
+          showDialog(2131165427);
+        }
+      });
+      localLinearLayout.addView(localButton);
+      return localLinearLayout;
+      localButton.setBackground(getResources().getDrawable(2130838725));
+    }
   }
   
   protected void a(ListView paramListView, View paramView, int paramInt, long paramLong)
@@ -90,19 +110,19 @@ public class ActivityRecents
     }
   }
   
-  public dr c()
+  public a b()
   {
     return d;
   }
   
-  public dr e()
+  public a e()
   {
-    dr localdr2 = (dr)super.getLastCustomNonConfigurationInstance();
-    dr localdr1 = localdr2;
-    if (localdr2 == null) {
-      localdr1 = new dr();
+    a locala2 = (a)super.getLastCustomNonConfigurationInstance();
+    a locala1 = locala2;
+    if (locala2 == null) {
+      locala1 = new a();
     }
-    return localdr1;
+    return locala1;
   }
   
   public ViewIri getIri()
@@ -121,11 +141,11 @@ public class ActivityRecents
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    super.setTitle(2131166396);
+    super.setTitle(2131166423);
     e = false;
     b = new BusinessAdapter(this);
     b.a(a);
-    ScrollToLoadListView localScrollToLoadListView = q();
+    ScrollToLoadListView localScrollToLoadListView = r();
     localScrollToLoadListView.addFooterView(f(), null, false);
     localScrollToLoadListView.setAdapter(b);
     localScrollToLoadListView.f();
@@ -143,7 +163,7 @@ public class ActivityRecents
       return;
     }
     b.a(c);
-    q().setEmptyView(a(q(), 2131165758));
+    r().setEmptyView(a(r(), 2131165841));
   }
   
   public void onCreateContextMenu(ContextMenu paramContextMenu, View paramView, ContextMenu.ContextMenuInfo paramContextMenuInfo)
@@ -153,9 +173,9 @@ public class ActivityRecents
     {
       paramContextMenuInfo = (AdapterView.AdapterContextMenuInfo)paramContextMenuInfo;
       paramView = (YelpBusiness)((AdapterView)paramView).getAdapter().getItem(position);
-      bf.a(this, paramContextMenu, paramView);
-      paramContextMenu.setHeaderIcon(2130837624);
-      paramContextMenu.setHeaderTitle(paramView.getDisplayName());
+      ab.a(this, paramContextMenu, paramView);
+      paramContextMenu.setHeaderIcon(2130837646);
+      paramContextMenu.setHeaderTitle(paramView.z());
     }
   }
   
@@ -166,13 +186,27 @@ public class ActivityRecents
     default: 
       return super.onCreateDialog(paramInt);
     }
-    return cp.a(this, paramInt, 2131165303).setPositiveButton(2131166904, new dp(this)).setNegativeButton(2131166185, new do(this)).create();
+    ar.a(this, paramInt, 2131165426).setPositiveButton(2131166857, new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        AppData.b().i().d().c();
+        ActivityRecents.a(ActivityRecents.this).clear();
+        AppData.a(EventIri.RecentClear);
+      }
+    }).setNegativeButton(2131166235, new DialogInterface.OnClickListener()
+    {
+      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+      {
+        paramAnonymousDialogInterface.dismiss();
+      }
+    }).create();
   }
   
   protected void onPause()
   {
     super.onPause();
-    getAppData().t().b();
+    getAppData().y().b();
   }
   
   protected void onResume()
@@ -190,11 +224,11 @@ public class ActivityRecents
     {
       if (e)
       {
-        q().setSelection(0);
+        r().setSelection(0);
         e = false;
       }
       return;
-      c = AppData.b().i().f().a();
+      c = AppData.b().i().d().a();
       b.a(c);
     }
   }
@@ -204,6 +238,26 @@ public class ActivityRecents
     super.onSaveInstanceState(paramBundle);
     if (c != null) {
       paramBundle.putParcelableArrayList("businesses", c);
+    }
+  }
+  
+  public static final class a
+    extends q<ActivityRecents, Void, ArrayList<YelpBusiness>>
+  {
+    private ActivityRecents a;
+    
+    protected ArrayList<YelpBusiness> a(ActivityRecents... paramVarArgs)
+    {
+      a = paramVarArgs[0];
+      return AppData.b().i().d().a();
+    }
+    
+    protected void a(ArrayList<YelpBusiness> paramArrayList)
+    {
+      ActivityRecents.a(a, paramArrayList);
+      ActivityRecents.a(a).a(paramArrayList);
+      a.r().setEmptyView(ActivityRecents.a(a, a.r(), 2131165841));
+      a.disableLoading();
     }
   }
 }

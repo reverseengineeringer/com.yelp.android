@@ -7,21 +7,22 @@ import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.webrequests.ShareRequest.ShareType;
 import com.yelp.android.appdata.webrequests.YelpException;
 import com.yelp.android.services.ShareService.ShareObjectType;
+import java.util.Collection;
 import java.util.List;
 
 public class ActivityRetryReviewShare
   extends ActivityRetryShare
 {
-  public static Intent a(Context paramContext, String paramString, List<Pair<ShareRequest.ShareType, ? extends YelpException>> paramList)
+  public static Intent a(Context paramContext, String paramString, List<Pair<ShareRequest.ShareType, ? extends YelpException>> paramList, Collection<ShareRequest.ShareType> paramCollection)
   {
-    paramString = ActivityRetryShare.b(paramContext, paramString, paramList);
+    paramString = ActivityRetryShare.b(paramContext, paramString, paramList, paramCollection);
     paramString.setClass(paramContext, ActivityRetryReviewShare.class);
     return paramString;
   }
   
-  public dw a()
+  public ActivityRetryShare.a a()
   {
-    return j;
+    return l;
   }
   
   ShareService.ShareObjectType b()

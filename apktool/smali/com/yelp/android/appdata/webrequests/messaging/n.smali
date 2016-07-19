@@ -1,39 +1,39 @@
 .class public Lcom/yelp/android/appdata/webrequests/messaging/n;
-.super Lcom/yelp/android/av/h;
+.super Lcom/yelp/android/appdata/webrequests/core/c;
 .source "UserBlockRequest.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;ZLcom/yelp/android/av/i;)V
+.method public constructor <init>(Ljava/lang/String;ZLcom/yelp/android/appdata/webrequests/core/c$a;)V
     .locals 1
 
     .prologue
-    .line 10
+    .line 9
     if-eqz p2, :cond_0
 
     const-string/jumbo v0, "biz_user/block"
 
     :goto_0
-    invoke-direct {p0, v0, p3}, Lcom/yelp/android/av/h;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/core/c;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 11
+    .line 10
     if-eqz p2, :cond_1
 
     const-string/jumbo v0, "biz_user_id"
 
     :goto_1
-    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/messaging/n;->addPostParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/messaging/n;->b(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 12
+    .line 11
     return-void
 
-    .line 10
+    .line 9
     :cond_0
     const-string/jumbo v0, "user/block"
 
     goto :goto_0
 
-    .line 11
+    .line 10
     :cond_1
     const-string/jumbo v0, "user_id"
 
@@ -46,7 +46,7 @@
     .locals 1
 
     .prologue
-    .line 16
+    .line 15
     const-string/jumbo v0, "UserBlockRequest"
 
     return-object v0

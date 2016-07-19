@@ -1,194 +1,51 @@
 .class public Lcom/yelp/android/ac/f;
-.super Ljava/lang/Object;
-.source "GifBitmapWrapperResourceEncoder.java"
+.super Lcom/yelp/android/aa/n;
+.source "StreamResourceLoader.java"
 
 # interfaces
-.implements Lcom/bumptech/glide/load/e;
+.implements Lcom/yelp/android/ac/e;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ac/f$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Ljava/lang/Object;",
-        "Lcom/bumptech/glide/load/e",
+        "Lcom/yelp/android/aa/n",
         "<",
-        "Lcom/yelp/android/ac/a;",
+        "Ljava/io/InputStream;",
+        ">;",
+        "Lcom/yelp/android/ac/e",
+        "<",
+        "Ljava/lang/Integer;",
         ">;"
     }
 .end annotation
 
 
-# instance fields
-.field private final a:Lcom/bumptech/glide/load/e;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/bumptech/glide/load/e",
-            "<",
-            "Landroid/graphics/Bitmap;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final b:Lcom/bumptech/glide/load/e;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/bumptech/glide/load/e",
-            "<",
-            "Lcom/yelp/android/ab/b;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private c:Ljava/lang/String;
-
-
 # direct methods
-.method public constructor <init>(Lcom/bumptech/glide/load/e;Lcom/bumptech/glide/load/e;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/yelp/android/aa/l;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/bumptech/glide/load/e",
+            "Landroid/content/Context;",
+            "Lcom/yelp/android/aa/l",
             "<",
-            "Landroid/graphics/Bitmap;",
-            ">;",
-            "Lcom/bumptech/glide/load/e",
-            "<",
-            "Lcom/yelp/android/ab/b;",
+            "Landroid/net/Uri;",
+            "Ljava/io/InputStream;",
             ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 21
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    .line 22
-    iput-object p1, p0, Lcom/yelp/android/ac/f;->a:Lcom/bumptech/glide/load/e;
-
-    .line 23
-    iput-object p2, p0, Lcom/yelp/android/ac/f;->b:Lcom/bumptech/glide/load/e;
-
-    .line 24
-    return-void
-.end method
-
-
-# virtual methods
-.method public a()Ljava/lang/String;
-    .locals 2
-
-    .prologue
     .line 40
-    iget-object v0, p0, Lcom/yelp/android/ac/f;->c:Ljava/lang/String;
-
-    if-nez v0, :cond_0
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/aa/n;-><init>(Landroid/content/Context;Lcom/yelp/android/aa/l;)V
 
     .line 41
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v1, p0, Lcom/yelp/android/ac/f;->a:Lcom/bumptech/glide/load/e;
-
-    invoke-interface {v1}, Lcom/bumptech/glide/load/e;->a()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ac/f;->b:Lcom/bumptech/glide/load/e;
-
-    invoke-interface {v1}, Lcom/bumptech/glide/load/e;->a()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/ac/f;->c:Ljava/lang/String;
-
-    .line 43
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ac/f;->c:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public a(Lcom/bumptech/glide/load/engine/t;Ljava/io/OutputStream;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/bumptech/glide/load/engine/t",
-            "<",
-            "Lcom/yelp/android/ac/a;",
-            ">;",
-            "Ljava/io/OutputStream;",
-            ")Z"
-        }
-    .end annotation
-
-    .prologue
-    .line 28
-    invoke-interface {p1}, Lcom/bumptech/glide/load/engine/t;->b()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ac/a;
-
-    .line 29
-    invoke-virtual {v0}, Lcom/yelp/android/ac/a;->b()Lcom/bumptech/glide/load/engine/t;
-
-    move-result-object v1
-
-    .line 31
-    if-eqz v1, :cond_0
-
-    .line 32
-    iget-object v0, p0, Lcom/yelp/android/ac/f;->a:Lcom/bumptech/glide/load/e;
-
-    invoke-interface {v0, v1, p2}, Lcom/bumptech/glide/load/e;->a(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-
-    move-result v0
-
-    .line 34
-    :goto_0
-    return v0
-
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ac/f;->b:Lcom/bumptech/glide/load/e;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ac/a;->c()Lcom/bumptech/glide/load/engine/t;
-
-    move-result-object v0
-
-    invoke-interface {v1, v0, p2}, Lcom/bumptech/glide/load/e;->a(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-
-    move-result v0
-
-    goto :goto_0
-.end method
-
-.method public bridge synthetic a(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-    .locals 1
-
-    .prologue
-    .line 15
-    check-cast p1, Lcom/bumptech/glide/load/engine/t;
-
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ac/f;->a(Lcom/bumptech/glide/load/engine/t;Ljava/io/OutputStream;)Z
-
-    move-result v0
-
-    return v0
+    return-void
 .end method

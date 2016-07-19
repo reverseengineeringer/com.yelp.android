@@ -1,47 +1,64 @@
 package com.google.android.gms.internal;
 
-import android.os.Looper;
-import android.util.Log;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 
 public final class je
 {
-  public static void K(boolean paramBoolean)
+  public static Bitmap a(Bitmap paramBitmap)
   {
-    if (!paramBoolean) {
-      throw new IllegalStateException();
+    int k = 0;
+    if (paramBitmap == null) {
+      return null;
     }
-  }
-  
-  public static void a(boolean paramBoolean, Object paramObject)
-  {
-    if (!paramBoolean) {
-      throw new IllegalStateException(String.valueOf(paramObject));
-    }
-  }
-  
-  public static void aU(String paramString)
-  {
-    if (Looper.getMainLooper().getThread() != Thread.currentThread())
+    int m = paramBitmap.getWidth();
+    int i = paramBitmap.getHeight();
+    int j;
+    if (m >= i)
     {
-      Log.e("Asserts", "checkMainThread: current thread " + Thread.currentThread() + " IS NOT the main thread " + Looper.getMainLooper().getThread() + "!");
-      throw new IllegalStateException(paramString);
+      k = (i - m) / 2;
+      j = 0;
     }
-  }
-  
-  public static void aV(String paramString)
-  {
-    if (Looper.getMainLooper().getThread() == Thread.currentThread())
+    for (;;)
     {
-      Log.e("Asserts", "checkNotMainThread: current thread " + Thread.currentThread() + " IS the main thread " + Looper.getMainLooper().getThread() + "!");
-      throw new IllegalStateException(paramString);
+      Bitmap localBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
+      Canvas localCanvas = new Canvas(localBitmap);
+      Paint localPaint = new Paint(1);
+      localPaint.setColor(-16777216);
+      localCanvas.drawCircle(i / 2, i / 2, i / 2, localPaint);
+      localPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+      localCanvas.drawBitmap(paramBitmap, k, j, localPaint);
+      return localBitmap;
+      j = (m - i) / 2;
+      i = m;
     }
   }
   
-  public static void f(Object paramObject)
+  private static Bitmap a(Drawable paramDrawable)
   {
-    if (paramObject == null) {
-      throw new IllegalArgumentException("null reference");
+    if (paramDrawable == null) {
+      return null;
     }
+    if ((paramDrawable instanceof BitmapDrawable)) {
+      return ((BitmapDrawable)paramDrawable).getBitmap();
+    }
+    Bitmap localBitmap = Bitmap.createBitmap(paramDrawable.getIntrinsicWidth(), paramDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+    Canvas localCanvas = new Canvas(localBitmap);
+    paramDrawable.setBounds(0, 0, localCanvas.getWidth(), localCanvas.getHeight());
+    paramDrawable.draw(localCanvas);
+    return localBitmap;
+  }
+  
+  public static Drawable a(Resources paramResources, Drawable paramDrawable)
+  {
+    return new BitmapDrawable(paramResources, a(a(paramDrawable)));
   }
 }
 

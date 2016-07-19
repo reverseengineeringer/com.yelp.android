@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/business_review_excerpt" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/review_excerpt_divider" android:background="@drawable/divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/biz_search_mid_gap_size" android:layout_marginBottom="@dimen/default_large_gap_size" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?selectableItemBackground">
+        <RelativeLayout android:id="@id/passport_short" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/panel_passport_short" />
+            <TextView android:textAppearance="@style/BodyText" android:ellipsize="end" android:linksClickable="true" android:id="@id/passport_review_content" android:paddingTop="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" android:layout_below="@id/user_elite" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

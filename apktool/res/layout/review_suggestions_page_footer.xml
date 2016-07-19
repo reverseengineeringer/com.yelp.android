@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:id="@id/see_more_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:layout_marginTop="?smallGapSize" android:layout_marginRight="?baseGapSize" android:layout_marginBottom="?smallGapSize" android:minHeight="@dimen/clickable_size" android:text="@string/see_more" style="@style/FullBleedButton" />
+    <Button android:id="@id/see_more_button" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_small_gap_size" android:minHeight="@dimen/clickable_size" android:text="@string/see_more" style="@style/FullBleedButton" />
 </FrameLayout>

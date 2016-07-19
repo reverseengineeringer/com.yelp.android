@@ -3,7 +3,7 @@ package com.yelp.android.ui.activities.settings;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import com.yelp.android.b;
+import com.yelp.android.b.a;
 import com.yelp.android.ui.widgets.YelpToggleButton;
 
 public class PreferenceToggleView
@@ -16,21 +16,21 @@ public class PreferenceToggleView
   
   public PreferenceToggleView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, 2130772121);
+    this(paramContext, paramAttributeSet, 2130772175);
   }
   
   public PreferenceToggleView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.PreferenceView, paramInt, paramInt);
-    setChecked(paramContext.getBoolean(12, true));
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, b.a.PreferenceView, paramInt, paramInt);
+    setChecked(paramContext.getBoolean(10, true));
     paramContext.recycle();
   }
   
   public void setChecked(boolean paramBoolean)
   {
     super.setChecked(paramBoolean);
-    YelpToggleButton localYelpToggleButton = (YelpToggleButton)findViewById(2131492995);
+    YelpToggleButton localYelpToggleButton = (YelpToggleButton)findViewById(2131689640);
     if (localYelpToggleButton != null) {
       localYelpToggleButton.setChecked(paramBoolean);
     }

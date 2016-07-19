@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class MenuItem
   extends _MenuItem
 {
-  public static final JsonParser.DualCreator<MenuItem> CREATOR = new bf();
+  public static final JsonParser.DualCreator<MenuItem> CREATOR = new MenuItem.1();
 }
 
 /* Location:

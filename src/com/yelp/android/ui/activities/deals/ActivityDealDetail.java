@@ -1,24 +1,25 @@
 package com.yelp.android.ui.activities.deals;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Html;
+import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AbsListView.LayoutParams;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -33,42 +34,50 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.LocationService;
-import com.yelp.android.appdata.ao;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.bf;
-import com.yelp.android.appdata.webrequests.bg;
-import com.yelp.android.appdata.webrequests.bj;
-import com.yelp.android.appdata.webrequests.bk;
-import com.yelp.android.appdata.webrequests.j;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ax;
+import com.yelp.android.appdata.webrequests.ax.a;
+import com.yelp.android.appdata.webrequests.ba;
+import com.yelp.android.appdata.webrequests.bb;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
+import com.yelp.android.appdata.webrequests.k.b;
 import com.yelp.android.serializable.MapSpan;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpBusinessReview;
 import com.yelp.android.serializable.YelpDeal;
-import com.yelp.android.serializable.ej;
-import com.yelp.android.services.l;
-import com.yelp.android.ui.activities.reviewpage.ak;
+import com.yelp.android.serializable.YelpDeal.a;
+import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
+import com.yelp.android.ui.activities.reviewpage.ActivityReviewPager;
+import com.yelp.android.ui.activities.reviewpage.c;
 import com.yelp.android.ui.activities.support.YelpMapActivity;
 import com.yelp.android.ui.map.YelpMap;
-import com.yelp.android.ui.map.k;
+import com.yelp.android.ui.map.b;
+import com.yelp.android.ui.map.j;
 import com.yelp.android.ui.panels.PanelLoading;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter;
 import com.yelp.android.ui.panels.businesssearch.BusinessAdapter.DisplayFeature;
-import com.yelp.android.ui.util.au;
-import com.yelp.android.ui.util.cg;
+import com.yelp.android.ui.util.AnalyticsSpan;
+import com.yelp.android.ui.util.an;
+import com.yelp.android.ui.util.an.a;
+import com.yelp.android.ui.util.w;
 import com.yelp.android.ui.widgets.WebImageView;
+import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class ActivityDealDetail
   extends YelpMapActivity
-  implements RadioGroup.OnCheckedChangeListener, m<YelpDeal>
+  implements RadioGroup.OnCheckedChangeListener, ApiRequest.b<YelpDeal>
 {
   public static String a = "deal_id";
   private static String p = "deal";
@@ -83,21 +92,126 @@ public class ActivityDealDetail
   private YelpMap<YelpBusiness> D;
   private int E;
   private PanelLoading F;
-  private SparseArray<i> G;
-  cg b;
-  bk c;
-  bf d;
-  bj e;
+  private SparseArray<b> G;
+  an b;
+  bb c;
+  ax d;
+  ba e;
   BusinessAdapter<YelpBusiness> f;
-  ak g = new ak();
+  c g = new c();
   ListView h;
   FrameLayout i;
   ViewGroup j;
-  au<CharSequence> k = new c(this);
-  j<bg> l = new d(this);
-  j<List<YelpBusinessReview>> m = new e(this);
-  AdapterView.OnItemClickListener n = new f(this);
-  AdapterView.OnItemClickListener o = new g(this);
+  w<CharSequence> k = new w()
+  {
+    public void a(List<CharSequence> paramAnonymousList)
+    {
+      ArrayList localArrayList = new ArrayList(paramAnonymousList.size());
+      Iterator localIterator = paramAnonymousList.iterator();
+      if (localIterator.hasNext())
+      {
+        paramAnonymousList = new SpannableString((CharSequence)localIterator.next());
+        if (!Linkify.addLinks(paramAnonymousList, 15)) {
+          break label79;
+        }
+        paramAnonymousList = AnalyticsSpan.a(paramAnonymousList, EventIri.OpenUrl);
+      }
+      label79:
+      for (;;)
+      {
+        localArrayList.add(paramAnonymousList);
+        break;
+        super.a(localArrayList);
+        return;
+      }
+    }
+    
+    public View getView(int paramAnonymousInt, View paramAnonymousView, ViewGroup paramAnonymousViewGroup)
+    {
+      paramAnonymousViewGroup = paramAnonymousView;
+      if (paramAnonymousView == null) {
+        paramAnonymousViewGroup = LayoutInflater.from(ActivityDealDetail.this).inflate(2130903386, h, false);
+      }
+      paramAnonymousView = (CharSequence)getItem(paramAnonymousInt);
+      TextView localTextView = (TextView)paramAnonymousViewGroup.findViewById(2131689711);
+      localTextView.setMovementMethod(LinkMovementMethod.getInstance());
+      localTextView.setText(paramAnonymousView);
+      if (TextUtils.isEmpty(paramAnonymousView)) {}
+      for (paramAnonymousInt = 8;; paramAnonymousInt = 0)
+      {
+        paramAnonymousViewGroup.setVisibility(paramAnonymousInt);
+        return paramAnonymousViewGroup;
+      }
+    }
+  };
+  k.b<ax.a> l = new k.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, ax.a paramAnonymousa)
+    {
+      if ((ActivityDealDetail.a(ActivityDealDetail.this) != null) && (!paramAnonymousa.b().contains(ActivityDealDetail.a(ActivityDealDetail.this)))) {
+        paramAnonymousa.b().add(0, ActivityDealDetail.a(ActivityDealDetail.this));
+      }
+      ActivityDealDetail.a(ActivityDealDetail.this, paramAnonymousa.b());
+      ActivityDealDetail.a(ActivityDealDetail.this, paramAnonymousa.a());
+      ActivityDealDetail.e(ActivityDealDetail.this);
+    }
+    
+    public boolean a()
+    {
+      return true;
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      dget2131689825a = ErrorType.getTypeFromException(paramAnonymousYelpException).buildAdapter(ActivityDealDetail.this);
+      dget2131689825b = null;
+    }
+  };
+  k.b<List<YelpBusinessReview>> m = new k.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, List<YelpBusinessReview> paramAnonymousList)
+    {
+      ActivityDealDetail.b(ActivityDealDetail.this, new ArrayList(paramAnonymousList));
+      ActivityDealDetail.f(ActivityDealDetail.this);
+    }
+    
+    public boolean a()
+    {
+      return true;
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      dget2131689824a = ErrorType.getTypeFromException(paramAnonymousYelpException).buildAdapter(ActivityDealDetail.this);
+      dget2131689824b = null;
+    }
+  };
+  AdapterView.OnItemClickListener n = new AdapterView.OnItemClickListener()
+  {
+    public void onItemClick(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong)
+    {
+      paramAnonymousView = (YelpBusinessReview)paramAnonymousAdapterView.getItemAtPosition(paramAnonymousInt);
+      if (ActivityDealDetail.a(ActivityDealDetail.this) == null) {}
+      for (paramAnonymousAdapterView = null;; paramAnonymousAdapterView = ActivityDealDetail.a(ActivityDealDetail.this).aw())
+      {
+        paramAnonymousAdapterView = ActivityReviewPager.a(ActivityDealDetail.this, paramAnonymousView, ActivityDealDetail.b(ActivityDealDetail.this).u(), paramAnonymousView.Q(), paramAnonymousAdapterView);
+        startActivity(paramAnonymousAdapterView);
+        return;
+      }
+    }
+  };
+  AdapterView.OnItemClickListener o = new AdapterView.OnItemClickListener()
+  {
+    public void onItemClick(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong)
+    {
+      paramAnonymousAdapterView = (YelpBusiness)paramAnonymousAdapterView.getItemAtPosition(paramAnonymousInt);
+      if (paramAnonymousAdapterView != null)
+      {
+        paramAnonymousAdapterView = ActivityBusinessPage.b(ActivityDealDetail.this, paramAnonymousAdapterView.aD());
+        startActivity(paramAnonymousAdapterView);
+      }
+    }
+  };
   private RadioGroup v;
   private Button w;
   private List<YelpBusiness> x;
@@ -109,13 +223,6 @@ public class ActivityDealDetail
     paramContext = new Intent(paramContext, ActivityDealDetail.class);
     paramContext.putExtra(a, paramString);
     paramContext.putExtra("referring_business", paramYelpBusiness);
-    return paramContext;
-  }
-  
-  public static Intent a(Context paramContext, YelpDeal paramYelpDeal)
-  {
-    paramContext = new Intent(paramContext, ActivityDealDetail.class);
-    paramContext.putExtra(p, paramYelpDeal);
     return paramContext;
   }
   
@@ -152,14 +259,25 @@ public class ActivityDealDetail
   
   private void a(Intent paramIntent)
   {
+    Object localObject = paramIntent.getData();
+    if ((localObject != null) && (((Uri)localObject).getPath() != null) && (((Uri)localObject).getPath().startsWith("/deal/")) && (("yelp".equals(((Uri)localObject).getScheme())) || ("yelp5.3".equals(((Uri)localObject).getScheme()))))
+    {
+      AppData.b().k().a(new com.yelp.android.analytics.n((Uri)localObject));
+      localObject = ((Uri)localObject).getLastPathSegment();
+      if (!TextUtils.isEmpty((CharSequence)localObject))
+      {
+        paramIntent.putExtra(a, (String)localObject);
+        paramIntent.putExtra("referring_business", (YelpBusiness)null);
+      }
+    }
     C = ((MapSpan)paramIntent.getParcelableExtra(t));
     z = ((YelpDeal)paramIntent.getParcelableExtra(p));
     A = ((YelpBusiness)paramIntent.getParcelableExtra("referring_business"));
     if (z == null)
     {
-      if ((e != null) && (e.isFetching()))
+      if ((e != null) && (e.u()))
       {
-        e.setCallback(this);
+        e.a(this);
         return;
       }
       B = paramIntent.getStringExtra(a);
@@ -171,21 +289,21 @@ public class ActivityDealDetail
       finish();
       return;
     }
-    B = z.getId();
+    B = z.x();
     d();
   }
   
   private void a(String paramString)
   {
-    e = new bj(paramString, this);
+    e = new ba(paramString, this);
     enableLoading(e);
-    e.execute(new Void[0]);
+    e.f(new Void[0]);
   }
   
   private void j()
   {
-    c = new bk(z.getId(), 0, 0, m);
-    c.execute(new Void[0]);
+    c = new bb(z.x(), m);
+    c.f(new Void[0]);
   }
   
   private void k()
@@ -195,10 +313,10 @@ public class ActivityDealDetail
     {
       return;
       f.a(x);
-      G.get(2131493154)).b = D;
+      G.get(2131689825)).b = D;
       c();
-    } while (v.getCheckedRadioButtonId() != 2131493154);
-    a(2131493154);
+    } while (v.getCheckedRadioButtonId() != 2131689825);
+    a(2131689825);
   }
   
   private void l()
@@ -220,21 +338,21 @@ public class ActivityDealDetail
     disableLoading();
   }
   
-  public h b()
+  public a b()
   {
-    return (h)super.getLastCustomNonConfigurationInstance();
+    return (a)super.getLastCustomNonConfigurationInstance();
   }
   
   public void c()
   {
-    if (!p()) {}
+    if (!m()) {}
     do
     {
       return;
       if (!x.isEmpty())
       {
-        D.f();
-        D.a(x, new k(this, 0));
+        D.g();
+        D.a(x, new j(this, 0));
       }
     } while (C == null);
     D.setMapSpan(C);
@@ -242,51 +360,57 @@ public class ActivityDealDetail
   
   public void d()
   {
-    w.setOnClickListener(new a(this));
-    Object localObject1 = z.getDisplayPrices();
-    Object localObject2 = getString(2131165705, new Object[] { Integer.valueOf(d) });
-    ((WebImageView)findViewById(2131493144)).setImageUrl(z.getImageUrl());
-    ((TextView)findViewById(2131493146)).setText(a);
-    ((TextView)findViewById(2131493145)).setText(z.getDealTitleWithBizName(this));
-    Object localObject3 = (TextView)findViewById(2131493147).findViewById(2131493803);
+    w.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        startActivity(ChooseDealOption.a(ActivityDealDetail.this, ActivityDealDetail.a(ActivityDealDetail.this), ActivityDealDetail.b(ActivityDealDetail.this)));
+      }
+    });
+    Object localObject1 = z.i();
+    Object localObject2 = getString(2131165782, new Object[] { Integer.valueOf(d) });
+    ((WebImageView)findViewById(2131689816)).setImageUrl(z.v());
+    ((TextView)findViewById(2131689817)).setText(a);
+    ((TextView)findViewById(2131689711)).setText(z.a(this));
+    Object localObject3 = (TextView)findViewById(2131689818).findViewById(2131690634);
     ((TextView)localObject3).setText(b);
-    ((TextView)findViewById(2131493147).findViewById(2131493804)).setText(getString(2131166411));
+    ((TextView)findViewById(2131689818).findViewById(2131690635)).setText(getString(2131166436));
     ((TextView)localObject3).measure(0, 0);
     localObject3 = new RelativeLayout.LayoutParams(((TextView)localObject3).getMeasuredWidth() + u * 2, ((TextView)localObject3).getMeasuredHeight());
-    ((RelativeLayout.LayoutParams)localObject3).addRule(6, 2131493803);
+    ((RelativeLayout.LayoutParams)localObject3).addRule(6, 2131690634);
     ((RelativeLayout.LayoutParams)localObject3).addRule(14);
-    Drawable localDrawable = getResources().getDrawable(2130838472);
+    Drawable localDrawable = getResources().getDrawable(2130838859);
     ImageView localImageView = new ImageView(this);
     localImageView.setScaleType(ImageView.ScaleType.FIT_XY);
     localImageView.setLayoutParams((ViewGroup.LayoutParams)localObject3);
     localImageView.setImageDrawable(localDrawable);
-    ((RelativeLayout)findViewById(2131493147)).addView(localImageView);
-    ((TextView)findViewById(2131493148).findViewById(2131493803)).setText((CharSequence)localObject2);
-    ((TextView)findViewById(2131493148).findViewById(2131493804)).setText(getString(2131165704));
-    ((TextView)findViewById(2131493149).findViewById(2131493803)).setText(c);
-    ((TextView)findViewById(2131493149).findViewById(2131493804)).setText(getString(2131166499));
-    if (z.getOptionalCount() > -1)
+    ((RelativeLayout)findViewById(2131689818)).addView(localImageView);
+    ((TextView)findViewById(2131689819).findViewById(2131690634)).setText((CharSequence)localObject2);
+    ((TextView)findViewById(2131689819).findViewById(2131690635)).setText(getString(2131165781));
+    ((TextView)findViewById(2131689820).findViewById(2131690634)).setText(c);
+    ((TextView)findViewById(2131689820).findViewById(2131690635)).setText(getString(2131166495));
+    if (z.d() > -1)
     {
-      ((TextView)findViewById(2131493150).findViewById(2131493803)).setText(String.valueOf(z.getOptionalCount()));
-      ((TextView)findViewById(2131493150).findViewById(2131493804)).setText(z.getOptionalString());
-      localObject1 = z.getDescription();
+      ((TextView)findViewById(2131689821).findViewById(2131690634)).setText(String.valueOf(z.d()));
+      ((TextView)findViewById(2131689821).findViewById(2131690635)).setText(z.e());
+      localObject1 = z.z();
       k.a((List)localObject1);
       if (k.isEmpty()) {
         k.a(Collections.singletonList(""));
       }
-      G.get(2131493152)).a = k;
-      localObject1 = (LinearLayout)LayoutInflater.from(this).inflate(2130903371, h, false);
+      G.get(2131689823)).a = k;
+      localObject1 = (LinearLayout)LayoutInflater.from(this).inflate(2130903470, h, false);
       ((LinearLayout)localObject1).setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-      localObject2 = (TextView)((LinearLayout)localObject1).findViewById(2131493954);
-      ((TextView)localObject2).setText(Html.fromHtml(z.getTerms()));
+      localObject2 = (TextView)((LinearLayout)localObject1).findViewById(2131690796);
+      ((TextView)localObject2).setText(Html.fromHtml(z.t()));
       ((TextView)localObject2).setMovementMethod(LinkMovementMethod.getInstance());
-      G.get(2131493152)).b = ((View)localObject1);
+      G.get(2131689823)).b = ((View)localObject1);
       e();
       h();
-      findViewById(2131493140).setVisibility(0);
-      if (z.isStandingDeal())
+      findViewById(2131689812).setVisibility(0);
+      if (z.j())
       {
-        findViewById(2131493142).setVisibility(8);
+        findViewById(2131689814).setVisibility(8);
         localObject1 = new RelativeLayout.LayoutParams(-1, -2);
         w.setLayoutParams((ViewGroup.LayoutParams)localObject1);
       }
@@ -297,11 +421,11 @@ public class ActivityDealDetail
       }
     }
     label698:
-    for (int i1 = 2131493152;; i1 = getIntent().getExtras().getInt(s, 2131493152))
+    for (int i1 = 2131689823;; i1 = getIntent().getExtras().getInt(s, 2131689823))
     {
       ((RadioGroup)localObject1).check(i1);
       return;
-      findViewById(2131493150).setVisibility(8);
+      findViewById(2131689821).setVisibility(8);
       break;
     }
   }
@@ -312,8 +436,8 @@ public class ActivityDealDetail
     if (x == null)
     {
       x = Collections.emptyList();
-      if ((d != null) && (d.isFetching())) {
-        d.setCallback(l);
+      if ((d != null) && (d.u())) {
+        d.a(l);
       }
     }
     for (;;)
@@ -323,10 +447,10 @@ public class ActivityDealDetail
         break label132;
       }
       y = Collections.emptyList();
-      if ((c == null) || (!c.isFetching())) {
+      if ((c == null) || (!c.u())) {
         break;
       }
-      c.setCallback(m);
+      c.a(m);
       return;
       i();
       continue;
@@ -338,13 +462,13 @@ public class ActivityDealDetail
     l();
   }
   
-  public h f()
+  public a f()
   {
-    h localh = new h(null);
+    a locala = new a(null);
     b = d;
     a = c;
     c = e;
-    return localh;
+    return locala;
   }
   
   void g()
@@ -359,26 +483,32 @@ public class ActivityDealDetail
     return ViewIri.Deal;
   }
   
-  public Map<String, Object> getParametersForIri(com.yelp.android.analytics.iris.b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
     return Collections.singletonMap("id", B);
   }
   
   void h()
   {
-    if ((z != null) && (!z.isStandingDeal()))
+    if ((z != null) && (!z.j()))
     {
       g();
-      b = new cg(z.getSystemClockExpiration() - SystemClock.elapsedRealtime(), (TextView)findViewById(2131493142));
-      b.a(new b(this));
+      b = new an(z.f() - SystemClock.elapsedRealtime(), (TextView)findViewById(2131689814));
+      b.a(new an.a()
+      {
+        public void a()
+        {
+          ActivityDealDetail.c(ActivityDealDetail.this).setEnabled(false);
+        }
+      });
       b.start();
     }
   }
   
   public void i()
   {
-    d = new bf(z.getId(), 0, 3, l);
-    d.execute(new Void[0]);
+    d = new ax(z.x(), 0, 3, l);
+    d.f(new Void[0]);
   }
   
   public void onCheckedChanged(RadioGroup paramRadioGroup, int paramInt)
@@ -391,23 +521,23 @@ public class ActivityDealDetail
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903078);
-    setTitle(2131166895);
+    setContentView(2130903088);
+    setTitle(2131166847);
     E = 3;
     x = Collections.emptyList();
     y = Collections.emptyList();
-    j = ((ViewGroup)LayoutInflater.from(this).inflate(2130903079, h, false));
+    j = ((ViewGroup)LayoutInflater.from(this).inflate(2130903089, h, false));
     i = new FrameLayout(this);
     i.setLayoutParams(new AbsListView.LayoutParams(-1, -2));
-    D = new YelpMap(this, AppData.b().n().c());
-    D.setLayoutParams(new FrameLayout.LayoutParams(-1, ao.a(300)));
-    D.setPadding(0, ao.n, 0, 0);
-    D.setBackgroundResource(2131361873);
-    D.a(paramBundle, new com.yelp.android.ui.map.b(this));
+    D = new YelpMap(this, AppData.b().r().c());
+    D.setLayoutParams(new FrameLayout.LayoutParams(-1, com.yelp.android.appdata.n.a(300)));
+    D.setPadding(0, com.yelp.android.appdata.n.n, 0, 0);
+    D.setBackgroundResource(2131624075);
+    D.a(paramBundle, new b(this));
     F = new PanelLoading(this);
     F.a();
     F.setLayoutParams(new AbsListView.LayoutParams(F.getLayoutParams()));
-    h = ((ListView)findViewById(2131493143));
+    h = ((ListView)findViewById(2131689815));
     h.addHeaderView(j, null, false);
     h.addFooterView(i, null, false);
     h.setAdapter(k);
@@ -415,15 +545,15 @@ public class ActivityDealDetail
     h.setItemsCanFocus(true);
     f = new BusinessAdapter(this);
     f.a(new BusinessAdapter.DisplayFeature[] { BusinessAdapter.DisplayFeature.RATING, BusinessAdapter.DisplayFeature.ADDRESS });
-    v = ((RadioGroup)findViewById(2131493151));
+    v = ((RadioGroup)findViewById(2131689822));
     v.clearCheck();
     v.setEnabled(false);
     v.setOnCheckedChangeListener(this);
     G = new SparseArray();
-    G.put(2131493152, new i(this, k, null, null));
-    G.put(2131493153, new i(this, g, null, n));
-    G.put(2131493154, new i(this, f, null, o));
-    w = ((Button)findViewById(2131493141));
+    G.put(2131689823, new b(k, null, null));
+    G.put(2131689824, new b(g, null, n));
+    G.put(2131689825, new b(f, null, o));
+    w = ((Button)findViewById(2131689813));
     paramBundle = b();
     if (paramBundle != null)
     {
@@ -434,26 +564,9 @@ public class ActivityDealDetail
     a(getIntent());
   }
   
-  protected Dialog onCreateDialog(int paramInt)
-  {
-    switch (paramInt)
-    {
-    default: 
-      return super.onCreateDialog(paramInt);
-    }
-    return l.a(this, new com.yelp.android.services.c(z), 2131166563);
-  }
-  
-  public boolean onCreateOptionsMenu(Menu paramMenu)
-  {
-    super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755039, paramMenu);
-    return true;
-  }
-  
   public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
   {
-    if ((paramApiRequest instanceof bj))
+    if ((paramApiRequest instanceof ba))
     {
       E -= 1;
       if (E > 0) {
@@ -471,16 +584,6 @@ public class ActivityDealDetail
   public void onNewIntent(Intent paramIntent)
   {
     a(paramIntent);
-  }
-  
-  public boolean onOptionsItemSelected(MenuItem paramMenuItem)
-  {
-    if (paramMenuItem.getItemId() == 2131494128)
-    {
-      showDialog(100);
-      return true;
-    }
-    return super.onOptionsItemSelected(paramMenuItem);
   }
   
   protected void onPause()
@@ -502,6 +605,27 @@ public class ActivityDealDetail
     getIntent().putParcelableArrayListExtra(q, new ArrayList(x));
     getIntent().putExtra(s, v.getCheckedRadioButtonId());
     getIntent().putExtra(t, C);
+  }
+  
+  private static class a
+  {
+    bb a;
+    ax b;
+    ba c;
+  }
+  
+  private class b
+  {
+    BaseAdapter a;
+    View b;
+    AdapterView.OnItemClickListener c;
+    
+    public b(BaseAdapter paramBaseAdapter, View paramView, AdapterView.OnItemClickListener paramOnItemClickListener)
+    {
+      a = paramBaseAdapter;
+      b = paramView;
+      c = paramOnItemClickListener;
+    }
   }
 }
 

@@ -2,16 +2,22 @@ package android.support.v7.app;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
-import com.yelp.android.m.b;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewGroup.MarginLayoutParams;
+import com.yelp.android.j.a.k;
+import com.yelp.android.r.a;
+import com.yelp.android.r.a.a;
 
 public abstract class ActionBar
 {
   public abstract View a();
   
-  public com.yelp.android.m.a a(b paramb)
+  public a a(a.a parama)
   {
     return null;
   }
@@ -45,8 +51,6 @@ public abstract class ActionBar
   public abstract int b();
   
   public abstract void b(int paramInt);
-  
-  public void b(Drawable paramDrawable) {}
   
   public void b(CharSequence paramCharSequence) {}
   
@@ -90,6 +94,55 @@ public abstract class ActionBar
   public boolean h()
   {
     return false;
+  }
+  
+  public static class LayoutParams
+    extends ViewGroup.MarginLayoutParams
+  {
+    public int a = 0;
+    
+    public LayoutParams(int paramInt1, int paramInt2)
+    {
+      super(paramInt2);
+      a = 8388627;
+    }
+    
+    public LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
+    {
+      super(paramAttributeSet);
+      paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.k.ActionBarLayout);
+      a = paramContext.getInt(a.k.ActionBarLayout_android_layout_gravity, 0);
+      paramContext.recycle();
+    }
+    
+    public LayoutParams(LayoutParams paramLayoutParams)
+    {
+      super();
+      a = a;
+    }
+    
+    public LayoutParams(ViewGroup.LayoutParams paramLayoutParams)
+    {
+      super();
+    }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(boolean paramBoolean);
+  }
+  
+  public static abstract class b
+  {
+    public abstract Drawable a();
+    
+    public abstract CharSequence b();
+    
+    public abstract View c();
+    
+    public abstract void d();
+    
+    public abstract CharSequence e();
   }
 }
 

@@ -1,123 +1,70 @@
 package com.yelp.android.ui.util;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory.Options;
-import android.graphics.drawable.BitmapDrawable;
-import android.os.Handler;
-import android.widget.ImageView;
-import java.lang.ref.SoftReference;
+import android.text.format.DateFormat;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.yelp.android.analytics.g;
+import com.yelp.android.analytics.iris.EventIri;
+import com.yelp.android.appdata.AppData;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
+import java.util.Collections;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Locale;
+import java.util.Map;
 
-@SuppressLint({"NewApi"})
 public class as
 {
-  private int[] a;
-  private int b;
-  private boolean c;
-  private boolean d;
-  private SoftReference<ImageView> e;
-  private Handler f;
-  private int g;
-  private Bitmap h = null;
-  private BitmapFactory.Options i;
-  private Context j;
-  
-  public as(Context paramContext, ImageView paramImageView, int[] paramArrayOfInt, int paramInt)
+  public static int a(List<? extends com.yelp.android.serializable.b> paramList, com.yelp.android.serializable.b paramb)
   {
-    j = paramContext;
-    f = new Handler();
-    a = paramArrayOfInt;
-    b = -1;
-    e = new SoftReference(paramImageView);
-    c = false;
-    d = false;
-    g = (1000 / paramInt);
-    paramImageView.setImageResource(a[0]);
-    paramContext = ((BitmapDrawable)paramImageView.getDrawable()).getBitmap();
-    h = Bitmap.createBitmap(paramContext.getWidth(), paramContext.getHeight(), paramContext.getConfig());
-    i = new BitmapFactory.Options();
-    i.inBitmap = h;
-    i.inMutable = true;
-    i.inSampleSize = 1;
-  }
-  
-  private int c()
-  {
-    b += 1;
-    if (b >= a.length) {
-      b = 0;
-    }
-    return a[b];
-  }
-  
-  /* Error */
-  public void a()
-  {
-    // Byte code:
-    //   0: aload_0
-    //   1: monitorenter
-    //   2: aload_0
-    //   3: iconst_1
-    //   4: putfield 53	com/yelp/android/ui/util/as:c	Z
-    //   7: aload_0
-    //   8: getfield 55	com/yelp/android/ui/util/as:d	Z
-    //   11: istore_1
-    //   12: iload_1
-    //   13: ifeq +6 -> 19
-    //   16: aload_0
-    //   17: monitorexit
-    //   18: return
-    //   19: new 118	com/yelp/android/ui/util/at
-    //   22: dup
-    //   23: aload_0
-    //   24: invokespecial 121	com/yelp/android/ui/util/at:<init>	(Lcom/yelp/android/ui/util/as;)V
-    //   27: astore_2
-    //   28: aload_0
-    //   29: iconst_1
-    //   30: putfield 55	com/yelp/android/ui/util/as:d	Z
-    //   33: aload_0
-    //   34: getfield 40	com/yelp/android/ui/util/as:f	Landroid/os/Handler;
-    //   37: aload_2
-    //   38: invokevirtual 125	android/os/Handler:post	(Ljava/lang/Runnable;)Z
-    //   41: pop
-    //   42: goto -26 -> 16
-    //   45: astore_2
-    //   46: aload_0
-    //   47: monitorexit
-    //   48: aload_2
-    //   49: athrow
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	50	0	this	as
-    //   11	2	1	bool	boolean
-    //   27	11	2	localat	at
-    //   45	4	2	localObject	Object
-    // Exception table:
-    //   from	to	target	type
-    //   2	12	45	finally
-    //   19	42	45	finally
-  }
-  
-  public void a(int paramInt)
-  {
-    if ((c) && (!d) && (paramInt == 0)) {
-      a();
-    }
-  }
-  
-  public void b()
-  {
-    try
+    paramList = paramList.listIterator();
+    while (paramList.hasNext())
     {
-      c = false;
-      return;
+      int i = paramList.nextIndex();
+      if (((com.yelp.android.serializable.b)paramList.next()).a(paramb)) {
+        return i;
+      }
     }
-    finally
-    {
-      localObject = finally;
-      throw ((Throwable)localObject);
-    }
+    return -1;
+  }
+  
+  public static Dialog a(Activity paramActivity, int paramInt)
+  {
+    Object localObject = Collections.singletonMap("reason_code", String.valueOf(paramInt));
+    localObject = new g(EventIri.GooglePlayServicesUnavailable, null, (Map)localObject);
+    AppData.b().k().a((com.yelp.android.analytics.b)localObject);
+    return GooglePlayServicesUtil.getErrorDialog(paramInt, paramActivity, 1026);
+  }
+  
+  public static String a(String paramString, Locale paramLocale)
+  {
+    return DateFormat.getBestDateTimePattern(paramLocale, paramString);
+  }
+  
+  public static void a(int paramInt1, int paramInt2)
+  {
+    AppData.b().A().a(paramInt1, paramInt2);
+  }
+  
+  public static void a(View paramView)
+  {
+    InputMethodManager localInputMethodManager = (InputMethodManager)paramView.getContext().getSystemService("input_method");
+    paramView.requestFocus();
+    localInputMethodManager.showSoftInput(paramView, 2);
+  }
+  
+  public static void a(CharSequence paramCharSequence, int paramInt)
+  {
+    AppData.b().A().a(paramCharSequence, paramInt);
+  }
+  
+  public static void b(View paramView)
+  {
+    ((InputMethodManager)paramView.getContext().getSystemService("input_method")).hideSoftInputFromWindow(paramView.getWindowToken(), 0);
   }
 }
 

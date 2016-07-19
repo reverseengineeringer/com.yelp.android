@@ -1,18 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.text.TextUtils;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.serializable.PaymentMethod;
 
-public final class bc
-  extends az
+public class bc
+  extends c
 {
-  public bc(m<bb> paramm, String paramString, int paramInt1, int paramInt2)
+  public bc(PaymentMethod paramPaymentMethod)
   {
-    super(paramm, "user/compliments", true);
-    super.addUrlParam("offset", paramInt1);
-    super.addUrlParam("limit", paramInt2);
-    if (!TextUtils.isEmpty(paramString)) {
-      super.addUrlParam("user_id", paramString);
-    }
+    super("account/payment_method/remove", null);
+    b("payment_method_id", paramPaymentMethod.d());
   }
 }
 

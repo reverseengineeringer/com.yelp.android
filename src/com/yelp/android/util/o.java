@@ -1,52 +1,50 @@
 package com.yelp.android.util;
 
-import android.location.Location;
+import java.lang.ref.Reference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.SoftReference;
+import java.util.HashSet;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class o
+public class o<T>
 {
-  public static double a(double paramDouble)
+  private final ReferenceQueue<? super T> a = new ReferenceQueue();
+  private HashSet<Reference<T>> b = new HashSet();
+  private final int c;
+  private final AtomicInteger d;
+  
+  public o()
   {
-    return 1000.0D * paramDouble / 0.62137119224D;
+    this(20);
   }
   
-  public static double a(double paramDouble1, double paramDouble2, double paramDouble3, double paramDouble4)
+  public o(int paramInt)
   {
-    if ((Double.isNaN(paramDouble1)) || (Double.isNaN(paramDouble2)) || (Double.isNaN(paramDouble3)) || (Double.isNaN(paramDouble4))) {
-      return NaN.0D;
+    c = paramInt;
+    d = new AtomicInteger();
+  }
+  
+  private final void a()
+  {
+    for (;;)
+    {
+      Object localObject = a.poll();
+      if (localObject == null) {
+        break;
+      }
+      localObject = ((Reference)localObject).get();
+      if (localObject != null) {
+        b.remove(localObject);
+      }
     }
-    float[] arrayOfFloat = new float[1];
-    Location.distanceBetween(paramDouble1, paramDouble2, paramDouble3, paramDouble4, arrayOfFloat);
-    return arrayOfFloat[0] / 1000.0F;
   }
   
-  public static final boolean a(Location paramLocation)
+  public void a(T paramT)
   {
-    return (paramLocation != null) && (paramLocation.hasAccuracy()) && (paramLocation.getAccuracy() < 241.0F);
-  }
-  
-  public static double b(double paramDouble)
-  {
-    return paramDouble / 0.62137119224D;
-  }
-  
-  public static double c(double paramDouble)
-  {
-    return paramDouble / 1000.0D;
-  }
-  
-  public static double d(double paramDouble)
-  {
-    return 0.62137119224D * paramDouble / 1000.0D;
-  }
-  
-  public static double e(double paramDouble)
-  {
-    return 0.62137119224D * paramDouble;
-  }
-  
-  public static double f(double paramDouble)
-  {
-    return paramDouble / 1000.0D;
+    b.add(new SoftReference(paramT, a));
+    if (d.incrementAndGet() >= c) {
+      a();
+    }
   }
 }
 

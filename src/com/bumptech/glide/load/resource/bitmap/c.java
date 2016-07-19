@@ -1,34 +1,33 @@
 package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
-import com.bumptech.glide.load.engine.bitmap_recycle.e;
-import com.bumptech.glide.load.engine.t;
-import com.yelp.android.ai.f;
+import com.bumptech.glide.load.engine.i;
+import com.yelp.android.ao.h;
 
 public class c
-  implements t<Bitmap>
+  implements i<Bitmap>
 {
   private final Bitmap a;
-  private final e b;
+  private final com.yelp.android.x.c b;
   
-  public c(Bitmap paramBitmap, e parame)
+  public c(Bitmap paramBitmap, com.yelp.android.x.c paramc)
   {
     if (paramBitmap == null) {
       throw new NullPointerException("Bitmap must not be null");
     }
-    if (parame == null) {
+    if (paramc == null) {
       throw new NullPointerException("BitmapPool must not be null");
     }
     a = paramBitmap;
-    b = parame;
+    b = paramc;
   }
   
-  public static c a(Bitmap paramBitmap, e parame)
+  public static c a(Bitmap paramBitmap, com.yelp.android.x.c paramc)
   {
     if (paramBitmap == null) {
       return null;
     }
-    return new c(paramBitmap, parame);
+    return new c(paramBitmap, paramc);
   }
   
   public Bitmap a()
@@ -38,7 +37,7 @@ public class c
   
   public int c()
   {
-    return f.a(a);
+    return h.a(a);
   }
   
   public void d()

@@ -57,7 +57,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/yelp/common/base/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v2}, Lcom/yelp/common/base/e;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/yelp/common/base/h;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v1, v2}, Lcom/yelp/common/base/e;->a(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 

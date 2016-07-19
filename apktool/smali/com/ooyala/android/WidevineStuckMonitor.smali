@@ -6,6 +6,15 @@
 .implements Ljava/util/Observer;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/WidevineStuckMonitor$VideoAtWallMsec;,
+        Lcom/ooyala/android/WidevineStuckMonitor$Listener;
+    }
+.end annotation
+
+
 # static fields
 .field private static final END_TIME_WINDOW_MILLISECONDS:I = 0x3a98
 

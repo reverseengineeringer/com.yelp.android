@@ -1,20 +1,10 @@
 package com.yelp.android.ui.util;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-
-final class ao
-  implements Parcelable.Creator<ImageInputHelper.SourceIriPair>
+public abstract interface ao
 {
-  public ImageInputHelper.SourceIriPair a(Parcel paramParcel)
-  {
-    return new ImageInputHelper.SourceIriPair(paramParcel, null);
-  }
+  public abstract void a(int paramInt1, int paramInt2);
   
-  public ImageInputHelper.SourceIriPair[] a(int paramInt)
-  {
-    return new ImageInputHelper.SourceIriPair[paramInt];
-  }
+  public abstract void a(CharSequence paramCharSequence, int paramInt);
 }
 
 /* Location:

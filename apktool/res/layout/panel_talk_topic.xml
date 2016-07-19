@@ -4,13 +4,13 @@
     <com.yelp.android.ui.widgets.WebImageView android:id="@id/user_photo" android:layout_width="@dimen/checkin_thumbsize" android:layout_height="@dimen/checkin_thumbsize" android:layout_marginRight="@dimen/base_container_margin" />
     <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
         <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
-            <TextView android:textAppearance="@style/LargeDarkText" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:includeFontPadding="false" android:layout_weight="1.0" />
-            <TextView android:textAppearance="@style/StandardLightText" android:ellipsize="none" android:gravity="right" android:id="@id/last_modified" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:maxLines="1" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="0.0" />
+            <TextView android:textAppearance="@style/DeprecatedLargeDarkText" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:includeFontPadding="false" android:layout_weight="1.0" />
+            <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:ellipsize="none" android:gravity="right" android:id="@id/last_modified" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:maxLines="1" android:singleLine="true" android:includeFontPadding="false" android:layout_weight="0.0" />
         </LinearLayout>
-        <TextView android:textAppearance="@style/StandardText" android:ellipsize="end" android:id="@id/topic_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" />
+        <TextView android:textAppearance="@style/DeprecatedStandardText" android:ellipsize="end" android:id="@id/topic_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="2" />
         <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
-            <TextView android:textAppearance="@style/StandardDarkText" android:ellipsize="end" android:id="@id/reply_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_weight="1.0" />
-            <TextView android:textAppearance="@style/StandardLightText" android:ellipsize="none" android:gravity="right" android:id="@id/category" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:layout_weight="0.0" />
+            <TextView android:textAppearance="@style/DeprecatedStandardDarkText" android:ellipsize="end" android:id="@id/reply_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:layout_weight="1.0" />
+            <TextView android:textAppearance="@style/DeprecatedStandardLightText" android:ellipsize="none" android:gravity="right" android:id="@id/category" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" android:layout_weight="0.0" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

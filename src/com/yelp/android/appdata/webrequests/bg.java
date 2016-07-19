@@ -1,30 +1,16 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.MapSpan;
-import com.yelp.android.serializable.YelpBusiness;
-import java.util.ArrayList;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class bg
+  extends c
 {
-  final int a;
-  final MapSpan b;
-  final ArrayList<YelpBusiness> c;
-  
-  public bg(int paramInt, MapSpan paramMapSpan, ArrayList<YelpBusiness> paramArrayList)
+  public bg(String paramString1, String paramString2, c.a parama)
   {
-    a = paramInt;
-    b = paramMapSpan;
-    c = paramArrayList;
-  }
-  
-  public MapSpan a()
-  {
-    return b;
-  }
-  
-  public ArrayList<YelpBusiness> b()
-  {
-    return c;
+    super(ApiRequest.RequestType.POST, "/business/photo/caption/edit", parama);
+    b("photo_id", paramString1);
+    b("caption", paramString2);
   }
 }
 

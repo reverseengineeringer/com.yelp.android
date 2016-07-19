@@ -13,10 +13,9 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.ActivityRecognition;
-import com.google.android.gms.location.ActivityRecognitionApi;
+import com.google.android.gms.location.a;
 import com.kahuna.sdk.KahunaCoreReceiver;
-import com.kahuna.sdk.h;
+import com.kahuna.sdk.l;
 
 public class b
   implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, ResultCallback<Status>
@@ -39,7 +38,7 @@ public class b
   
   private void c()
   {
-    ActivityRecognition.ActivityRecognitionApi.requestActivityUpdates(c, c.b(), g()).setResultCallback(this);
+    a.b.a(c, c.b(), g()).setResultCallback(this);
   }
   
   private void d()
@@ -50,7 +49,7 @@ public class b
   private GoogleApiClient e()
   {
     if (c == null) {
-      c = new GoogleApiClient.Builder(a).addApi(ActivityRecognition.API).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
+      c = new GoogleApiClient.Builder(a).addApi(a.a).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
     }
     return c;
   }
@@ -81,16 +80,16 @@ public class b
   {
     try
     {
-      if ((!paramStatus.isSuccess()) && (h.p())) {
-        Log.d("KahunaEngine", "Failed to request Activity Recognition Updates: " + paramStatus.getStatusMessage());
+      if ((!paramStatus.isSuccess()) && (l.u())) {
+        Log.d("Kahuna", "Failed to request Activity Recognition Updates: " + paramStatus.getStatusMessage());
       }
       f();
       return;
     }
     catch (Exception paramStatus)
     {
-      while (!h.p()) {}
-      Log.w("KahunaEngine", "caught exception processing request activity result: ");
+      while (!l.u()) {}
+      Log.w("Kahuna", "caught exception processing request activity result: ");
       paramStatus.printStackTrace();
     }
   }
@@ -102,8 +101,8 @@ public class b
   
   public void onConnected(Bundle paramBundle)
   {
-    if (h.p()) {
-      Log.d("KahunaEngine", "Activity Recognition Requester Play Services Connected");
+    if (l.u()) {
+      Log.d("Kahuna", "Activity Recognition Requester Play Services Connected");
     }
     try
     {
@@ -112,16 +111,16 @@ public class b
     }
     catch (Exception paramBundle)
     {
-      while (!h.p()) {}
-      Log.w("KahunaEngine", "caught exception attempting to request for activity updates: ");
+      while (!l.u()) {}
+      Log.w("Kahuna", "caught exception attempting to request for activity updates: ");
       paramBundle.printStackTrace();
     }
   }
   
   public void onConnectionFailed(ConnectionResult paramConnectionResult)
   {
-    if (h.p()) {
-      Log.d("KahunaEngine", "Activity Recognition Requester Play Services connection failed: " + paramConnectionResult.toString());
+    if (l.u()) {
+      Log.d("Kahuna", "Activity Recognition Requester Play Services connection failed: " + paramConnectionResult.toString());
     }
   }
   

@@ -1,85 +1,95 @@
 package com.google.android.gms.internal;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.os.Handler;
+import android.os.RemoteException;
+import com.google.ads.AdRequest.ErrorCode;
+import com.google.ads.mediation.MediationServerParameters;
+import com.google.ads.mediation.d;
+import com.google.ads.mediation.e;
+import com.google.ads.mediation.f;
+import com.google.ads.mediation.g;
+import com.google.ads.mediation.h;
+import com.google.android.gms.ads.internal.client.v;
+import com.google.android.gms.ads.internal.util.client.a;
+import com.google.android.gms.ads.internal.util.client.b;
 
-@ey
-public final class eg
-  extends eq.a
-  implements ServiceConnection
+@fv
+public final class eg<NETWORK_EXTRAS extends h, SERVER_PARAMETERS extends MediationServerParameters>
+  implements e, g
 {
-  private Context mContext;
-  private eb sF;
-  private String sM;
-  private ef sQ;
-  private boolean sW = false;
-  private int sX;
-  private Intent sY;
+  private final du a;
   
-  public eg(Context paramContext, String paramString, boolean paramBoolean, int paramInt, Intent paramIntent, ef paramef)
+  public eg(du paramdu)
   {
-    sM = paramString;
-    sX = paramInt;
-    sY = paramIntent;
-    sW = paramBoolean;
-    mContext = paramContext;
-    sQ = paramef;
+    a = paramdu;
   }
   
-  public void finishPurchase()
+  public void a(d<?, ?> paramd, final AdRequest.ErrorCode paramErrorCode)
   {
-    int i = ei.d(sY);
-    if ((sX != -1) || (i != 0)) {
+    b.a("Adapter called onFailedToReceiveAd with error. " + paramErrorCode);
+    if (!v.a().b())
+    {
+      b.d("onFailedToReceiveAd must be called on the main UI thread.");
+      a.a.post(new Runnable()
+      {
+        public void run()
+        {
+          try
+          {
+            eg.a(eg.this).a(eh.a(paramErrorCode));
+            return;
+          }
+          catch (RemoteException localRemoteException)
+          {
+            b.d("Could not call onAdFailedToLoad.", localRemoteException);
+          }
+        }
+      });
       return;
     }
-    sF = new eb(mContext);
-    Intent localIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
-    localIntent.setPackage("com.android.vending");
-    mContext.bindService(localIntent, this, 1);
-  }
-  
-  public String getProductId()
-  {
-    return sM;
-  }
-  
-  public Intent getPurchaseData()
-  {
-    return sY;
-  }
-  
-  public int getResultCode()
-  {
-    return sX;
-  }
-  
-  public boolean isVerified()
-  {
-    return sW;
-  }
-  
-  public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
-  {
-    gr.U("In-app billing service connected.");
-    sF.t(paramIBinder);
-    paramComponentName = ei.E(ei.e(sY));
-    if (paramComponentName == null) {
+    try
+    {
+      a.a(eh.a(paramErrorCode));
       return;
     }
-    if (sF.c(mContext.getPackageName(), paramComponentName) == 0) {
-      eh.j(mContext).a(sQ);
+    catch (RemoteException paramd)
+    {
+      b.d("Could not call onAdFailedToLoad.", paramd);
     }
-    mContext.unbindService(this);
-    sF.destroy();
   }
   
-  public void onServiceDisconnected(ComponentName paramComponentName)
+  public void a(f<?, ?> paramf, final AdRequest.ErrorCode paramErrorCode)
   {
-    gr.U("In-app billing service disconnected.");
-    sF.destroy();
+    b.a("Adapter called onFailedToReceiveAd with error " + paramErrorCode + ".");
+    if (!v.a().b())
+    {
+      b.d("onFailedToReceiveAd must be called on the main UI thread.");
+      a.a.post(new Runnable()
+      {
+        public void run()
+        {
+          try
+          {
+            eg.a(eg.this).a(eh.a(paramErrorCode));
+            return;
+          }
+          catch (RemoteException localRemoteException)
+          {
+            b.d("Could not call onAdFailedToLoad.", localRemoteException);
+          }
+        }
+      });
+      return;
+    }
+    try
+    {
+      a.a(eh.a(paramErrorCode));
+      return;
+    }
+    catch (RemoteException paramf)
+    {
+      b.d("Could not call onAdFailedToLoad.", paramf);
+    }
   }
 }
 

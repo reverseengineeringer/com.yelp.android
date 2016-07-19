@@ -25,9 +25,9 @@
 
     .prologue
     .line 22
-    new-instance v0, Lcom/yelp/android/serializable/y;
+    new-instance v0, Lcom/yelp/android/serializable/CheckInFeedback$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/y;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/CheckInFeedback$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/CheckInFeedback;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -56,7 +56,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpCheckIn;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpCheckIn;->d()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v4
 
@@ -74,6 +74,59 @@
 
 
 # virtual methods
+.method public a()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 47
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->a()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 12
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_CheckInFeedback;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 12
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_CheckInFeedback;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 52
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -86,210 +139,126 @@
     return v0
 .end method
 
-.method public bridge synthetic getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_CheckInFeedback;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getCheckIn()Lcom/yelp/android/serializable/YelpCheckIn;
-    .locals 1
-
-    .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_CheckInFeedback;->getCheckIn()Lcom/yelp/android/serializable/YelpCheckIn;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getFriendCount()I
-    .locals 1
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getFriendCount()I
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_CheckInFeedback;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic getId()Ljava/lang/String;
+.method public h()Z
     .locals 1
 
     .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_CheckInFeedback;->getId()Ljava/lang/String;
+    .line 82
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
 
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getMediaCount()I
-    .locals 1
-
-    .prologue
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getMediaCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->h()Z
 
     move-result v0
 
     return v0
 .end method
 
-.method public getPhotoCount()I
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getLocalPhotoCount()I
+    .line 12
+    invoke-super {p0}, Lcom/yelp/android/serializable/_CheckInFeedback;->hashCode()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public getReviewCount()I
+.method public i()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 56
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
+    .line 87
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getReviewCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public j_()I
+    .locals 1
+
+    .prologue
+    .line 57
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->j_()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic getTimeUpdated()Ljava/util/Date;
+.method public k_()I
     .locals 1
 
     .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_CheckInFeedback;->getTimeUpdated()Ljava/util/Date;
+    .line 62
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
 
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic getUser()Lcom/yelp/android/serializable/User;
-    .locals 1
-
-    .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_CheckInFeedback;->getUser()Lcom/yelp/android/serializable/User;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 86
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserName()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getUserName()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getUserPhotoUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getUserPhotoUrl()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public getVideoCount()I
-    .locals 1
-
-    .prologue
-    .line 71
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getVideoCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->k_()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public isEliteUser()Z
+.method public l_()I
     .locals 1
 
     .prologue
-    .line 81
-    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->mUser:Lcom/yelp/android/serializable/User;
+    .line 67
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->isEliteUser()Z
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->M()I
 
     move-result v0
 
     return v0
 .end method
 
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
+.method public m_()I
+    .locals 1
 
     .prologue
-    .line 12
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_CheckInFeedback;->readFromJson(Lorg/json/JSONObject;)V
+    .line 72
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
 
-    return-void
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->m_()I
+
+    move-result v0
+
+    return v0
 .end method
 
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
+.method public n_()I
+    .locals 1
 
     .prologue
-    .line 12
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_CheckInFeedback;->readFromParcel(Landroid/os/Parcel;)V
+    .line 77
+    iget-object v0, p0, Lcom/yelp/android/serializable/CheckInFeedback;->c:Lcom/yelp/android/serializable/User;
 
-    return-void
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->n_()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

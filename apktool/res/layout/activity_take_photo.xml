@@ -2,14 +2,14 @@
 <merge android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <SurfaceView android:id="@id/camera_canvas" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <com.yelp.android.ui.activities.camera.YelpSurfaceView android:layout_gravity="center|top" android:id="@id/camera_canvas" android:layout_width="fill_parent" android:layout_height="fill_parent" />
         <com.yelp.android.ui.activities.camera.ViewTakePhotoOverlay android:id="@id/camera_overlay" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-        <RelativeLayout android:layout_gravity="bottom" android:id="@id/control_panel" android:padding="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="?largeGapSize" android:minHeight="50.0dip">
-            <ImageView android:id="@id/video_toggle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?baseGapSize" android:src="@drawable/video_toggle" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@string/video_toggle" />
+        <RelativeLayout android:layout_gravity="bottom" android:id="@id/control_panel" android:padding="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/default_large_gap_size" android:minHeight="50.0dip">
+            <ImageView android:id="@id/video_toggle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:src="@drawable/video_toggle" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@string/video_toggle" />
             <ImageView android:id="@id/take_photo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/selector_take_photo" android:minWidth="100.0dip" android:layout_centerInParent="true" android:contentDescription="@string/take_photo" />
-            <ImageView android:id="@id/gallery" android:layout_marginRight="?baseGapSize" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/dlg_add_photo_from_gallery" style="@style/GalleryButton" />
+            <ImageView android:id="@id/gallery" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/dlg_add_photo_from_gallery" style="@style/GalleryButton" />
         </RelativeLayout>
     </FrameLayout>
-    <ImageView android:layout_gravity="right" android:id="@id/toggle_camera_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="?largeGapSize" android:src="@drawable/camera_flip" android:contentDescription="@string/switch_cameras" />
-    <ImageView android:layout_gravity="left" android:id="@id/flash_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="?largeGapSize" android:src="@drawable/camera_flash_icon" android:contentDescription="@string/flash_settings" />
+    <ImageView android:layout_gravity="right" android:id="@id/toggle_camera_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/default_large_gap_size" android:src="@drawable/camera_flip" android:contentDescription="@string/switch_cameras" />
+    <ImageView android:layout_gravity="left" android:id="@id/flash_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="@dimen/default_large_gap_size" android:src="@drawable/camera_flash_icon" android:contentDescription="@string/flash_settings" />
 </merge>

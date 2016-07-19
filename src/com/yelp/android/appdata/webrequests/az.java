@@ -1,29 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.Compliment;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.List;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
-public abstract class az
-  extends g<Void, Void, bb>
+public class az
+  extends c
 {
-  private final boolean a;
-  
-  protected az(m<bb> paramm, String paramString, boolean paramBoolean)
+  public az(String paramString, c.a parama)
   {
-    super(ApiRequest.RequestType.GET, paramString, paramm);
-    a = paramBoolean;
-  }
-  
-  public bb a(JSONObject paramJSONObject)
-  {
-    paramJSONObject = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("compliments"), Compliment.CREATOR);
-    if ((!paramJSONObject.isEmpty()) && (a)) {}
-    for (boolean bool = true;; bool = false) {
-      return new bb(paramJSONObject, bool, null);
-    }
+    super("deal/redeem", parama);
+    b("deal_purchase_id", paramString);
   }
 }
 

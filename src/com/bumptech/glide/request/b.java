@@ -2,11 +2,21 @@ package com.bumptech.glide.request;
 
 public abstract interface b
 {
-  public abstract boolean a(a parama);
+  public abstract void a();
   
-  public abstract boolean b(a parama);
+  public abstract void b();
   
-  public abstract boolean c();
+  public abstract void d();
+  
+  public abstract void e();
+  
+  public abstract boolean f();
+  
+  public abstract boolean g();
+  
+  public abstract boolean h();
+  
+  public abstract boolean i();
 }
 
 /* Location:

@@ -2,42 +2,93 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _ExternalCheckIn
   implements Parcelable
 {
-  protected String mAppCheckInId;
-  protected String mAppId;
-  protected String mAppName;
-  protected String mAppUserId;
-  protected String mAppUserImageUrl;
-  protected String mAppUserName;
-  protected YelpBusiness mBusiness;
-  protected String mBusinessId;
-  protected Date mDateCreated;
-  protected String mLocation;
-  protected String mUserId;
+  protected Date a;
+  protected String b;
+  protected String c;
+  protected String d;
+  protected String e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected String i;
+  protected String j;
+  protected YelpBusiness k;
   
-  protected _ExternalCheckIn() {}
-  
-  protected _ExternalCheckIn(Date paramDate, String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, String paramString6, String paramString7, String paramString8, String paramString9, YelpBusiness paramYelpBusiness)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mDateCreated = paramDate;
-    mUserId = paramString1;
-    mAppId = paramString2;
-    mAppCheckInId = paramString3;
-    mAppName = paramString4;
-    mAppUserId = paramString5;
-    mAppUserName = paramString6;
-    mAppUserImageUrl = paramString7;
-    mBusinessId = paramString8;
-    mLocation = paramString9;
-    mBusiness = paramYelpBusiness;
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      a = new Date(l);
+    }
+    b = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    c = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    d = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    e = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    j = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    k = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_created")) {
+      a = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
+    }
+    if (!paramJSONObject.isNull("user_id")) {
+      b = paramJSONObject.optString("user_id");
+    }
+    if (!paramJSONObject.isNull("app_id")) {
+      c = paramJSONObject.optString("app_id");
+    }
+    if (!paramJSONObject.isNull("app_check_in_id")) {
+      d = paramJSONObject.optString("app_check_in_id");
+    }
+    if (!paramJSONObject.isNull("app_name")) {
+      e = paramJSONObject.optString("app_name");
+    }
+    if (!paramJSONObject.isNull("app_user_id")) {
+      f = paramJSONObject.optString("app_user_id");
+    }
+    if (!paramJSONObject.isNull("app_user_name")) {
+      g = paramJSONObject.optString("app_user_name");
+    }
+    if (!paramJSONObject.isNull("app_user_image_url")) {
+      h = paramJSONObject.optString("app_user_image_url");
+    }
+    if (!paramJSONObject.isNull("business_id")) {
+      i = paramJSONObject.optString("business_id");
+    }
+    if (!paramJSONObject.isNull("location")) {
+      j = paramJSONObject.optString("location");
+    }
+    if (!paramJSONObject.isNull("business")) {
+      k = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
+    }
+  }
+  
+  public String b()
+  {
+    return i;
+  }
+  
+  public YelpBusiness d()
+  {
+    return k;
   }
   
   public int describeContents()
@@ -45,132 +96,66 @@ abstract class _ExternalCheckIn
     return 0;
   }
   
-  public String getAppCheckInId()
+  public Date e()
   {
-    return mAppCheckInId;
+    return a;
   }
   
-  public String getAppId()
+  public boolean equals(Object paramObject)
   {
-    return mAppId;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_ExternalCheckIn)paramObject;
+    return new b().a(a, a).a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a(k, k).a();
   }
   
-  public String getAppName()
+  public String f()
   {
-    return mAppName;
+    return e;
   }
   
-  public String getAppUserId()
+  public String g()
   {
-    return mAppUserId;
+    return j;
   }
   
-  public String getAppUserImageUrl()
+  public String h()
   {
-    return mAppUserImageUrl;
+    return h;
   }
   
-  public String getAppUserName()
+  public int hashCode()
   {
-    return mAppUserName;
+    return new c().a(a).a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a(k).a();
   }
   
-  public YelpBusiness getBusiness()
+  public String i()
   {
-    return mBusiness;
-  }
-  
-  public String getBusinessId()
-  {
-    return mBusinessId;
-  }
-  
-  public Date getDateCreated()
-  {
-    return mDateCreated;
-  }
-  
-  public String getLocation()
-  {
-    return mLocation;
-  }
-  
-  public String getUserId()
-  {
-    return mUserId;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_created")) {
-      mDateCreated = JsonUtil.parseTimestamp(paramJSONObject, "time_created");
-    }
-    if (!paramJSONObject.isNull("user_id")) {
-      mUserId = paramJSONObject.optString("user_id");
-    }
-    if (!paramJSONObject.isNull("app_id")) {
-      mAppId = paramJSONObject.optString("app_id");
-    }
-    if (!paramJSONObject.isNull("app_check_in_id")) {
-      mAppCheckInId = paramJSONObject.optString("app_check_in_id");
-    }
-    if (!paramJSONObject.isNull("app_name")) {
-      mAppName = paramJSONObject.optString("app_name");
-    }
-    if (!paramJSONObject.isNull("app_user_id")) {
-      mAppUserId = paramJSONObject.optString("app_user_id");
-    }
-    if (!paramJSONObject.isNull("app_user_name")) {
-      mAppUserName = paramJSONObject.optString("app_user_name");
-    }
-    if (!paramJSONObject.isNull("app_user_image_url")) {
-      mAppUserImageUrl = paramJSONObject.optString("app_user_image_url");
-    }
-    if (!paramJSONObject.isNull("business_id")) {
-      mBusinessId = paramJSONObject.optString("business_id");
-    }
-    if (!paramJSONObject.isNull("location")) {
-      mLocation = paramJSONObject.optString("location");
-    }
-    if (!paramJSONObject.isNull("business")) {
-      mBusiness = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
-    }
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateCreated = new Date(l);
-    }
-    mUserId = paramParcel.readString();
-    mAppId = paramParcel.readString();
-    mAppCheckInId = paramParcel.readString();
-    mAppName = paramParcel.readString();
-    mAppUserId = paramParcel.readString();
-    mAppUserName = paramParcel.readString();
-    mAppUserImageUrl = paramParcel.readString();
-    mBusinessId = paramParcel.readString();
-    mLocation = paramParcel.readString();
-    mBusiness = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+    return g;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    if (mDateCreated == null) {}
-    for (long l = -2147483648L;; l = mDateCreated.getTime())
+    if (a == null) {}
+    for (long l = -2147483648L;; l = a.getTime())
     {
       paramParcel.writeLong(l);
-      paramParcel.writeString(mUserId);
-      paramParcel.writeString(mAppId);
-      paramParcel.writeString(mAppCheckInId);
-      paramParcel.writeString(mAppName);
-      paramParcel.writeString(mAppUserId);
-      paramParcel.writeString(mAppUserName);
-      paramParcel.writeString(mAppUserImageUrl);
-      paramParcel.writeString(mBusinessId);
-      paramParcel.writeString(mLocation);
-      paramParcel.writeParcelable(mBusiness, 0);
+      paramParcel.writeValue(b);
+      paramParcel.writeValue(c);
+      paramParcel.writeValue(d);
+      paramParcel.writeValue(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeValue(i);
+      paramParcel.writeValue(j);
+      paramParcel.writeParcelable(k, 0);
       return;
     }
   }

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:id="@id/nav_logged_out" android:padding="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <Button android:textAppearance="@style/SubtitleLightText" android:textColor="@color/gray_yoni_light_text" android:id="@id/nav_logged_out_button" android:paddingTop="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/signup_or_login" />
-</LinearLayout>

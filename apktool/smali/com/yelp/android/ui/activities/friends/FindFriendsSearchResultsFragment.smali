@@ -4,18 +4,18 @@
 
 
 # instance fields
-.field private a:Lcom/yelp/android/ui/util/cj;
+.field private a:Lcom/yelp/android/ui/util/ap;
 
 .field private b:Landroid/widget/TextView;
 
-.field private c:Lcom/yelp/android/appdata/webrequests/dn;
+.field private c:Lcom/yelp/android/appdata/webrequests/cs;
 
 .field private d:Z
 
-.field private final e:Lcom/yelp/android/appdata/webrequests/m;
+.field private final e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Ljava/util/List",
             "<",
@@ -34,22 +34,22 @@
     .line 28
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;-><init>()V
 
-    .line 142
-    new-instance v0, Lcom/yelp/android/ui/activities/friends/n;
+    .line 143
+    new-instance v0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/friends/n;-><init>(Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment$1;-><init>(Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/m;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;)Lcom/yelp/android/ui/util/cj;
+.method static synthetic a(Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;)Lcom/yelp/android/ui/util/ap;
     .locals 1
 
     .prologue
     .line 28
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/cj;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/ap;
 
     return-object v0
 .end method
@@ -84,12 +84,12 @@
     return-object v0
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;)Lcom/yelp/android/appdata/webrequests/dn;
+.method static synthetic c(Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;)Lcom/yelp/android/appdata/webrequests/cs;
     .locals 1
 
     .prologue
     .line 28
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
     return-object v0
 .end method
@@ -106,29 +106,29 @@
     return-object v0
 .end method
 
-.method private e()V
+.method private f()V
     .locals 1
 
     .prologue
-    .line 136
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 137
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 137
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/cj;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/cj;->clear()V
-
     .line 138
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/ap;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a(Z)V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/ap;->clear()V
 
     .line 139
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->b()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->b(Z)V
 
     .line 140
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->b()V
+
+    .line 141
     return-void
 .end method
 
@@ -138,13 +138,13 @@
     .locals 2
 
     .prologue
-    .line 97
+    .line 98
     invoke-super/range {p0 .. p5}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->a(Landroid/widget/ListView;Landroid/view/View;IJ)V
 
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 99
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dn;->a()Ljava/util/ArrayList;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cs;->b()Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -154,12 +154,12 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    .line 99
+    .line 100
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/User;->ae()Ljava/lang/String;
 
     move-result-object v0
 
@@ -167,10 +167,10 @@
 
     move-result-object v0
 
-    .line 100
+    .line 101
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 101
+    .line 102
     return-void
 .end method
 
@@ -180,22 +180,22 @@
     .prologue
     const/16 v1, 0x8
 
-    .line 105
+    .line 106
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->a(Lcom/yelp/android/util/ErrorType;)V
 
-    .line 106
+    .line 107
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setVisibility(I)V
 
-    .line 107
+    .line 108
     iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->b:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 108
+    .line 109
     return-void
 .end method
 
@@ -205,23 +205,23 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 119
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 120
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
     if-nez v0, :cond_1
 
-    .line 120
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/dn;
+    .line 121
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/cs;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, p1, v2}, Lcom/yelp/android/appdata/webrequests/dn;-><init>(Lcom/yelp/android/appdata/webrequests/m;Ljava/lang/String;I)V
+    invoke-direct {v0, v1, p1, v2}, Lcom/yelp/android/appdata/webrequests/cs;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Ljava/lang/String;I)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    .line 128
+    .line 129
     :cond_0
     :goto_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->getView()Landroid/view/View;
@@ -230,36 +230,36 @@
 
     if-eqz v0, :cond_2
 
-    .line 129
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e()V
+    .line 130
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->f()V
 
-    .line 133
+    .line 134
     :goto_1
     return-void
 
-    .line 122
-    :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/dn;->a(Ljava/lang/String;)V
-
     .line 123
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dn;->isFetching()Z
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/cs;->a(Ljava/lang/String;)V
+
+    .line 124
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cs;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 124
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 125
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    invoke-virtual {v0, v3}, Lcom/yelp/android/appdata/webrequests/dn;->cancel(Z)V
+    invoke-virtual {v0, v3}, Lcom/yelp/android/appdata/webrequests/cs;->a(Z)V
 
     goto :goto_0
 
-    .line 131
+    .line 132
     :cond_2
     iput-boolean v3, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->d:Z
 
@@ -270,28 +270,28 @@
     .locals 1
 
     .prologue
-    .line 112
+    .line 113
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->b()V
 
-    .line 113
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 114
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dn;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cs;->u()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 114
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 115
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dn;->b()V
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cs;->d()V
 
-    .line 116
+    .line 117
     :cond_0
     return-void
 .end method
@@ -307,37 +307,37 @@
     if-eqz p1, :cond_0
 
     .line 54
-    invoke-static {p1}, Lcom/yelp/android/ui/util/cj;->a(Landroid/os/Bundle;)Lcom/yelp/android/ui/util/cj;
+    invoke-static {p1}, Lcom/yelp/android/ui/util/ap;->a(Landroid/os/Bundle;)Lcom/yelp/android/ui/util/ap;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/cj;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/ap;
 
     .line 55
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-static {p1, v0}, Lcom/yelp/android/appdata/webrequests/dn;->a(Landroid/os/Bundle;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/dn;
+    invoke-static {p1, v0}, Lcom/yelp/android/appdata/webrequests/cs;->a(Landroid/os/Bundle;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/cs;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    .line 60
+    .line 61
     :goto_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/cj;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/ap;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a(Landroid/widget/ListAdapter;)V
 
-    .line 61
+    .line 62
     return-void
 
-    .line 58
+    .line 59
     :cond_0
-    new-instance v0, Lcom/yelp/android/ui/util/cj;
+    new-instance v0, Lcom/yelp/android/ui/util/ap;
 
-    invoke-direct {v0}, Lcom/yelp/android/ui/util/cj;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/ui/util/ap;-><init>()V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/cj;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/ap;
 
     goto :goto_0
 .end method
@@ -347,7 +347,7 @@
 
     .prologue
     .line 44
-    const v0, 0x7f0300b1
+    const v0, 0x7f0300cb
 
     const/4 v1, 0x0
 
@@ -356,7 +356,7 @@
     move-result-object v1
 
     .line 46
-    const v0, 0x7f0c02ba
+    const v0, 0x7f0f031a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -374,20 +374,20 @@
     .locals 2
 
     .prologue
-    .line 83
+    .line 84
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onPause()V
 
-    .line 84
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->j()V
-
     .line 85
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->l()V
+
+    .line 86
     const-string/jumbo v0, "member_search"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 86
+    .line 87
     return-void
 .end method
 
@@ -395,58 +395,58 @@
     .locals 3
 
     .prologue
-    .line 65
+    .line 66
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onResume()V
 
-    .line 66
+    .line 67
     const-string/jumbo v0, "member_search"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/m;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/dn;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/cs;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 70
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
     if-eqz v0, :cond_0
 
-    .line 71
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 72
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dn;->isFetching()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/cs;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    .line 73
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 79
+    .line 80
     :cond_0
     :goto_0
     return-void
 
-    .line 73
+    .line 74
     :cond_1
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->d:Z
 
     if-eqz v0, :cond_0
 
-    .line 75
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->e()V
-
     .line 76
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->f()V
+
+    .line 77
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->d:Z
@@ -458,19 +458,19 @@
     .locals 1
 
     .prologue
-    .line 90
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/cj;
-
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/cj;->b(Landroid/os/Bundle;)V
-
     .line 91
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/dn;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->a:Lcom/yelp/android/ui/util/ap;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/dn;->a(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/util/ap;->b(Landroid/os/Bundle;)V
 
     .line 92
-    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/friends/FindFriendsSearchResultsFragment;->c:Lcom/yelp/android/appdata/webrequests/cs;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/cs;->a(Landroid/os/Bundle;)V
 
     .line 93
+    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    .line 94
     return-void
 .end method

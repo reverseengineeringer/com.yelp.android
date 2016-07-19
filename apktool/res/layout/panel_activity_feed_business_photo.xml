@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@drawable/selector_white_rect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0.0dip"
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="0.0dip"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <View android:background="@drawable/dark_divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
-    <include layout="@layout/panel_activity_feed_user_profile_segment" />
-    <include layout="@layout/panel_activity_feed_business_segment" />
-    <include layout="@layout/panel_activity_feed_business_photo_segment" />
-    <View android:background="@drawable/dark_divider_line" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" />
+    <include layout="@layout/panel_activity_feed_user_profile_header" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/feed_description" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <RelativeLayout android:id="@id/business_layout" android:background="@drawable/selector_rounded_cell" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size">
+        <include layout="@layout/panel_activity_feed_business_segment" />
+    </RelativeLayout>
+    <com.yelp.android.ui.widgets.HotNewBusinessAwardBanner android:id="@id/hot_new_business_banner" android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/AwardBannerHotNewBusiness" />
+    <include layout="@layout/panel_activity_feed_photo_segment" />
+    <View android:background="@color/gray_stroke" android:layout_width="fill_parent" android:layout_height="@dimen/separator_line_width" android:layout_marginTop="@dimen/default_base_gap_size" />
 </LinearLayout>

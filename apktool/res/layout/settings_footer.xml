@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="?largeGapSize"
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/default_large_gap_size"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_horizontal" android:id="@id/tos_phrase" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_horizontal" android:id="@id/copyright" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize" />
-    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_horizontal" android:id="@id/trademark" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize" />
-    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_horizontal" android:id="@id/this_software_uses_ffmpeg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize" android:text="@string/this_software_uses_ffmpeg" />
-    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_horizontal" android:id="@id/version" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="?baseGapSize" />
+    <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:gravity="center_horizontal" android:id="@id/tos_phrase" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:gravity="center_horizontal" android:id="@id/copyright" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" />
+    <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:gravity="center_horizontal" android:id="@id/trademark" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" />
+    <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:gravity="center_horizontal" android:id="@id/this_software_uses_ffmpeg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:text="@string/this_software_uses_ffmpeg" />
+    <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:gravity="center_horizontal" android:id="@id/version" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" />
 </LinearLayout>

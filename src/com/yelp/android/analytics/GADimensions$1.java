@@ -1,7 +1,7 @@
 package com.yelp.android.analytics;
 
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
 
  enum GADimensions$1
 {
@@ -12,10 +12,10 @@ import com.yelp.android.appdata.webrequests.dc;
   
   public String getValue()
   {
-    dc localdc = AppData.b().m();
-    if (localdc.c())
+    co localco = AppData.b().q();
+    if (localco.b())
     {
-      if (localdc.e()) {
+      if (localco.d()) {
         return "confirmed";
       }
       return "unconfirmed";

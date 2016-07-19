@@ -1,33 +1,54 @@
 package com.yelp.android.ui.activities.profile;
 
-import com.yelp.android.appdata.webrequests.ApiRequest;
-import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.serializable.BusinessInfoProviderFeedEntry;
-import com.yelp.android.serializable.User;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.brightcove.player.util.StringUtil;
+import com.yelp.android.serializable.ReviewDraft;
+import com.yelp.android.ui.util.t;
+import com.yelp.android.ui.util.w;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-class c
-  implements m<List<BusinessInfoProviderFeedEntry>>
+public class c
+  extends w<ReviewDraft>
 {
-  c(ActivityFirstAwards paramActivityFirstAwards) {}
+  private t a;
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, List<BusinessInfoProviderFeedEntry> paramList)
+  public c(t paramt)
   {
-    if ((paramList == null) || (paramList.isEmpty())) {
-      ActivityFirstAwards.c(a, ActivityFirstAwards.a(a).getFirstToReviewCount());
-    }
-    for (;;)
-    {
-      ActivityFirstAwards.a(a, paramList);
-      return;
-      ActivityFirstAwards.d(a, paramList.size());
-    }
+    a = paramt;
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public ReviewDraft a(String paramString)
   {
-    a.populateError(paramYelpException);
+    Iterator localIterator = a().iterator();
+    while (localIterator.hasNext())
+    {
+      ReviewDraft localReviewDraft = (ReviewDraft)localIterator.next();
+      if ((!StringUtil.isEmpty(paramString)) && (paramString.equals(localReviewDraft.c()))) {
+        return localReviewDraft;
+      }
+    }
+    return null;
+  }
+  
+  public ArrayList<ReviewDraft> b()
+  {
+    return new ArrayList(a());
+  }
+  
+  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  {
+    View localView = paramView;
+    if (paramView == null)
+    {
+      localView = LayoutInflater.from(paramViewGroup.getContext()).inflate(2130903389, paramViewGroup, false);
+      localView.setTag(new c.a(localView, null));
+    }
+    c.a.a((c.a)localView.getTag(), (ReviewDraft)getItem(paramInt), paramViewGroup.getContext(), a);
+    return localView;
   }
 }
 

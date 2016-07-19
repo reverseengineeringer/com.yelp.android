@@ -1,12 +1,18 @@
 .class public Lcom/yelp/android/ui/activities/search/a;
-.super Lcom/yelp/android/ui/util/au;
+.super Lcom/yelp/android/ui/util/w;
 .source "RichSearchSuggestAdapter.java"
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/search/a$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/ui/util/au",
+        "Lcom/yelp/android/ui/util/w",
         "<",
         "Lcom/yelp/android/serializable/RichSearchSuggestion;",
         ">;"
@@ -42,7 +48,7 @@
 
     .prologue
     .line 24
-    invoke-direct {p0}, Lcom/yelp/android/ui/util/au;-><init>()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/util/w;-><init>()V
 
     .line 26
     new-instance v0, Ljava/util/HashSet;
@@ -60,44 +66,44 @@
     return-void
 .end method
 
-.method private a(Landroid/view/View;Lcom/yelp/android/ui/activities/search/b;Lcom/yelp/android/serializable/RichSearchSuggestion;)V
+.method private a(Landroid/view/View;Lcom/yelp/android/ui/activities/search/a$a;Lcom/yelp/android/serializable/RichSearchSuggestion;)V
     .locals 2
 
     .prologue
-    .line 101
+    .line 105
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-virtual {p3}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getImagePath()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/yelp/android/serializable/RichSearchSuggestion;->k()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/widgets/WebImageView;->getResourceForName(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/ar;->a(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
-    .line 103
+    .line 108
     if-eqz v0, :cond_0
 
-    .line 104
-    invoke-static {p2}, Lcom/yelp/android/ui/activities/search/b;->b(Lcom/yelp/android/ui/activities/search/b;)Lcom/yelp/android/ui/widgets/WebImageView;
+    .line 109
+    invoke-static {p2}, Lcom/yelp/android/ui/activities/search/a$a;->b(Lcom/yelp/android/ui/activities/search/a$a;)Lcom/yelp/android/ui/widgets/WebImageView;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageResource(I)V
 
-    .line 108
+    .line 113
     :goto_0
     return-void
 
-    .line 106
+    .line 111
     :cond_0
-    invoke-static {p2}, Lcom/yelp/android/ui/activities/search/b;->b(Lcom/yelp/android/ui/activities/search/b;)Lcom/yelp/android/ui/widgets/WebImageView;
+    invoke-static {p2}, Lcom/yelp/android/ui/activities/search/a$a;->b(Lcom/yelp/android/ui/activities/search/a$a;)Lcom/yelp/android/ui/widgets/WebImageView;
 
     move-result-object v0
 
-    invoke-virtual {p3}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getImageUrl()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/yelp/android/serializable/RichSearchSuggestion;->j()Ljava/lang/String;
 
     move-result-object v1
 
@@ -119,7 +125,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/RichSearchSuggestion;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getRichSearchSuggestionType()Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->a()Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;
 
     move-result-object v0
 
@@ -136,7 +142,7 @@
     .prologue
     const/4 v4, 0x0
 
-    const v9, 0x7f020090
+    const v9, 0x7f0200bb
 
     const/16 v8, 0x8
 
@@ -150,7 +156,7 @@
     check-cast v0, Lcom/yelp/android/serializable/RichSearchSuggestion;
 
     .line 44
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getRichSearchSuggestionType()Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->a()Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;
 
     move-result-object v5
 
@@ -185,7 +191,7 @@
     :cond_0
     const/4 v1, 0x1
 
-    .line 49
+    .line 51
     :goto_0
     invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
@@ -197,100 +203,100 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f030146
+    const v1, 0x7f0301a9
 
     :goto_1
     invoke-virtual {v3, v1, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p2
 
-    .line 52
-    new-instance v1, Lcom/yelp/android/ui/activities/search/b;
-
-    invoke-direct {v1, p2}, Lcom/yelp/android/ui/activities/search/b;-><init>(Landroid/view/View;)V
-
-    .line 53
-    invoke-virtual {p2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
-
     .line 59
-    :goto_2
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    new-instance v1, Lcom/yelp/android/ui/activities/search/a$a;
 
-    move-result-object v3
-
-    if-eqz v3, :cond_8
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getPrimaryPhoto()Lcom/yelp/android/serializable/Photo;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_8
+    invoke-direct {v1, p2}, Lcom/yelp/android/ui/activities/search/a$a;-><init>(Landroid/view/View;)V
 
     .line 60
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {p2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    .line 66
+    :goto_2
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->g()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->getPrimaryPhoto()Lcom/yelp/android/serializable/Photo;
+    if-eqz v3, :cond_8
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->g()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/serializable/Photo;->getThumbnailUrl()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->aI()Lcom/yelp/android/serializable/Photo;
 
     move-result-object v3
 
-    .line 63
+    if-eqz v3, :cond_8
+
+    .line 68
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->g()Lcom/yelp/android/serializable/YelpBusiness;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->aI()Lcom/yelp/android/serializable/Photo;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/Photo;->f()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 71
     :goto_3
     sget-object v6, Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;->BUSINESS:Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;
 
     if-ne v5, v6, :cond_4
 
-    .line 64
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->a(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    .line 72
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->a(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v6
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->g()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Lcom/yelp/android/serializable/YelpBusiness;->getAddressForBusinessSearchResult()Ljava/lang/String;
+    invoke-virtual {v7}, Lcom/yelp/android/serializable/YelpBusiness;->h()Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 66
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->b(Lcom/yelp/android/ui/activities/search/b;)Lcom/yelp/android/ui/widgets/WebImageView;
+    .line 74
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->b(Lcom/yelp/android/ui/activities/search/a$a;)Lcom/yelp/android/ui/widgets/WebImageView;
 
     move-result-object v6
 
     invoke-virtual {v6, v3, v9}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;I)V
 
-    .line 69
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->c(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    .line 75
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->c(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v3
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->g()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Lcom/yelp/android/serializable/YelpBusiness;->getName()Ljava/lang/String;
+    invoke-virtual {v6}, Lcom/yelp/android/serializable/YelpBusiness;->aq()Ljava/lang/String;
 
     move-result-object v6
 
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 88
+    .line 92
     :goto_4
     iget-object v3, p0, Lcom/yelp/android/ui/activities/search/a;->a:Ljava/util/HashSet;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getTerm()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->m()Ljava/lang/String;
 
     move-result-object v0
 
@@ -304,15 +310,15 @@
 
     if-eq v5, v0, :cond_7
 
-    .line 90
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->d(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    .line 94
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->d(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 91
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->d(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    .line 95
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->d(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v0
 
@@ -320,7 +326,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0704bb
+    const v2, 0x7f0704d6
 
     invoke-virtual {v1, v2}, Lcom/yelp/android/appdata/AppData;->getString(I)Ljava/lang/String;
 
@@ -328,7 +334,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 96
+    .line 100
     :goto_5
     return-object p2
 
@@ -338,52 +344,52 @@
     .line 47
     goto/16 :goto_0
 
-    .line 49
+    .line 51
     :cond_2
-    const v1, 0x7f030147
+    const v1, 0x7f0301aa
 
     goto/16 :goto_1
 
-    .line 55
+    .line 62
     :cond_3
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/yelp/android/ui/activities/search/b;
+    check-cast v1, Lcom/yelp/android/ui/activities/search/a$a;
 
     goto :goto_2
 
-    .line 70
+    .line 76
     :cond_4
     sget-object v6, Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;->CHAIN:Lcom/yelp/android/serializable/RichSearchSuggestion$RichSearchSuggestionType;
 
     if-ne v5, v6, :cond_5
 
-    .line 71
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->a(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    .line 77
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->a(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v6
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getDescription()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->l()Ljava/lang/String;
 
     move-result-object v7
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 72
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->b(Lcom/yelp/android/ui/activities/search/b;)Lcom/yelp/android/ui/widgets/WebImageView;
+    .line 78
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->b(Lcom/yelp/android/ui/activities/search/a$a;)Lcom/yelp/android/ui/widgets/WebImageView;
 
     move-result-object v6
 
     invoke-virtual {v6, v3, v9}, Lcom/yelp/android/ui/widgets/WebImageView;->setImageUrl(Ljava/lang/String;I)V
 
-    .line 75
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->c(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    .line 79
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->c(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v3
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getTerm()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->m()Ljava/lang/String;
 
     move-result-object v6
 
@@ -391,9 +397,9 @@
 
     goto :goto_4
 
-    .line 77
+    .line 81
     :cond_5
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getImagePath()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->k()Ljava/lang/String;
 
     move-result-object v3
 
@@ -403,23 +409,23 @@
 
     if-nez v3, :cond_6
 
-    .line 78
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->b(Lcom/yelp/android/ui/activities/search/b;)Lcom/yelp/android/ui/widgets/WebImageView;
+    .line 82
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->b(Lcom/yelp/android/ui/activities/search/a$a;)Lcom/yelp/android/ui/widgets/WebImageView;
 
     move-result-object v3
 
     invoke-virtual {v3, v2}, Lcom/yelp/android/ui/widgets/WebImageView;->setVisibility(I)V
 
-    .line 79
-    invoke-direct {p0, p2, v1, v0}, Lcom/yelp/android/ui/activities/search/a;->a(Landroid/view/View;Lcom/yelp/android/ui/activities/search/b;Lcom/yelp/android/serializable/RichSearchSuggestion;)V
-
     .line 83
+    invoke-direct {p0, p2, v1, v0}, Lcom/yelp/android/ui/activities/search/a;->a(Landroid/view/View;Lcom/yelp/android/ui/activities/search/a$a;Lcom/yelp/android/serializable/RichSearchSuggestion;)V
+
+    .line 87
     :goto_6
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->c(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->c(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v3
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->getStyledTerm()Landroid/text/SpannableString;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RichSearchSuggestion;->d()Landroid/text/SpannableString;
 
     move-result-object v6
 
@@ -427,9 +433,9 @@
 
     goto :goto_4
 
-    .line 81
+    .line 85
     :cond_6
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->b(Lcom/yelp/android/ui/activities/search/b;)Lcom/yelp/android/ui/widgets/WebImageView;
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->b(Lcom/yelp/android/ui/activities/search/a$a;)Lcom/yelp/android/ui/widgets/WebImageView;
 
     move-result-object v3
 
@@ -437,16 +443,16 @@
 
     goto :goto_6
 
-    .line 93
+    .line 97
     :cond_7
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->d(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->d(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, v8}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 94
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/b;->d(Lcom/yelp/android/ui/activities/search/b;)Landroid/widget/TextView;
+    .line 98
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/a$a;->d(Lcom/yelp/android/ui/activities/search/a$a;)Landroid/widget/TextView;
 
     move-result-object v0
 

@@ -1,17 +1,15 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Event;
-import java.util.List;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class bz
+  extends c
 {
-  public final List<Event> a;
-  public final int b;
-  
-  public bz(List<Event> paramList, int paramInt)
+  public bz(String paramString, c.a parama)
   {
-    a = paramList;
-    b = paramInt;
+    super("client/force_dirty_session", parama);
+    b("context", paramString);
   }
 }
 

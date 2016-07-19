@@ -3,7 +3,20 @@
 .source "WebViewActivity.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/support/WebViewActivity$ForceDirtySessionCallback;,
+        Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;,
+        Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;,
+        Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+    }
+.end annotation
+
+
 # static fields
+.field public static final EXTRA_BUSINESS_NAME:Ljava/lang/String; = "extra.business_name"
+
 .field public static final EXTRA_WEBVIEW_DONE:Ljava/lang/String; = "com.yelp.android.webview_done"
 
 .field public static final EXTRA_WEBVIEW_HAS_DETAILS:Ljava/lang/String; = "com.yelp.android.webview_has_details"
@@ -16,31 +29,23 @@
 
 .field private static final KEY_ADD_WEBVIEW_ID:Ljava/lang/String; = "key.add_webview_id"
 
-.field private static final KEY_BIZ_DIMENSION:Ljava/lang/String; = "key.biz_dimension"
+.field private static final KEY_BACK_BEHAVIOR:Ljava/lang/String; = "key.back_behavior"
 
 .field private static final KEY_CONFIRM:Ljava/lang/String; = "key.confirm"
 
 .field private static final KEY_FEATURES:Ljava/lang/String; = "key.features"
 
-.field private static final KEY_IRI:Ljava/lang/String; = "key.iri"
-
-.field private static final KEY_IS_PLATFORM_FLOW:Ljava/lang/String; = "key.is_platform_flow"
-
-.field private static final KEY_SOURCE:Ljava/lang/String; = "key.source"
+.field public static final KEY_IRI:Ljava/lang/String; = "iri"
 
 .field private static final KEY_TITLE:Ljava/lang/String; = "key.title"
 
-.field private static final KEY_URI:Ljava/lang/String; = "key.uri"
+.field public static final KEY_URI:Ljava/lang/String; = "key.uri"
 
 .field private static final LEAST_SIG_BITS:Ljava/lang/String; = "least"
 
 .field private static final MOST_SIG_BITS:Ljava/lang/String; = "most"
 
 .field private static final REDIRECT_URL:Ljava/lang/String; = "redirect_url"
-
-.field public static final SOURCE_BUSINESS_PAGE:Ljava/lang/String; = "source_business_page"
-
-.field public static final SOURCE_SEARCH_PAGE:Ljava/lang/String; = "source_search_page"
 
 .field private static final WEBVIEW_ID:Ljava/lang/String; = "webview_id"
 
@@ -59,7 +64,7 @@
 
 
 # instance fields
-.field private lock:Ljava/lang/Object;
+.field private mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
 
 .field private mFeatures:Ljava/util/Collection;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,15 +77,9 @@
     .end annotation
 .end field
 
-.field private mHaveSentPlatformTiming:Z
+.field private final mJavascriptEventCallback:Lcom/yelp/android/ui/activities/support/JavaScriptEventInterface$b;
 
-.field private final mJavascriptEventCallback:Lcom/yelp/android/ui/activities/support/b;
-
-.field private mLoadingScreenShowing:Z
-
-.field private mStartTimeMilliseconds:J
-
-.field private mTimesLoadingScreenShown:I
+.field private mOriginalUrl:Ljava/lang/String;
 
 .field private mWebView:Landroid/webkit/WebView;
 
@@ -92,29 +91,17 @@
     .locals 1
 
     .prologue
-    .line 74
+    .line 61
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 131
-    const/4 v0, 0x1
+    .line 692
+    new-instance v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$3;
 
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mLoadingScreenShowing:Z
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$3;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
 
-    .line 134
-    new-instance v0, Ljava/lang/Object;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mJavascriptEventCallback:Lcom/yelp/android/ui/activities/support/JavaScriptEventInterface$b;
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->lock:Ljava/lang/Object;
-
-    .line 654
-    new-instance v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$4;
-
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$4;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mJavascriptEventCallback:Lcom/yelp/android/ui/activities/support/b;
-
-    .line 795
+    .line 869
     return-void
 .end method
 
@@ -122,67 +109,80 @@
     .locals 0
 
     .prologue
-    .line 74
+    .line 61
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->toastIfDebug(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/yelp/android/ui/activities/support/WebViewActivity;)Z
-    .locals 1
-
-    .prologue
-    .line 74
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mHaveSentPlatformTiming:Z
-
-    return v0
-.end method
-
-.method static synthetic access$102(Lcom/yelp/android/ui/activities/support/WebViewActivity;Z)Z
-    .locals 0
-
-    .prologue
-    .line 74
-    iput-boolean p1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mHaveSentPlatformTiming:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/yelp/android/ui/activities/support/WebViewActivity;)J
+.method private clearWebViewCookies()V
     .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     .prologue
-    .line 74
-    iget-wide v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mStartTimeMilliseconds:J
+    .line 535
+    invoke-static {}, Landroid/webkit/CookieManager;->getInstance()Landroid/webkit/CookieManager;
 
-    return-wide v0
-.end method
+    move-result-object v0
 
-.method static synthetic access$300(Lcom/yelp/android/ui/activities/support/WebViewActivity;Z)V
-    .locals 0
+    .line 536
+    const/16 v1, 0x15
 
-    .prologue
-    .line 74
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendPlatformCancelIrisIfNeeded(Z)V
+    invoke-static {v1}, Lcom/yelp/android/appdata/f;->a(I)Z
 
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 537
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/webkit/CookieManager;->removeAllCookies(Landroid/webkit/ValueCallback;)V
+
+    .line 538
+    invoke-virtual {v0}, Landroid/webkit/CookieManager;->flush()V
+
+    .line 548
+    :goto_0
     return-void
-.end method
 
-.method static synthetic access$400(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
-    .locals 0
+    .line 540
+    :cond_0
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    .prologue
-    .line 74
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendPlatformConfirmedIrisIfNeeded()V
+    move-result-object v1
 
-    return-void
+    invoke-static {v1}, Landroid/webkit/CookieSyncManager;->createInstance(Landroid/content/Context;)Landroid/webkit/CookieSyncManager;
+
+    move-result-object v1
+
+    .line 542
+    invoke-virtual {v1}, Landroid/webkit/CookieSyncManager;->startSync()V
+
+    .line 543
+    invoke-virtual {v0}, Landroid/webkit/CookieManager;->removeAllCookie()V
+
+    .line 544
+    invoke-virtual {v0}, Landroid/webkit/CookieManager;->removeSessionCookie()V
+
+    .line 545
+    invoke-virtual {v1}, Landroid/webkit/CookieSyncManager;->stopSync()V
+
+    .line 546
+    invoke-virtual {v1}, Landroid/webkit/CookieSyncManager;->sync()V
+
+    goto :goto_0
 .end method
 
 .method private closeWebSession()V
     .locals 3
 
     .prologue
-    .line 394
+    .line 381
     new-instance v0, Landroid/net/Uri$Builder;
 
     invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
@@ -193,7 +193,7 @@
 
     move-result-object v0
 
-    invoke-static {p0}, Lcom/yelp/android/services/x;->a(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/yelp/android/services/i;->a(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -205,12 +205,12 @@
 
     move-result-object v0
 
-    .line 399
+    .line 387
     invoke-static {}, Landroid/webkit/CookieManager;->getInstance()Landroid/webkit/CookieManager;
 
     move-result-object v1
 
-    .line 400
+    .line 388
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -219,41 +219,41 @@
 
     move-result-object v0
 
-    .line 402
+    .line 390
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    .line 406
-    invoke-static {v0}, Lcom/yelp/android/util/m;->a(Ljava/lang/String;)Ljava/util/List;
+    .line 394
+    invoke-static {v0}, Lcom/yelp/android/util/g;->a(Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
-    .line 407
+    .line 395
     const-string/jumbo v1, "ss"
 
-    invoke-static {v1}, Lcom/yelp/android/services/x;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/yelp/android/services/i;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/yelp/android/util/m;->a(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/yelp/android/util/g;->a(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 408
+    .line 396
     const-string/jumbo v2, "s"
 
-    invoke-static {v2}, Lcom/yelp/android/services/x;->a(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/yelp/android/services/i;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/yelp/android/util/m;->a(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v2}, Lcom/yelp/android/util/g;->a(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 410
+    .line 398
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -266,48 +266,236 @@
 
     if-nez v2, :cond_0
 
-    .line 411
-    new-instance v2, Lcom/yelp/android/appdata/webrequests/dl;
+    .line 399
+    new-instance v2, Lcom/yelp/android/appdata/webrequests/cr;
 
-    invoke-direct {v2, v1, v0}, Lcom/yelp/android/appdata/webrequests/dl;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v2, v1, v0}, Lcom/yelp/android/appdata/webrequests/cr;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 413
+    .line 401
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Void;
 
-    invoke-virtual {v2, v0}, Lcom/yelp/android/appdata/webrequests/dl;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v2, v0}, Lcom/yelp/android/appdata/webrequests/cr;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 416
+    .line 406
     :cond_0
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->clearWebViewCookies()V
+
+    .line 407
     return-void
+.end method
+
+.method protected static configureIntent(Landroid/content/Intent;Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;)Landroid/content/Intent;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Landroid/content/Context;",
+            "Landroid/net/Uri;",
+            "Ljava/lang/String;",
+            "Lcom/yelp/android/analytics/iris/ViewIri;",
+            "Ljava/util/EnumSet",
+            "<",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;",
+            ">;",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;",
+            ")",
+            "Landroid/content/Intent;"
+        }
+    .end annotation
+
+    .prologue
+    .line 189
+    const/4 v7, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    move-object v6, p6
+
+    invoke-static/range {v0 .. v7}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->configureIntent(Landroid/content/Intent;Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected static configureIntent(Landroid/content/Intent;Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;I)Landroid/content/Intent;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Landroid/content/Context;",
+            "Landroid/net/Uri;",
+            "Ljava/lang/String;",
+            "Lcom/yelp/android/analytics/iris/ViewIri;",
+            "Ljava/util/EnumSet",
+            "<",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;",
+            ">;",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;",
+            "I)",
+            "Landroid/content/Intent;"
+        }
+    .end annotation
+
+    .prologue
+    .line 218
+    const-string/jumbo v0, "iri"
+
+    invoke-virtual {p4}, Lcom/yelp/android/analytics/iris/ViewIri;->name()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 219
+    const-string/jumbo v0, "key.title"
+
+    invoke-virtual {p0, v0, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 220
+    const-string/jumbo v0, "key.uri"
+
+    invoke-virtual {p0, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    .line 221
+    const-string/jumbo v0, "key.confirm"
+
+    invoke-virtual {p0, v0, p7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    .line 222
+    const-string/jumbo v0, "key.features"
+
+    invoke-static {p5}, Lcom/yelp/android/util/d;->a(Ljava/util/Collection;)[I
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[I)Landroid/content/Intent;
+
+    .line 223
+    const-string/jumbo v0, "key.back_behavior"
+
+    invoke-static {p0, v0, p6}, Lcom/yelp/android/util/d;->a(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Enum;)V
+
+    .line 224
+    sget-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+
+    invoke-virtual {p5, v0}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 225
+    const/4 v0, 0x0
+
+    invoke-static {p1, v0, p0}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/content/Context;ILandroid/content/Intent;)Landroid/content/Intent;
+
+    move-result-object p0
+
+    .line 227
+    :cond_0
+    return-object p0
+.end method
+
+.method protected static configureIntent(Landroid/content/Intent;Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;ILjava/lang/String;)Landroid/content/Intent;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Landroid/content/Context;",
+            "Landroid/net/Uri;",
+            "Ljava/lang/String;",
+            "Lcom/yelp/android/analytics/iris/ViewIri;",
+            "Ljava/util/EnumSet",
+            "<",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;",
+            ">;",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;",
+            "I",
+            "Ljava/lang/String;",
+            ")",
+            "Landroid/content/Intent;"
+        }
+    .end annotation
+
+    .prologue
+    .line 202
+    invoke-static {p8}, Lcom/yelp/android/util/StringUtils;->d(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    .line 203
+    const-string/jumbo v0, "extra.business_name"
+
+    invoke-virtual {p0, v0, p8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 205
+    :cond_0
+    invoke-static/range {p0 .. p7}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->configureIntent(Landroid/content/Intent;Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;I)Landroid/content/Intent;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private confirmAndFinish()V
     .locals 3
 
     .prologue
-    .line 540
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
+    const/4 v2, 0x0
 
-    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+    .line 582
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
 
-    invoke-interface {v0, v1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
 
-    move-result v0
+    if-eq v0, v1, :cond_0
 
-    if-nez v0, :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
 
-    .line 541
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v0, v1, :cond_0
+
+    .line 586
     new-instance v0, Ljava/lang/IllegalStateException;
 
-    const-string/jumbo v1, "You need to have FINISH_ON_BACK turned on for this"
+    const-string/jumbo v1, "You need to have FINISH_ON_BACK, FINISH_ON_UP, RESET_OR_FINISH_ON_UP or RESET_OR_FINISH_ON_BACK turned on for this"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 545
+    .line 590
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
 
@@ -315,34 +503,39 @@
 
     const-string/jumbo v1, "key.confirm"
 
-    const/4 v2, 0x0
-
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    .line 546
+    .line 591
     if-nez v0, :cond_1
 
-    .line 547
+    .line 592
     const/4 v0, 0x1
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendPlatformCancelIrisIfNeeded(Z)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendCancelIrisIfNeeded(Z)V
 
-    .line 548
+    .line 593
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntentForLeavingWebView()Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->setResult(ILandroid/content/Intent;)V
+
+    .line 594
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->finish()V
 
-    .line 569
+    .line 620
     :goto_0
     return-void
 
-    .line 551
+    .line 597
     :cond_1
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 552
+    .line 598
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
@@ -351,21 +544,21 @@
 
     move-result-object v0
 
-    const v1, 0x7f070594
+    const v1, 0x7f0705a4
 
-    new-instance v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$3;
+    new-instance v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$2;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$3;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$2;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f070336
+    const v1, 0x7f07036d
 
-    new-instance v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$2;
+    new-instance v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$1;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$2;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$1;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -380,8 +573,173 @@
     goto :goto_0
 .end method
 
-.method public static getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;)Landroid/content/Intent;
-    .locals 6
+.method private confirmAndMaybeFinish()V
+    .locals 3
+
+    .prologue
+    .line 658
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v0, v1, :cond_0
+
+    .line 660
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "You need to have RESET_OR_FINISH_ON_BACK or RESET_OR_FINISH_ON_UP turned on for this"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 665
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->getUrl()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mOriginalUrl:Ljava/lang/String;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getUrlParams()Ljava/util/Map;
+
+    move-result-object v2
+
+    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->createUrlWithParams(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 666
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendCancelIrisIfNeeded(Z)V
+
+    .line 667
+    const/4 v0, 0x0
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntentForLeavingWebView()Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->setResult(ILandroid/content/Intent;)V
+
+    .line 668
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->finish()V
+
+    .line 672
+    :goto_0
+    return-void
+
+    .line 670
+    :cond_1
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndFinish()V
+
+    goto :goto_0
+.end method
+
+.method private createUrlWithParams(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
+
+    .prologue
+    .line 675
+    if-eqz p2, :cond_1
+
+    invoke-interface {p2}, Ljava/util/Map;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 676
+    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v2
+
+    .line 677
+    invoke-interface {p2}, Ljava/util/Map;->keySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    .line 678
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    .line 679
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v0, v1}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    goto :goto_0
+
+    .line 681
+    :cond_0
+    invoke-virtual {v2}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 683
+    :cond_1
+    return-object p1
+.end method
+
+.method public static getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;)Landroid/content/Intent;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -392,14 +750,16 @@
             "Ljava/util/EnumSet",
             "<",
             "Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;",
-            ">;)",
+            ">;",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;",
+            ")",
             "Landroid/content/Intent;"
         }
     .end annotation
 
     .prologue
-    .line 145
-    const/4 v5, 0x0
+    .line 165
+    const/4 v6, 0x0
 
     move-object v0, p0
 
@@ -411,15 +771,17 @@
 
     move-object v4, p4
 
-    invoke-static/range {v0 .. v5}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;I)Landroid/content/Intent;
+    move-object v5, p5
+
+    invoke-static/range {v0 .. v6}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;I)Landroid/content/Intent;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method public static getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;I)Landroid/content/Intent;
-    .locals 3
+.method public static getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;I)Landroid/content/Intent;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -430,74 +792,44 @@
             "Ljava/util/EnumSet",
             "<",
             "Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;",
-            ">;I)",
+            ">;",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;",
+            "I)",
             "Landroid/content/Intent;"
         }
     .end annotation
 
     .prologue
-    .line 164
+    .line 176
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/support/WebViewActivity;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 165
-    const-string/jumbo v1, "key.iri"
+    move-object v1, p0
 
-    invoke-virtual {p3}, Lcom/yelp/android/analytics/iris/ViewIri;->name()Ljava/lang/String;
+    move-object v2, p1
 
-    move-result-object v2
+    move-object v3, p2
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-object v4, p3
 
-    .line 166
-    const-string/jumbo v1, "key.title"
+    move-object v5, p4
 
-    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    move-object v6, p5
 
-    .line 167
-    const-string/jumbo v1, "key.uri"
+    move v7, p6
 
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    .line 168
-    const-string/jumbo v1, "key.confirm"
-
-    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 169
-    const-string/jumbo v1, "key.features"
-
-    invoke-static {p4}, Lcom/yelp/android/util/f;->a(Ljava/util/Collection;)[I
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[I)Landroid/content/Intent;
-
-    .line 170
-    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-virtual {p4, v1}, Ljava/util/EnumSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 171
-    const/4 v1, 0x0
-
-    invoke-static {p0, v1, v0}, Lcom/yelp/android/ui/activities/ActivityLogin;->a(Landroid/content/Context;ILandroid/content/Intent;)Landroid/content/Intent;
+    .line 177
+    invoke-static/range {v0 .. v7}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->configureIntent(Landroid/content/Intent;Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;I)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 173
-    :cond_0
     return-object v0
 .end method
 
-.method public static getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;IZLjava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+.method public static getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;Z)Landroid/content/Intent;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -509,109 +841,149 @@
             "Ljava/util/EnumSet",
             "<",
             "Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;",
-            ">;IZ",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ")",
+            ">;",
+            "Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;",
+            "Z)",
             "Landroid/content/Intent;"
         }
     .end annotation
 
     .prologue
-    .line 151
-    invoke-static/range {p0 .. p5}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;I)Landroid/content/Intent;
+    .line 153
+    invoke-static/range {p0 .. p5}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 152
-    const-string/jumbo v1, "key.is_platform_flow"
+    .line 154
+    const-string/jumbo v1, "key.add_webview_id"
 
     invoke-virtual {v0, v1, p6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 153
-    invoke-static {p7}, Lcom/yelp/android/util/StringUtils;->e(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    .line 154
-    const-string/jumbo v1, "key.biz_dimension"
-
-    invoke-virtual {v0, v1, p7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 156
-    :cond_0
-    invoke-static {p8}, Lcom/yelp/android/util/StringUtils;->e(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    .line 157
-    const-string/jumbo v1, "key.source"
-
-    invoke-virtual {v0, v1, p8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 159
-    :cond_1
+    .line 155
     return-object v0
 .end method
 
-.method public static getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;Z)Landroid/content/Intent;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Landroid/net/Uri;",
-            "Ljava/lang/String;",
-            "Lcom/yelp/android/analytics/iris/ViewIri;",
-            "Ljava/util/EnumSet",
-            "<",
-            "Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;",
-            ">;Z)",
-            "Landroid/content/Intent;"
-        }
-    .end annotation
+.method private goBackOrMaybeFinish()V
+    .locals 5
 
     .prologue
-    .line 138
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebIntent(Landroid/content/Context;Landroid/net/Uri;Ljava/lang/String;Lcom/yelp/android/analytics/iris/ViewIri;Ljava/util/EnumSet;)Landroid/content/Intent;
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    .line 631
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v0, v1, :cond_0
+
+    .line 632
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string/jumbo v1, "You need to have RESET_OR_FINISH_ON_UP turned on for this"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 635
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->getUrl()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 139
-    const-string/jumbo v1, "key.add_webview_id"
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mOriginalUrl:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getUrlParams()Ljava/util/Map;
 
-    .line 140
-    return-object v0
+    move-result-object v2
+
+    invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->createUrlWithParams(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 636
+    invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendCancelIrisIfNeeded(Z)V
+
+    .line 637
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntentForLeavingWebView()Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v3, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->setResult(ILandroid/content/Intent;)V
+
+    .line 638
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->finish()V
+
+    .line 647
+    :goto_0
+    return-void
+
+    .line 639
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->canGoBack()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 640
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->goBack()V
+
+    goto :goto_0
+
+    .line 643
+    :cond_2
+    invoke-virtual {p0, v4}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendCancelIrisIfNeeded(Z)V
+
+    .line 644
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntentForLeavingWebView()Landroid/content/Intent;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v3, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->setResult(ILandroid/content/Intent;)V
+
+    .line 645
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->finish()V
+
+    goto :goto_0
 .end method
 
 .method private static initializeDomains(Landroid/content/Context;)V
     .locals 5
 
     .prologue
-    .line 185
+    .line 231
     sget-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mDomains:Ljava/util/ArrayList;
 
     if-nez v0, :cond_0
 
-    .line 186
+    .line 232
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     sput-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mDomains:Ljava/util/ArrayList;
 
-    .line 187
+    .line 233
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f080014
+    const v1, 0x7f0d0014
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -626,143 +998,145 @@
 
     aget-object v3, v1, v0
 
-    .line 188
+    .line 234
     sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mDomains:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 187
+    .line 233
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 191
+    .line 237
     :cond_0
     return-void
 .end method
 
-.method public static isEventsFeatureSupported()Z
-    .locals 1
-
-    .prologue
-    .line 181
-    const/16 v0, 0x11
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method private loadUrlForLoggedInUser(Ljava/lang/String;)V
+.method private loadUrlForLoggedInUser(Ljava/lang/String;Ljava/util/Map;)V
     .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
     .prologue
     const/4 v7, 0x1
 
-    .line 510
-    invoke-static {}, Lcom/yelp/android/services/d;->b()Lorg/apache/http/impl/client/DefaultHttpClient;
+    .line 551
+    invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->createUrlWithParams(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lorg/apache/http/impl/client/DefaultHttpClient;->getCookieStore()Lorg/apache/http/client/CookieStore;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lorg/apache/http/client/CookieStore;->getCookies()Ljava/util/List;
-
-    move-result-object v0
-
-    .line 512
-    const-string/jumbo v1, "api_ss"
-
-    invoke-static {v1}, Lcom/yelp/android/services/x;->a(Ljava/lang/String;)Ljava/lang/String;
+    .line 552
+    invoke-static {}, Lcom/yelp/android/services/c;->b()Lorg/apache/http/impl/client/DefaultHttpClient;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/yelp/android/util/m;->a(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1}, Lorg/apache/http/impl/client/DefaultHttpClient;->getCookieStore()Lorg/apache/http/client/CookieStore;
 
-    move-result-object v0
+    move-result-object v1
 
-    .line 514
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-interface {v1}, Lorg/apache/http/client/CookieStore;->getCookies()Ljava/util/List;
 
-    const/16 v2, 0x64
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(I)V
+    .line 554
+    const-string/jumbo v2, "api_ss"
 
-    .line 515
-    const-string/jumbo v2, "user_id="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Lcom/yelp/android/services/i;->a(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getAppData()Lcom/yelp/android/appdata/AppData;
+    invoke-static {v1, v2}, Lcom/yelp/android/util/g;->a(Ljava/util/List;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    .line 556
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    const/16 v3, 0x64
 
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/webrequests/dc;->b()Ljava/lang/String;
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    move-result-object v3
+    .line 557
+    const-string/jumbo v3, "user_id="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 516
-    const-string/jumbo v2, "&session_token="
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getAppData()Lcom/yelp/android/appdata/AppData;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
-    .line 518
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/appdata/webrequests/co;->a()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 558
+    const-string/jumbo v3, "&session_token="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 560
     :try_start_0
-    const-string/jumbo v0, "&return_url="
+    const-string/jumbo v1, "&return_url="
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "UTF-8"
+
+    invoke-static {v0, v3}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string/jumbo v2, "UTF-8"
-
-    invoke-static {p1, v2}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 525
+    .line 567
     :goto_0
     new-instance v0, Landroid/net/Uri$Builder;
 
     invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
 
-    const-string/jumbo v2, "webview_login"
+    const-string/jumbo v1, "webview_login"
 
-    invoke-virtual {v0, v2}, Landroid/net/Uri$Builder;->path(Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    const-string/jumbo v2, "https"
-
-    invoke-virtual {v0, v2}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->path(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
-    invoke-static {p0}, Lcom/yelp/android/services/x;->a(Landroid/content/Context;)Ljava/lang/String;
+    const-string/jumbo v1, "https"
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->scheme(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
-    invoke-virtual {v0, v2}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    move-result-object v0
+
+    invoke-static {p0}, Lcom/yelp/android/services/i;->a(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->authority(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
@@ -770,32 +1144,32 @@
 
     move-result-object v0
 
-    .line 530
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+    .line 573
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/String;->getBytes()[B
+    invoke-virtual {v2}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v2, v0, v1}, Landroid/webkit/WebView;->postUrl(Ljava/lang/String;[B)V
+    invoke-virtual {v1, v0, v2}, Landroid/webkit/WebView;->postUrl(Ljava/lang/String;[B)V
 
-    .line 531
+    .line 574
     return-void
 
-    .line 519
+    .line 561
     :catch_0
     move-exception v0
 
-    .line 520
-    const-string/jumbo v2, "WEBVIEW"
+    .line 562
+    const-string/jumbo v1, "WEBVIEW"
 
     const-string/jumbo v3, "%s\n%s"
 
@@ -817,389 +1191,13 @@
 
     aput-object v0, v4, v7
 
-    invoke-static {v2, v3, v4}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v3, v4}, Lcom/yelp/android/appdata/AppData;->a(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
-    .line 521
-    invoke-direct {p0, v7}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendPlatformCancelIrisIfNeeded(Z)V
+    .line 563
+    invoke-virtual {p0, v7}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendCancelIrisIfNeeded(Z)V
 
-    .line 522
+    .line 564
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->finish()V
-
-    goto :goto_0
-.end method
-
-.method private makeMoreSecure()V
-    .locals 2
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x10
-    .end annotation
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 420
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V
-
-    .line 421
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V
-
-    .line 422
-    return-void
-.end method
-
-.method private sendPlatformCancelIrisIfNeeded(Z)V
-    .locals 4
-
-    .prologue
-    const/4 v3, 0x1
-
-    .line 608
-    new-instance v0, Ljava/util/TreeMap;
-
-    invoke-direct {v0}, Ljava/util/TreeMap;-><init>()V
-
-    .line 609
-    if-eqz p1, :cond_0
-
-    .line 610
-    const-string/jumbo v1, "cancel_state"
-
-    const-string/jumbo v2, "error"
-
-    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 622
-    :goto_0
-    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPlatformCancel:Lcom/yelp/android/analytics/iris/EventIri;
-
-    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->SearchPlatformCancel:Lcom/yelp/android/analytics/iris/EventIri;
-
-    invoke-direct {p0, v1, v2, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendPlatformIrisIfNeeded(Lcom/yelp/android/analytics/iris/EventIri;Lcom/yelp/android/analytics/iris/EventIri;Ljava/util/Map;)V
-
-    .line 624
-    return-void
-
-    .line 612
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->lock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    .line 613
-    :try_start_0
-    iget-boolean v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mLoadingScreenShowing:Z
-
-    if-eqz v2, :cond_1
-
-    iget v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mTimesLoadingScreenShown:I
-
-    if-ne v2, v3, :cond_1
-
-    .line 614
-    const-string/jumbo v2, "cancel_state"
-
-    const-string/jumbo v3, "loading_initial"
-
-    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 620
-    :goto_1
-    monitor-exit v1
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-
-    .line 615
-    :cond_1
-    :try_start_1
-    iget-boolean v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mLoadingScreenShowing:Z
-
-    if-eqz v2, :cond_2
-
-    iget v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mTimesLoadingScreenShown:I
-
-    if-le v2, v3, :cond_2
-
-    .line 616
-    const-string/jumbo v2, "cancel_state"
-
-    const-string/jumbo v3, "loading"
-
-    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_1
-
-    .line 618
-    :cond_2
-    const-string/jumbo v2, "cancel_state"
-
-    const-string/jumbo v3, "loaded"
-
-    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_1
-.end method
-
-.method private sendPlatformConfirmedIrisIfNeeded()V
-    .locals 3
-
-    .prologue
-    .line 627
-    sget-object v0, Lcom/yelp/android/analytics/iris/EventIri;->BusinessPlatformConfirmed:Lcom/yelp/android/analytics/iris/EventIri;
-
-    sget-object v1, Lcom/yelp/android/analytics/iris/EventIri;->SearchPlatformConfirmed:Lcom/yelp/android/analytics/iris/EventIri;
-
-    new-instance v2, Ljava/util/TreeMap;
-
-    invoke-direct {v2}, Ljava/util/TreeMap;-><init>()V
-
-    invoke-direct {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendPlatformIrisIfNeeded(Lcom/yelp/android/analytics/iris/EventIri;Lcom/yelp/android/analytics/iris/EventIri;Ljava/util/Map;)V
-
-    .line 629
-    return-void
-.end method
-
-.method private sendPlatformIrisIfNeeded(Lcom/yelp/android/analytics/iris/EventIri;Lcom/yelp/android/analytics/iris/EventIri;Ljava/util/Map;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/analytics/iris/EventIri;",
-            "Lcom/yelp/android/analytics/iris/EventIri;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Object;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 636
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "key.biz_dimension"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 637
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "key.source"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    .line 638
-    invoke-static {v1}, Lcom/yelp/android/util/StringUtils;->e(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {v0}, Lcom/yelp/android/util/StringUtils;->e(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    .line 640
-    const-string/jumbo v2, "biz_dimension"
-
-    invoke-interface {p3, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    .line 641
-    const-string/jumbo v0, "source_business_page"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 642
-    invoke-static {p1, p3}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    .line 647
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 643
-    :cond_1
-    const-string/jumbo v0, "source_search_page"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    .line 644
-    invoke-static {p2, p3}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
-
-    goto :goto_0
-.end method
-
-.method private supportOnPause()V
-    .locals 3
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
-
-    .prologue
-    .line 591
-    const/16 v0, 0xb
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 592
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->onPause()V
-
-    .line 605
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 597
-    :cond_1
-    :try_start_0
-    const-class v0, Landroid/webkit/WebView;
-
-    const-string/jumbo v1, "onPause"
-
-    const/4 v2, 0x0
-
-    new-array v2, v2, [Ljava/lang/Class;
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    .line 598
-    if-eqz v0, :cond_0
-
-    .line 599
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    const/4 v2, 0x0
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 601
-    :catch_0
-    move-exception v0
-
-    .line 602
-    invoke-static {p0, v0}, Lcom/yelp/android/util/YelpLog;->error(Ljava/lang/Object;Ljava/lang/Exception;)V
-
-    goto :goto_0
-.end method
-
-.method private supportOnResume()V
-    .locals 3
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
-
-    .prologue
-    .line 573
-    const/16 v0, 0xb
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 574
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->onResume()V
-
-    .line 587
-    :cond_0
-    :goto_0
-    return-void
-
-    .line 579
-    :cond_1
-    :try_start_0
-    const-class v0, Landroid/webkit/WebView;
-
-    const-string/jumbo v1, "onResume"
-
-    const/4 v2, 0x0
-
-    new-array v2, v2, [Ljava/lang/Class;
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v0
-
-    .line 580
-    if-eqz v0, :cond_0
-
-    .line 581
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    const/4 v2, 0x0
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    invoke-virtual {v0, v1, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    .line 583
-    :catch_0
-    move-exception v0
-
-    .line 584
-    invoke-static {p0, v0}, Lcom/yelp/android/util/YelpLog;->error(Ljava/lang/Object;Ljava/lang/Exception;)V
 
     goto :goto_0
 .end method
@@ -1208,105 +1206,44 @@
     .locals 0
 
     .prologue
-    .line 476
+    .line 457
     return-void
 .end method
 
 
 # virtual methods
-.method public disableLoading()V
-    .locals 2
+.method protected getContentViewResourceId()I
+    .locals 1
 
     .prologue
-    .line 494
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->lock:Ljava/lang/Object;
+    .line 483
+    const v0, 0x7f030059
 
-    monitor-enter v1
-
-    .line 495
-    const/4 v0, 0x0
-
-    :try_start_0
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mLoadingScreenShowing:Z
-
-    .line 496
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 497
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->disableLoading()V
-
-    .line 498
-    return-void
-
-    .line 496
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
+    return v0
 .end method
 
-.method public enableLoading()V
-    .locals 2
+.method protected getIntentForLeavingWebView()Landroid/content/Intent;
+    .locals 1
 
     .prologue
-    .line 502
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->lock:Ljava/lang/Object;
+    .line 518
+    new-instance v0, Landroid/content/Intent;
 
-    monitor-enter v1
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 503
-    :try_start_0
-    iget v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mTimesLoadingScreenShown:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mTimesLoadingScreenShown:I
-
-    .line 504
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mLoadingScreenShowing:Z
-
-    .line 505
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    .line 506
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->enableLoading()V
-
-    .line 507
-    return-void
-
-    .line 505
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
+    return-object v0
 .end method
 
 .method public getIri()Lcom/yelp/android/analytics/iris/ViewIri;
     .locals 2
 
     .prologue
-    .line 462
+    .line 442
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string/jumbo v1, "key.iri"
+    const-string/jumbo v1, "iri"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1319,11 +1256,11 @@
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 74
+    .line 61
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -1331,12 +1268,31 @@
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method protected getLocalizedDomains()Ljava/util/ArrayList;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 240
+    sget-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mDomains:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -1347,12 +1303,12 @@
     .end annotation
 
     .prologue
-    .line 467
+    .line 448
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 468
+    .line 449
     const-string/jumbo v1, "webview_id"
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
@@ -1363,38 +1319,82 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 469
+    .line 450
+    return-object v0
+.end method
+
+.method protected getUrlParams()Ljava/util/Map;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 526
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method protected getWebView()Landroid/webkit/WebView;
+    .locals 1
+
+    .prologue
+    .line 530
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    return-object v0
+.end method
+
+.method protected getWebViewClient()Landroid/webkit/WebViewClient;
+    .locals 1
+
+    .prologue
+    .line 509
+    new-instance v0, Lcom/yelp/android/ui/activities/support/c;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/support/c;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
+
     return-object v0
 .end method
 
 .method protected onActivityResult(IILandroid/content/Intent;)V
-    .locals 1
+    .locals 2
 
     .prologue
-    .line 386
+    .line 373
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 387
+    .line 374
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
-    const/16 v0, 0x413
+    const/16 v0, 0x418
 
     if-ne p1, v0, :cond_0
 
     if-eqz p3, :cond_0
 
-    .line 388
+    .line 375
     const-string/jumbo v0, "redirect_url"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->loadUrlForLoggedInUser(Ljava/lang/String;)V
+    const/4 v1, 0x0
 
-    .line 390
+    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->loadUrlForLoggedInUser(Ljava/lang/String;Ljava/util/Map;)V
+
+    .line 377
     :cond_0
     return-void
 .end method
@@ -1409,24 +1409,18 @@
         }
     .end annotation
 
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0xb
-    .end annotation
-
     .prologue
-    const/16 v4, 0x10
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    const/4 v1, 0x1
-
-    .line 203
+    .line 253
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 204
+    .line 254
     invoke-static {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->initializeDomains(Landroid/content/Context;)V
 
-    .line 205
+    .line 255
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -1439,7 +1433,7 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 206
+    .line 256
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -1454,25 +1448,53 @@
 
     move-result-object v3
 
-    invoke-static {v0, v3}, Lcom/yelp/android/util/f;->a([I[Ljava/lang/Enum;)Ljava/util/ArrayList;
+    invoke-static {v0, v3}, Lcom/yelp/android/util/d;->a([I[Ljava/lang/Enum;)Ljava/util/ArrayList;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
 
-    .line 209
-    new-instance v0, Landroid/webkit/WebView;
+    .line 259
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
 
-    invoke-direct {v0, p0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
+    move-result-object v0
+
+    const-string/jumbo v3, "key.back_behavior"
+
+    const-class v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    invoke-static {v0, v3, v4}, Lcom/yelp/android/util/d;->a(Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Enum;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    .line 260
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getContentViewResourceId()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->setContentView(I)V
+
+    .line 261
+    const v0, 0x7f0f01a3
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/webkit/WebView;
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
-    .line 210
+    .line 262
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->setContentView(Landroid/view/View;)V
+    invoke-static {v0}, Lcom/yelp/android/ui/activities/support/d;->a(Landroid/webkit/WebView;)V
 
-    .line 213
+    .line 265
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
 
     sget-object v3, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FULL_SCREEN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
@@ -1483,100 +1505,53 @@
 
     if-eqz v0, :cond_0
 
-    .line 214
+    .line 266
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setLoadWithOverviewMode(Z)V
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setLoadWithOverviewMode(Z)V
 
-    .line 215
+    .line 267
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setUseWideViewPort(Z)V
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setUseWideViewPort(Z)V
 
-    .line 216
+    .line 268
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setBuiltInZoomControls(Z)V
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setBuiltInZoomControls(Z)V
 
-    .line 223
+    .line 273
     :cond_0
-    const/16 v0, 0xe
-
-    invoke-static {v0}, Lcom/yelp/android/appdata/n;->b(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    .line 224
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0, v2}, Landroid/webkit/WebView;->setScrollBarStyle(I)V
-
-    .line 227
-    :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setDomStorageEnabled(Z)V
 
-    .line 228
-    invoke-static {v4}, Lcom/yelp/android/appdata/n;->a(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    .line 229
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->makeMoreSecure()V
-
-    .line 238
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    if-ne v0, v4, :cond_2
-
-    .line 239
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v3}, Landroid/webkit/WebView;->setLayerType(ILandroid/graphics/Paint;)V
-
-    .line 245
-    :cond_2
+    .line 274
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setDomStorageEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setDatabaseEnabled(Z)V
 
-    .line 246
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setDatabaseEnabled(Z)V
-
-    .line 247
+    .line 275
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -1589,7 +1564,7 @@
 
     const-string/jumbo v4, "databases"
 
-    invoke-virtual {v3, v4, v2}, Landroid/content/Context;->getDir(Ljava/lang/String;I)Ljava/io/File;
+    invoke-virtual {v3, v4, v1}, Landroid/content/Context;->getDir(Ljava/lang/String;I)Ljava/io/File;
 
     move-result-object v3
 
@@ -1599,27 +1574,7 @@
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebSettings;->setDatabasePath(Ljava/lang/String;)V
 
-    .line 250
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
-
-    move-result-object v0
-
-    sget-object v3, Landroid/webkit/WebSettings$PluginState;->OFF:Landroid/webkit/WebSettings$PluginState;
-
-    invoke-virtual {v0, v3}, Landroid/webkit/WebSettings;->setPluginState(Landroid/webkit/WebSettings$PluginState;)V
-
-    .line 251
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setSavePassword(Z)V
-
-    .line 252
+    .line 281
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -1630,7 +1585,7 @@
 
     move-result-object v0
 
-    .line 253
+    .line 282
     iget-object v3, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v3}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
@@ -1641,147 +1596,44 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/n;
+    invoke-virtual {v4}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/f;
 
     move-result-object v4
 
-    invoke-virtual {v4, v0}, Lcom/yelp/android/appdata/n;->c(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v4, v0}, Lcom/yelp/android/appdata/f;->b(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v3, v0}, Landroid/webkit/WebSettings;->setUserAgentString(Ljava/lang/String;)V
 
-    .line 255
+    .line 285
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V
 
-    .line 256
+    .line 286
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setGeolocationEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setGeolocationEnabled(Z)V
 
-    .line 257
+    .line 287
     iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
-    new-instance v3, Lcom/yelp/android/ui/activities/support/WebViewActivity$1;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getWebViewClient()Landroid/webkit/WebViewClient;
 
-    invoke-direct {v3, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$1;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
+    move-result-object v3
 
     invoke-virtual {v0, v3}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
-    .line 316
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
-
-    sget-object v3, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-interface {v0, v3}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    .line 317
-    invoke-static {}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->isEventsFeatureSupported()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    .line 318
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    new-instance v3, Lcom/yelp/android/ui/activities/support/JavaScriptEventInterface;
-
-    new-instance v4, Landroid/os/Handler;
-
-    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
-
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mJavascriptEventCallback:Lcom/yelp/android/ui/activities/support/b;
-
-    invoke-direct {v3, v4, v5}, Lcom/yelp/android/ui/activities/support/JavaScriptEventInterface;-><init>(Landroid/os/Handler;Lcom/yelp/android/ui/activities/support/b;)V
-
-    const-string/jumbo v4, "androidWebview"
-
-    invoke-virtual {v0, v3, v4}, Landroid/webkit/WebView;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
-
-    .line 328
-    :cond_3
-    :goto_0
-    new-instance v3, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;
-
-    invoke-direct {v3, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
-
-    .line 329
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
-
-    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    move v0, v1
-
-    :goto_1
-    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;->setVirtualDisableLoadingByTitle(Z)V
-
-    .line 330
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
-
-    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FULL_SCREEN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    .line 331
-    invoke-virtual {v3}, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;->freezeTitle()V
-
-    .line 333
-    :cond_4
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
-
-    invoke-virtual {v0, v3}, Landroid/webkit/WebView;->setWebChromeClient(Landroid/webkit/WebChromeClient;)V
-
-    .line 335
-    if-eqz p1, :cond_8
-
-    .line 336
-    const-string/jumbo v0, "most"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
-
-    move-result-wide v4
-
-    .line 337
-    const-string/jumbo v0, "least"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
-
-    move-result-wide v6
-
-    .line 338
-    new-instance v0, Ljava/util/UUID;
-
-    invoke-direct {v0, v4, v5, v6, v7}, Ljava/util/UUID;-><init>(JJ)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
-
-    .line 343
-    :goto_2
+    .line 296
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -1794,34 +1646,121 @@
 
     check-cast v0, Landroid/net/Uri;
 
-    .line 344
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
+    .line 298
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
 
-    move-result-object v3
+    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-    const-string/jumbo v4, "key.add_webview_id"
+    invoke-interface {v3, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    .line 300
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mJavascriptEventCallback:Lcom/yelp/android/ui/activities/support/JavaScriptEventInterface$b;
+
+    const-string/jumbo v5, "androidWebview"
+
+    invoke-static {v3, v4, v5, v0}, Lcom/yelp/android/cf/a;->a(Landroid/webkit/WebView;Lcom/yelp/android/ui/activities/support/JavaScriptEventInterface$b;Ljava/lang/String;Landroid/net/Uri;)Z
+
+    .line 304
+    :cond_1
+    new-instance v3, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;
+
+    invoke-direct {v3, p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;-><init>(Lcom/yelp/android/ui/activities/support/WebViewActivity;)V
+
+    .line 305
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
+
+    sget-object v5, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->EVENTS:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+
+    invoke-interface {v4, v5}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    move v1, v2
+
+    :cond_2
+    invoke-virtual {v3, v1}, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;->setVirtualDisableLoadingByTitle(Z)V
+
+    .line 306
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
+
+    sget-object v4, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FULL_SCREEN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+
+    invoke-interface {v1, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
-    .line 346
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_3
 
-    .line 347
+    .line 307
+    invoke-virtual {v3}, Lcom/yelp/android/ui/activities/support/WebViewActivity$EnhancedWebChromeClient;->freezeTitle()V
+
+    .line 309
+    :cond_3
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v1, v3}, Landroid/webkit/WebView;->setWebChromeClient(Landroid/webkit/WebChromeClient;)V
+
+    .line 311
+    if-eqz p1, :cond_4
+
+    .line 312
+    const-string/jumbo v1, "most"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v4
+
+    .line 313
+    const-string/jumbo v1, "least"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    .line 314
+    new-instance v1, Ljava/util/UUID;
+
+    invoke-direct {v1, v4, v5, v6, v7}, Ljava/util/UUID;-><init>(JJ)V
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
+
+    .line 319
+    :goto_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    const-string/jumbo v3, "key.add_webview_id"
+
+    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    .line 321
+    if-eqz v1, :cond_5
+
+    .line 322
     invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
 
     move-result-object v0
 
     const-string/jumbo v1, "webview_id"
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
 
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v0, v1, v3}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v0, v1, v2}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 
     move-result-object v0
 
@@ -1833,138 +1772,190 @@
 
     move-result-object v0
 
-    .line 352
-    :goto_3
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getIntent()Landroid/content/Intent;
+    move-object v2, v0
 
-    move-result-object v1
+    .line 331
+    :goto_1
+    iput-object v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mOriginalUrl:Ljava/lang/String;
 
-    const-string/jumbo v3, "key.is_platform_flow"
-
-    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    .line 353
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
-
-    sget-object v3, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-interface {v2, v3}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    if-eqz v1, :cond_a
-
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getAppData()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_a
-
-    .line 355
-    :cond_5
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->loadUrlForLoggedInUser(Ljava/lang/String;)V
-
-    .line 359
-    :goto_4
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mStartTimeMilliseconds:J
-
-    .line 360
-    return-void
-
-    .line 321
-    :cond_6
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v3, "WebViewActivity is requesting Javascript events on an unsupported device."
-
-    invoke-direct {v0, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v0}, Lcom/yelp/android/util/YelpLog;->error(Ljava/lang/Exception;)V
-
-    .line 323
-    invoke-direct {p0, v1}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->sendPlatformCancelIrisIfNeeded(Z)V
-
-    .line 324
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->finish()V
-
-    goto/16 :goto_0
-
-    :cond_7
-    move v0, v2
-
-    .line 329
-    goto/16 :goto_1
-
-    .line 340
-    :cond_8
-    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
+    .line 332
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getUrlParams()Ljava/util/Map;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
+    .line 333
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->shouldLoginToWebView()Z
 
-    goto :goto_2
+    move-result v1
 
-    .line 350
-    :cond_9
+    if-eqz v1, :cond_6
+
+    .line 334
+    invoke-direct {p0, v2, v0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->loadUrlForLoggedInUser(Ljava/lang/String;Ljava/util/Map;)V
+
+    .line 347
+    :goto_2
+    return-void
+
+    .line 316
+    :cond_4
+    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
+
+    goto :goto_0
+
+    .line 329
+    :cond_5
     invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
 
     move-result-object v0
 
+    move-object v2, v0
+
+    goto :goto_1
+
+    .line 335
+    :cond_6
+    if-eqz v0, :cond_9
+
+    invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    .line 336
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x64
+
+    invoke-direct {v3, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    .line 337
+    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_3
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 338
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v1
+
+    if-lez v1, :cond_7
+
+    .line 339
+    const-string/jumbo v1, "&"
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 341
+    :cond_7
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/String;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v5, "="
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     goto :goto_3
 
-    .line 357
-    :cond_a
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+    .line 343
+    :cond_8
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
-    invoke-virtual {v1, v0}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    goto :goto_4
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->getBytes()[B
+
+    move-result-object v1
+
+    invoke-virtual {v0, v2, v1}, Landroid/webkit/WebView;->postUrl(Ljava/lang/String;[B)V
+
+    goto :goto_2
+
+    .line 345
+    :cond_9
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
+
+    invoke-virtual {v0, v2}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
+
+    goto :goto_2
 .end method
 
 .method protected onDestroy()V
     .locals 1
 
     .prologue
-    .line 376
+    .line 363
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onDestroy()V
 
-    .line 377
+    .line 364
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 380
+    .line 367
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->closeWebSession()V
 
-    .line 382
+    .line 369
     :cond_0
+    return-void
+.end method
+
+.method protected onIframeReady()V
+    .locals 0
+
+    .prologue
+    .line 506
     return-void
 .end method
 
@@ -1974,53 +1965,96 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 448
+    .line 418
     const/4 v1, 0x4
 
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_4
 
-    .line 449
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
+    .line 419
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
 
-    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
 
-    invoke-interface {v1, v2}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+    if-ne v1, v2, :cond_0
 
-    move-result v1
+    .line 420
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndMaybeFinish()V
 
-    if-eqz v1, :cond_0
-
-    .line 450
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndFinish()V
-
-    .line 457
+    .line 437
     :goto_0
     return v0
 
-    .line 452
+    .line 422
     :cond_0
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-ne v1, v2, :cond_1
+
+    .line 423
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->goBackOrMaybeFinish()V
+
+    goto :goto_0
+
+    .line 425
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-ne v1, v2, :cond_2
+
+    .line 426
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndFinish()V
+
+    goto :goto_0
+
+    .line 428
+    :cond_2
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v1}, Landroid/webkit/WebView;->canGoBack()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
-    .line 453
+    .line 429
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v1}, Landroid/webkit/WebView;->goBack()V
 
     goto :goto_0
 
-    .line 457
-    :cond_1
+    .line 431
+    :cond_3
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-ne v1, v2, :cond_4
+
+    .line 433
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndFinish()V
+
+    goto :goto_0
+
+    .line 437
+    :cond_4
     invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
     goto :goto_0
+.end method
+
+.method protected onOpportunityReady()V
+    .locals 0
+
+    .prologue
+    .line 502
+    return-void
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
@@ -2029,52 +2063,75 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 480
+    .line 461
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     const v2, 0x102002c
 
+    if-ne v1, v2, :cond_4
+
+    .line 462
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v1, v2, :cond_0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->RESET_OR_FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
     if-ne v1, v2, :cond_1
 
-    .line 481
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
+    .line 464
+    :cond_0
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndMaybeFinish()V
 
-    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
-
-    invoke-interface {v1, v2}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    .line 482
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndFinish()V
-
-    .line 489
+    .line 475
     :goto_0
     return v0
 
-    .line 484
-    :cond_0
+    .line 466
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_BACK:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-eq v1, v2, :cond_2
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mBackBehavior:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    sget-object v2, Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;->FINISH_ON_UP:Lcom/yelp/android/ui/activities/support/WebViewActivity$BackBehavior;
+
+    if-ne v1, v2, :cond_3
+
+    .line 468
+    :cond_2
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->confirmAndFinish()V
+
+    goto :goto_0
+
+    .line 470
+    :cond_3
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v1}, Landroid/webkit/WebView;->canGoBack()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4
 
-    .line 485
+    .line 471
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
     invoke-virtual {v1}, Landroid/webkit/WebView;->goBack()V
 
     goto :goto_0
 
-    .line 489
-    :cond_1
+    .line 475
+    :cond_4
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -2082,31 +2139,43 @@
     goto :goto_0
 .end method
 
-.method protected onPause()V
+.method protected onPageFinished()V
     .locals 0
 
     .prologue
-    .line 370
+    .line 486
+    return-void
+.end method
+
+.method protected onPause()V
+    .locals 1
+
+    .prologue
+    .line 357
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
 
-    .line 371
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->supportOnPause()V
+    .line 358
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
-    .line 372
+    invoke-virtual {v0}, Landroid/webkit/WebView;->onPause()V
+
+    .line 359
     return-void
 .end method
 
 .method protected onResume()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 364
+    .line 351
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
 
-    .line 365
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/WebViewActivity;->supportOnResume()V
+    .line 352
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebView:Landroid/webkit/WebView;
 
-    .line 366
+    invoke-virtual {v0}, Landroid/webkit/WebView;->onResume()V
+
+    .line 353
     return-void
 .end method
 
@@ -2114,10 +2183,10 @@
     .locals 4
 
     .prologue
-    .line 426
+    .line 411
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 427
+    .line 412
     const-string/jumbo v0, "most"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
@@ -2128,7 +2197,7 @@
 
     invoke-virtual {p1, v0, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 428
+    .line 413
     const-string/jumbo v0, "least"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mWebViewId:Ljava/util/UUID;
@@ -2139,145 +2208,38 @@
 
     invoke-virtual {p1, v0, v2, v3}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
-    .line 429
+    .line 414
     return-void
 .end method
 
-.method protected shouldOverrideDomain(Ljava/lang/String;)Z
-    .locals 7
+.method protected sendCancelIrisIfNeeded(Z)V
+    .locals 0
 
     .prologue
-    const/4 v1, 0x0
+    .line 488
+    return-void
+.end method
 
-    const/4 v2, 0x1
+.method protected sendConfirmedIrisIfNeeded()V
+    .locals 0
 
-    .line 432
-    invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    .prologue
+    .line 490
+    return-void
+.end method
 
-    move-result-object v3
+.method protected shouldLoginToWebView()Z
+    .locals 2
 
-    .line 433
-    const-string/jumbo v0, "http"
+    .prologue
+    .line 497
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mFeatures:Ljava/util/Collection;
 
-    invoke-virtual {v3}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+    sget-object v1, Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;->LOGIN:Lcom/yelp/android/ui/activities/support/WebViewActivity$Feature;
 
-    move-result-object v4
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "https"
-
-    invoke-virtual {v3}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
-
-    :cond_0
-    move v0, v2
-
-    .line 434
-    :goto_0
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v3}, Landroid/net/Uri;->getHost()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-nez v0, :cond_3
-
-    :cond_1
-    move v0, v2
-
-    .line 443
-    :goto_1
     return v0
-
-    :cond_2
-    move v0, v1
-
-    .line 433
-    goto :goto_0
-
-    .line 437
-    :cond_3
-    invoke-virtual {v3}, Landroid/net/Uri;->getHost()Ljava/lang/String;
-
-    move-result-object v0
-
-    sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v3
-
-    .line 438
-    sget-object v0, Lcom/yelp/android/ui/activities/support/WebViewActivity;->mDomains:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    :cond_4
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    .line 439
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const/16 v6, 0x2e
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    sget-object v6, Ljava/util/Locale;->US:Ljava/util/Locale;
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    move v0, v1
-
-    .line 440
-    goto :goto_1
-
-    :cond_5
-    move v0, v2
-
-    .line 443
-    goto :goto_1
 .end method

@@ -1,42 +1,25 @@
 package com.google.android.gms.tagmanager;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import com.google.android.gms.internal.a;
 import com.google.android.gms.internal.d.a;
 import java.util.Map;
+import java.util.Set;
 
-class g
-  extends aj
+abstract class g
 {
-  private static final String ID = a.x.toString();
-  private final Context mContext;
+  private final Set<String> a;
   
-  public g(Context paramContext)
+  public abstract d.a a(Map<String, d.a> paramMap);
+  
+  public abstract boolean a();
+  
+  boolean a(Set<String> paramSet)
   {
-    super(ID, new String[0]);
-    mContext = paramContext;
+    return paramSet.containsAll(a);
   }
   
-  public d.a B(Map<String, d.a> paramMap)
+  public Set<String> b()
   {
-    try
-    {
-      paramMap = mContext.getPackageManager();
-      paramMap = di.u(paramMap.getApplicationLabel(paramMap.getApplicationInfo(mContext.getPackageName(), 0)).toString());
-      return paramMap;
-    }
-    catch (PackageManager.NameNotFoundException paramMap)
-    {
-      bh.b("App name is not found.", paramMap);
-    }
-    return di.rb();
-  }
-  
-  public boolean pe()
-  {
-    return true;
+    return a;
   }
 }
 

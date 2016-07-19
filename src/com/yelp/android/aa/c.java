@@ -1,84 +1,155 @@
 package com.yelp.android.aa;
 
-import java.io.File;
-import java.io.InputStream;
+import android.content.Context;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
-public class c<T>
-  implements com.bumptech.glide.load.d<File, T>
+public class c
 {
-  private static final d a = new d();
-  private com.bumptech.glide.load.d<InputStream, T> b;
-  private final d c;
-  
-  public c(com.bumptech.glide.load.d<InputStream, T> paramd)
+  private static final l c = new l()
   {
-    this(paramd, a);
+    public com.yelp.android.w.c a(Object paramAnonymousObject, int paramAnonymousInt1, int paramAnonymousInt2)
+    {
+      throw new NoSuchMethodError("This should never be called!");
+    }
+    
+    public String toString()
+    {
+      return "NULL_MODEL_LOADER";
+    }
+  };
+  private final Map<Class, Map<Class, m>> a = new HashMap();
+  private final Map<Class, Map<Class, l>> b = new HashMap();
+  private final Context d;
+  
+  public c(Context paramContext)
+  {
+    d = paramContext.getApplicationContext();
   }
   
-  c(com.bumptech.glide.load.d<InputStream, T> paramd, d paramd1)
+  private <T, Y> void a(Class<T> paramClass, Class<Y> paramClass1, l<T, Y> paraml)
   {
-    b = paramd;
-    c = paramd1;
+    Map localMap = (Map)b.get(paramClass);
+    Object localObject = localMap;
+    if (localMap == null)
+    {
+      localObject = new HashMap();
+      b.put(paramClass, localObject);
+    }
+    ((Map)localObject).put(paramClass1, paraml);
   }
   
-  /* Error */
-  public com.bumptech.glide.load.engine.t<T> a(File paramFile, int paramInt1, int paramInt2)
+  private <T, Y> void b(Class<T> paramClass, Class<Y> paramClass1)
   {
-    // Byte code:
-    //   0: aconst_null
-    //   1: astore 4
-    //   3: aload_0
-    //   4: getfield 34	com/yelp/android/aa/c:c	Lcom/yelp/android/aa/d;
-    //   7: aload_1
-    //   8: invokevirtual 41	com/yelp/android/aa/d:a	(Ljava/io/File;)Ljava/io/InputStream;
-    //   11: astore_1
-    //   12: aload_1
-    //   13: astore 4
-    //   15: aload_0
-    //   16: getfield 32	com/yelp/android/aa/c:b	Lcom/bumptech/glide/load/d;
-    //   19: aload_1
-    //   20: iload_2
-    //   21: iload_3
-    //   22: invokeinterface 44 4 0
-    //   27: astore 5
-    //   29: aload_1
-    //   30: ifnull +7 -> 37
-    //   33: aload_1
-    //   34: invokevirtual 49	java/io/InputStream:close	()V
-    //   37: aload 5
-    //   39: areturn
-    //   40: astore_1
-    //   41: aload 4
-    //   43: ifnull +8 -> 51
-    //   46: aload 4
-    //   48: invokevirtual 49	java/io/InputStream:close	()V
-    //   51: aload_1
-    //   52: athrow
-    //   53: astore_1
-    //   54: aload 5
-    //   56: areturn
-    //   57: astore 4
-    //   59: goto -8 -> 51
-    // Local variable table:
-    //   start	length	slot	name	signature
-    //   0	62	0	this	c
-    //   0	62	1	paramFile	File
-    //   0	62	2	paramInt1	int
-    //   0	62	3	paramInt2	int
-    //   1	46	4	localFile	File
-    //   57	1	4	localIOException	java.io.IOException
-    //   27	28	5	localt	com.bumptech.glide.load.engine.t
-    // Exception table:
-    //   from	to	target	type
-    //   3	12	40	finally
-    //   15	29	40	finally
-    //   33	37	53	java/io/IOException
-    //   46	51	57	java/io/IOException
+    a(paramClass, paramClass1, c);
   }
   
-  public String a()
+  private <T, Y> l<T, Y> c(Class<T> paramClass, Class<Y> paramClass1)
   {
-    return "";
+    paramClass = (Map)b.get(paramClass);
+    if (paramClass != null) {
+      return (l)paramClass.get(paramClass1);
+    }
+    return null;
+  }
+  
+  private <T, Y> m<T, Y> d(Class<T> paramClass, Class<Y> paramClass1)
+  {
+    Object localObject1 = (Map)a.get(paramClass);
+    if (localObject1 != null) {}
+    for (localObject1 = (m)((Map)localObject1).get(paramClass1);; localObject1 = null)
+    {
+      Object localObject2 = localObject1;
+      Iterator localIterator;
+      if (localObject1 == null) {
+        localIterator = a.keySet().iterator();
+      }
+      while (localIterator.hasNext())
+      {
+        localObject2 = (Class)localIterator.next();
+        if (((Class)localObject2).isAssignableFrom(paramClass))
+        {
+          localObject2 = (Map)a.get(localObject2);
+          if (localObject2 != null)
+          {
+            localObject2 = (m)((Map)localObject2).get(paramClass1);
+            localObject1 = localObject2;
+            if (localObject2 != null) {
+              return (m<T, Y>)localObject2;
+            }
+          }
+        }
+      }
+      return (m<T, Y>)localObject1;
+    }
+  }
+  
+  public <T, Y> l<T, Y> a(Class<T> paramClass, Class<Y> paramClass1)
+  {
+    for (;;)
+    {
+      l locall;
+      try
+      {
+        locall = c(paramClass, paramClass1);
+        if (locall != null)
+        {
+          boolean bool = c.equals(locall);
+          paramClass = locall;
+          if (bool) {
+            paramClass = null;
+          }
+          return paramClass;
+        }
+        m localm = d(paramClass, paramClass1);
+        if (localm != null)
+        {
+          locall = localm.a(d, this);
+          a(paramClass, paramClass1, locall);
+          paramClass = locall;
+          continue;
+        }
+        b(paramClass, paramClass1);
+      }
+      finally {}
+      paramClass = locall;
+    }
+  }
+  
+  public <T, Y> m<T, Y> a(Class<T> paramClass, Class<Y> paramClass1, m<T, Y> paramm)
+  {
+    try
+    {
+      b.clear();
+      Map localMap = (Map)a.get(paramClass);
+      Object localObject = localMap;
+      if (localMap == null)
+      {
+        localObject = new HashMap();
+        a.put(paramClass, localObject);
+      }
+      paramClass1 = (m)((Map)localObject).put(paramClass1, paramm);
+      paramClass = paramClass1;
+      if (paramClass1 != null)
+      {
+        paramm = a.values().iterator();
+        boolean bool;
+        do
+        {
+          paramClass = paramClass1;
+          if (!paramm.hasNext()) {
+            break;
+          }
+          bool = ((Map)paramm.next()).containsValue(paramClass1);
+        } while (!bool);
+        paramClass = null;
+      }
+      return paramClass;
+    }
+    finally {}
   }
 }
 

@@ -23,6 +23,7 @@ public class RegisteringEventEmitter
   private List<String> listenFor;
   
   public RegisteringEventEmitter(EventEmitter paramEventEmitter, Class<? extends Component> paramClass)
+    throws IllegalArgumentException
   {
     if ((paramEventEmitter == null) || (paramClass == null)) {
       throw new IllegalArgumentException(ErrorUtil.getMessage("eventEmitterAndComponentRequired"));
@@ -31,7 +32,13 @@ public class RegisteringEventEmitter
     componentType = paramClass.getSimpleName();
     emit = convertEventsFromAnnotation(paramClass, Emits.class);
     listenFor = convertEventsFromAnnotation(paramClass, ListensFor.class);
-    paramEventEmitter.on("debug", new RegisteringEventEmitter.1(this));
+    paramEventEmitter.on("debug", new EventListener()
+    {
+      public void processEvent(Event paramAnonymousEvent)
+      {
+        RegisteringEventEmitter.access$002(RegisteringEventEmitter.this, Boolean.parseBoolean(properties.get("debug").toString()));
+      }
+    });
   }
   
   private Map<String, Object> addEmitterIfDebugging(Map<String, Object> paramMap)

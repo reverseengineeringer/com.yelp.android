@@ -56,6 +56,12 @@ public class Playlist
       return localStringBuilder.toString();
     }
   }
+  
+  public static final class Fields
+  {
+    public static final String NAME = "name";
+    public static final String SHORT_DESCRIPTION = "shortDescription";
+  }
 }
 
 /* Location:

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:yelp="http://schemas.android.com/apk/res-auto">
     <include android:id="@id/header_text" layout="@layout/category_picker_header_text" />
-    <EditText android:id="@id/search_for_category" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="?baseGapSize" android:inputType="text" />
+    <com.yelp.android.ui.widgets.SpannableLinearLayout android:orientation="horizontal" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" android:layout_marginBottom="@dimen/default_base_gap_size" yelp:position="bottom|left" style="@style/YelpFullBleedCell">
+        <EditText android:id="@id/search_for_category" android:background="@null" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_margin="@dimen/default_base_gap_size" android:hint="@string/search_for_category_hint" android:drawableLeft="@drawable/search_24x24" android:drawablePadding="@dimen/search_drawable_padding" android:layout_weight="1.0" android:inputType="text" />
+        <com.yelp.android.ui.panels.PanelLoading android:layout_gravity="center" android:id="@id/search_loading_spinner" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" yelp:loadingSpinner="small" />
+    </com.yelp.android.ui.widgets.SpannableLinearLayout>
     <FrameLayout android:id="@id/categories_suggest_fragment" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-    <TextView android:textAppearance="@style/SubtitleText" android:gravity="center" android:id="@id/empty_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell" />
+    <TextView android:textAppearance="@style/DeprecatedSubtitleLightText" android:gravity="center" android:id="@id/error" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_base_gap_size" />
 </LinearLayout>

@@ -3,6 +3,14 @@
 .source "YourNextReviewAwaitsFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$a;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -15,14 +23,14 @@
     .end annotation
 .end field
 
-.field private b:Lcom/yelp/android/ui/panels/aj;
+.field private b:Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$a;
 
 .field private c:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List",
             "<",
-            "Lcom/yelp/android/ui/panels/ak;",
+            "Lcom/yelp/android/ui/panels/g;",
             ">;"
         }
     .end annotation
@@ -30,7 +38,7 @@
 
 .field private d:I
 
-.field private final e:Lcom/yelp/android/ui/panels/at;
+.field private final e:Lcom/yelp/android/ui/panels/g$a;
 
 
 # direct methods
@@ -38,22 +46,22 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 33
     invoke-direct {p0}, Landroid/support/v4/app/Fragment;-><init>()V
 
-    .line 41
+    .line 44
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->d:I
 
-    .line 148
-    new-instance v0, Lcom/yelp/android/ui/panels/ah;
+    .line 177
+    new-instance v0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$3;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/panels/ah;-><init>(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$3;-><init>(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->e:Lcom/yelp/android/ui/panels/at;
+    iput-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->e:Lcom/yelp/android/ui/panels/g$a;
 
-    .line 192
+    .line 225
     return-void
 .end method
 
@@ -71,25 +79,25 @@
     .end annotation
 
     .prologue
-    .line 45
+    .line 48
     new-instance v0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;-><init>()V
 
-    .line 46
+    .line 49
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 47
+    .line 50
     const-string/jumbo v2, "saved_suggestion_list"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 48
+    .line 51
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 49
+    .line 52
     return-object v0
 .end method
 
@@ -97,7 +105,7 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 33
     iget-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->c:Ljava/util/List;
 
     return-object v0
@@ -109,31 +117,31 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 124
-    new-instance v0, Lcom/yelp/android/ui/panels/ak;
+    .line 149
+    new-instance v0, Lcom/yelp/android/ui/panels/g;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->e:Lcom/yelp/android/ui/panels/at;
+    iget-object v2, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->e:Lcom/yelp/android/ui/panels/g$a;
 
     sget-object v3, Lcom/yelp/android/analytics/iris/IriSource;->PostReviewYNRA:Lcom/yelp/android/analytics/iris/IriSource;
 
-    invoke-direct {v0, v1, p1, v2, v3}, Lcom/yelp/android/ui/panels/ak;-><init>(Landroid/content/Context;Lcom/yelp/android/serializable/ReviewSuggestion;Lcom/yelp/android/ui/panels/at;Lcom/yelp/android/analytics/iris/IriSource;)V
+    invoke-direct {v0, v1, p1, v2, v3}, Lcom/yelp/android/ui/panels/g;-><init>(Landroid/content/Context;Lcom/yelp/android/serializable/ReviewSuggestion;Lcom/yelp/android/ui/panels/g$a;Lcom/yelp/android/analytics/iris/IriSource;)V
 
-    .line 126
+    .line 152
     iget-object v1, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->c:Ljava/util/List;
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 127
+    .line 153
     invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    .line 129
+    .line 155
     if-eqz p3, :cond_0
 
-    .line 130
+    .line 156
     invoke-static {v4, v4}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v1
@@ -142,18 +150,18 @@
 
     move-result v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/panels/ak;->measure(II)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/panels/g;->measure(II)V
 
-    .line 132
-    sget v1, Lcom/yelp/android/ui/util/cw;->c:I
+    .line 159
+    sget v1, Lcom/yelp/android/ui/util/av;->c:I
 
-    new-instance v2, Lcom/yelp/android/ui/panels/ag;
+    new-instance v2, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$2;
 
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/panels/ag;-><init>(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;Lcom/yelp/android/ui/panels/ak;)V
+    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$2;-><init>(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;Lcom/yelp/android/ui/panels/g;)V
 
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/cw;->a(Landroid/view/View;ILcom/yelp/android/ui/util/dd;)V
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/util/av;->a(Landroid/view/View;ILcom/yelp/android/ui/util/av$a;)V
 
-    .line 146
+    .line 175
     :cond_0
     return-void
 .end method
@@ -162,7 +170,7 @@
     .locals 0
 
     .prologue
-    .line 30
+    .line 33
     invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->a(Lcom/yelp/android/serializable/ReviewSuggestion;Landroid/view/ViewGroup;Z)V
 
     return-void
@@ -172,18 +180,18 @@
     .locals 1
 
     .prologue
-    .line 30
+    .line 33
     iget-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->a:Ljava/util/ArrayList;
 
     return-object v0
 .end method
 
-.method static synthetic c(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;)Lcom/yelp/android/ui/panels/aj;
+.method static synthetic c(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;)Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$a;
     .locals 1
 
     .prologue
-    .line 30
-    iget-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->b:Lcom/yelp/android/ui/panels/aj;
+    .line 33
+    iget-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->b:Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$a;
 
     return-object v0
 .end method
@@ -194,29 +202,29 @@
     .locals 4
 
     .prologue
-    .line 66
+    .line 69
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 68
+    .line 71
     :try_start_0
     move-object v0, p1
 
-    check-cast v0, Lcom/yelp/android/ui/panels/aj;
+    check-cast v0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$a;
 
     move-object v1, v0
 
-    iput-object v1, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->b:Lcom/yelp/android/ui/panels/aj;
+    iput-object v1, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->b:Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$a;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 72
+    .line 75
     return-void
 
-    .line 69
+    .line 72
     :catch_0
     move-exception v1
 
-    .line 70
+    .line 73
     new-instance v1, Ljava/lang/ClassCastException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -250,13 +258,13 @@
     .locals 2
 
     .prologue
-    .line 54
+    .line 57
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 55
+    .line 58
     if-eqz p1, :cond_1
 
-    .line 56
+    .line 59
     const-string/jumbo v0, "saved_suggestion_list"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
@@ -265,7 +273,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->a:Ljava/util/ArrayList;
 
-    .line 57
+    .line 60
     const-string/jumbo v0, "saved_num_suggestions"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
@@ -274,7 +282,7 @@
 
     iput v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->d:I
 
-    .line 61
+    .line 64
     :cond_0
     :goto_0
     new-instance v0, Ljava/util/ArrayList;
@@ -289,10 +297,10 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->c:Ljava/util/List;
 
-    .line 62
+    .line 65
     return-void
 
-    .line 58
+    .line 61
     :cond_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->getArguments()Landroid/os/Bundle;
 
@@ -300,7 +308,7 @@
 
     if-eqz v0, :cond_0
 
-    .line 59
+    .line 62
     invoke-virtual {p0}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -322,8 +330,8 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 76
-    const v0, 0x7f03015a
+    .line 80
+    const v0, 0x7f0301c1
 
     invoke-virtual {p1, v0, p2, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -331,8 +339,8 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    .line 78
-    const v1, 0x7f0c0453
+    .line 81
+    const v1, 0x7f0f0544
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -340,8 +348,8 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 79
-    const v2, 0x7f0c0454
+    .line 82
+    const v2, 0x7f0f0545
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -349,14 +357,14 @@
 
     check-cast v2, Landroid/widget/Button;
 
-    .line 80
-    new-instance v3, Lcom/yelp/android/ui/panels/af;
+    .line 83
+    new-instance v3, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$1;
 
-    invoke-direct {v3, p0, v1, v2}, Lcom/yelp/android/ui/panels/af;-><init>(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;Landroid/widget/LinearLayout;Landroid/widget/Button;)V
+    invoke-direct {v3, p0, v1, v2}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment$1;-><init>(Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;Landroid/widget/LinearLayout;Landroid/widget/Button;)V
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 97
+    .line 120
     iget v3, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->d:I
 
     const/4 v4, -0x1
@@ -380,11 +388,11 @@
     :goto_0
     move v5, v6
 
-    .line 99
+    .line 124
     :goto_1
     if-ge v5, v4, :cond_1
 
-    .line 100
+    .line 125
     iget-object v3, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -395,14 +403,14 @@
 
     invoke-direct {p0, v3, v1, v6}, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->a(Lcom/yelp/android/serializable/ReviewSuggestion;Landroid/view/ViewGroup;Z)V
 
-    .line 99
+    .line 124
     add-int/lit8 v3, v5, 0x1
 
     move v5, v3
 
     goto :goto_1
 
-    .line 97
+    .line 120
     :cond_0
     iget v3, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->d:I
 
@@ -410,7 +418,7 @@
 
     goto :goto_0
 
-    .line 102
+    .line 127
     :cond_1
     iget-object v1, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->a:Ljava/util/ArrayList;
 
@@ -420,10 +428,10 @@
 
     if-le v1, v4, :cond_2
 
-    .line 103
+    .line 128
     invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
 
-    .line 105
+    .line 130
     :cond_2
     return-object v0
 .end method
@@ -432,10 +440,10 @@
     .locals 3
 
     .prologue
-    .line 117
+    .line 142
     invoke-super {p0}, Landroid/support/v4/app/Fragment;->onDestroy()V
 
-    .line 118
+    .line 143
     iget-object v0, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->c:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -453,16 +461,16 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/panels/ak;
+    check-cast v0, Lcom/yelp/android/ui/panels/g;
 
-    .line 119
+    .line 144
     const/4 v2, 0x0
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/panels/ak;->setCallback(Lcom/yelp/android/ui/panels/at;)V
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/panels/g;->setCallback(Lcom/yelp/android/ui/panels/g$a;)V
 
     goto :goto_0
 
-    .line 121
+    .line 146
     :cond_0
     return-void
 .end method
@@ -471,17 +479,17 @@
     .locals 2
 
     .prologue
-    .line 110
+    .line 135
     invoke-super {p0, p1}, Landroid/support/v4/app/Fragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 111
+    .line 136
     const-string/jumbo v0, "saved_suggestion_list"
 
     iget-object v1, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 112
+    .line 137
     const-string/jumbo v0, "saved_num_suggestions"
 
     iget-object v1, p0, Lcom/yelp/android/ui/panels/YourNextReviewAwaitsFragment;->c:Ljava/util/List;
@@ -492,6 +500,6 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    .line 113
+    .line 138
     return-void
 .end method

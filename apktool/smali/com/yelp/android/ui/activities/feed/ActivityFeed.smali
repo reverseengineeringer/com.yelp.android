@@ -8,7 +8,7 @@
 
 .field private b:Lcom/yelp/android/appdata/StateBroadcastReceiver;
 
-.field private c:Lcom/yelp/android/appdata/ar;
+.field private c:Lcom/yelp/android/appdata/StateBroadcastReceiver$a;
 
 
 # direct methods
@@ -19,12 +19,12 @@
     .line 13
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 64
-    new-instance v0, Lcom/yelp/android/ui/activities/feed/a;
+    .line 83
+    new-instance v0, Lcom/yelp/android/ui/activities/feed/ActivityFeed$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/feed/a;-><init>(Lcom/yelp/android/ui/activities/feed/ActivityFeed;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed$1;-><init>(Lcom/yelp/android/ui/activities/feed/ActivityFeed;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->c:Lcom/yelp/android/appdata/ar;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->c:Lcom/yelp/android/appdata/StateBroadcastReceiver$a;
 
     return-void
 .end method
@@ -59,13 +59,13 @@
     .locals 1
 
     .prologue
-    .line 61
-    sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->FeedFriend:Lcom/yelp/android/analytics/iris/ViewIri;
+    .line 74
+    const/4 v0, 0x0
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -77,19 +77,35 @@
     return-object v0
 .end method
 
-.method public onBackPressed()V
+.method protected onActivityResult(IILandroid/content/Intent;)V
     .locals 1
 
     .prologue
     .line 55
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/feed/FeedFragment;->e()V
+    invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 56
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onBackPressed()V
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
+
+    invoke-virtual {v0, p1, p2, p3}, Lcom/yelp/android/ui/activities/feed/FeedFragment;->onActivityResult(IILandroid/content/Intent;)V
 
     .line 57
+    return-void
+.end method
+
+.method public onBackPressed()V
+    .locals 1
+
+    .prologue
+    .line 67
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/feed/FeedFragment;->B_()V
+
+    .line 68
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onBackPressed()V
+
+    .line 69
     return-void
 .end method
 
@@ -97,17 +113,17 @@
     .locals 3
 
     .prologue
-    const v2, 0x7f0c01d4
+    const v2, 0x7f0f020d
 
     .line 24
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 25
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroid/support/v4/app/FragmentManager;->findFragmentById(I)Landroid/support/v4/app/Fragment;
+    invoke-virtual {v0, v2}, Landroid/support/v4/app/l;->a(I)Landroid/support/v4/app/Fragment;
 
     move-result-object v0
 
@@ -115,46 +131,58 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
 
-    .line 26
+    .line 27
     iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
 
     if-nez v0, :cond_0
 
-    .line 27
+    .line 28
     new-instance v0, Lcom/yelp/android/ui/activities/feed/FeedFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/feed/FeedFragment;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
 
-    .line 28
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    .line 29
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentManager;->beginTransaction()Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0}, Landroid/support/v4/app/l;->a()Landroid/support/v4/app/o;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
 
-    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/FragmentTransaction;->replace(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
+    invoke-virtual {v0, v2, v1}, Landroid/support/v4/app/o;->b(ILandroid/support/v4/app/Fragment;)Landroid/support/v4/app/o;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/support/v4/app/FragmentTransaction;->commit()I
+    invoke-virtual {v0}, Landroid/support/v4/app/o;->a()I
 
-    .line 31
+    .line 34
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->c:Lcom/yelp/android/appdata/ar;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->c:Lcom/yelp/android/appdata/StateBroadcastReceiver$a;
 
-    invoke-static {p0, v0}, Lcom/yelp/android/appdata/StateBroadcastReceiver;->a(Landroid/content/Context;Lcom/yelp/android/appdata/ar;)Lcom/yelp/android/appdata/StateBroadcastReceiver;
+    invoke-static {p0, v0}, Lcom/yelp/android/appdata/StateBroadcastReceiver;->a(Landroid/content/Context;Lcom/yelp/android/appdata/StateBroadcastReceiver$a;)Lcom/yelp/android/appdata/StateBroadcastReceiver;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->b:Lcom/yelp/android/appdata/StateBroadcastReceiver;
 
-    .line 33
+    .line 37
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->removeToolbarElevation()V
+
+    .line 38
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->getWindow()Landroid/view/Window;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    .line 39
     return-void
 .end method
 
@@ -162,15 +190,15 @@
     .locals 1
 
     .prologue
-    .line 43
+    .line 49
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onDestroy()V
 
-    .line 44
+    .line 50
     iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->b:Lcom/yelp/android/appdata/StateBroadcastReceiver;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 45
+    .line 51
     return-void
 .end method
 
@@ -178,15 +206,15 @@
     .locals 1
 
     .prologue
-    .line 49
+    .line 61
     iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/feed/FeedFragment;->e()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/feed/FeedFragment;->B_()V
 
-    .line 50
+    .line 62
     invoke-super {p0, p1, p2}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onDrawerItemSelected(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 51
+    .line 63
     return-void
 .end method
 
@@ -194,14 +222,38 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 43
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
 
-    .line 38
+    .line 44
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->setFeedHotButtonSelected(Z)V
 
-    .line 39
+    .line 45
+    return-void
+.end method
+
+.method protected onSameActivityHotButtonClick()V
+    .locals 2
+
+    .prologue
+    .line 79
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/feed/FeedFragment;->m()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->b(Z)V
+
+    .line 80
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/feed/ActivityFeed;->a:Lcom/yelp/android/ui/activities/feed/FeedFragment;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/feed/FeedFragment;->h()V
+
+    .line 81
     return-void
 .end method

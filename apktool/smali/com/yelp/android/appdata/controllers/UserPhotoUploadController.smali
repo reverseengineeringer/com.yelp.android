@@ -3,25 +3,33 @@
 .source "UserPhotoUploadController.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
+.implements Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$1;,
+        Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;,
+        Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
         "<",
-        "Lcom/yelp/android/appdata/webrequests/gw;",
+        "Lcom/yelp/android/appdata/webrequests/fk$a;",
         ">;"
     }
 .end annotation
 
 
 # instance fields
-.field private a:Lcom/yelp/android/appdata/webrequests/gv;
+.field private a:Lcom/yelp/android/appdata/webrequests/fk;
 
-.field private b:Lcom/yelp/android/appdata/controllers/b;
+.field private b:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;
 
 .field private c:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
 
@@ -39,28 +47,28 @@
 
     iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->c:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
 
-    .line 104
+    .line 103
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/appdata/controllers/b;)V
+.method public a(Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;)V
     .locals 3
 
     .prologue
     const/4 v2, 0x0
 
     .line 41
-    iput-object p1, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/b;
+    iput-object p1, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;
 
     .line 43
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/b;
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;
 
     if-eqz v0, :cond_0
 
     .line 44
-    sget-object v0, Lcom/yelp/android/appdata/controllers/a;->a:[I
+    sget-object v0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$1;->a:[I
 
     iget-object v1, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->c:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
 
@@ -85,13 +93,13 @@
 
     .line 50
     :pswitch_1
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/gw;
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/fk$a;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v2, v1}, Lcom/yelp/android/appdata/webrequests/gw;-><init>(Lcom/yelp/android/serializable/Photo;Z)V
+    invoke-direct {v0, v2, v1}, Lcom/yelp/android/appdata/webrequests/fk$a;-><init>(Lcom/yelp/android/serializable/Photo;Z)V
 
-    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/gw;)V
+    invoke-virtual {p0, v2, v0}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/fk$a;)V
 
     goto :goto_0
 
@@ -105,14 +113,14 @@
     .end packed-switch
 .end method
 
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/gw;)V
+.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/fk$a;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
             "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/gw;",
+            "Lcom/yelp/android/appdata/webrequests/fk$a;",
             ")V"
         }
     .end annotation
@@ -121,19 +129,19 @@
     .line 110
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/gv;
+    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/fk;
 
     .line 111
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/b;
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;
 
     if-eqz v0, :cond_0
 
     .line 112
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/b;
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;
 
     const/4 v1, 0x1
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/appdata/controllers/b;->a(Z)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;->a(Z)V
 
     .line 113
     sget-object v0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;->DO_NOTHING:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
@@ -155,34 +163,39 @@
 
 .method public a(Ljava/lang/String;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
 
     .prologue
-    .line 88
+    .line 87
     sget-object v0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;->SHOW_IN_PROGRESS:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
 
     iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->c:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
 
-    .line 89
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/gv;
+    .line 88
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/fk;
 
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    invoke-direct {v0, p1, v1, v2, p0}, Lcom/yelp/android/appdata/webrequests/gv;-><init>(Ljava/lang/String;Ljava/lang/String;ZLcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v0, p1, v1, v2, p0}, Lcom/yelp/android/appdata/webrequests/fk;-><init>(Ljava/lang/String;Ljava/lang/String;ZLcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/gv;
+    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/fk;
 
-    .line 90
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/gv;
+    .line 89
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/fk;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gv;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fk;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 91
+    .line 90
     return-void
 .end method
 
@@ -212,29 +225,29 @@
     .locals 2
 
     .prologue
-    .line 97
+    .line 96
     sget-object v0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;->DO_NOTHING:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
 
     iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->c:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
 
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/gv;
+    .line 97
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/fk;
 
     if-eqz v0, :cond_0
 
-    .line 99
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/gv;
+    .line 98
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/fk;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/gv;->cancel(Z)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/fk;->a(Z)V
 
-    .line 100
+    .line 99
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/gv;
+    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/fk;
 
-    .line 102
+    .line 101
     :cond_0
     return-void
 .end method
@@ -255,19 +268,19 @@
     .line 70
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/gv;
+    iput-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a:Lcom/yelp/android/appdata/webrequests/fk;
 
     .line 71
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/b;
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;
 
     if-eqz v0, :cond_0
 
     .line 72
-    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/b;
+    iget-object v0, p0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;
 
     const/4 v1, 0x0
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/appdata/controllers/b;->a(Z)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;->a(Z)V
 
     .line 73
     sget-object v0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;->DO_NOTHING:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$CallbackStatus;
@@ -292,9 +305,9 @@
 
     .prologue
     .line 15
-    check-cast p2, Lcom/yelp/android/appdata/webrequests/gw;
+    check-cast p2, Lcom/yelp/android/appdata/webrequests/fk$a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/gw;)V
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/fk$a;)V
 
     return-void
 .end method

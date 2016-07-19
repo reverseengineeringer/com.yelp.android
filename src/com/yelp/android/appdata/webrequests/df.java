@@ -1,38 +1,23 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.analytics.iris.KahunaAttributeIri;
-import com.yelp.android.analytics.j;
-import com.yelp.android.appdata.ab;
-import com.yelp.android.serializable.eq;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.PrivacyPolicy;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-class df
-  implements m<eq>
+public class df
+  extends b<Void, Void, PrivacyPolicy>
 {
-  df(dc paramdc) {}
-  
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, eq parameq)
+  public df(ApiRequest.b<PrivacyPolicy> paramb)
   {
-    ApiException localApiException = null;
-    if (!parameq.d()) {
-      localApiException = ApiException.getExceptionForCode(11, null);
-    }
-    paramApiRequest = (dj)paramApiRequest;
-    dc.a(a, paramApiRequest.a(), parameq);
-    a.a(parameq);
-    paramApiRequest = a;
-    if (localApiException == null) {}
-    for (boolean bool = true;; bool = false)
-    {
-      dc.a(paramApiRequest, bool, localApiException);
-      ab.a().i();
-      j.a(KahunaAttributeIri.FirstName, parameq.a());
-      return;
-    }
+    super(ApiRequest.RequestType.GET, "/privacy_policy", paramb);
   }
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public PrivacyPolicy a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    dc.a(a, false, paramYelpException);
+    return (PrivacyPolicy)PrivacyPolicy.CREATOR.parse(paramJSONObject);
   }
 }
 

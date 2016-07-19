@@ -1,50 +1,40 @@
 package android.support.v7.internal.widget;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
-import android.support.v4.view.ce;
-import android.support.v4.view.eh;
-import android.support.v4.view.ex;
+import android.support.v7.internal.view.menu.f;
 import android.support.v7.widget.ActionMenuPresenter;
 import android.support.v7.widget.ActionMenuView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.MeasureSpec;
-import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.view.accessibility.AccessibilityEvent;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.yelp.android.g.b;
-import com.yelp.android.g.l;
-import com.yelp.android.l.h;
+import com.yelp.android.j.a.a;
+import com.yelp.android.j.a.f;
+import com.yelp.android.j.a.h;
+import com.yelp.android.j.a.k;
 
 public class ActionBarContextView
   extends a
-  implements ex
 {
-  private CharSequence j;
-  private CharSequence k;
-  private View l;
-  private View m;
-  private LinearLayout n;
-  private TextView o;
-  private TextView p;
+  private CharSequence g;
+  private CharSequence h;
+  private View i;
+  private View j;
+  private LinearLayout k;
+  private TextView l;
+  private TextView m;
+  private int n;
+  private int o;
+  private boolean p;
   private int q;
-  private int r;
-  private Drawable s;
-  private boolean t;
-  private int u;
-  private h v;
-  private boolean w;
-  private int x;
   
   public ActionBarContextView(Context paramContext)
   {
@@ -53,230 +43,140 @@ public class ActionBarContextView
   
   public ActionBarContextView(Context paramContext, AttributeSet paramAttributeSet)
   {
-    this(paramContext, paramAttributeSet, b.actionModeStyle);
+    this(paramContext, paramAttributeSet, a.a.actionModeStyle);
   }
   
   public ActionBarContextView(Context paramContext, AttributeSet paramAttributeSet, int paramInt)
   {
     super(paramContext, paramAttributeSet, paramInt);
-    paramContext = bg.a(paramContext, paramAttributeSet, l.ActionMode, paramInt, 0);
-    setBackgroundDrawable(paramContext.a(l.ActionMode_background));
-    q = paramContext.f(l.ActionMode_titleTextStyle, 0);
-    r = paramContext.f(l.ActionMode_subtitleTextStyle, 0);
-    h = paramContext.e(l.ActionMode_height, 0);
-    s = paramContext.a(l.ActionMode_backgroundSplit);
-    u = paramContext.f(l.ActionMode_closeItemLayout, com.yelp.android.g.i.abc_action_mode_close_item_material);
+    paramContext = p.a(paramContext, paramAttributeSet, a.k.ActionMode, paramInt, 0);
+    setBackgroundDrawable(paramContext.a(a.k.ActionMode_background));
+    n = paramContext.g(a.k.ActionMode_titleTextStyle, 0);
+    o = paramContext.g(a.k.ActionMode_subtitleTextStyle, 0);
+    e = paramContext.f(a.k.ActionMode_height, 0);
+    q = paramContext.g(a.k.ActionMode_closeItemLayout, a.h.abc_action_mode_close_item_material);
     paramContext.b();
   }
   
   private void e()
   {
-    int i3 = 8;
-    int i1 = 1;
-    if (n == null)
+    int i4 = 8;
+    int i2 = 1;
+    if (k == null)
     {
-      LayoutInflater.from(getContext()).inflate(com.yelp.android.g.i.abc_action_bar_title_item, this);
-      n = ((LinearLayout)getChildAt(getChildCount() - 1));
-      o = ((TextView)n.findViewById(com.yelp.android.g.g.action_bar_title));
-      p = ((TextView)n.findViewById(com.yelp.android.g.g.action_bar_subtitle));
-      if (q != 0) {
-        o.setTextAppearance(getContext(), q);
+      LayoutInflater.from(getContext()).inflate(a.h.abc_action_bar_title_item, this);
+      k = ((LinearLayout)getChildAt(getChildCount() - 1));
+      l = ((TextView)k.findViewById(a.f.action_bar_title));
+      m = ((TextView)k.findViewById(a.f.action_bar_subtitle));
+      if (n != 0) {
+        l.setTextAppearance(getContext(), n);
       }
-      if (r != 0) {
-        p.setTextAppearance(getContext(), r);
+      if (o != 0) {
+        m.setTextAppearance(getContext(), o);
       }
     }
-    o.setText(j);
-    p.setText(k);
-    int i;
+    l.setText(g);
+    m.setText(h);
+    int i1;
     label167:
     Object localObject;
-    if (!TextUtils.isEmpty(j))
+    if (!TextUtils.isEmpty(g))
     {
-      i = 1;
-      if (TextUtils.isEmpty(k)) {
+      i1 = 1;
+      if (TextUtils.isEmpty(h)) {
         break label234;
       }
-      localObject = p;
-      if (i1 == 0) {
+      localObject = m;
+      if (i2 == 0) {
         break label239;
       }
     }
     label234:
     label239:
-    for (int i2 = 0;; i2 = 8)
+    for (int i3 = 0;; i3 = 8)
     {
-      ((TextView)localObject).setVisibility(i2);
-      localObject = n;
-      if (i == 0)
+      ((TextView)localObject).setVisibility(i3);
+      localObject = k;
+      if (i1 == 0)
       {
-        i = i3;
-        if (i1 == 0) {}
+        i1 = i4;
+        if (i2 == 0) {}
       }
       else
       {
-        i = 0;
+        i1 = 0;
       }
-      ((LinearLayout)localObject).setVisibility(i);
-      if (n.getParent() == null) {
-        addView(n);
+      ((LinearLayout)localObject).setVisibility(i1);
+      if (k.getParent() == null) {
+        addView(k);
       }
       return;
-      i = 0;
-      break;
       i1 = 0;
+      break;
+      i2 = 0;
       break label167;
     }
   }
   
-  private void f()
+  public void a(final com.yelp.android.r.a parama)
   {
-    h localh = v;
-    if (localh != null)
+    if (i == null)
     {
-      v = null;
-      localh.b();
+      i = LayoutInflater.from(getContext()).inflate(q, this, false);
+      addView(i);
     }
-  }
-  
-  private h g()
-  {
-    ce.a(l, -l.getWidth() - l.getLayoutParams()).leftMargin);
-    Object localObject = ce.q(l).b(0.0F);
-    ((eh)localObject).a(200L);
-    ((eh)localObject).a(this);
-    ((eh)localObject).a(new DecelerateInterpolator());
-    h localh = new h();
-    localh.a((eh)localObject);
-    if (c != null)
+    for (;;)
     {
-      int i = c.getChildCount();
-      if (i > 0)
+      i.findViewById(a.f.action_mode_close_button).setOnClickListener(new View.OnClickListener()
       {
-        int i1 = i - 1;
-        i = 0;
-        while (i1 >= 0)
+        public void onClick(View paramAnonymousView)
         {
-          localObject = c.getChildAt(i1);
-          ce.e((View)localObject, 0.0F);
-          localObject = ce.q((View)localObject).d(1.0F);
-          ((eh)localObject).a(300L);
-          localh.a((eh)localObject);
-          i1 -= 1;
-          i += 1;
+          parama.c();
         }
-      }
-    }
-    return localh;
-  }
-  
-  private h h()
-  {
-    eh localeh = ce.q(l).b(-l.getWidth() - l.getLayoutParams()).leftMargin);
-    localeh.a(200L);
-    localeh.a(this);
-    localeh.a(new DecelerateInterpolator());
-    h localh = new h();
-    localh.a(localeh);
-    if ((c != null) && (c.getChildCount() > 0)) {}
-    return localh;
-  }
-  
-  public void a(View paramView) {}
-  
-  public void a(com.yelp.android.m.a parama)
-  {
-    ViewGroup.LayoutParams localLayoutParams;
-    if (l == null)
-    {
-      l = LayoutInflater.from(getContext()).inflate(u, this, false);
-      addView(l);
-      l.findViewById(com.yelp.android.g.g.action_mode_close_button).setOnClickListener(new g(this, parama));
-      parama = (android.support.v7.internal.view.menu.i)parama.b();
+      });
+      parama = (f)parama.b();
       if (d != null) {
-        d.e();
+        d.h();
       }
       d = new ActionMenuPresenter(getContext());
       d.c(true);
-      localLayoutParams = new ViewGroup.LayoutParams(-2, -1);
-      if (f) {
-        break label192;
-      }
+      ViewGroup.LayoutParams localLayoutParams = new ViewGroup.LayoutParams(-2, -1);
       parama.a(d, b);
       c = ((ActionMenuView)d.a(this));
       c.setBackgroundDrawable(null);
       addView(c, localLayoutParams);
-    }
-    for (;;)
-    {
-      w = true;
       return;
-      if (l.getParent() != null) {
-        break;
+      if (i.getParent() == null) {
+        addView(i);
       }
-      addView(l);
-      break;
-      label192:
-      d.a(getContextgetResourcesgetDisplayMetricswidthPixels, true);
-      d.b(Integer.MAX_VALUE);
-      width = -1;
-      height = h;
-      parama.a(d, b);
-      c = ((ActionMenuView)d.a(this));
-      c.setBackgroundDrawable(s);
-      e.addView(c, localLayoutParams);
     }
   }
   
   public boolean a()
   {
     if (d != null) {
-      return d.c();
+      return d.f();
     }
     return false;
   }
   
   public void b()
   {
-    if (x == 2) {
-      return;
-    }
-    if (l == null)
-    {
-      c();
-      return;
-    }
-    f();
-    x = 2;
-    v = h();
-    v.a();
-  }
-  
-  public void b(View paramView)
-  {
-    if (x == 2) {
+    if (i == null) {
       c();
     }
-    x = 0;
   }
   
   public void c()
   {
-    f();
     removeAllViews();
-    if (e != null) {
-      e.removeView(c);
-    }
-    m = null;
+    j = null;
     c = null;
-    w = false;
   }
-  
-  public void c(View paramView) {}
   
   public boolean d()
   {
-    return t;
+    return p;
   }
   
   protected ViewGroup.LayoutParams generateDefaultLayoutParams()
@@ -291,12 +191,12 @@ public class ActionBarContextView
   
   public CharSequence getSubtitle()
   {
-    return k;
+    return h;
   }
   
   public CharSequence getTitle()
   {
-    return j;
+    return g;
   }
   
   public void onDetachedFromWindow()
@@ -304,8 +204,8 @@ public class ActionBarContextView
     super.onDetachedFromWindow();
     if (d != null)
     {
-      d.d();
-      d.f();
+      d.g();
+      d.i();
     }
   }
   
@@ -318,7 +218,7 @@ public class ActionBarContextView
         paramAccessibilityEvent.setSource(this);
         paramAccessibilityEvent.setClassName(getClass().getName());
         paramAccessibilityEvent.setPackageName(getContext().getPackageName());
-        paramAccessibilityEvent.setContentDescription(j);
+        paramAccessibilityEvent.setContentDescription(g);
       }
     }
     else {
@@ -329,120 +229,108 @@ public class ActionBarContextView
   
   protected void onLayout(boolean paramBoolean, int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    paramBoolean = bm.a(this);
-    int i;
+    paramBoolean = r.a(this);
     int i1;
     int i2;
+    int i3;
     Object localObject;
     if (paramBoolean)
     {
-      i = paramInt3 - paramInt1 - getPaddingRight();
-      i1 = getPaddingTop();
-      i2 = paramInt4 - paramInt2 - getPaddingTop() - getPaddingBottom();
-      paramInt2 = i;
-      if (l != null)
-      {
-        paramInt2 = i;
-        if (l.getVisibility() != 8)
-        {
-          localObject = (ViewGroup.MarginLayoutParams)l.getLayoutParams();
-          if (!paramBoolean) {
-            break label297;
-          }
-          paramInt2 = rightMargin;
-          label89:
-          if (!paramBoolean) {
-            break label306;
-          }
-          paramInt4 = leftMargin;
-          label100:
-          paramInt2 = a(i, paramInt2, paramBoolean);
-          paramInt4 = a(a(l, paramInt2, i1, i2, paramBoolean) + paramInt2, paramInt4, paramBoolean);
-          paramInt2 = paramInt4;
-          if (w)
-          {
-            x = 1;
-            v = g();
-            v.a();
-            w = false;
-            paramInt2 = paramInt4;
-          }
-        }
+      i1 = paramInt3 - paramInt1 - getPaddingRight();
+      i2 = getPaddingTop();
+      i3 = paramInt4 - paramInt2 - getPaddingTop() - getPaddingBottom();
+      if ((i == null) || (i.getVisibility() == 8)) {
+        break label289;
       }
+      localObject = (ViewGroup.MarginLayoutParams)i.getLayoutParams();
+      if (!paramBoolean) {
+        break label252;
+      }
+      paramInt2 = rightMargin;
+      label83:
+      if (!paramBoolean) {
+        break label261;
+      }
+      paramInt4 = leftMargin;
+      label94:
+      paramInt2 = a(i1, paramInt2, paramBoolean);
+    }
+    label210:
+    label252:
+    label261:
+    label284:
+    label289:
+    for (paramInt2 = a(a(i, paramInt2, i2, i3, paramBoolean) + paramInt2, paramInt4, paramBoolean);; paramInt2 = i1)
+    {
       paramInt4 = paramInt2;
-      if (n != null)
+      if (k != null)
       {
         paramInt4 = paramInt2;
-        if (m == null)
+        if (j == null)
         {
           paramInt4 = paramInt2;
-          if (n.getVisibility() != 8) {
-            paramInt4 = paramInt2 + a(n, paramInt2, i1, i2, paramBoolean);
+          if (k.getVisibility() != 8) {
+            paramInt4 = paramInt2 + a(k, paramInt2, i2, i3, paramBoolean);
           }
         }
       }
-      if (m != null) {
-        a(m, paramInt4, i1, i2, paramBoolean);
+      if (j != null) {
+        a(j, paramInt4, i2, i3, paramBoolean);
       }
-      if (!paramBoolean) {
-        break label316;
-      }
-      paramInt1 = getPaddingLeft();
-      label255:
-      if (c != null)
+      if (paramBoolean)
       {
-        localObject = c;
-        if (paramBoolean) {
-          break label329;
+        paramInt1 = getPaddingLeft();
+        if (c != null)
+        {
+          localObject = c;
+          if (paramBoolean) {
+            break label284;
+          }
         }
       }
-    }
-    label297:
-    label306:
-    label316:
-    label329:
-    for (paramBoolean = true;; paramBoolean = false)
-    {
-      a((View)localObject, paramInt1, i1, i2, paramBoolean);
-      return;
-      i = getPaddingLeft();
-      break;
-      paramInt2 = leftMargin;
-      break label89;
-      paramInt4 = rightMargin;
-      break label100;
-      paramInt1 = paramInt3 - paramInt1 - getPaddingRight();
-      break label255;
+      for (paramBoolean = true;; paramBoolean = false)
+      {
+        a((View)localObject, paramInt1, i2, i3, paramBoolean);
+        return;
+        i1 = getPaddingLeft();
+        break;
+        paramInt2 = leftMargin;
+        break label83;
+        paramInt4 = rightMargin;
+        break label94;
+        paramInt1 = paramInt3 - paramInt1 - getPaddingRight();
+        break label210;
+      }
     }
   }
   
   protected void onMeasure(int paramInt1, int paramInt2)
   {
-    int i2 = 1073741824;
-    int i3 = 0;
+    int i3 = 1073741824;
+    int i4 = 0;
     if (View.MeasureSpec.getMode(paramInt1) != 1073741824) {
       throw new IllegalStateException(getClass().getSimpleName() + " can only be used " + "with android:layout_width=\"match_parent\" (or fill_parent)");
     }
     if (View.MeasureSpec.getMode(paramInt2) == 0) {
       throw new IllegalStateException(getClass().getSimpleName() + " can only be used " + "with android:layout_height=\"wrap_content\"");
     }
-    int i5 = View.MeasureSpec.getSize(paramInt1);
-    int i;
-    int i4;
+    int i6 = View.MeasureSpec.getSize(paramInt1);
     int i1;
-    if (h > 0)
+    int i5;
+    int i2;
+    if (e > 0)
     {
-      i = h;
-      int i6 = getPaddingTop() + getPaddingBottom();
-      paramInt1 = i5 - getPaddingLeft() - getPaddingRight();
-      i4 = i - i6;
-      i1 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
+      i1 = e;
+      int i7 = getPaddingTop() + getPaddingBottom();
+      paramInt1 = i6 - getPaddingLeft() - getPaddingRight();
+      i5 = i1 - i7;
+      i2 = View.MeasureSpec.makeMeasureSpec(i5, Integer.MIN_VALUE);
       paramInt2 = paramInt1;
       Object localObject;
-      if (l != null)
+      if (i != null)
       {
-        paramInt1 = a(l, paramInt1, i1, 0);
-        localObject = (ViewGroup.MarginLayoutParams)l.getLayoutParams();
+        paramInt1 = a(i, paramInt1, i2, 0);
+        localObject = (ViewGroup.MarginLayoutParams)i.getLayoutParams();
         paramInt2 = leftMargin;
         paramInt2 = paramInt1 - (rightMargin + paramInt2);
       }
@@ -451,32 +339,32 @@ public class ActionBarContextView
       {
         paramInt1 = paramInt2;
         if (c.getParent() == this) {
-          paramInt1 = a(c, paramInt2, i1, 0);
+          paramInt1 = a(c, paramInt2, i2, 0);
         }
       }
       paramInt2 = paramInt1;
-      if (n != null)
+      if (k != null)
       {
         paramInt2 = paramInt1;
-        if (m == null)
+        if (j == null)
         {
-          if (!t) {
+          if (!p) {
             break label512;
           }
           paramInt2 = View.MeasureSpec.makeMeasureSpec(0, 0);
-          n.measure(paramInt2, i1);
-          int i7 = n.getMeasuredWidth();
-          if (i7 > paramInt1) {
+          k.measure(paramInt2, i2);
+          int i8 = k.getMeasuredWidth();
+          if (i8 > paramInt1) {
             break label500;
           }
-          i1 = 1;
+          i2 = 1;
           label307:
           paramInt2 = paramInt1;
-          if (i1 != 0) {
-            paramInt2 = paramInt1 - i7;
+          if (i2 != 0) {
+            paramInt2 = paramInt1 - i8;
           }
-          localObject = n;
-          if (i1 == 0) {
+          localObject = k;
+          if (i2 == 0) {
             break label506;
           }
           paramInt1 = 0;
@@ -485,45 +373,45 @@ public class ActionBarContextView
         }
       }
       label338:
-      if (m != null)
+      if (j != null)
       {
-        localObject = m.getLayoutParams();
+        localObject = j.getLayoutParams();
         if (width == -2) {
           break label528;
         }
         paramInt1 = 1073741824;
         label368:
-        i1 = paramInt2;
+        i2 = paramInt2;
         if (width >= 0) {
-          i1 = Math.min(width, paramInt2);
+          i2 = Math.min(width, paramInt2);
         }
         if (height == -2) {
           break label535;
         }
-        paramInt2 = i2;
+        paramInt2 = i3;
         label403:
         if (height < 0) {
           break label542;
         }
-        i2 = Math.min(height, i4);
+        i3 = Math.min(height, i5);
         label423:
-        m.measure(View.MeasureSpec.makeMeasureSpec(i1, paramInt1), View.MeasureSpec.makeMeasureSpec(i2, paramInt2));
+        j.measure(View.MeasureSpec.makeMeasureSpec(i2, paramInt1), View.MeasureSpec.makeMeasureSpec(i3, paramInt2));
       }
-      if (h > 0) {
+      if (e > 0) {
         break label557;
       }
-      i1 = getChildCount();
+      i2 = getChildCount();
       paramInt1 = 0;
-      paramInt2 = i3;
+      paramInt2 = i4;
       label460:
-      if (paramInt2 >= i1) {
+      if (paramInt2 >= i2) {
         break label549;
       }
-      i = getChildAt(paramInt2).getMeasuredHeight() + i6;
-      if (i <= paramInt1) {
+      i1 = getChildAt(paramInt2).getMeasuredHeight() + i7;
+      if (i1 <= paramInt1) {
         break label565;
       }
-      paramInt1 = i;
+      paramInt1 = i1;
     }
     label500:
     label506:
@@ -538,42 +426,42 @@ public class ActionBarContextView
     {
       paramInt2 += 1;
       break label460;
-      i = View.MeasureSpec.getSize(paramInt2);
+      i1 = View.MeasureSpec.getSize(paramInt2);
       break;
-      i1 = 0;
+      i2 = 0;
       break label307;
       paramInt1 = 8;
       break label332;
-      paramInt2 = a(n, paramInt1, i1, 0);
+      paramInt2 = a(k, paramInt1, i2, 0);
       break label338;
       paramInt1 = Integer.MIN_VALUE;
       break label368;
       paramInt2 = Integer.MIN_VALUE;
       break label403;
-      i2 = i4;
+      i3 = i5;
       break label423;
-      setMeasuredDimension(i5, paramInt1);
+      setMeasuredDimension(i6, paramInt1);
       return;
-      setMeasuredDimension(i5, i);
+      setMeasuredDimension(i6, i1);
       return;
     }
   }
   
   public void setContentHeight(int paramInt)
   {
-    h = paramInt;
+    e = paramInt;
   }
   
   public void setCustomView(View paramView)
   {
-    if (m != null) {
-      removeView(m);
+    if (j != null) {
+      removeView(j);
     }
-    m = paramView;
-    if (n != null)
+    j = paramView;
+    if ((paramView != null) && (k != null))
     {
-      removeView(n);
-      n = null;
+      removeView(k);
+      k = null;
     }
     if (paramView != null) {
       addView(paramView);
@@ -581,63 +469,24 @@ public class ActionBarContextView
     requestLayout();
   }
   
-  public void setSplitToolbar(boolean paramBoolean)
-  {
-    ViewGroup.LayoutParams localLayoutParams;
-    ViewGroup localViewGroup;
-    if (f != paramBoolean) {
-      if (d != null)
-      {
-        localLayoutParams = new ViewGroup.LayoutParams(-2, -1);
-        if (paramBoolean) {
-          break label91;
-        }
-        c = ((ActionMenuView)d.a(this));
-        c.setBackgroundDrawable(null);
-        localViewGroup = (ViewGroup)c.getParent();
-        if (localViewGroup != null) {
-          localViewGroup.removeView(c);
-        }
-        addView(c, localLayoutParams);
-      }
-    }
-    for (;;)
-    {
-      super.setSplitToolbar(paramBoolean);
-      return;
-      label91:
-      d.a(getContextgetResourcesgetDisplayMetricswidthPixels, true);
-      d.b(Integer.MAX_VALUE);
-      width = -1;
-      height = h;
-      c = ((ActionMenuView)d.a(this));
-      c.setBackgroundDrawable(s);
-      localViewGroup = (ViewGroup)c.getParent();
-      if (localViewGroup != null) {
-        localViewGroup.removeView(c);
-      }
-      e.addView(c, localLayoutParams);
-    }
-  }
-  
   public void setSubtitle(CharSequence paramCharSequence)
   {
-    k = paramCharSequence;
+    h = paramCharSequence;
     e();
   }
   
   public void setTitle(CharSequence paramCharSequence)
   {
-    j = paramCharSequence;
+    g = paramCharSequence;
     e();
   }
   
   public void setTitleOptional(boolean paramBoolean)
   {
-    if (paramBoolean != t) {
+    if (paramBoolean != p) {
       requestLayout();
     }
-    t = paramBoolean;
+    p = paramBoolean;
   }
   
   public boolean shouldDelayChildPressedState()

@@ -7,18 +7,29 @@ import android.os.Parcelable.Creator;
 final class FragmentManagerState
   implements Parcelable
 {
-  public static final Parcelable.Creator<FragmentManagerState> CREATOR = new FragmentManagerState.1();
-  FragmentState[] mActive;
-  int[] mAdded;
-  BackStackState[] mBackStack;
+  public static final Parcelable.Creator<FragmentManagerState> CREATOR = new Parcelable.Creator()
+  {
+    public FragmentManagerState a(Parcel paramAnonymousParcel)
+    {
+      return new FragmentManagerState(paramAnonymousParcel);
+    }
+    
+    public FragmentManagerState[] a(int paramAnonymousInt)
+    {
+      return new FragmentManagerState[paramAnonymousInt];
+    }
+  };
+  FragmentState[] a;
+  int[] b;
+  BackStackState[] c;
   
   public FragmentManagerState() {}
   
   public FragmentManagerState(Parcel paramParcel)
   {
-    mActive = ((FragmentState[])paramParcel.createTypedArray(FragmentState.CREATOR));
-    mAdded = paramParcel.createIntArray();
-    mBackStack = ((BackStackState[])paramParcel.createTypedArray(BackStackState.CREATOR));
+    a = ((FragmentState[])paramParcel.createTypedArray(FragmentState.CREATOR));
+    b = paramParcel.createIntArray();
+    c = ((BackStackState[])paramParcel.createTypedArray(BackStackState.CREATOR));
   }
   
   public int describeContents()
@@ -28,9 +39,9 @@ final class FragmentManagerState
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    paramParcel.writeTypedArray(mActive, paramInt);
-    paramParcel.writeIntArray(mAdded);
-    paramParcel.writeTypedArray(mBackStack, paramInt);
+    paramParcel.writeTypedArray(a, paramInt);
+    paramParcel.writeIntArray(b);
+    paramParcel.writeTypedArray(c, paramInt);
   }
 }
 

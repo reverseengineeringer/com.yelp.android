@@ -1,5 +1,7 @@
 package com.comscore.analytics;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 class f
   implements Runnable
 {
@@ -7,8 +9,12 @@ class f
   
   public void run()
   {
-    a.b();
-    a.o();
+    if (a.an()) {}
+    while (a.y.get() <= 0) {
+      return;
+    }
+    a.y.getAndDecrement();
+    a.x();
   }
 }
 

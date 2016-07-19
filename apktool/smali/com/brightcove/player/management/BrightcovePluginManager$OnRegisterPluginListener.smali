@@ -6,6 +6,17 @@
 .implements Lcom/brightcove/player/event/EventListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/management/BrightcovePluginManager;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4
+    name = "OnRegisterPluginListener"
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/brightcove/player/management/BrightcovePluginManager;
 

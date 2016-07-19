@@ -1,23 +1,70 @@
 package com.google.android.gms.internal;
 
-import android.util.Base64;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.util.Log;
 
-public final class lb
+@Deprecated
+public class lb
+  implements lc.a
 {
-  public static String d(byte[] paramArrayOfByte)
+  private final lc a;
+  private boolean b;
+  
+  public lb(Context paramContext, int paramInt)
   {
-    if (paramArrayOfByte == null) {
-      return null;
-    }
-    return Base64.encodeToString(paramArrayOfByte, 0);
+    this(paramContext, paramInt, null);
   }
   
-  public static String e(byte[] paramArrayOfByte)
+  public lb(Context paramContext, int paramInt, String paramString)
   {
-    if (paramArrayOfByte == null) {
-      return null;
+    this(paramContext, paramInt, paramString, null, true);
+  }
+  
+  public lb(Context paramContext, int paramInt, String paramString1, String paramString2, boolean paramBoolean)
+  {
+    if (paramContext != paramContext.getApplicationContext()) {}
+    for (String str = paramContext.getClass().getName();; str = "OneTimePlayLogger")
+    {
+      a = new lc(paramContext, paramInt, paramString1, paramString2, this, paramBoolean, str);
+      b = true;
+      return;
     }
-    return Base64.encodeToString(paramArrayOfByte, 10);
+  }
+  
+  private void d()
+  {
+    if (!b) {
+      throw new IllegalStateException("Cannot reuse one-time logger after sending.");
+    }
+  }
+  
+  public void a()
+  {
+    d();
+    a.a();
+    b = false;
+  }
+  
+  public void a(PendingIntent paramPendingIntent)
+  {
+    Log.w("OneTimePlayLogger", "logger connection failed: " + paramPendingIntent);
+  }
+  
+  public void a(String paramString, byte[] paramArrayOfByte, String... paramVarArgs)
+  {
+    d();
+    a.a(paramString, paramArrayOfByte, paramVarArgs);
+  }
+  
+  public void b()
+  {
+    a.b();
+  }
+  
+  public void c()
+  {
+    Log.w("OneTimePlayLogger", "logger connection failed");
   }
 }
 

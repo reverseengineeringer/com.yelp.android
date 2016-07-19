@@ -5,4 +5,9 @@
 
 # virtual methods
 .method public abstract selectSource(Lcom/brightcove/player/model/Video;)Lcom/brightcove/player/model/Source;
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/brightcove/player/controller/NoSourceFoundException;
+        }
+    .end annotation
 .end method

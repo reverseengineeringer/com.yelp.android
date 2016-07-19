@@ -1,30 +1,20 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import org.json.JSONObject;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.ui.activities.reviews.ReviewSource;
 
 public class el
-  extends g<Void, Void, String>
+  extends c
 {
-  public el(m<String> paramm)
+  public el(String paramString1, String paramString2, int paramInt, c.a parama, ReviewSource paramReviewSource)
   {
-    super(ApiRequest.RequestType.POST, "account/resend_email_confirmation", paramm);
-  }
-  
-  public String a(JSONObject paramJSONObject)
-  {
-    String str = null;
-    if (!paramJSONObject.isNull("email")) {
-      str = paramJSONObject.optString("email");
-    }
-    return str;
-  }
-  
-  protected void processErrorMessage(JSONObject paramJSONObject1, JSONObject paramJSONObject2)
-  {
-    if (paramJSONObject2.optInt("code") != 402) {
-      super.processErrorMessage(paramJSONObject1, paramJSONObject2);
-    }
+    super("reviews/draft/save", parama);
+    b("business_id", paramString1);
+    b("text", paramString2);
+    b("rating", paramInt);
+    b("replace", "yes");
+    b("source", paramReviewSource.getSourceName());
   }
 }
 

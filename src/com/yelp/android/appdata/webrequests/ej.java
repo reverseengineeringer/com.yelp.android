@@ -1,19 +1,37 @@
 package com.yelp.android.appdata.webrequests;
 
-class ej
-  implements m<Result>
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.serializable.Video;
+
+public class ej
+  extends c
 {
-  ej(ei paramei) {}
+  private final String a;
+  private final boolean g;
   
-  public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
+  public ej(Video paramVideo, boolean paramBoolean)
   {
-    a.d = paramYelpException;
+    super("/business/video/save_feedback", null);
+    b("video_id", paramVideo.a());
+    b("video_source", paramVideo.p());
+    if (paramBoolean) {}
+    for (String str = "POSITIVE";; str = "NONE")
+    {
+      b("feedback", str);
+      a = paramVideo.a();
+      g = paramBoolean;
+      return;
+    }
   }
   
-  public void onSuccess(ApiRequest<?, ?, ?> paramApiRequest, Result paramResult)
+  public String b()
   {
-    a.b = paramResult;
-    a.c = true;
+    return a;
+  }
+  
+  public boolean d()
+  {
+    return g;
   }
 }
 

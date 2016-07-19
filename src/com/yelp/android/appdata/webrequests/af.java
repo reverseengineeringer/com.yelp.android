@@ -1,12 +1,36 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.os.Parcelable.Creator;
+import android.text.TextUtils;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.YelpBusiness;
+import java.util.Collections;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-abstract interface af
-  extends Parcelable.Creator<BusinessSearchRequest.BusinessSearchResponse>
+public class af
+  extends b<Void, Void, List<YelpBusiness>>
 {
-  public abstract BusinessSearchRequest.BusinessSearchResponse a(JSONObject paramJSONObject, String paramString, BusinessSearchRequest.FormatMode paramFormatMode);
+  public af(String paramString, ApiRequest.b<List<YelpBusiness>> paramb)
+  {
+    this(new String[] { paramString }, paramb);
+  }
+  
+  public af(String[] paramArrayOfString, ApiRequest.b<List<YelpBusiness>> paramb)
+  {
+    super(ApiRequest.RequestType.GET, "business/info", paramb);
+    a("biz_ids", TextUtils.join(",", paramArrayOfString));
+  }
+  
+  public List<YelpBusiness> a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    Object localObject = Collections.emptyList();
+    if (!paramJSONObject.isNull("businesses")) {
+      localObject = YelpBusiness.a(paramJSONObject.getJSONArray("businesses"), i_(), BusinessSearchRequest.FormatMode.FULL);
+    }
+    return (List<YelpBusiness>)localObject;
+  }
 }
 
 /* Location:

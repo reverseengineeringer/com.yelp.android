@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.yelp.android.ui.widgets.RoundedImageView android:id="@id/event_image" android:layout_width="@dimen/small_photo_size" android:layout_height="@dimen/small_photo_size" />
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/event_holder" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_weight="1.0">
+        <TextView android:textAppearance="@style/BodyText" android:id="@id/event_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:includeFontPadding="false" />
+        <TextView android:textAppearance="@style/CaptionGreyText" android:id="@id/event_time" android:paddingTop="@dimen/separator_line_width" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:includeFontPadding="false" />
+    </LinearLayout>
+</merge>

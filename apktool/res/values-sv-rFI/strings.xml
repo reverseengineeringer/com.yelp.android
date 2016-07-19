@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ad_choices_url">https://m.yelp.fi/static?p=privacy#third-parties</string>
-    <string name="advertiser_faq_url">https://m.yelp.fi/advertiser_faq</string>
     <string name="category_banks">Banker</string>
     <string name="category_bars">Barer</string>
-    <string name="category_coffee">Kaffe &amp; Te</string>
-    <string name="category_drugstores">Apoteksombud</string>
+    <string name="category_coffee">Kaffe &amp; te</string>
+    <string name="category_drugstores">Drugstore</string>
     <string name="category_nightlife">Nattliv</string>
     <string name="category_restaurants">Restauranger</string>
     <string name="category_servicestations">Bensinstationer</string>
-    <string name="compliment_cool">Cool</string>
-    <string name="compliment_cute">Söt</string>
+    <string name="compliment_cool">Du är cool</string>
+    <string name="compliment_cute">Gulligt foto</string>
     <string name="compliment_desc_cool">Du är cool, vet du det?</string>
-    <string name="compliment_desc_cute">Öh... e du modell eller?</string>
+    <string name="compliment_desc_cute">Öh… e du modell eller?</string>
     <string name="compliment_desc_funny">Dina recensioner är inte bara roliga, de är LOL!! :D</string>
     <string name="compliment_desc_hot">Du är seriöst stekhet med dina recensioner!</string>
     <string name="compliment_desc_list">Dina listor yelper mig verkligen hitta rätt!</string>
-    <string name="compliment_desc_more">Jag vet att du säkert har massa andra grejer som tar upp din tid, men jag kan inte bärga mig längre... skriv mera!</string>
+    <string name="compliment_desc_more">Jag vet att du säkert har massa andra grejer som tar upp din tid, men jag kan inte bärga mig längre… skriv mera!</string>
     <string name="compliment_desc_note">Ett kort meddelande</string>
     <string name="compliment_desc_photos">Grymma foton Leibovitz. Fortsätt briljera med kameran!</string>
     <string name="compliment_desc_plain">Som en boll kommer jag tillbaks till dig. Dina recensioner håller mig vid livet, och ger näring till min utsvultna vardag. Tack.</string>
@@ -31,12 +29,6 @@
     <string name="compliment_plain">Tack</string>
     <string name="compliment_profile">Gillar din profil</string>
     <string name="compliment_writer">Bra skribent</string>
-    <string name="content_guidelines_url">https://m.yelp.fi/guidelines</string>
-    <string name="elite_url">https://m.yelp.fi/elite</string>
-    <string name="mobile_host">m.yelp.fi</string>
-    <string name="not_recommended_reviews_url">https://m.yelp.fi/not_recommended_reviews/%1$s</string>
-    <string name="privacy_policy_url">https://m.yelp.fi/static?p=privacy</string>
-    <string name="privacy_settings_url">https://m.yelp.fi/profile_privacy</string>
     <string name="remove_reason_member_request">Detta Yelp-konto har tagits bort.</string>
     <string name="remove_reason_post_by_admin">Det här inlägget har tagits bort av en Yelp-administratör.</string>
     <string name="remove_reason_post_by_admin_tos">Det här inlägget bröt mot Yelps &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Användarvillkor&lt;/a> och har därför tagits bort.</string>
@@ -56,42 +48,54 @@
     <string name="remove_reason_topic_tos_multiple">Denna diskussionstråd har tagits bort eftersom användaren som startade tråden inte längre har ett Yelp-konto.</string>
     <string name="remove_reason_topic_tos_spammer">Denna diskussionstråd har tagits bort eftersom användaren som startade tråden inte längre har ett Yelp-konto.</string>
     <string name="remove_reason_topic_tos_threat">Denna diskussionstråd har tagits bort eftersom användaren som startade tråden inte längre har ett Yelp-konto.</string>
+    <string name="remove_reason_tos_bizowner">Detta Yelp-konto har tagits bort.</string>
     <string name="remove_reason_tos_content">Detta Yelp-konto har tagits bort.</string>
+    <string name="remove_reason_tos_deals">Detta Yelp-konto har tagits bort.</string>
     <string name="remove_reason_tos_general">Detta Yelp-konto har tagits bort.</string>
     <string name="remove_reason_tos_multiple">Detta Yelp-konto har tagits bort.</string>
+    <string name="remove_reason_tos_paidreviewer">Detta Yelp-konto har tagits bort.</string>
+    <string name="remove_reason_tos_solicitation">Detta Yelp-konto har tagits bort.</string>
     <string name="remove_reason_tos_spammer">Detta Yelp-konto har tagits bort.</string>
     <string name="remove_reason_tos_threat">Detta Yelp-konto har tagits bort.</string>
-    <string name="site_name">Yelp.fi</string>
     <string name="talk_category_0">Okategoriserat</string>
-    <string name="talk_category_1">Lokala Frågor &amp; Svar</string>
+    <string name="talk_category_1">Lokala frågor &amp; svar</string>
     <string name="talk_category_10">Mat</string>
-    <string name="talk_category_11">Shopping &amp; Produkter</string>
-    <string name="talk_category_12">Relationer &amp; Dejting</string>
+    <string name="talk_category_11">Shopping &amp; produkter</string>
+    <string name="talk_category_12">Relationer &amp; dejting</string>
     <string name="talk_category_13">Resor</string>
-    <string name="talk_category_14">Familj &amp; Föräldraskap</string>
+    <string name="talk_category_14">Familj &amp; föräldraskap</string>
     <string name="talk_category_2">Event</string>
-    <string name="talk_category_3">Humor &amp; Skratt</string>
-    <string name="talk_category_4">Underhållning &amp; Kultur</string>
+    <string name="talk_category_3">Humor &amp; skratt</string>
+    <string name="talk_category_4">Underhållning &amp; kultur</string>
     <string name="talk_category_5">Sport</string>
-    <string name="talk_category_6">Nyheter &amp; Politik</string>
-    <string name="talk_category_7">Yelp-Skvaller</string>
-    <string name="talk_category_8">Sajtfrågor &amp; Uppdateringar</string>
+    <string name="talk_category_6">Nyheter &amp; politik</string>
+    <string name="talk_category_7">Yelp-skvaller</string>
+    <string name="talk_category_8">Yelp-frågor &amp; uppdateringar</string>
     <string name="talk_category_9">Övrigt</string>
-    <string name="talk_category_entertainment_pop_culture">Underhållning &amp; Kultur</string>
+    <string name="talk_category_entertainment_pop_culture">Underhållning &amp; kultur</string>
     <string name="talk_category_events">Event</string>
-    <string name="talk_category_family_and_parenting">Familj &amp; Föräldraskap</string>
+    <string name="talk_category_family_and_parenting">Familj &amp; föräldraskap</string>
     <string name="talk_category_food">Mat</string>
-    <string name="talk_category_humor_and_offbeat">Humor &amp; Skratt</string>
-    <string name="talk_category_local_questions_and_answers">Lokala Frågor &amp; Svar</string>
-    <string name="talk_category_news_and_politics">Nyheter &amp; Politik</string>
+    <string name="talk_category_humor_and_offbeat">Humor &amp; skratt</string>
+    <string name="talk_category_local_questions_and_answers">Lokala frågor &amp; svar</string>
+    <string name="talk_category_news_and_politics">Nyheter &amp; politik</string>
     <string name="talk_category_other">Övrigt</string>
-    <string name="talk_category_relationships_dating">Relationer &amp; Dejting</string>
-    <string name="talk_category_shopping_and_products">Shopping &amp; Produkter</string>
-    <string name="talk_category_site_questions_and_updates">Sajtfrågor &amp; Uppdateringar</string>
+    <string name="talk_category_relationships_dating">Relationer &amp; dejting</string>
+    <string name="talk_category_shopping_and_products">Shopping &amp; produkter</string>
+    <string name="talk_category_site_questions_and_updates">Yelp-frågor &amp; uppdateringar</string>
     <string name="talk_category_sports">Sport</string>
     <string name="talk_category_travel">Resor</string>
     <string name="talk_category_uncategorized">Okategoriserat</string>
-    <string name="talk_category_yelper_shout_outs">Yelp-Skvaller</string>
+    <string name="talk_category_yelper_shout_outs">Yelp-skvaller</string>
+    <string name="ad_choices_url">https://m.yelp.fi/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.fi/advertiser_faq</string>
+    <string name="content_guidelines_url">https://m.yelp.fi/guidelines</string>
+    <string name="elite_url">https://m.yelp.fi/elite</string>
+    <string name="mobile_host">m.yelp.fi</string>
+    <string name="not_recommended_reviews_url">https://m.yelp.fi/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://m.yelp.fi/static?p=privacy</string>
+    <string name="privacy_settings_url">https://m.yelp.fi/profile_privacy</string>
+    <string name="site_name">Yelp.fi</string>
     <string name="terms_of_service_url">https://sv.m.yelp.fi/static?p=tos</string>
     <string name="www_host">www.yelp.fi</string>
 </resources>

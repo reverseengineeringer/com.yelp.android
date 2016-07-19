@@ -1,17 +1,19 @@
 package com.yelp.android.serializable;
 
 import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class EventSection
   extends _EventSection
 {
-  public static final JsonParser.DualCreator<EventSection> CREATOR = new am();
+  public static final JsonParser.DualCreator<EventSection> CREATOR = new EventSection.1();
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    super.readFromJson(paramJSONObject);
-    mEvents = Event.buildEventsFromJSONResponse(paramJSONObject.getJSONArray("events"), paramJSONObject.getJSONArray("users"), paramJSONObject.getJSONArray("businesses"));
+    super.a(paramJSONObject);
+    a = Event.a(paramJSONObject.getJSONArray("events"), paramJSONObject.getJSONArray("users"), paramJSONObject.getJSONArray("businesses"));
   }
 }
 

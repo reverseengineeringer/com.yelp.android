@@ -1,24 +1,49 @@
 package com.google.android.gms.maps;
 
-import android.os.Parcel;
+import android.os.RemoteException;
+import com.google.android.gms.common.internal.zzx;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.RuntimeRemoteException;
 
-public class b
+public final class b
 {
-  static void a(GoogleMapOptions paramGoogleMapOptions, Parcel paramParcel, int paramInt)
+  private static com.yelp.android.bj.a a;
+  
+  public static a a(CameraPosition paramCameraPosition)
   {
-    int i = com.google.android.gms.common.internal.safeparcel.b.H(paramParcel);
-    com.google.android.gms.common.internal.safeparcel.b.c(paramParcel, 1, paramGoogleMapOptions.getVersionCode());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 2, paramGoogleMapOptions.nD());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 3, paramGoogleMapOptions.nE());
-    com.google.android.gms.common.internal.safeparcel.b.c(paramParcel, 4, paramGoogleMapOptions.getMapType());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 5, paramGoogleMapOptions.getCamera(), paramInt, false);
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 6, paramGoogleMapOptions.nF());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 7, paramGoogleMapOptions.nG());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 8, paramGoogleMapOptions.nH());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 9, paramGoogleMapOptions.nI());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 10, paramGoogleMapOptions.nJ());
-    com.google.android.gms.common.internal.safeparcel.b.a(paramParcel, 11, paramGoogleMapOptions.nK());
-    com.google.android.gms.common.internal.safeparcel.b.H(paramParcel, i);
+    try
+    {
+      paramCameraPosition = new a(a().a(paramCameraPosition));
+      return paramCameraPosition;
+    }
+    catch (RemoteException paramCameraPosition)
+    {
+      throw new RuntimeRemoteException(paramCameraPosition);
+    }
+  }
+  
+  public static a a(LatLngBounds paramLatLngBounds, int paramInt)
+  {
+    try
+    {
+      paramLatLngBounds = new a(a().a(paramLatLngBounds, paramInt));
+      return paramLatLngBounds;
+    }
+    catch (RemoteException paramLatLngBounds)
+    {
+      throw new RuntimeRemoteException(paramLatLngBounds);
+    }
+  }
+  
+  private static com.yelp.android.bj.a a()
+  {
+    return (com.yelp.android.bj.a)zzx.zzb(a, "CameraUpdateFactory is not initialized");
+  }
+  
+  public static void a(com.yelp.android.bj.a parama)
+  {
+    a = (com.yelp.android.bj.a)zzx.zzz(parama);
   }
 }
 

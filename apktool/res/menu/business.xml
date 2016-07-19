@@ -10,5 +10,5 @@
     <item android:id="@id/call" android:title="@string/call" />
     <item android:id="@id/edit_business" android:title="@string/edit_business" />
     <item android:id="@id/save_business" android:title="@string/save_business" />
-    <item android:id="@id/share" android:title="@string/share" />
+    <item android:icon="@drawable/ic_action_share" android:id="@id/share" android:title="@string/share" />
 </menu>

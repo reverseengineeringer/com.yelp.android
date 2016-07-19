@@ -1,33 +1,35 @@
 package com.yelp.android.serializable;
 
-import android.content.Context;
+import android.app.Activity;
 import android.os.Parcelable;
-import com.yelp.android.ui.activities.businesspage.o;
+import com.yelp.android.ui.activities.businesspage.b;
 
 public abstract interface SearchAction
   extends Parcelable
 {
-  public abstract int[] getBorderColor();
+  public abstract BusinessSearchResult.SearchActionType a();
   
-  public abstract o getBusinessListButton();
+  public abstract void a(Activity paramActivity, BusinessSearchResult paramBusinessSearchResult, String paramString);
   
-  public abstract int[] getDefaultColorBottom();
+  public abstract boolean b();
   
-  public abstract int[] getDefaultColorTop();
+  public abstract String c();
   
-  public abstract BusinessSearchResult.SearchActionType getSearchActionType();
+  public abstract int[] e();
   
-  public abstract int[] getSelectedColorBottom();
+  public abstract int[] f();
   
-  public abstract int[] getSelectedColorTop();
+  public abstract int[] g();
   
-  public abstract String getText();
+  public abstract int[] h();
   
-  public abstract int[] getTextColor();
+  public abstract int[] i();
   
-  public abstract boolean isDisabled();
+  public abstract int[] j();
   
-  public abstract void onPressed(Context paramContext, BusinessSearchResult paramBusinessSearchResult);
+  public abstract String l();
+  
+  public abstract b n();
 }
 
 /* Location:

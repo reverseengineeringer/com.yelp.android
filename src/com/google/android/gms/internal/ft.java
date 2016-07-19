@@ -1,212 +1,78 @@
 package com.google.android.gms.internal;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import com.google.android.gms.ads.internal.formats.a;
+import com.google.android.gms.ads.internal.formats.c;
+import com.google.android.gms.ads.internal.formats.f;
+import com.yelp.android.g.i;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-@ey
-public final class ft
+@fv
+public class ft
+  implements fq.a<f>
 {
-  private int mOrientation = -1;
-  private String pD;
-  private String uJ;
-  private String uK;
-  private List<String> uL;
-  private String uM;
-  private String uN;
-  private List<String> uO;
-  private long uP = -1L;
-  private boolean uQ = false;
-  private final long uR = -1L;
-  private long uS = -1L;
-  private boolean uT = false;
-  private boolean uU = false;
-  private boolean uV = false;
-  private boolean uW = true;
-  private List<String> uo;
+  private final boolean a;
   
-  static String a(Map<String, List<String>> paramMap, String paramString)
+  public ft(boolean paramBoolean)
   {
-    paramMap = (List)paramMap.get(paramString);
-    if ((paramMap != null) && (!paramMap.isEmpty())) {
-      return (String)paramMap.get(0);
-    }
-    return null;
+    a = paramBoolean;
   }
   
-  static long b(Map<String, List<String>> paramMap, String paramString)
+  private <K, V> i<K, V> a(i<K, Future<V>> parami)
+    throws InterruptedException, ExecutionException
   {
-    paramMap = (List)paramMap.get(paramString);
-    if ((paramMap != null) && (!paramMap.isEmpty()))
+    i locali = new i();
+    int i = 0;
+    while (i < parami.size())
     {
-      paramMap = (String)paramMap.get(0);
-      try
+      locali.put(parami.b(i), ((Future)parami.c(i)).get());
+      i += 1;
+    }
+    return locali;
+  }
+  
+  private void a(fq paramfq, JSONObject paramJSONObject, i<String, Future<c>> parami)
+    throws JSONException
+  {
+    parami.put(paramJSONObject.getString("name"), paramfq.a(paramJSONObject, "image_value", a));
+  }
+  
+  private void a(JSONObject paramJSONObject, i<String, String> parami)
+    throws JSONException
+  {
+    parami.put(paramJSONObject.getString("name"), paramJSONObject.getString("string_value"));
+  }
+  
+  public f b(fq paramfq, JSONObject paramJSONObject)
+    throws JSONException, InterruptedException, ExecutionException
+  {
+    i locali1 = new i();
+    i locali2 = new i();
+    hs localhs = paramfq.b(paramJSONObject);
+    JSONArray localJSONArray = paramJSONObject.getJSONArray("custom_assets");
+    int i = 0;
+    if (i < localJSONArray.length())
+    {
+      JSONObject localJSONObject = localJSONArray.getJSONObject(i);
+      String str = localJSONObject.getString("type");
+      if ("string".equals(str)) {
+        a(localJSONObject, locali2);
+      }
+      for (;;)
       {
-        float f = Float.parseFloat(paramMap);
-        return (f * 1000.0F);
-      }
-      catch (NumberFormatException localNumberFormatException)
-      {
-        gr.W("Could not parse float from " + paramString + " header: " + paramMap);
-      }
-    }
-    return -1L;
-  }
-  
-  static List<String> c(Map<String, List<String>> paramMap, String paramString)
-  {
-    paramMap = (List)paramMap.get(paramString);
-    if ((paramMap != null) && (!paramMap.isEmpty()))
-    {
-      paramMap = (String)paramMap.get(0);
-      if (paramMap != null) {
-        return Arrays.asList(paramMap.trim().split("\\s+"));
+        i += 1;
+        break;
+        if ("image".equals(str)) {
+          a(paramfq, localJSONObject, locali1);
+        } else {
+          gz.d("Unknown custom asset type: " + str);
+        }
       }
     }
-    return null;
-  }
-  
-  private boolean d(Map<String, List<String>> paramMap, String paramString)
-  {
-    paramMap = (List)paramMap.get(paramString);
-    return (paramMap != null) && (!paramMap.isEmpty()) && (Boolean.valueOf((String)paramMap.get(0)).booleanValue());
-  }
-  
-  private void f(Map<String, List<String>> paramMap)
-  {
-    uJ = a(paramMap, "X-Afma-Ad-Size");
-  }
-  
-  private void g(Map<String, List<String>> paramMap)
-  {
-    paramMap = c(paramMap, "X-Afma-Click-Tracking-Urls");
-    if (paramMap != null) {
-      uL = paramMap;
-    }
-  }
-  
-  private void h(Map<String, List<String>> paramMap)
-  {
-    paramMap = (List)paramMap.get("X-Afma-Debug-Dialog");
-    if ((paramMap != null) && (!paramMap.isEmpty())) {
-      uM = ((String)paramMap.get(0));
-    }
-  }
-  
-  private void i(Map<String, List<String>> paramMap)
-  {
-    paramMap = c(paramMap, "X-Afma-Tracking-Urls");
-    if (paramMap != null) {
-      uO = paramMap;
-    }
-  }
-  
-  private void j(Map<String, List<String>> paramMap)
-  {
-    long l = b(paramMap, "X-Afma-Interstitial-Timeout");
-    if (l != -1L) {
-      uP = l;
-    }
-  }
-  
-  private void k(Map<String, List<String>> paramMap)
-  {
-    uN = a(paramMap, "X-Afma-ActiveView");
-  }
-  
-  private void l(Map<String, List<String>> paramMap)
-  {
-    uU |= d(paramMap, "X-Afma-Native");
-  }
-  
-  private void m(Map<String, List<String>> paramMap)
-  {
-    uT |= d(paramMap, "X-Afma-Custom-Rendering-Allowed");
-  }
-  
-  private void n(Map<String, List<String>> paramMap)
-  {
-    uQ |= d(paramMap, "X-Afma-Mediation");
-  }
-  
-  private void o(Map<String, List<String>> paramMap)
-  {
-    paramMap = c(paramMap, "X-Afma-Manual-Tracking-Urls");
-    if (paramMap != null) {
-      uo = paramMap;
-    }
-  }
-  
-  private void p(Map<String, List<String>> paramMap)
-  {
-    long l = b(paramMap, "X-Afma-Refresh-Rate");
-    if (l != -1L) {
-      uS = l;
-    }
-  }
-  
-  private void q(Map<String, List<String>> paramMap)
-  {
-    paramMap = (List)paramMap.get("X-Afma-Orientation");
-    if ((paramMap != null) && (!paramMap.isEmpty()))
-    {
-      paramMap = (String)paramMap.get(0);
-      if (!"portrait".equalsIgnoreCase(paramMap)) {
-        break label53;
-      }
-      mOrientation = gi.dv();
-    }
-    label53:
-    while (!"landscape".equalsIgnoreCase(paramMap)) {
-      return;
-    }
-    mOrientation = gi.du();
-  }
-  
-  private void r(Map<String, List<String>> paramMap)
-  {
-    paramMap = (List)paramMap.get("X-Afma-Use-HTTPS");
-    if ((paramMap != null) && (!paramMap.isEmpty())) {
-      uV = Boolean.valueOf((String)paramMap.get(0)).booleanValue();
-    }
-  }
-  
-  private void s(Map<String, List<String>> paramMap)
-  {
-    paramMap = (List)paramMap.get("X-Afma-Content-Url-Opted-Out");
-    if ((paramMap != null) && (!paramMap.isEmpty())) {
-      uW = Boolean.valueOf((String)paramMap.get(0)).booleanValue();
-    }
-  }
-  
-  public void a(String paramString1, Map<String, List<String>> paramMap, String paramString2)
-  {
-    uK = paramString1;
-    pD = paramString2;
-    e(paramMap);
-  }
-  
-  public void e(Map<String, List<String>> paramMap)
-  {
-    f(paramMap);
-    g(paramMap);
-    h(paramMap);
-    i(paramMap);
-    j(paramMap);
-    n(paramMap);
-    o(paramMap);
-    p(paramMap);
-    q(paramMap);
-    k(paramMap);
-    r(paramMap);
-    m(paramMap);
-    l(paramMap);
-    s(paramMap);
-  }
-  
-  public fj i(long paramLong)
-  {
-    return new fj(uK, pD, uL, uO, uP, uQ, -1L, uo, uS, mOrientation, uJ, paramLong, uM, uN, uT, uU, uV, uW);
+    return new f(paramJSONObject.getString("custom_template_id"), a(locali1), locali2, (a)localhs.get());
   }
 }
 

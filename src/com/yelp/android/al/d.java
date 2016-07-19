@@ -1,14 +1,8 @@
 package com.yelp.android.al;
 
-public class d
-  extends a
+public abstract interface d<R>
 {
-  private Boolean d = Boolean.valueOf(true);
-  
-  public d(String paramString1, String paramString2, Boolean paramBoolean)
-  {
-    super(paramString1, paramString2, paramBoolean);
-  }
+  public abstract c<R> a(boolean paramBoolean1, boolean paramBoolean2);
 }
 
 /* Location:

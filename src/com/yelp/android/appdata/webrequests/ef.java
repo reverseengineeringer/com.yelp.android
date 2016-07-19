@@ -1,31 +1,37 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.serializable.YelpCheckIn;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.TranslatedReview;
+import com.yelp.parcelgen.JsonParser.DualCreator;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ef
-  extends g<Void, Void, List<YelpCheckIn>>
+  extends b<String, Void, Map<String, TranslatedReview>>
 {
-  private final String a;
-  
-  public ef(m<List<YelpCheckIn>> paramm, String paramString, int paramInt)
+  public ef(Iterable<String> paramIterable, Locale paramLocale, ApiRequest.b<Map<String, TranslatedReview>> paramb)
   {
-    super(ApiRequest.RequestType.GET, "check_ins/regular", paramm);
-    addUrlParam("offset", paramInt);
-    a = paramString;
-    if (paramString != null) {
-      addUrlParam("user_id", paramString);
-    }
+    super(ApiRequest.RequestType.GET, "review/translate", paramb);
+    a("review_ids", paramIterable);
+    a("translate_to_lang", paramLocale.getLanguage());
   }
   
-  public List<YelpCheckIn> a(JSONObject paramJSONObject)
+  public Map<String, TranslatedReview> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    HashMap localHashMap = YelpBusiness.jsonBusinessesToMap(paramJSONObject.getJSONArray("businesses"), getRequestId(), BusinessSearchRequest.FormatMode.FULL);
-    return YelpCheckIn.checkInsFromJSONArray(paramJSONObject.getJSONArray("check_ins"), localHashMap);
+    paramJSONObject = paramJSONObject.getJSONObject("translated_reviews");
+    HashMap localHashMap = new HashMap();
+    Iterator localIterator = paramJSONObject.keys();
+    while (localIterator.hasNext())
+    {
+      String str = (String)localIterator.next();
+      localHashMap.put(str, TranslatedReview.CREATOR.parse(paramJSONObject.getJSONObject(str)));
+    }
+    return localHashMap;
   }
 }
 

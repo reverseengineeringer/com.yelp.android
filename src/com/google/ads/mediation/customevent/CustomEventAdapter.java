@@ -4,20 +4,17 @@ import android.app.Activity;
 import android.view.View;
 import com.google.ads.AdRequest.ErrorCode;
 import com.google.ads.AdSize;
-import com.google.ads.mediation.MediationAdRequest;
-import com.google.ads.mediation.MediationBannerAdapter;
-import com.google.ads.mediation.MediationBannerListener;
-import com.google.ads.mediation.MediationInterstitialAdapter;
-import com.google.ads.mediation.MediationInterstitialListener;
-import com.google.android.gms.ads.mediation.customevent.CustomEventExtras;
-import com.google.android.gms.internal.gr;
+import com.google.ads.mediation.g;
+import com.google.android.gms.common.annotation.KeepName;
+import com.google.android.gms.internal.gz;
 
+@KeepName
 public final class CustomEventAdapter
-  implements MediationBannerAdapter<CustomEventExtras, CustomEventServerParameters>, MediationInterstitialAdapter<CustomEventExtras, CustomEventServerParameters>
+  implements com.google.ads.mediation.d<com.google.android.gms.ads.mediation.customevent.d, f>, com.google.ads.mediation.f<com.google.android.gms.ads.mediation.customevent.d, f>
 {
-  private View n;
-  private CustomEventBanner o;
-  private CustomEventInterstitial p;
+  b a;
+  d b;
+  private View c;
   
   private static <T> T a(String paramString)
   {
@@ -28,76 +25,102 @@ public final class CustomEventAdapter
     }
     catch (Throwable localThrowable)
     {
-      gr.W("Could not instantiate custom event adapter: " + paramString + ". " + localThrowable.getMessage());
+      gz.d("Could not instantiate custom event adapter: " + paramString + ". " + localThrowable.getMessage());
     }
     return null;
   }
   
-  private void a(View paramView)
+  b a(g paramg)
   {
-    n = paramView;
+    return new b(this, paramg);
   }
   
-  public void destroy()
+  public void a()
   {
-    if (o != null) {
-      o.destroy();
+    if (a != null) {
+      a.a();
     }
-    if (p != null) {
-      p.destroy();
+    if (b != null) {
+      b.a();
     }
   }
   
-  public Class<CustomEventExtras> getAdditionalParametersType()
+  public void a(com.google.ads.mediation.e parame, Activity paramActivity, f paramf, AdSize paramAdSize, com.google.ads.mediation.b paramb, com.google.android.gms.ads.mediation.customevent.d paramd)
   {
-    return CustomEventExtras.class;
-  }
-  
-  public View getBannerView()
-  {
-    return n;
-  }
-  
-  public Class<CustomEventServerParameters> getServerParametersType()
-  {
-    return CustomEventServerParameters.class;
-  }
-  
-  public void requestBannerAd(MediationBannerListener paramMediationBannerListener, Activity paramActivity, CustomEventServerParameters paramCustomEventServerParameters, AdSize paramAdSize, MediationAdRequest paramMediationAdRequest, CustomEventExtras paramCustomEventExtras)
-  {
-    o = ((CustomEventBanner)a(className));
-    if (o == null)
+    a = ((b)a(b));
+    if (a == null)
     {
-      paramMediationBannerListener.onFailedToReceiveAd(this, AdRequest.ErrorCode.INTERNAL_ERROR);
+      parame.a(this, AdRequest.ErrorCode.INTERNAL_ERROR);
       return;
     }
-    if (paramCustomEventExtras == null) {}
-    for (paramCustomEventExtras = null;; paramCustomEventExtras = paramCustomEventExtras.getExtra(label))
+    if (paramd == null) {}
+    for (paramd = null;; paramd = paramd.a(a))
     {
-      o.requestBannerAd(new CustomEventAdapter.a(this, paramMediationBannerListener), paramActivity, label, parameter, paramAdSize, paramMediationAdRequest, paramCustomEventExtras);
+      a.a(new a(this, parame), paramActivity, a, c, paramAdSize, paramb, paramd);
       return;
     }
   }
   
-  public void requestInterstitialAd(MediationInterstitialListener paramMediationInterstitialListener, Activity paramActivity, CustomEventServerParameters paramCustomEventServerParameters, MediationAdRequest paramMediationAdRequest, CustomEventExtras paramCustomEventExtras)
+  public void a(g paramg, Activity paramActivity, f paramf, com.google.ads.mediation.b paramb, com.google.android.gms.ads.mediation.customevent.d paramd)
   {
-    p = ((CustomEventInterstitial)a(className));
-    if (p == null)
+    b = ((d)a(b));
+    if (b == null)
     {
-      paramMediationInterstitialListener.onFailedToReceiveAd(this, AdRequest.ErrorCode.INTERNAL_ERROR);
+      paramg.a(this, AdRequest.ErrorCode.INTERNAL_ERROR);
       return;
     }
-    if (paramCustomEventExtras == null) {}
-    for (paramCustomEventExtras = null;; paramCustomEventExtras = paramCustomEventExtras.getExtra(label))
+    if (paramd == null) {}
+    for (paramd = null;; paramd = paramd.a(a))
     {
-      p.requestInterstitialAd(new CustomEventAdapter.b(this, this, paramMediationInterstitialListener), paramActivity, label, parameter, paramMediationAdRequest, paramCustomEventExtras);
+      b.a(a(paramg), paramActivity, a, c, paramb, paramd);
       return;
     }
   }
   
-  public void showInterstitial()
+  public Class<com.google.android.gms.ads.mediation.customevent.d> b()
   {
-    p.showInterstitial();
+    return com.google.android.gms.ads.mediation.customevent.d.class;
+  }
+  
+  public Class<f> c()
+  {
+    return f.class;
+  }
+  
+  public View d()
+  {
+    return c;
+  }
+  
+  public void e()
+  {
+    b.b();
+  }
+  
+  static final class a
+    implements c
+  {
+    private final CustomEventAdapter a;
+    private final com.google.ads.mediation.e b;
+    
+    public a(CustomEventAdapter paramCustomEventAdapter, com.google.ads.mediation.e parame)
+    {
+      a = paramCustomEventAdapter;
+      b = parame;
+    }
+  }
+  
+  class b
+    implements e
+  {
+    private final CustomEventAdapter b;
+    private final g c;
+    
+    public b(CustomEventAdapter paramCustomEventAdapter, g paramg)
+    {
+      b = paramCustomEventAdapter;
+      c = paramg;
+    }
   }
 }
 

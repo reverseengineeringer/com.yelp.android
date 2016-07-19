@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 import android.text.TextUtils.TruncateAt;
@@ -16,11 +17,11 @@ import java.lang.ref.WeakReference;
 
 public class PagerTitleStrip
   extends ViewGroup
-  implements dq
+  implements ViewPager.a
 {
   private static final int[] n = { 16842804, 16842901, 16842904, 16842927 };
   private static final int[] o = { 16843660 };
-  private static final bt q = new bu();
+  private static final b q = new c();
   ViewPager a;
   TextView b;
   TextView c;
@@ -32,15 +33,15 @@ public class PagerTitleStrip
   private int i;
   private boolean j;
   private boolean k;
-  private final bs l = new bs(this, null);
-  private WeakReference<bo> m;
+  private final a l = new a(null);
+  private WeakReference<ac> m;
   private int p;
   
   static
   {
     if (Build.VERSION.SDK_INT >= 14)
     {
-      q = new bv();
+      q = new d();
       return;
     }
   }
@@ -199,47 +200,41 @@ public class PagerTitleStrip
     }
   }
   
-  void a(int paramInt, bo parambo)
+  void a(int paramInt, ac paramac)
   {
     Object localObject2 = null;
     int i1;
-    if (parambo != null)
+    if (paramac != null)
     {
-      i1 = parambo.getCount();
+      i1 = paramac.b();
       j = true;
-      if ((paramInt < 1) || (parambo == null)) {
-        break label250;
+      if ((paramInt < 1) || (paramac == null)) {
+        break label236;
       }
     }
-    label250:
-    for (Object localObject1 = parambo.getPageTitle(paramInt - 1);; localObject1 = null)
+    label236:
+    for (Object localObject1 = paramac.b(paramInt - 1);; localObject1 = null)
     {
       b.setText((CharSequence)localObject1);
       TextView localTextView = c;
-      if ((parambo != null) && (paramInt < i1)) {}
-      for (localObject1 = parambo.getPageTitle(paramInt);; localObject1 = null)
+      if ((paramac != null) && (paramInt < i1)) {}
+      for (localObject1 = paramac.b(paramInt);; localObject1 = null)
       {
         localTextView.setText((CharSequence)localObject1);
         localObject1 = localObject2;
         if (paramInt + 1 < i1)
         {
           localObject1 = localObject2;
-          if (parambo != null) {
-            localObject1 = parambo.getPageTitle(paramInt + 1);
+          if (paramac != null) {
+            localObject1 = paramac.b(paramInt + 1);
           }
         }
         d.setText((CharSequence)localObject1);
-        int i4 = getWidth();
-        int i5 = getPaddingLeft();
-        int i6 = getPaddingRight();
-        i1 = getHeight();
-        int i2 = getPaddingTop();
-        int i3 = getPaddingBottom();
-        i4 = View.MeasureSpec.makeMeasureSpec((int)((i4 - i5 - i6) * 0.8F), Integer.MIN_VALUE);
-        i1 = View.MeasureSpec.makeMeasureSpec(i1 - i2 - i3, Integer.MIN_VALUE);
-        b.measure(i4, i1);
-        c.measure(i4, i1);
-        d.measure(i4, i1);
+        i1 = View.MeasureSpec.makeMeasureSpec(Math.max(0, (int)((getWidth() - getPaddingLeft() - getPaddingRight()) * 0.8F)), Integer.MIN_VALUE);
+        int i2 = View.MeasureSpec.makeMeasureSpec(Math.max(0, getHeight() - getPaddingTop() - getPaddingBottom()), Integer.MIN_VALUE);
+        b.measure(i1, i2);
+        c.measure(i1, i2);
+        d.measure(i1, i2);
         f = paramInt;
         if (!k) {
           a(paramInt, g, false);
@@ -252,23 +247,23 @@ public class PagerTitleStrip
     }
   }
   
-  void a(bo parambo1, bo parambo2)
+  void a(ac paramac1, ac paramac2)
   {
-    if (parambo1 != null)
+    if (paramac1 != null)
     {
-      parambo1.unregisterDataSetObserver(l);
+      paramac1.b(l);
       m = null;
     }
-    if (parambo2 != null)
+    if (paramac2 != null)
     {
-      parambo2.registerDataSetObserver(l);
-      m = new WeakReference(parambo2);
+      paramac2.a(l);
+      m = new WeakReference(paramac2);
     }
     if (a != null)
     {
       f = -1;
       g = -1.0F;
-      a(a.getCurrentItem(), parambo2);
+      a(a.getCurrentItem(), paramac2);
       requestLayout();
     }
   }
@@ -296,14 +291,14 @@ public class PagerTitleStrip
       throw new IllegalStateException("PagerTitleStrip must be a direct child of a ViewPager.");
     }
     localObject = (ViewPager)localObject;
-    bo localbo = ((ViewPager)localObject).getAdapter();
-    ((ViewPager)localObject).a(l);
+    ac localac = ((ViewPager)localObject).getAdapter();
+    ((ViewPager)localObject).b(l);
     ((ViewPager)localObject).setOnAdapterChangeListener(l);
     a = ((ViewPager)localObject);
     if (m != null) {}
-    for (localObject = (bo)m.get();; localObject = null)
+    for (localObject = (ac)m.get();; localObject = null)
     {
-      a((bo)localObject, localbo);
+      a((ac)localObject, localac);
       return;
     }
   }
@@ -314,7 +309,7 @@ public class PagerTitleStrip
     if (a != null)
     {
       a(a.getAdapter(), null);
-      a.a(null);
+      a.b(null);
       a.setOnAdapterChangeListener(null);
       a = null;
     }
@@ -343,8 +338,8 @@ public class PagerTitleStrip
     }
     i2 = getMinHeight();
     int i3 = getPaddingTop() + getPaddingBottom();
-    int i4 = View.MeasureSpec.makeMeasureSpec((int)(paramInt1 * 0.8F), Integer.MIN_VALUE);
-    int i5 = View.MeasureSpec.makeMeasureSpec(paramInt2 - i3, Integer.MIN_VALUE);
+    int i4 = View.MeasureSpec.makeMeasureSpec(Math.max(0, (int)(paramInt1 * 0.8F)), Integer.MIN_VALUE);
+    int i5 = View.MeasureSpec.makeMeasureSpec(Math.min(0, paramInt2 - i3), Integer.MIN_VALUE);
     b.measure(i4, i5);
     c.measure(i4, i5);
     d.measure(i4, i5);
@@ -390,6 +385,80 @@ public class PagerTitleStrip
   {
     h = paramInt;
     requestLayout();
+  }
+  
+  private class a
+    extends DataSetObserver
+    implements ViewPager.d, ViewPager.e
+  {
+    private int b;
+    
+    private a() {}
+    
+    public void a(int paramInt)
+    {
+      b = paramInt;
+    }
+    
+    public void a(int paramInt1, float paramFloat, int paramInt2)
+    {
+      paramInt2 = paramInt1;
+      if (paramFloat > 0.5F) {
+        paramInt2 = paramInt1 + 1;
+      }
+      a(paramInt2, paramFloat, false);
+    }
+    
+    public void a(ac paramac1, ac paramac2)
+    {
+      PagerTitleStrip.this.a(paramac1, paramac2);
+    }
+    
+    public void b(int paramInt)
+    {
+      float f = 0.0F;
+      if (b == 0)
+      {
+        a(a.getCurrentItem(), a.getAdapter());
+        if (PagerTitleStrip.a(PagerTitleStrip.this) >= 0.0F) {
+          f = PagerTitleStrip.a(PagerTitleStrip.this);
+        }
+        a(a.getCurrentItem(), f, true);
+      }
+    }
+    
+    public void onChanged()
+    {
+      float f = 0.0F;
+      a(a.getCurrentItem(), a.getAdapter());
+      if (PagerTitleStrip.a(PagerTitleStrip.this) >= 0.0F) {
+        f = PagerTitleStrip.a(PagerTitleStrip.this);
+      }
+      a(a.getCurrentItem(), f, true);
+    }
+  }
+  
+  static abstract interface b
+  {
+    public abstract void a(TextView paramTextView);
+  }
+  
+  static class c
+    implements PagerTitleStrip.b
+  {
+    public void a(TextView paramTextView)
+    {
+      paramTextView.setSingleLine();
+    }
+  }
+  
+  static class d
+    implements PagerTitleStrip.b
+  {
+    public void a(TextView paramTextView)
+    {
+      ad.a(paramTextView);
+    }
   }
 }
 

@@ -1,179 +1,234 @@
 .class public Lcom/yelp/android/appdata/webrequests/fb;
-.super Ljava/lang/Object;
-.source "ReviewSaveRequest.java"
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "UserBusinessesRanksRequest.java"
 
 
-# instance fields
-.field private final a:Lcom/yelp/android/serializable/YelpBusiness;
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/fb$a;
+    }
+.end annotation
 
-.field private final b:Ljava/lang/String;
-
-.field private final c:Ljava/lang/String;
-
-.field private final d:Z
-
-.field private final e:Ljava/lang/String;
-
-.field private final f:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/SurveyQuestion;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final g:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/ReviewSuggestion;",
-            ">;"
-        }
-    .end annotation
-.end field
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/yelp/android/appdata/webrequests/core/b",
+        "<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Lcom/yelp/android/appdata/webrequests/fb$a;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/serializable/YelpBusiness;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-    .locals 0
+.method public constructor <init>(Lcom/yelp/android/serializable/RankTitle$Rank;Ljava/lang/String;Ljava/lang/String;IILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            "Ljava/lang/String;",
-            "Z",
+            "Lcom/yelp/android/serializable/RankTitle$Rank;",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
-            "Ljava/util/ArrayList",
+            "II",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/serializable/SurveyQuestion;",
-            ">;",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/ReviewSuggestion;",
+            "Lcom/yelp/android/appdata/webrequests/fb$a;",
             ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 49
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 29
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    .line 50
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/fb;->a:Lcom/yelp/android/serializable/YelpBusiness;
+    const-string/jumbo v1, "user/rankings/businesses"
 
-    .line 51
-    iput-object p2, p0, Lcom/yelp/android/appdata/webrequests/fb;->b:Ljava/lang/String;
+    invoke-direct {p0, v0, v1, p6}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 52
-    iput-object p4, p0, Lcom/yelp/android/appdata/webrequests/fb;->c:Ljava/lang/String;
+    .line 30
+    const-string/jumbo v0, "title"
 
-    .line 53
-    iput-boolean p3, p0, Lcom/yelp/android/appdata/webrequests/fb;->d:Z
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/RankTitle$Rank;->name()Ljava/lang/String;
 
-    .line 54
-    iput-object p5, p0, Lcom/yelp/android/appdata/webrequests/fb;->e:Ljava/lang/String;
+    move-result-object v1
 
-    .line 55
-    iput-object p6, p0, Lcom/yelp/android/appdata/webrequests/fb;->f:Ljava/util/ArrayList;
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    .line 56
-    iput-object p7, p0, Lcom/yelp/android/appdata/webrequests/fb;->g:Ljava/util/ArrayList;
+    invoke-virtual {v1, v2}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    .line 57
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/fb;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 31
+    const-string/jumbo v0, "location_id"
+
+    invoke-virtual {p0, v0, p3}, Lcom/yelp/android/appdata/webrequests/fb;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 32
+    if-eqz p2, :cond_0
+
+    .line 33
+    const-string/jumbo v0, "user_id"
+
+    invoke-virtual {p0, v0, p2}, Lcom/yelp/android/appdata/webrequests/fb;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 35
+    :cond_0
+    const-string/jumbo v0, "offset"
+
+    invoke-virtual {p0, v0, p4}, Lcom/yelp/android/appdata/webrequests/fb;->a(Ljava/lang/String;I)V
+
+    .line 36
+    const-string/jumbo v0, "limit"
+
+    invoke-virtual {p0, v0, p5}, Lcom/yelp/android/appdata/webrequests/fb;->a(Ljava/lang/String;I)V
+
+    .line 37
     return-void
 .end method
 
 
 # virtual methods
-.method public a()Lcom/yelp/android/serializable/YelpBusiness;
-    .locals 1
-
-    .prologue
-    .line 60
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/fb;->a:Lcom/yelp/android/serializable/YelpBusiness;
-
-    return-object v0
-.end method
-
-.method public b()Ljava/util/ArrayList;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/fb$a;
+    .locals 12
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/SurveyQuestion;",
-            ">;"
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/fb;->f:Ljava/util/ArrayList;
+    const/4 v3, 0x0
+
+    .line 42
+    const-string/jumbo v0, "businesses"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v7
+
+    .line 43
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/fb;->i_()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;->SHORT:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;
+
+    invoke-static {v7, v0, v1}, Lcom/yelp/android/serializable/YelpBusiness;->a(Lorg/json/JSONArray;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;)Ljava/util/ArrayList;
+
+    move-result-object v8
+
+    .line 46
+    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
+
+    move-result v9
+
+    .line 47
+    new-instance v10, Ljava/util/ArrayList;
+
+    invoke-direct {v10, v9}, Ljava/util/ArrayList;-><init>(I)V
+
+    .line 48
+    new-instance v11, Landroid/os/Bundle;
+
+    invoke-direct {v11, v9}, Landroid/os/Bundle;-><init>(I)V
+
+    move v6, v3
+
+    .line 49
+    :goto_0
+    if-ge v6, v9, :cond_1
+
+    .line 50
+    invoke-virtual {v8, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 51
+    new-instance v0, Lcom/yelp/android/serializable/RankLocation;
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v5}, Lcom/yelp/android/serializable/YelpBusiness;->aq()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    invoke-direct/range {v0 .. v5}, Lcom/yelp/android/serializable/RankLocation;-><init>(Ljava/lang/String;Ljava/lang/String;ILcom/yelp/android/serializable/RankTitle$Rank;Lcom/yelp/android/serializable/YelpBusiness;)V
+
+    invoke-virtual {v10, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 53
+    invoke-virtual {v7, v6}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    .line 54
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v1, "user_check_in_count"
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 55
+    const-string/jumbo v1, "id"
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "user_check_in_count"
+
+    invoke-virtual {v0, v2}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {v11, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    .line 49
+    :cond_0
+    add-int/lit8 v0, v6, 0x1
+
+    move v6, v0
+
+    goto :goto_0
+
+    .line 58
+    :cond_1
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/fb$a;
+
+    invoke-direct {v0, v10, v11}, Lcom/yelp/android/appdata/webrequests/fb$a;-><init>(Ljava/util/ArrayList;Landroid/os/Bundle;)V
 
     return-object v0
 .end method
 
-.method public c()Ljava/util/ArrayList;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/ReviewSuggestion;",
-            ">;"
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 68
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/fb;->g:Ljava/util/ArrayList;
+    .line 19
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/fb;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/fb$a;
 
-    return-object v0
-.end method
-
-.method public d()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/fb;->b:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public e()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/fb;->c:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public f()Z
-    .locals 1
-
-    .prologue
-    .line 80
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/webrequests/fb;->d:Z
-
-    return v0
-.end method
-
-.method public g()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/fb;->e:Ljava/lang/String;
+    move-result-object v0
 
     return-object v0
 .end method

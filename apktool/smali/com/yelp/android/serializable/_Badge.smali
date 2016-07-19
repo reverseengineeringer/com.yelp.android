@@ -7,29 +7,31 @@
 
 
 # instance fields
-.field protected mDescription:Ljava/lang/String;
+.field protected a:Ljava/util/Date;
 
-.field protected mExpirePercent:F
+.field protected b:Ljava/util/Date;
 
-.field protected mExpireTime:Ljava/util/Date;
+.field protected c:Ljava/lang/String;
 
-.field protected mId:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
-.field protected mImagePath:Ljava/lang/String;
+.field protected e:Ljava/lang/String;
 
-.field protected mImageSmallPath:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mImageSmallUrl:Ljava/lang/String;
+.field protected g:Ljava/lang/String;
 
-.field protected mImageUrl:Ljava/lang/String;
+.field protected h:Ljava/lang/String;
 
-.field protected mIsAssigned:Z
+.field protected i:Ljava/lang/String;
 
-.field protected mIsNew:Z
+.field protected j:Ljava/lang/String;
 
-.field protected mTimeAwarded:Ljava/util/Date;
+.field protected k:Z
 
-.field protected mTitle:Ljava/lang/String;
+.field protected l:Z
+
+.field protected m:D
 
 
 # direct methods
@@ -37,197 +39,217 @@
     .locals 0
 
     .prologue
-    .line 47
+    .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 48
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/util/Date;Ljava/util/Date;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZF)V
-    .locals 0
-
-    .prologue
-    .line 31
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_Badge;-><init>()V
-
-    .line 32
-    iput-object p1, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
-
-    .line 33
-    iput-object p2, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
-
-    .line 34
-    iput-object p3, p0, Lcom/yelp/android/serializable/_Badge;->mTitle:Ljava/lang/String;
-
-    .line 35
-    iput-object p4, p0, Lcom/yelp/android/serializable/_Badge;->mId:Ljava/lang/String;
-
-    .line 36
-    iput-object p5, p0, Lcom/yelp/android/serializable/_Badge;->mDescription:Ljava/lang/String;
-
-    .line 37
-    iput-object p6, p0, Lcom/yelp/android/serializable/_Badge;->mImageUrl:Ljava/lang/String;
-
-    .line 38
-    iput-object p7, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallUrl:Ljava/lang/String;
-
-    .line 39
-    iput-object p8, p0, Lcom/yelp/android/serializable/_Badge;->mImagePath:Ljava/lang/String;
-
-    .line 40
-    iput-object p9, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallPath:Ljava/lang/String;
-
-    .line 41
-    iput-boolean p10, p0, Lcom/yelp/android/serializable/_Badge;->mIsNew:Z
-
-    .line 42
-    iput-boolean p11, p0, Lcom/yelp/android/serializable/_Badge;->mIsAssigned:Z
-
-    .line 43
-    iput p12, p0, Lcom/yelp/android/serializable/_Badge;->mExpirePercent:F
-
-    .line 44
+    .line 64
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a(Landroid/os/Parcel;)V
+    .locals 6
 
     .prologue
-    .line 89
-    const/4 v0, 0x0
+    const-wide/32 v4, -0x80000000
 
-    return v0
+    .line 190
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    .line 191
+    cmp-long v2, v0, v4
+
+    if-eqz v2, :cond_0
+
+    .line 192
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
+
+    .line 194
+    :cond_0
+    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
+
+    move-result-wide v0
+
+    .line 195
+    cmp-long v2, v0, v4
+
+    if-eqz v2, :cond_1
+
+    .line 196
+    new-instance v2, Ljava/util/Date;
+
+    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
+
+    iput-object v2, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
+
+    .line 198
+    :cond_1
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
+
+    .line 199
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
+
+    .line 200
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
+
+    .line 201
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
+
+    .line 202
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
+
+    .line 203
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
+
+    .line 204
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
+
+    .line 205
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    .line 206
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+
+    move-result-object v0
+
+    .line 207
+    const/4 v1, 0x0
+
+    aget-boolean v1, v0, v1
+
+    iput-boolean v1, p0, Lcom/yelp/android/serializable/_Badge;->k:Z
+
+    .line 208
+    const/4 v1, 0x1
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->l:Z
+
+    .line 209
+    invoke-virtual {p1}, Landroid/os/Parcel;->readDouble()D
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/yelp/android/serializable/_Badge;->m:D
+
+    .line 210
+    return-void
 .end method
 
-.method public getDescription()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 63
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mDescription:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getExpirePercent()F
-    .locals 1
-
-    .prologue
-    .line 84
-    iget v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpirePercent:F
-
-    return v0
-.end method
-
-.method public getExpireTime()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 54
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getId()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 60
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mId:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getImagePath()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImagePath:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getImageSmallPath()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 75
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallPath:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getImageSmallUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 69
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallUrl:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getImageUrl()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageUrl:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getTimeAwarded()Ljava/util/Date;
-    .locals 1
-
-    .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
-
-    return-object v0
-.end method
-
-.method public getTitle()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTitle:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public isAssigned()Z
-    .locals 1
-
-    .prologue
-    .line 81
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->mIsAssigned:Z
-
-    return v0
-.end method
-
-.method public isNew()Z
-    .locals 1
-
-    .prologue
-    .line 78
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->mIsNew:Z
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Lorg/json/JSONObject;)V
     .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 129
+    .line 213
     const-string/jumbo v0, "time_awarded"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -236,16 +258,16 @@
 
     if-nez v0, :cond_0
 
-    .line 130
+    .line 214
     const-string/jumbo v0, "time_awarded"
 
     invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
 
-    .line 132
+    .line 216
     :cond_0
     const-string/jumbo v0, "expire_time"
 
@@ -255,16 +277,16 @@
 
     if-nez v0, :cond_1
 
-    .line 133
+    .line 217
     const-string/jumbo v0, "expire_time"
 
     invoke-static {p1, v0}, Lcom/yelp/parcelgen/JsonUtil;->parseTimestamp(Lorg/json/JSONObject;Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
 
-    .line 135
+    .line 219
     :cond_1
     const-string/jumbo v0, "title"
 
@@ -274,16 +296,16 @@
 
     if-nez v0, :cond_2
 
-    .line 136
+    .line 220
     const-string/jumbo v0, "title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTitle:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
 
-    .line 138
+    .line 222
     :cond_2
     const-string/jumbo v0, "id"
 
@@ -293,16 +315,16 @@
 
     if-nez v0, :cond_3
 
-    .line 139
+    .line 223
     const-string/jumbo v0, "id"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mId:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
 
-    .line 141
+    .line 225
     :cond_3
     const-string/jumbo v0, "description"
 
@@ -312,16 +334,16 @@
 
     if-nez v0, :cond_4
 
-    .line 142
+    .line 226
     const-string/jumbo v0, "description"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mDescription:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
 
-    .line 144
+    .line 228
     :cond_4
     const-string/jumbo v0, "image_url"
 
@@ -331,16 +353,16 @@
 
     if-nez v0, :cond_5
 
-    .line 145
+    .line 229
     const-string/jumbo v0, "image_url"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageUrl:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
 
-    .line 147
+    .line 231
     :cond_5
     const-string/jumbo v0, "image_small_url"
 
@@ -350,16 +372,16 @@
 
     if-nez v0, :cond_6
 
-    .line 148
+    .line 232
     const-string/jumbo v0, "image_small_url"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallUrl:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
 
-    .line 150
+    .line 234
     :cond_6
     const-string/jumbo v0, "image_path"
 
@@ -369,16 +391,16 @@
 
     if-nez v0, :cond_7
 
-    .line 151
+    .line 235
     const-string/jumbo v0, "image_path"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImagePath:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
 
-    .line 153
+    .line 237
     :cond_7
     const-string/jumbo v0, "image_small_path"
 
@@ -388,190 +410,91 @@
 
     if-nez v0, :cond_8
 
-    .line 154
+    .line 238
     const-string/jumbo v0, "image_small_path"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallPath:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
 
-    .line 156
+    .line 240
     :cond_8
+    const-string/jumbo v0, "badge_key"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    .line 241
+    const-string/jumbo v0, "badge_key"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    .line 243
+    :cond_9
     const-string/jumbo v0, "new"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->mIsNew:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->k:Z
 
-    .line 157
+    .line 244
     const-string/jumbo v0, "assigned"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->mIsAssigned:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->l:Z
 
-    .line 158
+    .line 245
     const-string/jumbo v0, "expire_pct"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optDouble(Ljava/lang/String;)D
 
     move-result-wide v0
 
-    double-to-float v0, v0
+    iput-wide v0, p0, Lcom/yelp/android/serializable/_Badge;->m:D
 
-    iput v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpirePercent:F
-
-    .line 159
+    .line 246
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()Lorg/json/JSONObject;
     .locals 6
-
-    .prologue
-    const-wide/32 v4, -0x80000000
-
-    .line 107
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    .line 108
-    cmp-long v2, v0, v4
-
-    if-eqz v2, :cond_0
-
-    .line 109
-    new-instance v2, Ljava/util/Date;
-
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
-
-    iput-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
-
-    .line 111
-    :cond_0
-    invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v0
-
-    .line 112
-    cmp-long v2, v0, v4
-
-    if-eqz v2, :cond_1
-
-    .line 113
-    new-instance v2, Ljava/util/Date;
-
-    invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
-
-    iput-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
-
-    .line 115
-    :cond_1
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTitle:Ljava/lang/String;
-
-    .line 116
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mId:Ljava/lang/String;
-
-    .line 117
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mDescription:Ljava/lang/String;
-
-    .line 118
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageUrl:Ljava/lang/String;
-
-    .line 119
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallUrl:Ljava/lang/String;
-
-    .line 120
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImagePath:Ljava/lang/String;
-
-    .line 121
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallPath:Ljava/lang/String;
-
-    .line 122
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
-
-    move-result-object v0
-
-    .line 123
-    const/4 v1, 0x0
-
-    aget-boolean v1, v0, v1
-
-    iput-boolean v1, p0, Lcom/yelp/android/serializable/_Badge;->mIsNew:Z
-
-    .line 124
-    const/4 v1, 0x1
-
-    aget-boolean v0, v0, v1
-
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->mIsAssigned:Z
-
-    .line 125
-    invoke-virtual {p1}, Landroid/os/Parcel;->readFloat()F
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpirePercent:F
-
-    .line 126
-    return-void
-.end method
-
-.method public writeJSON()Lorg/json/JSONObject;
-    .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const-wide/16 v4, 0x3e8
 
-    .line 162
+    .line 249
     new-instance v0, Lorg/json/JSONObject;
 
     invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-    .line 163
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
+    .line 250
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
 
     if-eqz v1, :cond_0
 
-    .line 164
+    .line 251
     const-string/jumbo v1, "time_awarded"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
 
     invoke-virtual {v2}, Ljava/util/Date;->getTime()J
 
@@ -581,16 +504,16 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    .line 166
+    .line 253
     :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
 
     if-eqz v1, :cond_1
 
-    .line 167
+    .line 254
     const-string/jumbo v1, "expire_time"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
 
     invoke-virtual {v2}, Ljava/util/Date;->getTime()J
 
@@ -600,122 +523,491 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    .line 169
+    .line 256
     :cond_1
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mTitle:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
 
     if-eqz v1, :cond_2
 
-    .line 170
+    .line 257
     const-string/jumbo v1, "title"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mTitle:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 172
+    .line 259
     :cond_2
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mId:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
 
     if-eqz v1, :cond_3
 
-    .line 173
+    .line 260
     const-string/jumbo v1, "id"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mId:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 175
+    .line 262
     :cond_3
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mDescription:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
 
     if-eqz v1, :cond_4
 
-    .line 176
+    .line 263
     const-string/jumbo v1, "description"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mDescription:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 178
+    .line 265
     :cond_4
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mImageUrl:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
 
     if-eqz v1, :cond_5
 
-    .line 179
+    .line 266
     const-string/jumbo v1, "image_url"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mImageUrl:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 181
+    .line 268
     :cond_5
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallUrl:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
 
     if-eqz v1, :cond_6
 
-    .line 182
+    .line 269
     const-string/jumbo v1, "image_small_url"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallUrl:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 184
+    .line 271
     :cond_6
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mImagePath:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
 
     if-eqz v1, :cond_7
 
-    .line 185
+    .line 272
     const-string/jumbo v1, "image_path"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mImagePath:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 187
+    .line 274
     :cond_7
-    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallPath:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
 
     if-eqz v1, :cond_8
 
-    .line 188
+    .line 275
     const-string/jumbo v1, "image_small_path"
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallPath:Ljava/lang/String;
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 190
+    .line 277
     :cond_8
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    if-eqz v1, :cond_9
+
+    .line 278
+    const-string/jumbo v1, "badge_key"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 280
+    :cond_9
     const-string/jumbo v1, "new"
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->mIsNew:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->k:Z
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 191
+    .line 281
     const-string/jumbo v1, "assigned"
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->mIsAssigned:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->l:Z
 
     invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
 
-    .line 192
+    .line 282
     const-string/jumbo v1, "expire_pct"
 
-    iget v2, p0, Lcom/yelp/android/serializable/_Badge;->mExpirePercent:F
-
-    float-to-double v2, v2
+    iget-wide v2, p0, Lcom/yelp/android/serializable/_Badge;->m:D
 
     invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;D)Lorg/json/JSONObject;
 
-    .line 193
+    .line 283
+    return-object v0
+.end method
+
+.method public c()D
+    .locals 2
+
+    .prologue
+    .line 167
+    iget-wide v0, p0, Lcom/yelp/android/serializable/_Badge;->m:D
+
+    return-wide v0
+.end method
+
+.method public d()Z
+    .locals 1
+
+    .prologue
+    .line 163
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/_Badge;->l:Z
+
+    return v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 171
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 155
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 6
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 68
+    if-nez p1, :cond_1
+
+    .line 82
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 72
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 73
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 76
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 80
+    check-cast p1, Lcom/yelp/android/serializable/_Badge;
+
+    .line 82
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Badge;->k:Z
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/_Badge;->k:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(ZZ)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Badge;->l:Z
+
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/_Badge;->l:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(ZZ)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-wide v2, p0, Lcom/yelp/android/serializable/_Badge;->m:D
+
+    iget-wide v4, p1, Lcom/yelp/android/serializable/_Badge;->m:D
+
+    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/yelp/android/dc/b;->a(DD)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto/16 :goto_0
+.end method
+
+.method public f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 151
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public g()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 147
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public h()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 143
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 4
+
+    .prologue
+    .line 101
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Badge;->k:Z
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Z)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_Badge;->l:Z
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Z)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-wide v2, p0, Lcom/yelp/android/serializable/_Badge;->m:D
+
+    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/dc/c;->a(D)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public j()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 135
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public k()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 131
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public l()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 127
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
+
     return-object v0
 .end method
 
@@ -725,8 +1017,8 @@
     .prologue
     const-wide/32 v2, -0x80000000
 
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
+    .line 175
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
 
     if-nez v0, :cond_0
 
@@ -735,79 +1027,84 @@
     :goto_0
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
+    .line 176
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
 
     if-nez v0, :cond_1
 
     :goto_1
     invoke-virtual {p1, v2, v3}, Landroid/os/Parcel;->writeLong(J)V
 
-    .line 95
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTitle:Ljava/lang/String;
+    .line 177
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 96
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mId:Ljava/lang/String;
+    .line 178
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 97
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mDescription:Ljava/lang/String;
+    .line 179
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageUrl:Ljava/lang/String;
+    .line 180
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 99
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallUrl:Ljava/lang/String;
+    .line 181
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->g:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 100
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImagePath:Ljava/lang/String;
+    .line 182
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->h:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 101
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mImageSmallPath:Ljava/lang/String;
+    .line 183
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->i:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 102
+    .line 184
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->j:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
+
+    .line 185
     const/4 v0, 0x2
 
     new-array v0, v0, [Z
 
     const/4 v1, 0x0
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->mIsNew:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->k:Z
 
     aput-boolean v2, v0, v1
 
     const/4 v1, 0x1
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->mIsAssigned:Z
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_Badge;->l:Z
 
     aput-boolean v2, v0, v1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 103
-    iget v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpirePercent:F
+    .line 186
+    iget-wide v0, p0, Lcom/yelp/android/serializable/_Badge;->m:D
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeFloat(F)V
+    invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeDouble(D)V
 
-    .line 104
+    .line 187
     return-void
 
-    .line 93
+    .line 175
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mTimeAwarded:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->a:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 
@@ -815,9 +1112,9 @@
 
     goto :goto_0
 
-    .line 94
+    .line 176
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->mExpireTime:Ljava/util/Date;
+    iget-object v0, p0, Lcom/yelp/android/serializable/_Badge;->b:Ljava/util/Date;
 
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 

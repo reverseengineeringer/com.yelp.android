@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:padding="@dimen/default_base_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/BodyText" android:layout_gravity="center_vertical" android:id="@id/invite_friends_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_base_gap_size" android:text="@string/dont_see_some_of_your_friends_invite" android:layout_weight="1.0" />
+    <Button android:textAppearance="@style/DeprecatedStandardGrayText" android:layout_gravity="center_vertical" android:id="@id/invite_friends_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/invite_friends_to_yelp" android:layout_weight="2.0" style="@style/FullBleedButton" />
+</LinearLayout>

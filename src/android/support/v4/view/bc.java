@@ -1,33 +1,21 @@
 package android.support.v4.view;
 
-import android.view.MotionEvent;
+import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
+import android.view.View;
+import android.view.ViewPropertyAnimator;
 
 class bc
-  extends bb
 {
-  public int a(MotionEvent paramMotionEvent)
+  public static void a(final View paramView, bf parambf)
   {
-    return bg.a(paramMotionEvent);
-  }
-  
-  public int a(MotionEvent paramMotionEvent, int paramInt)
-  {
-    return bg.a(paramMotionEvent, paramInt);
-  }
-  
-  public int b(MotionEvent paramMotionEvent, int paramInt)
-  {
-    return bg.b(paramMotionEvent, paramInt);
-  }
-  
-  public float c(MotionEvent paramMotionEvent, int paramInt)
-  {
-    return bg.c(paramMotionEvent, paramInt);
-  }
-  
-  public float d(MotionEvent paramMotionEvent, int paramInt)
-  {
-    return bg.d(paramMotionEvent, paramInt);
+    paramView.animate().setUpdateListener(new ValueAnimator.AnimatorUpdateListener()
+    {
+      public void onAnimationUpdate(ValueAnimator paramAnonymousValueAnimator)
+      {
+        a.a(paramView);
+      }
+    });
   }
 }
 

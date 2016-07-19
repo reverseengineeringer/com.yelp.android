@@ -14,7 +14,7 @@
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;)Landroid/content/Intent;
+.method public static a(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;Ljava/util/Collection;)Landroid/content/Intent;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -28,34 +28,38 @@
             "Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;",
             "+",
             "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ">;>;)",
+            ">;>;",
+            "Ljava/util/Collection",
+            "<",
+            "Lcom/yelp/android/appdata/webrequests/ShareRequest$ShareType;",
+            ">;)",
             "Landroid/content/Intent;"
         }
     .end annotation
 
     .prologue
-    .line 42
-    invoke-static {p0, p1, p2}, Lcom/yelp/android/ui/activities/ActivityRetryShare;->b(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;)Landroid/content/Intent;
+    .line 37
+    invoke-static {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/ActivityRetryShare;->b(Landroid/content/Context;Ljava/lang/String;Ljava/util/List;Ljava/util/Collection;)Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 43
+    .line 38
     const-class v1, Lcom/yelp/android/ui/activities/ActivityRetryTipShare;
 
     invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
 
-    .line 44
+    .line 39
     return-object v0
 .end method
 
 
 # virtual methods
-.method public a()Lcom/yelp/android/ui/activities/dw;
+.method public a()Lcom/yelp/android/ui/activities/ActivityRetryShare$a;
     .locals 1
 
     .prologue
     .line 19
-    sget-object v0, Lcom/yelp/android/ui/activities/ActivityRetryTipShare;->i:Lcom/yelp/android/ui/activities/dw;
+    sget-object v0, Lcom/yelp/android/ui/activities/ActivityRetryTipShare;->k:Lcom/yelp/android/ui/activities/ActivityRetryShare$a;
 
     return-object v0
 .end method
@@ -80,7 +84,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue

@@ -7,6 +7,15 @@
 .implements Lcom/ooyala/android/PlayableItem;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/OoyalaAdSpot$1;,
+        Lcom/ooyala/android/OoyalaAdSpot$FetchPlaybackInfoTask;
+    }
+.end annotation
+
+
 # instance fields
 .field protected _authCode:I
 

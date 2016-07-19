@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge android:paddingTop="?smallGapSize" android:paddingBottom="?smallGapSize" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+<merge android:paddingTop="@dimen/default_small_gap_size" android:paddingBottom="@dimen/default_small_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/SubtitleDarkText" android:gravity="center_vertical" android:id="@id/header_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" />
-    <TextView android:textAppearance="@style/LargeLightText" android:gravity="center_vertical" android:id="@id/header_subtext" android:paddingLeft="1.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/header_title" android:layout_alignParentLeft="true" />
+    <TextView android:textAppearance="@style/TitleText" android:gravity="center_vertical" android:id="@id/header_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" />
+    <TextView android:textAppearance="@style/DeprecatedLargeLightText" android:gravity="center_vertical" android:id="@id/header_subtext" android:paddingLeft="1.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/header_title" android:layout_alignParentLeft="true" />
 </merge>

@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.os.AsyncTask.Status;
 import android.os.Bundle;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.ct;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.ci;
 import com.yelp.android.serializable.CheckInFeedback;
 import com.yelp.android.serializable.Feedback;
 import com.yelp.android.serializable.YelpCheckIn;
@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class WhoLikedThisCheckIn
   extends UserBadgeList
-  implements m<List<CheckInFeedback>>
+  implements ApiRequest.b<List<CheckInFeedback>>
 {
   private YelpCheckIn a;
   
@@ -32,12 +32,12 @@ public class WhoLikedThisCheckIn
     return paramContext;
   }
   
-  public ApiRequest<?, ?, ?> a(ApiRequest<?, ?, ?> paramApiRequest)
+  public ApiRequest<Void, ?, ?> a(ApiRequest<Void, ?, ?> paramApiRequest)
   {
-    if ((paramApiRequest == null) || (paramApiRequest.is(AsyncTask.Status.FINISHED))) {
-      return new ct(a, this, r());
+    if ((paramApiRequest == null) || (paramApiRequest.a(AsyncTask.Status.FINISHED))) {
+      return new ci(a, this, s());
     }
-    ((ct)paramApiRequest).setCallback(this);
+    ((ci)paramApiRequest).a(this);
     return paramApiRequest;
   }
   
@@ -49,9 +49,9 @@ public class WhoLikedThisCheckIn
       return;
       a(paramList);
       disableLoading();
-      c(q().getCount());
-    } while (q().getCount() < a.getFeedback().getPositiveFeedbackCount());
-    q().f();
+      c(r().getCount());
+    } while (r().getCount() < a.n().d());
+    r().f();
   }
   
   public ViewIri getIri()
@@ -59,15 +59,15 @@ public class WhoLikedThisCheckIn
     return ViewIri.WhoLikedThisCheckIn;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
-    return Collections.singletonMap("check_in_id", a.getId());
+    return Collections.singletonMap("check_in_id", a.z());
   }
   
   public void onCreate(Bundle paramBundle)
   {
     a = ((YelpCheckIn)getIntent().getParcelableExtra("checkin.xtra"));
-    if (a.getFeedback().getPositiveFeedbackCount() <= 0) {
+    if (a.n().d() <= 0) {
       finish();
     }
     super.onCreate(paramBundle);

@@ -10,7 +10,7 @@
             "Ljava/util/Map",
             "<",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/ek",
+            "Lcom/yelp/android/appdata/webrequests/dn",
             "<***>;>;"
         }
     .end annotation
@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,33 +47,33 @@
             "Ljava/lang/Object;",
             ">(",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<TResult;>;)TRequest;"
         }
     .end annotation
 
     .prologue
-    .line 35
+    .line 36
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiWorkerFragment;->a:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/ei;
-
-    .line 37
-    if-nez v0, :cond_0
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/dm;
 
     .line 38
+    if-nez v0, :cond_0
+
+    .line 39
     const/4 v0, 0x0
 
-    .line 41
+    .line 42
     :goto_0
     return-object v0
 
     :cond_0
-    invoke-virtual {v0, p2}, Lcom/yelp/android/appdata/webrequests/ei;->a(Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, p2}, Lcom/yelp/android/appdata/webrequests/dm;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     move-result-object v0
 
@@ -95,23 +95,23 @@
     .end annotation
 
     .prologue
-    .line 26
+    .line 27
     invoke-virtual {p0, p1, p2}, Lcom/yelp/android/appdata/webrequests/ApiWorkerFragment;->b(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 27
+    .line 28
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/ApiWorkerFragment;->a:Ljava/util/Map;
 
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/ei;
+    new-instance v1, Lcom/yelp/android/appdata/webrequests/dm;
 
-    invoke-direct {v1, p2}, Lcom/yelp/android/appdata/webrequests/ei;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-direct {v1, p2}, Lcom/yelp/android/appdata/webrequests/dm;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 29
+    .line 30
     :cond_0
     return-void
 .end method
@@ -128,12 +128,12 @@
     .end annotation
 
     .prologue
-    .line 50
+    .line 51
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->isCompleted()Z
+    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/ApiRequest;->v()Z
 
     move-result v0
 

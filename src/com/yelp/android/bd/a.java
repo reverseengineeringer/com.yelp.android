@@ -1,14 +1,27 @@
 package com.yelp.android.bd;
 
-import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import com.google.ads.mediation.h;
 
-public class a
+@Deprecated
+public final class a
+  implements h
 {
-  public static void a(Drawable paramDrawable, float paramFloat1, float paramFloat2, float paramFloat3)
+  private final Bundle a;
+  
+  public a(Bundle paramBundle)
   {
-    int i = (int)(paramFloat1 + paramFloat3 - paramDrawable.getIntrinsicWidth() / 2.0F);
-    int j = (int)(paramFloat2 - paramDrawable.getIntrinsicHeight() / 2.0F);
-    paramDrawable.setBounds(i, j, paramDrawable.getIntrinsicWidth() + i, paramDrawable.getIntrinsicHeight() + j);
+    if (paramBundle != null) {}
+    for (paramBundle = new Bundle(paramBundle);; paramBundle = null)
+    {
+      a = paramBundle;
+      return;
+    }
+  }
+  
+  public Bundle a()
+  {
+    return a;
   }
 }
 

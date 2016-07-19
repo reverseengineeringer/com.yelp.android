@@ -1,27 +1,12 @@
 package com.yelp.android.ui.util;
 
-import com.yelp.android.appdata.webrequests.YelpException;
+import android.widget.Adapter;
+import com.yelp.android.serializable.YelpBusiness;
 
-public class f<ResultType>
+public abstract interface f
+  extends Adapter
 {
-  private final ResultType a;
-  private final YelpException b;
-  
-  public f(ResultType paramResultType, YelpException paramYelpException)
-  {
-    a = paramResultType;
-    b = paramYelpException;
-  }
-  
-  public void a(g<ResultType> paramg)
-  {
-    if (b == null)
-    {
-      paramg.a(a);
-      return;
-    }
-    paramg.b(b);
-  }
+  public abstract YelpBusiness a(int paramInt);
 }
 
 /* Location:

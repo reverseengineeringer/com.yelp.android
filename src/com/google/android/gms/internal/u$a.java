@@ -1,25 +1,26 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.widget.ViewSwitcher;
+import java.util.Collections;
+import java.util.Map;
 
-@ey
-final class u$a
-  extends ViewSwitcher
+public class u$a
 {
-  private final gl lJ;
+  public byte[] a;
+  public String b;
+  public long c;
+  public long d;
+  public long e;
+  public long f;
+  public Map<String, String> g = Collections.emptyMap();
   
-  public u$a(Context paramContext)
+  public boolean a()
   {
-    super(paramContext);
-    lJ = new gl(paramContext);
+    return e < System.currentTimeMillis();
   }
   
-  public boolean onInterceptTouchEvent(MotionEvent paramMotionEvent)
+  public boolean b()
   {
-    lJ.c(paramMotionEvent);
-    return false;
+    return f < System.currentTimeMillis();
   }
 }
 

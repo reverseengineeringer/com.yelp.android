@@ -1,182 +1,136 @@
 .class public Lcom/yelp/android/appdata/webrequests/cf;
-.super Lcom/yelp/android/av/g;
-.source "FindReservationRequest.java"
+.super Lcom/yelp/android/appdata/webrequests/core/b;
+.source "InitializePurchaseRequest.java"
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/cf$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/av/g",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
-        "Lcom/yelp/android/appdata/webrequests/cg;",
+        "Lcom/yelp/android/appdata/webrequests/cf$a;",
         ">;"
     }
 .end annotation
 
 
-# instance fields
-.field private final a:I
-
-.field private final b:Ljava/util/Date;
-
-
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/m;Lcom/yelp/android/serializable/YelpBusiness;Ljava/util/Calendar;I)V
-    .locals 4
+.method public constructor <init>(Lcom/yelp/android/serializable/YelpDeal;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/serializable/YelpDeal;",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
-            "Lcom/yelp/android/appdata/webrequests/cg;",
-            ">;",
-            "Lcom/yelp/android/serializable/YelpBusiness;",
-            "Ljava/util/Calendar;",
-            "I)V"
+            "Lcom/yelp/android/appdata/webrequests/cf$a;",
+            ">;)V"
         }
     .end annotation
 
     .prologue
-    .line 25
-    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
+    .line 22
+    sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->POST:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    const-string/jumbo v1, "reservation/search"
+    const-string/jumbo v1, "deal/prepare_purchase"
 
-    invoke-direct {p0, v0, v1, p1}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, v0, v1, p2}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 26
-    iput p4, p0, Lcom/yelp/android/appdata/webrequests/cf;->a:I
+    .line 23
+    const-string/jumbo v0, "deal_id"
 
-    .line 27
-    invoke-virtual {p3}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpDeal;->x()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/cf;->b(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 24
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/YelpDeal;->B()Ljava/util/Date;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/cf;->b:Ljava/util/Date;
+    .line 25
+    if-eqz v0, :cond_0
 
-    .line 29
-    sget-object v0, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
+    .line 27
+    const-string/jumbo v1, "deal_time_updated"
 
-    invoke-virtual {p3}, Ljava/util/Calendar;->getTimeInMillis()J
+    invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 
     move-result-wide v2
 
-    sget-object v1, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
+    const-wide/16 v4, 0x3e8
 
-    invoke-virtual {v0, v2, v3, v1}, Ljava/util/concurrent/TimeUnit;->convert(JLjava/util/concurrent/TimeUnit;)J
+    div-long/2addr v2, v4
 
-    move-result-wide v0
+    invoke-virtual {p0, v1, v2, v3}, Lcom/yelp/android/appdata/webrequests/cf;->b(Ljava/lang/String;J)V
 
-    .line 30
-    const-string/jumbo v2, "timestamp"
-
-    invoke-virtual {p0, v2, v0, v1}, Lcom/yelp/android/appdata/webrequests/cf;->addUrlParam(Ljava/lang/String;J)V
-
-    .line 31
-    const-string/jumbo v0, "business_id"
-
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/cf;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 32
-    const-string/jumbo v0, "size"
-
-    iget v1, p0, Lcom/yelp/android/appdata/webrequests/cf;->a:I
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/cf;->addUrlParam(Ljava/lang/String;I)V
-
-    .line 33
-    const-string/jumbo v0, "reservation_provider"
-
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusiness;->getReservationProviderString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/cf;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 34
+    .line 29
+    :cond_0
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/cg;
-    .locals 5
+.method public a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/cf$a;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 39
-    const-string/jumbo v0, "query_id"
+    .line 34
+    const-string/jumbo v0, "purchase_nonce"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
+    move-result-object v0
+
+    .line 35
+    const-string/jumbo v1, "payment_methods"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
     move-result-object v1
 
-    .line 40
-    const-string/jumbo v0, "times"
+    sget-object v2, Lcom/yelp/android/serializable/PaymentMethod;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
-    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+    invoke-static {v1, v2}, Lcom/yelp/parcelgen/JsonUtil;->parseJsonList(Lorg/json/JSONArray;Lcom/yelp/parcelgen/JsonParser;)Ljava/util/ArrayList;
 
-    move-result-object v0
+    move-result-object v1
 
-    sget-object v2, Lcom/yelp/android/serializable/Reservation;->CREATOR:Lcom/yelp/android/serializable/ah;
+    .line 38
+    new-instance v2, Lcom/yelp/android/appdata/webrequests/cf$a;
 
-    invoke-static {v0, v2}, Lcom/yelp/parcelgen/JsonUtil;->parseJsonList(Lorg/json/JSONArray;Lcom/yelp/parcelgen/JsonParser;)Ljava/util/ArrayList;
+    invoke-direct {v2, v0, v1}, Lcom/yelp/android/appdata/webrequests/cf$a;-><init>(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    move-result-object v2
-
-    .line 42
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/Reservation;
-
-    .line 43
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/Reservation;->setQueryId(Ljava/lang/String;)V
-
-    .line 44
-    iget v4, p0, Lcom/yelp/android/appdata/webrequests/cf;->a:I
-
-    invoke-virtual {v0, v4}, Lcom/yelp/android/serializable/Reservation;->setPartySize(I)V
-
-    goto :goto_0
-
-    .line 46
-    :cond_0
-    invoke-static {v2}, Ljava/util/Collections;->sort(Ljava/util/List;)V
-
-    .line 47
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/cg;
-
-    iget-object v1, p0, Lcom/yelp/android/appdata/webrequests/cf;->b:Ljava/util/Date;
-
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/appdata/webrequests/cg;-><init>(Ljava/util/Date;Ljava/util/ArrayList;)V
-
-    return-object v0
+    return-object v2
 .end method
 
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 18
-    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/cf;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/cg;
+    .line 17
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/cf;->a(Lorg/json/JSONObject;)Lcom/yelp/android/appdata/webrequests/cf$a;
 
     move-result-object v0
 

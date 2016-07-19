@@ -1,124 +1,134 @@
-.class final Lcom/yelp/android/analytics/k;
-.super Lcom/yelp/android/appdata/webrequests/j;
-.source "KahunaAnalyticsManager.java"
+.class public Lcom/yelp/android/analytics/k;
+.super Lcom/yelp/android/analytics/b;
+.source "SessionStartAnalytic.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/yelp/android/appdata/webrequests/j",
-        "<",
-        "Ljava/util/Map",
-        "<",
-        "Ljava/lang/String;",
-        "Ljava/lang/String;",
-        ">;>;"
-    }
-.end annotation
+# instance fields
+.field private a:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     .prologue
-    .line 80
-    invoke-direct {p0}, Lcom/yelp/android/appdata/webrequests/j;-><init>()V
+    .line 12
+    invoke-direct {p0}, Lcom/yelp/android/analytics/b;-><init>()V
 
+    .line 13
+    iput-object p1, p0, Lcom/yelp/android/analytics/k;->a:Ljava/lang/String;
+
+    .line 14
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/util/Map;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
+.method public c()Lorg/json/JSONObject;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;)V"
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 93
-    invoke-interface {p2}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    .line 18
+    invoke-super {p0}, Lcom/yelp/android/analytics/b;->c()Lorg/json/JSONObject;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    .line 19
+    const-string/jumbo v1, "start"
 
-    move-result-object v2
+    invoke-virtual {p0}, Lcom/yelp/android/analytics/k;->a()J
 
-    :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    move-result-wide v2
 
-    move-result v0
+    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    if-eqz v0, :cond_0
+    .line 20
+    iget-object v1, p0, Lcom/yelp/android/analytics/k;->a:Ljava/lang/String;
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v0
+    move-result v1
 
-    check-cast v0, Ljava/lang/String;
+    if-nez v1, :cond_0
 
-    .line 94
-    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    .line 21
+    const-string/jumbo v1, "user_id"
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/yelp/android/analytics/k;->a:Ljava/lang/String;
 
-    check-cast v1, Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    invoke-static {v0, v1}, Lcom/yelp/android/analytics/j;->a(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    .line 96
+    .line 23
     :cond_0
-    return-void
+    const-string/jumbo v1, "version"
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    .line 24
+    return-object v0
 .end method
 
-.method public a()Z
-    .locals 1
+.method public toString()Ljava/lang/String;
+    .locals 4
 
     .prologue
-    .line 83
-    const/4 v0, 0x0
+    .line 28
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    return v0
-.end method
+    const/16 v1, 0x100
 
-.method public onError(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/YelpException;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest",
-            "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/YelpException;",
-            ")V"
-        }
-    .end annotation
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
-    .prologue
-    .line 89
-    return-void
-.end method
+    .line 29
+    const-string/jumbo v1, "[MetricsSessionStart:"
 
-.method public synthetic onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
-    .locals 0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .prologue
-    .line 80
-    check-cast p2, Ljava/util/Map;
+    .line 30
+    const-string/jumbo v1, "index="
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/analytics/k;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/util/Map;)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-void
+    .line 31
+    invoke-virtual {p0}, Lcom/yelp/android/analytics/k;->b()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    .line 32
+    const-string/jumbo v1, ", "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 33
+    const-string/jumbo v1, "start="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 34
+    invoke-virtual {p0}, Lcom/yelp/android/analytics/k;->a()J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    .line 35
+    const-string/jumbo v1, "]"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 36
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method

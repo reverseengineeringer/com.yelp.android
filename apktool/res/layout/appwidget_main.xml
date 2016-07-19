@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/appwidget_full_background" android:layout_width="fill_parent" android:layout_height="@dimen/appwidget_height" android:baselineAligned="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/logo_button" android:background="@drawable/button_appwidget_logo" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/appwidget_burst_icon" android:layout_weight="1.0" android:contentDescription="@string/nav_nearby" style="@style/AppWidgetButton" />
+    <ImageView android:id="@id/restaurants_button" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/food_24x24" android:layout_weight="1.0" android:contentDescription="@string/category_restaurants" style="@style/AppWidgetButton" />
+    <ImageView android:id="@id/coffee_button" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/coffee_24x24" android:layout_weight="1.0" android:contentDescription="@string/category_coffee" style="@style/AppWidgetButton" />
+    <ImageView android:id="@id/bars_button" android:layout_width="0.0dip" android:layout_height="fill_parent" android:src="@drawable/nightlife_24x24" android:layout_weight="1.0" android:contentDescription="@string/category_bars" style="@style/AppWidgetButton" />
+    <TextView android:background="@color/gray_silver_divider" android:layout_width="@dimen/separator_line_width" android:layout_height="fill_parent" android:layout_marginTop="@dimen/default_large_gap_size" android:layout_marginBottom="@dimen/default_large_gap_size" />
+    <ImageView android:id="@id/appwidget_search_button" android:background="@drawable/button_appwidget_search" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="@dimen/appwidget_shadow_size_right" android:src="@drawable/search_icon" android:layout_weight="1.0" android:contentDescription="@string/search" style="@style/AppWidgetButton" />
+</LinearLayout>

@@ -1,46 +1,31 @@
 package com.yelp.android.ac;
 
-import android.graphics.Bitmap;
-import com.bumptech.glide.load.d;
-import com.yelp.android.v.h;
-import java.io.File;
+import android.content.Context;
+import com.yelp.android.aa.c;
+import com.yelp.android.aa.d;
+import com.yelp.android.aa.l;
+import com.yelp.android.aa.m;
+import com.yelp.android.aa.r;
 import java.io.InputStream;
+import java.net.URL;
 
 public class i
-  implements com.yelp.android.ae.b<h, a>
+  extends r<InputStream>
 {
-  private final d<File, a> a;
-  private final d<h, a> b;
-  private final com.bumptech.glide.load.e<a> c;
-  private final com.bumptech.glide.load.a<h> d;
-  
-  public i(com.yelp.android.ae.b<h, Bitmap> paramb, com.yelp.android.ae.b<InputStream, com.yelp.android.ab.b> paramb1, com.bumptech.glide.load.engine.bitmap_recycle.e parame)
+  public i(l<d, InputStream> paraml)
   {
-    parame = new c(paramb.b(), paramb1.b(), parame);
-    a = new com.yelp.android.aa.c(new g(parame));
-    b = parame;
-    c = new f(paramb.d(), paramb1.d());
-    d = paramb.c();
+    super(paraml);
   }
   
-  public d<File, a> a()
+  public static class a
+    implements m<URL, InputStream>
   {
-    return a;
-  }
-  
-  public d<h, a> b()
-  {
-    return b;
-  }
-  
-  public com.bumptech.glide.load.a<h> c()
-  {
-    return d;
-  }
-  
-  public com.bumptech.glide.load.e<a> d()
-  {
-    return c;
+    public l<URL, InputStream> a(Context paramContext, c paramc)
+    {
+      return new i(paramc.a(d.class, InputStream.class));
+    }
+    
+    public void a() {}
   }
 }
 

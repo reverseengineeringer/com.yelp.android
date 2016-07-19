@@ -28,6 +28,11 @@ public abstract class SourceAwareMetadataObject
     }
     properties.put("deliveryType", paramDeliveryType);
   }
+  
+  public static final class Fields
+  {
+    public static final String DELIVERY_TYPE = "deliveryType";
+  }
 }
 
 /* Location:

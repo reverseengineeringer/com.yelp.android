@@ -11,6 +11,11 @@ public class YelpSurfaceView
 {
   private CameraWrangler a;
   
+  public YelpSurfaceView(Context paramContext)
+  {
+    super(paramContext);
+  }
+  
   public YelpSurfaceView(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);

@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/util/ObjectDirtyEvent;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x401a
+    name = "DirtyDataType"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -35,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 52
+    .line 57
     new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     const-string/jumbo v1, "PARCELABLE"
@@ -44,7 +53,7 @@
 
     sput-object v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->PARCELABLE:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
-    .line 53
+    .line 58
     new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     const-string/jumbo v1, "INTEGER"
@@ -53,7 +62,7 @@
 
     sput-object v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->INTEGER:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
-    .line 54
+    .line 59
     new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     const-string/jumbo v1, "PARCELABLE_LIST"
@@ -62,7 +71,7 @@
 
     sput-object v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->PARCELABLE_LIST:Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
-    .line 51
+    .line 56
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
@@ -93,7 +102,7 @@
     .end annotation
 
     .prologue
-    .line 51
+    .line 56
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,7 +112,7 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 56
     const-class v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -119,7 +128,7 @@
     .locals 1
 
     .prologue
-    .line 51
+    .line 56
     sget-object v0, Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->$VALUES:[Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;
 
     invoke-virtual {v0}, [Lcom/yelp/android/util/ObjectDirtyEvent$DirtyDataType;->clone()Ljava/lang/Object;

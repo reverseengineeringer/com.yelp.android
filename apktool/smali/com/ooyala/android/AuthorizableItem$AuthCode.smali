@@ -3,6 +3,17 @@
 .source "AuthorizableItem.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/AuthorizableItem;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x609
+    name = "AuthCode"
+.end annotation
+
+
 # static fields
 .field public static final AFTER_FLIGHT_TIME:I = 0x5
 

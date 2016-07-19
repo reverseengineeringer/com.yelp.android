@@ -4,19 +4,29 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import org.json.JSONArray;
+import org.json.JSONException;
 
 public class YelpHoursPair
   extends _YelpHoursPair
 {
-  public static final ah<YelpHoursPair> CREATOR = new em();
-  public static ah<YelpHoursPair> LAZY_CREATOR = CREATOR;
+  public static final a<YelpHoursPair> CREATOR = new YelpHoursPair.1();
+  public static a<YelpHoursPair> a = CREATOR;
   
   protected YelpHoursPair() {}
   
   YelpHoursPair(int paramInt1, int paramInt2)
   {
-    mOpen = paramInt1;
-    mClose = paramInt2;
+    b = paramInt1;
+    c = paramInt2;
+  }
+  
+  public JSONArray a()
+    throws JSONException
+  {
+    JSONArray localJSONArray = new JSONArray();
+    localJSONArray.put(b);
+    localJSONArray.put(c);
+    return localJSONArray;
   }
   
   public boolean equals(Object paramObject)
@@ -32,16 +42,16 @@ public class YelpHoursPair
         return false;
       }
       paramObject = (YelpHoursPair)paramObject;
-      if (mClose != mClose) {
+      if (c != c) {
         return false;
       }
-    } while (mOpen == mOpen);
+    } while (b == b);
     return false;
   }
   
   public int hashCode()
   {
-    return (mClose + 31) * 31 + mOpen;
+    return (c + 31) * 31 + b;
   }
   
   public String toString()
@@ -50,20 +60,12 @@ public class YelpHoursPair
     Calendar localCalendar = Calendar.getInstance();
     localCalendar.clear();
     localCalendar.set(7, 2);
-    localCalendar.add(12, mOpen);
+    localCalendar.add(12, b);
     String str = localSimpleDateFormat.format(localCalendar.getTime()) + "-";
     localCalendar.clear();
     localCalendar.set(7, 2);
-    localCalendar.add(12, mClose);
+    localCalendar.add(12, c);
     return str + localSimpleDateFormat.format(localCalendar.getTime());
-  }
-  
-  public JSONArray writeJSON()
-  {
-    JSONArray localJSONArray = new JSONArray();
-    localJSONArray.put(mOpen);
-    localJSONArray.put(mClose);
-    return localJSONArray;
   }
 }
 

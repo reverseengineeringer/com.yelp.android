@@ -1,125 +1,181 @@
 package com.google.android.gms.internal;
 
 import android.content.Context;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
-import java.io.IOException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
+import android.net.Uri;
+import android.net.Uri.Builder;
+import android.view.MotionEvent;
 
 public class j
-  extends i
 {
-  private static AdvertisingIdClient kO;
-  private static CountDownLatch kP = new CountDownLatch(1);
-  private static boolean kQ;
+  private static final String[] e = { "/aclk", "/pcs/click" };
+  private String a = "googleads.g.doubleclick.net";
+  private String b = "/pagead/ads";
+  private String c = "ad.doubleclick.net";
+  private String[] d = { ".doubleclick.net", ".googleadservices.com", ".googlesyndication.com" };
+  private g f;
   
-  protected j(Context paramContext, m paramm, n paramn)
+  public j(g paramg)
   {
-    super(paramContext, paramm, paramn);
+    f = paramg;
   }
   
-  public static j a(String paramString, Context paramContext)
+  private Uri a(Uri paramUri, Context paramContext, String paramString, boolean paramBoolean)
+    throws zzao
   {
-    e locale = new e();
-    a(paramString, paramContext, locale);
+    boolean bool;
     try
     {
-      if (kO == null)
+      bool = a(paramUri);
+      if (bool)
       {
-        kO = new AdvertisingIdClient(paramContext);
-        new j.1().execute(new Void[0]);
+        if (!paramUri.toString().contains("dc_ms=")) {
+          break label64;
+        }
+        throw new zzao("Parameter already exists: dc_ms");
       }
-      return new j(paramContext, locale, new p(239));
     }
-    finally {}
+    catch (UnsupportedOperationException paramUri)
+    {
+      throw new zzao("Provided Uri is not in a valid state");
+    }
+    if (paramUri.getQueryParameter("ms") != null) {
+      throw new zzao("Query parameter already exists: ms");
+    }
+    label64:
+    if (paramBoolean) {}
+    for (paramContext = f.a(paramContext, paramString); bool; paramContext = f.a(paramContext)) {
+      return b(paramUri, "dc_ms", paramContext);
+    }
+    paramUri = a(paramUri, "ms", paramContext);
+    return paramUri;
   }
   
-  protected void b(Context paramContext)
+  private Uri a(Uri paramUri, String paramString1, String paramString2)
+    throws UnsupportedOperationException
   {
-    super.b(paramContext);
+    String str = paramUri.toString();
+    int j = str.indexOf("&adurl");
+    int i = j;
+    if (j == -1) {
+      i = str.indexOf("?adurl");
+    }
+    if (i != -1) {
+      return Uri.parse(str.substring(0, i + 1) + paramString1 + "=" + paramString2 + "&" + str.substring(i + 1));
+    }
+    return paramUri.buildUpon().appendQueryParameter(paramString1, paramString2).build();
+  }
+  
+  private Uri b(Uri paramUri, String paramString1, String paramString2)
+  {
+    String str = paramUri.toString();
+    int i = str.indexOf(";adurl");
+    if (i != -1) {
+      return Uri.parse(str.substring(0, i + 1) + paramString1 + "=" + paramString2 + ";" + str.substring(i + 1));
+    }
+    paramUri = paramUri.getEncodedPath();
+    i = str.indexOf(paramUri);
+    return Uri.parse(str.substring(0, paramUri.length() + i) + ";" + paramString1 + "=" + paramString2 + ";" + str.substring(paramUri.length() + i));
+  }
+  
+  public Uri a(Uri paramUri, Context paramContext)
+    throws zzao
+  {
     try
     {
-      if (kQ)
-      {
-        a(24, d(paramContext));
-        return;
-      }
-      paramContext = z();
-      if (!paramContext.isLimitAdTrackingEnabled()) {
-        break label71;
-      }
-      l = 1L;
+      paramUri = a(paramUri, paramContext, paramUri.getQueryParameter("ai"), true);
+      return paramUri;
     }
-    catch (IOException paramContext)
+    catch (UnsupportedOperationException paramUri)
     {
+      throw new zzao("Provided Uri is not in a valid state");
+    }
+  }
+  
+  public g a()
+  {
+    return f;
+  }
+  
+  public void a(MotionEvent paramMotionEvent)
+  {
+    f.a(paramMotionEvent);
+  }
+  
+  public boolean a(Uri paramUri)
+  {
+    if (paramUri == null) {
+      throw new NullPointerException();
+    }
+    try
+    {
+      boolean bool = paramUri.getHost().equals(c);
+      return bool;
+    }
+    catch (NullPointerException paramUri) {}
+    return false;
+  }
+  
+  public boolean b(Uri paramUri)
+  {
+    boolean bool2 = false;
+    if (paramUri == null) {
+      throw new NullPointerException();
+    }
+    try
+    {
+      paramUri = paramUri.getHost();
+      String[] arrayOfString = d;
+      int j = arrayOfString.length;
+      int i = 0;
       for (;;)
       {
-        return;
-        long l = 0L;
-      }
-    }
-    catch (i.a paramContext) {}
-    a(28, l);
-    paramContext = paramContext.getId();
-    if (paramContext != null)
-    {
-      a(26, 5L);
-      a(24, paramContext);
-      return;
-    }
-    label71:
-  }
-  
-  j.a z()
-  {
-    int i = 0;
-    try
-    {
-      if (!kP.await(2L, TimeUnit.SECONDS))
-      {
-        j.a locala1 = new j.a(this, null, false);
-        return locala1;
-      }
-    }
-    catch (InterruptedException localInterruptedException)
-    {
-      j.a locala2 = new j.a(this, null, false);
-      return locala2;
-    }
-    finally {}
-    if (kO == null)
-    {
-      localObject2 = new j.a(this, null, false);
-      return (j.a)localObject2;
-    }
-    AdvertisingIdClient.Info localInfo = kO.getInfo();
-    Object localObject2 = localInfo.getId();
-    if ((localObject2 != null) && (((String)localObject2).matches("^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$")))
-    {
-      byte[] arrayOfByte = new byte[16];
-      int j = 0;
-      while (i < ((String)localObject2).length())
-      {
-        int k;
-        if ((i != 8) && (i != 13) && (i != 18))
+        boolean bool1 = bool2;
+        if (i < j)
         {
-          k = i;
-          if (i != 23) {}
+          bool1 = paramUri.endsWith(arrayOfString[i]);
+          if (bool1) {
+            bool1 = true;
+          }
         }
         else
         {
-          k = i + 1;
+          return bool1;
         }
-        arrayOfByte[j] = ((byte)((Character.digit(((String)localObject2).charAt(k), 16) << 4) + Character.digit(((String)localObject2).charAt(k + 1), 16)));
-        j += 1;
-        i = k + 2;
+        i += 1;
       }
-      localObject2 = ky.a(arrayOfByte, true);
+      return false;
+    }
+    catch (NullPointerException paramUri) {}
+  }
+  
+  public boolean c(Uri paramUri)
+  {
+    boolean bool2 = false;
+    boolean bool1 = bool2;
+    String[] arrayOfString;
+    int j;
+    int i;
+    if (b(paramUri))
+    {
+      arrayOfString = e;
+      j = arrayOfString.length;
+      i = 0;
     }
     for (;;)
     {
-      return new j.a(this, (String)localObject2, localInfo.isLimitAdTrackingEnabled());
+      bool1 = bool2;
+      if (i < j)
+      {
+        String str = arrayOfString[i];
+        if (paramUri.getPath().endsWith(str)) {
+          bool1 = true;
+        }
+      }
+      else
+      {
+        return bool1;
+      }
+      i += 1;
     }
   }
 }

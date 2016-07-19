@@ -1,14 +1,14 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c;
 
 public class ar
-  extends h
+  extends c
 {
-  public ar(i parami)
+  public ar(String paramString)
   {
-    super("account/logout/twitter", parami);
+    super(ApiRequest.RequestType.POST, "client/unregister", null);
+    b("device_id", paramString);
   }
 }
 

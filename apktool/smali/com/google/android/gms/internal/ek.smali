@@ -3,100 +3,160 @@
 
 
 # annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
+.annotation runtime Lcom/google/android/gms/internal/fv;
 .end annotation
 
 
 # instance fields
-.field private final oK:Ljava/lang/String;
+.field private final a:Lcom/google/android/gms/internal/ib;
+
+.field private final b:Z
+
+.field private final c:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+.method public constructor <init>(Lcom/google/android/gms/internal/ib;Ljava/util/Map;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/gms/internal/ib;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/ek;->oK:Ljava/lang/String;
+    iput-object p1, p0, Lcom/google/android/gms/internal/ek;->a:Lcom/google/android/gms/internal/ib;
 
+    const-string/jumbo v0, "forceOrientation"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/google/android/gms/internal/ek;->c:Ljava/lang/String;
+
+    const-string/jumbo v0, "allowOrientationChange"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "allowOrientationChange"
+
+    invoke-interface {p2, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ek;->b:Z
+
+    :goto_0
     return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/google/android/gms/internal/ek;->b:Z
+
+    goto :goto_0
 .end method
 
 
 # virtual methods
-.method public a(Ljava/lang/String;ILandroid/content/Intent;)Z
-    .locals 4
+.method public a()V
+    .locals 2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/google/android/gms/internal/ek;->a:Lcom/google/android/gms/internal/ib;
 
-    if-eqz p1, :cond_0
+    if-nez v0, :cond_0
 
-    if-nez p3, :cond_1
+    const-string/jumbo v0, "AdWebView is null"
+
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
+
+    :goto_0
+    return-void
 
     :cond_0
-    :goto_0
-    return v0
+    const-string/jumbo v0, "portrait"
 
-    :cond_1
-    invoke-static {p3}, Lcom/google/android/gms/internal/ei;->e(Landroid/content/Intent;)Ljava/lang/String;
+    iget-object v1, p0, Lcom/google/android/gms/internal/ek;->c:Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-static {p3}, Lcom/google/android/gms/internal/ei;->f(Landroid/content/Intent;)Ljava/lang/String;
+    move-result v0
 
-    move-result-object v2
+    if-eqz v0, :cond_1
 
-    if-eqz v1, :cond_0
-
-    if-eqz v2, :cond_0
-
-    invoke-static {v1}, Lcom/google/android/gms/internal/ei;->D(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    const-string/jumbo v1, "Developer payload not match."
-
-    invoke-static {v1}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v3, p0, Lcom/google/android/gms/internal/ek;->oK:Ljava/lang/String;
-
-    if-eqz v3, :cond_3
-
-    iget-object v3, p0, Lcom/google/android/gms/internal/ek;->oK:Ljava/lang/String;
-
-    invoke-static {v3, v1, v2}, Lcom/google/android/gms/internal/el;->b(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    const-string/jumbo v1, "Fail to verify signature."
-
-    invoke-static {v1}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v0, 0x1
-
-    goto :goto_0
-.end method
-
-.method public cC()Ljava/lang/String;
-    .locals 1
-
-    invoke-static {}, Lcom/google/android/gms/internal/gi;->dx()Ljava/lang/String;
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->g()Lcom/google/android/gms/internal/he;
 
     move-result-object v0
 
-    return-object v0
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/he;->b()I
+
+    move-result v0
+
+    :goto_1
+    iget-object v1, p0, Lcom/google/android/gms/internal/ek;->a:Lcom/google/android/gms/internal/ib;
+
+    invoke-interface {v1, v0}, Lcom/google/android/gms/internal/ib;->b(I)V
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v0, "landscape"
+
+    iget-object v1, p0, Lcom/google/android/gms/internal/ek;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->g()Lcom/google/android/gms/internal/he;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/he;->a()I
+
+    move-result v0
+
+    goto :goto_1
+
+    :cond_2
+    iget-boolean v0, p0, Lcom/google/android/gms/internal/ek;->b:Z
+
+    if-eqz v0, :cond_3
+
+    const/4 v0, -0x1
+
+    goto :goto_1
+
+    :cond_3
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->g()Lcom/google/android/gms/internal/he;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/google/android/gms/internal/he;->c()I
+
+    move-result v0
+
+    goto :goto_1
 .end method

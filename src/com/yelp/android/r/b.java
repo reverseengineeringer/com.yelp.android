@@ -1,34 +1,10 @@
 package com.yelp.android.r;
 
-import com.bumptech.glide.Priority;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
-public class b
-  implements c<InputStream>
+public abstract interface b
 {
-  private final byte[] a;
-  private final String b;
+  public abstract void a();
   
-  public b(byte[] paramArrayOfByte, String paramString)
-  {
-    a = paramArrayOfByte;
-    b = paramString;
-  }
-  
-  public void a() {}
-  
-  public InputStream b(Priority paramPriority)
-  {
-    return new ByteArrayInputStream(a);
-  }
-  
-  public String b()
-  {
-    return b;
-  }
-  
-  public void c() {}
+  public abstract void b();
 }
 
 /* Location:

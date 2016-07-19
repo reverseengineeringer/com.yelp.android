@@ -1,68 +1,67 @@
 package com.google.android.gms.analytics;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.google.android.gms.analytics.internal.f;
 
-public class j
-  implements o
+public final class j
 {
-  private final Set<Integer> yo = new HashSet();
-  
-  j()
+  public static String a(int paramInt)
   {
-    yo.add(Integer.valueOf(302));
-    yo.add(Integer.valueOf(404));
-    yo.add(Integer.valueOf(502));
+    return a("&cd", paramInt);
   }
   
-  public int eb()
+  private static String a(String paramString, int paramInt)
   {
-    return 2036;
+    if (paramInt < 1)
+    {
+      f.a("index out of range for prefix", paramString);
+      return "";
+    }
+    return paramString + paramInt;
   }
   
-  public int ec()
+  public static String b(int paramInt)
   {
-    return 8192;
+    return a("cd", paramInt);
   }
   
-  public int ed()
+  public static String c(int paramInt)
   {
-    return 8192;
+    return a("cm", paramInt);
   }
   
-  public int ee()
+  public static String d(int paramInt)
   {
-    return 20;
+    return a("&pr", paramInt);
   }
   
-  public long ef()
+  public static String e(int paramInt)
   {
-    return 3600L;
+    return a("pr", paramInt);
   }
   
-  public String eg()
+  public static String f(int paramInt)
   {
-    return "/collect";
+    return a("&promo", paramInt);
   }
   
-  public String eh()
+  public static String g(int paramInt)
   {
-    return "/batch";
+    return a("promo", paramInt);
   }
   
-  public i ei()
+  public static String h(int paramInt)
   {
-    return i.yx;
+    return a("pi", paramInt);
   }
   
-  public l ej()
+  public static String i(int paramInt)
   {
-    return l.yJ;
+    return a("&il", paramInt);
   }
   
-  public Set<Integer> ek()
+  public static String j(int paramInt)
   {
-    return yo;
+    return a("il", paramInt);
   }
 }
 

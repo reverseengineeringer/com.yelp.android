@@ -5,16 +5,16 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class UpdatePrompt
   extends _UpdatePrompt
 {
-  public static final JsonParser.DualCreator<UpdatePrompt> CREATOR = new dj();
+  public static final JsonParser.DualCreator<UpdatePrompt> CREATOR = new UpdatePrompt.1();
   
-  public void setAppLaunchesBetweenUpdatePrompts(int paramInt)
+  public void a(int paramInt)
   {
-    mAppLaunchesBetweenUpdatePrompts = paramInt;
+    b = paramInt;
   }
   
-  public void setMessage(String paramString)
+  public void a(String paramString)
   {
-    mMessage = paramString;
+    a = paramString;
   }
 }
 

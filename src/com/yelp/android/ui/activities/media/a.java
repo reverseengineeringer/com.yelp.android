@@ -9,7 +9,7 @@ import com.yelp.android.ui.util.ImageInputHelper;
 import com.yelp.android.ui.util.MediaStoreUtil;
 import com.yelp.android.ui.util.MediaStoreUtil.MediaType;
 import com.yelp.android.util.YelpLog;
-import com.yelp.android.util.l;
+import com.yelp.android.util.e;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -17,18 +17,18 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 
 public class a
-  extends AsyncTask<Uri, Void, c>
+  extends AsyncTask<Uri, Void, b>
 {
   private WeakReference<Context> a;
-  private WeakReference<b> b;
+  private WeakReference<a> b;
   
-  public a(Context paramContext, b paramb)
+  public a(Context paramContext, a parama)
   {
     a = new WeakReference(paramContext);
-    b = new WeakReference(paramb);
+    b = new WeakReference(parama);
   }
   
-  protected c a(Uri... paramVarArgs)
+  protected b a(Uri... paramVarArgs)
   {
     Object localObject1 = (Context)a.get();
     if (localObject1 == null) {
@@ -39,11 +39,11 @@ public class a
     try
     {
       Object localObject2 = ((ContentResolver)localObject1).openInputStream(localUri);
-      paramVarArgs = l.c();
+      paramVarArgs = e.c();
       if (paramVarArgs == null) {
         return null;
       }
-      if (!l.a((InputStream)localObject2, new FileOutputStream(paramVarArgs))) {
+      if (!e.a((InputStream)localObject2, new FileOutputStream(paramVarArgs))) {
         return null;
       }
       localObject2 = ImageInputHelper.a(paramVarArgs);
@@ -51,7 +51,7 @@ public class a
       if (localObject1 == null) {
         return null;
       }
-      paramVarArgs = c.a(paramVarArgs, (Bitmap)localObject2, (MediaStoreUtil.MediaType)localObject1);
+      paramVarArgs = b.a(paramVarArgs, (Bitmap)localObject2, (MediaStoreUtil.MediaType)localObject1);
       return paramVarArgs;
     }
     catch (FileNotFoundException paramVarArgs)
@@ -61,26 +61,53 @@ public class a
     return null;
   }
   
-  protected void a(c paramc)
+  protected void a(b paramb)
   {
-    b localb = (b)b.get();
-    if (localb == null) {
+    a locala = (a)b.get();
+    if (locala == null) {
       return;
     }
-    localb.c();
-    if ((paramc != null) && (a != null) && (a.exists()))
+    locala.c();
+    if ((paramb != null) && (a != null) && (a.exists()))
     {
-      localb.a(paramc);
+      locala.a(paramb);
       return;
     }
-    localb.b();
+    locala.b();
   }
   
   protected void onPreExecute()
   {
-    b localb = (b)b.get();
-    if (localb != null) {
-      localb.a();
+    a locala = (a)b.get();
+    if (locala != null) {
+      locala.a();
+    }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a();
+    
+    public abstract void a(a.b paramb);
+    
+    public abstract void b();
+    
+    public abstract void c();
+  }
+  
+  public static class b
+  {
+    public File a;
+    public Bitmap b;
+    public MediaStoreUtil.MediaType c;
+    
+    public static b a(File paramFile, Bitmap paramBitmap, MediaStoreUtil.MediaType paramMediaType)
+    {
+      b localb = new b();
+      a = paramFile;
+      b = paramBitmap;
+      c = paramMediaType;
+      return localb;
     }
   }
 }

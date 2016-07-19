@@ -3,6 +3,22 @@
 .source "PlayerAPIClient.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/PlayerAPIClient$MetadataFetchTask;,
+        Lcom/ooyala/android/PlayerAPIClient$MetadataFetchTaskParam;,
+        Lcom/ooyala/android/PlayerAPIClient$ContentTreeNextTask;,
+        Lcom/ooyala/android/PlayerAPIClient$ContentTreeByExternalIdsTask;,
+        Lcom/ooyala/android/PlayerAPIClient$ContentTreeTask;,
+        Lcom/ooyala/android/PlayerAPIClient$ContentTreeTaskParam;,
+        Lcom/ooyala/android/PlayerAPIClient$AuthorizeHeartbeatCallback;,
+        Lcom/ooyala/android/PlayerAPIClient$AuthorizeHeartbeatTask;,
+        Lcom/ooyala/android/PlayerAPIClient$AuthorizeTask;
+    }
+.end annotation
+
+
 # static fields
 .field public static final HOOK:Ljava/lang/String; = "-hook"
 
@@ -349,6 +365,11 @@
 
 .method private getContentTreeData(Lorg/json/JSONObject;)Lorg/json/JSONObject;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
 
     .prologue
     .line 108
@@ -546,6 +567,11 @@
 
 .method private verifyAuthorizeHeartbeatJSON(Lorg/json/JSONObject;)Lorg/json/JSONObject;
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
 
     .prologue
     .line 82
@@ -726,6 +752,12 @@
             "Ljava/lang/String;",
             ">;)",
             "Lorg/json/JSONObject;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 
@@ -984,6 +1016,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
+
     .prologue
     .line 137
     invoke-direct {p0, p1}, Lcom/ooyala/android/PlayerAPIClient;->getContentTreeData(Lorg/json/JSONObject;)Lorg/json/JSONObject;
@@ -1072,6 +1110,12 @@
             "Ljava/lang/String;",
             ">;)",
             "Lorg/json/JSONObject;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 
@@ -1356,6 +1400,11 @@
 
 .method public authorize(Lcom/ooyala/android/AuthorizableItemInternal;)Z
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
 
     .prologue
     .line 222
@@ -1373,6 +1422,11 @@
 
 .method public authorize(Lcom/ooyala/android/AuthorizableItemInternal;Lcom/ooyala/android/PlayerInfo;)Z
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
 
     .prologue
     .line 227
@@ -1486,6 +1540,12 @@
             ">;",
             "Lcom/ooyala/android/AuthorizableItemInternal;",
             ")Z"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 
@@ -1711,6 +1771,12 @@
             "Lcom/ooyala/android/AuthorizableItemInternal;",
             "Lcom/ooyala/android/PlayerInfo;",
             ")Z"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 
@@ -2094,6 +2160,11 @@
 
 .method public authorizeHeartbeat()Z
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
 
     .prologue
     const/4 v0, 0x1
@@ -2213,6 +2284,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
+
     .prologue
     .line 448
     const/4 v0, 0x0
@@ -2260,6 +2337,12 @@
             "Ljava/lang/String;",
             ">;)",
             "Lcom/ooyala/android/ContentItem;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 
@@ -2719,6 +2802,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
+
     .prologue
     const/4 v5, 0x1
 
@@ -2894,6 +2983,11 @@
 
 .method public fetchMetadata(Lcom/ooyala/android/ContentItem;)Z
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
+        }
+    .end annotation
 
     .prologue
     .line 666
@@ -2919,6 +3013,12 @@
             ">;",
             "Lcom/ooyala/android/AuthorizableItem;",
             ")Z"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/ooyala/android/OoyalaException;
         }
     .end annotation
 

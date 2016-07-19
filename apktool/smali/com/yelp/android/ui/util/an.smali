@@ -1,153 +1,249 @@
 .class public Lcom/yelp/android/ui/util/an;
-.super Ljava/lang/Object;
-.source "ImageInputHelper.java"
+.super Landroid/os/CountDownTimer;
+.source "TickerTimer.java"
 
-# interfaces
-.implements Lcom/yelp/android/ui/dialogs/as;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/util/an$a;
+    }
+.end annotation
 
 
 # instance fields
-.field a:Ljava/lang/ref/WeakReference;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/lang/ref/WeakReference",
-            "<",
-            "Landroid/app/Activity;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private a:Landroid/widget/TextView;
 
-.field final synthetic b:Lcom/yelp/android/ui/util/ImageInputHelper;
+.field private final b:I
+
+.field private final c:Ljava/lang/CharSequence;
+
+.field private d:Lcom/yelp/android/ui/util/an$a;
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/ui/util/ImageInputHelper;Landroid/app/Activity;)V
+.method public constructor <init>(JLandroid/widget/TextView;)V
     .locals 1
 
     .prologue
-    .line 770
-    iput-object p1, p0, Lcom/yelp/android/ui/util/an;->b:Lcom/yelp/android/ui/util/ImageInputHelper;
+    .line 23
+    const/4 v0, 0x0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p1, p2, p3, v0}, Lcom/yelp/android/ui/util/an;-><init>(JLandroid/widget/TextView;Ljava/lang/CharSequence;)V
 
-    .line 771
-    new-instance v0, Ljava/lang/ref/WeakReference;
+    .line 24
+    return-void
+.end method
 
-    invoke-direct {v0, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+.method public constructor <init>(JLandroid/widget/TextView;Ljava/lang/CharSequence;)V
+    .locals 7
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/an;->a:Ljava/lang/ref/WeakReference;
+    .prologue
+    .line 27
+    const v6, 0x7f0705de
 
-    .line 772
+    move-object v1, p0
+
+    move-wide v2, p1
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v1 .. v6}, Lcom/yelp/android/ui/util/an;-><init>(JLandroid/widget/TextView;Ljava/lang/CharSequence;I)V
+
+    .line 28
+    return-void
+.end method
+
+.method public constructor <init>(JLandroid/widget/TextView;Ljava/lang/CharSequence;I)V
+    .locals 3
+
+    .prologue
+    .line 32
+    const-wide/16 v0, 0xfa
+
+    invoke-direct {p0, p1, p2, v0, v1}, Landroid/os/CountDownTimer;-><init>(JJ)V
+
+    .line 33
+    iput-object p3, p0, Lcom/yelp/android/ui/util/an;->a:Landroid/widget/TextView;
+
+    .line 34
+    iput p5, p0, Lcom/yelp/android/ui/util/an;->b:I
+
+    .line 35
+    iput-object p4, p0, Lcom/yelp/android/ui/util/an;->c:Ljava/lang/CharSequence;
+
+    .line 36
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Ljava/lang/String;Landroid/os/Parcelable;)V
-    .locals 4
+.method public a(Lcom/yelp/android/ui/util/an$a;)V
+    .locals 0
 
     .prologue
-    .line 776
-    instance-of v0, p2, Landroid/app/PendingIntent;
+    .line 39
+    iput-object p1, p0, Lcom/yelp/android/ui/util/an;->d:Lcom/yelp/android/ui/util/an$a;
 
-    if-eqz v0, :cond_1
-
-    .line 778
-    :try_start_0
-    check-cast p2, Landroid/app/PendingIntent;
-
-    const/4 v0, -0x1
-
-    invoke-virtual {p2, v0}, Landroid/app/PendingIntent;->send(I)V
-    :try_end_0
-    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 799
-    :cond_0
-    :goto_0
+    .line 40
     return-void
+.end method
 
-    .line 779
-    :catch_0
-    move-exception v0
+.method public onFinish()V
+    .locals 7
 
-    .line 783
-    const-string/jumbo v1, "ImageInputHelper"
+    .prologue
+    const/4 v6, 0x0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 59
+    iget-object v0, p0, Lcom/yelp/android/ui/util/an;->a:Landroid/widget/TextView;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v1, p0, Lcom/yelp/android/ui/util/an;->a:Landroid/widget/TextView;
 
-    const-string/jumbo v3, "Couldn\'t send PendingIntent in ImageInputHelper because "
+    invoke-virtual {v1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-result-object v2
+    iget v2, p0, Lcom/yelp/android/ui/util/an;->b:I
 
-    invoke-virtual {v0}, Landroid/app/PendingIntent$CanceledException;->getMessage()Ljava/lang/String;
+    const/4 v3, 0x3
 
-    move-result-object v0
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    aput-object v4, v3, v6
 
-    move-result-object v0
+    const/4 v4, 0x1
 
-    invoke-static {v1, v0}, Lcom/yelp/android/util/YelpLog;->w(Ljava/lang/Object;Ljava/lang/String;)I
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    goto :goto_0
+    move-result-object v5
 
-    .line 788
-    :cond_1
-    check-cast p2, Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;
+    aput-object v5, v3, v4
 
-    .line 792
-    iget-object v0, p0, Lcom/yelp/android/ui/util/an;->a:Ljava/lang/ref/WeakReference;
+    const/4 v4, 0x2
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 60
+    iget-object v0, p0, Lcom/yelp/android/ui/util/an;->d:Lcom/yelp/android/ui/util/an$a;
 
     if-eqz v0, :cond_0
 
-    .line 793
-    # getter for: Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;->mEventIri:Lcom/yelp/android/analytics/iris/EventIri;
-    invoke-static {p2}, Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;->access$200(Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;)Lcom/yelp/android/analytics/iris/EventIri;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/util/an;->d:Lcom/yelp/android/ui/util/an$a;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/util/an$a;->a()V
+
+    .line 62
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/util/an;->d:Lcom/yelp/android/ui/util/an$a;
+
+    .line 64
+    :cond_0
+    return-void
+.end method
+
+.method public onTick(J)V
+    .locals 7
+
+    .prologue
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    .line 44
+    long-to-int v0, p1
+
+    div-int/lit16 v0, v0, 0x3e8
+
+    .line 45
+    iget-object v1, p0, Lcom/yelp/android/ui/util/an;->a:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/yelp/android/ui/util/an;->b:I
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    div-int/lit16 v4, v0, 0xe10
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v5
+
+    rem-int/lit16 v4, v0, 0xe10
+
+    div-int/lit8 v4, v4, 0x3c
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v3, v6
+
+    const/4 v4, 0x2
+
+    rem-int/lit8 v0, v0, 0x3c
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    aput-object v0, v3, v4
 
-    .line 794
-    # getter for: Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;->mEventIri:Lcom/yelp/android/analytics/iris/EventIri;
-    invoke-static {p2}, Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;->access$200(Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;)Lcom/yelp/android/analytics/iris/EventIri;
+    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
+    .line 52
+    iget-object v1, p0, Lcom/yelp/android/ui/util/an;->c:Ljava/lang/CharSequence;
 
-    .line 796
-    :cond_2
-    iget-object v1, p0, Lcom/yelp/android/ui/util/an;->b:Lcom/yelp/android/ui/util/ImageInputHelper;
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    iget-object v0, p0, Lcom/yelp/android/ui/util/an;->a:Ljava/lang/ref/WeakReference;
+    move-result v1
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    if-nez v1, :cond_0
+
+    .line 53
+    iget-object v1, p0, Lcom/yelp/android/ui/util/an;->c:Ljava/lang/CharSequence;
+
+    new-array v2, v6, [Ljava/lang/CharSequence;
+
+    aput-object v0, v2, v5
+
+    invoke-static {v1, v2}, Landroid/text/TextUtils;->expandTemplate(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    check-cast v0, Landroid/app/Activity;
+    .line 55
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/ui/util/an;->a:Landroid/widget/TextView;
 
-    # getter for: Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;->mImageSource:Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
-    invoke-static {p2}, Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;->access$300(Lcom/yelp/android/ui/util/ImageInputHelper$SourceIriPair;)Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    move-result-object v2
-
-    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ui/util/ImageInputHelper;->a(Landroid/app/Activity;Lcom/yelp/android/ui/util/ImageInputHelper$ImageSource;)V
-
-    goto :goto_0
+    .line 56
+    return-void
 .end method

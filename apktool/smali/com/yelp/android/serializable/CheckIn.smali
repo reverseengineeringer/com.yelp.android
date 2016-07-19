@@ -6,30 +6,21 @@
 .implements Landroid/os/Parcelable;
 
 
-# static fields
-.field public static final EXTRA_CHECK_IN:Ljava/lang/String; = "extra.check_in"
-
-.field public static final EXTRA_MULTIPLE_CHECK_INS:Ljava/lang/String; = "extra.multiple"
-
-
 # virtual methods
-.method public abstract getAppName()Ljava/lang/String;
+.method public abstract a()Ljava/lang/String;
 .end method
 
-.method public abstract getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+.method public abstract c()Ljava/lang/String;
 .end method
 
-.method public abstract getBusinessId()Ljava/lang/String;
+.method public abstract d()Lcom/yelp/android/serializable/YelpBusiness;
 .end method
 
-.method public abstract getDateCreated()Ljava/util/Date;
+.method public abstract e()Ljava/util/Date;
 .end method
 
-.method public abstract getLocation()Ljava/lang/String;
+.method public abstract f()Ljava/lang/String;
 .end method
 
-.method public abstract getUserName()Ljava/lang/String;
-.end method
-
-.method public abstract getUserPhotoUrl()Ljava/lang/String;
+.method public abstract g()Ljava/lang/String;
 .end method

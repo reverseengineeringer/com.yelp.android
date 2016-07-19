@@ -12,13 +12,13 @@ public final class WidevineStuckMonitor
   private static final int MAX_FREEZE_MILLISECONDS = 2000;
   private static final String TAG = "WidevineStuckMonitor";
   private final Player drmPlayer;
-  private WidevineStuckMonitor.VideoAtWallMsec lastRecord;
-  private final WidevineStuckMonitor.Listener listener;
+  private VideoAtWallMsec lastRecord;
+  private final Listener listener;
   private final int monitorAfterMsec;
   private final AtomicBoolean onFrozenSent;
   private final OoyalaPlayer ooyalaPlayer;
   
-  public WidevineStuckMonitor(OoyalaPlayer paramOoyalaPlayer, Player paramPlayer, WidevineStuckMonitor.Listener paramListener)
+  public WidevineStuckMonitor(OoyalaPlayer paramOoyalaPlayer, Player paramPlayer, Listener paramListener)
   {
     ooyalaPlayer = paramOoyalaPlayer;
     drmPlayer = paramPlayer;
@@ -91,7 +91,7 @@ public final class WidevineStuckMonitor
   
   private void updateLastRecord(int paramInt)
   {
-    lastRecord = new WidevineStuckMonitor.VideoAtWallMsec(paramInt);
+    lastRecord = new VideoAtWallMsec(paramInt);
   }
   
   public void destroy()
@@ -111,6 +111,28 @@ public final class WidevineStuckMonitor
     paramObservable = paramObject.toString();
     if ((drmPlayer.isPlaying()) && (paramObservable.equals("timeChanged"))) {
       checkWhilePlaying();
+    }
+  }
+  
+  public static abstract interface Listener
+  {
+    public abstract void onFrozen();
+  }
+  
+  private static final class VideoAtWallMsec
+  {
+    public final int videoMsec;
+    public final long wallMsec;
+    
+    public VideoAtWallMsec(int paramInt)
+    {
+      videoMsec = paramInt;
+      wallMsec = System.currentTimeMillis();
+    }
+    
+    public String toString()
+    {
+      return "[" + getClass().getSimpleName() + ":videoMsec=" + videoMsec + ",wallMsec=" + wallMsec + "]";
     }
   }
 }

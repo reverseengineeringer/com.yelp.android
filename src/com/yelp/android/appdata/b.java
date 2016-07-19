@@ -1,15 +1,31 @@
 package com.yelp.android.appdata;
 
-import com.crashlytics.android.d;
-
-class b
-  implements Thread.UncaughtExceptionHandler
+public class b
 {
-  b(AppData paramAppData) {}
+  private final int a;
+  private final int b;
   
-  public void uncaughtException(Thread paramThread, Throwable paramThrowable)
+  public b(int paramInt1, int paramInt2)
   {
-    d.a(paramThrowable);
+    a = paramInt1;
+    b = paramInt2;
+  }
+  
+  public b(String paramString)
+  {
+    paramString = paramString.split("\\.");
+    a = Integer.parseInt(paramString[0]);
+    b = Integer.parseInt(paramString[1]);
+  }
+  
+  public int a()
+  {
+    return a;
+  }
+  
+  public int b()
+  {
+    return b;
   }
 }
 

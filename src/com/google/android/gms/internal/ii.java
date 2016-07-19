@@ -1,60 +1,174 @@
 package com.google.android.gms.internal;
 
-public enum ii
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.webkit.WebResourceResponse;
+import com.google.android.gms.ads.internal.s;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+@fv
+@TargetApi(11)
+public class ii
+  extends ic
 {
-  public static String Fk = "Error";
-  public static String Fl = "status";
-  private final String Fm;
-  
-  static
+  public ii(ib paramib, boolean paramBoolean)
   {
-    EA = new ii("SERVICE_DISABLED", 9, "ServiceDisabled");
-    EB = new ii("SERVICE_UNAVAILABLE", 10, "ServiceUnavailable");
-    EC = new ii("CAPTCHA", 11, "CaptchaRequired");
-    ED = new ii("NETWORK_ERROR", 12, "NetworkError");
-    EE = new ii("USER_CANCEL", 13, "UserCancel");
-    EF = new ii("PERMISSION_DENIED", 14, "PermissionDenied");
-    EG = new ii("DEVICE_MANAGEMENT_REQUIRED", 15, "DeviceManagementRequiredOrSyncDisabled");
-    EH = new ii("DM_INTERNAL_ERROR", 16, "DeviceManagementInternalError");
-    EI = new ii("DM_SYNC_DISABLED", 17, "DeviceManagementSyncDisabled");
-    EJ = new ii("DM_ADMIN_BLOCKED", 18, "DeviceManagementAdminBlocked");
-    EK = new ii("DM_ADMIN_PENDING_APPROVAL", 19, "DeviceManagementAdminPendingApproval");
-    EL = new ii("DM_STALE_SYNC_REQUIRED", 20, "DeviceManagementStaleSyncRequired");
-    EM = new ii("DM_DEACTIVATED", 21, "DeviceManagementDeactivated");
-    EN = new ii("DM_REQUIRED", 22, "DeviceManagementRequired");
-    EO = new ii("CLIENT_LOGIN_DISABLED", 23, "ClientLoginDisabled");
-    EP = new ii("NEED_PERMISSION", 24, "NeedPermission");
-    EQ = new ii("BAD_PASSWORD", 25, "WeakPassword");
-    ER = new ii("ALREADY_HAS_GMAIL", 26, "ALREADY_HAS_GMAIL");
-    ES = new ii("BAD_REQUEST", 27, "BadRequest");
-    ET = new ii("BAD_USERNAME", 28, "BadUsername");
-    EU = new ii("LOGIN_FAIL", 29, "LoginFail");
-    EV = new ii("NOT_LOGGED_IN", 30, "NotLoggedIn");
-    EW = new ii("NO_GMAIL", 31, "NoGmail");
-    EX = new ii("REQUEST_DENIED", 32, "RequestDenied");
-    EY = new ii("SERVER_ERROR", 33, "ServerError");
-    EZ = new ii("USERNAME_UNAVAILABLE", 34, "UsernameUnavailable");
-    Fa = new ii("DELETED_GMAIL", 35, "DeletedGmail");
-    Fb = new ii("SOCKET_TIMEOUT", 36, "SocketTimeout");
-    Fc = new ii("EXISTING_USERNAME", 37, "ExistingUsername");
-    Fd = new ii("NEEDS_BROWSER", 38, "NeedsBrowser");
-    Fe = new ii("GPLUS_OTHER", 39, "GPlusOther");
-    Ff = new ii("GPLUS_NICKNAME", 40, "GPlusNickname");
-    Fg = new ii("GPLUS_INVALID_CHAR", 41, "GPlusInvalidChar");
-    Fh = new ii("GPLUS_INTERSTITIAL", 42, "GPlusInterstitial");
-    Fi = new ii("GPLUS_PROFILE_ERROR", 43, "ProfileUpgradeError");
-    Fj = new ii("INVALID_SCOPE", 44, "INVALID_SCOPE");
-    Fn = new ii[] { Er, Es, Et, Eu, Ev, Ew, Ex, Ey, Ez, EA, EB, EC, ED, EE, EF, EG, EH, EI, EJ, EK, EL, EM, EN, EO, EP, EQ, ER, ES, ET, EU, EV, EW, EX, EY, EZ, Fa, Fb, Fc, Fd, Fe, Ff, Fg, Fh, Fi, Fj };
+    super(paramib, paramBoolean);
   }
   
-  private ii(String paramString)
+  protected WebResourceResponse a(Context paramContext, String paramString1, String paramString2)
+    throws IOException, ExecutionException, InterruptedException, TimeoutException
   {
-    Fm = paramString;
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("User-Agent", s.e().a(paramContext, paramString1));
+    localHashMap.put("Cache-Control", "max-stale=3600");
+    paramContext = (String)new hi(paramContext).a(paramString2, localHashMap).get(60L, TimeUnit.SECONDS);
+    if (paramContext == null) {
+      return null;
+    }
+    return new WebResourceResponse("application/javascript", "UTF-8", new ByteArrayInputStream(paramContext.getBytes("UTF-8")));
   }
   
-  public String fO()
+  /* Error */
+  public WebResourceResponse shouldInterceptRequest(android.webkit.WebView paramWebView, String paramString)
   {
-    return Fm;
+    // Byte code:
+    //   0: ldc 98
+    //   2: new 100	java/io/File
+    //   5: dup
+    //   6: aload_2
+    //   7: invokespecial 103	java/io/File:<init>	(Ljava/lang/String;)V
+    //   10: invokevirtual 107	java/io/File:getName	()Ljava/lang/String;
+    //   13: invokevirtual 111	java/lang/String:equalsIgnoreCase	(Ljava/lang/String;)Z
+    //   16: ifne +10 -> 26
+    //   19: aload_0
+    //   20: aload_1
+    //   21: aload_2
+    //   22: invokespecial 113	com/google/android/gms/internal/ic:shouldInterceptRequest	(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   25: areturn
+    //   26: aload_1
+    //   27: instanceof 115
+    //   30: ifne +15 -> 45
+    //   33: ldc 117
+    //   35: invokestatic 122	com/google/android/gms/internal/gz:d	(Ljava/lang/String;)V
+    //   38: aload_0
+    //   39: aload_1
+    //   40: aload_2
+    //   41: invokespecial 113	com/google/android/gms/internal/ic:shouldInterceptRequest	(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   44: areturn
+    //   45: aload_1
+    //   46: checkcast 115	com/google/android/gms/internal/ib
+    //   49: astore 4
+    //   51: aload 4
+    //   53: invokeinterface 126 1 0
+    //   58: invokevirtual 129	com/google/android/gms/internal/ic:g	()V
+    //   61: aload 4
+    //   63: invokeinterface 133 1 0
+    //   68: getfield 138	com/google/android/gms/ads/internal/client/AdSizeParcel:e	Z
+    //   71: ifeq +65 -> 136
+    //   74: getstatic 144	com/google/android/gms/internal/ao:F	Lcom/google/android/gms/internal/ak;
+    //   77: invokevirtual 150	com/google/android/gms/internal/ak:c	()Ljava/lang/Object;
+    //   80: checkcast 75	java/lang/String
+    //   83: astore_3
+    //   84: new 152	java/lang/StringBuilder
+    //   87: dup
+    //   88: invokespecial 153	java/lang/StringBuilder:<init>	()V
+    //   91: ldc -101
+    //   93: invokevirtual 159	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   96: aload_3
+    //   97: invokevirtual 159	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   100: ldc -95
+    //   102: invokevirtual 159	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   105: invokevirtual 164	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   108: invokestatic 166	com/google/android/gms/internal/gz:e	(Ljava/lang/String;)V
+    //   111: aload_0
+    //   112: aload 4
+    //   114: invokeinterface 170 1 0
+    //   119: aload_0
+    //   120: getfield 173	com/google/android/gms/internal/ii:a	Lcom/google/android/gms/internal/ib;
+    //   123: invokeinterface 177 1 0
+    //   128: getfield 183	com/google/android/gms/ads/internal/util/client/VersionInfoParcel:b	Ljava/lang/String;
+    //   131: aload_3
+    //   132: invokevirtual 185	com/google/android/gms/internal/ii:a	(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   135: areturn
+    //   136: aload 4
+    //   138: invokeinterface 189 1 0
+    //   143: ifeq +16 -> 159
+    //   146: getstatic 192	com/google/android/gms/internal/ao:E	Lcom/google/android/gms/internal/ak;
+    //   149: invokevirtual 150	com/google/android/gms/internal/ak:c	()Ljava/lang/Object;
+    //   152: checkcast 75	java/lang/String
+    //   155: astore_3
+    //   156: goto -72 -> 84
+    //   159: getstatic 195	com/google/android/gms/internal/ao:D	Lcom/google/android/gms/internal/ak;
+    //   162: invokevirtual 150	com/google/android/gms/internal/ak:c	()Ljava/lang/Object;
+    //   165: checkcast 75	java/lang/String
+    //   168: astore_3
+    //   169: goto -85 -> 84
+    //   172: astore_3
+    //   173: new 152	java/lang/StringBuilder
+    //   176: dup
+    //   177: invokespecial 153	java/lang/StringBuilder:<init>	()V
+    //   180: ldc -59
+    //   182: invokevirtual 159	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   185: aload_3
+    //   186: invokevirtual 202	java/lang/Exception:getMessage	()Ljava/lang/String;
+    //   189: invokevirtual 159	java/lang/StringBuilder:append	(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    //   192: invokevirtual 164	java/lang/StringBuilder:toString	()Ljava/lang/String;
+    //   195: invokestatic 122	com/google/android/gms/internal/gz:d	(Ljava/lang/String;)V
+    //   198: aload_0
+    //   199: aload_1
+    //   200: aload_2
+    //   201: invokespecial 113	com/google/android/gms/internal/ic:shouldInterceptRequest	(Landroid/webkit/WebView;Ljava/lang/String;)Landroid/webkit/WebResourceResponse;
+    //   204: areturn
+    //   205: astore_3
+    //   206: goto -33 -> 173
+    //   209: astore_3
+    //   210: goto -37 -> 173
+    //   213: astore_3
+    //   214: goto -41 -> 173
+    // Local variable table:
+    //   start	length	slot	name	signature
+    //   0	217	0	this	ii
+    //   0	217	1	paramWebView	android.webkit.WebView
+    //   0	217	2	paramString	String
+    //   83	86	3	str	String
+    //   172	14	3	localInterruptedException	InterruptedException
+    //   205	1	3	localTimeoutException	TimeoutException
+    //   209	1	3	localIOException	IOException
+    //   213	1	3	localExecutionException	ExecutionException
+    //   49	88	4	localib	ib
+    // Exception table:
+    //   from	to	target	type
+    //   0	26	172	java/lang/InterruptedException
+    //   26	45	172	java/lang/InterruptedException
+    //   45	84	172	java/lang/InterruptedException
+    //   84	136	172	java/lang/InterruptedException
+    //   136	156	172	java/lang/InterruptedException
+    //   159	169	172	java/lang/InterruptedException
+    //   0	26	205	java/util/concurrent/TimeoutException
+    //   26	45	205	java/util/concurrent/TimeoutException
+    //   45	84	205	java/util/concurrent/TimeoutException
+    //   84	136	205	java/util/concurrent/TimeoutException
+    //   136	156	205	java/util/concurrent/TimeoutException
+    //   159	169	205	java/util/concurrent/TimeoutException
+    //   0	26	209	java/io/IOException
+    //   26	45	209	java/io/IOException
+    //   45	84	209	java/io/IOException
+    //   84	136	209	java/io/IOException
+    //   136	156	209	java/io/IOException
+    //   159	169	209	java/io/IOException
+    //   0	26	213	java/util/concurrent/ExecutionException
+    //   26	45	213	java/util/concurrent/ExecutionException
+    //   45	84	213	java/util/concurrent/ExecutionException
+    //   84	136	213	java/util/concurrent/ExecutionException
+    //   136	156	213	java/util/concurrent/ExecutionException
+    //   159	169	213	java/util/concurrent/ExecutionException
   }
 }
 

@@ -6,6 +6,15 @@
 .implements Lcom/ooyala/android/LayoutController;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/AbstractOoyalaPlayerLayoutController$2;,
+        Lcom/ooyala/android/AbstractOoyalaPlayerLayoutController$DefaultControlStyle;
+    }
+.end annotation
+
+
 # instance fields
 .field protected _fullscreenButtonShowing:Z
 

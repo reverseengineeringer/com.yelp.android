@@ -3,6 +3,7 @@ package com.yelp.android.util;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.IntentFilter;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -12,9 +13,9 @@ public abstract class BasicBroadcastReceiver
   private final Collection<IntentFilter> a;
   private boolean b;
   
-  public BasicBroadcastReceiver(Collection<IntentFilter> paramCollection)
+  public BasicBroadcastReceiver(IntentFilter... paramVarArgs)
   {
-    a = paramCollection;
+    a = Arrays.asList(paramVarArgs);
   }
   
   public void a(Context paramContext)

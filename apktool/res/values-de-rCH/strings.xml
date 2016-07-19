@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ad_choices_url">https://de.m.yelp.ch/static?p=privacy#third-parties</string>
-    <string name="advertiser_faq_url">https://m.yelp.ch/advertiser_faq</string>
     <string name="category_banks">Banken</string>
-    <string name="category_bars">Bars</string>
-    <string name="category_coffee">Kaffee &amp; Teeläden</string>
+    <string name="category_bars">Bar</string>
+    <string name="category_coffee">Coffee Shop</string>
     <string name="category_drugstores">Drogerien</string>
     <string name="category_nightlife">Nightlife</string>
-    <string name="category_restaurants">Restaurants</string>
+    <string name="category_restaurants">Restaurant</string>
     <string name="category_servicestations">Tankstellen &amp; Autowerkstätten</string>
     <string name="compliment_cool">Ich find dich cool!</string>
     <string name="compliment_cute">Herzigs Föteli</string>
@@ -31,14 +29,7 @@
     <string name="compliment_plain">Merci!</string>
     <string name="compliment_profile">Du gfallsch mer.</string>
     <string name="compliment_writer">Super Tegschtli!</string>
-    <string name="content_guidelines_url">https://de.m.yelp.ch/guidelines</string>
-    <string name="elite_url">https://de.m.yelp.ch/elite</string>
-    <string name="locality_string">Stadt, Kanton</string>
-    <string name="mobile_host">de.m.yelp.ch</string>
-    <string name="not_recommended_reviews_url">https://de.m.yelp.ch/not_recommended_reviews/%1$s</string>
-    <string name="privacy_policy_url">https://de.m.yelp.ch/static?p=privacy</string>
-    <string name="privacy_settings_url">https://de.m.yelp.ch/profile_privacy</string>
-    <string name="remove_reason_member_request">Dieses Yelper-Konto wurde gelöscht.</string>
+    <string name="remove_reason_member_request">Dieses Yelp-Profil wurde gelöscht.</string>
     <string name="remove_reason_post_by_admin">Dieser Beitrag wurde von einem Yelp-Administrator entfernt.</string>
     <string name="remove_reason_post_by_admin_tos">Dieser Beitrag hat die &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Geschäftsbedingungen&lt;/a> von Yelp verletzt und wurde entfernt.</string>
     <string name="remove_reason_post_by_popular_demand">Dieser Beitrag wurde von der Community als bedenklich befunden und wurde entfernt.</string>
@@ -50,19 +41,22 @@
     <string name="remove_reason_post_tos_threat">Dieser Beitrag wurde entfernt, da der Verfasser kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_by_admin">Diese Unterhaltung wurde von einem Yelp-Administrator entfernt.</string>
     <string name="remove_reason_topic_by_admin_tos">Diese Unterhaltung hat die &lt;a rel=\"nofollow\" href=\"/static?p=tos\">Geschäftsbedingungen&lt;/a> von Yelp verletzt und wurde entfernt.</string>
-    <string name="remove_reason_topic_by_popular_demand">Diese Unterhaltung wurde von der Community als bedenklich befunden und wurde entfernt.</string>
+    <string name="remove_reason_topic_by_popular_demand">Diese Unterhaltung wurde von der Community als bedenklich gemeldet und wurde daher entfernt.</string>
     <string name="remove_reason_topic_member_request">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_content">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_general">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_multiple">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_spammer">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
     <string name="remove_reason_topic_tos_threat">Diese Unterhaltung wurde entfernt, da der Verfasser, der sie begonnen hat, kein Yelp-Konto mehr hat.</string>
-    <string name="remove_reason_tos_content">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_general">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_multiple">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_spammer">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="remove_reason_tos_threat">Dieses Yelper-Konto wurde gelöscht.</string>
-    <string name="site_name">Yelp.ch</string>
+    <string name="remove_reason_tos_bizowner">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_content">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_deals">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_general">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_multiple">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_paidreviewer">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_solicitation">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_spammer">Dieses Yelp-Profil wurde gelöscht.</string>
+    <string name="remove_reason_tos_threat">Dieses Yelp-Profil wurde gelöscht.</string>
     <string name="talk_category_0">Andere</string>
     <string name="talk_category_1">Lokale Fragen &amp; Antworten</string>
     <string name="talk_category_10">Essen &amp; Trinken</string>
@@ -93,6 +87,16 @@
     <string name="talk_category_travel">Reisen</string>
     <string name="talk_category_uncategorized">Andere</string>
     <string name="talk_category_yelper_shout_outs">Applaus von Yelpern</string>
+    <string name="ad_choices_url">https://de.m.yelp.ch/static?p=privacy#third-parties</string>
+    <string name="advertiser_faq_url">https://m.yelp.ch/advertiser_faq</string>
+    <string name="content_guidelines_url">https://de.m.yelp.ch/guidelines</string>
+    <string name="elite_url">https://de.m.yelp.ch/elite</string>
+    <string name="locality_string">Stadt, Kanton</string>
+    <string name="mobile_host">de.m.yelp.ch</string>
+    <string name="not_recommended_reviews_url">https://de.m.yelp.ch/not_recommended_reviews/%1$s</string>
+    <string name="privacy_policy_url">https://de.m.yelp.ch/static?p=privacy</string>
+    <string name="privacy_settings_url">https://de.m.yelp.ch/profile_privacy</string>
+    <string name="site_name">Yelp.ch</string>
     <string name="terms_of_service_url">https://de.m.yelp.ch/static?p=tos</string>
     <string name="www_host">de.yelp.ch</string>
 </resources>

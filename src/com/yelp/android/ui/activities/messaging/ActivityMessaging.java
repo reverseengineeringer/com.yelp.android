@@ -1,5 +1,6 @@
 package com.yelp.android.ui.activities.messaging;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -7,45 +8,48 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.o;
+import com.yelp.android.analytics.n;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
 import com.yelp.android.serializable.Conversation;
-import com.yelp.android.serializable.bg;
+import com.yelp.android.serializable.e;
 import com.yelp.android.ui.activities.ActivityLogin;
+import com.yelp.android.ui.activities.messaging.apimanagers.g.a;
+import com.yelp.android.ui.activities.messaging.apimanagers.h;
 import com.yelp.android.ui.activities.nearby.ActivityNearby;
 import com.yelp.android.ui.activities.support.YelpActivity;
-import com.yelp.android.ui.p;
+import com.yelp.android.ui.k;
 import com.yelp.android.ui.panels.PanelError;
-import com.yelp.android.ui.panels.aa;
+import com.yelp.android.ui.panels.PanelError.a;
 import com.yelp.android.util.ErrorType;
 import java.util.ArrayList;
 
 public class ActivityMessaging
   extends YelpActivity
-  implements a, p, aa
+  implements a, k, PanelError.a
 {
   private Conversation a;
   private ArrayList<Conversation> b;
   private String c;
   private ConversationsInboxFragment d;
   private ConversationThreadFragment e;
-  private ActivityMessaging.MessagingActionsFragment f;
+  private MessagingActionsFragment f;
   private boolean g;
   private boolean h;
   
   public static Intent a(Context paramContext)
   {
-    return ActivityLogin.a(paramContext, 2131166785, 2131166042, new Intent(paramContext, ActivityMessaging.class));
+    return ActivityLogin.a(paramContext, 2131165701, 2131166101, new Intent(paramContext, ActivityMessaging.class));
   }
   
   private void a(boolean paramBoolean)
   {
     if (g) {
-      getSupportFragmentManager().popBackStackImmediate();
+      getSupportFragmentManager().d();
     }
     if (a != null)
     {
@@ -55,14 +59,14 @@ public class ActivityMessaging
       }
     }
     label111:
-    for (int i = 2131493332;; i = 2131493228)
+    for (int i = 2131689997;; i = 2131689895)
     {
-      FragmentTransaction localFragmentTransaction = getSupportFragmentManager().beginTransaction();
-      localFragmentTransaction.replace(i, e, "conversation_thread_tag");
+      o localo = getSupportFragmentManager().a();
+      localo.b(i, e, "conversation_thread_tag");
       if (paramBoolean) {
-        localFragmentTransaction.addToBackStack(null);
+        localo.a(null);
       }
-      localFragmentTransaction.commit();
+      localo.a();
       do
       {
         return;
@@ -78,32 +82,33 @@ public class ActivityMessaging
     String[] arrayOfString = new String[2];
     arrayOfString[0] = "conversations_inbox_tag";
     arrayOfString[1] = "conversation_thread_tag";
-    FragmentManager localFragmentManager = getSupportFragmentManager();
+    l locall = getSupportFragmentManager();
     int i = 0;
-    while (i < localFragmentManager.getBackStackEntryCount())
+    while (i < locall.e())
     {
-      localFragmentManager.popBackStack();
+      locall.c();
       i += 1;
     }
     int k = arrayOfString.length;
     i = j;
     while (i < k)
     {
-      Fragment localFragment = localFragmentManager.findFragmentByTag(arrayOfString[i]);
+      Fragment localFragment = locall.a(arrayOfString[i]);
       if (localFragment != null) {
-        localFragmentManager.beginTransaction().remove(localFragment).commit();
+        locall.a().a(localFragment).a();
       }
       i += 1;
     }
-    localFragmentManager.executePendingTransactions();
+    locall.b();
   }
   
+  @SuppressLint({"CommitTransaction"})
   private void f()
   {
     int i;
     if (getResourcesgetConfigurationorientation == 1)
     {
-      i = 2131493332;
+      i = 2131689997;
       if (a == null) {
         break label67;
       }
@@ -111,9 +116,9 @@ public class ActivityMessaging
     label67:
     for (d = ConversationsInboxFragment.a(b, a);; d = ConversationsInboxFragment.a(b, c))
     {
-      getSupportFragmentManager().beginTransaction().replace(i, d, "conversations_inbox_tag").commit();
+      getSupportFragmentManager().a().b(i, d, "conversations_inbox_tag").a();
       return;
-      i = 2131493227;
+      i = 2131689894;
       break;
     }
   }
@@ -142,20 +147,17 @@ public class ActivityMessaging
     }
   }
   
-  public void a(bg parambg)
+  public void a(e parame)
   {
     if (d != null) {
-      d.a(parambg);
+      d.a(parame);
     }
   }
   
-  public void a_()
+  public void b()
   {
     if (g()) {
-      d.a_();
-    }
-    if (h()) {
-      e.b();
+      d.h();
     }
   }
   
@@ -166,11 +168,9 @@ public class ActivityMessaging
     }
   }
   
-  public void c()
+  public MessagingActionsFragment c()
   {
-    if (g()) {
-      d.g();
-    }
+    return f;
   }
   
   public void c(Conversation paramConversation)
@@ -178,12 +178,7 @@ public class ActivityMessaging
     if (d != null) {
       d.a(paramConversation);
     }
-    getSupportFragmentManager().popBackStack();
-  }
-  
-  public ActivityMessaging.MessagingActionsFragment d()
-  {
-    return f;
+    getSupportFragmentManager().c();
   }
   
   public PanelError getErrorPanel()
@@ -196,44 +191,34 @@ public class ActivityMessaging
     return null;
   }
   
-  public void m_()
-  {
-    if (g()) {
-      d.f();
-    }
-    while (!h()) {
-      return;
-    }
-    e.c();
-  }
-  
+  @SuppressLint({"CommitTransaction"})
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    f = ((ActivityMessaging.MessagingActionsFragment)getSupportFragmentManager().findFragmentByTag("user_actions_tag"));
+    f = ((MessagingActionsFragment)getSupportFragmentManager().a("user_actions_tag"));
     if (f == null)
     {
-      f = new ActivityMessaging.MessagingActionsFragment();
-      getSupportFragmentManager().beginTransaction().add(f, "user_actions_tag").commit();
+      f = new MessagingActionsFragment();
+      getSupportFragmentManager().a().a(f, "user_actions_tag").a();
     }
     if (getResourcesgetConfigurationorientation == 2) {
-      setContentView(2130903097);
+      setContentView(2130903110);
     }
     h = getIntent().getBooleanExtra("show_keyboard", false);
     g = wasLaunchedFromPushNotification();
     Uri localUri = getIntent().getData();
     if (g) {
-      AppData.b().k().a(new o(localUri));
+      AppData.b().k().a(new n(localUri));
     }
     if (paramBundle != null)
     {
       a = ((Conversation)paramBundle.getParcelable("conversation"));
       b = paramBundle.getParcelableArrayList("conversations");
       if (a != null) {
-        c = a.getId();
+        c = a.h();
       }
       e();
-      if (AppData.b().m().e()) {
+      if (AppData.b().q().d()) {
         break label226;
       }
       startActivity(ActivityNearby.a(AppData.b()));
@@ -292,18 +277,28 @@ public class ActivityMessaging
     Conversation localConversation = null;
     if ((g()) && (h()))
     {
-      localConversation = e.d();
-      paramBundle.putParcelableArrayList("conversations", new ArrayList(d.e()));
+      localConversation = e.F_();
+      paramBundle.putParcelableArrayList("conversations", new ArrayList(d.f()));
     }
     for (;;)
     {
       paramBundle.putParcelable("conversation", localConversation);
       return;
       if (g()) {
-        localConversation = d.d();
+        localConversation = d.G_();
       } else if (h()) {
-        localConversation = e.d();
+        localConversation = e.F_();
       }
+    }
+  }
+  
+  public void p_()
+  {
+    if (g()) {
+      d.p_();
+    }
+    if (h()) {
+      e.b();
     }
   }
   
@@ -316,10 +311,77 @@ public class ActivityMessaging
     getErrorPanel().setBackgroundResource(17170443);
   }
   
+  public void q_()
+  {
+    if (g()) {
+      d.g();
+    }
+    while (!h()) {
+      return;
+    }
+    e.c();
+  }
+  
   protected void updateHotButtonVisibility()
   {
     super.updateHotButtonVisibility();
     setHotButtonKeyboardListener(null);
+  }
+  
+  public static class MessagingActionsFragment
+    extends Fragment
+  {
+    private h a;
+    private com.yelp.android.ui.activities.messaging.apimanagers.a b;
+    
+    public void a(Conversation paramConversation, g.a parama)
+    {
+      a.a(paramConversation, parama);
+    }
+    
+    public void a(Conversation paramConversation, String paramString, g.a parama)
+    {
+      a.a(paramConversation, paramString, parama);
+    }
+    
+    public void a(e parame, boolean paramBoolean, g.a parama)
+    {
+      a.a(parame, paramBoolean, parama);
+    }
+    
+    public void a(g.a parama1, g.a parama2)
+    {
+      a.a(parama1);
+      b.a(parama2);
+    }
+    
+    public boolean a()
+    {
+      return (a.g()) || (b.g());
+    }
+    
+    public void b(Conversation paramConversation, g.a parama)
+    {
+      b.a(parama, paramConversation);
+    }
+    
+    public void b(Conversation paramConversation, String paramString, g.a parama)
+    {
+      b.a(parama, paramConversation, paramString);
+    }
+    
+    public void b(e parame, boolean paramBoolean, g.a parama)
+    {
+      a.b(parame, paramBoolean, parama);
+    }
+    
+    public void onCreate(Bundle paramBundle)
+    {
+      super.onCreate(paramBundle);
+      setRetainInstance(true);
+      a = new h();
+      b = new com.yelp.android.ui.activities.messaging.apimanagers.a();
+    }
   }
 }
 

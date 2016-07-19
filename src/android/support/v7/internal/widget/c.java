@@ -1,42 +1,27 @@
 package android.support.v7.internal.widget;
 
-import android.util.SparseArray;
-import android.view.View;
+import android.graphics.Outline;
+import android.graphics.drawable.Drawable;
 
 class c
+  extends b
 {
-  private final SparseArray<View> b = new SparseArray();
-  
-  c(AbsSpinnerCompat paramAbsSpinnerCompat) {}
-  
-  View a(int paramInt)
+  public c(ActionBarContainer paramActionBarContainer)
   {
-    View localView = (View)b.get(paramInt);
-    if (localView != null) {
-      b.delete(paramInt);
-    }
-    return localView;
+    super(paramActionBarContainer);
   }
   
-  void a()
+  public void getOutline(Outline paramOutline)
   {
-    SparseArray localSparseArray = b;
-    int j = localSparseArray.size();
-    int i = 0;
-    while (i < j)
-    {
-      View localView = (View)localSparseArray.valueAt(i);
-      if (localView != null) {
-        AbsSpinnerCompat.a(a, localView, true);
+    if (a.d) {
+      if (a.c != null) {
+        a.c.getOutline(paramOutline);
       }
-      i += 1;
     }
-    localSparseArray.clear();
-  }
-  
-  public void a(int paramInt, View paramView)
-  {
-    b.put(paramInt, paramView);
+    while (a.a == null) {
+      return;
+    }
+    a.a.getOutline(paramOutline);
   }
 }
 

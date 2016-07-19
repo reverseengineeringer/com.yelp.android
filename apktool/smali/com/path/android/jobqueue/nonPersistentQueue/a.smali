@@ -12,7 +12,7 @@
         "Ljava/lang/Object;",
         "Ljava/util/Comparator",
         "<",
-        "Lcom/path/android/jobqueue/b;",
+        "Lcom/path/android/jobqueue/a;",
         ">;"
     }
 .end annotation
@@ -24,7 +24,7 @@
         value = {
             "Ljava/util/Comparator",
             "<",
-            "Lcom/path/android/jobqueue/b;",
+            "Lcom/path/android/jobqueue/a;",
             ">;"
         }
     .end annotation
@@ -39,7 +39,7 @@
             "(",
             "Ljava/util/Comparator",
             "<",
-            "Lcom/path/android/jobqueue/b;",
+            "Lcom/path/android/jobqueue/a;",
             ">;)V"
         }
     .end annotation
@@ -57,16 +57,16 @@
 
 
 # virtual methods
-.method public a(Lcom/path/android/jobqueue/b;Lcom/path/android/jobqueue/b;)I
+.method public a(Lcom/path/android/jobqueue/a;Lcom/path/android/jobqueue/a;)I
     .locals 4
 
     .prologue
     .line 19
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->g()J
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->g()J
 
     move-result-wide v0
 
-    invoke-virtual {p2}, Lcom/path/android/jobqueue/b;->g()J
+    invoke-virtual {p2}, Lcom/path/android/jobqueue/a;->g()J
 
     move-result-wide v2
 
@@ -83,11 +83,11 @@
 
     .line 21
     :cond_0
-    invoke-virtual {p1}, Lcom/path/android/jobqueue/b;->g()J
+    invoke-virtual {p1}, Lcom/path/android/jobqueue/a;->g()J
 
     move-result-wide v0
 
-    invoke-virtual {p2}, Lcom/path/android/jobqueue/b;->g()J
+    invoke-virtual {p2}, Lcom/path/android/jobqueue/a;->g()J
 
     move-result-wide v2
 
@@ -116,11 +116,11 @@
 
     .prologue
     .line 10
-    check-cast p1, Lcom/path/android/jobqueue/b;
+    check-cast p1, Lcom/path/android/jobqueue/a;
 
-    check-cast p2, Lcom/path/android/jobqueue/b;
+    check-cast p2, Lcom/path/android/jobqueue/a;
 
-    invoke-virtual {p0, p1, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/a;->a(Lcom/path/android/jobqueue/b;Lcom/path/android/jobqueue/b;)I
+    invoke-virtual {p0, p1, p2}, Lcom/path/android/jobqueue/nonPersistentQueue/a;->a(Lcom/path/android/jobqueue/a;Lcom/path/android/jobqueue/a;)I
 
     move-result v0
 

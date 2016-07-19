@@ -8,7 +8,7 @@
     .locals 0
 
     .prologue
-    .line 8
+    .line 9
     invoke-direct {p0}, Lcom/yelp/android/appdata/webrequests/ApiWorkerFragment;-><init>()V
 
     return-void
@@ -16,55 +16,55 @@
 
 
 # virtual methods
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/h;
+.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/k;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Request:",
-            "Lcom/yelp/android/appdata/webrequests/h",
+            "Lcom/yelp/android/appdata/webrequests/k",
             "<**TResult;>;Result:",
             "Ljava/lang/Object;",
             ">(",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<TResult;>;)TRequest;"
         }
     .end annotation
 
     .prologue
-    .line 39
+    .line 27
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/cz;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/cm;
 
-    .line 41
+    .line 29
     if-nez v0, :cond_0
 
-    .line 42
+    .line 30
     const/4 v0, 0x0
 
-    .line 45
+    .line 33
     :goto_0
     return-object v0
 
     :cond_0
-    invoke-virtual {v0, p2}, Lcom/yelp/android/appdata/webrequests/cz;->a(Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/h;
+    invoke-virtual {v0, p2}, Lcom/yelp/android/appdata/webrequests/cm;->a(Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/k;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;)V
-    .locals 1
+.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Request:",
-            "Lcom/yelp/android/appdata/webrequests/h",
+            "Lcom/yelp/android/appdata/webrequests/k",
             "<**TResult;>;Result:",
             "Ljava/lang/Object;",
             ">(",
@@ -74,47 +74,23 @@
     .end annotation
 
     .prologue
-    .line 16
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, p1, p2, v0}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Z)V
-
-    .line 17
-    return-void
-.end method
-
-.method public a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Z)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<Request:",
-            "Lcom/yelp/android/appdata/webrequests/h",
-            "<**TResult;>;Result:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/String;",
-            "TRequest;Z)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 30
+    .line 19
     invoke-virtual {p0, p1, p2}, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->b(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 31
+    .line 20
     iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/YelpApiWorkerFragment;->a:Ljava/util/Map;
 
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/cz;
+    new-instance v1, Lcom/yelp/android/appdata/webrequests/cm;
 
-    invoke-direct {v1, p2, p3}, Lcom/yelp/android/appdata/webrequests/cz;-><init>(Lcom/yelp/android/appdata/webrequests/h;Z)V
+    invoke-direct {v1, p2}, Lcom/yelp/android/appdata/webrequests/cm;-><init>(Lcom/yelp/android/appdata/webrequests/k;)V
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 34
+    .line 22
     :cond_0
     return-void
 .end method

@@ -16,8 +16,8 @@ import android.widget.TextView;
 public class ListOfDetails
   extends SpannableLinearLayout
 {
-  private View g;
-  private boolean h = false;
+  private View b;
+  private boolean c = false;
   
   public ListOfDetails(Context paramContext)
   {
@@ -30,34 +30,7 @@ public class ListOfDetails
     setOrientation(1);
   }
   
-  public TextView a(View paramView)
-  {
-    return (TextView)paramView.findViewById(2131493346);
-  }
-  
-  public void a()
-  {
-    if (g == null) {
-      throw new IllegalStateException("We're calling finishLastRow without adding any rows!");
-    }
-    ((SpannableRelativeLayout)g.findViewById(2131493344)).setRight(true);
-    h = true;
-  }
-  
-  public void a(TextView paramTextView)
-  {
-    paramTextView.setLines(1);
-    paramTextView.setHorizontallyScrolling(true);
-    paramTextView.setEllipsize(TextUtils.TruncateAt.END);
-  }
-  
-  public void a(String paramString)
-  {
-    addView(LayoutInflater.from(getContext()).inflate(2130903131, this, false));
-    ((TextView)findViewById(2131493340)).setText(paramString);
-  }
-  
-  public void a(String paramString, CharSequence paramCharSequence)
+  public View a(String paramString, CharSequence paramCharSequence)
   {
     View localView = getNewRow();
     b(localView).setText(paramString);
@@ -69,14 +42,42 @@ public class ListOfDetails
       if ((paramCharSequence != null) && (paramCharSequence.length > 0))
       {
         paramString.setMovementMethod(LinkMovementMethod.getInstance());
-        paramString.setTextColor(getContext().getResources().getColorStateList(2131362065));
+        paramString.setTextColor(getContext().getResources().getColorStateList(2131624294));
       }
     }
+    return localView;
+  }
+  
+  public TextView a(View paramView)
+  {
+    return (TextView)paramView.findViewById(2131690014);
+  }
+  
+  public void a()
+  {
+    if (b == null) {
+      throw new IllegalStateException("We're calling finishLastRow without adding any rows!");
+    }
+    ((SpannableRelativeLayout)b.findViewById(2131690011)).setRight(true);
+    c = true;
+  }
+  
+  public void a(TextView paramTextView)
+  {
+    paramTextView.setLines(1);
+    paramTextView.setHorizontallyScrolling(true);
+    paramTextView.setEllipsize(TextUtils.TruncateAt.END);
+  }
+  
+  public void a(String paramString)
+  {
+    addView(LayoutInflater.from(getContext()).inflate(2130903144, this, false));
+    ((TextView)findViewById(2131690007)).setText(paramString);
   }
   
   public TextView b(View paramView)
   {
-    return (TextView)paramView.findViewById(2131493340);
+    return (TextView)paramView.findViewById(2131690007);
   }
   
   public void b(String paramString)
@@ -87,12 +88,12 @@ public class ListOfDetails
   
   public View getNewRow()
   {
-    if (h) {
+    if (c) {
       throw new IllegalStateException("PanelMoreInfo is already finished. No more new rows should be added.");
     }
-    View localView = LayoutInflater.from(getContext()).inflate(2130903133, this, false);
+    View localView = LayoutInflater.from(getContext()).inflate(2130903146, this, false);
     addView(localView);
-    g = localView;
+    b = localView;
     return localView;
   }
 }

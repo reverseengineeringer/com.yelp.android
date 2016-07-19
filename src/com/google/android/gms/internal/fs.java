@@ -1,41 +1,41 @@
 package com.google.android.gms.internal;
 
+import android.os.Bundle;
+import com.google.android.gms.ads.internal.formats.a;
+import com.google.android.gms.ads.internal.formats.e;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-@ey
-public final class fs
+@fv
+public class fs
+  implements fq.a<e>
 {
-  private final Object mH = new Object();
-  gu mo;
-  private String uE;
-  private gj<fu> uF = new gj();
-  public final cd uG = new fs.1(this);
-  public final cd uH = new fs.2(this);
+  private final boolean a;
+  private final boolean b;
   
-  public fs(String paramString)
+  public fs(boolean paramBoolean1, boolean paramBoolean2)
   {
-    uE = paramString;
+    a = paramBoolean1;
+    b = paramBoolean2;
   }
   
-  public void b(gu paramgu)
+  public e b(fq paramfq, JSONObject paramJSONObject)
+    throws JSONException, InterruptedException, ExecutionException
   {
-    jx.aU("setAdWebView must be called on the main thread.");
-    mo = paramgu;
-  }
-  
-  public Future<fu> cR()
-  {
-    return uF;
-  }
-  
-  public void cS()
-  {
-    jx.aU("destroyAdWebView must be called on the main thread.");
-    if (mo != null)
-    {
-      mo.destroy();
-      mo = null;
+    Object localObject = paramfq.a(paramJSONObject, "images", true, a, b);
+    hs localhs = paramfq.a(paramJSONObject, "secondary_image", false, a);
+    paramfq = paramfq.b(paramJSONObject);
+    ArrayList localArrayList = new ArrayList();
+    localObject = ((List)localObject).iterator();
+    while (((Iterator)localObject).hasNext()) {
+      localArrayList.add(((hs)((Iterator)localObject).next()).get());
     }
+    return new e(paramJSONObject.getString("headline"), localArrayList, paramJSONObject.getString("body"), (bd)localhs.get(), paramJSONObject.getString("call_to_action"), paramJSONObject.getString("advertiser"), (a)paramfq.get(), new Bundle());
   }
 }
 

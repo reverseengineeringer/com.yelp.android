@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="?largeGapSize" android:layout_marginTop="?largeGapSize" />
-    <EditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="?largeGapSize" android:layout_marginRight="?largeGapSize" android:hint="@string/optional" android:inputType="textCapWords" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginTop="@dimen/default_large_gap_size" />
+    <EditText android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginRight="@dimen/default_large_gap_size" android:hint="@string/optional" android:inputType="textCapWords" />
 </LinearLayout>

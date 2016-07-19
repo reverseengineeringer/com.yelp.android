@@ -1,79 +1,105 @@
 package com.google.android.gms.internal;
 
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.app.DownloadManager.Request;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Environment;
-import android.text.TextUtils;
-import android.webkit.URLUtil;
-import com.google.android.gms.R.string;
-import java.util.Map;
+import com.google.android.gms.ads.internal.reward.mediation.client.RewardItemParcel;
+import com.google.android.gms.ads.internal.s;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-@ey
-public class dj
+@fv
+public final class dj
 {
-  private final Context mContext;
-  private final gu mo;
-  private final Map<String, String> rd;
+  public final List<di> a;
+  public final long b;
+  public final List<String> c;
+  public final List<String> d;
+  public final List<String> e;
+  public final String f;
+  public final long g;
+  public final String h;
+  public final int i;
+  public final int j;
+  public final long k;
+  public int l;
+  public int m;
   
-  public dj(gu paramgu, Map<String, String> paramMap)
+  public dj(String paramString)
+    throws JSONException
   {
-    mo = paramgu;
-    rd = paramMap;
-    mContext = paramgu.dI();
+    paramString = new JSONObject(paramString);
+    if (gz.a(2)) {
+      gz.e("Mediation Response JSON: " + paramString.toString(2));
+    }
+    JSONArray localJSONArray = paramString.getJSONArray("ad_networks");
+    ArrayList localArrayList = new ArrayList(localJSONArray.length());
+    int n = 0;
+    int i2;
+    for (int i1 = -1; n < localJSONArray.length(); i1 = i2)
+    {
+      di localdi = new di(localJSONArray.getJSONObject(n));
+      localArrayList.add(localdi);
+      i2 = i1;
+      if (i1 < 0)
+      {
+        i2 = i1;
+        if (a(localdi)) {
+          i2 = n;
+        }
+      }
+      n += 1;
+    }
+    l = i1;
+    m = localJSONArray.length();
+    a = Collections.unmodifiableList(localArrayList);
+    f = paramString.getString("qdata");
+    j = paramString.optInt("fs_model_type", -1);
+    k = paramString.optLong("timeout_ms", -1L);
+    paramString = paramString.optJSONObject("settings");
+    if (paramString != null)
+    {
+      b = paramString.optLong("ad_network_timeout_millis", -1L);
+      c = s.r().a(paramString, "click_urls");
+      d = s.r().a(paramString, "imp_urls");
+      e = s.r().a(paramString, "nofill_urls");
+      long l1 = paramString.optLong("refresh", -1L);
+      if (l1 > 0L) {}
+      for (l1 *= 1000L;; l1 = -1L)
+      {
+        g = l1;
+        paramString = RewardItemParcel.a(paramString.optJSONArray("rewards"));
+        if (paramString != null) {
+          break;
+        }
+        h = null;
+        i = 0;
+        return;
+      }
+      h = b;
+      i = c;
+      return;
+    }
+    b = -1L;
+    c = null;
+    d = null;
+    e = null;
+    g = -1L;
+    h = null;
+    i = 0;
   }
   
-  String B(String paramString)
+  private boolean a(di paramdi)
   {
-    return Uri.parse(paramString).getLastPathSegment();
-  }
-  
-  DownloadManager.Request b(String paramString1, String paramString2)
-  {
-    paramString1 = new DownloadManager.Request(Uri.parse(paramString1));
-    paramString1.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, paramString2);
-    if (ll.ig())
-    {
-      paramString1.allowScanningByMediaScanner();
-      paramString1.setNotificationVisibility(1);
-      return paramString1;
+    paramdi = c.iterator();
+    while (paramdi.hasNext()) {
+      if (((String)paramdi.next()).equals("com.google.ads.mediation.admob.AdMobAdapter")) {
+        return true;
+      }
     }
-    paramString1.setShowRunningNotification(true);
-    return paramString1;
-  }
-  
-  public void execute()
-  {
-    if (!new bl(mContext).bq())
-    {
-      gr.W("Store picture feature is not supported on this device.");
-      return;
-    }
-    if (TextUtils.isEmpty((CharSequence)rd.get("iurl")))
-    {
-      gr.W("Image url cannot be empty.");
-      return;
-    }
-    String str1 = (String)rd.get("iurl");
-    if (!URLUtil.isValidUrl(str1))
-    {
-      gr.W("Invalid image url:" + str1);
-      return;
-    }
-    String str2 = B(str1);
-    if (!gi.N(str2))
-    {
-      gr.W("Image type not recognized:");
-      return;
-    }
-    AlertDialog.Builder localBuilder = new AlertDialog.Builder(mContext);
-    localBuilder.setTitle(ga.c(R.string.store_picture_title, "Save image"));
-    localBuilder.setMessage(ga.c(R.string.store_picture_message, "Allow Ad to store image in Picture gallery?"));
-    localBuilder.setPositiveButton(ga.c(R.string.accept, "Accept"), new dj.1(this, str1, str2));
-    localBuilder.setNegativeButton(ga.c(R.string.decline, "Decline"), new dj.2(this));
-    localBuilder.create().show();
+    return false;
   }
 }
 

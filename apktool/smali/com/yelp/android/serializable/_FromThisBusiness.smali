@@ -7,15 +7,15 @@
 
 
 # instance fields
-.field protected mHistory:Ljava/lang/String;
+.field protected a:Lcom/yelp/android/serializable/BusinessRepresentative;
 
-.field protected mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
+.field protected b:Ljava/lang/String;
 
-.field protected mShowTeaser:Z
+.field protected c:Ljava/lang/String;
 
-.field protected mSpecialties:Ljava/lang/String;
+.field protected d:Z
 
-.field protected mYearEstablished:I
+.field protected e:I
 
 
 # direct methods
@@ -23,106 +23,172 @@
     .locals 0
 
     .prologue
-    .line 31
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
-    return-void
-.end method
-
-.method protected constructor <init>(Lcom/yelp/android/serializable/BusinessRepresentative;Ljava/lang/String;Ljava/lang/String;ZI)V
-    .locals 0
-
-    .prologue
-    .line 22
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_FromThisBusiness;-><init>()V
-
-    .line 23
-    iput-object p1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
-
-    .line 24
-    iput-object p2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mSpecialties:Ljava/lang/String;
-
-    .line 25
-    iput-object p3, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mHistory:Ljava/lang/String;
-
-    .line 26
-    iput-boolean p4, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mShowTeaser:Z
-
-    .line 27
-    iput p5, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mYearEstablished:I
-
-    .line 28
+    .line 38
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
+.method public a()Lorg/json/JSONObject;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 52
-    const/4 v0, 0x0
+    .line 133
+    new-instance v0, Lorg/json/JSONObject;
 
-    return v0
-.end method
+    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
 
-.method public getHistory()Ljava/lang/String;
-    .locals 1
+    .line 134
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
 
-    .prologue
-    .line 41
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mHistory:Ljava/lang/String;
+    if-eqz v1, :cond_0
 
+    .line 135
+    const-string/jumbo v1, "representative"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/BusinessRepresentative;->c()Lorg/json/JSONObject;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 137
+    :cond_0
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
+
+    if-eqz v1, :cond_1
+
+    .line 138
+    const-string/jumbo v1, "specialties"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 140
+    :cond_1
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
+
+    if-eqz v1, :cond_2
+
+    .line 141
+    const-string/jumbo v1, "history"
+
+    iget-object v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 143
+    :cond_2
+    const-string/jumbo v1, "show_teaser"
+
+    iget-boolean v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+
+    .line 144
+    const-string/jumbo v1, "year_established"
+
+    iget v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
+
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+
+    .line 145
     return-object v0
 .end method
 
-.method public getRepresentative()Lcom/yelp/android/serializable/BusinessRepresentative;
-    .locals 1
-
-    .prologue
-    .line 35
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
-
-    return-object v0
-.end method
-
-.method public getShowTeaser()Z
-    .locals 1
-
-    .prologue
-    .line 44
-    iget-boolean v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mShowTeaser:Z
-
-    return v0
-.end method
-
-.method public getSpecialties()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 38
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mSpecialties:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getYearEstablished()I
-    .locals 1
-
-    .prologue
-    .line 47
-    iget v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mYearEstablished:I
-
-    return v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
+.method public a(Landroid/os/Parcel;)V
     .locals 2
 
     .prologue
-    .line 73
+    .line 109
+    const-class v0, Lcom/yelp/android/serializable/BusinessRepresentative;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/BusinessRepresentative;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
+
+    .line 110
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
+
+    .line 111
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
+
+    .line 112
+    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
+
+    move-result-object v0
+
+    .line 113
+    const/4 v1, 0x0
+
+    aget-boolean v0, v0, v1
+
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
+
+    .line 114
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
+
+    .line 115
+    return-void
+.end method
+
+.method public a(Lorg/json/JSONObject;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 118
     const-string/jumbo v0, "representative"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -131,7 +197,7 @@
 
     if-nez v0, :cond_0
 
-    .line 74
+    .line 119
     sget-object v0, Lcom/yelp/android/serializable/BusinessRepresentative;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     const-string/jumbo v1, "representative"
@@ -146,9 +212,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/BusinessRepresentative;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
 
-    .line 76
+    .line 122
     :cond_0
     const-string/jumbo v0, "specialties"
 
@@ -158,16 +224,16 @@
 
     if-nez v0, :cond_1
 
-    .line 77
+    .line 123
     const-string/jumbo v0, "specialties"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mSpecialties:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
 
-    .line 79
+    .line 125
     :cond_1
     const-string/jumbo v0, "history"
 
@@ -177,16 +243,16 @@
 
     if-nez v0, :cond_2
 
-    .line 80
+    .line 126
     const-string/jumbo v0, "history"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mHistory:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
 
-    .line 82
+    .line 128
     :cond_2
     const-string/jumbo v0, "show_teaser"
 
@@ -194,145 +260,215 @@
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mShowTeaser:Z
+    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
 
-    .line 83
+    .line 129
     const-string/jumbo v0, "year_established"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optInt(Ljava/lang/String;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mYearEstablished:I
+    iput v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
 
-    .line 84
+    .line 130
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
-    .locals 2
+.method public b()I
+    .locals 1
 
     .prologue
-    .line 64
-    const-class v0, Lcom/yelp/android/serializable/BusinessRepresentative;
+    .line 93
+    iget v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
 
-    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/serializable/BusinessRepresentative;
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
-
-    .line 65
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mSpecialties:Ljava/lang/String;
-
-    .line 66
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mHistory:Ljava/lang/String;
-
-    .line 67
-    invoke-virtual {p1}, Landroid/os/Parcel;->createBooleanArray()[Z
-
-    move-result-object v0
-
-    .line 68
-    const/4 v1, 0x0
-
-    aget-boolean v0, v0, v1
-
-    iput-boolean v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mShowTeaser:Z
-
-    .line 69
-    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mYearEstablished:I
-
-    .line 70
-    return-void
+    return v0
 .end method
 
-.method public writeJSON()Lorg/json/JSONObject;
+.method public c()Z
+    .locals 1
+
+    .prologue
+    .line 89
+    iget-boolean v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
+
+    return v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 85
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 97
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 81
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
     .locals 3
 
     .prologue
-    .line 87
-    new-instance v0, Lorg/json/JSONObject;
+    const/4 v0, 0x0
 
-    invoke-direct {v0}, Lorg/json/JSONObject;-><init>()V
+    .line 42
+    if-nez p1, :cond_1
 
-    .line 88
-    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
+    .line 56
+    :cond_0
+    :goto_0
+    return v0
 
-    if-eqz v1, :cond_0
+    .line 46
+    :cond_1
+    if-ne p1, p0, :cond_2
 
-    .line 89
-    const-string/jumbo v1, "representative"
+    .line 47
+    const/4 v0, 0x1
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
+    goto :goto_0
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/BusinessRepresentative;->writeJSON()Lorg/json/JSONObject;
+    .line 50
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    if-ne v1, v2, :cond_0
 
-    .line 91
-    :cond_0
-    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mSpecialties:Ljava/lang/String;
+    .line 54
+    check-cast p1, Lcom/yelp/android/serializable/_FromThisBusiness;
 
-    if-eqz v1, :cond_1
+    .line 56
+    new-instance v0, Lcom/yelp/android/dc/b;
 
-    .line 92
-    const-string/jumbo v1, "specialties"
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mSpecialties:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
 
-    .line 94
-    :cond_1
-    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mHistory:Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    if-eqz v1, :cond_2
+    move-result-object v0
 
-    .line 95
-    const-string/jumbo v1, "history"
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mHistory:Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    .line 97
-    :cond_2
-    const-string/jumbo v1, "show_teaser"
+    move-result-object v0
 
-    iget-boolean v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mShowTeaser:Z
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Z)Lorg/json/JSONObject;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
 
-    .line 98
-    const-string/jumbo v1, "year_established"
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
-    iget v2, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mYearEstablished:I
+    move-result-object v0
 
-    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;I)Lorg/json/JSONObject;
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
 
-    .line 99
+    iget-boolean v2, p1, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(ZZ)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
+
+    iget v2, p1, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(II)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public f()Lcom/yelp/android/serializable/BusinessRepresentative;
+    .locals 1
+
+    .prologue
+    .line 77
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
+
     return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 67
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Z)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(I)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
@@ -341,37 +477,37 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 56
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mRepresentative:Lcom/yelp/android/serializable/BusinessRepresentative;
+    .line 101
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->a:Lcom/yelp/android/serializable/BusinessRepresentative;
 
     invoke-virtual {p1, v0, v2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mSpecialties:Ljava/lang/String;
+    .line 102
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mHistory:Ljava/lang/String;
+    .line 103
+    iget-object v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 59
+    .line 104
     const/4 v0, 0x1
 
     new-array v0, v0, [Z
 
-    iget-boolean v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mShowTeaser:Z
+    iget-boolean v1, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->d:Z
 
     aput-boolean v1, v0, v2
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBooleanArray([Z)V
 
-    .line 60
-    iget v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->mYearEstablished:I
+    .line 105
+    iget v0, p0, Lcom/yelp/android/serializable/_FromThisBusiness;->e:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
-    .line 61
+    .line 106
     return-void
 .end method

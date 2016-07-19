@@ -1,16 +1,8 @@
 package com.yelp.android.f;
 
-import android.view.accessibility.AccessibilityEvent;
-
-class d
-  implements e
+public abstract interface d
 {
-  public int a(AccessibilityEvent paramAccessibilityEvent)
-  {
-    return 0;
-  }
-  
-  public void a(AccessibilityEvent paramAccessibilityEvent, int paramInt) {}
+  public abstract boolean a(CharSequence paramCharSequence, int paramInt1, int paramInt2);
 }
 
 /* Location:

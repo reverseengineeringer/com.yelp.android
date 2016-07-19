@@ -1,279 +1,179 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
+import android.os.IBinder;
 import android.os.RemoteException;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.doubleclick.AppEventListener;
-import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
-import com.google.android.gms.ads.doubleclick.b;
-import com.google.android.gms.ads.purchase.InAppPurchaseListener;
-import com.google.android.gms.ads.purchase.PlayStorePurchaseListener;
+import com.google.android.gms.ads.formats.a.a;
+import com.google.android.gms.ads.internal.util.client.b;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+@fv
 public class bi
+  extends com.google.android.gms.ads.formats.c
 {
-  private final Context mContext;
-  private final cx oH = new cx();
-  private final ax oI;
-  private bd oJ;
-  private String oK;
-  private InAppPurchaseListener oM;
-  private PlayStorePurchaseListener oN;
-  private b oO;
-  private PublisherInterstitialAd oP;
-  private AdListener ob;
-  private AppEventListener os;
-  private String ou;
+  private final bh a;
+  private final List<a.a> b = new ArrayList();
+  private final be c;
   
-  public bi(Context paramContext)
+  public bi(bh parambh)
   {
-    this(paramContext, ax.bg(), null);
-  }
-  
-  public bi(Context paramContext, PublisherInterstitialAd paramPublisherInterstitialAd)
-  {
-    this(paramContext, ax.bg(), paramPublisherInterstitialAd);
-  }
-  
-  public bi(Context paramContext, ax paramax, PublisherInterstitialAd paramPublisherInterstitialAd)
-  {
-    mContext = paramContext;
-    oI = paramax;
-    oP = paramPublisherInterstitialAd;
-  }
-  
-  private void v(String paramString)
-  {
-    if (ou == null) {
-      w(paramString);
-    }
-    oJ = au.a(mContext, new ay(), ou, oH);
-    if (ob != null) {
-      oJ.a(new at(ob));
-    }
-    if (os != null) {
-      oJ.a(new ba(os));
-    }
-    if (oM != null) {
-      oJ.a(new es(oM));
-    }
-    if (oN != null) {
-      oJ.a(new ew(oN), oK);
-    }
-    if (oO != null) {
-      oJ.a(new bs(oO));
-    }
-  }
-  
-  private void w(String paramString)
-  {
-    if (oJ == null) {
-      throw new IllegalStateException("The ad unit ID must be set on InterstitialAd before " + paramString + " is called.");
-    }
-  }
-  
-  public void a(bg parambg)
-  {
+    a = parambh;
     try
     {
-      if (oJ == null) {
-        v("loadAd");
-      }
-      if (oJ.a(oI.a(mContext, parambg))) {
-        oH.d(parambg.bj());
-      }
-      return;
-    }
-    catch (RemoteException parambg)
-    {
-      gr.d("Failed to load ad.", parambg);
-    }
-  }
-  
-  public AdListener getAdListener()
-  {
-    return ob;
-  }
-  
-  public String getAdUnitId()
-  {
-    return ou;
-  }
-  
-  public AppEventListener getAppEventListener()
-  {
-    return os;
-  }
-  
-  public InAppPurchaseListener getInAppPurchaseListener()
-  {
-    return oM;
-  }
-  
-  public String getMediationAdapterClassName()
-  {
-    try
-    {
-      if (oJ != null)
+      parambh = a.b();
+      if (parambh != null)
       {
-        String str = oJ.getMediationAdapterClassName();
-        return str;
+        parambh = parambh.iterator();
+        while (parambh.hasNext())
+        {
+          bd localbd = a(parambh.next());
+          if (localbd != null) {
+            b.add(new be(localbd));
+          }
+        }
+      }
+      try
+      {
+        parambh = a.d();
+        if (parambh == null) {
+          break label129;
+        }
+        parambh = new be(parambh);
+      }
+      catch (RemoteException parambh)
+      {
+        for (;;)
+        {
+          b.b("Failed to get icon.", parambh);
+          parambh = null;
+        }
       }
     }
-    catch (RemoteException localRemoteException)
+    catch (RemoteException parambh)
     {
-      gr.d("Failed to get the mediation adapter class name.", localRemoteException);
+      b.b("Failed to get image.", parambh);
+    }
+    c = parambh;
+  }
+  
+  bd a(Object paramObject)
+  {
+    if ((paramObject instanceof IBinder)) {
+      return bd.a.a((IBinder)paramObject);
     }
     return null;
   }
   
-  public boolean isLoaded()
+  public CharSequence b()
   {
     try
     {
-      if (oJ == null) {
-        return false;
-      }
-      boolean bool = oJ.isReady();
-      return bool;
+      String str = a.a();
+      return str;
     }
     catch (RemoteException localRemoteException)
     {
-      gr.d("Failed to check if ad is ready.", localRemoteException);
+      b.b("Failed to get headline.", localRemoteException);
     }
-    return false;
+    return null;
   }
   
-  public void setAdListener(AdListener paramAdListener)
+  public List<a.a> c()
+  {
+    return b;
+  }
+  
+  public CharSequence d()
   {
     try
     {
-      ob = paramAdListener;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramAdListener == null) {
-          break label38;
-        }
-      }
-      label38:
-      for (paramAdListener = new at(paramAdListener);; paramAdListener = null)
-      {
-        localbd.a(paramAdListener);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramAdListener)
-    {
-      gr.d("Failed to set the AdListener.", paramAdListener);
-    }
-  }
-  
-  public void setAdUnitId(String paramString)
-  {
-    if (ou != null) {
-      throw new IllegalStateException("The ad unit ID can only be set once on InterstitialAd.");
-    }
-    ou = paramString;
-  }
-  
-  public void setAppEventListener(AppEventListener paramAppEventListener)
-  {
-    try
-    {
-      os = paramAppEventListener;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramAppEventListener == null) {
-          break label38;
-        }
-      }
-      label38:
-      for (paramAppEventListener = new ba(paramAppEventListener);; paramAppEventListener = null)
-      {
-        localbd.a(paramAppEventListener);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramAppEventListener)
-    {
-      gr.d("Failed to set the AppEventListener.", paramAppEventListener);
-    }
-  }
-  
-  public void setInAppPurchaseListener(InAppPurchaseListener paramInAppPurchaseListener)
-  {
-    if (oN != null) {
-      throw new IllegalStateException("Play store purchase parameter has already been set.");
-    }
-    try
-    {
-      oM = paramInAppPurchaseListener;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramInAppPurchaseListener == null) {
-          break label55;
-        }
-      }
-      label55:
-      for (paramInAppPurchaseListener = new es(paramInAppPurchaseListener);; paramInAppPurchaseListener = null)
-      {
-        localbd.a(paramInAppPurchaseListener);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramInAppPurchaseListener)
-    {
-      gr.d("Failed to set the InAppPurchaseListener.", paramInAppPurchaseListener);
-    }
-  }
-  
-  public void setPlayStorePurchaseParams(PlayStorePurchaseListener paramPlayStorePurchaseListener, String paramString)
-  {
-    try
-    {
-      oN = paramPlayStorePurchaseListener;
-      bd localbd;
-      if (oJ != null)
-      {
-        localbd = oJ;
-        if (paramPlayStorePurchaseListener == null) {
-          break label39;
-        }
-      }
-      label39:
-      for (paramPlayStorePurchaseListener = new ew(paramPlayStorePurchaseListener);; paramPlayStorePurchaseListener = null)
-      {
-        localbd.a(paramPlayStorePurchaseListener, paramString);
-        return;
-      }
-      return;
-    }
-    catch (RemoteException paramPlayStorePurchaseListener)
-    {
-      gr.d("Failed to set the play store purchase parameter.", paramPlayStorePurchaseListener);
-    }
-  }
-  
-  public void show()
-  {
-    try
-    {
-      w("show");
-      oJ.showInterstitial();
-      return;
+      String str = a.c();
+      return str;
     }
     catch (RemoteException localRemoteException)
     {
-      gr.d("Failed to show interstitial.", localRemoteException);
+      b.b("Failed to get body.", localRemoteException);
     }
+    return null;
+  }
+  
+  public a.a e()
+  {
+    return c;
+  }
+  
+  public CharSequence f()
+  {
+    try
+    {
+      String str = a.e();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get call to action.", localRemoteException);
+    }
+    return null;
+  }
+  
+  public Double g()
+  {
+    try
+    {
+      double d = a.f();
+      if (d == -1.0D) {
+        return null;
+      }
+      return Double.valueOf(d);
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get star rating.", localRemoteException);
+    }
+    return null;
+  }
+  
+  public CharSequence h()
+  {
+    try
+    {
+      String str = a.g();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get store", localRemoteException);
+    }
+    return null;
+  }
+  
+  public CharSequence i()
+  {
+    try
+    {
+      String str = a.h();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to get price.", localRemoteException);
+    }
+    return null;
+  }
+  
+  protected com.google.android.gms.dynamic.c j()
+  {
+    try
+    {
+      com.google.android.gms.dynamic.c localc = a.i();
+      return localc;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.b("Failed to retrieve native ad engine.", localRemoteException);
+    }
+    return null;
   }
 }
 

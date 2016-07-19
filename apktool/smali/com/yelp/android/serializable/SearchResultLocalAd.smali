@@ -3,14 +3,14 @@
 .source "SearchResultLocalAd.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/panels/businesssearch/i;
+.implements Lcom/yelp/android/ui/panels/businesssearch/c;
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/SearchResultLocalAd;",
             ">;"
@@ -20,7 +20,7 @@
 
 
 # instance fields
-.field private mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+.field private k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
 
 # direct methods
@@ -28,12 +28,12 @@
     .locals 1
 
     .prologue
-    .line 83
-    new-instance v0, Lcom/yelp/android/serializable/cz;
+    .line 82
+    new-instance v0, Lcom/yelp/android/serializable/SearchResultLocalAd$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/cz;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/SearchResultLocalAd$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/SearchResultLocalAd;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/SearchResultLocalAd;->CREATOR:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
@@ -42,13 +42,13 @@
     .locals 0
 
     .prologue
-    .line 20
+    .line 19
     invoke-direct {p0}, Lcom/yelp/android/serializable/LocalAd;-><init>()V
 
     return-void
 .end method
 
-.method public static initializeSearchResultLocalAds(Ljava/util/List;Ljava/util/List;)V
+.method public static a(Ljava/util/List;Ljava/util/List;)V
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -65,17 +65,17 @@
     .end annotation
 
     .prologue
-    .line 31
+    .line 30
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
-    .line 45
+    .line 44
     :cond_0
     :goto_0
     return-void
 
-    .line 34
+    .line 33
     :cond_1
     invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -95,7 +95,7 @@
 
     check-cast v0, Lcom/yelp/android/serializable/SearchResultLocalAd;
 
-    .line 35
+    .line 34
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
@@ -113,17 +113,17 @@
 
     check-cast v1, Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    .line 36
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessSearchResult;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    .line 35
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/BusinessSearchResult;->a()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v4
 
-    .line 37
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/SearchResultLocalAd;->getBusinessId()Ljava/lang/String;
+    .line 36
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/SearchResultLocalAd;->m()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v4
 
@@ -133,12 +133,12 @@
 
     if-eqz v4, :cond_3
 
-    .line 38
-    iput-object v1, v0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+    .line 37
+    iput-object v1, v0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
     goto :goto_1
 
-    .line 44
+    .line 43
     :cond_4
     invoke-static {p0}, Ljava/util/Collections;->sort(Ljava/util/List;)V
 
@@ -147,12 +147,12 @@
 
 
 # virtual methods
-.method public getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+.method public a()Lcom/yelp/android/serializable/YelpBusiness;
     .locals 1
 
     .prologue
-    .line 66
-    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+    .line 65
+    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
     if-nez v0, :cond_0
 
@@ -162,26 +162,16 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->getBusiness()Lcom/yelp/android/serializable/YelpBusiness;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->a()Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
 
     goto :goto_0
 .end method
 
-.method public getBusinessSearchResult()Lcom/yelp/android/serializable/BusinessSearchResult;
-    .locals 1
-
-    .prologue
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
-
-    return-object v0
-.end method
-
-.method public getIriParams(Lcom/yelp/android/serializable/YelpBusiness;Z)Ljava/util/Map;
+.method public a(Lcom/yelp/android/serializable/YelpBusiness;Z)Ljava/util/Map;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -197,31 +187,31 @@
     .end annotation
 
     .prologue
-    .line 71
-    invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/LocalAd;->getIriParams(Lcom/yelp/android/serializable/YelpBusiness;Z)Ljava/util/Map;
+    .line 70
+    invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/LocalAd;->a(Lcom/yelp/android/serializable/YelpBusiness;Z)Ljava/util/Map;
 
     move-result-object v1
 
-    .line 72
-    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+    .line 71
+    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
     if-eqz v0, :cond_1
 
     if-eqz p2, :cond_1
 
-    .line 73
-    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+    .line 72
+    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->getAnnotations()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/BusinessSearchResult;->h()Ljava/util/List;
 
     move-result-object v0
 
-    .line 74
+    .line 73
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 75
+    .line 74
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
@@ -239,8 +229,8 @@
 
     check-cast v0, Lcom/yelp/android/serializable/SearchResultAnnotation;
 
-    .line 76
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/SearchResultAnnotation;->getType()Ljava/lang/String;
+    .line 75
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/SearchResultAnnotation;->a()Ljava/lang/String;
 
     move-result-object v0
 
@@ -248,7 +238,7 @@
 
     goto :goto_0
 
-    .line 78
+    .line 77
     :cond_0
     const-string/jumbo v0, "ad_type"
 
@@ -260,19 +250,19 @@
 
     invoke-interface {v1, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 80
+    .line 79
     :cond_1
     return-object v1
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 55
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/LocalAd;->readFromParcel(Landroid/os/Parcel;)V
+    .line 54
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/LocalAd;->a(Landroid/os/Parcel;)V
 
-    .line 56
+    .line 55
     const-class v0, Lcom/yelp/android/serializable/BusinessSearchResult;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -285,26 +275,36 @@
 
     check-cast v0, Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+    iput-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
-    .line 57
+    .line 56
     return-void
+.end method
+
+.method public e()Lcom/yelp/android/serializable/BusinessSearchResult;
+    .locals 1
+
+    .prologue
+    .line 60
+    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
     .prologue
-    .line 49
+    .line 48
     invoke-super {p0, p1, p2}, Lcom/yelp/android/serializable/LocalAd;->writeToParcel(Landroid/os/Parcel;I)V
 
-    .line 50
-    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->mBusinessSearchResult:Lcom/yelp/android/serializable/BusinessSearchResult;
+    .line 49
+    iget-object v0, p0, Lcom/yelp/android/serializable/SearchResultLocalAd;->k:Lcom/yelp/android/serializable/BusinessSearchResult;
 
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
-    .line 51
+    .line 50
     return-void
 .end method

@@ -1,21 +1,27 @@
 package com.yelp.android.aa;
 
-import com.bumptech.glide.load.d;
-import com.bumptech.glide.load.engine.t;
-import java.io.File;
+import android.os.ParcelFileDescriptor;
 import java.io.InputStream;
 
-class g
-  implements d<InputStream, File>
+public class g
 {
-  public t<File> a(InputStream paramInputStream, int paramInt1, int paramInt2)
+  private final InputStream a;
+  private final ParcelFileDescriptor b;
+  
+  public g(InputStream paramInputStream, ParcelFileDescriptor paramParcelFileDescriptor)
   {
-    throw new Error("You cannot decode a File from an InputStream by default, try either #diskCacheStratey(DiskCacheStrategy.SOURCE) to avoid this call or #decoder(ResourceDecoder) to replace this Decoder");
+    a = paramInputStream;
+    b = paramParcelFileDescriptor;
   }
   
-  public String a()
+  public InputStream a()
   {
-    return "";
+    return a;
+  }
+  
+  public ParcelFileDescriptor b()
+  {
+    return b;
   }
 }
 

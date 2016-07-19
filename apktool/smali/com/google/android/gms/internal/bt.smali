@@ -1,244 +1,127 @@
 .class public Lcom/google/android/gms/internal/bt;
-.super Lcom/google/android/gms/internal/bw$a;
+.super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/google/android/gms/internal/bv$a;
-
-
-# annotations
-.annotation runtime Lcom/google/android/gms/internal/ey;
-.end annotation
+.implements Lcom/google/android/gms/internal/kl;
 
 
 # instance fields
-.field private final mH:Ljava/lang/Object;
+.field private a:I
 
-.field private final pB:Ljava/lang/String;
+.field private b:I
 
-.field private final pC:Landroid/graphics/drawable/Drawable;
+.field private final c:I
 
-.field private final pD:Ljava/lang/String;
-
-.field private final pE:Landroid/graphics/drawable/Drawable;
-
-.field private final pF:Ljava/lang/String;
-
-.field private final pG:D
-
-.field private final pH:Ljava/lang/String;
-
-.field private final pI:Ljava/lang/String;
-
-.field private pJ:Lcom/google/android/gms/internal/bv;
+.field private final d:F
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Landroid/graphics/drawable/Drawable;Ljava/lang/String;DLjava/lang/String;Ljava/lang/String;)V
-    .locals 2
+.method public constructor <init>()V
+    .locals 3
 
-    invoke-direct {p0}, Lcom/google/android/gms/internal/bw$a;-><init>()V
+    const/16 v0, 0x9c4
 
-    new-instance v0, Ljava/lang/Object;
+    const/4 v1, 0x1
 
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    iput-object v0, p0, Lcom/google/android/gms/internal/bt;->mH:Ljava/lang/Object;
+    invoke-direct {p0, v0, v1, v2}, Lcom/google/android/gms/internal/bt;-><init>(IIF)V
 
-    iput-object p1, p0, Lcom/google/android/gms/internal/bt;->pB:Ljava/lang/String;
+    return-void
+.end method
 
-    iput-object p2, p0, Lcom/google/android/gms/internal/bt;->pC:Landroid/graphics/drawable/Drawable;
+.method public constructor <init>(IIF)V
+    .locals 0
 
-    iput-object p3, p0, Lcom/google/android/gms/internal/bt;->pD:Ljava/lang/String;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p4, p0, Lcom/google/android/gms/internal/bt;->pE:Landroid/graphics/drawable/Drawable;
+    iput p1, p0, Lcom/google/android/gms/internal/bt;->a:I
 
-    iput-object p5, p0, Lcom/google/android/gms/internal/bt;->pF:Ljava/lang/String;
+    iput p2, p0, Lcom/google/android/gms/internal/bt;->c:I
 
-    iput-wide p6, p0, Lcom/google/android/gms/internal/bt;->pG:D
-
-    iput-object p8, p0, Lcom/google/android/gms/internal/bt;->pH:Ljava/lang/String;
-
-    iput-object p9, p0, Lcom/google/android/gms/internal/bt;->pI:Ljava/lang/String;
+    iput p3, p0, Lcom/google/android/gms/internal/bt;->d:F
 
     return-void
 .end method
 
 
 # virtual methods
-.method public a(Lcom/google/android/gms/internal/bv;)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/bt;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iput-object p1, p0, Lcom/google/android/gms/internal/bt;->pJ:Lcom/google/android/gms/internal/bv;
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public aw()V
-    .locals 2
-
-    iget-object v1, p0, Lcom/google/android/gms/internal/bt;->mH:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pJ:Lcom/google/android/gms/internal/bv;
-
-    if-nez v0, :cond_0
-
-    const-string/jumbo v0, "Attempt to record impression before app install ad initialized."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->T(Ljava/lang/String;)V
-
-    monitor-exit v1
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pJ:Lcom/google/android/gms/internal/bv;
-
-    invoke-virtual {v0}, Lcom/google/android/gms/internal/bv;->aw()V
-
-    monitor-exit v1
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-.end method
-
-.method public bB()Ljava/lang/String;
+.method public a()I
     .locals 1
 
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pB:Ljava/lang/String;
+    iget v0, p0, Lcom/google/android/gms/internal/bt;->a:I
 
-    return-object v0
+    return v0
 .end method
 
-.method public bC()Lcom/google/android/gms/dynamic/d;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pC:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/e;->k(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/d;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bD()Lcom/google/android/gms/dynamic/d;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pE:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {v0}, Lcom/google/android/gms/dynamic/e;->k(Ljava/lang/Object;)Lcom/google/android/gms/dynamic/d;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bE()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pF:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public bF()D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/google/android/gms/internal/bt;->pG:D
-
-    return-wide v0
-.end method
-
-.method public bG()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pH:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public bH()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pI:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getBody()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pD:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public j(I)V
+.method public a(Lcom/google/android/gms/internal/zzr;)V
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/google/android/gms/internal/zzr;
+        }
+    .end annotation
 
-    iget-object v1, p0, Lcom/google/android/gms/internal/bt;->mH:Ljava/lang/Object;
+    iget v0, p0, Lcom/google/android/gms/internal/bt;->b:I
 
-    monitor-enter v1
+    add-int/lit8 v0, v0, 0x1
 
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pJ:Lcom/google/android/gms/internal/bv;
+    iput v0, p0, Lcom/google/android/gms/internal/bt;->b:I
+
+    iget v0, p0, Lcom/google/android/gms/internal/bt;->a:I
+
+    int-to-float v0, v0
+
+    iget v1, p0, Lcom/google/android/gms/internal/bt;->a:I
+
+    int-to-float v1, v1
+
+    iget v2, p0, Lcom/google/android/gms/internal/bt;->d:F
+
+    mul-float/2addr v1, v2
+
+    add-float/2addr v0, v1
+
+    float-to-int v0, v0
+
+    iput v0, p0, Lcom/google/android/gms/internal/bt;->a:I
+
+    invoke-virtual {p0}, Lcom/google/android/gms/internal/bt;->c()Z
+
+    move-result v0
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v0, "Attempt to perform click before app install ad initialized."
-
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->T(Ljava/lang/String;)V
-
-    monitor-exit v1
-
-    :goto_0
-    return-void
+    throw p1
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/gms/internal/bt;->pJ:Lcom/google/android/gms/internal/bv;
+    return-void
+.end method
 
-    const-string/jumbo v2, "2"
+.method public b()I
+    .locals 1
 
-    invoke-virtual {v0, v2, p1}, Lcom/google/android/gms/internal/bv;->b(Ljava/lang/String;I)V
+    iget v0, p0, Lcom/google/android/gms/internal/bt;->b:I
 
-    monitor-exit v1
+    return v0
+.end method
+
+.method protected c()Z
+    .locals 2
+
+    iget v0, p0, Lcom/google/android/gms/internal/bt;->b:I
+
+    iget v1, p0, Lcom/google/android/gms/internal/bt;->c:I
+
+    if-gt v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method

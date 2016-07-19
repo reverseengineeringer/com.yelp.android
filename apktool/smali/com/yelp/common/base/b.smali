@@ -1,55 +1,44 @@
-.class Lcom/yelp/common/base/b;
-.super Ljava/lang/Object;
-.source "FinalizableReferenceQueue.java"
+.class public abstract Lcom/yelp/common/base/b;
+.super Ljava/lang/ref/SoftReference;
+.source "FinalizableSoftReference.java"
 
 # interfaces
-.implements Lcom/yelp/common/base/c;
+.implements Lcom/yelp/common/base/a;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<T:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/ref/SoftReference",
+        "<TT;>;",
+        "Lcom/yelp/common/base/a;"
+    }
+.end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 297
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public loadFinalizer()Ljava/lang/Class;
-    .locals 2
+.method protected constructor <init>(Ljava/lang/Object;Lcom/yelp/common/base/FinalizableReferenceQueue;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "()",
-            "Ljava/lang/Class",
-            "<*>;"
+            "(TT;",
+            "Lcom/yelp/common/base/FinalizableReferenceQueue;",
+            ")V"
         }
     .end annotation
 
     .prologue
-    .line 301
-    :try_start_0
-    const-string/jumbo v0, "com.yelp.common.base.internal.Finalizer"
+    .line 39
+    iget-object v0, p2, Lcom/yelp/common/base/FinalizableReferenceQueue;->queue:Ljava/lang/ref/ReferenceQueue;
 
-    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-direct {p0, p1, v0}, Ljava/lang/ref/SoftReference;-><init>(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
-    move-result-object v0
+    .line 40
+    invoke-virtual {p2}, Lcom/yelp/common/base/FinalizableReferenceQueue;->cleanUp()V
 
-    return-object v0
-
-    .line 302
-    :catch_0
-    move-exception v0
-
-    .line 303
-    new-instance v1, Ljava/lang/AssertionError;
-
-    invoke-direct {v1, v0}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
-
-    throw v1
+    .line 41
+    return-void
 .end method

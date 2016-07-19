@@ -1,14 +1,20 @@
 .class public Lcom/yelp/android/ui/activities/search/c;
-.super Lcom/yelp/android/ui/util/au;
-.source "SavedSearchAdapter.java"
+.super Lcom/yelp/android/ui/util/w;
+.source "SearchLocationAdapter.java"
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/search/c$a;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/ui/util/au",
+        "Lcom/yelp/android/ui/util/w",
         "<",
-        "Lcom/yelp/android/database/savedsearch/k;",
+        "Ljava/lang/CharSequence;",
         ">;"
     }
 .end annotation
@@ -19,23 +25,23 @@
     .locals 0
 
     .prologue
-    .line 15
-    invoke-direct {p0}, Lcom/yelp/android/ui/util/au;-><init>()V
+    .line 11
+    invoke-direct {p0}, Lcom/yelp/android/ui/util/w;-><init>()V
 
-    .line 37
+    .line 31
     return-void
 .end method
 
 
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 4
+    .locals 3
 
     .prologue
-    .line 19
+    .line 16
     if-nez p2, :cond_0
 
-    .line 20
+    .line 17
     invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -44,7 +50,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f030147
+    const v1, 0x7f0301aa
 
     const/4 v2, 0x0
 
@@ -52,88 +58,38 @@
 
     move-result-object p2
 
-    .line 22
-    new-instance v0, Lcom/yelp/android/ui/activities/search/d;
+    .line 20
+    new-instance v0, Lcom/yelp/android/ui/activities/search/c$a;
 
-    invoke-direct {v0, p2}, Lcom/yelp/android/ui/activities/search/d;-><init>(Landroid/view/View;)V
+    invoke-direct {v0, p2}, Lcom/yelp/android/ui/activities/search/c$a;-><init>(Landroid/view/View;)V
 
-    .line 23
+    .line 21
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    move-object v1, v0
-
-    .line 28
+    .line 26
     :goto_0
+    invoke-static {v0}, Lcom/yelp/android/ui/activities/search/c$a;->a(Lcom/yelp/android/ui/activities/search/c$a;)Landroid/widget/TextView;
+
+    move-result-object v1
+
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/search/c;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/database/savedsearch/k;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    .line 29
-    invoke-virtual {v0}, Lcom/yelp/android/database/savedsearch/k;->a()Lcom/yelp/android/serializable/Filter;
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/Filter;->getDisplayString()Ljava/lang/String;
-
-    move-result-object v2
-
-    .line 30
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/d;->a(Lcom/yelp/android/ui/activities/search/d;)Landroid/widget/TextView;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Lcom/yelp/android/database/savedsearch/k;->b()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/SpannableString;->valueOf(Ljava/lang/CharSequence;)Landroid/text/SpannableString;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/util/StringUtils;->a(Landroid/text/Spanned;)Landroid/text/Spannable;
-
-    move-result-object v0
-
-    invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 32
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/d;->b(Lcom/yelp/android/ui/activities/search/d;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 33
-    invoke-static {v1}, Lcom/yelp/android/ui/activities/search/d;->c(Lcom/yelp/android/ui/activities/search/d;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
-
-    move-result-object v1
-
-    const v2, 0x7f070520
-
-    invoke-virtual {v1, v2}, Lcom/yelp/android/appdata/AppData;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    .line 34
+    .line 28
     return-object p2
 
-    .line 25
+    .line 23
     :cond_0
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/search/d;
-
-    move-object v1, v0
+    check-cast v0, Lcom/yelp/android/ui/activities/search/c$a;
 
     goto :goto_0
 .end method

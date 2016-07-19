@@ -6,6 +6,17 @@
 .implements Lcom/brightcove/player/event/EventListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/brightcove/player/display/VideoDisplayComponent;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "OnPlayListener"
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/brightcove/player/display/VideoDisplayComponent;
 

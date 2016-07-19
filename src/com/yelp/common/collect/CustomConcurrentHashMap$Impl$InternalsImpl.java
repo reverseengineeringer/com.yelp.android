@@ -3,7 +3,7 @@ package com.yelp.common.collect;
 import java.io.Serializable;
 
 class CustomConcurrentHashMap$Impl$InternalsImpl
-  implements c<K, V, E>, Serializable
+  implements CustomConcurrentHashMap.b<K, V, E>, Serializable
 {
   static final long serialVersionUID = 0L;
   

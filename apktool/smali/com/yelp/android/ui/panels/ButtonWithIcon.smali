@@ -14,12 +14,12 @@
     .locals 1
 
     .prologue
-    .line 31
+    .line 30
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/yelp/android/ui/panels/ButtonWithIcon;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 32
+    .line 31
     return-void
 .end method
 
@@ -27,12 +27,12 @@
     .locals 1
 
     .prologue
-    .line 35
-    const v0, 0x7f010170
+    .line 34
+    const v0, 0x7f0101de
 
     invoke-direct {p0, p1, p2, v0}, Lcom/yelp/android/ui/panels/ButtonWithIcon;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 37
+    .line 35
     return-void
 .end method
 
@@ -40,26 +40,26 @@
     .locals 3
 
     .prologue
-    .line 40
+    .line 38
     invoke-direct {p0, p1, p2, p3}, Lcom/yelp/android/ui/util/SlightlyLessBrokenLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 41
+    .line 39
     new-instance v0, Landroid/util/SparseIntArray;
 
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
-    .line 42
+    .line 40
     const/4 v1, 0x4
 
-    const v2, 0x7f0300fe
+    const v2, 0x7f03015c
 
     invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
 
-    .line 43
-    invoke-static {p0, p1, p2, p3, v0}, Lcom/yelp/android/ui/util/dj;->a(Landroid/view/ViewGroup;Landroid/content/Context;Landroid/util/AttributeSet;ILandroid/util/SparseIntArray;)V
+    .line 41
+    invoke-static {p0, p1, p2, p3, v0}, Lcom/yelp/android/ui/util/ay;->a(Landroid/view/ViewGroup;Landroid/content/Context;Landroid/util/AttributeSet;ILandroid/util/SparseIntArray;)V
 
-    .line 44
-    const v0, 0x7f0c0080
+    .line 42
+    const v0, 0x7f0f00a5
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/ButtonWithIcon;->findViewById(I)Landroid/view/View;
 
@@ -69,8 +69,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/ButtonWithIcon;->a:Lcom/yelp/android/ui/widgets/WebImageView;
 
-    .line 45
-    const v0, 0x7f0c0119
+    .line 43
+    const v0, 0x7f0f00ef
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/panels/ButtonWithIcon;->findViewById(I)Landroid/view/View;
 
@@ -80,14 +80,14 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/ButtonWithIcon;->b:Landroid/widget/TextView;
 
-    .line 47
-    sget-object v0, Lcom/yelp/android/b;->PanelLabelValue:[I
+    .line 45
+    sget-object v0, Lcom/yelp/android/b$a;->PanelLabelValue:[I
 
     invoke-virtual {p1, p2, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 49
+    .line 48
     iget-object v1, p0, Lcom/yelp/android/ui/panels/ButtonWithIcon;->b:Landroid/widget/TextView;
 
     const/4 v2, 0x0
@@ -98,11 +98,11 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 50
+    .line 49
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
-    .line 51
-    sget-object v0, Lcom/yelp/android/b;->WebImageView:[I
+    .line 50
+    sget-object v0, Lcom/yelp/android/b$a;->WebImageView:[I
 
     invoke-virtual {p1, p2, v0, p3, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 

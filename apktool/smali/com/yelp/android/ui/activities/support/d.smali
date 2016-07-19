@@ -1,52 +1,101 @@
-.class Lcom/yelp/android/ui/activities/support/d;
+.class public Lcom/yelp/android/ui/activities/support/d;
 .super Ljava/lang/Object;
-.source "YelpActivity.java"
-
-# interfaces
-.implements Lcom/yelp/android/ui/view/a;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/support/YelpActivity;
+.source "YelpWebViewSettings.java"
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/support/YelpActivity;)V
-    .locals 0
+.method public static a(Landroid/webkit/WebView;)V
+    .locals 3
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi",
+            "InlinedApi"
+        }
+    .end annotation
 
     .prologue
-    .line 1152
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/support/d;->a:Lcom/yelp/android/ui/activities/support/YelpActivity;
+    const/4 v2, 0x0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 20
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
-    return-void
-.end method
+    move-result-object v0
 
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setAllowContentAccess(Z)V
 
-# virtual methods
-.method public a()V
-    .locals 1
+    .line 21
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
-    .prologue
-    .line 1155
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/d;->a:Lcom/yelp/android/ui/activities/support/YelpActivity;
+    move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->hideHotButtons()V
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setAllowFileAccess(Z)V
 
-    .line 1156
-    return-void
-.end method
+    .line 23
+    const/16 v0, 0x10
 
-.method public b()V
-    .locals 1
+    invoke-static {v0}, Lcom/yelp/android/appdata/f;->a(I)Z
 
-    .prologue
-    .line 1160
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/support/d;->a:Lcom/yelp/android/ui/activities/support/YelpActivity;
+    move-result v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->showHotButtons()V
+    if-eqz v0, :cond_0
 
-    .line 1161
+    .line 29
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setAllowFileAccessFromFileURLs(Z)V
+
+    .line 30
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setAllowUniversalAccessFromFileURLs(Z)V
+
+    .line 33
+    :cond_0
+    const/16 v0, 0x15
+
+    invoke-static {v0}, Lcom/yelp/android/appdata/f;->a(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 34
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setMixedContentMode(I)V
+
+    .line 37
+    :cond_1
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setSaveFormData(Z)V
+
+    .line 38
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/webkit/WebSettings;->setSavePassword(Z)V
+
+    .line 39
+    invoke-virtual {p0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
+
+    move-result-object v0
+
+    sget-object v1, Landroid/webkit/WebSettings$PluginState;->OFF:Landroid/webkit/WebSettings$PluginState;
+
+    invoke-virtual {v0, v1}, Landroid/webkit/WebSettings;->setPluginState(Landroid/webkit/WebSettings$PluginState;)V
+
+    .line 40
     return-void
 .end method

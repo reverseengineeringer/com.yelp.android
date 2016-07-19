@@ -1,153 +1,85 @@
 .class public Lcom/yelp/android/ui/util/h;
-.super Lcom/yelp/android/aj/a;
-.source "BetterSackOfViewsAdapter.java"
-
-# interfaces
-.implements Lcom/yelp/android/ui/util/j;
-
-
-# instance fields
-.field private a:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/View;",
-            ">;"
-        }
-    .end annotation
-.end field
+.super Ljava/lang/Object;
+.source "ClipboardUtils.java"
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List",
-            "<",
-            "Landroid/view/View;",
-            ">;)V"
-        }
-    .end annotation
+.method public static a(Landroid/view/View;ILjava/lang/String;)V
+    .locals 1
 
     .prologue
+    .line 22
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, v0, p2}, Lcom/yelp/android/ui/util/h;->a(Landroid/view/View;Ljava/lang/String;Ljava/lang/String;)V
+
     .line 23
-    invoke-direct {p0, p1}, Lcom/yelp/android/aj/a;-><init>(Ljava/util/List;)V
-
-    .line 24
-    iput-object p1, p0, Lcom/yelp/android/ui/util/h;->a:Ljava/util/List;
-
-    .line 25
     return-void
 .end method
 
-.method public varargs constructor <init>([Landroid/view/View;)V
-    .locals 2
+.method public static a(Landroid/view/View;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
 
     .prologue
-    .line 28
-    new-instance v0, Ljava/util/ArrayList;
+    .line 26
+    new-instance v0, Lcom/yelp/android/ui/util/h$1;
 
-    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+    invoke-direct {v0, p1, p2}, Lcom/yelp/android/ui/util/h$1;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+
+    .line 34
+    return-void
+.end method
+
+.method public static a(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    .prologue
+    const/4 v3, 0x0
+
+    .line 37
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/util/h;-><init>(Ljava/util/List;)V
-
-    .line 29
-    return-void
-.end method
-
-
-# virtual methods
-.method public a(Landroid/view/View;)V
-    .locals 1
-
-    .prologue
-    .line 37
-    iget-object v0, p0, Lcom/yelp/android/ui/util/h;->a:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
     .line 38
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/h;->notifyDataSetChanged()V
+    const-string/jumbo v0, "clipboard"
 
-    .line 39
-    return-void
-.end method
+    invoke-virtual {v1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-.method public areAllItemsEnabled()Z
-    .locals 1
+    move-result-object v0
 
-    .prologue
-    .line 71
-    const/4 v0, 0x1
+    check-cast v0, Landroid/content/ClipboardManager;
 
-    return v0
-.end method
+    .line 40
+    invoke-static {p0, p1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
 
-.method public b(Landroid/view/View;)V
-    .locals 1
+    move-result-object v2
 
-    .prologue
-    .line 42
-    iget-object v0, p0, Lcom/yelp/android/ui/util/h;->a:Ljava/util/List;
+    invoke-virtual {v0, v2}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    .line 41
+    const v0, 0x7f070226
+
+    const/4 v2, 0x1
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object p0, v2, v3
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0, v3}, Lcom/yelp/android/ui/util/as;->a(Ljava/lang/CharSequence;I)V
 
     .line 43
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/h;->notifyDataSetChanged()V
-
-    .line 44
     return-void
-.end method
-
-.method public clear()V
-    .locals 1
-
-    .prologue
-    .line 47
-    iget-object v0, p0, Lcom/yelp/android/ui/util/h;->a:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    .line 48
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/h;->notifyDataSetChanged()V
-
-    .line 49
-    return-void
-.end method
-
-.method public getItemViewType(I)I
-    .locals 1
-
-    .prologue
-    .line 66
-    const/4 v0, -0x1
-
-    return v0
-.end method
-
-.method public getViewTypeCount()I
-    .locals 1
-
-    .prologue
-    .line 57
-    const/4 v0, 0x1
-
-    return v0
-.end method
-
-.method public hasStableIds()Z
-    .locals 1
-
-    .prologue
-    .line 76
-    const/4 v0, 0x1
-
-    return v0
 .end method

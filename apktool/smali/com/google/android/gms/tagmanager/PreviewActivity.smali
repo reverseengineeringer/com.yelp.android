@@ -11,7 +11,7 @@
     return-void
 .end method
 
-.method private d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method private a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
 
     new-instance v0, Landroid/app/AlertDialog$Builder;
@@ -49,7 +49,7 @@
 
     const-string/jumbo v0, "Preview activity"
 
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/bh;->U(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->c(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/tagmanager/PreviewActivity;->getIntent()Landroid/content/Intent;
 
@@ -59,11 +59,11 @@
 
     move-result-object v0
 
-    invoke-static {p0}, Lcom/google/android/gms/tagmanager/TagManager;->getInstance(Landroid/content/Context;)Lcom/google/android/gms/tagmanager/TagManager;
+    invoke-static {p0}, Lcom/google/android/gms/tagmanager/d;->a(Landroid/content/Context;)Lcom/google/android/gms/tagmanager/d;
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Lcom/google/android/gms/tagmanager/TagManager;->i(Landroid/net/Uri;)Z
+    invoke-virtual {v1, v0}, Lcom/google/android/gms/tagmanager/d;->a(Landroid/net/Uri;)Z
 
     move-result v1
 
@@ -93,13 +93,13 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/bh;->W(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->b(Ljava/lang/String;)V
 
     const-string/jumbo v1, "Preview failure"
 
     const-string/jumbo v2, "Continue"
 
-    invoke-direct {p0, v1, v0, v2}, Lcom/google/android/gms/tagmanager/PreviewActivity;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p0, v1, v0, v2}, Lcom/google/android/gms/tagmanager/PreviewActivity;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-virtual {p0}, Lcom/google/android/gms/tagmanager/PreviewActivity;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -138,7 +138,7 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/google/android/gms/tagmanager/bh;->U(Ljava/lang/String;)V
+    invoke-static {v1}, Lcom/google/android/gms/tagmanager/m;->c(Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/google/android/gms/tagmanager/PreviewActivity;->startActivity(Landroid/content/Intent;)V
 
@@ -168,7 +168,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/bh;->U(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->c(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -199,7 +199,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/bh;->T(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->a(Ljava/lang/String;)V
 
     goto :goto_0
 .end method

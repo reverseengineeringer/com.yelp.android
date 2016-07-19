@@ -1,29 +1,16 @@
 package com.yelp.android.appdata.webrequests;
 
-public class ei<Request extends ApiRequest<?, ?, Result>, Result>
-  extends ek<Request, Result, m<Result>>
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.serializable.Media;
+
+public class ei
+  extends c
 {
-  private final m<Result> e = new ej(this);
-  
-  public ei(Request paramRequest)
+  public ei(Media paramMedia)
   {
-    super(paramRequest);
-    a.setCallback(e);
-  }
-  
-  public Request a(m<Result> paramm)
-  {
-    a.setCallback(paramm);
-    if (c) {
-      paramm.onSuccess(a, b);
-    }
-    for (;;)
-    {
-      return a;
-      if (d != null) {
-        paramm.onError(a, d);
-      }
-    }
+    super("/business/photos/save_vote", null);
+    b("photo_id", paramMedia.a());
+    b("vote", "not_helpful");
   }
 }
 

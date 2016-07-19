@@ -3,22 +3,29 @@
 .source "ChangeBusinessAttributes.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
-.implements Lcom/yelp/android/ui/activities/mutatebiz/af;
+.implements Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+.implements Lcom/yelp/android/ui/activities/mutatebiz/c$a;
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$a;,
+        Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/android/ui/activities/support/YelpActivity;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
         "<",
         "Landroid/util/Pair",
         "<",
         "Ljava/lang/String;",
         "Lcom/yelp/android/serializable/YelpBusiness;",
         ">;>;",
-        "Lcom/yelp/android/ui/activities/mutatebiz/af",
+        "Lcom/yelp/android/ui/activities/mutatebiz/c$a",
         "<",
         "Lcom/yelp/android/serializable/Category;",
         ">;"
@@ -27,9 +34,22 @@
 
 
 # instance fields
+.field private A:[Ljava/lang/String;
+
+.field private final B:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
+            "<",
+            "Lcom/yelp/android/serializable/BusinessAttributes;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field protected a:Z
 
-.field protected b:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected b:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
 .field protected c:Ljava/lang/String;
 
@@ -39,38 +59,80 @@
 
 .field protected f:Ljava/lang/String;
 
-.field protected g:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected g:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-.field protected h:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected h:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-.field protected i:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected i:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-.field protected j:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected j:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-.field protected k:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected k:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-.field protected l:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected l:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-.field protected m:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+.field protected m:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
 .field protected n:Lcom/yelp/android/serializable/YelpBusiness;
 
-.field protected o:Ljava/lang/CharSequence;
+.field protected o:Lcom/yelp/android/serializable/YelpBusiness;
 
-.field protected p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+.field protected p:Ljava/lang/String;
 
-.field private q:[Ljava/lang/String;
+.field protected q:Lcom/yelp/android/serializable/BusinessAttributes;
+
+.field protected r:Lcom/yelp/android/appdata/webrequests/w;
+
+.field protected s:Ljava/lang/CharSequence;
+
+.field protected t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+
+.field protected u:Lcom/yelp/android/ui/map/YelpMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/ui/map/YelpMap",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field protected v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/ui/map/MapSpannableLinearLayout",
+            "<",
+            "Lcom/yelp/android/serializable/YelpBusiness;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field protected w:Landroid/view/View;
+
+.field protected x:Z
+
+.field protected y:Landroid/view/View;
+
+.field protected z:Z
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     .prologue
-    .line 56
+    .line 71
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 591
+    .line 892
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$9;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$9;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->B:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
     return-void
 .end method
 
@@ -78,57 +140,56 @@
     .locals 1
 
     .prologue
-    .line 570
+    .line 725
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
-    .line 582
+    .line 737
     :pswitch_0
     const/16 v0, 0x3e8
 
     :goto_0
     return v0
 
-    .line 572
+    .line 727
     :pswitch_1
-    const/16 v0, 0x3fc
+    const/16 v0, 0x400
 
     goto :goto_0
 
-    .line 574
+    .line 729
     :pswitch_2
-    const/16 v0, 0x3fa
+    const/16 v0, 0x3fe
 
     goto :goto_0
 
-    .line 576
+    .line 731
     :pswitch_3
-    const/16 v0, 0x3fb
+    const/16 v0, 0x3ff
 
     goto :goto_0
 
-    .line 578
+    .line 733
     :pswitch_4
+    const/16 v0, 0x401
+
+    goto :goto_0
+
+    .line 735
+    :pswitch_5
     const/16 v0, 0x3fd
 
     goto :goto_0
 
-    .line 580
-    :pswitch_5
-    const/16 v0, 0x3f9
-
-    goto :goto_0
-
-    .line 570
+    .line 725
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f0c009c
+    .packed-switch 0x7f0f00d4
         :pswitch_5
-        :pswitch_0
         :pswitch_0
         :pswitch_0
         :pswitch_3
@@ -142,7 +203,7 @@
     .locals 1
 
     .prologue
-    .line 56
+    .line 71
     invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/view/View;)I
 
     move-result v0
@@ -150,39 +211,11 @@
     return v0
 .end method
 
-.method public static a(Ljava/util/ArrayList;)Landroid/content/Intent;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/yelp/android/serializable/Category;",
-            ">;)",
-            "Landroid/content/Intent;"
-        }
-    .end annotation
-
-    .prologue
-    .line 82
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    .line 86
-    const-string/jumbo v1, "extra.categories"
-
-    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
-
-    .line 87
-    return-object v0
-.end method
-
 .method private a(Landroid/content/Intent;)Landroid/location/Address;
     .locals 1
 
     .prologue
-    .line 397
+    .line 543
     invoke-static {p1}, Lcom/yelp/android/ui/activities/mutatebiz/EditExistingAddress;->a(Landroid/content/Intent;)Landroid/location/Address;
 
     move-result-object v0
@@ -194,12 +227,12 @@
     .locals 2
 
     .prologue
-    .line 308
+    .line 440
     invoke-virtual {p0, p1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 309
+    .line 441
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -212,207 +245,193 @@
     return-object v0
 .end method
 
-.method private a(ILjava/lang/CharSequence;)V
-    .locals 1
-
-    .prologue
-    .line 415
-    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    .line 416
-    invoke-interface {v0, p2, p2}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->a(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
-
-    .line 417
-    return-void
-.end method
-
 .method private b(Landroid/content/Intent;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
     .locals 1
 
     .prologue
-    .line 401
-    invoke-static {p1}, Lcom/yelp/android/ui/activities/mutatebiz/EditExistingAddress;->c(Landroid/content/Intent;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    .line 547
+    invoke-static {p1}, Lcom/yelp/android/ui/activities/mutatebiz/EditExistingAddress;->b(Landroid/content/Intent;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
     move-result-object v0
 
     return-object v0
-.end method
-
-.method private c(Landroid/content/Intent;)Landroid/location/Address;
-    .locals 1
-
-    .prologue
-    .line 405
-    invoke-static {p1}, Lcom/yelp/android/ui/activities/mutatebiz/EditExistingAddress;->b(Landroid/content/Intent;)Landroid/location/Address;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method private f()V
-    .locals 3
-
-    .prologue
-    .line 142
-    const v0, 0x7f0c00a3
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->m:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    .line 143
-    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/o;
-
-    const v1, 0x7f07040a
-
-    sget-object v2, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MULTILINE_TEXT:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
-
-    invoke-direct {v0, p0, v1, v2}, Lcom/yelp/android/ui/activities/mutatebiz/o;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;)V
-
-    .line 145
-    const v1, 0x7f07008c
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/o;->a(I)V
-
-    .line 146
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->m:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    invoke-interface {v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 147
-    return-void
-.end method
-
-.method private g()V
-    .locals 4
-
-    .prologue
-    .line 150
-    const v0, 0x7f0c00a2
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    .line 151
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/o;
-
-    const v2, 0x7f07022b
-
-    sget-object v3, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MENU_URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
-
-    invoke-direct {v1, p0, v2, v3}, Lcom/yelp/android/ui/activities/mutatebiz/o;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;)V
-
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 153
-    return-void
-.end method
-
-.method private h()V
-    .locals 4
-
-    .prologue
-    .line 156
-    const v0, 0x7f0c00a1
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    .line 157
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/o;
-
-    const v2, 0x7f07022e
-
-    sget-object v3, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
-
-    invoke-direct {v1, p0, v2, v3}, Lcom/yelp/android/ui/activities/mutatebiz/o;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;)V
-
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 159
-    return-void
 .end method
 
 .method private i()V
-    .locals 4
+    .locals 7
 
     .prologue
-    .line 162
-    const v0, 0x7f0c00a0
+    const/16 v6, 0x8
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    .line 284
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->C()Z
+
+    move-result v0
+
+    .line 285
+    iget-boolean v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->z:Z
+
+    if-eqz v1, :cond_1
+
+    if-eqz v0, :cond_1
+
+    .line 286
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->u:Lcom/yelp/android/ui/map/YelpMap;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/YelpMap;->g()V
+
+    .line 287
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->u:Lcom/yelp/android/ui/map/YelpMap;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-static {v1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/yelp/android/ui/map/m;
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->B()I
+
+    move-result v3
+
+    invoke-direct {v2, v3}, Lcom/yelp/android/ui/map/m;-><init>(I)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/map/YelpMap;->a(Ljava/util/List;Lcom/yelp/android/ui/map/a;)V
+
+    .line 290
+    new-instance v0, Lcom/google/android/gms/maps/model/CameraPosition$a;
+
+    invoke-direct {v0}, Lcom/google/android/gms/maps/model/CameraPosition$a;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->b()Lcom/google/android/gms/maps/model/LatLng;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a(Lcom/google/android/gms/maps/model/LatLng;)Lcom/google/android/gms/maps/model/CameraPosition$a;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    const/high16 v1, 0x41800000    # 16.0f
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a(F)Lcom/google/android/gms/maps/model/CameraPosition$a;
 
-    .line 163
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    move-result-object v0
 
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/o;
+    invoke-virtual {v0}, Lcom/google/android/gms/maps/model/CameraPosition$a;->a()Lcom/google/android/gms/maps/model/CameraPosition;
 
-    const v2, 0x7f07022c
+    move-result-object v0
 
-    sget-object v3, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->PHONE:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
+    .line 295
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->u:Lcom/yelp/android/ui/map/YelpMap;
 
-    invoke-direct {v1, p0, v2, v3}, Lcom/yelp/android/ui/activities/mutatebiz/o;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;)V
+    const/4 v2, 0x0
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ui/map/YelpMap;->a(Lcom/google/android/gms/maps/model/CameraPosition;Lcom/google/android/gms/maps/c$a;)V
 
-    .line 164
+    .line 296
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    invoke-virtual {v0, v4}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->setVisibility(I)V
+
+    .line 297
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/SpannableWidget;
+
+    invoke-interface {v0, v5}, Lcom/yelp/android/ui/widgets/SpannableWidget;->setLeft(Z)V
+
+    .line 298
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->x:Z
+
+    if-nez v0, :cond_0
+
+    .line 301
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/SpannableWidget;
+
+    invoke-interface {v0, v5}, Lcom/yelp/android/ui/widgets/SpannableWidget;->setRight(Z)V
+
+    .line 302
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->y:Landroid/view/View;
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
+
+    .line 312
+    :cond_0
+    :goto_0
     return-void
+
+    .line 305
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    invoke-virtual {v0, v6}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->setVisibility(I)V
+
+    .line 306
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/SpannableWidget;
+
+    invoke-interface {v0, v4}, Lcom/yelp/android/ui/widgets/SpannableWidget;->setLeft(Z)V
+
+    .line 307
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->x:Z
+
+    if-nez v0, :cond_0
+
+    .line 308
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    check-cast v0, Lcom/yelp/android/ui/widgets/SpannableWidget;
+
+    invoke-interface {v0, v4}, Lcom/yelp/android/ui/widgets/SpannableWidget;->setRight(Z)V
+
+    .line 309
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->y:Landroid/view/View;
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_0
 .end method
 
 .method private j()V
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 167
-    const v0, 0x7f0c009f
+    .line 315
+    new-instance v0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+    const v1, 0x7f070441
 
-    move-result-object v0
+    sget-object v2, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MULTILINE_TEXT:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    const-string/jumbo v3, ""
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    invoke-direct {v0, p0, v1, v2, v3}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;Ljava/lang/String;)V
 
-    .line 168
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 317
+    const v1, 0x7f070108
 
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/g;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;->a(I)V
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/g;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+    .line 318
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->m:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-interface {v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 176
+    .line 319
     return-void
 .end method
 
@@ -420,83 +439,56 @@
     .locals 2
 
     .prologue
-    .line 179
-    const v0, 0x7f0c009e
+    .line 322
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$4;
 
-    move-result-object v0
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$4;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
 
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    .line 180
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/h;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/h;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
-
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 195
+    .line 343
     return-void
 .end method
 
 .method private l()V
-    .locals 2
+    .locals 3
 
     .prologue
-    .line 198
-    const v0, 0x7f0c009d
+    .line 346
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->x:Z
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+    if-nez v0, :cond_0
 
-    move-result-object v0
+    .line 347
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    check-cast v0, Lcom/yelp/android/ui/widgets/SpannedTextView;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getResources()Landroid/content/res/Resources;
 
-    .line 199
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    move-result-object v1
 
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/i;
+    const v2, 0x7f070120
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/i;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    move-result-object v1
 
-    .line 215
-    return-void
-.end method
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/widgets/SpannedTextView;->setHint(Ljava/lang/CharSequence;)V
 
-.method private m()V
-    .locals 2
+    .line 349
+    :cond_0
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    .prologue
-    .line 218
-    const v0, 0x7f0c009c
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$5;
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$5;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
 
-    move-result-object v0
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    .line 219
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/j;
-
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/j;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
-
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 235
+    .line 372
     return-void
 .end method
 
@@ -511,7 +503,7 @@
 .method protected abstract a(Ljava/lang/CharSequence;Landroid/net/Uri;)Landroid/content/Intent;
 .end method
 
-.method protected abstract a(Ljava/util/Map;Lcom/yelp/android/serializable/YelpBusiness;)Lcom/yelp/android/analytics/iris/b;
+.method protected abstract a(Ljava/util/Map;Lcom/yelp/android/serializable/YelpBusiness;)Lcom/yelp/android/analytics/iris/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -522,23 +514,23 @@
             ">;",
             "Lcom/yelp/android/serializable/YelpBusiness;",
             ")",
-            "Lcom/yelp/android/analytics/iris/b;"
+            "Lcom/yelp/android/analytics/iris/a;"
         }
     .end annotation
 .end method
 
-.method protected abstract a(Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/w;
+.method protected abstract a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/y;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Landroid/util/Pair",
             "<",
             "Ljava/lang/String;",
             "Lcom/yelp/android/serializable/YelpBusiness;",
             ">;>;)",
-            "Lcom/yelp/android/appdata/webrequests/w;"
+            "Lcom/yelp/android/appdata/webrequests/y;"
         }
     .end annotation
 .end method
@@ -547,28 +539,28 @@
     .locals 4
 
     .prologue
-    .line 698
+    .line 854
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->isAlternateAddressEmpty()Z
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->b()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    .line 700
+    .line 856
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 701
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->getLanguage()Ljava/lang/String;
+    .line 857
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->d()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->getAddress()Lcom/yelp/android/serializable/YelpDetailedAddress;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->c()Lcom/yelp/android/serializable/YelpDetailedAddress;
 
     move-result-object v1
 
@@ -578,8 +570,8 @@
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 703
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->getAlternateAddresses()Ljava/util/Map;
+    .line 860
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->a()Ljava/util/Map;
 
     move-result-object v0
 
@@ -604,7 +596,7 @@
 
     check-cast v0, Ljava/util/Map$Entry;
 
-    .line 705
+    .line 861
     invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -625,7 +617,7 @@
 
     goto :goto_0
 
-    .line 707
+    .line 863
     :cond_0
     const-string/jumbo v0, ""
 
@@ -635,8 +627,8 @@
 
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
 
-    .line 708
-    const v0, 0x7f07021b
+    .line 864
+    const v0, 0x7f0706df
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getString(I)Ljava/lang/String;
 
@@ -646,14 +638,14 @@
 
     move-result-object v0
 
-    .line 712
+    .line 868
     :goto_1
     return-object v0
 
     :cond_1
     const-string/jumbo v0, "\n"
 
-    invoke-static {v0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/f;->a(Ljava/lang/CharSequence;Landroid/location/Address;)Ljava/lang/StringBuilder;
+    invoke-static {v0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/a;->a(Ljava/lang/CharSequence;Landroid/location/Address;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -661,10 +653,12 @@
 .end method
 
 .method protected a(Ljava/lang/String;Lcom/yelp/android/serializable/YelpDetailedAddress;)Ljava/lang/String;
-    .locals 3
+    .locals 7
 
     .prologue
-    .line 722
+    const/4 v1, 0x0
+
+    .line 878
     sget-object v0, Ljava/util/Locale;->CHINESE:Ljava/util/Locale;
 
     invoke-virtual {v0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
@@ -679,72 +673,106 @@
 
     const-string/jumbo v0, ""
 
-    .line 723
+    .line 879
     :goto_0
-    new-instance v1, Ljava/util/ArrayList;
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 724
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpDetailedAddress;->getAddress1()Ljava/lang/String;
+    .line 880
+    const/4 v3, 0x2
 
-    move-result-object v2
+    new-array v3, v3, [Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpDetailedAddress;->c()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    aput-object v4, v3, v1
 
-    .line 725
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpDetailedAddress;->getAddress2()Ljava/lang/String;
+    const/4 v4, 0x1
 
-    move-result-object v2
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/YelpDetailedAddress;->b()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move-result-object v5
 
-    move-result-object v2
+    aput-object v5, v3, v4
 
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    array-length v4, v3
 
-    .line 727
-    sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+    :goto_1
+    if-ge v1, v4, :cond_2
 
-    invoke-virtual {v2}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    aget-object v5, v3, v1
 
-    move-result-object v2
+    .line 881
+    invoke-static {v5}, Lcom/yelp/android/util/StringUtils;->d(Ljava/lang/String;)Z
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v6
 
-    move-result v2
+    if-nez v6, :cond_0
 
-    if-eqz v2, :cond_0
+    .line 882
+    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    .line 728
-    invoke-static {v1}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
+    move-result-object v5
 
-    .line 730
+    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 880
     :cond_0
-    const-string/jumbo v2, ""
+    add-int/lit8 v1, v1, 0x1
 
-    invoke-static {v2}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
+    goto :goto_1
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
-
-    .line 731
-    invoke-static {v0, v1}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-
-    .line 722
+    .line 878
     :cond_1
     const-string/jumbo v0, ", "
 
     goto :goto_0
+
+    .line 886
+    :cond_2
+    sget-object v1, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
+
+    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 887
+    invoke-static {v2}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
+
+    .line 889
+    :cond_3
+    invoke-static {v0, v2}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected a(ILjava/lang/CharSequence;)V
+    .locals 1
+
+    .prologue
+    .line 557
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 558
+    invoke-interface {v0, p2, p2}, Lcom/yelp/android/ui/activities/mutatebiz/d;->a(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    .line 559
+    return-void
 .end method
 
 .method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Landroid/util/Pair;)V
@@ -763,27 +791,27 @@
     .end annotation
 
     .prologue
-    .line 490
+    .line 641
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->hideLoadingDialog()V
 
-    .line 491
-    instance-of v0, p1, Lcom/yelp/android/appdata/webrequests/w;
+    .line 642
+    instance-of v0, p1, Lcom/yelp/android/appdata/webrequests/y;
 
     if-eqz v0, :cond_0
 
-    .line 492
-    check-cast p1, Lcom/yelp/android/appdata/webrequests/w;
+    .line 643
+    check-cast p1, Lcom/yelp/android/appdata/webrequests/y;
 
-    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/w;->a()Ljava/util/Collection;
+    invoke-virtual {p1}, Lcom/yelp/android/appdata/webrequests/y;->b()Ljava/util/Collection;
 
     move-result-object v0
 
-    .line 493
+    .line 644
     new-instance v1, Ljava/util/TreeMap;
 
     invoke-direct {v1}, Ljava/util/TreeMap;-><init>()V
 
-    .line 494
+    .line 645
     const-string/jumbo v2, "changed"
 
     const-string/jumbo v3, ","
@@ -794,86 +822,154 @@
 
     invoke-virtual {v1, v2, v0}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 495
+    .line 646
     iget-object v0, p2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Ljava/util/Map;Lcom/yelp/android/serializable/YelpBusiness;)Lcom/yelp/android/analytics/iris/b;
+    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Ljava/util/Map;Lcom/yelp/android/serializable/YelpBusiness;)Lcom/yelp/android/analytics/iris/a;
 
     move-result-object v0
 
-    .line 496
+    .line 647
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/av/a;
+    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->k()Lcom/yelp/android/appdata/webrequests/core/MetricsManager;
 
     move-result-object v2
 
-    invoke-virtual {v2, v0, v1}, Lcom/yelp/android/av/a;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-virtual {v2, v0, v1}, Lcom/yelp/android/appdata/webrequests/core/MetricsManager;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
-    .line 497
+    .line 648
     iget-object v0, p2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusiness;
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 498
+    .line 649
     iget-object v0, p2, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/CharSequence;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Ljava/lang/CharSequence;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->s:Ljava/lang/CharSequence;
 
-    .line 499
-    const v0, 0x7f0705df
+    .line 650
+    const v0, 0x7f0705c7
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->showDialog(I)V
 
-    .line 501
+    .line 652
     :cond_0
     return-void
 .end method
 
 .method public a(Lcom/yelp/android/serializable/Category;)V
-    .locals 2
+    .locals 4
 
     .prologue
-    .line 478
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    const/16 v3, 0x8
+
+    const/4 v2, 0x0
+
+    .line 626
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
     check-cast v0, Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    const/4 v1, 0x0
+    move v1, v2
 
     :goto_0
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 479
+    .line 627
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->x:Z
+
+    if-eqz v0, :cond_0
+
+    .line 628
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->w:Landroid/view/View;
+
+    if-eqz p1, :cond_2
+
+    :goto_1
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    .line 630
+    :cond_0
     return-void
 
-    .line 478
-    :cond_0
-    const/16 v1, 0x8
+    :cond_1
+    move v1, v3
 
+    .line 626
     goto :goto_0
+
+    :cond_2
+    move v2, v3
+
+    .line 628
+    goto :goto_1
 .end method
 
 .method public bridge synthetic a(Ljava/lang/Object;)V
     .locals 0
 
     .prologue
-    .line 56
+    .line 71
     check-cast p1, Lcom/yelp/android/serializable/Category;
 
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Lcom/yelp/android/serializable/Category;)V
 
     return-void
+.end method
+
+.method protected a(Ljava/lang/String;)V
+    .locals 2
+
+    .prologue
+    .line 221
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->enableLoading()V
+
+    .line 222
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->x:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/v;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->B:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, p1, v1}, Lcom/yelp/android/appdata/webrequests/v;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    :goto_0
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->r:Lcom/yelp/android/appdata/webrequests/w;
+
+    .line 226
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->r:Lcom/yelp/android/appdata/webrequests/w;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/w;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+
+    .line 227
+    return-void
+
+    .line 222
+    :cond_0
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/u;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->B:Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
+
+    invoke-direct {v0, p1, v1}, Lcom/yelp/android/appdata/webrequests/u;-><init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
+
+    goto :goto_0
 .end method
 
 .method protected a(Ljava/util/List;)V
@@ -889,22 +985,22 @@
     .end annotation
 
     .prologue
-    .line 390
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ae;
+    .line 532
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/c;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/n;
+    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$a;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->j()Lcom/yelp/android/database/m;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->j()Lcom/yelp/android/database/e;
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->q:[Ljava/lang/String;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->A:[Ljava/lang/String;
 
-    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/mutatebiz/n;-><init>(Lcom/yelp/android/database/m;[Ljava/lang/String;)V
+    invoke-direct {v2, v0, v3}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$a;-><init>(Lcom/yelp/android/database/e;[Ljava/lang/String;)V
 
     const/4 v3, 0x0
 
@@ -914,15 +1010,15 @@
 
     const/4 v5, 0x0
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
     check-cast v0, Landroid/view/View;
 
     aput-object v0, v4, v5
 
-    invoke-direct {v1, v2, p0, v3, v4}, Lcom/yelp/android/ui/activities/mutatebiz/ae;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ag;Lcom/yelp/android/ui/activities/mutatebiz/af;Landroid/view/View;[Landroid/view/View;)V
+    invoke-direct {v1, v2, p0, v3, v4}, Lcom/yelp/android/ui/activities/mutatebiz/c;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/c$b;Lcom/yelp/android/ui/activities/mutatebiz/c$a;Landroid/view/View;[Landroid/view/View;)V
 
-    .line 393
+    .line 539
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
@@ -933,31 +1029,320 @@
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ae;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/c;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    .line 394
+    .line 540
     return-void
 .end method
 
 .method protected abstract b()Z
 .end method
 
-.method protected abstract c()Lcom/yelp/android/analytics/iris/b;
+.method protected abstract c()Lcom/yelp/android/analytics/iris/a;
 .end method
 
-.method protected abstract d()Lcom/yelp/android/analytics/iris/b;
+.method protected abstract d()Lcom/yelp/android/analytics/iris/a;
 .end method
 
-.method protected e()Ljava/lang/String;
+.method protected e()V
+    .locals 2
+
+    .prologue
+    .line 213
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d:Ljava/lang/String;
+
+    .line 214
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
+
+    .line 215
+    const-string/jumbo v0, ""
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f:Ljava/lang/String;
+
+    .line 216
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 217
+    const v1, 0x7f0f00d4
+
+    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
+
+    .line 218
+    return-void
+.end method
+
+.method protected f()V
+    .locals 5
+
+    .prologue
+    .line 147
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$1;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$1;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 164
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;
+
+    const v2, 0x7f07027d
+
+    sget-object v3, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->PHONE:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->q:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/BusinessAttributes;->e()Lcom/yelp/android/serializable/BusinessAttribute;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/BusinessAttribute;->b()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v1, p0, v2, v3, v4}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;Ljava/lang/String;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 169
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$2;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$2;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 179
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;
+
+    const v2, 0x7f07027f
+
+    sget-object v3, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->q:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/BusinessAttributes;->d()Lcom/yelp/android/serializable/BusinessAttribute;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/BusinessAttribute;->b()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v1, p0, v2, v3, v4}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;Ljava/lang/String;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 184
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;
+
+    const v2, 0x7f07027b
+
+    sget-object v3, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->MENU_URI:Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->q:Lcom/yelp/android/serializable/BusinessAttributes;
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/BusinessAttributes;->g()Lcom/yelp/android/serializable/BusinessAttribute;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/BusinessAttribute;->b()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v1, p0, v2, v3, v4}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$b;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;Ljava/lang/String;)V
+
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 189
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l()V
+
+    .line 190
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k()V
+
+    .line 191
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j()V
+
+    .line 192
+    return-void
+.end method
+
+.method protected g()V
+    .locals 7
+
+    .prologue
+    const/16 v6, 0x8
+
+    .line 235
+    new-instance v0, Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-direct {v0}, Lcom/yelp/android/serializable/YelpBusiness;-><init>()V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    .line 236
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    new-instance v1, Lcom/google/android/gms/maps/model/LatLng;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->R()D
+
+    move-result-wide v2
+
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v4}, Lcom/yelp/android/serializable/YelpBusiness;->Q()D
+
+    move-result-wide v4
+
+    invoke-direct {v1, v2, v3, v4, v5}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpBusiness;->a(Lcom/google/android/gms/maps/model/LatLng;)V
+
+    .line 238
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->O()D
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/serializable/YelpBusiness;->a(D)V
+
+    .line 240
+    const v0, 0x7f0f0220
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    .line 241
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->setFullBleed(Z)V
+
+    .line 242
+    const v0, 0x7f0f021f
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->y:Landroid/view/View;
+
+    .line 243
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->getYelpMap()Lcom/yelp/android/ui/map/YelpMap;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->u:Lcom/yelp/android/ui/map/YelpMap;
+
+    .line 244
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    new-instance v2, Lcom/yelp/android/ui/map/b;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/map/b;-><init>(Landroid/content/Context;)V
+
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v3}, Lcom/yelp/android/serializable/YelpBusiness;->B()I
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    invoke-static {}, Lcom/yelp/android/util/f;->a()Z
+
+    move-result v5
+
+    invoke-virtual/range {v0 .. v5}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->a(Lcom/yelp/android/serializable/f;Lcom/yelp/android/ui/map/e;ILandroid/os/Bundle;Z)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->z:Z
+
+    .line 251
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->z:Z
+
+    if-eqz v0, :cond_0
+
+    .line 252
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$3;
+
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$3;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 277
+    :cond_0
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->z:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->C()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 278
+    :cond_1
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->y:Landroid/view/View;
+
+    invoke-virtual {v0, v6}, Landroid/view/View;->setVisibility(I)V
+
+    .line 279
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->v:Lcom/yelp/android/ui/map/MapSpannableLinearLayout;
+
+    invoke-virtual {v0, v6}, Lcom/yelp/android/ui/map/MapSpannableLinearLayout;->setVisibility(I)V
+
+    .line 281
+    :cond_2
+    return-void
+.end method
+
+.method protected h()Ljava/lang/String;
     .locals 4
 
     .prologue
-    .line 645
+    .line 801
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 646
+    .line 802
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -966,12 +1351,12 @@
 
     if-nez v1, :cond_0
 
-    .line 647
+    .line 803
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 650
+    .line 806
     :cond_0
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d:Ljava/lang/String;
 
@@ -981,12 +1366,12 @@
 
     if-nez v1, :cond_1
 
-    .line 651
+    .line 807
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 654
+    .line 810
     :cond_1
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
 
@@ -996,12 +1381,12 @@
 
     if-nez v1, :cond_2
 
-    .line 655
+    .line 811
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 658
+    .line 814
     :cond_2
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f:Ljava/lang/String;
 
@@ -1011,12 +1396,12 @@
 
     if-nez v1, :cond_3
 
-    .line 659
+    .line 815
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 662
+    .line 818
     :cond_3
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
@@ -1028,84 +1413,84 @@
 
     if-eqz v1, :cond_7
 
-    .line 663
+    .line 819
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->getName()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/YelpBusiness;->aq()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 664
+    .line 820
     iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->getAlternateNames()Lcom/yelp/android/serializable/AlternateBusinessNames;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/YelpBusiness;->be()Lcom/yelp/android/serializable/AlternateBusinessNames;
 
     move-result-object v2
 
-    .line 666
+    .line 822
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_4
 
-    .line 667
+    .line 823
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 670
+    .line 826
     :cond_4
     if-eqz v2, :cond_7
 
-    .line 671
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/AlternateBusinessNames;->getPrimary()Ljava/lang/String;
+    .line 827
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/AlternateBusinessNames;->d()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 672
+    .line 828
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_5
 
-    .line 673
+    .line 829
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 676
+    .line 832
     :cond_5
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/AlternateBusinessNames;->getSecondary()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/AlternateBusinessNames;->c()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 677
+    .line 833
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_6
 
-    .line 678
+    .line 834
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 681
+    .line 837
     :cond_6
-    invoke-virtual {v2}, Lcom/yelp/android/serializable/AlternateBusinessNames;->getRomanized()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/yelp/android/serializable/AlternateBusinessNames;->b()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 682
+    .line 838
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
     if-nez v2, :cond_7
 
-    .line 683
+    .line 839
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 687
+    .line 843
     :cond_7
-    const v1, 0x7f07021b
+    const v1, 0x7f0706df
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getString(I)Ljava/lang/String;
 
@@ -1119,313 +1504,293 @@
 .end method
 
 .method protected onActivityResult(IILandroid/content/Intent;)V
-    .locals 7
+    .locals 8
 
     .prologue
-    const/4 v1, 0x0
+    const/4 v5, 0x1
 
-    const/4 v0, 0x1
+    .line 376
+    const/4 v0, -0x1
 
-    .line 239
-    const/4 v2, -0x1
+    if-ne p2, v0, :cond_0
 
-    if-ne p2, v2, :cond_0
+    .line 377
+    iput-boolean v5, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a:Z
 
-    .line 240
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a:Z
-
-    .line 242
+    .line 379
     packed-switch p1, :pswitch_data_0
 
-    .line 303
+    .line 435
     :cond_0
     :goto_0
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 304
+    .line 436
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->updateOptionsMenu()V
 
-    .line 305
+    .line 437
     return-void
 
-    .line 244
+    .line 381
     :pswitch_0
-    const v0, 0x7f0c00a2
+    const v0, 0x7f0f00d9
 
     invoke-static {p3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->b(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 247
+    .line 384
     :pswitch_1
-    const v0, 0x7f0c00a3
+    const v0, 0x7f0f00da
 
     invoke-static {p3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->b(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 250
+    .line 387
     :pswitch_2
-    const v0, 0x7f0c00a0
+    const v0, 0x7f0f00d7
 
     invoke-static {p3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->b(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 253
+    .line 390
     :pswitch_3
-    const v0, 0x7f0c00a1
+    const v0, 0x7f0f00d8
 
     invoke-static {p3}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->b(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
 
     goto :goto_0
 
-    .line 256
+    .line 393
     :pswitch_4
-    const-string/jumbo v2, "name"
+    const-string/jumbo v0, "extra.name"
 
-    invoke-static {p3, v2}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
 
-    .line 257
-    const-string/jumbo v2, "yomi_name"
+    .line 394
+    const-string/jumbo v0, "extra.yomi_name"
 
-    invoke-static {p3, v2}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d:Ljava/lang/String;
 
-    .line 258
-    const-string/jumbo v2, "english_name"
+    .line 395
+    const-string/jumbo v0, "extra.english_name"
 
-    invoke-static {p3, v2}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
 
-    .line 259
-    const-string/jumbo v2, "romaji_name"
+    .line 396
+    const-string/jumbo v0, "extra.romaji_name"
 
-    invoke-static {p3, v2}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p3, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    iput-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f:Ljava/lang/String;
 
-    .line 261
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e()Ljava/lang/String;
+    .line 398
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 263
-    const v3, 0x7f0c009c
+    .line 400
+    const v1, 0x7f0f00d4
 
-    invoke-direct {p0, v3, v2}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
+    invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(ILjava/lang/CharSequence;)V
 
-    .line 268
-    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+    goto :goto_0
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/AppData;->g()Lcom/yelp/android/appdata/LocaleSettings;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/yelp/android/appdata/LocaleSettings;->j()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    .line 271
-    :goto_1
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    if-eqz v0, :cond_0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 273
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->performClick()Z
-
-    goto/16 :goto_0
-
-    :cond_2
-    move v0, v1
-
-    .line 268
-    goto :goto_1
-
-    .line 277
+    .line 403
     :pswitch_5
     invoke-direct {p0, p3}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/content/Intent;)Landroid/location/Address;
 
-    move-result-object v2
+    move-result-object v0
 
-    .line 278
-    invoke-direct {p0, p3}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c(Landroid/content/Intent;)Landroid/location/Address;
+    .line 404
+    invoke-virtual {v0}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    .line 279
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    .line 405
+    invoke-virtual {v0}, Landroid/location/Address;->getCountryCode()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Ljava/lang/String;
+
+    .line 406
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e()V
+
+    .line 408
+    :cond_1
     invoke-direct {p0, p3}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b(Landroid/content/Intent;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    move-result-object v4
+    move-result-object v1
 
-    iput-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    iput-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    .line 280
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    .line 409
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    invoke-virtual {p0, v2, v4}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/location/Address;Lcom/yelp/android/serializable/YelpBusinessAddresses;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Landroid/location/Address;Lcom/yelp/android/serializable/YelpBusinessAddresses;)Ljava/lang/CharSequence;
 
-    move-result-object v4
+    move-result-object v1
 
-    .line 282
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 411
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    const/4 v6, 0x3
+    const/4 v3, 0x2
 
-    new-array v6, v6, [Landroid/os/Parcelable;
+    new-array v3, v3, [Landroid/os/Parcelable;
 
-    aput-object v2, v6, v1
+    const/4 v4, 0x0
 
-    aput-object v3, v6, v0
+    aput-object v0, v3, v4
 
-    const/4 v0, 0x2
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    aput-object v4, v3, v5
 
-    aput-object v1, v6, v0
+    invoke-interface {v2, v1, v3}, Lcom/yelp/android/ui/activities/mutatebiz/d;->a(Ljava/lang/CharSequence;[Landroid/os/Parcelable;)V
 
-    invoke-interface {v5, v4, v6}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->a(Ljava/lang/CharSequence;[Landroid/os/Parcelable;)V
+    .line 412
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Lcom/yelp/android/serializable/YelpBusiness;
+
+    new-instance v2, Lcom/google/android/gms/maps/model/LatLng;
+
+    invoke-virtual {v0}, Landroid/location/Address;->getLatitude()D
+
+    move-result-wide v4
+
+    invoke-virtual {v0}, Landroid/location/Address;->getLongitude()D
+
+    move-result-wide v6
+
+    invoke-direct {v2, v4, v5, v6, v7}, Lcom/google/android/gms/maps/model/LatLng;-><init>(DD)V
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/serializable/YelpBusiness;->a(Lcom/google/android/gms/maps/model/LatLng;)V
+
+    .line 415
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i()V
 
     goto/16 :goto_0
 
-    .line 286
+    .line 418
     :pswitch_6
-    const-string/jumbo v0, "extra.categories"
+    const-string/jumbo v0, "extra.category"
 
     invoke-virtual {p3, v0}, Landroid/content/Intent;->getParcelableArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 288
+    .line 420
     const-string/jumbo v1, ", "
 
-    new-instance v2, Lcom/yelp/android/serializable/w;
+    new-instance v2, Lcom/yelp/android/serializable/Category$b;
 
-    invoke-direct {v2}, Lcom/yelp/android/serializable/w;-><init>()V
+    invoke-direct {v2}, Lcom/yelp/android/serializable/Category$b;-><init>()V
 
-    invoke-static {v1, v0, v2}, Lcom/yelp/android/util/StringUtils;->a(Ljava/lang/CharSequence;Ljava/lang/Iterable;Lcom/yelp/android/util/ag;)Ljava/lang/String;
+    invoke-static {v1, v0, v2}, Lcom/yelp/android/util/StringUtils;->a(Ljava/lang/CharSequence;Ljava/lang/Iterable;Lcom/yelp/android/util/StringUtils$c;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 289
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 421
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v2, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->a(Ljava/lang/CharSequence;Ljava/util/ArrayList;)V
+    invoke-interface {v2, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->a(Ljava/lang/CharSequence;Ljava/util/ArrayList;)V
 
-    .line 290
+    .line 422
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Ljava/util/List;)V
 
     goto/16 :goto_0
 
-    .line 293
+    .line 425
     :pswitch_7
     invoke-static {p3}, Lcom/yelp/android/ui/activities/mutatebiz/EditOpenHours;->a(Landroid/content/Intent;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 295
+    .line 427
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
-    .line 296
-    const v0, 0x7f070475
+    .line 428
+    const v0, 0x7f070489
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 298
-    :goto_2
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 430
+    :goto_1
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v2, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->a(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-interface {v2, v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->a(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 299
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 431
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
     invoke-virtual {p3}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v1
 
-    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->a(Landroid/net/Uri;)V
+    invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/d;->a(Landroid/net/Uri;)V
 
     goto/16 :goto_0
 
-    :cond_3
+    :cond_2
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_1
 
-    .line 242
-    nop
-
+    .line 379
     :pswitch_data_0
-    .packed-switch 0x3f6
+    .packed-switch 0x3fa
         :pswitch_5
         :pswitch_6
         :pswitch_7
@@ -1441,29 +1806,29 @@
     .locals 1
 
     .prologue
-    .line 421
+    .line 563
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a:Z
 
     if-eqz v0, :cond_0
 
-    .line 422
-    const v0, 0x7f070645
+    .line 564
+    const v0, 0x7f070621
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->showDialog(I)V
 
-    .line 427
+    .line 569
     :goto_0
     return-void
 
-    .line 424
+    .line 566
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c()Lcom/yelp/android/analytics/iris/b;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c()Lcom/yelp/android/analytics/iris/a;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    .line 425
+    .line 567
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onBackPressed()V
 
     goto :goto_0
@@ -1473,13 +1838,13 @@
     .locals 2
 
     .prologue
-    .line 92
+    .line 110
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 93
+    .line 111
     if-eqz p1, :cond_0
 
-    .line 94
+    .line 112
     const-string/jumbo v0, "business"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1490,7 +1855,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
-    .line 95
+    .line 113
     const-string/jumbo v0, "changed"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
@@ -1499,16 +1864,16 @@
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a:Z
 
-    .line 96
+    .line 114
     const-string/jumbo v0, "status message"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Ljava/lang/CharSequence;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->s:Ljava/lang/CharSequence;
 
-    .line 97
+    .line 115
     const-string/jumbo v0, "business_addresses"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1517,9 +1882,9 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    .line 99
+    .line 117
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a()I
 
@@ -1527,49 +1892,131 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->setContentView(I)V
 
-    .line 100
+    .line 118
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a:Z
 
-    .line 101
+    .line 119
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x7f080005
+    const v1, 0x7f0d0005
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->q:[Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->A:[Ljava/lang/String;
 
-    .line 103
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->m()V
+    .line 122
+    const v0, 0x7f0f00da
 
-    .line 104
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l()V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
 
-    .line 105
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k()V
+    move-result-object v0
 
-    .line 106
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i()V
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    .line 107
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j()V
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->m:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    .line 108
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h()V
+    .line 123
+    const v0, 0x7f0f00d9
 
-    .line 109
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g()V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
 
-    .line 110
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f()V
+    move-result-object v0
 
-    .line 111
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 124
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->x:Z
+
+    if-eqz v0, :cond_1
+
+    .line 125
+    const v0, 0x7f0f0172
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->w:Landroid/view/View;
+
+    .line 127
+    :cond_1
+    const v0, 0x7f0f00d8
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 128
+    const v0, 0x7f0f00d7
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 129
+    const v0, 0x7f0f00d6
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 130
+    const v0, 0x7f0f00d5
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 131
+    const v0, 0x7f0f0221
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 132
+    const v0, 0x7f0f00d4
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->b:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    .line 134
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g()V
+
+    .line 135
     return-void
 .end method
 
@@ -1579,10 +2026,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 431
+    .line 573
     sparse-switch p1, :sswitch_data_0
 
-    .line 473
+    .line 621
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreateDialog(I)Landroid/app/Dialog;
 
     move-result-object v0
@@ -1590,7 +2037,7 @@
     :goto_0
     return-object v0
 
-    .line 433
+    .line 575
     :sswitch_0
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -1610,27 +2057,27 @@
 
     move-result-object v0
 
-    const v1, 0x7f07008d
+    const v1, 0x7f07010a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f070336
+    const v1, 0x7f07036d
 
-    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/l;
+    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$7;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/mutatebiz/l;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$7;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f070594
+    const v1, 0x7f0705a4
 
-    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/k;
+    new-instance v2, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$6;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/mutatebiz/k;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$6;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1642,7 +2089,7 @@
 
     goto :goto_0
 
-    .line 456
+    .line 602
     :sswitch_1
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
@@ -1652,13 +2099,13 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Ljava/lang/CharSequence;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->s:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f07041b
+    const v1, 0x7f07070e
 
     const/4 v2, 0x0
 
@@ -1674,22 +2121,22 @@
 
     move-result-object v0
 
-    .line 462
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/m;
+    .line 609
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$8;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/m;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes$8;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;)V
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     goto :goto_0
 
-    .line 431
+    .line 573
     nop
 
     :sswitch_data_0
     .sparse-switch
-        0x7f0705df -> :sswitch_1
-        0x7f070645 -> :sswitch_0
+        0x7f0705c7 -> :sswitch_1
+        0x7f070621 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -1697,19 +2144,19 @@
     .locals 2
 
     .prologue
-    .line 314
+    .line 446
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 315
+    .line 447
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f10000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 316
+    .line 448
     const/4 v0, 0x1
 
     return v0
@@ -1728,24 +2175,24 @@
     .end annotation
 
     .prologue
-    .line 483
+    .line 634
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->hideLoadingDialog()V
 
-    .line 484
+    .line 635
     invoke-virtual {p2, p0}, Lcom/yelp/android/appdata/webrequests/YelpException;->getMessage(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->showInfoDialog(Ljava/lang/CharSequence;)V
 
-    .line 485
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d()Lcom/yelp/android/analytics/iris/b;
+    .line 636
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d()Lcom/yelp/android/analytics/iris/a;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;)V
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
 
-    .line 486
+    .line 637
     return-void
 .end method
 
@@ -1753,25 +2200,32 @@
     .locals 5
 
     .prologue
-    const/4 v3, 0x1
-
     const/4 v4, 0x0
 
-    .line 327
+    const/4 v3, 0x1
+
+    .line 459
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    const v1, 0x7f0c04fd
+    sparse-switch v0, :sswitch_data_0
 
-    if-ne v0, v1, :cond_b
+    .line 528
+    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
-    .line 328
-    invoke-virtual {p0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Lcom/yelp/android/appdata/webrequests/m;)Lcom/yelp/android/appdata/webrequests/w;
+    move-result v3
+
+    :goto_0
+    return v3
+
+    .line 461
+    :sswitch_0
+    invoke-virtual {p0, p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)Lcom/yelp/android/appdata/webrequests/y;
 
     move-result-object v1
 
-    .line 336
+    .line 469
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
@@ -1792,7 +2246,7 @@
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCountry()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aw()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1805,8 +2259,8 @@
     :cond_0
     move v0, v3
 
-    .line 340
-    :goto_0
+    .line 474
+    :goto_1
     if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
@@ -1817,18 +2271,18 @@
 
     if-eqz v0, :cond_1
 
-    .line 341
+    .line 475
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
 
-    .line 343
+    .line 477
     :cond_1
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->d(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->d(Ljava/lang/CharSequence;)V
 
-    .line 344
+    .line 478
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -1837,12 +2291,12 @@
 
     if-nez v0, :cond_2
 
-    .line 345
+    .line 479
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->d:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->c(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->e(Ljava/lang/String;)V
 
-    .line 347
+    .line 481
     :cond_2
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
 
@@ -1852,12 +2306,12 @@
 
     if-nez v0, :cond_3
 
-    .line 348
+    .line 482
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->e:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->d(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->f(Ljava/lang/String;)V
 
-    .line 350
+    .line 484
     :cond_3
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f:Ljava/lang/String;
 
@@ -1867,23 +2321,23 @@
 
     if-nez v0, :cond_4
 
-    .line 351
+    .line 485
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->f:Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->e(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->g(Ljava/lang/String;)V
 
-    .line 354
+    .line 488
     :cond_4
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->g:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->getParcelableArrayData()[Landroid/os/Parcelable;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->getParcelableArrayData()[Landroid/os/Parcelable;
 
     move-result-object v2
 
-    .line 355
+    .line 489
     if-eqz v2, :cond_5
 
-    .line 357
+    .line 491
     aget-object v0, v2, v4
 
     check-cast v0, Landroid/location/Address;
@@ -1894,99 +2348,99 @@
 
     move v2, v3
 
-    :goto_1
-    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/appdata/webrequests/w;->a(Landroid/location/Address;Z)V
+    :goto_2
+    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/appdata/webrequests/y;->a(Landroid/location/Address;Z)V
 
-    .line 360
+    .line 494
     :cond_5
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
     if-eqz v0, :cond_6
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
     if-eqz v0, :cond_6
 
-    .line 361
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    .line 495
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->getAlternateAddresses()Ljava/util/Map;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->a()Ljava/util/Map;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->a(Ljava/util/Map;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->a(Ljava/util/Map;)V
 
-    .line 363
+    .line 497
     :cond_6
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->h:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->getParcelableArrayListData()Ljava/util/ArrayList;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->getParcelableArrayListData()Ljava/util/ArrayList;
 
     move-result-object v0
 
-    .line 364
+    .line 498
     if-nez v0, :cond_7
 
-    .line 365
+    .line 499
     invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
 
     move-result-object v0
 
-    .line 367
+    .line 501
     :cond_7
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->a(Ljava/util/Collection;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->a(Ljava/util/Collection;)V
 
-    .line 368
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 502
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->l:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->getCharSequenceData()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->c(Ljava/lang/CharSequence;)V
-
-    .line 369
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->getCharSequenceData()Ljava/lang/CharSequence;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->getCharSequenceData()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->b(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->c(Ljava/lang/CharSequence;)V
 
-    .line 370
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->m:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 503
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->k:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->getCharSequenceData()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->f(Ljava/lang/CharSequence;)V
-
-    .line 371
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/ah;
-
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->getCharSequenceData()Ljava/lang/CharSequence;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->getCharSequenceData()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->e(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->b(Ljava/lang/CharSequence;)V
 
-    .line 372
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j:Lcom/yelp/android/ui/activities/mutatebiz/ah;
+    .line 504
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->m:Lcom/yelp/android/ui/activities/mutatebiz/d;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/ah;->getCharSequenceData()Ljava/lang/CharSequence;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->getCharSequenceData()Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->a(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->f(Ljava/lang/CharSequence;)V
 
-    .line 373
+    .line 505
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->i:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->getCharSequenceData()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->e(Ljava/lang/CharSequence;)V
+
+    .line 506
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->j:Lcom/yelp/android/ui/activities/mutatebiz/d;
+
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/mutatebiz/d;->getCharSequenceData()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->a(Ljava/lang/CharSequence;)V
+
+    .line 507
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->n()Lcom/yelp/android/appdata/LocationService;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->r()Lcom/yelp/android/appdata/LocationService;
 
     move-result-object v0
 
@@ -1994,76 +2448,101 @@
 
     move-result-object v0
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->a(Landroid/location/Location;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->a(Landroid/location/Location;)V
 
-    .line 375
-    instance-of v0, v1, Lcom/yelp/android/appdata/webrequests/co;
+    .line 509
+    instance-of v0, v1, Lcom/yelp/android/appdata/webrequests/ce;
 
     if-eqz v0, :cond_a
 
     move-object v0, v1
 
-    .line 376
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/co;
+    .line 510
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/ce;
 
-    invoke-static {v0}, Lcom/yelp/android/services/job/HoursPhotoUploadJob;->launchJob(Lcom/yelp/android/appdata/webrequests/co;)V
+    invoke-static {v0}, Lcom/yelp/android/services/job/HoursPhotoUploadJob;->launchJob(Lcom/yelp/android/appdata/webrequests/ce;)V
 
-    .line 378
-    const v0, 0x7f070394
+    .line 512
+    const v0, 0x7f0703d2
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Ljava/lang/CharSequence;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->s:Ljava/lang/CharSequence;
 
-    .line 379
-    const v0, 0x7f0705df
+    .line 513
+    const v0, 0x7f0705c7
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->showDialog(I)V
 
-    .line 386
-    :goto_2
-    return v3
+    goto/16 :goto_0
 
     :cond_8
     move v0, v4
 
-    .line 336
-    goto/16 :goto_0
+    .line 469
+    goto/16 :goto_1
 
     :cond_9
     move v2, v4
 
-    .line 357
-    goto :goto_1
+    .line 491
+    goto :goto_2
 
-    .line 381
+    .line 515
     :cond_a
     new-array v0, v4, [Ljava/lang/Void;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/w;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/y;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 382
+    .line 516
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->showLoadingDialog(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    goto :goto_2
+    goto/16 :goto_0
 
-    .line 386
+    .line 520
+    :sswitch_1
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a:Z
+
+    if-eqz v0, :cond_b
+
+    .line 521
+    const v0, 0x7f070621
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->showDialog(I)V
+
+    goto/16 :goto_0
+
+    .line 523
     :cond_b
-    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->c()Lcom/yelp/android/analytics/iris/a;
 
-    move-result v3
+    move-result-object v0
 
-    goto :goto_2
+    invoke-static {v0}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;)V
+
+    .line 524
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->finish()V
+
+    goto/16 :goto_0
+
+    .line 459
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x102002c -> :sswitch_1
+        0x7f0f0607 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)Z
     .locals 2
 
     .prologue
-    .line 321
-    const v0, 0x7f0c04fd
+    .line 453
+    const v0, 0x7f0f0607
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -2081,7 +2560,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
-    .line 322
+    .line 454
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
     move-result v0
@@ -2093,38 +2572,38 @@
     .locals 2
 
     .prologue
-    .line 115
+    .line 139
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 116
+    .line 140
     const-string/jumbo v0, "business"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->n:Lcom/yelp/android/serializable/YelpBusiness;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 117
+    .line 141
     const-string/jumbo v0, "business_addresses"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->p:Lcom/yelp/android/serializable/YelpBusinessAddresses;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->t:Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 119
+    .line 142
     const-string/jumbo v0, "changed"
 
     iget-boolean v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 120
+    .line 143
     const-string/jumbo v0, "status message"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->o:Ljava/lang/CharSequence;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->s:Ljava/lang/CharSequence;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
-    .line 121
+    .line 144
     return-void
 .end method
 
@@ -2132,7 +2611,7 @@
     .locals 0
 
     .prologue
-    .line 56
+    .line 71
     check-cast p2, Landroid/util/Pair;
 
     invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/activities/mutatebiz/ChangeBusinessAttributes;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Landroid/util/Pair;)V

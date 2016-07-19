@@ -1,148 +1,171 @@
-.class Lcom/yelp/android/ui/activities/categorypicker/a;
-.super Ljava/lang/Object;
-.source "AddNewCategoryFragment.java"
-
-# interfaces
-.implements Landroid/text/TextWatcher;
+.class public Lcom/yelp/android/ui/activities/categorypicker/a;
+.super Lcom/yelp/android/ui/util/w;
+.source "BusinessCategorySuggestAdapter.java"
 
 
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/categorypicker/a$1;,
+        Lcom/yelp/android/ui/activities/categorypicker/a$a;
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "<Suggest::",
+        "Lcom/yelp/android/serializable/CategorySuggestion;",
+        ">",
+        "Lcom/yelp/android/ui/util/w",
+        "<TSuggest;>;"
+    }
+.end annotation
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)V
+.method public constructor <init>()V
     .locals 0
 
     .prologue
-    .line 79
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
+    .line 19
+    invoke-direct {p0}, Lcom/yelp/android/ui/util/w;-><init>()V
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
+    .line 60
     return-void
 .end method
 
 
 # virtual methods
-.method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
+.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 6
 
     .prologue
-    .line 101
-    return-void
-.end method
-
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
-
-    .prologue
-    .line 84
-    return-void
-.end method
-
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 5
-
-    .prologue
-    .line 88
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->a(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)Lcom/yelp/android/appdata/webrequests/v;
+    .line 25
+    invoke-virtual {p0, p1}, Lcom/yelp/android/ui/activities/categorypicker/a;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    check-cast v0, Lcom/yelp/android/serializable/CategorySuggestion;
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
+    .line 26
+    if-nez p2, :cond_1
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->a(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)Lcom/yelp/android/appdata/webrequests/v;
+    .line 27
+    invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/v;->isFetching()Z
+    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result v0
+    move-result-object v1
 
-    if-eqz v0, :cond_0
+    sget v2, Lcom/yelp/android/co/a$h;->business_category_suggest_panel:I
 
-    .line 89
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
+    const/4 v3, 0x0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->a(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)Lcom/yelp/android/appdata/webrequests/v;
+    invoke-virtual {v1, v2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p2
 
-    const/4 v1, 0x1
+    .line 30
+    new-instance v1, Lcom/yelp/android/ui/activities/categorypicker/a$a;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/v;->cancel(Z)V
+    const/4 v2, 0x0
 
-    .line 91
-    :cond_0
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-direct {v1, p2, v2}, Lcom/yelp/android/ui/activities/categorypicker/a$a;-><init>(Landroid/view/View;Lcom/yelp/android/ui/activities/categorypicker/a$1;)V
 
-    move-result v0
+    .line 31
+    invoke-virtual {p2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    if-nez v0, :cond_1
+    .line 36
+    :goto_0
+    invoke-interface {v0}, Lcom/yelp/android/serializable/CategorySuggestion;->d()Ljava/lang/String;
 
-    .line 92
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
+    move-result-object v2
 
-    new-instance v2, Lcom/yelp/android/appdata/webrequests/v;
-
-    invoke-interface {p1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    .line 37
+    invoke-interface {v0}, Lcom/yelp/android/serializable/CategorySuggestion;->e()Ljava/lang/String;
 
     move-result-object v3
 
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->b(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
-
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->b(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)Lcom/yelp/android/serializable/YelpBusiness;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCountry()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
-
-    invoke-static {v4}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->c(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)Lcom/yelp/android/appdata/webrequests/m;
+    .line 38
+    invoke-static {v3, v2}, Lcom/yelp/android/ui/activities/categorypicker/e;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-direct {v2, v3, v0, v4}, Lcom/yelp/android/appdata/webrequests/v;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    .line 49
+    invoke-interface {v0}, Lcom/yelp/android/serializable/CategorySuggestion;->b()Z
 
-    invoke-static {v1, v2}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->a(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;Lcom/yelp/android/appdata/webrequests/v;)Lcom/yelp/android/appdata/webrequests/v;
+    move-result v5
 
-    .line 94
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/categorypicker/a;->a:Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;
+    if-nez v5, :cond_0
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;->a(Lcom/yelp/android/ui/activities/categorypicker/AddNewCategoryFragment;)Lcom/yelp/android/appdata/webrequests/v;
+    invoke-interface {v0}, Lcom/yelp/android/serializable/CategorySuggestion;->c()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    .line 50
+    :cond_0
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/categorypicker/a$a;->a(Lcom/yelp/android/ui/activities/categorypicker/a$a;)Landroid/widget/TextView;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    invoke-static {v2, v4}, Lcom/yelp/android/ui/util/ar;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/CharSequence;
 
-    new-array v1, v1, [Ljava/lang/Void;
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/v;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 96
+    .line 57
+    :goto_1
+    return-object p2
+
+    .line 33
     :cond_1
-    return-void
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    .line 92
-    :cond_2
-    const/4 v0, 0x0
+    move-result-object v1
+
+    check-cast v1, Lcom/yelp/android/ui/activities/categorypicker/a$a;
 
     goto :goto_0
+
+    .line 51
+    :cond_2
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    invoke-interface {v0}, Lcom/yelp/android/serializable/CategorySuggestion;->a()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    .line 52
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/categorypicker/a$a;->a(Lcom/yelp/android/ui/activities/categorypicker/a$a;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    invoke-static {v3, v4}, Lcom/yelp/android/ui/util/ar;->a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
+
+    .line 54
+    :cond_3
+    invoke-static {v1}, Lcom/yelp/android/ui/activities/categorypicker/a$a;->a(Lcom/yelp/android/ui/activities/categorypicker/a$a;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
 .end method

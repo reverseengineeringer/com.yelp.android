@@ -1,11 +1,10 @@
 package com.google.android.gms.internal;
 
-import android.os.IInterface;
+import java.util.Map;
 
 public abstract interface bz
-  extends IInterface
 {
-  public abstract void a(bx parambx);
+  public abstract void a(ib paramib, Map<String, String> paramMap);
 }
 
 /* Location:

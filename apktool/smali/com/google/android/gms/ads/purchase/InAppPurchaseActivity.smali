@@ -1,15 +1,9 @@
-.class public final Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;
+.class public Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;
 .super Landroid/app/Activity;
 
 
-# static fields
-.field public static final CLASS_NAME:Ljava/lang/String; = "com.google.android.gms.ads.purchase.InAppPurchaseActivity"
-
-.field public static final SIMPLE_CLASS_NAME:Ljava/lang/String; = "InAppPurchaseActivity"
-
-
 # instance fields
-.field private xz:Lcom/google/android/gms/internal/eo;
+.field private a:Lcom/google/android/gms/internal/fa;
 
 
 # direct methods
@@ -27,13 +21,13 @@
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->xz:Lcom/google/android/gms/internal/eo;
+    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->a:Lcom/google/android/gms/internal/fa;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->xz:Lcom/google/android/gms/internal/eo;
+    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->a:Lcom/google/android/gms/internal/fa;
 
-    invoke-interface {v0, p1, p2, p3}, Lcom/google/android/gms/internal/eo;->onActivityResult(IILandroid/content/Intent;)V
+    invoke-interface {v0, p1, p2, p3}, Lcom/google/android/gms/internal/fa;->a(IILandroid/content/Intent;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -48,7 +42,7 @@
 
     const-string/jumbo v1, "Could not forward onActivityResult to in-app purchase manager:"
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method
@@ -58,19 +52,19 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-static {p0}, Lcom/google/android/gms/internal/et;->e(Landroid/app/Activity;)Lcom/google/android/gms/internal/eo;
+    invoke-static {p0}, Lcom/google/android/gms/internal/zzgj;->a(Landroid/app/Activity;)Lcom/google/android/gms/internal/fa;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->xz:Lcom/google/android/gms/internal/eo;
+    iput-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->a:Lcom/google/android/gms/internal/fa;
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->xz:Lcom/google/android/gms/internal/eo;
+    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->a:Lcom/google/android/gms/internal/fa;
 
     if-nez v0, :cond_0
 
     const-string/jumbo v0, "Could not create in-app purchase manager."
 
-    invoke-static {v0}, Lcom/google/android/gms/internal/gr;->W(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->finish()V
 
@@ -79,9 +73,9 @@
 
     :cond_0
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->xz:Lcom/google/android/gms/internal/eo;
+    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->a:Lcom/google/android/gms/internal/fa;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/eo;->onCreate()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/fa;->a()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -92,7 +86,7 @@
 
     const-string/jumbo v1, "Could not forward onCreate to in-app purchase manager:"
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     invoke-virtual {p0}, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->finish()V
 
@@ -103,13 +97,13 @@
     .locals 2
 
     :try_start_0
-    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->xz:Lcom/google/android/gms/internal/eo;
+    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->a:Lcom/google/android/gms/internal/fa;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->xz:Lcom/google/android/gms/internal/eo;
+    iget-object v0, p0, Lcom/google/android/gms/ads/purchase/InAppPurchaseActivity;->a:Lcom/google/android/gms/internal/fa;
 
-    invoke-interface {v0}, Lcom/google/android/gms/internal/eo;->onDestroy()V
+    invoke-interface {v0}, Lcom/google/android/gms/internal/fa;->b()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -124,7 +118,7 @@
 
     const-string/jumbo v1, "Could not forward onDestroy to in-app purchase manager:"
 
-    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gr;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v0}, Lcom/google/android/gms/internal/gz;->d(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     goto :goto_0
 .end method

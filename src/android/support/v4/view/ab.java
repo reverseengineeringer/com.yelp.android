@@ -1,23 +1,10 @@
 package android.support.v4.view;
 
-import android.view.KeyEvent;
+import android.view.View;
 
-class ab
+public abstract interface ab
 {
-  public static int a(int paramInt)
-  {
-    return KeyEvent.normalizeMetaState(paramInt);
-  }
-  
-  public static boolean a(int paramInt1, int paramInt2)
-  {
-    return KeyEvent.metaStateHasModifiers(paramInt1, paramInt2);
-  }
-  
-  public static boolean b(int paramInt)
-  {
-    return KeyEvent.metaStateHasNoModifiers(paramInt);
-  }
+  public abstract bg a(View paramView, bg parambg);
 }
 
 /* Location:

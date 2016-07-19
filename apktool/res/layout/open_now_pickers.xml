@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@id/filter_picker_section" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:textColor="@color/gray_yoni_light_text" android:id="@id/opennow_date_picker" android:background="@drawable/yelp_holo_spinner_selector" android:paddingLeft="@dimen/default_base_gap_size" android:paddingRight="@dimen/default_large_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    <Button android:textColor="@color/gray_yoni_light_text" android:id="@id/opennow_time_picker" android:background="@drawable/yelp_holo_spinner_selector" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_base_gap_size" android:layout_weight="1.0" />
+</LinearLayout>

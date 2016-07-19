@@ -24,28 +24,28 @@
 
     .prologue
     .line 22
-    new-instance v0, Lcom/yelp/android/services/push/p;
+    new-instance v0, Lcom/yelp/android/services/push/g;
 
     invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Lcom/yelp/android/services/push/p;-><init>(Landroid/os/Bundle;)V
+    invoke-direct {v0, v1}, Lcom/yelp/android/services/push/g;-><init>(Landroid/os/Bundle;)V
 
     .line 29
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/n;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/f;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/n;->b()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/f;->b()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/services/push/p;->g()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/services/push/g;->g()Ljava/lang/String;
 
     move-result-object v2
 
@@ -61,7 +61,7 @@
     invoke-direct {v1, p0}, Lcom/yelp/android/services/push/Notifier;-><init>(Landroid/content/Context;)V
 
     .line 31
-    invoke-virtual {v1, v0}, Lcom/yelp/android/services/push/Notifier;->a(Lcom/yelp/android/services/push/p;)V
+    invoke-virtual {v1, v0}, Lcom/yelp/android/services/push/Notifier;->a(Lcom/yelp/android/services/push/g;)V
 
     .line 41
     :goto_0
@@ -83,11 +83,11 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/n;
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/AppData;->h()Lcom/yelp/android/appdata/f;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/yelp/android/appdata/n;->b()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/yelp/android/appdata/f;->b()Ljava/lang/String;
 
     move-result-object v3
 
@@ -96,32 +96,32 @@
     .line 35
     const-string/jumbo v2, "notification_device_id"
 
-    invoke-virtual {v0}, Lcom/yelp/android/services/push/p;->g()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/services/push/g;->g()Ljava/lang/String;
 
     move-result-object v3
 
     invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 36
-    sget-object v2, Lcom/yelp/android/analytics/iris/PushNotificationIri;->PushNotificationWrongDeviceId:Lcom/yelp/android/analytics/iris/PushNotificationIri;
+    sget-object v2, Lcom/yelp/android/analytics/iris/EventIri;->PushNotificationWrongDeviceId:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-static {v2, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/b;Ljava/util/Map;)V
+    invoke-static {v2, v1}, Lcom/yelp/android/appdata/AppData;->a(Lcom/yelp/android/analytics/iris/a;Ljava/util/Map;)V
 
     .line 37
-    new-instance v1, Lcom/yelp/android/appdata/webrequests/au;
+    new-instance v1, Lcom/yelp/android/appdata/webrequests/ar;
 
-    invoke-virtual {v0}, Lcom/yelp/android/services/push/p;->g()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/services/push/g;->g()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v1, v0}, Lcom/yelp/android/appdata/webrequests/au;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Lcom/yelp/android/appdata/webrequests/ar;-><init>(Ljava/lang/String;)V
 
     .line 39
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Void;
 
-    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/au;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v1, v0}, Lcom/yelp/android/appdata/webrequests/ar;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
     goto :goto_0
 .end method

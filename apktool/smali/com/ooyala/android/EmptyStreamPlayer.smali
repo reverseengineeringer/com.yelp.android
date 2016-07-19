@@ -3,6 +3,14 @@
 .source "EmptyStreamPlayer.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/EmptyStreamPlayer$1;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0

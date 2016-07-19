@@ -1,31 +1,23 @@
 package com.yelp.android.z;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Drawable.ConstantState;
-import com.bumptech.glide.load.engine.t;
+import android.os.Handler;
+import android.os.Looper;
+import com.bumptech.glide.load.DecodeFormat;
+import com.yelp.android.x.c;
+import com.yelp.android.y.h;
 
-public abstract class a<T extends Drawable>
-  implements t<T>
+public final class a
 {
-  protected final T a;
-  private boolean b;
+  private final h a;
+  private final c b;
+  private final DecodeFormat c;
+  private final Handler d = new Handler(Looper.getMainLooper());
   
-  public a(T paramT)
+  public a(h paramh, c paramc, DecodeFormat paramDecodeFormat)
   {
-    if (paramT == null) {
-      throw new NullPointerException("Drawable must not be null!");
-    }
-    a = paramT;
-  }
-  
-  public final T a()
-  {
-    if (!b)
-    {
-      b = true;
-      return a;
-    }
-    return a.getConstantState().newDrawable();
+    a = paramh;
+    b = paramc;
+    c = paramDecodeFormat;
   }
 }
 

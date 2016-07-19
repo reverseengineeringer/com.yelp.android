@@ -20,6 +20,13 @@
     }
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/brightcove/player/media/MediaService$1;,
+        Lcom/brightcove/player/media/MediaService$OnFindMediaListener;
+    }
+.end annotation
+
 
 # static fields
 .field public static final COMMAND:Ljava/lang/String; = "command"
@@ -241,6 +248,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
     const/4 v3, 0x1
 
@@ -430,6 +443,11 @@
 
 .method private static buildHLSSourceCollectionFromURL(Lorg/json/JSONObject;Ljava/lang/String;)Lcom/brightcove/player/model/SourceCollection;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 372
@@ -480,6 +498,13 @@
             "Ljava/lang/String;",
             ">;)",
             "Lcom/brightcove/player/model/Playlist;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;,
+            Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
@@ -687,6 +712,11 @@
 
 .method private static buildSerializable(Ljava/lang/Object;)Ljava/io/Serializable;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 461
@@ -765,6 +795,11 @@
 
 .method private static buildSourceCollectionFromVideoFullLength(Lorg/json/JSONObject;)Lcom/brightcove/player/model/SourceCollection;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 389
@@ -801,6 +836,11 @@
 
 .method public static buildSourceFromJSON(Lorg/json/JSONObject;)Lcom/brightcove/player/model/Source;
     .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     const/4 v1, 0x0
@@ -1129,6 +1169,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
     .line 400
     const/4 v0, 0x0
@@ -1200,6 +1246,13 @@
             "Ljava/lang/String;",
             ">;)",
             "Lcom/brightcove/player/model/Video;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;,
+            Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
@@ -1281,6 +1334,12 @@
             "Ljava/lang/String;",
             "Ljava/lang/Object;",
             ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
         }
     .end annotation
 
@@ -1577,6 +1636,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
     .line 276
     new-instance v2, Ljava/util/HashSet;
@@ -1815,6 +1880,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
     .line 343
     new-instance v0, Ljava/util/HashSet;
@@ -1864,6 +1935,12 @@
             "<",
             "Lcom/brightcove/player/model/Source;",
             ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
         }
     .end annotation
 
@@ -1927,6 +2004,12 @@
             "<",
             "Ljava/lang/String;",
             ">;)V"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
         }
     .end annotation
 

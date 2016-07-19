@@ -1,61 +1,77 @@
 package android.support.v4.view;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.LayoutInflater.Factory;
+import android.view.LayoutInflater.Factory2;
 import android.view.View;
-import android.view.View.AccessibilityDelegate;
-import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityNodeInfo;
-import android.view.accessibility.AccessibilityNodeProvider;
+import java.lang.reflect.Field;
 
-final class l
-  extends View.AccessibilityDelegate
+class l
 {
-  l(m paramm) {}
+  private static Field a;
+  private static boolean b;
   
-  public boolean dispatchPopulateAccessibilityEvent(View paramView, AccessibilityEvent paramAccessibilityEvent)
+  static void a(LayoutInflater paramLayoutInflater, n paramn)
   {
-    return a.a(paramView, paramAccessibilityEvent);
+    if (paramn != null) {}
+    for (paramn = new a(paramn);; paramn = null)
+    {
+      paramLayoutInflater.setFactory2(paramn);
+      LayoutInflater.Factory localFactory = paramLayoutInflater.getFactory();
+      if (!(localFactory instanceof LayoutInflater.Factory2)) {
+        break;
+      }
+      a(paramLayoutInflater, (LayoutInflater.Factory2)localFactory);
+      return;
+    }
+    a(paramLayoutInflater, paramn);
   }
   
-  public AccessibilityNodeProvider getAccessibilityNodeProvider(View paramView)
+  static void a(LayoutInflater paramLayoutInflater, LayoutInflater.Factory2 paramFactory2)
   {
-    return (AccessibilityNodeProvider)a.a(paramView);
+    if (!b) {}
+    try
+    {
+      a = LayoutInflater.class.getDeclaredField("mFactory2");
+      a.setAccessible(true);
+      b = true;
+      if (a == null) {}
+    }
+    catch (NoSuchFieldException localNoSuchFieldException)
+    {
+      for (;;)
+      {
+        try
+        {
+          a.set(paramLayoutInflater, paramFactory2);
+          return;
+        }
+        catch (IllegalAccessException paramFactory2)
+        {
+          Log.e("LayoutInflaterCompatHC", "forceSetFactory2 could not set the Factory2 on LayoutInflater " + paramLayoutInflater + "; inflation may have unexpected results.", paramFactory2);
+        }
+        localNoSuchFieldException = localNoSuchFieldException;
+        Log.e("LayoutInflaterCompatHC", "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", localNoSuchFieldException);
+      }
+    }
   }
   
-  public void onInitializeAccessibilityEvent(View paramView, AccessibilityEvent paramAccessibilityEvent)
+  static class a
+    extends k.a
+    implements LayoutInflater.Factory2
   {
-    a.b(paramView, paramAccessibilityEvent);
-  }
-  
-  public void onInitializeAccessibilityNodeInfo(View paramView, AccessibilityNodeInfo paramAccessibilityNodeInfo)
-  {
-    a.a(paramView, paramAccessibilityNodeInfo);
-  }
-  
-  public void onPopulateAccessibilityEvent(View paramView, AccessibilityEvent paramAccessibilityEvent)
-  {
-    a.c(paramView, paramAccessibilityEvent);
-  }
-  
-  public boolean onRequestSendAccessibilityEvent(ViewGroup paramViewGroup, View paramView, AccessibilityEvent paramAccessibilityEvent)
-  {
-    return a.a(paramViewGroup, paramView, paramAccessibilityEvent);
-  }
-  
-  public boolean performAccessibilityAction(View paramView, int paramInt, Bundle paramBundle)
-  {
-    return a.a(paramView, paramInt, paramBundle);
-  }
-  
-  public void sendAccessibilityEvent(View paramView, int paramInt)
-  {
-    a.a(paramView, paramInt);
-  }
-  
-  public void sendAccessibilityEventUnchecked(View paramView, AccessibilityEvent paramAccessibilityEvent)
-  {
-    a.d(paramView, paramAccessibilityEvent);
+    a(n paramn)
+    {
+      super();
+    }
+    
+    public View onCreateView(View paramView, String paramString, Context paramContext, AttributeSet paramAttributeSet)
+    {
+      return a.a(paramView, paramString, paramContext, paramAttributeSet);
+    }
   }
 }
 

@@ -1,23 +1,39 @@
 package com.yelp.android.appdata.webrequests.messaging;
 
 import com.yelp.android.appdata.webrequests.ApiRequest.RequestType;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.core.b;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class k
-  extends g<Void, Void, String>
+  extends b<Void, Void, a>
 {
-  public k(String paramString1, String paramString2, m<String> paramm)
+  public k(ApiRequest.b<a> paramb, String paramString)
   {
-    super(ApiRequest.RequestType.POST, "business/message/save", paramm);
-    addPostParam("business_id", paramString1);
-    addPostParam("message", paramString2);
+    super(ApiRequest.RequestType.GET, "business/info/messaging", paramb);
+    a("business_id", paramString);
   }
   
-  public String a(JSONObject paramJSONObject)
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return paramJSONObject.optString("confirmation_text");
+    return new a(paramJSONObject.optString("placeholder_text"), paramJSONObject.optString("response_time_text"), paramJSONObject.optBoolean("show_warning_icon"));
+  }
+  
+  public static final class a
+  {
+    public final String a;
+    public final String b;
+    public final boolean c;
+    
+    public a(String paramString1, String paramString2, boolean paramBoolean)
+    {
+      a = paramString1;
+      b = paramString2;
+      c = paramBoolean;
+    }
   }
 }
 

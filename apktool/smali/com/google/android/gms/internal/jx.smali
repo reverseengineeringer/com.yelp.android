@@ -2,251 +2,252 @@
 .super Ljava/lang/Object;
 
 
+# static fields
+.field private static a:Landroid/content/IntentFilter;
+
+.field private static b:J
+
+.field private static c:F
+
+
 # direct methods
-.method public static K(Z)V
-    .locals 1
-
-    if-nez p0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    invoke-direct {v0}, Ljava/lang/IllegalStateException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    return-void
-.end method
-
-.method public static L(Z)V
-    .locals 1
-
-    if-nez p0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
-
-    throw v0
-
-    :cond_0
-    return-void
-.end method
-
-.method public static a(ZLjava/lang/Object;)V
+.method static constructor <clinit>()V
     .locals 2
 
-    if-nez p0, :cond_0
+    new-instance v0, Landroid/content/IntentFilter;
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    const-string/jumbo v1, "android.intent.action.BATTERY_CHANGED"
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    move-result-object v1
+    sput-object v0, Lcom/google/android/gms/internal/jx;->a:Landroid/content/IntentFilter;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    const/high16 v0, 0x7fc00000    # NaNf
 
-    throw v0
+    sput v0, Lcom/google/android/gms/internal/jx;->c:F
 
-    :cond_0
     return-void
 .end method
 
-.method public static varargs a(ZLjava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
+.method public static a(Landroid/content/Context;)I
+    .locals 6
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x14
+    .end annotation
 
-    if-nez p0, :cond_0
+    const/4 v4, -0x1
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    const/4 v2, 0x1
 
-    invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v3, 0x0
 
-    move-result-object v1
+    if-eqz p0, :cond_0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    return-void
-.end method
-
-.method public static aU(Ljava/lang/String;)V
-    .locals 2
-
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    if-eq v0, v1, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    if-nez v0, :cond_1
 
     :cond_0
-    return-void
-.end method
+    move v0, v4
 
-.method public static aV(Ljava/lang/String;)V
-    .locals 2
+    :goto_0
+    return v0
 
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+    :cond_1
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    sget-object v5, Lcom/google/android/gms/internal/jx;->a:Landroid/content/IntentFilter;
 
-    if-ne v0, v1, :cond_0
+    invoke-virtual {v0, v1, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    move-result-object v0
 
-    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    if-nez v0, :cond_2
 
-    throw v0
+    move v0, v3
 
-    :cond_0
-    return-void
-.end method
+    :goto_1
+    and-int/lit8 v0, v0, 0x7
 
-.method public static b(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(TT;",
-            "Ljava/lang/Object;",
-            ")TT;"
-        }
-    .end annotation
+    if-eqz v0, :cond_3
 
-    if-nez p0, :cond_0
+    move v1, v2
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    :goto_2
+    const-string/jumbo v0, "power"
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    check-cast v0, Landroid/os/PowerManager;
 
-    throw v0
+    if-nez v0, :cond_4
 
-    :cond_0
-    return-object p0
-.end method
+    move v0, v4
 
-.method public static b(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 2
+    goto :goto_0
 
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :cond_2
+    const-string/jumbo v1, "plugged"
+
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    goto :goto_1
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    :cond_3
+    move v1, v3
 
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    goto :goto_2
 
-    move-result-object v1
+    :cond_4
+    invoke-static {}, Lcom/google/android/gms/internal/kf;->h()Z
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    move-result v4
 
-    throw v0
+    if-eqz v4, :cond_5
 
-    :cond_0
-    return-object p0
-.end method
-
-.method public static b(ZLjava/lang/Object;)V
-    .locals 2
-
-    if-nez p0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    return-void
-.end method
-
-.method public static varargs b(ZLjava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
-
-    if-nez p0, :cond_0
-
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    invoke-static {p1, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    return-void
-.end method
-
-.method public static bb(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v0}, Landroid/os/PowerManager;->isInteractive()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    :goto_3
+    if-eqz v0, :cond_6
 
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    move v0, v2
 
-    const-string/jumbo v1, "Given String is empty or null"
+    :goto_4
+    shl-int/lit8 v0, v0, 0x1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    if-eqz v1, :cond_7
 
-    throw v0
+    :goto_5
+    or-int/2addr v0, v2
 
-    :cond_0
-    return-object p0
+    goto :goto_0
+
+    :cond_5
+    invoke-virtual {v0}, Landroid/os/PowerManager;->isScreenOn()Z
+
+    move-result v0
+
+    goto :goto_3
+
+    :cond_6
+    move v0, v3
+
+    goto :goto_4
+
+    :cond_7
+    move v2, v3
+
+    goto :goto_5
 .end method
 
-.method public static i(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(TT;)TT;"
-        }
-    .end annotation
+.method public static declared-synchronized b(Landroid/content/Context;)F
+    .locals 6
 
-    if-nez p0, :cond_0
+    const-class v1, Lcom/google/android/gms/internal/jx;
 
-    new-instance v0, Ljava/lang/NullPointerException;
+    monitor-enter v1
 
-    const-string/jumbo v1, "null reference"
+    :try_start_0
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    move-result-wide v2
 
-    throw v0
+    sget-wide v4, Lcom/google/android/gms/internal/jx;->b:J
+
+    sub-long/2addr v2, v4
+
+    const-wide/32 v4, 0xea60
+
+    cmp-long v0, v2, v4
+
+    if-gez v0, :cond_0
+
+    sget v0, Lcom/google/android/gms/internal/jx;->c:F
+
+    const/high16 v2, 0x7fc00000    # NaNf
+
+    cmpl-float v0, v0, v2
+
+    if-eqz v0, :cond_0
+
+    sget v0, Lcom/google/android/gms/internal/jx;->c:F
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit v1
+
+    return v0
 
     :cond_0
-    return-object p0
+    :try_start_1
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    sget-object v3, Lcom/google/android/gms/internal/jx;->a:Landroid/content/IntentFilter;
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v2, "level"
+
+    const/4 v3, -0x1
+
+    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v2
+
+    const-string/jumbo v3, "scale"
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result v0
+
+    int-to-float v2, v2
+
+    int-to-float v0, v0
+
+    div-float v0, v2, v0
+
+    sput v0, Lcom/google/android/gms/internal/jx;->c:F
+
+    :cond_1
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v2
+
+    sput-wide v2, Lcom/google/android/gms/internal/jx;->b:J
+
+    sget v0, Lcom/google/android/gms/internal/jx;->c:F
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
 .end method

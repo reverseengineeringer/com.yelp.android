@@ -1,41 +1,114 @@
-.class Landroid/support/v4/view/av;
-.super Landroid/support/v4/view/au;
-.source "MenuItemCompat.java"
+.class public Landroid/support/v4/view/av;
+.super Ljava/lang/Object;
+.source "ViewGroupCompat.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/view/av$e;,
+        Landroid/support/v4/view/av$d;,
+        Landroid/support/v4/view/av$b;,
+        Landroid/support/v4/view/av$a;,
+        Landroid/support/v4/view/av$f;,
+        Landroid/support/v4/view/av$c;
+    }
+.end annotation
+
+
+# static fields
+.field static final a:Landroid/support/v4/view/av$c;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 2
 
     .prologue
-    .line 200
-    invoke-direct {p0}, Landroid/support/v4/view/au;-><init>()V
+    .line 141
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
+    .line 142
+    const/16 v1, 0x15
+
+    if-lt v0, v1, :cond_0
+
+    .line 143
+    new-instance v0, Landroid/support/v4/view/av$e;
+
+    invoke-direct {v0}, Landroid/support/v4/view/av$e;-><init>()V
+
+    sput-object v0, Landroid/support/v4/view/av;->a:Landroid/support/v4/view/av$c;
+
+    .line 153
+    :goto_0
     return-void
+
+    .line 144
+    :cond_0
+    const/16 v1, 0x12
+
+    if-lt v0, v1, :cond_1
+
+    .line 145
+    new-instance v0, Landroid/support/v4/view/av$d;
+
+    invoke-direct {v0}, Landroid/support/v4/view/av$d;-><init>()V
+
+    sput-object v0, Landroid/support/v4/view/av;->a:Landroid/support/v4/view/av$c;
+
+    goto :goto_0
+
+    .line 146
+    :cond_1
+    const/16 v1, 0xe
+
+    if-lt v0, v1, :cond_2
+
+    .line 147
+    new-instance v0, Landroid/support/v4/view/av$b;
+
+    invoke-direct {v0}, Landroid/support/v4/view/av$b;-><init>()V
+
+    sput-object v0, Landroid/support/v4/view/av;->a:Landroid/support/v4/view/av$c;
+
+    goto :goto_0
+
+    .line 148
+    :cond_2
+    const/16 v1, 0xb
+
+    if-lt v0, v1, :cond_3
+
+    .line 149
+    new-instance v0, Landroid/support/v4/view/av$a;
+
+    invoke-direct {v0}, Landroid/support/v4/view/av$a;-><init>()V
+
+    sput-object v0, Landroid/support/v4/view/av;->a:Landroid/support/v4/view/av$c;
+
+    goto :goto_0
+
+    .line 151
+    :cond_3
+    new-instance v0, Landroid/support/v4/view/av$f;
+
+    invoke-direct {v0}, Landroid/support/v4/view/av$f;-><init>()V
+
+    sput-object v0, Landroid/support/v4/view/av;->a:Landroid/support/v4/view/av$c;
+
+    goto :goto_0
 .end method
 
-
-# virtual methods
-.method public b(Landroid/view/MenuItem;)Z
+.method public static a(Landroid/view/ViewGroup;Z)V
     .locals 1
 
     .prologue
-    .line 203
-    invoke-static {p1}, Landroid/support/v4/view/az;->a(Landroid/view/MenuItem;)Z
+    .line 199
+    sget-object v0, Landroid/support/v4/view/av;->a:Landroid/support/v4/view/av$c;
 
-    move-result v0
+    invoke-interface {v0, p0, p1}, Landroid/support/v4/view/av$c;->a(Landroid/view/ViewGroup;Z)V
 
-    return v0
-.end method
-
-.method public c(Landroid/view/MenuItem;)Z
-    .locals 1
-
-    .prologue
-    .line 213
-    invoke-static {p1}, Landroid/support/v4/view/az;->b(Landroid/view/MenuItem;)Z
-
-    move-result v0
-
-    return v0
+    .line 200
+    return-void
 .end method

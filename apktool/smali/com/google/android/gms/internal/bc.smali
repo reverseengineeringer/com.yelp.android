@@ -1,22 +1,39 @@
-.class public interface abstract Lcom/google/android/gms/internal/bc;
-.super Ljava/lang/Object;
+.class public final Lcom/google/android/gms/internal/bc;
+.super Lcom/google/android/gms/internal/bb$a;
 
-# interfaces
-.implements Landroid/os/IInterface;
+
+# annotations
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
+
+
+# instance fields
+.field private final a:Lcom/google/android/gms/ads/doubleclick/c;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/android/gms/ads/doubleclick/c;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/gms/internal/bb$a;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/gms/internal/bc;->a:Lcom/google/android/gms/ads/doubleclick/c;
+
+    return-void
+.end method
 
 
 # virtual methods
-.method public abstract onAdClosed()V
-.end method
+.method public a(Lcom/google/android/gms/internal/ba;)V
+    .locals 2
 
-.method public abstract onAdFailedToLoad(I)V
-.end method
+    iget-object v0, p0, Lcom/google/android/gms/internal/bc;->a:Lcom/google/android/gms/ads/doubleclick/c;
 
-.method public abstract onAdLeftApplication()V
-.end method
+    new-instance v1, Lcom/google/android/gms/internal/az;
 
-.method public abstract onAdLoaded()V
-.end method
+    invoke-direct {v1, p1}, Lcom/google/android/gms/internal/az;-><init>(Lcom/google/android/gms/internal/ba;)V
 
-.method public abstract onAdOpened()V
+    invoke-interface {v0, v1}, Lcom/google/android/gms/ads/doubleclick/c;->a(Lcom/google/android/gms/ads/doubleclick/b;)V
+
+    return-void
 .end method

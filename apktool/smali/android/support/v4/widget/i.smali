@@ -1,667 +1,274 @@
-.class public abstract Landroid/support/v4/widget/i;
-.super Landroid/widget/BaseAdapter;
-.source "CursorAdapter.java"
-
-# interfaces
-.implements Landroid/support/v4/widget/n;
-.implements Landroid/widget/Filterable;
+.class Landroid/support/v4/widget/i;
+.super Ljava/lang/Object;
+.source "DrawerLayoutCompatApi21.java"
 
 
-# instance fields
-.field protected a:Z
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/widget/i$a;
+    }
+.end annotation
 
-.field protected b:Z
 
-.field protected c:Landroid/database/Cursor;
-
-.field protected d:Landroid/content/Context;
-
-.field protected e:I
-
-.field protected f:Landroid/support/v4/widget/k;
-
-.field protected g:Landroid/database/DataSetObserver;
-
-.field protected h:Landroid/support/v4/widget/m;
-
-.field protected i:Landroid/widget/FilterQueryProvider;
+# static fields
+.field private static final a:[I
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/database/Cursor;Z)V
+.method static constructor <clinit>()V
+    .locals 3
+
+    .prologue
+    .line 33
+    const/4 v0, 0x1
+
+    new-array v0, v0, [I
+
+    const/4 v1, 0x0
+
+    const v2, 0x1010434
+
+    aput v2, v0, v1
+
+    sput-object v0, Landroid/support/v4/widget/i;->a:[I
+
+    return-void
+.end method
+
+.method public static a(Ljava/lang/Object;)I
     .locals 1
 
     .prologue
-    .line 137
-    invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
+    .line 74
+    if-eqz p0, :cond_0
 
-    .line 138
-    if-eqz p3, :cond_0
+    check-cast p0, Landroid/view/WindowInsets;
 
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
+
+    move-result v0
 
     :goto_0
-    invoke-virtual {p0, p1, p2, v0}, Landroid/support/v4/widget/i;->a(Landroid/content/Context;Landroid/database/Cursor;I)V
+    return v0
 
-    .line 139
-    return-void
-
-    .line 138
     :cond_0
-    const/4 v0, 0x2
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-
-# virtual methods
-.method public a()Landroid/database/Cursor;
-    .locals 1
+.method public static a(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    .locals 2
 
     .prologue
-    .line 194
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
+    .line 78
+    sget-object v0, Landroid/support/v4/widget/i;->a:[I
 
-    return-object v0
-.end method
-
-.method public a(Ljava/lang/CharSequence;)Landroid/database/Cursor;
-    .locals 1
-
-    .prologue
-    .line 396
-    iget-object v0, p0, Landroid/support/v4/widget/i;->i:Landroid/widget/FilterQueryProvider;
-
-    if-eqz v0, :cond_0
-
-    .line 397
-    iget-object v0, p0, Landroid/support/v4/widget/i;->i:Landroid/widget/FilterQueryProvider;
-
-    invoke-interface {v0, p1}, Landroid/widget/FilterQueryProvider;->runQuery(Ljava/lang/CharSequence;)Landroid/database/Cursor;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    .line 400
-    :goto_0
-    return-object v0
+    .line 80
+    const/4 v1, 0x0
 
+    :try_start_0
+    invoke-virtual {v0, v1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    .line 82
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    throw v1
+.end method
+
+.method public static a(Landroid/view/View;)V
+    .locals 1
+
+    .prologue
+    .line 38
+    instance-of v0, p0, Landroid/support/v4/widget/j;
+
+    if-eqz v0, :cond_0
+
+    .line 39
+    new-instance v0, Landroid/support/v4/widget/i$a;
+
+    invoke-direct {v0}, Landroid/support/v4/widget/i$a;-><init>()V
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
+
+    .line 40
+    const/16 v0, 0x500
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
+
+    .line 43
     :cond_0
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    goto :goto_0
+    return-void
 .end method
 
-.method public abstract a(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-.end method
-
-.method a(Landroid/content/Context;Landroid/database/Cursor;I)V
+.method public static a(Landroid/view/View;Ljava/lang/Object;I)V
     .locals 4
 
     .prologue
-    const/4 v1, 0x0
-
     const/4 v3, 0x0
 
-    const/4 v0, 0x1
+    .line 46
+    check-cast p1, Landroid/view/WindowInsets;
 
-    .line 164
-    and-int/lit8 v2, p3, 0x1
+    .line 47
+    const/4 v0, 0x3
 
-    if-ne v2, v0, :cond_2
+    if-ne p2, v0, :cond_1
 
-    .line 165
-    or-int/lit8 p3, p3, 0x2
+    .line 48
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
 
-    .line 166
-    iput-boolean v0, p0, Landroid/support/v4/widget/i;->b:Z
+    move-result v0
 
-    .line 170
-    :goto_0
-    if-eqz p2, :cond_3
-
-    .line 171
-    :goto_1
-    iput-object p2, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    .line 172
-    iput-boolean v0, p0, Landroid/support/v4/widget/i;->a:Z
-
-    .line 173
-    iput-object p1, p0, Landroid/support/v4/widget/i;->d:Landroid/content/Context;
-
-    .line 174
-    if-eqz v0, :cond_4
-
-    const-string/jumbo v1, "_id"
-
-    invoke-interface {p2, v1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
     move-result v1
 
-    :goto_2
-    iput v1, p0, Landroid/support/v4/widget/i;->e:I
-
-    .line 175
-    and-int/lit8 v1, p3, 0x2
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_5
-
-    .line 176
-    new-instance v1, Landroid/support/v4/widget/k;
-
-    invoke-direct {v1, p0}, Landroid/support/v4/widget/k;-><init>(Landroid/support/v4/widget/i;)V
-
-    iput-object v1, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    .line 177
-    new-instance v1, Landroid/support/v4/widget/l;
-
-    invoke-direct {v1, p0, v3}, Landroid/support/v4/widget/l;-><init>(Landroid/support/v4/widget/i;Landroid/support/v4/widget/j;)V
-
-    iput-object v1, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    .line 183
-    :goto_3
-    if-eqz v0, :cond_1
-
-    .line 184
-    iget-object v0, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    invoke-interface {p2, v0}, Landroid/database/Cursor;->registerContentObserver(Landroid/database/ContentObserver;)V
-
-    .line 185
-    :cond_0
-    iget-object v0, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    invoke-interface {p2, v0}, Landroid/database/Cursor;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
-
-    .line 187
-    :cond_1
-    return-void
-
-    .line 168
-    :cond_2
-    iput-boolean v1, p0, Landroid/support/v4/widget/i;->b:Z
-
-    goto :goto_0
-
-    :cond_3
-    move v0, v1
-
-    .line 170
-    goto :goto_1
-
-    .line 174
-    :cond_4
-    const/4 v1, -0x1
-
-    goto :goto_2
-
-    .line 179
-    :cond_5
-    iput-object v3, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    .line 180
-    iput-object v3, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    goto :goto_3
-.end method
-
-.method public a(Landroid/database/Cursor;)V
-    .locals 1
-
-    .prologue
-    .line 315
-    invoke-virtual {p0, p1}, Landroid/support/v4/widget/i;->b(Landroid/database/Cursor;)Landroid/database/Cursor;
-
-    move-result-object v0
-
-    .line 316
-    if-eqz v0, :cond_0
-
-    .line 317
-    invoke-interface {v0}, Landroid/database/Cursor;->close()V
-
-    .line 319
-    :cond_0
-    return-void
-.end method
-
-.method public abstract a(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-.end method
-
-.method public b(Landroid/database/Cursor;)Landroid/database/Cursor;
-    .locals 2
-
-    .prologue
-    .line 332
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    if-ne p1, v0, :cond_0
-
-    .line 333
-    const/4 v0, 0x0
-
-    .line 354
-    :goto_0
-    return-object v0
-
-    .line 335
-    :cond_0
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    .line 336
-    if-eqz v0, :cond_2
-
-    .line 337
-    iget-object v1, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    invoke-interface {v0, v1}, Landroid/database/Cursor;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-
-    .line 338
-    :cond_1
-    iget-object v1, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    invoke-interface {v0, v1}, Landroid/database/Cursor;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
-
-    .line 340
-    :cond_2
-    iput-object p1, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    .line 341
-    if-eqz p1, :cond_5
-
-    .line 342
-    iget-object v1, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->f:Landroid/support/v4/widget/k;
-
-    invoke-interface {p1, v1}, Landroid/database/Cursor;->registerContentObserver(Landroid/database/ContentObserver;)V
-
-    .line 343
-    :cond_3
-    iget-object v1, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->g:Landroid/database/DataSetObserver;
-
-    invoke-interface {p1, v1}, Landroid/database/Cursor;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
-
-    .line 344
-    :cond_4
-    const-string/jumbo v1, "_id"
-
-    invoke-interface {p1, v1}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
-
-    move-result v1
-
-    iput v1, p0, Landroid/support/v4/widget/i;->e:I
-
-    .line 345
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Landroid/support/v4/widget/i;->a:Z
-
-    .line 347
-    invoke-virtual {p0}, Landroid/support/v4/widget/i;->notifyDataSetChanged()V
-
-    goto :goto_0
-
-    .line 349
-    :cond_5
-    const/4 v1, -0x1
-
-    iput v1, p0, Landroid/support/v4/widget/i;->e:I
-
-    .line 350
-    const/4 v1, 0x0
-
-    iput-boolean v1, p0, Landroid/support/v4/widget/i;->a:Z
-
-    .line 352
-    invoke-virtual {p0}, Landroid/support/v4/widget/i;->notifyDataSetInvalidated()V
-
-    goto :goto_0
-.end method
-
-.method public b(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 1
-
-    .prologue
-    .line 296
-    invoke-virtual {p0, p1, p2, p3}, Landroid/support/v4/widget/i;->a(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method protected b()V
-    .locals 1
-
-    .prologue
-    .line 447
-    iget-boolean v0, p0, Landroid/support/v4/widget/i;->b:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-interface {v0}, Landroid/database/Cursor;->isClosed()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    .line 449
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-interface {v0}, Landroid/database/Cursor;->requery()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Landroid/support/v4/widget/i;->a:Z
-
-    .line 451
-    :cond_0
-    return-void
-.end method
-
-.method public c(Landroid/database/Cursor;)Ljava/lang/CharSequence;
-    .locals 1
-
-    .prologue
-    .line 367
-    if-nez p1, :cond_0
-
-    const-string/jumbo v0, ""
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-.end method
-
-.method public getCount()I
-    .locals 1
-
-    .prologue
-    .line 201
-    iget-boolean v0, p0, Landroid/support/v4/widget/i;->a:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    if-eqz v0, :cond_0
-
-    .line 202
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-interface {v0}, Landroid/database/Cursor;->getCount()I
-
-    move-result v0
-
-    .line 204
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 2
-
-    .prologue
-    .line 262
-    iget-boolean v0, p0, Landroid/support/v4/widget/i;->a:Z
-
-    if-eqz v0, :cond_1
-
-    .line 263
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-interface {v0, p1}, Landroid/database/Cursor;->moveToPosition(I)Z
-
-    .line 265
-    if-nez p2, :cond_0
-
-    .line 266
-    iget-object v0, p0, Landroid/support/v4/widget/i;->d:Landroid/content/Context;
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-virtual {p0, v0, v1, p3}, Landroid/support/v4/widget/i;->b(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p2
-
-    .line 270
-    :cond_0
-    iget-object v0, p0, Landroid/support/v4/widget/i;->d:Landroid/content/Context;
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-virtual {p0, p2, v0, v1}, Landroid/support/v4/widget/i;->a(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-
-    .line 273
-    :goto_0
-    return-object p2
-
-    :cond_1
-    const/4 p2, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getFilter()Landroid/widget/Filter;
-    .locals 1
-
-    .prologue
-    .line 404
-    iget-object v0, p0, Landroid/support/v4/widget/i;->h:Landroid/support/v4/widget/m;
-
-    if-nez v0, :cond_0
-
-    .line 405
-    new-instance v0, Landroid/support/v4/widget/m;
-
-    invoke-direct {v0, p0}, Landroid/support/v4/widget/m;-><init>(Landroid/support/v4/widget/n;)V
-
-    iput-object v0, p0, Landroid/support/v4/widget/i;->h:Landroid/support/v4/widget/m;
-
-    .line 407
-    :cond_0
-    iget-object v0, p0, Landroid/support/v4/widget/i;->h:Landroid/support/v4/widget/m;
-
-    return-object v0
-.end method
-
-.method public getItem(I)Ljava/lang/Object;
-    .locals 1
-
-    .prologue
-    .line 212
-    iget-boolean v0, p0, Landroid/support/v4/widget/i;->a:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    if-eqz v0, :cond_0
-
-    .line 213
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-interface {v0, p1}, Landroid/database/Cursor;->moveToPosition(I)Z
-
-    .line 214
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    .line 216
-    :goto_0
-    return-object v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method public getItemId(I)J
-    .locals 3
-
-    .prologue
-    const-wide/16 v0, 0x0
-
-    .line 224
-    iget-boolean v2, p0, Landroid/support/v4/widget/i;->a:Z
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    if-eqz v2, :cond_0
-
-    .line 225
-    iget-object v2, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-interface {v2, p1}, Landroid/database/Cursor;->moveToPosition(I)Z
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    invoke-virtual {p1, v0, v1, v3, v2}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    .line 226
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
+    move-result-object p1
 
-    iget v1, p0, Landroid/support/v4/widget/i;->e:I
-
-    invoke-interface {v0, v1}, Landroid/database/Cursor;->getLong(I)J
-
-    move-result-wide v0
-
-    .line 231
+    .line 54
     :cond_0
-    return-wide v0
-.end method
+    :goto_0
+    invoke-virtual {p0, p1}, Landroid/view/View;->dispatchApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 3
+    .line 55
+    return-void
 
-    .prologue
-    .line 244
-    iget-boolean v0, p0, Landroid/support/v4/widget/i;->a:Z
+    .line 50
+    :cond_1
+    const/4 v0, 0x5
 
-    if-nez v0, :cond_0
+    if-ne p2, v0, :cond_0
 
-    .line 245
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string/jumbo v1, "this should only be called when the cursor is valid"
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 247
-    :cond_0
-    iget-object v0, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-interface {v0, p1}, Landroid/database/Cursor;->moveToPosition(I)Z
+    .line 51
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
 
-    .line 248
-    new-instance v0, Ljava/lang/IllegalStateException;
+    move-result v1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v2
 
-    const-string/jumbo v2, "couldn\'t move cursor to position "
+    invoke-virtual {p1, v3, v0, v1, v2}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 251
-    :cond_1
-    if-nez p2, :cond_2
-
-    .line 252
-    iget-object v0, p0, Landroid/support/v4/widget/i;->d:Landroid/content/Context;
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-virtual {p0, v0, v1, p3}, Landroid/support/v4/widget/i;->a(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p2
-
-    .line 256
-    :cond_2
-    iget-object v0, p0, Landroid/support/v4/widget/i;->d:Landroid/content/Context;
-
-    iget-object v1, p0, Landroid/support/v4/widget/i;->c:Landroid/database/Cursor;
-
-    invoke-virtual {p0, p2, v0, v1}, Landroid/support/v4/widget/i;->a(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-
-    .line 257
-    return-object p2
+    goto :goto_0
 .end method
 
-.method public hasStableIds()Z
-    .locals 1
+.method public static a(Landroid/view/ViewGroup$MarginLayoutParams;Ljava/lang/Object;I)V
+    .locals 4
 
     .prologue
-    .line 237
-    const/4 v0, 0x1
+    const/4 v3, 0x0
 
-    return v0
+    .line 59
+    check-cast p1, Landroid/view/WindowInsets;
+
+    .line 60
+    const/4 v0, 0x3
+
+    if-ne p2, v0, :cond_1
+
+    .line 61
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
+
+    move-result v2
+
+    invoke-virtual {p1, v0, v1, v3, v2}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
+
+    move-result-object p1
+
+    .line 67
+    :cond_0
+    :goto_0
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetLeft()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    .line 68
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+
+    .line 69
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    .line 70
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
+
+    move-result v0
+
+    iput v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    .line 71
+    return-void
+
+    .line 63
+    :cond_1
+    const/4 v0, 0x5
+
+    if-ne p2, v0, :cond_0
+
+    .line 64
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetTop()I
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetRight()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getSystemWindowInsetBottom()I
+
+    move-result v2
+
+    invoke-virtual {p1, v3, v0, v1, v2}, Landroid/view/WindowInsets;->replaceSystemWindowInsets(IIII)Landroid/view/WindowInsets;
+
+    move-result-object p1
+
+    goto :goto_0
 .end method

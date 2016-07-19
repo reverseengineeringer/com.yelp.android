@@ -1,32 +1,77 @@
 package com.yelp.android.at;
 
 public class b
+  extends Thread
 {
-  private static a a = new c();
+  private boolean a = false;
+  private Object b;
+  private a c;
   
-  public static void a(a parama)
+  b(a parama)
   {
-    a = parama;
+    c = parama;
+    b = new Object();
   }
   
-  public static void a(String paramString, Object... paramVarArgs)
+  private void a(long paramLong)
   {
-    a.a(paramString, paramVarArgs);
+    synchronized (b)
+    {
+      try
+      {
+        b.wait(paramLong);
+        return;
+      }
+      catch (InterruptedException localInterruptedException)
+      {
+        for (;;)
+        {
+          localInterruptedException.printStackTrace();
+        }
+      }
+    }
   }
   
-  public static void a(Throwable paramThrowable, String paramString, Object... paramVarArgs)
+  boolean a()
   {
-    a.a(paramThrowable, paramString, paramVarArgs);
+    return a;
   }
   
-  public static boolean a()
+  void b()
   {
-    return a.a();
+    synchronized (b)
+    {
+      b.notify();
+      return;
+    }
   }
   
-  public static void b(String paramString, Object... paramVarArgs)
+  void c()
   {
-    a.b(paramString, paramVarArgs);
+    long l = c.a();
+    if (l > 0L) {
+      a(l);
+    }
+  }
+  
+  public void run()
+  {
+    while (!a())
+    {
+      c localc = c.b();
+      if (localc != null)
+      {
+        localc.run();
+        c.a(localc);
+        if (localc.c()) {
+          c.a(localc.e(), localc.d(), localc.c(), localc.d());
+        }
+      }
+      else
+      {
+        c();
+      }
+    }
   }
 }
 

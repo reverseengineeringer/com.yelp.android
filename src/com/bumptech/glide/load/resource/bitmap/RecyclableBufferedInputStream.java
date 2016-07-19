@@ -24,6 +24,7 @@ public class RecyclableBufferedInputStream
   }
   
   private int a(InputStream paramInputStream, byte[] paramArrayOfByte)
+    throws IOException
   {
     if ((d == -1) || (e - d >= c))
     {
@@ -75,6 +76,7 @@ public class RecyclableBufferedInputStream
   }
   
   private static IOException b()
+    throws IOException
   {
     throw new IOException("BufferedInputStream is closed");
   }
@@ -94,6 +96,7 @@ public class RecyclableBufferedInputStream
   }
   
   public int available()
+    throws IOException
   {
     try
     {
@@ -110,6 +113,7 @@ public class RecyclableBufferedInputStream
   }
   
   public void close()
+    throws IOException
   {
     a = null;
     InputStream localInputStream = in;
@@ -140,6 +144,7 @@ public class RecyclableBufferedInputStream
   }
   
   public int read()
+    throws IOException
   {
     int i = -1;
     byte[] arrayOfByte2;
@@ -180,6 +185,7 @@ public class RecyclableBufferedInputStream
   }
   
   public int read(byte[] paramArrayOfByte, int paramInt1, int paramInt2)
+    throws IOException
   {
     int k = -1;
     Object localObject2;
@@ -289,6 +295,7 @@ public class RecyclableBufferedInputStream
   }
   
   public void reset()
+    throws IOException
   {
     try
     {
@@ -298,12 +305,13 @@ public class RecyclableBufferedInputStream
     }
     finally {}
     if (-1 == d) {
-      throw new RecyclableBufferedInputStream.InvalidMarkException("Mark has been invalidated");
+      throw new InvalidMarkException("Mark has been invalidated");
     }
     e = d;
   }
   
   public long skip(long paramLong)
+    throws IOException
   {
     InputStream localInputStream;
     try
@@ -354,6 +362,17 @@ public class RecyclableBufferedInputStream
           paramLong = l + paramLong;
         }
       }
+    }
+  }
+  
+  public static class InvalidMarkException
+    extends RuntimeException
+  {
+    private static final long serialVersionUID = -4338378848813561757L;
+    
+    public InvalidMarkException(String paramString)
+    {
+      super();
     }
   }
 }

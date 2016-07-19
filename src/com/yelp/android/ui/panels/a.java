@@ -5,16 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import com.yelp.android.cg.b;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.ui.activities.feed.FeedType;
-import com.yelp.android.ui.activities.feed.au;
-import com.yelp.android.ui.activities.feed.c;
-import com.yelp.android.ui.util.i;
-import com.yelp.android.ui.util.j;
+import com.yelp.android.ui.util.g;
 
 public abstract class a
   extends BaseAdapter
-  implements i, j
+  implements com.yelp.android.ui.util.f, g
 {
   private final LayoutInflater a;
   
@@ -28,11 +26,11 @@ public abstract class a
     return a;
   }
   
-  public void a(int paramInt, c paramc)
+  public void a(int paramInt, b paramb)
   {
     YelpBusiness localYelpBusiness = a(paramInt);
-    paramc.a(0, null, localYelpBusiness.getDisplayName(), null);
-    paramc.a(localYelpBusiness.getPhotoUrl(), localYelpBusiness.getAvgRating(), -1, localYelpBusiness.getReviewCount(), localYelpBusiness.getCategoryForBusinessSearchResult());
+    paramb.a(0, null, localYelpBusiness.z(), null);
+    paramb.a(localYelpBusiness.au(), localYelpBusiness.P(), -1, localYelpBusiness.N(), localYelpBusiness.e());
   }
   
   public Object getItem(int paramInt)
@@ -51,14 +49,14 @@ public abstract class a
     if (paramView != null)
     {
       localView = paramView;
-      if ((paramView.getTag() instanceof au)) {}
+      if ((paramView.getTag() instanceof com.yelp.android.ch.f)) {}
     }
     else
     {
-      localView = a.inflate(2130903313, paramViewGroup, false);
-      localView.setTag(new au(FeedType.USER, localView));
+      localView = a.inflate(2130903410, paramViewGroup, false);
+      localView.setTag(new com.yelp.android.ch.f(FeedType.USER, localView));
     }
-    a(paramInt, (au)localView.getTag());
+    a(paramInt, (com.yelp.android.ch.f)localView.getTag());
     return localView;
   }
 }

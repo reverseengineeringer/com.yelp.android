@@ -1,12 +1,12 @@
 .class public Lcom/yelp/android/appdata/webrequests/ag;
-.super Lcom/yelp/android/av/g;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
 .source "BusinessUpdateDetailsRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/av/g",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
@@ -17,13 +17,13 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+.method public constructor <init>(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Lcom/yelp/android/serializable/YelpBusinessAddresses;",
             ">;)V"
@@ -31,19 +31,19 @@
     .end annotation
 
     .prologue
-    .line 19
+    .line 18
     sget-object v0, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     const-string/jumbo v1, "business/update/details"
 
-    invoke-direct {p0, v0, v1, p2}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, v0, v1, p2}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
-    .line 20
+    .line 19
     const-string/jumbo v0, "business_id"
 
-    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/ag;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/ag;->a(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 21
+    .line 20
     return-void
 .end method
 
@@ -51,9 +51,15 @@
 # virtual methods
 .method public a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
     .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 25
+    .line 24
     sget-object v0, Lcom/yelp/android/serializable/YelpBusinessAddresses;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
     invoke-virtual {v0, p1}, Lcom/yelp/parcelgen/JsonParser$DualCreator;->parse(Lorg/json/JSONObject;)Ljava/lang/Object;
@@ -62,14 +68,14 @@
 
     check-cast v0, Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
-    .line 26
+    .line 25
     const-string/jumbo v1, "alternate_addresses"
 
     invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONObject(Ljava/lang/String;)Lorg/json/JSONObject;
 
     move-result-object v3
 
-    .line 27
+    .line 26
     new-instance v4, Ljava/util/HashMap;
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
@@ -115,7 +121,7 @@
 
     .line 35
     :cond_0
-    invoke-virtual {v0, v4}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->setAlternateAddresses(Ljava/util/Map;)V
+    invoke-virtual {v0, v4}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->a(Ljava/util/Map;)V
 
     .line 36
     sget-object v1, Lcom/yelp/android/serializable/YelpDetailedAddress;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
@@ -126,17 +132,23 @@
 
     check-cast v1, Lcom/yelp/android/serializable/YelpDetailedAddress;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->setAddress(Lcom/yelp/android/serializable/YelpDetailedAddress;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/YelpBusinessAddresses;->a(Lcom/yelp/android/serializable/YelpDetailedAddress;)V
 
     .line 37
     return-object v0
 .end method
 
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 14
+    .line 13
     invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/ag;->a(Lorg/json/JSONObject;)Lcom/yelp/android/serializable/YelpBusinessAddresses;
 
     move-result-object v0

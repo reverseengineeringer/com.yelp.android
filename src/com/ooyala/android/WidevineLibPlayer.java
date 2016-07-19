@@ -85,19 +85,19 @@ public class WidevineLibPlayer
   public WVStatus onEvent(WVEvent paramWVEvent, HashMap<String, Object> paramHashMap)
   {
     Log.d("Widevine", paramWVEvent.toString() + ": " + paramHashMap.toString());
-    switch (WidevineLibPlayer.1.$SwitchMap$com$widevine$drmapi$android$WVEvent[paramWVEvent.ordinal()])
+    switch (paramWVEvent)
     {
     default: 
       return WVStatus.OK;
-    case 1: 
+    case ???: 
       if (_error == null) {
         _error = "Widevine Initialization Failed";
       }
-    case 2: 
+    case ???: 
       if (_error == null) {
         _error = "Widevine License Request Failed";
       }
-    case 3: 
+    case ???: 
       if (_error == null) {
         _error = "Widevine Playback Failed";
       }
@@ -106,7 +106,7 @@ public class WidevineLibPlayer
         return (WVStatus)paramHashMap.get("WVStatusKey");
       }
       return WVStatus.OK;
-    case 4: 
+    case ???: 
       _wvplayback.registerAsset(_stream.decodedURL().toString());
       _wvplayback.requestLicense(_stream.decodedURL().toString());
       _stream.setUrl(_wvplayback.play(_stream.decodedURL().toString()));

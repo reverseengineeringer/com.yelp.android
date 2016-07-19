@@ -1,52 +1,82 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.google.android.gms.measurement.f;
+import java.util.HashMap;
+import java.util.Map;
 
-public class kp
-  implements Parcelable.Creator<ko>
+public final class kp
+  extends f<kp>
 {
-  static void a(ko paramko, Parcel paramParcel, int paramInt)
+  private String a;
+  private String b;
+  private String c;
+  private String d;
+  
+  public String a()
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, paramko.getVersionCode());
-    b.c(paramParcel, 2, paramko.hH(), false);
-    b.H(paramParcel, paramInt);
+    return a;
   }
   
-  public ko K(Parcel paramParcel)
+  public void a(kp paramkp)
   {
-    int j = a.G(paramParcel);
-    int i = 0;
-    ArrayList localArrayList = null;
-    while (paramParcel.dataPosition() < j)
-    {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
-      {
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 2: 
-        localArrayList = a.c(paramParcel, k, ko.a.CREATOR);
-      }
+    if (!TextUtils.isEmpty(a)) {
+      paramkp.a(a);
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
+    if (!TextUtils.isEmpty(b)) {
+      paramkp.b(b);
     }
-    return new ko(i, localArrayList);
+    if (!TextUtils.isEmpty(c)) {
+      paramkp.c(c);
+    }
+    if (!TextUtils.isEmpty(d)) {
+      paramkp.d(d);
+    }
   }
   
-  public ko[] aL(int paramInt)
+  public void a(String paramString)
   {
-    return new ko[paramInt];
+    a = paramString;
+  }
+  
+  public String b()
+  {
+    return b;
+  }
+  
+  public void b(String paramString)
+  {
+    b = paramString;
+  }
+  
+  public String c()
+  {
+    return c;
+  }
+  
+  public void c(String paramString)
+  {
+    c = paramString;
+  }
+  
+  public String d()
+  {
+    return d;
+  }
+  
+  public void d(String paramString)
+  {
+    d = paramString;
+  }
+  
+  public String toString()
+  {
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("appName", a);
+    localHashMap.put("appVersion", b);
+    localHashMap.put("appId", c);
+    localHashMap.put("appInstallerId", d);
+    return a(localHashMap);
   }
 }
 

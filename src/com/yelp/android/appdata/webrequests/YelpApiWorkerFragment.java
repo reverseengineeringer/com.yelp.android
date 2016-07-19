@@ -5,24 +5,19 @@ import java.util.Map;
 public class YelpApiWorkerFragment
   extends ApiWorkerFragment
 {
-  public <Request extends h<?, ?, Result>, Result> Request a(String paramString, j<Result> paramj)
+  public <Request extends k<?, ?, Result>, Result> Request a(String paramString, k.b<Result> paramb)
   {
-    paramString = (cz)a.remove(paramString);
+    paramString = (cm)a.remove(paramString);
     if (paramString == null) {
       return null;
     }
-    return paramString.a(paramj);
+    return paramString.a(paramb);
   }
   
-  public <Request extends h<?, ?, Result>, Result> void a(String paramString, Request paramRequest)
-  {
-    a(paramString, paramRequest, true);
-  }
-  
-  public <Request extends h<?, ?, Result>, Result> void a(String paramString, Request paramRequest, boolean paramBoolean)
+  public <Request extends k<?, ?, Result>, Result> void a(String paramString, Request paramRequest)
   {
     if (b(paramString, paramRequest)) {
-      a.put(paramString, new cz(paramRequest, paramBoolean));
+      a.put(paramString, new cm(paramRequest));
     }
   }
 }

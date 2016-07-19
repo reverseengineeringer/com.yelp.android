@@ -1,22 +1,108 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
-import java.util.concurrent.TimeUnit;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.CheckIn;
+import com.yelp.android.serializable.ExternalCheckIn;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class cb
-  extends h
+  extends k<Void, Void, a>
 {
-  public cb(String paramString1, String paramString2, String paramString3, String paramString4, TimeUnit paramTimeUnit, long paramLong, i parami)
+  ArrayList<CheckIn> g;
+  ArrayList<CheckIn> h;
+  ArrayList<CheckIn> i;
+  ArrayList<String> j;
+  int k = -1;
+  int l = -1;
+  int m = 0;
+  
+  public cb(k.b<a> paramb)
   {
-    super("account/facebook/save", parami);
-    if (paramLong > 0L) {
-      addPostParam("access_token_expiry", TimeUnit.SECONDS.convert(paramLong, paramTimeUnit));
+    super(ApiRequest.RequestType.GET, "check_ins/friends", LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramb, LocationService.AccuracyUnit.MILES);
+  }
+  
+  public int A()
+  {
+    return g.size() + h.size() + i.size();
+  }
+  
+  public ArrayList<String> B()
+  {
+    return j;
+  }
+  
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    HashMap localHashMap = YelpBusiness.b(paramJSONObject.getJSONArray("businesses"), i_(), BusinessSearchRequest.FormatMode.FULL);
+    g = ExternalCheckIn.a(paramJSONObject.getJSONArray("nearby_check_ins"), localHashMap);
+    h = ExternalCheckIn.a(paramJSONObject.getJSONArray("city_check_ins"), localHashMap);
+    i = ExternalCheckIn.a(paramJSONObject.getJSONArray("other_check_ins"), localHashMap);
+    k = paramJSONObject.optInt("weekly_check_in_rank", -1);
+    l = paramJSONObject.optInt("friend_check_in_rank", -1);
+    m = paramJSONObject.optInt("friend_active_count", 0);
+    j = new ArrayList();
+    if (!paramJSONObject.isNull("location_names")) {
+      Collections.addAll(j, JsonUtil.getStringArray(paramJSONObject.getJSONArray("location_names")));
     }
-    addPostParam("permissions", paramString1);
-    addPostParam("api_key", paramString2);
-    addPostParam("access_token", paramString4);
-    addPostParam("fbuid", paramString3);
+    return new a(g, h, i);
+  }
+  
+  public boolean b()
+  {
+    return false;
+  }
+  
+  public int x()
+  {
+    return k;
+  }
+  
+  public int y()
+  {
+    return l;
+  }
+  
+  public int z()
+  {
+    return m;
+  }
+  
+  public static class a
+  {
+    final ArrayList<CheckIn> a;
+    final ArrayList<CheckIn> b;
+    final ArrayList<CheckIn> c;
+    
+    public a(ArrayList<CheckIn> paramArrayList1, ArrayList<CheckIn> paramArrayList2, ArrayList<CheckIn> paramArrayList3)
+    {
+      a = paramArrayList1;
+      b = paramArrayList2;
+      c = paramArrayList3;
+    }
+    
+    public ArrayList<CheckIn> a()
+    {
+      return a;
+    }
+    
+    public ArrayList<CheckIn> b()
+    {
+      return b;
+    }
+    
+    public ArrayList<CheckIn> c()
+    {
+      return c;
+    }
   }
 }
 

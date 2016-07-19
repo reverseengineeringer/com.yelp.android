@@ -1,64 +1,73 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.ReviewSuggestion;
-import com.yelp.android.serializable.SurveyQuestion;
+import android.os.Bundle;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.RankLocation;
+import com.yelp.android.serializable.RankTitle.Rank;
 import com.yelp.android.serializable.YelpBusiness;
 import java.util.ArrayList;
+import java.util.Locale;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class fb
+  extends b<Void, Void, a>
 {
-  private final YelpBusiness a;
-  private final String b;
-  private final String c;
-  private final boolean d;
-  private final String e;
-  private final ArrayList<SurveyQuestion> f;
-  private final ArrayList<ReviewSuggestion> g;
-  
-  public fb(YelpBusiness paramYelpBusiness, String paramString1, boolean paramBoolean, String paramString2, String paramString3, ArrayList<SurveyQuestion> paramArrayList, ArrayList<ReviewSuggestion> paramArrayList1)
+  public fb(RankTitle.Rank paramRank, String paramString1, String paramString2, int paramInt1, int paramInt2, ApiRequest.b<a> paramb)
   {
-    a = paramYelpBusiness;
-    b = paramString1;
-    c = paramString2;
-    d = paramBoolean;
-    e = paramString3;
-    f = paramArrayList;
-    g = paramArrayList1;
+    super(ApiRequest.RequestType.GET, "user/rankings/businesses", paramb);
+    a("title", paramRank.name().toLowerCase(Locale.US));
+    a("location_id", paramString2);
+    if (paramString1 != null) {
+      a("user_id", paramString1);
+    }
+    a("offset", paramInt1);
+    a("limit", paramInt2);
   }
   
-  public YelpBusiness a()
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return a;
+    paramJSONObject = paramJSONObject.getJSONArray("businesses");
+    ArrayList localArrayList1 = YelpBusiness.a(paramJSONObject, i_(), BusinessSearchRequest.FormatMode.SHORT);
+    int j = localArrayList1.size();
+    ArrayList localArrayList2 = new ArrayList(j);
+    Bundle localBundle = new Bundle(j);
+    int i = 0;
+    while (i < j)
+    {
+      Object localObject = (YelpBusiness)localArrayList1.get(i);
+      localArrayList2.add(new RankLocation(((YelpBusiness)localObject).aD(), ((YelpBusiness)localObject).aq(), 0, null, (YelpBusiness)localObject));
+      localObject = paramJSONObject.getJSONObject(i);
+      if ((localObject != null) && (!((JSONObject)localObject).isNull("user_check_in_count"))) {
+        localBundle.putInt(((JSONObject)localObject).getString("id"), ((JSONObject)localObject).getInt("user_check_in_count"));
+      }
+      i += 1;
+    }
+    return new a(localArrayList2, localBundle);
   }
   
-  public ArrayList<SurveyQuestion> b()
+  public static class a
   {
-    return f;
-  }
-  
-  public ArrayList<ReviewSuggestion> c()
-  {
-    return g;
-  }
-  
-  public String d()
-  {
-    return b;
-  }
-  
-  public String e()
-  {
-    return c;
-  }
-  
-  public boolean f()
-  {
-    return d;
-  }
-  
-  public String g()
-  {
-    return e;
+    final ArrayList<RankLocation> a;
+    final Bundle b;
+    
+    public a(ArrayList<RankLocation> paramArrayList, Bundle paramBundle)
+    {
+      a = paramArrayList;
+      b = paramBundle;
+    }
+    
+    public ArrayList<RankLocation> a()
+    {
+      return a;
+    }
+    
+    public Bundle b()
+    {
+      return b;
+    }
   }
 }
 

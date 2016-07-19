@@ -4,10 +4,10 @@
 
 
 # static fields
-.field public static final CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static final CREATOR:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/YelpHoursPair;",
             ">;"
@@ -15,10 +15,10 @@
     .end annotation
 .end field
 
-.field public static LAZY_CREATOR:Lcom/yelp/android/serializable/ah;
+.field public static a:Lcom/yelp/android/serializable/a;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/serializable/ah",
+            "Lcom/yelp/android/serializable/a",
             "<",
             "Lcom/yelp/android/serializable/YelpHoursPair;",
             ">;"
@@ -33,16 +33,16 @@
 
     .prologue
     .line 23
-    new-instance v0, Lcom/yelp/android/serializable/em;
+    new-instance v0, Lcom/yelp/android/serializable/YelpHoursPair$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/em;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/YelpHoursPair$1;-><init>()V
 
-    sput-object v0, Lcom/yelp/android/serializable/YelpHoursPair;->CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/YelpHoursPair;->CREATOR:Lcom/yelp/android/serializable/a;
 
-    .line 47
-    sget-object v0, Lcom/yelp/android/serializable/YelpHoursPair;->CREATOR:Lcom/yelp/android/serializable/ah;
+    .line 48
+    sget-object v0, Lcom/yelp/android/serializable/YelpHoursPair;->CREATOR:Lcom/yelp/android/serializable/a;
 
-    sput-object v0, Lcom/yelp/android/serializable/YelpHoursPair;->LAZY_CREATOR:Lcom/yelp/android/serializable/ah;
+    sput-object v0, Lcom/yelp/android/serializable/YelpHoursPair;->a:Lcom/yelp/android/serializable/a;
 
     return-void
 .end method
@@ -66,10 +66,10 @@
     invoke-direct {p0}, Lcom/yelp/android/serializable/_YelpHoursPair;-><init>()V
 
     .line 19
-    iput p1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mOpen:I
+    iput p1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->b:I
 
     .line 20
-    iput p2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mClose:I
+    iput p2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->c:I
 
     .line 21
     return-void
@@ -77,6 +77,68 @@
 
 
 # virtual methods
+.method public a()Lorg/json/JSONArray;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 101
+    new-instance v0, Lorg/json/JSONArray;
+
+    invoke-direct {v0}, Lorg/json/JSONArray;-><init>()V
+
+    .line 102
+    iget v1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->b:I
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONArray;->put(I)Lorg/json/JSONArray;
+
+    .line 103
+    iget v1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->c:I
+
+    invoke-virtual {v0, v1}, Lorg/json/JSONArray;->put(I)Lorg/json/JSONArray;
+
+    .line 104
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 12
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpHoursPair;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()I
+    .locals 1
+
+    .prologue
+    .line 12
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpHoursPair;->b()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public bridge synthetic c()I
+    .locals 1
+
+    .prologue
+    .line 12
+    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpHoursPair;->c()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -97,24 +159,24 @@
 
     const/4 v1, 0x0
 
-    .line 60
+    .line 61
     if-ne p0, p1, :cond_1
 
-    .line 76
+    .line 77
     :cond_0
     :goto_0
     return v0
 
-    .line 63
+    .line 64
     :cond_1
     if-nez p1, :cond_2
 
     move v0, v1
 
-    .line 64
+    .line 65
     goto :goto_0
 
-    .line 66
+    .line 67
     :cond_2
     instance-of v2, p1, Lcom/yelp/android/serializable/YelpHoursPair;
 
@@ -122,92 +184,58 @@
 
     move v0, v1
 
-    .line 67
+    .line 68
     goto :goto_0
 
-    .line 69
+    .line 70
     :cond_3
     check-cast p1, Lcom/yelp/android/serializable/YelpHoursPair;
 
-    .line 70
-    iget v2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mClose:I
+    .line 71
+    iget v2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->c:I
 
-    iget v3, p1, Lcom/yelp/android/serializable/YelpHoursPair;->mClose:I
+    iget v3, p1, Lcom/yelp/android/serializable/YelpHoursPair;->c:I
 
     if-eq v2, v3, :cond_4
 
     move v0, v1
 
-    .line 71
+    .line 72
     goto :goto_0
 
-    .line 73
+    .line 74
     :cond_4
-    iget v2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mOpen:I
+    iget v2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->b:I
 
-    iget v3, p1, Lcom/yelp/android/serializable/YelpHoursPair;->mOpen:I
+    iget v3, p1, Lcom/yelp/android/serializable/YelpHoursPair;->b:I
 
     if-eq v2, v3, :cond_0
 
     move v0, v1
 
-    .line 74
+    .line 75
     goto :goto_0
-.end method
-
-.method public bridge synthetic getClose()I
-    .locals 1
-
-    .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpHoursPair;->getClose()I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic getOpen()I
-    .locals 1
-
-    .prologue
-    .line 12
-    invoke-super {p0}, Lcom/yelp/android/serializable/_YelpHoursPair;->getOpen()I
-
-    move-result v0
-
-    return v0
 .end method
 
 .method public hashCode()I
     .locals 2
 
     .prologue
-    .line 51
-    .line 53
-    iget v0, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mClose:I
+    .line 52
+    .line 54
+    iget v0, p0, Lcom/yelp/android/serializable/YelpHoursPair;->c:I
 
     add-int/lit8 v0, v0, 0x1f
 
-    .line 54
+    .line 55
     mul-int/lit8 v0, v0, 0x1f
 
-    iget v1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mOpen:I
+    iget v1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->b:I
 
     add-int/2addr v0, v1
 
-    .line 55
+    .line 56
     return v0
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 12
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_YelpHoursPair;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
 .end method
 
 .method public toString()Ljava/lang/String;
@@ -220,7 +248,7 @@
 
     const/4 v4, 0x2
 
-    .line 81
+    .line 82
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string/jumbo v1, "E hh:mma"
@@ -229,23 +257,23 @@
 
     invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
-    .line 82
+    .line 83
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v1
 
-    .line 83
+    .line 84
     invoke-virtual {v1}, Ljava/util/Calendar;->clear()V
 
-    .line 84
+    .line 85
     invoke-virtual {v1, v5, v4}, Ljava/util/Calendar;->set(II)V
 
-    .line 85
-    iget v2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mOpen:I
+    .line 86
+    iget v2, p0, Lcom/yelp/android/serializable/YelpHoursPair;->b:I
 
     invoke-virtual {v1, v6, v2}, Ljava/util/Calendar;->add(II)V
 
-    .line 86
+    .line 87
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -272,18 +300,18 @@
 
     move-result-object v2
 
-    .line 87
+    .line 88
     invoke-virtual {v1}, Ljava/util/Calendar;->clear()V
 
-    .line 88
+    .line 89
     invoke-virtual {v1, v5, v4}, Ljava/util/Calendar;->set(II)V
 
-    .line 89
-    iget v3, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mClose:I
+    .line 90
+    iget v3, p0, Lcom/yelp/android/serializable/YelpHoursPair;->c:I
 
     invoke-virtual {v1, v6, v3}, Ljava/util/Calendar;->add(II)V
 
-    .line 90
+    .line 91
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -308,29 +336,6 @@
 
     move-result-object v0
 
-    return-object v0
-.end method
-
-.method public writeJSON()Lorg/json/JSONArray;
-    .locals 2
-
-    .prologue
-    .line 100
-    new-instance v0, Lorg/json/JSONArray;
-
-    invoke-direct {v0}, Lorg/json/JSONArray;-><init>()V
-
-    .line 101
-    iget v1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mOpen:I
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONArray;->put(I)Lorg/json/JSONArray;
-
-    .line 102
-    iget v1, p0, Lcom/yelp/android/serializable/YelpHoursPair;->mClose:I
-
-    invoke-virtual {v0, v1}, Lorg/json/JSONArray;->put(I)Lorg/json/JSONArray;
-
-    .line 103
     return-object v0
 .end method
 

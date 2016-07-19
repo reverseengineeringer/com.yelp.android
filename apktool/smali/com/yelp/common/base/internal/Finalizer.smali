@@ -3,6 +3,15 @@
 .source "Finalizer.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/common/base/internal/Finalizer$1;,
+        Lcom/yelp/common/base/internal/Finalizer$ShutDown;
+    }
+.end annotation
+
+
 # static fields
 .field private static final FINALIZABLE_REFERENCE:Ljava/lang/String; = "com.yelp.common.base.FinalizableReference"
 
@@ -170,6 +179,12 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/common/base/internal/Finalizer$ShutDown;
+        }
+    .end annotation
+
     .prologue
     .line 137
     invoke-direct {p0}, Lcom/yelp/common/base/internal/Finalizer;->getFinalizeReferentMethod()Ljava/lang/reflect/Method;
@@ -190,7 +205,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/yelp/common/base/internal/Finalizer$ShutDown;-><init>(Lcom/yelp/common/base/internal/a;)V
+    invoke-direct {v0, v1}, Lcom/yelp/common/base/internal/Finalizer$ShutDown;-><init>(Lcom/yelp/common/base/internal/Finalizer$1;)V
 
     throw v0
 
@@ -236,6 +251,11 @@
 
 .method private getFinalizeReferentMethod()Ljava/lang/reflect/Method;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/common/base/internal/Finalizer$ShutDown;
+        }
+    .end annotation
 
     .prologue
     .line 170
@@ -255,7 +275,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Lcom/yelp/common/base/internal/Finalizer$ShutDown;-><init>(Lcom/yelp/common/base/internal/a;)V
+    invoke-direct {v0, v1}, Lcom/yelp/common/base/internal/Finalizer$ShutDown;-><init>(Lcom/yelp/common/base/internal/Finalizer$1;)V
 
     throw v0
 

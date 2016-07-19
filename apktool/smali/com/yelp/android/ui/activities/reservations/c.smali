@@ -1,39 +1,97 @@
-.class Lcom/yelp/android/ui/activities/reservations/c;
+.class public Lcom/yelp/android/ui/activities/reservations/c;
 .super Ljava/lang/Object;
-.source "FindReservation.java"
-
-# interfaces
-.implements Landroid/view/View$OnClickListener;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/reservations/FindReservation;
+.source "ReservationUtil.java"
 
 
 # direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/reservations/FindReservation;)V
-    .locals 0
+.method public static a()Lcom/yelp/android/serializable/ReservationFilter;
+    .locals 3
 
     .prologue
-    .line 217
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reservations/c;->a:Lcom/yelp/android/ui/activities/reservations/FindReservation;
+    .line 25
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    move-result-object v0
 
-    return-void
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
+
+    move-result-object v0
+
+    .line 26
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->Q()Lcom/yelp/android/serializable/ReservationFilter;
+
+    move-result-object v0
+
+    .line 27
+    if-eqz v0, :cond_1
+
+    .line 28
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/ReservationFilter;->e()Ljava/util/Date;
+
+    move-result-object v1
+
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/util/Date;->before(Ljava/util/Date;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 29
+    invoke-static {}, Lcom/yelp/android/ui/activities/reservations/c;->b()Ljava/util/Date;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/serializable/ReservationFilter;->a(Ljava/util/Date;)V
+
+    .line 33
+    :cond_0
+    :goto_0
+    return-object v0
+
+    :cond_1
+    new-instance v0, Lcom/yelp/android/serializable/ReservationFilter;
+
+    const/4 v1, 0x2
+
+    invoke-static {}, Lcom/yelp/android/ui/activities/reservations/c;->b()Ljava/util/Date;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/serializable/ReservationFilter;-><init>(ILjava/util/Date;)V
+
+    goto :goto_0
 .end method
 
-
-# virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 1
+.method public static b()Ljava/util/Date;
+    .locals 4
 
     .prologue
-    .line 221
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reservations/c;->a:Lcom/yelp/android/ui/activities/reservations/FindReservation;
+    .line 42
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    invoke-static {v0}, Lcom/yelp/android/ui/activities/reservations/FindReservation;->a(Lcom/yelp/android/ui/activities/reservations/FindReservation;)V
+    move-result-object v0
 
-    .line 222
-    return-void
+    const/16 v1, 0xf
+
+    const/16 v2, 0x13
+
+    const/16 v3, 0x17
+
+    invoke-static {v0, v1, v2, v3}, Lcom/yelp/android/services/f;->a(Ljava/util/Calendar;III)Ljava/util/Calendar;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTime()Ljava/util/Date;
+
+    move-result-object v0
+
+    return-object v0
 .end method

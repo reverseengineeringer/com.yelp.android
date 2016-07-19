@@ -1,90 +1,52 @@
 package com.yelp.android.bb;
 
-import android.content.Context;
-import android.text.Html;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.TextView.BufferType;
-import com.yelp.android.serializable.Conversation;
-import com.yelp.android.serializable.ConversationMessage;
-import com.yelp.android.serializable.bg;
-import com.yelp.android.ui.util.au;
-import com.yelp.android.ui.widgets.WebImageView;
-import com.yelp.android.util.StringUtils;
-import com.yelp.android.util.StringUtils.Format;
-import java.util.List;
+import android.os.RemoteException;
+import com.google.android.gms.ads.internal.util.client.b;
+import com.google.android.gms.internal.fv;
 
+@fv
 public class d
-  extends au<ConversationMessage>
+  implements com.yelp.android.be.a
 {
-  private final LayoutInflater a;
-  private final Context b;
-  private Conversation c;
+  private final a a;
   
-  public d(Context paramContext)
+  public d(a parama)
   {
-    a = LayoutInflater.from(paramContext);
-    b = paramContext;
+    a = parama;
   }
   
-  public void a(Conversation paramConversation)
+  public String a()
   {
-    c = paramConversation;
+    if (a == null) {
+      return null;
+    }
+    try
+    {
+      String str = a.a();
+      return str;
+    }
+    catch (RemoteException localRemoteException)
+    {
+      b.d("Could not forward getType to RewardItem", localRemoteException);
+    }
+    return null;
   }
   
-  public View getView(int paramInt, View paramView, ViewGroup paramViewGroup)
+  public int b()
   {
-    if (paramView == null)
+    if (a == null) {
+      return 0;
+    }
+    try
     {
-      paramView = a.inflate(g.a(), paramViewGroup, false);
-      paramViewGroup = new g(paramView);
-      paramView.setTag(paramViewGroup);
+      int i = a.b();
+      return i;
     }
-    for (;;)
+    catch (RemoteException localRemoteException)
     {
-      localObject2 = paramView.getContext();
-      if ((paramInt != 0) || (c.getBizUser() == null) || (c.getReviewId() == null)) {
-        break;
-      }
-      localObject1 = (bg)c.getUsers().get(0);
-      g.a(paramViewGroup).setVisibility(0);
-      g.a(paramViewGroup).setOnClickListener(new e(this, (Context)localObject2));
-      g.b(paramViewGroup).setVisibility(8);
-      g.c(paramViewGroup).setText(Html.fromHtml(b.getString(2131166616, new Object[] { ((bg)localObject1).getName() })));
-      paramViewGroup.a((bg)localObject1);
-      paramViewGroup.c().setClickable(false);
-      localObject1 = paramView.getContext().getString(2131166806, new Object[] { ((bg)localObject1).getName() });
-      paramViewGroup.c().setContentDescription((CharSequence)localObject1);
-      return paramView;
-      paramViewGroup = (g)paramView.getTag();
+      b.d("Could not forward getAmount to RewardItem", localRemoteException);
     }
-    g.a(paramViewGroup).setVisibility(8);
-    g.a(paramViewGroup).setOnClickListener(null);
-    g.b(paramViewGroup).setVisibility(0);
-    Object localObject2 = (ConversationMessage)getItem(paramInt);
-    Object localObject1 = ((ConversationMessage)localObject2).getMessagingUser();
-    paramViewGroup.a((bg)localObject1);
-    paramViewGroup.a(new f(this, (ConversationMessage)localObject2, (bg)localObject1));
-    if (((ConversationMessage)localObject2).getMessage().contains("href")) {
-      g.c(paramViewGroup).setAutoLinkMask(0);
-    }
-    Object localObject3 = new SpannableStringBuilder(Html.fromHtml(((ConversationMessage)localObject2).getFormattedMessage(b)));
-    g.c(paramViewGroup).setText((CharSequence)localObject3, TextView.BufferType.EDITABLE);
-    g.c(paramViewGroup).setMovementMethod(LinkMovementMethod.getInstance());
-    g.c(paramViewGroup).setKeyListener(null);
-    g.b(paramViewGroup).setText(StringUtils.a(b, StringUtils.Format.ABBREVIATED, ((ConversationMessage)localObject2).getTimeSent()));
-    localObject3 = paramViewGroup.c();
-    if ((((ConversationMessage)localObject2).getBizUser() == null) || (!TextUtils.isEmpty(c.getBusinessId()))) {}
-    for (boolean bool = true;; bool = false)
-    {
-      ((WebImageView)localObject3).setClickable(bool);
-      break;
-    }
+    return 0;
   }
 }
 

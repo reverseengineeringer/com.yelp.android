@@ -1,22 +1,8 @@
 package com.bumptech.glide.manager;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-
-class g
-  extends BroadcastReceiver
+public abstract interface g
 {
-  g(f paramf) {}
-  
-  public void onReceive(Context paramContext, Intent paramIntent)
-  {
-    boolean bool = f.a(a);
-    f.a(a, f.a(a, paramContext));
-    if (bool != f.a(a)) {
-      f.b(a).a(f.a(a));
-    }
-  }
+  public abstract void a(h paramh);
 }
 
 /* Location:

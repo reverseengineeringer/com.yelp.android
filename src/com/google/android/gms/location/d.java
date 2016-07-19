@@ -2,85 +2,55 @@ package com.google.android.gms.location;
 
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import com.google.android.gms.common.internal.safeparcel.zza;
+import com.google.android.gms.common.internal.safeparcel.zza.zza;
+import com.google.android.gms.common.internal.safeparcel.zzb;
 
 public class d
-  implements Parcelable.Creator<LocationRequest>
+  implements Parcelable.Creator<DetectedActivity>
 {
-  static void a(LocationRequest paramLocationRequest, Parcel paramParcel, int paramInt)
+  static void a(DetectedActivity paramDetectedActivity, Parcel paramParcel, int paramInt)
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, mPriority);
-    b.c(paramParcel, 1000, paramLocationRequest.getVersionCode());
-    b.a(paramParcel, 2, agr);
-    b.a(paramParcel, 3, ags);
-    b.a(paramParcel, 4, Wg);
-    b.a(paramParcel, 5, age);
-    b.c(paramParcel, 6, agt);
-    b.a(paramParcel, 7, agu);
-    b.a(paramParcel, 8, agv);
-    b.H(paramParcel, paramInt);
+    paramInt = zzb.zzav(paramParcel);
+    zzb.zzc(paramParcel, 1, c);
+    zzb.zzc(paramParcel, 1000, paramDetectedActivity.c());
+    zzb.zzc(paramParcel, 2, d);
+    zzb.zzI(paramParcel, paramInt);
   }
   
-  public LocationRequest cJ(Parcel paramParcel)
+  public DetectedActivity a(Parcel paramParcel)
   {
-    int m = a.G(paramParcel);
     int k = 0;
-    int j = 102;
-    long l4 = 3600000L;
-    long l3 = 600000L;
-    boolean bool = false;
-    long l2 = Long.MAX_VALUE;
-    int i = Integer.MAX_VALUE;
-    float f = 0.0F;
-    long l1 = 0L;
+    int m = zza.zzau(paramParcel);
+    int j = 0;
+    int i = 0;
     while (paramParcel.dataPosition() < m)
     {
-      int n = a.F(paramParcel);
-      switch (a.aH(n))
+      int n = zza.zzat(paramParcel);
+      switch (zza.zzca(n))
       {
       default: 
-        a.b(paramParcel, n);
+        zza.zzb(paramParcel, n);
         break;
       case 1: 
-        j = a.g(paramParcel, n);
+        j = zza.zzg(paramParcel, n);
         break;
       case 1000: 
-        k = a.g(paramParcel, n);
+        i = zza.zzg(paramParcel, n);
         break;
       case 2: 
-        l4 = a.i(paramParcel, n);
-        break;
-      case 3: 
-        l3 = a.i(paramParcel, n);
-        break;
-      case 4: 
-        bool = a.c(paramParcel, n);
-        break;
-      case 5: 
-        l2 = a.i(paramParcel, n);
-        break;
-      case 6: 
-        i = a.g(paramParcel, n);
-        break;
-      case 7: 
-        f = a.l(paramParcel, n);
-        break;
-      case 8: 
-        l1 = a.i(paramParcel, n);
+        k = zza.zzg(paramParcel, n);
       }
     }
     if (paramParcel.dataPosition() != m) {
-      throw new a.a("Overread allowed size end=" + m, paramParcel);
+      throw new zza.zza("Overread allowed size end=" + m, paramParcel);
     }
-    return new LocationRequest(k, j, l4, l3, bool, l2, i, f, l1);
+    return new DetectedActivity(i, j, k);
   }
   
-  public LocationRequest[] eA(int paramInt)
+  public DetectedActivity[] a(int paramInt)
   {
-    return new LocationRequest[paramInt];
+    return new DetectedActivity[paramInt];
   }
 }
 

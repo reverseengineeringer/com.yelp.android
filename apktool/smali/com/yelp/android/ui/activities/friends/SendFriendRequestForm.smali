@@ -3,7 +3,7 @@
 .source "SendFriendRequestForm.java"
 
 # interfaces
-.implements Lcom/yelp/android/av/i;
+.implements Lcom/yelp/android/appdata/webrequests/core/c$a;
 
 
 # direct methods
@@ -59,12 +59,12 @@
     .locals 3
 
     .prologue
-    .line 132
+    .line 141
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
-    .line 133
+    .line 142
     const-string/jumbo v0, "extra.user"
 
     invoke-virtual {v1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -73,22 +73,22 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    .line 134
+    .line 143
     const/4 v2, 0x1
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/serializable/User;->setFriendRequestPending(Z)V
+    invoke-virtual {v0, v2}, Lcom/yelp/android/serializable/User;->b(Z)V
 
-    .line 135
+    .line 144
     const-string/jumbo v2, "extra.user"
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 136
+    .line 145
     const/4 v0, -0x1
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->setResult(ILandroid/content/Intent;)V
 
-    .line 137
+    .line 146
     return-void
 .end method
 
@@ -105,23 +105,23 @@
     .end annotation
 
     .prologue
-    .line 106
+    .line 115
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->hideLoadingDialog()V
 
-    .line 107
-    const v0, 0x7f0704f8
+    .line 116
+    const v0, 0x7f0704fc
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/cr;->a(II)V
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/as;->a(II)V
 
-    .line 108
+    .line 117
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->a()V
 
-    .line 109
+    .line 118
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->finish()V
 
-    .line 110
+    .line 119
     return-void
 .end method
 
@@ -129,13 +129,13 @@
     .locals 1
 
     .prologue
-    .line 141
+    .line 150
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->AddFriend:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -159,7 +159,7 @@
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
     .line 56
-    const v0, 0x7f030049
+    const v0, 0x7f030054
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->setContentView(I)V
 
@@ -179,58 +179,58 @@
     check-cast v10, Lcom/yelp/android/serializable/User;
 
     .line 58
-    const v0, 0x7f0c014f
+    const v0, 0x7f0f018b
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     .line 59
-    new-instance v0, Lcom/yelp/android/ui/util/cn;
+    new-instance v0, Lcom/yelp/android/ui/util/ap$b;
 
-    invoke-direct {v0, v1, v11}, Lcom/yelp/android/ui/util/cn;-><init>(Landroid/view/View;Z)V
+    invoke-direct {v0, v1, v11}, Lcom/yelp/android/ui/util/ap$b;-><init>(Landroid/view/View;Z)V
 
     .line 60
     invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getName()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->ad()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getFriendCount()I
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->k_()I
 
     move-result v3
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getReviewCount()I
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->j_()I
 
     move-result v4
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getPhotoCount()I
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->l_()I
 
     move-result v5
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getVideoCount()I
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->m_()I
 
     move-result v6
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getMediaCount()I
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->n_()I
 
     move-result v7
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getUserPhotoUrl()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->c()Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->isEliteUser()Z
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->h()Z
 
     move-result v9
 
-    invoke-virtual/range {v0 .. v9}, Lcom/yelp/android/ui/util/cn;->a(Landroid/content/Context;Ljava/lang/CharSequence;IIIIILjava/lang/String;Z)V
+    invoke-virtual/range {v0 .. v9}, Lcom/yelp/android/ui/util/ap$b;->a(Landroid/content/Context;Ljava/lang/CharSequence;IIIIILjava/lang/String;Z)V
 
-    .line 64
-    const v0, 0x7f0c0150
+    .line 70
+    const v0, 0x7f0f018c
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->findViewById(I)Landroid/view/View;
 
@@ -238,12 +238,12 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 65
-    const v1, 0x7f0702a7
+    .line 71
+    const v1, 0x7f0702f4
 
     new-array v2, v12, [Ljava/lang/Object;
 
-    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->getFirstName()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/yelp/android/serializable/User;->Z()Ljava/lang/String;
 
     move-result-object v3
 
@@ -255,8 +255,8 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 67
-    const v0, 0x7f0c0151
+    .line 74
+    const v0, 0x7f0f018d
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->findViewById(I)Landroid/view/View;
 
@@ -264,22 +264,22 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 69
+    .line 76
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v1
 
-    .line 70
-    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/dc;->q()Ljava/lang/String;
+    .line 77
+    invoke-virtual {v1}, Lcom/yelp/android/appdata/webrequests/co;->l()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 71
-    const v2, 0x7f0702a9
+    .line 78
+    const v2, 0x7f0702f6
 
     new-array v3, v12, [Ljava/lang/Object;
 
@@ -291,7 +291,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 73
+    .line 81
     return-void
 .end method
 
@@ -299,19 +299,19 @@
     .locals 2
 
     .prologue
-    .line 77
+    .line 85
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 78
+    .line 86
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f10000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 79
+    .line 87
     const/4 v0, 0x1
 
     return v0
@@ -330,55 +330,55 @@
     .end annotation
 
     .prologue
-    .line 114
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getHelper()Lcom/yelp/android/ui/activities/support/h;
+    .line 123
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getHelper()Lcom/yelp/android/ui/activities/support/b;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/h;->h()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/b;->h()V
 
-    .line 115
+    .line 124
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->hideLoadingDialog()V
 
-    .line 116
+    .line 125
     invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/YelpException;->getMessageResource()I
 
     move-result v0
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/cr;->a(II)V
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/as;->a(II)V
 
-    .line 120
+    .line 129
     invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/YelpException;->getMessageResource()I
 
     move-result v0
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 129
+    .line 138
     :goto_0
     return-void
 
-    .line 123
+    .line 132
     :sswitch_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->a()V
 
-    .line 126
+    .line 135
     :sswitch_1
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->finish()V
 
     goto :goto_0
 
-    .line 120
+    .line 129
     nop
 
     :sswitch_data_0
     .sparse-switch
-        0x7f070013 -> :sswitch_0
-        0x7f070021 -> :sswitch_0
-        0x7f07002c -> :sswitch_1
-        0x7f07003b -> :sswitch_1
+        0x7f07009b -> :sswitch_0
+        0x7f0700a9 -> :sswitch_0
+        0x7f0700b4 -> :sswitch_1
+        0x7f0700c3 -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -386,16 +386,16 @@
     .locals 3
 
     .prologue
-    .line 91
+    .line 99
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    const v1, 0x7f0c04fd
+    const v1, 0x7f0f0607
 
     if-ne v0, v1, :cond_0
 
-    .line 92
+    .line 100
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -408,8 +408,8 @@
 
     check-cast v0, Lcom/yelp/android/serializable/User;
 
-    .line 93
-    const v1, 0x7f0c00a9
+    .line 101
+    const v1, 0x7f0f00e0
 
     invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->findViewById(I)Landroid/view/View;
 
@@ -417,8 +417,8 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 94
-    new-instance v2, Lcom/yelp/android/appdata/webrequests/e;
+    .line 102
+    new-instance v2, Lcom/yelp/android/appdata/webrequests/i;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
@@ -432,31 +432,31 @@
 
     move-result-object v1
 
-    invoke-direct {v2, p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/e;-><init>(Lcom/yelp/android/av/i;Lcom/yelp/android/serializable/User;Ljava/lang/String;)V
+    invoke-direct {v2, p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/i;-><init>(Lcom/yelp/android/appdata/webrequests/core/c$a;Lcom/yelp/android/serializable/User;Ljava/lang/String;)V
 
-    .line 96
+    .line 105
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/lang/Void;
 
-    invoke-virtual {v2, v0}, Lcom/yelp/android/appdata/webrequests/e;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v2, v0}, Lcom/yelp/android/appdata/webrequests/i;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 97
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getHelper()Lcom/yelp/android/ui/activities/support/h;
+    .line 106
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->getHelper()Lcom/yelp/android/ui/activities/support/b;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/activities/support/h;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
+    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/activities/support/b;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;)V
 
-    .line 98
+    .line 107
     const v0, 0x7f070553
 
     invoke-virtual {p0, v2, v0}, Lcom/yelp/android/ui/activities/friends/SendFriendRequestForm;->showLoadingDialog(Lcom/yelp/android/appdata/webrequests/ApiRequest;I)V
 
-    .line 99
+    .line 108
     const/4 v0, 0x1
 
-    .line 101
+    .line 110
     :goto_0
     return v0
 
@@ -472,11 +472,11 @@
     .locals 2
 
     .prologue
-    .line 84
+    .line 92
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 85
-    const v0, 0x7f0c04fd
+    .line 93
+    const v0, 0x7f0f0607
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -486,7 +486,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
-    .line 86
+    .line 94
     const/4 v0, 0x1
 
     return v0

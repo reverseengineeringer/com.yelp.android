@@ -11,9 +11,7 @@ import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListe
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.GeofencingApi;
-import com.google.android.gms.location.LocationServices;
-import com.kahuna.sdk.h;
+import com.google.android.gms.location.g;
 import java.util.List;
 
 public class e
@@ -45,7 +43,7 @@ public class e
   private GoogleApiClient b()
   {
     if (c == null) {
-      c = new GoogleApiClient.Builder(a).addApi(LocationServices.API).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
+      c = new GoogleApiClient.Builder(a).addApi(com.google.android.gms.location.l.a).addConnectionCallbacks(this).addOnConnectionFailedListener(this).build();
     }
     return c;
   }
@@ -56,8 +54,8 @@ public class e
     {
       d = false;
       b().disconnect();
-      if (h.p()) {
-        Log.d("KahunaEngine", "Location Services client disconnected.");
+      if (com.kahuna.sdk.l.u()) {
+        Log.d("Kahuna", "Location Services client disconnected.");
       }
       c = null;
       return;
@@ -68,25 +66,26 @@ public class e
   public void a(Status paramStatus)
   {
     if (paramStatus.isSuccess()) {
-      if (h.p()) {
-        Log.d("KahunaEngine", "Geofences removed successfully: " + b);
+      if (com.kahuna.sdk.l.u()) {
+        Log.d("Kahuna", "Geofences removed successfully: " + b);
       }
     }
     for (;;)
     {
       c();
       return;
-      if (h.p()) {
-        Log.d("KahunaEngine", "Failure removing Geofences: " + b);
+      if (com.kahuna.sdk.l.u()) {
+        Log.d("Kahuna", "Failure removing Geofences: " + b);
       }
     }
   }
   
   public void a(List<String> paramList)
+    throws IllegalArgumentException, UnsupportedOperationException
   {
     if ((paramList == null) || (paramList.size() == 0)) {
-      if (h.p()) {
-        Log.e("KahunaEngine", "No valid geofences, ignoring.");
+      if (com.kahuna.sdk.l.u()) {
+        Log.e("Kahuna", "No valid geofences, ignoring.");
       }
     }
     while (d) {
@@ -98,28 +97,28 @@ public class e
   
   public void onConnected(Bundle paramBundle)
   {
-    if (h.p()) {
-      Log.d("KahunaEngine", "Location Services client connected.");
+    if (com.kahuna.sdk.l.u()) {
+      Log.d("Kahuna", "Location Services client connected.");
     }
     try
     {
-      LocationServices.GeofencingApi.removeGeofences(c, b).setResultCallback(this);
+      com.google.android.gms.location.l.c.a(c, b).setResultCallback(this);
       return;
     }
     catch (Exception paramBundle)
     {
-      while (!h.p()) {}
-      Log.d("KahunaEngine", "Caught exception in Geofence Remover onConnected: " + paramBundle);
+      while (!com.kahuna.sdk.l.u()) {}
+      Log.d("Kahuna", "Caught exception in Geofence Remover onConnected: " + paramBundle);
     }
   }
   
   public void onConnectionFailed(ConnectionResult paramConnectionResult)
   {
     d = false;
-    if (h.p())
+    if (com.kahuna.sdk.l.u())
     {
-      Log.e("KahunaEngine", "Removal: Received connection failed event while attempt geofencing connection.");
-      Log.e("KahunaEngine", "Error Code: " + paramConnectionResult.getErrorCode());
+      Log.e("Kahuna", "Removal: Received connection failed event while attempt geofencing connection.");
+      Log.e("Kahuna", "Error Code: " + paramConnectionResult.getErrorCode());
     }
     c = null;
   }

@@ -1,23 +1,16 @@
-.class interface abstract Landroid/support/v4/view/aw;
+.class Landroid/support/v4/view/aw;
 .super Ljava/lang/Object;
-.source "MenuItemCompat.java"
+.source "ViewGroupCompatHC.java"
 
 
-# virtual methods
-.method public abstract a(Landroid/view/MenuItem;Landroid/view/View;)Landroid/view/MenuItem;
-.end method
+# direct methods
+.method public static a(Landroid/view/ViewGroup;Z)V
+    .locals 0
 
-.method public abstract a(Landroid/view/MenuItem;)Landroid/view/View;
-.end method
+    .prologue
+    .line 27
+    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setMotionEventSplittingEnabled(Z)V
 
-.method public abstract a(Landroid/view/MenuItem;I)V
-.end method
-
-.method public abstract b(Landroid/view/MenuItem;I)Landroid/view/MenuItem;
-.end method
-
-.method public abstract b(Landroid/view/MenuItem;)Z
-.end method
-
-.method public abstract c(Landroid/view/MenuItem;)Z
+    .line 28
+    return-void
 .end method

@@ -1,40 +1,30 @@
 .class public Lcom/yelp/android/appdata/webrequests/cx;
-.super Ljava/lang/Object;
-.source "ListTipsRequest.java"
+.super Lcom/yelp/android/appdata/webrequests/k;
+.source "NearbyFriendCheckInsRequest.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/yelp/android/appdata/webrequests/k",
+        "<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/util/ArrayList",
+        "<",
+        "Lcom/yelp/android/serializable/YelpCheckIn;",
+        ">;>;"
+    }
+.end annotation
 
 
 # instance fields
-.field final a:Ljava/util/List;
+.field g:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/List",
+            "Ljava/util/ArrayList",
             "<",
-            "Lcom/yelp/android/serializable/Tip;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field final b:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/util/Locale;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field final c:Ljava/util/Locale;
-
-.field final d:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List",
-            "<",
-            "Ljava/util/Locale;",
+            "Lcom/yelp/android/serializable/YelpCheckIn;",
             ">;"
         }
     .end annotation
@@ -42,114 +32,131 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/List;Ljava/util/Locale;Ljava/util/Map;Ljava/util/List;)V
-    .locals 0
+.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/k$b;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/List",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<",
-            "Lcom/yelp/android/serializable/Tip;",
-            ">;",
-            "Ljava/util/Locale;",
-            "Ljava/util/Map",
+            "Ljava/util/ArrayList",
             "<",
-            "Ljava/util/Locale;",
-            "Ljava/lang/Integer;",
-            ">;",
-            "Ljava/util/List",
-            "<",
-            "Ljava/util/Locale;",
-            ">;)V"
+            "Lcom/yelp/android/serializable/YelpCheckIn;",
+            ">;>;)V"
         }
     .end annotation
 
     .prologue
-    .line 90
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 23
+    sget-object v1, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
-    .line 91
-    iput-object p1, p0, Lcom/yelp/android/appdata/webrequests/cx;->a:Ljava/util/List;
+    const-string/jumbo v2, "check_ins/friends/nearby"
 
-    .line 92
-    iput-object p2, p0, Lcom/yelp/android/appdata/webrequests/cx;->c:Ljava/util/Locale;
+    sget-object v3, Lcom/yelp/android/appdata/LocationService$Accuracies;->MEDIUM_KM:Lcom/yelp/android/appdata/LocationService$Accuracies;
 
-    .line 93
-    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/cx;->b:Ljava/util/Map;
+    sget-object v4, Lcom/yelp/android/appdata/LocationService$Recentness;->MINUTE_15:Lcom/yelp/android/appdata/LocationService$Recentness;
 
-    .line 94
-    iput-object p4, p0, Lcom/yelp/android/appdata/webrequests/cx;->d:Ljava/util/List;
+    sget-object v6, Lcom/yelp/android/appdata/LocationService$AccuracyUnit;->MILES:Lcom/yelp/android/appdata/LocationService$AccuracyUnit;
 
-    .line 95
+    move-object v0, p0
+
+    move-object v5, p1
+
+    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/k;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/webrequests/k$b;Lcom/yelp/android/appdata/LocationService$AccuracyUnit;)V
+
+    .line 30
+    const-string/jumbo v0, "mode"
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/cx;->a(Ljava/lang/String;I)V
+
+    .line 31
+    const-string/jumbo v0, "offset"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/cx;->a(Ljava/lang/String;I)V
+
+    .line 32
     return-void
 .end method
 
 
 # virtual methods
-.method public a()Ljava/util/List;
-    .locals 1
+.method public a(Lorg/json/JSONObject;)Ljava/util/ArrayList;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "()",
-            "Ljava/util/List",
+            "(",
+            "Lorg/json/JSONObject;",
+            ")",
+            "Ljava/util/ArrayList",
             "<",
-            "Lcom/yelp/android/serializable/Tip;",
+            "Lcom/yelp/android/serializable/YelpCheckIn;",
             ">;"
         }
     .end annotation
 
-    .prologue
-    .line 98
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cx;->a:Ljava/util/List;
-
-    return-object v0
-.end method
-
-.method public b()Ljava/util/Map;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/util/Locale;",
-            "Ljava/lang/Integer;",
-            ">;"
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 102
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cx;->b:Ljava/util/Map;
+    .line 36
+    const-string/jumbo v0, "businesses"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v0
+
+    .line 37
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/cx;->i_()Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;->FULL:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;
+
+    invoke-static {v0, v1, v2}, Lcom/yelp/android/serializable/YelpBusiness;->b(Lorg/json/JSONArray;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;)Ljava/util/HashMap;
+
+    move-result-object v0
+
+    .line 39
+    const-string/jumbo v1, "check_ins"
+
+    invoke-virtual {p1, v1}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
+
+    move-result-object v1
+
+    invoke-static {v1, v0}, Lcom/yelp/android/serializable/YelpCheckIn;->a(Lorg/json/JSONArray;Ljava/util/Map;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/cx;->g:Ljava/util/ArrayList;
+
+    .line 41
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cx;->g:Ljava/util/ArrayList;
 
     return-object v0
 .end method
 
-.method public c()Ljava/util/Locale;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
-
-    .prologue
-    .line 106
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cx;->c:Ljava/util/Locale;
-
-    return-object v0
-.end method
-
-.method public d()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Ljava/util/List",
-            "<",
-            "Ljava/util/Locale;",
-            ">;"
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
         }
     .end annotation
 
     .prologue
-    .line 110
-    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/cx;->d:Ljava/util/List;
+    .line 17
+    invoke-virtual {p0, p1}, Lcom/yelp/android/appdata/webrequests/cx;->a(Lorg/json/JSONObject;)Ljava/util/ArrayList;
+
+    move-result-object v0
 
     return-object v0
 .end method

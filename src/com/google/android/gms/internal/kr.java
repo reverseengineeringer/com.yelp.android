@@ -1,190 +1,112 @@
 package com.google.android.gms.internal;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+import android.text.TextUtils;
+import com.google.android.gms.measurement.f;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
-public abstract class kr
+public final class kr
+  extends f<kr>
 {
-  private void a(StringBuilder paramStringBuilder, kr.a parama, Object paramObject)
+  public int a;
+  public int b;
+  public int c;
+  public int d;
+  public int e;
+  private String f;
+  
+  public int a()
   {
-    if (parama.hI() == 11)
-    {
-      paramStringBuilder.append(((kr)parama.hS().cast(paramObject)).toString());
-      return;
+    return a;
+  }
+  
+  public void a(int paramInt)
+  {
+    a = paramInt;
+  }
+  
+  public void a(kr paramkr)
+  {
+    if (a != 0) {
+      paramkr.a(a);
     }
-    if (parama.hI() == 7)
-    {
-      paramStringBuilder.append("\"");
-      paramStringBuilder.append(li.bh((String)paramObject));
-      paramStringBuilder.append("\"");
-      return;
+    if (b != 0) {
+      paramkr.b(b);
     }
-    paramStringBuilder.append(paramObject);
-  }
-  
-  private void a(StringBuilder paramStringBuilder, kr.a parama, ArrayList<Object> paramArrayList)
-  {
-    paramStringBuilder.append("[");
-    int i = 0;
-    int j = paramArrayList.size();
-    while (i < j)
-    {
-      if (i > 0) {
-        paramStringBuilder.append(",");
-      }
-      Object localObject = paramArrayList.get(i);
-      if (localObject != null) {
-        a(paramStringBuilder, parama, localObject);
-      }
-      i += 1;
+    if (c != 0) {
+      paramkr.c(c);
     }
-    paramStringBuilder.append("]");
-  }
-  
-  protected <O, I> I a(kr.a<I, O> parama, Object paramObject)
-  {
-    Object localObject = paramObject;
-    if (kr.a.c(parama) != null) {
-      localObject = parama.convertBack(paramObject);
+    if (d != 0) {
+      paramkr.d(d);
     }
-    return (I)localObject;
-  }
-  
-  protected boolean a(kr.a parama)
-  {
-    if (parama.hJ() == 11)
-    {
-      if (parama.hP()) {
-        return bf(parama.hQ());
-      }
-      return be(parama.hQ());
+    if (e != 0) {
+      paramkr.e(e);
     }
-    return bd(parama.hQ());
-  }
-  
-  protected Object b(kr.a parama)
-  {
-    String str = parama.hQ();
-    if (parama.hS() != null)
-    {
-      boolean bool;
-      if (bc(parama.hQ()) == null)
-      {
-        bool = true;
-        jx.a(bool, "Concrete field shouldn't be value object: %s", new Object[] { parama.hQ() });
-        if (!parama.hP()) {
-          break label71;
-        }
-      }
-      label71:
-      for (parama = hM();; parama = hL())
-      {
-        if (parama == null) {
-          break label79;
-        }
-        return parama.get(str);
-        bool = false;
-        break;
-      }
-      try
-      {
-        label79:
-        parama = "get" + Character.toUpperCase(str.charAt(0)) + str.substring(1);
-        parama = getClass().getMethod(parama, new Class[0]).invoke(this, new Object[0]);
-        return parama;
-      }
-      catch (Exception parama)
-      {
-        throw new RuntimeException(parama);
-      }
+    if (!TextUtils.isEmpty(f)) {
+      paramkr.a(f);
     }
-    return bc(parama.hQ());
   }
   
-  protected abstract Object bc(String paramString);
-  
-  protected abstract boolean bd(String paramString);
-  
-  protected boolean be(String paramString)
+  public void a(String paramString)
   {
-    throw new UnsupportedOperationException("Concrete types not supported");
+    f = paramString;
   }
   
-  protected boolean bf(String paramString)
+  public int b()
   {
-    throw new UnsupportedOperationException("Concrete type arrays not supported");
+    return b;
   }
   
-  public abstract HashMap<String, kr.a<?, ?>> hK();
-  
-  public HashMap<String, Object> hL()
+  public void b(int paramInt)
   {
-    return null;
+    b = paramInt;
   }
   
-  public HashMap<String, Object> hM()
+  public int c()
   {
-    return null;
+    return c;
+  }
+  
+  public void c(int paramInt)
+  {
+    c = paramInt;
+  }
+  
+  public int d()
+  {
+    return d;
+  }
+  
+  public void d(int paramInt)
+  {
+    d = paramInt;
+  }
+  
+  public int e()
+  {
+    return e;
+  }
+  
+  public void e(int paramInt)
+  {
+    e = paramInt;
+  }
+  
+  public String f()
+  {
+    return f;
   }
   
   public String toString()
   {
-    HashMap localHashMap = hK();
-    StringBuilder localStringBuilder = new StringBuilder(100);
-    Iterator localIterator = localHashMap.keySet().iterator();
-    while (localIterator.hasNext())
-    {
-      String str = (String)localIterator.next();
-      kr.a locala = (kr.a)localHashMap.get(str);
-      if (a(locala))
-      {
-        Object localObject = a(locala, b(locala));
-        if (localStringBuilder.length() == 0) {
-          localStringBuilder.append("{");
-        }
-        for (;;)
-        {
-          localStringBuilder.append("\"").append(str).append("\":");
-          if (localObject != null) {
-            break label135;
-          }
-          localStringBuilder.append("null");
-          break;
-          localStringBuilder.append(",");
-        }
-        label135:
-        switch (locala.hJ())
-        {
-        default: 
-          if (locala.hO()) {
-            a(localStringBuilder, locala, (ArrayList)localObject);
-          }
-          break;
-        case 8: 
-          localStringBuilder.append("\"").append(lb.d((byte[])localObject)).append("\"");
-          break;
-        case 9: 
-          localStringBuilder.append("\"").append(lb.e((byte[])localObject)).append("\"");
-          break;
-        case 10: 
-          lj.a(localStringBuilder, (HashMap)localObject);
-          continue;
-          a(localStringBuilder, locala, localObject);
-        }
-      }
-    }
-    if (localStringBuilder.length() > 0) {
-      localStringBuilder.append("}");
-    }
-    for (;;)
-    {
-      return localStringBuilder.toString();
-      localStringBuilder.append("{}");
-    }
+    HashMap localHashMap = new HashMap();
+    localHashMap.put("language", f);
+    localHashMap.put("screenColors", Integer.valueOf(a));
+    localHashMap.put("screenWidth", Integer.valueOf(b));
+    localHashMap.put("screenHeight", Integer.valueOf(c));
+    localHashMap.put("viewportWidth", Integer.valueOf(d));
+    localHashMap.put("viewportHeight", Integer.valueOf(e));
+    return a(localHashMap);
   }
 }
 

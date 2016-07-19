@@ -1,10 +1,12 @@
 package com.yelp.android.b;
 
-import android.view.SubMenu;
+import android.view.View;
 
-public abstract interface c
-  extends SubMenu, a
-{}
+class c
+  implements b
+{
+  public void a(View paramView) {}
+}
 
 /* Location:
  * Qualified Name:     com.yelp.android.b.c

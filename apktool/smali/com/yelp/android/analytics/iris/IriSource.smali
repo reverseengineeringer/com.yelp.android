@@ -29,6 +29,10 @@
 
 .field public static final enum EventsSections:Lcom/yelp/android/analytics/iris/IriSource;
 
+.field public static final enum Feed:Lcom/yelp/android/analytics/iris/IriSource;
+
+.field public static final enum GoogleVoiceSearch:Lcom/yelp/android/analytics/iris/IriSource;
+
 .field public static final enum Inbox:Lcom/yelp/android/analytics/iris/IriSource;
 
 .field public static final enum Link:Lcom/yelp/android/analytics/iris/IriSource;
@@ -48,6 +52,8 @@
 .field public static final enum Profile:Lcom/yelp/android/analytics/iris/IriSource;
 
 .field public static final enum PushNotification:Lcom/yelp/android/analytics/iris/IriSource;
+
+.field public static final enum Share:Lcom/yelp/android/analytics/iris/IriSource;
 
 .field public static final enum UserProfile:Lcom/yelp/android/analytics/iris/IriSource;
 
@@ -71,7 +77,7 @@
 
     const/4 v4, 0x0
 
-    .line 12
+    .line 14
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "None"
@@ -82,7 +88,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->None:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 17
+    .line 19
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "AddPhotoPage"
@@ -93,7 +99,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->AddPhotoPage:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 18
+    .line 20
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "AddReviewPage"
@@ -104,7 +110,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->AddReviewPage:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 19
+    .line 21
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "Button"
@@ -115,7 +121,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Button:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 20
+    .line 22
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "CheckInPage"
@@ -126,7 +132,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->CheckInPage:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 21
+    .line 23
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "Inbox"
@@ -139,7 +145,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Inbox:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 22
+    .line 24
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "Menu"
@@ -152,7 +158,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Menu:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 23
+    .line 25
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "Nearby"
@@ -165,7 +171,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Nearby:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 24
+    .line 26
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "NavDrawer"
@@ -178,7 +184,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->NavDrawer:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 25
+    .line 27
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "PostReviewYNRA"
@@ -191,7 +197,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->PostReviewYNRA:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 26
+    .line 28
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "Profile"
@@ -204,7 +210,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Profile:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 27
+    .line 29
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "UserProfile"
@@ -217,7 +223,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->UserProfile:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 28
+    .line 30
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "EventsSections"
@@ -230,7 +236,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->EventsSections:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 29
+    .line 31
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "PhotoGridCell"
@@ -243,7 +249,7 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->PhotoGridCell:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 30
+    .line 32
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "Carousel"
@@ -256,12 +262,25 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Carousel:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 35
+    .line 33
+    new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
+
+    const-string/jumbo v1, "Feed"
+
+    const/16 v2, 0xf
+
+    const-string/jumbo v3, "feed"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/IriSource;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Feed:Lcom/yelp/android/analytics/iris/IriSource;
+
+    .line 38
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "Link"
 
-    const/16 v2, 0xf
+    const/16 v2, 0x10
 
     const-string/jumbo v3, "link"
 
@@ -269,12 +288,12 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Link:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 36
+    .line 39
     new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     const-string/jumbo v1, "PushNotification"
 
-    const/16 v2, 0x10
+    const/16 v2, 0x11
 
     const-string/jumbo v3, "push_notification"
 
@@ -282,8 +301,34 @@
 
     sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->PushNotification:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 8
-    const/16 v0, 0x11
+    .line 40
+    new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
+
+    const-string/jumbo v1, "GoogleVoiceSearch"
+
+    const/16 v2, 0x12
+
+    const-string/jumbo v3, "google_voice_search"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/IriSource;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->GoogleVoiceSearch:Lcom/yelp/android/analytics/iris/IriSource;
+
+    .line 41
+    new-instance v0, Lcom/yelp/android/analytics/iris/IriSource;
+
+    const-string/jumbo v1, "Share"
+
+    const/16 v2, 0x13
+
+    const-string/jumbo v3, "share"
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/yelp/android/analytics/iris/IriSource;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+
+    sput-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Share:Lcom/yelp/android/analytics/iris/IriSource;
+
+    .line 10
+    const/16 v0, 0x14
 
     new-array v0, v0, [Lcom/yelp/android/analytics/iris/IriSource;
 
@@ -369,13 +414,31 @@
 
     const/16 v1, 0xf
 
-    sget-object v2, Lcom/yelp/android/analytics/iris/IriSource;->Link:Lcom/yelp/android/analytics/iris/IriSource;
+    sget-object v2, Lcom/yelp/android/analytics/iris/IriSource;->Feed:Lcom/yelp/android/analytics/iris/IriSource;
 
     aput-object v2, v0, v1
 
     const/16 v1, 0x10
 
+    sget-object v2, Lcom/yelp/android/analytics/iris/IriSource;->Link:Lcom/yelp/android/analytics/iris/IriSource;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x11
+
     sget-object v2, Lcom/yelp/android/analytics/iris/IriSource;->PushNotification:Lcom/yelp/android/analytics/iris/IriSource;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x12
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/IriSource;->GoogleVoiceSearch:Lcom/yelp/android/analytics/iris/IriSource;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x13
+
+    sget-object v2, Lcom/yelp/android/analytics/iris/IriSource;->Share:Lcom/yelp/android/analytics/iris/IriSource;
 
     aput-object v2, v0, v1
 
@@ -395,13 +458,13 @@
     .end annotation
 
     .prologue
-    .line 40
+    .line 45
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 41
+    .line 46
     iput-object p3, p0, Lcom/yelp/android/analytics/iris/IriSource;->mSourceParameterValue:Ljava/lang/String;
 
-    .line 42
+    .line 47
     return-void
 .end method
 
@@ -409,7 +472,7 @@
     .locals 1
 
     .prologue
-    .line 8
+    .line 10
     const-class v0, Lcom/yelp/android/analytics/iris/IriSource;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -425,7 +488,7 @@
     .locals 1
 
     .prologue
-    .line 8
+    .line 10
     sget-object v0, Lcom/yelp/android/analytics/iris/IriSource;->$VALUES:[Lcom/yelp/android/analytics/iris/IriSource;
 
     invoke-virtual {v0}, [Lcom/yelp/android/analytics/iris/IriSource;->clone()Ljava/lang/Object;
@@ -453,7 +516,7 @@
     .end annotation
 
     .prologue
-    .line 45
+    .line 50
     iget-object v0, p0, Lcom/yelp/android/analytics/iris/IriSource;->mSourceParameterValue:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -462,14 +525,14 @@
 
     if-nez v0, :cond_0
 
-    .line 46
+    .line 51
     const-string/jumbo v0, "source"
 
     iget-object v1, p0, Lcom/yelp/android/analytics/iris/IriSource;->mSourceParameterValue:Ljava/lang/String;
 
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 48
+    .line 53
     :cond_0
     return-void
 .end method
@@ -488,15 +551,15 @@
     .end annotation
 
     .prologue
-    .line 51
+    .line 56
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    .line 52
+    .line 57
     invoke-virtual {p0, v0}, Lcom/yelp/android/analytics/iris/IriSource;->addParameter(Ljava/util/Map;)V
 
-    .line 53
+    .line 58
     return-object v0
 .end method
 
@@ -504,7 +567,7 @@
     .locals 1
 
     .prologue
-    .line 57
+    .line 62
     iget-object v0, p0, Lcom/yelp/android/analytics/iris/IriSource;->mSourceParameterValue:Ljava/lang/String;
 
     return-object v0

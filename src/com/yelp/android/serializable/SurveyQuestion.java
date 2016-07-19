@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class SurveyQuestion
   extends _SurveyQuestion
 {
-  public static final JsonParser.DualCreator<SurveyQuestion> CREATOR = new dd();
+  public static final JsonParser.DualCreator<SurveyQuestion> CREATOR = new SurveyQuestion.1();
 }
 
 /* Location:

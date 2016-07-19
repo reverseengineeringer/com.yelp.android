@@ -18,25 +18,25 @@
     .locals 3
 
     .prologue
-    .line 26
+    .line 27
     new-instance v0, Lcom/yelp/android/ui/activities/events/EventDetailFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/events/EventDetailFragment;-><init>()V
 
-    .line 27
+    .line 28
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 28
+    .line 29
     const-string/jumbo v2, "args_event"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 29
+    .line 30
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/events/EventDetailFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 30
+    .line 31
     return-object v0
 .end method
 
@@ -46,8 +46,8 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 44
-    const v0, 0x7f0c019c
+    .line 46
+    const v0, 0x7f0f01cd
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -55,8 +55,8 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 45
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->getDescription()Ljava/lang/String;
+    .line 47
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->B()Ljava/lang/String;
 
     move-result-object v1
 
@@ -66,15 +66,15 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 46
+    .line 48
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    .line 47
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->getTicketsUrl()Ljava/lang/String;
+    .line 49
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->D()Ljava/lang/String;
 
     move-result-object v0
 
@@ -84,7 +84,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->getEventUrl()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->F()Ljava/lang/String;
 
     move-result-object v0
 
@@ -94,19 +94,19 @@
 
     if-nez v0, :cond_2
 
-    .line 48
+    .line 50
     :cond_0
-    const v0, 0x7f0c00ba
+    const v0, 0x7f0f00f7
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 49
+    .line 51
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 50
-    const v0, 0x7f0c0281
+    .line 52
+    const v0, 0x7f0f02d8
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -114,8 +114,8 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 51
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->getTicketsUrl()Ljava/lang/String;
+    .line 53
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->D()Ljava/lang/String;
 
     move-result-object v1
 
@@ -125,21 +125,21 @@
 
     if-nez v1, :cond_1
 
-    .line 52
-    const v1, 0x7f0705f2
+    .line 54
+    const v1, 0x7f0705dc
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->getTicketsUrl()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->D()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/util/StringUtils;->a(Landroid/widget/TextView;ILjava/lang/String;)V
 
-    .line 53
+    .line 55
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 55
+    .line 57
     :cond_1
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->getEventUrl()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->F()Ljava/lang/String;
 
     move-result-object v1
 
@@ -149,8 +149,8 @@
 
     if-nez v1, :cond_3
 
-    .line 56
-    const v0, 0x7f0c0280
+    .line 58
+    const v0, 0x7f0f02d7
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -158,24 +158,24 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 57
-    const v1, 0x7f070418
+    .line 59
+    const v1, 0x7f07044e
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->getEventUrl()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Event;->F()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-static {v0, v1, v2}, Lcom/yelp/android/util/StringUtils;->a(Landroid/widget/TextView;ILjava/lang/String;)V
 
-    .line 59
+    .line 61
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 64
+    .line 66
     :cond_2
     :goto_0
     return-void
 
-    .line 61
+    .line 63
     :cond_3
     invoke-virtual {v0, v3, v3, v3, v3}, Landroid/widget/TextView;->setPadding(IIII)V
 
@@ -184,22 +184,22 @@
 
 
 # virtual methods
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 68
+    .line 70
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->EventDetails:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -210,7 +210,7 @@
     .end annotation
 
     .prologue
-    .line 73
+    .line 75
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/EventDetailFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -223,10 +223,10 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Event;
 
-    .line 74
+    .line 76
     const-string/jumbo v1, "event_id"
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Event;->I()Ljava/lang/String;
 
     move-result-object v0
 
@@ -241,19 +241,19 @@
     .locals 3
 
     .prologue
-    .line 35
+    .line 37
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/ViewGroup;
 
-    .line 36
-    const v1, 0x7f03009c
+    .line 38
+    const v1, 0x7f0300b4
 
     invoke-virtual {p1, v1, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    .line 37
+    .line 39
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/events/EventDetailFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v1
@@ -266,9 +266,9 @@
 
     check-cast v1, Lcom/yelp/android/serializable/Event;
 
-    .line 39
+    .line 41
     invoke-direct {p0, v0, v1}, Lcom/yelp/android/ui/activities/events/EventDetailFragment;->a(Landroid/view/View;Lcom/yelp/android/serializable/Event;)V
 
-    .line 40
+    .line 42
     return-object v0
 .end method

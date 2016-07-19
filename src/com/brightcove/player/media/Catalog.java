@@ -2,10 +2,16 @@ package com.brightcove.player.media;
 
 import com.brightcove.player.event.Component;
 import com.brightcove.player.event.Emits;
+import com.brightcove.player.event.Event;
 import com.brightcove.player.event.EventEmitter;
 import com.brightcove.player.event.EventEmitterImpl;
+import com.brightcove.player.event.EventListener;
 import com.brightcove.player.event.ListensFor;
+import com.brightcove.player.model.Playlist;
+import com.brightcove.player.model.Video;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 @Emits(events={"findPlaylist", "findVideo"})
@@ -42,7 +48,7 @@ public class Catalog
     if (paramMap != null) {
       localHashMap.put("options", paramMap);
     }
-    eventEmitter.request("findPlaylist", localHashMap, new Catalog.OnFindPlaylistListener(this, paramPlaylistListener));
+    eventEmitter.request("findPlaylist", localHashMap, new OnFindPlaylistListener(paramPlaylistListener));
   }
   
   public void findPlaylistByReferenceID(String paramString, PlaylistListener paramPlaylistListener)
@@ -57,7 +63,7 @@ public class Catalog
     if (paramMap != null) {
       localHashMap.put("options", paramMap);
     }
-    eventEmitter.request("findPlaylist", localHashMap, new Catalog.OnFindPlaylistListener(this, paramPlaylistListener));
+    eventEmitter.request("findPlaylist", localHashMap, new OnFindPlaylistListener(paramPlaylistListener));
   }
   
   public void findVideoByID(String paramString, VideoListener paramVideoListener)
@@ -72,7 +78,7 @@ public class Catalog
     if (paramMap != null) {
       localHashMap.put("options", paramMap);
     }
-    eventEmitter.request("findVideo", localHashMap, new Catalog.OnFindVideoListener(this, paramVideoListener));
+    eventEmitter.request("findVideo", localHashMap, new OnFindVideoListener(paramVideoListener));
   }
   
   public void findVideoByReferenceID(String paramString, VideoListener paramVideoListener)
@@ -87,7 +93,7 @@ public class Catalog
     if (paramMap != null) {
       localHashMap.put("options", paramMap);
     }
-    eventEmitter.request("findVideo", localHashMap, new Catalog.OnFindVideoListener(this, paramVideoListener));
+    eventEmitter.request("findVideo", localHashMap, new OnFindVideoListener(paramVideoListener));
   }
   
   public EventEmitter getEventEmitter()
@@ -98,6 +104,60 @@ public class Catalog
   public void setEventEmitter(EventEmitter paramEventEmitter)
   {
     eventEmitter = paramEventEmitter;
+  }
+  
+  private class OnFindPlaylistListener
+    implements EventListener
+  {
+    private PlaylistListener playlistListener;
+    
+    public OnFindPlaylistListener(PlaylistListener paramPlaylistListener)
+    {
+      playlistListener = paramPlaylistListener;
+    }
+    
+    public void processEvent(Event paramEvent)
+    {
+      Object localObject = (List)properties.get("errors");
+      if ((localObject != null) && (!((List)localObject).isEmpty())) {
+        paramEvent = ((List)localObject).iterator();
+      }
+      while (paramEvent.hasNext())
+      {
+        localObject = (String)paramEvent.next();
+        playlistListener.onError((String)localObject);
+        continue;
+        paramEvent = (Playlist)properties.get("playlist");
+        playlistListener.onPlaylist(paramEvent);
+      }
+    }
+  }
+  
+  private class OnFindVideoListener
+    implements EventListener
+  {
+    private VideoListener videoListener;
+    
+    public OnFindVideoListener(VideoListener paramVideoListener)
+    {
+      videoListener = paramVideoListener;
+    }
+    
+    public void processEvent(Event paramEvent)
+    {
+      Object localObject = (List)properties.get("errors");
+      if ((localObject != null) && (!((List)localObject).isEmpty())) {
+        paramEvent = ((List)localObject).iterator();
+      }
+      while (paramEvent.hasNext())
+      {
+        localObject = (String)paramEvent.next();
+        videoListener.onError((String)localObject);
+        continue;
+        paramEvent = (Video)properties.get("video");
+        videoListener.onVideo(paramEvent);
+      }
+    }
   }
 }
 

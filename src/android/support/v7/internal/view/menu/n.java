@@ -1,15 +1,41 @@
 package android.support.v7.internal.view.menu;
 
-import android.support.v4.view.p;
+import android.content.Context;
+import android.os.Build.VERSION;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
+import com.yelp.android.e.a;
+import com.yelp.android.e.b;
+import com.yelp.android.e.c;
 
-class n
-  implements p
+public final class n
 {
-  n(m paramm) {}
-  
-  public void a(boolean paramBoolean)
+  public static Menu a(Context paramContext, a parama)
   {
-    m.a(a).a(a);
+    if (Build.VERSION.SDK_INT >= 14) {
+      return new o(paramContext, parama);
+    }
+    throw new UnsupportedOperationException();
+  }
+  
+  public static MenuItem a(Context paramContext, b paramb)
+  {
+    if (Build.VERSION.SDK_INT >= 16) {
+      return new j(paramContext, paramb);
+    }
+    if (Build.VERSION.SDK_INT >= 14) {
+      return new i(paramContext, paramb);
+    }
+    throw new UnsupportedOperationException();
+  }
+  
+  public static SubMenu a(Context paramContext, c paramc)
+  {
+    if (Build.VERSION.SDK_INT >= 14) {
+      return new q(paramContext, paramc);
+    }
+    throw new UnsupportedOperationException();
   }
 }
 

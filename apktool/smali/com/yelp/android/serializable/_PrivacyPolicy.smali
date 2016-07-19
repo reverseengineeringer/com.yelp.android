@@ -7,23 +7,23 @@
 
 
 # instance fields
-.field protected mShareBasicInfoSource:Ljava/lang/String;
+.field protected a:Ljava/lang/String;
 
-.field protected mShareBasicInfoStory:Ljava/lang/String;
+.field protected b:Ljava/lang/String;
 
-.field protected mShareBasicInfoTime:Ljava/lang/String;
+.field protected c:Ljava/lang/String;
 
-.field protected mShareDemographicsSource:Ljava/lang/String;
+.field protected d:Ljava/lang/String;
 
-.field protected mShareDemographicsStory:Ljava/lang/String;
+.field protected e:Ljava/lang/String;
 
-.field protected mShareDemographicsTime:Ljava/lang/String;
+.field protected f:Ljava/lang/String;
 
-.field protected mShareProfileSource:Ljava/lang/String;
+.field protected g:Ljava/lang/String;
 
-.field protected mShareProfileStory:Ljava/lang/String;
+.field protected h:Ljava/lang/String;
 
-.field protected mShareProfileTime:Ljava/lang/String;
+.field protected i:Ljava/lang/String;
 
 
 # direct methods
@@ -31,158 +31,178 @@
     .locals 0
 
     .prologue
-    .line 39
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 40
-    return-void
-.end method
-
-.method protected constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-
-    .prologue
-    .line 26
-    invoke-direct {p0}, Lcom/yelp/android/serializable/_PrivacyPolicy;-><init>()V
-
-    .line 27
-    iput-object p1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileStory:Ljava/lang/String;
-
-    .line 28
-    iput-object p2, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileSource:Ljava/lang/String;
-
-    .line 29
-    iput-object p3, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileTime:Ljava/lang/String;
-
-    .line 30
-    iput-object p4, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsStory:Ljava/lang/String;
-
-    .line 31
-    iput-object p5, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsSource:Ljava/lang/String;
-
-    .line 32
-    iput-object p6, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsTime:Ljava/lang/String;
-
-    .line 33
-    iput-object p7, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoStory:Ljava/lang/String;
-
-    .line 34
-    iput-object p8, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoSource:Ljava/lang/String;
-
-    .line 35
-    iput-object p9, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoTime:Ljava/lang/String;
-
-    .line 36
+    .line 50
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public a()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 72
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getShareBasicInfoSource()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 64
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoSource:Ljava/lang/String;
+    .line 129
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->i:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method public getShareBasicInfoStory()Ljava/lang/String;
+.method public a(Landroid/os/Parcel;)V
     .locals 1
 
     .prologue
-    .line 61
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoStory:Ljava/lang/String;
+    .line 149
+    const-class v0, Ljava/lang/String;
 
-    return-object v0
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->a:Ljava/lang/String;
+
+    .line 150
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->b:Ljava/lang/String;
+
+    .line 151
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->c:Ljava/lang/String;
+
+    .line 152
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->d:Ljava/lang/String;
+
+    .line 153
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->e:Ljava/lang/String;
+
+    .line 154
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->f:Ljava/lang/String;
+
+    .line 155
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->g:Ljava/lang/String;
+
+    .line 156
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->h:Ljava/lang/String;
+
+    .line 157
+    const-class v0, Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->i:Ljava/lang/String;
+
+    .line 158
+    return-void
 .end method
 
-.method public getShareBasicInfoTime()Ljava/lang/String;
+.method public a(Lorg/json/JSONObject;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 67
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoTime:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getShareDemographicsSource()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 55
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsSource:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getShareDemographicsStory()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 52
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsStory:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getShareDemographicsTime()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 58
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsTime:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getShareProfileSource()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileSource:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getShareProfileStory()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 43
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileStory:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getShareProfileTime()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 49
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileTime:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public readFromJson(Lorg/json/JSONObject;)V
-    .locals 1
-
-    .prologue
-    .line 100
+    .line 161
     const-string/jumbo v0, "share_user_story_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->isNull(Ljava/lang/String;)Z
@@ -191,16 +211,16 @@
 
     if-nez v0, :cond_0
 
-    .line 101
+    .line 162
     const-string/jumbo v0, "share_user_story_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileStory:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->a:Ljava/lang/String;
 
-    .line 103
+    .line 164
     :cond_0
     const-string/jumbo v0, "share_user_source_title"
 
@@ -210,16 +230,16 @@
 
     if-nez v0, :cond_1
 
-    .line 104
+    .line 165
     const-string/jumbo v0, "share_user_source_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileSource:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->b:Ljava/lang/String;
 
-    .line 106
+    .line 167
     :cond_1
     const-string/jumbo v0, "share_user_time_title"
 
@@ -229,16 +249,16 @@
 
     if-nez v0, :cond_2
 
-    .line 107
+    .line 168
     const-string/jumbo v0, "share_user_time_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileTime:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->c:Ljava/lang/String;
 
-    .line 109
+    .line 170
     :cond_2
     const-string/jumbo v0, "share_demo_story_title"
 
@@ -248,16 +268,16 @@
 
     if-nez v0, :cond_3
 
-    .line 110
+    .line 171
     const-string/jumbo v0, "share_demo_story_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsStory:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->d:Ljava/lang/String;
 
-    .line 112
+    .line 173
     :cond_3
     const-string/jumbo v0, "share_demo_source_title"
 
@@ -267,16 +287,16 @@
 
     if-nez v0, :cond_4
 
-    .line 113
+    .line 174
     const-string/jumbo v0, "share_demo_source_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsSource:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->e:Ljava/lang/String;
 
-    .line 115
+    .line 176
     :cond_4
     const-string/jumbo v0, "share_demo_time_title"
 
@@ -286,16 +306,16 @@
 
     if-nez v0, :cond_5
 
-    .line 116
+    .line 177
     const-string/jumbo v0, "share_demo_time_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsTime:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->f:Ljava/lang/String;
 
-    .line 118
+    .line 179
     :cond_5
     const-string/jumbo v0, "share_nothing_story_title"
 
@@ -305,16 +325,16 @@
 
     if-nez v0, :cond_6
 
-    .line 119
+    .line 180
     const-string/jumbo v0, "share_nothing_story_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoStory:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->g:Ljava/lang/String;
 
-    .line 121
+    .line 182
     :cond_6
     const-string/jumbo v0, "share_nothing_source_title"
 
@@ -324,16 +344,16 @@
 
     if-nez v0, :cond_7
 
-    .line 122
+    .line 183
     const-string/jumbo v0, "share_nothing_source_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoSource:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->h:Ljava/lang/String;
 
-    .line 124
+    .line 185
     :cond_7
     const-string/jumbo v0, "share_nothing_time_title"
 
@@ -343,140 +363,351 @@
 
     if-nez v0, :cond_8
 
-    .line 125
+    .line 186
     const-string/jumbo v0, "share_nothing_time_title"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoTime:Ljava/lang/String;
+    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->i:Ljava/lang/String;
 
-    .line 127
+    .line 188
     :cond_8
     return-void
 .end method
 
-.method public readFromParcel(Landroid/os/Parcel;)V
+.method public b()Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 88
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    .line 125
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->h:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 121
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->g:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 117
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->f:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public describeContents()I
+    .locals 1
+
+    .prologue
+    .line 133
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public e()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 113
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->e:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public equals(Ljava/lang/Object;)Z
+    .locals 3
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 54
+    if-nez p1, :cond_1
+
+    .line 68
+    :cond_0
+    :goto_0
+    return v0
+
+    .line 58
+    :cond_1
+    if-ne p1, p0, :cond_2
+
+    .line 59
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 62
+    :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 66
+    check-cast p1, Lcom/yelp/android/serializable/_PrivacyPolicy;
+
+    .line 68
+    new-instance v0, Lcom/yelp/android/dc/b;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/b;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->a:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileStory:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->b:Ljava/lang/String;
 
-    .line 89
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->b:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileSource:Ljava/lang/String;
-
-    .line 90
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileTime:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->c:Ljava/lang/String;
 
-    .line 91
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->c:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsStory:Ljava/lang/String;
-
-    .line 92
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsSource:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->d:Ljava/lang/String;
 
-    .line 93
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->d:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsTime:Ljava/lang/String;
-
-    .line 94
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoStory:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->e:Ljava/lang/String;
 
-    .line 95
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->e:Ljava/lang/String;
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoSource:Ljava/lang/String;
-
-    .line 96
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoTime:Ljava/lang/String;
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->f:Ljava/lang/String;
 
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->g:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->h:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->i:Ljava/lang/String;
+
+    iget-object v2, p1, Lcom/yelp/android/serializable/_PrivacyPolicy;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/dc/b;->a(Ljava/lang/Object;Ljava/lang/Object;)Lcom/yelp/android/dc/b;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/b;->a()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public f()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 109
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public g()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 105
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public h()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 101
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->b:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 83
+    new-instance v0, Lcom/yelp/android/dc/c;
+
+    invoke-direct {v0}, Lcom/yelp/android/dc/c;-><init>()V
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->a:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->b:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->c:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->d:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->e:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->f:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->g:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->h:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->i:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/dc/c;->a(Ljava/lang/Object;)Lcom/yelp/android/dc/c;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/dc/c;->a()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public i()Ljava/lang/String;
+    .locals 1
+
+    .prologue
     .line 97
-    return-void
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->a:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     .prologue
-    .line 76
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileStory:Ljava/lang/String;
+    .line 137
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->a:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 77
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileSource:Ljava/lang/String;
+    .line 138
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->b:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 78
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareProfileTime:Ljava/lang/String;
+    .line 139
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->c:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsStory:Ljava/lang/String;
+    .line 140
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->d:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 80
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsSource:Ljava/lang/String;
+    .line 141
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->e:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 81
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareDemographicsTime:Ljava/lang/String;
+    .line 142
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->f:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 82
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoStory:Ljava/lang/String;
+    .line 143
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->g:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoSource:Ljava/lang/String;
+    .line 144
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->h:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 84
-    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->mShareBasicInfoTime:Ljava/lang/String;
+    .line 145
+    iget-object v0, p0, Lcom/yelp/android/serializable/_PrivacyPolicy;->i:Ljava/lang/String;
 
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
-    .line 85
+    .line 146
     return-void
 .end method

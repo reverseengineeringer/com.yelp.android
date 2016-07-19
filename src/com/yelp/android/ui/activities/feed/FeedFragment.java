@@ -1,375 +1,489 @@
 package com.yelp.android.ui.activities.feed;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Build.VERSION;
+import android.content.res.Resources.Theme;
+import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.v7.widget.bt;
+import android.support.design.widget.TabLayout;
+import android.support.design.widget.TabLayout.c;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AbsListView.RecyclerListener;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import com.bumptech.glide.h;
+import android.view.View.OnLayoutChangeListener;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.yelp.android.analytics.iris.ViewIri;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.ReviewVoteRequest;
-import com.yelp.android.appdata.webrequests.ce;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.fq;
-import com.yelp.android.appdata.webrequests.gx;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.bd.c;
-import com.yelp.android.serializable.BizPhotoFeedEntry;
-import com.yelp.android.serializable.BookmarkFeedEntry;
-import com.yelp.android.serializable.FeedEntry;
-import com.yelp.android.serializable.ReviewFeedEntry;
-import com.yelp.android.serializable.TipFeedEntry;
+import com.yelp.android.appdata.PermissionGroup;
+import com.yelp.android.appdata.experiment.TwoBucketExperiment;
+import com.yelp.android.appdata.experiment.TwoBucketExperiment.Cohort;
+import com.yelp.android.appdata.experiment.e;
+import com.yelp.android.appdata.k;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.bx;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.appdata.webrequests.ez;
+import com.yelp.android.appdata.webrequests.fn;
+import com.yelp.android.appdata.webrequests.k.b;
+import com.yelp.android.serializable.Alert;
+import com.yelp.android.serializable.AlertsResponse;
 import com.yelp.android.serializable.User;
-import com.yelp.android.serializable.YelpBusinessReview;
-import com.yelp.android.ui.activities.businesspage.ActivityBusinessPage;
-import com.yelp.android.ui.activities.reviewpage.ActivityReviewPager;
-import com.yelp.android.ui.activities.support.YelpActivity.IntentData;
-import com.yelp.android.ui.activities.support.YelpSwipeRefreshListFragment;
+import com.yelp.android.ui.activities.feed.viewbinder.q;
+import com.yelp.android.ui.activities.notifications.NotificationsFragment.a;
+import com.yelp.android.ui.activities.notifications.a.a;
+import com.yelp.android.ui.panels.PanelError;
+import com.yelp.android.ui.panels.PanelError.a;
+import com.yelp.android.ui.panels.PanelLoading;
 import com.yelp.android.ui.util.ScrollToLoadListView;
-import com.yelp.android.ui.util.cp;
-import com.yelp.android.ui.widgets.SpannedTextView;
+import com.yelp.android.ui.widgets.MessageAlertBox;
+import com.yelp.android.util.ErrorType;
+import com.yelp.android.util.YelpLog;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 public class FeedFragment
-  extends YelpSwipeRefreshListFragment
+  extends AbstractFeedFragment
 {
-  private static final int a = com.yelp.android.appdata.ao.c;
-  private FeedType b;
-  private aq c;
-  private ArrayList<FeedEntry> d;
-  private boolean e;
-  private ce g;
-  private gx h;
-  private ReviewVoteRequest i;
-  private fq j;
-  private SpannedTextView k;
-  private SpannedTextView l;
-  private boolean m = false;
-  private String n = null;
-  private boolean o = false;
-  private com.bumptech.glide.j p;
-  private final com.yelp.android.av.i q = new ap(this);
-  private final com.yelp.android.av.i r = new y(this);
-  private final com.yelp.android.appdata.webrequests.j<FeedRequestResult> s = new z(this);
-  private final bd t = new aa(this);
-  private final bh u = new ab(this);
-  private final com.yelp.android.ui.panels.aa v = new ac(this);
-  private final com.yelp.android.ui.panels.aa w = new ad(this);
-  private final m<User> x = new ae(this);
-  private final AbsListView.RecyclerListener y = new af(this);
-  private final bt z = new ag(this);
+  private q A;
+  private ViewGroup B;
+  private ArrayList<Alert> C;
+  private int D;
+  private View E;
+  private View.OnLayoutChangeListener F = new FeedFragment.8(this);
+  private final k.b<FeedRequestResult> G = new FeedFragment.9(this);
+  private final PanelError.a H = new FeedFragment.10(this);
+  private final PanelError.a I = new FeedFragment.11(this);
+  private final ApiRequest.b<User> J = new FeedFragment.12(this);
+  private final ApiRequest.b<User> K = new FeedFragment.13(this);
+  private final k.b<AlertsResponse> L = new FeedFragment.2(this);
+  private final a.a M = new FeedFragment.3(this);
+  private final c.a N = new FeedFragment.4(this);
+  private bx j;
+  private fn k;
+  private ez l;
+  private fn m;
+  private List<NotificationsFragment.a> n;
+  private View o;
+  private int p;
+  private boolean q = false;
+  private boolean r = false;
+  private boolean s = false;
+  private TabLayout.c t;
+  private TabLayout.c u;
+  private TabLayout.c v;
+  private TabLayout.c w;
+  private TabLayout.c x;
+  private b y;
+  private TabLayout z;
   
-  private void a(LayoutInflater paramLayoutInflater)
+  private String a(int paramInt)
   {
-    paramLayoutInflater = paramLayoutInflater.inflate(2130903203, m(), false);
-    paramLayoutInflater.setOnTouchListener(new x(this));
-    k = ((SpannedTextView)paramLayoutInflater.findViewById(2131493529));
-    k.setOnClickListener(new ai(this));
-    l = ((SpannedTextView)paramLayoutInflater.findViewById(2131493531));
-    l.setOnClickListener(new aj(this));
-    f();
-    m().addHeaderView(paramLayoutInflater);
+    return "inline_action_request_" + paramInt;
   }
   
-  private void f()
+  private void a(User paramUser)
   {
-    int i1 = com.yelp.android.appdata.ab.a().f();
-    c localc;
-    if (i1 > 0)
+    if (paramUser != null) {}
+    for (int i = 0;; i = 8)
     {
-      localc = new c(getActivity(), 2130837635, i1);
-      localc.a(a);
-      localc.setBounds(0, 0, localc.getIntrinsicWidth(), localc.getIntrinsicHeight());
-    }
-    for (;;)
-    {
-      k.setCompoundDrawables(k.getCompoundDrawables()[0], null, localc, null);
-      i1 = com.yelp.android.appdata.ab.a().e();
-      if (i1 > 0)
-      {
-        localc = new c(getActivity(), 2130837635, i1);
-        localc.a(a);
-        localc.setBounds(0, 0, localc.getIntrinsicWidth(), localc.getIntrinsicHeight());
+      z.setVisibility(i);
+      if (paramUser != null) {
+        b(paramUser);
       }
-      for (;;)
+      if ((paramUser != null) && (!paramUser.n()))
       {
-        l.setCompoundDrawables(l.getCompoundDrawables()[0], null, localc, null);
-        return;
-        localc = null;
+        m = new fn(K, null, null);
+        m.f(new Void[0]);
       }
-      localc = null;
+      return;
     }
   }
   
-  private void g()
+  private void b(User paramUser)
   {
-    b("com.yelp.android.review.state.update", new ak(this));
-    b("com.yelp.android.tips.update", new al(this));
-    b("com.yelp.android.tips.delete", new am(this));
-    b("com.yelp.android.media.delete", new an(this));
-    b("com.yelp.android.review.update", new ao(this));
-  }
-  
-  public void a(ListView paramListView, View paramView, int paramInt, long paramLong)
-  {
-    if ((paramInt < paramListView.getHeaderViewsCount()) || (paramInt > paramListView.getCount() - paramListView.getFooterViewsCount())) {}
+    if ((paramUser.C() <= 0) && (w != null))
+    {
+      z.b(w);
+      w = null;
+    }
     do
     {
-      return;
-      paramListView = paramListView.getItemAtPosition(paramInt);
-      if ((paramListView instanceof FeedEntry)) {
-        a((FeedEntry)paramListView);
-      }
-      if ((paramListView instanceof ReviewFeedEntry))
+      while ((paramUser.k_() <= 0) && (x != null))
       {
-        startActivityForResult(((ReviewFeedEntry)paramListView).getIntentForClick(getActivity()), 1046);
+        z.b(x);
+        x = null;
         return;
+        if ((paramUser.C() > 0) && (w == null))
+        {
+          w = z.a().b(2131165926);
+          z.a(w, u.c());
+        }
       }
-      if ((paramListView instanceof TipFeedEntry))
-      {
-        startActivity(((TipFeedEntry)paramListView).getIntentForClick(getActivity()));
-        return;
-      }
-      if ((paramListView instanceof BizPhotoFeedEntry))
-      {
-        startActivity(ActivityBusinessPage.a(getActivity(), ((BizPhotoFeedEntry)paramListView).getBusinessId()));
-        return;
-      }
-    } while (!(paramListView instanceof FeedEntry));
-    paramListView = (FeedEntry)paramListView;
-    if (paramListView.getBusiness() == null)
-    {
-      startActivity(ActivityBusinessPage.a(getActivity(), paramListView.getBusinessId()));
-      return;
-    }
-    startActivity(ActivityBusinessPage.b(getActivity(), paramListView.getBusiness()));
+    } while ((paramUser.k_() <= 0) || (x != null));
+    x = z.a().b(2131165933);
+    z.a(x, u.c());
   }
   
-  public void a(FeedEntry paramFeedEntry)
+  private void f(View paramView)
   {
-    if ((paramFeedEntry instanceof ReviewFeedEntry))
+    z = ((TabLayout)paramView.findViewById(2131690224));
+    FeedFragment.7 local7 = new FeedFragment.7(this);
+    t = z.a().b(2131165483);
+    v = z.a().b(2131166213);
+    w = z.a().b(2131165926);
+    x = z.a().b(2131165933);
+    u = z.a().b(2131166215);
+    z.a(t);
+    z.a(v);
+    z.a(w);
+    z.a(x);
+    z.a(u);
+    int i = getContext().getTheme().obtainStyledAttributes(new int[] { 2130772347 }).getColor(0, getResources().getColor(2131624211));
+    int i1 = getResources().getColor(2131624257);
+    z.setOnTabSelectedListener(local7);
+    z.setBackgroundColor(i);
+    paramView.findViewById(2131690223).setBackgroundColor(i);
+    z.a(i1, i1);
+    z.setSelectedTabIndicatorColor(i1);
+  }
+  
+  private void i()
+  {
+    o = getActivity().getLayoutInflater().inflate(2130903226, B, false);
+    o.setVisibility(8);
+    C = new ArrayList();
+    D = 0;
+    A = new q(o, M, this);
+    o.addOnLayoutChangeListener(F);
+    A.a();
+  }
+  
+  private void t()
+  {
+    n.clear();
+    NotificationsFragment.a locala = (NotificationsFragment.a)a(a(0), null, N);
+    int i = 1;
+    while (locala != null)
     {
-      HashMap localHashMap = new HashMap();
-      AppData.a(FeedEventIriType.FEED_SELECTED.getFeedEventIriByFeedType(b), paramFeedEntry.setupIriParams(localHashMap));
+      n.add(locala);
+      locala = (NotificationsFragment.a)a(a(i), null, N);
+      i += 1;
     }
+  }
+  
+  private void u()
+  {
+    int i = 0;
+    while (i < n.size())
+    {
+      a(a(i), (ApiRequest)n.get(i));
+      i += 1;
+    }
+  }
+  
+  protected void a(View paramView)
+  {
+    E = paramView;
+    B.addView(E);
   }
   
   public void a(FeedType paramFeedType)
   {
-    b = paramFeedType;
-    m().setItemsCanFocus(true);
-    c = new aq(paramFeedType, new v());
-    paramFeedType = new ba(t);
-    c.a(ReviewFeedEntry.class, paramFeedType);
-    paramFeedType = new d(z, p);
-    c.a(BizPhotoFeedEntry.class, paramFeedType);
-    paramFeedType = new i();
-    c.a(BookmarkFeedEntry.class, paramFeedType);
-    paramFeedType = new bg(u);
-    c.a(TipFeedEntry.class, paramFeedType);
-    c.a(UserIdOverridenTipFeedEntry.class, paramFeedType);
-    a(c);
-  }
-  
-  public void a(List<? extends FeedEntry> paramList)
-  {
-    d.addAll(paramList);
-    c.a(paramList);
-    b(d.size());
-  }
-  
-  public void a_()
-  {
-    if (d.size() == 0) {
-      a(null);
+    if ((r) && (c != paramFeedType))
+    {
+      c(j);
+      r = false;
     }
-    m = true;
-    b();
+    c = paramFeedType;
+    m().setEmptyView(null);
+    switch (FeedFragment.5.a[c.ordinal()])
+    {
+    }
+    for (;;)
+    {
+      a = y.a(c);
+      if (a != null) {
+        break;
+      }
+      a = new a(c, g, f, d);
+      a(a);
+      p_();
+      return;
+      AppData.a(ViewIri.FeedMain);
+      continue;
+      AppData.a(ViewIri.FeedFriend);
+      continue;
+      AppData.a(ViewIri.FeedNearby);
+      continue;
+      AppData.a(ViewIri.FeedFollowing);
+      continue;
+      AppData.a(ViewIri.FeedCheckIn);
+    }
+    e = y.b(c);
+    a(a);
+    l();
+    z();
+    if ("".equals(e))
+    {
+      n();
+      return;
+    }
+    o();
+  }
+  
+  public void a(ErrorType paramErrorType, PanelError.a parama)
+  {
+    super.a(paramErrorType, parama);
+    A().c();
   }
   
   public void b()
   {
+    if ((AppData.b().q().p() != null) && (c == FeedType.MAIN) && (o.getParent() == null) && (a.isEmpty()))
+    {
+      m().removeHeaderView(o);
+      B.addView(o);
+    }
     String str2;
     FeedType localFeedType;
-    com.yelp.android.appdata.webrequests.j localj;
-    if (!o)
+    k.b localb;
+    if (!r)
     {
-      o = true;
-      super.b();
-      str2 = AppData.b().m().b();
-      localFeedType = b;
-      localj = s;
-      if (!m) {
-        break label75;
+      r = true;
+      str2 = AppData.b().q().a();
+      localFeedType = c;
+      localb = G;
+      if (!q) {
+        break label155;
       }
     }
-    label75:
-    for (String str1 = null;; str1 = n)
+    label155:
+    for (String str1 = null;; str1 = e)
     {
-      g = new ce(str2, localFeedType, localj, str1);
-      g.execute(new Void[0]);
+      j = new bx(str2, localFeedType, localb, str1);
+      if ((c != FeedType.NEARBY) && (c != FeedType.MAIN)) {
+        break;
+      }
+      j.a(new Void[0]);
       return;
     }
+    j.f(new Void[0]);
   }
   
-  public void b(List<? extends FeedEntry> paramList)
+  protected void b(View paramView)
   {
-    d = new ArrayList();
-    c.clear();
-    a(paramList);
+    B.removeView(paramView);
   }
   
-  protected boolean c()
+  public void b(FeedType paramFeedType)
   {
-    return true;
-  }
-  
-  public aq d()
-  {
-    return c;
-  }
-  
-  public void e()
-  {
-    Object localObject = c.c().entrySet().iterator();
-    int i2;
-    for (int i1 = 0; ((Iterator)localObject).hasNext(); i1 = i2 + i1)
+    switch (FeedFragment.5.a[paramFeedType.ordinal()])
     {
-      Map.Entry localEntry = (Map.Entry)((Iterator)localObject).next();
-      i2 = ((at)localEntry.getValue()).a();
-      ((at)localEntry.getValue()).b();
-    }
-    if (i1 > 0)
-    {
-      localObject = new HashMap();
-      ((Map)localObject).put("seen_item_count", Integer.valueOf(i1));
-      ((Map)localObject).put("total_media_count", Integer.valueOf(r().getCount()));
-      if (getView() == null) {
-        break label173;
+    default: 
+      B.removeView(o);
+      m().removeHeaderView(o);
+      if (E != null) {
+        E.setPadding(0, 0, 0, 0);
       }
-      ((Map)localObject).put("user_did_scroll", Boolean.valueOf(m().h()));
-      m().i();
-    }
-    for (;;)
-    {
-      AppData.a(FeedEventIriType.FEED_SEEN.getFeedEventIriByFeedType(b), (Map)localObject);
-      return;
-      label173:
-      ((Map)localObject).put("user_did_scroll", Boolean.valueOf(e));
-    }
-  }
-  
-  public void onActivityCreated(Bundle paramBundle)
-  {
-    super.onActivityCreated(paramBundle);
-    if (Build.VERSION.SDK_INT >= 16)
-    {
-      m().setBackground(null);
-      d = new ArrayList();
-      if (paramBundle != null)
-      {
-        ArrayList localArrayList = paramBundle.getParcelableArrayList("all_entries");
-        b = ((FeedType)paramBundle.getSerializable("feed_type"));
-        e = paramBundle.getBoolean("has_user_scrolled");
-        d.addAll(localArrayList);
-        b(d.size());
-      }
-      g();
-      p = h.a(this);
-      a(FeedType.FRIEND);
-      if (d.size() != 0) {
-        break label224;
-      }
-      a_();
-    }
-    for (;;)
-    {
-      int i1 = cp.a(getActivity(), 2130772042);
-      m().setDividerHeight(0);
-      m().setClipToPadding(false);
-      m().setPadding(0, 0, 0, i1);
-      m().setRecyclerListener(y);
-      m().setBackgroundColor(getResources().getColor(2131361878));
-      a(getLayoutInflater(paramBundle));
-      if (paramBundle != null) {
-        n = paramBundle.getString("next_page_index");
-      }
-      return;
-      m().setBackgroundDrawable(null);
       break;
-      label224:
-      b(d);
     }
+    do
+    {
+      return;
+    } while ((AppData.b().q().p() == null) || (m().getHeaderViewsCount() != 0) || (y.a(paramFeedType) == null));
+    m().addHeaderView(o);
+  }
+  
+  public void h()
+  {
+    if (s) {}
+    while ((AppData.b().q().p() == null) || (c != FeedType.MAIN)) {
+      return;
+    }
+    if ((l != null) && (l.u())) {
+      YelpLog.remoteError("FeedFragment", "Trying to create a second request for inline alerts!");
+    }
+    A.a();
+    l = new ez(L);
+    l.f(new Void[0]);
+    s = true;
   }
   
   public void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
-    if (paramInt2 == -1) {
-      switch (paramInt1)
-      {
-      }
-    }
-    for (;;)
+    super.onActivityResult(paramInt1, paramInt2, paramIntent);
+    switch (paramInt1)
     {
-      super.onActivityResult(paramInt1, paramInt2, paramIntent);
+    default: 
       return;
-      YelpActivity.IntentData.popData();
-      continue;
-      YelpBusinessReview localYelpBusinessReview = ActivityReviewPager.a(paramIntent);
-      if (localYelpBusinessReview != null) {
-        c.a(localYelpBusinessReview.getId(), ReviewFeedEntry.getFeedUpdate(localYelpBusinessReview));
-      }
     }
+    A.a();
   }
   
-  public void onDetach()
+  public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle)
   {
-    super.onDetach();
-    b(g);
-    b(h);
-    b(i);
-    b(j);
+    paramLayoutInflater = (ViewGroup)paramLayoutInflater.inflate(2130903237, paramViewGroup, false);
+    if (g())
+    {
+      paramViewGroup = paramLayoutInflater.findViewById(2131690242);
+      i = new FeedFragment.1(this, paramViewGroup.getContext());
+      a(paramLayoutInflater, paramViewGroup, paramBundle);
+    }
+    return paramLayoutInflater;
   }
   
   public void onPause()
   {
     super.onPause();
-    e = m().h();
-    a("feed", g);
-    a("user", h);
-    a("review_vote", i);
-    a("tip_feedback", j);
+    a("feed", j);
+    a("user", k);
+    a("user_info", m);
+    a("alert", l);
+    u();
+  }
+  
+  public void onRequestPermissionsResult(int paramInt, String[] paramArrayOfString, int[] paramArrayOfInt)
+  {
+    if (250 == paramInt)
+    {
+      paramArrayOfString = k.a(paramArrayOfString, paramArrayOfInt);
+      if ((paramArrayOfString.containsKey(PermissionGroup.LOCATION)) && (((Boolean)paramArrayOfString.get(PermissionGroup.LOCATION)).booleanValue()))
+      {
+        AppData.b().F();
+        o();
+        p_();
+        h();
+      }
+      return;
+    }
+    super.onRequestPermissionsResult(paramInt, paramArrayOfString, paramArrayOfInt);
   }
   
   public void onResume()
   {
     super.onResume();
-    a("feed", g, s);
-    a("user", h, x);
-    a("review_vote", i, q);
-    a("tip_feedback", j, r);
-    f();
+    j = ((bx)a("feed", j, G));
+    k = ((fn)a("user", k, J));
+    m = ((fn)a("user_info", m, K));
+    l = ((ez)a("alert", l, L));
+    t();
+    User localUser = AppData.b().q().p();
+    if ((z.getVisibility() == 8) && (localUser != null))
+    {
+      a.clear();
+      p_();
+      h();
+    }
+    a(localUser);
   }
   
   public void onSaveInstanceState(Bundle paramBundle)
   {
     super.onSaveInstanceState(paramBundle);
-    paramBundle.putParcelableArrayList("all_entries", d);
-    paramBundle.putSerializable("feed_type", b);
-    paramBundle.putBoolean("has_user_scrolled", e);
-    paramBundle.putString("next_page_index", n);
+    y.a(paramBundle);
+    paramBundle.putBoolean("requesting_feeds", r);
+    paramBundle.putBoolean("requesting_inline_alerts", s);
+    paramBundle.putInt("inline_alert_count", D);
+    paramBundle.putParcelableArrayList("inline_alerts_list", C);
+  }
+  
+  @SuppressLint({"InflateParams"})
+  public void onViewCreated(View paramView, Bundle paramBundle)
+  {
+    super.onViewCreated(paramView, paramBundle);
+    int i = getResources().getDimensionPixelOffset(2131361961);
+    m().setDividerHeight(0);
+    m().setItemsCanFocus(true);
+    m().setClipToPadding(false);
+    m().setPadding(0, 0, 0, i);
+    f(paramView);
+    i();
+    B = ((ViewGroup)getView().findViewById(2131690242));
+    n = new ArrayList();
+    if (paramBundle != null)
+    {
+      y = b.a(paramBundle, g, f, d);
+      r = paramBundle.getBoolean("requesting_feeds");
+      s = paramBundle.getBoolean("requesting_inline_alerts");
+      D = paramBundle.getInt("inline_alert_count");
+      C = paramBundle.getParcelableArrayList("inline_alerts_list");
+      if (!s) {
+        A.a(C, D, getContext());
+      }
+      a(AppData.b().q().p());
+      if (c != null) {
+        break label335;
+      }
+      b(FeedType.MAIN);
+      a(FeedType.MAIN);
+    }
+    for (;;)
+    {
+      if ((AppData.b().q().b()) && (!AppData.b().q().d()) && (e.t.a(TwoBucketExperiment.Cohort.enabled)))
+      {
+        paramView = (FrameLayout)getActivity().getLayoutInflater().inflate(2130903065, null);
+        ((MessageAlertBox)paramView.findViewById(2131689679)).setOnClickListener(new FeedFragment.6(this));
+        AppData.a(ViewIri.ConfirmEmailBanner, "source", "activity_feed");
+        m().addHeaderView(paramView);
+      }
+      if (paramBundle == null) {
+        h();
+      }
+      return;
+      y = new b();
+      break;
+      label335:
+      switch (FeedFragment.5.a[c.ordinal()])
+      {
+      default: 
+        break;
+      case 1: 
+        if (t.f())
+        {
+          b(FeedType.MAIN);
+          a(FeedType.MAIN);
+        }
+        else
+        {
+          t.e();
+        }
+        break;
+      case 2: 
+        v.e();
+        break;
+      case 3: 
+        u.e();
+        break;
+      case 4: 
+        w.e();
+        break;
+      case 5: 
+        x.e();
+      }
+    }
+  }
+  
+  public void p_()
+  {
+    z();
+    if (a.getCount() == 0) {
+      a(null);
+    }
+    q = true;
+    b();
+  }
+  
+  protected PanelLoading y_()
+  {
+    PanelLoading localPanelLoading = super.y_();
+    localPanelLoading.setBackgroundResource(2131624079);
+    return localPanelLoading;
   }
 }
 

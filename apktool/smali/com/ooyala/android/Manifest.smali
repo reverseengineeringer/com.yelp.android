@@ -3,6 +3,14 @@
 .source "Manifest.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/Manifest$permission;
+    }
+.end annotation
+
+
 # direct methods
 .method public constructor <init>()V
     .locals 0

@@ -1,65 +1,126 @@
-.class final Lcom/yelp/android/services/e;
+.class public Lcom/yelp/android/services/e;
 .super Ljava/lang/Object;
-.source "HttpRequestWrapped.java"
+.source "SharingUtilities.java"
 
-# interfaces
-.implements Lorg/apache/http/client/HttpRequestRetryHandler;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/services/e$b;,
+        Lcom/yelp/android/services/e$a;
+    }
+.end annotation
+
+
+# static fields
+.field private static final a:[Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method static constructor <clinit>()V
+    .locals 3
 
     .prologue
-    .line 135
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    .line 19
+    const/4 v0, 0x7
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string/jumbo v2, "com.android.mms"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const-string/jumbo v2, "com.whatsapp"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
+
+    const-string/jumbo v2, "com.google.android.talk"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x3
+
+    const-string/jumbo v2, "com.facebook.katana"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x4
+
+    const-string/jumbo v2, "com.google.android.gm"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x5
+
+    const-string/jumbo v2, "com.google.android.apps.docs"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string/jumbo v2, "com.yelp.android"
+
+    aput-object v2, v0, v1
+
+    sput-object v0, Lcom/yelp/android/services/e;->a:[Ljava/lang/String;
 
     return-void
 .end method
 
-
-# virtual methods
-.method public retryRequest(Ljava/io/IOException;ILorg/apache/http/protocol/HttpContext;)Z
-    .locals 4
+.method public static a(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
 
     .prologue
-    const/4 v3, 0x2
+    .line 30
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x0
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v0, 0x1
+    const-string/jumbo v1, "<a href=\""
 
-    .line 140
-    if-nez p1, :cond_1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move v0, v1
+    move-result-object v0
 
-    .line 147
-    :cond_0
-    :goto_0
-    return v0
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 142
-    :cond_1
-    instance-of v2, p1, Ljava/net/SocketException;
+    move-result-object v0
 
-    if-eqz v2, :cond_2
+    const-string/jumbo v1, "?ref=yelp-android\">"
 
-    if-lt p2, v3, :cond_0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 144
-    :cond_2
-    instance-of v2, p1, Lorg/apache/http/NoHttpResponseException;
+    move-result-object v0
 
-    if-eqz v2, :cond_3
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-lt p2, v3, :cond_0
+    move-result-object v0
 
-    .line 147
-    :cond_3
-    if-eqz p2, :cond_0
+    const-string/jumbo v1, "</a>"
 
-    move v0, v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic a()[Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 15
+    sget-object v0, Lcom/yelp/android/services/e;->a:[Ljava/lang/String;
+
+    return-object v0
 .end method

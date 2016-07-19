@@ -1,41 +1,41 @@
 package com.google.android.gms.common.api;
 
 class Batch$1
-  implements PendingResult.a
+  implements PendingResult.zza
 {
   Batch$1(Batch paramBatch) {}
   
-  public void m(Status paramStatus)
+  public void zzu(Status paramStatus)
   {
     for (;;)
     {
-      synchronized (Batch.a(JD))
+      synchronized (Batch.zza(zzagd))
       {
-        if (JD.isCanceled()) {
+        if (zzagd.isCanceled()) {
           return;
         }
         if (paramStatus.isCanceled())
         {
-          Batch.a(JD, true);
-          Batch.b(JD);
-          if (Batch.c(JD) == 0)
+          Batch.zza(zzagd, true);
+          Batch.zzb(zzagd);
+          if (Batch.zzc(zzagd) == 0)
           {
-            if (!Batch.d(JD)) {
+            if (!Batch.zzd(zzagd)) {
               break;
             }
-            Batch.e(JD);
+            Batch.zze(zzagd);
           }
           return;
         }
       }
       if (!paramStatus.isSuccess()) {
-        Batch.b(JD, true);
+        Batch.zzb(zzagd, true);
       }
     }
-    if (Batch.f(JD)) {}
-    for (paramStatus = new Status(13);; paramStatus = Status.Kw)
+    if (Batch.zzf(zzagd)) {}
+    for (paramStatus = new Status(13);; paramStatus = Status.zzagC)
     {
-      JD.b(new BatchResult(paramStatus, Batch.g(JD)));
+      zzagd.zza(new BatchResult(paramStatus, Batch.zzg(zzagd)));
       break;
     }
   }

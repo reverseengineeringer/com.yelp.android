@@ -5,7 +5,7 @@ import com.yelp.parcelgen.JsonParser.DualCreator;
 public class YelpDetailedAddress
   extends _YelpDetailedAddress
 {
-  public static final JsonParser.DualCreator<YelpDetailedAddress> CREATOR = new el();
+  public static final JsonParser.DualCreator<YelpDetailedAddress> CREATOR = new YelpDetailedAddress.1();
   
   public YelpDetailedAddress() {}
   

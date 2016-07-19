@@ -1,57 +1,83 @@
 package com.google.android.gms.internal;
 
-import android.os.Parcel;
-import android.os.Parcelable.Creator;
-import com.google.android.gms.common.internal.safeparcel.a;
-import com.google.android.gms.common.internal.safeparcel.a.a;
-import com.google.android.gms.common.internal.safeparcel.b;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application;
+import android.app.Application.ActivityLifecycleCallbacks;
+import android.content.Context;
+import android.os.Bundle;
 
+@fv
+@TargetApi(14)
 public class z
-  implements Parcelable.Creator<y>
+  implements Application.ActivityLifecycleCallbacks
 {
-  static void a(y paramy, Parcel paramParcel, int paramInt)
+  private Activity a;
+  private Context b;
+  private final Object c = new Object();
+  
+  public z(Application paramApplication, Activity paramActivity)
   {
-    paramInt = b.H(paramParcel);
-    b.c(paramParcel, 1, versionCode);
-    b.a(paramParcel, 2, mi);
-    b.a(paramParcel, 3, ms);
-    b.H(paramParcel, paramInt);
+    paramApplication.registerActivityLifecycleCallbacks(this);
+    a(paramActivity);
+    b = paramApplication.getApplicationContext();
   }
   
-  public y a(Parcel paramParcel)
+  private void a(Activity paramActivity)
   {
-    boolean bool2 = false;
-    int j = a.G(paramParcel);
-    boolean bool1 = false;
-    int i = 0;
-    while (paramParcel.dataPosition() < j)
+    synchronized (c)
     {
-      int k = a.F(paramParcel);
-      switch (a.aH(k))
-      {
-      default: 
-        a.b(paramParcel, k);
-        break;
-      case 1: 
-        i = a.g(paramParcel, k);
-        break;
-      case 2: 
-        bool1 = a.c(paramParcel, k);
-        break;
-      case 3: 
-        bool2 = a.c(paramParcel, k);
+      if (!paramActivity.getClass().getName().startsWith("com.google.android.gms.ads")) {
+        a = paramActivity;
       }
+      return;
     }
-    if (paramParcel.dataPosition() != j) {
-      throw new a.a("Overread allowed size end=" + j, paramParcel);
-    }
-    return new y(i, bool1, bool2);
   }
   
-  public y[] b(int paramInt)
+  public Activity a()
   {
-    return new y[paramInt];
+    return a;
   }
+  
+  public Context b()
+  {
+    return b;
+  }
+  
+  public void onActivityCreated(Activity paramActivity, Bundle paramBundle) {}
+  
+  public void onActivityDestroyed(Activity paramActivity)
+  {
+    synchronized (c)
+    {
+      if (a == null) {
+        return;
+      }
+      if (a.equals(paramActivity)) {
+        a = null;
+      }
+      return;
+    }
+  }
+  
+  public void onActivityPaused(Activity paramActivity)
+  {
+    a(paramActivity);
+  }
+  
+  public void onActivityResumed(Activity paramActivity)
+  {
+    a(paramActivity);
+  }
+  
+  public void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
+  
+  public void onActivityStarted(Activity paramActivity)
+  {
+    a(paramActivity);
+  }
+  
+  public void onActivityStopped(Activity paramActivity) {}
 }
 
 /* Location:

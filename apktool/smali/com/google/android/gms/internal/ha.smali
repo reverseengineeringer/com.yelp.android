@@ -1,153 +1,43 @@
 .class public Lcom/google/android/gms/internal/ha;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Landroid/os/Parcelable;
+.super Landroid/os/Handler;
 
 
-# static fields
-.field public static final CREATOR:Landroid/os/Parcelable$Creator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/os/Parcelable$Creator",
-            "<",
-            "Lcom/google/android/gms/internal/ha;",
-            ">;"
-        }
-    .end annotation
-
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
-
-
-# instance fields
-.field private CE:Ljava/lang/String;
-
-.field private CF:Ljava/lang/String;
-
-.field private mValue:Ljava/lang/String;
+# annotations
+.annotation runtime Lcom/google/android/gms/internal/fv;
+.end annotation
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/google/android/gms/internal/ha$1;
-
-    invoke-direct {v0}, Lcom/google/android/gms/internal/ha$1;-><init>()V
-
-    sput-object v0, Lcom/google/android/gms/internal/ha;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/os/Parcel;)V
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    invoke-direct {p0, p1}, Lcom/google/android/gms/internal/ha;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/os/Looper;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/google/android/gms/internal/ha;->CE:Ljava/lang/String;
-
-    iput-object p2, p0, Lcom/google/android/gms/internal/ha;->CF:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/google/android/gms/internal/ha;->mValue:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method private readFromParcel(Landroid/os/Parcel;)V
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ha;->CE:Ljava/lang/String;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ha;->CF:Ljava/lang/String;
-
-    invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/google/android/gms/internal/ha;->mValue:Ljava/lang/String;
+    invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 3
 
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public getId()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ha;->CE:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getValue()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ha;->mValue:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ha;->CE:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ha;->CF:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/google/android/gms/internal/ha;->mValue:Ljava/lang/String;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
+    :try_start_0
+    invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     return-void
+
+    :catch_0
+    move-exception v0
+
+    invoke-static {}, Lcom/google/android/gms/ads/internal/s;->h()Lcom/google/android/gms/internal/gt;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v0, v2}, Lcom/google/android/gms/internal/gt;->a(Ljava/lang/Throwable;Z)V
+
+    throw v0
 .end method

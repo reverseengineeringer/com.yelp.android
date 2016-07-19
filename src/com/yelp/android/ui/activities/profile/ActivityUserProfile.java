@@ -1,5 +1,6 @@
 package com.yelp.android.ui.activities.profile;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -8,30 +9,38 @@ import android.content.UriMatcher;
 import android.net.Uri;
 import android.net.Uri.Builder;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.l;
+import android.support.v4.app.o;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.o;
+import com.yelp.android.analytics.n;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.gw;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.av.a;
+import com.yelp.android.appdata.StateBroadcastReceiver;
+import com.yelp.android.appdata.StateBroadcastReceiver.a;
+import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
+import com.yelp.android.appdata.webrequests.YelpException;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.core.MetricsManager;
+import com.yelp.android.appdata.webrequests.fk.a;
+import com.yelp.android.serializable.Compliment;
+import com.yelp.android.serializable.FriendRequest;
+import com.yelp.android.serializable.Photo;
 import com.yelp.android.serializable.User;
 import com.yelp.android.services.push.Notifier;
 import com.yelp.android.services.push.Notifier.NotificationType;
 import com.yelp.android.ui.activities.friends.SendFriendRequestForm;
 import com.yelp.android.ui.activities.support.YelpActivity;
 import com.yelp.android.ui.activities.support.YelpActivity.IntentData;
+import com.yelp.android.ui.dialogs.AlertDialogFragment;
 import com.yelp.android.ui.dialogs.DlgAddPhotoCaption;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.util.as;
 import com.yelp.android.util.ObjectDirtyEvent;
 import com.yelp.android.util.YelpLog;
 import java.util.Set;
 
 public class ActivityUserProfile
   extends YelpActivity
-  implements z
+  implements UserProfileFragment.b
 {
   private static UriMatcher a = new UriMatcher(-1);
   private String b;
@@ -39,9 +48,53 @@ public class ActivityUserProfile
   private boolean d;
   private User e;
   private Intent f;
-  private UserProfileFragment g;
-  private final BroadcastReceiver h = new g(this);
-  private final m<gw> i = new h(this);
+  private StateBroadcastReceiver g;
+  private UserProfileFragment h;
+  private final StateBroadcastReceiver.a i = new StateBroadcastReceiver.a()
+  {
+    public void a(Context paramAnonymousContext) {}
+    
+    public void b(Context paramAnonymousContext)
+    {
+      c().B_();
+    }
+  };
+  private final BroadcastReceiver j = new BroadcastReceiver()
+  {
+    public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+    {
+      if ("android.intent.action.EDIT".equals(paramAnonymousIntent.getAction()))
+      {
+        paramAnonymousContext = ActivityUserProfile.a.a(paramAnonymousIntent);
+        if (ActivityUserProfile.a(ActivityUserProfile.this) != null) {
+          ActivityUserProfile.a(ActivityUserProfile.this).a(paramAnonymousContext);
+        }
+      }
+      do
+      {
+        return;
+        if ("com.yelp.android.offer_redeemed".equals(paramAnonymousIntent.getAction()))
+        {
+          ActivityUserProfile.a(ActivityUserProfile.this).i();
+          return;
+        }
+      } while (!"REFRESH_USER_ACTION".equals(paramAnonymousIntent.getAction()));
+      ActivityUserProfile.a(ActivityUserProfile.this).i();
+    }
+  };
+  private final ApiRequest.b<fk.a> k = new ApiRequest.b()
+  {
+    public void a(ApiRequest<?, ?, ?> paramAnonymousApiRequest, fk.a paramAnonymousa)
+    {
+      ActivityUserProfile.a(ActivityUserProfile.this).i();
+      hideLoadingDialog();
+    }
+    
+    public void onError(ApiRequest<?, ?, ?> paramAnonymousApiRequest, YelpException paramAnonymousYelpException)
+    {
+      ActivityUserProfile.this.onError(paramAnonymousApiRequest, paramAnonymousYelpException);
+    }
+  };
   
   static
   {
@@ -52,6 +105,7 @@ public class ActivityUserProfile
   public static Intent a()
   {
     Intent localIntent = new Intent();
+    localIntent.setClassName(ActivityUserProfile.class.getPackage().getName(), ActivityUserProfile.class.getName());
     localIntent.addCategory("user");
     localIntent.setAction("REFRESH_USER_ACTION");
     return localIntent;
@@ -67,20 +121,20 @@ public class ActivityUserProfile
   public static Intent a(Context paramContext, User paramUser)
   {
     Intent localIntent = new Intent(paramContext, ActivityUserProfile.class);
-    if (paramUser.isFullUser())
+    if (paramUser.n())
     {
       localIntent.putExtra("user", paramUser);
-      localIntent.putExtra("about_me", AppData.b().m().a(paramUser));
+      localIntent.putExtra("about_me", AppData.b().q().a(paramUser));
       return localIntent;
     }
-    return a(paramContext, paramUser.getId());
+    return a(paramContext, paramUser.ae());
   }
   
   public static Intent a(Context paramContext, String paramString)
   {
     paramContext = new Intent(paramContext, ActivityUserProfile.class);
     paramContext.putExtra("user_id", paramString);
-    paramContext.putExtra("about_me", AppData.b().m().a(paramString));
+    paramContext.putExtra("about_me", AppData.b().q().a(paramString));
     return paramContext;
   }
   
@@ -115,7 +169,7 @@ public class ActivityUserProfile
       YelpLog.e(this, String.format("Unknown user requested by uri, URI=[%s], Authority=[%s], Path=[%s] ", new Object[] { localUri1, localUri1.getAuthority(), localUri1.getPath() }));
       finish();
       if ((localNotificationType != null) && ((paramIntent.getCategories() == null) || (!paramIntent.getCategories().contains("android.intent.category.BROWSABLE")))) {
-        switch (i.a[localNotificationType.ordinal()])
+        switch (5.a[localNotificationType.ordinal()])
         {
         default: 
           YelpLog.i(this, "Have no clue what to do with this:" + localUri1);
@@ -135,42 +189,47 @@ public class ActivityUserProfile
       continue;
       c = str;
       continue;
-      c();
-      b = AppData.b().m().b();
+      d();
+      b = AppData.b().q().a();
     }
-  }
-  
-  private void c()
-  {
-    d = true;
-    d();
-    setTitle(2131166159);
   }
   
   private void d()
   {
+    d = true;
+    e();
+    setTitle(2131166209);
+  }
+  
+  private void e()
+  {
     IntentFilter localIntentFilter = new IntentFilter("android.intent.action.EDIT");
     localIntentFilter.addCategory("user");
-    registerReceiver(h, localIntentFilter);
+    registerReceiver(j, localIntentFilter);
     localIntentFilter = new IntentFilter("REFRESH_USER_ACTION");
     localIntentFilter.addCategory("user");
-    registerReceiver(h, localIntentFilter);
-    registerReceiver(h, new IntentFilter("com.yelp.android.offer_redeemed"));
+    registerReceiver(j, localIntentFilter);
+    registerReceiver(j, new IntentFilter("com.yelp.android.offer_redeemed"));
   }
   
   public void a(User paramUser)
   {
-    if (AppData.b().m().a(paramUser))
+    if (AppData.b().q().a(paramUser))
     {
-      setTitle(2131166159);
+      setTitle(2131166209);
       return;
     }
-    setTitle(paramUser.getName());
+    setTitle(paramUser.ad());
   }
   
   public boolean b()
   {
     return d;
+  }
+  
+  public UserProfileFragment c()
+  {
+    return h;
   }
   
   public ViewIri getIri()
@@ -181,6 +240,7 @@ public class ActivityUserProfile
   protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
   {
     super.onActivityResult(paramInt1, paramInt2, paramIntent);
+    h.onActivityResult(paramInt1, paramInt2, paramIntent);
     switch (paramInt1)
     {
     }
@@ -190,24 +250,45 @@ public class ActivityUserProfile
       {
         do
         {
+          do
+          {
+            return;
+          } while ((paramInt2 != -1) || (paramIntent == null));
+          e = SendFriendRequestForm.a(paramIntent);
+          h.b(e);
           return;
-        } while ((paramInt2 != -1) || (paramIntent == null));
-        e = SendFriendRequestForm.a(paramIntent);
-        g.b(e);
+          if (paramInt2 == -1)
+          {
+            f = paramIntent;
+            return;
+          }
+        } while (paramInt2 != 4);
+        as.a(getText(2131166342), 1);
         return;
-        if (paramInt2 == -1)
-        {
-          f = paramIntent;
-          return;
-        }
-      } while (paramInt2 != 4);
-      cr.a(getText(2131166312), 1);
-      return;
-      YelpActivity.IntentData.popData();
-    } while ((paramInt2 != -1) || (!paramIntent.getBooleanExtra("photo_added", false)));
-    startActivity(MoreAboutUser.a(this, e));
+        YelpActivity.IntentData.popData();
+      } while (paramInt2 != -1);
+      if (paramIntent.getBooleanExtra("extra.photo_added", false))
+      {
+        startActivity(MoreAboutUser.a(this, e));
+        return;
+      }
+      if (paramIntent.getBooleanExtra("extra.photo_deleted", false))
+      {
+        h.i();
+        return;
+      }
+    } while (!paramIntent.getBooleanExtra("extra.photo_set_primary", false));
+    h.i();
+    AlertDialogFragment.a(null, getString(2131166633)).show(getSupportFragmentManager(), null);
   }
   
+  public void onBackPressed()
+  {
+    c().B_();
+    super.onBackPressed();
+  }
+  
+  @SuppressLint({"CommitTransaction"})
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
@@ -221,7 +302,7 @@ public class ActivityUserProfile
       Uri localUri = paramBundle.getData();
       if (localUri != null)
       {
-        AppData.b().k().a(new o(localUri));
+        AppData.b().k().a(new n(localUri));
         a(paramBundle);
       }
       if ((c == null) && (b == null) && (!d))
@@ -231,29 +312,40 @@ public class ActivityUserProfile
         return;
       }
     }
-    paramBundle = (UserProfileFragment)getSupportFragmentManager().findFragmentByTag("user_profile");
-    g = paramBundle;
+    paramBundle = (UserProfileFragment)getSupportFragmentManager().a("user_profile");
+    h = paramBundle;
     if (paramBundle == null)
     {
       if ((e != null) || (!d)) {
-        break label247;
+        break label259;
       }
-      e = AppData.b().m().s();
-      g = UserProfileFragment.a(e);
+      e = AppData.b().q().p();
+      h = UserProfileFragment.a(e);
     }
     for (;;)
     {
-      getSupportFragmentManager().beginTransaction().add(2131493332, g, "user_profile").commit();
+      getSupportFragmentManager().a().a(2131689997, h, "user_profile").a();
       if (d) {
-        d();
+        e();
       }
-      registerDirtyEventReceiver("com.yelp.android.messages.read", new f(this));
+      g = StateBroadcastReceiver.a(this, i);
+      registerDirtyEventReceiver("com.yelp.android.messages.read", new BroadcastReceiver()
+      {
+        public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+        {
+          if (ActivityUserProfile.a(ActivityUserProfile.this) != null)
+          {
+            int i = ObjectDirtyEvent.b(paramAnonymousIntent);
+            ActivityUserProfile.a(ActivityUserProfile.this).a(i);
+          }
+        }
+      });
       return;
-      label247:
+      label259:
       if ((!d) && (e == null)) {
-        g = UserProfileFragment.a(b, c);
+        h = UserProfileFragment.a(b, c);
       } else {
-        g = UserProfileFragment.a(e);
+        h = UserProfileFragment.a(e);
       }
     }
   }
@@ -262,8 +354,15 @@ public class ActivityUserProfile
   {
     super.onDestroy();
     if (d) {
-      unregisterReceiver(h);
+      unregisterReceiver(j);
     }
+    unregisterReceiver(g);
+  }
+  
+  public void onDrawerItemSelected(Intent paramIntent, String paramString)
+  {
+    c().B_();
+    super.onDrawerItemSelected(paramIntent, paramString);
   }
   
   protected void onPostResume()
@@ -272,10 +371,43 @@ public class ActivityUserProfile
     if (f != null)
     {
       DlgAddPhotoCaption localDlgAddPhotoCaption = DlgAddPhotoCaption.a(f);
-      localDlgAddPhotoCaption.a(i, this, true);
-      localDlgAddPhotoCaption.show(getSupportFragmentManager().beginTransaction(), "dialog_add_photo");
+      localDlgAddPhotoCaption.a(k, this, true);
+      localDlgAddPhotoCaption.show(getSupportFragmentManager().a(), "dialog_add_photo");
     }
     f = null;
+  }
+  
+  public static final class a
+  {
+    public Compliment a;
+    public int b;
+    public FriendRequest c;
+    public int d;
+    public Photo e;
+    
+    public static final a a(Intent paramIntent)
+    {
+      a locala = new a();
+      b = paramIntent.getIntExtra("user_compliments_count_delta", 0);
+      a = ((Compliment)paramIntent.getParcelableExtra("dealt_with_compliment_request"));
+      d = paramIntent.getIntExtra("user_friend_count_delta", 0);
+      c = ((FriendRequest)paramIntent.getParcelableExtra("dealt_with_friend_request"));
+      e = ((Photo)paramIntent.getParcelableExtra("user_photo"));
+      return locala;
+    }
+    
+    public void a(Context paramContext)
+    {
+      Intent localIntent = new Intent("android.intent.action.EDIT");
+      localIntent.addCategory("user");
+      localIntent.putExtra("dealt_with_compliment_request", a);
+      localIntent.putExtra("user_compliments_count_delta", b);
+      localIntent.putExtra("user_friend_count_delta", d);
+      localIntent.putExtra("dealt_with_friend_request", c);
+      localIntent.putExtra("user_photo", e);
+      localIntent.setPackage(paramContext.getPackageName());
+      paramContext.sendBroadcast(localIntent);
+    }
   }
 }
 

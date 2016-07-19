@@ -1,57 +1,64 @@
 package com.yelp.android.appdata.webrequests;
 
-import android.text.TextUtils;
-import com.yelp.android.appdata.LocationService.Accuracies;
-import com.yelp.android.appdata.LocationService.AccuracyUnit;
-import com.yelp.android.appdata.LocationService.Recentness;
-import com.yelp.android.serializable.FeedEntry;
-import com.yelp.android.ui.activities.feed.FeedItemType;
-import com.yelp.android.ui.activities.feed.FeedRequestResult;
-import com.yelp.android.ui.activities.feed.FeedType;
-import java.util.ArrayList;
-import org.json.JSONObject;
+import com.yelp.android.serializable.YelpBusiness;
+import com.yelp.android.util.j;
+import com.yelp.android.util.j.a;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
 
 public class ce
-  extends h<Void, Void, FeedRequestResult>
+  extends ah
 {
-  private final FeedType a;
+  private String g;
   
-  public ce(String paramString, FeedType paramFeedType, j<FeedRequestResult> paramj)
+  public ce(YelpBusiness paramYelpBusiness, boolean paramBoolean1, String paramString, boolean paramBoolean2)
   {
-    this(paramString, paramFeedType, paramj, null);
+    super(null, paramYelpBusiness, paramBoolean1, paramBoolean2);
+    g = paramString;
+    a.add("open_hours_image");
   }
   
-  public ce(String paramString1, FeedType paramFeedType, j<FeedRequestResult> paramj, String paramString2)
+  public ce(String paramString)
   {
-    super(ApiRequest.RequestType.GET, "feed/" + url, LocationService.Accuracies.MEDIUM_KM, LocationService.Recentness.MINUTE_15, paramj, LocationService.AccuracyUnit.MILES);
-    if (paramString1 != null) {
-      addUrlParam("user_id", paramString1);
-    }
-    addUrlParam("feed_item_types", TextUtils.join(",", FeedItemType.values()));
-    if (paramString2 != null) {
-      addUrlParam("next_page_offset", paramString2);
-    }
-    a = paramFeedType;
+    g = paramString;
   }
   
-  public FeedRequestResult a(JSONObject paramJSONObject)
+  protected HttpEntity a()
+    throws YelpException
   {
-    Object localObject = paramJSONObject.getJSONObject("message");
-    if (!((JSONObject)localObject).isNull("text"))
+    try
     {
-      boolean bool = "ok".equalsIgnoreCase(((JSONObject)localObject).getString("text"));
-      localObject = a.jsonKey;
-      if ((bool) && (!paramJSONObject.isNull((String)localObject)))
-      {
-        ArrayList localArrayList = FeedEntry.createFeedEntries(paramJSONObject.getJSONArray((String)localObject), this);
-        localObject = null;
-        if (!paramJSONObject.isNull("next_page_offset")) {
-          localObject = paramJSONObject.getString("next_page_offset");
-        }
-        return FeedRequestResult.a(localArrayList, (String)localObject);
-      }
+      Object localObject = new File(g);
+      localObject = new j.a("open_hours_image".getBytes(), "open_hours_image".getBytes(), null, new FileInputStream((File)localObject), ((File)localObject).length());
+      localObject = new j(t(), Collections.singleton(localObject), null);
+      return (HttpEntity)localObject;
     }
-    throw new YelpException(YelpException.YPErrorInvalidData);
+    catch (FileNotFoundException localFileNotFoundException)
+    {
+      throw new YelpException(localFileNotFoundException, YelpException.YPErrorInvalidData);
+    }
+  }
+  
+  public HashMap<String, String> d()
+  {
+    Object localObject = t();
+    HashMap localHashMap = new HashMap();
+    localObject = ((List)localObject).iterator();
+    while (((Iterator)localObject).hasNext())
+    {
+      NameValuePair localNameValuePair = (NameValuePair)((Iterator)localObject).next();
+      localHashMap.put(localNameValuePair.getName(), localNameValuePair.getValue());
+    }
+    localHashMap.put("image_path", g);
+    return localHashMap;
   }
 }
 

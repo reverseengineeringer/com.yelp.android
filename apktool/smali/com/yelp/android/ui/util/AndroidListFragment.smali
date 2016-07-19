@@ -14,9 +14,9 @@
 
 .field private e:Landroid/widget/ListView;
 
-.field private g:Landroid/view/View;
+.field private f:Landroid/view/View;
 
-.field private h:Landroid/widget/TextView;
+.field private g:Landroid/widget/TextView;
 
 .field private i:Landroid/view/View;
 
@@ -32,31 +32,31 @@
     .locals 1
 
     .prologue
-    .line 184
+    .line 186
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;-><init>()V
 
-    .line 158
+    .line 159
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->a:Landroid/os/Handler;
 
-    .line 160
-    new-instance v0, Lcom/yelp/android/ui/util/c;
+    .line 161
+    new-instance v0, Lcom/yelp/android/ui/util/AndroidListFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/util/c;-><init>(Lcom/yelp/android/ui/util/AndroidListFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/util/AndroidListFragment$1;-><init>(Lcom/yelp/android/ui/util/AndroidListFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->b:Ljava/lang/Runnable;
 
-    .line 167
-    new-instance v0, Lcom/yelp/android/ui/util/d;
+    .line 169
+    new-instance v0, Lcom/yelp/android/ui/util/AndroidListFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/util/d;-><init>(Lcom/yelp/android/ui/util/AndroidListFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/util/AndroidListFragment$2;-><init>(Lcom/yelp/android/ui/util/AndroidListFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->c:Landroid/widget/AdapterView$OnItemClickListener;
 
-    .line 185
+    .line 186
     return-void
 .end method
 
@@ -82,15 +82,15 @@
 
     const/4 v2, 0x0
 
-    .line 347
+    .line 346
     invoke-direct {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->b()V
 
-    .line 348
+    .line 347
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     if-nez v0, :cond_0
 
-    .line 349
+    .line 348
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Can\'t be used with a custom content view"
@@ -99,27 +99,27 @@
 
     throw v0
 
-    .line 351
+    .line 350
     :cond_0
     iget-boolean v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->l:Z
 
     if-ne v0, p1, :cond_1
 
-    .line 380
+    .line 379
     :goto_0
     return-void
 
-    .line 354
+    .line 353
     :cond_1
     iput-boolean p1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->l:Z
 
-    .line 355
+    .line 354
     if-eqz p1, :cond_3
 
-    .line 356
+    .line 355
     if-eqz p2, :cond_2
 
-    .line 357
+    .line 356
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -132,7 +132,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 359
+    .line 358
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->j:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -145,37 +145,37 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 365
+    .line 364
     :goto_1
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    .line 366
+    .line 365
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->j:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 362
+    .line 361
     :cond_2
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
 
-    .line 363
+    .line 362
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->j:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
 
     goto :goto_1
 
-    .line 368
+    .line 367
     :cond_3
     if-eqz p2, :cond_4
 
-    .line 369
+    .line 368
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -188,7 +188,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 371
+    .line 370
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->j:Landroid/view/View;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -201,26 +201,26 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 377
+    .line 376
     :goto_2
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 378
+    .line 377
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->j:Landroid/view/View;
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_0
 
-    .line 374
+    .line 373
     :cond_4
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
 
-    .line 375
+    .line 374
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->j:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
@@ -234,25 +234,25 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 390
+    .line 389
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
     if-eqz v0, :cond_0
 
-    .line 442
+    .line 440
     :goto_0
     return-void
 
-    .line 393
+    .line 392
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    .line 394
+    .line 393
     if-nez v0, :cond_1
 
-    .line 395
+    .line 394
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string/jumbo v1, "Content view not yet created"
@@ -261,48 +261,48 @@
 
     throw v0
 
-    .line 397
+    .line 396
     :cond_1
     instance-of v1, v0, Landroid/widget/ListView;
 
     if-eqz v1, :cond_4
 
-    .line 398
+    .line 397
     check-cast v0, Landroid/widget/ListView;
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
-    .line 428
+    .line 426
     :cond_2
     :goto_1
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->l:Z
 
-    .line 429
+    .line 427
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
     iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->c:Landroid/widget/AdapterView$OnItemClickListener;
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    .line 430
+    .line 428
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->d:Landroid/widget/ListAdapter;
 
     if-eqz v0, :cond_9
 
-    .line 431
+    .line 429
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->d:Landroid/widget/ListAdapter;
 
-    .line 432
+    .line 430
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->d:Landroid/widget/ListAdapter;
 
-    .line 433
+    .line 431
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/AndroidListFragment;->a(Landroid/widget/ListAdapter;)V
 
-    .line 441
+    .line 439
     :cond_3
     :goto_2
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->a:Landroid/os/Handler;
@@ -313,9 +313,9 @@
 
     goto :goto_0
 
-    .line 400
+    .line 399
     :cond_4
-    const v1, 0x7f0c0022
+    const v1, 0x7f0f0025
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -323,25 +323,25 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    iput-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->h:Landroid/widget/TextView;
+    iput-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/widget/TextView;
 
-    .line 402
-    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->h:Landroid/widget/TextView;
+    .line 400
+    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/widget/TextView;
 
     if-nez v1, :cond_5
 
-    .line 403
+    .line 401
     const v1, 0x1020004
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/view/View;
+    iput-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->f:Landroid/view/View;
 
-    .line 407
+    .line 405
     :goto_3
-    const v1, 0x7f0c0031
+    const v1, 0x7f0f0038
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -349,8 +349,8 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
-    .line 408
-    const v1, 0x7f0c0027
+    .line 406
+    const v1, 0x7f0f002c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -358,19 +358,19 @@
 
     iput-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->j:Landroid/view/View;
 
-    .line 409
+    .line 407
     const v1, 0x102000a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    .line 410
+    .line 408
     instance-of v1, v0, Landroid/widget/ListView;
 
     if-nez v1, :cond_6
 
-    .line 411
+    .line 409
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Content has view with id attribute \'android.R.id.list\' that is not a ListView class"
@@ -379,9 +379,9 @@
 
     throw v0
 
-    .line 405
+    .line 403
     :cond_5
-    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->h:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/widget/TextView;
 
     const/16 v2, 0x8
 
@@ -389,18 +389,18 @@
 
     goto :goto_3
 
-    .line 415
+    .line 413
     :cond_6
     check-cast v0, Landroid/widget/ListView;
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
-    .line 416
+    .line 414
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
     if-nez v0, :cond_7
 
-    .line 417
+    .line 415
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string/jumbo v1, "Your content must have a ListView whose id attribute is \'android.R.id.list\'"
@@ -409,50 +409,50 @@
 
     throw v0
 
-    .line 421
+    .line 419
     :cond_7
-    iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/view/View;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->f:Landroid/view/View;
 
     if-eqz v0, :cond_8
 
-    .line 422
+    .line 420
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/view/View;
+    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->f:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
 
     goto :goto_1
 
-    .line 423
+    .line 421
     :cond_8
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->k:Ljava/lang/CharSequence;
 
     if-eqz v0, :cond_2
 
-    .line 424
-    iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->h:Landroid/widget/TextView;
+    .line 422
+    iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/widget/TextView;
 
     iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->k:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 425
+    .line 423
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->h:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setEmptyView(Landroid/view/View;)V
 
     goto/16 :goto_1
 
-    .line 437
+    .line 435
     :cond_9
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
     if-eqz v0, :cond_3
 
-    .line 438
+    .line 436
     invoke-direct {p0, v3, v3}, Lcom/yelp/android/ui/util/AndroidListFragment;->a(ZZ)V
 
     goto/16 :goto_2
@@ -468,35 +468,35 @@
 
     const/4 v1, 0x1
 
-    .line 248
+    .line 247
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->d:Landroid/widget/ListAdapter;
 
     if-eqz v0, :cond_2
 
     move v0, v1
 
-    .line 249
+    .line 248
     :goto_0
     iput-object p1, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->d:Landroid/widget/ListAdapter;
 
-    .line 250
+    .line 249
     iget-object v3, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
     if-eqz v3, :cond_1
 
-    .line 251
+    .line 250
     iget-object v3, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
     invoke-virtual {v3, p1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 252
+    .line 251
     iget-boolean v3, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->l:Z
 
     if-nez v3, :cond_1
 
     if-nez v0, :cond_1
 
-    .line 255
+    .line 254
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->getView()Landroid/view/View;
 
     move-result-object v0
@@ -512,14 +512,14 @@
     :cond_0
     invoke-direct {p0, v1, v2}, Lcom/yelp/android/ui/util/AndroidListFragment;->a(ZZ)V
 
-    .line 258
+    .line 257
     :cond_1
     return-void
 
     :cond_2
     move v0, v2
 
-    .line 248
+    .line 247
     goto :goto_0
 .end method
 
@@ -527,7 +527,7 @@
     .locals 0
 
     .prologue
-    .line 242
+    .line 241
     return-void
 .end method
 
@@ -535,15 +535,15 @@
     .locals 1
 
     .prologue
-    .line 265
+    .line 264
     invoke-direct {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->b()V
 
-    .line 266
+    .line 265
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
     invoke-virtual {v0, p1}, Landroid/widget/ListView;->setSelection(I)V
 
-    .line 267
+    .line 266
     return-void
 .end method
 
@@ -551,8 +551,8 @@
     .locals 2
 
     .prologue
-    .line 204
-    const v0, 0x7f0300ae
+    .line 205
+    const v0, 0x7f0300c7
 
     const/4 v1, 0x0
 
@@ -589,10 +589,10 @@
 
     iput-object v2, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->i:Landroid/view/View;
 
-    iput-object v2, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/view/View;
+    iput-object v2, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->f:Landroid/view/View;
 
     .line 226
-    iput-object v2, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->h:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->g:Landroid/widget/TextView;
 
     .line 227
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onDestroyView()V
@@ -615,24 +615,24 @@
     return-void
 .end method
 
-.method public r()Landroid/widget/ListAdapter;
+.method public q()Landroid/widget/ListAdapter;
     .locals 1
 
     .prologue
-    .line 386
+    .line 385
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->d:Landroid/widget/ListAdapter;
 
     return-object v0
 .end method
 
-.method public t()Landroid/widget/ListView;
+.method public s()Landroid/widget/ListView;
     .locals 1
 
     .prologue
-    .line 289
+    .line 288
     invoke-direct {p0}, Lcom/yelp/android/ui/util/AndroidListFragment;->b()V
 
-    .line 290
+    .line 289
     iget-object v0, p0, Lcom/yelp/android/ui/util/AndroidListFragment;->e:Landroid/widget/ListView;
 
     return-object v0

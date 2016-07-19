@@ -10,9 +10,7 @@ class WebViewActivity$2
   
   public void onClick(DialogInterface paramDialogInterface, int paramInt)
   {
-    WebViewActivity.access$300(this$0, false);
-    this$0.setResult(0);
-    this$0.finish();
+    paramDialogInterface.dismiss();
   }
 }
 

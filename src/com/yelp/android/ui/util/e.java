@@ -1,29 +1,64 @@
 package com.yelp.android.ui.util;
 
-import android.content.Context;
-import android.widget.Toast;
+import android.view.View;
+import com.yelp.android.ap.a;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class e
-  implements ci
+  extends a
+  implements g
 {
-  private final Context a;
+  private List<View> a;
   
-  public e(Context paramContext)
+  public e(List<View> paramList)
   {
-    if (paramContext == null) {
-      throw new IllegalArgumentException("Context must not be null");
-    }
-    a = paramContext;
+    super(paramList);
+    a = paramList;
   }
   
-  public void a(int paramInt1, int paramInt2)
+  public e(View... paramVarArgs)
   {
-    Toast.makeText(a, paramInt1, paramInt2).show();
+    this(new ArrayList(Arrays.asList(paramVarArgs)));
   }
   
-  public void a(CharSequence paramCharSequence, int paramInt)
+  public void a(View paramView)
   {
-    Toast.makeText(a, paramCharSequence, paramInt).show();
+    a.remove(paramView);
+    notifyDataSetChanged();
+  }
+  
+  public boolean areAllItemsEnabled()
+  {
+    return true;
+  }
+  
+  public void b(View paramView)
+  {
+    a.add(paramView);
+    notifyDataSetChanged();
+  }
+  
+  public void clear()
+  {
+    a.clear();
+    notifyDataSetChanged();
+  }
+  
+  public int getItemViewType(int paramInt)
+  {
+    return -1;
+  }
+  
+  public int getViewTypeCount()
+  {
+    return 1;
+  }
+  
+  public boolean hasStableIds()
+  {
+    return true;
   }
 }
 

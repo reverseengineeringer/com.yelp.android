@@ -1,38 +1,28 @@
 .class Lcom/yelp/android/d/c;
 .super Ljava/lang/Object;
-.source "ICUCompat.java"
-
-# interfaces
-.implements Lcom/yelp/android/d/b;
+.source "DrawableCompatApi23.java"
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 28
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public a(Ljava/lang/String;)Ljava/lang/String;
+.method public static a(Landroid/graphics/drawable/Drawable;)I
     .locals 1
 
     .prologue
-    .line 31
-    const/4 v0, 0x0
+    .line 30
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getLayoutDirection()I
 
-    return-object v0
+    move-result v0
+
+    return v0
 .end method
 
-.method public b(Ljava/lang/String;)Ljava/lang/String;
+.method public static a(Landroid/graphics/drawable/Drawable;I)V
     .locals 0
 
     .prologue
-    .line 36
-    return-object p1
+    .line 26
+    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)Z
+
+    .line 27
+    return-void
 .end method

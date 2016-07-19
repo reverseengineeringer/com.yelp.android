@@ -1,15 +1,10 @@
 package com.yelp.common.base;
 
-import java.lang.ref.SoftReference;
-
-public abstract class e<T>
-  extends SoftReference<T>
-  implements a
+public final class e
 {
-  protected e(T paramT, FinalizableReferenceQueue paramFinalizableReferenceQueue)
+  public static boolean a(Object paramObject1, Object paramObject2)
   {
-    super(paramT, queue);
-    paramFinalizableReferenceQueue.cleanUp();
+    return (paramObject1 == paramObject2) || ((paramObject1 != null) && (paramObject1.equals(paramObject2)));
   }
 }
 

@@ -1,15 +1,36 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
+import com.yelp.android.serializable.Media;
 
 public class BusinessObjectDeleteRequest
-  extends h
+  extends c
 {
-  public BusinessObjectDeleteRequest(BusinessObjectDeleteRequest.DeletableObject paramDeletableObject, String paramString, i parami)
+  private Media a;
+  
+  public BusinessObjectDeleteRequest(DeletableObject paramDeletableObject, c.a parama, Media paramMedia)
   {
-    super("/business/" + BusinessObjectDeleteRequest.DeletableObject.access$000(paramDeletableObject) + "/delete", parami);
-    addPostParam(BusinessObjectDeleteRequest.DeletableObject.access$000(paramDeletableObject) + "_id", paramString);
+    super("/business/" + mediaType + "/delete", parama);
+    a = paramMedia;
+    b(mediaType + "_id", paramMedia.a());
+  }
+  
+  public Media b()
+  {
+    return a;
+  }
+  
+  public static enum DeletableObject
+  {
+    PHOTO("photo"),  VIDEO("video");
+    
+    private final String mediaType;
+    
+    private DeletableObject(String paramString)
+    {
+      mediaType = paramString;
+    }
   }
 }
 

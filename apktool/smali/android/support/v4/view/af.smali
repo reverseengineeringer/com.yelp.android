@@ -1,28 +1,11 @@
-.class Landroid/support/v4/view/af;
-.super Landroid/support/v4/view/ae;
-.source "LayoutInflaterCompat.java"
-
-
-# direct methods
-.method constructor <init>()V
-    .locals 0
-
-    .prologue
-    .line 39
-    invoke-direct {p0}, Landroid/support/v4/view/ae;-><init>()V
-
-    return-void
-.end method
+.class public interface abstract Landroid/support/v4/view/af;
+.super Ljava/lang/Object;
+.source "TintableBackgroundView.java"
 
 
 # virtual methods
-.method public a(Landroid/view/LayoutInflater;Landroid/support/v4/view/am;)V
-    .locals 0
+.method public abstract setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
+.end method
 
-    .prologue
-    .line 42
-    invoke-static {p1, p2}, Landroid/support/v4/view/aj;->a(Landroid/view/LayoutInflater;Landroid/support/v4/view/am;)V
-
-    .line 43
-    return-void
+.method public abstract setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
 .end method

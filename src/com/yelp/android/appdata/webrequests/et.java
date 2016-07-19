@@ -1,22 +1,26 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
+import com.yelp.android.appdata.LocationService.Accuracies;
+import com.yelp.android.appdata.LocationService.AccuracyUnit;
+import com.yelp.android.appdata.LocationService.Recentness;
+import com.yelp.android.serializable.TrendingSearches;
+import com.yelp.parcelgen.JsonParser.DualCreator;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class et
-  extends g<Void, Void, String>
+  extends k<Void, Void, TrendingSearches>
 {
-  public et(String paramString1, String paramString2, String paramString3, m<String> paramm)
+  public et(k.b<TrendingSearches> paramb)
   {
-    super(ApiRequest.RequestType.POST, "/review/flag", paramm);
-    addPostParam("review_id", paramString1);
-    addPostParam("reason", paramString2);
-    addPostParam("message", paramString3);
+    super(ApiRequest.RequestType.GET, "suggest/trending", LocationService.Accuracies.COARSE, LocationService.Recentness.HOUR, paramb, LocationService.AccuracyUnit.MILES);
+    a("relevant_experiments", "android_trending_searches");
   }
   
-  public String a(JSONObject paramJSONObject)
+  public TrendingSearches a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return paramJSONObject.optString("success_title");
+    return (TrendingSearches)TrendingSearches.CREATOR.parse(paramJSONObject);
   }
 }
 

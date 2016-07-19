@@ -1,12 +1,18 @@
 .class public Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
-.super Lcom/yelp/android/appdata/webrequests/h;
+.super Lcom/yelp/android/appdata/webrequests/k;
 .source "CheckInRankingsRequest.java"
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/appdata/webrequests/h",
+        "Lcom/yelp/android/appdata/webrequests/k",
         "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
@@ -19,16 +25,16 @@
 
 
 # instance fields
-.field public final a:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+.field public final g:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
 
 # direct methods
-.method private constructor <init>(Lcom/yelp/android/appdata/webrequests/j;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)V
+.method private constructor <init>(Lcom/yelp/android/appdata/webrequests/k$b;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)V
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<",
             "Ljava/util/ArrayList",
             "<",
@@ -41,7 +47,7 @@
     .end annotation
 
     .prologue
-    .line 24
+    .line 27
     sget-object v1, Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;->GET:Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;
 
     sget-object v3, Lcom/yelp/android/appdata/LocationService$Accuracies;->MEDIUM_KM:Lcom/yelp/android/appdata/LocationService$Accuracies;
@@ -56,31 +62,31 @@
 
     move-object v5, p1
 
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/h;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/webrequests/j;Lcom/yelp/android/appdata/LocationService$AccuracyUnit;)V
+    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/k;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/webrequests/k$b;Lcom/yelp/android/appdata/LocationService$AccuracyUnit;)V
 
-    .line 26
+    .line 34
     const-string/jumbo v0, "latitude"
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->setLatitudeKey(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->a(Ljava/lang/String;)V
 
-    .line 27
+    .line 35
     const-string/jumbo v0, "longitude"
 
-    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->setLongitudeKey(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->b(Ljava/lang/String;)V
 
-    .line 28
-    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->a:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
+    .line 36
+    iput-object p3, p0, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;->g:Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;
 
-    .line 29
+    .line 37
     return-void
 .end method
 
-.method public static a(Lcom/yelp/android/appdata/webrequests/j;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
+.method public static a(Lcom/yelp/android/appdata/webrequests/k$b;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<",
             "Ljava/util/ArrayList",
             "<",
@@ -93,7 +99,7 @@
     .end annotation
 
     .prologue
-    .line 33
+    .line 41
     const-string/jumbo v0, "check_in/rankings/%s"
 
     const/4 v1, 0x1
@@ -118,10 +124,10 @@
 
     move-result-object v0
 
-    .line 34
+    .line 42
     new-instance v1, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;
 
-    invoke-direct {v1, p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;-><init>(Lcom/yelp/android/appdata/webrequests/j;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)V
+    invoke-direct {v1, p0, v0, p1}, Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest;-><init>(Lcom/yelp/android/appdata/webrequests/k$b;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/CheckInRankingsRequest$SearchMode;)V
 
     return-object v1
 .end method
@@ -142,8 +148,15 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
-    .line 39
+    .line 47
     const-string/jumbo v0, "rankings"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -159,18 +172,14 @@
     return-object v0
 .end method
 
-.method public isLocationAbsolutelyRequired()Z
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
-
-    .prologue
-    .line 48
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
-    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 15
@@ -179,4 +188,14 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public b()Z
+    .locals 1
+
+    .prologue
+    .line 56
+    const/4 v0, 0x0
+
+    return v0
 .end method

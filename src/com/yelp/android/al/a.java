@@ -1,54 +1,76 @@
 package com.yelp.android.al;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import android.graphics.drawable.Drawable;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 
-public class a
+public class a<T extends Drawable>
+  implements d<T>
 {
-  public String a;
-  public String b;
-  public Boolean c;
+  private final g<T> a;
+  private final int b;
+  private b<T> c;
+  private b<T> d;
   
-  public a(String paramString1, String paramString2, Boolean paramBoolean)
+  public a()
   {
-    a = paramString1;
-    b = paramString2;
-    c = paramBoolean;
+    this(300);
   }
   
-  private String a(String paramString)
+  public a(int paramInt)
   {
-    StringBuilder localStringBuilder = new StringBuilder();
-    int i = 0;
-    int j = paramString.length();
-    while (i < j)
-    {
-      char c1 = Character.toLowerCase(paramString.charAt(i));
-      if (((c1 >= 'a') && (c1 <= 'z')) || ((c1 >= '0') && (c1 <= '9')) || (c1 == '_') || (c1 == '-') || (c1 == '.')) {
-        localStringBuilder.append(c1);
-      }
-      i += 1;
-    }
-    return localStringBuilder.toString();
+    this(new g(new a(paramInt)), paramInt);
   }
   
-  public String a()
+  a(g<T> paramg, int paramInt)
   {
-    Object localObject = new StringBuilder();
-    if ((a != null) && (b != null))
-    {
-      String str = a(a);
-      if (str.length() > 0) {
-        try
-        {
-          ((StringBuilder)localObject).append("&").append(str).append("=").append(URLEncoder.encode(b, "UTF-8").replace("+", "%20"));
-          localObject = ((StringBuilder)localObject).toString();
-          return (String)localObject;
-        }
-        catch (UnsupportedEncodingException localUnsupportedEncodingException) {}
-      }
+    a = paramg;
+    b = paramInt;
+  }
+  
+  private c<T> a()
+  {
+    if (c == null) {
+      c = new b(a.a(false, true), b);
     }
-    return "";
+    return c;
+  }
+  
+  private c<T> b()
+  {
+    if (d == null) {
+      d = new b(a.a(false, false), b);
+    }
+    return d;
+  }
+  
+  public c<T> a(boolean paramBoolean1, boolean paramBoolean2)
+  {
+    if (paramBoolean1) {
+      return e.b();
+    }
+    if (paramBoolean2) {
+      return a();
+    }
+    return b();
+  }
+  
+  private static class a
+    implements f.a
+  {
+    private final int a;
+    
+    a(int paramInt)
+    {
+      a = paramInt;
+    }
+    
+    public Animation a()
+    {
+      AlphaAnimation localAlphaAnimation = new AlphaAnimation(0.0F, 1.0F);
+      localAlphaAnimation.setDuration(a);
+      return localAlphaAnimation;
+    }
   }
 }
 

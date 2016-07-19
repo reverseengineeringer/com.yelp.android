@@ -1,13 +1,15 @@
 package com.comscore.analytics;
 
+import com.comscore.utils.TransmissionMode;
+
 class q
   implements Runnable
 {
-  q(a parama) {}
+  q(a parama, TransmissionMode paramTransmissionMode) {}
   
   public void run()
   {
-    a.ah();
+    a.b(b, a);
   }
 }
 

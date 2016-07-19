@@ -2,13 +2,12 @@ package android.support.v4.content;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 
 class g
 {
-  public static void a(Context paramContext, Intent[] paramArrayOfIntent, Bundle paramBundle)
+  static void a(Context paramContext, Intent[] paramArrayOfIntent)
   {
-    paramContext.startActivities(paramArrayOfIntent, paramBundle);
+    paramContext.startActivities(paramArrayOfIntent);
   }
 }
 

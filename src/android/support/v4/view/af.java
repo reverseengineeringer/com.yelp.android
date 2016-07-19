@@ -1,14 +1,13 @@
 package android.support.v4.view;
 
-import android.view.LayoutInflater;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff.Mode;
 
-class af
-  extends ae
+public abstract interface af
 {
-  public void a(LayoutInflater paramLayoutInflater, am paramam)
-  {
-    aj.a(paramLayoutInflater, paramam);
-  }
+  public abstract void setSupportBackgroundTintList(ColorStateList paramColorStateList);
+  
+  public abstract void setSupportBackgroundTintMode(PorterDuff.Mode paramMode);
 }
 
 /* Location:

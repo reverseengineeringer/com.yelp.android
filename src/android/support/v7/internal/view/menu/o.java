@@ -1,308 +1,159 @@
 package android.support.v7.internal.view.menu;
 
-import android.annotation.TargetApi;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.v4.view.n;
-import android.util.Log;
-import android.view.ActionProvider;
-import android.view.CollapsibleActionView;
-import android.view.ContextMenu.ContextMenuInfo;
+import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MenuItem.OnActionExpandListener;
-import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.SubMenu;
-import android.view.View;
-import com.yelp.android.b.b;
-import java.lang.reflect.Method;
+import com.yelp.android.e.a;
 
-@TargetApi(14)
-public class o
-  extends e<b>
-  implements MenuItem
+class o
+  extends c<a>
+  implements Menu
 {
-  private Method c;
-  
-  o(Context paramContext, b paramb)
+  o(Context paramContext, a parama)
   {
-    super(paramContext, paramb);
+    super(paramContext, parama);
   }
   
-  p a(ActionProvider paramActionProvider)
+  public MenuItem add(int paramInt)
   {
-    return new p(this, a, paramActionProvider);
+    return a(((a)b).add(paramInt));
   }
   
-  public void a(boolean paramBoolean)
+  public MenuItem add(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    try
+    return a(((a)b).add(paramInt1, paramInt2, paramInt3, paramInt4));
+  }
+  
+  public MenuItem add(int paramInt1, int paramInt2, int paramInt3, CharSequence paramCharSequence)
+  {
+    return a(((a)b).add(paramInt1, paramInt2, paramInt3, paramCharSequence));
+  }
+  
+  public MenuItem add(CharSequence paramCharSequence)
+  {
+    return a(((a)b).add(paramCharSequence));
+  }
+  
+  public int addIntentOptions(int paramInt1, int paramInt2, int paramInt3, ComponentName paramComponentName, Intent[] paramArrayOfIntent, Intent paramIntent, int paramInt4, MenuItem[] paramArrayOfMenuItem)
+  {
+    MenuItem[] arrayOfMenuItem = null;
+    if (paramArrayOfMenuItem != null) {
+      arrayOfMenuItem = new MenuItem[paramArrayOfMenuItem.length];
+    }
+    paramInt2 = ((a)b).addIntentOptions(paramInt1, paramInt2, paramInt3, paramComponentName, paramArrayOfIntent, paramIntent, paramInt4, arrayOfMenuItem);
+    if (arrayOfMenuItem != null)
     {
-      if (c == null) {
-        c = ((b)b).getClass().getDeclaredMethod("setExclusiveCheckable", new Class[] { Boolean.TYPE });
+      paramInt1 = 0;
+      paramInt3 = arrayOfMenuItem.length;
+      while (paramInt1 < paramInt3)
+      {
+        paramArrayOfMenuItem[paramInt1] = a(arrayOfMenuItem[paramInt1]);
+        paramInt1 += 1;
       }
-      c.invoke(b, new Object[] { Boolean.valueOf(paramBoolean) });
-      return;
     }
-    catch (Exception localException)
-    {
-      Log.w("MenuItemWrapper", "Error while calling setExclusiveCheckable", localException);
-    }
+    return paramInt2;
   }
   
-  public boolean collapseActionView()
+  public SubMenu addSubMenu(int paramInt)
   {
-    return ((b)b).collapseActionView();
+    return a(((a)b).addSubMenu(paramInt));
   }
   
-  public boolean expandActionView()
+  public SubMenu addSubMenu(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
   {
-    return ((b)b).expandActionView();
+    return a(((a)b).addSubMenu(paramInt1, paramInt2, paramInt3, paramInt4));
   }
   
-  public ActionProvider getActionProvider()
+  public SubMenu addSubMenu(int paramInt1, int paramInt2, int paramInt3, CharSequence paramCharSequence)
   {
-    n localn = ((b)b).a();
-    if ((localn instanceof p)) {
-      return a;
-    }
-    return null;
+    return a(((a)b).addSubMenu(paramInt1, paramInt2, paramInt3, paramCharSequence));
   }
   
-  public View getActionView()
+  public SubMenu addSubMenu(CharSequence paramCharSequence)
   {
-    View localView2 = ((b)b).getActionView();
-    View localView1 = localView2;
-    if ((localView2 instanceof q)) {
-      localView1 = ((q)localView2).c();
-    }
-    return localView1;
+    return a(((a)b).addSubMenu(paramCharSequence));
   }
   
-  public char getAlphabeticShortcut()
+  public void clear()
   {
-    return ((b)b).getAlphabeticShortcut();
+    a();
+    ((a)b).clear();
   }
   
-  public int getGroupId()
+  public void close()
   {
-    return ((b)b).getGroupId();
+    ((a)b).close();
   }
   
-  public Drawable getIcon()
+  public MenuItem findItem(int paramInt)
   {
-    return ((b)b).getIcon();
+    return a(((a)b).findItem(paramInt));
   }
   
-  public Intent getIntent()
+  public MenuItem getItem(int paramInt)
   {
-    return ((b)b).getIntent();
+    return a(((a)b).getItem(paramInt));
   }
   
-  public int getItemId()
+  public boolean hasVisibleItems()
   {
-    return ((b)b).getItemId();
+    return ((a)b).hasVisibleItems();
   }
   
-  public ContextMenu.ContextMenuInfo getMenuInfo()
+  public boolean isShortcutKey(int paramInt, KeyEvent paramKeyEvent)
   {
-    return ((b)b).getMenuInfo();
+    return ((a)b).isShortcutKey(paramInt, paramKeyEvent);
   }
   
-  public char getNumericShortcut()
+  public boolean performIdentifierAction(int paramInt1, int paramInt2)
   {
-    return ((b)b).getNumericShortcut();
+    return ((a)b).performIdentifierAction(paramInt1, paramInt2);
   }
   
-  public int getOrder()
+  public boolean performShortcut(int paramInt1, KeyEvent paramKeyEvent, int paramInt2)
   {
-    return ((b)b).getOrder();
+    return ((a)b).performShortcut(paramInt1, paramKeyEvent, paramInt2);
   }
   
-  public SubMenu getSubMenu()
+  public void removeGroup(int paramInt)
   {
-    return a(((b)b).getSubMenu());
+    a(paramInt);
+    ((a)b).removeGroup(paramInt);
   }
   
-  public CharSequence getTitle()
+  public void removeItem(int paramInt)
   {
-    return ((b)b).getTitle();
+    b(paramInt);
+    ((a)b).removeItem(paramInt);
   }
   
-  public CharSequence getTitleCondensed()
+  public void setGroupCheckable(int paramInt, boolean paramBoolean1, boolean paramBoolean2)
   {
-    return ((b)b).getTitleCondensed();
+    ((a)b).setGroupCheckable(paramInt, paramBoolean1, paramBoolean2);
   }
   
-  public boolean hasSubMenu()
+  public void setGroupEnabled(int paramInt, boolean paramBoolean)
   {
-    return ((b)b).hasSubMenu();
+    ((a)b).setGroupEnabled(paramInt, paramBoolean);
   }
   
-  public boolean isActionViewExpanded()
+  public void setGroupVisible(int paramInt, boolean paramBoolean)
   {
-    return ((b)b).isActionViewExpanded();
+    ((a)b).setGroupVisible(paramInt, paramBoolean);
   }
   
-  public boolean isCheckable()
+  public void setQwertyMode(boolean paramBoolean)
   {
-    return ((b)b).isCheckable();
+    ((a)b).setQwertyMode(paramBoolean);
   }
   
-  public boolean isChecked()
+  public int size()
   {
-    return ((b)b).isChecked();
-  }
-  
-  public boolean isEnabled()
-  {
-    return ((b)b).isEnabled();
-  }
-  
-  public boolean isVisible()
-  {
-    return ((b)b).isVisible();
-  }
-  
-  public MenuItem setActionProvider(ActionProvider paramActionProvider)
-  {
-    b localb = (b)b;
-    if (paramActionProvider != null) {}
-    for (paramActionProvider = a(paramActionProvider);; paramActionProvider = null)
-    {
-      localb.a(paramActionProvider);
-      return this;
-    }
-  }
-  
-  public MenuItem setActionView(int paramInt)
-  {
-    ((b)b).setActionView(paramInt);
-    View localView = ((b)b).getActionView();
-    if ((localView instanceof CollapsibleActionView)) {
-      ((b)b).setActionView(new q(localView));
-    }
-    return this;
-  }
-  
-  public MenuItem setActionView(View paramView)
-  {
-    Object localObject = paramView;
-    if ((paramView instanceof CollapsibleActionView)) {
-      localObject = new q(paramView);
-    }
-    ((b)b).setActionView((View)localObject);
-    return this;
-  }
-  
-  public MenuItem setAlphabeticShortcut(char paramChar)
-  {
-    ((b)b).setAlphabeticShortcut(paramChar);
-    return this;
-  }
-  
-  public MenuItem setCheckable(boolean paramBoolean)
-  {
-    ((b)b).setCheckable(paramBoolean);
-    return this;
-  }
-  
-  public MenuItem setChecked(boolean paramBoolean)
-  {
-    ((b)b).setChecked(paramBoolean);
-    return this;
-  }
-  
-  public MenuItem setEnabled(boolean paramBoolean)
-  {
-    ((b)b).setEnabled(paramBoolean);
-    return this;
-  }
-  
-  public MenuItem setIcon(int paramInt)
-  {
-    ((b)b).setIcon(paramInt);
-    return this;
-  }
-  
-  public MenuItem setIcon(Drawable paramDrawable)
-  {
-    ((b)b).setIcon(paramDrawable);
-    return this;
-  }
-  
-  public MenuItem setIntent(Intent paramIntent)
-  {
-    ((b)b).setIntent(paramIntent);
-    return this;
-  }
-  
-  public MenuItem setNumericShortcut(char paramChar)
-  {
-    ((b)b).setNumericShortcut(paramChar);
-    return this;
-  }
-  
-  public MenuItem setOnActionExpandListener(MenuItem.OnActionExpandListener paramOnActionExpandListener)
-  {
-    b localb = (b)b;
-    if (paramOnActionExpandListener != null) {}
-    for (paramOnActionExpandListener = new r(this, paramOnActionExpandListener);; paramOnActionExpandListener = null)
-    {
-      localb.a(paramOnActionExpandListener);
-      return this;
-    }
-  }
-  
-  public MenuItem setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener paramOnMenuItemClickListener)
-  {
-    b localb = (b)b;
-    if (paramOnMenuItemClickListener != null) {}
-    for (paramOnMenuItemClickListener = new s(this, paramOnMenuItemClickListener);; paramOnMenuItemClickListener = null)
-    {
-      localb.setOnMenuItemClickListener(paramOnMenuItemClickListener);
-      return this;
-    }
-  }
-  
-  public MenuItem setShortcut(char paramChar1, char paramChar2)
-  {
-    ((b)b).setShortcut(paramChar1, paramChar2);
-    return this;
-  }
-  
-  public void setShowAsAction(int paramInt)
-  {
-    ((b)b).setShowAsAction(paramInt);
-  }
-  
-  public MenuItem setShowAsActionFlags(int paramInt)
-  {
-    ((b)b).setShowAsActionFlags(paramInt);
-    return this;
-  }
-  
-  public MenuItem setTitle(int paramInt)
-  {
-    ((b)b).setTitle(paramInt);
-    return this;
-  }
-  
-  public MenuItem setTitle(CharSequence paramCharSequence)
-  {
-    ((b)b).setTitle(paramCharSequence);
-    return this;
-  }
-  
-  public MenuItem setTitleCondensed(CharSequence paramCharSequence)
-  {
-    ((b)b).setTitleCondensed(paramCharSequence);
-    return this;
-  }
-  
-  public MenuItem setVisible(boolean paramBoolean)
-  {
-    return ((b)b).setVisible(paramBoolean);
+    return ((a)b).size();
   }
 }
 

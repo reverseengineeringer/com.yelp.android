@@ -1,36 +1,14 @@
 package com.yelp.android.ak;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import java.util.concurrent.LinkedBlockingQueue;
+import com.yelp.android.aa.l;
+import com.yelp.android.ai.c;
 
-final class f
-  implements ServiceConnection
+public abstract interface f<A, T, Z, R>
+  extends b<T, Z>
 {
-  boolean a = false;
-  private final LinkedBlockingQueue<IBinder> b = new LinkedBlockingQueue(1);
+  public abstract l<A, T> e();
   
-  public IBinder a()
-  {
-    if (a) {
-      throw new IllegalStateException();
-    }
-    a = true;
-    return (IBinder)b.take();
-  }
-  
-  public void onServiceConnected(ComponentName paramComponentName, IBinder paramIBinder)
-  {
-    try
-    {
-      b.put(paramIBinder);
-      return;
-    }
-    catch (InterruptedException paramComponentName) {}
-  }
-  
-  public void onServiceDisconnected(ComponentName paramComponentName) {}
+  public abstract c<Z, R> f();
 }
 
 /* Location:

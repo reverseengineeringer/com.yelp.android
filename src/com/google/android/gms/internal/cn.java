@@ -1,12 +1,8 @@
 package com.google.android.gms.internal;
 
-import android.location.Location;
-
 public abstract interface cn
 {
-  public abstract Location a(long paramLong);
-  
-  public abstract void init();
+  public abstract cl a(ib paramib, int paramInt, String paramString);
 }
 
 /* Location:

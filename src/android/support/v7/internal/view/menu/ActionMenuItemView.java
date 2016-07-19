@@ -7,9 +7,11 @@ import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
-import android.support.v4.view.ce;
-import android.support.v7.internal.widget.CompatTextView;
-import android.support.v7.widget.aq;
+import android.support.v4.view.ai;
+import android.support.v7.widget.ActionMenuView.a;
+import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.ListPopupWindow;
+import android.support.v7.widget.ListPopupWindow.b;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -19,19 +21,19 @@ import android.view.View.MeasureSpec;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Toast;
-import com.yelp.android.g.l;
-import com.yelp.android.j.a;
+import com.yelp.android.j.a.b;
+import com.yelp.android.j.a.k;
 
 public class ActionMenuItemView
-  extends CompatTextView
-  implements aa, android.support.v7.widget.k, View.OnClickListener, View.OnLongClickListener
+  extends AppCompatTextView
+  implements m.a, ActionMenuView.a, View.OnClickListener, View.OnLongClickListener
 {
-  private m a;
+  private h a;
   private CharSequence b;
   private Drawable c;
-  private k d;
-  private aq e;
-  private c f;
+  private f.b d;
+  private ListPopupWindow.b e;
+  private b f;
   private boolean g;
   private boolean h;
   private int i;
@@ -52,14 +54,13 @@ public class ActionMenuItemView
   {
     super(paramContext, paramAttributeSet, paramInt);
     Resources localResources = paramContext.getResources();
-    g = localResources.getBoolean(com.yelp.android.g.c.abc_config_allowActionMenuItemTextWithIcon);
-    paramAttributeSet = paramContext.obtainStyledAttributes(paramAttributeSet, l.ActionMenuItemView, paramInt, 0);
-    i = paramAttributeSet.getDimensionPixelSize(l.ActionMenuItemView_android_minWidth, 0);
-    paramAttributeSet.recycle();
+    g = localResources.getBoolean(a.b.abc_config_allowActionMenuItemTextWithIcon);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.k.ActionMenuItemView, paramInt, 0);
+    i = paramContext.getDimensionPixelSize(a.k.ActionMenuItemView_android_minWidth, 0);
+    paramContext.recycle();
     k = ((int)(getDisplayMetricsdensity * 32.0F + 0.5F));
     setOnClickListener(this);
     setOnLongClickListener(this);
-    setTransformationMethod(new a(paramContext));
     j = -1;
   }
   
@@ -100,19 +101,19 @@ public class ActionMenuItemView
     }
   }
   
-  public void a(m paramm, int paramInt)
+  public void a(h paramh, int paramInt)
   {
-    a = paramm;
-    setIcon(paramm.getIcon());
-    setTitle(paramm.a(this));
-    setId(paramm.getItemId());
-    if (paramm.isVisible()) {}
+    a = paramh;
+    setIcon(paramh.getIcon());
+    setTitle(paramh.a(this));
+    setId(paramh.getItemId());
+    if (paramh.isVisible()) {}
     for (paramInt = 0;; paramInt = 8)
     {
       setVisibility(paramInt);
-      setEnabled(paramm.isEnabled());
-      if ((paramm.hasSubMenu()) && (e == null)) {
-        e = new b(this);
+      setEnabled(paramh.isEnabled());
+      if ((paramh.hasSubMenu()) && (e == null)) {
+        e = new a();
       }
       return;
     }
@@ -138,7 +139,7 @@ public class ActionMenuItemView
     return b();
   }
   
-  public m getItemData()
+  public h getItemData()
   {
     return a;
   }
@@ -155,7 +156,7 @@ public class ActionMenuItemView
     if (Build.VERSION.SDK_INT >= 8) {
       super.onConfigurationChanged(paramConfiguration);
     }
-    g = getContext().getResources().getBoolean(com.yelp.android.g.c.abc_config_allowActionMenuItemTextWithIcon);
+    g = getContext().getResources().getBoolean(a.b.abc_config_allowActionMenuItemTextWithIcon);
     e();
   }
   
@@ -173,14 +174,15 @@ public class ActionMenuItemView
     int i1 = getHeight();
     int i2 = arrayOfInt[1];
     int i3 = i1 / 2;
-    int n = arrayOfInt[0] + m / 2;
+    int n = arrayOfInt[0];
+    n = m / 2 + n;
     m = n;
-    if (ce.h(paramView) == 0) {
+    if (ai.h(paramView) == 0) {
       m = getResourcesgetDisplayMetricswidthPixels - n;
     }
     paramView = Toast.makeText(localContext, a.getTitle(), 0);
     if (i2 + i3 < localRect.height()) {
-      paramView.setGravity(8388661, m, i1);
+      paramView.setGravity(8388661, m, arrayOfInt[1] + i1 - top);
     }
     for (;;)
     {
@@ -266,9 +268,9 @@ public class ActionMenuItemView
     e();
   }
   
-  public void setItemInvoker(k paramk)
+  public void setItemInvoker(f.b paramb)
   {
-    d = paramk;
+    d = paramb;
   }
   
   public void setPadding(int paramInt1, int paramInt2, int paramInt3, int paramInt4)
@@ -277,9 +279,9 @@ public class ActionMenuItemView
     super.setPadding(paramInt1, paramInt2, paramInt3, paramInt4);
   }
   
-  public void setPopupCallback(c paramc)
+  public void setPopupCallback(b paramb)
   {
-    f = paramc;
+    f = paramb;
   }
   
   public void setTitle(CharSequence paramCharSequence)
@@ -287,6 +289,51 @@ public class ActionMenuItemView
     b = paramCharSequence;
     setContentDescription(b);
     e();
+  }
+  
+  private class a
+    extends ListPopupWindow.b
+  {
+    public a()
+    {
+      super();
+    }
+    
+    public ListPopupWindow a()
+    {
+      if (ActionMenuItemView.a(ActionMenuItemView.this) != null) {
+        return ActionMenuItemView.a(ActionMenuItemView.this).a();
+      }
+      return null;
+    }
+    
+    protected boolean b()
+    {
+      boolean bool2 = false;
+      boolean bool1 = bool2;
+      if (ActionMenuItemView.b(ActionMenuItemView.this) != null)
+      {
+        bool1 = bool2;
+        if (ActionMenuItemView.b(ActionMenuItemView.this).a(ActionMenuItemView.c(ActionMenuItemView.this)))
+        {
+          ListPopupWindow localListPopupWindow = a();
+          bool1 = bool2;
+          if (localListPopupWindow != null)
+          {
+            bool1 = bool2;
+            if (localListPopupWindow.k()) {
+              bool1 = true;
+            }
+          }
+        }
+      }
+      return bool1;
+    }
+  }
+  
+  public static abstract class b
+  {
+    public abstract ListPopupWindow a();
   }
 }
 

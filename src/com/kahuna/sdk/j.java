@@ -1,15 +1,13 @@
 package com.kahuna.sdk;
 
-import java.util.Map;
-
-final class j
-  implements Runnable
+public final class j
+  extends l
 {
-  j(Map paramMap) {}
+  private static h d = new j();
   
-  public void run()
+  public static h i()
   {
-    h.b(a);
+    return d;
   }
 }
 

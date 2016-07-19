@@ -6,6 +6,14 @@
 .implements Landroid/text/TextWatcher;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Landroid/widget/TextView;
 
@@ -22,28 +30,28 @@
     return-void
 .end method
 
-.method public static a(Landroid/content/Context;ILjava/lang/CharSequence;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;)Landroid/content/Intent;
+.method public static a(Landroid/content/Context;ILjava/lang/CharSequence;ILcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;Ljava/lang/String;)Landroid/content/Intent;
     .locals 3
 
     .prologue
-    .line 104
+    .line 107
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/mutatebiz/EditField;
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 105
+    .line 108
     const-string/jumbo v1, "title"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 106
+    .line 109
     const-string/jumbo v1, "content"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    .line 107
+    .line 110
     const-string/jumbo v1, "input_type"
 
     invoke-virtual {p4}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->ordinal()I
@@ -52,12 +60,17 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 108
+    .line 111
     const-string/jumbo v1, "instructions"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 109
+    .line 112
+    const-string/jumbo v1, "hint_text"
+
+    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    .line 113
     return-object v0
 .end method
 
@@ -65,7 +78,7 @@
     .locals 1
 
     .prologue
-    .line 99
+    .line 97
     const-string/jumbo v0, "empty_is_valid"
 
     invoke-virtual {p0, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
@@ -79,7 +92,7 @@
     .locals 1
 
     .prologue
-    .line 86
+    .line 84
     const-string/jumbo v0, "content"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getCharSequenceExtra(Ljava/lang/String;)Ljava/lang/CharSequence;
@@ -93,12 +106,12 @@
     .locals 2
 
     .prologue
-    .line 90
+    .line 88
     invoke-static {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a(Landroid/content/Intent;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    .line 91
+    .line 89
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
@@ -124,7 +137,7 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 216
+    .line 222
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -167,8 +180,8 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 124
-    const v0, 0x7f0c0131
+    .line 128
+    const v0, 0x7f0f0173
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->findViewById(I)Landroid/view/View;
 
@@ -176,7 +189,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    .line 125
+    .line 129
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -187,16 +200,16 @@
 
     move-result v1
 
-    .line 126
+    .line 130
     if-eqz v1, :cond_0
 
-    .line 127
+    .line 131
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 128
+    .line 132
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 130
+    .line 134
     :cond_0
     return-void
 .end method
@@ -205,10 +218,10 @@
     .locals 0
 
     .prologue
-    .line 195
+    .line 201
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->updateOptionsMenu()V
 
-    .line 196
+    .line 202
     return-void
 .end method
 
@@ -216,8 +229,8 @@
     .locals 4
 
     .prologue
-    .line 133
-    const v0, 0x7f0c0132
+    .line 137
+    const v0, 0x7f0f0174
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +240,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a:Landroid/widget/TextView;
 
-    .line 134
+    .line 138
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
@@ -242,7 +255,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 135
+    .line 139
     invoke-static {}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->values()[Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;
 
     move-result-object v0
@@ -261,25 +274,40 @@
 
     aget-object v0, v0, v1
 
-    .line 136
+    .line 140
     if-eqz v0, :cond_0
 
-    .line 137
+    .line 141
     iget-object v1, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$InputType;->setup(Landroid/widget/TextView;)V
 
-    .line 139
+    .line 142
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "hint_text"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setHint(Ljava/lang/CharSequence;)V
+
+    .line 144
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a:Landroid/widget/TextView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/t;
+    new-instance v1, Lcom/yelp/android/ui/activities/mutatebiz/EditField$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/t;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditField;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField$1;-><init>(Lcom/yelp/android/ui/activities/mutatebiz/EditField;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnEditorActionListener(Landroid/widget/TextView$OnEditorActionListener;)V
 
-    .line 154
+    .line 161
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -294,12 +322,12 @@
 
     if-nez v0, :cond_1
 
-    .line 155
+    .line 162
     iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 158
+    .line 164
     :cond_1
     return-void
 .end method
@@ -308,10 +336,10 @@
     .locals 0
 
     .prologue
-    .line 201
+    .line 207
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->updateOptionsMenu()V
 
-    .line 202
+    .line 208
     return-void
 .end method
 
@@ -319,24 +347,24 @@
     .locals 3
 
     .prologue
-    .line 161
+    .line 167
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->d()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 168
+    .line 174
     :goto_0
     return-void
 
-    .line 164
+    .line 170
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 165
+    .line 171
     const-string/jumbo v1, "content"
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a:Landroid/widget/TextView;
@@ -347,12 +375,12 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 
-    .line 166
+    .line 172
     const/4 v1, -0x1
 
     invoke-virtual {p0, v1, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->setResult(ILandroid/content/Intent;)V
 
-    .line 167
+    .line 173
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->finish()V
 
     goto :goto_0
@@ -362,13 +390,13 @@
     .locals 1
 
     .prologue
-    .line 212
+    .line 218
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->BusinessEditField:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
@@ -384,15 +412,15 @@
     .locals 3
 
     .prologue
-    .line 116
+    .line 120
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 117
-    const v0, 0x7f03002b
+    .line 121
+    const v0, 0x7f030035
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->setContentView(I)V
 
-    .line 118
+    .line 122
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -407,13 +435,13 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->setTitle(I)V
 
-    .line 119
+    .line 123
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->b()V
 
-    .line 120
+    .line 124
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->a()V
 
-    .line 121
+    .line 125
     return-void
 .end method
 
@@ -421,26 +449,26 @@
     .locals 4
 
     .prologue
-    .line 172
+    .line 178
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
 
-    .line 173
+    .line 179
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f10000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 174
-    const v0, 0x7f0c04fd
+    .line 180
+    const v0, 0x7f0f0607
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    .line 175
+    .line 181
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
@@ -453,13 +481,13 @@
 
     move-result v1
 
-    .line 176
+    .line 182
     if-eqz v1, :cond_0
 
-    .line 177
+    .line 183
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
-    .line 179
+    .line 185
     :cond_0
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->d()Z
 
@@ -467,7 +495,7 @@
 
     invoke-interface {v0, v1}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
-    .line 180
+    .line 186
     const/4 v0, 0x1
 
     return v0
@@ -477,22 +505,22 @@
     .locals 2
 
     .prologue
-    .line 185
+    .line 191
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    const v1, 0x7f0c04fd
+    const v1, 0x7f0f0607
 
     if-ne v0, v1, :cond_0
 
-    .line 186
+    .line 192
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->c()V
 
-    .line 187
+    .line 193
     const/4 v0, 0x1
 
-    .line 189
+    .line 195
     :goto_0
     return v0
 
@@ -508,9 +536,9 @@
     .locals 0
 
     .prologue
-    .line 207
+    .line 213
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/mutatebiz/EditField;->updateOptionsMenu()V
 
-    .line 208
+    .line 214
     return-void
 .end method

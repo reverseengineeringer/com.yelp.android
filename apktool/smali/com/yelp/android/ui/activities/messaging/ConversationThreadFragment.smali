@@ -3,24 +3,32 @@
 .source "ConversationThreadFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$2;
+    }
+.end annotation
+
+
 # instance fields
-.field private a:Lcom/yelp/android/ay/e;
+.field private a:Lcom/yelp/android/cc/b;
 
-.field private b:Lcom/yelp/android/bb/d;
+.field private b:Lcom/yelp/android/cl/b;
 
-.field private c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+.field private c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
 .field private d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
 .field private e:Landroid/widget/Button;
 
-.field private g:Landroid/widget/EditText;
+.field private f:Landroid/widget/EditText;
 
-.field private h:Lcom/yelp/android/serializable/Conversation;
+.field private g:Lcom/yelp/android/serializable/Conversation;
 
 .field private i:Ljava/lang/String;
 
-.field private j:Lcom/yelp/android/serializable/bg;
+.field private j:Lcom/yelp/android/serializable/e;
 
 .field private k:Z
 
@@ -30,13 +38,13 @@
 
 .field private n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
-.field private final o:Lcom/yelp/android/services/push/j;
+.field private final o:Lcom/yelp/android/services/push/e$a;
 
-.field private final p:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+.field private final p:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-.field private final q:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+.field private final q:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-.field private final r:Lcom/yelp/android/ui/activities/messaging/apimanagers/g;
+.field private final r:Lcom/yelp/android/ui/activities/messaging/apimanagers/c;
 
 
 # direct methods
@@ -44,41 +52,41 @@
     .locals 1
 
     .prologue
-    .line 57
+    .line 61
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;-><init>()V
 
-    .line 84
+    .line 88
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->k:Z
 
-    .line 246
-    new-instance v0, Lcom/yelp/android/ui/activities/messaging/j;
+    .line 280
+    new-instance v0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$4;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/j;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$4;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o:Lcom/yelp/android/services/push/j;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o:Lcom/yelp/android/services/push/e$a;
 
-    .line 279
-    new-instance v0, Lcom/yelp/android/ui/activities/messaging/k;
+    .line 315
+    new-instance v0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$5;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/k;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$5;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-    .line 326
-    new-instance v0, Lcom/yelp/android/ui/activities/messaging/l;
+    .line 364
+    new-instance v0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$6;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/l;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$6;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-    .line 352
-    new-instance v0, Lcom/yelp/android/ui/activities/messaging/m;
+    .line 393
+    new-instance v0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$7;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/m;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$7;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->r:Lcom/yelp/android/ui/activities/messaging/apimanagers/g;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->r:Lcom/yelp/android/ui/activities/messaging/apimanagers/c;
 
     return-void
 .end method
@@ -87,25 +95,25 @@
     .locals 3
 
     .prologue
-    .line 90
+    .line 94
     new-instance v0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;-><init>()V
 
-    .line 91
+    .line 95
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 92
+    .line 96
     const-string/jumbo v2, "conversation"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    .line 93
+    .line 97
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 94
+    .line 98
     return-object v0
 .end method
 
@@ -113,30 +121,30 @@
     .locals 3
 
     .prologue
-    .line 102
+    .line 107
     new-instance v0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;
 
     invoke-direct {v0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;-><init>()V
 
-    .line 103
+    .line 108
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    .line 104
+    .line 109
     const-string/jumbo v2, "conversation_id"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 105
+    .line 110
     const-string/jumbo v2, "show_keyboard"
 
     invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 106
+    .line 111
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->setArguments(Landroid/os/Bundle;)V
 
-    .line 107
+    .line 112
     return-object v0
 .end method
 
@@ -144,8 +152,8 @@
     .locals 0
 
     .prologue
-    .line 57
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m()V
+    .line 61
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n()V
 
     return-void
 .end method
@@ -154,7 +162,7 @@
     .locals 0
 
     .prologue
-    .line 57
+    .line 61
     invoke-direct {p0, p1, p2}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/MessagingAction;Lcom/yelp/android/appdata/webrequests/YelpException;)V
 
     return-void
@@ -164,17 +172,17 @@
     .locals 2
 
     .prologue
-    .line 534
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n()V
+    .line 582
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o()V
 
-    .line 535
+    .line 583
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     invoke-virtual {v0, p1, p2, v1}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/MessagingAction;Lcom/yelp/android/appdata/webrequests/YelpException;Lcom/yelp/android/serializable/Conversation;)V
 
-    .line 536
+    .line 584
     return-void
 .end method
 
@@ -182,7 +190,7 @@
     .locals 0
 
     .prologue
-    .line 57
+    .line 61
     iput-boolean p1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->k:Z
 
     return p1
@@ -192,8 +200,8 @@
     .locals 1
 
     .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     return-object v0
 .end method
@@ -202,18 +210,18 @@
     .locals 1
 
     .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
 
     return-object v0
 .end method
 
-.method static synthetic d(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+.method static synthetic d(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
     .locals 1
 
     .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
     return-object v0
 .end method
@@ -222,7 +230,7 @@
     .locals 1
 
     .prologue
-    .line 57
+    .line 61
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
     return-object v0
@@ -232,34 +240,18 @@
     .locals 1
 
     .prologue
-    .line 57
+    .line 61
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->e:Landroid/widget/Button;
 
     return-object v0
-.end method
-
-.method private f()V
-    .locals 1
-
-    .prologue
-    .line 462
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->l:Z
-
-    .line 463
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->w()V
-
-    .line 464
-    return-void
 .end method
 
 .method static synthetic g(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Ljava/lang/String;
     .locals 1
 
     .prologue
-    .line 57
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o()Ljava/lang/String;
+    .line 61
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p()Ljava/lang/String;
 
     move-result-object v0
 
@@ -267,83 +259,80 @@
 .end method
 
 .method private g()V
+    .locals 1
+
+    .prologue
+    .line 505
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->l:Z
+
+    .line 506
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->y()V
+
+    .line 507
+    return-void
+.end method
+
+.method static synthetic h(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
+    .locals 1
+
+    .prologue
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
+
+    return-object v0
+.end method
+
+.method private h()V
     .locals 2
 
     .prologue
-    .line 467
+    .line 510
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     const v1, 0x106000b
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setPanelLoadingBackground(I)V
 
-    .line 468
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 511
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->b()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->b()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 469
+    .line 512
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 470
+    .line 513
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/messaging/n;
+    new-instance v1, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$8;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/messaging/n;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$8;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setOnLoadNeeded(Ljava/lang/Runnable;)V
 
-    .line 481
+    .line 525
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->a()Lcom/yelp/android/bb/d;
+    invoke-virtual {v1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->a()Lcom/yelp/android/cl/b;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 483
+    .line 527
     :cond_0
-    return-void
-.end method
-
-.method static synthetic h(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
-
-    return-object v0
-.end method
-
-.method private h()V
-    .locals 3
-
-    .prologue
-    .line 486
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/ay/e;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
-
-    new-instance v2, Lcom/yelp/android/ui/activities/messaging/o;
-
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/messaging/o;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
-
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ay/e;->a(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/database/w;)V
-
-    .line 504
     return-void
 .end method
 
@@ -351,8 +340,37 @@
     .locals 3
 
     .prologue
-    .line 507
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
+    .line 530
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/cc/b;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
+
+    new-instance v2, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$9;
+
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$9;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/cc/b;->a(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/database/h$b;)V
+
+    .line 549
+    return-void
+.end method
+
+.method static synthetic i(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    .locals 0
+
+    .prologue
+    .line 61
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o()V
+
+    return-void
+.end method
+
+.method private j()V
+    .locals 3
+
+    .prologue
+    .line 552
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -364,14 +382,14 @@
 
     if-lez v0, :cond_0
 
-    .line 508
-    new-instance v0, Lcom/yelp/android/ay/r;
+    .line 553
+    new-instance v0, Lcom/yelp/android/cc/i;
 
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p()Ljava/lang/String;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
 
     invoke-virtual {v2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
@@ -381,29 +399,19 @@
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ay/r;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/cc/i;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 510
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/ay/e;
+    .line 555
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/cc/b;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/messaging/p;
+    new-instance v2, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$10;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/messaging/p;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$10;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
 
-    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/ay/e;->a(Lcom/yelp/android/ay/r;Lcom/yelp/android/database/w;)V
+    invoke-virtual {v1, v0, v2}, Lcom/yelp/android/cc/b;->a(Lcom/yelp/android/cc/i;Lcom/yelp/android/database/h$b;)V
 
-    .line 522
+    .line 570
     :cond_0
-    return-void
-.end method
-
-.method static synthetic i(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
-    .locals 0
-
-    .prologue
-    .line 57
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n()V
-
     return-void
 .end method
 
@@ -411,8 +419,8 @@
     .locals 0
 
     .prologue
-    .line 57
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->l()V
+    .line 61
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m()V
 
     return-void
 .end method
@@ -421,14 +429,14 @@
     .locals 2
 
     .prologue
-    .line 525
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/ay/e;
+    .line 573
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/cc/b;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ay/e;->a(Lcom/yelp/android/serializable/Conversation;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/cc/b;->a(Lcom/yelp/android/serializable/Conversation;)V
 
-    .line 526
+    .line 574
     return-void
 .end method
 
@@ -436,47 +444,27 @@
     .locals 0
 
     .prologue
-    .line 57
+    .line 61
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->k()V
 
     return-void
 .end method
 
-.method static synthetic l(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/bb/d;
+.method static synthetic l(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/cl/b;
     .locals 1
 
     .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b:Lcom/yelp/android/bb/d;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b:Lcom/yelp/android/cl/b;
 
     return-object v0
-.end method
-
-.method private l()V
-    .locals 2
-
-    .prologue
-    .line 529
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
-
-    invoke-virtual {v0}, Landroid/widget/EditText;->clearFocus()V
-
-    .line 530
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
-
-    const-string/jumbo v1, ""
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
-
-    .line 531
-    return-void
 .end method
 
 .method static synthetic m(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/ui/util/ScrollToLoadListView;
     .locals 1
 
     .prologue
-    .line 57
+    .line 61
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     return-object v0
@@ -486,31 +474,37 @@
     .locals 2
 
     .prologue
-    .line 554
+    .line 577
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
+
+    invoke-virtual {v0}, Landroid/widget/EditText;->clearFocus()V
+
+    .line 578
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
+
+    const-string/jumbo v1, ""
+
+    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
+
+    .line 579
+    return-void
+.end method
+
+.method private n()V
+    .locals 2
+
+    .prologue
+    .line 602
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a()V
 
-    .line 555
+    .line 603
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;I)V
 
-    .line 556
-    return-void
-.end method
-
-.method private n()V
-    .locals 0
-
-    .prologue
-    .line 559
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f()V
-
-    .line 560
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j()V
-
-    .line 561
+    .line 604
     return-void
 .end method
 
@@ -518,29 +512,63 @@
     .locals 1
 
     .prologue
-    .line 57
+    .line 61
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->k:Z
 
     return v0
 .end method
 
-.method private o()Ljava/lang/String;
+.method private o()V
+    .locals 0
+
+    .prologue
+    .line 607
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g()V
+
+    .line 608
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->l()V
+
+    .line 609
+    return-void
+.end method
+
+.method static synthetic o(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    .locals 0
+
+    .prologue
+    .line 61
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g()V
+
+    return-void
+.end method
+
+.method static synthetic p(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
     .locals 1
 
     .prologue
-    .line 564
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
+
+    return-object v0
+.end method
+
+.method private p()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 612
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     if-eqz v0, :cond_0
 
-    .line 565
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 613
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->h()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 567
+    .line 615
     :goto_0
     return-object v0
 
@@ -550,51 +578,41 @@
     goto :goto_0
 .end method
 
-.method static synthetic o(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
-    .locals 0
-
-    .prologue
-    .line 57
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f()V
-
-    return-void
-.end method
-
-.method static synthetic p(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
-    .locals 1
-
-    .prologue
-    .line 57
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
-
-    return-object v0
-.end method
-
 .method static synthetic q(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
     .locals 0
 
     .prologue
-    .line 57
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g()V
+    .line 61
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h()V
 
     return-void
 .end method
 
 
 # virtual methods
+.method F_()Lcom/yelp/android/serializable/Conversation;
+    .locals 1
+
+    .prologue
+    .line 619
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
+
+    return-object v0
+.end method
+
 .method public a()V
     .locals 1
 
     .prologue
-    .line 457
+    .line 500
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->l:Z
 
-    .line 458
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->w()V
+    .line 501
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->y()V
 
-    .line 459
+    .line 502
     return-void
 .end method
 
@@ -602,19 +620,19 @@
     .locals 2
 
     .prologue
-    .line 539
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 587
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->b()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->b()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 542
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g()V
+    .line 590
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h()V
 
-    .line 544
+    .line 592
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
@@ -622,19 +640,19 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setBottomReached(Z)V
 
-    .line 545
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 593
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->a(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->a(Ljava/lang/String;)V
 
-    .line 546
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m()V
+    .line 594
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n()V
 
-    .line 547
+    .line 595
     return-void
 .end method
 
@@ -642,26 +660,26 @@
     .locals 3
 
     .prologue
-    .line 575
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 623
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    .line 576
+    .line 624
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;->a(Lcom/yelp/android/serializable/Conversation;)V
 
-    .line 577
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 625
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->getOtherUser()Lcom/yelp/android/serializable/bg;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->a()Lcom/yelp/android/serializable/e;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/bg;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/e;
 
-    .line 581
+    .line 629
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -676,10 +694,10 @@
 
     if-ne v0, v1, :cond_0
 
-    .line 582
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 630
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->getSubject()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->g()Ljava/lang/String;
 
     move-result-object v0
 
@@ -689,56 +707,56 @@
 
     if-nez v0, :cond_0
 
-    .line 583
+    .line 631
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Conversation;->getSubject()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Conversation;->g()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/FragmentActivity;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 587
+    .line 635
     :cond_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->i()V
 
-    .line 588
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->r:Lcom/yelp/android/ui/activities/messaging/apimanagers/g;
+    .line 636
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->r:Lcom/yelp/android/ui/activities/messaging/apimanagers/c;
 
     sget-object v1, Lcom/yelp/android/ui/activities/messaging/apimanagers/ApiListManager$RequestResult;->CONTENT_TRASHED:Lcom/yelp/android/ui/activities/messaging/apimanagers/ApiListManager$RequestResult;
 
-    invoke-virtual {p1}, Lcom/yelp/android/serializable/Conversation;->getLatestMessages()Ljava/util/List;
+    invoke-virtual {p1}, Lcom/yelp/android/serializable/Conversation;->j()Ljava/util/List;
 
     move-result-object v2
 
-    invoke-interface {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/g;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/ApiListManager$RequestResult;Ljava/lang/Object;)V
+    invoke-interface {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/c;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/ApiListManager$RequestResult;Ljava/lang/Object;)V
 
-    .line 591
+    .line 639
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->d()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->c()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 593
+    .line 642
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->k:Z
 
     if-nez v0, :cond_1
 
-    .line 594
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->e()V
+    .line 643
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f()V
 
-    .line 596
+    .line 645
     :cond_1
     return-void
 .end method
@@ -747,70 +765,60 @@
     .locals 0
 
     .prologue
-    .line 550
+    .line 598
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b()V
 
-    .line 551
+    .line 599
     return-void
 .end method
 
-.method d()Lcom/yelp/android/serializable/Conversation;
-    .locals 1
-
-    .prologue
-    .line 571
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
-
-    return-object v0
-.end method
-
-.method public e()V
+.method public f()V
     .locals 3
 
     .prologue
-    .line 599
+    .line 648
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a()V
 
-    .line 600
+    .line 649
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->d()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->c()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->b(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->b(Lcom/yelp/android/serializable/Conversation;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 604
+    .line 654
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     invoke-interface {v0, v1}, Lcom/yelp/android/ui/activities/messaging/a;->b(Lcom/yelp/android/serializable/Conversation;)V
 
-    .line 605
+    .line 655
     return-void
 .end method
 
-.method public getIri()Lcom/yelp/android/analytics/iris/b;
+.method public getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 443
+    .line 486
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->MessagingConversation:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -821,12 +829,12 @@
     .end annotation
 
     .prologue
-    .line 448
+    .line 491
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 450
+    .line 493
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -839,19 +847,19 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Conversation;
 
-    .line 451
+    .line 494
     if-eqz v0, :cond_0
 
     sget-object v0, Lcom/yelp/android/analytics/iris/IriSource;->Inbox:Lcom/yelp/android/analytics/iris/IriSource;
 
-    .line 452
+    .line 495
     :goto_0
     invoke-virtual {v0, v1}, Lcom/yelp/android/analytics/iris/IriSource;->addParameter(Ljava/util/Map;)V
 
-    .line 453
+    .line 496
     return-object v1
 
-    .line 451
+    .line 494
     :cond_0
     sget-object v0, Lcom/yelp/android/analytics/iris/IriSource;->PushNotification:Lcom/yelp/android/analytics/iris/IriSource;
 
@@ -862,22 +870,22 @@
     .locals 3
 
     .prologue
-    .line 148
+    .line 154
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 149
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b:Lcom/yelp/android/bb/d;
+    .line 155
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b:Lcom/yelp/android/cl/b;
 
-    invoke-virtual {v0}, Lcom/yelp/android/bb/d;->isEmpty()Z
+    invoke-virtual {v0}, Lcom/yelp/android/cl/b;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 150
+    .line 156
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b()V
 
-    .line 152
+    .line 158
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getArguments()Landroid/os/Bundle;
 
@@ -893,12 +901,12 @@
 
     if-eqz v0, :cond_1
 
-    .line 153
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
+    .line 159
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
 
-    .line 154
+    .line 160
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
@@ -911,18 +919,18 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    .line 156
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
+    .line 163
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
 
     const/4 v2, 0x2
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    .line 158
+    .line 165
     :cond_1
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h()V
 
-    .line 159
+    .line 166
     return-void
 .end method
 
@@ -930,10 +938,10 @@
     .locals 2
 
     .prologue
-    .line 137
+    .line 143
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onAttach(Landroid/app/Activity;)V
 
-    .line 139
+    .line 145
     :try_start_0
     check-cast p1, Lcom/yelp/android/ui/activities/messaging/a;
 
@@ -941,14 +949,14 @@
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 144
+    .line 150
     return-void
 
-    .line 140
+    .line 146
     :catch_0
     move-exception v0
 
-    .line 141
+    .line 147
     new-instance v0, Ljava/lang/ClassCastException;
 
     const-string/jumbo v1, "The corresponding activity must implement the ActivityMessagingListener interface"
@@ -958,66 +966,136 @@
     throw v0
 .end method
 
+.method public onContextItemSelected(Landroid/view/MenuItem;)Z
+    .locals 3
+
+    .prologue
+    .line 268
+    invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
+
+    move-result v0
+
+    packed-switch v0, :pswitch_data_0
+
+    .line 276
+    invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onContextItemSelected(Landroid/view/MenuItem;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    .line 270
+    :pswitch_0
+    invoke-interface {p1}, Landroid/view/MenuItem;->getMenuInfo()Landroid/view/ContextMenu$ContextMenuInfo;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/AdapterView$AdapterContextMenuInfo;
+
+    iget v0, v0, Landroid/widget/AdapterView$AdapterContextMenuInfo;->position:I
+
+    .line 271
+    const v1, 0x7f0703bf
+
+    invoke-virtual {p0, v1}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b:Lcom/yelp/android/cl/b;
+
+    invoke-virtual {v2, v0}, Lcom/yelp/android/cl/b;->getItem(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/ConversationMessage;
+
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/ConversationMessage;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;)Landroid/text/Spanned;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Lcom/yelp/android/ui/util/h;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 274
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    .line 268
+    :pswitch_data_0
+    .packed-switch 0x7f070227
+        :pswitch_0
+    .end packed-switch
+.end method
+
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
 
     .prologue
-    .line 112
+    .line 117
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreate(Landroid/os/Bundle;)V
 
-    .line 113
+    .line 118
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/q;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->i()Lcom/yelp/android/database/g;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/database/q;->i()Lcom/yelp/android/ay/e;
+    invoke-virtual {v0}, Lcom/yelp/android/database/g;->g()Lcom/yelp/android/cc/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/ay/e;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a:Lcom/yelp/android/cc/b;
 
-    .line 115
-    new-instance v0, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 120
+    new-instance v0, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->r:Lcom/yelp/android/ui/activities/messaging/apimanagers/g;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->r:Lcom/yelp/android/ui/activities/messaging/apimanagers/c;
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/activities/messaging/apimanagers/g;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;-><init>(Landroid/content/Context;Lcom/yelp/android/ui/activities/messaging/apimanagers/c;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    .line 116
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 121
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->a()Lcom/yelp/android/bb/d;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->a()Lcom/yelp/android/cl/b;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b:Lcom/yelp/android/bb/d;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b:Lcom/yelp/android/cl/b;
 
-    .line 117
+    .line 122
     new-instance v0, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
     iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
-    invoke-interface {v2}, Lcom/yelp/android/ui/activities/messaging/a;->d()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
+    invoke-interface {v2}, Lcom/yelp/android/ui/activities/messaging/a;->c()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;-><init>(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;)V
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;-><init>(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;)V
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
-    .line 119
+    .line 125
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -1026,7 +1104,7 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;->a(Landroid/support/v4/app/FragmentActivity;)V
 
-    .line 121
+    .line 127
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getArguments()Landroid/os/Bundle;
 
     move-result-object v0
@@ -1039,42 +1117,42 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Conversation;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    .line 122
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 128
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     if-eqz v0, :cond_0
 
-    .line 123
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 129
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->h()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->i:Ljava/lang/String;
 
-    .line 124
+    .line 130
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;->a(Lcom/yelp/android/serializable/Conversation;)V
 
-    .line 131
+    .line 137
     :goto_0
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->setHasOptionsMenu(Z)V
 
-    .line 132
+    .line 138
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->a()V
 
-    .line 133
+    .line 139
     return-void
 
-    .line 126
+    .line 132
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getArguments()Landroid/os/Bundle;
 
@@ -1091,16 +1169,31 @@
     goto :goto_0
 .end method
 
+.method public onCreateContextMenu(Landroid/view/ContextMenu;Landroid/view/View;Landroid/view/ContextMenu$ContextMenuInfo;)V
+    .locals 2
+
+    .prologue
+    const v1, 0x7f070227
+
+    const/4 v0, 0x0
+
+    .line 263
+    invoke-interface {p1, v0, v1, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
+
+    .line 264
+    return-void
+.end method
+
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 1
 
     .prologue
-    .line 408
-    const v0, 0x7f100007
+    .line 452
+    const v0, 0x7f100009
 
     invoke-virtual {p2, v0, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 409
+    .line 453
     return-void
 .end method
 
@@ -1108,13 +1201,13 @@
     .locals 4
 
     .prologue
-    .line 164
+    .line 171
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 165
-    const v1, 0x7f0300af
+    .line 172
+    const v1, 0x7f0300c8
 
     check-cast v0, Landroid/view/ViewGroup;
 
@@ -1122,8 +1215,8 @@
 
     move-result-object v1
 
-    .line 166
-    const v0, 0x7f0c02ae
+    .line 173
+    const v0, 0x7f0f030d
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1133,8 +1226,13 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
-    .line 168
-    const v0, 0x7f0c03eb
+    .line 175
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->d:Lcom/yelp/android/ui/util/ScrollToLoadListView;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->registerForContextMenu(Landroid/view/View;)V
+
+    .line 176
+    const v0, 0x7f0f04ce
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1144,8 +1242,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->e:Landroid/widget/Button;
 
-    .line 169
-    const v0, 0x7f0c03ea
+    .line 177
+    const v0, 0x7f0f04cd
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1153,29 +1251,29 @@
 
     check-cast v0, Landroid/widget/EditText;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
 
-    .line 171
+    .line 179
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->e:Landroid/widget/Button;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/messaging/g;
+    new-instance v2, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$1;
 
     sget-object v3, Lcom/yelp/android/analytics/iris/EventIri;->MessagingConversationSend:Lcom/yelp/android/analytics/iris/EventIri;
 
-    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/activities/messaging/g;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
+    invoke-direct {v2, p0, v3}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$1;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;Lcom/yelp/android/analytics/iris/EventIri;)V
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 181
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Landroid/widget/EditText;
+    .line 194
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->f:Landroid/widget/EditText;
 
-    new-instance v2, Lcom/yelp/android/ui/activities/messaging/i;
+    new-instance v2, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$3;
 
-    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/messaging/i;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
+    invoke-direct {v2, p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment$3;-><init>(Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;)V
 
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
-    .line 197
+    .line 211
     return-object v1
 .end method
 
@@ -1183,15 +1281,15 @@
     .locals 1
 
     .prologue
-    .line 240
+    .line 255
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onDestroy()V
 
-    .line 243
+    .line 258
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;->a()V
 
-    .line 244
+    .line 259
     return-void
 .end method
 
@@ -1199,14 +1297,14 @@
     .locals 4
 
     .prologue
-    .line 437
+    .line 480
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->n:Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;
 
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+    invoke-virtual {v1}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/l;
 
     move-result-object v1
 
@@ -1214,9 +1312,9 @@
 
     move-result v2
 
-    iget-object v3, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v3, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;->a(Landroid/support/v4/app/FragmentManager;ILcom/yelp/android/serializable/Conversation;)Z
+    invoke-virtual {v0, v1, v2, v3}, Lcom/yelp/android/ui/activities/messaging/MessagingActionsHelper;->a(Landroid/support/v4/app/l;ILcom/yelp/android/serializable/Conversation;)Z
 
     move-result v0
 
@@ -1229,35 +1327,35 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 221
+    .line 236
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onPause()V
 
-    .line 222
+    .line 237
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->c()Lcom/yelp/android/services/push/i;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->c()Lcom/yelp/android/services/push/e;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o:Lcom/yelp/android/services/push/j;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o:Lcom/yelp/android/services/push/e$a;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/services/push/i;->b(Lcom/yelp/android/services/push/j;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/services/push/e;->b(Lcom/yelp/android/services/push/e$a;)V
 
-    .line 223
+    .line 238
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->d()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->c()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, v2, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 225
+    .line 240
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->d()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->c()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 
     move-result-object v0
 
@@ -1267,36 +1365,36 @@
 
     if-nez v0, :cond_2
 
-    .line 226
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->i()V
+    .line 241
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j()V
 
-    .line 233
+    .line 248
     :cond_0
     :goto_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->g()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->g()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 234
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 249
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->h()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->h()V
 
-    .line 236
+    .line 251
     :cond_1
     return-void
 
-    .line 229
+    .line 244
     :cond_2
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
     if-eqz v0, :cond_0
 
-    .line 230
+    .line 245
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->k()V
 
     goto :goto_0
@@ -1306,16 +1404,16 @@
     .locals 6
 
     .prologue
-    const v3, 0x7f0c04f4
+    const v3, 0x7f0f05fe
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    .line 413
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 457
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->c()Z
 
     move-result v0
 
@@ -1325,26 +1423,26 @@
 
     if-eqz v0, :cond_3
 
-    .line 414
+    .line 458
     invoke-interface {p1, v3, v1}, Landroid/view/Menu;->setGroupVisible(IZ)V
 
-    .line 416
-    const v0, 0x7f0c04f5
+    .line 460
+    const v0, 0x7f0f05ff
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    .line 417
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 461
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->getBizUser()Lcom/yelp/android/serializable/BusinessUser;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->k()Lcom/yelp/android/serializable/BusinessUser;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0700df
+    const v0, 0x7f07016a
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getString(I)Ljava/lang/String;
 
@@ -1353,10 +1451,10 @@
     :goto_0
     invoke-interface {v3, v0}, Landroid/view/MenuItem;->setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    .line 421
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/bg;
+    .line 465
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/e;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/bg;->isBlocked()Z
+    invoke-interface {v0}, Lcom/yelp/android/serializable/e;->b()Z
 
     move-result v0
 
@@ -1367,23 +1465,23 @@
     :goto_1
     invoke-interface {v3, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 423
-    const v0, 0x7f0c04f6
+    .line 467
+    const v0, 0x7f0f0600
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    .line 424
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    .line 468
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->getBizUser()Lcom/yelp/android/serializable/BusinessUser;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Conversation;->k()Lcom/yelp/android/serializable/BusinessUser;
 
     move-result-object v0
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f07062d
+    const v0, 0x7f070619
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getString(I)Ljava/lang/String;
 
@@ -1392,28 +1490,28 @@
     :goto_2
     invoke-interface {v3, v0}, Landroid/view/MenuItem;->setTitle(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
 
-    .line 429
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/bg;
+    .line 472
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/e;
 
-    invoke-interface {v0}, Lcom/yelp/android/serializable/bg;->isBlocked()Z
+    invoke-interface {v0}, Lcom/yelp/android/serializable/e;->b()Z
 
     move-result v0
 
     invoke-interface {v3, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    .line 433
+    .line 476
     :goto_3
     return-void
 
-    .line 417
+    .line 461
     :cond_0
-    const v0, 0x7f0700e0
+    const v0, 0x7f07016b
 
     new-array v4, v1, [Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/bg;
+    iget-object v5, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/e;
 
-    invoke-interface {v5}, Lcom/yelp/android/serializable/bg;->getName()Ljava/lang/String;
+    invoke-interface {v5}, Lcom/yelp/android/serializable/e;->c()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1428,18 +1526,18 @@
     :cond_1
     move v0, v2
 
-    .line 421
+    .line 465
     goto :goto_1
 
-    .line 424
+    .line 468
     :cond_2
-    const v0, 0x7f07062e
+    const v0, 0x7f07061a
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    iget-object v4, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/bg;
+    iget-object v4, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->j:Lcom/yelp/android/serializable/e;
 
-    invoke-interface {v4}, Lcom/yelp/android/serializable/bg;->getName()Ljava/lang/String;
+    invoke-interface {v4}, Lcom/yelp/android/serializable/e;->c()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1451,7 +1549,7 @@
 
     goto :goto_2
 
-    .line 431
+    .line 474
     :cond_3
     invoke-interface {p1, v3, v2}, Landroid/view/Menu;->setGroupVisible(IZ)V
 
@@ -1462,39 +1560,39 @@
     .locals 3
 
     .prologue
-    .line 202
+    .line 216
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpFragment;->onResume()V
 
-    .line 204
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 218
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->c()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->c()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 205
+    .line 219
     iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->m:Lcom/yelp/android/ui/activities/messaging/a;
 
-    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->d()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
+    invoke-interface {v0}, Lcom/yelp/android/ui/activities/messaging/a;->c()Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->q:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/p;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->p:Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;
 
-    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/p;Lcom/yelp/android/ui/activities/messaging/apimanagers/p;)V
+    invoke-virtual {v0, v1, v2}, Lcom/yelp/android/ui/activities/messaging/ActivityMessaging$MessagingActionsFragment;->a(Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;Lcom/yelp/android/ui/activities/messaging/apimanagers/g$a;)V
 
-    .line 207
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    .line 222
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->h:Lcom/yelp/android/serializable/Conversation;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->g:Lcom/yelp/android/serializable/Conversation;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->b(Lcom/yelp/android/serializable/Conversation;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->b(Lcom/yelp/android/serializable/Conversation;)V
 
-    .line 214
+    .line 229
     :cond_0
     :goto_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -1505,33 +1603,33 @@
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->hideHotButtons()V
 
-    .line 216
+    .line 231
     invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->c()Lcom/yelp/android/services/push/i;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->c()Lcom/yelp/android/services/push/e;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o:Lcom/yelp/android/services/push/j;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->o:Lcom/yelp/android/services/push/e$a;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/services/push/i;->a(Lcom/yelp/android/services/push/j;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/services/push/e;->a(Lcom/yelp/android/services/push/e$a;)V
 
-    .line 217
+    .line 232
     return-void
 
-    .line 208
+    .line 223
     :cond_1
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/i;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->c:Lcom/yelp/android/ui/activities/messaging/apimanagers/e;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/i;->g()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/messaging/apimanagers/e;->g()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    .line 211
+    .line 226
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/messaging/ConversationThreadFragment;->b()V
 
     goto :goto_0

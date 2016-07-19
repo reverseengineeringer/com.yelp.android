@@ -1,85 +1,251 @@
 .class Lcom/google/android/gms/tagmanager/ak;
 .super Ljava/lang/Object;
 
+# interfaces
+.implements Lcom/google/android/gms/tagmanager/b;
 
-# direct methods
-.method static ag(Ljava/lang/String;)Z
-    .locals 4
 
-    const/4 v1, 0x1
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/google/android/gms/tagmanager/ak$b;,
+        Lcom/google/android/gms/tagmanager/ak$a;
+    }
+.end annotation
 
-    const/4 v0, 0x0
 
-    const/16 v2, 0x9
+# instance fields
+.field private a:Lcom/google/android/gms/tagmanager/a;
 
-    invoke-static {}, Lcom/google/android/gms/tagmanager/ak;->version()I
+.field private b:Lcom/google/android/gms/tagmanager/a;
 
-    move-result v3
+.field private c:Lcom/google/android/gms/common/api/Status;
 
-    if-ge v3, v2, :cond_0
+.field private d:Lcom/google/android/gms/tagmanager/ak$b;
+
+.field private e:Lcom/google/android/gms/tagmanager/ak$a;
+
+.field private f:Z
+
+.field private g:Lcom/google/android/gms/tagmanager/d;
+
+
+# virtual methods
+.method public declared-synchronized a()V
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/google/android/gms/tagmanager/ak;->f:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "Refreshing a released ContainerHolder."
+
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->a(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_0
-    return v0
+    monitor-exit p0
+
+    return-void
 
     :cond_0
-    new-instance v2, Ljava/io/File;
+    :try_start_1
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->e:Lcom/google/android/gms/tagmanager/ak$a;
 
-    invoke-direct {v2, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-interface {v0}, Lcom/google/android/gms/tagmanager/ak$a;->a()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-virtual {v2, v0, v0}, Ljava/io/File;->setReadable(ZZ)Z
+    goto :goto_0
 
-    invoke-virtual {v2, v0, v0}, Ljava/io/File;->setWritable(ZZ)Z
+    :catchall_0
+    move-exception v0
 
-    invoke-virtual {v2, v1, v1}, Ljava/io/File;->setReadable(ZZ)Z
+    monitor-exit p0
 
-    invoke-virtual {v2, v1, v1}, Ljava/io/File;->setWritable(ZZ)Z
+    throw v0
+.end method
 
-    move v0, v1
+.method public declared-synchronized a(Ljava/lang/String;)V
+    .locals 1
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/google/android/gms/tagmanager/ak;->f:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v0, :cond_0
+
+    :goto_0
+    monitor-exit p0
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->a:Lcom/google/android/gms/tagmanager/a;
+
+    invoke-virtual {v0, p1}, Lcom/google/android/gms/tagmanager/a;->a(Ljava/lang/String;)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
+.method b()Ljava/lang/String;
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/google/android/gms/tagmanager/ak;->f:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "getContainerId called on a released ContainerHolder."
+
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->a(Ljava/lang/String;)V
+
+    const-string/jumbo v0, ""
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->a:Lcom/google/android/gms/tagmanager/a;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/tagmanager/a;->a()Ljava/lang/String;
+
+    move-result-object v0
 
     goto :goto_0
 .end method
 
-.method public static version()I
-    .locals 2
+.method b(Ljava/lang/String;)V
+    .locals 1
 
-    :try_start_0
-    sget-object v0, Landroid/os/Build$VERSION;->SDK:Ljava/lang/String;
+    iget-boolean v0, p0, Lcom/google/android/gms/tagmanager/ak;->f:Z
 
-    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    if-eqz v0, :cond_0
 
-    move-result v0
+    const-string/jumbo v0, "setCtfeUrlPathAndQuery called on a released ContainerHolder."
+
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->a(Ljava/lang/String;)V
 
     :goto_0
-    return v0
+    return-void
 
-    :catch_0
-    move-exception v0
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->e:Lcom/google/android/gms/tagmanager/ak$a;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-interface {v0, p1}, Lcom/google/android/gms/tagmanager/ak$a;->a(Ljava/lang/String;)V
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    goto :goto_0
+.end method
 
-    const-string/jumbo v1, "Invalid version number: "
+.method c()Ljava/lang/String;
+    .locals 1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-boolean v0, p0, Lcom/google/android/gms/tagmanager/ak;->f:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "setCtfeUrlPathAndQuery called on a released ContainerHolder."
+
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->a(Ljava/lang/String;)V
+
+    const-string/jumbo v0, ""
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->e:Lcom/google/android/gms/tagmanager/ak$a;
+
+    invoke-interface {v0}, Lcom/google/android/gms/tagmanager/ak$a;->b()Ljava/lang/String;
 
     move-result-object v0
 
-    sget-object v1, Landroid/os/Build$VERSION;->SDK:Ljava/lang/String;
+    goto :goto_0
+.end method
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+.method public getStatus()Lcom/google/android/gms/common/api/Status;
+    .locals 1
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->c:Lcom/google/android/gms/common/api/Status;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    return-object v0
+.end method
 
-    move-result-object v0
+.method public declared-synchronized release()V
+    .locals 1
 
-    invoke-static {v0}, Lcom/google/android/gms/tagmanager/bh;->T(Ljava/lang/String;)V
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/google/android/gms/tagmanager/ak;->f:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "Releasing a released ContainerHolder."
+
+    invoke-static {v0}, Lcom/google/android/gms/tagmanager/m;->a(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_0
+    monitor-exit p0
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :try_start_1
+    iput-boolean v0, p0, Lcom/google/android/gms/tagmanager/ak;->f:Z
+
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->g:Lcom/google/android/gms/tagmanager/d;
+
+    invoke-virtual {v0, p0}, Lcom/google/android/gms/tagmanager/d;->a(Lcom/google/android/gms/tagmanager/ak;)Z
+
+    iget-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->a:Lcom/google/android/gms/tagmanager/a;
+
+    invoke-virtual {v0}, Lcom/google/android/gms/tagmanager/a;->b()V
 
     const/4 v0, 0x0
 
+    iput-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->a:Lcom/google/android/gms/tagmanager/a;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->b:Lcom/google/android/gms/tagmanager/a;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->e:Lcom/google/android/gms/tagmanager/ak$a;
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/google/android/gms/tagmanager/ak;->d:Lcom/google/android/gms/tagmanager/ak$b;
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
     goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method

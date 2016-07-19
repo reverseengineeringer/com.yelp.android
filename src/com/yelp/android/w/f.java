@@ -1,17 +1,31 @@
 package com.yelp.android.w;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
-import com.yelp.android.v.m;
-import com.yelp.android.v.q;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class f
-  extends q<ParcelFileDescriptor>
-  implements c<String>
+  extends h<ParcelFileDescriptor>
 {
-  public f(m<Uri, ParcelFileDescriptor> paramm)
+  public f(Context paramContext, Uri paramUri)
   {
-    super(paramm);
+    super(paramContext, paramUri);
+  }
+  
+  protected ParcelFileDescriptor a(Uri paramUri, ContentResolver paramContentResolver)
+    throws FileNotFoundException
+  {
+    return paramContentResolver.openAssetFileDescriptor(paramUri, "r").getParcelFileDescriptor();
+  }
+  
+  protected void a(ParcelFileDescriptor paramParcelFileDescriptor)
+    throws IOException
+  {
+    paramParcelFileDescriptor.close();
   }
 }
 

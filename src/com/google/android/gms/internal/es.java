@@ -1,22 +1,17 @@
 package com.google.android.gms.internal;
 
-import com.google.android.gms.ads.purchase.InAppPurchaseListener;
+import android.content.Context;
 
-@ey
+@fv
 public final class es
-  extends en.a
+  implements et
 {
-  private final InAppPurchaseListener oM;
-  
-  public es(InAppPurchaseListener paramInAppPurchaseListener)
+  public String a(Context paramContext, String paramString1, String paramString2)
   {
-    oM = paramInAppPurchaseListener;
+    return null;
   }
   
-  public void a(em paramem)
-  {
-    oM.onInAppPurchaseRequested(new ev(paramem));
-  }
+  public void a(Context paramContext, String paramString) {}
 }
 
 /* Location:

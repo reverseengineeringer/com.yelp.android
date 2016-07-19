@@ -4,4 +4,6 @@
     <item android:id="@id/invite_friend" android:title="@string/add_as_a_male_friend" />
     <item android:id="@id/send_compliment" android:title="@string/send_compliment" />
     <item android:id="@id/send_message" android:title="@string/send_message" />
+    <item android:id="@id/follow_user" android:title="@string/follow_user" />
+    <item android:id="@id/share_user_profile" android:title="@string/share_user_profile" />
 </menu>

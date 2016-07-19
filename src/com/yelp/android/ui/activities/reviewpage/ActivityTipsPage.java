@@ -17,20 +17,19 @@ import android.widget.Checkable;
 import com.yelp.android.analytics.g;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.analytics.iris.ViewIri;
-import com.yelp.android.analytics.iris.b;
+import com.yelp.android.analytics.iris.a;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.LocaleSettings;
+import com.yelp.android.appdata.LocaleSettings.a;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.YelpException;
-import com.yelp.android.appdata.webrequests.cw;
-import com.yelp.android.appdata.webrequests.cx;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.fq;
-import com.yelp.android.appdata.webrequests.m;
-import com.yelp.android.appdata.y;
+import com.yelp.android.appdata.webrequests.ck;
+import com.yelp.android.appdata.webrequests.ck.a;
+import com.yelp.android.appdata.webrequests.co;
+import com.yelp.android.appdata.webrequests.em;
 import com.yelp.android.serializable.Feedback;
 import com.yelp.android.serializable.Tip;
-import com.yelp.android.serializable.TipFeedEntry;
 import com.yelp.android.serializable.YelpBusiness;
 import com.yelp.android.serializable.YelpBusinessReview;
 import com.yelp.android.ui.activities.ActivityLogin;
@@ -41,8 +40,8 @@ import com.yelp.android.ui.activities.tips.WriteTip;
 import com.yelp.android.ui.panels.PanelLoading;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
-import com.yelp.android.ui.util.bf;
-import com.yelp.android.ui.util.bs;
+import com.yelp.android.ui.util.ab;
+import com.yelp.android.ui.util.aj;
 import com.yelp.android.ui.widgets.SpannedImageButton;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,11 +56,11 @@ import java.util.TreeMap;
 
 public class ActivityTipsPage
   extends YelpListActivity
-  implements m<cx>, bg
+  implements ApiRequest.b<ck.a>, d.a
 {
-  private bs a;
-  private TreeMap<Locale, aw> b;
-  private cw c;
+  private aj a;
+  private TreeMap<Locale, d> b;
+  private ck c;
   private String d;
   private String e;
   private boolean f;
@@ -70,8 +69,8 @@ public class ActivityTipsPage
   public static Intent a(Context paramContext, YelpBusiness paramYelpBusiness, boolean paramBoolean)
   {
     paramContext = new Intent(paramContext, ActivityTipsPage.class);
-    paramContext.putExtra("extra.param.business_id", paramYelpBusiness.getId());
-    paramContext.putExtra("extra.param.business_name", paramYelpBusiness.getDisplayName());
+    paramContext.putExtra("extra.param.business_id", paramYelpBusiness.aD());
+    paramContext.putExtra("extra.param.business_name", paramYelpBusiness.z());
     paramContext.putExtra("extra.param.hide_view_biz_button", paramBoolean);
     return paramContext;
   }
@@ -86,11 +85,11 @@ public class ActivityTipsPage
     while (((Iterator)localObject).hasNext())
     {
       Locale localLocale = (Locale)((Iterator)localObject).next();
-      aw localaw = (aw)b.get(localLocale);
+      d locald = (d)b.get(localLocale);
       ArrayList localArrayList = paramBundle.getParcelableArrayList(String.format("TipList.%s", new Object[] { localLocale }));
       if (localArrayList != null)
       {
-        localaw.a(localArrayList);
+        locald.a(localArrayList);
         localLinkedList.add(localLocale);
       }
     }
@@ -99,16 +98,16 @@ public class ActivityTipsPage
     }
     g.removeAll(localLinkedList);
     if (a.getCount() > 100) {
-      q().setFastScrollEnabled(true);
+      r().setFastScrollEnabled(true);
     }
   }
   
   private void a(Locale paramLocale, List<Locale> paramList)
   {
-    Object localObject1 = AppData.b().m().b();
+    Object localObject1 = AppData.b().q().a();
     g.clear();
     g.add(paramLocale);
-    b.put(paramLocale, new aw((String)localObject1, this));
+    b.put(paramLocale, new d((String)localObject1, this));
     paramList = paramList.iterator();
     Object localObject2;
     while (paramList.hasNext())
@@ -116,7 +115,7 @@ public class ActivityTipsPage
       localObject2 = (Locale)paramList.next();
       if (!b.containsKey(localObject2))
       {
-        b.put(localObject2, new aw((String)localObject1, this));
+        b.put(localObject2, new d((String)localObject1, this));
         g.add(localObject2);
       }
     }
@@ -125,124 +124,114 @@ public class ActivityTipsPage
     if (paramList.hasNext())
     {
       localObject1 = (Locale)paramList.next();
-      localObject2 = (aw)b.get(localObject1);
+      localObject2 = (d)b.get(localObject1);
       if (paramLocale == localObject1) {}
-      for (int j = 2131166526;; j = 2131166522)
+      for (int j = 2131166523;; j = 2131166521)
       {
         a.a(i, getString(j, new Object[] { ((Locale)localObject1).getDisplayLanguage(paramLocale) }), (BaseAdapter)localObject2);
         i += 1;
         break;
       }
     }
-    q().setAdapter(a);
+    r().setAdapter(a);
   }
   
-  private cw c()
+  private ck b()
   {
-    if ((c != null) && (c.isFetching())) {
+    if ((c != null) && (c.u())) {
       return c;
     }
     Locale localLocale = AppData.b().g().h();
     if (!g.isEmpty()) {
       localLocale = (Locale)g.iterator().next();
     }
-    aw localaw = (aw)b.get(localLocale);
-    if (localaw == null) {}
-    for (int i = 0;; i = localaw.getCount())
+    d locald = (d)b.get(localLocale);
+    if (locald == null) {}
+    for (int i = 0;; i = locald.getCount())
     {
       int j = Math.min(a.getCount() / 10 * 10 + 10, 50);
-      c = new cw(d, i, j, localLocale, false, this);
-      c.execute(new String[0]);
+      c = new ck(d, i, j, localLocale, false, this);
+      c.f(new String[0]);
       return c;
     }
   }
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, cx paramcx)
+  public void a(ApiRequest<?, ?, ?> paramApiRequest, ck.a parama)
   {
     if (b.isEmpty()) {
-      a(paramcx.c(), paramcx.d());
+      a(parama.c(), parama.d());
     }
-    aw localaw = (aw)b.get(paramcx.c());
-    if (!paramcx.a().isEmpty())
+    d locald = (d)b.get(parama.c());
+    if (!parama.a().isEmpty())
     {
-      localaw.a(paramcx.a());
+      locald.a(parama.a());
       a.notifyDataSetChanged();
     }
-    Integer localInteger = (Integer)paramcx.b().get(paramcx.c());
+    Integer localInteger = (Integer)parama.b().get(parama.c());
     paramApiRequest = localInteger;
     if (localInteger == null) {
       paramApiRequest = Integer.valueOf(0);
     }
     if (a.getCount() > 100) {
-      q().setFastScrollEnabled(true);
+      r().setFastScrollEnabled(true);
     }
-    if ((paramcx.a().isEmpty()) || (localaw.getCount() == Integer.valueOf(paramApiRequest.intValue()).intValue()))
+    if ((parama.a().isEmpty()) || (locald.getCount() == Integer.valueOf(paramApiRequest.intValue()).intValue()))
     {
-      g.remove(paramcx.c());
+      g.remove(parama.c());
       if (g.isEmpty()) {
-        q().f();
+        r().f();
       }
     }
-    if ((paramcx.a().isEmpty()) && (!g.isEmpty())) {
-      c();
+    if ((parama.a().isEmpty()) && (!g.isEmpty())) {
+      b();
     }
   }
   
   public void a(Tip paramTip)
   {
-    Intent localIntent = WriteTip.a(this, paramTip, d);
-    localIntent.putExtra("changed entry id", paramTip.getId());
-    startActivityForResult(localIntent, 100);
+    startActivityForResult(WriteTip.a(this, paramTip, d), 100);
   }
   
   public void a(Tip paramTip, Checkable paramCheckable)
   {
-    startActivity(ActivityLogin.a(this, 2131166775, 2131166038, SendCompliment.a(this, paramTip)));
+    startActivity(ActivityLogin.a(this, 2131165707, 2131166098, SendCompliment.a(this, paramTip)));
   }
   
   public void a(Tip paramTip, SpannedImageButton paramSpannedImageButton)
   {
-    dc localdc = AppData.b().m();
-    if (localdc.e())
+    if (AppData.b().q().d())
     {
-      new fq(paramTip.getId(), paramSpannedImageButton.isChecked()).execute(new Void[0]);
+      new em(paramTip.a(), paramSpannedImageButton.isChecked()).f(new Void[0]);
       if (paramSpannedImageButton.isChecked()) {
-        paramTip.getFeedback().addPositiveFeedback();
+        paramTip.g().a();
       }
       for (;;)
       {
         paramTip = b.entrySet().iterator();
         while (paramTip.hasNext()) {
-          ((aw)((Map.Entry)paramTip.next()).getValue()).notifyDataSetChanged();
+          ((d)((Map.Entry)paramTip.next()).getValue()).notifyDataSetChanged();
         }
-        paramTip.getFeedback().removePositiveFeedback();
+        paramTip.g().b();
       }
     }
     paramSpannedImageButton.toggle();
-    if (localdc.c()) {}
-    for (int i = 2131166777;; i = 2131166049)
-    {
-      paramSpannedImageButton.getContext().startActivity(ActivityLogin.a(paramSpannedImageButton.getContext(), i));
-      return;
-    }
+    paramSpannedImageButton.getContext().startActivity(ActivityLogin.a(this, 2131165697, 2131166108));
   }
   
   public void b(Tip paramTip)
   {
-    startActivity(ActivityUserProfile.a(this, paramTip.getUserId()));
+    startActivity(ActivityUserProfile.a(this, paramTip.b()));
+  }
+  
+  protected void c()
+  {
+    super.c();
+    b();
   }
   
   public void c(Tip paramTip)
   {
-    Intent localIntent = TipComplimentsLikes.a(this, paramTip, e, f);
-    localIntent.putExtra("changed entry id", paramTip.getId());
-    startActivityForResult(localIntent, 100);
-  }
-  
-  protected void d()
-  {
-    super.d();
-    c();
+    startActivityForResult(TipComplimentsLikes.a(this, paramTip, e, f), 100);
   }
   
   public ViewIri getIri()
@@ -250,7 +239,7 @@ public class ActivityTipsPage
     return ViewIri.BusinessTips;
   }
   
-  public Map<String, Object> getParametersForIri(b paramb)
+  public Map<String, Object> getParametersForIri(a parama)
   {
     return g.b(d);
   }
@@ -268,34 +257,34 @@ public class ActivityTipsPage
       }
       else
       {
-        str = paramIntent.getStringExtra("changed entry id");
+        str = ((Tip)paramIntent.getParcelableExtra("tip")).a();
         localIterator1 = new ArrayList(b.keySet()).iterator();
       }
       Object localObject;
       List localList;
-      label88:
+      label94:
       do
       {
-        break label88;
+        break label94;
         if (!localIterator1.hasNext()) {
           break label11;
         }
         localObject = (Locale)localIterator1.next();
-        localList = ((aw)b.get(localObject)).a();
+        localList = ((d)b.get(localObject)).a();
         Iterator localIterator2 = localList.iterator();
         if (!localIterator2.hasNext()) {
           break;
         }
         localObject = (Tip)localIterator2.next();
-      } while (!((Tip)localObject).getId().equals(str));
-      if (paramIntent.getBooleanExtra("did we delete it?", false)) {
+      } while (!((Tip)localObject).a().equals(str));
+      if (paramIntent.getBooleanExtra("tip_deleted", false)) {
         localList.remove(localObject);
       }
-      if (paramIntent.hasExtra("bundle to be passed"))
+      if (paramIntent.hasExtra("tip_updated"))
       {
-        paramIntent = (Tip)paramIntent.getBundleExtra("bundle to be passed").getParcelable(TipFeedEntry.CONTENT_KEY);
-        ((Tip)localObject).setText(paramIntent.getText());
-        ((Tip)localObject).setEditedBitmap(paramIntent.getEditedBitmap());
+        paramIntent = (Tip)paramIntent.getParcelableExtra("tip_updated");
+        ((Tip)localObject).a(paramIntent.e());
+        ((Tip)localObject).a(paramIntent.f());
       }
       a.notifyDataSetChanged();
       return;
@@ -306,17 +295,17 @@ public class ActivityTipsPage
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    ScrollToLoadListView localScrollToLoadListView = q();
+    ScrollToLoadListView localScrollToLoadListView = r();
     Object localObject = getIntent();
     d = ((Intent)localObject).getStringExtra("extra.param.business_id");
     e = ((Intent)localObject).getStringExtra("extra.param.business_name");
     f = ((Intent)localObject).getBooleanExtra("extra.param.hide_view_biz_button", false);
     localScrollToLoadListView.setItemsCanFocus(true);
     localObject = createLoadingPanel();
-    ((PanelLoading)localObject).b(2131166019);
+    ((PanelLoading)localObject).a(2131166078);
     localScrollToLoadListView.setEmptyView((View)localObject);
-    a = new bs();
-    b = new TreeMap(new y());
+    a = new aj();
+    b = new TreeMap(new LocaleSettings.a());
     g = new LinkedHashSet();
     g.add(AppData.b().g().h());
     if (paramBundle != null) {
@@ -328,7 +317,7 @@ public class ActivityTipsPage
       registerForContextMenu(localScrollToLoadListView);
       localScrollToLoadListView.setAdapter(a);
       return;
-      c();
+      b();
     }
   }
   
@@ -341,46 +330,46 @@ public class ActivityTipsPage
     {
       paramView = (YelpBusinessReview)paramView;
       paramContextMenu.setHeaderTitle(e);
-      bf.a(this, paramContextMenu, paramView.getUserId(), paramView.getUserName());
+      ab.a(this, paramContextMenu, paramView.b(), paramView.O());
     }
   }
   
   public boolean onCreateOptionsMenu(Menu paramMenu)
   {
     super.onCreateOptionsMenu(paramMenu);
-    getMenuInflater().inflate(2131755048, paramMenu);
+    getMenuInflater().inflate(2131755052, paramMenu);
     return true;
   }
   
   public void onError(ApiRequest<?, ?, ?> paramApiRequest, YelpException paramYelpException)
   {
-    if ((paramApiRequest instanceof cw))
+    if ((paramApiRequest instanceof ck))
     {
-      q().f();
+      r().f();
       a.notifyDataSetChanged();
       if (b.isEmpty()) {
         break label55;
       }
       if (!g.isEmpty()) {
-        c();
+        b();
       }
     }
     else
     {
       return;
     }
-    q().f();
+    r().f();
     return;
     label55:
-    q().f();
+    r().f();
   }
   
   public boolean onOptionsItemSelected(MenuItem paramMenuItem)
   {
-    if (paramMenuItem.getItemId() == 2131494124)
+    if (paramMenuItem.getItemId() == 2131690998)
     {
       AppData.a(EventIri.BusinessMoreTipsAddTip);
-      startActivity(ActivityLogin.a(this, 2131166772, 2131166033, WriteTip.a(this, d)));
+      startActivity(ActivityLogin.a(this, 2131165696, 2131166093, WriteTip.a(this, d)));
       return true;
     }
     return super.onOptionsItemSelected(paramMenuItem);
@@ -394,7 +383,7 @@ public class ActivityTipsPage
     while (localIterator.hasNext())
     {
       Locale localLocale = (Locale)localIterator.next();
-      ArrayList localArrayList = new ArrayList(((aw)b.get(localLocale)).a());
+      ArrayList localArrayList = new ArrayList(((d)b.get(localLocale)).a());
       paramBundle.putParcelableArrayList(String.format("TipList.%s", new Object[] { localLocale }), localArrayList);
     }
     paramBundle.putSerializable("Languages", g);

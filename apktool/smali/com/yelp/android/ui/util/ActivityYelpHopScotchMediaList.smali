@@ -3,16 +3,16 @@
 .source "ActivityYelpHopScotchMediaList.java"
 
 # interfaces
-.implements Lcom/yelp/android/appdata/webrequests/m;
+.implements Lcom/yelp/android/appdata/webrequests/ApiRequest$b;
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/yelp/android/ui/util/YelpListActivity;",
-        "Lcom/yelp/android/appdata/webrequests/m",
+        "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
         "<",
-        "Lcom/yelp/android/appdata/webrequests/dm;",
+        "Lcom/yelp/android/serializable/MediaPayload;",
         ">;"
     }
 .end annotation
@@ -23,7 +23,7 @@
 
 .field protected b:Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
-.field protected c:Lcom/yelp/android/ui/activities/addphoto/i;
+.field protected c:Lcom/yelp/android/ui/activities/addphoto/a;
 
 
 # direct methods
@@ -31,26 +31,26 @@
     .locals 0
 
     .prologue
-    .line 36
+    .line 33
     invoke-direct {p0}, Lcom/yelp/android/ui/util/YelpListActivity;-><init>()V
 
     return-void
 .end method
 
-.method private c()V
+.method private b()V
     .locals 2
 
     .prologue
-    .line 166
+    .line 159
     const-string/jumbo v0, "com.yelp.android.media.update"
 
-    new-instance v1, Lcom/yelp/android/ui/util/a;
+    new-instance v1, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/util/a;-><init>(Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList$1;-><init>(Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;)V
 
     invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->registerDirtyEventReceiver(Ljava/lang/String;Landroid/content/BroadcastReceiver;)V
 
-    .line 176
+    .line 170
     return-void
 .end method
 
@@ -60,11 +60,11 @@
     .locals 2
 
     .prologue
-    .line 195
+    .line 189
     const-string/jumbo v1, "You can only inflate a Banner View once."
 
-    .line 197
-    const v0, 0x7f0c01cb
+    .line 191
+    const v0, 0x7f0f01fb
 
     :try_start_0
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->findViewById(I)Landroid/view/View;
@@ -73,10 +73,10 @@
 
     check-cast v0, Landroid/view/ViewStub;
 
-    .line 198
+    .line 192
     invoke-virtual {v0, p1}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
-    .line 199
+    .line 193
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
@@ -86,28 +86,28 @@
 
     return-object v0
 
-    .line 200
+    .line 194
     :catch_0
     move-exception v0
 
-    .line 201
+    .line 195
     invoke-static {p0, v1}, Lcom/yelp/android/util/YelpLog;->e(Ljava/lang/Object;Ljava/lang/String;)I
 
-    .line 202
+    .line 196
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 203
+    .line 197
     :catch_1
     move-exception v0
 
-    .line 204
+    .line 198
     invoke-static {p0, v1}, Lcom/yelp/android/util/YelpLog;->e(Ljava/lang/Object;Ljava/lang/String;)I
 
-    .line 205
+    .line 199
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
@@ -119,8 +119,8 @@
     .locals 4
 
     .prologue
-    .line 148
-    const-string/jumbo v0, "bitmap_extra"
+    .line 144
+    const-string/jumbo v0, "extra.images"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -128,53 +128,53 @@
 
     if-eqz v0, :cond_1
 
-    .line 149
-    new-instance v1, Ljava/io/File;
+    .line 145
+    const-string/jumbo v0, "extra.images"
 
-    const-string/jumbo v0, "bitmap_extra"
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelableArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
 
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v0
-
-    invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    .line 150
-    const-string/jumbo v0, "caption_extra"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 151
-    const-string/jumbo v2, "photo_id_extra"
-
-    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    .line 146
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    .line 152
-    if-nez v0, :cond_0
-
-    .line 153
-    const-string/jumbo v0, ""
-
-    .line 155
-    :cond_0
-    iget-object v3, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
-
-    invoke-virtual {v3, v1, v0, v2}, Lcom/yelp/android/ui/activities/addphoto/i;->a(Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 156
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()I
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    add-int/lit8 v0, v0, 0x1
+    if-eqz v0, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/yelp/android/serializable/Photo;
+
+    .line 147
+    iget-object v3, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
+
+    invoke-virtual {v3, v0}, Lcom/yelp/android/ui/activities/addphoto/a;->b(Lcom/yelp/android/serializable/Photo;)V
+
+    goto :goto_0
+
+    .line 149
+    :cond_0
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->s()I
+
+    move-result v0
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c(I)V
 
-    .line 158
+    .line 151
     :cond_1
     return-void
 .end method
@@ -197,48 +197,48 @@
     .end annotation
 
     .prologue
-    .line 86
+    .line 80
     iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->aD()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {p0, p1, p2, p3, v0}, Lcom/yelp/android/ui/activities/addphoto/i;->a(Landroid/content/Context;Landroid/view/View$OnClickListener;Lcom/yelp/android/analytics/iris/EventIri;Ljava/util/Map;Ljava/lang/String;)Lcom/yelp/android/ui/activities/addphoto/i;
+    invoke-static {p0, p1, p2, p3, v0}, Lcom/yelp/android/ui/activities/addphoto/a;->a(Landroid/content/Context;Landroid/view/View$OnClickListener;Lcom/yelp/android/analytics/iris/EventIri;Ljava/util/Map;Ljava/lang/String;)Lcom/yelp/android/ui/activities/addphoto/a;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    iput-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    .line 88
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 83
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0, p4}, Lcom/yelp/android/ui/activities/addphoto/i;->b(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p4}, Lcom/yelp/android/ui/activities/addphoto/a;->b(Landroid/os/Bundle;)V
 
-    .line 90
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 85
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/i;->isEmpty()Z
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/a;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 91
+    .line 86
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->showLoadingDialog()V
 
-    .line 94
+    .line 89
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    iget-object v1, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    .line 95
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 90
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
@@ -246,40 +246,40 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setItemsCanFocus(Z)V
 
-    .line 101
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 96
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->f()V
 
-    .line 102
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->d()V
+    .line 97
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c()V
 
-    .line 103
+    .line 98
     return-void
 .end method
 
-.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/dm;)V
+.method public a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/serializable/MediaPayload;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/yelp/android/appdata/webrequests/ApiRequest",
             "<***>;",
-            "Lcom/yelp/android/appdata/webrequests/dm;",
+            "Lcom/yelp/android/serializable/MediaPayload;",
             ")V"
         }
     .end annotation
 
     .prologue
-    .line 124
+    .line 119
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    .line 125
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->c()Ljava/util/ArrayList;
+    .line 120
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/MediaPayload;->c()Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -300,65 +300,65 @@
 
     check-cast v0, Lcom/yelp/android/serializable/Media;
 
-    .line 126
+    .line 121
     check-cast v0, Lcom/yelp/android/serializable/IdentifiableMedia;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    .line 128
+    .line 124
     :cond_0
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/addphoto/i;->c(Ljava/util/List;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/addphoto/a;->c(Ljava/util/List;)V
 
-    .line 129
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 125
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/i;->b()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/a;->c()Ljava/util/List;
 
     move-result-object v0
 
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->a()Ljava/util/ArrayList;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/MediaPayload;->d()Ljava/util/ArrayList;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 130
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 126
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/i;->c()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/a;->d()Ljava/util/List;
 
     move-result-object v0
 
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->b()Ljava/util/ArrayList;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/MediaPayload;->e()Ljava/util/ArrayList;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    .line 131
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 127
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->d()I
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/MediaPayload;->a()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/addphoto/i;->b(I)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/activities/addphoto/a;->b(I)V
 
-    .line 132
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 128
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/i;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/a;->notifyDataSetChanged()V
 
-    .line 135
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->e()I
+    .line 131
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/MediaPayload;->b()I
 
     move-result v0
 
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->c()Ljava/util/ArrayList;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/MediaPayload;->c()Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -370,36 +370,26 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c(I)V
 
-    .line 136
+    .line 132
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->hideLoadingDialog()V
 
-    .line 138
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 134
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/i;->getCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/addphoto/a;->t_()I
 
     move-result v0
 
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->d()I
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/MediaPayload;->a()I
 
     move-result v1
 
     if-ge v0, v1, :cond_1
 
-    invoke-virtual {p2}, Lcom/yelp/android/appdata/webrequests/dm;->c()Ljava/util/ArrayList;
+    .line 135
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c()V
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    .line 139
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->d()V
-
-    .line 141
+    .line 137
     :cond_1
     return-void
 .end method
@@ -408,11 +398,11 @@
     .locals 2
 
     .prologue
-    .line 222
+    .line 216
     const-string/jumbo v1, "You can only inflate a ListView Background View once."
 
-    .line 224
-    const v0, 0x7f0c01cc
+    .line 218
+    const v0, 0x7f0f01fc
 
     :try_start_0
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->findViewById(I)Landroid/view/View;
@@ -421,10 +411,10 @@
 
     check-cast v0, Landroid/view/ViewStub;
 
-    .line 225
+    .line 219
     invoke-virtual {v0, p1}, Landroid/view/ViewStub;->setLayoutResource(I)V
 
-    .line 226
+    .line 220
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
@@ -434,28 +424,28 @@
 
     return-object v0
 
-    .line 227
+    .line 221
     :catch_0
     move-exception v0
 
-    .line 228
+    .line 222
     invoke-static {p0, v1}, Lcom/yelp/android/util/YelpLog;->e(Ljava/lang/Object;Ljava/lang/String;)I
 
-    .line 229
+    .line 223
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 230
+    .line 224
     :catch_1
     move-exception v0
 
-    .line 231
+    .line 225
     invoke-static {p0, v1}, Lcom/yelp/android/util/YelpLog;->e(Ljava/lang/Object;Ljava/lang/String;)I
 
-    .line 232
+    .line 226
     new-instance v0, Ljava/lang/IllegalStateException;
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
@@ -463,61 +453,61 @@
     throw v0
 .end method
 
-.method protected d()V
+.method protected c()V
     .locals 4
 
     .prologue
-    .line 113
+    .line 108
     iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->b:Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->b:Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;->isCompleted()Z
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;->v()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    .line 114
+    .line 109
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    .line 115
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->m()Lcom/yelp/android/appdata/webrequests/dc;
+    .line 110
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->q()Lcom/yelp/android/appdata/webrequests/co;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/dc;->s()Lcom/yelp/android/serializable/User;
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/webrequests/co;->p()Lcom/yelp/android/serializable/User;
 
     move-result-object v0
 
-    .line 116
+    .line 111
     new-instance v1, Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
     iget-object v2, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->a:Lcom/yelp/android/serializable/YelpBusiness;
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()I
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->s()I
 
     move-result v3
 
-    invoke-direct {v1, v0, v2, v3, p0}, Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;-><init>(Lcom/yelp/android/serializable/User;Lcom/yelp/android/serializable/YelpBusiness;ILcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {v1, v0, v2, v3, p0}, Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;-><init>(Lcom/yelp/android/serializable/User;Lcom/yelp/android/serializable/YelpBusiness;ILcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     iput-object v1, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->b:Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
-    .line 117
+    .line 112
     iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->b:Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;->execute([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;->f([Ljava/lang/Object;)Lcom/yelp/android/appdata/webrequests/ApiRequest;
 
-    .line 119
+    .line 114
     :cond_1
     return-void
 .end method
@@ -526,7 +516,7 @@
     .locals 1
 
     .prologue
-    .line 81
+    .line 72
     invoke-super {p0}, Lcom/yelp/android/ui/util/YelpListActivity;->getLastCustomNonConfigurationInstance()Ljava/lang/Object;
 
     move-result-object v0
@@ -540,7 +530,7 @@
     .locals 1
 
     .prologue
-    .line 36
+    .line 33
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->g()Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
     move-result-object v0
@@ -548,16 +538,16 @@
     return-object v0
 .end method
 
-.method protected h()V
+.method protected i()V
     .locals 2
 
     .prologue
-    .line 144
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 140
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -569,60 +559,53 @@
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setSelection(I)V
 
-    .line 145
+    .line 141
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x10
-    .end annotation
 
     .prologue
-    const/4 v2, 0x0
-
     const/4 v3, 0x0
 
-    .line 48
+    .line 44
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 49
-    const v0, 0x7f030052
+    .line 45
+    const v0, 0x7f03005b
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->setContentView(I)V
 
-    .line 52
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x10
-
-    if-ge v0, v1, :cond_0
-
-    .line 53
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 48
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    const/4 v1, 0x0
 
-    .line 59
-    :goto_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    .line 51
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setScrollingCacheEnabled(Z)V
 
-    .line 62
-    const v0, 0x7f010049
+    .line 54
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->getResources()Landroid/content/res/Resources;
 
-    invoke-static {p0, v0}, Lcom/yelp/android/ui/util/cp;->a(Landroid/content/Context;I)I
+    move-result-object v0
+
+    const v1, 0x7f0a00a6
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    .line 66
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 57
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v1
 
@@ -630,57 +613,47 @@
 
     invoke-virtual {v1, v3, v2, v3, v0}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setPadding(IIII)V
 
-    .line 70
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 61
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setClipToPadding(Z)V
 
-    .line 73
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
+    .line 64
+    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->r()Lcom/yelp/android/ui/util/ScrollToLoadListView;
 
     move-result-object v0
 
     invoke-virtual {v0, v3}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setVerticalFadingEdgeEnabled(Z)V
 
-    .line 75
+    .line 66
     invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->g()Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->b:Lcom/yelp/android/appdata/webrequests/UserLocalMediaRequest;
 
-    .line 76
-    invoke-direct {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c()V
+    .line 67
+    invoke-direct {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->b()V
 
-    .line 77
+    .line 68
     return-void
-
-    .line 55
-    :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->q()Lcom/yelp/android/ui/util/ScrollToLoadListView;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Lcom/yelp/android/ui/util/ScrollToLoadListView;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
 .end method
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 1
 
     .prologue
-    .line 107
-    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/i;
+    .line 102
+    iget-object v0, p0, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->c:Lcom/yelp/android/ui/activities/addphoto/a;
 
-    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/addphoto/i;->a(Landroid/os/Bundle;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/ui/activities/addphoto/a;->a(Landroid/os/Bundle;)V
 
-    .line 108
+    .line 103
     invoke-super {p0, p1}, Lcom/yelp/android/ui/util/YelpListActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 109
+    .line 104
     return-void
 .end method
 
@@ -688,10 +661,10 @@
     .locals 0
 
     .prologue
-    .line 36
-    check-cast p2, Lcom/yelp/android/appdata/webrequests/dm;
+    .line 33
+    check-cast p2, Lcom/yelp/android/serializable/MediaPayload;
 
-    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/appdata/webrequests/dm;)V
+    invoke-virtual {p0, p1, p2}, Lcom/yelp/android/ui/util/ActivityYelpHopScotchMediaList;->a(Lcom/yelp/android/appdata/webrequests/ApiRequest;Lcom/yelp/android/serializable/MediaPayload;)V
 
     return-void
 .end method

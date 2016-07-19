@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:padding="8.0dip" style="?cellButtonStyle"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@id/redemption_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" style="@style/HeadlineDarkText" />
-    <TextView android:id="@id/code" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" style="@style/SubtitleText" />
-    <TextView android:textStyle="italic" android:id="@id/customer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" style="@style/LargeText" />
+    <TextView android:id="@id/redemption_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" style="@style/DeprecatedHeadlineDarkText" />
+    <TextView android:id="@id/code" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" style="@style/DeprecatedSubtitleText" />
+    <TextView android:textStyle="italic" android:id="@id/customer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxLines="1" style="@style/BodyText" />
 </LinearLayout>

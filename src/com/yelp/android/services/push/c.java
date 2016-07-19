@@ -1,34 +1,65 @@
 package com.yelp.android.services.push;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.view.View.OnClickListener;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.ui.activities.ActivityLogin;
-import com.yelp.android.ui.activities.events.ActivityEvents;
-import com.yelp.android.ui.activities.support.YelpActivity;
+import com.yelp.android.cb.a;
+import com.yelp.android.database.g;
+import com.yelp.android.database.h.c;
+import com.yelp.android.serializable.InAppNotification;
+import com.yelp.android.ui.widgets.InAppNotificationView;
 
 public class c
-  extends DefaultPushNotificationHandler
 {
-  public c(Context paramContext, Uri paramUri)
+  public h.c a = new c.1(this);
+  private InAppNotification b;
+  private InAppNotificationView c;
+  private Context d;
+  private a e;
+  private View.OnClickListener f = new c.2(this);
+  private View.OnClickListener g = new c.3(this);
+  
+  public static a a()
   {
-    super(paramContext, Notifier.NotificationType.Events, paramContext.getString(2131166913), paramUri);
+    return AppData.b().i().i();
   }
   
-  public Intent a(Uri paramUri, Notifier.NotificationType paramNotificationType, boolean paramBoolean)
+  public void a(Class paramClass, Context paramContext, InAppNotificationView paramInAppNotificationView, a parama)
   {
-    if (paramBoolean) {}
-    for (paramUri = ActivityEvents.a(AppData.b());; paramUri = paramNotificationType)
+    d = paramContext;
+    e = parama;
+    c = paramInAppNotificationView;
+    c.setVisibility(8);
+    a().a(paramClass, a);
+  }
+  
+  public void b()
+  {
+    int j = 1;
+    int i;
+    if (b == null)
     {
-      YelpActivity.setIntentAsFromPushNotification(paramUri);
-      paramUri = ActivityLogin.a(AppData.b(), 0, paramUri);
-      paramUri.addFlags(268435456);
-      return paramUri;
-      paramNotificationType = new Intent();
-      paramNotificationType.setData(paramUri);
-      paramNotificationType.setAction("android.intent.action.VIEW");
+      i = 1;
+      if (c == null) {
+        break label39;
+      }
     }
+    for (;;)
+    {
+      if ((i & j) != 0) {
+        c.setVisibility(8);
+      }
+      return;
+      i = 0;
+      break;
+      label39:
+      j = 0;
+    }
+  }
+  
+  public static abstract interface a
+  {
+    public abstract void a(String paramString);
   }
 }
 

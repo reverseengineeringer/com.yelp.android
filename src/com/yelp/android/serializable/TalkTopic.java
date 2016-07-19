@@ -1,56 +1,62 @@
 package com.yelp.android.serializable;
 
 import android.os.Parcel;
-import com.yelp.android.services.r;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class TalkTopic
   extends _TalkTopic
 {
-  public static final ah<TalkTopic> CREATOR = new df();
-  private boolean mIsUserElite = false;
+  public static final a<TalkTopic> CREATOR = new TalkTopic.1();
+  private boolean p = false;
   
-  public static TalkTopic fromEvent(Event paramEvent)
+  public static TalkTopic a(Event paramEvent)
   {
     TalkTopic localTalkTopic = new TalkTopic();
-    mCategoryName = paramEvent.getCategoryName();
-    mId = paramEvent.getTalkTopicId();
-    mText = paramEvent.getDescription();
-    mTitle = paramEvent.getName();
+    f = paramEvent.C();
+    d = paramEvent.v();
+    e = paramEvent.B();
+    c = paramEvent.G();
     return localTalkTopic;
   }
   
-  public int getUserMediaCount()
+  public void a(Parcel paramParcel)
   {
-    return getUserVideoCount() + getUserPhotoCount();
+    super.a(paramParcel);
+    p = paramParcel.createBooleanArray()[0];
   }
   
-  public boolean isUserElite()
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    return mIsUserElite;
+    super.a(paramJSONObject);
+    if (c() != null)
+    {
+      p = User.a(c());
+      return;
+    }
+    p = false;
   }
   
-  public void readFromJson(JSONObject paramJSONObject)
+  public boolean a()
   {
-    super.readFromJson(paramJSONObject);
-    mIsUserElite = r.a(getUserEliteYears());
+    return p;
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public int b()
   {
-    super.readFromParcel(paramParcel);
-    mIsUserElite = paramParcel.createBooleanArray()[0];
+    return f() + e();
   }
   
   public String toString()
   {
-    return "id=" + mId + ", category=" + mCategoryName + ", text=" + mText;
+    return "id=" + d + ", category=" + f + ", text=" + e;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeBooleanArray(new boolean[] { mIsUserElite });
+    paramParcel.writeBooleanArray(new boolean[] { p });
   }
 }
 

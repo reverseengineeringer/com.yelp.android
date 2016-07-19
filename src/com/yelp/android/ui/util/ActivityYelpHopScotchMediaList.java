@@ -1,7 +1,9 @@
 package com.yelp.android.ui.util;
 
-import android.annotation.TargetApi;
-import android.os.Build.VERSION;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,15 +11,18 @@ import android.view.ViewStub;
 import com.yelp.android.analytics.iris.EventIri;
 import com.yelp.android.appdata.AppData;
 import com.yelp.android.appdata.webrequests.ApiRequest;
+import com.yelp.android.appdata.webrequests.ApiRequest.b;
 import com.yelp.android.appdata.webrequests.UserLocalMediaRequest;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.appdata.webrequests.dm;
-import com.yelp.android.appdata.webrequests.m;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.android.serializable.IdentifiableMedia;
+import com.yelp.android.serializable.Media;
+import com.yelp.android.serializable.Media.MediaType;
+import com.yelp.android.serializable.MediaPayload;
+import com.yelp.android.serializable.Photo;
 import com.yelp.android.serializable.YelpBusiness;
-import com.yelp.android.ui.activities.addphoto.i;
+import com.yelp.android.ui.activities.addphoto.a;
+import com.yelp.android.util.ObjectDirtyEvent;
 import com.yelp.android.util.YelpLog;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -25,22 +30,31 @@ import java.util.Map;
 
 public abstract class ActivityYelpHopScotchMediaList
   extends YelpListActivity
-  implements m<dm>
+  implements ApiRequest.b<MediaPayload>
 {
   protected YelpBusiness a;
   protected UserLocalMediaRequest b;
-  protected i c;
+  protected a c;
   
-  private void c()
+  private void b()
   {
-    registerDirtyEventReceiver("com.yelp.android.media.update", new a(this));
+    registerDirtyEventReceiver("com.yelp.android.media.update", new BroadcastReceiver()
+    {
+      public void onReceive(Context paramAnonymousContext, Intent paramAnonymousIntent)
+      {
+        paramAnonymousContext = (Media)ObjectDirtyEvent.a(paramAnonymousIntent);
+        if (paramAnonymousContext.a(Media.MediaType.PHOTO)) {
+          c.a((Photo)paramAnonymousContext);
+        }
+      }
+    });
   }
   
   protected View a(int paramInt)
   {
     try
     {
-      Object localObject = (ViewStub)findViewById(2131493323);
+      Object localObject = (ViewStub)findViewById(2131689979);
       ((ViewStub)localObject).setLayoutResource(paramInt);
       localObject = ((ViewStub)localObject).inflate();
       return (View)localObject;
@@ -59,49 +73,48 @@ public abstract class ActivityYelpHopScotchMediaList
   
   protected void a(Bundle paramBundle)
   {
-    if (paramBundle.containsKey("bitmap_extra"))
+    if (paramBundle.containsKey("extra.images"))
     {
-      File localFile = new File(paramBundle.getString("bitmap_extra"));
-      String str1 = paramBundle.getString("caption_extra");
-      String str2 = paramBundle.getString("photo_id_extra");
-      paramBundle = str1;
-      if (str1 == null) {
-        paramBundle = "";
+      paramBundle = paramBundle.getParcelableArrayList("extra.images");
+      Iterator localIterator = paramBundle.iterator();
+      while (localIterator.hasNext())
+      {
+        Photo localPhoto = (Photo)localIterator.next();
+        c.b(localPhoto);
       }
-      c.a(localFile, paramBundle, str2);
-      c(r() + 1);
+      c(s() + paramBundle.size());
     }
   }
   
   public void a(View.OnClickListener paramOnClickListener, EventIri paramEventIri, Map<String, Object> paramMap, Bundle paramBundle)
   {
-    c = i.a(this, paramOnClickListener, paramEventIri, paramMap, a.getId());
+    c = a.a(this, paramOnClickListener, paramEventIri, paramMap, a.aD());
     c.b(paramBundle);
     if (c.isEmpty()) {
       showLoadingDialog();
     }
-    q().setAdapter(c);
-    q().setItemsCanFocus(true);
-    q().f();
-    d();
+    r().setAdapter(c);
+    r().setItemsCanFocus(true);
+    r().f();
+    c();
   }
   
-  public void a(ApiRequest<?, ?, ?> paramApiRequest, dm paramdm)
+  public void a(ApiRequest<?, ?, ?> paramApiRequest, MediaPayload paramMediaPayload)
   {
     paramApiRequest = new ArrayList();
-    Iterator localIterator = paramdm.c().iterator();
+    Iterator localIterator = paramMediaPayload.c().iterator();
     while (localIterator.hasNext()) {
       paramApiRequest.add((IdentifiableMedia)localIterator.next());
     }
     c.c(paramApiRequest);
-    c.b().addAll(paramdm.a());
-    c.c().addAll(paramdm.b());
-    c.b(paramdm.d());
+    c.c().addAll(paramMediaPayload.d());
+    c.d().addAll(paramMediaPayload.e());
+    c.b(paramMediaPayload.a());
     c.notifyDataSetChanged();
-    c(paramdm.e() + paramdm.c().size());
+    c(paramMediaPayload.b() + paramMediaPayload.c().size());
     hideLoadingDialog();
-    if ((c.getCount() < paramdm.d()) && (!paramdm.c().isEmpty())) {
-      d();
+    if (c.t_() < paramMediaPayload.a()) {
+      c();
     }
   }
   
@@ -109,7 +122,7 @@ public abstract class ActivityYelpHopScotchMediaList
   {
     try
     {
-      Object localObject = (ViewStub)findViewById(2131493324);
+      Object localObject = (ViewStub)findViewById(2131689980);
       ((ViewStub)localObject).setLayoutResource(paramInt);
       localObject = ((ViewStub)localObject).inflate();
       return (View)localObject;
@@ -126,12 +139,12 @@ public abstract class ActivityYelpHopScotchMediaList
     }
   }
   
-  protected void d()
+  protected void c()
   {
-    if ((b == null) || (b.isCompleted()))
+    if ((b == null) || (b.v()))
     {
-      b = new UserLocalMediaRequest(getAppData().m().s(), a, r(), this);
-      b.execute(new Void[0]);
+      b = new UserLocalMediaRequest(getAppData().q().p(), a, s(), this);
+      b.f(new Void[0]);
     }
   }
   
@@ -140,31 +153,23 @@ public abstract class ActivityYelpHopScotchMediaList
     return (UserLocalMediaRequest)super.getLastCustomNonConfigurationInstance();
   }
   
-  protected void h()
+  protected void i()
   {
-    q().setSelection(q().getCount() - 1);
+    r().setSelection(r().getCount() - 1);
   }
   
-  @TargetApi(16)
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903122);
-    if (Build.VERSION.SDK_INT < 16) {
-      q().setBackgroundDrawable(null);
-    }
-    for (;;)
-    {
-      q().setScrollingCacheEnabled(false);
-      int i = cp.a(this, 2130772041);
-      q().setPadding(0, i / 2, 0, i);
-      q().setClipToPadding(false);
-      q().setVerticalFadingEdgeEnabled(false);
-      b = g();
-      c();
-      return;
-      q().setBackground(null);
-    }
+    setContentView(2130903131);
+    r().setBackground(null);
+    r().setScrollingCacheEnabled(false);
+    int i = getResources().getDimensionPixelSize(2131361958);
+    r().setPadding(0, i / 2, 0, i);
+    r().setClipToPadding(false);
+    r().setVerticalFadingEdgeEnabled(false);
+    b = g();
+    b();
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)

@@ -3,6 +3,17 @@
 .source "CustomConcurrentHashMap.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x400
+    name = "HashIterator"
+.end annotation
+
+
 # instance fields
 .field currentTable:Ljava/util/concurrent/atomic/AtomicReferenceArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -170,15 +181,15 @@
     .line 1743
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$HashIterator;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1744
-    invoke-interface {v0, p1}, Lcom/yelp/common/collect/d;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getKey(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
     .line 1745
-    invoke-interface {v0, p1}, Lcom/yelp/common/collect/d;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getValue(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -286,7 +297,7 @@
     .line 1712
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$HashIterator;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
     .line 1713
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$HashIterator;->nextEntry:Ljava/lang/Object;
@@ -296,7 +307,7 @@
     .line 1714
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$HashIterator;->nextEntry:Ljava/lang/Object;
 
-    invoke-interface {v0, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -327,7 +338,7 @@
     :cond_0
     iget-object v1, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$HashIterator;->nextEntry:Ljava/lang/Object;
 
-    invoke-interface {v0, v1}, Lcom/yelp/common/collect/d;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getNext(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 

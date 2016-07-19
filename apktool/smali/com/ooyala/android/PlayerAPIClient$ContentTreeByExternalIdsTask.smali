@@ -3,6 +3,17 @@
 .source "PlayerAPIClient.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/ooyala/android/PlayerAPIClient;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x2
+    name = "ContentTreeByExternalIdsTask"
+.end annotation
+
+
 # instance fields
 .field final synthetic this$0:Lcom/ooyala/android/PlayerAPIClient;
 

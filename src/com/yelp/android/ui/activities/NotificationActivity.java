@@ -4,6 +4,7 @@ import android.content.res.Resources.Theme;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewStub;
 import android.view.Window;
 import android.view.animation.AnimationSet;
@@ -26,33 +27,39 @@ public abstract class NotificationActivity
   protected void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903103);
+    setContentView(2130903114);
     setResult(-1, getIntent());
-    paramBundle = (Button)findViewById(2131493037);
+    paramBundle = (Button)findViewById(2131689715);
     paramBundle.setVisibility(0);
-    paramBundle.setOnClickListener(new fk(this));
+    paramBundle.setOnClickListener(new View.OnClickListener()
+    {
+      public void onClick(View paramAnonymousView)
+      {
+        finish();
+      }
+    });
     paramBundle = getWindow().getAttributes();
     width = -1;
     getWindow().setAttributes(paramBundle);
-    b = ((RelativeLayout)findViewById(2131493250));
-    c = ((ImageView)findViewById(2131493249));
+    b = ((RelativeLayout)findViewById(2131689908));
+    c = ((ImageView)findViewById(2131689907));
     if (c != null)
     {
       paramBundle = new AnimationSet(false);
+      paramBundle.addAnimation(AnimationUtils.loadAnimation(this, 2130968607));
       paramBundle.addAnimation(AnimationUtils.loadAnimation(this, 2130968601));
-      paramBundle.addAnimation(AnimationUtils.loadAnimation(this, 2130968595));
       c.setAnimation(paramBundle);
     }
-    d = ((TextView)findViewById(2131493248));
-    e = findViewById(2131493251);
-    paramBundle = (ViewStub)findViewById(2131493246);
+    d = ((TextView)findViewById(2131689906));
+    e = findViewById(2131689909);
+    paramBundle = (ViewStub)findViewById(2131689904);
     TypedValue localTypedValue = new TypedValue();
-    getTheme().resolveAttribute(2130772102, localTypedValue, true);
+    getTheme().resolveAttribute(2130772156, localTypedValue, true);
     paramBundle.setLayoutResource(resourceId);
     paramBundle.inflate();
-    a = findViewById(2131493247);
+    a = findViewById(2131689905);
     paramBundle = new TypedValue();
-    getTheme().resolveAttribute(2130772101, paramBundle, true);
+    getTheme().resolveAttribute(2130772155, paramBundle, true);
     if (resourceId != 0) {
       setTitle(resourceId);
     }

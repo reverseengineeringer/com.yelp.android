@@ -30,7 +30,7 @@
 
 .field private l:Z
 
-.field private m:Lcom/bumptech/glide/j;
+.field private m:Lcom/yelp/android/ui/util/t;
 
 .field private n:Z
 
@@ -40,7 +40,7 @@
     .locals 1
 
     .prologue
-    .line 58
+    .line 57
     new-instance v0, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;
 
     invoke-direct {v0}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;-><init>()V
@@ -54,10 +54,10 @@
     .locals 1
 
     .prologue
-    .line 42
+    .line 41
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;-><init>()V
 
-    .line 72
+    .line 71
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->l:Z
@@ -69,67 +69,127 @@
     .locals 2
 
     .prologue
-    .line 87
+    .line 86
     new-instance v0, Landroid/content/Intent;
 
     const-class v1, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;
 
     invoke-direct {v0, p1, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    .line 88
+    .line 87
     if-eqz p0, :cond_0
 
-    .line 89
+    .line 88
     const-string/jumbo v1, "next_intent"
 
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 91
+    .line 90
     :cond_0
     const-string/jumbo v1, "user_name"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 92
+    .line 91
     invoke-virtual {p3, v0}, Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;->putType(Landroid/content/Intent;)V
 
-    .line 93
+    .line 92
     return-object v0
 .end method
 
-.method private a()V
+.method private a(Ljava/io/File;)V
     .locals 3
 
     .prologue
-    .line 285
-    new-instance v0, Lcom/yelp/android/ui/activities/reviews/e;
+    .line 412
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->k:Ljava/io/File;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviews/e;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;)V
+    .line 413
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getResources()Landroid/content/res/Resources;
 
-    .line 294
+    move-result-object v0
+
+    const v1, 0x7f0a0145
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v0
+
+    float-to-int v0, v0
+
+    .line 414
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->m:Lcom/yelp/android/ui/util/t;
+
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->k:Ljava/io/File;
+
+    invoke-virtual {v2}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/yelp/android/ui/util/t;->a(Ljava/lang/String;)Lcom/yelp/android/ui/util/u$a;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0, v0}, Lcom/yelp/android/ui/util/u$a;->a(II)Lcom/yelp/android/ui/util/u$a;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/ui/util/u$a;->a(Landroid/widget/ImageView;)V
+
+    .line 415
+    return-void
+.end method
+
+.method private a(Ljava/lang/String;)V
+    .locals 1
+
+    .prologue
+    .line 405
+    new-instance v0, Ljava/io/File;
+
+    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a(Ljava/io/File;)V
+
+    .line 406
+    return-void
+.end method
+
+.method private b()V
+    .locals 3
+
+    .prologue
+    .line 291
+    new-instance v0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$3;
+
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$3;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;)V
+
+    .line 301
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0700bd
+    const v2, 0x7f07013c
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0704ba
+    const v2, 0x7f0704d5
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0706ba
+    const v2, 0x7f07068c
 
     invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f070111
+    const v2, 0x7f07018f
 
     invoke-virtual {v1, v2, v0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -147,90 +207,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->i:Landroid/app/AlertDialog;
 
-    .line 301
-    return-void
-.end method
-
-.method private a(Ljava/io/File;)V
-    .locals 3
-
-    .prologue
-    .line 399
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->k:Ljava/io/File;
-
-    .line 400
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0b00d4
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    float-to-int v0, v0
-
-    .line 401
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->m:Lcom/bumptech/glide/j;
-
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->k:Ljava/io/File;
-
-    invoke-virtual {v1, v2}, Lcom/bumptech/glide/j;->a(Ljava/io/File;)Lcom/bumptech/glide/d;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0, v0}, Lcom/bumptech/glide/d;->a(II)Lcom/bumptech/glide/c;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, v1}, Lcom/bumptech/glide/c;->a(Landroid/widget/ImageView;)Lcom/yelp/android/ag/j;
-
-    .line 402
-    return-void
-.end method
-
-.method private a(Ljava/lang/String;)V
-    .locals 1
-
-    .prologue
-    .line 392
-    new-instance v0, Ljava/io/File;
-
-    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a(Ljava/io/File;)V
-
-    .line 393
-    return-void
-.end method
-
-.method private b()V
-    .locals 3
-
-    .prologue
-    .line 310
-    const v0, 0x7f0c0176
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    .line 311
-    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v1
-
-    .line 312
-    new-instance v2, Lcom/yelp/android/ui/activities/reviews/f;
-
-    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/reviews/f;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;Landroid/view/View;)V
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
-
-    .line 326
+    .line 309
     return-void
 .end method
 
@@ -242,40 +219,40 @@
 
     const/4 v1, 0x0
 
-    .line 363
+    .line 373
     if-eqz p1, :cond_0
 
-    .line 364
+    .line 374
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->f:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 365
+    .line 375
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->g:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    .line 366
+    .line 376
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->h:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 372
+    .line 382
     :goto_0
     return-void
 
-    .line 368
+    .line 378
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->f:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 369
+    .line 379
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->g:Landroid/view/View;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 370
+    .line 380
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->h:Landroid/view/View;
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
@@ -284,15 +261,42 @@
 .end method
 
 .method private c()V
+    .locals 3
+
+    .prologue
+    .line 318
+    const v0, 0x7f0f01a9
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    .line 319
+    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v1
+
+    .line 320
+    new-instance v2, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$4;
+
+    invoke-direct {v2, p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$4;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;Landroid/view/View;)V
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+
+    .line 336
+    return-void
+.end method
+
+.method private d()V
     .locals 2
 
     .prologue
-    .line 332
+    .line 342
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b(Z)V
 
-    .line 334
+    .line 344
     :try_start_0
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;
 
@@ -306,25 +310,25 @@
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 342
+    .line 352
     :goto_0
     return-void
 
-    .line 336
+    .line 346
     :catch_0
     move-exception v0
 
-    .line 337
+    .line 347
     const-string/jumbo v1, "Error uploading photo"
 
-    invoke-static {p0, v1, v0}, Lcom/yelp/android/util/YelpLog;->error(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Exception;)V
+    invoke-static {p0, v1, v0}, Lcom/yelp/android/util/YelpLog;->remoteError(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 338
+    .line 348
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getAppData()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
-    const v1, 0x7f070037
+    const v1, 0x7f0700bf
 
     invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/AppData;->getString(I)Ljava/lang/String;
 
@@ -332,9 +336,9 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/cr;->a(Ljava/lang/CharSequence;I)V
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/as;->a(Ljava/lang/CharSequence;I)V
 
-    .line 340
+    .line 350
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->k:Ljava/io/File;
@@ -342,21 +346,21 @@
     goto :goto_0
 .end method
 
-.method private d()V
+.method private e()V
     .locals 6
 
     .prologue
     const/4 v5, 0x0
 
-    .line 345
+    .line 355
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->l:Z
 
     if-eqz v0, :cond_0
 
-    .line 346
+    .line 356
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->c:Landroid/widget/TextView;
 
-    const v1, 0x7f07045f
+    const v1, 0x7f070481
 
     const/4 v2, 0x1
 
@@ -380,38 +384,38 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 348
+    .line 358
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->d:Landroid/widget/TextView;
 
-    const v1, 0x7f07045e
+    const v1, 0x7f070480
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 349
+    .line 359
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->e:Landroid/view/View;
 
     invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
-    .line 355
+    .line 365
     :goto_0
     return-void
 
-    .line 351
+    .line 361
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->c:Landroid/widget/TextView;
 
-    const v1, 0x7f0705d9
+    const v1, 0x7f0705c3
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 352
+    .line 362
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->d:Landroid/widget/TextView;
 
-    const v1, 0x7f070477
+    const v1, 0x7f07048a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
-    .line 353
+    .line 363
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->e:Landroid/view/View;
 
     const/16 v1, 0x8
@@ -423,100 +427,21 @@
 
 
 # virtual methods
-.method public a(Z)V
-    .locals 3
-
-    .prologue
-    const v2, 0x7f070555
-
-    .line 380
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b(Z)V
-
-    .line 381
-    if-eqz p1, :cond_0
-
-    .line 382
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    .line 383
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->l:Z
-
-    .line 384
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->d()V
-
-    .line 389
-    :goto_0
-    return-void
-
-    .line 386
-    :cond_0
-    const v0, 0x7f070500
-
-    const v1, 0x7f070580
-
-    invoke-virtual {p0, v2, v0, v1, v2}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->showYesNoDialog(IIII)V
-
-    goto :goto_0
-.end method
-
-.method public addPhotoButton(Landroid/view/View;)V
-    .locals 1
-
-    .prologue
-    .line 265
-    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->l:Z
-
-    if-nez v0, :cond_0
-
-    .line 266
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->j:Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;
-
-    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;->trackAddPhotoIri()V
-
-    .line 267
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
-
-    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->openContextMenu(Landroid/view/View;)V
-
-    .line 269
-    :cond_0
-    return-void
-.end method
-
-.method public doneButton(Landroid/view/View;)V
-    .locals 0
-
-    .prologue
-    .line 278
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->finish()V
-
-    .line 279
-    return-void
-.end method
-
-.method public finish()V
+.method public a()V
     .locals 2
 
     .prologue
-    .line 246
+    .line 247
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;
 
     invoke-virtual {v0}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b()V
 
-    .line 247
+    .line 248
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 250
+    .line 251
     const-string/jumbo v1, "next_intent"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
@@ -529,7 +454,7 @@
 
     if-nez v1, :cond_0
 
-    .line 251
+    .line 255
     const-string/jumbo v1, "next_intent"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -538,18 +463,105 @@
 
     check-cast v0, Landroid/content/Intent;
 
+    .line 256
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setExtrasClassLoader(Ljava/lang/ClassLoader;)V
+
+    .line 257
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->startActivity(Landroid/content/Intent;)V
 
-    .line 252
+    .line 258
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->n:Z
 
-    .line 255
+    .line 261
     :cond_0
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->finish()V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->finish()V
 
-    .line 256
+    .line 262
+    return-void
+.end method
+
+.method public a(Z)V
+    .locals 3
+
+    .prologue
+    const v2, 0x7f070555
+
+    .line 390
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b(Z)V
+
+    .line 391
+    if-eqz p1, :cond_0
+
+    .line 392
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    .line 393
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->l:Z
+
+    .line 394
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->e()V
+
+    .line 402
+    :goto_0
+    return-void
+
+    .line 396
+    :cond_0
+    const v0, 0x7f070505
+
+    const v1, 0x7f070588
+
+    invoke-virtual {p0, v2, v0, v1, v2}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->showYesNoDialog(IIII)V
+
+    goto :goto_0
+.end method
+
+.method public addPhotoButton(Landroid/view/View;)V
+    .locals 1
+
+    .prologue
+    .line 271
+    iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->l:Z
+
+    if-nez v0, :cond_0
+
+    .line 272
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->j:Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;
+
+    invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;->trackAddPhotoIri()V
+
+    .line 273
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
+
+    invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->openContextMenu(Landroid/view/View;)V
+
+    .line 275
+    :cond_0
+    return-void
+.end method
+
+.method public doneButton(Landroid/view/View;)V
+    .locals 0
+
+    .prologue
+    .line 284
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a()V
+
+    .line 285
     return-void
 .end method
 
@@ -557,17 +569,17 @@
     .locals 1
 
     .prologue
-    .line 231
+    .line 233
     sget-object v0, Lcom/yelp/android/analytics/iris/ViewIri;->ProfilePhotoPrompt:Lcom/yelp/android/analytics/iris/ViewIri;
 
     return-object v0
 .end method
 
-.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/b;
+.method public bridge synthetic getIri()Lcom/yelp/android/analytics/iris/a;
     .locals 1
 
     .prologue
-    .line 42
+    .line 41
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getIri()Lcom/yelp/android/analytics/iris/ViewIri;
 
     move-result-object v0
@@ -575,12 +587,12 @@
     return-object v0
 .end method
 
-.method public getParametersForIri(Lcom/yelp/android/analytics/iris/b;)Ljava/util/Map;
+.method public getParametersForIri(Lcom/yelp/android/analytics/iris/a;)Ljava/util/Map;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/analytics/iris/b;",
+            "Lcom/yelp/android/analytics/iris/a;",
             ")",
             "Ljava/util/Map",
             "<",
@@ -591,7 +603,7 @@
     .end annotation
 
     .prologue
-    .line 236
+    .line 238
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->j:Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;->getAdditionalParametersForIri()Ljava/util/Map;
@@ -605,24 +617,24 @@
     .locals 2
 
     .prologue
-    .line 166
+    .line 168
     packed-switch p1, :pswitch_data_0
 
-    .line 178
+    .line 180
     invoke-super {p0, p1, p2, p3}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 181
+    .line 183
     :cond_0
     :goto_0
     return-void
 
-    .line 168
+    .line 170
     :pswitch_0
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_1
 
-    .line 169
+    .line 171
     new-instance v0, Ljava/io/File;
 
     const-string/jumbo v1, "extra_file_path"
@@ -633,28 +645,28 @@
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    .line 170
+    .line 172
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a(Ljava/io/File;)V
 
-    .line 171
+    .line 173
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b(Z)V
 
-    .line 172
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->c()V
+    .line 174
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->d()V
 
     goto :goto_0
 
-    .line 173
+    .line 175
     :cond_1
     if-nez p2, :cond_0
 
     goto :goto_0
 
-    .line 166
+    .line 168
     :pswitch_data_0
-    .packed-switch 0x41d
+    .packed-switch 0x426
         :pswitch_0
     .end packed-switch
 .end method
@@ -663,15 +675,15 @@
     .locals 2
 
     .prologue
-    .line 98
+    .line 97
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onCreate(Landroid/os/Bundle;)V
 
-    .line 100
-    const v0, 0x7f03003b
+    .line 99
+    const v0, 0x7f030047
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->setContentView(I)V
 
-    .line 101
+    .line 100
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
@@ -682,7 +694,7 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->j:Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;
 
-    .line 102
+    .line 101
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->j:Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;
 
     invoke-virtual {v0}, Lcom/yelp/android/ui/activities/reviews/PhotoPromptType;->getTitleText()I
@@ -691,8 +703,8 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->setTitle(I)V
 
-    .line 104
-    const v0, 0x7f0c041e
+    .line 103
+    const v0, 0x7f0f0502
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
 
@@ -702,8 +714,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
 
-    .line 105
-    const v0, 0x7f0c0084
+    .line 104
+    const v0, 0x7f0f00a9
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
 
@@ -713,8 +725,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->c:Landroid/widget/TextView;
 
-    .line 106
-    const v0, 0x7f0c00a9
+    .line 105
+    const v0, 0x7f0f00e0
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
 
@@ -724,8 +736,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->d:Landroid/widget/TextView;
 
-    .line 107
-    const v0, 0x7f0c041f
+    .line 106
+    const v0, 0x7f0f0503
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
 
@@ -733,8 +745,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->e:Landroid/view/View;
 
-    .line 108
-    const v0, 0x7f0c0175
+    .line 107
+    const v0, 0x7f0f01a8
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
 
@@ -742,8 +754,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->f:Landroid/view/View;
 
-    .line 109
-    const v0, 0x7f0c0177
+    .line 108
+    const v0, 0x7f0f01aa
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
 
@@ -751,8 +763,8 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->g:Landroid/view/View;
 
-    .line 110
-    const v0, 0x7f0c0178
+    .line 109
+    const v0, 0x7f0f01ab
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->findViewById(I)Landroid/view/View;
 
@@ -760,38 +772,38 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->h:Landroid/view/View;
 
-    .line 112
-    invoke-static {p0}, Lcom/bumptech/glide/h;->a(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/j;
+    .line 111
+    invoke-static {p0}, Lcom/yelp/android/ui/util/t;->a(Landroid/content/Context;)Lcom/yelp/android/ui/util/t;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->m:Lcom/bumptech/glide/j;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->m:Lcom/yelp/android/ui/util/t;
 
-    .line 114
+    .line 113
     if-nez p1, :cond_0
 
-    .line 115
+    .line 114
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;
 
     invoke-virtual {v0}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->b()V
 
-    .line 124
+    .line 123
     :goto_0
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b:Landroid/widget/ImageView;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/reviews/c;
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$1;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/c;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$1;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 132
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->d()V
-
     .line 133
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->e()V
+
+    .line 134
     return-void
 
-    .line 117
+    .line 116
     :cond_0
     const-string/jumbo v0, "image_location"
 
@@ -799,13 +811,13 @@
 
     move-result-object v0
 
-    .line 118
+    .line 117
     if-eqz v0, :cond_1
 
-    .line 119
+    .line 118
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a(Ljava/lang/String;)V
 
-    .line 121
+    .line 120
     :cond_1
     const-string/jumbo v0, "upload_done"
 
@@ -822,26 +834,26 @@
     .locals 1
 
     .prologue
-    .line 137
+    .line 138
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->i:Landroid/app/AlertDialog;
 
     if-eqz v0, :cond_0
 
-    .line 138
+    .line 139
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->i:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    .line 139
+    .line 140
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->i:Landroid/app/AlertDialog;
 
-    .line 141
+    .line 142
     :cond_0
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onDestroy()V
 
-    .line 142
+    .line 143
     return-void
 .end method
 
@@ -851,14 +863,14 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 215
+    .line 217
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v1
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 225
+    .line 227
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
 
     move-result v0
@@ -866,25 +878,25 @@
     :goto_0
     return v0
 
-    .line 217
+    .line 219
     :sswitch_0
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a()V
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b()V
 
     goto :goto_0
 
-    .line 221
+    .line 223
     :sswitch_1
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->finish()V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a()V
 
     goto :goto_0
 
-    .line 215
+    .line 217
     nop
 
     :sswitch_data_0
     .sparse-switch
-        0x7f0c04fd -> :sswitch_1
-        0x7f0c0504 -> :sswitch_0
+        0x7f0f0607 -> :sswitch_1
+        0x7f0f060d -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -892,17 +904,17 @@
     .locals 2
 
     .prologue
-    .line 146
+    .line 147
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/controllers/b;)V
-
-    .line 147
-    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;)V
 
     .line 148
+    invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onPause()V
+
+    .line 149
     return-void
 .end method
 
@@ -910,36 +922,36 @@
     .locals 2
 
     .prologue
-    .line 203
+    .line 205
     invoke-interface {p1}, Landroid/view/Menu;->clear()V
 
-    .line 204
+    .line 206
     iget-boolean v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->l:Z
 
     if-eqz v0, :cond_0
 
-    .line 205
+    .line 207
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f10000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
-    .line 210
+    .line 212
     :goto_0
     const/4 v0, 0x1
 
     return v0
 
-    .line 207
+    .line 209
     :cond_0
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->getMenuInflater()Landroid/view/MenuInflater;
 
     move-result-object v0
 
-    const v1, 0x7f100020
+    const v1, 0x7f100025
 
     invoke-virtual {v0, v1, p1}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
 
@@ -950,19 +962,19 @@
     .locals 2
 
     .prologue
-    .line 152
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b()V
-
     .line 153
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->c()V
+
+    .line 154
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;
 
-    new-instance v1, Lcom/yelp/android/ui/activities/reviews/d;
+    new-instance v1, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$2;
 
-    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/d;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;)V
+    invoke-direct {v1, p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt$2;-><init>(Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;)V
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/controllers/b;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a(Lcom/yelp/android/appdata/controllers/UserPhotoUploadController$a;)V
 
-    .line 159
+    .line 161
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a:Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;
 
     invoke-virtual {v0}, Lcom/yelp/android/appdata/controllers/UserPhotoUploadController;->a()Z
@@ -971,10 +983,10 @@
 
     invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->b(Z)V
 
-    .line 161
+    .line 163
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onResume()V
 
-    .line 162
+    .line 164
     return-void
 .end method
 
@@ -982,15 +994,15 @@
     .locals 2
 
     .prologue
-    .line 185
+    .line 187
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 186
+    .line 188
     iget-object v0, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->k:Ljava/io/File;
 
     if-eqz v0, :cond_0
 
-    .line 187
+    .line 189
     const-string/jumbo v0, "image_location"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->k:Ljava/io/File;
@@ -1001,7 +1013,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 189
+    .line 191
     :cond_0
     const-string/jumbo v0, "upload_done"
 
@@ -1009,7 +1021,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    .line 190
+    .line 192
     return-void
 .end method
 
@@ -1017,19 +1029,19 @@
     .locals 0
 
     .prologue
-    .line 194
+    .line 196
     if-eqz p1, :cond_0
 
-    .line 195
-    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->c()V
+    .line 197
+    invoke-direct {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->d()V
 
-    .line 199
+    .line 201
     :goto_0
     return-void
 
-    .line 197
+    .line 199
     :cond_0
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->finish()V
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/reviews/ActivityPhotoPrompt;->a()V
 
     goto :goto_0
 .end method

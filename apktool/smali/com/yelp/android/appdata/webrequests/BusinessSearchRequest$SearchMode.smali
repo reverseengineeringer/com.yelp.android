@@ -4,6 +4,15 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4019
+    name = "SearchMode"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum",
@@ -45,7 +54,7 @@
 
     const/4 v2, 0x0
 
-    .line 82
+    .line 77
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
     const-string/jumbo v1, "UNKNOWN"
@@ -54,7 +63,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->UNKNOWN:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
-    .line 86
+    .line 81
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
     const-string/jumbo v1, "DEFAULT"
@@ -63,7 +72,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->DEFAULT:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
-    .line 90
+    .line 85
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
     const-string/jumbo v1, "MONOCLE"
@@ -72,7 +81,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->MONOCLE:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
-    .line 95
+    .line 90
     new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
     const-string/jumbo v1, "NEARBY"
@@ -81,7 +90,7 @@
 
     sput-object v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->NEARBY:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
-    .line 78
+    .line 73
     new-array v0, v6, [Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
     sget-object v1, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->UNKNOWN:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
@@ -114,13 +123,13 @@
     .end annotation
 
     .prologue
-    .line 99
+    .line 94
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 100
+    .line 95
     iput p3, p0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->id:I
 
-    .line 101
+    .line 96
     return-void
 .end method
 
@@ -128,7 +137,7 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 73
     const-class v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -144,7 +153,7 @@
     .locals 1
 
     .prologue
-    .line 78
+    .line 73
     sget-object v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->$VALUES:[Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;
 
     invoke-virtual {v0}, [Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;->clone()Ljava/lang/Object;

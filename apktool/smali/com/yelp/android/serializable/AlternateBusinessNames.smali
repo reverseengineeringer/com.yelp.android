@@ -22,9 +22,9 @@
 
     .prologue
     .line 12
-    new-instance v0, Lcom/yelp/android/serializable/d;
+    new-instance v0, Lcom/yelp/android/serializable/AlternateBusinessNames$1;
 
-    invoke-direct {v0}, Lcom/yelp/android/serializable/d;-><init>()V
+    invoke-direct {v0}, Lcom/yelp/android/serializable/AlternateBusinessNames$1;-><init>()V
 
     sput-object v0, Lcom/yelp/android/serializable/AlternateBusinessNames;->CREATOR:Lcom/yelp/parcelgen/JsonParser$DualCreator;
 
@@ -43,6 +43,84 @@
 
 
 # virtual methods
+.method public bridge synthetic a()Lorg/json/JSONObject;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->a()Lorg/json/JSONObject;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic a(Landroid/os/Parcel;)V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->a(Landroid/os/Parcel;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic a(Lorg/json/JSONObject;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
+    .prologue
+    .line 10
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->a(Lorg/json/JSONObject;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic b()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->b()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->c()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public bridge synthetic d()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 10
+    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->d()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic describeContents()I
     .locals 1
 
@@ -55,72 +133,28 @@
     return v0
 .end method
 
-.method public bridge synthetic getPrimary()Ljava/lang/String;
+.method public bridge synthetic equals(Ljava/lang/Object;)Z
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->getPrimary()Ljava/lang/String;
+    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
+    return v0
 .end method
 
-.method public bridge synthetic getRomanized()Ljava/lang/String;
+.method public bridge synthetic hashCode()I
     .locals 1
 
     .prologue
     .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->getRomanized()Ljava/lang/String;
+    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->hashCode()I
 
-    move-result-object v0
+    move-result v0
 
-    return-object v0
-.end method
-
-.method public bridge synthetic getSecondary()Ljava/lang/String;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->getSecondary()Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public bridge synthetic readFromJson(Lorg/json/JSONObject;)V
-    .locals 0
-
-    .prologue
-    .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->readFromJson(Lorg/json/JSONObject;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic readFromParcel(Landroid/os/Parcel;)V
-    .locals 0
-
-    .prologue
-    .line 10
-    invoke-super {p0, p1}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->readFromParcel(Landroid/os/Parcel;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic writeJSON()Lorg/json/JSONObject;
-    .locals 1
-
-    .prologue
-    .line 10
-    invoke-super {p0}, Lcom/yelp/android/serializable/_AlternateBusinessNames;->writeJSON()Lorg/json/JSONObject;
-
-    move-result-object v0
-
-    return-object v0
+    return v0
 .end method
 
 .method public bridge synthetic writeToParcel(Landroid/os/Parcel;I)V

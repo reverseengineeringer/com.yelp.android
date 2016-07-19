@@ -3,6 +3,14 @@
 .source "StreamPlayer.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/StreamPlayer$TimerHandler;
+    }
+.end annotation
+
+
 # static fields
 .field protected static final TIMER_DELAY:J = 0x0L
 

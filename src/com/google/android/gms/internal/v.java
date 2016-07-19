@@ -1,54 +1,98 @@
 package com.google.android.gms.internal;
 
-import android.os.Bundle;
+import android.content.Context;
+import com.google.android.gms.ads.internal.client.AdSizeParcel;
+import com.google.android.gms.ads.internal.util.client.VersionInfoParcel;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-@ey
+@fv
 public class v
+  extends o
 {
-  private v.a mk;
-  private boolean ml;
-  private boolean mm;
+  private db.d d;
+  private boolean e;
   
-  public v()
+  public v(final Context paramContext, AdSizeParcel paramAdSizeParcel, gr paramgr, VersionInfoParcel paramVersionInfoParcel, w paramw, db paramdb)
   {
-    Bundle localBundle = ga.bN();
-    boolean bool1 = bool2;
-    if (localBundle != null)
+    super(paramContext, paramAdSizeParcel, paramgr, paramVersionInfoParcel, paramw);
+    d = paramdb.b();
+    try
     {
-      bool1 = bool2;
-      if (localBundle.getBoolean("gads:block_autoclicks", false)) {
-        bool1 = true;
+      paramContext = a(paramw.c().a());
+      d.a(new hu.c()new hu.a
+      {
+        public void a(dc paramAnonymousdc)
+        {
+          a(paramContext);
+        }
+      }, new hu.a()
+      {
+        public void a() {}
+      });
+      d.a(new hu.c()new hu.a
+      {
+        public void a(dc paramAnonymousdc)
+        {
+          v.a(v.this, true);
+          v.this.a(paramAnonymousdc);
+          a();
+          b(false);
+        }
+      }, new hu.a()
+      {
+        public void a()
+        {
+          c();
+        }
+      });
+      gz.a("Tracking ad unit: " + b.d());
+      return;
+    }
+    catch (RuntimeException paramContext)
+    {
+      for (;;)
+      {
+        gz.b("Failure while processing active view data.", paramContext);
       }
     }
-    mm = bool1;
-  }
-  
-  public v(boolean paramBoolean)
-  {
-    mm = paramBoolean;
-  }
-  
-  public void a(v.a parama)
-  {
-    mk = parama;
-  }
-  
-  public void av()
-  {
-    ml = true;
-  }
-  
-  public boolean az()
-  {
-    return (!mm) || (ml);
-  }
-  
-  public void d(String paramString)
-  {
-    gr.S("Action was blocked because no click was detected.");
-    if (mk != null) {
-      mk.e(paramString);
+    catch (JSONException paramContext)
+    {
+      for (;;) {}
     }
+  }
+  
+  protected void b(final JSONObject paramJSONObject)
+  {
+    d.a(new hu.c()new hu.b
+    {
+      public void a(dc paramAnonymousdc)
+      {
+        paramAnonymousdc.a("AFMA_updateActiveView", paramJSONObject);
+      }
+    }, new hu.b());
+  }
+  
+  protected void c()
+  {
+    synchronized (a)
+    {
+      super.c();
+      d.a(new hu.c()new hu.b
+      {
+        public void a(dc paramAnonymousdc)
+        {
+          b(paramAnonymousdc);
+        }
+      }, new hu.b());
+      d.a();
+      return;
+    }
+  }
+  
+  protected boolean j()
+  {
+    return e;
   }
 }
 

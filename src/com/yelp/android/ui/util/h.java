@@ -1,64 +1,28 @@
 package com.yelp.android.ui.util;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.view.View;
-import com.yelp.android.aj.a;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.yelp.android.appdata.AppData;
 
 public class h
-  extends a
-  implements j
 {
-  private List<View> a;
-  
-  public h(List<View> paramList)
+  public static void a(View paramView, int paramInt, String paramString)
   {
-    super(paramList);
-    a = paramList;
+    a(paramView, paramView.getContext().getString(paramInt), paramString);
   }
   
-  public h(View... paramVarArgs)
+  public static void a(View paramView, String paramString1, String paramString2)
   {
-    this(new ArrayList(Arrays.asList(paramVarArgs)));
+    paramView.setOnLongClickListener(new h.1(paramString1, paramString2));
   }
   
-  public void a(View paramView)
+  public static void a(String paramString1, String paramString2)
   {
-    a.remove(paramView);
-    notifyDataSetChanged();
-  }
-  
-  public boolean areAllItemsEnabled()
-  {
-    return true;
-  }
-  
-  public void b(View paramView)
-  {
-    a.add(paramView);
-    notifyDataSetChanged();
-  }
-  
-  public void clear()
-  {
-    a.clear();
-    notifyDataSetChanged();
-  }
-  
-  public int getItemViewType(int paramInt)
-  {
-    return -1;
-  }
-  
-  public int getViewTypeCount()
-  {
-    return 1;
-  }
-  
-  public boolean hasStableIds()
-  {
-    return true;
+    AppData localAppData = AppData.b();
+    ((ClipboardManager)localAppData.getSystemService("clipboard")).setPrimaryClip(ClipData.newPlainText(paramString1, paramString2));
+    as.a(localAppData.getString(2131165734, new Object[] { paramString1 }), 0);
   }
 }
 

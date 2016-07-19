@@ -3,8 +3,8 @@
 .source "AbstractBusinessAdapter.java"
 
 # interfaces
-.implements Lcom/yelp/android/ui/util/i;
-.implements Lcom/yelp/android/ui/util/j;
+.implements Lcom/yelp/android/ui/util/f;
+.implements Lcom/yelp/android/ui/util/g;
 
 
 # instance fields
@@ -16,17 +16,17 @@
     .locals 1
 
     .prologue
-    .line 32
+    .line 31
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
-    .line 33
+    .line 32
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/yelp/android/ui/panels/a;->a:Landroid/view/LayoutInflater;
 
-    .line 34
+    .line 33
     return-void
 .end method
 
@@ -36,56 +36,56 @@
     .locals 1
 
     .prologue
-    .line 37
+    .line 36
     iget-object v0, p0, Lcom/yelp/android/ui/panels/a;->a:Landroid/view/LayoutInflater;
 
     return-object v0
 .end method
 
-.method public a(ILcom/yelp/android/ui/activities/feed/c;)V
-    .locals 6
+.method public a(ILcom/yelp/android/cg/b;)V
+    .locals 7
 
     .prologue
     const/4 v3, 0x0
 
-    .line 57
+    .line 56
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/panels/a;->a(I)Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
 
-    .line 58
+    .line 57
     const/4 v1, 0x0
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getDisplayName()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->z()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p2, v1, v3, v2, v3}, Lcom/yelp/android/ui/activities/feed/c;->a(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    invoke-virtual {p2, v1, v3, v2, v3}, Lcom/yelp/android/cg/b;->a(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
-    .line 59
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getPhotoUrl()Ljava/lang/String;
+    .line 58
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->au()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getAvgRating()F
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->P()D
 
-    move-result v2
+    move-result-wide v2
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getReviewCount()I
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->N()I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->getCategoryForBusinessSearchResult()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/YelpBusiness;->e()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
     move-object v0, p2
 
-    invoke-virtual/range {v0 .. v5}, Lcom/yelp/android/ui/activities/feed/c;->a(Ljava/lang/String;FIILjava/lang/CharSequence;)V
+    invoke-virtual/range {v0 .. v6}, Lcom/yelp/android/cg/b;->a(Ljava/lang/String;DIILjava/lang/CharSequence;)V
 
-    .line 61
+    .line 64
     return-void
 .end method
 
@@ -93,7 +93,7 @@
     .locals 1
 
     .prologue
-    .line 42
+    .line 41
     invoke-virtual {p0, p1}, Lcom/yelp/android/ui/panels/a;->a(I)Lcom/yelp/android/serializable/YelpBusiness;
 
     move-result-object v0
@@ -105,7 +105,7 @@
     .locals 2
 
     .prologue
-    .line 47
+    .line 46
     int-to-long v0, p1
 
     return-wide v0
@@ -115,22 +115,22 @@
     .locals 3
 
     .prologue
-    .line 65
+    .line 68
     if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
-    instance-of v0, v0, Lcom/yelp/android/ui/activities/feed/au;
+    instance-of v0, v0, Lcom/yelp/android/ch/f;
 
     if-nez v0, :cond_1
 
-    .line 66
+    .line 69
     :cond_0
     iget-object v0, p0, Lcom/yelp/android/ui/panels/a;->a:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030111
+    const v1, 0x7f030172
 
     const/4 v2, 0x0
 
@@ -138,27 +138,27 @@
 
     move-result-object p2
 
-    .line 67
-    new-instance v0, Lcom/yelp/android/ui/activities/feed/au;
+    .line 70
+    new-instance v0, Lcom/yelp/android/ch/f;
 
     sget-object v1, Lcom/yelp/android/ui/activities/feed/FeedType;->USER:Lcom/yelp/android/ui/activities/feed/FeedType;
 
-    invoke-direct {v0, v1, p2}, Lcom/yelp/android/ui/activities/feed/au;-><init>(Lcom/yelp/android/ui/activities/feed/FeedType;Landroid/view/View;)V
-
-    .line 68
-    invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+    invoke-direct {v0, v1, p2}, Lcom/yelp/android/ch/f;-><init>(Lcom/yelp/android/ui/activities/feed/FeedType;Landroid/view/View;)V
 
     .line 71
+    invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    .line 74
     :cond_1
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/ui/activities/feed/au;
+    check-cast v0, Lcom/yelp/android/ch/f;
 
-    .line 72
-    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/panels/a;->a(ILcom/yelp/android/ui/activities/feed/c;)V
+    .line 75
+    invoke-virtual {p0, p1, v0}, Lcom/yelp/android/ui/panels/a;->a(ILcom/yelp/android/cg/b;)V
 
-    .line 74
+    .line 77
     return-object p2
 .end method

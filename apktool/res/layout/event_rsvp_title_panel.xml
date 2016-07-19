@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.yelp.android.ui.widgets.SpannableLinearLayout android:id="@id/message_container" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?sublistCell"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textAppearance="@style/LargeText" android:id="@id/message" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/update_your_rsvp" android:layout_weight="1.0" />
-    <ImageView android:id="@id/disclosure" android:paddingLeft="?largeGapSize" android:paddingRight="?smallGapSize" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:contentDescription="@null" />
+    <TextView android:textAppearance="@style/BodyText" android:id="@id/message" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/update_your_rsvp" android:layout_weight="1.0" />
+    <ImageView android:id="@id/disclosure" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_small_gap_size" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_graphic" android:contentDescription="@null" />
 </com.yelp.android.ui.widgets.SpannableLinearLayout>

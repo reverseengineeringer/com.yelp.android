@@ -6,6 +6,20 @@
 .implements Lcom/ooyala/android/OoyalaPlayerControls;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls$ClosedCaptionsButton;,
+        Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls$FullscreenButton;,
+        Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls$PlayPauseButton;,
+        Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls$PreviousButton;,
+        Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls$NextButton;,
+        Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls$TouchButton;,
+        Lcom/ooyala/android/AbstractDefaultOoyalaPlayerControls$HideTimerTask;
+    }
+.end annotation
+
+
 # static fields
 .field protected static final BACKGROUND_COLOR:I = 0x0
 

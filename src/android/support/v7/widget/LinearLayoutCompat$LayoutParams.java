@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup.MarginLayoutParams;
-import com.yelp.android.g.l;
+import com.yelp.android.j.a.k;
 
 public class LinearLayoutCompat$LayoutParams
   extends ViewGroup.MarginLayoutParams
@@ -22,9 +22,9 @@ public class LinearLayoutCompat$LayoutParams
   public LinearLayoutCompat$LayoutParams(Context paramContext, AttributeSet paramAttributeSet)
   {
     super(paramContext, paramAttributeSet);
-    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, l.LinearLayoutCompat_Layout);
-    g = paramContext.getFloat(l.LinearLayoutCompat_Layout_android_layout_weight, 0.0F);
-    h = paramContext.getInt(l.LinearLayoutCompat_Layout_android_layout_gravity, -1);
+    paramContext = paramContext.obtainStyledAttributes(paramAttributeSet, a.k.LinearLayoutCompat_Layout);
+    g = paramContext.getFloat(a.k.LinearLayoutCompat_Layout_android_layout_weight, 0.0F);
+    h = paramContext.getInt(a.k.LinearLayoutCompat_Layout_android_layout_gravity, -1);
     paramContext.recycle();
   }
   

@@ -7,6 +7,14 @@
 .implements Lcom/widevine/drmapi/android/WVEventListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/ooyala/android/WidevineLibPlayer$1;
+    }
+.end annotation
+
+
 # static fields
 .field private static final ERROR:I = -0x1
 

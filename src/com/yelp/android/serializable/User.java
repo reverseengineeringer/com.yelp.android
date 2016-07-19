@@ -4,11 +4,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.yelp.android.appdata.AppData;
-import com.yelp.android.appdata.webrequests.dc;
-import com.yelp.android.services.r;
+import com.yelp.android.appdata.c;
+import com.yelp.android.appdata.webrequests.co;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,67 +17,49 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class User
   extends _User
   implements Parcelable, DisplayableAsUserBadge
 {
-  public static final ah<User> CREATOR = new dk();
-  public static final String EXTRA_USER = "extra.user";
-  private YelpCheckIn mCheckIn;
-  private FeatureSet mDisabledFeatureSet = new FeatureSet();
-  private User.Gender mGender;
-  private boolean mIsElite;
-  private Map<String, String> mProfileBio = Collections.emptyMap();
-  private RankTitle[] mRankTitles = new RankTitle[RankTitle.Rank.values().length];
-  private transient String mUserName;
-  private User.EliteYear[] mYearsElite = new User.EliteYear[0];
+  public static final a<User> CREATOR = new User.1();
+  private RankTitle[] V = new RankTitle[RankTitle.Rank.values().length];
+  private YelpCheckIn W;
+  private User.Gender X;
+  private Map<String, String> Y = Collections.emptyMap();
+  private User.EliteYear[] Z = new User.EliteYear[0];
+  private FeatureSet aa = new FeatureSet();
+  private boolean ab;
+  private int ac;
   
   protected User()
   {
-    mFormat = -1;
+    x = -1;
   }
   
-  public User(String paramString1, String paramString2, String paramString3, boolean paramBoolean, int paramInt1, int paramInt2, String paramString4)
+  public User(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5, boolean paramBoolean, int paramInt1, int paramInt2, String paramString6)
   {
     this();
-    mId = paramString1;
-    mUserName = formatName(paramString2, paramString3, "");
-    mFriendCount = paramInt1;
-    mReviewCount = paramInt2;
+    f = paramString1;
+    y = paramInt1;
+    A = paramInt2;
     paramString1 = new ArrayList();
-    paramString1.add(new Photo.TempPhoto(paramString4, null));
-    mPhotos = paramString1;
-    mGender = User.Gender.MALE;
-    mFormat = -1;
-    mFirstName = paramString2;
-    mLastName = paramString3;
-    if (!TextUtils.isEmpty(mLastName)) {
-      mLastInitial = String.valueOf(mLastName.charAt(0));
-    }
-    mIsElite = paramBoolean;
+    paramString1.add(new Photo.TempPhoto(paramString6, null));
+    b = paramString1;
+    X = User.Gender.MALE;
+    x = -1;
+    k = paramString2;
+    n = paramString3;
+    ab = paramBoolean;
+    g = paramString4;
+    h = paramString5;
   }
   
-  public static String formatName(String paramString1, String paramString2, String paramString3)
+  public static <T extends DisplayableAsUserBadge> T a(List<T> paramList)
   {
-    String str = paramString3;
-    if (TextUtils.isEmpty(paramString3))
-    {
-      str = paramString3;
-      if (!TextUtils.isEmpty(paramString2)) {
-        str = String.valueOf(paramString2.charAt(0));
-      }
-    }
-    if (TextUtils.isEmpty(str)) {
-      return paramString1;
-    }
-    return String.format("%s %s.", new Object[] { paramString1, str });
-  }
-  
-  public static <T extends DisplayableAsUserBadge> T getCurrentUserInCollection(List<T> paramList)
-  {
-    String str = AppData.b().m().b();
+    String str = AppData.b().q().a();
     if (TextUtils.isEmpty(str)) {
       return null;
     }
@@ -84,262 +67,111 @@ public class User
     while (paramList.hasNext())
     {
       DisplayableAsUserBadge localDisplayableAsUserBadge = (DisplayableAsUserBadge)paramList.next();
-      if (str.equals(localDisplayableAsUserBadge.getUserId())) {
+      if (str.equals(localDisplayableAsUserBadge.i())) {
         return localDisplayableAsUserBadge;
       }
     }
     return null;
   }
   
-  public static String getNameWithoutPeriod(String paramString1, String paramString2)
+  public static boolean a(int[] paramArrayOfInt)
   {
-    return String.format("%s %s", new Object[] { paramString1, paramString2 });
-  }
-  
-  public static int getRankNameResource(RankTitle.Rank paramRank, Boolean paramBoolean)
-  {
-    if (paramBoolean.booleanValue()) {
-      switch (dl.a[paramRank.ordinal()])
-      {
-      }
-    }
+    boolean bool2 = false;
+    int j = AppData.b().f().ab();
+    int k = paramArrayOfInt.length;
+    int i = 0;
     for (;;)
     {
-      return 0;
-      return 2131166737;
-      return 2131166739;
-      return 2131166741;
-      switch (dl.a[paramRank.ordinal()])
+      boolean bool1 = bool2;
+      if (i < k)
       {
+        if (paramArrayOfInt[i] == j) {
+          bool1 = true;
+        }
       }
+      else {
+        return bool1;
+      }
+      i += 1;
     }
-    return 2131166736;
-    return 2131166738;
-    return 2131166740;
   }
   
-  public static HashMap<String, User> jsonUsersToMap(JSONArray paramJSONArray)
+  public static Date j()
   {
-    int j = paramJSONArray.length();
-    HashMap localHashMap = new HashMap(j);
+    Calendar localCalendar = Calendar.getInstance();
+    localCalendar.set(1, AppData.b().f().ab());
+    return localCalendar.getTime();
+  }
+  
+  public RankTitle a(RankTitle.Rank paramRank)
+  {
+    return V[paramRank.ordinal()];
+  }
+  
+  public String a()
+  {
+    return ad();
+  }
+  
+  public void a(int paramInt)
+  {
+    F += paramInt;
+  }
+  
+  public void a(Parcel paramParcel)
+  {
+    super.a(paramParcel);
+    V = ((RankTitle[])paramParcel.createTypedArray(RankTitle.CREATOR));
+    X = User.Gender.values()[paramParcel.readInt()];
+    W = ((YelpCheckIn)paramParcel.readParcelable(YelpCheckIn.class.getClassLoader()));
+    ArrayList localArrayList1 = new ArrayList();
+    ArrayList localArrayList2 = new ArrayList();
+    paramParcel.readStringList(localArrayList1);
+    paramParcel.readStringList(localArrayList2);
+    Y = Collections.emptyMap();
+    int j = localArrayList1.size();
     int i = 0;
     while (i < j)
     {
-      User localUser = (User)CREATOR.parse(paramJSONArray.getJSONObject(i));
-      localHashMap.put(localUser.getId(), localUser);
+      if (Y.isEmpty()) {
+        Y = new HashMap();
+      }
+      Y.put(localArrayList1.get(i), localArrayList2.get(i));
       i += 1;
     }
-    return localHashMap;
-  }
-  
-  public void addComplimentCount(int paramInt)
-  {
-    mComplimentCount += paramInt;
-  }
-  
-  public void addFriendCount(int paramInt)
-  {
-    mFriendCount += paramInt;
-  }
-  
-  public void addPhotoCount(int paramInt)
-  {
-    mLocalPhotoCount += paramInt;
-  }
-  
-  public void addReviewCount(int paramInt)
-  {
-    mReviewCount += paramInt;
-  }
-  
-  public void addVideoCount(int paramInt)
-  {
-    mVideoCount += paramInt;
-  }
-  
-  public void clearCheckIn()
-  {
-    mCheckIn = null;
-  }
-  
-  public int describeContents()
-  {
-    return 0;
-  }
-  
-  public boolean equals(Object paramObject)
-  {
-    if (this == paramObject) {}
-    do
-    {
-      do
-      {
-        return true;
-        if (paramObject == null) {
-          return false;
-        }
-        if (!(paramObject instanceof User)) {
-          return false;
-        }
-        paramObject = (User)paramObject;
-        if (mId != null) {
-          break;
-        }
-      } while (mId == null);
-      return false;
-    } while (mId.equals(mId));
-    return false;
-  }
-  
-  public YelpCheckIn getCheckIn()
-  {
-    return mCheckIn;
-  }
-  
-  public String getFullName()
-  {
-    if (mLastName != null) {
-      return String.format("%s %s", new Object[] { mFirstName, mLastName });
+    if (!Y.isEmpty()) {
+      Y = Collections.unmodifiableMap(Y);
     }
-    return getName();
+    Z = ((User.EliteYear[])paramParcel.createTypedArray(User.EliteYear.CREATOR));
+    aa = ((FeatureSet)paramParcel.readParcelable(FeatureSet.class.getClassLoader()));
+    ab = paramParcel.createBooleanArray()[0];
+    ac = paramParcel.readInt();
   }
   
-  public User.Gender getGender()
+  public void a(YelpCheckIn paramYelpCheckIn)
   {
-    return mGender;
-  }
-  
-  public int getLocationCount(RankTitle.Rank paramRank)
-  {
-    paramRank = getRankTitle(paramRank);
-    if (paramRank == null) {
-      return 0;
-    }
-    return paramRank.getLocationCount();
-  }
-  
-  public int getMediaCount()
-  {
-    return mLocalPhotoCount + mVideoCount;
-  }
-  
-  public Date getMemberSince()
-  {
-    return mMemberSince;
-  }
-  
-  public User.EliteYear getMostRecentEliteYear()
-  {
-    if (mYearsElite.length == 0) {
-      return null;
-    }
-    return (User.EliteYear)Collections.max(Arrays.asList(mYearsElite));
-  }
-  
-  public String getName()
-  {
-    if (mUserName == null) {
-      mUserName = formatName(mFirstName, mLastName, mLastInitial);
-    }
-    return mUserName;
-  }
-  
-  public String getNameWithoutPeriod()
-  {
-    return getNameWithoutPeriod(mFirstName, mLastInitial);
-  }
-  
-  public int getPhotoCount()
-  {
-    return mLocalPhotoCount;
-  }
-  
-  public Map<String, String> getProfileBio()
-  {
-    return mProfileBio;
-  }
-  
-  public int getRankNameResource(RankTitle.Rank paramRank)
-  {
-    return paramRank.getRankNameResource(Boolean.valueOf(isMale()));
-  }
-  
-  public RankTitle getRankTitle(RankTitle.Rank paramRank)
-  {
-    return mRankTitles[paramRank.ordinal()];
-  }
-  
-  public int getRegularCount()
-  {
-    return getLocationCount(RankTitle.Rank.REGULAR);
-  }
-  
-  public int getTopRegularCount()
-  {
-    return getLocationCount(RankTitle.Rank.TOP_USER);
-  }
-  
-  public String getUserId()
-  {
-    return mId;
-  }
-  
-  public String getUserName()
-  {
-    return getName();
-  }
-  
-  public String getUserPhotoUrl()
-  {
-    if ((mPhotos != null) && (mPhotos.size() > 0)) {
-      return ((Photo)mPhotos.get(0)).getThumbnailUrl();
-    }
-    return null;
-  }
-  
-  public List<User.EliteYear> getYearsElite()
-  {
-    return Arrays.asList(mYearsElite);
-  }
-  
-  public int hashCode()
-  {
-    if (mId == null) {}
-    for (int i = 0;; i = mId.hashCode()) {
-      return i + 31;
+    W = paramYelpCheckIn;
+    if (paramYelpCheckIn != null) {
+      paramYelpCheckIn.j();
     }
   }
   
-  public boolean isEliteUser()
+  public void a(String paramString)
   {
-    return mIsElite;
+    o = paramString;
   }
   
-  public boolean isFeatureDisabled(FeatureSet.Feature paramFeature)
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
   {
-    return mDisabledFeatureSet.contains(paramFeature);
-  }
-  
-  public boolean isFullUser()
-  {
-    return mFormat == 0;
-  }
-  
-  public boolean isMale()
-  {
-    return mGender == User.Gender.MALE;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    super.readFromJson(paramJSONObject);
-    Object localObject1 = mPhotos.iterator();
+    super.a(paramJSONObject);
+    Object localObject1 = b.iterator();
     Object localObject2;
     while (((Iterator)localObject1).hasNext())
     {
       localObject2 = (Photo)((Iterator)localObject1).next();
-      mUserPassport = new Passport();
-      mUserPassport.mId = mId;
+      g = new Passport();
+      g.c = f;
     }
     localObject1 = paramJSONObject.optJSONArray("location_rank_titles");
     int j;
@@ -365,16 +197,16 @@ public class User
           break;
           label131:
           localObject3 = new RankTitle(JsonUtil.getStringList(((JSONObject)localObject3).optJSONArray("location_names")), ((JSONObject)localObject3).optInt("location_count", 0));
-          mRankTitles[localObject2.ordinal()] = localObject3;
+          V[localObject2.ordinal()] = localObject3;
         }
       }
     }
-    if ("f".equalsIgnoreCase(mGenderString)) {
-      mGender = User.Gender.FEMALE;
+    if ("f".equalsIgnoreCase(q)) {
+      X = User.Gender.FEMALE;
     }
     while (!paramJSONObject.isNull("profile_bio"))
     {
-      mProfileBio = new HashMap();
+      Y = new HashMap();
       paramJSONObject = paramJSONObject.getJSONObject("profile_bio");
       localObject1 = paramJSONObject.keys();
       for (;;)
@@ -383,126 +215,287 @@ public class User
         {
           localObject2 = (String)((Iterator)localObject1).next();
           localObject3 = paramJSONObject.getString((String)localObject2);
-          mProfileBio.put(localObject2, localObject3);
+          Y.put(localObject2, localObject3);
           continue;
-          mGender = User.Gender.MALE;
+          X = User.Gender.MALE;
           break;
         }
       }
-      if ((mLoves != null) && (!mLoves.isEmpty())) {
-        mProfileBio.put(AppData.b().getString(2131166697), mLoves.get(0));
+      if ((d != null) && (!d.isEmpty())) {
+        Y.put(AppData.b().getString(2131166673), d.get(0));
       }
-      if (!mProfileBio.isEmpty()) {
-        mProfileBio = Collections.unmodifiableMap(mProfileBio);
+      if (!Y.isEmpty()) {
+        Y = Collections.unmodifiableMap(Y);
       }
     }
-    paramJSONObject = getEliteYears();
+    paramJSONObject = B();
     if (paramJSONObject != null)
     {
       Arrays.sort(paramJSONObject);
-      mYearsElite = new User.EliteYear[paramJSONObject.length];
+      Z = new User.EliteYear[paramJSONObject.length];
       j = paramJSONObject.length;
       i = 0;
       while (i < j)
       {
-        mYearsElite[i] = new User.EliteYear(paramJSONObject[i], User.EliteYear.TYPE.getBadgeByYear(i + 1));
+        Z[i] = new User.EliteYear(paramJSONObject[i], User.EliteYear.TYPE.getBadgeByYear(i + 1));
         i += 1;
       }
-      mIsElite = r.a(getEliteYears());
+      ab = a(paramJSONObject);
     }
-    mDisabledFeatureSet.setFeatures(mDisabledFeatures);
+    aa.a(c);
   }
   
-  public void readFromParcel(Parcel paramParcel)
+  public void a(boolean paramBoolean)
   {
-    super.readFromParcel(paramParcel);
-    mRankTitles = ((RankTitle[])paramParcel.createTypedArray(RankTitle.CREATOR));
-    mGender = User.Gender.values()[paramParcel.readInt()];
-    mCheckIn = ((YelpCheckIn)paramParcel.readParcelable(YelpCheckIn.class.getClassLoader()));
-    ArrayList localArrayList1 = new ArrayList();
-    ArrayList localArrayList2 = new ArrayList();
-    paramParcel.readStringList(localArrayList1);
-    paramParcel.readStringList(localArrayList2);
-    mProfileBio = Collections.emptyMap();
-    int j = localArrayList1.size();
-    int i = 0;
-    while (i < j)
+    w = paramBoolean;
+  }
+  
+  public boolean a(FeatureSet.Feature paramFeature)
+  {
+    return aa.a(paramFeature);
+  }
+  
+  public int b(RankTitle.Rank paramRank)
+  {
+    paramRank = a(paramRank);
+    if (paramRank == null) {
+      return 0;
+    }
+    return paramRank.a();
+  }
+  
+  public void b(int paramInt)
+  {
+    ac = paramInt;
+  }
+  
+  public void b(boolean paramBoolean)
+  {
+    u = paramBoolean;
+  }
+  
+  public String c()
+  {
+    if ((b != null) && (b.size() > 0)) {
+      return ((Photo)b.get(0)).f();
+    }
+    return null;
+  }
+  
+  public void c(int paramInt)
+  {
+    O += paramInt;
+  }
+  
+  public void c(boolean paramBoolean)
+  {
+    if (paramBoolean) {}
+    for (int i = 1;; i = 0)
     {
-      if (mProfileBio.isEmpty()) {
-        mProfileBio = new HashMap();
-      }
-      mProfileBio.put(localArrayList1.get(i), localArrayList2.get(i));
-      i += 1;
-    }
-    if (!mProfileBio.isEmpty()) {
-      mProfileBio = Collections.unmodifiableMap(mProfileBio);
-    }
-    mYearsElite = ((User.EliteYear[])paramParcel.createTypedArray(User.EliteYear.CREATOR));
-    mDisabledFeatureSet = ((FeatureSet)paramParcel.readParcelable(FeatureSet.class.getClassLoader()));
-    mIsElite = paramParcel.createBooleanArray()[0];
-  }
-  
-  public void setCheckIn(YelpCheckIn paramYelpCheckIn)
-  {
-    mCheckIn = paramYelpCheckIn;
-    if (paramYelpCheckIn != null) {
-      paramYelpCheckIn.clearUser();
+      S = i;
+      return;
     }
   }
   
-  public void setDisabledFeatures(List<String> paramList)
+  public void d(int paramInt)
   {
-    mDisabledFeatures = paramList;
-    mDisabledFeatureSet.setFeatures(paramList);
+    A += paramInt;
   }
   
-  public void setFriendRequestPending(boolean paramBoolean)
+  public void d(boolean paramBoolean)
   {
-    mIsFriendRequestPending = paramBoolean;
-  }
-  
-  public void setPhoto(Photo paramPhoto)
-  {
-    if ((mPhotos == null) || (!(mPhotos instanceof ArrayList))) {
-      mPhotos = new ArrayList();
+    if (paramBoolean) {}
+    for (int i = 1;; i = 0)
+    {
+      R = i;
+      return;
     }
-    mPhotos.clear();
-    mPhotos.add(paramPhoto);
   }
   
-  public void setSendingNotifications(boolean paramBoolean)
+  public int describeContents()
   {
-    mIsSendingNotifications = paramBoolean;
+    return 0;
   }
   
-  public void setUnreadMessageCount(int paramInt)
+  public void e(int paramInt)
   {
-    mUnreadMessageCount = paramInt;
+    y += paramInt;
   }
   
-  public void setUserPhotoCount(int paramInt)
+  public void e(boolean paramBoolean)
   {
-    mUserPhotoCount = paramInt;
+    if (paramBoolean) {}
+    for (int i = 1;; i = 0)
+    {
+      T = i;
+      return;
+    }
   }
   
-  public void setUserReviewCount(int paramInt)
+  public boolean equals(Object paramObject)
   {
-    mReviewCount = paramInt;
+    if (this == paramObject) {}
+    do
+    {
+      do
+      {
+        return true;
+        if (paramObject == null) {
+          return false;
+        }
+        if (!(paramObject instanceof User)) {
+          return false;
+        }
+        paramObject = (User)paramObject;
+        if (f != null) {
+          break;
+        }
+      } while (f == null);
+      return false;
+    } while (f.equals(f));
+    return false;
+  }
+  
+  public void f(int paramInt)
+  {
+    G += paramInt;
+  }
+  
+  public void f(boolean paramBoolean)
+  {
+    v = paramBoolean;
+  }
+  
+  public void g(int paramInt)
+  {
+    N = paramInt;
+  }
+  
+  public boolean h()
+  {
+    return ab;
+  }
+  
+  public int hashCode()
+  {
+    if (f == null) {}
+    for (int i = 0;; i = f.hashCode()) {
+      return i + 31;
+    }
+  }
+  
+  public String i()
+  {
+    return f;
+  }
+  
+  public int k()
+  {
+    return ac;
+  }
+  
+  public void l()
+  {
+    A -= 1;
+  }
+  
+  public int l_()
+  {
+    return F;
+  }
+  
+  public void m()
+  {
+    H -= 1;
+  }
+  
+  public boolean n()
+  {
+    return x == 0;
+  }
+  
+  public int n_()
+  {
+    return F + O;
+  }
+  
+  public boolean o()
+  {
+    return S == 1;
+  }
+  
+  public boolean p()
+  {
+    return R == 1;
+  }
+  
+  public boolean q()
+  {
+    return T == 1;
+  }
+  
+  public YelpCheckIn r()
+  {
+    return W;
+  }
+  
+  public Date s()
+  {
+    return a;
+  }
+  
+  public Map<String, String> t()
+  {
+    return Y;
+  }
+  
+  public List<User.EliteYear> u()
+  {
+    return Arrays.asList(Z);
+  }
+  
+  public User.EliteYear v()
+  {
+    if (Z.length == 0) {
+      return null;
+    }
+    return (User.EliteYear)Collections.max(Arrays.asList(Z));
+  }
+  
+  public boolean w()
+  {
+    return X == User.Gender.MALE;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     super.writeToParcel(paramParcel, paramInt);
-    paramParcel.writeTypedArray(mRankTitles, 0);
-    paramParcel.writeInt(mGender.ordinal());
-    paramParcel.writeParcelable(mCheckIn, paramInt);
-    ArrayList localArrayList1 = new ArrayList(mProfileBio.keySet());
-    ArrayList localArrayList2 = new ArrayList(mProfileBio.values());
+    paramParcel.writeTypedArray(V, 0);
+    paramParcel.writeInt(X.ordinal());
+    paramParcel.writeParcelable(W, paramInt);
+    ArrayList localArrayList1 = new ArrayList(Y.keySet());
+    ArrayList localArrayList2 = new ArrayList(Y.values());
     paramParcel.writeStringList(localArrayList1);
     paramParcel.writeStringList(localArrayList2);
-    paramParcel.writeTypedArray(mYearsElite, paramInt);
-    paramParcel.writeParcelable(mDisabledFeatureSet, paramInt);
-    paramParcel.writeBooleanArray(new boolean[] { mIsElite });
+    paramParcel.writeTypedArray(Z, paramInt);
+    paramParcel.writeParcelable(aa, paramInt);
+    paramParcel.writeBooleanArray(new boolean[] { ab });
+    paramParcel.writeInt(ac);
+  }
+  
+  public int x()
+  {
+    return b(RankTitle.Rank.REGULAR);
+  }
+  
+  public void y()
+  {
+    D -= 1;
+  }
+  
+  public void z()
+  {
+    W = null;
   }
 }
 

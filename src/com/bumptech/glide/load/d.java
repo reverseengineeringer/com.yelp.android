@@ -1,10 +1,12 @@
 package com.bumptech.glide.load;
 
-import com.bumptech.glide.load.engine.t;
+import com.bumptech.glide.load.engine.i;
+import java.io.IOException;
 
 public abstract interface d<T, Z>
 {
-  public abstract t<Z> a(T paramT, int paramInt1, int paramInt2);
+  public abstract i<Z> a(T paramT, int paramInt1, int paramInt2)
+    throws IOException;
   
   public abstract String a();
 }

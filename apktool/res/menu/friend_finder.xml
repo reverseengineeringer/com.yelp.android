@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:yelp="http://schemas.android.com/apk/res-auto"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@id/member_search" android:title="@string/member_search" yelp:showAsAction="never" />
-    <item android:id="@id/add" android:title="@string/add" yelp:showAsAction="ifRoom" />
-    <item android:id="@id/skip" android:visible="false" android:title="@string/skip" yelp:showAsAction="ifRoom" />
-</menu>

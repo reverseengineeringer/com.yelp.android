@@ -1,63 +1,140 @@
 package android.support.v7.widget;
 
 import android.content.Context;
-import android.support.v7.internal.view.menu.ad;
-import android.support.v7.internal.view.menu.m;
-import android.support.v7.internal.view.menu.v;
-import android.view.MenuItem;
+import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.drawable.Drawable;
+import android.support.v4.view.ai;
+import android.support.v7.internal.widget.n;
+import android.support.v7.internal.widget.o;
+import android.util.AttributeSet;
 import android.view.View;
+import com.yelp.android.j.a.k;
+import com.yelp.android.k.a;
 
 class b
-  extends v
 {
-  private ad d;
+  private final View a;
+  private final o b;
+  private n c;
+  private n d;
   
-  public b(ActionMenuPresenter paramActionMenuPresenter, Context paramContext, ad paramad)
+  b(View paramView, o paramo)
   {
-    super(paramContext, paramad, null, false, com.yelp.android.g.b.actionOverflowMenuStyle);
-    d = paramad;
-    int j;
-    int i;
-    if (!((m)paramad.getItem()).j())
-    {
-      if (ActionMenuPresenter.d(paramActionMenuPresenter) == null)
-      {
-        paramContext = (View)ActionMenuPresenter.e(paramActionMenuPresenter);
-        a(paramContext);
-      }
+    a = paramView;
+    b = paramo;
+  }
+  
+  ColorStateList a()
+  {
+    if (d != null) {
+      return d.a;
     }
-    else
+    return null;
+  }
+  
+  void a(int paramInt)
+  {
+    if (b != null) {}
+    for (ColorStateList localColorStateList = b.c(paramInt);; localColorStateList = null)
     {
-      a(g);
-      j = paramad.size();
-      i = 0;
-    }
-    for (;;)
-    {
-      boolean bool1 = bool2;
-      if (i < j)
-      {
-        paramActionMenuPresenter = paramad.getItem(i);
-        if ((paramActionMenuPresenter.isVisible()) && (paramActionMenuPresenter.getIcon() != null)) {
-          bool1 = true;
-        }
-      }
-      else
-      {
-        a(bool1);
-        return;
-        paramContext = ActionMenuPresenter.d(paramActionMenuPresenter);
-        break;
-      }
-      i += 1;
+      b(localColorStateList);
+      return;
     }
   }
   
-  public void onDismiss()
+  void a(ColorStateList paramColorStateList)
   {
-    super.onDismiss();
-    ActionMenuPresenter.a(c, null);
-    c.h = 0;
+    if (d == null) {
+      d = new n();
+    }
+    d.a = paramColorStateList;
+    d.d = true;
+    c();
+  }
+  
+  void a(PorterDuff.Mode paramMode)
+  {
+    if (d == null) {
+      d = new n();
+    }
+    d.b = paramMode;
+    d.c = true;
+    c();
+  }
+  
+  void a(Drawable paramDrawable)
+  {
+    b(null);
+  }
+  
+  void a(AttributeSet paramAttributeSet, int paramInt)
+  {
+    paramAttributeSet = a.getContext().obtainStyledAttributes(paramAttributeSet, a.k.ViewBackgroundHelper, paramInt, 0);
+    try
+    {
+      if (paramAttributeSet.hasValue(a.k.ViewBackgroundHelper_android_background))
+      {
+        ColorStateList localColorStateList = b.c(paramAttributeSet.getResourceId(a.k.ViewBackgroundHelper_android_background, -1));
+        if (localColorStateList != null) {
+          b(localColorStateList);
+        }
+      }
+      if (paramAttributeSet.hasValue(a.k.ViewBackgroundHelper_backgroundTint)) {
+        ai.a(a, paramAttributeSet.getColorStateList(a.k.ViewBackgroundHelper_backgroundTint));
+      }
+      if (paramAttributeSet.hasValue(a.k.ViewBackgroundHelper_backgroundTintMode)) {
+        ai.a(a, a.a(paramAttributeSet.getInt(a.k.ViewBackgroundHelper_backgroundTintMode, -1), null));
+      }
+      return;
+    }
+    finally
+    {
+      paramAttributeSet.recycle();
+    }
+  }
+  
+  PorterDuff.Mode b()
+  {
+    if (d != null) {
+      return d.b;
+    }
+    return null;
+  }
+  
+  void b(ColorStateList paramColorStateList)
+  {
+    if (paramColorStateList != null)
+    {
+      if (c == null) {
+        c = new n();
+      }
+      c.a = paramColorStateList;
+      c.d = true;
+    }
+    for (;;)
+    {
+      c();
+      return;
+      c = null;
+    }
+  }
+  
+  void c()
+  {
+    if (a.getBackground() != null)
+    {
+      if (d == null) {
+        break label29;
+      }
+      o.a(a, d);
+    }
+    label29:
+    while (c == null) {
+      return;
+    }
+    o.a(a, c);
   }
 }
 

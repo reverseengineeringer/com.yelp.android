@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:paddingLeft="?baseGapSize" android:paddingTop="?smallGapSize" android:paddingRight="?baseGapSize" android:paddingBottom="?baseGapSize" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
+<RelativeLayout android:paddingLeft="@dimen/default_base_gap_size" android:paddingTop="@dimen/default_small_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:paddingBottom="@dimen/default_base_gap_size" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?listCellRectStyle"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:id="@id/badge_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="?smallGapSize" android:layout_alignWithParentIfMissing="true">
+    <RelativeLayout android:id="@id/badge_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_small_gap_size" android:layout_alignWithParentIfMissing="true">
         <include layout="@layout/panel_passport_short" />
     </RelativeLayout>
-    <ImageButton android:id="@id/add_friend_button" android:background="@drawable/white_rounded_rect" android:paddingLeft="?largeGapSize" android:paddingRight="?baseGapSize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/add_friends_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/add_friends" style="@style/FullBleedButton" />
+    <ImageButton android:id="@id/add_friend_button" android:background="@drawable/white_rounded_rect" android:paddingLeft="@dimen/default_large_gap_size" android:paddingRight="@dimen/default_base_gap_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/add_friends_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@string/add_friends" style="@style/FullBleedButton" />
 </RelativeLayout>

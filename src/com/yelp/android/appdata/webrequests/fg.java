@@ -1,45 +1,38 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.Review;
-import com.yelp.android.serializable.ReviewDraft;
-import com.yelp.android.serializable.ReviewThreshold;
-import com.yelp.android.ui.activities.reviews.ReviewState;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.User;
+import com.yelp.parcelgen.JsonUtil;
 import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class fg
+  extends b<Void, Void, a>
 {
-  ReviewState a;
-  ArrayList<ReviewThreshold> b;
-  ReviewDraft c;
-  Review d;
-  
-  public fg(ReviewState paramReviewState, ArrayList<ReviewThreshold> paramArrayList, ReviewDraft paramReviewDraft, Review paramReview)
+  public fg(int paramInt, ApiRequest.b<a> paramb)
   {
-    a = paramArrayList;
-    b = paramReviewDraft;
-    c = paramReview;
-    Review localReview;
-    d = localReview;
+    super(ApiRequest.RequestType.GET, "/user/following", paramb);
+    a("offset", paramInt);
+    a("limit", 25);
   }
   
-  public ReviewState a()
+  public a a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return a;
+    return new a(JsonUtil.parseJsonList(paramJSONObject.getJSONArray("following"), User.CREATOR), paramJSONObject.getInt("total"));
   }
   
-  public ArrayList<ReviewThreshold> b()
+  public static class a
   {
-    return b;
-  }
-  
-  public ReviewDraft c()
-  {
-    return c;
-  }
-  
-  public Review d()
-  {
-    return d;
+    public final ArrayList<User> a;
+    public final int b;
+    
+    public a(ArrayList<User> paramArrayList, int paramInt)
+    {
+      a = paramArrayList;
+      b = paramInt;
+    }
   }
 }
 

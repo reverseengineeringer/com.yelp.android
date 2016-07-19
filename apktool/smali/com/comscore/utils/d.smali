@@ -446,7 +446,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/comscore/analytics/a;->r(Z)V
+    invoke-virtual {v0, v1}, Lcom/comscore/analytics/a;->s(Z)V
 
     const-wide/16 v0, -0x1
 

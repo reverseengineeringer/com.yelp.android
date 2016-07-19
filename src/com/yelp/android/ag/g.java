@@ -1,23 +1,41 @@
 package com.yelp.android.ag;
 
-public abstract class g<Z>
-  extends a<Z>
+import com.bumptech.glide.Priority;
+import com.yelp.android.aa.l;
+import com.yelp.android.u.a;
+import com.yelp.android.w.c;
+
+class g
+  implements l<a, a>
 {
-  private final int a;
-  private final int b;
-  
-  public g(int paramInt1, int paramInt2)
+  public c<a> a(a parama, int paramInt1, int paramInt2)
   {
-    a = paramInt1;
-    b = paramInt2;
+    return new a(parama);
   }
   
-  public final void a(h paramh)
+  private static class a
+    implements c<a>
   {
-    if ((a <= 0) || (b <= 0)) {
-      throw new IllegalArgumentException("Width and height must both be > 0, but given width: " + a + " and" + " height: " + b + ", either provide dimensions in the constructor or call override()");
+    private final a a;
+    
+    public a(a parama)
+    {
+      a = parama;
     }
-    paramh.a(a, b);
+    
+    public void a() {}
+    
+    public a b(Priority paramPriority)
+    {
+      return a;
+    }
+    
+    public String b()
+    {
+      return String.valueOf(a.d());
+    }
+    
+    public void c() {}
   }
 }
 

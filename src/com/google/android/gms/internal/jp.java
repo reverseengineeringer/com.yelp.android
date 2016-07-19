@@ -1,90 +1,83 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
-import android.util.Log;
+import com.yelp.android.g.a;
+import java.util.AbstractSet;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
 
-public final class jp
+public class jp<E>
+  extends AbstractSet<E>
 {
-  private final String Nq;
+  private final a<E, E> a;
   
-  public jp(String paramString)
+  public jp()
   {
-    Nq = ((String)jx.i(paramString));
+    a = new a();
   }
   
-  public void a(Context paramContext, String paramString1, String paramString2, Throwable paramThrowable)
+  public jp(int paramInt)
   {
-    StackTraceElement[] arrayOfStackTraceElement = paramThrowable.getStackTrace();
-    StringBuilder localStringBuilder = new StringBuilder();
-    int i = 0;
-    while ((i < arrayOfStackTraceElement.length) && (i < 2))
-    {
-      localStringBuilder.append(arrayOfStackTraceElement[i].toString());
-      localStringBuilder.append("\n");
-      i += 1;
-    }
-    paramContext = new oo(paramContext, 10);
-    paramContext.a("GMS_WTF", null, new String[] { "GMS_WTF", localStringBuilder.toString() });
-    paramContext.send();
-    if (aF(7))
-    {
-      Log.e(paramString1, paramString2, paramThrowable);
-      Log.wtf(paramString1, paramString2, paramThrowable);
-    }
+    a = new a(paramInt);
   }
   
-  public void a(String paramString1, String paramString2, Throwable paramThrowable)
+  public jp(Collection<E> paramCollection)
   {
-    if (aF(4)) {
-      Log.i(paramString1, paramString2, paramThrowable);
-    }
+    this(paramCollection.size());
+    addAll(paramCollection);
   }
   
-  public boolean aF(int paramInt)
+  public boolean a(jp<? extends E> paramjp)
   {
-    return Log.isLoggable(Nq, paramInt);
+    int i = size();
+    a.a(a);
+    return size() > i;
   }
   
-  public void b(String paramString1, String paramString2, Throwable paramThrowable)
+  public boolean add(E paramE)
   {
-    if (aF(5)) {
-      Log.w(paramString1, paramString2, paramThrowable);
+    if (a.containsKey(paramE)) {
+      return false;
     }
+    a.put(paramE, paramE);
+    return true;
   }
   
-  public void c(String paramString1, String paramString2, Throwable paramThrowable)
+  public boolean addAll(Collection<? extends E> paramCollection)
   {
-    if (aF(6)) {
-      Log.e(paramString1, paramString2, paramThrowable);
+    if ((paramCollection instanceof jp)) {
+      return a((jp)paramCollection);
     }
+    return super.addAll(paramCollection);
   }
   
-  public void m(String paramString1, String paramString2)
+  public void clear()
   {
-    if (aF(3)) {
-      Log.d(paramString1, paramString2);
-    }
+    a.clear();
   }
   
-  public void n(String paramString1, String paramString2)
+  public boolean contains(Object paramObject)
   {
-    if (aF(2)) {
-      Log.v(paramString1, paramString2);
-    }
+    return a.containsKey(paramObject);
   }
   
-  public void o(String paramString1, String paramString2)
+  public Iterator<E> iterator()
   {
-    if (aF(5)) {
-      Log.w(paramString1, paramString2);
-    }
+    return a.keySet().iterator();
   }
   
-  public void p(String paramString1, String paramString2)
+  public boolean remove(Object paramObject)
   {
-    if (aF(6)) {
-      Log.e(paramString1, paramString2);
+    if (!a.containsKey(paramObject)) {
+      return false;
     }
+    a.remove(paramObject);
+    return true;
+  }
+  
+  public int size()
+  {
+    return a.size();
   }
 }
 

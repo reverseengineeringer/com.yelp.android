@@ -160,20 +160,154 @@
     return-void
 .end method
 
-.method public static a(Lcom/kahuna/sdk/h;)V
+.method public static a(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
+
+    .prologue
+    .line 193
+    invoke-static {p1}, Lcom/google/android/gms/location/ActivityRecognitionResult;->b(Landroid/content/Intent;)Lcom/google/android/gms/location/ActivityRecognitionResult;
+
+    move-result-object v0
+
+    .line 196
+    invoke-virtual {v0}, Lcom/google/android/gms/location/ActivityRecognitionResult;->a()Lcom/google/android/gms/location/DetectedActivity;
+
+    move-result-object v0
+
+    .line 199
+    invoke-virtual {v0}, Lcom/google/android/gms/location/DetectedActivity;->b()I
+
+    move-result v1
+
+    .line 202
+    invoke-virtual {v0}, Lcom/google/android/gms/location/DetectedActivity;->a()I
+
+    move-result v0
+
+    .line 203
+    const/16 v2, 0x41
+
+    if-lt v1, v2, :cond_1
+
+    sget v1, Lcom/kahuna/sdk/location/c;->b:I
+
+    if-eq v1, v0, :cond_1
+
+    .line 204
+    sput v0, Lcom/kahuna/sdk/location/c;->b:I
+
+    .line 206
+    sget-object v1, Lcom/kahuna/sdk/location/c;->a:Ljava/util/List;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 207
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    .line 208
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Got supported Activity type: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Lcom/kahuna/sdk/location/c;->b(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 210
+    :cond_0
+    invoke-static {}, Lcom/kahuna/sdk/location/KahunaIBeaconManager;->b()V
+
+    .line 219
+    :cond_1
+    :goto_0
+    return-void
+
+    .line 213
+    :cond_2
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    .line 214
+    const-string/jumbo v1, "Kahuna"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Got unsupported Activity type: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v0}, Lcom/kahuna/sdk/location/c;->b(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 216
+    :cond_3
+    invoke-static {}, Lcom/kahuna/sdk/location/KahunaIBeaconManager;->c()V
+
+    goto :goto_0
+.end method
+
+.method public static a(Lcom/kahuna/sdk/l;)V
     .locals 3
 
     .prologue
     .line 124
     if-eqz p0, :cond_0
 
-    instance-of v0, p0, Lcom/kahuna/sdk/h;
+    instance-of v0, p0, Lcom/kahuna/sdk/l;
 
     if-nez v0, :cond_2
 
     .line 125
     :cond_0
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "You cannot use Activity Recognition Manager externally from the Kahuna SDK. Aborting!"
 
@@ -193,14 +327,14 @@
     if-nez v0, :cond_3
 
     .line 130
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     .line 131
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "App doens\'t have required permissions for Activity Monitoring. Aborting request for updates!"
 
@@ -247,177 +381,25 @@
     move-exception v0
 
     .line 145
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
     .line 146
-    const-string/jumbo v1, "KahunaEngine"
+    const-string/jumbo v1, "Kahuna"
 
     const-string/jumbo v2, "Caught error when attempting to request for ActivityMonitoring Updates."
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 147
-    const-string/jumbo v1, "KahunaEngine"
+    const-string/jumbo v1, "Kahuna"
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_1
-.end method
-
-.method public static a(Lcom/kahuna/sdk/h;Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
-
-    .prologue
-    .line 192
-    if-eqz p0, :cond_0
-
-    instance-of v0, p0, Lcom/kahuna/sdk/h;
-
-    if-nez v0, :cond_2
-
-    .line 193
-    :cond_0
-    const-string/jumbo v0, "KahunaEngine"
-
-    const-string/jumbo v1, "You cannot use the Activity Recognition Manager externally from the Kahuna SDK. Aborting!"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 224
-    :cond_1
-    :goto_0
-    return-void
-
-    .line 198
-    :cond_2
-    invoke-static {p2}, Lcom/google/android/gms/location/ActivityRecognitionResult;->extractResult(Landroid/content/Intent;)Lcom/google/android/gms/location/ActivityRecognitionResult;
-
-    move-result-object v0
-
-    .line 201
-    invoke-virtual {v0}, Lcom/google/android/gms/location/ActivityRecognitionResult;->getMostProbableActivity()Lcom/google/android/gms/location/DetectedActivity;
-
-    move-result-object v0
-
-    .line 204
-    invoke-virtual {v0}, Lcom/google/android/gms/location/DetectedActivity;->getConfidence()I
-
-    move-result v1
-
-    .line 207
-    invoke-virtual {v0}, Lcom/google/android/gms/location/DetectedActivity;->getType()I
-
-    move-result v0
-
-    .line 208
-    const/16 v2, 0x41
-
-    if-lt v1, v2, :cond_1
-
-    sget v1, Lcom/kahuna/sdk/location/c;->b:I
-
-    if-eq v1, v0, :cond_1
-
-    .line 209
-    sput v0, Lcom/kahuna/sdk/location/c;->b:I
-
-    .line 211
-    sget-object v1, Lcom/kahuna/sdk/location/c;->a:Ljava/util/List;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    .line 212
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    .line 213
-    const-string/jumbo v1, "KahunaEngine"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Got supported Activity type: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-static {v0}, Lcom/kahuna/sdk/location/c;->b(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 215
-    :cond_3
-    invoke-static {p0}, Lcom/kahuna/sdk/location/KahunaIBeaconManager;->b(Lcom/kahuna/sdk/h;)V
-
-    goto :goto_0
-
-    .line 218
-    :cond_4
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    .line 219
-    const-string/jumbo v1, "KahunaEngine"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "Got unsupported Activity type: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-static {v0}, Lcom/kahuna/sdk/location/c;->b(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 221
-    :cond_5
-    invoke-static {p0}, Lcom/kahuna/sdk/location/KahunaIBeaconManager;->c(Lcom/kahuna/sdk/h;)V
-
-    goto :goto_0
 .end method
 
 .method public static a()Z
@@ -460,41 +442,41 @@
     .locals 1
 
     .prologue
-    .line 253
+    .line 248
     packed-switch p0, :pswitch_data_0
 
-    .line 264
+    .line 259
     :pswitch_0
     const-string/jumbo v0, "unknown"
 
     :goto_0
     return-object v0
 
-    .line 255
+    .line 250
     :pswitch_1
     const-string/jumbo v0, "running"
 
     goto :goto_0
 
-    .line 257
+    .line 252
     :pswitch_2
     const-string/jumbo v0, "walking"
 
     goto :goto_0
 
-    .line 259
+    .line 254
     :pswitch_3
     const-string/jumbo v0, "on foot"
 
     goto :goto_0
 
-    .line 261
+    .line 256
     :pswitch_4
     const-string/jumbo v0, "standing"
 
     goto :goto_0
 
-    .line 253
+    .line 248
     nop
 
     :pswitch_data_0
@@ -509,20 +491,20 @@
     .end packed-switch
 .end method
 
-.method public static b(Lcom/kahuna/sdk/h;)V
+.method public static b(Lcom/kahuna/sdk/l;)V
     .locals 3
 
     .prologue
     .line 154
     if-eqz p0, :cond_0
 
-    instance-of v0, p0, Lcom/kahuna/sdk/h;
+    instance-of v0, p0, Lcom/kahuna/sdk/l;
 
     if-nez v0, :cond_2
 
     .line 155
     :cond_0
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "You cannot use Activity Recognition Manager externally from the Kahuna SDK. Aborting!"
 
@@ -542,14 +524,14 @@
     if-nez v0, :cond_3
 
     .line 160
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
     .line 161
-    const-string/jumbo v0, "KahunaEngine"
+    const-string/jumbo v0, "Kahuna"
 
     const-string/jumbo v1, "App doens\'t have required permissions for Activity Monitoring. Aborting request for removal of updates!"
 
@@ -567,7 +549,7 @@
 
     .line 171
     :try_start_0
-    invoke-static {p0}, Lcom/kahuna/sdk/location/KahunaIBeaconManager;->c(Lcom/kahuna/sdk/h;)V
+    invoke-static {}, Lcom/kahuna/sdk/location/KahunaIBeaconManager;->c()V
 
     .line 173
     sget-object v0, Lcom/kahuna/sdk/location/c;->i:Lcom/kahuna/sdk/location/c;
@@ -644,21 +626,21 @@
     move-exception v0
 
     .line 183
-    invoke-static {}, Lcom/kahuna/sdk/h;->p()Z
+    invoke-static {}, Lcom/kahuna/sdk/l;->u()Z
 
     move-result v1
 
     if-eqz v1, :cond_5
 
     .line 184
-    const-string/jumbo v1, "KahunaEngine"
+    const-string/jumbo v1, "Kahuna"
 
     const-string/jumbo v2, "Caught error when attempting to remove ActivityMonitoring Updates."
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 185
-    const-string/jumbo v1, "KahunaEngine"
+    const-string/jumbo v1, "Kahuna"
 
     invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 

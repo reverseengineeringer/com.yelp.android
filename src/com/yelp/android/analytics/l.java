@@ -1,29 +1,39 @@
 package com.yelp.android.analytics;
 
+import com.yelp.android.analytics.iris.a;
+import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class l
-  extends b
+  extends g
 {
+  private final long a;
+  
+  public l(a parama, long paramLong, Map<String, Object> paramMap)
+  {
+    super(parama, null, paramMap);
+    a = paramLong;
+  }
+  
   public JSONObject c()
+    throws JSONException
   {
     JSONObject localJSONObject = super.c();
-    localJSONObject.put("end", a());
-    localJSONObject.put("reason", "background");
+    if (a > 0L) {
+      localJSONObject.put("interval", a);
+    }
     return localJSONObject;
+  }
+  
+  public long f()
+  {
+    return a;
   }
   
   public String toString()
   {
-    StringBuilder localStringBuilder = new StringBuilder(256);
-    localStringBuilder.append("[MetricsSessionEnd:");
-    localStringBuilder.append("index=");
-    localStringBuilder.append(b());
-    localStringBuilder.append(", ");
-    localStringBuilder.append("start=");
-    localStringBuilder.append(a());
-    localStringBuilder.append("]");
-    return localStringBuilder.toString();
+    return "[MetricsTiming:" + "index=" + b() + ", " + "iri=" + d().getIriName() + ", " + "interval=" + a + "]";
   }
 }
 

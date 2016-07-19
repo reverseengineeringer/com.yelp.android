@@ -1,155 +1,160 @@
-.class public Lcom/google/android/gms/analytics/j;
+.class public final Lcom/google/android/gms/analytics/j;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/google/android/gms/analytics/o;
-
-
-# instance fields
-.field private final yo:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 2
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Ljava/util/HashSet;
-
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
-
-    iput-object v0, p0, Lcom/google/android/gms/analytics/j;->yo:Ljava/util/Set;
-
-    iget-object v0, p0, Lcom/google/android/gms/analytics/j;->yo:Ljava/util/Set;
-
-    const/16 v1, 0x12e
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    iget-object v0, p0, Lcom/google/android/gms/analytics/j;->yo:Ljava/util/Set;
-
-    const/16 v1, 0x194
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    iget-object v0, p0, Lcom/google/android/gms/analytics/j;->yo:Ljava/util/Set;
-
-    const/16 v1, 0x1f6
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public eb()I
+.method public static a(I)Ljava/lang/String;
     .locals 1
 
-    const/16 v0, 0x7f4
+    const-string/jumbo v0, "&cd"
 
-    return v0
-.end method
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
 
-.method public ec()I
-    .locals 1
-
-    const/16 v0, 0x2000
-
-    return v0
-.end method
-
-.method public ed()I
-    .locals 1
-
-    const/16 v0, 0x2000
-
-    return v0
-.end method
-
-.method public ee()I
-    .locals 1
-
-    const/16 v0, 0x14
-
-    return v0
-.end method
-
-.method public ef()J
-    .locals 2
-
-    const-wide/16 v0, 0xe10
-
-    return-wide v0
-.end method
-
-.method public eg()Ljava/lang/String;
-    .locals 1
-
-    const-string/jumbo v0, "/collect"
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public eh()Ljava/lang/String;
+.method private static a(Ljava/lang/String;I)Ljava/lang/String;
     .locals 1
 
-    const-string/jumbo v0, "/batch"
+    const/4 v0, 0x1
+
+    if-ge p1, v0, :cond_0
+
+    const-string/jumbo v0, "index out of range for prefix"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/internal/f;->a(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const-string/jumbo v0, ""
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method public static b(I)Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "cd"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public ei()Lcom/google/android/gms/analytics/i;
+.method public static c(I)Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/analytics/i;->yx:Lcom/google/android/gms/analytics/i;
+    const-string/jumbo v0, "cm"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public ej()Lcom/google/android/gms/analytics/l;
+.method public static d(I)Ljava/lang/String;
     .locals 1
 
-    sget-object v0, Lcom/google/android/gms/analytics/l;->yJ:Lcom/google/android/gms/analytics/l;
+    const-string/jumbo v0, "&pr"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method
 
-.method public ek()Ljava/util/Set;
+.method public static e(I)Ljava/lang/String;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Set",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
 
-    iget-object v0, p0, Lcom/google/android/gms/analytics/j;->yo:Ljava/util/Set;
+    const-string/jumbo v0, "pr"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static f(I)Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "&promo"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static g(I)Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "promo"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static h(I)Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "pi"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static i(I)Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "&il"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static j(I)Ljava/lang/String;
+    .locals 1
+
+    const-string/jumbo v0, "il"
+
+    invoke-static {v0, p0}, Lcom/google/android/gms/analytics/j;->a(Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object v0
 
     return-object v0
 .end method

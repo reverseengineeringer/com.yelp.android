@@ -3,15 +3,24 @@
 .source "CustomConcurrentHashMap.java"
 
 # interfaces
-.implements Lcom/yelp/common/collect/c;
+.implements Lcom/yelp/common/collect/CustomConcurrentHashMap$b;
 .implements Ljava/io/Serializable;
 
 
 # annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x0
+    name = "InternalsImpl"
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
-        "Lcom/yelp/common/collect/c",
+        "Lcom/yelp/common/collect/CustomConcurrentHashMap$b",
         "<TK;TV;TE;>;",
         "Ljava/io/Serializable;"
     }
@@ -109,9 +118,9 @@
     :cond_0
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$InternalsImpl;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
-    invoke-interface {v0, p1}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v0, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v0
 
@@ -154,9 +163,9 @@
     :cond_0
     iget-object v0, p0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl$InternalsImpl;->this$0:Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;
 
-    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/d;
+    iget-object v0, v0, Lcom/yelp/common/collect/CustomConcurrentHashMap$Impl;->strategy:Lcom/yelp/common/collect/CustomConcurrentHashMap$c;
 
-    invoke-interface {v0, p1}, Lcom/yelp/common/collect/d;->getHash(Ljava/lang/Object;)I
+    invoke-interface {v0, p1}, Lcom/yelp/common/collect/CustomConcurrentHashMap$c;->getHash(Ljava/lang/Object;)I
 
     move-result v0
 

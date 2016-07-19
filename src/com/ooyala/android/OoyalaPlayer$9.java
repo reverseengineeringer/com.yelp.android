@@ -9,7 +9,14 @@ class OoyalaPlayer$9
   
   public void onItemsFetched(int paramInt1, int paramInt2, OoyalaException paramOoyalaException)
   {
-    OoyalaPlayer.access$1100(this$0).post(new OoyalaPlayer.9.1(this));
+    OoyalaPlayer.access$1100(this$0).post(new Runnable()
+    {
+      public void run()
+      {
+        this$0.changeCurrentItem(OoyalaPlayer.access$900(this$0).nextVideo());
+        this$0.pause();
+      }
+    });
   }
 }
 

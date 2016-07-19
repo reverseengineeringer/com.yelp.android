@@ -3,12 +3,23 @@
 .source "BusinessContributionType.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/appdata/BusinessContributionType;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x4008
+    name = null
+.end annotation
+
+
 # direct methods
 .method constructor <init>(Ljava/lang/String;IILjava/lang/String;)V
     .locals 6
 
     .prologue
-    .line 35
+    .line 34
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -32,7 +43,7 @@
     .locals 1
 
     .prologue
-    .line 42
+    .line 41
     sget-object v0, Lcom/yelp/android/ui/activities/reviews/ReviewSource;->SearchAddReviewBusiness:Lcom/yelp/android/ui/activities/reviews/ReviewSource;
 
     invoke-static {p1, p2, v0}, Lcom/yelp/android/ui/activities/reviews/ActivityReviewWrite;->a(Landroid/content/Context;Lcom/yelp/android/serializable/YelpBusiness;Lcom/yelp/android/ui/activities/reviews/ReviewSource;)Landroid/content/Intent;

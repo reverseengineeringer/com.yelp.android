@@ -3,6 +3,14 @@
 .source "RoyaltyFragment.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment$3;
+    }
+.end annotation
+
+
 # instance fields
 .field private a:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -15,14 +23,14 @@
     .end annotation
 .end field
 
-.field private b:Lcom/yelp/android/appdata/webrequests/ed;
+.field private b:Lcom/yelp/android/appdata/webrequests/dg;
 
-.field private c:Lcom/yelp/android/ui/util/bs;
+.field private c:Lcom/yelp/android/ui/util/aj;
 
-.field private final d:Lcom/yelp/android/appdata/webrequests/j;
+.field private final d:Lcom/yelp/android/appdata/webrequests/k$b;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lcom/yelp/android/appdata/webrequests/j",
+            "Lcom/yelp/android/appdata/webrequests/k$b",
             "<",
             "Ljava/util/ArrayList",
             "<",
@@ -32,7 +40,7 @@
     .end annotation
 .end field
 
-.field private final e:Lcom/yelp/android/ui/activities/support/o;
+.field private final e:Lcom/yelp/android/ui/activities/support/b$e;
 
 
 # direct methods
@@ -40,47 +48,47 @@
     .locals 1
 
     .prologue
-    .line 31
+    .line 30
     invoke-direct {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;-><init>()V
 
     .line 137
-    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/i;
+    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment$1;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/i;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment$1;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->d:Lcom/yelp/android/appdata/webrequests/j;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->d:Lcom/yelp/android/appdata/webrequests/k$b;
 
     .line 167
-    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/j;
+    new-instance v0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment$2;
 
-    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/j;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)V
+    invoke-direct {v0, p0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment$2;-><init>(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)V
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->e:Lcom/yelp/android/ui/activities/support/o;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->e:Lcom/yelp/android/ui/activities/support/b$e;
 
     return-void
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)Lcom/yelp/android/ui/util/bs;
+.method static synthetic a(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)Lcom/yelp/android/ui/util/aj;
     .locals 1
 
     .prologue
-    .line 31
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/bs;
+    .line 30
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/aj;
 
     return-object v0
 .end method
 
-.method static synthetic a(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;Lcom/yelp/android/ui/util/bs;)Lcom/yelp/android/ui/util/bs;
+.method static synthetic a(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;Lcom/yelp/android/ui/util/aj;)Lcom/yelp/android/ui/util/aj;
     .locals 0
 
     .prologue
-    .line 31
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/bs;
+    .line 30
+    iput-object p1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/aj;
 
     return-object p1
 .end method
 
-.method private a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/bs;
+.method private a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/aj;
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -89,35 +97,35 @@
             "<",
             "Lcom/yelp/android/serializable/RoyaltySet;",
             ">;)",
-            "Lcom/yelp/android/ui/util/bs;"
+            "Lcom/yelp/android/ui/util/aj;"
         }
     .end annotation
 
     .prologue
-    .line 96
-    new-instance v6, Lcom/yelp/android/ui/util/bs;
+    .line 95
+    new-instance v6, Lcom/yelp/android/ui/util/aj;
 
-    invoke-direct {v6}, Lcom/yelp/android/ui/util/bs;-><init>()V
+    invoke-direct {v6}, Lcom/yelp/android/ui/util/aj;-><init>()V
+
+    .line 96
+    new-instance v2, Lcom/yelp/android/ui/activities/leaderboard/a;
+
+    invoke-direct {v2}, Lcom/yelp/android/ui/activities/leaderboard/a;-><init>()V
 
     .line 97
-    new-instance v2, Lcom/yelp/android/ui/activities/leaderboard/g;
+    new-instance v3, Lcom/yelp/android/ui/activities/leaderboard/a;
 
-    invoke-direct {v2}, Lcom/yelp/android/ui/activities/leaderboard/g;-><init>()V
+    invoke-direct {v3}, Lcom/yelp/android/ui/activities/leaderboard/a;-><init>()V
 
     .line 98
-    new-instance v3, Lcom/yelp/android/ui/activities/leaderboard/g;
+    new-instance v4, Lcom/yelp/android/ui/activities/leaderboard/a;
 
-    invoke-direct {v3}, Lcom/yelp/android/ui/activities/leaderboard/g;-><init>()V
+    invoke-direct {v4}, Lcom/yelp/android/ui/activities/leaderboard/a;-><init>()V
 
     .line 99
-    new-instance v4, Lcom/yelp/android/ui/activities/leaderboard/g;
-
-    invoke-direct {v4}, Lcom/yelp/android/ui/activities/leaderboard/g;-><init>()V
-
-    .line 100
     const/4 v5, 0x0
 
-    .line 103
+    .line 102
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
@@ -136,12 +144,12 @@
 
     check-cast v0, Lcom/yelp/android/serializable/RoyaltySet;
 
-    .line 104
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RoyaltySet;->getRoyalty()Ljava/util/ArrayList;
+    .line 103
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RoyaltySet;->a()Ljava/util/ArrayList;
 
     move-result-object v8
 
-    .line 105
+    .line 104
     if-eqz v8, :cond_0
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->isEmpty()Z
@@ -150,7 +158,7 @@
 
     if-nez v1, :cond_0
 
-    .line 110
+    .line 109
     const/4 v1, 0x0
 
     invoke-virtual {v8, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -159,7 +167,7 @@
 
     check-cast v1, Lcom/yelp/android/serializable/Royal;
 
-    invoke-virtual {v1}, Lcom/yelp/android/serializable/Royal;->getTitle()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/yelp/android/serializable/Royal;->d()Ljava/lang/String;
 
     move-result-object v1
 
@@ -167,11 +175,11 @@
 
     move-result-object v9
 
-    .line 111
+    .line 110
     if-eqz v9, :cond_0
 
-    .line 114
-    sget-object v1, Lcom/yelp/android/ui/activities/leaderboard/l;->a:[I
+    .line 113
+    sget-object v1, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment$3;->a:[I
 
     invoke-virtual {v9}, Lcom/yelp/android/serializable/RankTitle$Rank;->ordinal()I
 
@@ -183,33 +191,33 @@
 
     move-object v1, v5
 
-    .line 127
+    .line 126
     :goto_1
     invoke-virtual {v9}, Lcom/yelp/android/serializable/RankTitle$Rank;->getRankIcon()I
 
     move-result v5
 
+    .line 127
+    invoke-virtual {v1, v8}, Lcom/yelp/android/ui/util/w;->a(Ljava/util/List;)V
+
     .line 128
-    invoke-virtual {v1, v8}, Lcom/yelp/android/ui/util/au;->a(Ljava/util/List;)V
-
-    .line 129
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/RoyaltySet;->getDescription()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/RoyaltySet;->b()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/bw;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/bw;
+    invoke-static {v0, v1}, Lcom/yelp/android/ui/util/aj$c;->a(Ljava/lang/CharSequence;Landroid/widget/BaseAdapter;)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v0
 
-    invoke-virtual {v0, v5}, Lcom/yelp/android/ui/util/bw;->c(I)Lcom/yelp/android/ui/util/bw;
+    invoke-virtual {v0, v5}, Lcom/yelp/android/ui/util/aj$c;->c(I)Lcom/yelp/android/ui/util/aj$c;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/yelp/android/ui/util/bw;->a()Lcom/yelp/android/ui/util/bv;
+    invoke-virtual {v0}, Lcom/yelp/android/ui/util/aj$c;->b()Lcom/yelp/android/ui/util/aj$b;
 
     move-result-object v0
 
-    invoke-virtual {v6, v5, v0}, Lcom/yelp/android/ui/util/bs;->a(ILcom/yelp/android/ui/util/bv;)V
+    invoke-virtual {v6, v5, v0}, Lcom/yelp/android/ui/util/aj;->a(ILcom/yelp/android/ui/util/aj$b;)V
 
     move-object v5, v1
 
@@ -219,26 +227,26 @@
     :pswitch_0
     move-object v1, v2
 
-    .line 117
+    .line 116
     goto :goto_1
 
     :pswitch_1
     move-object v1, v3
 
-    .line 120
+    .line 119
     goto :goto_1
 
     :pswitch_2
     move-object v1, v4
 
-    .line 123
+    .line 122
     goto :goto_1
 
     .line 134
     :cond_1
     return-object v6
 
-    .line 114
+    .line 113
     nop
 
     :pswitch_data_0
@@ -253,28 +261,28 @@
     .locals 0
 
     .prologue
-    .line 31
+    .line 30
     iput-object p1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a:Ljava/util/ArrayList;
 
     return-object p1
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)Lcom/yelp/android/ui/activities/support/o;
+.method static synthetic b(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;)Lcom/yelp/android/ui/activities/support/b$e;
     .locals 1
 
     .prologue
-    .line 31
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->e:Lcom/yelp/android/ui/activities/support/o;
+    .line 30
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->e:Lcom/yelp/android/ui/activities/support/b$e;
 
     return-object v0
 .end method
 
-.method static synthetic b(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/bs;
+.method static synthetic b(Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/aj;
     .locals 1
 
     .prologue
-    .line 31
-    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/bs;
+    .line 30
+    invoke-direct {p0, p1}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/aj;
 
     move-result-object v0
 
@@ -287,24 +295,24 @@
     .locals 2
 
     .prologue
-    .line 90
+    .line 89
     invoke-super/range {p0 .. p5}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->a(Landroid/widget/ListView;Landroid/view/View;IJ)V
 
-    .line 91
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/bs;
+    .line 90
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/aj;
 
-    invoke-virtual {v0, p3}, Lcom/yelp/android/ui/util/bs;->getItem(I)Ljava/lang/Object;
+    invoke-virtual {v0, p3}, Lcom/yelp/android/ui/util/aj;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/yelp/android/serializable/Royal;
 
-    .line 92
+    .line 91
     invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v1
 
-    invoke-virtual {v0}, Lcom/yelp/android/serializable/Royal;->getUserId()Ljava/lang/String;
+    invoke-virtual {v0}, Lcom/yelp/android/serializable/Royal;->e()Ljava/lang/String;
 
     move-result-object v0
 
@@ -314,7 +322,7 @@
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->startActivity(Landroid/content/Intent;)V
 
-    .line 93
+    .line 92
     return-void
 .end method
 
@@ -322,36 +330,36 @@
     .locals 2
 
     .prologue
-    .line 79
+    .line 78
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->b()V
 
-    .line 81
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/ed;
+    .line 80
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/dg;
 
     if-nez v0, :cond_0
 
+    .line 81
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/dg;
+
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->d:Lcom/yelp/android/appdata/webrequests/k$b;
+
+    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/dg;-><init>(Lcom/yelp/android/appdata/webrequests/k$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/dg;
+
     .line 82
-    new-instance v0, Lcom/yelp/android/appdata/webrequests/ed;
-
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->d:Lcom/yelp/android/appdata/webrequests/j;
-
-    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/ed;-><init>(Lcom/yelp/android/appdata/webrequests/j;)V
-
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/ed;
-
-    .line 83
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/ed;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/dg;
 
     const/4 v1, 0x0
 
     new-array v1, v1, [Ljava/lang/Void;
 
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ed;->executeWithLocation([Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/dg;->a([Ljava/lang/Object;)V
 
-    .line 84
-    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->i_()V
+    .line 83
+    invoke-virtual {p0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->H_()V
 
-    .line 86
+    .line 85
     :cond_0
     return-void
 .end method
@@ -360,18 +368,18 @@
     .locals 2
 
     .prologue
-    .line 45
+    .line 44
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
-    .line 46
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/bs;
+    .line 45
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/aj;
 
     if-nez v0, :cond_0
 
-    .line 47
+    .line 46
     if-nez p1, :cond_1
 
-    .line 48
+    .line 47
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x0
@@ -380,26 +388,26 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a:Ljava/util/ArrayList;
 
-    .line 49
+    .line 48
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a:Ljava/util/ArrayList;
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/bs;
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/aj;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/bs;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/aj;
 
-    .line 56
+    .line 55
     :cond_0
     :goto_0
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/bs;
+    iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/aj;
 
     invoke-virtual {p0, v0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Landroid/widget/ListAdapter;)V
 
-    .line 57
+    .line 56
     return-void
 
-    .line 51
+    .line 50
     :cond_1
     const-string/jumbo v0, "royalty"
 
@@ -409,35 +417,33 @@
 
     iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a:Ljava/util/ArrayList;
 
-    .line 53
+    .line 52
     iget-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a:Ljava/util/ArrayList;
 
-    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/bs;
+    invoke-direct {p0, v0}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/util/ArrayList;)Lcom/yelp/android/ui/util/aj;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/bs;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->c:Lcom/yelp/android/ui/util/aj;
 
     goto :goto_0
 .end method
 
 .method public onDetach()V
-    .locals 3
+    .locals 2
 
     .prologue
-    .line 73
+    .line 72
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onDetach()V
 
-    .line 74
+    .line 73
     const-string/jumbo v0, "royalty"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/ed;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/dg;
 
-    const/4 v2, 0x0
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;)V
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Z)V
-
-    .line 75
+    .line 74
     return-void
 .end method
 
@@ -445,25 +451,25 @@
     .locals 3
 
     .prologue
-    .line 67
+    .line 66
     invoke-super {p0}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onResume()V
 
-    .line 68
+    .line 67
     const-string/jumbo v0, "royalty"
 
-    iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/ed;
+    iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/dg;
 
-    iget-object v2, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->d:Lcom/yelp/android/appdata/webrequests/j;
+    iget-object v2, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->d:Lcom/yelp/android/appdata/webrequests/k$b;
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/h;Lcom/yelp/android/appdata/webrequests/j;)Lcom/yelp/android/appdata/webrequests/h;
+    invoke-virtual {p0, v0, v1, v2}, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a(Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/k;Lcom/yelp/android/appdata/webrequests/k$b;)Lcom/yelp/android/appdata/webrequests/k;
 
     move-result-object v0
 
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/ed;
+    check-cast v0, Lcom/yelp/android/appdata/webrequests/dg;
 
-    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/ed;
+    iput-object v0, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->b:Lcom/yelp/android/appdata/webrequests/dg;
 
-    .line 69
+    .line 68
     return-void
 .end method
 
@@ -471,16 +477,16 @@
     .locals 2
 
     .prologue
-    .line 61
+    .line 60
     invoke-super {p0, p1}, Lcom/yelp/android/ui/activities/support/YelpListFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
 
-    .line 62
+    .line 61
     const-string/jumbo v0, "royalty"
 
     iget-object v1, p0, Lcom/yelp/android/ui/activities/leaderboard/RoyaltyFragment;->a:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    .line 63
+    .line 62
     return-void
 .end method

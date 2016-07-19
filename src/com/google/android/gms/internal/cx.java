@@ -1,61 +1,80 @@
 package com.google.android.gms.internal;
 
-import android.os.RemoteException;
-import com.google.ads.mediation.MediationServerParameters;
-import com.google.android.gms.ads.mediation.customevent.CustomEvent;
-import java.util.Map;
+import android.os.Parcel;
+import android.util.Base64;
+import com.google.android.gms.ads.internal.client.AdRequestParcel;
+import com.google.android.gms.ads.internal.client.p;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
-@ey
-public final class cx
-  extends cy.a
+@fv
+class cx
 {
-  private Map<Class<? extends com.google.android.gms.ads.mediation.NetworkExtras>, com.google.android.gms.ads.mediation.NetworkExtras> qT;
+  final AdRequestParcel a;
+  final String b;
+  final int c;
   
-  private <NETWORK_EXTRAS extends com.google.ads.mediation.NetworkExtras, SERVER_PARAMETERS extends MediationServerParameters> cz z(String paramString)
+  cx(AdRequestParcel paramAdRequestParcel, String paramString, int paramInt)
   {
+    a = paramAdRequestParcel;
+    b = paramString;
+    c = paramInt;
+  }
+  
+  cx(cv paramcv)
+  {
+    this(paramcv.a(), paramcv.c(), paramcv.b());
+  }
+  
+  cx(String paramString)
+    throws IOException
+  {
+    Object localObject1 = paramString.split("\000");
+    if (localObject1.length != 3) {
+      throw new IOException("Incorrect field count for QueueSeed.");
+    }
+    paramString = Parcel.obtain();
     try
     {
-      Object localObject = Class.forName(paramString, false, cx.class.getClassLoader());
-      if (com.google.ads.mediation.MediationAdapter.class.isAssignableFrom((Class)localObject))
-      {
-        localObject = (com.google.ads.mediation.MediationAdapter)((Class)localObject).newInstance();
-        return new de((com.google.ads.mediation.MediationAdapter)localObject, (com.google.ads.mediation.NetworkExtras)qT.get(((com.google.ads.mediation.MediationAdapter)localObject).getAdditionalParametersType()));
-      }
-      if (com.google.android.gms.ads.mediation.MediationAdapter.class.isAssignableFrom((Class)localObject)) {
-        return new dc((com.google.android.gms.ads.mediation.MediationAdapter)((Class)localObject).newInstance());
-      }
-      gr.W("Could not instantiate mediation adapter: " + paramString + " (not a valid adapter).");
-      throw new RemoteException();
+      b = new String(Base64.decode(localObject1[0], 0), "UTF-8");
+      c = Integer.parseInt(localObject1[1]);
+      localObject1 = Base64.decode(localObject1[2], 0);
+      paramString.unmarshall((byte[])localObject1, 0, localObject1.length);
+      paramString.setDataPosition(0);
+      a = AdRequestParcel.CREATOR.a(paramString);
+      return;
     }
-    catch (Throwable localThrowable)
+    catch (IllegalArgumentException localIllegalArgumentException)
     {
-      gr.W("Could not instantiate mediation adapter: " + paramString + ". " + localThrowable.getMessage());
-      throw new RemoteException();
+      throw new IOException("Malformed QueueSeed encoding.");
+    }
+    finally
+    {
+      paramString.recycle();
     }
   }
   
-  public void d(Map<Class<? extends com.google.android.gms.ads.mediation.NetworkExtras>, com.google.android.gms.ads.mediation.NetworkExtras> paramMap)
+  String a()
   {
-    qT = paramMap;
-  }
-  
-  public cz x(String paramString)
-  {
-    return z(paramString);
-  }
-  
-  public boolean y(String paramString)
-  {
+    Parcel localParcel = Parcel.obtain();
     try
     {
-      boolean bool = CustomEvent.class.isAssignableFrom(Class.forName(paramString, false, cx.class.getClassLoader()));
-      return bool;
+      String str1 = Base64.encodeToString(b.getBytes("UTF-8"), 0);
+      String str2 = Integer.toString(c);
+      a.writeToParcel(localParcel, 0);
+      String str3 = Base64.encodeToString(localParcel.marshall(), 0);
+      str1 = str1 + "\000" + str2 + "\000" + str3;
+      return str1;
     }
-    catch (Throwable localThrowable)
+    catch (UnsupportedEncodingException localUnsupportedEncodingException)
     {
-      gr.W("Could not load custom event implementation class: " + paramString + ", assuming old implementation.");
+      gz.b("QueueSeed encode failed because UTF-8 is not available.");
+      return "";
     }
-    return false;
+    finally
+    {
+      localParcel.recycle();
+    }
   }
 }
 

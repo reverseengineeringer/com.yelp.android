@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:foreground="?selectableItemBackground"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/list_cell_outline_top_and_bottom" android:paddingTop="@dimen/default_large_gap_size" android:paddingBottom="@dimen/default_large_gap_size" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/image" android:layout_width="@dimen/in_app_notification_icon" android:layout_height="@dimen/in_app_notification_icon" android:layout_marginLeft="@dimen/default_large_gap_size" android:layout_marginRight="@dimen/default_base_gap_size" android:src="@drawable/dino_no_friends" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        <ImageButton android:id="@id/close" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_large_gap_size" android:layout_marginBottom="@dimen/default_large_gap_size" android:src="@drawable/close_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" android:contentDescription="@null" />
+        <TextView android:textAppearance="@style/TitleText" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_toLeftOf="@id/close" android:layout_toRightOf="@id/image" android:layout_alignTop="@id/image" />
+        <TextView android:textAppearance="@style/BodyText" android:id="@id/message" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toLeftOf="@id/close" android:layout_toRightOf="@id/image" android:layout_below="@id/title" />
+    </RelativeLayout>
+</FrameLayout>

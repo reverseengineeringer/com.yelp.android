@@ -1,26 +1,47 @@
 package android.support.v7.app;
 
-import android.support.v7.internal.view.menu.i;
-import android.support.v7.internal.view.menu.y;
-import com.yelp.android.i.h;
+import android.content.Context;
+import android.view.ActionMode;
+import android.view.ActionMode.Callback;
+import android.view.Window;
+import android.view.Window.Callback;
 
-final class j
-  implements y
+class j
+  extends i
 {
-  private j(ActionBarActivityDelegateBase paramActionBarActivityDelegateBase) {}
-  
-  public void a(i parami, boolean paramBoolean)
+  j(Context paramContext, Window paramWindow, e parame)
   {
-    ActionBarActivityDelegateBase.a(a, parami);
+    super(paramContext, paramWindow, parame);
   }
   
-  public boolean a(i parami)
+  Window.Callback a(Window.Callback paramCallback)
   {
-    h localh = a.n();
-    if (localh != null) {
-      localh.c(8, parami);
+    return new a(paramCallback);
+  }
+  
+  class a
+    extends i.a
+  {
+    a(Window.Callback paramCallback)
+    {
+      super(paramCallback);
     }
-    return true;
+    
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback paramCallback)
+    {
+      return null;
+    }
+    
+    public ActionMode onWindowStartingActionMode(ActionMode.Callback paramCallback, int paramInt)
+    {
+      if (l()) {}
+      switch (paramInt)
+      {
+      default: 
+        return super.onWindowStartingActionMode(paramCallback, paramInt);
+      }
+      return a(paramCallback);
+    }
   }
 }
 

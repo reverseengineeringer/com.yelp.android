@@ -1,27 +1,16 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.serializable.ReviewHighlight;
-import java.util.ArrayList;
+import com.yelp.android.appdata.webrequests.core.c;
+import com.yelp.android.appdata.webrequests.core.c.a;
 
 public class ev
+  extends c
 {
-  ArrayList<ReviewHighlight> a;
-  int b;
-  
-  public ev(ArrayList<ReviewHighlight> paramArrayList, int paramInt)
+  public ev(String paramString1, String paramString2, c.a parama)
   {
-    a = paramArrayList;
-    b = paramInt;
-  }
-  
-  public ArrayList<ReviewHighlight> a()
-  {
-    return a;
-  }
-  
-  public int b()
-  {
-    return b;
+    super("account/twitter/save_request_token", parama);
+    b("oauth_token", paramString1);
+    b("oauth_verifier", paramString2);
   }
 }
 

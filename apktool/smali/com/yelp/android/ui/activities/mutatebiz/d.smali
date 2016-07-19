@@ -1,54 +1,51 @@
-.class Lcom/yelp/android/ui/activities/mutatebiz/d;
+.class public interface abstract Lcom/yelp/android/ui/activities/mutatebiz/d;
 .super Ljava/lang/Object;
-.source "AddAddressFragment.java"
-
-# interfaces
-.implements Lcom/yelp/android/ui/dialogs/ar;
-
-
-# instance fields
-.field final synthetic a:Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;
-
-
-# direct methods
-.method constructor <init>(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;)V
-    .locals 0
-
-    .prologue
-    .line 626
-    iput-object p1, p0, Lcom/yelp/android/ui/activities/mutatebiz/d;->a:Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+.source "TextWithData.java"
 
 
 # virtual methods
-.method public a(Lcom/yelp/android/ui/dialogs/ap;)V
-    .locals 3
+.method public abstract a(Landroid/net/Uri;)V
+.end method
 
-    .prologue
-    .line 629
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/d;->a:Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;
+.method public abstract a(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+.end method
 
-    const/4 v1, 0x1
+.method public abstract a(Ljava/lang/CharSequence;Ljava/util/ArrayList;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/CharSequence;",
+            "Ljava/util/ArrayList",
+            "<+",
+            "Landroid/os/Parcelable;",
+            ">;)V"
+        }
+    .end annotation
+.end method
 
-    iput-boolean v1, v0, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a:Z
+.method public varargs abstract a(Ljava/lang/CharSequence;[Landroid/os/Parcelable;)V
+.end method
 
-    .line 630
-    iget-object v0, p0, Lcom/yelp/android/ui/activities/mutatebiz/d;->a:Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;
+.method public abstract getAttachment()Landroid/net/Uri;
+.end method
 
-    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/ap;->b()Ljava/util/Locale;
+.method public abstract getCharSequenceData()Ljava/lang/CharSequence;
+.end method
 
-    move-result-object v1
+.method public abstract getParcelableArrayData()[Landroid/os/Parcelable;
+.end method
 
-    invoke-virtual {p1}, Lcom/yelp/android/ui/dialogs/ap;->a()I
+.method public abstract getParcelableArrayListData()Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Landroid/os/Parcelable;",
+            ">()",
+            "Ljava/util/ArrayList",
+            "<TT;>;"
+        }
+    .end annotation
+.end method
 
-    move-result v2
-
-    invoke-static {v0, v1, v2}, Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;->a(Lcom/yelp/android/ui/activities/mutatebiz/AddAddressFragment;Ljava/util/Locale;I)V
-
-    .line 631
-    return-void
+.method public abstract setOnClickListener(Landroid/view/View$OnClickListener;)V
 .end method

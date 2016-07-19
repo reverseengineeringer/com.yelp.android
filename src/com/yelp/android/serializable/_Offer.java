@@ -2,38 +2,71 @@ package com.yelp.android.serializable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.yelp.android.dc.b;
+import com.yelp.android.dc.c;
 import com.yelp.parcelgen.JsonParser.DualCreator;
 import com.yelp.parcelgen.JsonUtil;
 import java.util.Date;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 abstract class _Offer
   implements Parcelable
 {
-  protected YelpBusiness mBusiness;
-  protected int mCheckInsRemaining;
-  protected Date mDateAwarded;
-  protected Date mDateExpires;
-  protected String mId;
-  protected String mOfferText;
-  protected String mPromoText;
-  protected OfferRedemption mRedemption;
-  protected Offer.OfferState mState;
+  protected Date b;
+  protected Date c;
+  protected OfferRedemption d;
+  protected Offer.OfferState e;
+  protected String f;
+  protected String g;
+  protected String h;
+  protected YelpBusiness i;
+  protected int j;
   
-  protected _Offer() {}
-  
-  protected _Offer(Date paramDate1, Date paramDate2, OfferRedemption paramOfferRedemption, Offer.OfferState paramOfferState, String paramString1, String paramString2, String paramString3, YelpBusiness paramYelpBusiness, int paramInt)
+  public void a(Parcel paramParcel)
   {
-    this();
-    mDateAwarded = paramDate1;
-    mDateExpires = paramDate2;
-    mRedemption = paramOfferRedemption;
-    mState = paramOfferState;
-    mOfferText = paramString1;
-    mPromoText = paramString2;
-    mId = paramString3;
-    mBusiness = paramYelpBusiness;
-    mCheckInsRemaining = paramInt;
+    long l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      b = new Date(l);
+    }
+    l = paramParcel.readLong();
+    if (l != -2147483648L) {
+      c = new Date(l);
+    }
+    d = ((OfferRedemption)paramParcel.readParcelable(OfferRedemption.class.getClassLoader()));
+    e = ((Offer.OfferState)paramParcel.readSerializable());
+    f = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    g = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    h = ((String)paramParcel.readValue(String.class.getClassLoader()));
+    i = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
+    j = paramParcel.readInt();
+  }
+  
+  public void a(JSONObject paramJSONObject)
+    throws JSONException
+  {
+    if (!paramJSONObject.isNull("time_awarded")) {
+      b = JsonUtil.parseTimestamp(paramJSONObject, "time_awarded");
+    }
+    if (!paramJSONObject.isNull("time_expires")) {
+      c = JsonUtil.parseTimestamp(paramJSONObject, "time_expires");
+    }
+    if (!paramJSONObject.isNull("redemption")) {
+      d = ((OfferRedemption)OfferRedemption.CREATOR.parse(paramJSONObject.getJSONObject("redemption")));
+    }
+    if (!paramJSONObject.isNull("offer_text")) {
+      f = paramJSONObject.optString("offer_text");
+    }
+    if (!paramJSONObject.isNull("promo_text")) {
+      g = paramJSONObject.optString("promo_text");
+    }
+    if (!paramJSONObject.isNull("id")) {
+      h = paramJSONObject.optString("id");
+    }
+    if (!paramJSONObject.isNull("business")) {
+      i = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
+    }
+    j = paramJSONObject.optInt("check_ins_remaining");
   }
   
   public int describeContents()
@@ -41,148 +74,113 @@ abstract class _Offer
     return 0;
   }
   
-  public YelpBusiness getBusiness()
+  public boolean equals(Object paramObject)
   {
-    return mBusiness;
+    if (paramObject == null) {}
+    do
+    {
+      return false;
+      if (paramObject == this) {
+        return true;
+      }
+    } while (paramObject.getClass() != getClass());
+    paramObject = (_Offer)paramObject;
+    return new b().a(b, b).a(c, c).a(d, d).a(e, e).a(f, f).a(g, g).a(h, h).a(i, i).a(j, j).a();
   }
   
-  public int getCheckInsRemaining()
-  {
-    return mCheckInsRemaining;
-  }
-  
-  public Date getDateAwarded()
-  {
-    return mDateAwarded;
-  }
-  
-  public Date getDateExpires()
-  {
-    return mDateExpires;
-  }
-  
-  public String getId()
-  {
-    return mId;
-  }
-  
-  public String getOfferText()
-  {
-    return mOfferText;
-  }
-  
-  public String getPromoText()
-  {
-    return mPromoText;
-  }
-  
-  public OfferRedemption getRedemption()
-  {
-    return mRedemption;
-  }
-  
-  public Offer.OfferState getState()
-  {
-    return mState;
-  }
-  
-  public void readFromJson(JSONObject paramJSONObject)
-  {
-    if (!paramJSONObject.isNull("time_awarded")) {
-      mDateAwarded = JsonUtil.parseTimestamp(paramJSONObject, "time_awarded");
-    }
-    if (!paramJSONObject.isNull("time_expires")) {
-      mDateExpires = JsonUtil.parseTimestamp(paramJSONObject, "time_expires");
-    }
-    if (!paramJSONObject.isNull("redemption")) {
-      mRedemption = ((OfferRedemption)OfferRedemption.CREATOR.parse(paramJSONObject.getJSONObject("redemption")));
-    }
-    if (!paramJSONObject.isNull("offer_text")) {
-      mOfferText = paramJSONObject.optString("offer_text");
-    }
-    if (!paramJSONObject.isNull("promo_text")) {
-      mPromoText = paramJSONObject.optString("promo_text");
-    }
-    if (!paramJSONObject.isNull("id")) {
-      mId = paramJSONObject.optString("id");
-    }
-    if (!paramJSONObject.isNull("business")) {
-      mBusiness = ((YelpBusiness)YelpBusiness.CREATOR.parse(paramJSONObject.getJSONObject("business")));
-    }
-    mCheckInsRemaining = paramJSONObject.optInt("check_ins_remaining");
-  }
-  
-  public void readFromParcel(Parcel paramParcel)
-  {
-    long l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateAwarded = new Date(l);
-    }
-    l = paramParcel.readLong();
-    if (l != -2147483648L) {
-      mDateExpires = new Date(l);
-    }
-    mRedemption = ((OfferRedemption)paramParcel.readParcelable(OfferRedemption.class.getClassLoader()));
-    mState = ((Offer.OfferState)paramParcel.readSerializable());
-    mOfferText = paramParcel.readString();
-    mPromoText = paramParcel.readString();
-    mId = paramParcel.readString();
-    mBusiness = ((YelpBusiness)paramParcel.readParcelable(YelpBusiness.class.getClassLoader()));
-    mCheckInsRemaining = paramParcel.readInt();
-  }
-  
-  public JSONObject writeJSON()
+  public JSONObject f()
+    throws JSONException
   {
     JSONObject localJSONObject = new JSONObject();
-    if (mDateAwarded != null) {
-      localJSONObject.put("time_awarded", mDateAwarded.getTime() / 1000L);
+    if (b != null) {
+      localJSONObject.put("time_awarded", b.getTime() / 1000L);
     }
-    if (mDateExpires != null) {
-      localJSONObject.put("time_expires", mDateExpires.getTime() / 1000L);
+    if (c != null) {
+      localJSONObject.put("time_expires", c.getTime() / 1000L);
     }
-    if (mRedemption != null) {
-      localJSONObject.put("redemption", mRedemption.writeJSON());
+    if (d != null) {
+      localJSONObject.put("redemption", d.b());
     }
-    if (mOfferText != null) {
-      localJSONObject.put("offer_text", mOfferText);
+    if (f != null) {
+      localJSONObject.put("offer_text", f);
     }
-    if (mPromoText != null) {
-      localJSONObject.put("promo_text", mPromoText);
+    if (g != null) {
+      localJSONObject.put("promo_text", g);
     }
-    if (mId != null) {
-      localJSONObject.put("id", mId);
+    if (h != null) {
+      localJSONObject.put("id", h);
     }
-    if (mBusiness != null) {
-      localJSONObject.put("business", mBusiness.writeJSON());
+    if (i != null) {
+      localJSONObject.put("business", i.E());
     }
-    localJSONObject.put("check_ins_remaining", mCheckInsRemaining);
+    localJSONObject.put("check_ins_remaining", j);
     return localJSONObject;
+  }
+  
+  public int g()
+  {
+    return j;
+  }
+  
+  public YelpBusiness h()
+  {
+    return i;
+  }
+  
+  public int hashCode()
+  {
+    return new c().a(b).a(c).a(d).a(e).a(f).a(g).a(h).a(i).a(j).a();
+  }
+  
+  public String i()
+  {
+    return h;
+  }
+  
+  public String j()
+  {
+    return g;
+  }
+  
+  public String k()
+  {
+    return f;
+  }
+  
+  public Offer.OfferState l()
+  {
+    return e;
+  }
+  
+  public OfferRedemption m()
+  {
+    return d;
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
     long l2 = -2147483648L;
-    if (mDateAwarded == null)
+    if (b == null)
     {
       l1 = -2147483648L;
       paramParcel.writeLong(l1);
-      if (mDateExpires != null) {
+      if (c != null) {
         break label106;
       }
     }
     label106:
-    for (long l1 = l2;; l1 = mDateExpires.getTime())
+    for (long l1 = l2;; l1 = c.getTime())
     {
       paramParcel.writeLong(l1);
-      paramParcel.writeParcelable(mRedemption, 0);
-      paramParcel.writeSerializable(mState);
-      paramParcel.writeString(mOfferText);
-      paramParcel.writeString(mPromoText);
-      paramParcel.writeString(mId);
-      paramParcel.writeParcelable(mBusiness, 0);
-      paramParcel.writeInt(mCheckInsRemaining);
+      paramParcel.writeParcelable(d, 0);
+      paramParcel.writeSerializable(e);
+      paramParcel.writeValue(f);
+      paramParcel.writeValue(g);
+      paramParcel.writeValue(h);
+      paramParcel.writeParcelable(i, 0);
+      paramParcel.writeInt(j);
       return;
-      l1 = mDateAwarded.getTime();
+      l1 = b.getTime();
       break;
     }
   }

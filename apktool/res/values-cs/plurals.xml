@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="add_guests">
+        <item quantity="other">Přidat až %1$d hostů</item>
+        <item quantity="one">Přidat %1$d hosta</item>
+        <item quantity="few">Přidat až %1$d hosty</item>
+    </plurals>
+    <plurals name="alert_summary_count">
+        <item quantity="other">&amp;lt;b>Máš %1$d nových upozornění&amp;lt;/b></item>
+        <item quantity="one">&amp;lt;b>Máš %1$d nové upozornění&amp;lt;/b></item>
+        <item quantity="few">&amp;lt;b>Máš %1$d nové upozornění&amp;lt;/b></item>
+    </plurals>
+    <plurals name="business_hours_closes_in">
+        <item quantity="other">Zavře za %1$d minut</item>
+        <item quantity="one">Zavře za %1$d minutu</item>
+        <item quantity="few">Zavře za %1$d minuty</item>
+    </plurals>
+    <plurals name="business_hours_opens_in">
+        <item quantity="other">Otevře za %1$d minut</item>
+        <item quantity="one">Otevře za %1$d minutu</item>
+        <item quantity="few">Otevře za %1$d minuty</item>
+    </plurals>
+    <plurals name="business_page_checkin_count">
+        <item quantity="other">Máš tady &amp;lt;b>%1$d&amp;lt;/b> přihlášení</item>
+        <item quantity="one">Máš tady &amp;lt;b>%1$d&amp;lt;/b> přihlášení</item>
+        <item quantity="few">Máš tady &amp;lt;b>%1$d&amp;lt;/b> přihlášení</item>
+    </plurals>
+    <plurals name="checkin_count">
+        <item quantity="other">%1$d přihlášení</item>
+        <item quantity="one">%1$d přihlášení</item>
+        <item quantity="few">%1$d přihlášení</item>
+    </plurals>
+    <plurals name="checkins_here_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> přihlášení tady</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> přihlášení tady</item>
+        <item quantity="few">&amp;lt;b>%1$d&amp;lt;/b> přihlášení tady</item>
+    </plurals>
+    <plurals name="checkins_remaining_to_unlock_offer">
+        <item quantity="other">%1$d dalších přihlášení pro odemknutí této slevy</item>
+        <item quantity="one">%1$d další přihlášení tady potřeba pro odemknutí slevy</item>
+        <item quantity="few">%1$d další přihlášení pro odemknutí této slevy</item>
+    </plurals>
+    <plurals name="checkins_this_week">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> přihlášení tento týden</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> přihlášení tento týden</item>
+        <item quantity="few">&amp;lt;b>%1$d&amp;lt;/b> přihlášení tento týden</item>
+    </plurals>
+    <plurals name="checkins_to_unlock_offer">
+        <item quantity="other">%1$d přihlášení pro odemknutí této slevy</item>
+        <item quantity="one">Přihlaš se tady pro odemknutí této slevy</item>
+        <item quantity="few">%1$d přihlášení pro odemknutí této slevy</item>
+    </plurals>
+    <plurals name="discuss_this_event">
+        <item quantity="other">%1$d Yelperů diskutuje o události</item>
+        <item quantity="one">Yelper začal diskuzi k události</item>
+        <item quantity="few">%1$d Yelpeři diskutují o události</item>
+    </plurals>
+    <plurals name="dollar_signs">
+        <item quantity="other">%1$s %2$s znaků</item>
+        <item quantity="one">%1$d znak %2$s</item>
+        <item quantity="few">%1$s %2$s znaky</item>
+    </plurals>
+    <plurals name="dukedoms_textFormat">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> Vévodství</item>
+        <item quantity="one">&amp;lt;b>%1$d&amp;lt;/b> Vévodství</item>
+        <item quantity="few">&amp;lt;b>%1$d&amp;lt;/b> Vévodství</item>
+    </plurals>
+    <plurals name="embedded_formula_for_deals">
+        <item quantity="other">nabídek x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> za každou = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> suma</item>
+        <item quantity="one">nabídka x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> za každou = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> suma</item>
+        <item quantity="few">nabídky x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> za každou = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> suma</item>
+    </plurals>
+    <plurals name="filter_format">
+        <item quantity="other">%1$s a %2$s</item>
+        <item quantity="one">%2$s</item>
+        <item quantity="few">%1$s a %2$s</item>
+    </plurals>
+    <plurals name="formula_for_deals">
+        <item quantity="other">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> slev x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> za každou = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> suma</item>
+        <item quantity="one">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> sleva x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> za každou = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> suma</item>
+        <item quantity="few">&amp;lt;large>&amp;lt;b>%1$s&amp;lt;/b>&amp;lt;/large> slevy x &amp;lt;large>&amp;lt;b>%2$s&amp;lt;/b>&amp;lt;/large> za každou = &amp;lt;large>&amp;lt;b>%3$s&amp;lt;/b>&amp;lt;/large> suma</item>
+    </plurals>
+    <plurals name="friend_count">
+        <item quantity="other">%1$d přátelé</item>
+        <item quantity="one">%1$d z přátel</item>
+        <item quantity="few">%1$d přátelé</item>
+    </plurals>
+    <plurals name="friend_count_no_param">
+        <item quantity="other">Přátel</item>
+        <item quantity="one">Přítel</item>
+        <item quantity="few">Přátel</item>
+    </plurals>
+    <plurals name="friend_request_alert">
+        <item quantity="other">&amp;lt;b>%1$d&amp;lt;/b> lidí se s tebou chce přátelit!</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> se s tebou chce přátelit!</item>
+        <item quantity="few">&amp;lt;b>%1$d&amp;lt;/b> lidi se s tebou chtějí přátelit!</item>
+    </plurals>
+    <plurals name="guests">
+        <item quantity="other">Hostů</item>
+        <item quantity="one">Host</item>
+        <item quantity="few">Hosté</item>
+    </plurals>
+    <plurals name="media_success">
+        <item quantity="other">Tvých videí/fotek bude brzy připraveno.</item>
+        <item quantity="one">Tvoje video/fotka bude brzy připravena.</item>
+        <item quantity="few">Tvoje videa/fotky budou brzy připraveny.</item>
+    </plurals>
+    <plurals name="media_success_title">
+        <item quantity="other">Bezva fotek!</item>
+        <item quantity="one">Bezva fotka!</item>
+        <item quantity="few">Bezva fotky!</item>
+    </plurals>
+    <plurals name="more_highlights_count">
+        <item quantity="other">%1$d dalších úryvků</item>
+        <item quantity="one">%1$d další úryvek</item>
+        <item quantity="few">%1$d další úryvky</item>
+    </plurals>
+    <plurals name="more_regulars_count">
+        <item quantity="other">%1$d dalších stálých zákazníků</item>
+        <item quantity="one">%1$d další stálý zákazník</item>
+        <item quantity="few">%1$d další stálí zákazníci</item>
+    </plurals>
+    <plurals name="more_reviews_count">
+        <item quantity="other">%1$d dalších recenzí</item>
+        <item quantity="one">%1$d další recenze</item>
+        <item quantity="few">%1$d další recenze</item>
+    </plurals>
+    <plurals name="more_suggestions">
+        <item quantity="other">Zobrazit o %1$d více</item>
+        <item quantity="one">Zobrazit o %1$d více</item>
+        <item quantity="few">Zobrazit o %1$d více</item>
+    </plurals>
+    <plurals name="more_tips_count">
+        <item quantity="other">%1$d dalších tipů</item>
+        <item quantity="one">%1$d další tip</item>
+        <item quantity="few">%1$d další tipy</item>
+    </plurals>
+    <plurals name="my_photo_feed_count">
+        <item quantity="other">Mých fotek</item>
+        <item quantity="one">Moje fotka</item>
+        <item quantity="few">Moje fotky</item>
+    </plurals>
+    <plurals name="nearby_friend">
+        <item quantity="other">Přátel v okolí</item>
+        <item quantity="one">Přítel v okolí</item>
+        <item quantity="few">Přátelé v okolí</item>
+    </plurals>
+    <plurals name="opentable_party_size">
+        <item quantity="other">%1$d osob</item>
+        <item quantity="one">%1$d osoba</item>
+        <item quantity="few">%1$d osoby</item>
+    </plurals>
+    <plurals name="people">
+        <item quantity="other">%1$d osob</item>
+        <item quantity="one">%1$d osoba</item>
+        <item quantity="few">%1$d osoby</item>
+    </plurals>
+    <plurals name="photo_count">
+        <item quantity="other">%1$d fotek</item>
+        <item quantity="one">%1$d fotka</item>
+        <item quantity="few">%1$d fotky</item>
+    </plurals>
+    <plurals name="photo_count_no_param">
+        <item quantity="other">Fotek</item>
+        <item quantity="one">Fotka</item>
+        <item quantity="few">Fotky</item>
+    </plurals>
+    <plurals name="photo_feed_count">
+        <item quantity="other">%1$d fotek od %2$s</item>
+        <item quantity="one">Fotka od %2$s</item>
+        <item quantity="few">%1$d fotky od %2$s</item>
+    </plurals>
+    <plurals name="previous_reviews_title">
+        <item quantity="other">%1$d předcházejících recenzí</item>
+        <item quantity="one">%1$d předcházející recenze</item>
+        <item quantity="few">%1$d předcházející recenze</item>
+    </plurals>
+    <plurals name="redemption_title_count">
+        <item quantity="other">To je %1$d přihlášení v %2$s!</item>
+        <item quantity="one">%1$d přihlášení v %2$s!</item>
+        <item quantity="few">To je %1$d přihlášení v %2$s!</item>
+    </plurals>
+    <plurals name="requesting_quote_from_providers">
+        <item quantity="other">Vyžádání nabídky od %1$s poskytovatelů</item>
+        <item quantity="one">Vyžádání nabídky od %1$s poskytovatele</item>
+        <item quantity="few">Vyžádání nabídky od %1$s poskytovatelů</item>
+    </plurals>
+    <plurals name="review_count">
+        <item quantity="other">%1$d recenzí</item>
+        <item quantity="one">%1$d recenze</item>
+        <item quantity="few">%1$d recenze</item>
+    </plurals>
+    <plurals name="review_count_no_param">
+        <item quantity="other">Recenzí</item>
+        <item quantity="one">Recenze</item>
+        <item quantity="few">Recenzí</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals">
+        <item quantity="other">Naneštěstí tuto nabídku můžeš zakoupit jen %1$d krát</item>
+        <item quantity="one">Tuto nabídku můžeš zakoupit jen %1$d krát</item>
+        <item quantity="few">Naneštěstí tuto nabídku můžeš zakoupit jen %1$d krát</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_deals_for_yourself">
+        <item quantity="other">Naneštěstí tuto nabídku pro sebe můžeš zakoupit jen %1$d krát</item>
+        <item quantity="one">Tuto nabídku můžeš pro sebe zakoupit jen %1$d krát</item>
+        <item quantity="few">Naneštěstí tuto nabídku pro sebe můžeš zakoupit jen %1$d krát</item>
+    </plurals>
+    <plurals name="sadly_for_this_deal_you_are_only_allowed_x_gifts">
+        <item quantity="other">Naneštěstí můžeš tuto nabídku darovat jenom %1$d krát</item>
+        <item quantity="one">Tuto nabídku můžeš darovat jen %1$d krát</item>
+        <item quantity="few">Naneštěstí můžeš tuto nabídku darovat jenom %1$d krát</item>
+    </plurals>
+    <plurals name="section_label_reviews_search">
+        <item quantity="other">%1$d recenzí se zmíňuje o pojmu &amp;lt;b>%2$s&amp;lt;/b></item>
+        <item quantity="one">%1$d recenze se zmíňuje o pojmu &amp;lt;b>%2$s&amp;lt;/b></item>
+        <item quantity="few">%1$d recenze se zmíňují o pojmu &amp;lt;b>%2$s&amp;lt;/b></item>
+    </plurals>
+    <plurals name="section_not_recommended_reviews_title">
+        <item quantity="other">%1$d recenzí, které nejsou v současné době doporučeny</item>
+        <item quantity="one">%1$d recenze, která momentálně není doporučena</item>
+        <item quantity="few">%1$d recenze, které nejsou v současné době doporučeny</item>
+    </plurals>
+    <plurals name="show_more_events">
+        <item quantity="other">Zobrazit dalších %1$d</item>
+        <item quantity="one">Zobrazit další %1$d</item>
+        <item quantity="few">Zobrazit další %1$d</item>
+    </plurals>
+    <plurals name="star_rating">
+        <item quantity="other">Ohodnoceno %1$s hvězdami</item>
+        <item quantity="one">Ohodnoceno %1$s hvězdou</item>
+        <item quantity="few">Ohodnoceno %1$s hvězdami</item>
+    </plurals>
+    <plurals name="these_and_others">
+        <item quantity="other">%1$s a %2$s dalších</item>
+        <item quantity="one">%1$s a %2$d další</item>
+        <item quantity="few">%1$s a %2$s další</item>
+    </plurals>
+    <plurals name="translated_reviews_title">
+        <item quantity="other">Přeložených recenzí</item>
+        <item quantity="one">Přeložená recenze</item>
+        <item quantity="few">Přeložené recenze</item>
+    </plurals>
+    <plurals name="ufc_label">
+        <item quantity="other">&amp;lt;b>%1$s&amp;lt;/b> (%2$d)</item>
+        <item quantity="one">&amp;lt;b>%1$s&amp;lt;/b></item>
+        <item quantity="few">&amp;lt;b>%1$s&amp;lt;/b> (%2$d)</item>
+    </plurals>
+    <plurals name="using_machine_translation">
+        <item quantity="other">Pro překlad recenzí používáme automatický překladač. Prosím, omluv nás, pokud výsledek není zrovna perfektní.</item>
+        <item quantity="one">Používáme automatický překlad pro přeložení této recenze. Prosím, omluv nás, pokud výsledek není perfektní.</item>
+        <item quantity="few">Pro překlad recenzí používáme automatický překladač. Prosím, omluv nás, pokud výsledek není zrovna perfektní.</item>
+    </plurals>
+    <plurals name="video_count">
+        <item quantity="other">%1$d videí</item>
+        <item quantity="one">%1$d video</item>
+        <item quantity="few">%1$d videa</item>
+    </plurals>
+    <plurals name="video_count_no_param">
+        <item quantity="other">Videí</item>
+        <item quantity="one">Video</item>
+        <item quantity="few">Videí</item>
+    </plurals>
+    <plurals name="we_found_alternate_businesses_with_request_a_quote">
+        <item quantity="other">%2$s nepovolil žádosti o nabídku na Yelpu. Přesto jsme našli %1$s poskytovatelů, který ti pravděpodobně na tvoji žádost odpoví.</item>
+        <item quantity="one">%2$s nepovolil žádosti o nabídku na Yelpu. Přesto jsme našli %1$s poskytovatele, který ti pravděpodobně na tvoji žádost odpoví.</item>
+        <item quantity="few">%2$s nepovolil žádosti o nabídku na Yelpu. Přesto jsme našli %1$s poskytovatele, který ti pravděpodobně na tvoji žádost odpoví.</item>
+    </plurals>
+    <plurals name="we_found_suggested_businesses">
+        <item quantity="other">Nalezli jsme dalších %1$s podniků v dané oblasti, které pravděpodobně odpoví na tvůj požadavek.</item>
+        <item quantity="one">Nalezli jsme další %1$s podnik v dané oblasti, který pravděpodobně odpoví na tvůj požadavek.</item>
+        <item quantity="few">Nalezli jsme další %1$s podniky v dané oblasti, které pravděpodobně odpoví na tvůj požadavek.</item>
+    </plurals>
+    <plurals name="write_review_stars">
+        <item quantity="other">%1$d hvězdiček</item>
+        <item quantity="one">%1$d hvězdička</item>
+        <item quantity="few">%1$d hvězdičky</item>
+    </plurals>
+    <plurals name="x_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>%2$s&amp;lt;/b> a %1$d ostatním se to líbí</item>
+        <item quantity="one">&amp;lt;b>%2$s&amp;lt;/b> a %1$d dalšímu se to líbí</item>
+        <item quantity="few">&amp;lt;b>%2$s&amp;lt;/b> a %1$d ostatním se to líbí</item>
+    </plurals>
+    <plurals name="x_comments">
+        <item quantity="other">Komentáře: %1$d</item>
+        <item quantity="one">%1$d komentář</item>
+        <item quantity="few">Komentáře: %1$d</item>
+    </plurals>
+    <plurals name="x_comments_caps">
+        <item quantity="other">%1$d komentářů</item>
+        <item quantity="one">%1$d komentář</item>
+        <item quantity="few">%1$d komentáře</item>
+    </plurals>
+    <plurals name="x_compliments">
+        <item quantity="other">%1$d komplimentů</item>
+        <item quantity="one">%1$d kompliment</item>
+        <item quantity="few">%1$d komplimenty</item>
+    </plurals>
+    <plurals name="x_feet">
+        <item quantity="other">%1$s stop</item>
+        <item quantity="one">%1$s stopa</item>
+        <item quantity="few">%1$s stopy</item>
+    </plurals>
+    <plurals name="x_feet_away">
+        <item quantity="other">%1$s stop od tebe</item>
+        <item quantity="one">%1$s stopa od tebe</item>
+        <item quantity="few">%1$s stopy od tebe</item>
+    </plurals>
+    <plurals name="x_feet_short">
+        <item quantity="other">%1$s stop</item>
+        <item quantity="one">%1$s stopa</item>
+        <item quantity="few">%1$s stopy</item>
+    </plurals>
+    <plurals name="x_kilometers">
+        <item quantity="other">%1$s kilometrů</item>
+        <item quantity="one">%1$s kilometr</item>
+        <item quantity="few">%1$s kilometry</item>
+    </plurals>
+    <plurals name="x_kilometers_away">
+        <item quantity="other">Vzdálenost %1$s kilometrů</item>
+        <item quantity="one">Vzdálenost %1$s kilometr</item>
+        <item quantity="few">Vzdálenost %1$s kilometry</item>
+    </plurals>
+    <plurals name="x_kilometers_short">
+        <item quantity="other">%1$s km</item>
+        <item quantity="one">%1$s km</item>
+        <item quantity="few">%1$s km</item>
+    </plurals>
+    <plurals name="x_likes">
+        <item quantity="other">%1$d se to líbí</item>
+        <item quantity="one">%1$d se to líbí</item>
+        <item quantity="few">%1$d se to líbí</item>
+    </plurals>
+    <plurals name="x_likes_caps">
+        <item quantity="other">%1$d se to líbí</item>
+        <item quantity="one">%1$d se to líbí</item>
+        <item quantity="few">%1$d se to líbí</item>
+    </plurals>
+    <plurals name="x_meters">
+        <item quantity="other">%1$s metrů</item>
+        <item quantity="one">%1$s metr</item>
+        <item quantity="few">%1$s metry</item>
+    </plurals>
+    <plurals name="x_meters_away">
+        <item quantity="other">%1$s metrů od tebe</item>
+        <item quantity="one">%1$s metr od tebe</item>
+        <item quantity="few">%1$s metry od tebe</item>
+    </plurals>
+    <plurals name="x_meters_short">
+        <item quantity="other">%1$s m</item>
+        <item quantity="one">%1$s m</item>
+        <item quantity="few">%1$s m</item>
+    </plurals>
+    <plurals name="x_miles">
+        <item quantity="other">%1$s mil</item>
+        <item quantity="one">%1$s míle</item>
+        <item quantity="few">%1$s míle</item>
+    </plurals>
+    <plurals name="x_miles_away">
+        <item quantity="other">Vzdálenost %1$s mil</item>
+        <item quantity="one">vzdáleno %1$s míle</item>
+        <item quantity="few">Vzdálenost %1$s míle</item>
+    </plurals>
+    <plurals name="x_miles_short">
+        <item quantity="other">%1$s mi</item>
+        <item quantity="one">%1$s mi</item>
+        <item quantity="few">%1$s mi</item>
+    </plurals>
+    <plurals name="x_people_like_this">
+        <item quantity="other">%1$d lidem se to líbí</item>
+        <item quantity="one">%1$d osobě se to líbí</item>
+        <item quantity="few">%1$d lidem se to líbí</item>
+    </plurals>
+    <plurals name="you_and_x_others_like_this">
+        <item quantity="other">&amp;lt;b>Tobě&amp;lt;/b> a %1$d ostatním se to líbí</item>
+        <item quantity="one">&amp;lt;b>Tobě&amp;lt;/b> a %1$d dalším se to líbí</item>
+        <item quantity="few">&amp;lt;b>Tobě&amp;lt;/b> a %1$d ostatním se to líbí</item>
+    </plurals>
+</resources>

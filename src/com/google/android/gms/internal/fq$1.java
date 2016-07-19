@@ -1,24 +1,36 @@
 package com.google.android.gms.internal;
 
-import android.content.Context;
+import android.text.TextUtils;
+import com.google.android.gms.common.internal.zzx;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-final class fq$1
-  implements Runnable
+class fq$1
+  implements bz
 {
-  fq$1(Context paramContext, fh paramfh, fs paramfs, gv.a parama, String paramString) {}
+  fq$1(fq paramfq, cy paramcy, fq.b paramb, hp paramhp) {}
   
-  public void run()
+  public void a(ib paramib, Map<String, String> paramMap)
   {
-    gu localgu = gu.a(nf, new ay(), false, false, null, uy.lO);
-    localgu.setWillNotDraw(true);
-    uz.b(localgu);
-    gv localgv = localgu.dD();
-    localgv.a("/invalidRequest", uz.uG);
-    localgv.a("/loadAdURL", uz.uH);
-    localgv.a("/log", cc.pX);
-    localgv.a(uA);
-    gr.S("Loading the JS library.");
-    localgu.loadUrl(uB);
+    a.b("/nativeAdPreProcess", b.a);
+    try
+    {
+      paramib = (String)paramMap.get("success");
+      if (!TextUtils.isEmpty(paramib))
+      {
+        c.b(new JSONObject(paramib).getJSONArray("ads").getJSONObject(0));
+        return;
+      }
+    }
+    catch (JSONException paramib)
+    {
+      gz.b("Malformed native JSON response.", paramib);
+      d.a(0);
+      zzx.zza(d.b(), "Unable to set the ad state error!");
+      c.b(null);
+    }
   }
 }
 

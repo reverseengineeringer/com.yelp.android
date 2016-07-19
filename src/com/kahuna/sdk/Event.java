@@ -11,6 +11,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Event
@@ -27,6 +28,7 @@ public class Event
   private int i = -1;
   private int j = -1;
   private int k = 0;
+  private long l = -1L;
   
   protected Event(Event paramEvent)
   {
@@ -41,20 +43,16 @@ public class Event
     i = i;
   }
   
-  protected Event(String paramString1, long paramLong, Map<String, String> paramMap1, Map<String, String> paramMap2, Map<String, Object> paramMap, String paramString2)
+  protected Event(String paramString)
   {
-    a = paramString1;
+    a = paramString;
+    b = (System.currentTimeMillis() / 1000L);
+  }
+  
+  protected Event(String paramString, long paramLong)
+  {
+    a = paramString;
     b = paramLong;
-    if (paramMap1 != null) {
-      c = new JSONObject(paramMap1).toString();
-    }
-    if (paramMap2 != null) {
-      d = new JSONObject(paramMap2).toString();
-    }
-    if (paramMap != null) {
-      e = new JSONObject(paramMap).toString();
-    }
-    g = paramString2;
   }
   
   protected static Event a(JSONObject paramJSONObject, boolean paramBoolean)
@@ -65,44 +63,47 @@ public class Event
       localObject1 = null;
       return (Event)localObject1;
     }
-    label379:
-    label382:
-    label385:
+    label402:
+    label405:
+    label408:
+    label411:
     for (;;)
     {
       try
       {
-        String str5 = paramJSONObject.getString("event");
-        long l = paramJSONObject.getLong("time");
+        Object localObject2 = paramJSONObject.getString("event");
+        long l1 = paramJSONObject.getLong("time");
         localObject1 = paramJSONObject.optString("credentials");
         if (!"".equals(localObject1)) {
-          break label385;
+          break label411;
         }
         localObject1 = null;
         String str1 = paramJSONObject.optString("user_info");
         if (!"".equals(str1)) {
-          break label382;
+          break label408;
         }
         str1 = null;
         String str2 = paramJSONObject.optString("location");
         if (!"".equals(str2)) {
-          break label379;
+          break label405;
         }
         str2 = null;
-        String str3 = paramJSONObject.optString("attr");
-        if ("".equals(str3))
+        String str3 = paramJSONObject.optString("properties");
+        if (!"".equals(str3)) {
+          break label402;
+        }
+        str3 = null;
+        String str4 = paramJSONObject.optString("tracking_id");
+        if ("".equals(str4))
         {
-          str3 = null;
-          String str4 = paramJSONObject.optString("tracking_id");
-          Object localObject2 = str4;
-          if ("".equals(str4)) {
-            localObject2 = null;
-          }
+          str4 = null;
           int m = paramJSONObject.optInt("count", -1);
           int n = paramJSONObject.optInt("value", -1);
           int i1 = paramJSONObject.optInt("push_launch_override", -1);
           int i2 = paramJSONObject.optInt("event_count", 0);
-          localObject2 = new Event(str5, l, null, null, null, (String)localObject2);
+          long l2 = paramJSONObject.optLong("event_number", -1L);
+          localObject2 = new Event((String)localObject2, l1);
+          g = str4;
           c = ((String)localObject1);
           d = str1;
           e = str2;
@@ -116,6 +117,9 @@ public class Event
           if (i1 != -1) {
             j = i1;
           }
+          if (l2 > 0L) {
+            l = l2;
+          }
           k = i2;
           localObject1 = localObject2;
           if (paramBoolean) {
@@ -123,29 +127,54 @@ public class Event
           }
           str1 = paramJSONObject.optString("event_hash");
           localObject1 = localObject2;
-          if (aj.a(str1)) {
+          if (w.a(str1)) {
             break;
           }
           localObject1 = localObject2;
-          if (a(paramJSONObject).equals(str1)) {
+          if (b(paramJSONObject).equals(str1)) {
             break;
           }
-          throw new Event.EventHashMismatchException("Detected corrupted archived event: " + paramJSONObject.toString());
+          throw new EventHashMismatchException("Detected corrupted archived event: " + paramJSONObject.toString());
         }
       }
       catch (Exception localException)
       {
-        if (h.a) {
-          Log.d("KahunaAnalytics", "Exception building KAEvent from JSONObject: " + paramJSONObject + " andException:" + localException);
+        if (l.a) {
+          Log.d("Kahuna", "Exception building KAEvent from JSONObject: " + paramJSONObject + " andException:" + localException);
         }
         return null;
       }
       continue;
       continue;
+      continue;
     }
   }
   
-  protected static String a(JSONObject paramJSONObject)
+  private static Map<String, String> a(JSONObject paramJSONObject, String paramString)
+  {
+    HashMap localHashMap = new HashMap();
+    if (paramJSONObject != null)
+    {
+      JSONArray localJSONArray = paramJSONObject.names();
+      int m = 0;
+      while (m < localJSONArray.length())
+      {
+        String str2 = localJSONArray.optString(m);
+        if (str2.length() > 0)
+        {
+          String str1 = paramString + "_" + str2;
+          str2 = paramJSONObject.optString(str2);
+          if (!w.a(str2)) {
+            localHashMap.put(str1, str1 + ":" + str2);
+          }
+        }
+        m += 1;
+      }
+    }
+    return localHashMap;
+  }
+  
+  protected static String b(JSONObject paramJSONObject)
   {
     Object localObject = new TreeMap();
     if (paramJSONObject != null)
@@ -162,8 +191,14 @@ public class Event
       if (paramJSONObject.has("event_count")) {
         ((TreeMap)localObject).put("event_count", "event_count:" + paramJSONObject.optString("event_count"));
       }
+      if (paramJSONObject.has("event_number")) {
+        ((TreeMap)localObject).put("event_number", "event_number:" + paramJSONObject.optString("event_number"));
+      }
       if (paramJSONObject.optJSONObject("location") != null) {
         ((TreeMap)localObject).putAll(a(paramJSONObject.optJSONObject("location"), "location"));
+      }
+      if (paramJSONObject.optJSONObject("properties") != null) {
+        ((TreeMap)localObject).putAll(a(paramJSONObject.optJSONObject("properties"), "properties"));
       }
       if (paramJSONObject.has("time")) {
         ((TreeMap)localObject).put("time", "time:" + paramJSONObject.optString("time"));
@@ -183,31 +218,7 @@ public class Event
     while (((Iterator)localObject).hasNext()) {
       paramJSONObject.add(((Map.Entry)((Iterator)localObject).next()).getValue());
     }
-    return aj.a(TextUtils.join("|", paramJSONObject), "MD5", false);
-  }
-  
-  private static Map<String, String> a(JSONObject paramJSONObject, String paramString)
-  {
-    HashMap localHashMap = new HashMap();
-    if (paramJSONObject != null)
-    {
-      JSONArray localJSONArray = paramJSONObject.names();
-      int m = 0;
-      while (m < localJSONArray.length())
-      {
-        String str2 = localJSONArray.optString(m);
-        if (str2.length() > 0)
-        {
-          String str1 = paramString + "_" + str2;
-          str2 = paramJSONObject.optString(str2);
-          if (!aj.a(str2)) {
-            localHashMap.put(str1, str1 + ":" + str2);
-          }
-        }
-        m += 1;
-      }
-    }
-    return localHashMap;
+    return w.a(TextUtils.join("|", paramJSONObject), "MD5", false);
   }
   
   public int a(Event paramEvent)
@@ -231,19 +242,48 @@ public class Event
     h = paramInt;
   }
   
+  protected void a(long paramLong)
+  {
+    l = paramLong;
+  }
+  
   protected void a(String paramString)
   {
     a = paramString;
   }
   
-  protected void a(JSONArray paramJSONArray)
+  protected void a(Map<String, Set<String>> paramMap)
   {
-    if (paramJSONArray != null)
+    if (!w.a(paramMap))
     {
-      f = paramJSONArray.toString();
+      JSONObject localJSONObject = new JSONObject();
+      Iterator localIterator = paramMap.keySet().iterator();
+      while (localIterator.hasNext())
+      {
+        String str = (String)localIterator.next();
+        try
+        {
+          localJSONObject.put(str, new JSONArray((Set)paramMap.get(str)));
+        }
+        catch (Exception localException) {}
+        if (l.a) {
+          Log.d("Kahuna", "Exception building user credentials string from Map: " + paramMap + " andException:" + localException);
+        }
+      }
+      c = localJSONObject.toString();
       return;
     }
-    f = "";
+    c = null;
+  }
+  
+  protected void a(JSONObject paramJSONObject)
+  {
+    if (!w.a(paramJSONObject))
+    {
+      f = paramJSONObject.toString();
+      return;
+    }
+    f = null;
   }
   
   protected long b()
@@ -256,19 +296,44 @@ public class Event
     i = paramInt;
   }
   
+  protected void b(String paramString)
+  {
+    g = paramString;
+  }
+  
+  protected void b(Map<String, String> paramMap)
+  {
+    if (!w.a(paramMap))
+    {
+      d = new JSONObject(paramMap).toString();
+      return;
+    }
+    d = null;
+  }
+  
   protected void c()
   {
     j = 1;
   }
   
-  protected int d()
+  protected void c(Map<String, Object> paramMap)
   {
-    return h;
+    if (!w.a(paramMap))
+    {
+      e = new JSONObject(paramMap).toString();
+      return;
+    }
+    e = null;
   }
   
-  protected int e()
+  protected String d()
   {
-    return i;
+    return c;
+  }
+  
+  protected boolean e()
+  {
+    return !w.a(f);
   }
   
   public boolean equals(Object paramObject)
@@ -276,7 +341,7 @@ public class Event
     if ((paramObject instanceof Event))
     {
       paramObject = (Event)paramObject;
-      if ((!aj.a(a)) && (!aj.a(a))) {
+      if ((!w.a(a)) && (!w.a(a))) {
         break label34;
       }
     }
@@ -287,17 +352,51 @@ public class Event
     return true;
   }
   
-  protected boolean f()
+  protected int f()
+  {
+    return h;
+  }
+  
+  protected int g()
+  {
+    return i;
+  }
+  
+  protected JSONObject h()
+  {
+    try
+    {
+      if (!w.a(f))
+      {
+        JSONObject localJSONObject = new JSONObject(f);
+        return localJSONObject;
+      }
+    }
+    catch (JSONException localJSONException)
+    {
+      if (l.a) {
+        Log.d("Kahuna", "Exception building EventProperties from JSON String: " + f + " andException:" + localJSONException);
+      }
+    }
+    return null;
+  }
+  
+  protected boolean i()
   {
     return k > 0;
   }
   
-  protected void g()
+  protected void j()
   {
     k += 1;
   }
   
-  protected JSONObject h()
+  protected long k()
+  {
+    return l;
+  }
+  
+  protected JSONObject l()
   {
     JSONObject localJSONObject = new JSONObject();
     try
@@ -314,7 +413,7 @@ public class Event
         localJSONObject.put("location", new JSONObject(e));
       }
       if (f != null) {
-        localJSONObject.put("attr", new JSONArray(f));
+        localJSONObject.put("properties", new JSONObject(f));
       }
       if (g != null) {
         localJSONObject.put("tracking_id", g);
@@ -331,7 +430,10 @@ public class Event
       if (k > 0) {
         localJSONObject.put("event_count", k);
       }
-      String str = a(localJSONObject);
+      if (l > 0L) {
+        localJSONObject.put("event_number", l);
+      }
+      String str = b(localJSONObject);
       if (str.length() > 0) {
         localJSONObject.put("event_hash", str);
       }
@@ -339,8 +441,8 @@ public class Event
     }
     catch (Exception localException)
     {
-      if (h.a) {
-        Log.d("KahunaAnalytics", "Exception getting JSON representation for KAEvent: " + localException);
+      if (l.a) {
+        Log.d("Kahuna", "Exception getting JSON representation for KAEvent: " + localException);
       }
     }
     return null;
@@ -349,6 +451,17 @@ public class Event
   public String toString()
   {
     return "KAEvent: name: " + a + " creationDate: " + b;
+  }
+  
+  private static class EventHashMismatchException
+    extends Exception
+  {
+    private static final long serialVersionUID = 1L;
+    
+    public EventHashMismatchException(String paramString)
+    {
+      super();
+    }
   }
 }
 

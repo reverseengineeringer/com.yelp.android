@@ -3,6 +3,17 @@
 .source "ImageCache.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/yelp/android/webimageview/ImageCache;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "EfficientOptionsFactory"
+.end annotation
+
+
 # direct methods
 .method private constructor <init>()V
     .locals 1

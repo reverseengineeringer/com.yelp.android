@@ -1,37 +1,43 @@
 package com.yelp.android.analytics;
 
-import com.yelp.android.analytics.iris.b;
-import java.util.Map;
+import android.net.Uri;
+import com.yelp.android.util.StringUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class n
-  extends g
+  extends b
 {
-  private final long a;
+  private final Uri a;
   
-  public n(b paramb, long paramLong, Map<String, Object> paramMap)
+  public n(Uri paramUri)
   {
-    super(paramb, null, paramMap);
-    a = paramLong;
+    if (paramUri == null) {
+      throw new IllegalArgumentException("Url cannot be null.");
+    }
+    a = Uri.parse(StringUtils.b(paramUri.toString()));
   }
   
   public JSONObject c()
+    throws JSONException
   {
-    JSONObject localJSONObject = super.c();
-    if (a > 0L) {
-      localJSONObject.put("interval", a);
-    }
-    return localJSONObject;
-  }
-  
-  public long f()
-  {
-    return a;
+    JSONObject localJSONObject1 = super.c();
+    JSONObject localJSONObject2 = new JSONObject();
+    localJSONObject2.put("url", String.valueOf(a));
+    localJSONObject1.put("launch", localJSONObject2);
+    return localJSONObject1;
   }
   
   public String toString()
   {
-    return "[MetricsTiming:" + "index=" + b() + ", " + "iri=" + d().getIriName() + ", " + "interval=" + a + "]";
+    StringBuilder localStringBuilder = new StringBuilder(300);
+    localStringBuilder.append("[LaunchAnalytic:");
+    localStringBuilder.append("index=").append(b());
+    localStringBuilder.append(", ");
+    localStringBuilder.append("start=").append(a());
+    localStringBuilder.append("url=").append(a);
+    localStringBuilder.append("]");
+    return localStringBuilder.toString();
   }
 }
 

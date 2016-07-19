@@ -51,7 +51,7 @@
 
     const/4 v3, 0x1
 
-    .line 26
+    .line 30
     new-instance v0, Lcom/facebook/AccessTokenSource;
 
     const-string/jumbo v1, "NONE"
@@ -60,7 +60,7 @@
 
     sput-object v0, Lcom/facebook/AccessTokenSource;->NONE:Lcom/facebook/AccessTokenSource;
 
-    .line 31
+    .line 35
     new-instance v0, Lcom/facebook/AccessTokenSource;
 
     const-string/jumbo v1, "FACEBOOK_APPLICATION_WEB"
@@ -69,7 +69,7 @@
 
     sput-object v0, Lcom/facebook/AccessTokenSource;->FACEBOOK_APPLICATION_WEB:Lcom/facebook/AccessTokenSource;
 
-    .line 36
+    .line 40
     new-instance v0, Lcom/facebook/AccessTokenSource;
 
     const-string/jumbo v1, "FACEBOOK_APPLICATION_NATIVE"
@@ -78,7 +78,7 @@
 
     sput-object v0, Lcom/facebook/AccessTokenSource;->FACEBOOK_APPLICATION_NATIVE:Lcom/facebook/AccessTokenSource;
 
-    .line 42
+    .line 46
     new-instance v0, Lcom/facebook/AccessTokenSource;
 
     const-string/jumbo v1, "FACEBOOK_APPLICATION_SERVICE"
@@ -87,7 +87,7 @@
 
     sput-object v0, Lcom/facebook/AccessTokenSource;->FACEBOOK_APPLICATION_SERVICE:Lcom/facebook/AccessTokenSource;
 
-    .line 47
+    .line 51
     new-instance v0, Lcom/facebook/AccessTokenSource;
 
     const-string/jumbo v1, "WEB_VIEW"
@@ -96,7 +96,7 @@
 
     sput-object v0, Lcom/facebook/AccessTokenSource;->WEB_VIEW:Lcom/facebook/AccessTokenSource;
 
-    .line 52
+    .line 56
     new-instance v0, Lcom/facebook/AccessTokenSource;
 
     const-string/jumbo v1, "TEST_USER"
@@ -107,7 +107,7 @@
 
     sput-object v0, Lcom/facebook/AccessTokenSource;->TEST_USER:Lcom/facebook/AccessTokenSource;
 
-    .line 56
+    .line 60
     new-instance v0, Lcom/facebook/AccessTokenSource;
 
     const-string/jumbo v1, "CLIENT_TOKEN"
@@ -118,7 +118,7 @@
 
     sput-object v0, Lcom/facebook/AccessTokenSource;->CLIENT_TOKEN:Lcom/facebook/AccessTokenSource;
 
-    .line 22
+    .line 26
     const/4 v0, 0x7
 
     new-array v0, v0, [Lcom/facebook/AccessTokenSource;
@@ -169,13 +169,13 @@
     .end annotation
 
     .prologue
-    .line 60
+    .line 64
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
-    .line 61
+    .line 65
     iput-boolean p3, p0, Lcom/facebook/AccessTokenSource;->canExtendToken:Z
 
-    .line 62
+    .line 66
     return-void
 .end method
 
@@ -183,7 +183,7 @@
     .locals 1
 
     .prologue
-    .line 22
+    .line 26
     const-class v0, Lcom/facebook/AccessTokenSource;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -199,7 +199,7 @@
     .locals 1
 
     .prologue
-    .line 22
+    .line 26
     sget-object v0, Lcom/facebook/AccessTokenSource;->$VALUES:[Lcom/facebook/AccessTokenSource;
 
     invoke-virtual {v0}, [Lcom/facebook/AccessTokenSource;->clone()Ljava/lang/Object;
@@ -217,7 +217,7 @@
     .locals 1
 
     .prologue
-    .line 65
+    .line 69
     iget-boolean v0, p0, Lcom/facebook/AccessTokenSource;->canExtendToken:Z
 
     return v0

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="@style/DeprecatedStandardText" android:id="@id/address_first_line" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/DeprecatedStandardText" android:id="@id/address_second_line" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <TextView android:textAppearance="@style/DeprecatedStandardText" android:id="@id/address_city_state" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</merge>

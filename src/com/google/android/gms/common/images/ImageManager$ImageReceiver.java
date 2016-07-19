@@ -8,48 +8,50 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.ParcelFileDescriptor;
 import android.os.ResultReceiver;
-import com.google.android.gms.internal.je;
+import com.google.android.gms.common.annotation.KeepName;
+import com.google.android.gms.common.internal.zzb;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 
+@KeepName
 final class ImageManager$ImageReceiver
   extends ResultReceiver
 {
-  private final ArrayList<a> LE;
   private final Uri mUri;
+  private final ArrayList<zza> zzajJ;
   
   ImageManager$ImageReceiver(ImageManager paramImageManager, Uri paramUri)
   {
     super(new Handler(Looper.getMainLooper()));
     mUri = paramUri;
-    LE = new ArrayList();
-  }
-  
-  public void b(a parama)
-  {
-    je.aU("ImageReceiver.addImageRequest() must be called in the main thread");
-    LE.add(parama);
-  }
-  
-  public void c(a parama)
-  {
-    je.aU("ImageReceiver.removeImageRequest() must be called in the main thread");
-    LE.remove(parama);
-  }
-  
-  public void hg()
-  {
-    Intent localIntent = new Intent("com.google.android.gms.common.images.LOAD_IMAGE");
-    localIntent.putExtra("com.google.android.gms.extras.uri", mUri);
-    localIntent.putExtra("com.google.android.gms.extras.resultReceiver", this);
-    localIntent.putExtra("com.google.android.gms.extras.priority", 3);
-    ImageManager.b(LF).sendBroadcast(localIntent);
+    zzajJ = new ArrayList();
   }
   
   public void onReceiveResult(int paramInt, Bundle paramBundle)
   {
     paramBundle = (ParcelFileDescriptor)paramBundle.getParcelable("com.google.android.gms.extra.fileDescriptor");
-    ImageManager.f(LF).execute(new ImageManager.c(LF, mUri, paramBundle));
+    ImageManager.zzf(zzajK).execute(new ImageManager.zzc(zzajK, mUri, paramBundle));
+  }
+  
+  public void zzb(zza paramzza)
+  {
+    zzb.zzcD("ImageReceiver.addImageRequest() must be called in the main thread");
+    zzajJ.add(paramzza);
+  }
+  
+  public void zzc(zza paramzza)
+  {
+    zzb.zzcD("ImageReceiver.removeImageRequest() must be called in the main thread");
+    zzajJ.remove(paramzza);
+  }
+  
+  public void zzqm()
+  {
+    Intent localIntent = new Intent("com.google.android.gms.common.images.LOAD_IMAGE");
+    localIntent.putExtra("com.google.android.gms.extras.uri", mUri);
+    localIntent.putExtra("com.google.android.gms.extras.resultReceiver", this);
+    localIntent.putExtra("com.google.android.gms.extras.priority", 3);
+    ImageManager.zzb(zzajK).sendBroadcast(localIntent);
   }
 }
 

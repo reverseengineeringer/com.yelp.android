@@ -1,305 +1,496 @@
 .class public Lcom/yelp/android/appdata/j;
 .super Ljava/lang/Object;
-.source "ApplicationSettingsBase.java"
+.source "NotificationsCountController.java"
+
+# interfaces
+.implements Lcom/yelp/android/services/push/e$a;
+
+
+# static fields
+.field private static a:Lcom/yelp/android/appdata/j;
 
 
 # instance fields
-.field protected final a:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
+.field private b:I
 
-.field protected final b:Landroid/content/Context;
-
-.field private c:Ljava/lang/String;
+.field private c:I
 
 .field private d:Z
 
+.field private e:Lcom/yelp/android/appdata/webrequests/ez;
+
+.field private f:Lcom/yelp/android/appdata/webrequests/k$b;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/yelp/android/appdata/webrequests/k$b",
+            "<",
+            "Lcom/yelp/android/serializable/AlertsResponse;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private g:Landroid/content/BroadcastReceiver;
+
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+.method private constructor <init>()V
+    .locals 2
 
     .prologue
-    .line 40
+    const/4 v1, 0x0
+
+    .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 41
-    iput-object p1, p0, Lcom/yelp/android/appdata/j;->b:Landroid/content/Context;
+    .line 145
+    new-instance v0, Lcom/yelp/android/appdata/j$1;
 
-    .line 42
-    new-instance v0, Lcom/yelp/android/util/c;
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/j$1;-><init>(Lcom/yelp/android/appdata/j;)V
 
-    invoke-direct {v0, p1}, Lcom/yelp/android/util/c;-><init>(Landroid/content/Context;)V
+    iput-object v0, p0, Lcom/yelp/android/appdata/j;->f:Lcom/yelp/android/appdata/webrequests/k$b;
 
-    iput-object v0, p0, Lcom/yelp/android/appdata/j;->a:Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
+    .line 167
+    new-instance v0, Lcom/yelp/android/appdata/j$2;
 
-    .line 43
-    const/4 v0, 0x0
+    invoke-direct {v0, p0}, Lcom/yelp/android/appdata/j$2;-><init>(Lcom/yelp/android/appdata/j;)V
 
-    iput-boolean v0, p0, Lcom/yelp/android/appdata/j;->d:Z
+    iput-object v0, p0, Lcom/yelp/android/appdata/j;->g:Landroid/content/BroadcastReceiver;
 
-    .line 44
+    .line 68
+    iput-boolean v1, p0, Lcom/yelp/android/appdata/j;->d:Z
+
+    .line 69
+    iput v1, p0, Lcom/yelp/android/appdata/j;->b:I
+
+    .line 70
+    iput v1, p0, Lcom/yelp/android/appdata/j;->c:I
+
+    .line 71
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/j;->i()V
+
+    .line 72
     return-void
 .end method
 
-.method private a()Landroid/content/SharedPreferences;
-    .locals 3
+.method public static declared-synchronized a()Lcom/yelp/android/appdata/j;
+    .locals 4
 
     .prologue
-    .line 51
-    iget-object v0, p0, Lcom/yelp/android/appdata/j;->b:Landroid/content/Context;
+    .line 34
+    const-class v1, Lcom/yelp/android/appdata/j;
 
-    const-string/jumbo v1, "HowdyPartna"
+    monitor-enter v1
 
-    const/4 v2, 0x4
+    :try_start_0
+    sget-object v0, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    if-nez v0, :cond_0
+
+    .line 35
+    new-instance v0, Lcom/yelp/android/appdata/j;
+
+    invoke-direct {v0}, Lcom/yelp/android/appdata/j;-><init>()V
+
+    sput-object v0, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    .line 36
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
 
     move-result-object v0
 
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->c()Lcom/yelp/android/services/push/e;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    invoke-virtual {v0, v2}, Lcom/yelp/android/services/push/e;->a(Lcom/yelp/android/services/push/e$a;)V
+
+    .line 37
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    iget-object v2, v2, Lcom/yelp/android/appdata/j;->g:Landroid/content/BroadcastReceiver;
+
+    const-string/jumbo v3, "com.yelp.android.messages.read"
+
+    invoke-static {v3}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Ljava/lang/String;)Landroid/content/IntentFilter;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v2, v3}, Lcom/yelp/android/appdata/AppData;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 42
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
+
+    move-result-object v0
+
+    .line 43
+    sget-object v2, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->P()I
+
+    move-result v3
+
+    iput v3, v2, Lcom/yelp/android/appdata/j;->c:I
+
+    .line 44
+    sget-object v2, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/c;->O()I
+
+    move-result v0
+
+    iput v0, v2, Lcom/yelp/android/appdata/j;->b:I
+
+    .line 47
+    :cond_0
+    sget-object v0, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
     return-object v0
+
+    .line 34
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method private a(I)V
+    .locals 0
+
+    .prologue
+    .line 136
+    iput p1, p0, Lcom/yelp/android/appdata/j;->b:I
+
+    .line 137
+    invoke-direct {p0}, Lcom/yelp/android/appdata/j;->j()V
+
+    .line 138
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/appdata/j;I)V
+    .locals 0
+
+    .prologue
+    .line 23
+    invoke-direct {p0, p1}, Lcom/yelp/android/appdata/j;->a(I)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/yelp/android/appdata/j;)Z
+    .locals 1
+
+    .prologue
+    .line 23
+    iget-boolean v0, p0, Lcom/yelp/android/appdata/j;->d:Z
+
+    return v0
+.end method
+
+.method static synthetic a(Lcom/yelp/android/appdata/j;Z)Z
+    .locals 0
+
+    .prologue
+    .line 23
+    iput-boolean p1, p0, Lcom/yelp/android/appdata/j;->d:Z
+
+    return p1
+.end method
+
+.method public static b()V
+    .locals 2
+
+    .prologue
+    .line 56
+    sget-object v0, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    if-eqz v0, :cond_0
+
+    .line 57
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->f()Lcom/yelp/android/appdata/c;
+
+    move-result-object v0
+
+    .line 58
+    sget-object v1, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    iget v1, v1, Lcom/yelp/android/appdata/j;->c:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->d(I)V
+
+    .line 59
+    sget-object v1, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    iget v1, v1, Lcom/yelp/android/appdata/j;->b:I
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/c;->c(I)V
+
+    .line 61
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/yelp/android/appdata/AppData;->c()Lcom/yelp/android/services/push/e;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/services/push/e;->b(Lcom/yelp/android/services/push/e$a;)V
+
+    .line 62
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    iget-object v1, v1, Lcom/yelp/android/appdata/j;->g:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/AppData;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    .line 64
+    :cond_0
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/yelp/android/appdata/j;->a:Lcom/yelp/android/appdata/j;
+
+    .line 65
+    return-void
+.end method
+
+.method private b(I)V
+    .locals 0
+
+    .prologue
+    .line 141
+    iput p1, p0, Lcom/yelp/android/appdata/j;->c:I
+
+    .line 142
+    invoke-direct {p0}, Lcom/yelp/android/appdata/j;->k()V
+
+    .line 143
+    return-void
+.end method
+
+.method static synthetic b(Lcom/yelp/android/appdata/j;I)V
+    .locals 0
+
+    .prologue
+    .line 23
+    invoke-direct {p0, p1}, Lcom/yelp/android/appdata/j;->b(I)V
+
+    return-void
+.end method
+
+.method private j()V
+    .locals 3
+
+    .prologue
+    .line 122
+    new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent;
+
+    iget v1, p0, Lcom/yelp/android/appdata/j;->b:I
+
+    const-string/jumbo v2, "com.yelp.android.messages.count.update"
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/util/ObjectDirtyEvent;-><init>(ILjava/lang/String;)V
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Landroid/content/Context;)V
+
+    .line 126
+    return-void
+.end method
+
+.method private k()V
+    .locals 3
+
+    .prologue
+    .line 129
+    new-instance v0, Lcom/yelp/android/util/ObjectDirtyEvent;
+
+    iget v1, p0, Lcom/yelp/android/appdata/j;->c:I
+
+    const-string/jumbo v2, "com.yelp.android.notifications.count.update"
+
+    invoke-direct {v0, v1, v2}, Lcom/yelp/android/util/ObjectDirtyEvent;-><init>(ILjava/lang/String;)V
+
+    invoke-static {}, Lcom/yelp/android/appdata/AppData;->b()Lcom/yelp/android/appdata/AppData;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/util/ObjectDirtyEvent;->a(Landroid/content/Context;)V
+
+    .line 133
+    return-void
 .end method
 
 
 # virtual methods
-.method protected Z()Landroid/content/SharedPreferences$Editor;
+.method public a(Lcom/yelp/android/services/push/d$a;)V
     .locals 1
 
     .prologue
-    .line 47
-    invoke-direct {p0}, Lcom/yelp/android/appdata/j;->a()Landroid/content/SharedPreferences;
+    .line 82
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/j;->e()I
 
-    move-result-object v0
+    move-result v0
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    add-int/lit8 v0, v0, 0x1
 
-    move-result-object v0
+    invoke-direct {p0, v0}, Lcom/yelp/android/appdata/j;->a(I)V
+
+    .line 83
+    return-void
+.end method
+
+.method public b(Lcom/yelp/android/services/push/d$a;)Z
+    .locals 1
+
+    .prologue
+    .line 87
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public c()Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 77
+    const-string/jumbo v0, "NotificationCountController"
 
     return-object v0
 .end method
 
-.method protected a(Ljava/lang/String;Ljava/lang/String;)I
+.method public d()I
     .locals 2
 
     .prologue
-    .line 79
-    iget-object v0, p0, Lcom/yelp/android/appdata/j;->b:Landroid/content/Context;
+    .line 91
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/j;->f()I
 
-    const/4 v1, 0x4
+    move-result v0
 
-    invoke-virtual {v0, p1, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    .line 81
-    const/4 v1, 0x0
-
-    invoke-interface {v0, p2, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p0}, Lcom/yelp/android/appdata/j;->e()I
 
     move-result v1
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/2addr v0, v1
 
-    .line 82
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-interface {v0, p2, v1}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    .line 83
-    return v1
+    return v0
 .end method
 
-.method public a(Landroid/content/Context;)Ljava/util/Collection;
+.method public e()I
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/Collection",
-            "<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
 
     .prologue
-    .line 110
-    invoke-static {}, Ljava/util/Collections;->emptySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    .line 119
-    return-object v0
-.end method
-
-.method public a(Landroid/content/Context;Ljava/util/Collection;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Ljava/util/Collection",
-            "<",
-            "Lcom/yelp/android/util/PlatformQualifier;",
-            ">;)V"
-        }
-    .end annotation
-
-    .prologue
-    .line 137
-    return-void
-.end method
-
-.method public a(Ljava/lang/String;[B)V
-    .locals 3
-
-    .prologue
-    .line 93
-    iget-object v0, p0, Lcom/yelp/android/appdata/j;->b:Landroid/content/Context;
-
-    const-string/jumbo v1, "cred"
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    .line 94
-    if-eqz p2, :cond_0
-
     .line 95
-    new-instance v1, Ljava/lang/String;
+    iget v0, p0, Lcom/yelp/android/appdata/j;->b:I
 
-    invoke-static {p2}, Lcom/yelp/android/services/a;->a([B)[C
+    return v0
+.end method
 
-    move-result-object v2
+.method public f()I
+    .locals 1
 
-    invoke-direct {v1, v2}, Ljava/lang/String;-><init>([C)V
+    .prologue
+    .line 99
+    iget v0, p0, Lcom/yelp/android/appdata/j;->c:I
 
-    .line 96
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    return v0
+.end method
 
-    move-result-object v0
+.method public g()V
+    .locals 1
 
-    invoke-interface {v0, p1, v1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    .prologue
+    .line 103
+    const/4 v0, 0x0
 
-    move-result-object v0
+    invoke-direct {p0, v0}, Lcom/yelp/android/appdata/j;->b(I)V
 
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    .line 100
-    :goto_0
+    .line 104
     return-void
-
-    .line 98
-    :cond_0
-    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
-
-    goto :goto_0
 .end method
 
-.method public aa()Ljava/lang/String;
-    .locals 3
-
-    .prologue
-    .line 56
-    invoke-direct {p0}, Lcom/yelp/android/appdata/j;->a()Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "partnerXref"
-
-    const-string/jumbo v2, ""
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public ab()Ljava/lang/String;
-    .locals 3
-
-    .prologue
-    .line 70
-    iget-boolean v0, p0, Lcom/yelp/android/appdata/j;->d:Z
-
-    if-nez v0, :cond_0
-
-    .line 71
-    invoke-direct {p0}, Lcom/yelp/android/appdata/j;->a()Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "preinstalled_cohort"
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/appdata/j;->c:Ljava/lang/String;
-
-    .line 72
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/yelp/android/appdata/j;->d:Z
-
-    .line 75
-    :cond_0
-    iget-object v0, p0, Lcom/yelp/android/appdata/j;->c:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public c(Ljava/lang/String;)[B
-    .locals 4
+.method public h()V
+    .locals 1
 
     .prologue
     const/4 v0, 0x0
 
-    .line 87
-    iget-object v1, p0, Lcom/yelp/android/appdata/j;->b:Landroid/content/Context;
+    .line 107
+    invoke-direct {p0, v0}, Lcom/yelp/android/appdata/j;->a(I)V
 
-    const-string/jumbo v2, "cred"
+    .line 108
+    invoke-direct {p0, v0}, Lcom/yelp/android/appdata/j;->b(I)V
 
-    const/4 v3, 0x0
+    .line 109
+    return-void
+.end method
 
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+.method public i()V
+    .locals 2
 
-    move-result-object v1
+    .prologue
+    .line 113
+    iget-object v0, p0, Lcom/yelp/android/appdata/j;->e:Lcom/yelp/android/appdata/webrequests/ez;
 
-    .line 88
-    invoke-interface {v1, p1, v0}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    move-result-object v1
+    .line 114
+    iget-object v0, p0, Lcom/yelp/android/appdata/j;->e:Lcom/yelp/android/appdata/webrequests/ez;
 
-    .line 89
-    if-nez v1, :cond_0
+    const/4 v1, 0x1
 
-    :goto_0
-    return-object v0
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ez;->a(Z)V
 
+    .line 117
     :cond_0
-    invoke-static {v1}, Lcom/yelp/android/services/a;->c(Ljava/lang/String;)[B
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/ez;
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/yelp/android/appdata/j;->f:Lcom/yelp/android/appdata/webrequests/k$b;
 
-    goto :goto_0
+    invoke-direct {v0, v1}, Lcom/yelp/android/appdata/webrequests/ez;-><init>(Lcom/yelp/android/appdata/webrequests/k$b;)V
+
+    iput-object v0, p0, Lcom/yelp/android/appdata/j;->e:Lcom/yelp/android/appdata/webrequests/ez;
+
+    .line 118
+    iget-object v0, p0, Lcom/yelp/android/appdata/j;->e:Lcom/yelp/android/appdata/webrequests/ez;
+
+    const/4 v1, 0x0
+
+    new-array v1, v1, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ez;->a([Ljava/lang/Object;)V
+
+    .line 119
+    return-void
 .end method

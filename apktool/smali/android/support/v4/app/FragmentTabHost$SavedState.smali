@@ -3,6 +3,17 @@
 .source "FragmentTabHost.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/support/v4/app/FragmentTabHost;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x8
+    name = "SavedState"
+.end annotation
+
+
 # static fields
 .field public static final CREATOR:Landroid/os/Parcelable$Creator;
     .annotation system Ldalvik/annotation/Signature;
@@ -17,7 +28,7 @@
 
 
 # instance fields
-.field curTab:Ljava/lang/String;
+.field a:Ljava/lang/String;
 
 
 # direct methods
@@ -47,7 +58,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Landroid/support/v4/app/FragmentTabHost$SavedState;->curTab:Ljava/lang/String;
+    iput-object v0, p0, Landroid/support/v4/app/FragmentTabHost$SavedState;->a:Ljava/lang/String;
 
     .line 100
     return-void
@@ -109,7 +120,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Landroid/support/v4/app/FragmentTabHost$SavedState;->curTab:Ljava/lang/String;
+    iget-object v1, p0, Landroid/support/v4/app/FragmentTabHost$SavedState;->a:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -136,7 +147,7 @@
     invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
     .line 105
-    iget-object v0, p0, Landroid/support/v4/app/FragmentTabHost$SavedState;->curTab:Ljava/lang/String;
+    iget-object v0, p0, Landroid/support/v4/app/FragmentTabHost$SavedState;->a:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 

@@ -1,22 +1,34 @@
 package com.yelp.android.w;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.ParcelFileDescriptor;
-import com.yelp.android.v.c;
-import com.yelp.android.v.m;
-import com.yelp.android.v.n;
-import java.io.File;
+import com.bumptech.glide.Priority;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 public class b
-  implements n<File, ParcelFileDescriptor>
+  implements c<InputStream>
 {
-  public m<File, ParcelFileDescriptor> a(Context paramContext, c paramc)
+  private final byte[] a;
+  private final String b;
+  
+  public b(byte[] paramArrayOfByte, String paramString)
   {
-    return new a(paramc.a(Uri.class, ParcelFileDescriptor.class));
+    a = paramArrayOfByte;
+    b = paramString;
   }
   
   public void a() {}
+  
+  public InputStream b(Priority paramPriority)
+  {
+    return new ByteArrayInputStream(a);
+  }
+  
+  public String b()
+  {
+    return b;
+  }
+  
+  public void c() {}
 }
 
 /* Location:

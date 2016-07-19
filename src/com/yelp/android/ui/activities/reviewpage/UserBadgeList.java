@@ -9,15 +9,15 @@ import com.yelp.android.serializable.DisplayableAsUserBadge;
 import com.yelp.android.ui.activities.profile.ActivityUserProfile;
 import com.yelp.android.ui.util.ScrollToLoadListView;
 import com.yelp.android.ui.util.YelpListActivity;
-import com.yelp.android.ui.util.cr;
+import com.yelp.android.ui.util.as;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class UserBadgeList
   extends YelpListActivity
 {
-  private bk a;
-  private ApiRequest<?, ?, ?> b;
+  private f a;
+  private ApiRequest<Void, ?, ?> b;
   
   public static Intent a(Intent paramIntent, ArrayList<? extends DisplayableAsUserBadge> paramArrayList)
   {
@@ -25,13 +25,13 @@ public abstract class UserBadgeList
     return paramIntent;
   }
   
-  public abstract ApiRequest<?, ?, ?> a(ApiRequest<?, ?, ?> paramApiRequest);
+  public abstract ApiRequest<Void, ?, ?> a(ApiRequest<Void, ?, ?> paramApiRequest);
   
   protected void a(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     paramListView = paramListView.getItemAtPosition(paramInt);
     if ((paramListView instanceof DisplayableAsUserBadge)) {
-      startActivity(ActivityUserProfile.a(this, ((DisplayableAsUserBadge)paramListView).getUserId()));
+      startActivity(ActivityUserProfile.a(this, ((DisplayableAsUserBadge)paramListView).i()));
     }
   }
   
@@ -41,12 +41,12 @@ public abstract class UserBadgeList
     a.notifyDataSetChanged();
     if (a.isEmpty())
     {
-      cr.a(2131165239, 0);
+      as.a(2131165375, 0);
       finish();
     }
   }
   
-  public ApiRequest<?, ?, ?> c()
+  public ApiRequest<?, ?, ?> b()
   {
     return b;
   }
@@ -56,22 +56,33 @@ public abstract class UserBadgeList
     return (ApiRequest)super.getLastCustomNonConfigurationInstance();
   }
   
-  public void onCreate(Bundle paramBundle)
+  public void onCreate(final Bundle paramBundle)
   {
     super.onCreate(paramBundle);
     Intent localIntent = getIntent();
-    a = bk.b(paramBundle);
+    a = f.b(paramBundle);
     paramBundle = localIntent.getParcelableArrayListExtra("pre_populated");
     if (a == null)
     {
-      a = new bk();
+      a = new f();
       if (paramBundle != null) {
         a.a(paramBundle);
       }
     }
-    setTitle(localIntent.getIntExtra("title_res", 2131166351));
-    q().setAdapter(a);
-    q().setOnLoadNeeded(new bl(this, paramBundle));
+    setTitle(localIntent.getIntExtra("title_res", 2131166374));
+    r().setAdapter(a);
+    r().setOnLoadNeeded(new Runnable()
+    {
+      public void run()
+      {
+        UserBadgeList.a(UserBadgeList.this, a(UserBadgeList.a(UserBadgeList.this)));
+        if ((paramBundle == null) && (!UserBadgeList.a(UserBadgeList.this).u()))
+        {
+          UserBadgeList.a(UserBadgeList.this).f(new Void[0]);
+          enableLoading(UserBadgeList.a(UserBadgeList.this));
+        }
+      }
+    });
   }
   
   protected void onSaveInstanceState(Bundle paramBundle)

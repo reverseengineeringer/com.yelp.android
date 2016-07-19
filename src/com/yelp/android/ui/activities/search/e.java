@@ -1,17 +1,17 @@
 package com.yelp.android.ui.activities.search;
 
-import android.view.View;
-import android.view.View.OnClickListener;
+import com.yelp.android.appdata.webrequests.eo;
+import java.util.List;
 
-class e
-  implements View.OnClickListener
+public abstract interface e
 {
-  e(SearchBusinessesByList paramSearchBusinessesByList) {}
+  public abstract void a(eo parameo, String paramString);
   
-  public void onClick(View paramView)
-  {
-    SearchUtils.b(a);
-  }
+  public abstract List<String> l();
+  
+  public abstract double[] n();
+  
+  public abstract int o();
 }
 
 /* Location:

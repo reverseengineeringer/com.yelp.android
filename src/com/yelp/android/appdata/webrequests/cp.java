@@ -1,28 +1,35 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.g;
-import com.yelp.android.serializable.PaymentMethod;
-import com.yelp.android.serializable.YelpDeal;
-import com.yelp.parcelgen.JsonUtil;
-import java.util.Date;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.h;
+import com.yelp.android.serializable.j;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class cp
-  extends g<Void, Void, cq>
+  extends b<Void, Void, j>
 {
-  public cp(YelpDeal paramYelpDeal, m<cq> paramm)
+  private final String a;
+  private final String g;
+  
+  protected cp(String paramString1, String paramString2, ApiRequest.b<j> paramb)
   {
-    super(ApiRequest.RequestType.POST, "deal/prepare_purchase", paramm);
-    addPostParam("deal_id", paramYelpDeal.getId());
-    paramYelpDeal = paramYelpDeal.getTimeUpdated();
-    if (paramYelpDeal != null) {
-      addPostParam("deal_time_updated", paramYelpDeal.getTime() / 1000L);
-    }
+    super(ApiRequest.RequestType.POST, "account/login_secure", paramb);
+    a = paramString1;
+    g = paramString2;
+    b("email", paramString1);
+    b("password", paramString2);
   }
   
-  public cq a(JSONObject paramJSONObject)
+  public j a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
   {
-    return new cq(paramJSONObject.getString("purchase_nonce"), JsonUtil.parseJsonList(paramJSONObject.getJSONArray("payment_methods"), PaymentMethod.CREATOR));
+    return h.a(paramJSONObject);
+  }
+  
+  public String b()
+  {
+    return a;
   }
 }
 

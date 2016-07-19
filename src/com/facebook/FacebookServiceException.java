@@ -19,7 +19,7 @@ public class FacebookServiceException
   
   public final String toString()
   {
-    return "{FacebookServiceException: " + "httpResponseCode: " + error.getRequestStatusCode() + ", facebookErrorCode: " + error.getErrorCode() + ", facebookErrorType: " + error.getErrorType() + ", message: " + error.getErrorMessage() + "}";
+    return "{FacebookServiceException: " + "httpResponseCode: " + error.a() + ", facebookErrorCode: " + error.b() + ", facebookErrorType: " + error.c() + ", message: " + error.d() + "}";
   }
 }
 

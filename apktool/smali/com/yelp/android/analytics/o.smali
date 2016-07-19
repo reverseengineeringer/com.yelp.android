@@ -1,49 +1,34 @@
 .class public Lcom/yelp/android/analytics/o;
 .super Lcom/yelp/android/analytics/b;
-.source "UrlLaunchAnalytic.java"
+.source "WebRequestAnalytic.java"
 
 
 # instance fields
-.field private final a:Landroid/net/Uri;
+.field private final a:Ljava/lang/String;
+
+.field private final b:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Landroid/net/Uri;)V
-    .locals 2
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 1
 
     .prologue
-    .line 14
+    .line 19
     invoke-direct {p0}, Lcom/yelp/android/analytics/b;-><init>()V
 
-    .line 15
-    if-nez p1, :cond_0
+    .line 20
+    iput-object p1, p0, Lcom/yelp/android/analytics/o;->a:Ljava/lang/String;
 
-    .line 16
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    .line 21
+    iput-object p2, p0, Lcom/yelp/android/analytics/o;->b:Ljava/lang/String;
 
-    const-string/jumbo v1, "Url cannot be null."
+    .line 22
+    sget-object v0, Lcom/yelp/android/analytics/iris/AnalyticCategory;->REQUEST:Lcom/yelp/android/analytics/iris/AnalyticCategory;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/yelp/android/analytics/o;->a(Lcom/yelp/android/analytics/iris/AnalyticCategory;)V
 
-    throw v0
-
-    .line 18
-    :cond_0
-    invoke-virtual {p1}, Landroid/net/Uri;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/yelp/android/util/StringUtils;->b(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/yelp/android/analytics/o;->a:Landroid/net/Uri;
-
-    .line 19
+    .line 23
     return-void
 .end method
 
@@ -51,35 +36,42 @@
 # virtual methods
 .method public c()Lorg/json/JSONObject;
     .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
-    .line 23
+    .line 27
     invoke-super {p0}, Lcom/yelp/android/analytics/b;->c()Lorg/json/JSONObject;
 
     move-result-object v0
 
-    .line 24
-    new-instance v1, Lorg/json/JSONObject;
+    .line 28
+    const-string/jumbo v1, "time"
 
-    invoke-direct {v1}, Lorg/json/JSONObject;-><init>()V
+    invoke-virtual {p0}, Lcom/yelp/android/analytics/o;->a()J
 
-    .line 25
-    const-string/jumbo v2, "url"
+    move-result-wide v2
 
-    iget-object v3, p0, Lcom/yelp/android/analytics/o;->a:Landroid/net/Uri;
+    invoke-virtual {v0, v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    .line 29
+    const-string/jumbo v1, "request_id"
 
-    move-result-object v3
+    iget-object v2, p0, Lcom/yelp/android/analytics/o;->b:Ljava/lang/String;
 
-    invoke-virtual {v1, v2, v3}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    .line 26
-    const-string/jumbo v2, "launch"
+    .line 30
+    const-string/jumbo v1, "path"
 
-    invoke-virtual {v0, v2, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    iget-object v2, p0, Lcom/yelp/android/analytics/o;->a:Ljava/lang/String;
 
-    .line 27
+    invoke-virtual {v0, v1, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+
+    .line 31
     return-object v0
 .end method
 
@@ -87,67 +79,38 @@
     .locals 4
 
     .prologue
-    .line 32
-    new-instance v0, Ljava/lang/StringBuilder;
+    .line 36
+    const-string/jumbo v0, "[MetricsWebRequest:index=%s, path=%s, request_id=%s]"
 
-    const/16 v1, 0x12c
+    const/4 v1, 0x3
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
+    new-array v1, v1, [Ljava/lang/Object;
 
-    .line 33
-    const-string/jumbo v1, "[LaunchAnalytic:"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 34
-    const-string/jumbo v1, "index="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    const/4 v2, 0x0
 
     invoke-virtual {p0}, Lcom/yelp/android/analytics/o;->b()I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    .line 35
-    const-string/jumbo v1, ", "
+    move-result-object v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aput-object v3, v1, v2
 
-    .line 36
-    const-string/jumbo v1, "start="
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/yelp/android/analytics/o;->a:Ljava/lang/String;
 
-    move-result-object v1
+    aput-object v3, v1, v2
 
-    invoke-virtual {p0}, Lcom/yelp/android/analytics/o;->a()J
+    const/4 v2, 0x2
 
-    move-result-wide v2
+    iget-object v3, p0, Lcom/yelp/android/analytics/o;->b:Ljava/lang/String;
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    aput-object v3, v1, v2
 
-    .line 37
-    const-string/jumbo v1, "url="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/yelp/android/analytics/o;->a:Landroid/net/Uri;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    .line 38
-    const-string/jumbo v1, "]"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 39
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

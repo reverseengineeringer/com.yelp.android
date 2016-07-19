@@ -1,130 +1,242 @@
 package com.google.android.gms.analytics;
 
-import android.content.ComponentName;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application;
+import android.app.Application.ActivityLifecycleCallbacks;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.RemoteException;
-import com.google.android.gms.internal.ha;
-import com.google.android.gms.internal.hb;
+import android.os.Build.VERSION;
+import android.os.Bundle;
+import com.google.android.gms.analytics.internal.aa;
+import com.google.android.gms.analytics.internal.f;
+import com.google.android.gms.analytics.internal.l;
+import com.google.android.gms.analytics.internal.m;
+import com.google.android.gms.analytics.internal.o;
+import com.google.android.gms.analytics.internal.p;
+import com.google.android.gms.analytics.internal.t;
+import com.google.android.gms.common.internal.zzx;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
-class c
-  implements b
+public final class c
+  extends h
 {
-  private Context mContext;
-  private ServiceConnection xV;
-  private c.b xW;
-  private c.c xX;
-  private hb xY;
+  private static List<Runnable> b = new ArrayList();
+  private boolean c;
+  private boolean d;
+  private Set<a> e = new HashSet();
+  private boolean f;
+  private boolean g;
+  private volatile boolean h;
   
-  public c(Context paramContext, c.b paramb, c.c paramc)
+  public c(t paramt)
   {
-    mContext = paramContext;
-    if (paramb == null) {
-      throw new IllegalArgumentException("onConnectedListener cannot be null");
-    }
-    xW = paramb;
-    if (paramc == null) {
-      throw new IllegalArgumentException("onConnectionFailedListener cannot be null");
-    }
-    xX = paramc;
+    super(paramt);
   }
   
-  private hb dR()
+  public static c a(Context paramContext)
   {
-    dS();
-    return xY;
+    return t.a(paramContext).k();
   }
   
-  private void dT()
-  {
-    dU();
-  }
-  
-  private void dU()
-  {
-    xW.onConnected();
-  }
-  
-  public void a(Map<String, String> paramMap, long paramLong, String paramString, List<ha> paramList)
+  public static void d()
   {
     try
     {
-      dR().a(paramMap, paramLong, paramString, paramList);
-      return;
+      if (b != null)
+      {
+        Iterator localIterator = b.iterator();
+        while (localIterator.hasNext()) {
+          ((Runnable)localIterator.next()).run();
+        }
+        b = null;
+      }
     }
-    catch (RemoteException paramMap)
-    {
-      ae.T("sendHit failed: " + paramMap);
-    }
+    finally {}
   }
   
-  public void connect()
+  private p p()
   {
-    Intent localIntent = new Intent("com.google.android.gms.analytics.service.START");
-    localIntent.setComponent(new ComponentName("com.google.android.gms", "com.google.android.gms.analytics.service.AnalyticsService"));
-    localIntent.putExtra("app_package_name", mContext.getPackageName());
-    if (xV != null) {
-      ae.T("Calling connect() while still connected, missing disconnect().");
-    }
-    boolean bool;
-    do
-    {
-      return;
-      xV = new c.a(this);
-      bool = mContext.bindService(localIntent, xV, 129);
-      ae.V("connect: bindService returned " + bool + " for " + localIntent);
-    } while (bool);
-    xV = null;
-    xX.a(1, null);
+    return k().i();
   }
   
-  public void dQ()
+  private o q()
+  {
+    return k().l();
+  }
+  
+  public g a(int paramInt)
   {
     try
     {
-      dR().dQ();
-      return;
+      g localg = new g(k(), null, null);
+      if (paramInt > 0)
+      {
+        m localm = (m)new l(k()).a(paramInt);
+        if (localm != null) {
+          localg.a(localm);
+        }
+      }
+      localg.E();
+      return localg;
     }
-    catch (RemoteException localRemoteException)
-    {
-      ae.T("clear hits failed: " + localRemoteException);
+    finally {}
+  }
+  
+  public void a()
+  {
+    b();
+    c = true;
+  }
+  
+  void a(Activity paramActivity)
+  {
+    Iterator localIterator = e.iterator();
+    while (localIterator.hasNext()) {
+      ((a)localIterator.next()).a(paramActivity);
     }
   }
   
-  protected void dS()
+  @TargetApi(14)
+  public void a(Application paramApplication)
   {
-    if (!isConnected()) {
-      throw new IllegalStateException("Not connected. Call connect() and wait for onConnected() to be called.");
+    if ((Build.VERSION.SDK_INT >= 14) && (!f))
+    {
+      paramApplication.registerActivityLifecycleCallbacks(new b());
+      f = true;
     }
   }
   
-  public void disconnect()
+  void a(a parama)
   {
-    xY = null;
-    if (xV != null) {}
-    try
-    {
-      mContext.unbindService(xV);
-      xV = null;
-      xW.onDisconnected();
-      return;
-    }
-    catch (IllegalArgumentException localIllegalArgumentException)
-    {
-      for (;;) {}
-    }
-    catch (IllegalStateException localIllegalStateException)
-    {
-      for (;;) {}
+    e.add(parama);
+    parama = k().b();
+    if ((parama instanceof Application)) {
+      a((Application)parama);
     }
   }
   
-  public boolean isConnected()
+  public void a(boolean paramBoolean)
   {
-    return xY != null;
+    g = paramBoolean;
+  }
+  
+  void b()
+  {
+    o localo = q();
+    if (localo.d()) {
+      g().a(localo.e());
+    }
+    if (localo.h()) {
+      a(localo.i());
+    }
+    if (localo.d())
+    {
+      e locale = f.a();
+      if (locale != null) {
+        locale.a(localo.e());
+      }
+    }
+  }
+  
+  public void b(int paramInt)
+  {
+    p().a(paramInt);
+  }
+  
+  void b(Activity paramActivity)
+  {
+    Iterator localIterator = e.iterator();
+    while (localIterator.hasNext()) {
+      ((a)localIterator.next()).b(paramActivity);
+    }
+  }
+  
+  void b(a parama)
+  {
+    e.remove(parama);
+  }
+  
+  public void b(boolean paramBoolean)
+  {
+    h = paramBoolean;
+    if (h) {
+      p().c();
+    }
+  }
+  
+  public boolean c()
+  {
+    return (c) && (!d);
+  }
+  
+  public boolean e()
+  {
+    return g;
+  }
+  
+  public boolean f()
+  {
+    return h;
+  }
+  
+  @Deprecated
+  public e g()
+  {
+    return f.a();
+  }
+  
+  public String h()
+  {
+    zzx.zzcE("getClientId can not be called from the main thread");
+    return k().p().b();
+  }
+  
+  public void i()
+  {
+    p().d();
+  }
+  
+  void j()
+  {
+    p().e();
+  }
+  
+  static abstract interface a
+  {
+    public abstract void a(Activity paramActivity);
+    
+    public abstract void b(Activity paramActivity);
+  }
+  
+  @TargetApi(14)
+  class b
+    implements Application.ActivityLifecycleCallbacks
+  {
+    b() {}
+    
+    public void onActivityCreated(Activity paramActivity, Bundle paramBundle) {}
+    
+    public void onActivityDestroyed(Activity paramActivity) {}
+    
+    public void onActivityPaused(Activity paramActivity) {}
+    
+    public void onActivityResumed(Activity paramActivity) {}
+    
+    public void onActivitySaveInstanceState(Activity paramActivity, Bundle paramBundle) {}
+    
+    public void onActivityStarted(Activity paramActivity)
+    {
+      a(paramActivity);
+    }
+    
+    public void onActivityStopped(Activity paramActivity)
+    {
+      b(paramActivity);
+    }
   }
 }
 

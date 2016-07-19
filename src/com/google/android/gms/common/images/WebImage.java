@@ -4,33 +4,35 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable.Creator;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
-import com.google.android.gms.internal.jv;
+import com.google.android.gms.common.internal.zzw;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public final class WebImage
   implements SafeParcelable
 {
-  public static final Parcelable.Creator<WebImage> CREATOR = new b();
-  private final int CK;
-  private final Uri LU;
-  private final int li;
-  private final int lj;
+  public static final Parcelable.Creator<WebImage> CREATOR = new zzb();
+  private final int mVersionCode;
+  private final Uri zzajZ;
+  private final int zzoG;
+  private final int zzoH;
   
   WebImage(int paramInt1, Uri paramUri, int paramInt2, int paramInt3)
   {
-    CK = paramInt1;
-    LU = paramUri;
-    li = paramInt2;
-    lj = paramInt3;
+    mVersionCode = paramInt1;
+    zzajZ = paramUri;
+    zzoG = paramInt2;
+    zzoH = paramInt3;
   }
   
   public WebImage(Uri paramUri)
+    throws IllegalArgumentException
   {
     this(paramUri, 0, 0);
   }
   
   public WebImage(Uri paramUri, int paramInt1, int paramInt2)
+    throws IllegalArgumentException
   {
     this(1, paramUri, paramInt1, paramInt2);
     if (paramUri == null) {
@@ -42,11 +44,12 @@ public final class WebImage
   }
   
   public WebImage(JSONObject paramJSONObject)
+    throws IllegalArgumentException
   {
-    this(d(paramJSONObject), paramJSONObject.optInt("width", 0), paramJSONObject.optInt("height", 0));
+    this(zzj(paramJSONObject), paramJSONObject.optInt("width", 0), paramJSONObject.optInt("height", 0));
   }
   
-  private static Uri d(JSONObject paramJSONObject)
+  private static Uri zzj(JSONObject paramJSONObject)
   {
     Uri localUri = null;
     if (paramJSONObject.has("url")) {}
@@ -74,33 +77,33 @@ public final class WebImage
         return false;
       }
       paramObject = (WebImage)paramObject;
-    } while ((jv.equal(LU, LU)) && (li == li) && (lj == lj));
+    } while ((zzw.equal(zzajZ, zzajZ)) && (zzoG == zzoG) && (zzoH == zzoH));
     return false;
   }
   
   public int getHeight()
   {
-    return lj;
+    return zzoH;
   }
   
   public Uri getUrl()
   {
-    return LU;
+    return zzajZ;
   }
   
   int getVersionCode()
   {
-    return CK;
+    return mVersionCode;
   }
   
   public int getWidth()
   {
-    return li;
+    return zzoG;
   }
   
   public int hashCode()
   {
-    return jv.hashCode(new Object[] { LU, Integer.valueOf(li), Integer.valueOf(lj) });
+    return zzw.hashCode(new Object[] { zzajZ, Integer.valueOf(zzoG), Integer.valueOf(zzoH) });
   }
   
   public JSONObject toJson()
@@ -108,9 +111,9 @@ public final class WebImage
     JSONObject localJSONObject = new JSONObject();
     try
     {
-      localJSONObject.put("url", LU.toString());
-      localJSONObject.put("width", li);
-      localJSONObject.put("height", lj);
+      localJSONObject.put("url", zzajZ.toString());
+      localJSONObject.put("width", zzoG);
+      localJSONObject.put("height", zzoH);
       return localJSONObject;
     }
     catch (JSONException localJSONException) {}
@@ -119,12 +122,12 @@ public final class WebImage
   
   public String toString()
   {
-    return String.format("Image %dx%d %s", new Object[] { Integer.valueOf(li), Integer.valueOf(lj), LU.toString() });
+    return String.format("Image %dx%d %s", new Object[] { Integer.valueOf(zzoG), Integer.valueOf(zzoH), zzajZ.toString() });
   }
   
   public void writeToParcel(Parcel paramParcel, int paramInt)
   {
-    b.a(this, paramParcel, paramInt);
+    zzb.zza(this, paramParcel, paramInt);
   }
 }
 

@@ -1,12 +1,12 @@
 .class public Lcom/yelp/android/appdata/webrequests/ai;
-.super Lcom/yelp/android/av/g;
+.super Lcom/yelp/android/appdata/webrequests/core/b;
 .source "BusinessVideoListFeedbackRequest.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
     value = {
-        "Lcom/yelp/android/av/g",
+        "Lcom/yelp/android/appdata/webrequests/core/b",
         "<",
         "Ljava/lang/Void;",
         "Ljava/lang/Void;",
@@ -19,12 +19,12 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/m;Lcom/yelp/android/serializable/Video;)V
+.method public constructor <init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$b;Lcom/yelp/android/serializable/Video;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/yelp/android/appdata/webrequests/m",
+            "Lcom/yelp/android/appdata/webrequests/ApiRequest$b",
             "<",
             "Ljava/util/List",
             "<",
@@ -41,25 +41,25 @@
 
     const-string/jumbo v1, "/business/videos/list_feedbacks"
 
-    invoke-direct {p0, v0, v1, p1}, Lcom/yelp/android/av/g;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/m;)V
+    invoke-direct {p0, v0, v1, p1}, Lcom/yelp/android/appdata/webrequests/core/b;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/webrequests/ApiRequest$b;)V
 
     .line 19
     const-string/jumbo v0, "video_id"
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Video;->getId()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Video;->a()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/ai;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/ai;->a(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 20
     const-string/jumbo v0, "video_source"
 
-    invoke-virtual {p2}, Lcom/yelp/android/serializable/Video;->getVideoSource()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/yelp/android/serializable/Video;->p()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/ai;->addUrlParam(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/yelp/android/appdata/webrequests/ai;->a(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 21
     return-void
@@ -81,8 +81,15 @@
         }
     .end annotation
 
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
+
     .prologue
-    .line 26
+    .line 25
     const-string/jumbo v0, "feedbacks"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
@@ -98,8 +105,14 @@
     return-object v0
 .end method
 
-.method public synthetic process(Lorg/json/JSONObject;)Ljava/lang/Object;
+.method public synthetic b(Lorg/json/JSONObject;)Ljava/lang/Object;
     .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lcom/yelp/android/appdata/webrequests/YelpException;,
+            Lorg/json/JSONException;
+        }
+    .end annotation
 
     .prologue
     .line 13

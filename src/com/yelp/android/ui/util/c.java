@@ -1,15 +1,29 @@
 package com.yelp.android.ui.util;
 
-import android.widget.ListView;
+import android.content.Context;
+import android.widget.Toast;
 
-class c
-  implements Runnable
+public class c
+  implements ao
 {
-  c(AndroidListFragment paramAndroidListFragment) {}
+  private final Context a;
   
-  public void run()
+  public c(Context paramContext)
   {
-    AndroidListFragment.a(a).focusableViewAvailable(AndroidListFragment.a(a));
+    if (paramContext == null) {
+      throw new IllegalArgumentException("Context must not be null");
+    }
+    a = paramContext;
+  }
+  
+  public void a(int paramInt1, int paramInt2)
+  {
+    Toast.makeText(a, paramInt1, paramInt2).show();
+  }
+  
+  public void a(CharSequence paramCharSequence, int paramInt)
+  {
+    Toast.makeText(a, paramCharSequence, paramInt).show();
   }
 }
 

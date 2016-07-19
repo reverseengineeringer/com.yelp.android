@@ -1,39 +1,20 @@
 package com.yelp.android.be;
 
-import com.yelp.android.analytics.n;
-import java.util.Map;
-
-public class b
-  extends a
+public abstract interface b
 {
-  protected final com.yelp.android.av.a a;
-  protected final com.yelp.android.analytics.iris.b b;
+  public abstract void a();
   
-  public b(com.yelp.android.av.a parama, com.yelp.android.analytics.iris.b paramb)
-  {
-    a = parama;
-    b = paramb;
-  }
+  public abstract void a(int paramInt);
   
-  public void d()
-  {
-    a.a(g());
-  }
+  public abstract void a(a parama);
   
-  public void e()
-  {
-    a.b(g());
-  }
+  public abstract void b();
   
-  protected Map<String, Object> f()
-  {
-    return null;
-  }
+  public abstract void c();
   
-  protected n g()
-  {
-    return new n(b, c(), f());
-  }
+  public abstract void d();
+  
+  public abstract void e();
 }
 
 /* Location:

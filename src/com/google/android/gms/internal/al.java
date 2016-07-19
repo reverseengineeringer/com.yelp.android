@@ -1,96 +1,58 @@
 package com.google.android.gms.internal;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
-@ey
+@fv
 public class al
 {
-  private final Object mH = new Object();
-  private List<ak> nA = new LinkedList();
-  private int nz;
+  private final Collection<ak> a = new ArrayList();
+  private final Collection<ak<String>> b = new ArrayList();
+  private final Collection<ak<String>> c = new ArrayList();
   
-  public boolean a(ak paramak)
+  public List<String> a()
   {
-    synchronized (mH)
+    ArrayList localArrayList = new ArrayList();
+    Iterator localIterator = b.iterator();
+    while (localIterator.hasNext())
     {
-      return nA.contains(paramak);
+      String str = (String)((ak)localIterator.next()).c();
+      if (str != null) {
+        localArrayList.add(str);
+      }
     }
+    return localArrayList;
   }
   
-  public ak aZ()
+  public void a(ak paramak)
   {
-    Object localObject1 = null;
-    label146:
-    label149:
-    for (;;)
-    {
-      synchronized (mH)
-      {
-        if (nA.size() == 0)
-        {
-          gr.S("Queue empty");
-          return null;
-        }
-        if (nA.size() >= 2)
-        {
-          int i = Integer.MIN_VALUE;
-          Iterator localIterator = nA.iterator();
-          if (localIterator.hasNext())
-          {
-            ak localak2 = (ak)localIterator.next();
-            int j = localak2.getScore();
-            if (j <= i) {
-              break label146;
-            }
-            localObject1 = localak2;
-            i = j;
-            break label149;
-          }
-          nA.remove(localObject1);
-          return (ak)localObject1;
-        }
-      }
-      ak localak1 = (ak)nA.get(0);
-      localak1.aU();
-      return localak1;
-    }
+    a.add(paramak);
   }
   
-  public boolean b(ak paramak)
+  public List<String> b()
   {
-    synchronized (mH)
+    List localList = a();
+    Iterator localIterator = c.iterator();
+    while (localIterator.hasNext())
     {
-      Iterator localIterator = nA.iterator();
-      while (localIterator.hasNext())
-      {
-        ak localak = (ak)localIterator.next();
-        if ((paramak != localak) && (localak.aT().equals(paramak.aT())))
-        {
-          nA.remove(paramak);
-          return true;
-        }
+      String str = (String)((ak)localIterator.next()).c();
+      if (str != null) {
+        localList.add(str);
       }
-      return false;
     }
+    return localList;
   }
   
-  public void c(ak paramak)
+  public void b(ak<String> paramak)
   {
-    synchronized (mH)
-    {
-      if (nA.size() >= 10)
-      {
-        gr.S("Queue is full, current size = " + nA.size());
-        nA.remove(0);
-      }
-      int i = nz;
-      nz = (i + 1);
-      paramak.c(i);
-      nA.add(paramak);
-      return;
-    }
+    b.add(paramak);
+  }
+  
+  public void c(ak<String> paramak)
+  {
+    c.add(paramak);
   }
 }
 

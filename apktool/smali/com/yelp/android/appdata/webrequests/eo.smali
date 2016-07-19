@@ -1,125 +1,152 @@
-.class public abstract Lcom/yelp/android/appdata/webrequests/eo;
-.super Lcom/yelp/android/appdata/webrequests/h;
-.source "ResultProgressApiRequest.java"
+.class public Lcom/yelp/android/appdata/webrequests/eo;
+.super Ljava/lang/Object;
+.source "SearchRequestBuilder.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "<Progress:",
-        "Ljava/lang/Object;",
-        "Result:",
-        "Ljava/lang/Object;",
-        ">",
-        "Lcom/yelp/android/appdata/webrequests/h",
-        "<",
-        "Ljava/lang/Void;",
-        "TProgress;TResult;>;"
-    }
-.end annotation
+# instance fields
+.field private a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/LocationService$AccuracyUnit;Lcom/yelp/android/appdata/webrequests/ep;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;",
-            "Ljava/lang/String;",
-            "Lcom/yelp/android/appdata/LocationService$Accuracies;",
-            "Lcom/yelp/android/appdata/LocationService$Recentness;",
-            "Lcom/yelp/android/appdata/LocationService$AccuracyUnit;",
-            "Lcom/yelp/android/appdata/webrequests/ep",
-            "<TProgress;TResult;>;)V"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 2
 
     .prologue
+    .line 12
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     .line 13
-    move-object v0, p0
+    new-instance v0, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    move-object v1, p1
+    invoke-direct {v0}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;-><init>()V
 
-    move-object v2, p2
+    iput-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    move-object v3, p3
+    .line 17
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    move-object v4, p4
+    new-instance v1, Lcom/yelp/android/serializable/Filter;
 
-    move-object v5, p6
+    invoke-direct {v1}, Lcom/yelp/android/serializable/Filter;-><init>()V
 
-    move-object v6, p5
+    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/serializable/Filter;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    invoke-direct/range {v0 .. v6}, Lcom/yelp/android/appdata/webrequests/h;-><init>(Lcom/yelp/android/appdata/webrequests/ApiRequest$RequestType;Ljava/lang/String;Lcom/yelp/android/appdata/LocationService$Accuracies;Lcom/yelp/android/appdata/LocationService$Recentness;Lcom/yelp/android/appdata/webrequests/j;Lcom/yelp/android/appdata/LocationService$AccuracyUnit;)V
-
-    .line 14
+    .line 18
     return-void
 .end method
 
 
 # virtual methods
-.method protected varargs onProgressUpdate([Ljava/lang/Object;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "([TProgress;)V"
-        }
-    .end annotation
+.method public a()Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+    .locals 1
 
     .prologue
-    .line 27
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/eo;->getCallback()Lcom/yelp/android/appdata/webrequests/m;
+    .line 61
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    move-result-object v0
-
-    check-cast v0, Lcom/yelp/android/appdata/webrequests/ep;
-
-    .line 28
-    if-eqz v0, :cond_0
-
-    if-eqz p1, :cond_0
-
-    array-length v1, p1
-
-    if-lez v1, :cond_0
-
-    .line 29
-    const/4 v1, 0x0
-
-    aget-object v1, p1, v1
-
-    invoke-virtual {v0, v1}, Lcom/yelp/android/appdata/webrequests/ep;->a(Ljava/lang/Object;)V
-
-    .line 31
-    :cond_0
-    return-void
+    return-object v0
 .end method
 
-.method protected onSuccess(Ljava/lang/Object;)V
+.method public a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;)Lcom/yelp/android/appdata/webrequests/eo;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TResult;)V"
-        }
-    .end annotation
 
     .prologue
-    .line 19
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/eo;->getCallback()Lcom/yelp/android/appdata/webrequests/m;
+    .line 46
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    move-result-object v0
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$FormatMode;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    if-eqz v0, :cond_0
+    .line 47
+    return-object p0
+.end method
 
-    .line 20
-    invoke-virtual {p0}, Lcom/yelp/android/appdata/webrequests/eo;->getCallback()Lcom/yelp/android/appdata/webrequests/m;
+.method public a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;)Lcom/yelp/android/appdata/webrequests/eo;
+    .locals 1
 
-    move-result-object v0
+    .prologue
+    .line 31
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
-    invoke-interface {v0, p0, p1}, Lcom/yelp/android/appdata/webrequests/m;->onSuccess(Lcom/yelp/android/appdata/webrequests/ApiRequest;Ljava/lang/Object;)V
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest$SearchMode;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 32
+    return-object p0
+.end method
+
+.method public a(Lcom/yelp/android/serializable/Category;)Lcom/yelp/android/appdata/webrequests/eo;
+    .locals 1
+
+    .prologue
+    .line 21
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/serializable/Category;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
 
     .line 22
-    :cond_0
-    return-void
+    return-object p0
+.end method
+
+.method public a(Lcom/yelp/android/serializable/Filter;)Lcom/yelp/android/appdata/webrequests/eo;
+    .locals 1
+
+    .prologue
+    .line 41
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a(Lcom/yelp/android/serializable/Filter;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 42
+    return-object p0
+.end method
+
+.method public a(Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/eo;
+    .locals 1
+
+    .prologue
+    .line 26
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->e(Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 27
+    return-object p0
+.end method
+
+.method public a(Z)Lcom/yelp/android/appdata/webrequests/eo;
+    .locals 1
+
+    .prologue
+    .line 56
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->b(Z)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 57
+    return-object p0
+.end method
+
+.method public a([D)Lcom/yelp/android/appdata/webrequests/eo;
+    .locals 1
+
+    .prologue
+    .line 51
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->a([D)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 52
+    return-object p0
+.end method
+
+.method public b(Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/eo;
+    .locals 1
+
+    .prologue
+    .line 36
+    iget-object v0, p0, Lcom/yelp/android/appdata/webrequests/eo;->a:Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    invoke-virtual {v0, p1}, Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;->g(Ljava/lang/String;)Lcom/yelp/android/appdata/webrequests/BusinessSearchRequest;
+
+    .line 37
+    return-object p0
 .end method

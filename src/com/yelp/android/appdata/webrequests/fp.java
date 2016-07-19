@@ -1,20 +1,41 @@
 package com.yelp.android.appdata.webrequests;
 
-import com.yelp.android.av.h;
-import com.yelp.android.av.i;
-import com.yelp.android.ui.activities.reviews.ReviewSource;
+import com.yelp.android.appdata.webrequests.core.b;
+import com.yelp.android.serializable.Tip;
+import com.yelp.android.serializable.User;
+import com.yelp.parcelgen.JsonUtil;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class fp
-  extends h
+  extends b<Void, Void, List<Tip>>
 {
-  public fp(String paramString1, String paramString2, int paramInt, i parami, ReviewSource paramReviewSource)
+  private final User a;
+  
+  public fp(ApiRequest.b<List<Tip>> paramb, User paramUser, int paramInt1, int paramInt2, boolean paramBoolean1, boolean paramBoolean2)
   {
-    super("reviews/draft/save", parami);
-    addPostParam("business_id", paramString1);
-    addPostParam("text", paramString2);
-    addPostParam("rating", String.valueOf(paramInt));
-    addPostParam("replace", "yes");
-    addPostParam("source", paramReviewSource.getSourceName());
+    super(ApiRequest.RequestType.GET, "user/quicktips", paramb);
+    a("offset", paramInt1);
+    a("limit", paramInt2);
+    a("only_first_tips", paramBoolean1);
+    a("only_tips_of_the_day", paramBoolean2);
+    a = paramUser;
+    if (paramUser != null) {
+      a("user_id", a.ae());
+    }
+  }
+  
+  public List<Tip> a(JSONObject paramJSONObject)
+    throws YelpException, JSONException
+  {
+    paramJSONObject = JsonUtil.parseJsonList(paramJSONObject.getJSONArray("quicktips"), Tip.CREATOR);
+    Iterator localIterator = paramJSONObject.iterator();
+    while (localIterator.hasNext()) {
+      ((Tip)localIterator.next()).a(a);
+    }
+    return paramJSONObject;
   }
 }
 

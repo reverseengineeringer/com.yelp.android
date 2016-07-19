@@ -1,51 +1,15 @@
 package com.yelp.android.bc;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.widget.ImageView;
+import android.os.Bundle;
+import android.view.View;
 
-public class c
-  extends ImageView
+public abstract interface c
+  extends b
 {
-  private ValueAnimator a;
-  private float b;
-  private Bitmap c;
-  private Paint d;
+  public abstract void a(Context paramContext, d paramd, Bundle paramBundle1, com.google.android.gms.ads.d paramd1, a parama, Bundle paramBundle2);
   
-  public c(Context paramContext, Paint paramPaint)
-  {
-    super(paramContext);
-    b();
-    c = BitmapFactory.decodeResource(paramContext.getResources(), 2130837913);
-    d = paramPaint;
-  }
-  
-  private void b()
-  {
-    a = ValueAnimator.ofFloat(new float[] { -1.0F, 1.0F });
-    a.addUpdateListener(new d(this));
-    a.setDuration(3000L);
-    a.setRepeatCount(-1);
-  }
-  
-  public void a()
-  {
-    if (!a.isRunning()) {
-      a.start();
-    }
-  }
-  
-  protected void onDraw(Canvas paramCanvas)
-  {
-    super.onDraw(paramCanvas);
-    float f = getMeasuredWidth();
-    paramCanvas.drawBitmap(c, f * b, getMeasuredHeight() * -b * 0.4F, null);
-    paramCanvas.drawLine(getWidth() / 2, 0.0F, getWidth() / 2, getHeight(), d);
-  }
+  public abstract View d();
 }
 
 /* Location:
